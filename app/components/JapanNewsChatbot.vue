@@ -19,8 +19,8 @@
               :disabled="loading"
               class="btn-box rounded-md disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2"
             >
-              <span v-if="loading">Refreshing...</span>
-              <span v-else>Refresh News</span>
+              <span v-if="loading">Getting...</span>
+              <span v-else>Get News</span>
             </button>
             <span class="text-sm text-hai">
               Last updated: {{ lastUpdated }}
@@ -210,10 +210,7 @@ const handleChatMessage = async (message: string) => {
   }
 }
 
-// Lifecycle
-onMounted(() => {
-  fetchNews()
-})
+// Lifecycle - Auto-fetch removed, news only loads when button is clicked
 </script>
 
 <style scoped>
