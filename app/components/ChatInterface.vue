@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-white rounded-lg shadow-xl overflow-hidden border border-(--color-hai)/20">
+  <div class="card shadow-xl">
     <!-- Chat Header -->
-    <div class="bg-gradient-to-r from-(--color-japan-red) to-(--color-mizu) text-white p-4">
+    <div class="bg-gradient-japan text-yuki p-4">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -11,7 +11,7 @@
         </div>
         <button
           @click="clearChat"
-          class="text-white hover:text-gray-200 transition-colors"
+          class="text-yuki hover:opacity-80 transition-opacity focus-ring"
           title="Clear chat"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,7 +19,7 @@
           </svg>
         </button>
       </div>
-      <p class="text-sm text-(--color-yuki)/90 mt-1 font-medium">
+      <p class="text-sm text-yuki mt-1 font-medium opacity-90">
         Ask me anything about today's Japan news!
       </p>
     </div>
@@ -27,17 +27,17 @@
     <!-- Chat Messages -->
     <div
       ref="messagesContainer"
-      class="h-96 overflow-y-auto p-4 space-y-4 bg-(--color-yuki)/30"
+      class="h-96 overflow-y-auto p-4 space-y-4 bg-background-muted"
     >
       <!-- Welcome Message -->
-      <div v-if="messages.length === 0" class="text-center text-(--color-hai) py-8">
-        <div class="w-12 h-12 mx-auto mb-4 bg-(--color-sakura)/20 rounded-full flex items-center justify-center">
-          <svg class="w-6 h-6 text-(--color-sakura)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div v-if="messages.length === 0" class="text-center text-hai py-8">
+        <div class="w-12 h-12 mx-auto mb-4 bg-accent-100 rounded-full flex items-center justify-center">
+          <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
           </svg>
         </div>
-        <p class="mb-2 font-medium text-(--color-samurai)">Hello! I'm your Japan news assistant.</p>
-        <p class="text-sm text-(--color-hai)">Ask me about any news article or topic you'd like to know more about!</p>
+        <p class="mb-2 font-medium text-text-light">Hello! I'm your Japan news assistant.</p>
+        <p class="text-sm text-hai">Ask me about any news article or topic you'd like to know more about!</p>
       </div>
 
       <!-- Messages -->
@@ -52,20 +52,20 @@
           :class="[
             'rounded-lg p-3 shadow-sm',
             message.type === 'user'
-              ? 'bg-(--color-mizu) text-white'
-              : 'bg-white border border-(--color-hai)/30 text-(--color-samurai)'
+              ? 'bg-secondary text-yuki'
+              : 'bg-white border border-border text-text-light'
           ]"
         >
           <!-- User Message -->
           <div v-if="message.type === 'user'" class="flex items-start space-x-2">
             <div class="flex-1">
               <p class="text-sm">{{ message.content }}</p>
-              <span class="text-xs text-(--color-yuki)/80 mt-1 block">
+              <span class="text-xs text-yuki mt-1 block opacity-80">
                 {{ formatTime(message.timestamp) }}
               </span>
             </div>
-            <div class="w-6 h-6 bg-(--color-mizu)/80 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-4 h-4 text-(--color-yuki)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-6 h-6 bg-secondary-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-yuki" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </div>
@@ -73,8 +73,8 @@
 
           <!-- Bot Message -->
           <div v-else class="flex items-start space-x-2">
-            <div class="w-6 h-6 bg-(--color-japan-red) rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-yuki" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
@@ -82,11 +82,11 @@
               <!-- Loading Indicator -->
               <div v-if="message.loading" class="flex items-center space-x-2">
                 <div class="flex space-x-1">
-                  <div class="w-2 h-2 bg-(--color-sakura) rounded-full animate-bounce" style="animation-delay: 0ms"></div>
-                  <div class="w-2 h-2 bg-(--color-sakura) rounded-full animate-bounce" style="animation-delay: 150ms"></div>
-                  <div class="w-2 h-2 bg-(--color-sakura) rounded-full animate-bounce" style="animation-delay: 300ms"></div>
+                  <div class="w-2 h-2 bg-accent rounded-full animate-bounce" style="animation-delay: 0ms"></div>
+                  <div class="w-2 h-2 bg-accent rounded-full animate-bounce" style="animation-delay: 150ms"></div>
+                  <div class="w-2 h-2 bg-accent rounded-full animate-bounce" style="animation-delay: 300ms"></div>
                 </div>
-                <span class="text-sm text-(--color-hai) font-medium">Thinking...</span>
+                <span class="text-sm text-hai font-medium">Thinking...</span>
               </div>
 
               <!-- Bot Response -->
@@ -94,20 +94,20 @@
                 <div class="text-sm" v-html="formatMessage(message.content)"></div>
 
                 <!-- Sources -->
-                <div v-if="message.sources && message.sources.length > 0" class="mt-2 pt-2 border-t border-(--color-hai)/20">
-                  <p class="text-xs text-(--color-hai) mb-1 font-medium">Sources:</p>
+                <div v-if="message.sources && message.sources.length > 0" class="mt-2 pt-2 border-t border-border">
+                  <p class="text-xs text-hai mb-1 font-medium">Sources:</p>
                   <div class="flex flex-wrap gap-1">
                     <span
                       v-for="source in message.sources"
                       :key="source"
-                      class="inline-block px-2 py-1 bg-(--color-yuki) text-(--color-hai) text-xs rounded border border-(--color-hai)/20"
+                      class="inline-block px-2 py-1 bg-background text-hai text-xs rounded border border-border"
                     >
                       {{ source }}
                     </span>
                   </div>
                 </div>
 
-                <span class="text-xs text-(--color-hai) mt-2 block">
+                <span class="text-xs text-hai mt-2 block">
                   {{ formatTime(message.timestamp) }}
                 </span>
               </div>
@@ -118,19 +118,19 @@
     </div>
 
     <!-- Chat Input -->
-    <div class="border-t border-(--color-hai)/20 p-4 bg-white">
+    <div class="border-t border-border p-4 bg-white">
       <form @submit.prevent="sendMessage" class="flex space-x-2">
         <input
           v-model="inputMessage"
           type="text"
           placeholder="Ask about Japan news..."
           :disabled="isLoading"
-          class="flex-1 px-4 py-2 border border-(--color-hai)/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-(--color-mizu)/50 focus:border-(--color-mizu) disabled:opacity-50 disabled:cursor-not-allowed bg-(--color-yuki)/50 transition-all duration-200"
+          class="flex-1 px-4 py-2 border border-border rounded-lg focus-ring disabled:opacity-50 disabled:cursor-not-allowed bg-background-muted transition-all duration-200"
         />
         <button
           type="submit"
           :disabled="!inputMessage.trim() || isLoading"
-          class="px-4 py-2 bg-(--color-japan-red) text-white rounded-lg hover:bg-(--color-japan-red)/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-sm hover:shadow-md"
+          class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <svg v-if="isLoading" class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -306,30 +306,5 @@ watch(() => props.newsContext, () => {
 </script>
 
 <style scoped>
-/* Custom animations */
-@keyframes bounce {
-  0%, 80%, 100% {
-    transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-  }
-}
-
-.animate-bounce {
-  animation: bounce 1.4s infinite;
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Component-specific styles are handled by Tailwind classes */
 </style>

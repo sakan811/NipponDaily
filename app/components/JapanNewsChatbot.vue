@@ -1,25 +1,25 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-(--color-yuki) to-(--color-mizu)">
+  <div class="min-h-screen bg-gradient-mizu">
     <!-- Header -->
     <header class="bg-white shadow-lg">
       <div class="container mx-auto px-4 py-6">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-(--color-japan-red) rounded-full flex items-center justify-center shadow-lg">
-              <span class="text-(--color-japan-white) font-bold text-xl">🇯🇵</span>
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
+              <span class="text-yuki font-bold text-xl">🇯🇵</span>
             </div>
-            <h1 class="text-3xl font-bold text-(--color-kuro) font-serif">Japan News Chatbot</h1>
+            <h1 class="text-3xl font-bold text-kuro font-serif">NipponDaily</h1>
           </div>
           <div class="flex items-center space-x-4">
             <button
               @click="refreshNews"
               :disabled="loading"
-              class="px-4 py-2 bg-(--color-mizu) text-white rounded-lg hover:bg-(--color-mizu)/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-md hover:shadow-lg"
+              class="btn-box rounded-md disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2"
             >
               <span v-if="loading">Refreshing...</span>
               <span v-else>Refresh News</span>
             </button>
-            <span class="text-sm text-gray-600">
+            <span class="text-sm text-hai">
               Last updated: {{ lastUpdated }}
             </span>
           </div>
@@ -40,10 +40,10 @@
                 :key="category.id"
                 @click="selectedCategory = category.id"
                 :class="[
-                  'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 shadow-sm',
+                  'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
                   selectedCategory === category.id
-                    ? 'bg-(--color-japan-red) text-white shadow-md'
-                    : 'bg-white text-(--color-kuro) hover:bg-(--color-yuki) border border-(--color-hai)'
+                    ? 'btn-primary'
+                    : 'btn-outline'
                 ]"
               >
                 {{ category.name }}
@@ -53,10 +53,10 @@
 
           <!-- News Loading State -->
           <div v-if="loading && news.length === 0" class="space-y-4">
-            <div v-for="i in 3" :key="i" class="bg-white rounded-lg shadow-md p-6 animate-pulse border border-(--color-hai)/20">
-              <div class="h-4 bg-gray-300 rounded mb-2"></div>
-              <div class="h-3 bg-gray-300 rounded mb-2"></div>
-              <div class="h-20 bg-gray-300 rounded"></div>
+            <div v-for="i in 3" :key="i" class="card p-6">
+              <div class="loading-skeleton h-4 mb-2"></div>
+              <div class="loading-skeleton h-3 mb-2"></div>
+              <div class="loading-skeleton h-20"></div>
             </div>
           </div>
 
@@ -72,11 +72,11 @@
           </div>
 
           <!-- Error State -->
-          <div v-if="error" class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+          <div v-if="error" class="card p-6 text-center border-red-200 bg-red-50">
             <p class="text-red-600 mb-4">{{ error }}</p>
             <button
               @click="refreshNews"
-              class="px-4 py-2 bg-(--color-japan-red) text-white rounded-lg hover:bg-(--color-japan-red)/90 transition-colors shadow-md"
+              class="btn-primary"
             >
               Try Again
             </button>
@@ -214,17 +214,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Custom animations */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
+/* Component-specific styles are handled by Tailwind classes */
 </style>
