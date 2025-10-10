@@ -6,7 +6,10 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-3">
             <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
-              <span class="text-yuki font-bold text-xl">🇯🇵</span>
+              <svg class="w-8 h-8" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+                <rect width="900" height="600" fill="#ffffff"/>
+                <circle cx="450" cy="300" r="180" fill="#bc002d"/>
+              </svg>
             </div>
             <h1 class="text-3xl font-bold text-kuro font-serif">NipponDaily</h1>
           </div>
