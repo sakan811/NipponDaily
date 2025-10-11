@@ -1,6 +1,6 @@
 import { GoogleGenAI } from '@google/genai'
-import type { NewsItem } from '~/types/index'
-import { VALID_CATEGORIES } from '~/constants/categories'
+import type { NewsItem } from '../../types/index'
+import { VALID_CATEGORIES } from '../../constants/categories'
 
 
 class GeminiService {

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { $fetch } from 'ofetch'
-import type { CategoryName } from '~/constants/categories'
+import type { CategoryName } from '~~/constants/categories'
 
 // Mock the Gemini service
 const mockFetchJapanNews = vi.fn()

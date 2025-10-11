@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import JapanNewsReader from '~/app/components/JapanNewsReader.vue'
-import type { NewsItem } from '~/types/index'
-import { NEWS_CATEGORIES, type CategoryId } from '~/constants/categories'
+import type { NewsItem } from '~~/types/index'
+import { NEWS_CATEGORIES, type CategoryId } from '~~/constants/categories'
 
 // Mock NewsCard component
 const NewsCardMock = {

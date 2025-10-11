@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import type { CategoryName } from '~/constants/categories'
+import type { CategoryName } from '~~/constants/categories'
 
 // Create mock variables at module level
 let mockGenerateContent: any
