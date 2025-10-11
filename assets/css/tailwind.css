@@ -21,15 +21,15 @@
   --color-background-muted: #F9FAFB;
   --color-border: #E5E7EB;
 
-  /* Brand Colors */
-  --color-japan-red: #BC002D;
-  --color-mizu: #5D8AA8;
-  --color-sakura: #FFB7C5;
-  --color-midori: #006600;
-  --color-ki: #FFD700;
-  --color-kuro: #000000;
-  --color-hai: #808080;
-  --color-yuki: #FFFFFF;
+  /* Brand Colors (aliases for semantic colors) */
+  --color-japan-red: var(--color-primary);
+  --color-mizu: var(--color-secondary);
+  --color-sakura: var(--color-accent);
+  --color-midori: var(--color-success);
+  --color-ki: var(--color-warning);
+  --color-kuro: var(--color-text);
+  --color-hai: var(--color-text-muted);
+  --color-yuki: var(--color-background);
   --color-samurai: #333333;
 }
 

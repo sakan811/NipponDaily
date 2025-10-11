@@ -1,10 +1,12 @@
+import type { CategoryName } from '~/constants/categories'
+
 export interface NewsItem {
   title: string
   summary: string
   content: string
   source: string
   publishedAt: string
-  category: string
+  category: CategoryName
   url?: string
 }
 
@@ -13,9 +15,4 @@ export interface ApiResponse<T = any> {
   data: T
   count?: number
   timestamp: string
-}
-
-export interface Category {
-  id: string
-  name: string
 }

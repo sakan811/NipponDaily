@@ -101,23 +101,18 @@
 
 <script setup lang="ts">
 import type { NewsItem } from '~/types/index'
+import { NEWS_CATEGORIES } from '~/constants/categories'
+import type { CategoryId } from '~/constants/categories'
 
 // State
 const news = ref<NewsItem[]>([])
 const loading = ref(false)
 const error = ref<string | null>(null)
-const selectedCategory = ref('all')
+const selectedCategory = ref<CategoryId>('all')
 const lastUpdated = ref<string>('Never')
 
 // Categories
-const categories = [
-  { id: 'all', name: 'All News' },
-  { id: 'politics', name: 'Politics' },
-  { id: 'business', name: 'Business' },
-  { id: 'technology', name: 'Technology' },
-  { id: 'culture', name: 'Culture' },
-  { id: 'sports', name: 'Sports' }
-]
+const categories = NEWS_CATEGORIES
 
 // Computed
 const filteredNews = computed(() => {

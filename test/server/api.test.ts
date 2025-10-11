@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { $fetch } from 'ofetch'
+import type { CategoryName } from '~/constants/categories'
 
 // Mock the Gemini service
 const mockFetchJapanNews = vi.fn()
@@ -24,7 +25,7 @@ describe('API Routes', () => {
           content: 'Test Content 1',
           source: 'Test Source 1',
           publishedAt: '2024-01-15T10:00:00Z',
-          category: 'Technology',
+          category: 'Technology' as CategoryName,
           url: 'https://example.com/1'
         }
       ]
@@ -81,7 +82,7 @@ describe('API Routes', () => {
           content: 'Tech Content',
           source: 'Tech Source',
           publishedAt: '2024-01-15T10:00:00Z',
-          category: 'Technology',
+          category: 'Technology' as CategoryName,
           url: 'https://example.com/tech'
         }
       ]
@@ -111,7 +112,7 @@ describe('API Routes', () => {
         content: `Content ${i + 1}`,
         source: `Source ${i + 1}`,
         publishedAt: '2024-01-15T10:00:00Z',
-        category: 'Technology',
+        category: 'Technology' as CategoryName,
         url: `https://example.com/${i + 1}`
       }))
 
