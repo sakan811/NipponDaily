@@ -85,4 +85,77 @@ describe('NewsCard', () => {
 
     expect(wrapper.text()).toContain('Unknown date')
   })
+
+  // Additional test for catch block coverage (lines 91-92)
+
+  it('handles date parsing exceptions in catch block', () => {
+    // Test with a date string that will throw an exception in the Date constructor
+    const newsWithExceptionDate = { ...mockNews, publishedAt: undefined as any }
+    const wrapper = mount(NewsCard, {
+      props: { news: newsWithExceptionDate }
+    })
+
+    // This should trigger the catch block (lines 91-92)
+    expect(wrapper.text()).toContain('Unknown date')
+  })
+
+  it('handles undefined date value', () => {
+    const newsWithUndefinedDate = { ...mockNews, publishedAt: undefined as any }
+    const wrapper = mount(NewsCard, {
+      props: { news: newsWithUndefinedDate }
+    })
+
+    // This should trigger the catch block (lines 91-92)
+    expect(wrapper.text()).toContain('Unknown date')
+  })
+
+  it('handles date object that throws during toLocaleDateString', () => {
+    // Mock toLocaleDateString to throw for all instances
+    const originalToLocaleDateString = Date.prototype.toLocaleDateString
+    Date.prototype.toLocaleDateString = function() {
+      throw new Error('Date formatting failed')
+    }
+
+    try {
+      const newsWithValidDate = { ...mockNews, publishedAt: '2024-01-15T10:30:00Z' }
+      const wrapper = mount(NewsCard, {
+        props: { news: newsWithValidDate }
+      })
+
+      // This should trigger the catch block (lines 91-92)
+      expect(wrapper.text()).toContain('Unknown date')
+    } finally {
+      // Restore original method
+      Date.prototype.toLocaleDateString = originalToLocaleDateString
+    }
+  })
+
+  it('triggers catch block when toLocaleDateString throws exception', () => {
+    // Mock Date constructor to work but toLocaleDateString to throw
+    const originalDate = global.Date
+    const mockDate = function(dateString: any) {
+      return new originalDate(dateString)
+    }
+    mockDate.prototype = originalDate.prototype
+
+    // Override toLocaleDateString to throw
+    mockDate.prototype.toLocaleDateString = function() {
+      throw new Error('toLocaleDateString error')
+    }
+
+    global.Date = mockDate
+
+    try {
+      const newsWithValidDate = { ...mockNews, publishedAt: '2024-01-15T10:30:00Z' }
+      const wrapper = mount(NewsCard, {
+        props: { news: newsWithValidDate }
+      })
+
+      // This should trigger the catch block (lines 91-92)
+      expect(wrapper.text()).toContain('Unknown date')
+    } finally {
+      // Restore original Date
+      global.Date = originalDate
+    }
+  })
 })

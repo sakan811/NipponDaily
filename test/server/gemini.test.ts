@@ -133,6 +133,31 @@ describe('GeminiService', () => {
       expect(result[0].source).toBe('Test Source')
     })
 
+    it('should handle multiple news items in fallback parsing', async () => {
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const textWithMultipleItems = `Title: First News\nSummary: First Summary\nSource: First Source\nTitle: Second News\nSummary: Second Summary\nSource: Second Source`
+
+      mockGenerateContent.mockResolvedValue({
+        text: textWithMultipleItems
+      })
+
+      const result = await service.fetchJapanNews()
+
+      // Should parse both news items (lines 146-148 cover the newsItems.push logic)
+      expect(result).toHaveLength(2)
+      expect(result[0].title).toBe('First News')
+      expect(result[1].title).toBe('Second News')
+    })
+
     it('should provide default fallback when parsing fails completely', async () => {
       // Mock runtime config with API key
       mockRuntimeConfig.mockReturnValue({
@@ -205,6 +230,125 @@ describe('GeminiService', () => {
       expect(result[0].summary).toBe('')
       expect(result[0].source).toBe('Unknown')
       expect(result[0].category).toBe('General')
+    })
+
+    // Additional tests for error logging coverage (lines 129-130, 146-148)
+
+    it('should log errors in development environment', async () => {
+      process.env.NODE_ENV = 'development'
+
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const testError = new Error('Development test error')
+      mockGenerateContent.mockRejectedValue(testError)
+
+      try {
+        await service.fetchJapanNews()
+      } catch (error) {
+        // Expected to throw
+      }
+
+      // Verify error was logged in development (lines 129-130)
+      expect(consoleSpy).toHaveBeenCalledWith('Error fetching news:', testError)
+
+      consoleSpy.mockRestore()
+    })
+
+    it('should not log errors in production environment', async () => {
+      process.env.NODE_ENV = 'production'
+
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const testError = new Error('Production test error')
+      mockGenerateContent.mockRejectedValue(testError)
+
+      try {
+        await service.fetchJapanNews()
+      } catch (error) {
+        // Expected to throw
+      }
+
+      // Verify error was NOT logged in production (lines 129-130)
+      expect(consoleSpy).not.toHaveBeenCalledWith('Error fetching news:', testError)
+
+      consoleSpy.mockRestore()
+    })
+
+    it('should preserve error context through service layer', async () => {
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const originalError = new Error('Original API error')
+      originalError.stack = 'Original error stack trace'
+      mockGenerateContent.mockRejectedValue(originalError)
+
+      try {
+        await service.fetchJapanNews()
+        fail('Should have thrown an error')
+      } catch (error: any) {
+        // Verify the error is properly wrapped with context (lines 146-148)
+        expect(error.message).toBe('Failed to fetch news from Gemini API')
+        expect(error).not.toBe(originalError) // Should be a new error
+      }
+    })
+
+    it('should handle different error types appropriately', async () => {
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      // Test with string error
+      mockGenerateContent.mockRejectedValue('String error message')
+
+      try {
+        await service.fetchJapanNews()
+        fail('Should have thrown an error')
+      } catch (error: any) {
+        expect(error.message).toBe('Failed to fetch news from Gemini API')
+      }
+
+      // Test with object error
+      mockGenerateContent.mockRejectedValue({ message: 'Object error' })
+
+      try {
+        await service.fetchJapanNews()
+        fail('Should have thrown an error')
+      } catch (error: any) {
+        expect(error.message).toBe('Failed to fetch news from Gemini API')
+      }
     })
   })
 })
