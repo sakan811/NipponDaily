@@ -66,6 +66,7 @@ class GeminiService {
       7. URL if available
 
       Please format your response as a JSON array of news objects.
+      Always translate to Englsih naturally, preserving original meaning.
       Search for news from: NHK, Japan Times, Nikkei, Asahi Shimbun, Mainichi Shimbun, Yomiuri Shimbun, and other reliable Japanese news sources.`
 
       const response = await this.client.models.generateContent({
