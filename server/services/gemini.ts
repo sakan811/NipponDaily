@@ -206,4 +206,5 @@ class GeminiService {
   }
 }
 
+export { GeminiService }
 export const geminiService = new GeminiService()
