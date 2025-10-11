@@ -9,6 +9,10 @@ import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
 ;(global as any).onMounted = onMounted
 ;(global as any).onUnmounted = onUnmounted
 
+// Mock $fetch for all tests
+const globalMockFetch = vi.fn()
+;(global as any).$fetch = globalMockFetch
+
 // Mock Nuxt composables
 vi.mock('#app', () => ({
   useRuntimeConfig: () => ({
@@ -16,7 +20,7 @@ vi.mock('#app', () => ({
     geminiModel: 'gemini-1.5-flash'
   }),
   useFetch: vi.fn(),
-  $fetch: vi.fn(),
+  $fetch: globalMockFetch,
   ref,
   computed,
   reactive,
@@ -24,15 +28,12 @@ vi.mock('#app', () => ({
   onUnmounted
 }))
 
-// Make $fetch globally available
-;(global as any).$fetch = vi.fn()
-
 // Mock global fetch
 global.fetch = vi.fn()
 
 // Configure Vue Test Utils
 config.global.mocks = {
-  $fetch: vi.fn()
+  $fetch: globalMockFetch
 }
 
 // Auto-import Vue composition functions
