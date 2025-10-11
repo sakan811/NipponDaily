@@ -350,5 +350,296 @@ describe('GeminiService', () => {
         expect(error.message).toBe('Failed to fetch news from Gemini API')
       }
     })
+
+    // Additional tests for uncovered branch conditions
+
+    it('should use default model when geminiModel is undefined (line 27)', async () => {
+      // Mock runtime config with undefined model
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: undefined
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const mockNewsData = [
+        {
+          title: 'Test News',
+          summary: 'Test Summary',
+          content: 'Test Content',
+          source: 'Test Source',
+          publishedAt: '2024-01-15T10:00:00Z',
+          category: 'Technology' as CategoryName,
+          url: 'https://example.com/test'
+        }
+      ]
+
+      mockGenerateContent.mockResolvedValue({
+        text: JSON.stringify(mockNewsData)
+      })
+
+      const result = await service.fetchJapanNews()
+
+      expect(result).toHaveLength(1)
+      expect(result[0].title).toBe('Test News')
+      // Verify the model call used the default value by checking it was called with correct model
+      expect(mockGenerateContent).toHaveBeenCalledWith(
+        expect.objectContaining({
+          model: 'gemini-1.5-flash' // Should use default model
+        })
+      )
+    })
+
+    it('should use default model when geminiModel is null (line 27)', async () => {
+      // Mock runtime config with null model
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: null
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const mockNewsData = [
+        {
+          title: 'Test News',
+          summary: 'Test Summary',
+          content: 'Test Content',
+          source: 'Test Source',
+          publishedAt: '2024-01-15T10:00:00Z',
+          category: 'Technology' as CategoryName,
+          url: 'https://example.com/test'
+        }
+      ]
+
+      mockGenerateContent.mockResolvedValue({
+        text: JSON.stringify(mockNewsData)
+      })
+
+      const result = await service.fetchJapanNews()
+
+      expect(result).toHaveLength(1)
+      expect(result[0].title).toBe('Test News')
+      // Verify the model call used the default value
+      expect(mockGenerateContent).toHaveBeenCalledWith(
+        expect.objectContaining({
+          model: 'gemini-1.5-flash' // Should use default model
+        })
+      )
+    })
+
+    it('should use default model when geminiModel is empty string (line 27)', async () => {
+      // Mock runtime config with empty string model
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: ''
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const mockNewsData = [
+        {
+          title: 'Test News',
+          summary: 'Test Summary',
+          content: 'Test Content',
+          source: 'Test Source',
+          publishedAt: '2024-01-15T10:00:00Z',
+          category: 'Technology' as CategoryName,
+          url: 'https://example.com/test'
+        }
+      ]
+
+      mockGenerateContent.mockResolvedValue({
+        text: JSON.stringify(mockNewsData)
+      })
+
+      const result = await service.fetchJapanNews()
+
+      expect(result).toHaveLength(1)
+      expect(result[0].title).toBe('Test News')
+      // Verify the model call used the default value
+      expect(mockGenerateContent).toHaveBeenCalledWith(
+        expect.objectContaining({
+          model: 'gemini-1.5-flash' // Should use default model
+        })
+      )
+    })
+
+    it('should handle undefined response.text (line 102)', async () => {
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      // Mock response with undefined text
+      mockGenerateContent.mockResolvedValue({
+        text: undefined
+      })
+
+      const result = await service.fetchJapanNews()
+
+      expect(result).toHaveLength(1)
+      expect(result[0].title).toBe('Latest Japan News')
+      expect(result[0].summary).toBe('Unable to fetch detailed news. Please try again later.')
+      expect(result[0].source).toBe('Gemini API')
+    })
+
+    it('should handle null response.text (line 102)', async () => {
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      // Mock response with null text
+      mockGenerateContent.mockResolvedValue({
+        text: null
+      })
+
+      const result = await service.fetchJapanNews()
+
+      expect(result).toHaveLength(1)
+      expect(result[0].title).toBe('Latest Japan News')
+      expect(result[0].summary).toBe('Unable to fetch detailed news. Please try again later.')
+      expect(result[0].source).toBe('Gemini API')
+    })
+
+    it('should handle response without text property (line 102)', async () => {
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      // Mock response without text property
+      mockGenerateContent.mockResolvedValue({})
+
+      const result = await service.fetchJapanNews()
+
+      expect(result).toHaveLength(1)
+      expect(result[0].title).toBe('Latest Japan News')
+      expect(result[0].summary).toBe('Unable to fetch detailed news. Please try again later.')
+      expect(result[0].source).toBe('Gemini API')
+    })
+
+    it('should handle undefined item title (line 113)', async () => {
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const mockNewsData = [
+        {
+          title: undefined,
+          summary: 'Test Summary',
+          content: 'Test Content',
+          source: 'Test Source',
+          publishedAt: '2024-01-15T10:00:00Z',
+          category: 'Technology' as CategoryName,
+          url: 'https://example.com/test'
+        }
+      ]
+
+      mockGenerateContent.mockResolvedValue({
+        text: JSON.stringify(mockNewsData)
+      })
+
+      const result = await service.fetchJapanNews()
+
+      expect(result).toHaveLength(1)
+      expect(result[0].title).toBe('Untitled') // Should use fallback
+      expect(result[0].summary).toBe('Test Summary')
+    })
+
+    it('should handle null item title (line 113)', async () => {
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const mockNewsData = [
+        {
+          title: null,
+          summary: 'Test Summary',
+          content: 'Test Content',
+          source: 'Test Source',
+          publishedAt: '2024-01-15T10:00:00Z',
+          category: 'Technology' as CategoryName,
+          url: 'https://example.com/test'
+        }
+      ]
+
+      mockGenerateContent.mockResolvedValue({
+        text: JSON.stringify(mockNewsData)
+      })
+
+      const result = await service.fetchJapanNews()
+
+      expect(result).toHaveLength(1)
+      expect(result[0].title).toBe('Untitled') // Should use fallback
+      expect(result[0].summary).toBe('Test Summary')
+    })
+
+    it('should handle empty string item title (line 113)', async () => {
+      // Mock runtime config with API key
+      mockRuntimeConfig.mockReturnValue({
+        geminiApiKey: 'test-api-key',
+        geminiModel: 'gemini-1.5-flash'
+      })
+
+      // Import service with mock config
+      const { GeminiService: TestGeminiService } = await import('~/server/services/gemini')
+      const service = new TestGeminiService()
+
+      const mockNewsData = [
+        {
+          title: '',
+          summary: 'Test Summary',
+          content: 'Test Content',
+          source: 'Test Source',
+          publishedAt: '2024-01-15T10:00:00Z',
+          category: 'Technology' as CategoryName,
+          url: 'https://example.com/test'
+        }
+      ]
+
+      mockGenerateContent.mockResolvedValue({
+        text: JSON.stringify(mockNewsData)
+      })
+
+      const result = await service.fetchJapanNews()
+
+      expect(result).toHaveLength(1)
+      expect(result[0].title).toBe('Untitled') // Empty string is falsy, so uses fallback
+      expect(result[0].summary).toBe('Test Summary')
+    })
   })
 })
