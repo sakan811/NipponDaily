@@ -34,16 +34,6 @@
 
       <!-- Action Buttons -->
       <div class="flex flex-wrap gap-2">
-        <button
-          @click="toggleExpand"
-          class="btn-box rounded-md flex items-center text-sm px-3 py-2"
-        >
-          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          {{ isExpanded ? 'Show Less' : 'Read More' }}
-        </button>
-
         <a
           v-if="news.url"
           :href="news.url"
@@ -59,14 +49,7 @@
       </div>
     </div>
 
-    <!-- Expanded Content -->
-    <div v-if="isExpanded" class="border-t border-border p-6 bg-background-muted">
-      <h4 class="font-semibold text-kuro mb-2 font-serif">Full Article Content</h4>
-      <div class="text-text-light whitespace-pre-wrap leading-relaxed">
-        {{ news.content }}
-      </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -79,8 +62,6 @@ interface Props {
 const props = defineProps<Props>()
 
 defineEmits<{}>()
-
-const isExpanded = ref(false)
 
 const categoryColorClass = computed(() => {
   const category = props.news.category.toLowerCase()
@@ -107,10 +88,6 @@ const formatDate = (dateString: string) => {
   } catch {
     return 'Unknown date'
   }
-}
-
-const toggleExpand = () => {
-  isExpanded.value = !isExpanded.value
 }
 </script>
 
