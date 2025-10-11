@@ -28,7 +28,9 @@ export default defineConfig({
         '**/*.d.ts',
         'coverage/',
         'nuxt.config.ts',
-        'app.config.ts'
+        'app.config.ts',
+        '*.config.{ts,js,mjs,cjs}',
+        '.nuxt/**'
       ]
     }
   },

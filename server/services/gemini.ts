@@ -1,14 +1,5 @@
 import { GoogleGenAI } from '@google/genai'
-
-export interface NewsItem {
-  title: string
-  summary: string
-  content: string
-  source: string
-  publishedAt: string
-  category: string
-  url?: string
-}
+import type { NewsItem } from '~/types/index'
 
 
 class GeminiService {
