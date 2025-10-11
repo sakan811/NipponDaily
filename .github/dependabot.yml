@@ -1,0 +1,8 @@
+version: 2
+updates:
+  # Node.js (npm) updates
+  - package-ecosystem: "npm" 
+    directory: "/" 
+    schedule:
+      interval: "weekly" # Check for updates every week
+      day: "saturday" # Run updates on Saturdays
