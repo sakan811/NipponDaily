@@ -32,9 +32,9 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 gap-8">
         <!-- News Section -->
-        <div class="lg:col-span-2">
+        <div>
           <!-- Category Filter -->
           <div class="mb-6">
             <div class="flex flex-wrap gap-2">
@@ -79,8 +79,6 @@
               v-for="item in filteredNews"
               :key="item.title"
               :news="item"
-              @chat="openChatWithNews"
-              @summarize="summarizeNews"
             />
           </div>
 
@@ -96,14 +94,6 @@
           </div>
         </div>
 
-        <!-- Chat Section -->
-        <div class="lg:col-span-1">
-          <ChatInterface
-            ref="chatRef"
-            :news-context="news"
-            @message="handleChatMessage"
-          />
-        </div>
       </div>
     </main>
   </div>
@@ -118,7 +108,6 @@ const loading = ref(false)
 const error = ref<string | null>(null)
 const selectedCategory = ref('all')
 const lastUpdated = ref<string>('Never')
-const chatRef = ref<any>(null)
 
 // Categories
 const categories = [
@@ -165,59 +154,6 @@ const fetchNews = async () => {
 
 const refreshNews = async () => {
   await fetchNews()
-}
-
-const openChatWithNews = (newsItem: NewsItem) => {
-  const question = `Tell me more about "${newsItem.title}"`
-  if (chatRef.value) {
-    chatRef.value.sendMessage(question)
-  }
-}
-
-const summarizeNews = async (newsItem: NewsItem) => {
-  try {
-    const { data } = await $fetch('/api/summarize', {
-      method: 'POST',
-      body: { newsItem }
-    })
-
-    // Show summary in chat
-    if (chatRef.value) {
-      chatRef.value.addMessage({
-        type: 'bot',
-        content: `**AI Summary of "${newsItem.title}":**\n\n${data.aiSummary}`,
-        sources: [newsItem.source]
-      })
-    }
-  } catch (err: any) {
-    console.error('Error summarizing news:', err)
-    if (chatRef.value) {
-      chatRef.value.addMessage({
-        type: 'bot',
-        content: 'Sorry, I couldn\'t generate a summary for this article.'
-      })
-    }
-  }
-}
-
-const handleChatMessage = async (message: string) => {
-  try {
-    const { data } = await $fetch('/api/chat', {
-      method: 'POST',
-      body: {
-        message,
-        newsContext: news.value
-      }
-    })
-
-    return {
-      message: data.data.message,
-      sources: data.data.sources
-    }
-  } catch (err: any) {
-    console.error('Error in chat:', err)
-    throw new Error(err.data?.error || 'Failed to process your message')
-  }
 }
 
 // Lifecycle - Auto-fetch removed, news only loads when button is clicked
