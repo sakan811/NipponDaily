@@ -10,10 +10,6 @@ export interface NewsItem {
   url?: string
 }
 
-export interface ChatResponse {
-  message: string
-  sources?: string[]
-}
 
 class GeminiService {
   private client: GoogleGenAI | null = null
@@ -101,71 +97,6 @@ class GeminiService {
     } catch (error) {
       console.error('Error fetching news:', error)
       throw new Error('Failed to fetch news from Gemini API')
-    }
-  }
-
-  async chatAboutNews(message: string, newsContext: NewsItem[]): Promise<ChatResponse> {
-    if (!this.client) {
-      throw new Error('Gemini client not initialized')
-    }
-
-    try {
-      const newsContextStr = newsContext
-        .slice(0, 5) // Limit to top 5 news items for context
-        .map(news => `Title: ${news.title}\nSummary: ${news.summary}\nSource: ${news.source}`)
-        .join('\n\n')
-
-      const prompt = `You are a helpful AI assistant specialized in Japanese news.
-      Based on the following recent news from Japan, answer the user's question.
-
-      Recent News Context:
-      ${newsContextStr}
-
-      User Question: ${message}
-
-      Provide a helpful, informative response. If the information isn't available in the provided news context, let the user know and suggest they can ask about the available news topics.
-      Be conversational and engaging.`
-
-      const response = await this.client.models.generateContent({
-        model: this.getModel(),
-        contents: prompt
-      })
-
-      return {
-        message: response.text || 'I apologize, but I couldn\'t generate a response.',
-        sources: newsContext.slice(0, 3).map(news => news.source)
-      }
-
-    } catch (error) {
-      console.error('Error in chat:', error)
-      throw new Error('Failed to process chat message')
-    }
-  }
-
-  async summarizeNews(newsItem: NewsItem): Promise<string> {
-    if (!this.client) {
-      throw new Error('Gemini client not initialized')
-    }
-
-    try {
-      const prompt = `Summarize this Japanese news article in a clear, concise way:
-
-      Title: ${newsItem.title}
-      Content: ${newsItem.content}
-      Source: ${newsItem.source}
-
-      Provide a 2-3 sentence summary that captures the key points and significance.`
-
-      const response = await this.client.models.generateContent({
-        model: this.getModel(),
-        contents: prompt
-      })
-
-      return response.text || newsItem.summary
-
-    } catch (error) {
-      console.error('Error summarizing news:', error)
-      return newsItem.summary
     }
   }
 
