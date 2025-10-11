@@ -1,5 +1,13 @@
 import { vi } from 'vitest'
 import { config } from '@vue/test-utils'
+import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
+
+// Make Vue composition functions globally available
+;(global as any).ref = ref
+;(global as any).computed = computed
+;(global as any).reactive = reactive
+;(global as any).onMounted = onMounted
+;(global as any).onUnmounted = onUnmounted
 
 // Mock Nuxt composables
 vi.mock('#app', () => ({
@@ -8,8 +16,16 @@ vi.mock('#app', () => ({
     geminiModel: 'gemini-1.5-flash'
   }),
   useFetch: vi.fn(),
-  $fetch: vi.fn()
+  $fetch: vi.fn(),
+  ref,
+  computed,
+  reactive,
+  onMounted,
+  onUnmounted
 }))
+
+// Make $fetch globally available
+;(global as any).$fetch = vi.fn()
 
 // Mock global fetch
 global.fetch = vi.fn()
@@ -18,6 +34,19 @@ global.fetch = vi.fn()
 config.global.mocks = {
   $fetch: vi.fn()
 }
+
+// Auto-import Vue composition functions
+config.global.plugins = [
+  {
+    install(app: any) {
+      app.config.globalProperties.$ref = ref
+      app.config.globalProperties.$computed = computed
+      app.config.globalProperties.$reactive = reactive
+      app.config.globalProperties.$onMounted = onMounted
+      app.config.globalProperties.$onUnmounted = onUnmounted
+    }
+  }
+]
 
 // Add custom matchers if needed
 import type { MatcherFunction } from 'vitest'

@@ -1,8 +1,17 @@
 import { defineConfig } from 'vitest/config'
 import { defineVitestProject } from '@nuxt/test-utils/config'
 import { resolve } from 'path'
+import vue from '@vitejs/plugin-vue'
+import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
+  plugins: [
+    vue(),
+    AutoImport({
+      imports: ['vue', 'vue-router'],
+      dts: false,
+    }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
@@ -11,7 +20,7 @@ export default defineConfig({
     exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'json', 'html'],
+      reporter: ['text'],
       exclude: [
         'node_modules/',
         'test/',
