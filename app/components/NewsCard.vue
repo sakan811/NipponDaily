@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import type { NewsItem } from '~/types/index'
+import type { NewsItem } from '~~/types/index'
 
 interface Props {
   news: NewsItem

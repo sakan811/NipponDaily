@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import type { NewsItem, ApiResponse } from '~/types/index'
-import type { CategoryName } from '~/constants/categories'
+import type { NewsItem, ApiResponse } from '~~/types/index'
+import type { CategoryName } from '~~/constants/categories'
 
 describe('Type Definitions Validation', () => {
   describe('NewsItem interface', () => {

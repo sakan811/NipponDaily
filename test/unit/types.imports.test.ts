@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import type { NewsItem, ApiResponse } from '~/types/index'
-import type { CategoryName } from '~/constants/categories'
+import type { NewsItem, ApiResponse } from '~~/types/index'
+import type { CategoryName } from '~~/constants/categories'
 
 // This test file specifically ensures type imports are exercised for coverage
 describe('Type Imports Coverage', () => {

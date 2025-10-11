@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import NewsCard from '~/app/components/NewsCard.vue'
-import type { NewsItem } from '~/types/index'
-import type { CategoryName } from '~/constants/categories'
+import type { NewsItem } from '~~/types/index'
+import type { CategoryName } from '~~/constants/categories'
 
 describe('NewsCard', () => {
   const mockNews: NewsItem = {

@@ -100,9 +100,9 @@
 </template>
 
 <script setup lang="ts">
-import type { NewsItem } from '~/types/index'
-import { NEWS_CATEGORIES } from '~/constants/categories'
-import type { CategoryId } from '~/constants/categories'
+import type { NewsItem } from '~~/types/index'
+import { NEWS_CATEGORIES } from '~~/constants/categories'
+import type { CategoryId } from '~~/constants/categories'
 
 // State
 const news = ref<NewsItem[]>([])

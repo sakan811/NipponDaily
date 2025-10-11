@@ -1,4 +1,4 @@
-import type { CategoryName } from '~/constants/categories'
+import type { CategoryName } from '../constants/categories'
 
 export interface NewsItem {
   title: string
