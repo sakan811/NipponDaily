@@ -46,24 +46,48 @@ class GeminiService {
       2. Focus on these categories: Politics, Business, Technology, Culture, and Sports
       3. Summarize each news item concisely and accurately
       4. Always cite sources and provide publication dates
-      5. Format responses as structured JSON data
+      5. CRITICAL: Preserve original headlines exactly as they appear
+      6. CRITICAL: Verify and provide accurate, direct URLs to original news sources
+      7. Format responses as structured JSON data
 
       Current date: ${new Date().toISOString().split('T')[0]}`
 
       const prompt = `Search for today's latest news from Japan using Google Search. Find recent articles from reputable Japanese news sources.
 
-      For each news item found, provide:
-      1. Title (exact headline)
-      2. Brief summary (2-3 sentences capturing key points)
-      3. Main content/details (important facts and context)
-      4. Source/news outlet name
-      5. Publication date
-      6. Category (Politics, Business, Technology, Culture, Sports, or Other)
-      7. URL if available
+      CRITICAL REQUIREMENTS:
+      1. **HEADLINES**: Keep the EXACT original headlines from the news sources. Do not modify, summarize, or rephrase headlines. If the original headline is in Japanese, provide an accurate English translation but mark it as "Translated: [English headline]".
 
-      Please format your response as a JSON array of news objects.
-      Always translate to Englsih naturally, preserving original meaning.
-      Search for news from: NHK, Japan Times, Nikkei, Asahi Shimbun, Mainichi Shimbun, Yomiuri Shimbun, and other reliable Japanese news sources.`
+      2. **URLS**: When Google Search provides Vertex AI search redirect URLs (vertexaisearch.cloud.google.com/grounding-api-redirect/), use these URLs as they provide direct access to the news sources through Google's grounding system. These URLs are preferred and should be used when available. If Vertex AI redirect URLs are not available, provide the complete, direct URL to the original news article.
+
+      For each news item found, provide:
+      1. title: EXACT original headline (see requirements above)
+      2. summary: 2-3 sentences capturing key points
+      3. content: important facts and context
+      4. source: exact news outlet name (NHK, Japan Times, Nikkei, Asahi Shimbun, etc.)
+      5. publishedAt: publication date in ISO format
+      6. category: Politics, Business, Technology, Culture, Sports, or Other
+      7. url: URL to the original article for citing
+
+      FORMAT REQUIREMENTS:
+      - Return a JSON array of news objects
+      - Each object must have all 7 fields
+      - URLs must be complete and valid (include https://)
+      - Titles must be preserved exactly from sources
+
+      Search priority: NHK, Japan Times, Nikkei, Asahi Shimbun, Mainichi Shimbun, Yomiuri Shimbun, and other established Japanese news organizations.
+
+      Example format:
+      [
+        {
+          "title": "Exact Headline from News Source",
+          "summary": "Brief 2-3 sentence summary",
+          "content": "Detailed content with important facts",
+          "source": "NHK",
+          "publishedAt": "2025-01-12T10:30:00Z",
+          "category": "Politics",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrBuRB27XrPbiEbHcuisqVF0zopw-52DNGdWrJ6HFA12sDJQGKnzN4lSpskfoBjP-tImTrPlgr3ThThy2-O_n5j3jgLcfKXlRqN4NnbKVGnoQyEKX9zBUJcjjr_q-pjHjmbu0="
+        }
+      ]`
 
       const response = await this.client.models.generateContent({
         model: this.getModel(),
@@ -71,24 +95,43 @@ class GeminiService {
           { role: 'user', parts: [{ text: systemInstruction }] },
           { role: 'model', parts: [{ text: 'Understood. I will fetch Japanese news using Google Search and format it as requested.' }] },
           { role: 'user', parts: [{ text: prompt }] }
-        ]
+        ],
+        config: {
+          tools: [
+            { urlContext: {} },
+            {
+              googleSearch: {
+              }
+            },
+          ]
+        }
       })
 
       const text = response.text || ''
+
+      // Log raw model output for debugging
+      console.log('=== GEMINI RAW OUTPUT ===')
+      console.log(text)
+      console.log('=== END RAW OUTPUT ===')
 
       // Try to parse JSON from the response
       const jsonMatch = text.match(/\[[\s\S]*\]/)
       if (jsonMatch) {
         const newsData = JSON.parse(jsonMatch[0])
-        return newsData.map((item: any) => ({
-          title: item.title || 'Untitled',
-          summary: item.summary || '',
-          content: item.content || '',
-          source: item.source || 'Unknown',
-          publishedAt: item.publishedAt || new Date().toISOString(),
-          category: item.category || 'General',
-          url: item.url || ''
-        }))
+        return newsData.map((item: any) => {
+          // Use URL as-is without validation
+          const validUrl = item.url || ''
+
+          return {
+            title: item.title || 'Untitled',
+            summary: item.summary || '',
+            content: item.content || '',
+            source: item.source || 'Unknown',
+            publishedAt: item.publishedAt || new Date().toISOString(),
+            category: item.category || 'General',
+            url: validUrl
+          }
+        })
       }
 
       // Fallback: create structured response from text
