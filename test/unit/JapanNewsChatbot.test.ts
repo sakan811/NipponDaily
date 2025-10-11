@@ -4,23 +4,18 @@ import JapanNewsChatbot from '~/app/components/JapanNewsChatbot.vue'
 import type { NewsItem } from '~/types/index'
 
 // Mock NewsCard component
+const NewsCardMock = {
+  name: 'NewsCard',
+  props: ['news'],
+  template: '<div class="news-card-mock">{{ news.title }}</div>'
+}
+
 vi.mock('~/app/components/NewsCard.vue', () => ({
-  default: {
-    name: 'NewsCard',
-    props: ['news'],
-    template: '<div class="news-card-mock">{{ news.title }}</div>'
-  }
+  default: NewsCardMock
 }))
 
-// Mock $fetch
-const mockFetch = vi.fn()
-vi.mock('#app', () => ({
-  useRuntimeConfig: () => ({
-    geminiApiKey: 'test-api-key',
-    geminiModel: 'gemini-1.5-flash'
-  }),
-  $fetch: mockFetch
-}))
+// Import the global mock fetch
+const { $fetch: mockFetch } = global as any
 
 describe('JapanNewsChatbot', () => {
   const mockNewsData: NewsItem[] = [
@@ -42,12 +37,22 @@ describe('JapanNewsChatbot', () => {
     }
   ]
 
+  const createWrapper = () => {
+    return mount(JapanNewsChatbot, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock
+        }
+      }
+    })
+  }
+
   beforeEach(() => {
     mockFetch.mockClear()
   })
 
   it('renders correctly with initial state', () => {
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
 
     expect(wrapper.text()).toContain('NipponDaily')
     expect(wrapper.text()).toContain('Get News')
@@ -56,7 +61,7 @@ describe('JapanNewsChatbot', () => {
   })
 
   it('displays all category buttons', () => {
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
 
     const categories = ['All News', 'Politics', 'Business', 'Technology', 'Culture', 'Sports']
     categories.forEach(category => {
@@ -67,9 +72,10 @@ describe('JapanNewsChatbot', () => {
   it('shows loading skeleton when loading news', async () => {
     mockFetch.mockReturnValue(new Promise(() => {})) // Never resolves
 
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
 
     await wrapper.find('button').trigger('click')
+    await wrapper.vm.$nextTick()
 
     expect(wrapper.text()).toContain('Getting...')
     expect(wrapper.text()).not.toContain('No news loaded yet')
@@ -80,9 +86,10 @@ describe('JapanNewsChatbot', () => {
       data: mockNewsData
     })
 
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
 
     await wrapper.find('button').trigger('click')
+    await new Promise(resolve => setTimeout(resolve, 10)) // Wait for async operations
     await wrapper.vm.$nextTick()
 
     expect(wrapper.text()).toContain(mockNewsData[0].title)
@@ -95,14 +102,15 @@ describe('JapanNewsChatbot', () => {
       data: mockNewsData
     })
 
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
 
     // Fetch news first
     await wrapper.find('button').trigger('click')
+    await new Promise(resolve => setTimeout(resolve, 10)) // Wait for async operations
     await wrapper.vm.$nextTick()
 
     // Select Technology category
-    const techButton = wrapper.find('button').filter(btn => btn.text() === 'Technology')
+    const techButton = wrapper.findAll('button').find(btn => btn.text() === 'Technology')
     await techButton.trigger('click')
     await wrapper.vm.$nextTick()
 
@@ -116,19 +124,20 @@ describe('JapanNewsChatbot', () => {
       data: mockNewsData
     })
 
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
 
     // Fetch news first
     await wrapper.find('button').trigger('click')
+    await new Promise(resolve => setTimeout(resolve, 10)) // Wait for async operations
     await wrapper.vm.$nextTick()
 
     // Select Technology category first
-    const techButton = wrapper.find('button').filter(btn => btn.text() === 'Technology')
+    const techButton = wrapper.findAll('button').find(btn => btn.text() === 'Technology')
     await techButton.trigger('click')
     await wrapper.vm.$nextTick()
 
     // Then select All News
-    const allNewsButton = wrapper.find('button').filter(btn => btn.text() === 'All News')
+    const allNewsButton = wrapper.findAll('button').find(btn => btn.text() === 'All News')
     await allNewsButton.trigger('click')
     await wrapper.vm.$nextTick()
 
@@ -142,9 +151,10 @@ describe('JapanNewsChatbot', () => {
       data: { error: errorMessage }
     })
 
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
 
     await wrapper.find('button').trigger('click')
+    await new Promise(resolve => setTimeout(resolve, 10)) // Wait for async operations
     await wrapper.vm.$nextTick()
 
     expect(wrapper.text()).toContain(errorMessage)
@@ -156,11 +166,12 @@ describe('JapanNewsChatbot', () => {
       data: mockNewsData
     })
 
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
 
     expect(wrapper.text()).toContain('Last updated: Never')
 
     await wrapper.find('button').trigger('click')
+    await new Promise(resolve => setTimeout(resolve, 10)) // Wait for async operations
     await wrapper.vm.$nextTick()
 
     expect(wrapper.text()).not.toContain('Last updated: Never')
@@ -169,32 +180,35 @@ describe('JapanNewsChatbot', () => {
   it('disables button during loading', async () => {
     mockFetch.mockReturnValue(new Promise(() => {})) // Never resolves
 
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
     const button = wrapper.find('button')
 
     expect(button.attributes('disabled')).toBeUndefined()
 
     await button.trigger('click')
+    await wrapper.vm.$nextTick()
 
     expect(button.attributes('disabled')).toBeDefined()
   })
 
   it('can retry fetching news after error', async () => {
     mockFetch
-      .mockRejectedValueOnce(new Error('Network error'))
+      .mockRejectedValueOnce({ data: { error: 'Failed to fetch news' } })
       .mockResolvedValueOnce({ data: mockNewsData })
 
-    const wrapper = mount(JapanNewsChatbot)
+    const wrapper = createWrapper()
 
     // First attempt fails
     await wrapper.find('button').trigger('click')
+    await new Promise(resolve => setTimeout(resolve, 10)) // Wait for async operations
     await wrapper.vm.$nextTick()
 
     expect(wrapper.text()).toContain('Failed to fetch news')
 
     // Retry succeeds
-    const retryButton = wrapper.find('button').filter(btn => btn.text() === 'Try Again')
+    const retryButton = wrapper.findAll('button').find(btn => btn.text() === 'Try Again')
     await retryButton.trigger('click')
+    await new Promise(resolve => setTimeout(resolve, 10)) // Wait for async operations
     await wrapper.vm.$nextTick()
 
     expect(wrapper.text()).toContain(mockNewsData[0].title)
