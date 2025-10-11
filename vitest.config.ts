@@ -13,7 +13,7 @@ export default defineConfig({
     include: ['test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
     coverage: {
-      provider: 'v8',
+      provider: 'istanbul',
       reporter: ['text'],
       exclude: [
         'node_modules/',
@@ -24,7 +24,8 @@ export default defineConfig({
         'nuxt.config.ts',
         'app.config.ts',
         '*.config.{ts,js,mjs,cjs}',
-        '.nuxt/**'
+        '.nuxt/**',
+        '.output/**',
       ]
     }
   },
