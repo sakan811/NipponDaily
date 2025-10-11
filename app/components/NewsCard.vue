@@ -61,8 +61,6 @@ interface Props {
 
 const props = defineProps<Props>()
 
-defineEmits<{}>()
-
 const categoryColorClass = computed(() => {
   const category = props.news.category.toLowerCase()
   const colorMap: Record<string, string> = {
