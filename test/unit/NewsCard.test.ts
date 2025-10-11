@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import NewsCard from '~/app/components/NewsCard.vue'
 import type { NewsItem } from '~/types/index'
+import type { CategoryName } from '~/constants/categories'
 
 describe('NewsCard', () => {
   const mockNews: NewsItem = {
@@ -10,7 +11,7 @@ describe('NewsCard', () => {
     content: 'This is the full content of the news article with more details',
     source: 'Test News Network',
     publishedAt: '2024-01-15T10:30:00Z',
-    category: 'Technology',
+    category: 'Technology' as CategoryName,
     url: 'https://example.com/news/test-article'
   }
 

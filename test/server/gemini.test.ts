@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
+import type { CategoryName } from '~/constants/categories'
 
 // Create mock variables at module level
 let mockGenerateContent: any
@@ -60,7 +61,7 @@ describe('GeminiService', () => {
           content: 'Test Content 1',
           source: 'Test Source 1',
           publishedAt: '2024-01-15T10:00:00Z',
-          category: 'Technology',
+          category: 'Technology' as CategoryName,
           url: 'https://example.com/1'
         }
       ]
@@ -94,7 +95,7 @@ describe('GeminiService', () => {
           content: 'Test Content 1',
           source: 'Test Source 1',
           publishedAt: '2024-01-15T10:00:00Z',
-          category: 'Technology',
+          category: 'Technology' as CategoryName,
           url: 'https://example.com/1'
         }
       ]

@@ -1,5 +1,6 @@
 import { GoogleGenAI } from '@google/genai'
 import type { NewsItem } from '~/types/index'
+import { VALID_CATEGORIES } from '~/constants/categories'
 
 
 class GeminiService {
@@ -34,7 +35,7 @@ class GeminiService {
     try {
       const systemInstruction = `You are a specialized AI assistant for fetching and summarizing Japanese news. Your primary functions are:
       1. Use Google Search to find the latest, most reliable news from Japan
-      2. Focus on these categories: Politics, Business, Technology, Culture, and Sports
+      2. Focus on these categories: ${VALID_CATEGORIES.filter(cat => cat !== 'Other').join(', ')}
       3. Summarize each news item concisely and accurately
       4. Always cite sources and provide publication dates
       5. CRITICAL: Preserve original headlines exactly as they appear
@@ -56,7 +57,7 @@ class GeminiService {
       3. content: important facts and context
       4. source: exact news outlet name (NHK, Japan Times, Nikkei, Asahi Shimbun, etc.)
       5. publishedAt: publication date in ISO format
-      6. category: Politics, Business, Technology, Culture, Sports, or Other
+      6. category: ${VALID_CATEGORIES.join(', ')}
       7. url: URL to the original article for citing
 
       FORMAT REQUIREMENTS:
@@ -100,11 +101,6 @@ class GeminiService {
 
       const text = response.text || ''
 
-      // Log raw model output for debugging
-      console.log('=== GEMINI RAW OUTPUT ===')
-      console.log(text)
-      console.log('=== END RAW OUTPUT ===')
-
       // Try to parse JSON from the response
       const jsonMatch = text.match(/\[[\s\S]*\]/)
       if (jsonMatch) {
@@ -129,7 +125,9 @@ class GeminiService {
       return this.parseNewsFromText(text)
 
     } catch (error) {
-      console.error('Error fetching news:', error)
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Error fetching news:', error)
+      }
       throw new Error('Failed to fetch news from Gemini API')
     }
   }

@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import JapanNewsReader from '~/app/components/JapanNewsReader.vue'
 import type { NewsItem } from '~/types/index'
+import { NEWS_CATEGORIES } from '~/constants/categories'
 
 // Mock NewsCard component
 const NewsCardMock = {
@@ -63,9 +64,8 @@ describe('JapanNewsReader', () => {
   it('displays all category buttons', () => {
     const wrapper = createWrapper()
 
-    const categories = ['All News', 'Politics', 'Business', 'Technology', 'Culture', 'Sports']
-    categories.forEach(category => {
-      expect(wrapper.text()).toContain(category)
+    NEWS_CATEGORIES.forEach(category => {
+      expect(wrapper.text()).toContain(category.name)
     })
   })
 

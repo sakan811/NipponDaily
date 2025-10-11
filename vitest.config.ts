@@ -1,16 +1,10 @@
 import { defineConfig } from 'vitest/config'
-import { defineVitestProject } from '@nuxt/test-utils/config'
 import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
-import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
   plugins: [
     vue(),
-    AutoImport({
-      imports: ['vue', 'vue-router'],
-      dts: false,
-    }),
   ],
   test: {
     globals: true,
@@ -55,12 +49,5 @@ export default defineConfig({
         environment: 'node',
       },
     },
-    await defineVitestProject({
-      test: {
-        name: 'nuxt',
-        include: ['test/nuxt/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-        environment: 'nuxt',
-      },
-    }),
   ],
 })
