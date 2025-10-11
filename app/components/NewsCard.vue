@@ -78,6 +78,10 @@ const categoryColorClass = computed(() => {
 const formatDate = (dateString: string) => {
   try {
     const date = new Date(dateString)
+    // Check if date is invalid
+    if (isNaN(date.getTime())) {
+      return 'Unknown date'
+    }
     return date.toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
