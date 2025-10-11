@@ -49,7 +49,7 @@ class GeminiService {
       CRITICAL REQUIREMENTS:
       1. **HEADLINES**: Keep the EXACT original headlines from the news sources. Do not modify, summarize, or rephrase headlines. If the original headline is in Japanese, provide an accurate English translation but mark it as "Translated: [English headline]".
 
-      2. **URLS**: When Google Search provides Vertex AI search redirect URLs (vertexaisearch.cloud.google.com/grounding-api-redirect/), use these URLs as they provide direct access to the news sources through Google's grounding system. These URLs are preferred and should be used when available. If Vertex AI redirect URLs are not available, provide the complete, direct URL to the original news article.
+      2. **URLS**: Provide URL to the original article. Ensure URLs are complete and valid (including https://).
 
       For each news item found, provide:
       1. title: EXACT original headline (see requirements above)
@@ -84,11 +84,14 @@ class GeminiService {
       const response = await this.client.models.generateContent({
         model: this.getModel(),
         contents: [
-          { role: 'user', parts: [{ text: systemInstruction }] },
-          { role: 'model', parts: [{ text: 'Understood. I will fetch Japanese news using Google Search and format it as requested.' }] },
           { role: 'user', parts: [{ text: prompt }] }
         ],
         config: {
+          systemInstruction: systemInstruction,
+          temperature: 0,
+          thinkingConfig: {
+            thinkingBudget: 24576
+          },
           tools: [
             { urlContext: {} },
             {
