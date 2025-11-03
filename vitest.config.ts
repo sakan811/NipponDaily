@@ -11,9 +11,13 @@ export default defineConfig({
   test: {
     globals: true,
     setupFiles: ['./test/setup.ts'],
-    environment: 'node',
+    environment: 'happy-dom',
     include: ['test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
+    environmentMatchGlobs: [
+      ['test/server/**', 'node'],
+      ['test/unit/**', 'happy-dom']
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text'],
