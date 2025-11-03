@@ -61,10 +61,11 @@ class TavilyService {
         searchQuery = `latest ${category} news Japan`
       }
 
-      // Use the search method with topic: "news" for news-focused results
+      // Use the search method with topic: "news" for news-focused results and include raw content
       const response = await this.client.search(searchQuery, {
         topic: "news",
-        max_results: maxResults
+        max_results: maxResults,
+        includeRawContent: true
       })
 
       return response
@@ -96,8 +97,9 @@ class TavilyService {
   formatTavilyResultsToNewsItems(response: TavilyResponse): any[] {
     return response.results.map((result: TavilySearchResult) => ({
       title: result.title || 'Untitled',
-      summary: result.content?.substring(0, 200) + '...' || '',
+      summary: result.content || '',
       content: result.content || '',
+      rawContent: result.raw_content || '',
       source: this.extractSourceFromUrl(result.url),
       publishedAt: result.published_date || new Date().toISOString(),
       category: 'Other',

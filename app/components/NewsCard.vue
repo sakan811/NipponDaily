@@ -20,7 +20,7 @@
       </h3>
 
       <!-- News Summary -->
-      <p class="text-text-light mb-4 line-clamp-3 leading-relaxed">
+      <p class="text-text-light mb-4 leading-relaxed">
         {{ news.summary }}
       </p>
 
