@@ -24,7 +24,7 @@ class GeminiService {
 
   private getModel(): string {
     const config = useRuntimeConfig()
-    return config.geminiModel || 'gemini-1.5-flash'
+    return config.geminiModel || 'gemini-2.5-flash'
   }
 
   /**
