@@ -1,21 +1,18 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import type { NewsItem } from '~~/types/index'
+import { mockGenerateContent } from '../setup'
 
-let mockGenerateContent: any
-
-vi.mock('@google/genai', () => ({
-  GoogleGenAI: vi.fn().mockImplementation(() => ({
-    models: {
-      generateContent: mockGenerateContent
-    }
+// Mock useRuntimeConfig with hoisted mock
+const { mockUseRuntimeConfig } = vi.hoisted(() => {
+  const mockUseRuntimeConfig = vi.fn(() => ({
+    geminiApiKey: 'test-api-key',
+    geminiModel: 'gemini-1.5-flash'
   }))
-}))
+  return { mockUseRuntimeConfig }
+})
 
 vi.mock('#app', () => ({
-  useRuntimeConfig: vi.fn(() => ({
-    geminiApiKey: 'test-key',
-    geminiModel: 'gemini-2.5-flash'
-  }))
+  useRuntimeConfig: mockUseRuntimeConfig
 }))
 
 describe('GeminiService', () => {
@@ -23,7 +20,6 @@ describe('GeminiService', () => {
 
   beforeEach(async () => {
     vi.clearAllMocks()
-    mockGenerateContent = vi.fn()
     const module = await import('~/server/services/gemini')
     service = module.geminiService
   })
@@ -43,12 +39,16 @@ describe('GeminiService', () => {
     it('categorizes news items successfully', async () => {
       const mockNews = createMockNews()
       mockGenerateContent.mockResolvedValue({
-        text: '["Technology"]'
+        text: '[{"category": "Technology", "summary": "Test summary"}]'
       })
 
-      const result = await service.categorizeNewsItems(mockNews)
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key',
+        model: 'gemini-1.5-flash'
+      })
 
       expect(result[0].category).toBe('Technology')
+      expect(result[0].summary).toBe('Test summary')
       expect(mockGenerateContent).toHaveBeenCalledTimes(1)
     })
 
@@ -59,11 +59,18 @@ describe('GeminiService', () => {
       const mockNews = createMockNews()
       const result = await serviceWithoutClient.categorizeNewsItems(mockNews)
 
-      expect(result).toEqual(mockNews)
+      expect(result).toEqual(mockNews.map(item => ({
+        ...item,
+        category: 'Other',
+        summary: item.summary || item.content,
+        content: item.summary || item.content
+      })))
     })
 
     it('returns empty array for empty input', async () => {
-      const result = await service.categorizeNewsItems([])
+      const result = await service.categorizeNewsItems([], {
+        apiKey: 'test-api-key'
+      })
 
       expect(result).toEqual([])
       expect(mockGenerateContent).not.toHaveBeenCalled()
@@ -75,7 +82,9 @@ describe('GeminiService', () => {
         text: 'invalid json response'
       })
 
-      const result = await service.categorizeNewsItems(mockNews)
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key'
+      })
 
       expect(result[0].category).toBe('Other')
     })
@@ -84,7 +93,9 @@ describe('GeminiService', () => {
       const mockNews = createMockNews()
       mockGenerateContent.mockRejectedValue(new Error('API Error'))
 
-      const result = await service.categorizeNewsItems(mockNews)
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key'
+      })
 
       expect(result[0].category).toBe('Other')
     })
@@ -92,10 +103,12 @@ describe('GeminiService', () => {
     it('validates and normalizes category names', async () => {
       const mockNews = createMockNews()
       mockGenerateContent.mockResolvedValue({
-        text: '["technology"]' // lowercase
+        text: '[{"category": "technology", "summary": "Test summary"}]' // lowercase
       })
 
-      const result = await service.categorizeNewsItems(mockNews)
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key'
+      })
 
       expect(result[0].category).toBe('Technology')
     })
@@ -103,10 +116,12 @@ describe('GeminiService', () => {
     it('defaults to "Other" for invalid categories', async () => {
       const mockNews = createMockNews()
       mockGenerateContent.mockResolvedValue({
-        text: '["InvalidCategory"]'
+        text: '[{"category": "InvalidCategory", "summary": "Test summary"}]'
       })
 
-      const result = await service.categorizeNewsItems(mockNews)
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key'
+      })
 
       expect(result[0].category).toBe('Other')
     })

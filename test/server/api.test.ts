@@ -1,6 +1,23 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import type { NewsItem } from '~~/types/index'
 
+// Mock useRuntimeConfig with hoisted mock
+const { mockUseRuntimeConfig } = vi.hoisted(() => {
+  const mockUseRuntimeConfig = vi.fn(() => ({
+    geminiApiKey: 'test-api-key',
+    geminiModel: 'gemini-1.5-flash',
+    tavilyApiKey: 'test-tavily-key',
+    public: {
+      apiBase: '/api'
+    }
+  }))
+  return { mockUseRuntimeConfig }
+})
+
+vi.mock('#app', () => ({
+  useRuntimeConfig: mockUseRuntimeConfig
+}))
+
 // Mock services with correct method names
 const mockTavilySearch = vi.fn()
 const mockTavilyFormat = vi.fn()
@@ -19,23 +36,8 @@ vi.mock('~/server/services/gemini', () => ({
   }
 }))
 
-// Mock h3 utilities
-vi.mock('h3', () => ({
-  getQuery: vi.fn(() => ({})),
-  createError: vi.fn((error) => error)
-}))
-
-// Mock Nuxt runtime config
-vi.mock('#app', () => ({
-  useRuntimeConfig: vi.fn(() => ({
-    tavilyApiKey: 'test-key',
-    geminiApiKey: 'test-key'
-  }))
-}))
-
 describe('News API', () => {
   let handler: any
-  let mockGetQuery: any
 
   beforeEach(async () => {
     vi.clearAllMocks()
@@ -43,7 +45,7 @@ describe('News API', () => {
 
     const handlerModule = await import('~/server/api/news.get')
     handler = handlerModule.default
-    mockGetQuery = vi.mocked(require('h3').getQuery)
+    ;(global as any).getQuery.mockReturnValue({})
   })
 
   const createMockNews = (): NewsItem[] => [
@@ -59,7 +61,7 @@ describe('News API', () => {
   ]
 
   it('returns news successfully with default parameters', async () => {
-    mockGetQuery.mockReturnValue({})
+    ;(global as any).getQuery.mockReturnValue({})
     mockTavilySearch.mockResolvedValue({ results: [] })
     mockTavilyFormat.mockReturnValue([])
     mockGeminiCategorize.mockResolvedValue([])
@@ -70,11 +72,16 @@ describe('News API', () => {
     expect(response.data).toEqual([])
     expect(response.count).toBe(0)
     expect(response.timestamp).toBeDefined()
+    expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 10, apiKey: 'test-tavily-key' })
+    expect(mockGeminiCategorize).toHaveBeenCalledWith([], {
+      apiKey: 'test-api-key',
+      model: 'gemini-1.5-flash'
+    })
   })
 
   it('filters news by category', async () => {
     const mockNews = createMockNews()
-    mockGetQuery.mockReturnValue({ category: 'technology' })
+    ;(global as any).getQuery.mockReturnValue({ category: 'technology' })
     mockTavilySearch.mockResolvedValue({ results: [] })
     mockTavilyFormat.mockReturnValue(mockNews)
     mockGeminiCategorize.mockResolvedValue(mockNews)
@@ -83,7 +90,11 @@ describe('News API', () => {
 
     expect(response.success).toBe(true)
     expect(response.data).toHaveLength(1)
-    expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 10 })
+    expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 10, apiKey: 'test-tavily-key' })
+    expect(mockGeminiCategorize).toHaveBeenCalledWith(mockNews, {
+      apiKey: 'test-api-key',
+      model: 'gemini-1.5-flash'
+    })
   })
 
   it('applies limit parameter', async () => {
@@ -97,7 +108,7 @@ describe('News API', () => {
       url: `https://example.com/${i}`
     }))
 
-    mockGetQuery.mockReturnValue({ limit: '3' })
+    ;(global as any).getQuery.mockReturnValue({ limit: '3' })
     mockTavilySearch.mockResolvedValue({ results: [] })
     mockTavilyFormat.mockReturnValue(mockNews)
     mockGeminiCategorize.mockResolvedValue(mockNews)
@@ -106,10 +117,11 @@ describe('News API', () => {
 
     expect(response.data).toHaveLength(3)
     expect(response.count).toBe(3)
+    expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 3, apiKey: 'test-tavily-key' })
   })
 
   it('handles invalid limit parameter', async () => {
-    mockGetQuery.mockReturnValue({ limit: 'invalid' })
+    ;(global as any).getQuery.mockReturnValue({ limit: 'invalid' })
     mockTavilySearch.mockResolvedValue({ results: [] })
     mockTavilyFormat.mockReturnValue([])
     mockGeminiCategorize.mockResolvedValue([])
@@ -117,11 +129,12 @@ describe('News API', () => {
     const response = await handler({})
 
     expect(response.data).toHaveLength(0)
+    expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 10, apiKey: 'test-tavily-key' })
   })
 
   it('returns all news when category is "all"', async () => {
     const mockNews = createMockNews()
-    mockGetQuery.mockReturnValue({ category: 'all' })
+    ;(global as any).getQuery.mockReturnValue({ category: 'all' })
     mockTavilySearch.mockResolvedValue({ results: [] })
     mockTavilyFormat.mockReturnValue(mockNews)
     mockGeminiCategorize.mockResolvedValue(mockNews)
@@ -130,11 +143,12 @@ describe('News API', () => {
 
     expect(response.success).toBe(true)
     expect(response.data).toHaveLength(1)
+    expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 10, apiKey: 'test-tavily-key' })
   })
 
   it('handles service errors', async () => {
     const error = new Error('Service error')
-    mockGetQuery.mockReturnValue({})
+    ;(global as any).getQuery.mockReturnValue({})
     mockTavilySearch.mockRejectedValue(error)
 
     await expect(handler({})).rejects.toMatchObject({
@@ -142,13 +156,14 @@ describe('News API', () => {
       statusMessage: 'Failed to fetch news',
       data: { error: 'Service error' }
     })
+    expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 10, apiKey: 'test-tavily-key' })
   })
 
   it('logs errors in development environment', async () => {
     process.env.NODE_ENV = 'development'
     const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
     const error = new Error('Dev error')
-    mockGetQuery.mockReturnValue({})
+    ;(global as any).getQuery.mockReturnValue({})
     mockTavilySearch.mockRejectedValue(error)
 
     try {
@@ -157,5 +172,6 @@ describe('News API', () => {
 
     expect(consoleSpy).toHaveBeenCalledWith('News API error:', error)
     consoleSpy.mockRestore()
+    expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 10, apiKey: 'test-tavily-key' })
   })
 })

@@ -21,6 +21,7 @@ process.env.NODE_ENV = 'test'
 const mockRuntimeConfig = vi.fn(() => ({
   geminiApiKey: 'test-api-key',
   geminiModel: 'gemini-1.5-flash',
+  tavilyApiKey: 'test-tavily-key',
   public: {
     apiBase: '/api'
   }
@@ -48,6 +49,9 @@ vi.mock('#app', () => ({
   useError: vi.fn(() => ref(null)),
   clearError: vi.fn()
 }))
+
+// Make useRuntimeConfig globally available for server tests
+;(global as any).useRuntimeConfig = mockRuntimeConfig
 
 // Mock H3 utilities for server tests
 vi.mock('h3', () => ({
@@ -88,25 +92,38 @@ global.fetch = vi.fn(() =>
 )
 
 // Mock Google GenAI for service tests
+const mockGenerateContent = vi.fn(() =>
+  Promise.resolve({
+    text: JSON.stringify([{
+      title: 'Test News',
+      summary: 'Test Summary',
+      content: 'Test Content',
+      source: 'Test Source',
+      publishedAt: '2024-01-15T10:00:00Z',
+      category: 'Technology',
+      url: 'https://example.com/test'
+    }])
+  })
+)
+
 vi.mock('@google/genai', () => ({
   GoogleGenAI: vi.fn().mockImplementation(() => ({
     models: {
-      generateContent: vi.fn(() =>
-        Promise.resolve({
-          text: JSON.stringify([{
-            title: 'Test News',
-            summary: 'Test Summary',
-            content: 'Test Content',
-            source: 'Test Source',
-            publishedAt: '2024-01-15T10:00:00Z',
-            category: 'Technology',
-            url: 'https://example.com/test'
-          }])
-        })
-      )
+      generateContent: mockGenerateContent
     }
   }))
 }))
+
+// Mock Tavily for service tests
+let mockTavilyClient: any = {
+  search: vi.fn()
+}
+
+vi.mock('@tavily/core', () => ({
+  tavily: vi.fn(() => mockTavilyClient)
+}))
+
+export { mockTavilyClient, mockGenerateContent }
 
 // Configure Vue Test Utils with enhanced mocks
 config.global.mocks = {
