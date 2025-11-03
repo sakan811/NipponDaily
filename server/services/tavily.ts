@@ -100,7 +100,7 @@ class TavilyService {
       content: result.content || '',
       source: this.extractSourceFromUrl(result.url),
       publishedAt: result.published_date || new Date().toISOString(),
-      category: 'General',
+      category: 'Other',
       url: result.url,
       score: result.score
     }))

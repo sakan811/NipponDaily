@@ -57,7 +57,6 @@ describe('JapanNewsReader', () => {
 
     expect(wrapper.text()).toContain('NipponDaily')
     expect(wrapper.text()).toContain('Get News')
-    expect(wrapper.text()).toContain('Last updated: Never')
     expect(wrapper.text()).toContain('No news loaded yet')
   })
 
@@ -159,22 +158,6 @@ describe('JapanNewsReader', () => {
 
     expect(wrapper.text()).toContain(errorMessage)
     expect(wrapper.text()).toContain('Try Again')
-  })
-
-  it('updates last updated timestamp after successful fetch', async () => {
-    mockFetch.mockResolvedValue({
-      data: mockNewsData
-    })
-
-    const wrapper = createWrapper()
-
-    expect(wrapper.text()).toContain('Last updated: Never')
-
-    await wrapper.find('button').trigger('click')
-    await new Promise(resolve => setTimeout(resolve, 10)) // Wait for async operations
-    await wrapper.vm.$nextTick()
-
-    expect(wrapper.text()).not.toContain('Last updated: Never')
   })
 
   it('disables button during loading', async () => {

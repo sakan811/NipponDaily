@@ -22,9 +22,6 @@
               <span v-if="loading">Getting...</span>
               <span v-else>Get News</span>
             </button>
-            <span class="text-sm text-hai">
-              Last updated: {{ lastUpdated }}
-            </span>
           </div>
         </div>
       </div>
@@ -109,7 +106,6 @@ const news = ref<NewsItem[]>([])
 const loading = ref(false)
 const error = ref<string | null>(null)
 const selectedCategory = ref<CategoryId>('all')
-const lastUpdated = ref<string>('Never')
 
 // Categories
 const categories = NEWS_CATEGORIES
@@ -130,15 +126,14 @@ const fetchNews = async () => {
   error.value = null
 
   try {
-    const { data } = await $fetch('/api/news', {
+    const response = await $fetch('/api/news', {
       query: {
         category: selectedCategory.value === 'all' ? undefined : selectedCategory.value,
         limit: 20
       }
     })
 
-    news.value = data || []
-    lastUpdated.value = new Date().toLocaleTimeString()
+    news.value = response.data || []
   } catch (err: any) {
     console.error('Error fetching news:', err)
     error.value = err.data?.error || 'Failed to fetch news. Please try again.'
