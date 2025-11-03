@@ -28,8 +28,79 @@ class GeminiService {
   }
 
   async fetchJapanNews(): Promise<NewsItem[]> {
+    try {
+      // Use Tavily to search for Japan news
+      const tavilyResponse = await tavilyService.searchJapanNews({
+        maxResults: 10
+      })
+
+      // Format Tavily results to NewsItem format
+      const newsItems = tavilyService.formatTavilyResultsToNewsItems(tavilyResponse)
+
+      // Use Gemini to enhance the news data with better summaries and categorization
+      if (this.client && newsItems.length > 0) {
+        return await this.enhanceNewsWithGemini(newsItems)
+      }
+
+      return newsItems
+
+    } catch (error) {
+      console.error('Error fetching news:', error)
+      // Fallback to Gemini if Tavily fails
+      return this.fetchNewsWithGeminiFallback()
+    }
+  }
+
+  private async enhanceNewsWithGemini(newsItems: any[]): Promise<NewsItem[]> {
     if (!this.client) {
-      throw new Error('Gemini client not initialized')
+      return newsItems
+    }
+
+    try {
+      const newsText = newsItems.map(item =>
+        `Title: ${item.title}\nContent: ${item.content}\nSource: ${item.source}\nPublished: ${item.publishedAt}`
+      ).join('\n\n---\n\n')
+
+      const prompt = `You are a specialized AI assistant for enhancing Japanese news articles. Please process the following news articles and improve their summaries and categorization:
+
+${newsText}
+
+For each article, provide:
+1. Enhanced summary (2-3 sentences capturing key points)
+2. Better category classification (Politics, Business, Technology, Culture, Sports, or Other)
+3. Key insights or context
+
+Format your response as a JSON array with the same structure as the input, but with improved 'summary' and 'category' fields.`
+
+      const response = await this.client.models.generateContent({
+        model: this.getModel(),
+        contents: prompt
+      })
+
+      const text = response.text || ''
+
+      // Try to parse enhanced JSON from the response
+      const jsonMatch = text.match(/\[[\s\S]*\]/)
+      if (jsonMatch) {
+        const enhancedData = JSON.parse(jsonMatch[0])
+        return newsItems.map((item, index) => ({
+          ...item,
+          summary: enhancedData[index]?.summary || item.summary,
+          category: enhancedData[index]?.category || item.category
+        }))
+      }
+
+      return newsItems
+
+    } catch (error) {
+      console.error('Error enhancing news with Gemini:', error)
+      return newsItems
+    }
+  }
+
+  private async fetchNewsWithGeminiFallback(): Promise<NewsItem[]> {
+    if (!this.client) {
+      throw new Error('Both Tavily and Gemini clients not initialized')
     }
 
     try {
