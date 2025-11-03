@@ -28,7 +28,7 @@ class GeminiService {
   }
 
   /**
-   * Categorize news items using Gemini AI
+   * Categorize news items and generate summaries using Gemini AI
    */
   async categorizeNewsItems(newsItems: NewsItem[]): Promise<NewsItem[]> {
     if (!this.client || newsItems.length === 0) {
@@ -37,26 +37,31 @@ class GeminiService {
 
     try {
       const newsText = newsItems.map((item, index) =>
-        `${index + 1}. Title: ${item.title}\n   Content: ${item.content || item.summary}\n   Source: ${item.source}`
+        `${index + 1}. Title: ${item.title}\n   Content: ${item.rawContent || item.content || item.summary}\n   Source: ${item.source}`
       ).join('\n\n')
 
-      const prompt = `You are a specialized AI assistant for categorizing Japanese news articles. Please analyze the following news articles and categorize each one.
+      const prompt = `You are a specialized AI assistant for categorizing Japanese news articles and generating summaries. Please analyze the following news articles and provide both categorization and a concise summary for each one.
 
 Available categories: ${VALID_CATEGORIES.filter(cat => cat !== 'Other').join(', ')}
 
 ${newsText}
 
-For each article, provide only the category name. Format your response as a JSON array where each element is the category for the corresponding article.
+For each article, provide a JSON object with both category and summary. Format your response as a JSON array where each element contains the category and a concise summary for the corresponding article.
 
 Example format:
-["Politics", "Business", "Technology", "Culture"]
+[
+  {"category": "Politics", "summary": "Former Prime Minister Abe's assassination trial begins with suspect's guilty plea"},
+  {"category": "Business", "summary": "Trump and Japanese PM announce major trade agreements and investment deals"}
+]
 
 Requirements:
-- Use exactly one category from the available list
+- Use exactly one category from the available list for each article
 - Choose the most appropriate primary category for each article
+- Generate a concise, informative summary (2-3 sentences maximum) based on the raw content
 - If no category fits well, use "Other"
 - Response must be a valid JSON array
-- Order must match the input articles`
+- Order must match the input articles
+- Focus on the key information and main point of each article`
 
       const response = await this.client.models.generateContent({
         model: this.getModel(),
@@ -69,22 +74,29 @@ Requirements:
       const jsonMatch = text.match(/\[[\s\S]*\]/)
       if (jsonMatch) {
         try {
-          const categories = JSON.parse(jsonMatch[0])
-          if (Array.isArray(categories) && categories.length === newsItems.length) {
-            return newsItems.map((item, index) => ({
-              ...item,
-              category: this.validateCategory(categories[index])
-            }))
+          const results = JSON.parse(jsonMatch[0])
+          if (Array.isArray(results) && results.length === newsItems.length) {
+            return newsItems.map((item, index) => {
+              const result = results[index]
+              return {
+                ...item,
+                category: this.validateCategory(result.category),
+                summary: result.summary || item.summary || item.content,
+                content: result.summary || item.summary || item.content
+              }
+            })
           }
         } catch (parseError) {
-          console.warn('Failed to parse categories from Gemini response:', parseError)
+          console.warn('Failed to parse categories and summaries from Gemini response:', parseError)
         }
       }
 
-      // Fallback: return items with original categories or "Other"
+      // Fallback: return items with original categories and content
       return newsItems.map(item => ({
         ...item,
-        category: this.validateCategory(item.category)
+        category: this.validateCategory(item.category),
+        summary: item.summary || item.content,
+        content: item.summary || item.content
       }))
 
     } catch (error) {
@@ -92,7 +104,9 @@ Requirements:
       // Return items with validated categories on error
       return newsItems.map(item => ({
         ...item,
-        category: this.validateCategory(item.category)
+        category: this.validateCategory(item.category),
+        summary: item.summary || item.content,
+        content: item.summary || item.content
       }))
     }
   }

@@ -4,6 +4,7 @@ export interface NewsItem {
   title: string
   summary: string
   content: string
+  rawContent?: string
   source: string
   publishedAt: string
   category: CategoryName
