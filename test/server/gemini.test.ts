@@ -62,8 +62,7 @@ describe('GeminiService', () => {
       expect(result).toEqual(mockNews.map(item => ({
         ...item,
         category: 'Other',
-        summary: item.summary || item.content,
-        content: item.summary || item.content
+        summary: item.summary || item.content
       })))
     })
 

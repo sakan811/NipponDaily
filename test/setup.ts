@@ -106,12 +106,20 @@ const mockGenerateContent = vi.fn(() =>
   })
 )
 
+// Create a proper constructor mock for GoogleGenAI
+class MockGoogleGenAI {
+  models = {
+    generateContent: mockGenerateContent
+  }
+
+  constructor(options: any) {
+    // Constructor mock - handle the apiKey parameter
+    return this
+  }
+}
+
 vi.mock('@google/genai', () => ({
-  GoogleGenAI: vi.fn().mockImplementation(() => ({
-    models: {
-      generateContent: mockGenerateContent
-    }
-  }))
+  GoogleGenAI: MockGoogleGenAI
 }))
 
 // Mock Tavily for service tests
@@ -183,7 +191,9 @@ export const resetAllMocks = () => {
 import type { MatcherFunction } from 'vitest'
 
 const toBeInTheDocument: MatcherFunction = function (received) {
-  const pass = received && document.body.contains(received)
+  // Use happy-dom's document implementation
+  const pass = received && (typeof document !== 'undefined') &&
+    document.documentElement.contains(received)
   return {
     message: () =>
       pass
