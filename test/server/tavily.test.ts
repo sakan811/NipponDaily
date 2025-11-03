@@ -1,25 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-
-let mockTavilyClient: any
-
-vi.mock('@tavily/core', () => ({
-  tavily: vi.fn(() => mockTavilyClient)
-}))
-
-vi.mock('#app', () => ({
-  useRuntimeConfig: vi.fn(() => ({
-    tavilyApiKey: 'test-key'
-  }))
-}))
+import { mockTavilyClient } from '../setup'
 
 describe('TavilyService', () => {
   let service: any
 
   beforeEach(async () => {
     vi.clearAllMocks()
-    mockTavilyClient = {
-      search: vi.fn()
-    }
+    mockTavilyClient.search = vi.fn()
     const module = await import('~/server/services/tavily')
     service = module.tavilyService
   })
@@ -53,11 +40,12 @@ describe('TavilyService', () => {
       const mockResponse = createMockTavilyResponse()
       mockTavilyClient.search.mockResolvedValue(mockResponse)
 
-      const result = await service.searchJapanNews({ maxResults: 5 })
+      const result = await service.searchJapanNews({ maxResults: 5, apiKey: 'test-tavily-key' })
 
       expect(mockTavilyClient.search).toHaveBeenCalledWith('latest news Japan', {
         topic: 'news',
-        max_results: 5
+        max_results: 5,
+        includeRawContent: true
       })
       expect(result).toEqual(mockResponse)
     })
@@ -66,11 +54,12 @@ describe('TavilyService', () => {
       const mockResponse = createMockTavilyResponse()
       mockTavilyClient.search.mockResolvedValue(mockResponse)
 
-      await service.searchJapanNews({ category: 'technology' })
+      await service.searchJapanNews({ category: 'technology', apiKey: 'test-tavily-key' })
 
       expect(mockTavilyClient.search).toHaveBeenCalledWith('latest technology news Japan', {
         topic: 'news',
-        max_results: 10
+        max_results: 10,
+        includeRawContent: true
       })
     })
 
@@ -79,14 +68,14 @@ describe('TavilyService', () => {
       const serviceWithoutClient = new module.TavilyService()
 
       await expect(serviceWithoutClient.searchJapanNews()).rejects.toThrow(
-        'Tavily client not initialized'
+        'Tavily client not initialized - API key required'
       )
     })
 
     it('handles API errors', async () => {
       mockTavilyClient.search.mockRejectedValue(new Error('API Error'))
 
-      await expect(service.searchJapanNews()).rejects.toThrow(
+      await expect(service.searchJapanNews({ apiKey: 'test-tavily-key' })).rejects.toThrow(
         'Failed to search news with Tavily API'
       )
     })
@@ -101,7 +90,7 @@ describe('TavilyService', () => {
       expect(result).toHaveLength(2)
       expect(result[0]).toMatchObject({
         title: 'News 1',
-        summary: 'News content 1...',
+        summary: 'News content 1',
         content: 'News content 1',
         source: 'example.com',
         publishedAt: '2024-01-15T10:00:00Z',
@@ -160,7 +149,7 @@ describe('TavilyService', () => {
       const result = service.formatTavilyResultsToNewsItems(mockResponse)
 
       expect(result[0].title).toBe('Untitled')
-      expect(result[0].summary).toBe('...')
+      expect(result[0].summary).toBe('')
     })
   })
 })
