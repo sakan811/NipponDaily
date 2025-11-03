@@ -6,14 +6,7 @@ import { VALID_CATEGORIES } from '../../constants/categories'
 class GeminiService {
   private client: GoogleGenAI | null = null
 
-  constructor() {
-    this.initializeClient()
-  }
-
-  private initializeClient() {
-    const config = useRuntimeConfig()
-    const apiKey = config.geminiApiKey
-
+  private initializeClient(apiKey?: string) {
     if (!apiKey) {
       console.warn('GEMINI_API_KEY not configured')
       return
@@ -22,15 +15,22 @@ class GeminiService {
     this.client = new GoogleGenAI({ apiKey })
   }
 
-  private getModel(): string {
-    const config = useRuntimeConfig()
-    return config.geminiModel || 'gemini-2.5-flash'
+  private getModel(defaultModel?: string): string {
+    return defaultModel || 'gemini-2.5-flash'
   }
 
   /**
    * Categorize news items and generate summaries using Gemini AI
    */
-  async categorizeNewsItems(newsItems: NewsItem[]): Promise<NewsItem[]> {
+  async categorizeNewsItems(newsItems: NewsItem[], options?: {
+    apiKey?: string
+    model?: string
+  }): Promise<NewsItem[]> {
+    // Initialize client with API key if not already done
+    if (!this.client && options?.apiKey) {
+      this.initializeClient(options.apiKey)
+    }
+
     if (!this.client || newsItems.length === 0) {
       return newsItems
     }
@@ -64,7 +64,7 @@ Requirements:
 - Focus on the key information and main point of each article`
 
       const response = await this.client.models.generateContent({
-        model: this.getModel(),
+        model: this.getModel(options?.model),
         contents: prompt
       })
 

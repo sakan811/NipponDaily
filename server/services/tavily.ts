@@ -23,14 +23,7 @@ export interface TavilyResponse {
 class TavilyService {
   private client: any
 
-  constructor() {
-    this.initializeClient()
-  }
-
-  private initializeClient() {
-    const config = useRuntimeConfig()
-    const apiKey = config.tavilyApiKey
-
+  private initializeClient(apiKey?: string) {
     if (!apiKey) {
       console.warn('TAVILY_API_KEY not configured')
       return
@@ -43,9 +36,15 @@ class TavilyService {
     query?: string
     maxResults?: number
     category?: string
+    apiKey?: string
   }): Promise<TavilyResponse> {
+    // Initialize client with API key if not already done
+    if (!this.client && options?.apiKey) {
+      this.initializeClient(options.apiKey)
+    }
+
     if (!this.client) {
-      throw new Error('Tavily client not initialized')
+      throw new Error('Tavily client not initialized - API key required')
     }
 
     try {
@@ -76,9 +75,14 @@ class TavilyService {
     }
   }
 
-  async searchGeneral(query: string, maxResults: number = 5): Promise<TavilyResponse> {
+  async searchGeneral(query: string, maxResults: number = 5, apiKey?: string): Promise<TavilyResponse> {
+    // Initialize client with API key if not already done
+    if (!this.client && apiKey) {
+      this.initializeClient(apiKey)
+    }
+
     if (!this.client) {
-      throw new Error('Tavily client not initialized')
+      throw new Error('Tavily client not initialized - API key required')
     }
 
     try {
@@ -130,4 +134,5 @@ class TavilyService {
   }
 }
 
+export { TavilyService }
 export const tavilyService = new TavilyService()

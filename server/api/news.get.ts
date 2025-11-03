@@ -3,21 +3,29 @@ import { tavilyService } from '../services/tavily'
 
 export default defineEventHandler(async (event) => {
   try {
+    // Get runtime config
+    const config = useRuntimeConfig()
+
     // Get query parameters
     const query = getQuery(event)
     const category = query.category as string
-    const limit = query.limit ? parseInt(query.limit as string) : 10
+    const limitParam = parseInt(query.limit as string)
+    const limit = !isNaN(limitParam) && limitParam > 0 ? limitParam : 10
 
     // Fetch news from Tavily
     const tavilyResponse = await tavilyService.searchJapanNews({
-      maxResults: limit
+      maxResults: limit,
+      apiKey: config.tavilyApiKey
     })
 
     // Format Tavily results to NewsItem format
     let news = tavilyService.formatTavilyResultsToNewsItems(tavilyResponse)
 
     // Use Gemini to categorize the news
-    news = await geminiService.categorizeNewsItems(news)
+    news = await geminiService.categorizeNewsItems(news, {
+      apiKey: config.geminiApiKey,
+      model: config.geminiModel
+    })
 
     // Filter by category if specified
     if (category && category !== 'all') {
