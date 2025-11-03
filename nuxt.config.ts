@@ -104,6 +104,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     geminiApiKey: process.env.GEMINI_API_KEY,
     geminiModel: process.env.GEMINI_MODEL,
+    tavilyApiKey: process.env.TAVILY_API_KEY,
     public: {
       apiBase: '/api'
     }
