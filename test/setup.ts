@@ -67,6 +67,15 @@ vi.mock('h3', () => ({
   fromNodeMiddleware: vi.fn()
 }))
 
+// Make H3 functions globally available for server tests
+;(global as any).defineEventHandler = vi.fn((handler) => handler)
+;(global as any).getQuery = vi.fn(() => ({}))
+;(global as any).createError = vi.fn((error) => ({
+  statusCode: error.statusCode || 500,
+  statusMessage: error.statusMessage || 'Internal Server Error',
+  data: error.data || {}
+}))
+
 // Mock global fetch with enhanced functionality
 global.fetch = vi.fn(() =>
   Promise.resolve({
