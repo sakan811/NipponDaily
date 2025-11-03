@@ -1,4 +1,5 @@
 import { geminiService } from '../services/gemini'
+import { tavilyService } from '../services/tavily'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -7,8 +8,16 @@ export default defineEventHandler(async (event) => {
     const category = query.category as string
     const limit = query.limit ? parseInt(query.limit as string) : 10
 
-    // Fetch news from Gemini
-    let news = await geminiService.fetchJapanNews()
+    // Fetch news from Tavily
+    const tavilyResponse = await tavilyService.searchJapanNews({
+      maxResults: limit
+    })
+
+    // Format Tavily results to NewsItem format
+    let news = tavilyService.formatTavilyResultsToNewsItems(tavilyResponse)
+
+    // Use Gemini to categorize the news
+    news = await geminiService.categorizeNewsItems(news)
 
     // Filter by category if specified
     if (category && category !== 'all') {
@@ -17,7 +26,7 @@ export default defineEventHandler(async (event) => {
       )
     }
 
-    // Limit results
+    // Limit results (in case categorization returned more than requested)
     news = news.slice(0, limit)
 
     return {
