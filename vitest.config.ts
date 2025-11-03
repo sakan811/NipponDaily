@@ -8,12 +8,12 @@ export default defineConfig({
   ],
   test: {
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
     setupFiles: ['./test/setup.ts'],
     include: ['test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
     coverage: {
-      provider: 'istanbul',
+      provider: 'v8',
       reporter: ['text'],
       exclude: [
         'node_modules/',
@@ -36,21 +36,5 @@ export default defineConfig({
       '~~': resolve(__dirname, '.'),
       '@@': resolve(__dirname, '.')
     }
-  },
-  projects: [
-    {
-      test: {
-        name: 'unit',
-        include: ['test/unit/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-        environment: 'jsdom',
-      },
-    },
-    {
-      test: {
-        name: 'server',
-        include: ['test/server/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-        environment: 'node',
-      },
-    },
-  ],
+  }
 })
