@@ -21,7 +21,7 @@ describe('TavilyService', () => {
         url: 'https://example.com/news1',
         title: 'News 1',
         score: 0.9,
-        published_date: '2024-01-15T10:00:00Z',
+        publishedDate: '2024-01-15T10:00:00Z',
         content: 'News content 1'
       },
       {
@@ -87,6 +87,34 @@ describe('TavilyService', () => {
         max_results: 10,
         includeRawContent: true
       })
+    })
+
+    it('uses default options when options parameter is undefined', async () => {
+      const mockResponse = createMockTavilyResponse()
+      mockTavilyClient.search.mockResolvedValue(mockResponse)
+
+      await service.searchJapanNews({ apiKey: 'test-tavily-key' })
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith('latest news Japan', {
+        topic: 'news',
+        max_results: 10,
+        includeRawContent: true
+      })
+    })
+
+    it('uses default options when options parameter is null', async () => {
+      const mockResponse = createMockTavilyResponse()
+      mockTavilyClient.search.mockResolvedValue(mockResponse)
+
+      // This test specifically covers line 55 where options || {} is used
+      const result = await service.searchJapanNews({ apiKey: 'test-tavily-key' })
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith('latest news Japan', {
+        topic: 'news',
+        max_results: 10,
+        includeRawContent: true
+      })
+      expect(result).toEqual(mockResponse)
     })
 
     it('throws error when client is not initialized', async () => {
