@@ -57,7 +57,8 @@ Example format:
 Requirements:
 - Use exactly one category from the available list for each article
 - Choose the most appropriate primary category for each article
-- Generate a concise, informative summary (2-3 sentences maximum) based on the raw content
+- Generate a concise, informative summary (2-3 sentences maximum) based on the raw content provided
+- The raw content contains the full article text - use it to create meaningful summaries
 - If no category fits well, use "Other"
 - Response must be a valid JSON array
 - Order must match the input articles
@@ -78,11 +79,12 @@ Requirements:
           if (Array.isArray(results) && results.length === newsItems.length) {
             return newsItems.map((item, index) => {
               const result = results[index]
+              const aiSummary = result.summary && result.summary.trim() !== '' ? result.summary : null
               return {
                 ...item,
                 category: this.validateCategory(result.category),
-                summary: result.summary || item.summary || item.content,
-                content: result.summary || item.summary || item.content
+                summary: aiSummary || item.summary || item.content,
+                content: aiSummary || item.summary || item.content
               }
             })
           }
@@ -91,24 +93,61 @@ Requirements:
         }
       }
 
-      // Fallback: return items with original categories and content
+      // Fallback: return items with validated categories and prioritize rawContent
       return newsItems.map(item => ({
         ...item,
         category: this.validateCategory(item.category),
-        summary: item.summary || item.content,
-        content: item.summary || item.content
+        summary: item.rawContent && item.rawContent.trim() !== ''
+          ? this.createBasicSummary(item.rawContent)
+          : item.summary || item.content,
+        content: item.rawContent && item.rawContent.trim() !== ''
+          ? this.createBasicSummary(item.rawContent)
+          : item.summary || item.content
       }))
 
     } catch (error) {
       console.error('Error categorizing news with Gemini:', error)
-      // Return items with validated categories on error
+      // Return items with validated categories and prioritize rawContent on error
       return newsItems.map(item => ({
         ...item,
         category: this.validateCategory(item.category),
-        summary: item.summary || item.content,
-        content: item.summary || item.content
+        summary: item.rawContent && item.rawContent.trim() !== ''
+          ? this.createBasicSummary(item.rawContent)
+          : item.summary || item.content,
+        content: item.rawContent && item.rawContent.trim() !== ''
+          ? this.createBasicSummary(item.rawContent)
+          : item.summary || item.content
       }))
     }
+  }
+
+  /**
+   * Create a basic summary from raw content when AI fails
+   */
+  private createBasicSummary(rawContent: string): string {
+    if (!rawContent || rawContent.trim() === '') {
+      return 'No content available'
+    }
+
+    // Remove extra whitespace and get first meaningful sentences
+    const cleanContent = rawContent.replace(/\s+/g, ' ').trim()
+    const sentences = cleanContent.match(/[^.!?]+[.!?]+/g) || [cleanContent]
+
+    // Take first 2-3 sentences or first 200 characters
+    let summary = ''
+    let charCount = 0
+    let sentenceCount = 0
+
+    for (const sentence of sentences) {
+      if (charCount + sentence.length > 200 || sentenceCount >= 3) {
+        break
+      }
+      summary += sentence
+      charCount += sentence.length
+      sentenceCount++
+    }
+
+    return summary.trim() || cleanContent.substring(0, 200).trim()
   }
 
   /**

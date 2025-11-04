@@ -4,7 +4,7 @@ export interface TavilySearchResult {
   url: string
   title: string
   score: number
-  published_date?: string
+  publishedDate?: string
   content: string
   favicon?: string
   raw_content?: string
@@ -99,17 +99,19 @@ class TavilyService {
   }
 
   formatTavilyResultsToNewsItems(response: TavilyResponse): any[] {
-    return response.results.map((result: TavilySearchResult) => ({
-      title: result.title || 'Untitled',
-      summary: result.content || '',
-      content: result.content || '',
-      rawContent: result.raw_content || '',
-      source: this.extractSourceFromUrl(result.url),
-      publishedAt: result.published_date || new Date().toISOString(),
-      category: 'Other',
-      url: result.url,
-      score: result.score
-    }))
+    return response.results.map((result: TavilySearchResult) => {
+      return {
+        title: result.title || 'Untitled',
+        summary: result.content || '',
+        content: result.content || '',
+        rawContent: result.raw_content || '',
+        source: this.extractSourceFromUrl(result.url),
+        publishedAt: result.publishedDate || new Date().toISOString(),
+        category: 'Other',
+        url: result.url,
+        score: result.score
+      }
+    })
   }
 
   private extractSourceFromUrl(url: string): string {

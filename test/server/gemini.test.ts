@@ -220,5 +220,63 @@ describe('GeminiService', () => {
         contents: expect.stringContaining('Japan Tech News')
       })
     })
+
+    it('falls back to basic summary from rawContent when AI fails', async () => {
+      const mockNews = [
+        {
+          title: 'Japan Technology News',
+          summary: 'Brief summary',
+          content: 'Brief content',
+          rawContent: 'Japan has announced a major investment in artificial intelligence technology. The government plans to allocate $2 billion over the next five years to develop AI capabilities across various industries including healthcare, manufacturing, and transportation. This initiative aims to position Japan as a global leader in AI innovation and economic growth.',
+          source: 'Tech Source Japan',
+          publishedAt: '2024-01-15T10:00:00Z',
+          category: 'Other'
+        }
+      ]
+
+      // Mock Gemini API to return a response that will fail JSON parsing
+      mockGenerateContent.mockResolvedValue({
+        text: 'Invalid JSON response that will cause parsing to fail'
+      })
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key'
+      })
+
+      // Should fall back to basic summary from rawContent
+      expect(result).toHaveLength(1)
+      expect(result[0].category).toBe('Other')
+      expect(result[0].summary).toContain('Japan has announced a major investment in artificial intelligence')
+      expect(result[0].content).toContain('Japan has announced a major investment in artificial intelligence')
+    })
+
+    it('prioritizes AI-generated summaries over rawContent when AI succeeds', async () => {
+      const mockNews = [
+        {
+          title: 'Japan Technology News',
+          summary: 'Brief summary',
+          content: 'Brief content',
+          rawContent: 'Japan has announced a major investment in artificial intelligence technology. The government plans to allocate $2 billion over the next five years to develop AI capabilities across various industries including healthcare, manufacturing, and transportation. This initiative aims to position Japan as a global leader in AI innovation and economic growth.',
+          source: 'Tech Source Japan',
+          publishedAt: '2024-01-15T10:00:00Z',
+          category: 'Other'
+        }
+      ]
+
+      // Mock successful Gemini API response
+      mockGenerateContent.mockResolvedValue({
+        text: `[{"category": "Technology", "summary": "Japan invests $2 billion in AI to boost technological leadership across key industries"}]`
+      })
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key'
+      })
+
+      // Should use AI-generated summary, not rawContent
+      expect(result).toHaveLength(1)
+      expect(result[0].category).toBe('Technology')
+      expect(result[0].summary).toBe('Japan invests $2 billion in AI to boost technological leadership across key industries')
+      expect(result[0].content).toBe('Japan invests $2 billion in AI to boost technological leadership across key industries')
+    })
   })
 })
