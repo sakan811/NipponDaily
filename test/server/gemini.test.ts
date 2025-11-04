@@ -278,5 +278,19 @@ describe('GeminiService', () => {
       expect(result[0].summary).toBe('Japan invests $2 billion in AI to boost technological leadership across key industries')
       expect(result[0].content).toBe('Japan invests $2 billion in AI to boost technological leadership across key industries')
     })
+
+    it('handles empty rawContent in createBasicSummary', async () => {
+      // Test the private createBasicSummary method directly
+      const result = service['createBasicSummary']('')
+
+      expect(result).toBe('No content available')
+    })
+
+    it('handles whitespace-only rawContent in createBasicSummary', async () => {
+      // Test the private createBasicSummary method directly with whitespace
+      const result = service['createBasicSummary']('   \n\t   ')
+
+      expect(result).toBe('No content available')
+    })
   })
 })

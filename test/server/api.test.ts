@@ -174,4 +174,16 @@ describe('News API', () => {
     consoleSpy.mockRestore()
     expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 10, apiKey: 'test-tavily-key' })
   })
+
+  it('handles non-Error objects in error handling', async () => {
+    ;(global as any).getQuery.mockReturnValue({})
+    mockTavilySearch.mockRejectedValue('String error message')
+
+    await expect(handler({})).rejects.toMatchObject({
+      statusCode: 500,
+      statusMessage: 'Failed to fetch news',
+      data: { error: 'Unknown error occurred' }
+    })
+    expect(mockTavilySearch).toHaveBeenCalledWith({ maxResults: 10, apiKey: 'test-tavily-key' })
+  })
 })

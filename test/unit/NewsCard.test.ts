@@ -57,7 +57,7 @@ describe('NewsCard', () => {
       props: { news: newsWithInvalidDate }
     })
 
-    expect(wrapper.text()).toContain('Unknown date')
+    expect(wrapper.text()).toContain('Date not available')
   })
 
   it('handles date parsing exceptions', () => {
@@ -80,7 +80,7 @@ describe('NewsCard', () => {
       props: { news: newsWithProblematicDate }
     })
 
-    expect(wrapper.text()).toContain('Unknown date')
+    expect(wrapper.text()).toContain('Date not available')
 
     // Restore original Date constructor
     global.Date = originalDate
@@ -116,5 +116,23 @@ describe('NewsCard', () => {
     })
 
     expect(wrapper.find('a').exists()).toBe(false)
+  })
+
+  it('handles null or undefined publishedAt date', () => {
+    const newsWithNullDate = { ...mockNews, publishedAt: null }
+    const wrapper = mount(NewsCard, {
+      props: { news: newsWithNullDate }
+    })
+
+    expect(wrapper.text()).toContain('Date not available')
+  })
+
+  it('handles undefined publishedAt date', () => {
+    const newsWithUndefinedDate = { ...mockNews, publishedAt: undefined }
+    const wrapper = mount(NewsCard, {
+      props: { news: newsWithUndefinedDate }
+    })
+
+    expect(wrapper.text()).toContain('Date not available')
   })
 })
