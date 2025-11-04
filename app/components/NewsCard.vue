@@ -73,12 +73,15 @@ const categoryColorClass = computed(() => {
   return colorMap[category] || 'bg-gray-100 text-gray-800'
 })
 
-const formatDate = (dateString: string) => {
+const formatDate = (dateString: string | null) => {
+  if (!dateString) {
+    return 'Date not available'
+  }
   try {
     const date = new Date(dateString)
     // Check if date is invalid
     if (isNaN(date.getTime())) {
-      return 'Unknown date'
+      return 'Date not available'
     }
     return date.toLocaleDateString('en-US', {
       month: 'short',
@@ -88,7 +91,7 @@ const formatDate = (dateString: string) => {
       minute: '2-digit'
     })
   } catch {
-    return 'Unknown date'
+    return 'Date not available'
   }
 }
 </script>
