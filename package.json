@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "start": "HOST=localhost node .output/server/index.mjs",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -14,15 +15,16 @@
   },
   "dependencies": {
     "@google/genai": "^1.28.0",
+    "@tailwindcss/vite": "^4.1.16",
     "@tavily/core": "^0.5.12",
     "nuxt": "^4.2.0",
     "ofetch": "^1.5.1",
+    "tailwindcss": "^4.1.16",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
     "@nuxt/test-utils": "^3.20.1",
-    "@nuxtjs/tailwindcss": "^6.14.0",
     "@types/node": "^24.10.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitest/coverage-v8": "^4.0.6",
