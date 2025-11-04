@@ -63,6 +63,32 @@ describe('TavilyService', () => {
       })
     })
 
+    it('uses default query when category is all', async () => {
+      const mockResponse = createMockTavilyResponse()
+      mockTavilyClient.search.mockResolvedValue(mockResponse)
+
+      await service.searchJapanNews({ category: 'all', apiKey: 'test-tavily-key' })
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith('latest news Japan', {
+        topic: 'news',
+        max_results: 10,
+        includeRawContent: true
+      })
+    })
+
+    it('uses default query when category is not provided', async () => {
+      const mockResponse = createMockTavilyResponse()
+      mockTavilyClient.search.mockResolvedValue(mockResponse)
+
+      await service.searchJapanNews({ apiKey: 'test-tavily-key' })
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith('latest news Japan', {
+        topic: 'news',
+        max_results: 10,
+        includeRawContent: true
+      })
+    })
+
     it('throws error when client is not initialized', async () => {
       const module = await import('~/server/services/tavily')
       const serviceWithoutClient = new module.TavilyService()
@@ -150,6 +176,78 @@ describe('TavilyService', () => {
 
       expect(result[0].title).toBe('Untitled')
       expect(result[0].summary).toBe('')
+    })
+  })
+
+  describe('searchGeneral', () => {
+    it('searches general queries successfully', async () => {
+      const mockResponse = createMockTavilyResponse()
+      mockTavilyClient.search.mockResolvedValue(mockResponse)
+
+      const result = await service.searchGeneral('test query', 5, 'test-tavily-key')
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith('test query', {
+        max_results: 5
+      })
+      expect(result).toEqual(mockResponse)
+    })
+
+    it('initializes client when called on fresh service instance', async () => {
+      const module = await import('~/server/services/tavily')
+      const freshService = new module.TavilyService()
+      const mockResponse = createMockTavilyResponse()
+      mockTavilyClient.search.mockResolvedValue(mockResponse)
+
+      const result = await freshService.searchGeneral('test query', 5, 'test-tavily-key')
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith('test query', {
+        max_results: 5
+      })
+      expect(result).toEqual(mockResponse)
+    })
+
+    it('uses default maxResults when not provided', async () => {
+      const mockResponse = createMockTavilyResponse()
+      mockTavilyClient.search.mockResolvedValue(mockResponse)
+
+      await service.searchGeneral('test query', undefined, 'test-tavily-key')
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith('test query', {
+        max_results: 5
+      })
+    })
+
+    it('throws error when client is not initialized', async () => {
+      const module = await import('~/server/services/tavily')
+      const serviceWithoutClient = new module.TavilyService()
+
+      await expect(serviceWithoutClient.searchGeneral('test query')).rejects.toThrow(
+        'Tavily client not initialized - API key required'
+      )
+    })
+
+    it('handles API errors', async () => {
+      mockTavilyClient.search.mockRejectedValue(new Error('API Error'))
+
+      await expect(service.searchGeneral('test query', 5, 'test-tavily-key')).rejects.toThrow(
+        'Failed to search with Tavily API'
+      )
+    })
+  })
+
+  describe('initializeClient', () => {
+    it('logs warning when API key is not provided', async () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      const module = await import('~/server/services/tavily')
+      const service = new module.TavilyService()
+
+      // Access private method using bracket notation
+      service['initializeClient']()
+
+      expect(consoleSpy).toHaveBeenCalledWith('TAVILY_API_KEY not configured')
+
+      consoleSpy.mockRestore()
     })
   })
 })

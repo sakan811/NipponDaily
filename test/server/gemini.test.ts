@@ -124,5 +124,101 @@ describe('GeminiService', () => {
 
       expect(result[0].category).toBe('Other')
     })
+
+    it('logs warning when API key is not configured during initialization', async () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      const module = await import('~/server/services/gemini')
+      const serviceWithoutClient = new module.GeminiService()
+
+      // Call initializeClient without API key to trigger the warning
+      serviceWithoutClient['initializeClient']()
+
+      expect(consoleSpy).toHaveBeenCalledWith('GEMINI_API_KEY not configured')
+      consoleSpy.mockRestore()
+    })
+
+    it('logs warning when JSON parsing fails', async () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+      const mockNews = createMockNews()
+
+      // Mock response with valid JSON array structure but invalid JSON content
+      // This will match the regex but fail JSON.parse()
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": "Test summary", "invalid": json}]'
+      })
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key'
+      })
+
+      expect(consoleSpy).toHaveBeenCalledWith(
+        'Failed to parse categories and summaries from Gemini response:',
+        expect.any(Error)
+      )
+      consoleSpy.mockRestore()
+    })
+
+    it('returns "Other" for falsy or non-string categories in validateCategory', async () => {
+      const mockNews = createMockNews()
+      // Mock response with null category to trigger validateCategory with falsy value
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": null, "summary": "Test summary"}]'
+      })
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key'
+      })
+
+      expect(result[0].category).toBe('Other')
+    })
+
+    it('processes successful Gemini response with full coverage flow', async () => {
+      const mockNews = [
+        {
+          title: 'Japan Tech News',
+          summary: 'Original summary',
+          content: 'Original content',
+          rawContent: 'Detailed raw content about technology in Japan',
+          source: 'Tech Source Japan',
+          publishedAt: '2024-01-15T10:00:00Z',
+          category: 'Other'
+        },
+        {
+          title: 'Business News',
+          summary: 'Business summary',
+          content: 'Business content',
+          source: 'Business Source',
+          publishedAt: '2024-01-15T11:00:00Z',
+          category: 'Other'
+        }
+      ]
+
+      // Mock successful response that goes through the complete flow
+      mockGenerateContent.mockResolvedValue({
+        text: `Here are the categorized articles:
+[{"category": "Technology", "summary": "Japan launches new AI initiative for technological advancement"}, {"category": "Business", "summary": "Major corporation announces record quarterly earnings"}]`
+      })
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: 'test-api-key',
+        model: 'gemini-2.5-flash'
+      })
+
+      // Verify the complete flow was executed
+      expect(result).toHaveLength(2)
+      expect(result[0].category).toBe('Technology')
+      expect(result[0].summary).toBe('Japan launches new AI initiative for technological advancement')
+      expect(result[0].content).toBe('Japan launches new AI initiative for technological advancement')
+      expect(result[1].category).toBe('Business')
+      expect(result[1].summary).toBe('Major corporation announces record quarterly earnings')
+      expect(result[1].content).toBe('Major corporation announces record quarterly earnings')
+
+      // Verify the mock was called with the expected parameters
+      expect(mockGenerateContent).toHaveBeenCalledWith({
+        model: 'gemini-2.5-flash',
+        contents: expect.stringContaining('Japan Tech News')
+      })
+    })
   })
 })

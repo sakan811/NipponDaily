@@ -59,4 +59,62 @@ describe('NewsCard', () => {
 
     expect(wrapper.text()).toContain('Unknown date')
   })
+
+  it('handles date parsing exceptions', () => {
+    // Mock Date constructor to throw an exception
+    const originalDate = global.Date
+    global.Date = class extends Date {
+      constructor(...args: any[]) {
+        if (args[0] === 'problematic-date') {
+          throw new Error('Invalid date')
+        }
+        return new originalDate(...args)
+      }
+    }
+
+    const newsWithProblematicDate = {
+      ...mockNews,
+      publishedAt: 'problematic-date'
+    }
+    const wrapper = mount(NewsCard, {
+      props: { news: newsWithProblematicDate }
+    })
+
+    expect(wrapper.text()).toContain('Unknown date')
+
+    // Restore original Date constructor
+    global.Date = originalDate
+  })
+
+  it('applies correct category color classes', () => {
+    const testCases = [
+      { category: 'Politics', expectedClass: 'badge-politics' },
+      { category: 'Business', expectedClass: 'badge-business' },
+      { category: 'Technology', expectedClass: 'badge-technology' },
+      { category: 'Culture', expectedClass: 'badge-culture' },
+      { category: 'Sports', expectedClass: 'badge-sports' },
+      { category: 'Unknown', expectedClass: 'bg-gray-100' },
+      { category: 'Random', expectedClass: 'bg-gray-100' }
+    ]
+
+    testCases.forEach(({ category, expectedClass }) => {
+      const newsWithCategory = { ...mockNews, category }
+      const wrapper = mount(NewsCard, {
+        props: { news: newsWithCategory }
+      })
+
+      const categoryBadge = wrapper.find('span.inline-block')
+      const classes = categoryBadge.classes()
+      expect(classes.some(cls => cls.includes(expectedClass.split(' ')[0]))).toBe(true)
+    })
+  })
+
+  it('handles empty/null URL gracefully', () => {
+    const newsWithNullUrl = { ...mockNews, url: null }
+    const wrapper = mount(NewsCard, {
+      props: { news: newsWithNullUrl }
+    })
+
+    expect(wrapper.find('a').exists()).toBe(false)
+  })
 })
