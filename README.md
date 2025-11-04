@@ -1,20 +1,32 @@
 # NipponDaily
 
-A Japan news web application that fetches news using Tavily and categorizes it with Google Gemini AI.
+**What**: A Japan news web application that delivers real-time access to Japanese news from reputable sources like NHK, Japan Times, and Nikkei, with AI-powered categorization and concise summaries.
+
+**Why**: Traditional news consumption can be overwhelming with endless scrolling and irrelevant content. NipponDaily solves this by using AI to intelligently organize news into clear categories and generate summaries, helping users quickly find and understand the stories that matter most to them across Politics, Business, Technology, Culture, and Sports.
+
+**How**: The app fetches news using the Tavily API, categorizes articles with Google Gemini AI, and presents them in a clean, responsive interface. Users can load news on-demand, filter by category, read AI-generated summaries for quick understanding, and click through to original articles when they want more detail.
 
 ## Features
 
 - **Real-time News**: Fetch latest Japanese news from reputable sources (NHK, Japan Times, Nikkei, etc.)
 - **AI-Powered Categorization**: Automatically categorize news into Politics, Business, Technology, Culture, Sports
+- **AI Summaries**: Get concise, AI-generated summaries of news articles for quick understanding
+- **On-Demand Loading**: Click "Get News" to fetch the latest articles when you want them, no auto-refresh interruptions
+- **Category Filtering**: Filter news by topic with interactive category buttons (Politics, Business, Technology, Culture, Sports)
+- **Source Attribution**: See the original source for each article with intelligent source recognition
+- **Publication Times**: View when articles were published with smart date formatting
+- **Error Recovery**: Built-in error handling with retry functionality if news fetching fails
+- **Loading States**: Smooth loading animations and skeleton UI while fetching content
 - **Clean Interface**: Responsive, mobile-friendly design with Japanese-themed styling
+- **Accessibility**: Full keyboard navigation, focus indicators, and reduced motion support
 
 ## Tech Stack
 
 - **Frontend**: Vue 3, Nuxt 4, TypeScript
 - **News Search**: Tavily API
 - **AI Categorization**: Google Gemini API
-- **Styling**: Tailwind CSS
-- **Testing**: Vitest
+- **Styling**: Tailwind CSS v4 with Vite plugin
+- **Testing**: Vitest with happy-dom
 
 ## Quick Start
 
@@ -47,20 +59,26 @@ A Japan news web application that fetches news using Tavily and categorizes it w
 
 ## Usage
 
-1. Click "Get News" to fetch latest Japanese news
+1. Click "Get News" to fetch latest Japanese news with AI-generated summaries
 2. Use category buttons to filter by topic
-3. Click "Read Original" to visit full articles
+3. Read AI summaries for quick understanding of each article
+4. Click "Read Original" to visit full articles
 
 ## Development Commands
 
 ```bash
 pnpm dev              # Start development server
 pnpm build            # Build for production
-pnpm test:run         # Run tests
+pnpm start            # Start production server (localhost)
+pnpm generate         # Generate static site
+pnpm preview          # Preview production build
+pnpm test             # Run tests in watch mode
+pnpm test:run         # Run all tests once
+pnpm test:coverage    # Run tests with coverage report
 ```
 
 ## Environment Variables
 
-- `TAVILY_API_KEY`: Tavily API key for news search (required)
 - `GEMINI_API_KEY`: Google Gemini API key for categorization (required)
+- `TAVILY_API_KEY`: Tavily API key for news search (required)
 - `GEMINI_MODEL`: Gemini model (optional, defaults to gemini-2.5-flash)
