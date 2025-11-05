@@ -5,10 +5,16 @@
       <div class="container mx-auto px-4 py-6">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
-              <svg class="w-8 h-8" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
-                <rect width="900" height="600" fill="#ffffff"/>
-                <circle cx="450" cy="300" r="180" fill="#bc002d"/>
+            <div
+              class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg"
+            >
+              <svg
+                class="w-8 h-8"
+                viewBox="0 0 900 600"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="900" height="600" fill="#ffffff" />
+                <circle cx="450" cy="300" r="180" fill="#bc002d" />
               </svg>
             </div>
             <h1 class="text-3xl font-bold text-kuro font-serif">NipponDaily</h1>
@@ -43,7 +49,7 @@
                   'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
                   selectedCategory === category.id
                     ? 'btn-primary'
-                    : 'btn-outline'
+                    : 'btn-outline',
                 ]"
               >
                 {{ category.name }}
@@ -63,14 +69,32 @@
           <!-- News List -->
           <div v-else class="space-y-4">
             <!-- Instruction text when no news is loaded -->
-            <div v-if="news.length === 0 && !loading" class="card p-8 text-center">
+            <div
+              v-if="news.length === 0 && !loading"
+              class="card p-8 text-center"
+            >
               <div class="mb-4">
-                <svg class="w-16 h-16 mx-auto text-mizu opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                <svg
+                  class="w-16 h-16 mx-auto text-mizu opacity-50"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                  ></path>
                 </svg>
               </div>
-              <h3 class="text-xl font-semibold text-kuro mb-2">No news loaded yet</h3>
-              <p class="text-hai">Click the "Get News" button in the header above to fetch the latest news from Japan</p>
+              <h3 class="text-xl font-semibold text-kuro mb-2">
+                No news loaded yet
+              </h3>
+              <p class="text-hai">
+                Click the "Get News" button in the header above to fetch the
+                latest news from Japan
+              </p>
             </div>
             <NewsCard
               v-for="item in filteredNews"
@@ -80,78 +104,77 @@
           </div>
 
           <!-- Error State -->
-          <div v-if="error" class="card p-6 text-center border-red-200 bg-red-50">
+          <div
+            v-if="error"
+            class="card p-6 text-center border-red-200 bg-red-50"
+          >
             <p class="text-red-600 mb-4">{{ error }}</p>
-            <button
-              @click="refreshNews"
-              class="btn-primary"
-            >
-              Try Again
-            </button>
+            <button @click="refreshNews" class="btn-primary">Try Again</button>
           </div>
         </div>
-
       </div>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { NewsItem } from '~~/types/index'
-import { NEWS_CATEGORIES } from '~~/constants/categories'
-import type { CategoryId } from '~~/constants/categories'
+import type { NewsItem } from "~~/types/index";
+import { NEWS_CATEGORIES } from "~~/constants/categories";
+import type { CategoryId } from "~~/constants/categories";
 
 // State
-const news = ref<NewsItem[]>([])
-const loading = ref(false)
-const error = ref<string | null>(null)
-const selectedCategory = ref<CategoryId>('all')
+const news = ref<NewsItem[]>([]);
+const loading = ref(false);
+const error = ref<string | null>(null);
+const selectedCategory = ref<CategoryId>("all");
 
 // Categories
-const categories = NEWS_CATEGORIES
+const categories = NEWS_CATEGORIES;
 
 // Computed
 const filteredNews = computed(() => {
-  if (selectedCategory.value === 'all') {
-    return news.value
+  if (selectedCategory.value === "all") {
+    return news.value;
   }
-  return news.value.filter(item =>
-    item.category.toLowerCase() === selectedCategory.value.toLowerCase()
-  )
-})
+  return news.value.filter(
+    (item) =>
+      item.category.toLowerCase() === selectedCategory.value.toLowerCase(),
+  );
+});
 
 // Methods
 const fetchNews = async () => {
-  loading.value = true
-  error.value = null
+  loading.value = true;
+  error.value = null;
 
   try {
-    const response = await $fetch('/api/news', {
+    const response = await $fetch("/api/news", {
       query: {
-        category: selectedCategory.value === 'all' ? undefined : selectedCategory.value,
-        limit: 20
-      }
-    })
+        category:
+          selectedCategory.value === "all" ? undefined : selectedCategory.value,
+        limit: 20,
+      },
+    });
 
-    news.value = response.data || []
+    news.value = response.data || [];
   } catch (err: any) {
-    console.error('Error fetching news:', err)
-    error.value = err.data?.error || 'Failed to fetch news. Please try again.'
+    console.error("Error fetching news:", err);
+    error.value = err.data?.error || "Failed to fetch news. Please try again.";
   } finally {
-    loading.value = false
+    loading.value = false;
   }
-}
+};
 
 const refreshNews = async () => {
-  await fetchNews()
-}
+  await fetchNews();
+};
 
 // Lifecycle - Auto-fetch removed, news only loads when button is clicked
 
 // Define component name for clarity
 defineOptions({
-  name: 'JapanNewsReader'
-})
+  name: "JapanNewsReader",
+});
 </script>
 
 <style scoped>
