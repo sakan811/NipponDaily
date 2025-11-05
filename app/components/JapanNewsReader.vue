@@ -1,29 +1,26 @@
 <template>
-  <div class="min-h-screen bg-gradient-mizu">
+  <div class="min-h-screen bg-gradient-secondary">
     <!-- Header -->
-    <header class="bg-white shadow-lg">
+    <header class="bg-yellow-50 shadow-lg">
       <div class="container mx-auto px-4 py-6">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-3">
             <div
-              class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg"
+              class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg overflow-hidden"
             >
-              <svg
-                class="w-8 h-8"
-                viewBox="0 0 900 600"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect width="900" height="600" fill="#ffffff" />
-                <circle cx="450" cy="300" r="180" fill="#bc002d" />
-              </svg>
+              <img
+                src="/favicon.ico"
+                alt="NipponDaily Logo"
+                class="w-full h-full object-cover"
+              />
             </div>
-            <h1 class="text-3xl font-bold text-kuro font-serif">NipponDaily</h1>
+            <h1 class="text-3xl font-bold text-slate-800 font-serif">NipponDaily</h1>
           </div>
           <div class="flex items-center space-x-4">
             <button
               @click="refreshNews"
               :disabled="loading"
-              class="btn-box rounded-md disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2"
+              class="border-2 border-red-600 bg-yellow-50 text-slate-800 hover:bg-yellow-100 rounded-md disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 cursor-pointer"
             >
               <span v-if="loading">Getting...</span>
               <span v-else>Get News</span>
@@ -48,8 +45,8 @@
                 :class="[
                   'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
                   selectedCategory === category.id
-                    ? 'btn-primary'
-                    : 'btn-outline',
+                    ? 'bg-red-600 text-white hover:bg-red-700 shadow-md hover:shadow-lg'
+                    : 'border border-red-600 text-red-600 bg-yellow-50 hover:bg-yellow-100',
                 ]"
               >
                 {{ category.name }}
@@ -75,7 +72,7 @@
             >
               <div class="mb-4">
                 <svg
-                  class="w-16 h-16 mx-auto text-mizu opacity-50"
+                  class="w-16 h-16 mx-auto text-slate-600 opacity-50"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -88,10 +85,10 @@
                   ></path>
                 </svg>
               </div>
-              <h3 class="text-xl font-semibold text-kuro mb-2">
+              <h3 class="text-xl font-semibold text-slate-800 mb-2">
                 No news loaded yet
               </h3>
-              <p class="text-hai">
+              <p class="text-slate-600">
                 Click the "Get News" button in the header above to fetch the
                 latest news from Japan
               </p>
@@ -106,10 +103,10 @@
           <!-- Error State -->
           <div
             v-if="error"
-            class="card p-6 text-center border-red-200 bg-red-50"
+            class="card p-6 text-center border-red-300 bg-red-50"
           >
             <p class="text-red-600 mb-4">{{ error }}</p>
-            <button @click="refreshNews" class="btn-primary">Try Again</button>
+            <button @click="refreshNews" class="bg-red-600 text-white hover:bg-red-700 shadow-md hover:shadow-lg">Try Again</button>
           </div>
         </div>
       </div>
@@ -127,6 +124,7 @@ const news = ref<NewsItem[]>([]);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const selectedCategory = ref<CategoryId>("all");
+
 
 // Categories
 const categories = NEWS_CATEGORIES;

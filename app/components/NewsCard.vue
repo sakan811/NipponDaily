@@ -1,5 +1,5 @@
 <template>
-  <div class="card hover:border-secondary-100">
+  <div class="card hover:border-red-400">
     <!-- News Header -->
     <div class="p-6">
       <div class="flex items-start justify-between mb-3">
@@ -9,25 +9,25 @@
         >
           {{ news.category }}
         </span>
-        <span class="text-xs text-(--color-hai)">
+        <span class="text-xs text-slate-600">
           {{ formatDate(news.publishedAt) }}
         </span>
       </div>
 
       <!-- News Title -->
       <h3
-        class="text-xl font-bold text-kuro mb-3 line-clamp-2 font-serif leading-tight"
+        class="text-xl font-bold text-slate-800 mb-3 line-clamp-2 font-serif leading-tight"
       >
         {{ news.title }}
       </h3>
 
       <!-- News Summary -->
-      <p class="text-text-light mb-4 leading-relaxed">
+      <p class="text-slate-600 mb-4 leading-relaxed">
         {{ news.summary }}
       </p>
 
       <!-- Source -->
-      <div class="flex items-center text-sm text-hai mb-4">
+      <div class="flex items-center text-sm text-slate-600 mb-4">
         <svg
           class="w-4 h-4 mr-1"
           fill="none"
@@ -51,7 +51,7 @@
           :href="news.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-box rounded-md flex items-center text-sm px-3 py-2 inline-flex no-underline"
+          class="border-2 border-red-600 bg-yellow-50 text-slate-800 hover:bg-yellow-100 rounded-md flex items-center text-sm px-3 py-2 inline-flex no-underline"
         >
           <svg
             class="w-4 h-4 mr-1"
