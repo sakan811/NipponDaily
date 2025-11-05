@@ -220,15 +220,15 @@ describe("JapanNewsReader", () => {
     const allButton = categoryButtons.find((btn) =>
       btn.text().includes("All News"),
     );
-    expect(allButton?.classes()).toContain("btn-primary");
+    expect(allButton?.classes()).toContain("bg-red-600");
 
     // Click Technology button
     await techButton?.trigger("click");
     await nextTick();
 
     // Technology button should now be primary
-    expect(techButton?.classes()).toContain("btn-primary");
-    expect(allButton?.classes()).toContain("btn-outline");
+    expect(techButton?.classes()).toContain("bg-red-600");
+    expect(allButton?.classes()).toContain("border");
   });
 
   it("handles fetchNews success correctly", async () => {
@@ -350,8 +350,8 @@ describe("JapanNewsReader", () => {
     await wrapper.vm.fetchNews();
     await nextTick();
 
-    expect(wrapper.find(".border-red-200").exists()).toBe(true);
-    expect(wrapper.find(".text-red-600").text()).toBe("API Error");
+    expect(wrapper.find(".border-red-300.bg-red-50").exists()).toBe(true);
+    expect(wrapper.find(".border-red-300.bg-red-50").find(".text-red-600").text()).toBe("API Error");
   });
 
   it("calls refreshNews method correctly", async () => {
