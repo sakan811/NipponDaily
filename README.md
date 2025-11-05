@@ -1,8 +1,8 @@
 # NipponDaily
 
-<div style="text-align: center; margin: 2rem 0;">
+<p align="center">
   <img src="./public/android-chrome-512x512.png" alt="NipponDaily App Icon" width="256" height="256" style="max-width: 100%; height: auto;" />
-</div>
+</p>
 
 **What**: A Japan news web application that provides web-based access to Japan-related news articles with AI-powered categorization and intelligent summaries. The app searches the web for recent news mentioning Japan and processes it through AI for better organization and readability.
 
