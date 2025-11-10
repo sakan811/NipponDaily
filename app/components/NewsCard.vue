@@ -1,7 +1,7 @@
 <template>
-  <div class="card hover:border-red-400">
+  <div class="card hover:border-red-400 w-full overflow-hidden">
     <!-- News Header -->
-    <div class="p-6">
+    <div class="p-4 sm:p-6">
       <div class="flex items-start justify-between mb-3">
         <span
           class="inline-block px-3 py-1 text-xs font-semibold rounded-full"
@@ -16,13 +16,13 @@
 
       <!-- News Title -->
       <h3
-        class="text-xl font-bold text-slate-800 mb-3 line-clamp-2 font-serif leading-tight"
+        class="text-lg sm:text-xl font-bold text-slate-800 mb-3 font-serif leading-tight [word-wrap:break-word] [overflow-wrap:break-word]"
       >
         {{ news.title }}
       </h3>
 
       <!-- News Summary -->
-      <p class="text-slate-600 mb-4 leading-relaxed">
+      <p class="text-slate-600 mb-4 leading-relaxed text-sm sm:text-base [word-wrap:break-word] [overflow-wrap:break-word]">
         {{ news.summary }}
       </p>
 
@@ -51,10 +51,10 @@
           :href="news.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="border-2 border-red-600 bg-yellow-50 text-slate-800 hover:bg-yellow-100 rounded-md flex items-center text-sm px-3 py-2 inline-flex no-underline"
+          class="border-2 border-red-600 bg-yellow-50 text-slate-800 hover:bg-yellow-100 rounded-md flex items-center text-xs sm:text-sm px-2 sm:px-3 py-2 inline-flex no-underline min-w-0 flex-shrink-0"
         >
           <svg
-            class="w-4 h-4 mr-1"
+            class="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -66,7 +66,7 @@
               d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
             />
           </svg>
-          Read Original
+          <span class="truncate">Read Original</span>
         </a>
       </div>
     </div>
