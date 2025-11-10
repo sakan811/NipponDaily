@@ -1,12 +1,12 @@
 <template>
   <div class="min-h-screen bg-gradient-secondary">
     <!-- Header -->
-    <header class="bg-yellow-50 shadow-lg">
-      <div class="container mx-auto px-4 py-6">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center space-x-3">
+    <header class="bg-yellow-50 shadow-lg overflow-x-hidden">
+      <div class="px-3 sm:px-4 py-4 sm:py-6">
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center space-x-2 sm:space-x-3">
             <div
-              class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg overflow-hidden"
+              class="w-8 h-8 sm:w-12 sm:h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg overflow-hidden flex-shrink-0"
             >
               <img
                 src="/favicon.ico"
@@ -14,13 +14,13 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <h1 class="text-3xl font-bold text-slate-800 font-serif">NipponDaily</h1>
+            <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 font-serif truncate">NipponDaily</h1>
           </div>
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
             <button
               @click="refreshNews"
               :disabled="loading"
-              class="border-2 border-red-600 bg-yellow-50 text-slate-800 hover:bg-yellow-100 rounded-md disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 cursor-pointer"
+              class="border-2 border-red-600 bg-yellow-50 text-slate-800 hover:bg-yellow-100 rounded-md disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 sm:px-4 cursor-pointer text-sm sm:text-base whitespace-nowrap"
             >
               <span v-if="loading">Getting...</span>
               <span v-else>Get News</span>
@@ -31,19 +31,19 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 gap-8">
+    <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-full overflow-x-hidden">
+      <div class="grid grid-cols-1 gap-6 sm:gap-8">
         <!-- News Section -->
         <div>
           <!-- Category Filter -->
-          <div class="mb-6">
-            <div class="flex flex-wrap gap-2">
+          <div class="mb-4 sm:mb-6">
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-center sm:justify-start">
               <button
                 v-for="category in categories"
                 :key="category.id"
                 @click="selectedCategory = category.id"
                 :class="[
-                  'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
+                  'px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
                   selectedCategory === category.id
                     ? 'bg-red-600 text-white hover:bg-red-700 shadow-md hover:shadow-lg'
                     : 'border border-red-600 text-red-600 bg-yellow-50 hover:bg-yellow-100',
