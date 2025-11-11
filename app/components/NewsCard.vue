@@ -22,7 +22,9 @@
       </h3>
 
       <!-- News Summary -->
-      <p class="text-slate-600 mb-4 leading-relaxed text-sm sm:text-base [word-wrap:break-word] [overflow-wrap:break-word]">
+      <p
+        class="text-slate-600 mb-4 leading-relaxed text-sm sm:text-base [word-wrap:break-word] [overflow-wrap:break-word]"
+      >
         {{ news.summary }}
       </p>
 

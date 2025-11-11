@@ -101,7 +101,9 @@ class TavilyService {
     }
   }
 
-  formatTavilyResultsToNewsItems(response: TavilyResponse): (Omit<NewsItem, 'category'> & { score?: number })[] {
+  formatTavilyResultsToNewsItems(
+    response: TavilyResponse,
+  ): (Omit<NewsItem, "category"> & { score?: number })[] {
     return response.results.map((result: TavilySearchResult) => {
       return {
         title: result.title || "Untitled",

@@ -14,7 +14,11 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 font-serif truncate">NipponDaily</h1>
+            <h1
+              class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 font-serif truncate"
+            >
+              NipponDaily
+            </h1>
           </div>
           <div class="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
             <button
@@ -31,13 +35,17 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-full overflow-x-hidden">
+    <main
+      class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-full overflow-x-hidden"
+    >
       <div class="grid grid-cols-1 gap-6 sm:gap-8">
         <!-- News Section -->
         <div>
           <!-- Category Filter -->
           <div class="mb-4 sm:mb-6">
-            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-center sm:justify-start">
+            <div
+              class="flex flex-wrap gap-1.5 sm:gap-2 justify-center sm:justify-start"
+            >
               <button
                 v-for="category in categories"
                 :key="category.id"
@@ -106,7 +114,12 @@
             class="card p-6 text-center border-red-300 bg-red-50"
           >
             <p class="text-red-600 mb-4">{{ error }}</p>
-            <button @click="refreshNews" class="bg-red-600 text-white hover:bg-red-700 shadow-md hover:shadow-lg">Try Again</button>
+            <button
+              @click="refreshNews"
+              class="bg-red-600 text-white hover:bg-red-700 shadow-md hover:shadow-lg"
+            >
+              Try Again
+            </button>
           </div>
         </div>
       </div>
@@ -124,7 +137,6 @@ const news = ref<NewsItem[]>([]);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const selectedCategory = ref<CategoryId>("all");
-
 
 // Categories
 const categories = NEWS_CATEGORIES;
@@ -157,7 +169,9 @@ const fetchNews = async () => {
     news.value = response.data || [];
   } catch (err: unknown) {
     console.error("Error fetching news:", err);
-    error.value = (err as { data?: { error?: string } })?.data?.error || "Failed to fetch news. Please try again.";
+    error.value =
+      (err as { data?: { error?: string } })?.data?.error ||
+      "Failed to fetch news. Please try again.";
   } finally {
     loading.value = false;
   }

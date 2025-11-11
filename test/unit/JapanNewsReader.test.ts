@@ -351,7 +351,9 @@ describe("JapanNewsReader", () => {
     await nextTick();
 
     expect(wrapper.find(".border-red-300.bg-red-50").exists()).toBe(true);
-    expect(wrapper.find(".border-red-300.bg-red-50").find(".text-red-600").text()).toBe("API Error");
+    expect(
+      wrapper.find(".border-red-300.bg-red-50").find(".text-red-600").text(),
+    ).toBe("API Error");
   });
 
   it("calls refreshNews method correctly", async () => {
