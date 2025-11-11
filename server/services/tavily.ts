@@ -1,7 +1,7 @@
 import {
   tavily,
   type TavilyClient,
-  type TavilySearchResponse
+  type TavilySearchResponse,
 } from "@tavily/core";
 import type { NewsItem } from "../../types/index";
 
@@ -102,9 +102,7 @@ class TavilyService {
     }
   }
 
-  formatTavilyResultsToNewsItems(
-    response: TavilyResponse,
-  ): NewsItem[] {
+  formatTavilyResultsToNewsItems(response: TavilyResponse): NewsItem[] {
     return response.results.map((result: TavilySearchResult) => {
       return {
         title: result.title || "Untitled",

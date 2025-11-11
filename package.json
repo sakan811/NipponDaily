@@ -14,7 +14,8 @@
     "test:coverage": "vitest run --coverage",
     "lint": "pnpm eslint . --fix",
     "format": "pnpm exec prettier . --write",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
