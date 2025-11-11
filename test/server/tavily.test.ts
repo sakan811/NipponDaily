@@ -49,8 +49,8 @@ describe("TavilyService", () => {
         "latest news Japan",
         {
           topic: "news",
-          max_results: 5,
-          includeRawContent: true,
+          maxResults: 5,
+          includeRawContent: "text",
         },
       );
       expect(result).toEqual(mockResponse);
@@ -69,8 +69,8 @@ describe("TavilyService", () => {
         "latest technology news Japan",
         {
           topic: "news",
-          max_results: 10,
-          includeRawContent: true,
+          maxResults: 10,
+          includeRawContent: "text",
         },
       );
     });
@@ -88,8 +88,8 @@ describe("TavilyService", () => {
         "latest news Japan",
         {
           topic: "news",
-          max_results: 10,
-          includeRawContent: true,
+          maxResults: 10,
+          includeRawContent: "text",
         },
       );
     });
@@ -104,8 +104,8 @@ describe("TavilyService", () => {
         "latest news Japan",
         {
           topic: "news",
-          max_results: 10,
-          includeRawContent: true,
+          maxResults: 10,
+          includeRawContent: "text",
         },
       );
     });
@@ -120,8 +120,8 @@ describe("TavilyService", () => {
         "latest news Japan",
         {
           topic: "news",
-          max_results: 10,
-          includeRawContent: true,
+          maxResults: 10,
+          includeRawContent: "text",
         },
       );
     });
@@ -139,8 +139,8 @@ describe("TavilyService", () => {
         "latest news Japan",
         {
           topic: "news",
-          max_results: 10,
-          includeRawContent: true,
+          maxResults: 10,
+          includeRawContent: "text",
         },
       );
       expect(result).toEqual(mockResponse);
@@ -179,7 +179,6 @@ describe("TavilyService", () => {
         publishedAt: "2024-01-15T10:00:00Z",
         category: "Other",
         url: "https://example.com/news1",
-        score: 0.9,
       });
     });
 
