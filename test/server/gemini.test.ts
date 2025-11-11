@@ -353,7 +353,9 @@ describe("GeminiService", () => {
       const callArgs = mockGenerateContent.mock.calls[0][0];
       expect(callArgs.model).toBe("gemini-2.5-flash");
       expect(callArgs.contents).toContain("News with rawContent");
-      expect(callArgs.contents).toContain("Detailed raw content with full article text");
+      expect(callArgs.contents).toContain(
+        "Detailed raw content with full article text",
+      );
       expect(callArgs.contents).toContain("News without rawContent");
       expect(callArgs.contents).toContain("News content"); // This is what gets used when rawContent is undefined
     });
@@ -398,7 +400,8 @@ describe("GeminiService", () => {
           title: "Test News",
           summary: "Original summary",
           content: "Original content",
-          rawContent: "This is a long article with multiple sentences. It contains important information. The article continues with more details about the situation.",
+          rawContent:
+            "This is a long article with multiple sentences. It contains important information. The article continues with more details about the situation.",
           source: "Test Source",
           publishedAt: "2024-01-15T10:00:00Z",
           category: "Other",
@@ -415,8 +418,12 @@ describe("GeminiService", () => {
       });
 
       // Should use basic summary from rawContent
-      expect(result[0].summary).toContain("This is a long article with multiple sentences");
-      expect(result[0].content).toContain("This is a long article with multiple sentences");
+      expect(result[0].summary).toContain(
+        "This is a long article with multiple sentences",
+      );
+      expect(result[0].content).toContain(
+        "This is a long article with multiple sentences",
+      );
     });
 
     it("handles error fallback with rawContent processing", async () => {
@@ -425,7 +432,8 @@ describe("GeminiService", () => {
           title: "Error Test News",
           summary: "Original summary",
           content: "Original content",
-          rawContent: "Detailed article content that should be used when API fails. This provides enough text for testing the error handling path.",
+          rawContent:
+            "Detailed article content that should be used when API fails. This provides enough text for testing the error handling path.",
           source: "Test Source",
           publishedAt: "2024-01-15T10:00:00Z",
           category: "InvalidCategory",
@@ -439,14 +447,19 @@ describe("GeminiService", () => {
       });
 
       // Should use rawContent for summary and validate category in error path
-      expect(result[0].summary).toContain("Detailed article content that should be used");
-      expect(result[0].content).toContain("Detailed article content that should be used");
+      expect(result[0].summary).toContain(
+        "Detailed article content that should be used",
+      );
+      expect(result[0].content).toContain(
+        "Detailed article content that should be used",
+      );
       expect(result[0].category).toBe("Other"); // InvalidCategory should be normalized to Other
     });
 
     it("processes sentence matching in createBasicSummary", async () => {
       // Test content with clear sentence structure
-      const contentWithSentences = "First sentence. Second sentence! Third sentence? Fourth sentence.";
+      const contentWithSentences =
+        "First sentence. Second sentence! Third sentence? Fourth sentence.";
       const result = service["createBasicSummary"](contentWithSentences);
 
       expect(result).toBe("First sentence. Second sentence! Third sentence?");
@@ -454,7 +467,8 @@ describe("GeminiService", () => {
 
     it("handles final fallback in createBasicSummary", async () => {
       // Test content without sentence punctuation (should use substring fallback)
-      const contentWithoutSentences = "This is a very long piece of text that has no sentence punctuation marks at all and should trigger the final fallback mechanism that takes the first 200 characters";
+      const contentWithoutSentences =
+        "This is a very long piece of text that has no sentence punctuation marks at all and should trigger the final fallback mechanism that takes the first 200 characters";
       const result = service["createBasicSummary"](contentWithoutSentences);
 
       // The result should be the full string since it's less than 200 characters and has no sentence punctuation
@@ -464,7 +478,8 @@ describe("GeminiService", () => {
 
     it("handles content that exceeds both character and sentence limits", async () => {
       // Test content that exceeds both 200 characters and 3 sentences
-      const longContent = "First sentence with some text. Second sentence with more text to make it longer. Third sentence with even more text. Fourth sentence that should not be included. Fifth sentence that should definitely not be included either.";
+      const longContent =
+        "First sentence with some text. Second sentence with more text to make it longer. Third sentence with even more text. Fourth sentence that should not be included. Fifth sentence that should definitely not be included either.";
       const result = service["createBasicSummary"](longContent);
 
       // Should include first 3 sentences (under 200 chars) or stop at 200 chars
@@ -498,8 +513,12 @@ describe("GeminiService", () => {
       });
 
       // Line 118: Should use createBasicSummary from rawContent in fallback path
-      expect(result[0].summary).toContain("Detailed article content for testing");
-      expect(result[0].content).toContain("Detailed article content for testing");
+      expect(result[0].summary).toContain(
+        "Detailed article content for testing",
+      );
+      expect(result[0].content).toContain(
+        "Detailed article content for testing",
+      );
     });
 
     it("covers lines 129 and 133 in error handling fallback", async () => {
@@ -530,12 +549,15 @@ describe("GeminiService", () => {
 
     it("covers line 164 final substring fallback in createBasicSummary", async () => {
       // Test content that triggers the final substring fallback at line 164
-      const veryLongContent = "This is a very long piece of text that goes on and on without any sentence punctuation so it will eventually exceed the 200 character limit and trigger the final substring fallback mechanism at line 164 which returns cleanContent.substring(0, 200).trim() when no sentences are found or the content is too long.";
+      const veryLongContent =
+        "This is a very long piece of text that goes on and on without any sentence punctuation so it will eventually exceed the 200 character limit and trigger the final substring fallback mechanism at line 164 which returns cleanContent.substring(0, 200).trim() when no sentences are found or the content is too long.";
       const result = service["createBasicSummary"](veryLongContent);
 
       // Line 164: Should trigger the final substring fallback - the result should be processed by sentence matching first
       // Since the content is very long without sentence punctuation, it should use the sentence regex matching first
-      expect(result).toContain("This is a very long piece of text that goes on and on without any sentence punctuation");
+      expect(result).toContain(
+        "This is a very long piece of text that goes on and on without any sentence punctuation",
+      );
       expect(result.length).toBeGreaterThan(100);
     });
 

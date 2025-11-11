@@ -1,6 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
 import type { NewsItem } from "../../types/index";
-import { VALID_CATEGORIES, type CategoryName } from "../../constants/categories";
+import {
+  VALID_CATEGORIES,
+  type CategoryName,
+} from "../../constants/categories";
 
 class GeminiService {
   private client: GoogleGenAI | null = null;

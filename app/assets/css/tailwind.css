@@ -3,21 +3,21 @@
 /* Custom Color Palette */
 :root {
   /* Primary Colors */
-  --color-primary: #D35944; /* Dark Coral */
-  --color-secondary: #5D7275; /* Cadet */
+  --color-primary: #d35944; /* Dark Coral */
+  --color-secondary: #5d7275; /* Cadet */
 
   /* Semantic Colors */
-  --color-accent: #FDE6B0; /* Peach */
-  --color-success: #5D7275; /* Cadet */
-  --color-warning: #D35944; /* Dark Coral */
+  --color-accent: #fde6b0; /* Peach */
+  --color-success: #5d7275; /* Cadet */
+  --color-warning: #d35944; /* Dark Coral */
 
   /* Neutral Colors */
-  --color-text: #1D2B36; /* Yankees Blue */
-  --color-text-muted: #5D7275; /* Cadet */
-  --color-text-light: #5D7275;
-  --color-background: #FDE6B0; /* Peach */
-  --color-background-muted: #FDE6B0;
-  --color-border: #D35944; /* Dark Coral */
+  --color-text: #1d2b36; /* Yankees Blue */
+  --color-text-muted: #5d7275; /* Cadet */
+  --color-text-light: #5d7275;
+  --color-background: #fde6b0; /* Peach */
+  --color-background-muted: #fde6b0;
+  --color-border: #d35944; /* Dark Coral */
 
   /* Brand Colors (aliases for semantic colors) */
   --color-dark-coral: var(--color-primary);
