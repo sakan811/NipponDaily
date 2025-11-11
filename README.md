@@ -10,6 +10,11 @@
 
 **How**: The app fetches news using the Tavily API, categorizes articles with Google Gemini AI, and presents them in a clean, responsive interface. Users can load news on-demand, filter by category, read AI-generated summaries for quick understanding, and click through to original articles when they want more detail.
 
+## Status
+
+[![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
+[![CodeQL](https://github.com/sakan811/NipponDaily/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/github-code-scanning/codeql)
+
 ## Features
 
 - **Web-based News Search**: Searches for recent Japan-related news from across the web, with intelligent source recognition for major outlets like NHK, Japan Times, and Nikkei
