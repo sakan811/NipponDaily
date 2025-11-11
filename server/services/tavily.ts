@@ -1,4 +1,5 @@
-import { tavily } from "@tavily/core";
+import { tavily, type TavilyClient, type TavilyImage } from "@tavily/core";
+import type { NewsItem } from "../../types/index";
 
 export interface TavilySearchResult {
   url: string;
@@ -14,14 +15,14 @@ export interface TavilyResponse {
   query: string;
   follow_up_questions: null;
   answer: null;
-  images: any[];
+  images: TavilyImage[];
   results: TavilySearchResult[];
   response_time: number;
   request_id: string;
 }
 
 class TavilyService {
-  private client: any;
+  private client: TavilyClient | null = null;
 
   private initializeClient(apiKey?: string) {
     if (!apiKey) {
@@ -100,7 +101,7 @@ class TavilyService {
     }
   }
 
-  formatTavilyResultsToNewsItems(response: TavilyResponse): any[] {
+  formatTavilyResultsToNewsItems(response: TavilyResponse): (Omit<NewsItem, 'category'> & { score?: number })[] {
     return response.results.map((result: TavilySearchResult) => {
       return {
         title: result.title || "Untitled",

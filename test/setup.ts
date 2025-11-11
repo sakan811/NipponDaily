@@ -130,7 +130,7 @@ vi.mock("@google/genai", () => ({
 }));
 
 // Mock Tavily for service tests
-let mockTavilyClient: any = {
+const mockTavilyClient: any = {
   search: vi.fn(),
 };
 

@@ -186,7 +186,9 @@ describe("News API", () => {
 
     try {
       await handler({});
-    } catch {}
+    } catch {
+      // Expected error - no action needed
+    }
 
     expect(consoleSpy).toHaveBeenCalledWith("News API error:", error);
     consoleSpy.mockRestore();

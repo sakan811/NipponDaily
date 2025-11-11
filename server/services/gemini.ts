@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import type { NewsItem } from "../../types/index";
-import { VALID_CATEGORIES } from "../../constants/categories";
+import { VALID_CATEGORIES, type CategoryName } from "../../constants/categories";
 
 class GeminiService {
   private client: GoogleGenAI | null = null;
@@ -177,8 +177,8 @@ Requirements:
     const normalized = category.trim();
 
     // Check if it's a valid category
-    if (VALID_CATEGORIES.includes(normalized as any)) {
-      return normalized as any;
+    if (VALID_CATEGORIES.includes(normalized as CategoryName)) {
+      return normalized as CategoryName;
     }
 
     // Try to match case-insensitively
@@ -186,7 +186,7 @@ Requirements:
       (valid) => valid.toLowerCase() === normalized.toLowerCase(),
     );
 
-    return (caseMatch as any) || "Other";
+    return caseMatch || "Other";
   }
 }
 
