@@ -1,25 +1,26 @@
-import { tavily, type TavilyClient, type TavilyImage } from "@tavily/core";
+import {
+  tavily,
+  type TavilyClient,
+  type TavilySearchResponse
+} from "@tavily/core";
 import type { NewsItem } from "../../types/index";
 
-export interface TavilySearchResult {
+export interface TavilyImage {
   url: string;
-  title: string;
-  score: number;
-  publishedDate?: string;
-  content: string;
-  favicon?: string;
-  raw_content?: string;
+  description?: string;
 }
 
-export interface TavilyResponse {
-  query: string;
-  follow_up_questions: null;
-  answer: null;
-  images: TavilyImage[];
-  results: TavilySearchResult[];
-  response_time: number;
-  request_id: string;
+export interface TavilySearchResult {
+  title: string;
+  url: string;
+  content: string;
+  rawContent?: string;
+  score: number;
+  publishedDate: string;
 }
+
+// Re-export TavilySearchResponse as TavilyResponse for backward compatibility
+export type TavilyResponse = TavilySearchResponse;
 
 class TavilyService {
   private client: TavilyClient | null = null;
@@ -64,8 +65,8 @@ class TavilyService {
       // Use the search method with topic: "news" for news-focused results and include raw content
       const response = await this.client.search(searchQuery, {
         topic: "news",
-        max_results: maxResults,
-        includeRawContent: true,
+        maxResults: maxResults,
+        includeRawContent: "text",
       });
 
       return response;
@@ -103,18 +104,17 @@ class TavilyService {
 
   formatTavilyResultsToNewsItems(
     response: TavilyResponse,
-  ): (Omit<NewsItem, "category"> & { score?: number })[] {
+  ): NewsItem[] {
     return response.results.map((result: TavilySearchResult) => {
       return {
         title: result.title || "Untitled",
         summary: result.content || "",
         content: result.content || "",
-        rawContent: result.raw_content || "",
+        rawContent: result.rawContent || "",
         source: this.extractSourceFromUrl(result.url),
         publishedAt: result.publishedDate || new Date().toISOString(),
-        category: "Other",
+        category: "Other" as const,
         url: result.url,
-        score: result.score,
       };
     });
   }
