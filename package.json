@@ -18,7 +18,7 @@
     "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build"
   },
   "dependencies": {
-    "@google/genai": "^1.29.0",
+    "@google/genai": "^1.29.1",
     "@tavily/core": "^0.5.12",
     "nuxt": "^4.2.1",
     "ofetch": "^1.5.1",
