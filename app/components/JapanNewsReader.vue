@@ -50,6 +50,7 @@
                 v-for="timeRange in timeRangeOptions"
                 :key="timeRange.id"
                 @click="selectedTimeRange = timeRange.id"
+                :title="`Filter news by ${timeRange.name.toLowerCase()}`"
                 :class="[
                   'px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
                   selectedTimeRange === timeRange.id
@@ -71,6 +72,7 @@
                 v-for="category in categories"
                 :key="category.id"
                 @click="selectedCategory = category.id"
+                :title="category.id === 'all' ? 'Show all categories' : `Filter news by ${category.name}`"
                 :class="[
                   'px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
                   selectedCategory === category.id
@@ -117,9 +119,12 @@
               <h3 class="text-xl font-semibold text-slate-800 mb-2">
                 No news loaded yet
               </h3>
-              <p class="text-slate-600">
-                Click the "Get News" button in the header above to fetch the
-                latest news from Japan
+              <p class="text-slate-600 mb-4">
+                Select your preferred time range and category, then click "Get News"
+                to fetch targeted news from Japan
+              </p>
+              <p class="text-sm text-slate-500">
+                <em>Tip: Time range and category filters will affect the search results, not just the display</em>
               </p>
             </div>
             <NewsCard

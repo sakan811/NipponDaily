@@ -99,9 +99,10 @@
 
 ## Usage
 
-1. Click "Get News" to fetch latest Japanese news with AI-generated summaries
-2. Use time range buttons to filter by recency (All Time, Today, This Week, etc.)
-3. Use category buttons to filter by topic
+1. Select your preferred time range and category, then click "Get News" to fetch targeted Japanese news with AI-generated summaries
+2. Use time range buttons to control search recency (All Time, Today, This Week, etc.)
+3. Use category buttons to search specific topics (Politics, Business, Technology, Culture, Sports)
+   - *Note: Time range and category filters affect the actual news search, not just display*
 4. Read AI summaries for quick understanding of each article
 5. Click "Read Original" to visit full articles
 
