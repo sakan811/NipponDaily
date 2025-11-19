@@ -12,7 +12,7 @@ describe("TavilyService", () => {
   });
 
   const createMockTavilyResponse = () => ({
-    query: "latest news Japan",
+    query: "latest Japan news",
     follow_up_questions: null,
     answer: null,
     images: [],
@@ -46,12 +46,13 @@ describe("TavilyService", () => {
       });
 
       expect(mockTavilyClient.search).toHaveBeenCalledWith(
-        "latest news Japan",
+        "latest Japan news",
         {
           topic: "news",
-          maxResults: 5,
-          includeRawContent: "text",
-        },
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+          timeRange: "week",
+        }
       );
       expect(result).toEqual(mockResponse);
     });
@@ -69,9 +70,10 @@ describe("TavilyService", () => {
         "latest technology news Japan",
         {
           topic: "news",
-          maxResults: 10,
-          includeRawContent: "text",
-        },
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+          timeRange: "week",
+        }
       );
     });
 
@@ -85,12 +87,13 @@ describe("TavilyService", () => {
       });
 
       expect(mockTavilyClient.search).toHaveBeenCalledWith(
-        "latest news Japan",
+        "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
-          includeRawContent: "text",
-        },
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+          timeRange: "week",
+        }
       );
     });
 
@@ -101,12 +104,13 @@ describe("TavilyService", () => {
       await service.searchJapanNews({ apiKey: "test-tavily-key" });
 
       expect(mockTavilyClient.search).toHaveBeenCalledWith(
-        "latest news Japan",
+        "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
-          includeRawContent: "text",
-        },
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+          timeRange: "week",
+        }
       );
     });
 
@@ -117,12 +121,13 @@ describe("TavilyService", () => {
       await service.searchJapanNews({ apiKey: "test-tavily-key" });
 
       expect(mockTavilyClient.search).toHaveBeenCalledWith(
-        "latest news Japan",
+        "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
-          includeRawContent: "text",
-        },
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+          timeRange: "week",
+        }
       );
     });
 
@@ -136,14 +141,94 @@ describe("TavilyService", () => {
       });
 
       expect(mockTavilyClient.search).toHaveBeenCalledWith(
-        "latest news Japan",
+        "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
-          includeRawContent: "text",
-        },
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+          timeRange: "week",
+        }
       );
       expect(result).toEqual(mockResponse);
+    });
+
+    it("uses provided timeRange when specified", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      await service.searchJapanNews({
+        timeRange: "day",
+        apiKey: "test-tavily-key",
+      });
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "latest Japan news",
+        {
+          topic: "news",
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+          timeRange: "day",
+        }
+      );
+    });
+
+    it("excludes timeRange when set to none", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      await service.searchJapanNews({
+        timeRange: "none",
+        apiKey: "test-tavily-key",
+      });
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "latest Japan news",
+        {
+          topic: "news",
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+        }
+      );
+    });
+
+    it("uses month timeRange when specified", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      await service.searchJapanNews({
+        timeRange: "month",
+        apiKey: "test-tavily-key",
+      });
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "latest Japan news",
+        {
+          topic: "news",
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+          timeRange: "month",
+        }
+      );
+    });
+
+    it("uses year timeRange when specified", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      await service.searchJapanNews({
+        timeRange: "year",
+        apiKey: "test-tavily-key",
+      });
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "latest Japan news",
+        {
+          topic: "news",
+          searchDepth: "advanced",
+          includeRawContent: "markdown",
+          timeRange: "year",
+        }
+      );
     });
 
     it("throws error when client is not initialized", async () => {

@@ -74,6 +74,8 @@ describe("News API", () => {
     expect(response.timestamp).toBeDefined();
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
+      category: undefined,
+      timeRange: "week",
       apiKey: "test-tavily-key",
     });
     expect(mockGeminiCategorize).toHaveBeenCalledWith([], {
@@ -95,6 +97,8 @@ describe("News API", () => {
     expect(response.data).toHaveLength(1);
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
+      category: "technology",
+      timeRange: "week",
       apiKey: "test-tavily-key",
     });
     expect(mockGeminiCategorize).toHaveBeenCalledWith(mockNews, {
@@ -125,6 +129,8 @@ describe("News API", () => {
     expect(response.count).toBe(3);
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 3,
+      category: undefined,
+      timeRange: "week",
       apiKey: "test-tavily-key",
     });
   });
@@ -140,6 +146,8 @@ describe("News API", () => {
     expect(response.data).toHaveLength(0);
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
+      category: undefined,
+      timeRange: "week",
       apiKey: "test-tavily-key",
     });
   });
@@ -157,6 +165,8 @@ describe("News API", () => {
     expect(response.data).toHaveLength(1);
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
+      category: undefined,
+      timeRange: "week",
       apiKey: "test-tavily-key",
     });
   });
@@ -173,6 +183,8 @@ describe("News API", () => {
     });
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
+      category: undefined,
+      timeRange: "week",
       apiKey: "test-tavily-key",
     });
   });
@@ -194,6 +206,8 @@ describe("News API", () => {
     consoleSpy.mockRestore();
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
+      category: undefined,
+      timeRange: "week",
       apiKey: "test-tavily-key",
     });
   });
@@ -209,6 +223,8 @@ describe("News API", () => {
     });
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
+      category: undefined,
+      timeRange: "week",
       apiKey: "test-tavily-key",
     });
   });

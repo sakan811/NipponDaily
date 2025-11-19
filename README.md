@@ -22,12 +22,22 @@
 - **AI Summaries**: Get concise, AI-generated summaries of news articles for quick understanding
 - **On-Demand Loading**: Click "Get News" to fetch the latest articles when you want them, no auto-refresh interruptions
 - **Category Filtering**: Filter news by topic with interactive category buttons (Politics, Business, Technology, Culture, Sports)
+- **Time Range Selection**: Filter news by recency with options for All Time, Today, This Week, This Month, This Year
 - **Source Attribution**: See the original source for each article with intelligent source recognition
 - **Publication Times**: View when articles were published with smart date formatting
 - **Error Handling**: Built-in error handling with manual retry option if news fetching fails
 - **Loading States**: Smooth loading animations and skeleton UI while fetching content
 - **Clean Interface**: Basic responsive design with Japanese-themed styling
 - **Accessibility**: Full keyboard navigation, focus indicators, and reduced motion support
+
+## Design System
+
+**Color Palette**:
+
+- **Dark Coral** (`#D35944`): Time range active states & borders
+- **Peach** (`#FDE6B0`): Time range inactive backgrounds
+- **Cadet** (`#5D7275`): Supporting UI elements
+- **Yankees Blue** (`#1D2B36`): Deep backgrounds & text hierarchy
 
 ## Tech Stack
 
@@ -90,9 +100,10 @@
 ## Usage
 
 1. Click "Get News" to fetch latest Japanese news with AI-generated summaries
-2. Use category buttons to filter by topic
-3. Read AI summaries for quick understanding of each article
-4. Click "Read Original" to visit full articles
+2. Use time range buttons to filter by recency (All Time, Today, This Week, etc.)
+3. Use category buttons to filter by topic
+4. Read AI summaries for quick understanding of each article
+5. Click "Read Original" to visit full articles
 
 ## Development Commands
 
