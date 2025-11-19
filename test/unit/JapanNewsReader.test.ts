@@ -148,7 +148,7 @@ describe("JapanNewsReader", () => {
     const cardElement = wrapper.find(".card");
     expect(cardElement.exists()).toBe(true);
     expect(cardElement.text()).toContain("No news loaded yet");
-    expect(cardElement.text()).toContain('Click the "Get News" button');
+    expect(cardElement.text()).toContain('click "Get News"');
   });
 
   it("renders NewsCard components when news is loaded", async () => {
