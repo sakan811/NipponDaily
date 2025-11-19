@@ -461,7 +461,13 @@ describe("JapanNewsReader", () => {
 
     const timeRangeButtons = wrapper.findAll("button").filter((button) => {
       const text = button.text();
-      return ["All Time", "Today", "This Week", "This Month", "This Year"].includes(text);
+      return [
+        "All Time",
+        "Today",
+        "This Week",
+        "This Month",
+        "This Year",
+      ].includes(text);
     });
 
     expect(timeRangeButtons.length).toBe(5);
@@ -483,9 +489,9 @@ describe("JapanNewsReader", () => {
 
     expect(wrapper.vm.selectedTimeRange).toBe("week");
 
-    const weekButton = wrapper.findAll("button").find((button) =>
-      button.text() === "This Week"
-    );
+    const weekButton = wrapper
+      .findAll("button")
+      .find((button) => button.text() === "This Week");
 
     expect(weekButton?.classes()).toContain("bg-[#D35944]");
   });
@@ -500,9 +506,9 @@ describe("JapanNewsReader", () => {
     });
 
     // Find and click the "Today" button
-    const todayButton = wrapper.findAll("button").find((button) =>
-      button.text() === "Today"
-    );
+    const todayButton = wrapper
+      .findAll("button")
+      .find((button) => button.text() === "Today");
 
     await todayButton?.trigger("click");
     expect(wrapper.vm.selectedTimeRange).toBe("day");
@@ -551,28 +557,28 @@ describe("JapanNewsReader", () => {
     });
 
     // Initially "This Week" should be selected (blue background)
-    let weekButton = wrapper.findAll("button").find((button) =>
-      button.text() === "This Week"
-    );
+    let weekButton = wrapper
+      .findAll("button")
+      .find((button) => button.text() === "This Week");
     expect(weekButton?.classes()).toContain("bg-[#D35944]");
 
     // Find and click "All Time" button
-    const allTimeButton = wrapper.findAll("button").find((button) =>
-      button.text() === "All Time"
-    );
+    const allTimeButton = wrapper
+      .findAll("button")
+      .find((button) => button.text() === "All Time");
 
     await allTimeButton?.trigger("click");
 
     // Now "All Time" should be selected
-    const updatedAllTimeButton = wrapper.findAll("button").find((button) =>
-      button.text() === "All Time"
-    );
+    const updatedAllTimeButton = wrapper
+      .findAll("button")
+      .find((button) => button.text() === "All Time");
     expect(updatedAllTimeButton?.classes()).toContain("bg-[#D35944]");
 
     // And "This Week" should be unselected (border only)
-    weekButton = wrapper.findAll("button").find((button) =>
-      button.text() === "This Week"
-    );
+    weekButton = wrapper
+      .findAll("button")
+      .find((button) => button.text() === "This Week");
     expect(weekButton?.classes()).toContain("border");
   });
 });

@@ -5,12 +5,8 @@ import {
 } from "@tavily/core";
 import type { NewsItem } from "../../types/index";
 
-export interface TavilyImage {
-  url: string;
-  description?: string;
-}
-
-export interface TavilySearchResult {
+// Type for Tavily search result based on @tavily/core documentation
+interface TavilyResult {
   title: string;
   url: string;
   content: string;
@@ -19,8 +15,17 @@ export interface TavilySearchResult {
   publishedDate: string;
 }
 
-// Re-export TavilySearchResponse as TavilyResponse for backward compatibility
-export type TavilyResponse = TavilySearchResponse;
+// Type for search options
+interface TavilySearchOptions {
+  topic: "news" | "general" | "finance";
+  maxResults: number;
+  searchDepth: "basic" | "advanced";
+  includeRawContent: false | "text" | "markdown";
+  timeRange?: "day" | "week" | "month" | "year" | "y" | "m" | "w" | "d";
+}
+
+// Type alias for TavilySearchResponse for internal use
+type TavilyResponse = TavilySearchResponse;
 
 class TavilyService {
   private client: TavilyClient | null = null;
@@ -68,14 +73,15 @@ class TavilyService {
       const apiTimeRange = this.mapTimeRangeToApi(timeRange);
 
       // Use advanced search parameters for better news results
-      const searchOptions: any = {
+      const searchOptions: TavilySearchOptions = {
         topic: "news",
+        maxResults: maxResults,
         searchDepth: "advanced",
-        includeRawContent: "markdown"
+        includeRawContent: "markdown",
       };
 
-      // Only include timeRange if it's not "none"
-      if (apiTimeRange !== "none") {
+      // Only include timeRange if it's not undefined (i.e., not "none")
+      if (apiTimeRange) {
         searchOptions.timeRange = apiTimeRange;
       }
 
@@ -88,34 +94,8 @@ class TavilyService {
     }
   }
 
-  async searchGeneral(
-    query: string,
-    maxResults: number = 5,
-    apiKey?: string,
-  ): Promise<TavilyResponse> {
-    // Initialize client with API key if not already done
-    if (!this.client && apiKey) {
-      this.initializeClient(apiKey);
-    }
-
-    if (!this.client) {
-      throw new Error("Tavily client not initialized - API key required");
-    }
-
-    try {
-      const response = await this.client.search(query, {
-        max_results: maxResults,
-      });
-
-      return response;
-    } catch (error) {
-      console.error("Error searching with Tavily:", error);
-      throw new Error("Failed to search with Tavily API");
-    }
-  }
-
   formatTavilyResultsToNewsItems(response: TavilyResponse): NewsItem[] {
-    return response.results.map((result: TavilySearchResult) => {
+    return response.results.map((result: TavilyResult) => {
       return {
         title: result.title || "Untitled",
         summary: result.content || "",
@@ -129,15 +109,18 @@ class TavilyService {
     });
   }
 
-  private mapTimeRangeToApi(timeRange: "none" | "day" | "week" | "month" | "year"): string {
-    const timeRangeMap: { [key: string]: string } = {
-      "none": "none",
-      "day": "day",
-      "week": "week",
-      "month": "month",
-      "year": "year"
+  private mapTimeRangeToApi(
+    timeRange: "none" | "day" | "week" | "month" | "year",
+  ): "day" | "week" | "month" | "year" | "y" | "m" | "w" | "d" | undefined {
+    const timeRangeMap: {
+      [key: string]: "day" | "week" | "month" | "year" | "y" | "m" | "w" | "d";
+    } = {
+      day: "day",
+      week: "week",
+      month: "month",
+      year: "year",
     };
-    return timeRangeMap[timeRange] || "week";
+    return timeRangeMap[timeRange] || undefined;
   }
 
   private extractSourceFromUrl(url: string): string {
