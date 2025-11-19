@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     // Validate timeRange parameter
     const validTimeRanges = ["none", "day", "week", "month", "year"];
     const validatedTimeRange = validTimeRanges.includes(timeRange)
-      ? timeRange as "none" | "day" | "week" | "month" | "year"
+      ? (timeRange as "none" | "day" | "week" | "month" | "year")
       : "week";
 
     // Fetch news from Tavily

@@ -43,7 +43,9 @@
         <div>
           <!-- Time Range Filter -->
           <div class="mb-3 sm:mb-4">
-            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-center sm:justify-start">
+            <div
+              class="flex flex-wrap gap-1.5 sm:gap-2 justify-center sm:justify-start"
+            >
               <button
                 v-for="timeRange in timeRangeOptions"
                 :key="timeRange.id"
@@ -156,7 +158,9 @@ const news = ref<NewsItem[]>([]);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const selectedCategory = ref<CategoryId>("all");
-const selectedTimeRange = ref<"none" | "day" | "week" | "month" | "year">("week");
+const selectedTimeRange = ref<"none" | "day" | "week" | "month" | "year">(
+  "week",
+);
 
 // Categories
 const categories = NEWS_CATEGORIES;

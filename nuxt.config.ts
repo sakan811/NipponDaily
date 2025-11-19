@@ -5,6 +5,17 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["./app/assets/css/tailwind.css"],
   modules: ["@nuxt/test-utils/module"],
+  app: {
+    head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "/favicon.ico",
+        },
+      ],
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },

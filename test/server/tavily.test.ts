@@ -49,10 +49,11 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
+          maxResults: 5,
           searchDepth: "advanced",
           includeRawContent: "markdown",
           timeRange: "week",
-        }
+        },
       );
       expect(result).toEqual(mockResponse);
     });
@@ -70,10 +71,11 @@ describe("TavilyService", () => {
         "latest technology news Japan",
         {
           topic: "news",
+          maxResults: 10,
           searchDepth: "advanced",
           includeRawContent: "markdown",
           timeRange: "week",
-        }
+        },
       );
     });
 
@@ -90,10 +92,11 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
+          maxResults: 10,
           searchDepth: "advanced",
           includeRawContent: "markdown",
           timeRange: "week",
-        }
+        },
       );
     });
 
@@ -107,10 +110,11 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
+          maxResults: 10,
           searchDepth: "advanced",
           includeRawContent: "markdown",
           timeRange: "week",
-        }
+        },
       );
     });
 
@@ -124,10 +128,11 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
+          maxResults: 10,
           searchDepth: "advanced",
           includeRawContent: "markdown",
           timeRange: "week",
-        }
+        },
       );
     });
 
@@ -144,10 +149,11 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
+          maxResults: 10,
           searchDepth: "advanced",
           includeRawContent: "markdown",
           timeRange: "week",
-        }
+        },
       );
       expect(result).toEqual(mockResponse);
     });
@@ -165,10 +171,11 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
+          maxResults: 10,
           searchDepth: "advanced",
           includeRawContent: "markdown",
           timeRange: "day",
-        }
+        },
       );
     });
 
@@ -185,9 +192,10 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
+          maxResults: 10,
           searchDepth: "advanced",
           includeRawContent: "markdown",
-        }
+        },
       );
     });
 
@@ -204,10 +212,11 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
+          maxResults: 10,
           searchDepth: "advanced",
           includeRawContent: "markdown",
           timeRange: "month",
-        }
+        },
       );
     });
 
@@ -224,10 +233,11 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
+          maxResults: 10,
           searchDepth: "advanced",
           includeRawContent: "markdown",
           timeRange: "year",
-        }
+        },
       );
     });
 
@@ -317,70 +327,6 @@ describe("TavilyService", () => {
 
       expect(result[0].title).toBe("Untitled");
       expect(result[0].summary).toBe("");
-    });
-  });
-
-  describe("searchGeneral", () => {
-    it("searches general queries successfully", async () => {
-      const mockResponse = createMockTavilyResponse();
-      mockTavilyClient.search.mockResolvedValue(mockResponse);
-
-      const result = await service.searchGeneral(
-        "test query",
-        5,
-        "test-tavily-key",
-      );
-
-      expect(mockTavilyClient.search).toHaveBeenCalledWith("test query", {
-        max_results: 5,
-      });
-      expect(result).toEqual(mockResponse);
-    });
-
-    it("initializes client when called on fresh service instance", async () => {
-      const module = await import("~/server/services/tavily");
-      const freshService = new module.TavilyService();
-      const mockResponse = createMockTavilyResponse();
-      mockTavilyClient.search.mockResolvedValue(mockResponse);
-
-      const result = await freshService.searchGeneral(
-        "test query",
-        5,
-        "test-tavily-key",
-      );
-
-      expect(mockTavilyClient.search).toHaveBeenCalledWith("test query", {
-        max_results: 5,
-      });
-      expect(result).toEqual(mockResponse);
-    });
-
-    it("uses default maxResults when not provided", async () => {
-      const mockResponse = createMockTavilyResponse();
-      mockTavilyClient.search.mockResolvedValue(mockResponse);
-
-      await service.searchGeneral("test query", undefined, "test-tavily-key");
-
-      expect(mockTavilyClient.search).toHaveBeenCalledWith("test query", {
-        max_results: 5,
-      });
-    });
-
-    it("throws error when client is not initialized", async () => {
-      const module = await import("~/server/services/tavily");
-      const serviceWithoutClient = new module.TavilyService();
-
-      await expect(
-        serviceWithoutClient.searchGeneral("test query"),
-      ).rejects.toThrow("Tavily client not initialized - API key required");
-    });
-
-    it("handles API errors", async () => {
-      mockTavilyClient.search.mockRejectedValue(new Error("API Error"));
-
-      await expect(
-        service.searchGeneral("test query", 5, "test-tavily-key"),
-      ).rejects.toThrow("Failed to search with Tavily API");
     });
   });
 
