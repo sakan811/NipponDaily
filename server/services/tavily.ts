@@ -38,6 +38,7 @@ class TavilyService {
     query?: string;
     maxResults?: number;
     category?: string;
+    timeRange?: "none" | "day" | "week" | "month" | "year";
     apiKey?: string;
   }): Promise<TavilyResponse> {
     // Initialize client with API key if not already done
@@ -51,9 +52,10 @@ class TavilyService {
 
     try {
       const {
-        query = "latest news Japan",
+        query = "latest Japan news",
         maxResults = 10,
         category = "",
+        timeRange = "week",
       } = options || {};
 
       // Build search query based on category
@@ -62,12 +64,22 @@ class TavilyService {
         searchQuery = `latest ${category} news Japan`;
       }
 
-      // Use the search method with topic: "news" for news-focused results and include raw content
-      const response = await this.client.search(searchQuery, {
+      // Map UI timeRange values to API timeRange values
+      const apiTimeRange = this.mapTimeRangeToApi(timeRange);
+
+      // Use advanced search parameters for better news results
+      const searchOptions: any = {
         topic: "news",
-        maxResults: maxResults,
-        includeRawContent: "text",
-      });
+        searchDepth: "advanced",
+        includeRawContent: "markdown"
+      };
+
+      // Only include timeRange if it's not "none"
+      if (apiTimeRange !== "none") {
+        searchOptions.timeRange = apiTimeRange;
+      }
+
+      const response = await this.client.search(searchQuery, searchOptions);
 
       return response;
     } catch (error) {
@@ -115,6 +127,17 @@ class TavilyService {
         url: result.url,
       };
     });
+  }
+
+  private mapTimeRangeToApi(timeRange: "none" | "day" | "week" | "month" | "year"): string {
+    const timeRangeMap: { [key: string]: string } = {
+      "none": "none",
+      "day": "day",
+      "week": "week",
+      "month": "month",
+      "year": "year"
+    };
+    return timeRangeMap[timeRange] || "week";
   }
 
   private extractSourceFromUrl(url: string): string {

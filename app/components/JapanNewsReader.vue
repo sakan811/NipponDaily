@@ -41,6 +41,25 @@
       <div class="grid grid-cols-1 gap-6 sm:gap-8">
         <!-- News Section -->
         <div>
+          <!-- Time Range Filter -->
+          <div class="mb-3 sm:mb-4">
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-center sm:justify-start">
+              <button
+                v-for="timeRange in timeRangeOptions"
+                :key="timeRange.id"
+                @click="selectedTimeRange = timeRange.id"
+                :class="[
+                  'px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
+                  selectedTimeRange === timeRange.id
+                    ? 'bg-[#D35944] text-white hover:bg-[#B84733] shadow-md hover:shadow-lg'
+                    : 'border border-[#D35944] text-[#D35944] bg-[#FDE6B0] hover:bg-[#F8D690]',
+                ]"
+              >
+                {{ timeRange.name }}
+              </button>
+            </div>
+          </div>
+
           <!-- Category Filter -->
           <div class="mb-4 sm:mb-6">
             <div
@@ -137,9 +156,19 @@ const news = ref<NewsItem[]>([]);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const selectedCategory = ref<CategoryId>("all");
+const selectedTimeRange = ref<"none" | "day" | "week" | "month" | "year">("week");
 
 // Categories
 const categories = NEWS_CATEGORIES;
+
+// Time range options
+const timeRangeOptions = [
+  { id: "none", name: "All Time" },
+  { id: "day", name: "Today" },
+  { id: "week", name: "This Week" },
+  { id: "month", name: "This Month" },
+  { id: "year", name: "This Year" },
+] as const;
 
 // Computed
 const filteredNews = computed(() => {
@@ -158,10 +187,16 @@ const fetchNews = async () => {
   error.value = null;
 
   try {
-    const response = await $fetch("/api/news", {
+    const response = await $fetch<{
+      success: boolean;
+      data: NewsItem[];
+      count: number;
+      timestamp: string;
+    }>("/api/news", {
       query: {
         category:
           selectedCategory.value === "all" ? undefined : selectedCategory.value,
+        timeRange: selectedTimeRange.value,
         limit: 20,
       },
     });

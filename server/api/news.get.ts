@@ -9,12 +9,21 @@ export default defineEventHandler(async (event) => {
     // Get query parameters
     const query = getQuery(event);
     const category = query.category as string;
+    const timeRange = (query.timeRange as string) || "week";
     const limitParam = parseInt(query.limit as string);
     const limit = !isNaN(limitParam) && limitParam > 0 ? limitParam : 10;
+
+    // Validate timeRange parameter
+    const validTimeRanges = ["none", "day", "week", "month", "year"];
+    const validatedTimeRange = validTimeRanges.includes(timeRange)
+      ? timeRange as "none" | "day" | "week" | "month" | "year"
+      : "week";
 
     // Fetch news from Tavily
     const tavilyResponse = await tavilyService.searchJapanNews({
       maxResults: limit,
+      category: category === "all" ? undefined : category,
+      timeRange: validatedTimeRange,
       apiKey: config.tavilyApiKey,
     });
 
