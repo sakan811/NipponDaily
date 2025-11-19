@@ -72,7 +72,11 @@
                 v-for="category in categories"
                 :key="category.id"
                 @click="selectedCategory = category.id"
-                :title="category.id === 'all' ? 'Show all categories' : `Filter news by ${category.name}`"
+                :title="
+                  category.id === 'all'
+                    ? 'Show all categories'
+                    : `Filter news by ${category.name}`
+                "
                 :class="[
                   'px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
                   selectedCategory === category.id
@@ -120,11 +124,14 @@
                 No news loaded yet
               </h3>
               <p class="text-slate-600 mb-4">
-                Select your preferred time range and category, then click "Get News"
-                to fetch targeted news from Japan
+                Select your preferred time range and category, then click "Get
+                News" to fetch targeted news from Japan
               </p>
               <p class="text-sm text-slate-500">
-                <em>Tip: Time range and category filters will affect the search results, not just the display</em>
+                <em
+                  >Tip: Time range and category filters will affect the search
+                  results, not just the display</em
+                >
               </p>
             </div>
             <NewsCard
