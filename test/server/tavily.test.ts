@@ -50,7 +50,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 5,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
           timeRange: "week",
         },
@@ -72,7 +72,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 10,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
           timeRange: "week",
         },
@@ -93,7 +93,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 10,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
           timeRange: "week",
         },
@@ -111,7 +111,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 10,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
           timeRange: "week",
         },
@@ -129,7 +129,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 10,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
           timeRange: "week",
         },
@@ -150,7 +150,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 10,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
           timeRange: "week",
         },
@@ -172,7 +172,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 10,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
           timeRange: "day",
         },
@@ -193,7 +193,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 10,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
         },
       );
@@ -213,7 +213,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 10,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
           timeRange: "month",
         },
@@ -234,7 +234,7 @@ describe("TavilyService", () => {
         {
           topic: "news",
           maxResults: 10,
-          searchDepth: "advanced",
+          searchDepth: "basic",
           includeRawContent: "markdown",
           timeRange: "year",
         },

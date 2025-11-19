@@ -8,7 +8,7 @@
 
 **Why**: Traditional news consumption can be overwhelming with endless scrolling and irrelevant content. NipponDaily solves this by using AI to intelligently organize news into clear categories and generate summaries, helping users quickly find and understand the stories that matter most to them across Politics, Business, Technology, Culture, and Sports.
 
-**How**: The app fetches news using the Tavily API, categorizes articles with Google Gemini AI, and presents them in a clean, responsive interface. Users can load news on-demand, filter by category, read AI-generated summaries for quick understanding, and click through to original articles when they want more detail.
+**How**: The app fetches news using the Tavily API with basic search depth, categorizes articles with Google Gemini AI, and presents them in a clean, responsive interface. Users can load news on-demand, filter by category and time range, read AI-generated summaries for quick understanding, and click through to original articles when they want more detail.
 
 ## Status
 
@@ -17,18 +17,19 @@
 
 ## Features
 
-- **Web-based News Search**: Searches for recent Japan-related news from across the web, with intelligent source recognition for major outlets like NHK, Japan Times, and Nikkei
-- **AI-Powered Categorization**: Automatically categorize news into Politics, Business, Technology, Culture, Sports
-- **AI Summaries**: Get concise, AI-generated summaries of news articles for quick understanding
+- **Web-based News Search**: Basic web search for recent Japan-related news from across the web with intelligent source recognition
+- **AI-Powered Categorization**: Automatically categorize news into Politics, Business, Technology, Culture, Sports, and Other
+- **AI Summaries**: Get concise, AI-generated summaries of news articles for quick understanding using Google Gemini
 - **On-Demand Loading**: Click "Get News" to fetch the latest articles when you want them, no auto-refresh interruptions
-- **Category Filtering**: Filter news by topic with interactive category buttons (Politics, Business, Technology, Culture, Sports)
+- **Category Filtering**: Filter news by topic with interactive category buttons (All News, Politics, Business, Technology, Culture, Sports)
 - **Time Range Selection**: Filter news by recency with options for All Time, Today, This Week, This Month, This Year
-- **Source Attribution**: See the original source for each article with intelligent source recognition
+- **Source Attribution**: See the original source for each article with intelligent domain recognition
 - **Publication Times**: View when articles were published with smart date formatting
 - **Error Handling**: Built-in error handling with manual retry option if news fetching fails
 - **Loading States**: Smooth loading animations and skeleton UI while fetching content
-- **Clean Interface**: Basic responsive design with Japanese-themed styling
+- **Responsive Design**: Clean interface with Japanese-themed styling and Tailwind CSS
 - **Accessibility**: Full keyboard navigation, focus indicators, and reduced motion support
+- **Comprehensive Testing**: Full test suite with unit tests, server tests, and coverage reporting
 
 ## Design System
 
@@ -42,10 +43,11 @@
 ## Tech Stack
 
 - **Frontend**: Vue 3, Nuxt 4, TypeScript
-- **News Search**: Tavily API
-- **AI Categorization**: Google Gemini API
+- **News Search**: Tavily API (basic search depth)
+- **AI Categorization**: Google Gemini API (gemini-2.5-flash)
 - **Styling**: Tailwind CSS v4 with Vite plugin
-- **Testing**: Vitest with happy-dom
+- **Testing**: Vitest with happy-dom and v8 coverage
+- **Code Quality**: ESLint, Prettier, TypeScript
 
 ## Limitations & Dependencies
 
@@ -58,9 +60,9 @@
 ### Dependencies
 
 - **Required**: Both Tavily API and Google Gemini API must be configured
-- **Tavily API**: For web search and content extraction
-- **Gemini API**: For AI categorization and summary generation
-- **Degradation**: If Gemini fails, basic summaries are generated from raw content
+- **Tavily API**: For basic web search and content extraction (markdown format)
+- **Gemini API**: For AI categorization and summary generation with structured JSON responses
+- **Degradation**: If Gemini fails, articles are categorized as "Other" with basic summaries from raw content
 
 ### Categorization
 
@@ -117,6 +119,10 @@ pnpm preview          # Preview production build
 pnpm test             # Run tests in watch mode
 pnpm test:run         # Run all tests once
 pnpm test:coverage    # Run tests with coverage report
+pnpm lint             # Run ESLint with auto-fix
+pnpm format           # Format code with Prettier
+pnpm type-check       # Run TypeScript type checking
+pnpm check-qa         # Run all QA checks (lint, format, type-check, build)
 ```
 
 ## Environment Variables

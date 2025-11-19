@@ -72,11 +72,11 @@ class TavilyService {
       // Map UI timeRange values to API timeRange values
       const apiTimeRange = this.mapTimeRangeToApi(timeRange);
 
-      // Use advanced search parameters for better news results
+      // Use basic search parameters for news results
       const searchOptions: TavilySearchOptions = {
         topic: "news",
         maxResults: maxResults,
-        searchDepth: "advanced",
+        searchDepth: "basic",
         includeRawContent: "markdown",
       };
 
