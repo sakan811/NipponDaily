@@ -1,12 +1,12 @@
 <template>
-  <div class="min-h-screen bg-gradient-secondary">
+  <div class="min-h-screen bg-[var(--color-text)]">
     <!-- Header -->
-    <header class="bg-yellow-50 shadow-lg overflow-x-hidden">
+    <header class="bg-[var(--color-accent)] shadow-lg overflow-x-hidden">
       <div class="px-3 sm:px-4 py-4 sm:py-6">
         <div class="flex items-center justify-between gap-3">
           <div class="flex items-center space-x-2 sm:space-x-3">
             <div
-              class="w-8 h-8 sm:w-12 sm:h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg overflow-hidden flex-shrink-0"
+              class="w-8 h-8 sm:w-12 sm:h-12 bg-[var(--color-primary)] rounded-full flex items-center justify-center shadow-lg overflow-hidden shrink-0"
             >
               <img
                 src="/favicon.ico"
@@ -15,16 +15,16 @@
               />
             </div>
             <h1
-              class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 font-serif truncate"
+              class="text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-text)] font-serif truncate"
             >
               NipponDaily
             </h1>
           </div>
-          <div class="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+          <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
             <button
               @click="refreshNews"
               :disabled="loading"
-              class="border-2 border-red-600 bg-yellow-50 text-slate-800 hover:bg-yellow-100 rounded-md disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 sm:px-4 cursor-pointer text-sm sm:text-base whitespace-nowrap"
+              class="btn-box disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 sm:px-4 cursor-pointer text-sm sm:text-base whitespace-nowrap"
             >
               <span v-if="loading">Getting...</span>
               <span v-else>Get News</span>
@@ -43,9 +43,10 @@
         <div>
           <!-- Time Range Filter -->
           <div class="mb-3 sm:mb-4">
-            <div
-              class="flex flex-wrap gap-1.5 sm:gap-2 justify-center sm:justify-start"
-            >
+            <p class="text-sm text-[var(--color-accent)] mb-2 max-w-fit">
+              <em>Select a time range to focus news search results</em>
+            </p>
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
               <button
                 v-for="timeRange in timeRangeOptions"
                 :key="timeRange.id"
@@ -54,8 +55,8 @@
                 :class="[
                   'px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
                   selectedTimeRange === timeRange.id
-                    ? 'bg-[#D35944] text-white hover:bg-[#B84733] shadow-md hover:shadow-lg'
-                    : 'border border-[#D35944] text-[#D35944] bg-[#FDE6B0] hover:bg-[#F8D690]',
+                    ? 'bg-[var(--color-primary)] text-white hover:opacity-90 shadow-md hover:shadow-lg'
+                    : 'border border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-accent)] hover:opacity-80',
                 ]"
               >
                 {{ timeRange.name }}
@@ -65,9 +66,13 @@
 
           <!-- Category Filter -->
           <div class="mb-4 sm:mb-6">
-            <div
-              class="flex flex-wrap gap-1.5 sm:gap-2 justify-center sm:justify-start"
-            >
+            <p class="text-sm text-[var(--color-accent)] mb-2 max-w-fit">
+              <em
+                >Choose categories to filter both search and displayed
+                results</em
+              >
+            </p>
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
               <button
                 v-for="category in categories"
                 :key="category.id"
@@ -80,8 +85,8 @@
                 :class="[
                   'px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
                   selectedCategory === category.id
-                    ? 'bg-red-600 text-white hover:bg-red-700 shadow-md hover:shadow-lg'
-                    : 'border border-red-600 text-red-600 bg-yellow-50 hover:bg-yellow-100',
+                    ? 'bg-[var(--color-primary)] text-white hover:opacity-90 shadow-md hover:shadow-lg'
+                    : 'border border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-accent)] hover:opacity-80',
                 ]"
               >
                 {{ category.name }}
@@ -107,7 +112,7 @@
             >
               <div class="mb-4">
                 <svg
-                  class="w-16 h-16 mx-auto text-slate-600 opacity-50"
+                  class="w-16 h-16 mx-auto text-[var(--color-text-muted)] opacity-50"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -120,14 +125,14 @@
                   ></path>
                 </svg>
               </div>
-              <h3 class="text-xl font-semibold text-slate-800 mb-2">
+              <h3 class="text-xl font-semibold text-[var(--color-text)] mb-2">
                 No news loaded yet
               </h3>
-              <p class="text-slate-600 mb-4">
+              <p class="text-[var(--color-text-muted)] mb-4">
                 Select your preferred time range and category, then click "Get
                 News" to fetch targeted news from Japan
               </p>
-              <p class="text-sm text-slate-500">
+              <p class="text-sm opacity-70">
                 <em
                   >Tip: Time range and category filters will affect the search
                   results, not just the display</em
@@ -144,15 +149,11 @@
           <!-- Error State -->
           <div
             v-if="error"
-            class="card p-6 text-center border-red-300 bg-red-50"
+            data-testid="error-state"
+            class="card p-6 text-center border-[var(--color-border)] bg-opacity-20"
           >
-            <p class="text-red-600 mb-4">{{ error }}</p>
-            <button
-              @click="refreshNews"
-              class="bg-red-600 text-white hover:bg-red-700 shadow-md hover:shadow-lg"
-            >
-              Try Again
-            </button>
+            <p class="text-[var(--color-primary)] mb-4">{{ error }}</p>
+            <button @click="refreshNews" class="btn-primary">Try Again</button>
           </div>
         </div>
       </div>

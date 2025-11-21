@@ -220,14 +220,14 @@ describe("JapanNewsReader", () => {
     const allButton = categoryButtons.find((btn) =>
       btn.text().includes("All News"),
     );
-    expect(allButton?.classes()).toContain("bg-red-600");
+    expect(allButton?.classes()).toContain("bg-[var(--color-primary)]");
 
     // Click Technology button
     await techButton?.trigger("click");
     await nextTick();
 
     // Technology button should now be primary
-    expect(techButton?.classes()).toContain("bg-red-600");
+    expect(techButton?.classes()).toContain("bg-[var(--color-primary)]");
     expect(allButton?.classes()).toContain("border");
   });
 
@@ -352,10 +352,8 @@ describe("JapanNewsReader", () => {
     await wrapper.vm.fetchNews();
     await nextTick();
 
-    expect(wrapper.find(".border-red-300.bg-red-50").exists()).toBe(true);
-    expect(
-      wrapper.find(".border-red-300.bg-red-50").find(".text-red-600").text(),
-    ).toBe("API Error");
+    expect(wrapper.text()).toContain("API Error");
+    expect(wrapper.find(".btn-primary").exists()).toBe(true);
   });
 
   it("calls refreshNews method correctly", async () => {
@@ -493,7 +491,7 @@ describe("JapanNewsReader", () => {
       .findAll("button")
       .find((button) => button.text() === "This Week");
 
-    expect(weekButton?.classes()).toContain("bg-[#D35944]");
+    expect(weekButton?.classes()).toContain("bg-[var(--color-primary)]");
   });
 
   it("handles time range selection correctly", async () => {
@@ -556,11 +554,11 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    // Initially "This Week" should be selected (blue background)
+    // Initially "This Week" should be selected (primary background)
     let weekButton = wrapper
       .findAll("button")
       .find((button) => button.text() === "This Week");
-    expect(weekButton?.classes()).toContain("bg-[#D35944]");
+    expect(weekButton?.classes()).toContain("bg-[var(--color-primary)]");
 
     // Find and click "All Time" button
     const allTimeButton = wrapper
@@ -573,7 +571,7 @@ describe("JapanNewsReader", () => {
     const updatedAllTimeButton = wrapper
       .findAll("button")
       .find((button) => button.text() === "All Time");
-    expect(updatedAllTimeButton?.classes()).toContain("bg-[#D35944]");
+    expect(updatedAllTimeButton?.classes()).toContain("bg-[var(--color-primary)]");
 
     // And "This Week" should be unselected (border only)
     weekButton = wrapper

@@ -85,7 +85,7 @@
 
   /* Links */
   a {
-    @apply text-blue-600 hover:text-red-700 transition-colors duration-200;
+    @apply text-[var(--color-primary)] hover:opacity-80 transition-colors duration-200;
   }
 
   /* Form elements */
@@ -119,13 +119,13 @@
   }
 
   button:focus {
-    box-shadow: 0 0 0 2px rgba(211, 89, 68, 0.1);
+    box-shadow: 0 0 0 2px var(--color-primary);
   }
 
   button:focus-visible {
     box-shadow:
-      0 0 0 2px rgba(211, 89, 68, 0.1),
-      0 0 0 4px rgba(253, 230, 176, 1);
+      0 0 0 2px var(--color-primary),
+      0 0 0 4px var(--color-accent);
   }
 }
 
@@ -133,68 +133,68 @@
 @layer components {
   /* Custom palette button variants */
   .btn-primary {
-    @apply bg-red-600 text-white hover:bg-red-700 shadow-md hover:shadow-lg;
+    @apply bg-[var(--color-primary)] text-white hover:opacity-90 shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-slate-600 text-white hover:bg-slate-700 shadow-md hover:shadow-lg;
+    @apply bg-[var(--color-secondary)] text-white hover:opacity-90 shadow-md hover:shadow-lg;
   }
 
   .btn-accent {
-    @apply bg-yellow-100 text-red-800 hover:bg-yellow-200 shadow-md hover:shadow-lg;
+    @apply bg-[var(--color-accent)] text-[var(--color-text)] hover:opacity-80 shadow-md hover:shadow-lg;
   }
 
   .btn-success {
-    @apply bg-slate-600 text-white hover:bg-slate-700 shadow-md hover:shadow-lg;
+    @apply bg-[var(--color-secondary)] text-white hover:opacity-90 shadow-md hover:shadow-lg;
   }
 
   .btn-outline {
-    @apply border border-red-600 text-red-600 bg-yellow-50 hover:bg-yellow-100;
+    @apply border border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-accent)] hover:opacity-80;
   }
 
   .btn-ghost {
-    @apply text-slate-700 hover:bg-yellow-50;
+    @apply text-[var(--color-text)] hover:bg-[var(--color-accent)];
   }
 
   .btn-box {
-    @apply border-2 border-red-600 bg-yellow-50 text-slate-800 hover:bg-yellow-100 focus:ring-2 focus:ring-red-600 focus:ring-offset-2;
+    @apply border-2 border-[var(--color-primary)] bg-[var(--color-accent)] text-[var(--color-text)] hover:opacity-80 focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2;
   }
 
   /* Card component */
   .card {
-    @apply bg-yellow-50 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-red-300;
+    @apply bg-[var(--color-accent)] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[var(--color-border)];
   }
 
   /* News category badges */
   .badge-politics {
     background-color: rgba(211, 89, 68, 0.15);
-    color: rgb(211, 89, 68);
+    color: var(--color-primary);
   }
 
   .badge-business {
     background-color: rgba(93, 114, 117, 0.15);
-    color: rgb(93, 114, 117);
+    color: var(--color-secondary);
   }
 
   .badge-technology {
-    background-color: rgba(253, 230, 176, 0.3);
-    color: rgb(29, 43, 54);
+    background-color: rgba(253, 230, 176, 0.5);
+    color: var(--color-text);
   }
 
   .badge-culture {
     background-color: rgba(211, 89, 68, 0.1);
-    color: rgb(211, 89, 68);
+    color: var(--color-primary);
   }
 
   .badge-sports {
     background-color: rgba(93, 114, 117, 0.1);
-    color: rgb(93, 114, 117);
+    color: var(--color-secondary);
   }
 
   /* Loading states */
   .loading-skeleton {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    background-color: rgb(253, 230, 176);
+    background-color: var(--color-accent);
     border-radius: 0.375rem;
   }
 
@@ -205,8 +205,8 @@
 
   .focus-ring:focus-visible {
     box-shadow:
-      0 0 0 2px rgba(211, 89, 68, 0.1),
-      0 0 0 4px rgba(253, 230, 176, 1);
+      0 0 0 2px var(--color-primary),
+      0 0 0 4px var(--color-accent);
   }
 }
 
@@ -269,24 +269,24 @@
   .bg-gradient-primary {
     background: linear-gradient(
       135deg,
-      rgb(211, 89, 68) 0%,
-      rgb(93, 114, 117) 100%
+      var(--color-primary) 0%,
+      var(--color-secondary) 100%
     );
   }
 
   .bg-gradient-accent {
     background: linear-gradient(
       135deg,
-      rgb(253, 230, 176) 0%,
-      rgb(211, 89, 68) 100%
+      var(--color-accent) 0%,
+      var(--color-primary) 100%
     );
   }
 
   .bg-gradient-secondary {
     background: linear-gradient(
       135deg,
-      rgb(93, 114, 117) 0%,
-      rgb(253, 230, 176) 100%
+      var(--color-secondary) 0%,
+      var(--color-accent) 100%
     );
   }
 }
@@ -298,11 +298,11 @@
   }
 
   body {
-    @apply text-black bg-white;
+    @apply text-[var(--color-text)] bg-[var(--color-accent)];
   }
 
   .card {
-    @apply shadow-none border border-gray-300;
+    @apply shadow-none border border-[var(--color-border)];
   }
 }
 
