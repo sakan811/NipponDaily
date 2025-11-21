@@ -35,10 +35,10 @@
 
 **Color Palette**:
 
-- **Dark Coral** (`#D35944`): Time range active states & borders
-- **Peach** (`#FDE6B0`): Time range inactive backgrounds
-- **Cadet** (`#5D7275`): Supporting UI elements
-- **Yankees Blue** (`#1D2B36`): Deep backgrounds & text hierarchy
+- **Dark Coral** (`#D35944`): Primary accent color for interactive elements, buttons, borders, and active states
+- **Peach** (`#FDE6B0`): Primary background color for surfaces, headers, and card components
+- **Cadet** (`#5D7275`): Secondary color for muted text, supporting content, and subtle accents
+- **Yankees Blue** (`#1D2B36`): Primary text color and main application background
 
 ## Tech Stack
 
