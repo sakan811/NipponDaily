@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-gradient-to-br from-(--color-yuki) to-(--color-mizu) overflow-x-hidden"
+    class="min-h-screen bg-gradient-to-br from-[var(--color-background)] to-[var(--color-accent)] overflow-x-hidden"
   >
     <NuxtRouteAnnouncer />
     <JapanNewsReader />

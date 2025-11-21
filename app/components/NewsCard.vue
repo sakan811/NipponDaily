@@ -1,5 +1,5 @@
 <template>
-  <div class="card hover:border-red-400 w-full overflow-hidden">
+  <div class="card hover:border-[var(--color-primary)] w-full overflow-hidden">
     <!-- News Header -->
     <div class="p-4 sm:p-6">
       <div class="flex items-start justify-between mb-3">
@@ -9,27 +9,29 @@
         >
           {{ news.category }}
         </span>
-        <span class="text-xs text-slate-600">
+        <span class="text-xs text-[var(--color-text-muted)]">
           {{ formatDate(news.publishedAt) }}
         </span>
       </div>
 
       <!-- News Title -->
       <h3
-        class="text-lg sm:text-xl font-bold text-slate-800 mb-3 font-serif leading-tight [word-wrap:break-word] [overflow-wrap:break-word]"
+        class="text-lg sm:text-xl font-bold text-[var(--color-text)] mb-3 font-serif leading-tight [word-wrap:break-word] [overflow-wrap:break-word]"
       >
         {{ news.title }}
       </h3>
 
       <!-- News Summary -->
       <p
-        class="text-slate-600 mb-4 leading-relaxed text-sm sm:text-base [word-wrap:break-word] [overflow-wrap:break-word]"
+        class="text-[var(--color-text-muted)] mb-4 leading-relaxed text-sm sm:text-base [word-wrap:break-word] [overflow-wrap:break-word]"
       >
         {{ news.summary }}
       </p>
 
       <!-- Source -->
-      <div class="flex items-center text-sm text-slate-600 mb-4">
+      <div
+        class="flex items-center text-sm text-[var(--color-text-muted)] mb-4"
+      >
         <svg
           class="w-4 h-4 mr-1"
           fill="none"
@@ -53,7 +55,7 @@
           :href="news.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="border-2 border-red-600 bg-yellow-50 text-slate-800 hover:bg-yellow-100 rounded-md flex items-center text-xs sm:text-sm px-2 sm:px-3 py-2 inline-flex no-underline min-w-0 flex-shrink-0"
+          class="btn-box flex items-center text-xs sm:text-sm px-2 sm:px-3 py-2 inline-flex no-underline min-w-0 flex-shrink-0"
         >
           <svg
             class="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0"
@@ -93,7 +95,9 @@ const categoryColorClass = computed(() => {
     culture: "badge-culture",
     sports: "badge-sports",
   };
-  return colorMap[category] || "bg-gray-100 text-gray-800";
+  return (
+    colorMap[category] || "bg-[var(--color-accent)] text-[var(--color-text)]"
+  );
 });
 
 const formatDate = (dateString: string | null) => {

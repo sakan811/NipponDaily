@@ -95,8 +95,8 @@ describe("NewsCard", () => {
       { category: "Technology", expectedClass: "badge-technology" },
       { category: "Culture", expectedClass: "badge-culture" },
       { category: "Sports", expectedClass: "badge-sports" },
-      { category: "Unknown", expectedClass: "bg-gray-100" },
-      { category: "Random", expectedClass: "bg-gray-100" },
+      { category: "Unknown", expectedClass: "bg-[var(--color-accent)]" },
+      { category: "Random", expectedClass: "bg-[var(--color-accent)]" },
     ];
 
     testCases.forEach(({ category, expectedClass }) => {
