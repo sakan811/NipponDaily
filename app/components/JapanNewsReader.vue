@@ -97,11 +97,21 @@
           <!-- News Loading State -->
           <div v-if="loading && news.length === 0" class="card p-8 text-center">
             <div class="flex justify-center items-center space-x-2">
-              <div class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"></div>
-              <div class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave" style="animation-delay: 0.2s;"></div>
-              <div class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave" style="animation-delay: 0.4s;"></div>
+              <div
+                class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
+              ></div>
+              <div
+                class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
+                style="animation-delay: 0.2s"
+              ></div>
+              <div
+                class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
+                style="animation-delay: 0.4s"
+              ></div>
             </div>
-            <p class="mt-4 text-[var(--color-text-muted)] text-sm">Fetching latest news from Japan...</p>
+            <p class="mt-4 text-[var(--color-text-muted)] text-sm">
+              Fetching latest news from Japan...
+            </p>
           </div>
 
           <!-- News List -->
