@@ -571,7 +571,9 @@ describe("JapanNewsReader", () => {
     const updatedAllTimeButton = wrapper
       .findAll("button")
       .find((button) => button.text() === "All Time");
-    expect(updatedAllTimeButton?.classes()).toContain("bg-[var(--color-primary)]");
+    expect(updatedAllTimeButton?.classes()).toContain(
+      "bg-[var(--color-primary)]",
+    );
 
     // And "This Week" should be unselected (border only)
     weekButton = wrapper
