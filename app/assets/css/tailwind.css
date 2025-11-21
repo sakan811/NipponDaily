@@ -248,12 +248,27 @@
     }
   }
 
+  @keyframes wave {
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-15px);
+    }
+  }
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
 
   .animate-pulse-subtle {
     animation: pulse-subtle 2s ease-in-out infinite;
+  }
+
+  .animate-wave {
+    animation: wave 1.4s ease-in-out infinite;
   }
 
   /* Spacing utilities for consistent rhythm */

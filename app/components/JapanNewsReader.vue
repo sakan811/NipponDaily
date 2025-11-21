@@ -95,12 +95,13 @@
           </div>
 
           <!-- News Loading State -->
-          <div v-if="loading && news.length === 0" class="space-y-4">
-            <div v-for="i in 3" :key="i" class="card p-6">
-              <div class="loading-skeleton h-4 mb-2"></div>
-              <div class="loading-skeleton h-3 mb-2"></div>
-              <div class="loading-skeleton h-20"></div>
+          <div v-if="loading && news.length === 0" class="card p-8 text-center">
+            <div class="flex justify-center items-center space-x-2">
+              <div class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"></div>
+              <div class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave" style="animation-delay: 0.2s;"></div>
+              <div class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave" style="animation-delay: 0.4s;"></div>
             </div>
+            <p class="mt-4 text-[var(--color-text-muted)] text-sm">Fetching latest news from Japan...</p>
           </div>
 
           <!-- News List -->
