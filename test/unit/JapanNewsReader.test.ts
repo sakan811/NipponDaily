@@ -130,7 +130,7 @@ describe("JapanNewsReader", () => {
 
     // Check loading state
     expect(wrapper.vm.loading).toBe(true);
-    expect(wrapper.find('.card.p-8.text-center').exists()).toBe(true);
+    expect(wrapper.find(".card.p-8.text-center").exists()).toBe(true);
 
     // Wait for the fetch to complete
     await fetchPromise;

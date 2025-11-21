@@ -25,6 +25,7 @@
 - **Time Range Selection**: Filter news by recency with options for All Time, Today, This Week, This Month, This Year
 - **Source Attribution**: See the original source for each article with intelligent domain recognition
 - **Publication Times**: View when articles were published with smart date formatting
+- **Sorted by Recency**: News automatically sorted to show latest articles first
 - **Error Handling**: Built-in error handling with manual retry option if news fetching fails
 - **Loading States**: Smooth loading animations and skeleton UI while fetching content
 - **Responsive Design**: Clean interface with Japanese-themed styling and Tailwind CSS
@@ -53,8 +54,8 @@
 
 ### Article Limits
 
-- **Default**: 10 articles per request
-- **Maximum**: 20-30 articles total (configurable via limit parameter)
+- **Default**: 20 articles per request
+- **Maximum**: No hard limit (configurable via limit parameter)
 - **No pagination**: Articles are displayed on a single page
 
 ### Dependencies
@@ -106,7 +107,8 @@
 3. Use category buttons to search specific topics (Politics, Business, Technology, Culture, Sports)
    - _Note: Time range and category filters affect the actual news search, not just display_
 4. Read AI summaries for quick understanding of each article
-5. Click "Read Original" to visit full articles
+5. News is automatically displayed with the most recent articles first
+6. Click "Read Original" to visit full articles
 
 ## Development Commands
 

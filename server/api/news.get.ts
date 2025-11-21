@@ -43,6 +43,18 @@ export default defineEventHandler(async (event) => {
       );
     }
 
+    // Sort news by published date in descending order (latest first)
+    news.sort((a, b) => {
+      // Handle potential invalid dates by treating them as oldest possible
+      const dateA = isNaN(new Date(a.publishedAt).getTime())
+        ? new Date(0).getTime()
+        : new Date(a.publishedAt).getTime();
+      const dateB = isNaN(new Date(b.publishedAt).getTime())
+        ? new Date(0).getTime()
+        : new Date(b.publishedAt).getTime();
+      return dateB - dateA; // Sort in descending order (latest first)
+    });
+
     // Limit results (in case categorization returned more than requested)
     news = news.slice(0, limit);
 

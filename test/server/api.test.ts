@@ -228,4 +228,82 @@ describe("News API", () => {
       apiKey: "test-tavily-key",
     });
   });
+
+  it("sorts news by published date in descending order", async () => {
+    const mockNews = [
+      {
+        title: "Old News",
+        summary: "Old Summary",
+        content: "Old Content",
+        source: "Old Source",
+        publishedAt: "2024-01-01T00:00:00Z",
+        category: "Other",
+        url: "https://example.com/old",
+      },
+      {
+        title: "New News",
+        summary: "New Summary",
+        content: "New Content",
+        source: "New Source",
+        publishedAt: "2024-12-01T00:00:00Z",
+        category: "Technology",
+        url: "https://example.com/new",
+      },
+      {
+        title: "Middle News",
+        summary: "Middle Summary",
+        content: "Middle Content",
+        source: "Middle Source",
+        publishedAt: "2024-06-01T00:00:00Z",
+        category: "Business",
+        url: "https://example.com/middle",
+      },
+    ];
+
+    (global as any).getQuery.mockReturnValue({});
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue(mockNews);
+
+    const response = await handler({});
+
+    expect(response.data).toHaveLength(3);
+    expect(response.data[0].publishedAt).toBe("2024-12-01T00:00:00Z");
+    expect(response.data[1].publishedAt).toBe("2024-06-01T00:00:00Z");
+    expect(response.data[2].publishedAt).toBe("2024-01-01T00:00:00Z");
+  });
+
+  it("handles invalid dates by treating them as oldest", async () => {
+    const mockNews = [
+      {
+        title: "Invalid Date",
+        summary: "Invalid Summary",
+        content: "Invalid Content",
+        source: "Invalid Source",
+        publishedAt: "invalid-date",
+        category: "Other",
+        url: "https://example.com/invalid",
+      },
+      {
+        title: "Valid News",
+        summary: "Valid Summary",
+        content: "Valid Content",
+        source: "Valid Source",
+        publishedAt: "2024-12-01T00:00:00Z",
+        category: "Technology",
+        url: "https://example.com/valid",
+      },
+    ];
+
+    (global as any).getQuery.mockReturnValue({});
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue(mockNews);
+
+    const response = await handler({});
+
+    expect(response.data).toHaveLength(2);
+    expect(response.data[0].publishedAt).toBe("2024-12-01T00:00:00Z");
+    expect(response.data[1].publishedAt).toBe("invalid-date");
+  });
 });
