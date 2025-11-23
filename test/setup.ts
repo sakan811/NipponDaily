@@ -101,13 +101,9 @@ const mockGenerateContent = vi.fn(() =>
   Promise.resolve({
     text: JSON.stringify([
       {
-        title: "Test News",
-        summary: "Test Summary",
-        content: "Test Content",
-        source: "Test Source",
-        publishedAt: "2024-01-15T10:00:00Z",
         category: "Technology",
-        url: "https://example.com/test",
+        translatedTitle: "Test News (Translated)",
+        summary: "Test Summary",
       },
     ]),
   }),
@@ -125,8 +121,21 @@ class MockGoogleGenAI {
   }
 }
 
+// Mock Type enum for Google GenAI
+const mockType = {
+  TYPE_UNSPECIFIED: 'TYPE_UNSPECIFIED',
+  STRING: 'STRING',
+  NUMBER: 'NUMBER',
+  INTEGER: 'INTEGER',
+  BOOLEAN: 'BOOLEAN',
+  ARRAY: 'ARRAY',
+  OBJECT: 'OBJECT',
+  NULL: 'NULL',
+};
+
 vi.mock("@google/genai", () => ({
   GoogleGenAI: MockGoogleGenAI,
+  Type: mockType,
 }));
 
 // Mock Tavily for service tests

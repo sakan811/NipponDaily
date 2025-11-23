@@ -246,6 +246,7 @@ describe("JapanNewsReader", () => {
       query: {
         category: undefined,
         timeRange: "week",
+        language: "English",
         limit: 20,
       },
     });
@@ -294,6 +295,7 @@ describe("JapanNewsReader", () => {
       query: {
         category: "technology",
         timeRange: "week",
+        language: "English",
         limit: 20,
       },
     });
@@ -375,6 +377,7 @@ describe("JapanNewsReader", () => {
       query: {
         category: undefined,
         timeRange: "week",
+        language: "English",
         limit: 20,
       },
     });
@@ -518,6 +521,7 @@ describe("JapanNewsReader", () => {
       query: {
         category: undefined,
         timeRange: "day",
+        language: "English",
         limit: 20,
       },
     });
@@ -540,6 +544,7 @@ describe("JapanNewsReader", () => {
       query: {
         category: undefined,
         timeRange: "month",
+        language: "English",
         limit: 20,
       },
     });
@@ -580,5 +585,402 @@ describe("JapanNewsReader", () => {
       .findAll("button")
       .find((button) => button.text() === "This Week");
     expect(weekButton?.classes()).toContain("border");
+  });
+
+  // Language Input Field Tests
+  it("renders language input field with correct attributes", () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const languageInput = wrapper.find('input[placeholder="Language"]');
+    expect(languageInput.exists()).toBe(true);
+    expect(languageInput.attributes("type")).toBe("text");
+    expect(languageInput.attributes("placeholder")).toBe("Language");
+    expect((languageInput.element as HTMLInputElement).value).toBe("English"); // default value
+  });
+
+  it("binds language input to targetLanguage reactive property", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const languageInput = wrapper.find('input[placeholder="Language"]');
+
+    // Initial value should be "English"
+    expect(wrapper.vm.targetLanguage).toBe("English");
+    expect((languageInput.element as HTMLInputElement).value).toBe("English");
+
+    // Simulate user typing
+    await languageInput.setValue("Japanese");
+
+    expect(wrapper.vm.targetLanguage).toBe("Japanese");
+    expect((languageInput.element as HTMLInputElement).value).toBe("Japanese");
+  });
+
+  it("disables language input when loading", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const languageInput = wrapper.find('input[placeholder="Language"]');
+
+    // Initially should not be disabled
+    expect(languageInput.attributes("disabled")).toBeUndefined();
+
+    // Mock delayed response to show loading state
+    mockFetch.mockImplementationOnce(
+      () =>
+        new Promise((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                success: true,
+                data: mockNews,
+                count: 2,
+                timestamp: "2024-01-15T10:00:00Z",
+              }),
+            100,
+          ),
+        ),
+    );
+
+    // Start loading
+    const fetchPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Should be disabled during loading
+    expect(languageInput.attributes("disabled")).toBeDefined();
+
+    // Wait for fetch to complete
+    await fetchPromise;
+
+    // Should be enabled again
+    expect(languageInput.attributes("disabled")).toBeUndefined();
+  });
+
+  it("has correct CSS classes for language input styling", () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const languageInput = wrapper.find('input[placeholder="Language"]');
+
+    // Check for key styling classes
+    expect(languageInput.classes()).toContain("px-2");
+    expect(languageInput.classes()).toContain("py-2");
+    expect(languageInput.classes()).toContain("border");
+    expect(languageInput.classes()).toContain("rounded-lg");
+    expect(languageInput.classes()).toContain("focus:outline-none");
+    expect(languageInput.classes()).toContain("w-20");
+    expect(languageInput.classes()).toContain("sm:w-24");
+  });
+
+  it("includes language parameter in fetch request", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    // Set language to Japanese
+    await wrapper.find('input[placeholder="Language"]').setValue("Japanese");
+    await wrapper.vm.fetchNews();
+
+    expect(mockFetch).toHaveBeenCalledWith("/api/news", {
+      query: {
+        category: undefined,
+        timeRange: "week",
+        language: "Japanese",
+        limit: 20,
+      },
+    });
+  });
+
+  // Get News Button Specific Tests
+  it("renders Get News button with correct initial state", () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const getNewsButton = wrapper.find("button");
+    expect(getNewsButton.exists()).toBe(true);
+    expect(getNewsButton.text()).toContain("Get News");
+    expect(getNewsButton.attributes("disabled")).toBeUndefined();
+  });
+
+  it("shows 'Getting...' text when loading", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    // Mock delayed response
+    mockFetch.mockImplementationOnce(
+      () =>
+        new Promise((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                success: true,
+                data: mockNews,
+                count: 2,
+                timestamp: "2024-01-15T10:00:00Z",
+              }),
+            100,
+          ),
+        ),
+    );
+
+    const getNewsButton = wrapper.find("button");
+
+    // Start loading
+    const fetchPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    expect(getNewsButton.text()).toContain("Getting...");
+    expect(getNewsButton.attributes("disabled")).toBeDefined();
+
+    // Wait for fetch to complete
+    await fetchPromise;
+
+    // Should return to "Get News"
+    expect(getNewsButton.text()).toContain("Get News");
+    expect(getNewsButton.attributes("disabled")).toBeUndefined();
+  });
+
+  it("disables Get News button when loading", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const getNewsButton = wrapper.find("button");
+
+    // Initially enabled
+    expect(getNewsButton.attributes("disabled")).toBeUndefined();
+
+    // Mock delayed response
+    mockFetch.mockImplementationOnce(
+      () =>
+        new Promise((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                success: true,
+                data: mockNews,
+                count: 2,
+                timestamp: "2024-01-15T10:00:00Z",
+              }),
+            100,
+          ),
+        ),
+    );
+
+    // Start loading
+    const fetchPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Should be disabled during loading
+    expect(getNewsButton.attributes("disabled")).toBeDefined();
+
+    // Wait for fetch to complete
+    await fetchPromise;
+
+    // Should be enabled again
+    expect(getNewsButton.attributes("disabled")).toBeUndefined();
+  });
+
+  it("has correct CSS classes for Get News button styling", () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const getNewsButton = wrapper.find("button");
+
+    // Check for key styling classes
+    expect(getNewsButton.classes()).toContain("btn-box");
+    expect(getNewsButton.classes()).toContain("px-3");
+    expect(getNewsButton.classes()).toContain("py-2");
+    expect(getNewsButton.classes()).toContain("cursor-pointer");
+    expect(getNewsButton.classes()).toContain("whitespace-nowrap");
+    expect(getNewsButton.classes()).toContain("disabled:opacity-50");
+    expect(getNewsButton.classes()).toContain("disabled:cursor-not-allowed");
+  });
+
+  // Integration Tests for Language Input and Button Interaction
+  it("uses current language value when Get News button is clicked", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    // Change language to Spanish
+    await wrapper.find('input[placeholder="Language"]').setValue("Spanish");
+
+    // Click Get News button
+    await wrapper.find("button").trigger("click");
+
+    expect(mockFetch).toHaveBeenCalledWith("/api/news", {
+      query: {
+        category: undefined,
+        timeRange: "week",
+        language: "Spanish",
+        limit: 20,
+      },
+    });
+  });
+
+  it("disables both input and button during loading state", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const languageInput = wrapper.find('input[placeholder="Language"]');
+    const getNewsButton = wrapper.find("button");
+
+    // Mock delayed response
+    mockFetch.mockImplementationOnce(
+      () =>
+        new Promise((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                success: true,
+                data: mockNews,
+                count: 2,
+                timestamp: "2024-01-15T10:00:00Z",
+              }),
+            100,
+          ),
+        ),
+    );
+
+    // Start loading by clicking button
+    const fetchPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Both should be disabled
+    expect(languageInput.attributes("disabled")).toBeDefined();
+    expect(getNewsButton.attributes("disabled")).toBeDefined();
+    expect(getNewsButton.text()).toContain("Getting...");
+
+    // Wait for fetch to complete
+    await fetchPromise;
+
+    // Both should be enabled again
+    expect(languageInput.attributes("disabled")).toBeUndefined();
+    expect(getNewsButton.attributes("disabled")).toBeUndefined();
+    expect(getNewsButton.text()).toContain("Get News");
+  });
+
+  it("maintains language input value during and after loading", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const languageInput = wrapper.find('input[placeholder="Language"]');
+
+    // Set language to French
+    await languageInput.setValue("French");
+    expect(wrapper.vm.targetLanguage).toBe("French");
+
+    // Mock delayed response
+    mockFetch.mockImplementationOnce(
+      () =>
+        new Promise((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                success: true,
+                data: mockNews,
+                count: 2,
+                timestamp: "2024-01-15T10:00:00Z",
+              }),
+            100,
+          ),
+        ),
+    );
+
+    // Start loading
+    const fetchPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Language should still be French during loading
+    expect(wrapper.vm.targetLanguage).toBe("French");
+    expect((languageInput.element as HTMLInputElement).value).toBe("French");
+
+    // Wait for fetch to complete
+    await fetchPromise;
+
+    // Language should still be French after loading
+    expect(wrapper.vm.targetLanguage).toBe("French");
+    expect((languageInput.element as HTMLInputElement).value).toBe("French");
+  });
+
+  it("handles empty language input gracefully", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    // Set language to empty string by directly setting the reactive property
+    wrapper.vm.targetLanguage = "";
+    await wrapper.vm.fetchNews();
+
+    expect(mockFetch).toHaveBeenCalledWith("/api/news", {
+      query: {
+        category: undefined,
+        timeRange: "week",
+        language: "English", // empty string should fallback to "English" per component logic
+        limit: 20,
+      },
+    });
   });
 });

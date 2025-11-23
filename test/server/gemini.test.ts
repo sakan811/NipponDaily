@@ -39,7 +39,7 @@ describe("GeminiService", () => {
     it("categorizes news items successfully", async () => {
       const mockNews = createMockNews();
       mockGenerateContent.mockResolvedValue({
-        text: '[{"category": "Technology", "summary": "Test summary"}]',
+        text: '[{"category": "Technology", "translatedTitle": "Test News (Translated)", "summary": "Test summary"}]',
       });
 
       const result = await service.categorizeNewsItems(mockNews, {
@@ -48,6 +48,7 @@ describe("GeminiService", () => {
       });
 
       expect(result[0].category).toBe("Technology");
+      expect(result[0].title).toBe("Test News (Translated)");
       expect(result[0].summary).toBe("Test summary");
       expect(mockGenerateContent).toHaveBeenCalledTimes(1);
     });
@@ -155,7 +156,7 @@ describe("GeminiService", () => {
       });
 
       expect(consoleSpy).toHaveBeenCalledWith(
-        "Failed to parse categories and summaries from Gemini response:",
+        "Failed to parse structured response from Gemini:",
         expect.any(Error),
       );
       consoleSpy.mockRestore();
@@ -198,8 +199,7 @@ describe("GeminiService", () => {
 
       // Mock successful response that goes through the complete flow
       mockGenerateContent.mockResolvedValue({
-        text: `Here are the categorized articles:
-[{"category": "Technology", "summary": "Japan launches new AI initiative for technological advancement"}, {"category": "Business", "summary": "Major corporation announces record quarterly earnings"}]`,
+        text: `[{"category": "Technology", "translatedTitle": "Japan Tech News", "summary": "Japan launches new AI initiative for technological advancement"}, {"category": "Business", "translatedTitle": "Business News", "summary": "Major corporation announces record quarterly earnings"}]`,
       });
 
       const result = await service.categorizeNewsItems(mockNews, {
@@ -228,6 +228,12 @@ describe("GeminiService", () => {
       expect(mockGenerateContent).toHaveBeenCalledWith({
         model: "gemini-2.5-flash",
         contents: expect.stringContaining("Japan Tech News"),
+        config: expect.objectContaining({
+          responseMimeType: "application/json",
+          responseSchema: expect.objectContaining({
+            type: "ARRAY",
+          }),
+        }),
       });
     });
 
