@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, Type } from "@google/genai";
 import type { NewsItem } from "../../types/index";
 import {
   VALID_CATEGORIES,
@@ -51,65 +51,76 @@ class GeminiService {
         )
         .join("\n\n");
 
-      const prompt = `You are a specialized AI assistant for categorizing Japanese news articles and generating summaries. Please analyze the following news articles and provide both categorization and a concise summary for each one.
+      const prompt = `You are a specialized AI assistant for categorizing Japanese news articles and generating summaries. Please analyze the following news articles and provide categorization, translated title, and concise summary for each one.
 
 Target Language: ${language}
 Available categories: ${VALID_CATEGORIES.filter((cat) => cat !== "Other").join(", ")}
 
 ${newsText}
 
-For each article, provide a JSON object with both category and summary. Format your response as a JSON array where each element contains the category and a concise summary for the corresponding article.
-
-Example format:
-[
-  {"category": "Politics", "summary": "Former Prime Minister Abe's assassination trial begins with suspect's guilty plea"},
-  {"category": "Business", "summary": "Trump and Japanese PM announce major trade agreements and investment deals"}
-]
-
-Requirements:
-- Use exactly one category from the available list for each article
-- Choose the most appropriate primary category for each article
-- Generate a concise, informative summary (2-3 sentences maximum) in ${language}
-- Summarize and translate the content into ${language} for better understanding
-- The raw content contains the full article text - use it to create meaningful summaries
-- If no category fits well, use "Other"
-- Response must be a valid JSON array
-- Order must match the input articles
-- Focus on the key information and main point of each article`;
+For each article, provide category, translated title, and summary in the target language. Focus on accuracy and clarity.`;
 
       const response = await this.client.models.generateContent({
         model: this.getModel(options?.model),
         contents: prompt,
+        config: {
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                category: {
+                  type: Type.STRING,
+                  description: `The news category. Must be one of: ${VALID_CATEGORIES.filter((cat) => cat !== "Other").join(", ")}, or Other`,
+                },
+                translatedTitle: {
+                  type: Type.STRING,
+                  description: `The title translated into ${language}`,
+                },
+                summary: {
+                  type: Type.STRING,
+                  description: `A concise summary (2-3 sentences maximum) in ${language}`,
+                },
+              },
+              required: ["category", "translatedTitle", "summary"],
+              propertyOrdering: ["category", "translatedTitle", "summary"],
+            },
+          },
+        },
       });
 
       const text = response.text || "";
 
-      // Try to parse JSON array from the response
-      const jsonMatch = text.match(/\[[\s\S]*\]/);
-      if (jsonMatch) {
-        try {
-          const results = JSON.parse(jsonMatch[0]);
-          if (Array.isArray(results) && results.length === newsItems.length) {
-            return newsItems.map((item, index) => {
-              const result = results[index];
-              const aiSummary =
-                result.summary && result.summary.trim() !== ""
-                  ? result.summary
-                  : null;
-              return {
-                ...item,
-                category: this.validateCategory(result.category),
-                summary: aiSummary || item.summary || item.content,
-                content: aiSummary || item.summary || item.content,
-              };
-            });
-          }
-        } catch (parseError) {
-          console.warn(
-            "Failed to parse categories and summaries from Gemini response:",
-            parseError,
-          );
+      // Parse structured JSON response
+      try {
+        const results = JSON.parse(text);
+        if (Array.isArray(results) && results.length === newsItems.length) {
+          return newsItems.map((item, index) => {
+            const result = results[index];
+            const aiSummary =
+              result.summary && result.summary.trim() !== ""
+                ? result.summary
+                : null;
+            const translatedTitle =
+              result.translatedTitle && result.translatedTitle.trim() !== ""
+                ? result.translatedTitle
+                : item.title;
+
+            return {
+              ...item,
+              title: translatedTitle,
+              category: this.validateCategory(result.category),
+              summary: aiSummary || item.summary || item.content,
+              content: aiSummary || item.summary || item.content,
+            };
+          });
         }
+      } catch (parseError) {
+        console.warn(
+          "Failed to parse structured response from Gemini:",
+          parseError,
+        );
       }
 
       // Fallback: return items with validated categories and prioritize rawContent

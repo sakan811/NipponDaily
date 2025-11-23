@@ -102,12 +102,21 @@ class TavilyService {
         summary: result.content || "",
         content: result.content || "",
         rawContent: result.rawContent || "",
-        source: result.url,
+        source: this.extractDomainFromUrl(result.url),
         publishedAt: result.publishedDate || new Date().toISOString(),
         category: "Other" as const,
         url: result.url,
       };
     });
+  }
+
+  private extractDomainFromUrl(url: string): string {
+    try {
+      const urlObj = new URL(url);
+      return `${urlObj.protocol}//${urlObj.hostname}`;
+    } catch {
+      return url;
+    }
   }
 
   private mapTimeRangeToApi(
@@ -123,8 +132,7 @@ class TavilyService {
     };
     return timeRangeMap[timeRange] || undefined;
   }
-
-  }
+}
 
 export { TavilyService };
 export const tavilyService = new TavilyService();
