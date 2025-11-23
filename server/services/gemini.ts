@@ -29,6 +29,7 @@ class GeminiService {
     options?: {
       apiKey?: string;
       model?: string;
+      language?: string;
     },
   ): Promise<NewsItem[]> {
     // Initialize client with API key if not already done
@@ -41,6 +42,8 @@ class GeminiService {
     }
 
     try {
+      const language = options?.language || "English";
+
       const newsText = newsItems
         .map(
           (item, index) =>
@@ -50,6 +53,7 @@ class GeminiService {
 
       const prompt = `You are a specialized AI assistant for categorizing Japanese news articles and generating summaries. Please analyze the following news articles and provide both categorization and a concise summary for each one.
 
+Target Language: ${language}
 Available categories: ${VALID_CATEGORIES.filter((cat) => cat !== "Other").join(", ")}
 
 ${newsText}
@@ -65,7 +69,8 @@ Example format:
 Requirements:
 - Use exactly one category from the available list for each article
 - Choose the most appropriate primary category for each article
-- Generate a concise, informative summary (2-3 sentences maximum) based on the raw content provided
+- Generate a concise, informative summary (2-3 sentences maximum) in ${language}
+- Summarize and translate the content into ${language} for better understanding
 - The raw content contains the full article text - use it to create meaningful summaries
 - If no category fits well, use "Other"
 - Response must be a valid JSON array

@@ -21,6 +21,13 @@
             </h1>
           </div>
           <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
+            <input
+              v-model="targetLanguage"
+              type="text"
+              placeholder="Language"
+              class="px-2 py-2 sm:px-3 text-sm sm:text-base border border-[var(--color-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-[var(--color-accent)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] w-20 sm:w-24"
+              :disabled="loading"
+            />
             <button
               @click="refreshNews"
               :disabled="loading"
@@ -185,6 +192,7 @@ const selectedCategory = ref<CategoryId>("all");
 const selectedTimeRange = ref<"none" | "day" | "week" | "month" | "year">(
   "week",
 );
+const targetLanguage = ref("English");
 
 // Categories
 const categories = NEWS_CATEGORIES;
@@ -225,6 +233,7 @@ const fetchNews = async () => {
         category:
           selectedCategory.value === "all" ? undefined : selectedCategory.value,
         timeRange: selectedTimeRange.value,
+        language: targetLanguage.value || "English",
         limit: 20,
       },
     });

@@ -44,6 +44,7 @@ class TavilyService {
     maxResults?: number;
     category?: string;
     timeRange?: "none" | "day" | "week" | "month" | "year";
+    language?: string;
     apiKey?: string;
   }): Promise<TavilyResponse> {
     // Initialize client with API key if not already done
@@ -101,7 +102,7 @@ class TavilyService {
         summary: result.content || "",
         content: result.content || "",
         rawContent: result.rawContent || "",
-        source: this.extractSourceFromUrl(result.url),
+        source: result.url,
         publishedAt: result.publishedDate || new Date().toISOString(),
         category: "Other" as const,
         url: result.url,
@@ -123,27 +124,7 @@ class TavilyService {
     return timeRangeMap[timeRange] || undefined;
   }
 
-  private extractSourceFromUrl(url: string): string {
-    try {
-      const domain = new URL(url).hostname;
-      const sourceMap: { [key: string]: string } = {
-        "nhk.or.jp": "NHK",
-        "japantimes.co.jp": "Japan Times",
-        "nikkei.com": "Nikkei",
-        "asahi.com": "Asahi Shimbun",
-        "mainichi.jp": "Mainichi Shimbun",
-        "yomiuri.co.jp": "Yomiuri Shimbun",
-        "reuters.com": "Reuters",
-        "nytimes.com": "New York Times",
-        "fortune.com": "Fortune",
-        "autonews.com": "Automotive News",
-      };
-      return sourceMap[domain] || domain;
-    } catch {
-      return "Unknown";
-    }
   }
-}
 
 export { TavilyService };
 export const tavilyService = new TavilyService();
