@@ -10,6 +10,7 @@ export default defineEventHandler(async (event) => {
     const query = getQuery(event);
     const category = query.category as string;
     const timeRange = (query.timeRange as string) || "week";
+    const language = (query.language as string) || "English";
     const limitParam = parseInt(query.limit as string);
     const limit = !isNaN(limitParam) && limitParam > 0 ? limitParam : 10;
 
@@ -34,6 +35,7 @@ export default defineEventHandler(async (event) => {
     news = await geminiService.categorizeNewsItems(news, {
       apiKey: config.geminiApiKey,
       model: config.geminiModel,
+      language,
     });
 
     // Filter by category if specified
