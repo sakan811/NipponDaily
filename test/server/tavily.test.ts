@@ -270,14 +270,14 @@ describe("TavilyService", () => {
         title: "News 1",
         summary: "News content 1",
         content: "News content 1",
-        source: "example.com",
+        source: "https://example.com",
         publishedAt: "2024-01-15T10:00:00Z",
         category: "Other",
         url: "https://example.com/news1",
       });
     });
 
-    it("maps known Japanese news domains", () => {
+    it("extracts domain from URLs", () => {
       const mockResponse = {
         results: [
           {
@@ -291,7 +291,7 @@ describe("TavilyService", () => {
 
       const result = service.formatTavilyResultsToNewsItems(mockResponse);
 
-      expect(result[0].source).toBe("NHK");
+      expect(result[0].source).toBe("https://nhk.or.jp");
     });
 
     it("handles malformed URLs gracefully", () => {
@@ -308,7 +308,7 @@ describe("TavilyService", () => {
 
       const result = service.formatTavilyResultsToNewsItems(mockResponse);
 
-      expect(result[0].source).toBe("Unknown");
+      expect(result[0].source).toBe("invalid-url");
     });
 
     it("provides default values for missing fields", () => {

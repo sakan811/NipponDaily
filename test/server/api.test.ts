@@ -45,7 +45,7 @@ describe("News API", () => {
 
     const handlerModule = await import("~/server/api/news.get");
     handler = handlerModule.default;
-    (global as any).getQuery.mockReturnValue({});
+    (global as any).getQuery.mockReturnValue({ language: "English" });
   });
 
   const createMockNews = (): NewsItem[] => [
@@ -61,7 +61,7 @@ describe("News API", () => {
   ];
 
   it("returns news successfully with default parameters", async () => {
-    (global as any).getQuery.mockReturnValue({});
+    (global as any).getQuery.mockReturnValue({ language: "English" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
     mockGeminiCategorize.mockResolvedValue([]);
@@ -81,6 +81,7 @@ describe("News API", () => {
     expect(mockGeminiCategorize).toHaveBeenCalledWith([], {
       apiKey: "test-api-key",
       model: "gemini-1.5-flash",
+      language: "English",
     });
   });
 
@@ -104,6 +105,7 @@ describe("News API", () => {
     expect(mockGeminiCategorize).toHaveBeenCalledWith(mockNews, {
       apiKey: "test-api-key",
       model: "gemini-1.5-flash",
+      language: "English",
     });
   });
 
@@ -173,7 +175,7 @@ describe("News API", () => {
 
   it("handles service errors", async () => {
     const error = new Error("Service error");
-    (global as any).getQuery.mockReturnValue({});
+    (global as any).getQuery.mockReturnValue({ language: "English" });
     mockTavilySearch.mockRejectedValue(error);
 
     await expect(handler({})).rejects.toMatchObject({
@@ -193,7 +195,7 @@ describe("News API", () => {
     process.env.NODE_ENV = "development";
     const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     const error = new Error("Dev error");
-    (global as any).getQuery.mockReturnValue({});
+    (global as any).getQuery.mockReturnValue({ language: "English" });
     mockTavilySearch.mockRejectedValue(error);
 
     try {
@@ -213,7 +215,7 @@ describe("News API", () => {
   });
 
   it("handles non-Error objects in error handling", async () => {
-    (global as any).getQuery.mockReturnValue({});
+    (global as any).getQuery.mockReturnValue({ language: "English" });
     mockTavilySearch.mockRejectedValue("String error message");
 
     await expect(handler({})).rejects.toMatchObject({
@@ -260,7 +262,7 @@ describe("News API", () => {
       },
     ];
 
-    (global as any).getQuery.mockReturnValue({});
+    (global as any).getQuery.mockReturnValue({ language: "English" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
@@ -295,7 +297,7 @@ describe("News API", () => {
       },
     ];
 
-    (global as any).getQuery.mockReturnValue({});
+    (global as any).getQuery.mockReturnValue({ language: "English" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
