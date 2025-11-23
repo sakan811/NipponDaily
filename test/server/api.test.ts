@@ -308,4 +308,293 @@ describe("News API", () => {
     expect(response.data[0].publishedAt).toBe("2024-12-01T00:00:00Z");
     expect(response.data[1].publishedAt).toBe("invalid-date");
   });
+
+  it("handles multiple invalid dates by treating them all as oldest (equal)", async () => {
+    const mockNews = [
+      {
+        title: "First Invalid",
+        summary: "First Summary",
+        content: "First Content",
+        source: "First Source",
+        publishedAt: "not-a-date",
+        category: "Other",
+        url: "https://example.com/first-invalid",
+      },
+      {
+        title: "Second Invalid",
+        summary: "Second Summary",
+        content: "Second Content",
+        source: "Second Source",
+        publishedAt: "also-invalid",
+        category: "Technology",
+        url: "https://example.com/second-invalid",
+      },
+      {
+        title: "Third Invalid",
+        summary: "Third Summary",
+        content: "Third Content",
+        source: "Third Source",
+        publishedAt: "",
+        category: "Business",
+        url: "https://example.com/third-invalid",
+      },
+    ];
+
+    (global as any).getQuery.mockReturnValue({ language: "English" });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue(mockNews);
+
+    const response = await handler({});
+
+    expect(response.data).toHaveLength(3);
+    // All should be treated as equal (date 0), so original order should be maintained
+    expect(response.data[0].publishedAt).toBe("not-a-date");
+    expect(response.data[1].publishedAt).toBe("also-invalid");
+    expect(response.data[2].publishedAt).toBe("");
+  });
+
+  it("handles null and undefined dates by treating them as oldest", async () => {
+    const mockNews = [
+      {
+        title: "Null Date",
+        summary: "Null Summary",
+        content: "Null Content",
+        source: "Null Source",
+        publishedAt: null as any,
+        category: "Other",
+        url: "https://example.com/null",
+      },
+      {
+        title: "Undefined Date",
+        summary: "Undefined Summary",
+        content: "Undefined Content",
+        source: "Undefined Source",
+        publishedAt: undefined as any,
+        category: "Technology",
+        url: "https://example.com/undefined",
+      },
+      {
+        title: "Valid News",
+        summary: "Valid Summary",
+        content: "Valid Content",
+        source: "Valid Source",
+        publishedAt: "2024-12-01T00:00:00Z",
+        category: "Business",
+        url: "https://example.com/valid",
+      },
+    ];
+
+    (global as any).getQuery.mockReturnValue({ language: "English" });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue(mockNews);
+
+    const response = await handler({});
+
+    expect(response.data).toHaveLength(3);
+    expect(response.data[0].publishedAt).toBe("2024-12-01T00:00:00Z");
+    expect(response.data[1].publishedAt).toBeNull();
+    expect(response.data[2].publishedAt).toBeUndefined();
+  });
+
+  it("handles edge case date formats", async () => {
+    const mockNews = [
+      {
+        title: "Epoch Zero",
+        summary: "Epoch Summary",
+        content: "Epoch Content",
+        source: "Epoch Source",
+        publishedAt: "1970-01-01T00:00:00Z",
+        category: "Other",
+        url: "https://example.com/epoch",
+      },
+      {
+        title: "Negative Timestamp",
+        summary: "Negative Summary",
+        content: "Negative Content",
+        source: "Negative Source",
+        publishedAt: "1969-12-31T23:59:59Z",
+        category: "Technology",
+        url: "https://example.com/negative",
+      },
+      {
+        title: "Invalid Format",
+        summary: "Invalid Summary",
+        content: "Invalid Content",
+        source: "Invalid Source",
+        publishedAt: "not-a-real-date-at-all",
+        category: "Business",
+        url: "https://example.com/invalid-format",
+      },
+      {
+        title: "Future Date",
+        summary: "Future Summary",
+        content: "Future Content",
+        source: "Future Source",
+        publishedAt: "2025-12-01T00:00:00Z",
+        category: "Culture",
+        url: "https://example.com/future",
+      },
+    ];
+
+    (global as any).getQuery.mockReturnValue({ language: "English" });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue(mockNews);
+
+    const response = await handler({});
+
+    expect(response.data).toHaveLength(4);
+    // Should be sorted: Future > Epoch Zero > Invalid Format > Negative Timestamp
+    // Future: 1764547200000, Epoch: 0, Invalid: treated as 0, Negative: -1000
+    expect(response.data[0].publishedAt).toBe("2025-12-01T00:00:00Z"); // Future
+    expect(response.data[1].publishedAt).toBe("1970-01-01T00:00:00Z"); // Epoch Zero
+    expect(response.data[2].publishedAt).toBe("not-a-real-date-at-all"); // Invalid Format (treated as 0)
+    expect(response.data[3].publishedAt).toBe("1969-12-31T23:59:59Z"); // Negative Timestamp
+  });
+
+  describe("timeRange validation", () => {
+    it("accepts valid timeRange values", async () => {
+      const validTimeRanges = ["none", "day", "week", "month", "year"];
+
+      for (const timeRange of validTimeRanges) {
+        (global as any).getQuery.mockReturnValue({ timeRange, language: "English" });
+        mockTavilySearch.mockResolvedValue({ results: [] });
+        mockTavilyFormat.mockReturnValue([]);
+        mockGeminiCategorize.mockResolvedValue([]);
+
+        const response = await handler({});
+
+        expect(response.success).toBe(true);
+        expect(mockTavilySearch).toHaveBeenCalledWith({
+          maxResults: 10,
+          category: undefined,
+          timeRange: timeRange,
+          apiKey: "test-tavily-key",
+        });
+      }
+    });
+
+    it("defaults to 'week' when invalid timeRange is provided", async () => {
+      (global as any).getQuery.mockReturnValue({ timeRange: "invalid", language: "English" });
+      mockTavilySearch.mockResolvedValue({ results: [] });
+      mockTavilyFormat.mockReturnValue([]);
+      mockGeminiCategorize.mockResolvedValue([]);
+
+      const response = await handler({});
+
+      expect(response.success).toBe(true);
+      expect(mockTavilySearch).toHaveBeenCalledWith({
+        maxResults: 10,
+        category: undefined,
+        timeRange: "week",
+        apiKey: "test-tavily-key",
+      });
+    });
+
+    it("defaults to 'week' when timeRange is not provided", async () => {
+      (global as any).getQuery.mockReturnValue({ language: "English" });
+      mockTavilySearch.mockResolvedValue({ results: [] });
+      mockTavilyFormat.mockReturnValue([]);
+      mockGeminiCategorize.mockResolvedValue([]);
+
+      const response = await handler({});
+
+      expect(response.success).toBe(true);
+      expect(mockTavilySearch).toHaveBeenCalledWith({
+        maxResults: 10,
+        category: undefined,
+        timeRange: "week",
+        apiKey: "test-tavily-key",
+      });
+    });
+
+    it("accepts timeRange case variations", async () => {
+      const testCases = [
+        { input: "NONE", expected: "week" }, // Should default to week as it's case-sensitive
+        { input: "Day", expected: "week" },  // Should default to week as it's case-sensitive
+        { input: "WEEK", expected: "week" },  // Should default to week as it's case-sensitive
+        { input: "Month", expected: "week" }, // Should default to week as it's case-sensitive
+        { input: "YEAR", expected: "week" },  // Should default to week as it's case-sensitive
+      ];
+
+      for (const { input, expected } of testCases) {
+        (global as any).getQuery.mockReturnValue({ timeRange: input, language: "English" });
+        mockTavilySearch.mockResolvedValue({ results: [] });
+        mockTavilyFormat.mockReturnValue([]);
+        mockGeminiCategorize.mockResolvedValue([]);
+
+        const response = await handler({});
+
+        expect(response.success).toBe(true);
+        expect(mockTavilySearch).toHaveBeenCalledWith({
+          maxResults: 10,
+          category: undefined,
+          timeRange: expected,
+          apiKey: "test-tavily-key",
+        });
+      }
+    });
+
+    it("handles empty string timeRange", async () => {
+      (global as any).getQuery.mockReturnValue({ timeRange: "", language: "English" });
+      mockTavilySearch.mockResolvedValue({ results: [] });
+      mockTavilyFormat.mockReturnValue([]);
+      mockGeminiCategorize.mockResolvedValue([]);
+
+      const response = await handler({});
+
+      expect(response.success).toBe(true);
+      expect(mockTavilySearch).toHaveBeenCalledWith({
+        maxResults: 10,
+        category: undefined,
+        timeRange: "week",
+        apiKey: "test-tavily-key",
+      });
+    });
+
+    it("handles null and undefined timeRange values", async () => {
+      const testCases = [null, undefined];
+
+      for (const timeRange of testCases) {
+        (global as any).getQuery.mockReturnValue({ timeRange, language: "English" });
+        mockTavilySearch.mockResolvedValue({ results: [] });
+        mockTavilyFormat.mockReturnValue([]);
+        mockGeminiCategorize.mockResolvedValue([]);
+
+        const response = await handler({});
+
+        expect(response.success).toBe(true);
+        expect(mockTavilySearch).toHaveBeenCalledWith({
+          maxResults: 10,
+          category: undefined,
+          timeRange: "week",
+          apiKey: "test-tavily-key",
+        });
+      }
+    });
+
+    it("validates timeRange alongside other parameters", async () => {
+      (global as any).getQuery.mockReturnValue({
+        timeRange: "month",
+        category: "technology",
+        limit: "5",
+        language: "English"
+      });
+      mockTavilySearch.mockResolvedValue({ results: [] });
+      mockTavilyFormat.mockReturnValue([]);
+      mockGeminiCategorize.mockResolvedValue([]);
+
+      const response = await handler({});
+
+      expect(response.success).toBe(true);
+      expect(mockTavilySearch).toHaveBeenCalledWith({
+        maxResults: 5,
+        category: "technology",
+        timeRange: "month",
+        apiKey: "test-tavily-key",
+      });
+    });
+  });
 });
