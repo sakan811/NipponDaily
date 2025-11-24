@@ -20,14 +20,20 @@
               NipponDaily
             </h1>
           </div>
-          <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
-            <input
-              v-model="targetLanguage"
-              type="text"
-              placeholder="Language"
-              class="px-2 py-2 sm:px-3 text-sm sm:text-base border border-[var(--color-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-[var(--color-accent)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] w-20 sm:w-24"
-              :disabled="loading"
-            />
+          <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 shrink-0">
+            <div class="flex items-center space-x-2">
+              <label for="targetLanguage" class="text-xs sm:text-sm text-[var(--color-text-muted)]">
+                Translate news to:
+              </label>
+              <input
+                id="targetLanguage"
+                v-model="targetLanguage"
+                type="text"
+                placeholder="Target language"
+                class="px-2 py-2 sm:px-3 text-sm sm:text-base border border-[var(--color-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-[var(--color-accent)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] w-20 sm:w-24"
+                :disabled="loading"
+              />
+            </div>
             <button
               @click="refreshNews"
               :disabled="loading"
