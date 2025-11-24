@@ -618,5 +618,171 @@ describe("GeminiService", () => {
       expect(result[0].summary).toBe("Error summary");
       expect(result[0].content).toBe("Error summary"); // Both get set to summary when rawContent is null
     });
+
+    it("handles response.text when it's undefined", async () => {
+      const mockNews = createMockNews();
+      mockGenerateContent.mockResolvedValue({
+        text: undefined,
+      });
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: "test-api-key",
+      });
+
+      // Should fall back to basic summary from rawContent when response.text is undefined
+      expect(result[0].category).toBe("Other");
+      expect(result[0].summary).toBe("Tech Summary");
+      expect(result[0].content).toBe("Tech Summary");
+    });
+
+    it("handles response.text when it's an empty string", async () => {
+      const mockNews = createMockNews();
+      mockGenerateContent.mockResolvedValue({
+        text: "",
+      });
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: "test-api-key",
+      });
+
+      // Should fall back to basic summary when response.text is empty
+      expect(result[0].category).toBe("Other");
+      expect(result[0].summary).toBe("Tech Summary");
+      expect(result[0].content).toBe("Tech Summary");
+    });
+  });
+
+  describe("newsText mapping", () => {
+    it("creates newsText with rawContent prioritized", async () => {
+      const mockNews = [
+        {
+          title: "Test News",
+          summary: "Test summary",
+          content: "Test content",
+          rawContent: "Raw content with full text",
+          source: "Test Source",
+          publishedAt: "2024-01-15T10:00:00Z",
+          category: "Other",
+        },
+      ];
+
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": "Test summary"}]',
+      });
+
+      await service.categorizeNewsItems(mockNews, { apiKey: "test-api-key" });
+
+      const callArgs = mockGenerateContent.mock.calls[0][0];
+      expect(callArgs.contents).toContain("1. Title: Test News");
+      expect(callArgs.contents).toContain("Content: Raw content with full text");
+      expect(callArgs.contents).toContain("Source: Test Source");
+    });
+
+    it("creates newsText with content fallback when no rawContent", async () => {
+      const mockNews = [
+        {
+          title: "Test News",
+          summary: "Test summary",
+          content: "Content fallback text",
+          source: "Test Source",
+          publishedAt: "2024-01-15T10:00:00Z",
+          category: "Other",
+        },
+      ];
+
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": "Test summary"}]',
+      });
+
+      await service.categorizeNewsItems(mockNews, { apiKey: "test-api-key" });
+
+      const callArgs = mockGenerateContent.mock.calls[0][0];
+      expect(callArgs.contents).toContain("1. Title: Test News");
+      expect(callArgs.contents).toContain("Content: Content fallback text");
+      expect(callArgs.contents).toContain("Source: Test Source");
+    });
+
+    it("creates newsText with summary fallback when no content or rawContent", async () => {
+      const mockNews = [
+        {
+          title: "Test News",
+          summary: "Summary fallback text",
+          source: "Test Source",
+          publishedAt: "2024-01-15T10:00:00Z",
+          category: "Other",
+        },
+      ];
+
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": "Test summary"}]',
+      });
+
+      await service.categorizeNewsItems(mockNews, { apiKey: "test-api-key" });
+
+      const callArgs = mockGenerateContent.mock.calls[0][0];
+      expect(callArgs.contents).toContain("1. Title: Test News");
+      expect(callArgs.contents).toContain("Content: Summary fallback text");
+      expect(callArgs.contents).toContain("Source: Test Source");
+    });
+
+    it("creates newsText with multiple items separated by double newlines", async () => {
+      const mockNews = [
+        {
+          title: "First News",
+          summary: "First summary",
+          content: "First content",
+          source: "Source 1",
+          publishedAt: "2024-01-15T10:00:00Z",
+          category: "Other",
+        },
+        {
+          title: "Second News",
+          summary: "Second summary",
+          content: "Second content",
+          source: "Source 2",
+          publishedAt: "2024-01-15T11:00:00Z",
+          category: "Other",
+        },
+      ];
+
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": "First"}, {"category": "Business", "summary": "Second"}]',
+      });
+
+      await service.categorizeNewsItems(mockNews, { apiKey: "test-api-key" });
+
+      const callArgs = mockGenerateContent.mock.calls[0][0];
+      expect(callArgs.contents).toContain("1. Title: First News");
+      expect(callArgs.contents).toContain("Content: First content");
+      expect(callArgs.contents).toContain("Source: Source 1");
+      expect(callArgs.contents).toContain("2. Title: Second News");
+      expect(callArgs.contents).toContain("Content: Second content");
+      expect(callArgs.contents).toContain("Source: Source 2");
+      expect(callArgs.contents).toContain("\n\n"); // Double newline separator
+    });
+
+    it("handles newsText mapping with null/undefined content values", async () => {
+      const mockNews = [
+        {
+          title: "News with nulls",
+          summary: null,
+          content: undefined,
+          source: "Test Source",
+          publishedAt: "2024-01-15T10:00:00Z",
+          category: "Other",
+        },
+      ];
+
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Other", "summary": "Fallback summary"}]',
+      });
+
+      await service.categorizeNewsItems(mockNews, { apiKey: "test-api-key" });
+
+      const callArgs = mockGenerateContent.mock.calls[0][0];
+      expect(callArgs.contents).toContain("1. Title: News with nulls");
+      expect(callArgs.contents).toContain("Content: ");
+      expect(callArgs.contents).toContain("Source: Test Source");
+    });
   });
 });
