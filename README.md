@@ -23,6 +23,7 @@
 - **AI Translation & Summaries**: Get concise, AI-generated and translated summaries of news articles in your preferred language using Google Gemini
 - **Structured Output Processing**: Leverages Google Gemini's structured output for reliable, consistent categorization and translation results
 - **On-Demand Loading**: Click "Get News" to fetch the latest articles when you want them, no auto-refresh interruptions
+- **News Count Control**: Specify number of articles to fetch (1-20) via user-friendly input field
 - **Category Filtering**: Filter news by topic with interactive category buttons (All News, Politics, Business, Technology, Culture, Sports)
 - **Time Range Selection**: Filter news by recency with options for All Time, Today, This Week, This Month, This Year
 - **Domain Extraction**: Clean source attribution with automatic domain extraction from URLs (e.g., https://www.bbc.com from full article URLs)
@@ -57,8 +58,9 @@
 
 ### Article Limits
 
-- **Default**: 20 articles per request
-- **Maximum**: No hard limit (configurable via limit parameter)
+- **Default**: 10 articles per request
+- **Maximum**: 20 articles per request (configurable via news count input, max 20)
+- **User Control**: News count input field allows users to specify 1-20 articles
 - **No pagination**: Articles are displayed on a single page
 
 ### Dependencies
@@ -107,14 +109,15 @@
 ## Usage
 
 1. **Set Language**: Type your preferred language in the language input field (default: "English") for translated titles and summaries
-2. **Fetch News**: Select your preferred time range and category, then click "Get News" to fetch targeted Japanese news with AI-translated summaries
-3. **Time Filtering**: Use time range buttons to control search recency (All Time, Today, This Week, etc.)
-4. **Category Filtering**: Use category buttons to search specific topics (Politics, Business, Technology, Culture, Sports)
+2. **Set News Count**: Specify the number of articles to fetch (1-20) using the news count input field (default: 10)
+3. **Fetch News**: Select your preferred time range and category, then click "Get News" to fetch targeted Japanese news with AI-translated summaries
+4. **Time Filtering**: Use time range buttons to control search recency (All Time, Today, This Week, etc.)
+5. **Category Filtering**: Use category buttons to search specific topics (Politics, Business, Technology, Culture, Sports)
    - _Note: Time range and category filters affect the actual news search, not just display_
-5. **Read Translated Content**: View AI-translated titles and summaries in your specified language for quick understanding
-6. **Source Attribution**: See clean domain names (e.g., https://www.bbc.com) for each article with direct links
-7. **Chronological Display**: News is automatically displayed with the most recent articles first
-8. **Read Full Articles**: Click "Read Original" to visit complete articles on their source websites
+6. **Read Translated Content**: View AI-translated titles and summaries in your specified language for quick understanding
+7. **Source Attribution**: See clean domain names (e.g., https://www.bbc.com) for each article with direct links
+8. **Chronological Display**: News is automatically displayed with the most recent articles first
+9. **Read Full Articles**: Click "Read Original" to visit complete articles on their source websites
 
 ## Development Commands
 
