@@ -22,6 +22,21 @@
           </div>
           <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 shrink-0">
             <div class="flex items-center space-x-2">
+              <label for="newsAmount" class="text-xs sm:text-sm text-[var(--color-text-muted)]">
+                News count:
+              </label>
+              <input
+                id="newsAmount"
+                v-model.number="newsAmount"
+                type="number"
+                min="1"
+                max="20"
+                placeholder="10"
+                class="px-2 py-2 sm:px-3 text-sm sm:text-base border border-[var(--color-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-[var(--color-accent)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] w-16 sm:w-20"
+                :disabled="loading"
+              />
+            </div>
+            <div class="flex items-center space-x-2">
               <label for="targetLanguage" class="text-xs sm:text-sm text-[var(--color-text-muted)]">
                 Translate news to:
               </label>
@@ -153,13 +168,15 @@
                 No news loaded yet
               </h3>
               <p class="text-[var(--color-text-muted)] mb-4">
-                Select your preferred time range and category, then click "Get
-                News" to fetch targeted news from Japan
+                Select your preferred time range and category, set the number of
+                articles to fetch (1-20), then click "Get News" to fetch targeted
+                news from Japan
               </p>
               <p class="text-sm opacity-70">
                 <em
                   >Tip: Time range and category filters will affect the search
-                  results, not just the display</em
+                  results, not just the display. The news count controls how many
+                  articles to fetch.</em
                 >
               </p>
             </div>
@@ -199,6 +216,7 @@ const selectedTimeRange = ref<"none" | "day" | "week" | "month" | "year">(
   "week",
 );
 const targetLanguage = ref("English");
+const newsAmount = ref(10);
 
 // Categories
 const categories = NEWS_CATEGORIES;
@@ -240,7 +258,7 @@ const fetchNews = async () => {
           selectedCategory.value === "all" ? undefined : selectedCategory.value,
         timeRange: selectedTimeRange.value,
         language: targetLanguage.value || "English",
-        limit: 20,
+        limit: newsAmount.value,
       },
     });
 
@@ -256,6 +274,13 @@ const fetchNews = async () => {
 };
 
 const refreshNews = async () => {
+  // Validate news amount before fetching
+  if (newsAmount.value > 20) {
+    newsAmount.value = 20;
+  }
+  if (newsAmount.value < 1) {
+    newsAmount.value = 1;
+  }
   await fetchNews();
 };
 
