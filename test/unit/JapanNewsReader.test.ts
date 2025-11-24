@@ -247,7 +247,7 @@ describe("JapanNewsReader", () => {
         category: undefined,
         timeRange: "week",
         language: "English",
-        limit: 20,
+        limit: 10,
       },
     });
     expect(wrapper.vm.news).toEqual(mockNews);
@@ -296,7 +296,7 @@ describe("JapanNewsReader", () => {
         category: "technology",
         timeRange: "week",
         language: "English",
-        limit: 20,
+        limit: 10,
       },
     });
   });
@@ -378,7 +378,7 @@ describe("JapanNewsReader", () => {
         category: undefined,
         timeRange: "week",
         language: "English",
-        limit: 20,
+        limit: 10,
       },
     });
   });
@@ -522,7 +522,7 @@ describe("JapanNewsReader", () => {
         category: undefined,
         timeRange: "day",
         language: "English",
-        limit: 20,
+        limit: 10,
       },
     });
   });
@@ -545,7 +545,7 @@ describe("JapanNewsReader", () => {
         category: undefined,
         timeRange: "month",
         language: "English",
-        limit: 20,
+        limit: 10,
       },
     });
   });
@@ -710,7 +710,7 @@ describe("JapanNewsReader", () => {
         category: undefined,
         timeRange: "week",
         language: "Japanese",
-        limit: 20,
+        limit: 10,
       },
     });
   });
@@ -861,7 +861,7 @@ describe("JapanNewsReader", () => {
         category: undefined,
         timeRange: "week",
         language: "Spanish",
-        limit: 20,
+        limit: 10,
       },
     });
   });
@@ -979,8 +979,81 @@ describe("JapanNewsReader", () => {
         category: undefined,
         timeRange: "week",
         language: "English", // empty string should fallback to "English" per component logic
-        limit: 20,
+        limit: 10,
       },
     });
+  });
+
+  // News Amount Input Tests
+  it("renders news amount input with correct attributes", () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const newsAmountInput = wrapper.find('input#newsAmount');
+    expect(newsAmountInput.exists()).toBe(true);
+    expect(newsAmountInput.attributes("type")).toBe("number");
+    expect(newsAmountInput.attributes("min")).toBe("1");
+    expect(newsAmountInput.attributes("max")).toBe("20");
+    expect((newsAmountInput.element as HTMLInputElement).value).toBe("10"); // default value
+  });
+
+  it("binds news amount input to newsAmount reactive property", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const newsAmountInput = wrapper.find('input#newsAmount');
+    expect(wrapper.vm.newsAmount).toBe(10);
+
+    await newsAmountInput.setValue(15);
+    expect(wrapper.vm.newsAmount).toBe(15);
+    expect((newsAmountInput.element as HTMLInputElement).value).toBe("15");
+  });
+
+  it("validates news amount limits before fetching", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    wrapper.vm.newsAmount = 25; // above max
+    await wrapper.vm.refreshNews();
+    expect(wrapper.vm.newsAmount).toBe(20);
+
+    wrapper.vm.newsAmount = 0; // below min
+    await wrapper.vm.refreshNews();
+    expect(wrapper.vm.newsAmount).toBe(1);
+  });
+
+  it("disables news amount input when loading", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    const newsAmountInput = wrapper.find('input#newsAmount');
+    expect(newsAmountInput.attributes("disabled")).toBeUndefined();
+
+    mockFetch.mockImplementationOnce(() => new Promise((resolve) => setTimeout(resolve, 100)));
+    const fetchPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    expect(newsAmountInput.attributes("disabled")).toBeDefined();
+    await fetchPromise;
   });
 });
