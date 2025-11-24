@@ -597,10 +597,10 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Language"]');
+    const languageInput = wrapper.find('input[placeholder="Target language"]');
     expect(languageInput.exists()).toBe(true);
     expect(languageInput.attributes("type")).toBe("text");
-    expect(languageInput.attributes("placeholder")).toBe("Language");
+    expect(languageInput.attributes("placeholder")).toBe("Target language");
     expect((languageInput.element as HTMLInputElement).value).toBe("English"); // default value
   });
 
@@ -613,7 +613,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Language"]');
+    const languageInput = wrapper.find('input[placeholder="Target language"]');
 
     // Initial value should be "English"
     expect(wrapper.vm.targetLanguage).toBe("English");
@@ -635,7 +635,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Language"]');
+    const languageInput = wrapper.find('input[placeholder="Target language"]');
 
     // Initially should not be disabled
     expect(languageInput.attributes("disabled")).toBeUndefined();
@@ -680,7 +680,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Language"]');
+    const languageInput = wrapper.find('input[placeholder="Target language"]');
 
     // Check for key styling classes
     expect(languageInput.classes()).toContain("px-2");
@@ -702,7 +702,7 @@ describe("JapanNewsReader", () => {
     });
 
     // Set language to Japanese
-    await wrapper.find('input[placeholder="Language"]').setValue("Japanese");
+    await wrapper.find('input[placeholder="Target language"]').setValue("Japanese");
     await wrapper.vm.fetchNews();
 
     expect(mockFetch).toHaveBeenCalledWith("/api/news", {
@@ -851,7 +851,7 @@ describe("JapanNewsReader", () => {
     });
 
     // Change language to Spanish
-    await wrapper.find('input[placeholder="Language"]').setValue("Spanish");
+    await wrapper.find('input[placeholder="Target language"]').setValue("Spanish");
 
     // Click Get News button
     await wrapper.find("button").trigger("click");
@@ -875,7 +875,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Language"]');
+    const languageInput = wrapper.find('input[placeholder="Target language"]');
     const getNewsButton = wrapper.find("button");
 
     // Mock delayed response
@@ -922,7 +922,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Language"]');
+    const languageInput = wrapper.find('input[placeholder="Target language"]');
 
     // Set language to French
     await languageInput.setValue("French");
