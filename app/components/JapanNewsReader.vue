@@ -21,7 +21,7 @@
             </h1>
           </div>
           <div
-            class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 shrink-0"
+            class="flex flex-col sm:flex-row items-end sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 shrink-0 ml-auto"
           >
             <div class="flex items-center space-x-2">
               <label
