@@ -20,9 +20,14 @@
               NipponDaily
             </h1>
           </div>
-          <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 shrink-0">
+          <div
+            class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 shrink-0"
+          >
             <div class="flex items-center space-x-2">
-              <label for="newsAmount" class="text-xs sm:text-sm text-[var(--color-text-muted)]">
+              <label
+                for="newsAmount"
+                class="text-xs sm:text-sm text-[var(--color-text-muted)]"
+              >
                 News count:
               </label>
               <input
@@ -37,7 +42,10 @@
               />
             </div>
             <div class="flex items-center space-x-2">
-              <label for="targetLanguage" class="text-xs sm:text-sm text-[var(--color-text-muted)]">
+              <label
+                for="targetLanguage"
+                class="text-xs sm:text-sm text-[var(--color-text-muted)]"
+              >
                 Translate news to:
               </label>
               <input
@@ -169,14 +177,14 @@
               </h3>
               <p class="text-[var(--color-text-muted)] mb-4">
                 Select your preferred time range and category, set the number of
-                articles to fetch (1-20), then click "Get News" to fetch targeted
-                news from Japan
+                articles to fetch (1-20), then click "Get News" to fetch
+                targeted news from Japan
               </p>
               <p class="text-sm opacity-70">
                 <em
                   >Tip: Time range and category filters will affect the search
-                  results, not just the display. The news count controls how many
-                  articles to fetch.</em
+                  results, not just the display. The news count controls how
+                  many articles to fetch.</em
                 >
               </p>
             </div>

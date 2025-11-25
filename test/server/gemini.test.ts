@@ -674,7 +674,9 @@ describe("GeminiService", () => {
 
       const callArgs = mockGenerateContent.mock.calls[0][0];
       expect(callArgs.contents).toContain("1. Title: Test News");
-      expect(callArgs.contents).toContain("Content: Raw content with full text");
+      expect(callArgs.contents).toContain(
+        "Content: Raw content with full text",
+      );
       expect(callArgs.contents).toContain("Source: Test Source");
     });
 

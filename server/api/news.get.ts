@@ -13,7 +13,8 @@ export default defineEventHandler(async (event) => {
     const timeRange = (query.timeRange as string) || "week";
     const language = (query.language as string) || "English";
     const limitParam = parseInt(query.limit as string);
-    const limit = !isNaN(limitParam) && limitParam > 0 ? Math.min(limitParam, 20) : 10;
+    const limit =
+      !isNaN(limitParam) && limitParam > 0 ? Math.min(limitParam, 20) : 10;
 
     // Validate timeRange parameter
     const validTimeRanges = ["none", "day", "week", "month", "year"];
