@@ -702,7 +702,9 @@ describe("JapanNewsReader", () => {
     });
 
     // Set language to Japanese
-    await wrapper.find('input[placeholder="Target language"]').setValue("Japanese");
+    await wrapper
+      .find('input[placeholder="Target language"]')
+      .setValue("Japanese");
     await wrapper.vm.fetchNews();
 
     expect(mockFetch).toHaveBeenCalledWith("/api/news", {
@@ -851,7 +853,9 @@ describe("JapanNewsReader", () => {
     });
 
     // Change language to Spanish
-    await wrapper.find('input[placeholder="Target language"]').setValue("Spanish");
+    await wrapper
+      .find('input[placeholder="Target language"]')
+      .setValue("Spanish");
 
     // Click Get News button
     await wrapper.find("button").trigger("click");
@@ -994,7 +998,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const newsAmountInput = wrapper.find('input#newsAmount');
+    const newsAmountInput = wrapper.find("input#newsAmount");
     expect(newsAmountInput.exists()).toBe(true);
     expect(newsAmountInput.attributes("type")).toBe("number");
     expect(newsAmountInput.attributes("min")).toBe("1");
@@ -1011,7 +1015,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const newsAmountInput = wrapper.find('input#newsAmount');
+    const newsAmountInput = wrapper.find("input#newsAmount");
     expect(wrapper.vm.newsAmount).toBe(10);
 
     await newsAmountInput.setValue(15);
@@ -1046,10 +1050,12 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const newsAmountInput = wrapper.find('input#newsAmount');
+    const newsAmountInput = wrapper.find("input#newsAmount");
     expect(newsAmountInput.attributes("disabled")).toBeUndefined();
 
-    mockFetch.mockImplementationOnce(() => new Promise((resolve) => setTimeout(resolve, 100)));
+    mockFetch.mockImplementationOnce(
+      () => new Promise((resolve) => setTimeout(resolve, 100)),
+    );
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
 

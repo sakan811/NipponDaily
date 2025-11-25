@@ -123,14 +123,14 @@ class MockGoogleGenAI {
 
 // Mock Type enum for Google GenAI
 const mockType = {
-  TYPE_UNSPECIFIED: 'TYPE_UNSPECIFIED',
-  STRING: 'STRING',
-  NUMBER: 'NUMBER',
-  INTEGER: 'INTEGER',
-  BOOLEAN: 'BOOLEAN',
-  ARRAY: 'ARRAY',
-  OBJECT: 'OBJECT',
-  NULL: 'NULL',
+  TYPE_UNSPECIFIED: "TYPE_UNSPECIFIED",
+  STRING: "STRING",
+  NUMBER: "NUMBER",
+  INTEGER: "INTEGER",
+  BOOLEAN: "BOOLEAN",
+  ARRAY: "ARRAY",
+  OBJECT: "OBJECT",
+  NULL: "NULL",
 };
 
 vi.mock("@google/genai", () => ({

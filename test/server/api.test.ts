@@ -459,7 +459,10 @@ describe("News API", () => {
       const validTimeRanges = ["none", "day", "week", "month", "year"];
 
       for (const timeRange of validTimeRanges) {
-        (global as any).getQuery.mockReturnValue({ timeRange, language: "English" });
+        (global as any).getQuery.mockReturnValue({
+          timeRange,
+          language: "English",
+        });
         mockTavilySearch.mockResolvedValue({ results: [] });
         mockTavilyFormat.mockReturnValue([]);
         mockGeminiCategorize.mockResolvedValue([]);
@@ -477,7 +480,10 @@ describe("News API", () => {
     });
 
     it("defaults to 'week' when invalid timeRange is provided", async () => {
-      (global as any).getQuery.mockReturnValue({ timeRange: "invalid", language: "English" });
+      (global as any).getQuery.mockReturnValue({
+        timeRange: "invalid",
+        language: "English",
+      });
       mockTavilySearch.mockResolvedValue({ results: [] });
       mockTavilyFormat.mockReturnValue([]);
       mockGeminiCategorize.mockResolvedValue([]);
@@ -513,14 +519,17 @@ describe("News API", () => {
     it("accepts timeRange case variations", async () => {
       const testCases = [
         { input: "NONE", expected: "week" }, // Should default to week as it's case-sensitive
-        { input: "Day", expected: "week" },  // Should default to week as it's case-sensitive
-        { input: "WEEK", expected: "week" },  // Should default to week as it's case-sensitive
+        { input: "Day", expected: "week" }, // Should default to week as it's case-sensitive
+        { input: "WEEK", expected: "week" }, // Should default to week as it's case-sensitive
         { input: "Month", expected: "week" }, // Should default to week as it's case-sensitive
-        { input: "YEAR", expected: "week" },  // Should default to week as it's case-sensitive
+        { input: "YEAR", expected: "week" }, // Should default to week as it's case-sensitive
       ];
 
       for (const { input, expected } of testCases) {
-        (global as any).getQuery.mockReturnValue({ timeRange: input, language: "English" });
+        (global as any).getQuery.mockReturnValue({
+          timeRange: input,
+          language: "English",
+        });
         mockTavilySearch.mockResolvedValue({ results: [] });
         mockTavilyFormat.mockReturnValue([]);
         mockGeminiCategorize.mockResolvedValue([]);
@@ -538,7 +547,10 @@ describe("News API", () => {
     });
 
     it("handles empty string timeRange", async () => {
-      (global as any).getQuery.mockReturnValue({ timeRange: "", language: "English" });
+      (global as any).getQuery.mockReturnValue({
+        timeRange: "",
+        language: "English",
+      });
       mockTavilySearch.mockResolvedValue({ results: [] });
       mockTavilyFormat.mockReturnValue([]);
       mockGeminiCategorize.mockResolvedValue([]);
@@ -558,7 +570,10 @@ describe("News API", () => {
       const testCases = [null, undefined];
 
       for (const timeRange of testCases) {
-        (global as any).getQuery.mockReturnValue({ timeRange, language: "English" });
+        (global as any).getQuery.mockReturnValue({
+          timeRange,
+          language: "English",
+        });
         mockTavilySearch.mockResolvedValue({ results: [] });
         mockTavilyFormat.mockReturnValue([]);
         mockGeminiCategorize.mockResolvedValue([]);
@@ -580,7 +595,7 @@ describe("News API", () => {
         timeRange: "month",
         category: "technology",
         limit: "5",
-        language: "English"
+        language: "English",
       });
       mockTavilySearch.mockResolvedValue({ results: [] });
       mockTavilyFormat.mockReturnValue([]);
