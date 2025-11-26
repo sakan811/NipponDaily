@@ -650,6 +650,77 @@ describe("GeminiService", () => {
       expect(result[0].summary).toBe("Tech Summary");
       expect(result[0].content).toBe("Tech Summary");
     });
+
+    it("processes credibility scores from AI response", async () => {
+      const mockNews = createMockNews();
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": "AI summary", "sourceReputation": 0.9, "domainTrust": 0.8, "contentQuality": 0.7, "aiConfidence": 0.8}]',
+      });
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: "test-api-key",
+      });
+
+      expect(result[0].credibilityScore).toBeDefined();
+      expect(result[0].credibilityScore).toBeCloseTo(0.81, 2); // (0.9*0.3)+(0.8*0.3)+(0.7*0.2)+(0.8*0.2) = 0.27+0.24+0.14+0.16 = 0.81
+      expect(result[0].credibilityMetadata).toEqual({
+        sourceReputation: 0.9,
+        domainTrust: 0.8,
+        contentQuality: 0.7,
+        aiConfidence: 0.8,
+      });
+    });
+
+    it("handles missing credibility scores with defaults", async () => {
+      const mockNews = createMockNews();
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": "AI summary"}]',
+      });
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: "test-api-key",
+      });
+
+      expect(result[0].credibilityScore).toBeDefined();
+      expect(result[0].credibilityScore).toBeCloseTo(0.5, 2); // (0.5*0.3)+(0.5*0.3)+(0.5*0.2)+(0.5*0.2) = 0.15+0.15+0.1+0.1 = 0.5
+      expect(result[0].credibilityMetadata).toEqual({
+        sourceReputation: 0.5,
+        domainTrust: 0.5,
+        contentQuality: 0.5,
+        aiConfidence: 0.5,
+      });
+    });
+
+    it("clamps credibility scores to 0-1 range", async () => {
+      const mockNews = createMockNews();
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": "AI summary", "sourceReputation": 1.5, "domainTrust": -0.2, "contentQuality": 2, "aiConfidence": 0}]',
+      });
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: "test-api-key",
+      });
+
+      expect(result[0].credibilityMetadata).toEqual({
+        sourceReputation: 1, // Clamped to 1
+        domainTrust: 0, // Clamped to 0
+        contentQuality: 1, // Clamped to 1
+        aiConfidence: 0, // Already valid
+      });
+    });
+
+    it("provides default credibility scores when AI fails", async () => {
+      const mockNews = createMockNews();
+      mockGenerateContent.mockRejectedValue(new Error("API Error"));
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: "test-api-key",
+      });
+
+      expect(result[0].credibilityScore).toBeDefined();
+      expect(result[0].credibilityMetadata).toBeDefined();
+      expect(result[0].credibilityMetadata!.aiConfidence).toBe(0.3); // Lower confidence when AI fails
+    });
   });
 
   describe("newsText mapping", () => {
@@ -785,6 +856,134 @@ describe("GeminiService", () => {
       expect(callArgs.contents).toContain("1. Title: News with nulls");
       expect(callArgs.contents).toContain("Content: ");
       expect(callArgs.contents).toContain("Source: Test Source");
+    });
+  });
+
+  describe("getDomainTrustScore", () => {
+    it("returns high scores for trusted Japanese news domains", () => {
+      // Test just one domain first to isolate the issue
+      const score = service["getDomainTrustScore"]("https://nhk.or.jp/news");
+      expect(score).toBe(0.95);
+
+      // Then test others
+      expect(service["getDomainTrustScore"]("https://www.nikkei.com")).toBe(0.95);
+      expect(service["getDomainTrustScore"]("https://japantimes.co.jp")).toBe(0.9);
+      expect(service["getDomainTrustScore"]("https://www.asahi.com")).toBe(0.9);
+      expect(service["getDomainTrustScore"]("https://mainichi.jp")).toBe(0.9);
+      expect(service["getDomainTrustScore"]("https://www.yomiuri.co.jp")).toBe(0.9);
+      expect(service["getDomainTrustScore"]("https://asia.nikkei.com")).toBe(0.95);
+      expect(service["getDomainTrustScore"]("https://kyodonews.net")).toBe(0.9);
+      expect(service["getDomainTrustScore"]("https://www.tansa.jp")).toBe(0.9);
+      expect(service["getDomainTrustScore"]("https://nhkworld.jp")).toBe(0.9);
+    });
+
+    it("returns high scores for trusted international news domains", () => {
+      const trustedInternational = [
+        { source: "https://reuters.com/world/asia-pacific", expected: 0.85 }, // Reuters - updated
+        { source: "https://bbc.com/news/world/asia", expected: 0.8 }, // BBC
+        { source: "https://apnews.com/japan", expected: 0.8 }, // Associated Press - new
+        { source: "https://bloomberg.com/asia", expected: 0.85 }, // Bloomberg - business focus
+        { source: "https://nippon.com/en/japan", expected: 0.85 }, // Nippon.com - new
+        { source: "https://www.ft.com/japan", expected: 0.8 }, // Financial Times - new
+        { source: "https://wsj.asia/japan", expected: 0.8 }, // WSJ Asia - new
+        { source: "https://fortune.com/2024/01/15/japan-business", expected: 0.75 }, // Fortune
+      ];
+
+      trustedInternational.forEach(({ source, expected }) => {
+        const score = service["getDomainTrustScore"](source);
+        expect(score).toBe(expected);
+      });
+    });
+
+    it("returns moderate score for unknown domains", () => {
+      const unknownDomains = [
+        "https://unknown-news-site.com",
+        "https://random-blog.org",
+        "https://some-website.net",
+      ];
+
+      unknownDomains.forEach((source) => {
+        const score = service["getDomainTrustScore"](source);
+        expect(score).toBe(0.6);
+      });
+    });
+
+    it("returns low score for malformed sources", () => {
+      const malformedSources = [
+        "not-a-url",
+        "",
+        "htp://incomplete-url",
+        "javascript:malicious",
+      ];
+
+      malformedSources.forEach((source) => {
+        const score = service["getDomainTrustScore"](source);
+        expect(score).toBe(0.4);
+      });
+    });
+
+    it("handles case insensitive domain matching", () => {
+      const caseVariations = [
+        "https://NHK.OR.JP/news",
+        "https://Nikkei.com/article",
+        "https://REUTERS.COM/world",
+      ];
+
+      caseVariations.forEach((source) => {
+        const score = service["getDomainTrustScore"](source);
+        expect(score).toBeGreaterThanOrEqual(0.8); // Should still match trusted domains
+      });
+    });
+
+    it("handles domain-only sources", () => {
+      const domainOnlySources = [
+        "nhk.or.jp",
+        "nikkei.com",
+        "reuters.com",
+      ];
+
+      domainOnlySources.forEach((source) => {
+        const score = service["getDomainTrustScore"](source);
+        expect(score).toBeGreaterThanOrEqual(0.8);
+      });
+    });
+
+    it("handles subdomains of trusted domains", () => {
+      const subdomains = [
+        "https://news.nhk.or.jp",
+        "https://asia.nikkei.com",
+        "https://www.bbc.co.uk/news",
+      ];
+
+      subdomains.forEach((source) => {
+        const score = service["getDomainTrustScore"](source);
+        expect(score).toBeGreaterThanOrEqual(0.8);
+      });
+    });
+
+    it("returns appropriate scores for Japanese news aggregators", () => {
+      const aggregators = [
+        { source: "https://japantoday.com", expected: 0.75 }, // Japan Today
+        { source: "https://newsonjapan.com", expected: 0.75 }, // News On Japan
+      ];
+
+      aggregators.forEach(({ source, expected }) => {
+        const score = service["getDomainTrustScore"](source);
+        expect(score).toBe(expected);
+      });
+    });
+
+    it("recognizes regional Japanese newspapers", () => {
+      const regional = [
+        { source: "https://hokkaido-np.co.jp", expected: 0.8 }, // Hokkaido Shimbun
+        { source: "https://chugoku-np.co.jp", expected: 0.8 }, // Chugoku Shimbun
+        { source: "https://kobe-np.co.jp", expected: 0.8 }, // Kobe Shimbun
+      ];
+
+      regional.forEach(({ source, expected }) => {
+        const score = service["getDomainTrustScore"](source);
+        expect(score).toBe(expected);
+      });
     });
   });
 });

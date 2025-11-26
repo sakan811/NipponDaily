@@ -28,24 +28,106 @@
         {{ news.summary }}
       </p>
 
-      <!-- Source -->
-      <div
-        class="flex items-center text-sm text-[var(--color-text-muted)] mb-4"
-      >
-        <svg
-          class="w-4 h-4 mr-1"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <!-- Source and Credibility -->
+      <div class="space-y-3 mb-4">
+        <!-- Source -->
+        <div class="flex items-center text-sm text-[var(--color-text-muted)]">
+          <svg
+            class="w-4 h-4 mr-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+            />
+          </svg>
+          {{ news.source }}
+        </div>
+
+        <!-- Credibility Score -->
+        <div
+          v-if="news.credibilityScore !== undefined"
+          class="flex items-center text-sm"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-          />
-        </svg>
-        {{ news.source }}
+          <div class="flex items-center mr-2">
+            <svg
+              class="w-4 h-4 mr-1"
+              :class="credibilityIconColor"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                v-if="news.credibilityScore >= 0.8"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+              <path
+                v-else-if="news.credibilityScore >= 0.5"
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+              <path
+                v-else
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+            </svg>
+            <span :class="credibilityTextColor">
+              Credibility: {{ Math.round(news.credibilityScore * 100) }}%
+            </span>
+          </div>
+
+          <!-- Detailed credibility tooltip -->
+          <div
+            v-if="news.credibilityMetadata"
+            class="group relative inline-block"
+          >
+            <button
+              class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] rounded"
+              :aria-label="`Detailed credibility information for ${news.source}`"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </button>
+
+            <!-- Tooltip content -->
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs bg-[var(--color-text)] text-[var(--color-background)] rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+              <div class="space-y-1">
+                <div>Source Reputation: {{ Math.round(news.credibilityMetadata.sourceReputation * 100) }}%</div>
+                <div>Domain Trust: {{ Math.round(news.credibilityMetadata.domainTrust * 100) }}%</div>
+                <div>Content Quality: {{ Math.round(news.credibilityMetadata.contentQuality * 100) }}%</div>
+                <div>AI Confidence: {{ Math.round(news.credibilityMetadata.aiConfidence * 100) }}%</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Action Buttons -->
@@ -121,6 +203,30 @@ const formatDate = (dateString: string | null) => {
     return "Date not available";
   }
 };
+
+const credibilityIconColor = computed(() => {
+  if (!props.news.credibilityScore) return "text-[var(--color-text-muted)]";
+
+  if (props.news.credibilityScore >= 0.8) {
+    return "text-[var(--color-primary)]"; // Dark Coral for high credibility
+  } else if (props.news.credibilityScore >= 0.5) {
+    return "text-yellow-600"; // Yellow for medium credibility (using direct color as accent)
+  } else {
+    return "text-[var(--color-secondary)]"; // Cadet for low credibility
+  }
+});
+
+const credibilityTextColor = computed(() => {
+  if (!props.news.credibilityScore) return "text-[var(--color-text-muted)]";
+
+  if (props.news.credibilityScore >= 0.8) {
+    return "text-[var(--color-primary)]"; // Dark Coral for high credibility
+  } else if (props.news.credibilityScore >= 0.5) {
+    return "text-yellow-700"; // Yellow for medium credibility
+  } else {
+    return "text-[var(--color-secondary)]"; // Cadet for low credibility
+  }
+});
 </script>
 
 <style scoped>
