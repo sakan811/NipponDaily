@@ -874,7 +874,7 @@ describe("GeminiService", () => {
       expect(service["getDomainTrustScore"]("https://asia.nikkei.com")).toBe(0.95);
       expect(service["getDomainTrustScore"]("https://kyodonews.net")).toBe(0.9);
       expect(service["getDomainTrustScore"]("https://www.tansa.jp")).toBe(0.9);
-      expect(service["getDomainTrustScore"]("https://nhkworld.jp")).toBe(0.9);
+      expect(service["getDomainTrustScore"]("https://nhkworld.jp")).toBe(0.95);
     });
 
     it("returns high scores for trusted international news domains", () => {
@@ -983,6 +983,15 @@ describe("GeminiService", () => {
       regional.forEach(({ source, expected }) => {
         const score = service["getDomainTrustScore"](source);
         expect(score).toBe(expected);
+      });
+    });
+
+    it("handles invalid URLs that throw during parsing", () => {
+      const invalidUrls = ["https://", "http://", "https:///"];
+
+      invalidUrls.forEach(source => {
+        const score = service["getDomainTrustScore"](source);
+        expect(score).toBe(0.4);
       });
     });
   });
