@@ -297,11 +297,6 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
       if (source.startsWith("http")) {
         const urlObj = new URL(source);
         domain = urlObj.hostname;
-
-        // Check for empty hostname (like javascript:malicious)
-        if (!domain || domain.trim() === "") {
-          return 0.4;
-        }
       }
 
       domain = domain.toLowerCase();
