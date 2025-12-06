@@ -12,8 +12,8 @@ importers:
         specifier: ^1.30.0
         version: 1.30.0
       '@tavily/core':
-        specifier: ^0.5.13
-        version: 0.5.13
+        specifier: ^0.5.14
+        version: 0.5.14
       nuxt:
         specifier: ^4.2.1
         version: 4.2.1(@parcel/watcher@2.5.1)(@types/node@24.10.1)(@vue/compiler-sfc@3.5.25)(db0@0.3.4)(eslint@9.39.1(jiti@2.6.1))(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.53.3)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.1))(yaml@2.8.1)
@@ -81,14 +81,14 @@ importers:
 
 packages:
 
-  '@acemir/cssom@0.9.25':
-    resolution: {integrity: sha512-ZWKTnGx+py7q6W3Q1q7+ZOW0GLuhgaxjBRMytOxYu5CQwIF6YCu5iCgY7NzuTt+DkpAa4jqKfvxANuCBWTzdVg==}
+  '@acemir/cssom@0.9.26':
+    resolution: {integrity: sha512-UMFbL3EnWH/eTvl21dz9s7Td4wYDMtxz/56zD8sL9IZGYyi48RxmdgPMiyT7R6Vn3rjMTwYZ42bqKa7ex74GEQ==}
 
   '@asamuzakjp/css-color@4.1.0':
     resolution: {integrity: sha512-9xiBAtLn4aNsa4mDnpovJvBn72tNEIACyvlqaNJ+ADemR+yeMJWnBudOi2qGDviJa7SwcDOU/TRh5dnET7qk0w==}
 
-  '@asamuzakjp/dom-selector@6.7.5':
-    resolution: {integrity: sha512-Eks6dY8zau4m4wNRQjRVaKQRTalNcPcBvU1ZQ35w5kKRk1gUeNCkVLsRiATurjASTp3TKM4H10wsI50nx3NZdw==}
+  '@asamuzakjp/dom-selector@6.7.6':
+    resolution: {integrity: sha512-hBaJER6A9MpdG3WgdlOolHmbOYvSk46y7IQN/1+iqiCuUu6iWdQrs9DGKF8ocqsEqWujWf/V7b7vaDgiUmIvUg==}
 
   '@asamuzakjp/nwsapi@2.3.9':
     resolution: {integrity: sha512-n8GuYSrI9bF7FFZ/SjhwevlHc8xaVlb/7HmHelnc/PZXBD2ZR49NnN9sMMuDdEGPeeRQ5d0hqlSlEpgCX3Wl0Q==}
@@ -1306,8 +1306,8 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
 
-  '@tavily/core@0.5.13':
-    resolution: {integrity: sha512-H7QzDDQews4r7HCrCnbAM8RyqlQt148G0UnjfCHMcOOrsP+8EwDqeOP4G47RrFGXEiS/jbTftGrDRAQnHUGnqA==}
+  '@tavily/core@0.5.14':
+    resolution: {integrity: sha512-4TO9J8Yyn/908aeVI0IdGP2VTg1XPXylVp2kVpAJbtr0P6Ftou1qChHLSK1oG/splhw+boQ0c8LpUoynVMRXpA==}
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -4305,7 +4305,7 @@ packages:
 
 snapshots:
 
-  '@acemir/cssom@0.9.25':
+  '@acemir/cssom@0.9.26':
     optional: true
 
   '@asamuzakjp/css-color@4.1.0':
@@ -4317,7 +4317,7 @@ snapshots:
       lru-cache: 11.2.4
     optional: true
 
-  '@asamuzakjp/dom-selector@6.7.5':
+  '@asamuzakjp/dom-selector@6.7.6':
     dependencies:
       '@asamuzakjp/nwsapi': 2.3.9
       bidi-js: 1.0.3
@@ -5542,7 +5542,7 @@ snapshots:
       tailwindcss: 4.1.17
       vite: 7.2.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.1)
 
-  '@tavily/core@0.5.13':
+  '@tavily/core@0.5.14':
     dependencies:
       axios: 1.13.2
       https-proxy-agent: 7.0.6
@@ -7065,8 +7065,8 @@ snapshots:
 
   jsdom@27.2.0:
     dependencies:
-      '@acemir/cssom': 0.9.25
-      '@asamuzakjp/dom-selector': 6.7.5
+      '@acemir/cssom': 0.9.26
+      '@asamuzakjp/dom-selector': 6.7.6
       cssstyle: 5.3.3
       data-urls: 6.0.0
       decimal.js: 10.6.0
