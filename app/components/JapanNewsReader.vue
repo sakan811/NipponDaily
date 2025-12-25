@@ -1,75 +1,110 @@
 <template>
-  <div class="min-h-screen bg-[var(--color-text)]">
+  <div class="min-h-screen">
     <!-- Header -->
-    <header class="bg-[var(--color-accent)] shadow-lg overflow-x-hidden">
-      <div class="px-3 sm:px-4 py-4 sm:py-6">
-        <div class="flex items-center justify-between gap-3">
-          <div class="flex items-center space-x-2 sm:space-x-3">
-            <div
-              class="w-8 h-8 sm:w-12 sm:h-12 bg-[var(--color-primary)] rounded-full flex items-center justify-center shadow-lg overflow-hidden shrink-0"
-            >
-              <img
-                src="/favicon.ico"
-                alt="NipponDaily Logo"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <h1
-              class="text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-text)] font-serif truncate"
-            >
-              NipponDaily
-            </h1>
+    <UHeader
+      v-model:open="mobileMenuOpen"
+    >
+      <template #left>
+        <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
+          <img
+            src="/favicon.ico"
+            alt="NipponDaily"
+            class="w-6 h-6"
+          />
+          <span>{{ appName }}</span>
+        </NuxtLink>
+      </template>
+
+      <template #right>
+        <div class="flex items-center gap-2 hidden lg:flex">
+          <div class="flex items-center gap-2">
+            <label for="newsAmount" class="text-sm text-[var(--color-text-muted)]">
+              News:
+            </label>
+            <UInput
+              id="newsAmount"
+              v-model.number="newsAmount"
+              type="number"
+              :min="1"
+              :max="20"
+              placeholder="10"
+              :disabled="loading"
+              size="sm"
+              class="w-20"
+            />
           </div>
-          <div
-            class="flex flex-col sm:flex-row items-end sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 shrink-0 ml-auto"
+          <div class="flex items-center gap-2">
+            <label for="targetLanguage" class="text-sm text-[var(--color-text-muted)]">
+              Lang:
+            </label>
+            <UInput
+              id="targetLanguage"
+              v-model="targetLanguage"
+              type="text"
+              placeholder="English"
+              :disabled="loading"
+              size="sm"
+              class="w-28"
+            />
+          </div>
+          <UButton
+            @click="refreshNews"
+            :disabled="loading"
+            :loading="loading"
+            color="primary"
+            size="sm"
+            icon="i-heroicons-magnifying-glass"
           >
-            <div class="flex items-center space-x-2">
-              <label
-                for="newsAmount"
-                class="text-xs sm:text-sm text-[var(--color-text-muted)]"
-              >
-                News count:
+            <span class="hidden sm:inline">{{ loading ? "Getting..." : "Get News" }}</span>
+          </UButton>
+        </div>
+      </template>
+
+      <template #body>
+        <div class="space-y-4">
+          <div class="space-y-3">
+            <div>
+              <label for="mobileNewsAmount" class="text-sm text-[var(--color-text-muted)]">
+                News count (1-20):
               </label>
-              <input
-                id="newsAmount"
+              <UInput
+                id="mobileNewsAmount"
                 v-model.number="newsAmount"
                 type="number"
-                min="1"
-                max="20"
+                :min="1"
+                :max="20"
                 placeholder="10"
-                class="px-2 py-2 sm:px-3 text-sm sm:text-base border border-[var(--color-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-[var(--color-accent)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] w-16 sm:w-20"
                 :disabled="loading"
+                class="w-full mt-1"
               />
             </div>
-            <div class="flex items-center space-x-2">
-              <label
-                for="targetLanguage"
-                class="text-xs sm:text-sm text-[var(--color-text-muted)]"
-              >
-                Translate news to:
+            <div>
+              <label for="mobileTargetLanguage" class="text-sm text-[var(--color-text-muted)]">
+                Translate to:
               </label>
-              <input
-                id="targetLanguage"
+              <UInput
+                id="mobileTargetLanguage"
                 v-model="targetLanguage"
                 type="text"
-                placeholder="Target language"
-                class="px-2 py-2 sm:px-3 text-sm sm:text-base border border-[var(--color-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-[var(--color-accent)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] w-20 sm:w-24"
+                placeholder="English"
                 :disabled="loading"
+                class="w-full mt-1"
               />
             </div>
             <UButton
-              @click="refreshNews"
+              @click="async () => { await refreshNews(); mobileMenuOpen = false; }"
               :disabled="loading"
               :loading="loading"
               color="primary"
-              size="sm"
+              block
+              icon="i-heroicons-magnifying-glass"
             >
               {{ loading ? "Getting..." : "Get News" }}
             </UButton>
           </div>
         </div>
-      </div>
-    </header>
+      </template>
+    </UHeader>
 
     <!-- Main Content -->
     <main
@@ -212,6 +247,8 @@ import type { CategoryId } from "~~/constants/categories";
 const news = ref<NewsItem[]>([]);
 const loading = ref(false);
 const error = ref<string | null>(null);
+const mobileMenuOpen = ref(false);
+const appName = "NipponDaily";
 const selectedCategory = ref<CategoryId>("all");
 const selectedTimeRange = ref<"none" | "day" | "week" | "month" | "year">(
   "week",
@@ -292,7 +329,3 @@ defineOptions({
   name: "JapanNewsReader",
 });
 </script>
-
-<style scoped>
-/* Component-specific styles are handled by Tailwind classes */
-</style>
