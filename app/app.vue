@@ -1,8 +1,12 @@
 <template>
-  <div
-    class="min-h-screen bg-gradient-to-br from-[var(--color-background)] to-[var(--color-accent)] overflow-x-hidden"
+  <UApp
+    class="min-h-screen"
   >
     <NuxtRouteAnnouncer />
-    <JapanNewsReader />
-  </div>
+    <UMain>
+      <NuxtLayout>
+        <JapanNewsReader />
+      </NuxtLayout>
+    </UMain>
+  </UApp>
 </template>
