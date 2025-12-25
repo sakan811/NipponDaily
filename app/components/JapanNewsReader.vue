@@ -57,14 +57,15 @@
                 :disabled="loading"
               />
             </div>
-            <button
+            <UButton
               @click="refreshNews"
               :disabled="loading"
-              class="btn-box disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 sm:px-4 cursor-pointer text-sm sm:text-base whitespace-nowrap"
+              :loading="loading"
+              color="primary"
+              size="sm"
             >
-              <span v-if="loading">Getting...</span>
-              <span v-else>Get News</span>
-            </button>
+              {{ loading ? "Getting..." : "Get News" }}
+            </UButton>
           </div>
         </div>
       </div>
@@ -83,20 +84,16 @@
               <em>Select a time range to focus news search results</em>
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
-              <button
+              <UButton
                 v-for="timeRange in timeRangeOptions"
                 :key="timeRange.id"
                 @click="selectedTimeRange = timeRange.id"
                 :title="`Filter news by ${timeRange.name.toLowerCase()}`"
-                :class="[
-                  'px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
-                  selectedTimeRange === timeRange.id
-                    ? 'bg-[var(--color-primary)] text-white hover:opacity-90 shadow-md hover:shadow-lg'
-                    : 'border border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-accent)] hover:opacity-80',
-                ]"
-              >
-                {{ timeRange.name }}
-              </button>
+                :color="selectedTimeRange === timeRange.id ? 'primary' : 'secondary'"
+                :variant="selectedTimeRange === timeRange.id ? 'solid' : 'outline'"
+                size="xs"
+                :label="timeRange.name"
+              />
             </div>
           </div>
 
@@ -109,7 +106,7 @@
               >
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
-              <button
+              <UButton
                 v-for="category in categories"
                 :key="category.id"
                 @click="selectedCategory = category.id"
@@ -118,15 +115,11 @@
                     ? 'Show all categories'
                     : `Filter news by ${category.name}`
                 "
-                :class="[
-                  'px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm focus-ring',
-                  selectedCategory === category.id
-                    ? 'bg-[var(--color-primary)] text-white hover:opacity-90 shadow-md hover:shadow-lg'
-                    : 'border border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-accent)] hover:opacity-80',
-                ]"
-              >
-                {{ category.name }}
-              </button>
+                :color="selectedCategory === category.id ? 'primary' : 'secondary'"
+                :variant="selectedCategory === category.id ? 'solid' : 'outline'"
+                size="xs"
+                :label="category.name"
+              />
             </div>
           </div>
 
@@ -202,7 +195,7 @@
             class="card p-6 text-center border-[var(--color-border)] bg-opacity-20"
           >
             <p class="text-[var(--color-primary)] mb-4">{{ error }}</p>
-            <button @click="refreshNews" class="btn-primary">Try Again</button>
+            <UButton color="primary" @click="refreshNews">Try Again</UButton>
           </div>
         </div>
       </div>
