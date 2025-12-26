@@ -7,11 +7,7 @@
     <!-- News Header -->
     <div class="p-4 sm:p-6">
       <div class="flex items-start justify-between mb-3">
-        <UBadge
-          :color="categoryColor"
-          size="md"
-          variant="soft"
-        >
+        <UBadge :color="categoryColor" size="md" variant="soft">
           {{ news.category }}
         </UBadge>
         <span class="text-xs text-[var(--color-text-muted)]">
@@ -125,19 +121,29 @@
             <template #content-top>
               <div class="p-3 space-y-2 text-sm">
                 <div class="flex justify-between gap-4">
-                  <span class="text-[var(--color-text-muted)]">Source Reputation:</span>
-                  <span class="font-medium">{{ sourceReputationPercent }}%</span>
+                  <span class="text-[var(--color-text-muted)]"
+                    >Source Reputation:</span
+                  >
+                  <span class="font-medium"
+                    >{{ sourceReputationPercent }}%</span
+                  >
                 </div>
                 <div class="flex justify-between gap-4">
-                  <span class="text-[var(--color-text-muted)]">Domain Trust:</span>
+                  <span class="text-[var(--color-text-muted)]"
+                    >Domain Trust:</span
+                  >
                   <span class="font-medium">{{ domainTrustPercent }}%</span>
                 </div>
                 <div class="flex justify-between gap-4">
-                  <span class="text-[var(--color-text-muted)]">Content Quality:</span>
+                  <span class="text-[var(--color-text-muted)]"
+                    >Content Quality:</span
+                  >
                   <span class="font-medium">{{ contentQualityPercent }}%</span>
                 </div>
                 <div class="flex justify-between gap-4">
-                  <span class="text-[var(--color-text-muted)]">AI Confidence:</span>
+                  <span class="text-[var(--color-text-muted)]"
+                    >AI Confidence:</span
+                  >
                   <span class="font-medium">{{ aiConfidencePercent }}%</span>
                 </div>
               </div>
@@ -186,7 +192,16 @@ const props = defineProps<Props>();
 
 const categoryColor = computed(() => {
   const category = props.news.category.toLowerCase();
-  const colorMap: Record<string, "primary" | "secondary" | "success" | "info" | "warning" | "error" | "neutral"> = {
+  const colorMap: Record<
+    string,
+    | "primary"
+    | "secondary"
+    | "success"
+    | "info"
+    | "warning"
+    | "error"
+    | "neutral"
+  > = {
     politics: "error",
     business: "primary",
     technology: "info",
@@ -226,14 +241,20 @@ const getCredibilityColor = (score: number): string => {
 };
 
 const credibilityIconColor = computed(() => {
-  if (props.news.credibilityScore === undefined || props.news.credibilityScore === null) {
+  if (
+    props.news.credibilityScore === undefined ||
+    props.news.credibilityScore === null
+  ) {
     return "var(--color-text-muted)";
   }
   return getCredibilityColor(props.news.credibilityScore);
 });
 
 const credibilityTextColor = computed(() => {
-  if (props.news.credibilityScore === undefined || props.news.credibilityScore === null) {
+  if (
+    props.news.credibilityScore === undefined ||
+    props.news.credibilityScore === null
+  ) {
     return "var(--color-text-muted)";
   }
   return getCredibilityColor(props.news.credibilityScore);
