@@ -150,6 +150,28 @@ vi.mock("@tavily/core", () => ({
 export { mockTavilyClient, mockGenerateContent };
 
 // Configure Vue Test Utils with enhanced mocks
+config.global.stubs = {
+  NuxtLink: { template: "<a><slot /></a>" },
+  NuxtLayout: { template: "<div><slot /></div>" },
+  UButton: {
+    template: '<button :disabled="disabled" :class="[\'u-button\', color === \'primary\' && variant === \'solid\' ? \'bg-[var(--color-primary)]\' : \'\', variant === \'outline\' ? \'border\' : \'\']" @click="$emit(\'click\', $event)">{{ label }}<slot /></button>',
+    props: ['disabled', 'loading', 'color', 'size', 'icon', 'label', 'block', 'variant'],
+    emits: ['click']
+  },
+  UInput: {
+    template: '<input :id="id" :type="type" :value="modelValue" :placeholder="placeholder" :disabled="disabled" :min="min" :max="max" class="u-input" @input="$emit(\'update:modelValue\', $event.target.value)" />',
+    props: ['id', 'modelValue', 'type', 'placeholder', 'disabled', 'min', 'max', 'size'],
+    emits: ['update:modelValue']
+  },
+  UCard: { template: "<div class=\"u-card\"><slot /></div>" },
+  UHeader: {
+    template: '<header class="u-header"><slot name="left" /><slot name="right" /><slot name="body" /></header>',
+    props: ['open']
+  },
+  UMain: { template: "<main class=\"u-main\"><slot /></main>" },
+  UApp: { template: "<div class=\"u-app\"><slot /></div>" },
+};
+
 config.global.mocks = {
   $fetch: globalMockFetch,
   $route: {
