@@ -1,5 +1,9 @@
 <template>
-  <div class="card hover:border-[var(--color-primary)] w-full overflow-hidden">
+  <UCard
+    :ui="{
+      root: 'hover:border-[var(--color-primary)] w-full overflow-hidden transition-colors duration-200'
+    }"
+  >
     <!-- News Header -->
     <div class="p-4 sm:p-6">
       <div class="flex items-start justify-between mb-3">
@@ -156,7 +160,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </UCard>
 </template>
 
 <script setup lang="ts">
