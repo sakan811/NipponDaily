@@ -1,12 +1,7 @@
 <template>
-  <UApp
-    class="min-h-screen"
-  >
-    <NuxtRouteAnnouncer />
+  <NuxtLayout>
     <UMain>
-      <NuxtLayout>
-        <JapanNewsReader />
-      </NuxtLayout>
+      <JapanNewsReader />
     </UMain>
-  </UApp>
+  </NuxtLayout>
 </template>
