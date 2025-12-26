@@ -7,12 +7,13 @@
     <!-- News Header -->
     <div class="p-4 sm:p-6">
       <div class="flex items-start justify-between mb-3">
-        <span
-          class="inline-block px-3 py-1 text-xs font-semibold rounded-full"
-          :class="categoryColorClass"
+        <UBadge
+          :color="categoryColor"
+          size="md"
+          variant="soft"
         >
           {{ news.category }}
-        </span>
+        </UBadge>
         <span class="text-xs text-[var(--color-text-muted)]">
           {{ formatDate(news.publishedAt) }}
         </span>
@@ -60,7 +61,7 @@
           <div class="flex items-center mr-2">
             <svg
               class="w-4 h-4 mr-1"
-              :class="credibilityIconColor"
+              :style="{ color: credibilityIconColor }"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -92,7 +93,7 @@
                 fill="none"
               />
             </svg>
-            <span :class="credibilityTextColor">
+            <span :style="{ color: credibilityTextColor }">
               Credibility: {{ Math.round(news.credibilityScore * 100) }}%
             </span>
           </div>
@@ -183,18 +184,16 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const categoryColorClass = computed(() => {
+const categoryColor = computed(() => {
   const category = props.news.category.toLowerCase();
-  const colorMap: Record<string, string> = {
-    politics: "badge-politics",
-    business: "badge-business",
-    technology: "badge-technology",
-    culture: "badge-culture",
-    sports: "badge-sports",
+  const colorMap: Record<string, "primary" | "secondary" | "success" | "info" | "warning" | "error" | "neutral"> = {
+    politics: "error",
+    business: "primary",
+    technology: "info",
+    culture: "warning",
+    sports: "success",
   };
-  return (
-    colorMap[category] || "bg-[var(--color-accent)] text-[var(--color-text)]"
-  );
+  return colorMap[category] || "neutral";
 });
 
 const formatDate = (dateString: string | null) => {
@@ -219,28 +218,25 @@ const formatDate = (dateString: string | null) => {
   }
 };
 
-const credibilityIconColor = computed(() => {
-  if (!props.news.credibilityScore) return "text-[var(--color-text-muted)]";
+// Helper function to generate gradient color from green (100%) to red (0%)
+const getCredibilityColor = (score: number): string => {
+  // Map score (0-1) to hue (0-120): 0% = red (hue 0), 100% = green (hue 120)
+  const hue = Math.round(score * 120);
+  return `hsl(${hue}, 70%, 45%)`;
+};
 
-  if (props.news.credibilityScore >= 0.8) {
-    return "text-[var(--color-primary)]"; // Dark Coral for high credibility
-  } else if (props.news.credibilityScore >= 0.5) {
-    return "text-yellow-600"; // Yellow for medium credibility (using direct color as accent)
-  } else {
-    return "text-[var(--color-secondary)]"; // Cadet for low credibility
+const credibilityIconColor = computed(() => {
+  if (props.news.credibilityScore === undefined || props.news.credibilityScore === null) {
+    return "var(--color-text-muted)";
   }
+  return getCredibilityColor(props.news.credibilityScore);
 });
 
 const credibilityTextColor = computed(() => {
-  if (!props.news.credibilityScore) return "text-[var(--color-text-muted)]";
-
-  if (props.news.credibilityScore >= 0.8) {
-    return "text-[var(--color-primary)]"; // Dark Coral for high credibility
-  } else if (props.news.credibilityScore >= 0.5) {
-    return "text-yellow-700"; // Yellow for medium credibility
-  } else {
-    return "text-[var(--color-secondary)]"; // Cadet for low credibility
+  if (props.news.credibilityScore === undefined || props.news.credibilityScore === null) {
+    return "var(--color-text-muted)";
   }
+  return getCredibilityColor(props.news.credibilityScore);
 });
 </script>
 
