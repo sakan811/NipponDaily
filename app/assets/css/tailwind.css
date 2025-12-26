@@ -12,3 +12,15 @@
   --color-error: #c44d56; /* Muted Red - Error messages, destructive actions */
   --color-neutral: #5d7275; /* Cadet - Text, borders, backgrounds */
 }
+
+/* Credibility Score Gradient Pattern (Special Case)
+ * News credibility scores use a dynamic HSL gradient from green to red:
+ * - 100%: hsl(120, 70%, 45%) - Green
+ * - 75%:  hsl(90, 70%, 45%)  - Yellow-Green
+ * - 50%:  hsl(60, 70%, 45%)  - Yellow
+ * - 25%:  hsl(30, 70%, 45%)  - Orange-Red
+ * - 0%:   hsl(0, 70%, 45%)   - Red
+ *
+ * Formula: hue = score * 120 (where score is 0-1)
+ * This is computed dynamically in NewsCard.vue, not a CSS variable.
+ */
