@@ -126,19 +126,19 @@
               <div class="p-3 space-y-2 text-sm">
                 <div class="flex justify-between gap-4">
                   <span class="text-[var(--color-text-muted)]">Source Reputation:</span>
-                  <span class="font-medium">{{ Math.round(news.credibilityMetadata.sourceReputation * 100) }}%</span>
+                  <span class="font-medium">{{ sourceReputationPercent }}%</span>
                 </div>
                 <div class="flex justify-between gap-4">
                   <span class="text-[var(--color-text-muted)]">Domain Trust:</span>
-                  <span class="font-medium">{{ Math.round(news.credibilityMetadata.domainTrust * 100) }}%</span>
+                  <span class="font-medium">{{ domainTrustPercent }}%</span>
                 </div>
                 <div class="flex justify-between gap-4">
                   <span class="text-[var(--color-text-muted)]">Content Quality:</span>
-                  <span class="font-medium">{{ Math.round(news.credibilityMetadata.contentQuality * 100) }}%</span>
+                  <span class="font-medium">{{ contentQualityPercent }}%</span>
                 </div>
                 <div class="flex justify-between gap-4">
                   <span class="text-[var(--color-text-muted)]">AI Confidence:</span>
-                  <span class="font-medium">{{ Math.round(news.credibilityMetadata.aiConfidence * 100) }}%</span>
+                  <span class="font-medium">{{ aiConfidencePercent }}%</span>
                 </div>
               </div>
             </template>
@@ -238,6 +238,31 @@ const credibilityTextColor = computed(() => {
   }
   return getCredibilityColor(props.news.credibilityScore);
 });
+
+// Credibility metadata percentage values for dropdown
+const sourceReputationPercent = computed(() =>
+  props.news.credibilityMetadata
+    ? Math.round(props.news.credibilityMetadata.sourceReputation * 100)
+    : 0,
+);
+
+const domainTrustPercent = computed(() =>
+  props.news.credibilityMetadata
+    ? Math.round(props.news.credibilityMetadata.domainTrust * 100)
+    : 0,
+);
+
+const contentQualityPercent = computed(() =>
+  props.news.credibilityMetadata
+    ? Math.round(props.news.credibilityMetadata.contentQuality * 100)
+    : 0,
+);
+
+const aiConfidencePercent = computed(() =>
+  props.news.credibilityMetadata
+    ? Math.round(props.news.credibilityMetadata.aiConfidence * 100)
+    : 0,
+);
 </script>
 
 <style scoped>

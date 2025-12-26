@@ -242,4 +242,114 @@ describe("NewsCard", () => {
       expect(wrapper.vm.credibilityIconColor).toBe("hsl(36, 70%, 45%)");
     });
   });
+
+  describe("credibility metadata dropdown", () => {
+    it("renders dropdown when credibilityMetadata exists", () => {
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: 0.75,
+            credibilityMetadata: {
+              sourceReputation: 0.85,
+              domainTrust: 0.72,
+              contentQuality: 0.9,
+              aiConfidence: 0.65,
+            },
+          },
+        },
+      });
+
+      expect(wrapper.find(".u-dropdown").exists()).toBe(true);
+    });
+
+    it("does not render dropdown when credibilityMetadata is missing", () => {
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: 0.75,
+            credibilityMetadata: undefined,
+          },
+        },
+      });
+
+      expect(wrapper.find(".u-dropdown").exists()).toBe(false);
+    });
+
+    it("does not render dropdown when credibilityMetadata is null", () => {
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: 0.75,
+            credibilityMetadata: null,
+          },
+        },
+      });
+
+      expect(wrapper.find(".u-dropdown").exists()).toBe(false);
+    });
+
+    it("calculates correct percentage values for all metadata fields", () => {
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: 0.75,
+            credibilityMetadata: {
+              sourceReputation: 0.85,
+              domainTrust: 0.72,
+              contentQuality: 0.9,
+              aiConfidence: 0.65,
+            },
+          },
+        },
+      });
+
+      expect(wrapper.vm.sourceReputationPercent).toBe(85);
+      expect(wrapper.vm.domainTrustPercent).toBe(72);
+      expect(wrapper.vm.contentQualityPercent).toBe(90);
+      expect(wrapper.vm.aiConfidencePercent).toBe(65);
+    });
+
+    it("rounds decimal percentage values correctly", () => {
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: 0.75,
+            credibilityMetadata: {
+              sourceReputation: 0.845,
+              domainTrust: 0.724,
+              contentQuality: 0.899,
+              aiConfidence: 0.656,
+            },
+          },
+        },
+      });
+
+      expect(wrapper.vm.sourceReputationPercent).toBe(85);
+      expect(wrapper.vm.domainTrustPercent).toBe(72);
+      expect(wrapper.vm.contentQualityPercent).toBe(90);
+      expect(wrapper.vm.aiConfidencePercent).toBe(66);
+    });
+
+    it("returns zero when credibilityMetadata is undefined", () => {
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: 0.75,
+            credibilityMetadata: undefined,
+          },
+        },
+      });
+
+      expect(wrapper.vm.sourceReputationPercent).toBe(0);
+      expect(wrapper.vm.domainTrustPercent).toBe(0);
+      expect(wrapper.vm.contentQualityPercent).toBe(0);
+      expect(wrapper.vm.aiConfidencePercent).toBe(0);
+    });
+  });
 });
