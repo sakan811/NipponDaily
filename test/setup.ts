@@ -166,7 +166,8 @@ config.global.stubs = {
   UCard: { template: "<div class=\"u-card\"><slot /></div>" },
   UHeader: {
     template: '<header class="u-header"><slot name="left" /><slot name="right" /><slot name="body" /></header>',
-    props: ['open']
+    props: ['open'],
+    emits: ['update:open']
   },
   UMain: { template: "<main class=\"u-main\"><slot /></main>" },
   UApp: { template: "<div class=\"u-app\"><slot /></div>" },

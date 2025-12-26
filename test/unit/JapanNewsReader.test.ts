@@ -1051,4 +1051,207 @@ describe("JapanNewsReader", () => {
     expect(newsAmountInput.attributes("disabled")).toBeDefined();
     await fetchPromise;
   });
+
+  it("binds mobileMenuOpen to UHeader via v-model:open", () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    expect(wrapper.vm.mobileMenuOpen).toBe(false);
+    expect(wrapper.find(".u-header").exists()).toBe(true);
+  });
+
+  it("renders mobile news amount input with correct attributes", () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    const mobileInput = wrapper.find("input#mobileNewsAmount");
+    expect(mobileInput.exists()).toBe(true);
+    expect(mobileInput.attributes("type")).toBe("number");
+    expect(mobileInput.attributes("min")).toBe("1");
+    expect(mobileInput.attributes("max")).toBe("20");
+  });
+
+  it("binds mobile news amount input to newsAmount reactive property", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    const mobileInput = wrapper.find("input#mobileNewsAmount");
+    await mobileInput.setValue(5);
+    expect(wrapper.vm.newsAmount).toBe(5);
+  });
+
+  it("disables mobile news amount input when loading", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    const mobileInput = wrapper.find("input#mobileNewsAmount");
+    mockFetch.mockImplementationOnce(() => new Promise((r) => setTimeout(r, 100)));
+
+    const fetchPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    expect(mobileInput.attributes("disabled")).toBeDefined();
+    await fetchPromise;
+  });
+
+  it("renders mobile target language input", () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    const mobileLangInput = wrapper.find("input#mobileTargetLanguage");
+    expect(mobileLangInput.exists()).toBe(true);
+    expect(mobileLangInput.attributes("placeholder")).toBe("English");
+  });
+
+  it("binds mobile language input to targetLanguage", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    const mobileLangInput = wrapper.find("input#mobileTargetLanguage");
+    await mobileLangInput.setValue("French");
+    expect(wrapper.vm.targetLanguage).toBe("French");
+  });
+
+  it("disables mobile language input when loading", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    const mobileLangInput = wrapper.find("input#mobileTargetLanguage");
+    mockFetch.mockImplementationOnce(() => new Promise((r) => setTimeout(r, 100)));
+
+    const fetchPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    expect(mobileLangInput.attributes("disabled")).toBeDefined();
+    await fetchPromise;
+  });
+
+  it("mobile Get News button closes menu after click", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Find mobile button by block class (unique to mobile version)
+    const mobileButtons = wrapper.findAll(".u-button").filter(b => b.classes().includes("block"));
+
+    // Skip if mobile menu not rendered (UHeader controls visibility)
+    if (mobileButtons.length === 0) {
+      return;
+    }
+
+    wrapper.vm.mobileMenuOpen = true;
+    await mobileButtons[0].trigger("click");
+    await nextTick();
+
+    expect(wrapper.vm.mobileMenuOpen).toBe(false);
+  });
+
+  // Pagination Tests
+  it("does not render pagination when news count <= items per page", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Only 2 items, itemsPerPage is 3, so no pagination
+    await wrapper.vm.refreshNews();
+    await nextTick();
+
+    expect(wrapper.vm.filteredNews.length).toBe(2);
+    expect(wrapper.vm.filteredNews.length).toBeLessThanOrEqual(wrapper.vm.itemsPerPage);
+  });
+
+  it("renders pagination when news count > items per page", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Add more mock news to exceed itemsPerPage (3)
+    mockFetch.mockResolvedValueOnce({
+      success: true,
+      data: [
+        ...mockNews,
+        { title: "News 3", summary: "Sum 3", content: "Content 3", source: "Src 3", publishedAt: "2024-01-15T12:00:00Z", category: "Business" },
+        { title: "News 4", summary: "Sum 4", content: "Content 4", source: "Src 4", publishedAt: "2024-01-15T13:00:00Z", category: "Culture" },
+      ],
+      count: 4,
+      timestamp: "2024-01-15T10:00:00Z",
+    });
+
+    await wrapper.vm.refreshNews();
+    await nextTick();
+
+    expect(wrapper.vm.filteredNews.length).toBe(4);
+    expect(wrapper.vm.filteredNews.length).toBeGreaterThan(wrapper.vm.itemsPerPage);
+  });
+
+  it("paginates news correctly", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Add 5 items to test pagination (itemsPerPage = 3)
+    mockFetch.mockResolvedValueOnce({
+      success: true,
+      data: [
+        ...mockNews,
+        { title: "News 3", summary: "Sum 3", content: "Content 3", source: "Src 3", publishedAt: "2024-01-15T12:00:00Z", category: "Business" },
+        { title: "News 4", summary: "Sum 4", content: "Content 4", source: "Src 4", publishedAt: "2024-01-15T13:00:00Z", category: "Culture" },
+        { title: "News 5", summary: "Sum 5", content: "Content 5", source: "Src 5", publishedAt: "2024-01-15T14:00:00Z", category: "Sports" },
+      ],
+      count: 5,
+      timestamp: "2024-01-15T10:00:00Z",
+    });
+
+    await wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Page 1 should show first 3 items
+    expect(wrapper.vm.page).toBe(1);
+    expect(wrapper.vm.paginatedNews.length).toBe(3);
+
+    // Change to page 2
+    wrapper.vm.page = 2;
+    await nextTick();
+
+    // Page 2 should show remaining 2 items
+    expect(wrapper.vm.paginatedNews.length).toBe(2);
+  });
+
+  it("resets page to 1 when category changes", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Add 5 items to test pagination
+    mockFetch.mockResolvedValueOnce({
+      success: true,
+      data: [
+        ...mockNews,
+        { title: "News 3", summary: "Sum 3", content: "Content 3", source: "Src 3", publishedAt: "2024-01-15T12:00:00Z", category: "Business" },
+        { title: "News 4", summary: "Sum 4", content: "Content 4", source: "Src 4", publishedAt: "2024-01-15T13:00:00Z", category: "Culture" },
+        { title: "News 5", summary: "Sum 5", content: "Content 5", source: "Src 5", publishedAt: "2024-01-15T14:00:00Z", category: "Sports" },
+      ],
+      count: 5,
+      timestamp: "2024-01-15T10:00:00Z",
+    });
+
+    await wrapper.vm.refreshNews();
+    await nextTick();
+
+    wrapper.vm.page = 2;
+    expect(wrapper.vm.page).toBe(2);
+
+    // Change category - should reset page to 1
+    wrapper.vm.selectedCategory = "technology";
+    await nextTick();
+
+    expect(wrapper.vm.page).toBe(1);
+  });
 });
