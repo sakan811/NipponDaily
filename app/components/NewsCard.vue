@@ -1,7 +1,7 @@
 <template>
   <UCard
     :ui="{
-      root: 'hover:border-[var(--color-primary)] w-full overflow-hidden transition-colors duration-200'
+      root: 'hover:border-[var(--color-primary)] w-full overflow-hidden transition-colors duration-200',
     }"
   >
     <!-- News Header -->
@@ -122,12 +122,30 @@
             </button>
 
             <!-- Tooltip content -->
-            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs bg-[var(--color-text)] text-[var(--color-background)] rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+            <div
+              class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs bg-[var(--color-text)] text-[var(--color-background)] rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10"
+            >
               <div class="space-y-1">
-                <div>Source Reputation: {{ Math.round(news.credibilityMetadata.sourceReputation * 100) }}%</div>
-                <div>Domain Trust: {{ Math.round(news.credibilityMetadata.domainTrust * 100) }}%</div>
-                <div>Content Quality: {{ Math.round(news.credibilityMetadata.contentQuality * 100) }}%</div>
-                <div>AI Confidence: {{ Math.round(news.credibilityMetadata.aiConfidence * 100) }}%</div>
+                <div>
+                  Source Reputation:
+                  {{
+                    Math.round(news.credibilityMetadata.sourceReputation * 100)
+                  }}%
+                </div>
+                <div>
+                  Domain Trust:
+                  {{ Math.round(news.credibilityMetadata.domainTrust * 100) }}%
+                </div>
+                <div>
+                  Content Quality:
+                  {{
+                    Math.round(news.credibilityMetadata.contentQuality * 100)
+                  }}%
+                </div>
+                <div>
+                  AI Confidence:
+                  {{ Math.round(news.credibilityMetadata.aiConfidence * 100) }}%
+                </div>
               </div>
             </div>
           </div>
