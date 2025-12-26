@@ -84,6 +84,7 @@
 - Text: `#1d2b36` (Yankees Blue) - Primary text
 
 **Credibility Score Gradient** (Special Case):
+
 - 100%: `hsl(120, 70%, 45%)` - Green
 - 75%: `hsl(90, 70%, 45%)` - Yellow-Green
 - 50%: `hsl(60, 70%, 45%)` - Yellow

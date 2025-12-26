@@ -189,7 +189,8 @@ config.global.stubs = {
     props: ["color", "size", "variant"],
   },
   UDropdownMenu: {
-    template: '<div class="u-dropdown"><slot name="content-top" /><slot /></div>',
+    template:
+      '<div class="u-dropdown"><slot name="content-top" /><slot /></div>',
     props: ["ui"],
   },
   UHeader: {
