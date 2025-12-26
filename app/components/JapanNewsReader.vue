@@ -132,20 +132,23 @@
               <em>Select a time range to focus news search results</em>
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
-              <UButton
+              <UTooltip
                 v-for="timeRange in timeRangeOptions"
                 :key="timeRange.id"
-                @click="selectedTimeRange = timeRange.id"
-                :title="`Filter news by ${timeRange.name.toLowerCase()}`"
-                :color="
-                  selectedTimeRange === timeRange.id ? 'primary' : 'secondary'
-                "
-                :variant="
-                  selectedTimeRange === timeRange.id ? 'solid' : 'outline'
-                "
-                size="xs"
-                :label="timeRange.name"
-              />
+                :text="`Filter news by ${timeRange.name.toLowerCase()}`"
+              >
+                <UButton
+                  @click="selectedTimeRange = timeRange.id"
+                  :color="
+                    selectedTimeRange === timeRange.id ? 'primary' : 'secondary'
+                  "
+                  :variant="
+                    selectedTimeRange === timeRange.id ? 'solid' : 'outline'
+                  "
+                  size="xs"
+                  :label="timeRange.name"
+                />
+              </UTooltip>
             </div>
           </div>
 
@@ -158,24 +161,27 @@
               >
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
-              <UButton
+              <UTooltip
                 v-for="category in categories"
                 :key="category.id"
-                @click="selectedCategory = category.id"
-                :title="
+                :text="
                   category.id === 'all'
                     ? 'Show all categories'
                     : `Filter news by ${category.name}`
                 "
-                :color="
-                  selectedCategory === category.id ? 'primary' : 'secondary'
-                "
-                :variant="
-                  selectedCategory === category.id ? 'solid' : 'outline'
-                "
-                size="xs"
-                :label="category.name"
-              />
+              >
+                <UButton
+                  @click="selectedCategory = category.id"
+                  :color="
+                    selectedCategory === category.id ? 'primary' : 'secondary'
+                  "
+                  :variant="
+                    selectedCategory === category.id ? 'solid' : 'outline'
+                  "
+                  size="xs"
+                  :label="category.name"
+                />
+              </UTooltip>
             </div>
           </div>
 
