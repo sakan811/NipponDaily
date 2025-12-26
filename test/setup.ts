@@ -184,6 +184,14 @@ config.global.stubs = {
     emits: ["update:modelValue"],
   },
   UCard: { template: '<div class="u-card"><slot /></div>' },
+  UBadge: {
+    template: '<span class="u-badge" :class="`badge-${color}`"><slot /></span>',
+    props: ["color", "size", "variant"],
+  },
+  UDropdownMenu: {
+    template: '<div class="u-dropdown"><slot name="content-top" /><slot /></div>',
+    props: ["ui"],
+  },
   UHeader: {
     template:
       '<header class="u-header"><slot name="left" /><slot name="right" /><slot name="body" /></header>',
