@@ -1,16 +1,10 @@
 <template>
   <div class="min-h-screen">
     <!-- Header -->
-    <UHeader
-      v-model:open="mobileMenuOpen"
-    >
+    <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img
-            src="/favicon.ico"
-            alt="NipponDaily"
-            class="w-6 h-6"
-          />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <span>{{ appName }}</span>
         </NuxtLink>
       </template>
@@ -18,7 +12,10 @@
       <template #right>
         <div class="flex items-center gap-2 hidden lg:flex">
           <div class="flex items-center gap-2">
-            <label for="newsAmount" class="text-sm text-[var(--color-text-muted)]">
+            <label
+              for="newsAmount"
+              class="text-sm text-[var(--color-text-muted)]"
+            >
               News:
             </label>
             <UInput
@@ -34,7 +31,10 @@
             />
           </div>
           <div class="flex items-center gap-2">
-            <label for="targetLanguage" class="text-sm text-[var(--color-text-muted)]">
+            <label
+              for="targetLanguage"
+              class="text-sm text-[var(--color-text-muted)]"
+            >
               Lang:
             </label>
             <UInput
@@ -55,7 +55,9 @@
             size="sm"
             icon="i-heroicons-magnifying-glass"
           >
-            <span class="hidden sm:inline">{{ loading ? "Getting..." : "Get News" }}</span>
+            <span class="hidden sm:inline">{{
+              loading ? "Getting..." : "Get News"
+            }}</span>
           </UButton>
         </div>
       </template>
@@ -64,7 +66,10 @@
         <div class="space-y-4">
           <div class="space-y-3">
             <div>
-              <label for="mobileNewsAmount" class="text-sm text-[var(--color-text-muted)]">
+              <label
+                for="mobileNewsAmount"
+                class="text-sm text-[var(--color-text-muted)]"
+              >
                 News count (1-20):
               </label>
               <UInput
@@ -79,7 +84,10 @@
               />
             </div>
             <div>
-              <label for="mobileTargetLanguage" class="text-sm text-[var(--color-text-muted)]">
+              <label
+                for="mobileTargetLanguage"
+                class="text-sm text-[var(--color-text-muted)]"
+              >
                 Translate to:
               </label>
               <UInput
@@ -92,7 +100,12 @@
               />
             </div>
             <UButton
-              @click="async () => { await refreshNews(); mobileMenuOpen = false; }"
+              @click="
+                async () => {
+                  await refreshNews();
+                  mobileMenuOpen = false;
+                }
+              "
               :disabled="loading"
               :loading="loading"
               color="primary"
@@ -124,8 +137,12 @@
                 :key="timeRange.id"
                 @click="selectedTimeRange = timeRange.id"
                 :title="`Filter news by ${timeRange.name.toLowerCase()}`"
-                :color="selectedTimeRange === timeRange.id ? 'primary' : 'secondary'"
-                :variant="selectedTimeRange === timeRange.id ? 'solid' : 'outline'"
+                :color="
+                  selectedTimeRange === timeRange.id ? 'primary' : 'secondary'
+                "
+                :variant="
+                  selectedTimeRange === timeRange.id ? 'solid' : 'outline'
+                "
                 size="xs"
                 :label="timeRange.name"
               />
@@ -150,8 +167,12 @@
                     ? 'Show all categories'
                     : `Filter news by ${category.name}`
                 "
-                :color="selectedCategory === category.id ? 'primary' : 'secondary'"
-                :variant="selectedCategory === category.id ? 'solid' : 'outline'"
+                :color="
+                  selectedCategory === category.id ? 'primary' : 'secondary'
+                "
+                :variant="
+                  selectedCategory === category.id ? 'solid' : 'outline'
+                "
                 size="xs"
                 :label="category.name"
               />
@@ -190,8 +211,8 @@
                   No news loaded yet
                 </h3>
                 <p class="text-[var(--color-text-muted)] mb-4">
-                  Select your preferred time range and category, set the number of
-                  articles to fetch (1-20), then click "Get News" to fetch
+                  Select your preferred time range and category, set the number
+                  of articles to fetch (1-20), then click "Get News" to fetch
                   targeted news from Japan
                 </p>
                 <p class="text-sm opacity-70">
@@ -211,7 +232,10 @@
           </div>
 
           <!-- Pagination -->
-          <div v-if="filteredNews.length > itemsPerPage" class="flex justify-center mt-6">
+          <div
+            v-if="filteredNews.length > itemsPerPage"
+            class="flex justify-center mt-6"
+          >
             <UPagination
               v-model:page="page"
               :total="filteredNews.length"
@@ -224,11 +248,7 @@
           </div>
 
           <!-- Error State -->
-          <UCard
-            v-if="error"
-            data-testid="error-state"
-            class="text-center"
-          >
+          <UCard v-if="error" data-testid="error-state" class="text-center">
             <div class="p-6">
               <p class="text-[var(--color-primary)] mb-4">{{ error }}</p>
               <UButton color="primary" @click="refreshNews">Try Again</UButton>
