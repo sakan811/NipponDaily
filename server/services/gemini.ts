@@ -109,8 +109,24 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
                   description: "AI confidence score from 0 to 1",
                 },
               },
-              required: ["category", "translatedTitle", "summary", "sourceReputation", "domainTrust", "contentQuality", "aiConfidence"],
-              propertyOrdering: ["category", "translatedTitle", "summary", "sourceReputation", "domainTrust", "contentQuality", "aiConfidence"],
+              required: [
+                "category",
+                "translatedTitle",
+                "summary",
+                "sourceReputation",
+                "domainTrust",
+                "contentQuality",
+                "aiConfidence",
+              ],
+              propertyOrdering: [
+                "category",
+                "translatedTitle",
+                "summary",
+                "sourceReputation",
+                "domainTrust",
+                "contentQuality",
+                "aiConfidence",
+              ],
             },
           },
         },
@@ -135,19 +151,27 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
 
             // Create credibility metadata from AI response
             const credibilityMetadata: CredibilityMetadata = {
-              sourceReputation: Math.min(1, Math.max(0, result.sourceReputation ?? 0.5)),
+              sourceReputation: Math.min(
+                1,
+                Math.max(0, result.sourceReputation ?? 0.5),
+              ),
               domainTrust: Math.min(1, Math.max(0, result.domainTrust ?? 0.5)),
-              contentQuality: Math.min(1, Math.max(0, result.contentQuality ?? 0.5)),
-              aiConfidence: Math.min(1, Math.max(0, result.aiConfidence ?? 0.5)),
+              contentQuality: Math.min(
+                1,
+                Math.max(0, result.contentQuality ?? 0.5),
+              ),
+              aiConfidence: Math.min(
+                1,
+                Math.max(0, result.aiConfidence ?? 0.5),
+              ),
             };
 
             // Calculate overall credibility score (weighted average)
-            const credibilityScore = (
+            const credibilityScore =
               credibilityMetadata.sourceReputation * 0.3 +
               credibilityMetadata.domainTrust * 0.3 +
               credibilityMetadata.contentQuality * 0.2 +
-              credibilityMetadata.aiConfidence * 0.2
-            );
+              credibilityMetadata.aiConfidence * 0.2;
 
             return {
               ...item,
@@ -176,12 +200,11 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
           aiConfidence: 0.3, // Lower confidence since AI failed
         };
 
-        const credibilityScore = (
+        const credibilityScore =
           defaultCredibilityMetadata.sourceReputation * 0.3 +
           defaultCredibilityMetadata.domainTrust * 0.3 +
           defaultCredibilityMetadata.contentQuality * 0.2 +
-          defaultCredibilityMetadata.aiConfidence * 0.2
-        );
+          defaultCredibilityMetadata.aiConfidence * 0.2;
 
         return {
           ...item,
@@ -209,12 +232,11 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
           aiConfidence: 0.3, // Lower confidence since AI failed
         };
 
-        const credibilityScore = (
+        const credibilityScore =
           defaultCredibilityMetadata.sourceReputation * 0.3 +
           defaultCredibilityMetadata.domainTrust * 0.3 +
           defaultCredibilityMetadata.contentQuality * 0.2 +
-          defaultCredibilityMetadata.aiConfidence * 0.2
-        );
+          defaultCredibilityMetadata.aiConfidence * 0.2;
 
         return {
           ...item,
@@ -241,10 +263,16 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
     const trustedDomains = [
       // 🇯🇵 Major / National Japanese News Sources (Highest Trust)
       { domains: ["nhk.or.jp", "nhk.com", "nhkworld.jp"], score: 0.95 }, // Japan's public broadcaster
-      { domains: ["nikkei.com", "nikkei.co.jp", "asia.nikkei.com"], score: 0.95 }, // Nihon Keizai Shimbun - business focus
+      {
+        domains: ["nikkei.com", "nikkei.co.jp", "asia.nikkei.com"],
+        score: 0.95,
+      }, // Nihon Keizai Shimbun - business focus
 
       // Major Japanese newspapers
-      { domains: ["asahi.com", "asahi.co.jp", "digital.asahi.com"], score: 0.9 }, // Asahi Shimbun
+      {
+        domains: ["asahi.com", "asahi.co.jp", "digital.asahi.com"],
+        score: 0.9,
+      }, // Asahi Shimbun
       { domains: ["mainichi.jp", "mainichi.co.jp"], score: 0.9 }, // Mainichi Shimbun
       { domains: ["yomiuri.co.jp", "japanynews.yomiuri.co.jp"], score: 0.9 }, // Yomiuri Shimbun
       { domains: ["sankei.com", "sankei.co.jp"], score: 0.85 }, // Sankei Shimbun
@@ -287,7 +315,11 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
     }
 
     // Check for dangerous or obviously invalid protocols
-    if (source.startsWith("javascript:") || source.startsWith("data:") || source.startsWith("vbscript:")) {
+    if (
+      source.startsWith("javascript:") ||
+      source.startsWith("data:") ||
+      source.startsWith("vbscript:")
+    ) {
       return 0.4; // Dangerous protocol
     }
 
@@ -308,7 +340,11 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
 
       // Check against trusted domains
       for (const trusted of trustedDomains) {
-        if (trusted.domains.some(trustedDomain => domain.includes(trustedDomain))) {
+        if (
+          trusted.domains.some((trustedDomain) =>
+            domain.includes(trustedDomain),
+          )
+        ) {
           return trusted.score;
         }
       }

@@ -1,6 +1,5 @@
 import { geminiService } from "../services/gemini";
 import { tavilyService } from "../services/tavily";
-import type { NewsItem } from "../../types/index";
 
 export default defineEventHandler(async (event) => {
   try {
