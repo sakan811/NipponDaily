@@ -218,9 +218,22 @@
               </div>
             </UCard>
             <NewsCard
-              v-for="item in filteredNews"
+              v-for="item in paginatedNews"
               :key="item.title"
               :news="item"
+            />
+          </div>
+
+          <!-- Pagination -->
+          <div v-if="filteredNews.length > itemsPerPage" class="flex justify-center mt-6">
+            <UPagination
+              v-model:page="page"
+              :total="filteredNews.length"
+              :items-per-page="itemsPerPage"
+              :sibling-count="1"
+              show-edges
+              color="primary"
+              size="sm"
             />
           </div>
 
@@ -258,6 +271,8 @@ const selectedTimeRange = ref<"none" | "day" | "week" | "month" | "year">(
 );
 const targetLanguage = ref("English");
 const newsAmount = ref(10);
+const page = ref(1);
+const itemsPerPage = 3;
 
 // Categories
 const categories = NEWS_CATEGORIES;
@@ -273,13 +288,28 @@ const timeRangeOptions = [
 
 // Computed
 const filteredNews = computed(() => {
-  if (selectedCategory.value === "all") {
-    return news.value;
+  let result = news.value;
+  if (selectedCategory.value !== "all") {
+    result = news.value.filter(
+      (item) =>
+        item.category.toLowerCase() === selectedCategory.value.toLowerCase(),
+    );
   }
-  return news.value.filter(
-    (item) =>
-      item.category.toLowerCase() === selectedCategory.value.toLowerCase(),
-  );
+  return result;
+});
+
+const paginatedNews = computed(() => {
+  const start = (page.value - 1) * itemsPerPage;
+  return filteredNews.value.slice(start, start + itemsPerPage);
+});
+
+// Watch
+watch(selectedCategory, () => {
+  page.value = 1;
+});
+
+watch(news, () => {
+  page.value = 1;
 });
 
 // Methods
