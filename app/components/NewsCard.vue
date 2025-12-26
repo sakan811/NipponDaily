@@ -98,34 +98,36 @@
           </div>
 
           <!-- Detailed credibility tooltip -->
-          <div
+          <UTooltip
             v-if="news.credibilityMetadata"
-            class="group relative inline-block"
+            :content="{ side: 'bottom', align: 'center' }"
           >
-            <button
-              class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] rounded"
-              :aria-label="`Detailed credibility information for ${news.source}`"
-            >
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            <template #default>
+              <button
+                class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] rounded"
+                :aria-label="`Detailed credibility information for ${news.source}`"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </button>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </button>
+            </template>
 
-            <!-- Tooltip content -->
-            <div
-              class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs bg-[var(--color-text)] text-[var(--color-background)] rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10"
-            >
-              <div class="space-y-1">
+            <template #content>
+              <div
+                class="bg-gray-900 text-white px-4 py-3 rounded shadow-lg space-y-1 whitespace-nowrap"
+                style="min-width: max-content"
+              >
                 <div>
                   Source Reputation:
                   {{
@@ -147,8 +149,8 @@
                   {{ Math.round(news.credibilityMetadata.aiConfidence * 100) }}%
                 </div>
               </div>
-            </div>
-          </div>
+            </template>
+          </UTooltip>
         </div>
       </div>
 
