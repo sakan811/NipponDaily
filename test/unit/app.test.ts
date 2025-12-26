@@ -32,7 +32,7 @@ describe("App", () => {
 
     const mainContainer = wrapper.find(".min-h-screen");
     expect(mainContainer.exists()).toBe(true);
-    expect(mainContainer.classes()).toContain("bg-gradient-to-br");
+    expect(mainContainer.classes()).toContain("u-app");
   });
 
   it("renders child components", () => {

@@ -159,63 +159,64 @@
           </div>
 
           <!-- News Loading State -->
-          <div v-if="loading && news.length === 0" class="card p-8 text-center">
-            <div class="flex justify-center items-center space-x-2">
-              <div
-                class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
-              ></div>
-              <div
-                class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
-                style="animation-delay: 0.2s"
-              ></div>
-              <div
-                class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
-                style="animation-delay: 0.4s"
-              ></div>
+          <UCard v-if="loading && news.length === 0" class="text-center">
+            <div class="p-8">
+              <div class="flex justify-center items-center space-x-2">
+                <div
+                  class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
+                ></div>
+                <div
+                  class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
+                  style="animation-delay: 0.2s"
+                ></div>
+                <div
+                  class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
+                  style="animation-delay: 0.4s"
+                ></div>
+              </div>
+              <p class="mt-4 text-[var(--color-text-muted)] text-sm">
+                Fetching latest news from Japan...
+              </p>
             </div>
-            <p class="mt-4 text-[var(--color-text-muted)] text-sm">
-              Fetching latest news from Japan...
-            </p>
-          </div>
+          </UCard>
 
           <!-- News List -->
           <div v-else class="space-y-4">
             <!-- Instruction text when no news is loaded -->
-            <div
-              v-if="news.length === 0 && !loading"
-              class="card p-8 text-center"
-            >
-              <div class="mb-4">
-                <svg
-                  class="w-16 h-16 mx-auto text-[var(--color-text-muted)] opacity-50"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-                  ></path>
-                </svg>
+            <UCard v-if="news.length === 0 && !loading" class="text-center">
+              <div class="p-8">
+                <div class="mb-4">
+                  <svg
+                    class="w-16 h-16 mx-auto text-[var(--color-text-muted)] opacity-50"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-[var(--color-text)] mb-2">
+                  No news loaded yet
+                </h3>
+                <p class="text-[var(--color-text-muted)] mb-4">
+                  Select your preferred time range and category, set the number of
+                  articles to fetch (1-20), then click "Get News" to fetch
+                  targeted news from Japan
+                </p>
+                <p class="text-sm opacity-70">
+                  <em
+                    >Tip: Time range and category filters will affect the search
+                    results, not just the display. The news count controls how
+                    many articles to fetch.</em
+                  >
+                </p>
               </div>
-              <h3 class="text-xl font-semibold text-[var(--color-text)] mb-2">
-                No news loaded yet
-              </h3>
-              <p class="text-[var(--color-text-muted)] mb-4">
-                Select your preferred time range and category, set the number of
-                articles to fetch (1-20), then click "Get News" to fetch
-                targeted news from Japan
-              </p>
-              <p class="text-sm opacity-70">
-                <em
-                  >Tip: Time range and category filters will affect the search
-                  results, not just the display. The news count controls how
-                  many articles to fetch.</em
-                >
-              </p>
-            </div>
+            </UCard>
             <NewsCard
               v-for="item in filteredNews"
               :key="item.title"
@@ -224,14 +225,16 @@
           </div>
 
           <!-- Error State -->
-          <div
+          <UCard
             v-if="error"
             data-testid="error-state"
-            class="card p-6 text-center border-[var(--color-border)] bg-opacity-20"
+            class="text-center"
           >
-            <p class="text-[var(--color-primary)] mb-4">{{ error }}</p>
-            <UButton color="primary" @click="refreshNews">Try Again</UButton>
-          </div>
+            <div class="p-6">
+              <p class="text-[var(--color-primary)] mb-4">{{ error }}</p>
+              <UButton color="primary" @click="refreshNews">Try Again</UButton>
+            </div>
+          </UCard>
         </div>
       </div>
     </main>

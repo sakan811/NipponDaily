@@ -130,7 +130,8 @@ describe("JapanNewsReader", () => {
 
     // Check loading state
     expect(wrapper.vm.loading).toBe(true);
-    expect(wrapper.find(".card.p-8.text-center").exists()).toBe(true);
+    expect(wrapper.find(".u-card.text-center").exists()).toBe(true);
+    expect(wrapper.find(".u-card.text-center .p-8").exists()).toBe(true);
 
     // Wait for the fetch to complete
     await fetchPromise;
@@ -145,7 +146,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const cardElement = wrapper.find(".card");
+    const cardElement = wrapper.find(".u-card");
     expect(cardElement.exists()).toBe(true);
     expect(cardElement.text()).toContain("No news loaded yet");
     expect(cardElement.text()).toContain('click "Get News"');
@@ -355,7 +356,7 @@ describe("JapanNewsReader", () => {
     await nextTick();
 
     expect(wrapper.text()).toContain("API Error");
-    expect(wrapper.find(".btn-primary").exists()).toBe(true);
+    expect(wrapper.find("button").exists()).toBe(true);
   });
 
   it("calls refreshNews method correctly", async () => {
@@ -597,10 +598,10 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Target language"]');
+    const languageInput = wrapper.find('input[placeholder="English"]');
     expect(languageInput.exists()).toBe(true);
     expect(languageInput.attributes("type")).toBe("text");
-    expect(languageInput.attributes("placeholder")).toBe("Target language");
+    expect(languageInput.attributes("placeholder")).toBe("English");
     expect((languageInput.element as HTMLInputElement).value).toBe("English"); // default value
   });
 
@@ -613,7 +614,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Target language"]');
+    const languageInput = wrapper.find('input[placeholder="English"]');
 
     // Initial value should be "English"
     expect(wrapper.vm.targetLanguage).toBe("English");
@@ -635,7 +636,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Target language"]');
+    const languageInput = wrapper.find('input[placeholder="English"]');
 
     // Initially should not be disabled
     expect(languageInput.attributes("disabled")).toBeUndefined();
@@ -680,16 +681,11 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Target language"]');
+    const languageInput = wrapper.find('input[placeholder="English"]');
 
-    // Check for key styling classes
-    expect(languageInput.classes()).toContain("px-2");
-    expect(languageInput.classes()).toContain("py-2");
-    expect(languageInput.classes()).toContain("border");
-    expect(languageInput.classes()).toContain("rounded-lg");
-    expect(languageInput.classes()).toContain("focus:outline-none");
-    expect(languageInput.classes()).toContain("w-20");
-    expect(languageInput.classes()).toContain("sm:w-24");
+    // Check for UInput class (Nuxt UI component)
+    expect(languageInput.classes()).toContain("u-input");
+    expect(languageInput.classes()).toContain("w-28");
   });
 
   it("includes language parameter in fetch request", async () => {
@@ -703,7 +699,7 @@ describe("JapanNewsReader", () => {
 
     // Set language to Japanese
     await wrapper
-      .find('input[placeholder="Target language"]')
+      .find('input[placeholder="English"]')
       .setValue("Japanese");
     await wrapper.vm.fetchNews();
 
@@ -832,14 +828,8 @@ describe("JapanNewsReader", () => {
 
     const getNewsButton = wrapper.find("button");
 
-    // Check for key styling classes
-    expect(getNewsButton.classes()).toContain("btn-box");
-    expect(getNewsButton.classes()).toContain("px-3");
-    expect(getNewsButton.classes()).toContain("py-2");
-    expect(getNewsButton.classes()).toContain("cursor-pointer");
-    expect(getNewsButton.classes()).toContain("whitespace-nowrap");
-    expect(getNewsButton.classes()).toContain("disabled:opacity-50");
-    expect(getNewsButton.classes()).toContain("disabled:cursor-not-allowed");
+    // Check for UButton class (Nuxt UI component)
+    expect(getNewsButton.classes()).toContain("u-button");
   });
 
   // Integration Tests for Language Input and Button Interaction
@@ -854,7 +844,7 @@ describe("JapanNewsReader", () => {
 
     // Change language to Spanish
     await wrapper
-      .find('input[placeholder="Target language"]')
+      .find('input[placeholder="English"]')
       .setValue("Spanish");
 
     // Click Get News button
@@ -879,7 +869,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Target language"]');
+    const languageInput = wrapper.find('input[placeholder="English"]');
     const getNewsButton = wrapper.find("button");
 
     // Mock delayed response
@@ -926,7 +916,7 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="Target language"]');
+    const languageInput = wrapper.find('input[placeholder="English"]');
 
     // Set language to French
     await languageInput.setValue("French");
