@@ -88,28 +88,24 @@ describe("NewsCard", () => {
     global.Date = originalDate;
   });
 
-  it("applies correct category color classes", () => {
+  it("applies correct category colors via UBadge", () => {
     const testCases = [
-      { category: "Politics", expectedClass: "badge-politics" },
-      { category: "Business", expectedClass: "badge-business" },
-      { category: "Technology", expectedClass: "badge-technology" },
-      { category: "Culture", expectedClass: "badge-culture" },
-      { category: "Sports", expectedClass: "badge-sports" },
-      { category: "Unknown", expectedClass: "bg-[var(--color-accent)]" },
-      { category: "Random", expectedClass: "bg-[var(--color-accent)]" },
+      { category: "Politics", expectedColor: "error" },
+      { category: "Business", expectedColor: "primary" },
+      { category: "Technology", expectedColor: "info" },
+      { category: "Culture", expectedColor: "warning" },
+      { category: "Sports", expectedColor: "success" },
+      { category: "Unknown", expectedColor: "neutral" },
+      { category: "Random", expectedColor: "neutral" },
     ];
 
-    testCases.forEach(({ category, expectedClass }) => {
+    testCases.forEach(({ category, expectedColor }) => {
       const newsWithCategory = { ...mockNews, category };
       const wrapper = mount(NewsCard, {
         props: { news: newsWithCategory },
       });
 
-      const categoryBadge = wrapper.find("span.inline-block");
-      const classes = categoryBadge.classes();
-      expect(
-        classes.some((cls) => cls.includes(expectedClass.split(" ")[0])),
-      ).toBe(true);
+      expect(wrapper.vm.categoryColor).toBe(expectedColor);
     });
   });
 
@@ -146,37 +142,52 @@ describe("NewsCard", () => {
         props: { news: { ...mockNews, credibilityScore: undefined } },
       });
 
-      expect(wrapper.vm.credibilityTextColor).toBe(
-        "text-[var(--color-text-muted)]",
-      );
+      expect(wrapper.vm.credibilityTextColor).toBe("var(--color-text-muted)");
     });
 
-    it("returns primary color for high credibility (>= 0.8)", () => {
+    it("returns green color for 100% credibility", () => {
       const wrapper = mount(NewsCard, {
-        props: { news: { ...mockNews, credibilityScore: 0.85 } },
+        props: { news: { ...mockNews, credibilityScore: 1.0 } },
       });
 
-      expect(wrapper.vm.credibilityTextColor).toBe(
-        "text-[var(--color-primary)]",
-      );
+      // Green (hue 120) at 70% saturation, 45% lightness
+      expect(wrapper.vm.credibilityTextColor).toBe("hsl(120, 70%, 45%)");
     });
 
-    it("returns yellow for medium credibility (>= 0.5 < 0.8)", () => {
+    it("returns yellow color for 50% credibility", () => {
       const wrapper = mount(NewsCard, {
-        props: { news: { ...mockNews, credibilityScore: 0.65 } },
+        props: { news: { ...mockNews, credibilityScore: 0.5 } },
       });
 
-      expect(wrapper.vm.credibilityTextColor).toBe("text-yellow-700");
+      // Yellow (hue 60) at 70% saturation, 45% lightness
+      expect(wrapper.vm.credibilityTextColor).toBe("hsl(60, 70%, 45%)");
     });
 
-    it("returns secondary color for low credibility (< 0.5)", () => {
+    it("returns red color for 0% credibility", () => {
       const wrapper = mount(NewsCard, {
-        props: { news: { ...mockNews, credibilityScore: 0.3 } },
+        props: { news: { ...mockNews, credibilityScore: 0 } },
       });
 
-      expect(wrapper.vm.credibilityTextColor).toBe(
-        "text-[var(--color-secondary)]",
-      );
+      // Red (hue 0) at 70% saturation, 45% lightness
+      expect(wrapper.vm.credibilityTextColor).toBe("hsl(0, 70%, 45%)");
+    });
+
+    it("returns correct intermediate hue for 75% credibility", () => {
+      const wrapper = mount(NewsCard, {
+        props: { news: { ...mockNews, credibilityScore: 0.75 } },
+      });
+
+      // 75% of 120 = 90 (yellow-green)
+      expect(wrapper.vm.credibilityTextColor).toBe("hsl(90, 70%, 45%)");
+    });
+
+    it("returns correct intermediate hue for 25% credibility", () => {
+      const wrapper = mount(NewsCard, {
+        props: { news: { ...mockNews, credibilityScore: 0.25 } },
+      });
+
+      // 25% of 120 = 30 (orange-red)
+      expect(wrapper.vm.credibilityTextColor).toBe("hsl(30, 70%, 45%)");
     });
   });
 
@@ -186,65 +197,49 @@ describe("NewsCard", () => {
         props: { news: { ...mockNews, credibilityScore: undefined } },
       });
 
-      expect(wrapper.vm.credibilityIconColor).toBe(
-        "text-[var(--color-text-muted)]",
-      );
+      expect(wrapper.vm.credibilityIconColor).toBe("var(--color-text-muted)");
     });
 
-    it("returns primary color for high credibility (>= 0.8)", () => {
+    it("returns green color for 100% credibility", () => {
       const wrapper = mount(NewsCard, {
-        props: { news: { ...mockNews, credibilityScore: 0.9 } },
+        props: { news: { ...mockNews, credibilityScore: 1.0 } },
       });
 
-      expect(wrapper.vm.credibilityIconColor).toBe(
-        "text-[var(--color-primary)]",
-      );
+      expect(wrapper.vm.credibilityIconColor).toBe("hsl(120, 70%, 45%)");
     });
 
-    it("returns primary color for exactly 0.8 credibility", () => {
-      const wrapper = mount(NewsCard, {
-        props: { news: { ...mockNews, credibilityScore: 0.8 } },
-      });
-
-      expect(wrapper.vm.credibilityIconColor).toBe(
-        "text-[var(--color-primary)]",
-      );
-    });
-
-    it("returns yellow for medium credibility (>= 0.5 < 0.8)", () => {
-      const wrapper = mount(NewsCard, {
-        props: { news: { ...mockNews, credibilityScore: 0.6 } },
-      });
-
-      expect(wrapper.vm.credibilityIconColor).toBe("text-yellow-600");
-    });
-
-    it("returns yellow for exactly 0.5 credibility", () => {
+    it("returns yellow color for 50% credibility", () => {
       const wrapper = mount(NewsCard, {
         props: { news: { ...mockNews, credibilityScore: 0.5 } },
       });
 
-      expect(wrapper.vm.credibilityIconColor).toBe("text-yellow-600");
+      expect(wrapper.vm.credibilityIconColor).toBe("hsl(60, 70%, 45%)");
     });
 
-    it("returns secondary color for low credibility (< 0.5)", () => {
-      const wrapper = mount(NewsCard, {
-        props: { news: { ...mockNews, credibilityScore: 0.3 } },
-      });
-
-      expect(wrapper.vm.credibilityIconColor).toBe(
-        "text-[var(--color-secondary)]",
-      );
-    });
-
-    it("returns muted text color for zero credibility", () => {
+    it("returns red color for 0% credibility", () => {
       const wrapper = mount(NewsCard, {
         props: { news: { ...mockNews, credibilityScore: 0 } },
       });
 
-      expect(wrapper.vm.credibilityIconColor).toBe(
-        "text-[var(--color-text-muted)]",
-      );
+      expect(wrapper.vm.credibilityIconColor).toBe("hsl(0, 70%, 45%)");
+    });
+
+    it("returns correct intermediate hue for 85% credibility", () => {
+      const wrapper = mount(NewsCard, {
+        props: { news: { ...mockNews, credibilityScore: 0.85 } },
+      });
+
+      // 85% of 120 = 102 (green-yellow)
+      expect(wrapper.vm.credibilityIconColor).toBe("hsl(102, 70%, 45%)");
+    });
+
+    it("returns correct intermediate hue for 30% credibility", () => {
+      const wrapper = mount(NewsCard, {
+        props: { news: { ...mockNews, credibilityScore: 0.3 } },
+      });
+
+      // 30% of 120 = 36 (yellow-orange)
+      expect(wrapper.vm.credibilityIconColor).toBe("hsl(36, 70%, 45%)");
     });
   });
 });
