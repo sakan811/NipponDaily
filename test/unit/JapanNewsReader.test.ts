@@ -128,10 +128,9 @@ describe("JapanNewsReader", () => {
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
 
-    // Check loading state
+    // Check loading state - shows skeleton when loading
     expect(wrapper.vm.loading).toBe(true);
-    expect(wrapper.find(".u-card.text-center").exists()).toBe(true);
-    expect(wrapper.find(".u-card.text-center .p-8").exists()).toBe(true);
+    expect(wrapper.find(".u-skeleton").exists()).toBe(true);
 
     // Wait for the fetch to complete
     await fetchPromise;
