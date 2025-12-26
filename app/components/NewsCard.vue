@@ -97,60 +97,51 @@
             </span>
           </div>
 
-          <!-- Detailed credibility tooltip -->
-          <UTooltip
+          <!-- Detailed credibility dropdown -->
+          <UDropdownMenu
             v-if="news.credibilityMetadata"
-            :content="{ side: 'bottom', align: 'center' }"
+            :ui="{ content: 'min-w-48 w-auto max-w-xs' }"
           >
-            <template #default>
-              <button
-                class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] rounded"
-                :aria-label="`Detailed credibility information for ${news.source}`"
+            <button
+              class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] focus:outline-none rounded"
+              :aria-label="`Detailed credibility information for ${news.source}`"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </button>
-            </template>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
 
-            <template #content>
-              <div
-                class="bg-gray-900 text-white px-4 py-3 rounded shadow-lg space-y-1 whitespace-nowrap"
-                style="min-width: max-content"
-              >
-                <div>
-                  Source Reputation:
-                  {{
-                    Math.round(news.credibilityMetadata.sourceReputation * 100)
-                  }}%
+            <template #content-top>
+              <div class="p-3 space-y-2 text-sm">
+                <div class="flex justify-between gap-4">
+                  <span class="text-[var(--color-text-muted)]">Source Reputation:</span>
+                  <span class="font-medium">{{ Math.round(news.credibilityMetadata.sourceReputation * 100) }}%</span>
                 </div>
-                <div>
-                  Domain Trust:
-                  {{ Math.round(news.credibilityMetadata.domainTrust * 100) }}%
+                <div class="flex justify-between gap-4">
+                  <span class="text-[var(--color-text-muted)]">Domain Trust:</span>
+                  <span class="font-medium">{{ Math.round(news.credibilityMetadata.domainTrust * 100) }}%</span>
                 </div>
-                <div>
-                  Content Quality:
-                  {{
-                    Math.round(news.credibilityMetadata.contentQuality * 100)
-                  }}%
+                <div class="flex justify-between gap-4">
+                  <span class="text-[var(--color-text-muted)]">Content Quality:</span>
+                  <span class="font-medium">{{ Math.round(news.credibilityMetadata.contentQuality * 100) }}%</span>
                 </div>
-                <div>
-                  AI Confidence:
-                  {{ Math.round(news.credibilityMetadata.aiConfidence * 100) }}%
+                <div class="flex justify-between gap-4">
+                  <span class="text-[var(--color-text-muted)]">AI Confidence:</span>
+                  <span class="font-medium">{{ Math.round(news.credibilityMetadata.aiConfidence * 100) }}%</span>
                 </div>
               </div>
             </template>
-          </UTooltip>
+          </UDropdownMenu>
         </div>
       </div>
 
