@@ -159,26 +159,12 @@
           </div>
 
           <!-- News Loading State -->
-          <UCard v-if="loading && news.length === 0" class="text-center">
-            <div class="p-8">
-              <div class="flex justify-center items-center space-x-2">
-                <div
-                  class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
-                ></div>
-                <div
-                  class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
-                  style="animation-delay: 0.2s"
-                ></div>
-                <div
-                  class="w-3 h-3 bg-[var(--color-primary)] rounded-full animate-wave"
-                  style="animation-delay: 0.4s"
-                ></div>
-              </div>
-              <p class="mt-4 text-[var(--color-text-muted)] text-sm">
-                Fetching latest news from Japan...
-              </p>
-            </div>
-          </UCard>
+          <div v-if="loading && news.length === 0" class="space-y-4">
+            <USkeleton v-for="i in 3" :key="i" class="h-48 w-full rounded-lg" />
+            <p class="text-center text-[var(--color-text-muted)] text-sm mt-4">
+              Fetching latest news from Japan...
+            </p>
+          </div>
 
           <!-- News List -->
           <div v-else class="space-y-4">
