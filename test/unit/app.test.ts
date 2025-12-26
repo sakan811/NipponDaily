@@ -13,6 +13,16 @@ const NuxtRouteAnnouncerMock = {
   template: '<div class="route-announcer"></div>',
 };
 
+const NuxtLayoutMock = {
+  name: "NuxtLayout",
+  template: '<div class="nuxt-layout"><slot /></div>',
+};
+
+const UMainMock = {
+  name: "UMain",
+  template: '<main class="u-main"><slot /></main>',
+};
+
 vi.mock("~/app/components/JapanNewsReader.vue", () => ({
   default: JapanNewsReaderMock,
 }));
@@ -24,21 +34,24 @@ vi.mock("#app/components/NuxtRouteAnnouncer", () => ({
 const globalComponents = {
   JapanNewsReader: JapanNewsReaderMock,
   NuxtRouteAnnouncer: NuxtRouteAnnouncerMock,
+  NuxtLayout: NuxtLayoutMock,
+  UMain: UMainMock,
 };
 
 describe("App", () => {
-  it("renders main layout with correct styling", () => {
+  it("renders main layout with correct structure", () => {
     const wrapper = mount(App, { global: { components: globalComponents } });
 
-    const mainContainer = wrapper.find(".min-h-screen");
-    expect(mainContainer.exists()).toBe(true);
-    expect(mainContainer.classes()).toContain("u-app");
+    // App renders NuxtLayout > UMain > JapanNewsReader
+    expect(wrapper.findComponent(NuxtLayoutMock).exists()).toBe(true);
+    expect(wrapper.findComponent(UMainMock).exists()).toBe(true);
+    expect(wrapper.findComponent(JapanNewsReaderMock).exists()).toBe(true);
   });
 
   it("renders child components", () => {
     const wrapper = mount(App, { global: { components: globalComponents } });
 
     expect(wrapper.findComponent(JapanNewsReaderMock).exists()).toBe(true);
-    expect(wrapper.findComponent(NuxtRouteAnnouncerMock).exists()).toBe(true);
+    expect(wrapper.findComponent(NuxtLayoutMock).exists()).toBe(true);
   });
 });
