@@ -241,6 +241,7 @@
 </template>
 
 <script setup lang="ts">
+import { watch } from "vue";
 import type { NewsItem } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
