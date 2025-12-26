@@ -170,6 +170,8 @@ config.global.stubs = {
   },
   UMain: { template: "<main class=\"u-main\"><slot /></main>" },
   UApp: { template: "<div class=\"u-app\"><slot /></div>" },
+  USkeleton: { template: "<div class=\"u-skeleton\"><slot /></div>" },
+  UPagination: { template: "<div class=\"u-pagination\"></div>", props: ['page', 'total', 'itemsPerPage'] },
 };
 
 config.global.mocks = {
