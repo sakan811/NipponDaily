@@ -83,6 +83,15 @@
 - Accent: `#fde6b0` (Peach) - Background highlights
 - Text: `#1d2b36` (Yankees Blue) - Primary text
 
+**Credibility Score Gradient** (Special Case):
+- 100%: `hsl(120, 70%, 45%)` - Green
+- 75%: `hsl(90, 70%, 45%)` - Yellow-Green
+- 50%: `hsl(60, 70%, 45%)` - Yellow
+- 25%: `hsl(30, 70%, 45%)` - Orange-Red
+- 0%: `hsl(0, 70%, 45%)` - Red
+
+The credibility score uses a dynamic gradient computed as `hue = score × 120` (score 0-1).
+
 ### Architecture
 
 - **Client**: Vue.js/Nuxt.js application handling UI and user interactions
