@@ -154,25 +154,49 @@ config.global.stubs = {
   NuxtLink: { template: "<a><slot /></a>" },
   NuxtLayout: { template: "<div><slot /></div>" },
   UButton: {
-    template: '<button :disabled="disabled" :class="[\'u-button\', color === \'primary\' && variant === \'solid\' ? \'bg-[var(--color-primary)]\' : \'\', variant === \'outline\' ? \'border\' : \'\']" @click="$emit(\'click\', $event)">{{ label }}<slot /></button>',
-    props: ['disabled', 'loading', 'color', 'size', 'icon', 'label', 'block', 'variant'],
-    emits: ['click']
+    template:
+      "<button :disabled=\"disabled\" :class=\"['u-button', color === 'primary' && variant === 'solid' ? 'bg-[var(--color-primary)]' : '', variant === 'outline' ? 'border' : '']\" @click=\"$emit('click', $event)\">{{ label }}<slot /></button>",
+    props: [
+      "disabled",
+      "loading",
+      "color",
+      "size",
+      "icon",
+      "label",
+      "block",
+      "variant",
+    ],
+    emits: ["click"],
   },
   UInput: {
-    template: '<input :id="id" :type="type" :value="modelValue" :placeholder="placeholder" :disabled="disabled" :min="min" :max="max" class="u-input" @input="$emit(\'update:modelValue\', $event.target.value)" />',
-    props: ['id', 'modelValue', 'type', 'placeholder', 'disabled', 'min', 'max', 'size'],
-    emits: ['update:modelValue']
+    template:
+      '<input :id="id" :type="type" :value="modelValue" :placeholder="placeholder" :disabled="disabled" :min="min" :max="max" class="u-input" @input="$emit(\'update:modelValue\', $event.target.value)" />',
+    props: [
+      "id",
+      "modelValue",
+      "type",
+      "placeholder",
+      "disabled",
+      "min",
+      "max",
+      "size",
+    ],
+    emits: ["update:modelValue"],
   },
-  UCard: { template: "<div class=\"u-card\"><slot /></div>" },
+  UCard: { template: '<div class="u-card"><slot /></div>' },
   UHeader: {
-    template: '<header class="u-header"><slot name="left" /><slot name="right" /><slot name="body" /></header>',
-    props: ['open'],
-    emits: ['update:open']
+    template:
+      '<header class="u-header"><slot name="left" /><slot name="right" /><slot name="body" /></header>',
+    props: ["open"],
+    emits: ["update:open"],
   },
-  UMain: { template: "<main class=\"u-main\"><slot /></main>" },
-  UApp: { template: "<div class=\"u-app\"><slot /></div>" },
-  USkeleton: { template: "<div class=\"u-skeleton\"><slot /></div>" },
-  UPagination: { template: "<div class=\"u-pagination\"></div>", props: ['page', 'total', 'itemsPerPage'] },
+  UMain: { template: '<main class="u-main"><slot /></main>' },
+  UApp: { template: '<div class="u-app"><slot /></div>' },
+  USkeleton: { template: '<div class="u-skeleton"><slot /></div>' },
+  UPagination: {
+    template: '<div class="u-pagination"></div>',
+    props: ["page", "total", "itemsPerPage"],
+  },
 };
 
 config.global.mocks = {

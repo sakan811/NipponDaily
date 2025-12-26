@@ -866,12 +866,20 @@ describe("GeminiService", () => {
       expect(score).toBe(0.95);
 
       // Then test others
-      expect(service["getDomainTrustScore"]("https://www.nikkei.com")).toBe(0.95);
-      expect(service["getDomainTrustScore"]("https://japantimes.co.jp")).toBe(0.9);
+      expect(service["getDomainTrustScore"]("https://www.nikkei.com")).toBe(
+        0.95,
+      );
+      expect(service["getDomainTrustScore"]("https://japantimes.co.jp")).toBe(
+        0.9,
+      );
       expect(service["getDomainTrustScore"]("https://www.asahi.com")).toBe(0.9);
       expect(service["getDomainTrustScore"]("https://mainichi.jp")).toBe(0.9);
-      expect(service["getDomainTrustScore"]("https://www.yomiuri.co.jp")).toBe(0.9);
-      expect(service["getDomainTrustScore"]("https://asia.nikkei.com")).toBe(0.95);
+      expect(service["getDomainTrustScore"]("https://www.yomiuri.co.jp")).toBe(
+        0.9,
+      );
+      expect(service["getDomainTrustScore"]("https://asia.nikkei.com")).toBe(
+        0.95,
+      );
       expect(service["getDomainTrustScore"]("https://kyodonews.net")).toBe(0.9);
       expect(service["getDomainTrustScore"]("https://www.tansa.jp")).toBe(0.9);
       expect(service["getDomainTrustScore"]("https://nhkworld.jp")).toBe(0.95);
@@ -886,7 +894,10 @@ describe("GeminiService", () => {
         { source: "https://nippon.com/en/japan", expected: 0.85 }, // Nippon.com - new
         { source: "https://www.ft.com/japan", expected: 0.8 }, // Financial Times - new
         { source: "https://wsj.asia/japan", expected: 0.8 }, // WSJ Asia - new
-        { source: "https://fortune.com/2024/01/15/japan-business", expected: 0.75 }, // Fortune
+        {
+          source: "https://fortune.com/2024/01/15/japan-business",
+          expected: 0.75,
+        }, // Fortune
       ];
 
       trustedInternational.forEach(({ source, expected }) => {
@@ -936,11 +947,7 @@ describe("GeminiService", () => {
     });
 
     it("handles domain-only sources", () => {
-      const domainOnlySources = [
-        "nhk.or.jp",
-        "nikkei.com",
-        "reuters.com",
-      ];
+      const domainOnlySources = ["nhk.or.jp", "nikkei.com", "reuters.com"];
 
       domainOnlySources.forEach((source) => {
         const score = service["getDomainTrustScore"](source);
@@ -989,7 +996,7 @@ describe("GeminiService", () => {
     it("handles invalid URLs that throw during parsing", () => {
       const invalidUrls = ["https://", "http://", "https:///"];
 
-      invalidUrls.forEach(source => {
+      invalidUrls.forEach((source) => {
         const score = service["getDomainTrustScore"](source);
         expect(score).toBe(0.4);
       });

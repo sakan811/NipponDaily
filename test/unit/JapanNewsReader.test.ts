@@ -697,9 +697,7 @@ describe("JapanNewsReader", () => {
     });
 
     // Set language to Japanese
-    await wrapper
-      .find('input[placeholder="English"]')
-      .setValue("Japanese");
+    await wrapper.find('input[placeholder="English"]').setValue("Japanese");
     await wrapper.vm.fetchNews();
 
     expect(mockFetch).toHaveBeenCalledWith("/api/news", {
@@ -842,9 +840,7 @@ describe("JapanNewsReader", () => {
     });
 
     // Change language to Spanish
-    await wrapper
-      .find('input[placeholder="English"]')
-      .setValue("Spanish");
+    await wrapper.find('input[placeholder="English"]').setValue("Spanish");
 
     // Click Get News button
     await wrapper.find("button").trigger("click");
@@ -1089,7 +1085,9 @@ describe("JapanNewsReader", () => {
     });
 
     const mobileInput = wrapper.find("input#mobileNewsAmount");
-    mockFetch.mockImplementationOnce(() => new Promise((r) => setTimeout(r, 100)));
+    mockFetch.mockImplementationOnce(
+      () => new Promise((r) => setTimeout(r, 100)),
+    );
 
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
@@ -1124,7 +1122,9 @@ describe("JapanNewsReader", () => {
     });
 
     const mobileLangInput = wrapper.find("input#mobileTargetLanguage");
-    mockFetch.mockImplementationOnce(() => new Promise((r) => setTimeout(r, 100)));
+    mockFetch.mockImplementationOnce(
+      () => new Promise((r) => setTimeout(r, 100)),
+    );
 
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
@@ -1139,7 +1139,9 @@ describe("JapanNewsReader", () => {
     });
 
     // Find mobile button by block class (unique to mobile version)
-    const mobileButtons = wrapper.findAll(".u-button").filter(b => b.classes().includes("block"));
+    const mobileButtons = wrapper
+      .findAll(".u-button")
+      .filter((b) => b.classes().includes("block"));
 
     // Skip if mobile menu not rendered (UHeader controls visibility)
     if (mobileButtons.length === 0) {
@@ -1164,7 +1166,9 @@ describe("JapanNewsReader", () => {
     await nextTick();
 
     expect(wrapper.vm.filteredNews.length).toBe(2);
-    expect(wrapper.vm.filteredNews.length).toBeLessThanOrEqual(wrapper.vm.itemsPerPage);
+    expect(wrapper.vm.filteredNews.length).toBeLessThanOrEqual(
+      wrapper.vm.itemsPerPage,
+    );
   });
 
   it("renders pagination when news count > items per page", async () => {
@@ -1177,8 +1181,22 @@ describe("JapanNewsReader", () => {
       success: true,
       data: [
         ...mockNews,
-        { title: "News 3", summary: "Sum 3", content: "Content 3", source: "Src 3", publishedAt: "2024-01-15T12:00:00Z", category: "Business" },
-        { title: "News 4", summary: "Sum 4", content: "Content 4", source: "Src 4", publishedAt: "2024-01-15T13:00:00Z", category: "Culture" },
+        {
+          title: "News 3",
+          summary: "Sum 3",
+          content: "Content 3",
+          source: "Src 3",
+          publishedAt: "2024-01-15T12:00:00Z",
+          category: "Business",
+        },
+        {
+          title: "News 4",
+          summary: "Sum 4",
+          content: "Content 4",
+          source: "Src 4",
+          publishedAt: "2024-01-15T13:00:00Z",
+          category: "Culture",
+        },
       ],
       count: 4,
       timestamp: "2024-01-15T10:00:00Z",
@@ -1188,7 +1206,9 @@ describe("JapanNewsReader", () => {
     await nextTick();
 
     expect(wrapper.vm.filteredNews.length).toBe(4);
-    expect(wrapper.vm.filteredNews.length).toBeGreaterThan(wrapper.vm.itemsPerPage);
+    expect(wrapper.vm.filteredNews.length).toBeGreaterThan(
+      wrapper.vm.itemsPerPage,
+    );
   });
 
   it("paginates news correctly", async () => {
@@ -1201,9 +1221,30 @@ describe("JapanNewsReader", () => {
       success: true,
       data: [
         ...mockNews,
-        { title: "News 3", summary: "Sum 3", content: "Content 3", source: "Src 3", publishedAt: "2024-01-15T12:00:00Z", category: "Business" },
-        { title: "News 4", summary: "Sum 4", content: "Content 4", source: "Src 4", publishedAt: "2024-01-15T13:00:00Z", category: "Culture" },
-        { title: "News 5", summary: "Sum 5", content: "Content 5", source: "Src 5", publishedAt: "2024-01-15T14:00:00Z", category: "Sports" },
+        {
+          title: "News 3",
+          summary: "Sum 3",
+          content: "Content 3",
+          source: "Src 3",
+          publishedAt: "2024-01-15T12:00:00Z",
+          category: "Business",
+        },
+        {
+          title: "News 4",
+          summary: "Sum 4",
+          content: "Content 4",
+          source: "Src 4",
+          publishedAt: "2024-01-15T13:00:00Z",
+          category: "Culture",
+        },
+        {
+          title: "News 5",
+          summary: "Sum 5",
+          content: "Content 5",
+          source: "Src 5",
+          publishedAt: "2024-01-15T14:00:00Z",
+          category: "Sports",
+        },
       ],
       count: 5,
       timestamp: "2024-01-15T10:00:00Z",
@@ -1234,9 +1275,30 @@ describe("JapanNewsReader", () => {
       success: true,
       data: [
         ...mockNews,
-        { title: "News 3", summary: "Sum 3", content: "Content 3", source: "Src 3", publishedAt: "2024-01-15T12:00:00Z", category: "Business" },
-        { title: "News 4", summary: "Sum 4", content: "Content 4", source: "Src 4", publishedAt: "2024-01-15T13:00:00Z", category: "Culture" },
-        { title: "News 5", summary: "Sum 5", content: "Content 5", source: "Src 5", publishedAt: "2024-01-15T14:00:00Z", category: "Sports" },
+        {
+          title: "News 3",
+          summary: "Sum 3",
+          content: "Content 3",
+          source: "Src 3",
+          publishedAt: "2024-01-15T12:00:00Z",
+          category: "Business",
+        },
+        {
+          title: "News 4",
+          summary: "Sum 4",
+          content: "Content 4",
+          source: "Src 4",
+          publishedAt: "2024-01-15T13:00:00Z",
+          category: "Culture",
+        },
+        {
+          title: "News 5",
+          summary: "Sum 5",
+          content: "Content 5",
+          source: "Src 5",
+          publishedAt: "2024-01-15T14:00:00Z",
+          category: "Sports",
+        },
       ],
       count: 5,
       timestamp: "2024-01-15T10:00:00Z",
