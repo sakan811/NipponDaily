@@ -19,8 +19,6 @@
 - **Clear Sources**: See exactly where each article comes from with direct links
 - **Smart Summaries**: Get concise AI-generated summaries translated to your language
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **Japanese-Inspired Interface**: Clean, elegant design with cultural styling
-- **Accessible to All**: Full keyboard navigation and screen reader support
 
 ## Quick Start
 
@@ -68,7 +66,7 @@
 - **Frontend**: Vue 3, Nuxt 4, TypeScript
 - **APIs**: Tavily Search, Google Gemini AI
 - **Styling**: Tailwind CSS v4, Nuxt UI
-- **Testing**: Vitest (99.44% coverage)
+- **Testing**: Vitest
 - **Code Quality**: ESLint, Prettier
 
 ### Color Palette
