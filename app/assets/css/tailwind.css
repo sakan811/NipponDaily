@@ -11,6 +11,8 @@
   --color-warning: #d9a574; /* Warm Tan - Warning messages, pending states */
   --color-error: #c44d56; /* Muted Red - Error messages, destructive actions */
   --color-neutral: #5d7275; /* Cadet - Text, borders, backgrounds */
+  --color-accent: #fde6b0; /* Peach - Background highlights */
+  --color-text: #1d2b36; /* Yankees Blue - Primary text */
 }
 
 /* Credibility Score Gradient Pattern (Special Case)
