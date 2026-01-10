@@ -155,7 +155,7 @@ config.global.stubs = {
   NuxtLayout: { template: "<div><slot /></div>" },
   UButton: {
     template:
-      "<button :disabled=\"disabled\" :class=\"['u-button', color === 'primary' && variant === 'solid' ? 'bg-[var(--color-primary)]' : '', variant === 'outline' ? 'border' : '']\" @click=\"$emit('click', $event)\">{{ label }}<slot /></button>",
+      "<button :disabled=\"disabled\" :class=\"['u-button', block ? 'block' : '', color === 'primary' && variant === 'solid' ? 'bg-[var(--color-primary)]' : '', variant === 'outline' ? 'border' : '']\" @click=\"$emit('click', $event)\">{{ label }}<slot /></button>",
     props: [
       "disabled",
       "loading",
@@ -195,7 +195,7 @@ config.global.stubs = {
   },
   UHeader: {
     template:
-      '<header class="u-header"><slot name="left" /><slot name="right" /><slot name="body" /></header>',
+      '<header class="u-header" :open="open" @click="$emit(\'update:open\', !open)"><slot name="left" /><slot name="right" /><slot name="body" /></header>',
     props: ["open"],
     emits: ["update:open"],
   },
@@ -203,8 +203,10 @@ config.global.stubs = {
   UApp: { template: '<div class="u-app"><slot /></div>' },
   USkeleton: { template: '<div class="u-skeleton"><slot /></div>' },
   UPagination: {
-    template: '<div class="u-pagination"></div>',
+    template:
+      '<div class="u-pagination" @click="$emit(\'update:page\', page + 1)"></div>',
     props: ["page", "total", "itemsPerPage"],
+    emits: ["update:page"],
   },
 };
 

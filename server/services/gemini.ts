@@ -365,9 +365,33 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
       return "No content available";
     }
 
-    // Remove extra whitespace and get first meaningful sentences
-    const cleanContent = rawContent.replace(/\s+/g, " ").trim();
-    const sentences = cleanContent.match(/[^.!?]+[.!?]+/g) || [cleanContent];
+    // Remove Markdown/HTML artifacts before processing
+    let cleaned = rawContent;
+
+    // Remove Markdown links: [text](url)
+    cleaned = cleaned.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+
+    // Remove Markdown images: ![alt](url)
+    cleaned = cleaned.replace(/!\[([^\]]*)\]\([^)]+\)/g, "");
+
+    // Remove HTML tags
+    cleaned = cleaned.replace(/<[^>]+>/g, "");
+
+    // Remove common header patterns like "Got a tip?" followed by URL
+    cleaned = cleaned.replace(/\[?Got a tip\]?\s*[^\n]*\n?/gi, "");
+
+    // Remove other common UI text patterns
+    cleaned = cleaned.replace(/\[?Share this\]?\s*[^\n]*\n?/gi, "");
+    cleaned = cleaned.replace(/\[?Subscribe\]?\s*[^\n]*\n?/gi, "");
+
+    // Remove URLs that aren't in Markdown format
+    cleaned = cleaned.replace(/https?:\/\/[^\s]+/g, "");
+
+    // Remove extra whitespace
+    cleaned = cleaned.replace(/\s+/g, " ").trim();
+
+    // Get first meaningful sentences
+    const sentences = cleaned.match(/[^.!?]+[.!?]+/g) || [cleaned];
 
     // Take first 2-3 sentences or first 200 characters
     let summary = "";
@@ -383,7 +407,7 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
       sentenceCount++;
     }
 
-    return summary.trim() || cleanContent.substring(0, 200).trim();
+    return summary.trim() || cleaned.substring(0, 200).trim();
   }
 
   /**
