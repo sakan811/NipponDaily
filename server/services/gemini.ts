@@ -191,7 +191,7 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
         );
       }
 
-      // Fallback: return items with validated categories and prioritize rawContent
+      // Fallback: return items with validated categories
       return newsItems.map((item) => {
         const defaultCredibilityMetadata: CredibilityMetadata = {
           sourceReputation: 0.5, // Default neutral score
@@ -209,21 +209,15 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
         return {
           ...item,
           category: this.validateCategory(item.category),
-          summary:
-            item.rawContent && item.rawContent.trim() !== ""
-              ? this.createBasicSummary(item.rawContent)
-              : item.summary || item.content,
-          content:
-            item.rawContent && item.rawContent.trim() !== ""
-              ? this.createBasicSummary(item.rawContent)
-              : item.summary || item.content,
+          summary: "No summary available. Read full article at source.",
+          content: "No summary available. Read full article at source.",
           credibilityScore,
           credibilityMetadata: defaultCredibilityMetadata,
         };
       });
     } catch (error) {
       console.error("Error categorizing news with Gemini:", error);
-      // Return items with validated categories and prioritize rawContent on error
+      // Return items with validated categories
       return newsItems.map((item) => {
         const defaultCredibilityMetadata: CredibilityMetadata = {
           sourceReputation: 0.5, // Default neutral score
@@ -241,14 +235,8 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
         return {
           ...item,
           category: this.validateCategory(item.category),
-          summary:
-            item.rawContent && item.rawContent.trim() !== ""
-              ? this.createBasicSummary(item.rawContent)
-              : item.summary || item.content,
-          content:
-            item.rawContent && item.rawContent.trim() !== ""
-              ? this.createBasicSummary(item.rawContent)
-              : item.summary || item.content,
+          summary: "No summary available. Read full article at source.",
+          content: "No summary available. Read full article at source.",
           credibilityScore,
           credibilityMetadata: defaultCredibilityMetadata,
         };
@@ -355,61 +343,6 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
       // Return lower score for malformed sources
       return 0.4;
     }
-  }
-
-  /**
-   * Create a basic summary from raw content when AI fails
-   */
-  private createBasicSummary(rawContent: string): string {
-    if (!rawContent || rawContent.trim() === "") {
-      return "No content available";
-    }
-
-    // Remove Markdown/HTML artifacts before processing
-    let cleaned = rawContent;
-
-    // Remove Markdown links: [text](url)
-    cleaned = cleaned.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
-
-    // Remove Markdown images: ![alt](url)
-    cleaned = cleaned.replace(/!\[([^\]]*)\]\([^)]+\)/g, "");
-
-    // Remove HTML tags
-    cleaned = cleaned.replace(/<[^>]*>/g, "");
-    // As a safety net, remove any remaining angle brackets to prevent residual tags
-    cleaned = cleaned.replace(/[<>]/g, "");
-
-    // Remove common header patterns like "Got a tip?" followed by URL
-    cleaned = cleaned.replace(/\[?Got a tip\]?\s*[^\n]*\n?/gi, "");
-
-    // Remove other common UI text patterns
-    cleaned = cleaned.replace(/\[?Share this\]?\s*[^\n]*\n?/gi, "");
-    cleaned = cleaned.replace(/\[?Subscribe\]?\s*[^\n]*\n?/gi, "");
-
-    // Remove URLs that aren't in Markdown format
-    cleaned = cleaned.replace(/https?:\/\/[^\s]+/g, "");
-
-    // Remove extra whitespace
-    cleaned = cleaned.replace(/\s+/g, " ").trim();
-
-    // Get first meaningful sentences
-    const sentences = cleaned.match(/[^.!?]+[.!?]+/g) || [cleaned];
-
-    // Take first 2-3 sentences or first 200 characters
-    let summary = "";
-    let charCount = 0;
-    let sentenceCount = 0;
-
-    for (const sentence of sentences) {
-      if (charCount + sentence.length > 200 || sentenceCount >= 3) {
-        break;
-      }
-      summary += sentence;
-      charCount += sentence.length;
-      sentenceCount++;
-    }
-
-    return summary.trim() || cleaned.substring(0, 200).trim();
   }
 
   /**
