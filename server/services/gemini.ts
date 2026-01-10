@@ -376,6 +376,8 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
 
     // Remove HTML tags
     cleaned = cleaned.replace(/<[^>]+>/g, "");
+    // As a safety net, remove any remaining angle brackets to prevent residual tags
+    cleaned = cleaned.replace(/[<>]/g, "");
 
     // Remove common header patterns like "Got a tip?" followed by URL
     cleaned = cleaned.replace(/\[?Got a tip\]?\s*[^\n]*\n?/gi, "");
