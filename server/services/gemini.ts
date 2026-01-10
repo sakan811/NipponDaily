@@ -375,7 +375,7 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
     cleaned = cleaned.replace(/!\[([^\]]*)\]\([^)]+\)/g, "");
 
     // Remove HTML tags
-    cleaned = cleaned.replace(/<[^>]+>/g, "");
+    cleaned = cleaned.replace(/<[^>]*>/g, "");
     // As a safety net, remove any remaining angle brackets to prevent residual tags
     cleaned = cleaned.replace(/[<>]/g, "");
 
