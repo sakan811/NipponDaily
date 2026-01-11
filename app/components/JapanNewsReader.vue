@@ -11,11 +11,9 @@
 
       <template #right>
         <div class="flex items-center gap-2 hidden lg:flex">
+          <UColorModeButton />
           <div class="flex items-center gap-2">
-            <label
-              for="newsAmount"
-              class="text-sm text-secondary-500"
-            >
+            <label for="newsAmount" class="text-sm text-secondary-500">
               News:
             </label>
             <UInput
@@ -31,10 +29,7 @@
             />
           </div>
           <div class="flex items-center gap-2">
-            <label
-              for="targetLanguage"
-              class="text-sm text-secondary-500"
-            >
+            <label for="targetLanguage" class="text-sm text-secondary-500">
               Lang:
             </label>
             <UInput
@@ -64,12 +59,10 @@
 
       <template #body>
         <div class="space-y-4">
+          <UColorModeButton block />
           <div class="space-y-3">
             <div>
-              <label
-                for="mobileNewsAmount"
-                class="text-sm text-secondary-500"
-              >
+              <label for="mobileNewsAmount" class="text-sm text-secondary-500">
                 News count (1-20):
               </label>
               <UInput
