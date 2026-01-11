@@ -71,15 +71,18 @@
 
 ### Color Palette
 
-- Primary: `#d35944` (Dark Coral) - Main CTAs, active navigation
-- Secondary: `#5d7275` (Cadet) - Secondary buttons
-- Success: `#6b8f71` (Muted Green) - Success messages
-- Info: `#5d7275` (Cadet) - Info alerts
-- Warning: `#d9a574` (Warm Tan) - Warning messages
-- Error: `#c44d56` (Muted Red) - Error messages
-- Neutral: `#5d7275` (Cadet) - Text, borders, backgrounds
-- Accent: `#fde6b0` (Peach) - Background highlights
-- Text: `#1d2b36` (Yankees Blue) - Primary text
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Primary | `#d35944` | Main CTAs, active navigation, selected buttons |
+| Secondary | `#5d7275` | Secondary buttons, outline buttons |
+| Success | `#6b8f71` | Success messages, sports category |
+| Warning | `#d9a574` | Warning messages, culture category |
+| Error | `#c44d56` | Error messages, politics category |
+| Neutral | `#5d7275` | Text, borders, backgrounds |
+| Accent | `#fde6b0` | Background highlights, emphasis text |
+| Text | `#1d2b36` | Primary text, headings |
+
+> **Note**: Semantic colors use fixed hex values in both light and dark modes. Only the base background color changes between themes. Perceived contrast and readability may vary depending on the background.
 
 **Credibility Score Gradient** (Special Case):
 
