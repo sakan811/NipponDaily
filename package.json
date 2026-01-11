@@ -15,7 +15,7 @@
     "lint": "pnpm eslint . --fix",
     "format": "pnpm exec prettier . --write",
     "type-check": "tsc --noEmit",
-    "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build"
+    "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run"
   },
   "dependencies": {
     "@google/genai": "^1.35.0",
