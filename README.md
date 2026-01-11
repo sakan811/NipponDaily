@@ -14,12 +14,13 @@
 - **Multilingual News**: Read Japanese news in your preferred language with AI-powered translation
 - **Smart Categorization**: News automatically organized into Politics, Business, Technology, Culture, or Sports (with "Other" as fallback)
 - **On-Demand Updates**: Click "Get News" to fetch the latest articles when you want them
-- **Customizable Results**: Choose how many articles to see (1-20) and filter by category (filters both search and display)
+- **Customizable Results**: Choose how many articles to see (1-20) and filter by category
 - **Time Filters**: Browse news from All Time, Today, This Week, This Month, or This Year
 - **Clear Sources**: See exactly where each article comes from with direct links
 - **Credibility Scores**: Multi-factor credibility assessment (source reputation, domain trust, content quality, AI confidence)
 - **Smart Summaries**: Get concise AI-generated summaries translated to your language
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **Dark Mode**: Toggle between light and dark themes via the color mode button
 
 ## Quick Start
 
@@ -73,16 +74,16 @@
 
 ### Color Palette
 
-| Color     | Hex         | Usage                                           |
-| --------- | ----------- | ----------------------------------------------- |
-| Primary   | `#d35944`   | Main CTAs, selected buttons, business category  |
-| Secondary | `#5d7275`   | Secondary buttons, outline buttons, muted text  |
-| Success   | `#6b8f71`   | Sports category                                 |
-| Info      | `*default*` | Technology category (uses Nuxt UI default blue) |
-| Warning   | `#d9a574`   | Culture category                                |
-| Error     | `#c44d56`   | Error messages, politics category               |
-| Accent    | `#fde6b0`   | Emphasis text (instructional labels)            |
-| Text      | `#1d2b36`   | Primary text, headings                          |
+| Color     | Hex        | Usage                                            |
+| --------- | ---------- | ------------------------------------------------ |
+| Primary   | `#d35944`  | Main CTAs, selected buttons, business category   |
+| Secondary | `#5d7275`  | Secondary buttons, outline buttons, muted text   |
+| Success   | `#6b8f71`  | Sports category                                  |
+| Info      | (built-in) | Technology category (uses Nuxt UI built-in blue) |
+| Warning   | `#d9a574`  | Culture category                                 |
+| Error     | `#c44d56`  | Politics category                                |
+| Accent    | `#fde6b0`  | Emphasis text (instructional labels)             |
+| Text      | `#1d2b36`  | Primary text, headings                           |
 
 > **Note**: `text-primary` is a custom color token in tailwind.config.ts with value `#1d2b36`. Neutral is defined in the config but is the same value as Secondary (`#5d7275`) and is only used as a fallback for unknown categories.
 
