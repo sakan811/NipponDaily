@@ -1342,7 +1342,8 @@ describe("JapanNewsReader", () => {
           NuxtLayout: { template: "<div><slot /></div>" },
           UCard: { template: '<div class="u-card"><slot /></div>' },
           UBadge: {
-            template: '<span class="u-badge" :class="`badge-${color}`"><slot /></span>',
+            template:
+              '<span class="u-badge" :class="`badge-${color}`"><slot /></span>',
             props: ["color", "size", "variant"],
           },
           UDropdownMenu: {
@@ -1359,7 +1360,16 @@ describe("JapanNewsReader", () => {
           UInput: {
             template:
               '<input :id="id" :type="type" :value="modelValue" :placeholder="placeholder" :disabled="disabled" :min="min" :max="max" class="u-input" @input="$emit(\'update:modelValue\', $event.target.value)" />',
-            props: ["id", "modelValue", "type", "placeholder", "disabled", "min", "max", "size"],
+            props: [
+              "id",
+              "modelValue",
+              "type",
+              "placeholder",
+              "disabled",
+              "min",
+              "max",
+              "size",
+            ],
             emits: ["update:modelValue"],
           },
           USkeleton: { template: '<div class="u-skeleton"><slot /></div>' },
@@ -1369,15 +1379,17 @@ describe("JapanNewsReader", () => {
             props: ["page", "total", "itemsPerPage"],
             emits: ["update:page"],
           },
-          UTooltip: { template: '<div><slot /></div>' },
+          UTooltip: { template: "<div><slot /></div>" },
         },
       },
     });
     wrapper.vm.mobileMenuOpen = true;
     // Mobile button is the one that displays full text without hidden span
-    const mobileBtn = wrapper.findAll("button").find((b) =>
-      b.text().includes("Get News") && !b.find(".hidden").exists(),
-    );
+    const mobileBtn = wrapper
+      .findAll("button")
+      .find(
+        (b) => b.text().includes("Get News") && !b.find(".hidden").exists(),
+      );
     if (mobileBtn) {
       await mobileBtn.trigger("click");
       await nextTick();
@@ -1397,8 +1409,22 @@ describe("JapanNewsReader", () => {
       success: true,
       data: [
         ...mockNews,
-        { title: "N3", summary: "S3", content: "C3", source: "S3", publishedAt: "2024-01-15T12:00:00Z", category: "Business" },
-        { title: "N4", summary: "S4", content: "C4", source: "S4", publishedAt: "2024-01-15T13:00:00Z", category: "Culture" },
+        {
+          title: "N3",
+          summary: "S3",
+          content: "C3",
+          source: "S3",
+          publishedAt: "2024-01-15T12:00:00Z",
+          category: "Business",
+        },
+        {
+          title: "N4",
+          summary: "S4",
+          content: "C4",
+          source: "S4",
+          publishedAt: "2024-01-15T13:00:00Z",
+          category: "Culture",
+        },
       ],
       count: 4,
       timestamp: "2024-01-15T10:00:00Z",
