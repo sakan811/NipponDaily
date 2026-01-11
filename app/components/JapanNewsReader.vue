@@ -14,7 +14,7 @@
           <div class="flex items-center gap-2">
             <label
               for="newsAmount"
-              class="text-sm text-[var(--color-text-muted)]"
+              class="text-sm text-secondary-500"
             >
               News:
             </label>
@@ -33,7 +33,7 @@
           <div class="flex items-center gap-2">
             <label
               for="targetLanguage"
-              class="text-sm text-[var(--color-text-muted)]"
+              class="text-sm text-secondary-500"
             >
               Lang:
             </label>
@@ -68,7 +68,7 @@
             <div>
               <label
                 for="mobileNewsAmount"
-                class="text-sm text-[var(--color-text-muted)]"
+                class="text-sm text-secondary-500"
               >
                 News count (1-20):
               </label>
@@ -86,7 +86,7 @@
             <div>
               <label
                 for="mobileTargetLanguage"
-                class="text-sm text-[var(--color-text-muted)]"
+                class="text-sm text-secondary-500"
               >
                 Translate to:
               </label>
@@ -128,7 +128,7 @@
         <div>
           <!-- Time Range Filter -->
           <div class="mb-3 sm:mb-4">
-            <p class="text-sm text-[var(--color-accent)] mb-2 max-w-fit">
+            <p class="text-sm text-accent-200 mb-2 max-w-fit">
               <em>Select a time range to focus news search results</em>
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
@@ -154,7 +154,7 @@
 
           <!-- Category Filter -->
           <div class="mb-4 sm:mb-6">
-            <p class="text-sm text-[var(--color-accent)] mb-2 max-w-fit">
+            <p class="text-sm text-accent-200 mb-2 max-w-fit">
               <em
                 >Choose categories to filter both search and displayed
                 results</em
@@ -188,7 +188,7 @@
           <!-- News Loading State -->
           <div v-if="loading && news.length === 0" class="space-y-4">
             <USkeleton v-for="i in 3" :key="i" class="h-48 w-full rounded-lg" />
-            <p class="text-center text-[var(--color-text-muted)] text-sm mt-4">
+            <p class="text-center text-secondary-500 text-sm mt-4">
               Fetching latest news from Japan...
             </p>
           </div>
@@ -200,7 +200,7 @@
               <div class="p-8">
                 <div class="mb-4">
                   <svg
-                    class="w-16 h-16 mx-auto text-[var(--color-text-muted)] opacity-50"
+                    class="w-16 h-16 mx-auto text-secondary-500 opacity-50"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -213,10 +213,10 @@
                     ></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-[var(--color-text)] mb-2">
+                <h3 class="text-xl font-semibold text-text-primary mb-2">
                   No news loaded yet
                 </h3>
-                <p class="text-[var(--color-text-muted)] mb-4">
+                <p class="text-secondary-500 mb-4">
                   Select your preferred time range and category, set the number
                   of articles to fetch (1-20), then click "Get News" to fetch
                   targeted news from Japan
@@ -256,7 +256,7 @@
           <!-- Error State -->
           <UCard v-if="error" data-testid="error-state" class="text-center">
             <div class="p-6">
-              <p class="text-[var(--color-primary)] mb-4">{{ error }}</p>
+              <p class="text-primary-500 mb-4">{{ error }}</p>
               <UButton color="primary" @click="refreshNews">Try Again</UButton>
             </div>
           </UCard>

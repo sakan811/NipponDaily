@@ -1,7 +1,7 @@
 <template>
   <UCard
     :ui="{
-      root: 'hover:border-[var(--color-primary)] w-full overflow-hidden transition-colors duration-200',
+      root: 'hover:border-primary-500 w-full overflow-hidden transition-colors duration-200',
     }"
   >
     <!-- News Header -->
@@ -10,21 +10,21 @@
         <UBadge :color="categoryColor" size="md" variant="soft">
           {{ news.category }}
         </UBadge>
-        <span class="text-xs text-[var(--color-text-muted)]">
+        <span class="text-xs text-secondary-500">
           {{ formatDate(news.publishedAt) }}
         </span>
       </div>
 
       <!-- News Title -->
       <h3
-        class="text-lg sm:text-xl font-bold text-[var(--color-text)] mb-3 font-serif leading-tight [word-wrap:break-word] [overflow-wrap:break-word]"
+        class="text-lg sm:text-xl font-bold text-text-primary mb-3 font-serif leading-tight [word-wrap:break-word] [overflow-wrap:break-word]"
       >
         {{ news.title }}
       </h3>
 
       <!-- News Summary -->
       <p
-        class="text-[var(--color-text-muted)] mb-4 leading-relaxed text-sm sm:text-base [word-wrap:break-word] [overflow-wrap:break-word]"
+        class="text-secondary-500 mb-4 leading-relaxed text-sm sm:text-base [word-wrap:break-word] [overflow-wrap:break-word]"
       >
         {{ news.summary }}
       </p>
@@ -32,7 +32,7 @@
       <!-- Source and Credibility -->
       <div class="space-y-3 mb-4">
         <!-- Source -->
-        <div class="flex items-center text-sm text-[var(--color-text-muted)]">
+        <div class="flex items-center text-sm text-secondary-500">
           <svg
             class="w-4 h-4 mr-1"
             fill="none"
@@ -100,7 +100,7 @@
             :ui="{ content: 'min-w-48 w-auto max-w-xs' }"
           >
             <button
-              class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] focus:outline-none rounded"
+              class="text-secondary-500 hover:text-secondary-700 focus:outline-none rounded"
               :aria-label="`Detailed credibility information for ${news.source}`"
             >
               <svg
@@ -121,7 +121,7 @@
             <template #content-top>
               <div class="p-3 space-y-2 text-sm">
                 <div class="flex justify-between gap-4">
-                  <span class="text-[var(--color-text-muted)]"
+                  <span class="text-secondary-500"
                     >Source Reputation:</span
                   >
                   <span class="font-medium"
@@ -129,19 +129,19 @@
                   >
                 </div>
                 <div class="flex justify-between gap-4">
-                  <span class="text-[var(--color-text-muted)]"
+                  <span class="text-secondary-500"
                     >Domain Trust:</span
                   >
                   <span class="font-medium">{{ domainTrustPercent }}%</span>
                 </div>
                 <div class="flex justify-between gap-4">
-                  <span class="text-[var(--color-text-muted)]"
+                  <span class="text-secondary-500"
                     >Content Quality:</span
                   >
                   <span class="font-medium">{{ contentQualityPercent }}%</span>
                 </div>
                 <div class="flex justify-between gap-4">
-                  <span class="text-[var(--color-text-muted)]"
+                  <span class="text-secondary-500"
                     >AI Confidence:</span
                   >
                   <span class="font-medium">{{ aiConfidencePercent }}%</span>
@@ -245,7 +245,7 @@ const credibilityIconColor = computed(() => {
     props.news.credibilityScore === undefined ||
     props.news.credibilityScore === null
   ) {
-    return "var(--color-text-muted)";
+    return "#5d7275"; // cadet-500 fallback
   }
   return getCredibilityColor(props.news.credibilityScore);
 });
@@ -255,7 +255,7 @@ const credibilityTextColor = computed(() => {
     props.news.credibilityScore === undefined ||
     props.news.credibilityScore === null
   ) {
-    return "var(--color-text-muted)";
+    return "#5d7275"; // cadet-500 fallback
   }
   return getCredibilityColor(props.news.credibilityScore);
 });
