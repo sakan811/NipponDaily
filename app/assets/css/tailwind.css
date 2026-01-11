@@ -1,20 +1,5 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
-
-/* Custom Color Palette - Nuxt UI Pattern */
-@theme {
-  /* Nuxt UI Semantic Colors */
-  --color-primary: #d35944; /* Dark Coral - Main CTAs, active navigation, brand elements */
-  --color-secondary: #5d7275; /* Cadet - Secondary buttons, alternative actions */
-  --color-success: #6b8f71; /* Muted Green - Success messages, completed states */
-  --color-info: #5d7275; /* Cadet - Info alerts, tooltips, help text */
-  --color-warning: #d9a574; /* Warm Tan - Warning messages, pending states */
-  --color-error: #c44d56; /* Muted Red - Error messages, destructive actions */
-  --color-neutral: #5d7275; /* Cadet - Text, borders, backgrounds */
-  --color-accent: #fde6b0; /* Peach - Background highlights */
-  --color-text: #1d2b36; /* Yankees Blue - Primary text */
-}
-
 /* Credibility Score Gradient Pattern (Special Case)
  * News credibility scores use a dynamic HSL gradient from green to red:
  * - 100%: hsl(120, 70%, 45%) - Green
