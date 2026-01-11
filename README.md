@@ -57,7 +57,7 @@
 3. **Select Time Range**: Choose from All Time, Today, This Week (default), This Month, or This Year (affects search)
 4. **Select Category**: Choose a category to filter results (affects both search and display)
 5. **Get News**: Click "Get News" to fetch targeted articles
-6. **Read & Explore**: Browse summaries (3 per page with pagination) and click "Read Original" for full stories
+6. **Read & Explore**: Browse summaries with client-side pagination (3 items per page) and click "Read Original" for full stories
 
 ---
 
@@ -73,18 +73,18 @@
 
 ### Color Palette
 
-| Color     | Hex        | Usage                                          |
-| --------- | ---------- | ---------------------------------------------- |
-| Primary   | `#d35944`  | Main CTAs, selected buttons, business category |
-| Secondary | `#5d7275`  | Secondary buttons, outline buttons, muted text |
-| Success   | `#6b8f71`  | Sports category                                |
-| Info      | `*default` | Technology category (uses Nuxt UI default)     |
-| Warning   | `#d9a574`  | Culture category                               |
-| Error     | `#c44d56`  | Error messages, politics category              |
-| Accent    | `#fde6b0`  | Emphasis text (instructional labels)           |
-| Text      | `#1d2b36`  | Primary text, headings                         |
+| Color     | Hex         | Usage                                           |
+| --------- | ----------- | ----------------------------------------------- |
+| Primary   | `#d35944`   | Main CTAs, selected buttons, business category  |
+| Secondary | `#5d7275`   | Secondary buttons, outline buttons, muted text  |
+| Success   | `#6b8f71`   | Sports category                                 |
+| Info      | `*default*` | Technology category (uses Nuxt UI default blue) |
+| Warning   | `#d9a574`   | Culture category                                |
+| Error     | `#c44d56`   | Error messages, politics category               |
+| Accent    | `#fde6b0`   | Emphasis text (instructional labels)            |
+| Text      | `#1d2b36`   | Primary text, headings                          |
 
-> **Note**: `text-primary` is the Tailwind class name for the Text color. Neutral is defined in the config but is the same value as Secondary (`#5d7275`) and is only used as a fallback for unknown categories.
+> **Note**: `text-primary` is a custom color token in tailwind.config.ts with value `#1d2b36`. Neutral is defined in the config but is the same value as Secondary (`#5d7275`) and is only used as a fallback for unknown categories.
 
 **Category Color Mappings**:
 
@@ -96,7 +96,7 @@
 | Culture    | Warning |
 | Politics   | Error   |
 
-> **Note**: The app uses a fixed color palette. Nuxt UI provides underlying dark mode support via its transitive dependency on `@nuxtjs/color-mode`, but theme switching is not implemented in the current UI.
+> **Note**: The app uses a fixed color palette. Dark mode is supported via the UColorModeButton component (visible in the header and mobile menu), which leverages Nuxt UI's integration with `@nuxtjs/color-mode`.
 
 **Credibility Score** (Multi-Factor Algorithm):
 
