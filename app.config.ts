@@ -4,5 +4,9 @@ export default defineAppConfig({
     primary: "primary",
     gray: "secondary",
     safelistColors: ["primary", "secondary", "success", "warning", "error"],
+    icons: {
+      light: "i-ph-sun-dim",
+      dark: "i-ph-moon",
+    },
   },
 });
