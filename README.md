@@ -73,28 +73,28 @@
 
 ### Color Palette
 
-| Color     | Hex        | Usage                                                  |
-|-----------|------------|--------------------------------------------------------|
-| Primary   | `#d35944`  | Main CTAs, selected buttons, business category         |
-| Secondary | `#5d7275`  | Secondary buttons, outline buttons, muted text         |
-| Success   | `#6b8f71`  | Sports category                                        |
-| Info      | `*default` | Technology category (uses Nuxt UI default)             |
-| Warning   | `#d9a574`  | Culture category                                       |
-| Error     | `#c44d56`  | Error messages, politics category                      |
-| Accent    | `#fde6b0`  | Emphasis text (instructional labels)                   |
-| Text      | `#1d2b36`  | Primary text, headings                                 |
+| Color     | Hex        | Usage                                          |
+| --------- | ---------- | ---------------------------------------------- |
+| Primary   | `#d35944`  | Main CTAs, selected buttons, business category |
+| Secondary | `#5d7275`  | Secondary buttons, outline buttons, muted text |
+| Success   | `#6b8f71`  | Sports category                                |
+| Info      | `*default` | Technology category (uses Nuxt UI default)     |
+| Warning   | `#d9a574`  | Culture category                               |
+| Error     | `#c44d56`  | Error messages, politics category              |
+| Accent    | `#fde6b0`  | Emphasis text (instructional labels)           |
+| Text      | `#1d2b36`  | Primary text, headings                         |
 
 > **Note**: `text-primary` is the Tailwind class name for the Text color. Neutral is defined in the config but is the same value as Secondary (`#5d7275`) and is only used as a fallback for unknown categories.
 
 **Category Color Mappings**:
 
-| Category   | Color    |
-|------------|----------|
-| Business   | Primary  |
-| Technology | Info     |
-| Sports     | Success  |
-| Culture    | Warning  |
-| Politics   | Error    |
+| Category   | Color   |
+| ---------- | ------- |
+| Business   | Primary |
+| Technology | Info    |
+| Sports     | Success |
+| Culture    | Warning |
+| Politics   | Error   |
 
 > **Note**: The app uses a fixed color palette. Nuxt UI provides underlying dark mode support via its transitive dependency on `@nuxtjs/color-mode`, but theme switching is not implemented in the current UI.
 

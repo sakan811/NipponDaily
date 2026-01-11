@@ -121,29 +121,21 @@
             <template #content-top>
               <div class="p-3 space-y-2 text-sm">
                 <div class="flex justify-between gap-4">
-                  <span class="text-secondary-500"
-                    >Source Reputation:</span
-                  >
+                  <span class="text-secondary-500">Source Reputation:</span>
                   <span class="font-medium"
                     >{{ sourceReputationPercent }}%</span
                   >
                 </div>
                 <div class="flex justify-between gap-4">
-                  <span class="text-secondary-500"
-                    >Domain Trust:</span
-                  >
+                  <span class="text-secondary-500">Domain Trust:</span>
                   <span class="font-medium">{{ domainTrustPercent }}%</span>
                 </div>
                 <div class="flex justify-between gap-4">
-                  <span class="text-secondary-500"
-                    >Content Quality:</span
-                  >
+                  <span class="text-secondary-500">Content Quality:</span>
                   <span class="font-medium">{{ contentQualityPercent }}%</span>
                 </div>
                 <div class="flex justify-between gap-4">
-                  <span class="text-secondary-500"
-                    >AI Confidence:</span
-                  >
+                  <span class="text-secondary-500">AI Confidence:</span>
                   <span class="font-medium">{{ aiConfidencePercent }}%</span>
                 </div>
               </div>
