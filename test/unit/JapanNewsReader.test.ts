@@ -72,7 +72,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders main component structure", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -84,7 +84,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders get news button", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -98,7 +98,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders category filter buttons", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -111,7 +111,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("has news loading functionality", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -124,7 +124,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("shows loading skeleton when loading news", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -162,7 +162,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("shows instruction text when no news is loaded and not loading", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -177,7 +177,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders NewsCard components when news is loaded", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -197,7 +197,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("filters news by selected category", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -228,7 +228,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("changes button appearance when category is selected", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -257,7 +257,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles fetchNews success correctly", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -281,7 +281,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles fetchNews response without data property", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -304,7 +304,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles fetchNews with category filter correctly", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -332,7 +332,7 @@ describe("JapanNewsReader", () => {
       data: { error: errorMessage },
     });
 
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -349,7 +349,7 @@ describe("JapanNewsReader", () => {
   it("handles fetchNews error with fallback message", async () => {
     mockFetch.mockRejectedValueOnce(new Error("Network error"));
 
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -368,7 +368,7 @@ describe("JapanNewsReader", () => {
       data: { error: "API Error" },
     });
 
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -384,7 +384,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("calls refreshNews method correctly", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -409,7 +409,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables button when loading", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -450,7 +450,7 @@ describe("JapanNewsReader", () => {
     // First call fails
     mockFetch.mockRejectedValueOnce(new Error("Network error"));
 
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -477,7 +477,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders time range filter buttons", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -505,7 +505,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("selects 'This Week' time range by default", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -523,7 +523,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles time range selection correctly", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -553,7 +553,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles fetchNews with time range filter correctly", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -576,7 +576,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("changes time range button appearance when selected", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -614,7 +614,7 @@ describe("JapanNewsReader", () => {
 
   // Language Input Field Tests
   it("renders language input field with correct attributes", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -628,7 +628,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("binds language input to targetLanguage reactive property", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -647,7 +647,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables language input when loading", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -687,7 +687,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("has correct CSS classes for language input styling", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -701,7 +701,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("includes language parameter in fetch request", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -726,7 +726,7 @@ describe("JapanNewsReader", () => {
 
   // Get News Button Specific Tests
   it("renders Get News button with correct initial state", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -741,7 +741,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("shows 'Getting...' text when loading", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -784,7 +784,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables Get News button when loading", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -829,7 +829,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("has correct CSS classes for Get News button styling", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -845,7 +845,7 @@ describe("JapanNewsReader", () => {
 
   // Integration Tests for Language Input and Button Interaction
   it("uses current language value when Get News button is clicked", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -872,7 +872,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables both input and button during loading state", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -918,7 +918,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("maintains language input value during and after loading", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -963,7 +963,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles empty language input gracefully", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -987,7 +987,7 @@ describe("JapanNewsReader", () => {
 
   // News Amount Input Tests
   it("renders news amount input with correct attributes", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -1004,7 +1004,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("binds news amount input to newsAmount reactive property", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -1021,7 +1021,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("validates news amount limits before fetching", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -1039,7 +1039,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables news amount input when loading", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -1061,7 +1061,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("binds mobileMenuOpen to UHeader via v-model:open", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1070,7 +1070,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders mobile news amount input with correct attributes", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1082,7 +1082,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("binds mobile news amount input to newsAmount reactive property", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1092,7 +1092,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables mobile news amount input when loading", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1109,7 +1109,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders mobile target language input", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1119,7 +1119,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("binds mobile language input to targetLanguage", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1130,7 +1130,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables mobile language input when loading", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1147,7 +1147,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("mobile Get News button closes menu after click", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1170,7 +1170,7 @@ describe("JapanNewsReader", () => {
 
   // Pagination Tests
   it("does not render pagination when news count <= items per page", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1185,7 +1185,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders pagination when news count > items per page", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1225,7 +1225,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("paginates news correctly", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1279,7 +1279,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("resets page to 1 when category changes", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1332,7 +1332,7 @@ describe("JapanNewsReader", () => {
 
   // Cover line 4: UHeader v-model:open two-way binding
   it("syncs mobileMenuOpen with UHeader via v-model", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
     const header = wrapper.find(".u-header");
@@ -1346,7 +1346,7 @@ describe("JapanNewsReader", () => {
   // Cover lines 103-107: mobile button closes menu after fetch
   it("mobile button closes menu and fetches news", async () => {
     // Mount with shallow: false to render real components and trigger inline handlers
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       shallow: false,
       global: {
         components: { NewsCard: NewsCardMock },
@@ -1414,7 +1414,7 @@ describe("JapanNewsReader", () => {
 
   // Cover line 246: UPagination v-model:page two-way binding
   it("syncs page with UPagination via v-model", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
     // Need 4 items to exceed itemsPerPage (3) and show pagination
@@ -1454,7 +1454,7 @@ describe("JapanNewsReader", () => {
   // Cover lines 37 and 87: v-model bindings on ULocaleSelect
   it("covers v-model binding on desktop ULocaleSelect", async () => {
     // Use custom stub that properly emits update:modelValue
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: { NewsCard: NewsCardMock },
         stubs: {
@@ -1485,7 +1485,7 @@ describe("JapanNewsReader", () => {
 
   it("covers v-model binding on mobile ULocaleSelect", async () => {
     // Use custom stub that properly emits update:modelValue
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: { NewsCard: NewsCardMock },
         stubs: {
@@ -1516,7 +1516,7 @@ describe("JapanNewsReader", () => {
 
   it("both desktop and mobile language selects sync with targetLanguage", async () => {
     // Use custom stub that properly emits update:modelValue
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: { NewsCard: NewsCardMock },
         stubs: {
@@ -1554,7 +1554,7 @@ describe("JapanNewsReader", () => {
 
   it("language select is disabled during loading", async () => {
     // Use custom stub that properly emits update:modelValue
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: {
         components: { NewsCard: NewsCardMock },
         stubs: {
@@ -1597,7 +1597,7 @@ describe("JapanNewsReader", () => {
 
   // Additional tests to cover uncovered template branches (lines 190, 233, 248)
   it("covers v-else at line 188 - renders news when loaded", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1619,7 +1619,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("covers line 190 - shows empty state card when no news and not loading", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1642,7 +1642,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("covers line 233 - shows pagination when filtered news exceeds items per page", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1692,7 +1692,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("covers line 248 - shows error card when error exists", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1714,7 +1714,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("does not show pagination when filtered news is exactly items per page", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1748,7 +1748,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("does not show empty state card when news is loaded", async () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1886,7 +1886,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("does not show error card when there is no error", () => {
-    const wrapper = mountReader( {
+    const wrapper = mountReader({
       global: { components: { NewsCard: NewsCardMock } },
     });
 
