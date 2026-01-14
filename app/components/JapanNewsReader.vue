@@ -32,14 +32,13 @@
             <label for="targetLanguage" class="text-sm text-secondary-500">
               Lang:
             </label>
-            <UInput
+            <ULocaleSelect
               id="targetLanguage"
               v-model="targetLanguage"
-              type="text"
-              placeholder="English"
+              :locales="Object.values(locales)"
               :disabled="loading"
               size="sm"
-              class="w-28"
+              class="w-36"
             />
           </div>
           <UButton
@@ -83,11 +82,10 @@
               >
                 Translate to:
               </label>
-              <UInput
+              <ULocaleSelect
                 id="mobileTargetLanguage"
                 v-model="targetLanguage"
-                type="text"
-                placeholder="English"
+                :locales="Object.values(locales)"
                 :disabled="loading"
                 class="w-full mt-1"
               />
@@ -264,6 +262,7 @@ import { watch } from "vue";
 import type { NewsItem } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
+import * as locales from "@nuxt/ui/locale";
 
 // State
 const news = ref<NewsItem[]>([]);
@@ -275,7 +274,7 @@ const selectedCategory = ref<CategoryId>("all");
 const selectedTimeRange = ref<"none" | "day" | "week" | "month" | "year">(
   "week",
 );
-const targetLanguage = ref("English");
+const targetLanguage = ref("en");
 const newsAmount = ref(10);
 const page = ref(1);
 const itemsPerPage = 3;
@@ -324,6 +323,10 @@ const fetchNews = async () => {
   error.value = null;
 
   try {
+    // Map locale code to language name for API
+    const localeObject = Object.values(locales).find(l => l.code === targetLanguage.value);
+    const languageName = localeObject?.name || "English";
+
     const response = await $fetch<{
       success: boolean;
       data: NewsItem[];
@@ -334,7 +337,7 @@ const fetchNews = async () => {
         category:
           selectedCategory.value === "all" ? undefined : selectedCategory.value,
         timeRange: selectedTimeRange.value,
-        language: targetLanguage.value || "English",
+        language: languageName,
         limit: newsAmount.value,
       },
     });
