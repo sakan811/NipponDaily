@@ -74,30 +74,46 @@
 
 ### Color Palette
 
-| Color     | Hex        | Usage                                            |
-| --------- | ---------- | ------------------------------------------------ |
-| Primary   | `#d35944`  | Main CTAs, selected buttons, business category   |
-| Secondary | `#5d7275`  | Secondary buttons, outline buttons, muted text   |
-| Success   | `#6b8f71`  | Sports category                                  |
-| Info      | (built-in) | Technology category (uses Nuxt UI built-in blue) |
-| Warning   | `#d9a574`  | Culture category                                 |
-| Error     | `#c44d56`  | Politics category                                |
-| Accent    | `#fde6b0`  | Emphasis text (instructional labels)             |
-| Text      | `#1d2b36`  | Primary text, headings                           |
+The app uses Nuxt UI v4's semantic color system with Tailwind v4's native palette:
 
-> **Note**: `text-primary` is a custom color token in tailwind.config.ts with value `#1d2b36`. Neutral is defined in the config but is the same value as Secondary (`#5d7275`) and is only used as a fallback for unknown categories.
+| Semantic Color | Tailwind Color | Usage                                                |
+| -------------- | -------------- | ---------------------------------------------------- |
+| Primary        | `orange`       | Main CTAs, selected buttons                          |
+| Secondary      | `sky`          | Secondary buttons, outline buttons, muted text       |
+| Success        | `amber`        | Success messages, sports category                    |
+| Info           | `sky`          | Info alerts, technology category                     |
+| Warning        | `amber`        | Warning messages, culture category                   |
+| Error          | `orange`       | Error messages, politics category                    |
+| Neutral        | `stone`        | Fallback category, disabled states                   |
+
+Color configuration is defined in `app/app.config.ts`:
+
+```typescript
+ui: {
+  colors: {
+    primary: "orange",
+    secondary: "sky",
+    success: "amber",
+    info: "sky",
+    warning: "amber",
+    error: "orange",
+    neutral: "stone",
+  },
+}
+```
 
 **Category Color Mappings**:
 
-| Category   | Color   |
-| ---------- | ------- |
-| Business   | Primary |
-| Technology | Info    |
-| Sports     | Success |
-| Culture    | Warning |
-| Politics   | Error   |
+| Category   | Semantic Color | Tailwind Base |
+| ---------- | -------------- | ------------- |
+| Business   | Primary        | orange        |
+| Technology | Info           | sky           |
+| Sports     | Success        | amber         |
+| Culture    | Warning        | amber         |
+| Politics   | Error          | orange        |
+| Other      | Neutral        | stone         |
 
-> **Note**: The app uses a fixed color palette. Dark mode is supported via the UColorModeButton component (visible in the header and mobile menu), which leverages Nuxt UI's integration with `@nuxtjs/color-mode`.
+> **Note**: Dark mode is supported via the UColorModeButton component (visible in the header and mobile menu), which leverages Nuxt UI's integration with `@nuxtjs/color-mode`. Color values are dynamically adjusted by Nuxt UI for dark mode.
 
 **Credibility Score** (Multi-Factor Algorithm):
 
