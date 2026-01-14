@@ -324,7 +324,9 @@ const fetchNews = async () => {
 
   try {
     // Map locale code to language name for API
-    const localeObject = Object.values(locales).find(l => l.code === targetLanguage.value);
+    const localeObject = Object.values(locales).find(
+      (l) => l.code === targetLanguage.value,
+    );
     const languageName = localeObject?.name || "English";
 
     const response = await $fetch<{
