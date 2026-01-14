@@ -119,7 +119,7 @@
         <div>
           <!-- Time Range Filter -->
           <div class="mb-3 sm:mb-4">
-            <p class="text-sm text-accent-200 mb-2 max-w-fit">
+            <p class="text-sm text-secondary-500 mb-2 max-w-fit">
               <em>Select a time range to focus news search results</em>
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
@@ -145,7 +145,7 @@
 
           <!-- Category Filter -->
           <div class="mb-4 sm:mb-6">
-            <p class="text-sm text-accent-200 mb-2 max-w-fit">
+            <p class="text-sm text-secondary-500 mb-2 max-w-fit">
               <em
                 >Choose categories to filter both search and displayed
                 results</em
@@ -204,7 +204,7 @@
                     ></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-text-primary mb-2">
+                <h3 class="text-xl font-semibold mb-2">
                   No news loaded yet
                 </h3>
                 <p class="text-secondary-500 mb-4">

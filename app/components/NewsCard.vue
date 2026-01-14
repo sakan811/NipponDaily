@@ -17,7 +17,7 @@
 
       <!-- News Title -->
       <h3
-        class="text-lg sm:text-xl font-bold text-text-primary mb-3 font-serif leading-tight [word-wrap:break-word] [overflow-wrap:break-word]"
+        class="text-lg sm:text-xl font-bold mb-3 font-serif leading-tight [word-wrap:break-word] [overflow-wrap:break-word]"
       >
         {{ news.title }}
       </h3>
