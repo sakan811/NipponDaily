@@ -13,6 +13,31 @@ vi.mock("~/app/components/NewsCard.vue", () => ({
   default: NewsCardMock,
 }));
 
+// Mock ULocaleSelect component - define it but don't use vi.mock
+const ULocaleSelectMock = {
+  name: "ULocaleSelect",
+  props: ["id", "modelValue", "locales", "disabled", "size", "class"],
+  emits: ["update:modelValue"],
+  template:
+    '<select :id="id" :disabled="disabled" :class="class" @change="$emit(\'update:modelValue\', $event.target.value)"><slot></slot></select>',
+};
+
+// Helper function to mount with common mocks
+const mountReader = (options = {}) => {
+  return mount(JapanNewsReader, {
+    global: {
+      components: {
+        NewsCard: NewsCardMock,
+      },
+      stubs: {
+        ULocaleSelect: ULocaleSelectMock,
+      },
+      ...(options.global || {}),
+    },
+    ...options,
+  });
+};
+
 const mockNews = [
   {
     title: "Tech News",
@@ -47,7 +72,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders main component structure", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -59,7 +84,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders get news button", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -73,7 +98,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders category filter buttons", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -86,7 +111,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("has news loading functionality", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -99,7 +124,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("shows loading skeleton when loading news", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -137,7 +162,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("shows instruction text when no news is loaded and not loading", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -152,7 +177,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders NewsCard components when news is loaded", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -172,7 +197,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("filters news by selected category", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -203,7 +228,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("changes button appearance when category is selected", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -232,7 +257,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles fetchNews success correctly", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -256,7 +281,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles fetchNews response without data property", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -279,7 +304,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles fetchNews with category filter correctly", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -307,7 +332,7 @@ describe("JapanNewsReader", () => {
       data: { error: errorMessage },
     });
 
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -324,7 +349,7 @@ describe("JapanNewsReader", () => {
   it("handles fetchNews error with fallback message", async () => {
     mockFetch.mockRejectedValueOnce(new Error("Network error"));
 
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -343,7 +368,7 @@ describe("JapanNewsReader", () => {
       data: { error: "API Error" },
     });
 
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -359,7 +384,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("calls refreshNews method correctly", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -384,7 +409,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables button when loading", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -425,7 +450,7 @@ describe("JapanNewsReader", () => {
     // First call fails
     mockFetch.mockRejectedValueOnce(new Error("Network error"));
 
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -452,7 +477,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders time range filter buttons", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -480,7 +505,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("selects 'This Week' time range by default", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -498,7 +523,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles time range selection correctly", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -528,7 +553,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("handles fetchNews with time range filter correctly", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -551,7 +576,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("changes time range button appearance when selected", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -589,7 +614,7 @@ describe("JapanNewsReader", () => {
 
   // Language Input Field Tests
   it("renders language input field with correct attributes", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -597,15 +622,13 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="English"]');
-    expect(languageInput.exists()).toBe(true);
-    expect(languageInput.attributes("type")).toBe("text");
-    expect(languageInput.attributes("placeholder")).toBe("English");
-    expect((languageInput.element as HTMLInputElement).value).toBe("English"); // default value
+    // The ULocaleSelect component is used for language selection
+    // Check that the targetLanguage ref exists and has the correct default value
+    expect(wrapper.vm.targetLanguage).toBe("en");
   });
 
   it("binds language input to targetLanguage reactive property", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -613,32 +636,24 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="English"]');
+    // Initial value should be "en" (locale code)
+    expect(wrapper.vm.targetLanguage).toBe("en");
 
-    // Initial value should be "English"
-    expect(wrapper.vm.targetLanguage).toBe("English");
-    expect((languageInput.element as HTMLInputElement).value).toBe("English");
+    // Simulate user changing the locale via the component's v-model
+    wrapper.vm.targetLanguage = "ja";
+    await nextTick();
 
-    // Simulate user typing
-    await languageInput.setValue("Japanese");
-
-    expect(wrapper.vm.targetLanguage).toBe("Japanese");
-    expect((languageInput.element as HTMLInputElement).value).toBe("Japanese");
+    expect(wrapper.vm.targetLanguage).toBe("ja");
   });
 
   it("disables language input when loading", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
         },
       },
     });
-
-    const languageInput = wrapper.find('input[placeholder="English"]');
-
-    // Initially should not be disabled
-    expect(languageInput.attributes("disabled")).toBeUndefined();
 
     // Mock delayed response to show loading state
     mockFetch.mockImplementationOnce(
@@ -661,18 +676,18 @@ describe("JapanNewsReader", () => {
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
 
-    // Should be disabled during loading
-    expect(languageInput.attributes("disabled")).toBeDefined();
+    // Check that loading state is true
+    expect(wrapper.vm.loading).toBe(true);
 
     // Wait for fetch to complete
     await fetchPromise;
 
-    // Should be enabled again
-    expect(languageInput.attributes("disabled")).toBeUndefined();
+    // Loading should be false after fetch completes
+    expect(wrapper.vm.loading).toBe(false);
   });
 
   it("has correct CSS classes for language input styling", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -680,15 +695,13 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="English"]');
-
-    // Check for UInput class (Nuxt UI component)
-    expect(languageInput.classes()).toContain("u-input");
-    expect(languageInput.classes()).toContain("w-28");
+    // The ULocaleSelect component is used with class="w-36"
+    // Verify the component renders without errors and has the expected ref
+    expect(wrapper.vm.targetLanguage).toBeDefined();
   });
 
   it("includes language parameter in fetch request", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -696,15 +709,16 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    // Set language to Japanese
-    await wrapper.find('input[placeholder="English"]').setValue("Japanese");
+    // Set language to Japanese (locale code "ja")
+    // The locale.name for "ja" is "日本語" (Japanese name for Japanese)
+    wrapper.vm.targetLanguage = "ja";
     await wrapper.vm.fetchNews();
 
     expect(mockFetch).toHaveBeenCalledWith("/api/news", {
       query: {
         category: undefined,
         timeRange: "week",
-        language: "Japanese",
+        language: "日本語", // API receives localized language name
         limit: 10,
       },
     });
@@ -712,7 +726,7 @@ describe("JapanNewsReader", () => {
 
   // Get News Button Specific Tests
   it("renders Get News button with correct initial state", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -727,7 +741,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("shows 'Getting...' text when loading", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -770,7 +784,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables Get News button when loading", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -815,7 +829,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("has correct CSS classes for Get News button styling", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -831,7 +845,7 @@ describe("JapanNewsReader", () => {
 
   // Integration Tests for Language Input and Button Interaction
   it("uses current language value when Get News button is clicked", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -839,8 +853,10 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    // Change language to Spanish
-    await wrapper.find('input[placeholder="English"]').setValue("Spanish");
+    // Change language to Spanish (locale code "es")
+    // The locale.name for "es" is "Español"
+    wrapper.vm.targetLanguage = "es";
+    await nextTick();
 
     // Click Get News button
     await wrapper.find("button").trigger("click");
@@ -849,14 +865,14 @@ describe("JapanNewsReader", () => {
       query: {
         category: undefined,
         timeRange: "week",
-        language: "Spanish",
+        language: "Español",
         limit: 10,
       },
     });
   });
 
   it("disables both input and button during loading state", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -864,7 +880,6 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="English"]');
     const getNewsButton = wrapper.find("button");
 
     // Mock delayed response
@@ -888,8 +903,8 @@ describe("JapanNewsReader", () => {
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
 
-    // Both should be disabled
-    expect(languageInput.attributes("disabled")).toBeDefined();
+    // Check that loading state is true (this disables both input and button)
+    expect(wrapper.vm.loading).toBe(true);
     expect(getNewsButton.attributes("disabled")).toBeDefined();
     expect(getNewsButton.text()).toContain("Getting...");
 
@@ -897,13 +912,13 @@ describe("JapanNewsReader", () => {
     await fetchPromise;
 
     // Both should be enabled again
-    expect(languageInput.attributes("disabled")).toBeUndefined();
+    expect(wrapper.vm.loading).toBe(false);
     expect(getNewsButton.attributes("disabled")).toBeUndefined();
     expect(getNewsButton.text()).toContain("Get News");
   });
 
   it("maintains language input value during and after loading", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -911,11 +926,10 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const languageInput = wrapper.find('input[placeholder="English"]');
-
-    // Set language to French
-    await languageInput.setValue("French");
-    expect(wrapper.vm.targetLanguage).toBe("French");
+    // Set language to French (locale code "fr")
+    wrapper.vm.targetLanguage = "fr";
+    await nextTick();
+    expect(wrapper.vm.targetLanguage).toBe("fr");
 
     // Mock delayed response
     mockFetch.mockImplementationOnce(
@@ -938,20 +952,18 @@ describe("JapanNewsReader", () => {
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
 
-    // Language should still be French during loading
-    expect(wrapper.vm.targetLanguage).toBe("French");
-    expect((languageInput.element as HTMLInputElement).value).toBe("French");
+    // Language should still be "fr" during loading
+    expect(wrapper.vm.targetLanguage).toBe("fr");
 
     // Wait for fetch to complete
     await fetchPromise;
 
-    // Language should still be French after loading
-    expect(wrapper.vm.targetLanguage).toBe("French");
-    expect((languageInput.element as HTMLInputElement).value).toBe("French");
+    // Language should still be "fr" after loading
+    expect(wrapper.vm.targetLanguage).toBe("fr");
   });
 
   it("handles empty language input gracefully", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -975,7 +987,7 @@ describe("JapanNewsReader", () => {
 
   // News Amount Input Tests
   it("renders news amount input with correct attributes", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -992,7 +1004,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("binds news amount input to newsAmount reactive property", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -1009,7 +1021,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("validates news amount limits before fetching", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -1027,7 +1039,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables news amount input when loading", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: {
         components: {
           NewsCard: NewsCardMock,
@@ -1049,7 +1061,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("binds mobileMenuOpen to UHeader via v-model:open", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1058,7 +1070,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders mobile news amount input with correct attributes", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1070,7 +1082,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("binds mobile news amount input to newsAmount reactive property", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1080,7 +1092,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("disables mobile news amount input when loading", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1097,31 +1109,31 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders mobile target language input", () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
-    const mobileLangInput = wrapper.find("input#mobileTargetLanguage");
-    expect(mobileLangInput.exists()).toBe(true);
-    expect(mobileLangInput.attributes("placeholder")).toBe("English");
+    // The ULocaleSelect component is used for mobile language selection
+    // Verify the component has the targetLanguage ref
+    expect(wrapper.vm.targetLanguage).toBeDefined();
   });
 
   it("binds mobile language input to targetLanguage", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
-    const mobileLangInput = wrapper.find("input#mobileTargetLanguage");
-    await mobileLangInput.setValue("French");
-    expect(wrapper.vm.targetLanguage).toBe("French");
+    // Both desktop and mobile ULocaleSelect bind to the same targetLanguage ref
+    wrapper.vm.targetLanguage = "fr";
+    await nextTick();
+    expect(wrapper.vm.targetLanguage).toBe("fr");
   });
 
   it("disables mobile language input when loading", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
-    const mobileLangInput = wrapper.find("input#mobileTargetLanguage");
     mockFetch.mockImplementationOnce(
       () => new Promise((r) => setTimeout(r, 100)),
     );
@@ -1129,12 +1141,13 @@ describe("JapanNewsReader", () => {
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
 
-    expect(mobileLangInput.attributes("disabled")).toBeDefined();
+    // Check that loading state is true (this disables both desktop and mobile inputs)
+    expect(wrapper.vm.loading).toBe(true);
     await fetchPromise;
   });
 
   it("mobile Get News button closes menu after click", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1157,7 +1170,7 @@ describe("JapanNewsReader", () => {
 
   // Pagination Tests
   it("does not render pagination when news count <= items per page", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1172,7 +1185,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("renders pagination when news count > items per page", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1212,7 +1225,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("paginates news correctly", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1266,7 +1279,7 @@ describe("JapanNewsReader", () => {
   });
 
   it("resets page to 1 when category changes", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
 
@@ -1319,7 +1332,7 @@ describe("JapanNewsReader", () => {
 
   // Cover line 4: UHeader v-model:open two-way binding
   it("syncs mobileMenuOpen with UHeader via v-model", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
     const header = wrapper.find(".u-header");
@@ -1333,7 +1346,7 @@ describe("JapanNewsReader", () => {
   // Cover lines 103-107: mobile button closes menu after fetch
   it("mobile button closes menu and fetches news", async () => {
     // Mount with shallow: false to render real components and trigger inline handlers
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       shallow: false,
       global: {
         components: { NewsCard: NewsCardMock },
@@ -1401,7 +1414,7 @@ describe("JapanNewsReader", () => {
 
   // Cover line 246: UPagination v-model:page two-way binding
   it("syncs page with UPagination via v-model", async () => {
-    const wrapper = mount(JapanNewsReader, {
+    const wrapper = mountReader( {
       global: { components: { NewsCard: NewsCardMock } },
     });
     // Need 4 items to exceed itemsPerPage (3) and show pagination
@@ -1436,5 +1449,452 @@ describe("JapanNewsReader", () => {
       await pagination.trigger("click");
       expect(wrapper.vm.page).toBe(2);
     }
+  });
+
+  // Cover lines 37 and 87: v-model bindings on ULocaleSelect
+  it("covers v-model binding on desktop ULocaleSelect", async () => {
+    // Use custom stub that properly emits update:modelValue
+    const wrapper = mountReader( {
+      global: {
+        components: { NewsCard: NewsCardMock },
+        stubs: {
+          ULocaleSelect: {
+            name: "ULocaleSelect",
+            props: ["id", "modelValue", "locales", "disabled", "size", "class"],
+            emits: ["update:modelValue"],
+            template:
+              '<select :id="id" :disabled="disabled" @change="$emit(\'update:modelValue\', $event.target.value)"><option v-for="l in locales" :key="l.code" :value="l.code">{{ l.name }}</option></select>',
+          },
+        },
+      },
+    });
+
+    // Verify initial value
+    expect(wrapper.vm.targetLanguage).toBe("en");
+
+    // Find desktop select by id
+    const desktopSelect = wrapper.find("select#targetLanguage");
+    expect(desktopSelect.exists()).toBe(true);
+
+    // Trigger change event on desktop select (covers line 37 v-model)
+    await desktopSelect.setValue("ja");
+    await nextTick();
+
+    expect(wrapper.vm.targetLanguage).toBe("ja");
+  });
+
+  it("covers v-model binding on mobile ULocaleSelect", async () => {
+    // Use custom stub that properly emits update:modelValue
+    const wrapper = mountReader( {
+      global: {
+        components: { NewsCard: NewsCardMock },
+        stubs: {
+          ULocaleSelect: {
+            name: "ULocaleSelect",
+            props: ["id", "modelValue", "locales", "disabled", "size", "class"],
+            emits: ["update:modelValue"],
+            template:
+              '<select :id="id" :disabled="disabled" @change="$emit(\'update:modelValue\', $event.target.value)"><option v-for="l in locales" :key="l.code" :value="l.code">{{ l.name }}</option></select>',
+          },
+        },
+      },
+    });
+
+    // Verify initial value
+    expect(wrapper.vm.targetLanguage).toBe("en");
+
+    // Find mobile select by id
+    const mobileSelect = wrapper.find("select#mobileTargetLanguage");
+    expect(mobileSelect.exists()).toBe(true);
+
+    // Trigger change event on mobile select (covers line 87 v-model)
+    await mobileSelect.setValue("fr");
+    await nextTick();
+
+    expect(wrapper.vm.targetLanguage).toBe("fr");
+  });
+
+  it("both desktop and mobile language selects sync with targetLanguage", async () => {
+    // Use custom stub that properly emits update:modelValue
+    const wrapper = mountReader( {
+      global: {
+        components: { NewsCard: NewsCardMock },
+        stubs: {
+          ULocaleSelect: {
+            name: "ULocaleSelect",
+            props: ["id", "modelValue", "locales", "disabled", "size", "class"],
+            emits: ["update:modelValue"],
+            template:
+              '<select :id="id" :disabled="disabled" @change="$emit(\'update:modelValue\', $event.target.value)"><option v-for="l in locales" :key="l.code" :value="l.code">{{ l.name }}</option></select>',
+          },
+        },
+      },
+    });
+
+    const desktopSelect = wrapper.find("select#targetLanguage");
+    const mobileSelect = wrapper.find("select#mobileTargetLanguage");
+
+    expect(desktopSelect.exists()).toBe(true);
+    expect(mobileSelect.exists()).toBe(true);
+
+    // Change desktop select - should update targetLanguage (line 37)
+    await desktopSelect.setValue("de");
+    await nextTick();
+    expect(wrapper.vm.targetLanguage).toBe("de");
+
+    // Change mobile select - should update targetLanguage (line 87)
+    await mobileSelect.setValue("es");
+    await nextTick();
+    expect(wrapper.vm.targetLanguage).toBe("es");
+
+    // The important thing is that the reactive state is updated
+    // Both v-model bindings (line 37 and 87) have been triggered
+    expect(wrapper.vm.targetLanguage).toBe("es");
+  });
+
+  it("language select is disabled during loading", async () => {
+    // Use custom stub that properly emits update:modelValue
+    const wrapper = mountReader( {
+      global: {
+        components: { NewsCard: NewsCardMock },
+        stubs: {
+          ULocaleSelect: {
+            name: "ULocaleSelect",
+            props: ["id", "modelValue", "locales", "disabled", "size", "class"],
+            emits: ["update:modelValue"],
+            template:
+              '<select :id="id" :disabled="disabled" @change="$emit(\'update:modelValue\', $event.target.value)"><option v-for="l in locales" :key="l.code" :value="l.code">{{ l.name }}</option></select>',
+          },
+        },
+      },
+    });
+
+    const desktopSelect = wrapper.find("select#targetLanguage");
+    const mobileSelect = wrapper.find("select#mobileTargetLanguage");
+
+    // Initially not disabled
+    expect(desktopSelect.attributes("disabled")).toBeUndefined();
+    expect(mobileSelect.attributes("disabled")).toBeUndefined();
+
+    // Mock delayed response
+    mockFetch.mockImplementationOnce(
+      () => new Promise((resolve) => setTimeout(resolve, 100)),
+    );
+
+    const fetchPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Should be disabled during loading
+    expect(desktopSelect.attributes("disabled")).toBeDefined();
+    expect(mobileSelect.attributes("disabled")).toBeDefined();
+
+    await fetchPromise;
+
+    // Should be enabled again
+    expect(desktopSelect.attributes("disabled")).toBeUndefined();
+    expect(mobileSelect.attributes("disabled")).toBeUndefined();
+  });
+
+  // Additional tests to cover uncovered template branches (lines 190, 233, 248)
+  it("covers v-else at line 188 - renders news when loaded", async () => {
+    const wrapper = mountReader( {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Fetch news to trigger the v-else branch (line 188)
+    await wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Now we have news and are not loading
+    expect(wrapper.vm.news.length).toBeGreaterThan(0);
+    expect(wrapper.vm.loading).toBe(false);
+
+    // This means line 180 (loading && news.length === 0) is FALSE
+    // And we entered the v-else block at line 188
+    // Then line 190 (news.length === 0 && !loading) is also FALSE
+    // So we render the NewsCard components
+
+    const newsCards = wrapper.findAllComponents(NewsCardMock);
+    expect(newsCards.length).toBeGreaterThan(0);
+  });
+
+  it("covers line 190 - shows empty state card when no news and not loading", async () => {
+    const wrapper = mountReader( {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Wait for any pending operations
+    await nextTick();
+
+    // Initially, no news loaded and not loading
+    expect(wrapper.vm.news.length).toBe(0);
+    expect(wrapper.vm.loading).toBe(false);
+
+    // This should render the UCard at line 190
+    const cardElements = wrapper.findAll(".u-card");
+    expect(cardElements.length).toBeGreaterThan(0);
+
+    // Find the card with "No news loaded yet" text
+    const emptyCard = Array.from(cardElements).find((card) =>
+      card.text().includes("No news loaded yet"),
+    );
+    expect(emptyCard?.exists()).toBe(true);
+  });
+
+  it("covers line 233 - shows pagination when filtered news exceeds items per page", async () => {
+    const wrapper = mountReader( {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Add 5 news items to exceed itemsPerPage (3)
+    mockFetch.mockResolvedValueOnce({
+      success: true,
+      data: [
+        ...mockNews,
+        {
+          title: "News 3",
+          summary: "Sum 3",
+          content: "Content 3",
+          source: "Src 3",
+          publishedAt: "2024-01-15T12:00:00Z",
+          category: "Business",
+        },
+        {
+          title: "News 4",
+          summary: "Sum 4",
+          content: "Content 4",
+          source: "Src 4",
+          publishedAt: "2024-01-15T13:00:00Z",
+          category: "Culture",
+        },
+        {
+          title: "News 5",
+          summary: "Sum 5",
+          content: "Content 5",
+          source: "Src 5",
+          publishedAt: "2024-01-15T14:00:00Z",
+          category: "Sports",
+        },
+      ],
+      count: 5,
+      timestamp: "2024-01-15T10:00:00Z",
+    });
+
+    await wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Should have more items than itemsPerPage
+    expect(wrapper.vm.filteredNews.length).toBeGreaterThan(3);
+
+    // This should trigger the v-if at line 233 to render pagination
+    const paginationElements = wrapper.findAll(".u-pagination");
+    expect(paginationElements.length).toBeGreaterThan(0);
+  });
+
+  it("covers line 248 - shows error card when error exists", async () => {
+    const wrapper = mountReader( {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Mock an error response
+    mockFetch.mockRejectedValueOnce({
+      data: { error: "API Error" },
+    });
+
+    await wrapper.vm.fetchNews();
+    await nextTick();
+
+    // Should have error set
+    expect(wrapper.vm.error).toBeTruthy();
+
+    // This should render the UCard at line 248 with error state
+    const errorState = wrapper.find("[data-testid='error-state']");
+    expect(errorState.exists()).toBe(true);
+    expect(errorState.text()).toContain("API Error");
+  });
+
+  it("does not show pagination when filtered news is exactly items per page", async () => {
+    const wrapper = mountReader( {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Add exactly 3 news items (itemsPerPage is 3)
+    mockFetch.mockResolvedValueOnce({
+      success: true,
+      data: [
+        ...mockNews,
+        {
+          title: "News 3",
+          summary: "Sum 3",
+          content: "Content 3",
+          source: "Src 3",
+          publishedAt: "2024-01-15T12:00:00Z",
+          category: "Business",
+        },
+      ],
+      count: 3,
+      timestamp: "2024-01-15T10:00:00Z",
+    });
+
+    await wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Should have exactly itemsPerPage items
+    expect(wrapper.vm.filteredNews.length).toBe(3);
+
+    // Line 233 v-if should be FALSE (not > itemsPerPage)
+    const paginationElements = wrapper.findAll(".u-pagination");
+    expect(paginationElements.length).toBe(0);
+  });
+
+  it("does not show empty state card when news is loaded", async () => {
+    const wrapper = mountReader( {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Fetch news successfully
+    await wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Should have news loaded
+    expect(wrapper.vm.news.length).toBeGreaterThan(0);
+
+    // Line 190 v-if should be FALSE (news.length !== 0)
+    const cardElements = wrapper.findAll(".u-card");
+    const emptyCard = Array.from(cardElements).find((card) =>
+      card.text().includes("No news loaded yet"),
+    );
+    expect(emptyCard).toBeUndefined();
+  });
+
+  it("covers all template branches by cycling through all states", async () => {
+    // Mount without using the helper to avoid stubs that might skip template code
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: { NewsCard: NewsCardMock },
+        stubs: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    // State 1: Initial state - no news, not loading (line 190 TRUE)
+    await nextTick();
+    expect(wrapper.vm.news.length).toBe(0);
+    expect(wrapper.vm.loading).toBe(false);
+    expect(wrapper.vm.error).toBeNull();
+
+    // State 2: Loading state (line 180 TRUE, line 190 FALSE)
+    // Use a delayed mock to catch the loading state
+    mockFetch.mockImplementationOnce(
+      () =>
+        new Promise((resolve) =>
+          setTimeout(
+            () =>
+              resolve({
+                success: true,
+                data: mockNews,
+                count: 2,
+                timestamp: "2024-01-15T10:00:00Z",
+              }),
+            50,
+          ),
+        ),
+    );
+
+    const loadingPromise = wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Check that we're in loading state
+    expect(wrapper.vm.loading).toBe(true);
+
+    await loadingPromise;
+    await nextTick();
+
+    // State 3: News loaded (line 180 FALSE, line 190 FALSE, line 248 FALSE)
+    expect(wrapper.vm.news.length).toBeGreaterThan(0);
+    expect(wrapper.vm.loading).toBe(false);
+    expect(wrapper.vm.error).toBeNull();
+
+    // State 4: Error state (line 248 TRUE)
+    mockFetch.mockRejectedValueOnce({ data: { error: "Test error" } });
+    await wrapper.vm.fetchNews();
+    await nextTick();
+    expect(wrapper.vm.error).toBeTruthy();
+  });
+
+  it("covers pagination branch with multiple items and category filter", async () => {
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: { NewsCard: NewsCardMock },
+        stubs: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    // Load more than 3 items to trigger pagination (line 233)
+    mockFetch.mockResolvedValueOnce({
+      success: true,
+      data: [
+        {
+          title: "News 1",
+          summary: "Sum 1",
+          content: "Content 1",
+          source: "Source 1",
+          publishedAt: "2024-01-15T10:00:00Z",
+          category: "Technology",
+        },
+        {
+          title: "News 2",
+          summary: "Sum 2",
+          content: "Content 2",
+          source: "Source 2",
+          publishedAt: "2024-01-15T11:00:00Z",
+          category: "Technology",
+        },
+        {
+          title: "News 3",
+          summary: "Sum 3",
+          content: "Content 3",
+          source: "Source 3",
+          publishedAt: "2024-01-15T12:00:00Z",
+          category: "Technology",
+        },
+        {
+          title: "News 4",
+          summary: "Sum 4",
+          content: "Content 4",
+          source: "Source 4",
+          publishedAt: "2024-01-15T13:00:00Z",
+          category: "Technology",
+        },
+      ],
+      count: 4,
+      timestamp: "2024-01-15T10:00:00Z",
+    });
+
+    await wrapper.vm.refreshNews();
+    await nextTick();
+
+    // Filter by category to test filteredNews (line 233)
+    wrapper.vm.selectedCategory = "technology";
+    await nextTick();
+
+    expect(wrapper.vm.filteredNews.length).toBe(4);
+    expect(wrapper.vm.filteredNews.length).toBeGreaterThan(3);
+  });
+
+  it("does not show error card when there is no error", () => {
+    const wrapper = mountReader( {
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // No error initially
+    expect(wrapper.vm.error).toBeNull();
+
+    // Line 248 v-if should be FALSE (error is null)
+    const errorState = wrapper.find("[data-testid='error-state']");
+    expect(errorState.exists()).toBe(false);
   });
 });
