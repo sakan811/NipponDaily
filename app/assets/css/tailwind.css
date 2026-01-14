@@ -1,27 +1,2 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
-
-/* Credibility Score Gradient Pattern (Special Case)
- * News credibility scores use a dynamic HSL gradient from green to red:
- * - 100%: hsl(120, 70%, 45%) - Green
- * - 75%:  hsl(90, 70%, 45%)  - Yellow-Green
- * - 50%:  hsl(60, 70%, 45%)  - Yellow
- * - 25%:  hsl(30, 70%, 45%)  - Orange-Red
- * - 0%:   hsl(0, 70%, 45%)   - Red
- *
- * Formula: hue = score * 120 (where score is 0-1)
- * This is computed dynamically in NewsCard.vue, not a CSS variable.
- */
-
-/*
- * NipponDaily Color Theme
- *
- * Using Tailwind default colors matched to our palette:
- * - Primary:   orange-600 (#ea580c) ~ brightred (#e64f30)
- * - Secondary: sky-600    (#0284c7) ~ darkblue   (#55779d)
- * - Success:   amber-400  (#fbbf24) ~ brightorange (#f39845)
- * - Warning:   amber-400  (#fbbf24) ~ brightorange (#f39845)
- * - Error:     orange-600 (#ea580c) ~ brightred (#e64f30)
- * - Info:      sky-600    (#0284c7) ~ darkblue   (#55779d)
- * - Neutral:   stone      (similar to softorange/darkred)
- */
