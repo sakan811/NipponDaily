@@ -11,3 +11,11 @@
  * Formula: hue = score * 120 (where score is 0-1)
  * This is computed dynamically in NewsCard.vue, not a CSS variable.
  */
+
+ /* @theme {
+    --color-darkblue: #55779d;
+    --color-brightred: #e64f30;
+    --color-brightorange: #f39845;
+    --color-softorange: #e7cca1;
+    --color-darkred: #2b201e;
+ } */
