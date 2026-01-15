@@ -15,7 +15,7 @@
 - **Smart Categorization**: News automatically organized into Politics, Business, Technology, Culture, or Sports (with "Other" as fallback)
 - **On-Demand Updates**: Click "Get News" to fetch the latest articles when you want them
 - **Customizable Results**: Choose how many articles to see (1-20) and filter by category
-- **Time Filters**: Browse news from All Time, Today, This Week, This Month, or This Year
+- **Time Filters**: Browse news from All Time, Today, This Week, This Month, This Year, or a Custom Date Range
 - **Clear Sources**: See exactly where each article comes from with direct links
 - **Credibility Scores**: Multi-factor credibility assessment (source reputation, domain trust, content quality, AI confidence)
 - **Smart Summaries**: Get concise AI-generated summaries translated to your language
@@ -55,7 +55,7 @@
 
 1. **Set Language**: Type your preferred language for translated content (default: "English")
 2. **Choose Amount**: Enter how many articles to fetch (1-20, default: 10)
-3. **Select Time Range**: Choose from All Time, Today, This Week (default), This Month, or This Year (affects search)
+3. **Select Time Range**: Choose from All Time, Today, This Week (default), This Month, This Year, or a Custom Date Range (affects search)
 4. **Select Category**: Choose a category to filter results (affects both search and display)
 5. **Get News**: Click "Get News" to fetch targeted articles
 6. **Read & Explore**: Browse summaries with client-side pagination (3 items per page) and click "Read Original" for full stories
