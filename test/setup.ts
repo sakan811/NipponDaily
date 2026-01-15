@@ -236,7 +236,7 @@ config.global.stubs = {
     emits: ["update:modelValue"],
   },
   UPopover: {
-    template: '<div class="u-popover"><slot /><template #content><slot name="content" /></template></div>',
+    template: '<div class="u-popover"><slot /></div>',
     props: ["ui"],
   },
   UColorModeButton: {

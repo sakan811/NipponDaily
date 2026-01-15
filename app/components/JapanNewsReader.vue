@@ -331,7 +331,7 @@ const minDate = new CalendarDate(2020, 1, 1); // Limit to reasonable past date
 const maxDate = today;
 // Initialize with defaults (7 days ago to today) as a range
 const oneWeekAgo = today.subtract({ days: 7 });
-const customDateRange = ref({
+const customDateRange = ref<{ start: typeof oneWeekAgo; end: typeof today }>({
   start: oneWeekAgo,
   end: today,
 });
