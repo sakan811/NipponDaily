@@ -10,6 +10,8 @@ export default defineEventHandler(async (event) => {
     const query = getQuery(event);
     const category = query.category as string;
     const timeRange = (query.timeRange as string) || "week";
+    const startDate = query.startDate as string; // Custom date range start
+    const endDate = query.endDate as string; // Custom date range end
     const language = (query.language as string) || "English";
     const limitParam = parseInt(query.limit as string);
     const limit =
@@ -26,6 +28,8 @@ export default defineEventHandler(async (event) => {
       maxResults: limit,
       category: category === "all" ? undefined : category,
       timeRange: validatedTimeRange,
+      startDate,
+      endDate,
       apiKey: config.tavilyApiKey,
     });
 

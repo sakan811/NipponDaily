@@ -22,6 +22,8 @@ interface TavilySearchOptions {
   searchDepth: "basic" | "advanced";
   includeRawContent: false | "text" | "markdown";
   timeRange?: "day" | "week" | "month" | "year" | "y" | "m" | "w" | "d";
+  startDate?: string; // ISO date format: YYYY-MM-DD
+  endDate?: string; // ISO date format: YYYY-MM-DD
 }
 
 // Type alias for TavilySearchResponse for internal use
@@ -44,6 +46,8 @@ class TavilyService {
     maxResults?: number;
     category?: string;
     timeRange?: "none" | "day" | "week" | "month" | "year";
+    startDate?: string; // ISO date format: YYYY-MM-DD
+    endDate?: string; // ISO date format: YYYY-MM-DD
     language?: string;
     apiKey?: string;
   }): Promise<TavilyResponse> {
@@ -62,6 +66,8 @@ class TavilyService {
         maxResults = 10,
         category = "",
         timeRange = "week",
+        startDate,
+        endDate,
       } = options || {};
 
       // Build search query based on category
@@ -81,8 +87,12 @@ class TavilyService {
         includeRawContent: "markdown",
       };
 
-      // Only include timeRange if it's not undefined (i.e., not "none")
-      if (apiTimeRange) {
+      // Use custom date range if provided, otherwise use preset timeRange
+      if (startDate && endDate) {
+        searchOptions.startDate = startDate;
+        searchOptions.endDate = endDate;
+      } else if (apiTimeRange) {
+        // Only include timeRange if it's not undefined (i.e., not "none")
         searchOptions.timeRange = apiTimeRange;
       }
 
