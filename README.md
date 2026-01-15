@@ -76,15 +76,15 @@
 
 The app uses Nuxt UI v4's semantic color system with Tailwind v4's native palette:
 
-| Semantic Color | Tailwind Color | Usage                                                |
-| -------------- | -------------- | ---------------------------------------------------- |
-| Primary        | `orange`       | Main CTAs, selected buttons                          |
-| Secondary      | `sky`          | Secondary buttons, outline buttons, muted text       |
-| Success        | `amber`        | Success messages, sports category                    |
-| Info           | `sky`          | Info alerts, technology category                     |
-| Warning        | `amber`        | Warning messages, culture category                   |
-| Error          | `orange`       | Error messages, politics category                    |
-| Neutral        | `stone`        | Fallback category, disabled states                   |
+| Semantic Color | Tailwind Color | Usage                                          |
+| -------------- | -------------- | ---------------------------------------------- |
+| Primary        | `orange`       | Main CTAs, selected buttons                    |
+| Secondary      | `sky`          | Secondary buttons, outline buttons, muted text |
+| Success        | `amber`        | Success messages, sports category              |
+| Info           | `sky`          | Info alerts, technology category               |
+| Warning        | `amber`        | Warning messages, culture category             |
+| Error          | `orange`       | Error messages, politics category              |
+| Neutral        | `stone`        | Fallback category, disabled states             |
 
 Color configuration is defined in `app/app.config.ts`:
 
