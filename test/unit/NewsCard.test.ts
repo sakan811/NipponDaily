@@ -365,9 +365,9 @@ describe("NewsCard", () => {
 
       // Line 54: v-if="news.credibilityScore !== undefined"
       // When credibilityScore is undefined, the credibility score div should not be rendered
-      const credibilitySection = wrapper.findAll("div").filter((div) =>
-        div.text().includes("Credibility:")
-      );
+      const credibilitySection = wrapper
+        .findAll("div")
+        .filter((div) => div.text().includes("Credibility:"));
       expect(credibilitySection.length).toBe(0);
     });
 
@@ -384,9 +384,9 @@ describe("NewsCard", () => {
 
       // Line 54: v-if="news.credibilityScore !== undefined"
       // When credibilityScore is defined, the credibility score div should be rendered
-      const credibilitySection = wrapper.findAll("div").filter((div) =>
-        div.text().includes("Credibility:")
-      );
+      const credibilitySection = wrapper
+        .findAll("div")
+        .filter((div) => div.text().includes("Credibility:"));
       expect(credibilitySection.length).toBeGreaterThan(0);
     });
 
@@ -421,9 +421,9 @@ describe("NewsCard", () => {
       });
 
       // False branch - credibility section should not exist
-      let credibilitySection = wrapper.findAll("div").filter((div) =>
-        div.text().includes("Credibility:")
-      );
+      let credibilitySection = wrapper
+        .findAll("div")
+        .filter((div) => div.text().includes("Credibility:"));
       expect(credibilitySection.length).toBe(0);
 
       // Update to defined credibilityScore (true branch of line 54)
@@ -435,9 +435,9 @@ describe("NewsCard", () => {
       });
 
       // True branch - credibility section should exist
-      credibilitySection = wrapper.findAll("div").filter((div) =>
-        div.text().includes("Credibility:")
-      );
+      credibilitySection = wrapper
+        .findAll("div")
+        .filter((div) => div.text().includes("Credibility:"));
       expect(credibilitySection.length).toBeGreaterThan(0);
     });
 

@@ -350,7 +350,7 @@ describe("TavilyService", () => {
       mockTavilyClient.search.mockResolvedValue(mockResponse);
 
       // Call with undefined options to hit line 71 fallback
-      // @ts-ignore - intentionally passing undefined to test fallback
+      // @ts-expect-error - intentionally passing undefined to test fallback
       const result = await service.searchJapanNews(undefined);
 
       expect(mockTavilyClient.search).toHaveBeenCalledWith(
