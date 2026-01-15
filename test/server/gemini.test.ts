@@ -386,6 +386,84 @@ describe("GeminiService", () => {
       expect(result[0].content).toBe("Tech Summary");
     });
 
+    it("falls back to item.summary when aiSummary is empty string", async () => {
+      const mockNews = [
+        {
+          title: "Test News",
+          summary: "Original Summary Text",
+          content: "Original Content Text",
+          source: "Test Source",
+          publishedAt: "2024-01-15T10:00:00Z",
+          category: "Other",
+        },
+      ];
+
+      // Mock AI response with empty summary (after trim becomes falsy)
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": ""}]',
+      });
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: "test-api-key",
+      });
+
+      // Lines 180-181: should fall back to item.summary when aiSummary is empty
+      expect(result[0].summary).toBe("Original Summary Text");
+      expect(result[0].content).toBe("Original Summary Text");
+    });
+
+    it("falls back to item.content when both aiSummary and item.summary are empty", async () => {
+      const mockNews = [
+        {
+          title: "Test News",
+          summary: "",
+          content: "Fallback Content Text",
+          source: "Test Source",
+          publishedAt: "2024-01-15T10:00:00Z",
+          category: "Other",
+        },
+      ];
+
+      // Mock AI response with empty summary
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": ""}]',
+      });
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: "test-api-key",
+      });
+
+      // Lines 180-181: should fall back to item.content when both aiSummary and item.summary are empty
+      expect(result[0].summary).toBe("Fallback Content Text");
+      expect(result[0].content).toBe("Fallback Content Text");
+    });
+
+    it("uses aiSummary when it is truthy and non-empty", async () => {
+      const mockNews = [
+        {
+          title: "Test News",
+          summary: "Original Summary",
+          content: "Original Content",
+          source: "Test Source",
+          publishedAt: "2024-01-15T10:00:00Z",
+          category: "Other",
+        },
+      ];
+
+      // Mock AI response with valid summary
+      mockGenerateContent.mockResolvedValue({
+        text: '[{"category": "Technology", "summary": "AI Generated Summary"}]',
+      });
+
+      const result = await service.categorizeNewsItems(mockNews, {
+        apiKey: "test-api-key",
+      });
+
+      // Lines 180-181: should use aiSummary when it's truthy
+      expect(result[0].summary).toBe("AI Generated Summary");
+      expect(result[0].content).toBe("AI Generated Summary");
+    });
+
     it("returns fallback message when JSON parsing fails", async () => {
       const mockNewsWithRawContent = [
         {

@@ -241,6 +241,101 @@ describe("TavilyService", () => {
       );
     });
 
+    it("uses custom date range when startDate and endDate are provided", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      await service.searchJapanNews({
+        startDate: "2024-01-01",
+        endDate: "2024-01-31",
+        apiKey: "test-tavily-key",
+      });
+
+      // Lines 92-93: Should use startDate and endDate instead of timeRange
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "latest Japan news",
+        {
+          topic: "news",
+          maxResults: 10,
+          searchDepth: "basic",
+          includeRawContent: "markdown",
+          startDate: "2024-01-01",
+          endDate: "2024-01-31",
+        },
+      );
+    });
+
+    it("prioritizes custom date range over timeRange when both are provided", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      await service.searchJapanNews({
+        timeRange: "week",
+        startDate: "2024-06-01",
+        endDate: "2024-06-30",
+        apiKey: "test-tavily-key",
+      });
+
+      // Lines 92-93: Should use startDate and endDate, not timeRange
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "latest Japan news",
+        {
+          topic: "news",
+          maxResults: 10,
+          searchDepth: "basic",
+          includeRawContent: "markdown",
+          startDate: "2024-06-01",
+          endDate: "2024-06-30",
+        },
+      );
+    });
+
+    it("uses timeRange when startDate is not provided", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      await service.searchJapanNews({
+        endDate: "2024-01-31",
+        timeRange: "month",
+        apiKey: "test-tavily-key",
+      });
+
+      // Should use timeRange, not endDate (since startDate is missing)
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "latest Japan news",
+        {
+          topic: "news",
+          maxResults: 10,
+          searchDepth: "basic",
+          includeRawContent: "markdown",
+          timeRange: "month",
+        },
+      );
+    });
+
+    it("uses timeRange when endDate is not provided", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      await service.searchJapanNews({
+        startDate: "2024-01-01",
+        timeRange: "month",
+        apiKey: "test-tavily-key",
+      });
+
+      // Should use timeRange, not startDate (since endDate is missing)
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "latest Japan news",
+        {
+          topic: "news",
+          maxResults: 10,
+          searchDepth: "basic",
+          includeRawContent: "markdown",
+          timeRange: "month",
+        },
+      );
+    });
+
     it("throws error when client is not initialized", async () => {
       const module = await import("~/server/services/tavily");
       const serviceWithoutClient = new module.TavilyService();
@@ -248,6 +343,27 @@ describe("TavilyService", () => {
       await expect(serviceWithoutClient.searchJapanNews()).rejects.toThrow(
         "Tavily client not initialized - API key required",
       );
+    });
+
+    it("uses default options when options parameter is undefined", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      // Call with undefined options to hit line 71 fallback
+      // @ts-ignore - intentionally passing undefined to test fallback
+      const result = await service.searchJapanNews(undefined);
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "latest Japan news",
+        {
+          topic: "news",
+          maxResults: 10,
+          searchDepth: "basic",
+          includeRawContent: "markdown",
+          timeRange: "week",
+        },
+      );
+      expect(result).toEqual(mockResponse);
     });
 
     it("handles API errors", async () => {

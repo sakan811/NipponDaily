@@ -351,5 +351,130 @@ describe("NewsCard", () => {
       expect(wrapper.vm.contentQualityPercent).toBe(0);
       expect(wrapper.vm.aiConfidencePercent).toBe(0);
     });
+
+    it("does not render credibility score section when credibilityScore is undefined", () => {
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: undefined,
+          },
+        },
+        shallow: false,
+      });
+
+      // Line 54: v-if="news.credibilityScore !== undefined"
+      // When credibilityScore is undefined, the credibility score div should not be rendered
+      const credibilitySection = wrapper.findAll("div").filter((div) =>
+        div.text().includes("Credibility:")
+      );
+      expect(credibilitySection.length).toBe(0);
+    });
+
+    it("renders credibility score section when credibilityScore is defined", () => {
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: 0.75,
+          },
+        },
+        shallow: false,
+      });
+
+      // Line 54: v-if="news.credibilityScore !== undefined"
+      // When credibilityScore is defined, the credibility score div should be rendered
+      const credibilitySection = wrapper.findAll("div").filter((div) =>
+        div.text().includes("Credibility:")
+      );
+      expect(credibilitySection.length).toBeGreaterThan(0);
+    });
+
+    it("does not render credibility dropdown when credibilityMetadata is missing", () => {
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: 0.75,
+            credibilityMetadata: undefined,
+          },
+        },
+        shallow: false,
+      });
+
+      // Line 99: v-if="news.credibilityMetadata"
+      // When credibilityMetadata is undefined, the dropdown should not be rendered
+      const dropdown = wrapper.find(".u-dropdown");
+      expect(dropdown.exists()).toBe(false);
+    });
+
+    it("covers both branches of credibilityScore v-if in single test", async () => {
+      // Start with credibilityScore undefined (false branch of line 54)
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: undefined,
+          },
+        },
+        shallow: false,
+      });
+
+      // False branch - credibility section should not exist
+      let credibilitySection = wrapper.findAll("div").filter((div) =>
+        div.text().includes("Credibility:")
+      );
+      expect(credibilitySection.length).toBe(0);
+
+      // Update to defined credibilityScore (true branch of line 54)
+      await wrapper.setProps({
+        news: {
+          ...mockNews,
+          credibilityScore: 0.75,
+        },
+      });
+
+      // True branch - credibility section should exist
+      credibilitySection = wrapper.findAll("div").filter((div) =>
+        div.text().includes("Credibility:")
+      );
+      expect(credibilitySection.length).toBeGreaterThan(0);
+    });
+
+    it("covers both branches of credibilityMetadata v-if in single test", async () => {
+      // Start with credibilityMetadata defined (true branch of line 99)
+      const wrapper = mount(NewsCard, {
+        props: {
+          news: {
+            ...mockNews,
+            credibilityScore: 0.75,
+            credibilityMetadata: {
+              sourceReputation: 0.85,
+              domainTrust: 0.72,
+              contentQuality: 0.9,
+              aiConfidence: 0.88,
+            },
+          },
+        },
+        shallow: false,
+      });
+
+      // True branch - dropdown should exist
+      let dropdown = wrapper.find(".u-dropdown");
+      expect(dropdown.exists()).toBe(true);
+
+      // Update to undefined credibilityMetadata (false branch of line 99)
+      await wrapper.setProps({
+        news: {
+          ...mockNews,
+          credibilityScore: 0.75,
+          credibilityMetadata: undefined,
+        },
+      });
+
+      // False branch - dropdown should not exist
+      dropdown = wrapper.find(".u-dropdown");
+      expect(dropdown.exists()).toBe(false);
+    });
   });
 });
