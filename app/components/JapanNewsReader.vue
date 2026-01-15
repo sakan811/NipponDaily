@@ -141,6 +141,47 @@
                 />
               </UTooltip>
             </div>
+
+            <!-- Custom Date Range Picker -->
+            <div
+              v-if="selectedTimeRange === 'custom'"
+              class="mt-3 grid grid-cols-1 gap-4"
+            >
+              <div>
+                <UPopover>
+                  <UButton
+                    icon="i-heroicons-calendar-days-20-solid"
+                    :label="
+                      customDateRange.start && customDateRange.end
+                        ? `${customDateRange.start.year}-${customDateRange.start.month
+                            .toString()
+                            .padStart(2, '0')}-${customDateRange.start.day
+                            .toString()
+                            .padStart(2, '0')} - ${customDateRange.end.year}-${customDateRange.end.month
+                            .toString()
+                            .padStart(2, '0')}-${customDateRange.end.day
+                            .toString()
+                            .padStart(2, '0')}`
+                        : 'Select date range'
+                    "
+                    variant="outline"
+                    color="secondary"
+                    size="sm"
+                    block
+                  />
+                  <template #content>
+                    <UCalendar
+                      v-model="customDateRange"
+                      :min-value="minDate"
+                      :max-value="maxDate"
+                      :number-of-months="2"
+                      range
+                      class="p-2"
+                    />
+                  </template>
+                </UPopover>
+              </div>
+            </div>
           </div>
 
           <!-- Category Filter -->
@@ -258,7 +299,8 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from "vue";
+import { watch, ref } from "vue";
+import { CalendarDate } from "@internationalized/date";
 import type { NewsItem } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
@@ -271,13 +313,28 @@ const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 const appName = "NipponDaily";
 const selectedCategory = ref<CategoryId>("all");
-const selectedTimeRange = ref<"none" | "day" | "week" | "month" | "year">(
-  "week",
-);
+const selectedTimeRange = ref<
+  "none" | "day" | "week" | "month" | "year" | "custom"
+>("week");
 const targetLanguage = ref("en");
 const newsAmount = ref(10);
 const page = ref(1);
 const itemsPerPage = 3;
+
+// Calendar state for custom date range
+const today = new CalendarDate(
+  new Date().getFullYear(),
+  new Date().getMonth() + 1,
+  new Date().getDate(),
+);
+const minDate = new CalendarDate(2020, 1, 1); // Limit to reasonable past date
+const maxDate = today;
+// Initialize with defaults (7 days ago to today) as a range
+const oneWeekAgo = today.subtract({ days: 7 });
+const customDateRange = ref({
+  start: oneWeekAgo,
+  end: today,
+});
 
 // Categories
 const categories = NEWS_CATEGORIES;
@@ -289,6 +346,7 @@ const timeRangeOptions = [
   { id: "week", name: "This Week" },
   { id: "month", name: "This Month" },
   { id: "year", name: "This Year" },
+  { id: "custom", name: "Custom Range" },
 ] as const;
 
 // Computed
@@ -329,19 +387,42 @@ const fetchNews = async () => {
     );
     const languageName = localeObject?.name || "English";
 
+    // Build query parameters
+    const query: Record<string, string | number | undefined> = {
+      category:
+        selectedCategory.value === "all" ? undefined : selectedCategory.value,
+      language: languageName,
+      limit: newsAmount.value,
+    };
+
+    // Handle time range - for custom, pass startDate and endDate
+    if (selectedTimeRange.value === "custom") {
+      if (customDateRange.value.start && customDateRange.value.end) {
+        query.startDate = `${customDateRange.value.start.year}-${customDateRange.value.start.month
+          .toString()
+          .padStart(2, "0")}-${customDateRange.value.start.day
+          .toString()
+          .padStart(2, "0")}`;
+        query.endDate = `${customDateRange.value.end.year}-${customDateRange.value.end.month
+          .toString()
+          .padStart(2, "0")}-${customDateRange.value.end.day
+          .toString()
+          .padStart(2, "0")}`;
+      } else {
+        // If custom is selected but no dates are picked, default to week
+        query.timeRange = "week";
+      }
+    } else {
+      query.timeRange = selectedTimeRange.value;
+    }
+
     const response = await $fetch<{
       success: boolean;
       data: NewsItem[];
       count: number;
       timestamp: string;
     }>("/api/news", {
-      query: {
-        category:
-          selectedCategory.value === "all" ? undefined : selectedCategory.value,
-        timeRange: selectedTimeRange.value,
-        language: languageName,
-        limit: newsAmount.value,
-      },
+      query,
     });
 
     news.value = response.data || [];
