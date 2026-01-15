@@ -1,6 +1,30 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
 import { nextTick } from "vue";
+
+// Mock @internationalized/date BEFORE importing the component
+vi.mock("@internationalized/date", () => {
+  class MockCalendarDate {
+    constructor(year: number, month: number, day: number) {
+      this.year = year;
+      this.month = month;
+      this.day = day;
+    }
+    year: number;
+    month: number;
+    day: number;
+    subtract(options: { days: number }) {
+      return new MockCalendarDate(this.year, this.month, this.day - options.days);
+    }
+    add(options: { days: number }) {
+      return new MockCalendarDate(this.year, this.month, this.day + options.days);
+    }
+  }
+  return {
+    CalendarDate: MockCalendarDate,
+  };
+});
+
 import JapanNewsReader from "~/app/components/JapanNewsReader.vue";
 
 const NewsCardMock = {
@@ -92,9 +116,12 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const button = wrapper.find("button");
-    expect(button.exists()).toBe(true);
-    expect(button.text()).toContain("Get News");
+    const button = wrapper
+      .findAll("button")
+      .find((b) => b.text().includes("Get News"));
+    expect(button).toBeDefined();
+    expect(button?.exists()).toBe(true);
+    expect(button?.text()).toContain("Get News");
   });
 
   it("renders category filter buttons", () => {
@@ -380,7 +407,10 @@ describe("JapanNewsReader", () => {
     await nextTick();
 
     expect(wrapper.text()).toContain("API Error");
-    expect(wrapper.find("button").exists()).toBe(true);
+    const getNewsButton = wrapper
+      .findAll("button")
+      .find((b) => b.text().includes("Try Again") || b.text().includes("Get News"));
+    expect(getNewsButton).toBeDefined();
   });
 
   it("calls refreshNews method correctly", async () => {
@@ -438,9 +468,12 @@ describe("JapanNewsReader", () => {
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
 
-    const getNewsButton = wrapper.find("button");
-    expect(getNewsButton.attributes("disabled")).toBeDefined();
-    expect(getNewsButton.text()).toContain("Getting...");
+    const getNewsButton = wrapper
+      .findAll("button")
+      .find((b) => b.text().includes("Getting...") || b.text().includes("Get News"));
+    expect(getNewsButton).toBeDefined();
+    expect(getNewsButton?.attributes("disabled")).toBeDefined();
+    expect(getNewsButton?.text()).toContain("Getting...");
 
     // Wait for the fetch to complete
     await fetchPromise;
@@ -734,10 +767,13 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const getNewsButton = wrapper.find("button");
-    expect(getNewsButton.exists()).toBe(true);
-    expect(getNewsButton.text()).toContain("Get News");
-    expect(getNewsButton.attributes("disabled")).toBeUndefined();
+    const getNewsButton = wrapper
+      .findAll("button")
+      .find((b) => b.text().includes("Get News"));
+    expect(getNewsButton).toBeDefined();
+    expect(getNewsButton?.exists()).toBe(true);
+    expect(getNewsButton?.text()).toContain("Get News");
+    expect(getNewsButton?.attributes("disabled")).toBeUndefined();
   });
 
   it("shows 'Getting...' text when loading", async () => {
@@ -766,21 +802,25 @@ describe("JapanNewsReader", () => {
         ),
     );
 
-    const getNewsButton = wrapper.find("button");
+    // Find Get News button
+    const getNewsButton = wrapper
+      .findAll("button")
+      .find((b) => b.text().includes("Get News"));
+    expect(getNewsButton).toBeDefined();
 
     // Start loading
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
 
-    expect(getNewsButton.text()).toContain("Getting...");
-    expect(getNewsButton.attributes("disabled")).toBeDefined();
+    expect(getNewsButton?.text()).toContain("Getting...");
+    expect(getNewsButton?.attributes("disabled")).toBeDefined();
 
     // Wait for fetch to complete
     await fetchPromise;
 
     // Should return to "Get News"
-    expect(getNewsButton.text()).toContain("Get News");
-    expect(getNewsButton.attributes("disabled")).toBeUndefined();
+    expect(getNewsButton?.text()).toContain("Get News");
+    expect(getNewsButton?.attributes("disabled")).toBeUndefined();
   });
 
   it("disables Get News button when loading", async () => {
@@ -792,10 +832,13 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const getNewsButton = wrapper.find("button");
+    const getNewsButton = wrapper
+      .findAll("button")
+      .find((b) => b.text().includes("Get News"));
+    expect(getNewsButton).toBeDefined();
 
     // Initially enabled
-    expect(getNewsButton.attributes("disabled")).toBeUndefined();
+    expect(getNewsButton?.attributes("disabled")).toBeUndefined();
 
     // Mock delayed response
     mockFetch.mockImplementationOnce(
@@ -819,13 +862,13 @@ describe("JapanNewsReader", () => {
     await nextTick();
 
     // Should be disabled during loading
-    expect(getNewsButton.attributes("disabled")).toBeDefined();
+    expect(getNewsButton?.attributes("disabled")).toBeDefined();
 
     // Wait for fetch to complete
     await fetchPromise;
 
     // Should be enabled again
-    expect(getNewsButton.attributes("disabled")).toBeUndefined();
+    expect(getNewsButton?.attributes("disabled")).toBeUndefined();
   });
 
   it("has correct CSS classes for Get News button styling", () => {
@@ -837,10 +880,14 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const getNewsButton = wrapper.find("button");
+    // Find the button that contains "Get News" text (not UColorModeButton)
+    const getNewsButton = wrapper
+      .findAll("button")
+      .find((b) => b.text().includes("Get News"));
 
+    expect(getNewsButton).toBeDefined();
     // Check for UButton class (Nuxt UI component)
-    expect(getNewsButton.classes()).toContain("u-button");
+    expect(getNewsButton?.classes()).toContain("u-button");
   });
 
   // Integration Tests for Language Input and Button Interaction
@@ -858,8 +905,12 @@ describe("JapanNewsReader", () => {
     wrapper.vm.targetLanguage = "es";
     await nextTick();
 
-    // Click Get News button
-    await wrapper.find("button").trigger("click");
+    // Find and click Get News button (not UColorModeButton)
+    const getNewsButton = wrapper
+      .findAll("button")
+      .find((b) => b.text().includes("Get News"));
+    expect(getNewsButton).toBeDefined();
+    await getNewsButton?.trigger("click");
 
     expect(mockFetch).toHaveBeenCalledWith("/api/news", {
       query: {
@@ -880,7 +931,11 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const getNewsButton = wrapper.find("button");
+    // Find the Get News button (not UColorModeButton)
+    const getNewsButton = wrapper
+      .findAll("button")
+      .find((b) => b.text().includes("Get News"));
+    expect(getNewsButton).toBeDefined();
 
     // Mock delayed response
     mockFetch.mockImplementationOnce(
@@ -905,16 +960,16 @@ describe("JapanNewsReader", () => {
 
     // Check that loading state is true (this disables both input and button)
     expect(wrapper.vm.loading).toBe(true);
-    expect(getNewsButton.attributes("disabled")).toBeDefined();
-    expect(getNewsButton.text()).toContain("Getting...");
+    expect(getNewsButton?.attributes("disabled")).toBeDefined();
+    expect(getNewsButton?.text()).toContain("Getting...");
 
     // Wait for fetch to complete
     await fetchPromise;
 
     // Both should be enabled again
     expect(wrapper.vm.loading).toBe(false);
-    expect(getNewsButton.attributes("disabled")).toBeUndefined();
-    expect(getNewsButton.text()).toContain("Get News");
+    expect(getNewsButton?.attributes("disabled")).toBeUndefined();
+    expect(getNewsButton?.text()).toContain("Get News");
   });
 
   it("maintains language input value during and after loading", async () => {

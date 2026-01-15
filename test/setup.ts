@@ -147,6 +147,28 @@ vi.mock("@tavily/core", () => ({
   tavily: vi.fn(() => mockTavilyClient),
 }));
 
+// Mock @internationalized/date for calendar components
+class MockCalendarDate {
+  constructor(year: number, month: number, day: number) {
+    this.year = year;
+    this.month = month;
+    this.day = day;
+  }
+  year: number;
+  month: number;
+  day: number;
+  subtract(options: { days: number }) {
+    return new MockCalendarDate(this.year, this.month, this.day - options.days);
+  }
+  add(options: { days: number }) {
+    return new MockCalendarDate(this.year, this.month, this.day + options.days);
+  }
+}
+
+vi.mock("@internationalized/date", () => ({
+  CalendarDate: MockCalendarDate,
+}));
+
 export { mockTavilyClient, mockGenerateContent };
 
 // Configure Vue Test Utils with enhanced mocks
@@ -207,6 +229,29 @@ config.global.stubs = {
       '<div class="u-pagination" @click="$emit(\'update:page\', page + 1)"></div>',
     props: ["page", "total", "itemsPerPage"],
     emits: ["update:page"],
+  },
+  UCalendar: {
+    template: '<div class="u-calendar"><slot /></div>',
+    props: ["modelValue", "minValue", "maxValue", "range", "numberOfMonths"],
+    emits: ["update:modelValue"],
+  },
+  UPopover: {
+    template: '<div class="u-popover"><slot /><template #content><slot name="content" /></template></div>',
+    props: ["ui"],
+  },
+  UColorModeButton: {
+    template: '<button class="u-color-mode-button u-button"><slot /></button>',
+  },
+  ULocaleSelect: {
+    template:
+      '<select :id="id" class="u-locale-select" :disabled="disabled"><option v-for="locale in locales" :key="locale.code" :value="locale.code">{{ locale.name }}</option></select>',
+    props: ["id", "modelValue", "locales", "disabled", "size", "class"],
+    emits: ["update:modelValue"],
+  },
+  UTooltip: {
+    template:
+      '<div class="u-tooltip"><slot /></div>',
+    props: ["text", "ui"],
   },
 };
 
