@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2026-01-14',
+  compatibilityDate: "2026-01-14",
   devtools: { enabled: true },
   css: ["./app/assets/css/tailwind.css"],
   modules: ["@nuxt/test-utils/module", "@nuxt/ui"],

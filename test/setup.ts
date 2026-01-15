@@ -249,8 +249,7 @@ config.global.stubs = {
     emits: ["update:modelValue"],
   },
   UTooltip: {
-    template:
-      '<div class="u-tooltip"><slot /></div>',
+    template: '<div class="u-tooltip"><slot /></div>',
     props: ["text", "ui"],
   },
 };

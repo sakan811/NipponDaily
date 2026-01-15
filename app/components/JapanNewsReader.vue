@@ -157,7 +157,10 @@
                             .toString()
                             .padStart(2, '0')}-${customDateRange.start.day
                             .toString()
-                            .padStart(2, '0')} - ${customDateRange.end.year}-${customDateRange.end.month
+                            .padStart(
+                              2,
+                              '0',
+                            )} - ${customDateRange.end.year}-${customDateRange.end.month
                             .toString()
                             .padStart(2, '0')}-${customDateRange.end.day
                             .toString()
@@ -245,9 +248,7 @@
                     ></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-semibold mb-2">
-                  No news loaded yet
-                </h3>
+                <h3 class="text-xl font-semibold mb-2">No news loaded yet</h3>
                 <p class="text-secondary-500 mb-4">
                   Select your preferred time range and category, set the number
                   of articles to fetch (1-20), then click "Get News" to fetch

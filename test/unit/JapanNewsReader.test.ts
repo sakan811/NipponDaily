@@ -14,10 +14,18 @@ vi.mock("@internationalized/date", () => {
     month: number;
     day: number;
     subtract(options: { days: number }) {
-      return new MockCalendarDate(this.year, this.month, this.day - options.days);
+      return new MockCalendarDate(
+        this.year,
+        this.month,
+        this.day - options.days,
+      );
     }
     add(options: { days: number }) {
-      return new MockCalendarDate(this.year, this.month, this.day + options.days);
+      return new MockCalendarDate(
+        this.year,
+        this.month,
+        this.day + options.days,
+      );
     }
   }
   return {
@@ -409,7 +417,9 @@ describe("JapanNewsReader", () => {
     expect(wrapper.text()).toContain("API Error");
     const getNewsButton = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Try Again") || b.text().includes("Get News"));
+      .find(
+        (b) => b.text().includes("Try Again") || b.text().includes("Get News"),
+      );
     expect(getNewsButton).toBeDefined();
   });
 
@@ -470,7 +480,9 @@ describe("JapanNewsReader", () => {
 
     const getNewsButton = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Getting...") || b.text().includes("Get News"));
+      .find(
+        (b) => b.text().includes("Getting...") || b.text().includes("Get News"),
+      );
     expect(getNewsButton).toBeDefined();
     expect(getNewsButton?.attributes("disabled")).toBeDefined();
     expect(getNewsButton?.text()).toContain("Getting...");
@@ -2066,10 +2078,16 @@ describe("JapanNewsReader", () => {
           stubs: {
             UCalendar: {
               name: "UCalendar",
-              props: ["modelValue", "minValue", "maxValue", "numberOfMonths", "range", "class"],
+              props: [
+                "modelValue",
+                "minValue",
+                "maxValue",
+                "numberOfMonths",
+                "range",
+                "class",
+              ],
               emits: ["update:modelValue"],
-              template:
-                '<div class="u-calendar" data-calendar><slot /></div>',
+              template: '<div class="u-calendar" data-calendar><slot /></div>',
             },
           },
         },
@@ -2095,10 +2113,16 @@ describe("JapanNewsReader", () => {
           stubs: {
             UCalendar: {
               name: "UCalendar",
-              props: ["modelValue", "minValue", "maxValue", "numberOfMonths", "range", "class"],
+              props: [
+                "modelValue",
+                "minValue",
+                "maxValue",
+                "numberOfMonths",
+                "range",
+                "class",
+              ],
               emits: ["update:modelValue"],
-              template:
-                '<div class="u-calendar" data-calendar><slot /></div>',
+              template: '<div class="u-calendar" data-calendar><slot /></div>',
             },
           },
         },
@@ -2126,7 +2150,14 @@ describe("JapanNewsReader", () => {
     it("UCalendar receives correct props: min-value, max-value, number-of-months, range", async () => {
       const UCalendarStub = {
         name: "UCalendar",
-        props: ["modelValue", "minValue", "maxValue", "numberOfMonths", "range", "class"],
+        props: [
+          "modelValue",
+          "minValue",
+          "maxValue",
+          "numberOfMonths",
+          "range",
+          "class",
+        ],
         emits: ["update:modelValue"],
         template:
           '<div class="u-calendar" data-calendar :data-min="minValue?.year" :data-max="maxValue?.year" :data-months="numberOfMonths" :data-range="range"><slot /></div>',
@@ -2159,10 +2190,16 @@ describe("JapanNewsReader", () => {
           stubs: {
             UCalendar: {
               name: "UCalendar",
-              props: ["modelValue", "minValue", "maxValue", "numberOfMonths", "range", "class"],
+              props: [
+                "modelValue",
+                "minValue",
+                "maxValue",
+                "numberOfMonths",
+                "range",
+                "class",
+              ],
               emits: ["update:modelValue"],
-              template:
-                '<div class="u-calendar" data-calendar><slot /></div>',
+              template: '<div class="u-calendar" data-calendar><slot /></div>',
             },
           },
         },
@@ -2193,10 +2230,16 @@ describe("JapanNewsReader", () => {
           stubs: {
             UCalendar: {
               name: "UCalendar",
-              props: ["modelValue", "minValue", "maxValue", "numberOfMonths", "range", "class"],
+              props: [
+                "modelValue",
+                "minValue",
+                "maxValue",
+                "numberOfMonths",
+                "range",
+                "class",
+              ],
               emits: ["update:modelValue"],
-              template:
-                '<div class="u-calendar" data-calendar><slot /></div>',
+              template: '<div class="u-calendar" data-calendar><slot /></div>',
             },
           },
         },
@@ -2244,10 +2287,16 @@ describe("JapanNewsReader", () => {
             },
             UCalendar: {
               name: "UCalendar",
-              props: ["modelValue", "minValue", "maxValue", "numberOfMonths", "range", "class"],
+              props: [
+                "modelValue",
+                "minValue",
+                "maxValue",
+                "numberOfMonths",
+                "range",
+                "class",
+              ],
               emits: ["update:modelValue"],
-              template:
-                '<div class="u-calendar" data-calendar><slot /></div>',
+              template: '<div class="u-calendar" data-calendar><slot /></div>',
             },
           },
         },
@@ -2268,7 +2317,14 @@ describe("JapanNewsReader", () => {
           stubs: {
             UCalendar: {
               name: "UCalendar",
-              props: ["modelValue", "minValue", "maxValue", "numberOfMonths", "range", "class"],
+              props: [
+                "modelValue",
+                "minValue",
+                "maxValue",
+                "numberOfMonths",
+                "range",
+                "class",
+              ],
               emits: ["update:modelValue"],
               template:
                 '<div class="u-calendar p-2" data-calendar><slot /></div>',
@@ -2291,10 +2347,16 @@ describe("JapanNewsReader", () => {
           stubs: {
             UCalendar: {
               name: "UCalendar",
-              props: ["modelValue", "minValue", "maxValue", "numberOfMonths", "range", "class"],
+              props: [
+                "modelValue",
+                "minValue",
+                "maxValue",
+                "numberOfMonths",
+                "range",
+                "class",
+              ],
               emits: ["update:modelValue"],
-              template:
-                '<div class="u-calendar" data-calendar><slot /></div>',
+              template: '<div class="u-calendar" data-calendar><slot /></div>',
             },
           },
         },
@@ -2321,28 +2383,56 @@ describe("JapanNewsReader", () => {
           // Don't stub UCalendar or UPopover - let them render to get coverage on line 174
           stubs: {
             UHeader: {
-              template: '<header><slot name="left" /><slot name="right" /><slot name="body" /></header>',
+              template:
+                '<header><slot name="left" /><slot name="right" /><slot name="body" /></header>',
             },
             UColorModeButton: {
-              template: '<button><slot /></button>',
+              template: "<button><slot /></button>",
             },
             UInput: {
-              props: ["modelValue", "type", "min", "max", "placeholder", "disabled", "id", "size", "class"],
+              props: [
+                "modelValue",
+                "type",
+                "min",
+                "max",
+                "placeholder",
+                "disabled",
+                "id",
+                "size",
+                "class",
+              ],
               emits: ["update:modelValue"],
-              template: '<input />',
+              template: "<input />",
             },
             ULocaleSelect: {
-              props: ["id", "modelValue", "locales", "disabled", "size", "class"],
+              props: [
+                "id",
+                "modelValue",
+                "locales",
+                "disabled",
+                "size",
+                "class",
+              ],
               emits: ["update:modelValue"],
-              template: '<select />',
+              template: "<select />",
             },
             UButton: {
-              props: ["color", "variant", "size", "label", "icon", "disabled", "loading", "block", "class"],
+              props: [
+                "color",
+                "variant",
+                "size",
+                "label",
+                "icon",
+                "disabled",
+                "loading",
+                "block",
+                "class",
+              ],
               emits: ["click"],
-              template: '<button @click="$emit(\'click\')"><slot /></button>',
+              template: "<button @click=\"$emit('click')\"><slot /></button>",
             },
             UTooltip: {
-              template: '<div><slot /></div>',
+              template: "<div><slot /></div>",
             },
             USkeleton: {
               template: '<div class="u-skeleton"><slot /></div>',
@@ -2351,9 +2441,17 @@ describe("JapanNewsReader", () => {
               template: '<div class="u-card"><slot /></div>',
             },
             UPagination: {
-              props: ["page", "total", "itemsPerPage", "siblingCount", "showEdges", "color", "size"],
+              props: [
+                "page",
+                "total",
+                "itemsPerPage",
+                "siblingCount",
+                "showEdges",
+                "color",
+                "size",
+              ],
               emits: ["update:page"],
-              template: '<div />',
+              template: "<div />",
             },
           },
         },
