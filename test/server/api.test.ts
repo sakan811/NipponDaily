@@ -36,6 +36,23 @@ vi.mock("~/server/services/gemini", () => ({
   },
 }));
 
+// Mock rate limiter to always allow requests during tests
+const mockCheckRateLimit = vi.fn(() =>
+  Promise.resolve({
+    allowed: true,
+    remaining: 3,
+    resetTime: new Date(Date.now() + 86400000),
+    limit: 3,
+  }),
+);
+
+const mockGetClientIp = vi.fn(() => "127.0.0.1");
+
+vi.mock("~/server/utils/rate-limiter", () => ({
+  checkRateLimit: mockCheckRateLimit,
+  getClientIp: mockGetClientIp,
+}));
+
 describe("News API", () => {
   let handler: any;
 
@@ -46,6 +63,14 @@ describe("News API", () => {
     const handlerModule = await import("~/server/api/news.get");
     handler = handlerModule.default;
     (global as any).getQuery.mockReturnValue({ language: "English" });
+    // Reset rate limiter mocks
+    mockCheckRateLimit.mockResolvedValue({
+      allowed: true,
+      remaining: 3,
+      resetTime: new Date(Date.now() + 86400000),
+      limit: 3,
+    });
+    mockGetClientIp.mockReturnValue("127.0.0.1");
   });
 
   const createMockNews = (): NewsItem[] => [
@@ -66,7 +91,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue([]);
     mockGeminiCategorize.mockResolvedValue([]);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.success).toBe(true);
     expect(response.data).toEqual([]);
@@ -92,7 +124,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.success).toBe(true);
     expect(response.data).toHaveLength(1);
@@ -125,7 +164,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.data).toHaveLength(3);
     expect(response.count).toBe(3);
@@ -143,7 +189,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue([]);
     mockGeminiCategorize.mockResolvedValue([]);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.data).toHaveLength(0);
     expect(mockTavilySearch).toHaveBeenCalledWith({
@@ -161,7 +214,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.success).toBe(true);
     expect(response.data).toHaveLength(1);
@@ -178,7 +238,16 @@ describe("News API", () => {
     (global as any).getQuery.mockReturnValue({ language: "English" });
     mockTavilySearch.mockRejectedValue(error);
 
-    await expect(handler({})).rejects.toMatchObject({
+    await expect(
+      handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      }),
+    ).rejects.toMatchObject({
       statusCode: 500,
       statusMessage: "Failed to fetch news",
       data: { error: "Service error" },
@@ -199,7 +268,14 @@ describe("News API", () => {
     mockTavilySearch.mockRejectedValue(error);
 
     try {
-      await handler({});
+      await handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      });
     } catch {
       // Expected error - no action needed
     }
@@ -218,7 +294,16 @@ describe("News API", () => {
     (global as any).getQuery.mockReturnValue({ language: "English" });
     mockTavilySearch.mockRejectedValue("String error message");
 
-    await expect(handler({})).rejects.toMatchObject({
+    await expect(
+      handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      }),
+    ).rejects.toMatchObject({
       statusCode: 500,
       statusMessage: "Failed to fetch news",
       data: { error: "Unknown error occurred" },
@@ -267,7 +352,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.data).toHaveLength(3);
     expect(response.data[0].publishedAt).toBe("2024-12-01T00:00:00Z");
@@ -302,7 +394,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.data).toHaveLength(2);
     expect(response.data[0].publishedAt).toBe("2024-12-01T00:00:00Z");
@@ -345,7 +444,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.data).toHaveLength(3);
     // All should be treated as equal (date 0), so original order should be maintained
@@ -390,7 +496,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.data).toHaveLength(3);
     expect(response.data[0].publishedAt).toBe("2024-12-01T00:00:00Z");
@@ -443,7 +556,14 @@ describe("News API", () => {
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
 
-    const response = await handler({});
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
 
     expect(response.data).toHaveLength(4);
     // Should be sorted: Future > Epoch Zero > Invalid Format > Negative Timestamp
@@ -467,7 +587,14 @@ describe("News API", () => {
         mockTavilyFormat.mockReturnValue([]);
         mockGeminiCategorize.mockResolvedValue([]);
 
-        const response = await handler({});
+        const response = await handler({
+          node: {
+            req: {
+              socket: { remoteAddress: "127.0.0.1" },
+              headers: {},
+            },
+          },
+        });
 
         expect(response.success).toBe(true);
         expect(mockTavilySearch).toHaveBeenCalledWith({
@@ -488,7 +615,14 @@ describe("News API", () => {
       mockTavilyFormat.mockReturnValue([]);
       mockGeminiCategorize.mockResolvedValue([]);
 
-      const response = await handler({});
+      const response = await handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      });
 
       expect(response.success).toBe(true);
       expect(mockTavilySearch).toHaveBeenCalledWith({
@@ -505,7 +639,14 @@ describe("News API", () => {
       mockTavilyFormat.mockReturnValue([]);
       mockGeminiCategorize.mockResolvedValue([]);
 
-      const response = await handler({});
+      const response = await handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      });
 
       expect(response.success).toBe(true);
       expect(mockTavilySearch).toHaveBeenCalledWith({
@@ -534,7 +675,14 @@ describe("News API", () => {
         mockTavilyFormat.mockReturnValue([]);
         mockGeminiCategorize.mockResolvedValue([]);
 
-        const response = await handler({});
+        const response = await handler({
+          node: {
+            req: {
+              socket: { remoteAddress: "127.0.0.1" },
+              headers: {},
+            },
+          },
+        });
 
         expect(response.success).toBe(true);
         expect(mockTavilySearch).toHaveBeenCalledWith({
@@ -555,7 +703,14 @@ describe("News API", () => {
       mockTavilyFormat.mockReturnValue([]);
       mockGeminiCategorize.mockResolvedValue([]);
 
-      const response = await handler({});
+      const response = await handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      });
 
       expect(response.success).toBe(true);
       expect(mockTavilySearch).toHaveBeenCalledWith({
@@ -578,7 +733,14 @@ describe("News API", () => {
         mockTavilyFormat.mockReturnValue([]);
         mockGeminiCategorize.mockResolvedValue([]);
 
-        const response = await handler({});
+        const response = await handler({
+          node: {
+            req: {
+              socket: { remoteAddress: "127.0.0.1" },
+              headers: {},
+            },
+          },
+        });
 
         expect(response.success).toBe(true);
         expect(mockTavilySearch).toHaveBeenCalledWith({
@@ -601,7 +763,14 @@ describe("News API", () => {
       mockTavilyFormat.mockReturnValue([]);
       mockGeminiCategorize.mockResolvedValue([]);
 
-      const response = await handler({});
+      const response = await handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      });
 
       expect(response.success).toBe(true);
       expect(mockTavilySearch).toHaveBeenCalledWith({

@@ -65,6 +65,7 @@ vi.mock("h3", () => ({
   getCookie: vi.fn(() => null),
   setCookie: vi.fn(),
   deleteCookie: vi.fn(),
+  setResponseHeaders: vi.fn(),
   readBody: vi.fn(() => ({})),
   createError: vi.fn((error) => ({
     statusCode: error.statusCode || 500,
@@ -84,6 +85,7 @@ vi.mock("h3", () => ({
   statusMessage: error.statusMessage || "Internal Server Error",
   data: error.data || {},
 }));
+(global as any).setResponseHeaders = vi.fn();
 
 // Mock global fetch with enhanced functionality
 global.fetch = vi.fn(() =>
