@@ -43,6 +43,14 @@
    GEMINI_API_KEY=your_gemini_api_key_here
    ```
 
+   Optional: Configure rate limiting (default: 3 requests/day):
+
+   ```bash
+   RATE_LIMIT_MAX_REQUESTS=3
+   UPSTASH_REDIS_REST_URL=your_upstash_redis_url
+   UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_token
+   ```
+
 3. **Start development server**:
 
    ```bash
@@ -143,6 +151,7 @@ The credibility score uses a dynamic gradient computed as `hue = score × 120` (
 ### Limitations
 
 - **Article Count**: 10 articles default, 20 maximum per request
+- **Rate Limiting**: 3 requests per day per IP (configurable via `RATE_LIMIT_MAX_REQUESTS`)
 - **Dependencies**: Requires both Tavily API and Google Gemini API keys
 - **Categorization**: AI-based with fallback to "Other" category on failures
 
@@ -161,3 +170,6 @@ pnpm check-qa         # Run all quality checks
 - `GEMINI_API_KEY`: Google Gemini API key (required)
 - `TAVILY_API_KEY`: Tavily API key for news search (required)
 - `GEMINI_MODEL`: Gemini model (defaults to gemini-2.5-flash)
+- `RATE_LIMIT_MAX_REQUESTS`: Maximum requests per day (default: 3)
+- `UPSTASH_REDIS_REST_URL`: Upstash Redis URL for rate limiting (optional, fail-open if not set)
+- `UPSTASH_REDIS_REST_TOKEN`: Upstash Redis token for rate limiting (optional, fail-open if not set)
