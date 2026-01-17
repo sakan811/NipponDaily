@@ -1,7 +1,25 @@
 import { geminiService } from "../services/gemini";
 import { tavilyService } from "../services/tavily";
+import { checkRateLimit, getClientIp } from "../utils/rate-limiter";
 
 export default defineEventHandler(async (event) => {
+  // Check rate limit before processing request
+  const clientIp = getClientIp(event);
+  const rateLimitResult = await checkRateLimit(clientIp);
+
+  if (!rateLimitResult.allowed) {
+    throw createError({
+      statusCode: 429,
+      statusMessage: "Too many requests",
+      data: {
+        error: `Daily rate limit exceeded (${rateLimitResult.limit} request/day). Please try again tomorrow.`,
+        retryAfter: 86400, // 24 hours
+        resetTime: rateLimitResult.resetTime.toISOString(),
+        limit: rateLimitResult.limit,
+      },
+    });
+  }
+
   try {
     // Get runtime config
     const config = useRuntimeConfig();
@@ -64,6 +82,13 @@ export default defineEventHandler(async (event) => {
 
     // Limit results (in case categorization returned more than requested)
     news = news.slice(0, limit);
+
+    // Add rate limit headers to response
+    setResponseHeaders(event, {
+      "X-RateLimit-Limit": rateLimitResult.limit.toString(),
+      "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
+      "X-RateLimit-Reset": rateLimitResult.resetTime.toISOString(),
+    });
 
     return {
       success: true,
