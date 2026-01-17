@@ -220,6 +220,78 @@
             </div>
           </div>
 
+          <!-- Error State -->
+          <UCard
+            v-if="error"
+            data-testid="error-state"
+            :ui="{
+              base: {
+                background: 'bg-white dark:bg-gray-900',
+                divide: 'divide-y divide-gray-200 dark:divide-gray-800',
+                rounded: 'rounded-lg',
+                shadow: 'shadow',
+              },
+              body: {
+                base: 'p-4 sm:p-6',
+                background: '',
+                padding: 'px-4 py-5 sm:p-6',
+              },
+            }"
+            class="text-center"
+          >
+            <div class="p-2">
+              <!-- Rate Limit Error -->
+              <div v-if="isRateLimitError" class="space-y-4">
+                <div class="flex justify-center">
+                  <svg
+                    class="w-12 h-12 text-warning-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-warning-500 mb-2">
+                    Daily Limit Reached
+                  </h3>
+                  <p class="text-secondary-500 mb-2">{{ error }}</p>
+                  <p
+                    v-if="rateLimitResetTime"
+                    class="text-sm text-secondary-400"
+                  >
+                    Resets at: {{ rateLimitResetTime }}
+                  </p>
+                </div>
+                <UButton
+                  color="warning"
+                  @click="refreshNews"
+                  :disabled="loading"
+                >
+                  {{ loading ? "Checking..." : "Try Again" }}
+                </UButton>
+              </div>
+
+              <!-- General Error -->
+              <div v-else class="space-y-4">
+                <p class="text-primary-500">{{ error }}</p>
+                <UButton
+                  color="primary"
+                  @click="refreshNews"
+                  :disabled="loading"
+                >
+                  {{ loading ? "Retrying..." : "Try Again" }}
+                </UButton>
+              </div>
+            </div>
+          </UCard>
+
           <!-- News Loading State -->
           <div v-if="loading && news.length === 0" class="space-y-4">
             <USkeleton v-for="i in 3" :key="i" class="h-48 w-full rounded-lg" />
@@ -285,14 +357,6 @@
               size="sm"
             />
           </div>
-
-          <!-- Error State -->
-          <UCard v-if="error" data-testid="error-state" class="text-center">
-            <div class="p-6">
-              <p class="text-primary-500 mb-4">{{ error }}</p>
-              <UButton color="primary" @click="refreshNews">Try Again</UButton>
-            </div>
-          </UCard>
         </div>
       </div>
     </main>
@@ -313,6 +377,9 @@ const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 const appName = "NipponDaily";
+// Rate limit specific state
+const rateLimitResetTime = ref<string | null>(null);
+const isRateLimitError = ref(false);
 const selectedCategory = ref<CategoryId>("all");
 const selectedTimeRange = ref<
   "none" | "day" | "week" | "month" | "year" | "custom"
@@ -380,6 +447,9 @@ watch(news, () => {
 const fetchNews = async () => {
   loading.value = true;
   error.value = null;
+  // Reset rate limit state
+  isRateLimitError.value = false;
+  rateLimitResetTime.value = null;
 
   try {
     // Map locale code to language name for API
@@ -429,9 +499,25 @@ const fetchNews = async () => {
     news.value = response.data || [];
   } catch (err: unknown) {
     console.error("Error fetching news:", err);
+
+    // Type guard for fetch error with data
+    const errorData = err as {
+      statusCode?: number;
+      data?: {
+        error?: string;
+        resetTime?: string;
+        limit?: number;
+      };
+    };
+
+    // Check if this is a rate limit error (HTTP 429)
+    if (errorData.statusCode === 429) {
+      isRateLimitError.value = true;
+      rateLimitResetTime.value = errorData.data?.resetTime || null;
+    }
+
     error.value =
-      (err as { data?: { error?: string } })?.data?.error ||
-      "Failed to fetch news. Please try again.";
+      errorData.data?.error || "Failed to fetch news. Please try again.";
   } finally {
     loading.value = false;
   }

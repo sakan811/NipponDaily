@@ -423,6 +423,42 @@ describe("JapanNewsReader", () => {
     expect(getNewsButton).toBeDefined();
   });
 
+  it("shows rate limit error with reset time", async () => {
+    const resetTime = "2024-01-16T10:00:00.000Z";
+    mockFetch.mockRejectedValueOnce({
+      statusCode: 429,
+      data: {
+        error:
+          "Daily rate limit exceeded (3 requests/day). Please try again tomorrow.",
+        resetTime: resetTime,
+        limit: 3,
+      },
+    });
+
+    const wrapper = mountReader({
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    await wrapper.vm.fetchNews();
+    await nextTick();
+
+    // Check for rate limit specific UI elements
+    expect(wrapper.vm.isRateLimitError).toBe(true);
+    expect(wrapper.vm.rateLimitResetTime).toBe(resetTime);
+    expect(wrapper.text()).toContain("Daily Limit Reached");
+    expect(wrapper.text()).toContain("Daily rate limit exceeded");
+    expect(wrapper.text()).toContain("Resets at:");
+
+    // Check that the try again button is present and has warning color
+    const buttons = wrapper.findAll("button");
+    const tryAgainButton = buttons.find((b) => b.text().includes("Try Again"));
+    expect(tryAgainButton).toBeDefined();
+  });
+
   it("calls refreshNews method correctly", async () => {
     const wrapper = mountReader({
       global: {
