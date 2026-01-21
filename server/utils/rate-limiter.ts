@@ -1,124 +1,5 @@
 import { Redis } from "@upstash/redis";
 
-// IP address validation patterns
-const IP_PATTERNS = {
-  // IPv4 pattern: 0-255.0-255.0-255.0-255
-  ipv4: /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/,
-  // IPv6 pattern (simplified - handles most common formats)
-  ipv6: /^([0-9a-fA-F]{0,4}:){7}[0-9a-fA-F]{0,4}$|^::1$|^::$/,
-} as const;
-
-// Private IP ranges that should be rejected from forwarded headers
-const PRIVATE_IP_RANGES = [
-  // IPv4 private ranges
-  { start: "10.0.0.0", end: "10.255.255.255" }, // Private Class A
-  { start: "172.16.0.0", end: "172.31.255.255" }, // Private Class B
-  { start: "192.168.0.0", end: "192.168.255.255" }, // Private Class C
-  { start: "127.0.0.0", end: "127.255.255.255" }, // Loopback
-  { start: "169.254.0.0", end: "169.254.255.255" }, // Link-local
-  { start: "0.0.0.0", end: "0.255.255.255" }, // Current network
-  // IPv4 multicast and reserved
-  { start: "224.0.0.0", end: "239.255.255.255" }, // Multicast
-  { start: "255.255.255.0", end: "255.255.255.255" }, // Broadcast
-] as const;
-
-/**
- * Check if an IPv4 address is within a given range
- */
-function isInRange(ip: string, start: string, end: string): boolean {
-  const ipToNum = (ipStr: string): number => {
-    const parts = ipStr.split(".").map(Number);
-    return (parts[0] << 24) + (parts[1] << 16) + (parts[2] << 8) + parts[3];
-  };
-
-  const ipNum = ipToNum(ip);
-  return ipNum >= ipToNum(start) && ipNum <= ipToNum(end);
-}
-
-/**
- * Check if an IP address is a private/internal address
- * Private IPs in forwarded headers are likely spoofed
- */
-function isPrivateIp(ip: string): boolean {
-  // Check for IPv6 loopback
-  if (ip === "::1" || ip === "::") {
-    return true;
-  }
-
-  // Check IPv4 private ranges
-  for (const range of PRIVATE_IP_RANGES) {
-    if (isInRange(ip, range.start, range.end)) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-/**
- * Validate IPv4 address format and octet values
- */
-function isValidIPv4(ip: string): boolean {
-  const match = ip.match(IP_PATTERNS.ipv4);
-  if (!match) {
-    return false;
-  }
-
-  // Check that each octet is 0-255
-  const [, ...octets] = match;
-  return octets.every((octet) => {
-    const num = parseInt(octet, 10);
-    return num >= 0 && num <= 255;
-  });
-}
-
-/**
- * Validate IPv6 address format (basic validation)
- */
-function isValidIPv6(ip: string): boolean {
-  return IP_PATTERNS.ipv6.test(ip) || ip.includes(":");
-}
-
-/**
- * Sanitize and validate IP address to prevent spoofing
- * @param ip - IP address string to validate
- * @returns Sanitized IP or "unknown" if invalid
- */
-function sanitizeIp(ip: string | undefined): string {
-  if (!ip || typeof ip !== "string") {
-    return "unknown";
-  }
-
-  // Trim whitespace
-  const sanitized = ip.trim();
-
-  // Validate IPv4
-  if (sanitized.includes(".")) {
-    if (!isValidIPv4(sanitized)) {
-      return "unknown";
-    }
-    // Reject private IPs (potential spoofing)
-    if (isPrivateIp(sanitized)) {
-      return "unknown";
-    }
-    return sanitized;
-  }
-
-  // Validate IPv6 (basic check)
-  if (sanitized.includes(":")) {
-    if (!isValidIPv6(sanitized)) {
-      return "unknown";
-    }
-    // Reject loopback
-    if (sanitized === "::1" || sanitized === "::") {
-      return "unknown";
-    }
-    return sanitized;
-  }
-
-  return "unknown";
-}
-
 // Rate limit configuration - max requests per day (RPD)
 // Can be overridden via RATE_LIMIT_MAX_REQUESTS environment variable
 const RATE_LIMIT_CONFIG = {
@@ -285,8 +166,7 @@ export async function checkRateLimit(
 }
 
 /**
- * Extract and validate client IP address from Nuxt event
- * Protects against IP spoofing by validating forwarded headers
+ * Extract client IP address from Nuxt event
  */
 export function getClientIp(event: {
   node: { req: { socket?: { remoteAddress?: string } } };
@@ -304,54 +184,22 @@ export function getClientIp(event: {
   const trueClientIp = headers?.["true-client-ip"];
 
   // x-forwarded-for can contain multiple IPs: "client, proxy1, proxy2"
-  // We validate the leftmost (original client) IP
+  // Use the first (leftmost) IP as the client IP
   if (forwardedFor) {
-    const firstIp = forwardedFor.split(",")[0]?.trim();
-    const sanitized = sanitizeIp(firstIp);
-    if (sanitized !== "unknown") {
-      return sanitized;
-    }
-    // If first IP is invalid/private, try the rightmost (last proxy)
-    const ips = forwardedFor.split(",").map((ip) => ip.trim());
-    for (let i = ips.length - 1; i >= 0; i--) {
-      const validated = sanitizeIp(ips[i]);
-      if (validated !== "unknown") {
-        return validated;
-      }
-    }
+    return forwardedFor.split(",")[0]?.trim() || "unknown";
   }
 
   // Try other common headers (from trusted proxies/services)
   if (cfConnectingIp) {
-    const sanitized = sanitizeIp(cfConnectingIp);
-    if (sanitized !== "unknown") {
-      return sanitized;
-    }
+    return cfConnectingIp;
   }
   if (flyClientIp) {
-    const sanitized = sanitizeIp(flyClientIp);
-    if (sanitized !== "unknown") {
-      return sanitized;
-    }
+    return flyClientIp;
   }
   if (trueClientIp) {
-    const sanitized = sanitizeIp(trueClientIp);
-    if (sanitized !== "unknown") {
-      return sanitized;
-    }
+    return trueClientIp;
   }
 
   // Fall back to direct connection IP (from socket)
-  // Note: This may be a private IP behind a reverse proxy
-  const directIp = event.node.req.socket?.remoteAddress;
-  if (directIp) {
-    // For direct connection, we're more lenient since it's the actual connection
-    const sanitized = directIp.trim();
-    // Basic format validation
-    if (isValidIPv4(sanitized) || isValidIPv6(sanitized)) {
-      return sanitized;
-    }
-  }
-
-  return "unknown";
+  return event.node.req.socket?.remoteAddress || "unknown";
 }
