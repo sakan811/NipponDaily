@@ -42,6 +42,7 @@ class GeminiService {
     }
 
     try {
+      // Get language with fallback to English
       const language = options?.language || "English";
 
       const newsText = newsItems
