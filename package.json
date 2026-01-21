@@ -18,14 +18,14 @@
     "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run"
   },
   "dependencies": {
-    "@google/genai": "^1.37.0",
+    "@google/genai": "^1.38.0",
     "@nuxt/ui": "^4.3.0",
     "@tavily/core": "^0.7.1",
     "@upstash/redis": "^1.36.1",
     "nuxt": "^4.2.2",
     "ofetch": "^1.5.1",
     "tailwindcss": "^4.1.18",
-    "vue": "^3.5.26",
+    "vue": "^3.5.27",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
@@ -42,9 +42,9 @@
     "eslint": "^9.39.2",
     "eslint-plugin-vue": "^10.7.0",
     "globals": "^17.0.0",
-    "happy-dom": "^20.3.1",
+    "happy-dom": "^20.3.4",
     "prettier": "3.8.0",
-    "typescript-eslint": "^8.53.0",
+    "typescript-eslint": "^8.53.1",
     "unplugin-auto-import": "^21.0.0",
     "vite-tsconfig-paths": "^6.0.4",
     "vitest": "^4.0.17"
