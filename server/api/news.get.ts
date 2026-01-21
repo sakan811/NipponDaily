@@ -180,9 +180,7 @@ export default defineEventHandler(async (event) => {
     const tavilyResponse = await tavilyService.searchJapanNews({
       maxResults: validatedQuery.limit,
       category:
-        validatedQuery.category === "all"
-          ? undefined
-          : validatedQuery.category,
+        validatedQuery.category === "all" ? undefined : validatedQuery.category,
       timeRange: validatedQuery.timeRange,
       startDate: validatedQuery.startDate,
       endDate: validatedQuery.endDate,

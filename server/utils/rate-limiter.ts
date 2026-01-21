@@ -96,7 +96,10 @@ function checkInMemoryRateLimit(identifier: string): RateLimitResult {
     entry.resetTime = now + RATE_LIMIT_CONFIG.windowSeconds * 1000;
   }
 
-  const remaining = Math.max(0, RATE_LIMIT_CONFIG.maxRequests - entry.timestamps.length);
+  const remaining = Math.max(
+    0,
+    RATE_LIMIT_CONFIG.maxRequests - entry.timestamps.length,
+  );
 
   return {
     allowed,
