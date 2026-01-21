@@ -17,15 +17,38 @@ export interface RateLimitResult {
   limit: number;
 }
 
+// In-memory rate limiter for fallback when Redis is unavailable
+interface InMemoryEntry {
+  timestamps: number[];
+  resetTime: number;
+}
+
+// Use a Map for in-memory rate limiting (per-identifier tracking)
+const inMemoryStore = new Map<string, InMemoryEntry>();
+
+// Cleanup interval for in-memory store (run every hour)
+const CLEANUP_INTERVAL_MS = 60 * 60 * 1000;
+setInterval(() => {
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_CONFIG.windowSeconds * 1000;
+
+  for (const [key, entry] of inMemoryStore.entries()) {
+    // Remove old timestamps outside the window
+    entry.timestamps = entry.timestamps.filter((ts) => ts > windowStart);
+
+    // Remove empty entries
+    if (entry.timestamps.length === 0 && now > entry.resetTime) {
+      inMemoryStore.delete(key);
+    }
+  }
+}, CLEANUP_INTERVAL_MS);
+
 // Get Redis client instance
 function getRedisClient(): Redis | null {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
 
   if (!url || !token) {
-    console.warn(
-      "Upstash Redis credentials not configured - rate limiting disabled",
-    );
     return null;
   }
 
@@ -36,7 +59,56 @@ function getRedisClient(): Redis | null {
 }
 
 /**
- * Check if a request should be rate limited using Upstash Redis sliding window
+ * Check rate limit using in-memory storage (fallback when Redis unavailable)
+ * @param identifier - Unique identifier for the rate limit (e.g., IP address)
+ * @returns RateLimitResult with allowed status and metadata
+ */
+function checkInMemoryRateLimit(identifier: string): RateLimitResult {
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_CONFIG.windowSeconds * 1000;
+  const key = `ratelimit:${identifier}`;
+
+  // Get or create entry for this identifier
+  let entry = inMemoryStore.get(key);
+
+  if (!entry) {
+    entry = {
+      timestamps: [],
+      resetTime: now + RATE_LIMIT_CONFIG.windowSeconds * 1000,
+    };
+    inMemoryStore.set(key, entry);
+  }
+
+  // Clean up old timestamps outside the current window
+  entry.timestamps = entry.timestamps.filter((ts) => ts > windowStart);
+
+  // Check if limit exceeded
+  const currentCount = entry.timestamps.length;
+  const allowed = currentCount < RATE_LIMIT_CONFIG.maxRequests;
+
+  // Add current request timestamp if allowed
+  if (allowed) {
+    entry.timestamps.push(now);
+  }
+
+  // Update reset time if window has passed
+  if (now > entry.resetTime) {
+    entry.resetTime = now + RATE_LIMIT_CONFIG.windowSeconds * 1000;
+  }
+
+  const remaining = Math.max(0, RATE_LIMIT_CONFIG.maxRequests - entry.timestamps.length);
+
+  return {
+    allowed,
+    remaining,
+    resetTime: new Date(entry.resetTime),
+    limit: RATE_LIMIT_CONFIG.maxRequests,
+  };
+}
+
+/**
+ * Check if a request should be rate limited
+ * Uses Upstash Redis as primary, in-memory storage as fallback
  * @param identifier - Unique identifier for the rate limit (e.g., IP address)
  * @returns RateLimitResult with allowed status and metadata
  */
@@ -45,14 +117,9 @@ export async function checkRateLimit(
 ): Promise<RateLimitResult> {
   const redis = getRedisClient();
 
-  // If Redis is not configured, allow all requests (fail-open)
+  // If Redis is not configured, use in-memory rate limiting
   if (!redis) {
-    return {
-      allowed: true,
-      remaining: RATE_LIMIT_CONFIG.maxRequests,
-      resetTime: new Date(Date.now() + RATE_LIMIT_CONFIG.windowSeconds * 1000),
-      limit: RATE_LIMIT_CONFIG.maxRequests,
-    };
+    return checkInMemoryRateLimit(identifier);
   }
 
   try {
@@ -92,14 +159,9 @@ export async function checkRateLimit(
       limit: RATE_LIMIT_CONFIG.maxRequests,
     };
   } catch (error) {
-    console.error("Rate limit check failed:", error);
-    // Fail open - allow request if rate limiting fails
-    return {
-      allowed: true,
-      remaining: RATE_LIMIT_CONFIG.maxRequests,
-      resetTime: new Date(Date.now() + RATE_LIMIT_CONFIG.windowSeconds * 1000),
-      limit: RATE_LIMIT_CONFIG.maxRequests,
-    };
+    // Fallback to in-memory rate limiting if Redis fails
+    console.warn("Redis rate limit failed, using in-memory fallback:", error);
+    return checkInMemoryRateLimit(identifier);
   }
 }
 
