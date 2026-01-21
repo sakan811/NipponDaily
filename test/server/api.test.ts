@@ -809,7 +809,9 @@ describe("News API", () => {
           details: expect.arrayContaining([
             expect.objectContaining({
               path: "startDate",
-              message: expect.stringContaining("Both startDate and endDate must be provided together"),
+              message: expect.stringContaining(
+                "Both startDate and endDate must be provided together",
+              ),
             }),
           ]),
         },
