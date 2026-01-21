@@ -26,4 +26,18 @@ export default defineNuxtConfig({
       apiBase: "/api",
     },
   },
+  routeRules: {
+    "/**": {
+      headers: {
+        "Content-Security-Policy":
+          "default-src 'self'; script-src 'self' 'strict-dynamic' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.tavily.com https://generativelanguage.googleapis.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;",
+        "Strict-Transport-Security":
+          "max-age=31536000; includeSubDomains; preload",
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
+      },
+    },
+  },
 });
