@@ -4,7 +4,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
           <span>{{ appName }}</span>
         </NuxtLink>
       </template>
@@ -42,12 +42,12 @@
             />
           </div>
           <UButton
-            @click="refreshNews"
             :disabled="loading"
             :loading="loading"
             color="primary"
             size="sm"
             icon="i-heroicons-magnifying-glass"
+            @click="refreshNews"
           >
             <span class="hidden sm:inline">{{
               loading ? "Getting..." : "Get News"
@@ -91,17 +91,17 @@
               />
             </div>
             <UButton
+              :disabled="loading"
+              :loading="loading"
+              color="primary"
+              block
+              icon="i-heroicons-magnifying-glass"
               @click="
                 async () => {
                   await refreshNews();
                   mobileMenuOpen = false;
                 }
               "
-              :disabled="loading"
-              :loading="loading"
-              color="primary"
-              block
-              icon="i-heroicons-magnifying-glass"
             >
               {{ loading ? "Getting..." : "Get News" }}
             </UButton>
@@ -129,7 +129,6 @@
                 :text="`Filter news by ${timeRange.name.toLowerCase()}`"
               >
                 <UButton
-                  @click="selectedTimeRange = timeRange.id"
                   :color="
                     selectedTimeRange === timeRange.id ? 'primary' : 'secondary'
                   "
@@ -138,6 +137,7 @@
                   "
                   size="xs"
                   :label="timeRange.name"
+                  @click="selectedTimeRange = timeRange.id"
                 />
               </UTooltip>
             </div>
@@ -206,7 +206,6 @@
                 "
               >
                 <UButton
-                  @click="selectedCategory = category.id"
                   :color="
                     selectedCategory === category.id ? 'primary' : 'secondary'
                   "
@@ -215,6 +214,7 @@
                   "
                   size="xs"
                   :label="category.name"
+                  @click="selectedCategory = category.id"
                 />
               </UTooltip>
             </div>
@@ -254,7 +254,7 @@
                       stroke-linejoin="round"
                       stroke-width="2"
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
+                    />
                   </svg>
                 </div>
                 <div>
@@ -271,8 +271,8 @@
                 </div>
                 <UButton
                   color="warning"
-                  @click="refreshNews"
                   :disabled="loading"
+                  @click="refreshNews"
                 >
                   {{ loading ? "Checking..." : "Try Again" }}
                 </UButton>
@@ -283,8 +283,8 @@
                 <p class="text-primary-500">{{ error }}</p>
                 <UButton
                   color="primary"
-                  @click="refreshNews"
                   :disabled="loading"
+                  @click="refreshNews"
                 >
                   {{ loading ? "Retrying..." : "Try Again" }}
                 </UButton>
@@ -303,38 +303,44 @@
           <!-- News List -->
           <div v-else class="space-y-4">
             <!-- Instruction text when no news is loaded -->
-            <UCard v-if="news.length === 0 && !loading" class="text-center">
-              <div class="p-8">
-                <div class="mb-4">
-                  <svg
-                    class="w-16 h-16 mx-auto text-secondary-500 opacity-50"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">No news loaded yet</h3>
-                <p class="text-secondary-500 mb-4">
-                  Select your preferred time range and category, set the number
-                  of articles to fetch (1-20), then click "Get News" to fetch
-                  targeted news from Japan
-                </p>
-                <p class="text-sm opacity-70">
-                  <em
-                    >Tip: Time range and category filters will affect the search
-                    results, not just the display. The news count controls how
-                    many articles to fetch.</em
-                  >
-                </p>
+            <div
+              v-if="news.length === 0 && !loading"
+              class="bg-white dark:bg-gray-900 rounded-lg shadow text-center p-8"
+              style="contain: layout style paint"
+            >
+              <div class="mb-4">
+                <svg
+                  class="w-16 h-16 mx-auto text-secondary-500 opacity-50"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                  />
+                </svg>
               </div>
-            </UCard>
+              <h3 class="text-xl font-semibold mb-2">No news loaded yet</h3>
+              <p
+                class="mb-4"
+                style="color: rgb(100 116 139); contain: layout style"
+              >
+                Select your preferred time range and category, set the number
+                of articles to fetch (1-20), then click "Get News" to fetch
+                targeted news from Japan
+              </p>
+              <p class="text-sm opacity-70">
+                <em
+                  >Tip: Time range and category filters will affect the search
+                  results, not just the display. The news count controls how
+                  many articles to fetch.</em
+                  >
+              </p>
+            </div>
             <NewsCard
               v-for="item in paginatedNews"
               :key="item.title"
