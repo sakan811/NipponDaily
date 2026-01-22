@@ -31,8 +31,9 @@ const newsQuerySchema = z
       .transform((val) => {
         if (!val || val.trim() === "" || val === "week") return "week";
         // Validate against allowed values
-        const allowed = ["none", "day", "week", "month", "year"];
-        if (allowed.includes(val)) return val as any;
+        const allowed = ["none", "day", "week", "month", "year"] as const;
+        if (allowed.includes(val as "none" | "day" | "week" | "month" | "year"))
+          return val as "none" | "day" | "week" | "month" | "year";
         return "week";
       }),
 
@@ -167,7 +168,7 @@ export default defineEventHandler(async (event) => {
         statusCode: 500,
         statusMessage: "Rate limit service unavailable",
         data: {
-          error: error.message,
+          error: String(error.message),
         },
       });
     }
