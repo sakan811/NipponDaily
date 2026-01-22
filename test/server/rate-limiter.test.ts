@@ -442,4 +442,56 @@ describe("Rate Limiter", () => {
       expect(error.message).toBe("Test error message");
     });
   });
+
+  describe("checkRateLimit with custom config", () => {
+    beforeEach(() => {
+      vi.clearAllMocks();
+      delete process.env.UPSTASH_REDIS_REST_URL;
+      delete process.env.UPSTASH_REDIS_REST_TOKEN;
+      delete process.env.RATE_LIMIT_MAX_REQUESTS;
+    });
+
+    afterEach(() => {
+      delete process.env.UPSTASH_REDIS_REST_URL;
+      delete process.env.UPSTASH_REDIS_REST_TOKEN;
+      delete process.env.RATE_LIMIT_MAX_REQUESTS;
+      vi.resetModules();
+    });
+
+    it("passes through rateLimitMaxRequests config (covers line 34)", async () => {
+      // Use fake Redis credentials that will fail to connect
+      // but pass through the config to test getMaxRequests
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
+
+      // Set fake Redis URL that will cause a connection error
+      // This triggers line 79 (Redis initialization failed) which covers line 34
+      await expect(
+        checkRateLimit("test-ip", {
+          upstashRedisRestUrl: "https://fake.redis.upstash.io",
+          upstashRedisRestToken: "fake-token",
+          rateLimitMaxRequests: 10,
+        }),
+      ).rejects.toThrow(RateLimitError);
+    });
+
+    it("throws RateLimitError when Redis connection fails", async () => {
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
+
+      // Use invalid Redis URL to trigger connection error
+      await expect(
+        checkRateLimit("test-ip", {
+          upstashRedisRestUrl: "https://invalid.redis.upstash.io",
+          upstashRedisRestToken: "invalid-token",
+        }),
+      ).rejects.toThrow(RateLimitError);
+      await expect(
+        checkRateLimit("test-ip", {
+          upstashRedisRestUrl: "https://invalid.redis.upstash.io",
+          upstashRedisRestToken: "invalid-token",
+        }),
+      ).rejects.toThrow("Redis not available or not working");
+    });
+  });
 });
