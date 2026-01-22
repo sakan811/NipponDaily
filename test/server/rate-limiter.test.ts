@@ -15,8 +15,8 @@ describe("Rate Limiter", () => {
         await import("~/server/utils/rate-limiter");
       const testIp = "127.0.0.1";
 
-      await expect(checkRateLimit(testIp)).rejects.toThrow(RateLimitError);
-      await expect(checkRateLimit(testIp)).rejects.toThrow(
+      await expect(checkRateLimit(testIp, {})).rejects.toThrow(RateLimitError);
+      await expect(checkRateLimit(testIp, {})).rejects.toThrow(
         "Redis not configured",
       );
     });
@@ -28,8 +28,10 @@ describe("Rate Limiter", () => {
       // Only set token, not URL
       process.env.UPSTASH_REDIS_REST_TOKEN = "test-token";
 
-      await expect(checkRateLimit("test-ip")).rejects.toThrow(RateLimitError);
-      await expect(checkRateLimit("test-ip")).rejects.toThrow(
+      await expect(checkRateLimit("test-ip", {})).rejects.toThrow(
+        RateLimitError,
+      );
+      await expect(checkRateLimit("test-ip", {})).rejects.toThrow(
         "UPSTASH_REDIS_REST_URL",
       );
     });
@@ -41,8 +43,10 @@ describe("Rate Limiter", () => {
       // Only set URL, not token
       process.env.UPSTASH_REDIS_REST_URL = "https://test.redis.upstash.io";
 
-      await expect(checkRateLimit("test-ip")).rejects.toThrow(RateLimitError);
-      await expect(checkRateLimit("test-ip")).rejects.toThrow(
+      await expect(checkRateLimit("test-ip", {})).rejects.toThrow(
+        RateLimitError,
+      );
+      await expect(checkRateLimit("test-ip", {})).rejects.toThrow(
         "UPSTASH_REDIS_REST_TOKEN",
       );
     });
@@ -54,7 +58,7 @@ describe("Rate Limiter", () => {
         .mockImplementation(() => {});
 
       try {
-        await checkRateLimit("test-ip");
+        await checkRateLimit("test-ip", {});
       } catch {
         // Expected to throw
       }
@@ -372,7 +376,12 @@ describe("Rate Limiter", () => {
 
       // Since we can't actually connect to the fake Redis URL,
       // it should throw a RateLimitError
-      await expect(checkRateLimit("test-ip")).rejects.toThrow(RateLimitError);
+      await expect(
+        checkRateLimit("test-ip", {
+          upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
+          upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+        }),
+      ).rejects.toThrow(RateLimitError);
       expect(consoleSpy).toHaveBeenCalledWith(
         expect.stringContaining("Redis rate limit failed"),
       );
@@ -385,10 +394,18 @@ describe("Rate Limiter", () => {
         await import("~/server/utils/rate-limiter");
 
       // The Redis URL is configured but not actually available
-      await expect(checkRateLimit("test-ip")).rejects.toThrow(RateLimitError);
-      await expect(checkRateLimit("test-ip")).rejects.toThrow(
-        "Redis not available or not working",
-      );
+      await expect(
+        checkRateLimit("test-ip", {
+          upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
+          upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+        }),
+      ).rejects.toThrow(RateLimitError);
+      await expect(
+        checkRateLimit("test-ip", {
+          upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
+          upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+        }),
+      ).rejects.toThrow("Redis not available or not working");
     });
 
     it("logs error when Redis fails", async () => {
@@ -398,7 +415,10 @@ describe("Rate Limiter", () => {
         .mockImplementation(() => {});
 
       try {
-        await checkRateLimit("test-ip");
+        await checkRateLimit("test-ip", {
+          upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
+          upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+        });
       } catch {
         // Expected to throw
       }
