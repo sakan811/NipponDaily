@@ -7590,11 +7590,6 @@ packages:
     engines: { node: ">=20.16.0" }
     hasBin: true
 
-  srvx@0.10.1:
-    resolution: {integrity: sha512-A//xtfak4eESMWWydSRFUVvCTQbSwivnGCEf8YGPe2eHU0+Z6znfUTCPF0a7oV3sObSOcrXHlL6Bs9vVctfXdg==}
-    engines: {node: '>=20.16.0'}
-    hasBin: true
-
   stackback@0.0.2:
     resolution:
       {
@@ -13819,8 +13814,6 @@ snapshots:
   source-map@0.7.6: {}
 
   speakingurl@14.0.1: {}
-
-  srvx@0.10.1: {}
 
   srvx@0.10.1: {}
 
