@@ -11,9 +11,8 @@ describe("Rate Limiter", () => {
     });
 
     it("throws RateLimitError when Redis is not configured", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
       const testIp = "127.0.0.1";
 
       await expect(checkRateLimit(testIp)).rejects.toThrow(RateLimitError);
@@ -23,9 +22,8 @@ describe("Rate Limiter", () => {
     });
 
     it("throws RateLimitError when Redis URL is missing", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
 
       // Only set token, not URL
       process.env.UPSTASH_REDIS_REST_TOKEN = "test-token";
@@ -37,9 +35,8 @@ describe("Rate Limiter", () => {
     });
 
     it("throws RateLimitError when Redis token is missing", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
 
       // Only set URL, not token
       process.env.UPSTASH_REDIS_REST_URL = "https://test.redis.upstash.io";
@@ -367,9 +364,8 @@ describe("Rate Limiter", () => {
     });
 
     it("throws RateLimitError when Redis connection fails", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
       const consoleSpy = vi
         .spyOn(console, "error")
         .mockImplementation(() => {});
@@ -385,9 +381,8 @@ describe("Rate Limiter", () => {
     });
 
     it("throws RateLimitError when Redis is not available after configuration", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
 
       // The Redis URL is configured but not actually available
       await expect(checkRateLimit("test-ip")).rejects.toThrow(RateLimitError);
