@@ -504,7 +504,7 @@ const fetchNews = async () => {
     const errorData = err as {
       statusCode?: number;
       data?: {
-        error?: string;
+        error?: string | unknown;
         resetTime?: string;
         limit?: number;
       };
@@ -514,10 +514,33 @@ const fetchNews = async () => {
     if (errorData.statusCode === 429) {
       isRateLimitError.value = true;
       rateLimitResetTime.value = errorData.data?.resetTime || null;
+      const errorMsg = errorData.data?.error;
+      error.value =
+        typeof errorMsg === "string"
+          ? errorMsg
+          : "Daily rate limit exceeded. Please try again tomorrow.";
+    } else if (errorData.statusCode === 500) {
+      // Rate limit service unavailable (Redis not configured)
+      const errorMsg = errorData.data?.error;
+      if (
+        typeof errorMsg === "string" &&
+        errorMsg.includes("Redis not configured")
+      ) {
+        error.value =
+          "Rate limiting service is unavailable. Please contact the administrator to configure Redis.";
+      } else {
+        error.value =
+          typeof errorMsg === "string"
+            ? errorMsg
+            : "Service temporarily unavailable. Please try again.";
+      }
+    } else {
+      const errorMsg = errorData.data?.error;
+      error.value =
+        typeof errorMsg === "string"
+          ? errorMsg
+          : "Failed to fetch news. Please try again.";
     }
-
-    error.value =
-      errorData.data?.error || "Failed to fetch news. Please try again.";
   } finally {
     loading.value = false;
   }
