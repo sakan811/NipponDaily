@@ -1,6 +1,10 @@
 import { geminiService } from "../services/gemini";
 import { tavilyService } from "../services/tavily";
-import { checkRateLimit, getClientIp } from "../utils/rate-limiter";
+import {
+  checkRateLimit,
+  getClientIp,
+  RateLimitError,
+} from "../utils/rate-limiter";
 import { z } from "zod";
 
 /**
@@ -153,7 +157,22 @@ type NewsQuery = z.infer<typeof newsQuerySchema>;
 export default defineEventHandler(async (event) => {
   // Check rate limit before processing request
   const clientIp = getClientIp(event);
-  const rateLimitResult = await checkRateLimit(clientIp);
+  let rateLimitResult: Awaited<ReturnType<typeof checkRateLimit>>;
+
+  try {
+    rateLimitResult = await checkRateLimit(clientIp);
+  } catch (error) {
+    if (error instanceof RateLimitError) {
+      throw createError({
+        statusCode: 500,
+        statusMessage: "Rate limit service unavailable",
+        data: {
+          error: error.message,
+        },
+      });
+    }
+    throw error;
+  }
 
   if (!rateLimitResult.allowed) {
     throw createError({

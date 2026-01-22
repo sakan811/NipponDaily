@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 describe("Rate Limiter", () => {
   describe("checkRateLimit", () => {
@@ -10,70 +10,64 @@ describe("Rate Limiter", () => {
       delete process.env.RATE_LIMIT_MAX_REQUESTS;
     });
 
-    it("enforces rate limit using in-memory storage when Upstash is not configured", async () => {
-      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+    it("throws RateLimitError when Redis is not configured", async () => {
+      const { checkRateLimit, RateLimitError } = await import(
+        "~/server/utils/rate-limiter"
+      );
       const testIp = "127.0.0.1";
 
-      // First request should be allowed
-      const result1 = await checkRateLimit(testIp);
-      expect(result1.allowed).toBe(true);
-      expect(result1.remaining).toBe(2); // 3 - 1 = 2
-      expect(result1.limit).toBe(3);
-
-      // Second request should be allowed
-      const result2 = await checkRateLimit(testIp);
-      expect(result2.allowed).toBe(true);
-      expect(result2.remaining).toBe(1); // 3 - 2 = 1
-
-      // Third request should be allowed
-      const result3 = await checkRateLimit(testIp);
-      expect(result3.allowed).toBe(true);
-      expect(result3.remaining).toBe(0); // 3 - 3 = 0
-
-      // Fourth request should be rate limited
-      const result4 = await checkRateLimit(testIp);
-      expect(result4.allowed).toBe(false);
-      expect(result4.remaining).toBe(0);
+      await expect(checkRateLimit(testIp)).rejects.toThrow(RateLimitError);
+      await expect(checkRateLimit(testIp)).rejects.toThrow(
+        "Redis not configured",
+      );
     });
 
-    it("tracks rate limits independently for different IPs", async () => {
-      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+    it("throws RateLimitError when Redis URL is missing", async () => {
+      const { checkRateLimit, RateLimitError } = await import(
+        "~/server/utils/rate-limiter"
+      );
 
-      // Make 3 requests for IP 1
-      await checkRateLimit("192.168.1.1");
-      await checkRateLimit("192.168.1.1");
-      await checkRateLimit("192.168.1.1");
+      // Only set token, not URL
+      process.env.UPSTASH_REDIS_REST_TOKEN = "test-token";
 
-      // IP 1 should be rate limited
-      const result1 = await checkRateLimit("192.168.1.1");
-      expect(result1.allowed).toBe(false);
-
-      // IP 2 should still have all requests available
-      const result2 = await checkRateLimit("192.168.1.2");
-      expect(result2.allowed).toBe(true);
-      expect(result2.remaining).toBe(2);
+      await expect(checkRateLimit("test-ip")).rejects.toThrow(RateLimitError);
+      await expect(checkRateLimit("test-ip")).rejects.toThrow(
+        "UPSTASH_REDIS_REST_URL",
+      );
     });
 
-    it("returns correct structure with remaining count", async () => {
-      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+    it("throws RateLimitError when Redis token is missing", async () => {
+      const { checkRateLimit, RateLimitError } = await import(
+        "~/server/utils/rate-limiter"
+      );
 
-      const result = await checkRateLimit("test-ip");
+      // Only set URL, not token
+      process.env.UPSTASH_REDIS_REST_URL = "https://test.redis.upstash.io";
 
-      expect(result.remaining).toBeGreaterThanOrEqual(0);
-      expect(result.remaining).toBeLessThanOrEqual(result.limit);
-      expect(result.resetTime).toBeInstanceOf(Date);
+      await expect(checkRateLimit("test-ip")).rejects.toThrow(RateLimitError);
+      await expect(checkRateLimit("test-ip")).rejects.toThrow(
+        "UPSTASH_REDIS_REST_TOKEN",
+      );
     });
 
-    it("respects custom RATE_LIMIT_MAX_REQUESTS configuration", async () => {
-      // Note: This test would require module isolation which is complex
-      // The RATE_LIMIT_MAX_REQUESTS env var is read at module load time
-      // Default value of 3 is tested by other tests in this suite
-      // To test custom values, run the entire test suite with: RATE_LIMIT_MAX_REQUESTS=5 pnpm test:run
+    it("logs error when Redis is not configured", async () => {
       const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
 
-      // Verify default limit is 3
-      const result = await checkRateLimit("default-limit-test");
-      expect(result.limit).toBe(3);
+      try {
+        await checkRateLimit("test-ip");
+      } catch {
+        // Expected to throw
+      }
+
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        "Rate limit error:",
+        expect.stringContaining("Redis not configured"),
+      );
+
+      consoleErrorSpy.mockRestore();
     });
   });
 
@@ -372,136 +366,65 @@ describe("Rate Limiter", () => {
       vi.resetModules();
     });
 
-    it("uses in-memory fallback when Redis is not available", async () => {
-      process.env.UPSTASH_REDIS_REST_URL = "";
-      process.env.UPSTASH_REDIS_REST_TOKEN = "";
+    it("throws RateLimitError when Redis connection fails", async () => {
+      const { checkRateLimit, RateLimitError } = await import(
+        "~/server/utils/rate-limiter"
+      );
+      const consoleSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
 
-      // Reset module to pick up new env vars
-      vi.resetModules();
-      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
-      const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-
-      // Use unique identifier to avoid conflicts with previous tests
-      const testIp = "fallback-test-unique-" + Date.now();
-
-      // First request should be allowed
-      const result1 = await checkRateLimit(testIp);
-      expect(result1.allowed).toBe(true);
-      expect(result1.remaining).toBe(2);
-
-      // Make 2 more requests to reach the limit
-      await checkRateLimit(testIp);
-      await checkRateLimit(testIp);
-
-      // Fourth request should be rate limited
-      const result4 = await checkRateLimit(testIp);
-      expect(result4.allowed).toBe(false);
+      // Since we can't actually connect to the fake Redis URL,
+      // it should throw a RateLimitError
+      await expect(checkRateLimit("test-ip")).rejects.toThrow(RateLimitError);
+      expect(consoleSpy).toHaveBeenCalledWith(
+        expect.stringContaining("Redis rate limit failed"),
+      );
 
       consoleSpy.mockRestore();
     });
 
-    it("falls back to in-memory when Redis throws error", async () => {
-      // Clear env to force in-memory
-      delete process.env.UPSTASH_REDIS_REST_URL;
-      delete process.env.UPSTASH_REDIS_REST_TOKEN;
-      vi.resetModules();
+    it("throws RateLimitError when Redis is not available after configuration", async () => {
+      const { checkRateLimit, RateLimitError } = await import(
+        "~/server/utils/rate-limiter"
+      );
 
-      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
-
-      // Use unique identifier
-      const testIp = "redis-error-fallback-" + Date.now();
-
-      const result = await checkRateLimit(testIp);
-
-      // Should work with in-memory fallback
-      expect(result.allowed).toBe(true);
+      // The Redis URL is configured but not actually available
+      await expect(checkRateLimit("test-ip")).rejects.toThrow(RateLimitError);
+      await expect(checkRateLimit("test-ip")).rejects.toThrow(
+        "Redis not available or not working",
+      );
     });
 
-    it("tracks request timestamps correctly in in-memory mode", async () => {
-      delete process.env.UPSTASH_REDIS_REST_URL;
-      delete process.env.UPSTASH_REDIS_REST_TOKEN;
-
+    it("logs error when Redis fails", async () => {
       const { checkRateLimit } = await import("~/server/utils/rate-limiter");
-
-      // First request
-      const result1 = await checkRateLimit("timestamp-test");
-      expect(result1.allowed).toBe(true);
-      expect(result1.remaining).toBe(2);
-
-      // Second request immediately
-      const result2 = await checkRateLimit("timestamp-test");
-      expect(result2.allowed).toBe(true);
-      expect(result2.remaining).toBe(1);
-
-      // Third request
-      const result3 = await checkRateLimit("timestamp-test");
-      expect(result3.allowed).toBe(true);
-      expect(result3.remaining).toBe(0);
-
-      // Fourth request should be blocked
-      const result4 = await checkRateLimit("timestamp-test");
-      expect(result4.allowed).toBe(false);
-      expect(result4.remaining).toBe(0);
-    });
-
-    it("respects custom RATE_LIMIT_MAX_REQUESTS", async () => {
-      process.env.RATE_LIMIT_MAX_REQUESTS = "5";
-      delete process.env.UPSTASH_REDIS_REST_URL;
-      delete process.env.UPSTASH_REDIS_REST_TOKEN;
-
-      // Reset module to pick up new env var
-      vi.resetModules();
-      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
-
-      // Make 5 requests
-      for (let i = 0; i < 5; i++) {
-        const result = await checkRateLimit("custom-limit-test");
-        expect(result.allowed).toBe(true);
-        expect(result.remaining).toBe(4 - i);
-      }
-
-      // 6th request should be blocked
-      const result6 = await checkRateLimit("custom-limit-test");
-      expect(result6.allowed).toBe(false);
-      expect(result6.limit).toBe(5);
-
-      // Clean up
-      delete process.env.RATE_LIMIT_MAX_REQUESTS;
-      vi.resetModules();
-    });
-
-    it("updates reset time when window has passed", async () => {
-      delete process.env.UPSTASH_REDIS_REST_URL;
-      delete process.env.UPSTASH_REDIS_REST_TOKEN;
-      vi.resetModules();
-
-      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
-
-      // Make initial request to set up the rate limit entry
-      const result1 = await checkRateLimit("reset-time-update-test");
-      expect(result1.allowed).toBe(true);
-      const initialResetTime = result1.resetTime.getTime();
-
-      // Immediately make another request - should have same reset time
-      const result2 = await checkRateLimit("reset-time-update-test");
-      expect(result2.allowed).toBe(true);
-      expect(result2.resetTime.getTime()).toBe(initialResetTime);
-
-      // The reset time is set to now + 24 hours
-      // To test line 215 (now > entry.resetTime), we need to advance time
-      // Use fake timers to simulate time passing
-      vi.useFakeTimers();
-      vi.setSystemTime(Date.now() + 25 * 60 * 60 * 1000); // Advance 25 hours
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
 
       try {
-        // After advancing time, the reset time should be updated
-        const result3 = await checkRateLimit("reset-time-update-test");
-        expect(result3.allowed).toBe(true);
-        // New reset time should be later than the initial one
-        expect(result3.resetTime.getTime()).toBeGreaterThan(initialResetTime);
-      } finally {
-        vi.useRealTimers();
+        await checkRateLimit("test-ip");
+      } catch {
+        // Expected to throw
       }
+
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        expect.stringContaining("Redis rate limit failed"),
+      );
+
+      consoleErrorSpy.mockRestore();
+    });
+  });
+
+  describe("RateLimitError", () => {
+    it("is exported and can be instantiated", async () => {
+      const { RateLimitError } = await import("~/server/utils/rate-limiter");
+
+      const error = new RateLimitError("Test error message");
+
+      expect(error).toBeInstanceOf(Error);
+      expect(error.name).toBe("RateLimitError");
+      expect(error.message).toBe("Test error message");
     });
   });
 });
