@@ -156,12 +156,21 @@ const newsQuerySchema = z
 type NewsQuery = z.infer<typeof newsQuerySchema>;
 
 export default defineEventHandler(async (event) => {
+  // Get runtime config first (needed for rate limit config)
+  const config = useRuntimeConfig();
+
   // Check rate limit before processing request
   const clientIp = getClientIp(event);
   let rateLimitResult: Awaited<ReturnType<typeof checkRateLimit>>;
 
   try {
-    rateLimitResult = await checkRateLimit(clientIp);
+    rateLimitResult = await checkRateLimit(clientIp, {
+      upstashRedisRestUrl: config.upstashRedisRestUrl,
+      upstashRedisRestToken: config.upstashRedisRestToken,
+      rateLimitMaxRequests: config.rateLimitMaxRequests
+        ? parseInt(config.rateLimitMaxRequests as string, 10)
+        : undefined,
+    });
   } catch (error) {
     if (error instanceof RateLimitError) {
       throw createError({
@@ -189,9 +198,6 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    // Get runtime config
-    const config = useRuntimeConfig();
-
     // Get and validate query parameters using Zod
     const query = getQuery(event);
     const validatedQuery = newsQuerySchema.parse(query) as NewsQuery;
