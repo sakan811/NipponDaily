@@ -19,7 +19,15 @@ describe("JapanNewsReader - Pagination", () => {
 
   it("does not render pagination when news count <= items per page", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     // Only 2 items, itemsPerPage is 3, so no pagination
@@ -34,7 +42,15 @@ describe("JapanNewsReader - Pagination", () => {
 
   it("renders pagination when news count > items per page", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     // Add more mock news to exceed itemsPerPage (3)
@@ -74,7 +90,15 @@ describe("JapanNewsReader - Pagination", () => {
 
   it("paginates news correctly", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     // Add 5 items to test pagination (itemsPerPage = 3)
@@ -128,7 +152,15 @@ describe("JapanNewsReader - Pagination", () => {
 
   it("resets page to 1 when category changes", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     // Add 5 items to test pagination
@@ -180,7 +212,15 @@ describe("JapanNewsReader - Pagination", () => {
 
   it("syncs page with UPagination via v-model", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
     // Need 4 items to exceed itemsPerPage (3) and show pagination
     mockFetch.mockResolvedValue({

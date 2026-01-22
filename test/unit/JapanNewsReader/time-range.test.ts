@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { nextTick } from "vue";
+import { nextTick as _nextTick } from "vue";
 
 import { mountReader, mockNews } from "./setup";
 
@@ -21,7 +21,11 @@ describe("JapanNewsReader - Time Range", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -49,7 +53,11 @@ describe("JapanNewsReader - Time Range", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -67,7 +75,11 @@ describe("JapanNewsReader - Time Range", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -97,7 +109,11 @@ describe("JapanNewsReader - Time Range", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -120,7 +136,11 @@ describe("JapanNewsReader - Time Range", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });

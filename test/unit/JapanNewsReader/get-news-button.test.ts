@@ -21,7 +21,11 @@ describe("JapanNewsReader - Get News Button", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -39,7 +43,11 @@ describe("JapanNewsReader - Get News Button", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -86,7 +94,11 @@ describe("JapanNewsReader - Get News Button", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -134,7 +146,11 @@ describe("JapanNewsReader - Get News Button", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });

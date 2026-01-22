@@ -1,10 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 
-import {
-  getHandler,
-  setupDefaults,
-  mockCheckRateLimit,
-} from "./setup";
+import { getHandler, setupDefaults, mockCheckRateLimit } from "./setup";
 
 describe("News API - Rate Limit Error Handling", () => {
   let handler: any;
@@ -19,7 +15,9 @@ describe("News API - Rate Limit Error Handling", () => {
 
     // Mock checkRateLimit to throw RateLimitError
     mockCheckRateLimit.mockRejectedValue(
-      new RateLimitError("Redis not configured: UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN environment variables are required for rate limiting"),
+      new RateLimitError(
+        "Redis not configured: UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN environment variables are required for rate limiting",
+      ),
     );
 
     (global as any).getQuery.mockReturnValue({ language: "English" });
@@ -37,7 +35,8 @@ describe("News API - Rate Limit Error Handling", () => {
       statusCode: 500,
       statusMessage: "Rate limit service unavailable",
       data: {
-        error: "Redis not configured: UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN environment variables are required for rate limiting",
+        error:
+          "Redis not configured: UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN environment variables are required for rate limiting",
       },
     });
 
@@ -55,7 +54,9 @@ describe("News API - Rate Limit Error Handling", () => {
 
     // Mock checkRateLimit to throw RateLimitError for Redis unavailability
     mockCheckRateLimit.mockRejectedValue(
-      new RateLimitError("Redis not available or not working: Connection failed"),
+      new RateLimitError(
+        "Redis not available or not working: Connection failed",
+      ),
     );
 
     (global as any).getQuery.mockReturnValue({ language: "English" });
@@ -138,7 +139,8 @@ describe("News API - Rate Limit Error Handling", () => {
       statusCode: 429,
       statusMessage: "Too many requests",
       data: {
-        error: "Daily rate limit exceeded (3 request/day). Please try again tomorrow.",
+        error:
+          "Daily rate limit exceeded (3 request/day). Please try again tomorrow.",
         retryAfter: 86400,
         resetTime: resetTime.toISOString(),
         limit: 3,
@@ -180,7 +182,8 @@ describe("News API - Rate Limit Error Handling", () => {
       statusCode: 429,
       statusMessage: "Too many requests",
       data: {
-        error: "Daily rate limit exceeded (10 request/day). Please try again tomorrow.",
+        error:
+          "Daily rate limit exceeded (10 request/day). Please try again tomorrow.",
         retryAfter: 86400,
         resetTime: resetTime.toISOString(),
         limit: 10,

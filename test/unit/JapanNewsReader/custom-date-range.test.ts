@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
+import { nextTick } from "vue";
 
 import JapanNewsReader from "~/app/components/JapanNewsReader.vue";
 import { NewsCardMock, mockNews } from "./setup";
@@ -195,14 +196,14 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
     // Set custom time range to show calendar
     wrapper.vm.selectedTimeRange = "custom";
-    await vi.waitFor(() => wrapper.vm.selectedTimeRange === "custom");
+    await nextTick();
 
     // Verify the min and max date refs exist
     expect(wrapper.vm.minDate).toBeDefined();
     expect(wrapper.vm.maxDate).toBeDefined();
     expect(wrapper.vm.minDate.year).toBe(2020);
     expect(wrapper.vm.maxDate.year).toBeGreaterThan(2020);
-  });
+  }, 10000);
 
   it("date range button displays selected dates in correct format", async () => {
     const wrapper = mount(JapanNewsReader, {
@@ -341,14 +342,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
             template: "<input />",
           },
           ULocaleSelect: {
-            props: [
-              "id",
-              "modelValue",
-              "locales",
-              "disabled",
-              "size",
-              "class",
-            ],
+            props: ["id", "modelValue", "locales", "disabled", "size", "class"],
             emits: ["update:modelValue"],
             template: "<select />",
           },

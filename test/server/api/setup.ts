@@ -49,7 +49,8 @@ export const mockCheckRateLimit = vi.fn(() =>
 export const mockGetClientIp = vi.fn(() => "127.0.0.1");
 
 vi.mock("~/server/utils/rate-limiter", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("~/server/utils/rate-limiter")>();
+  const actual =
+    await importOriginal<typeof import("~/server/utils/rate-limiter")>();
   return {
     ...actual,
     checkRateLimit: mockCheckRateLimit,
