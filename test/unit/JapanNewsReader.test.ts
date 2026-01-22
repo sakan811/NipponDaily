@@ -2507,4 +2507,205 @@ describe("JapanNewsReader", () => {
       expect(wrapper.vm.customDateRange.end).toBeDefined();
     });
   });
+
+  // Cover lines 530-538: HTTP 500 error handling for Redis not configured
+  it("handles HTTP 500 error with Redis not configured message", async () => {
+    const wrapper = mountReader({
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Mock HTTP 500 error with Redis not configured message
+    mockFetch.mockRejectedValueOnce({
+      statusCode: 500,
+      data: {
+        error: "Redis not configured: UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN environment variables are required for rate limiting",
+      },
+    });
+
+    await wrapper.vm.fetchNews();
+    await nextTick();
+
+    expect(wrapper.vm.loading).toBe(false);
+    expect(wrapper.vm.error).toBe(
+      "Rate limiting service is unavailable. Please contact the administrator to configure Redis.",
+    );
+  });
+
+  it("handles HTTP 500 error with generic error message (not Redis)", async () => {
+    const wrapper = mountReader({
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Mock HTTP 500 error with generic message
+    mockFetch.mockRejectedValueOnce({
+      statusCode: 500,
+      data: {
+        error: "Internal server error occurred",
+      },
+    });
+
+    await wrapper.vm.fetchNews();
+    await nextTick();
+
+    expect(wrapper.vm.loading).toBe(false);
+    expect(wrapper.vm.error).toBe("Internal server error occurred");
+  });
+
+  it("handles HTTP 500 error with non-string error message", async () => {
+    const wrapper = mountReader({
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Mock HTTP 500 error with non-string error
+    mockFetch.mockRejectedValueOnce({
+      statusCode: 500,
+      data: {
+        error: { code: "INTERNAL_ERROR" },
+      },
+    });
+
+    await wrapper.vm.fetchNews();
+    await nextTick();
+
+    expect(wrapper.vm.loading).toBe(false);
+    expect(wrapper.vm.error).toBe("Service temporarily unavailable. Please try again.");
+  });
+
+  it("handles HTTP 500 error with no error data", async () => {
+    const wrapper = mountReader({
+      global: { components: { NewsCard: NewsCardMock } },
+    });
+
+    // Mock HTTP 500 error with no error message
+    mockFetch.mockRejectedValueOnce({
+      statusCode: 500,
+      data: {},
+    });
+
+    await wrapper.vm.fetchNews();
+    await nextTick();
+
+    expect(wrapper.vm.loading).toBe(false);
+    expect(wrapper.vm.error).toBe("Service temporarily unavailable. Please try again.");
+  });
+
+  // Cover line 177: UCalendar v-model binding
+  it("covers UCalendar v-model binding when calendar updates date range", async () => {
+    // Create a stub UCalendar that properly emits update:modelValue
+    const UCalendarStub = {
+      name: "UCalendar",
+      props: [
+        "modelValue",
+        "minValue",
+        "maxValue",
+        "numberOfMonths",
+        "range",
+        "class",
+      ],
+      emits: ["update:modelValue"],
+      template:
+        '<div class="u-calendar" data-calendar @click="$emit(\'update:modelValue\', { start: { year: 2024, month: 6, day: 1 }, end: { year: 2024, month: 6, day: 15 } })"><slot /></div>',
+    };
+
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: { NewsCard: NewsCardMock },
+        stubs: {
+          UCalendar: UCalendarStub,
+          UHeader: {
+            template:
+              '<header><slot name="left" /><slot name="right" /><slot name="body" /></header>',
+          },
+          UColorModeButton: {
+            template: "<button><slot /></button>",
+          },
+          UInput: {
+            props: [
+              "modelValue",
+              "type",
+              "min",
+              "max",
+              "placeholder",
+              "disabled",
+              "id",
+              "size",
+              "class",
+            ],
+            emits: ["update:modelValue"],
+            template: "<input />",
+          },
+          ULocaleSelect: {
+            props: [
+              "id",
+              "modelValue",
+              "locales",
+              "disabled",
+              "size",
+              "class",
+            ],
+            emits: ["update:modelValue"],
+            template: "<select />",
+          },
+          UButton: {
+            props: [
+              "color",
+              "variant",
+              "size",
+              "label",
+              "icon",
+              "disabled",
+              "loading",
+              "block",
+              "class",
+            ],
+            emits: ["click"],
+            template: "<button @click=\"$emit('click')\"><slot /></button>",
+          },
+          UTooltip: {
+            template: "<div><slot /></div>",
+          },
+          USkeleton: {
+            template: '<div class="u-skeleton"><slot /></div>',
+          },
+          UCard: {
+            template: '<div class="u-card"><slot /></div>',
+          },
+          UPagination: {
+            props: [
+              "page",
+              "total",
+              "itemsPerPage",
+              "siblingCount",
+              "showEdges",
+              "color",
+              "size",
+            ],
+            emits: ["update:page"],
+            template: "<div />",
+          },
+          UPopover: {
+            template: '<div><slot /><slot name="content" /></div>',
+          },
+        },
+      },
+    });
+
+    // Set custom time range to show calendar
+    wrapper.vm.selectedTimeRange = "custom";
+    await nextTick();
+
+    // Find and click the calendar stub to trigger update:modelValue event (line 177)
+    const calendar = wrapper.find(".u-calendar");
+    expect(calendar.exists()).toBe(true);
+
+    // Trigger click which emits update:modelValue
+    await calendar.trigger("click");
+    await nextTick();
+
+    // Verify customDateRange was updated via v-model binding
+    expect(wrapper.vm.customDateRange).toEqual({
+      start: { year: 2024, month: 6, day: 1 },
+      end: { year: 2024, month: 6, day: 15 },
+    });
+  });
 });
