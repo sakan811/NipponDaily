@@ -1,23 +1,13 @@
 import { Redis } from "@upstash/redis";
 
 // Rate limit configuration - max requests per day (RPD)
-// Can be overridden via RATE_LIMIT_MAX_REQUESTS environment variable
-const RATE_LIMIT_WINDOW_SECONDS = 86400; // 24 * 60 * 60
+const RATE_LIMIT_WINDOW_SECONDS = 86400; // 24 * 60 * 60;
 
-// Get max requests from runtime config or env
-function getMaxRequests(): number {
-  // Try to get from runtime config first (for production builds)
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const runtimeConfig = (globalThis as any).__NUXT_RUNTIME_CONFIG__;
-    if (runtimeConfig?.rateLimitMaxRequests) {
-      return parseInt(runtimeConfig.rateLimitMaxRequests, 10);
-    }
-  } catch {
-    // Fall through to process.env
-  }
-  // Fallback to process.env for dev mode
-  return parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "3", 10);
+// Rate limit configuration type
+export interface RateLimitConfig {
+  upstashRedisRestUrl?: string;
+  upstashRedisRestToken?: string;
+  rateLimitMaxRequests?: number;
 }
 
 // Rate limit result type
@@ -36,10 +26,22 @@ export class RateLimitError extends Error {
   }
 }
 
-// Get Redis client instance
-function getRedisClient(): Redis {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+/**
+ * Get max requests from config or default
+ */
+function getMaxRequests(config?: RateLimitConfig): number {
+  if (config?.rateLimitMaxRequests) {
+    return config.rateLimitMaxRequests;
+  }
+  return 3; // default
+}
+
+/**
+ * Get Redis client instance
+ */
+function getRedisClient(config: RateLimitConfig): Redis {
+  const url = config.upstashRedisRestUrl;
+  const token = config.upstashRedisRestToken;
 
   if (!url || !token) {
     throw new RateLimitError(
@@ -56,18 +58,19 @@ function getRedisClient(): Redis {
 /**
  * Check if a request should be rate limited
  * Uses Upstash Redis - requires Redis to be configured and operational
- * Reads RATE_LIMIT_MAX_REQUESTS from runtime config or env (default: 3)
  * @param identifier - Unique identifier for the rate limit (e.g., IP address)
+ * @param config - Rate limit configuration from runtime config
  * @returns RateLimitResult with allowed status and metadata
  * @throws RateLimitError if Redis is not configured or fails
  */
 export async function checkRateLimit(
   identifier: string,
+  config: RateLimitConfig = {},
 ): Promise<RateLimitResult> {
   let redis: Redis;
 
   try {
-    redis = getRedisClient();
+    redis = getRedisClient(config);
   } catch (error) {
     if (error instanceof RateLimitError) {
       console.error("Rate limit error:", error.message);
@@ -79,7 +82,7 @@ export async function checkRateLimit(
   }
 
   try {
-    const maxRequests = getMaxRequests();
+    const maxRequests = getMaxRequests(config);
     const now = Date.now();
     const windowStart = now - RATE_LIMIT_WINDOW_SECONDS * 1000;
     const key = `ratelimit:${identifier}`;
