@@ -3,7 +3,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import {
   getHandler,
   setupDefaults,
-  createMockNews,
+  createMockNews as _createMockNews,
   mockTavilySearch,
   mockTavilyFormat,
   mockGeminiCategorize,

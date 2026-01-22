@@ -15,9 +15,7 @@ describe("GeminiService - Domain Trust Score", () => {
     expect(score).toBe(0.95);
 
     // Then test others
-    expect(service["getDomainTrustScore"]("https://www.nikkei.com")).toBe(
-      0.95,
-    );
+    expect(service["getDomainTrustScore"]("https://www.nikkei.com")).toBe(0.95);
     expect(service["getDomainTrustScore"]("https://japantimes.co.jp")).toBe(
       0.9,
     );

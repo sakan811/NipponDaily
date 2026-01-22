@@ -227,7 +227,8 @@ describe("JapanNewsReader - Error Handling", () => {
     mockFetch.mockRejectedValueOnce({
       statusCode: 500,
       data: {
-        error: "Redis not configured: UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN environment variables are required for rate limiting",
+        error:
+          "Redis not configured: UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN environment variables are required for rate limiting",
       },
     });
 
@@ -277,7 +278,9 @@ describe("JapanNewsReader - Error Handling", () => {
     await vi.waitFor(() => wrapper.vm.error !== null);
 
     expect(wrapper.vm.loading).toBe(false);
-    expect(wrapper.vm.error).toBe("Service temporarily unavailable. Please try again.");
+    expect(wrapper.vm.error).toBe(
+      "Service temporarily unavailable. Please try again.",
+    );
   });
 
   it("handles HTTP 500 error with no error data", async () => {
@@ -295,6 +298,8 @@ describe("JapanNewsReader - Error Handling", () => {
     await vi.waitFor(() => wrapper.vm.error !== null);
 
     expect(wrapper.vm.loading).toBe(false);
-    expect(wrapper.vm.error).toBe("Service temporarily unavailable. Please try again.");
+    expect(wrapper.vm.error).toBe(
+      "Service temporarily unavailable. Please try again.",
+    );
   });
 });

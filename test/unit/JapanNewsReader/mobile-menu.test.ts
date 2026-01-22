@@ -19,7 +19,15 @@ describe("JapanNewsReader - Mobile Menu", () => {
 
   it("renders mobile news amount input with correct attributes", () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     const mobileInput = wrapper.find("input#mobileNewsAmount");
@@ -31,7 +39,15 @@ describe("JapanNewsReader - Mobile Menu", () => {
 
   it("binds mobile news amount input to newsAmount reactive property", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     const mobileInput = wrapper.find("input#mobileNewsAmount");
@@ -41,7 +57,15 @@ describe("JapanNewsReader - Mobile Menu", () => {
 
   it("disables mobile news amount input when loading", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     const mobileInput = wrapper.find("input#mobileNewsAmount");
@@ -58,7 +82,15 @@ describe("JapanNewsReader - Mobile Menu", () => {
 
   it("renders mobile target language input", () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     // The ULocaleSelect component is used for mobile language selection
@@ -68,7 +100,15 @@ describe("JapanNewsReader - Mobile Menu", () => {
 
   it("binds mobile language input to targetLanguage", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     // Both desktop and mobile ULocaleSelect bind to the same targetLanguage ref
@@ -79,7 +119,15 @@ describe("JapanNewsReader - Mobile Menu", () => {
 
   it("disables mobile language input when loading", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     mockFetch.mockImplementationOnce(
@@ -116,7 +164,7 @@ describe("JapanNewsReader - Mobile Menu", () => {
       template: `<button :class="['u-button', block ? 'block' : '']" data-block="true" @click="click"><slot></slot>{{label}}</button>`,
       methods: {
         click() {
-          // @ts-ignore
+          // @ts-expect-error - $emit is a Vue 2 method, component is mocked for testing
           this.$emit("click");
         },
       },
@@ -124,7 +172,11 @@ describe("JapanNewsReader - Mobile Menu", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' }
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
         stubs: {
           UHeader: UHeaderMock,
@@ -166,7 +218,15 @@ describe("JapanNewsReader - Mobile Menu", () => {
 
   it("syncs mobileMenuOpen with UHeader via v-model", async () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
     const header = wrapper.find(".u-header");
     expect(header.exists()).toBe(true);

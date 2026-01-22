@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 import type { NewsItem } from "~~/types/index";
-import { mockGenerateContent } from "../../setup";
+import { mockGenerateContent as _mockGenerateContent } from "../../setup";
 
 // Mock useRuntimeConfig with hoisted mock
 const { mockUseRuntimeConfig } = vi.hoisted(() => {

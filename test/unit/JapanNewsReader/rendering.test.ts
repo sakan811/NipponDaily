@@ -20,7 +20,11 @@ describe("JapanNewsReader - Rendering", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -32,7 +36,11 @@ describe("JapanNewsReader - Rendering", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -49,7 +57,11 @@ describe("JapanNewsReader - Rendering", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -62,7 +74,11 @@ describe("JapanNewsReader - Rendering", () => {
     const wrapper = mountReader({
       global: {
         components: {
-          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' },
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
         },
       },
     });
@@ -72,7 +88,11 @@ describe("JapanNewsReader - Rendering", () => {
   });
 
   it("renders NewsCard components when news is loaded", async () => {
-    const NewsCardMock = { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' };
+    const NewsCardMock = {
+      name: "NewsCard",
+      props: ["news"],
+      template: '<div class="news-card">{{ news.title }}</div>',
+    };
     const wrapper = mountReader({
       global: {
         components: { NewsCard: NewsCardMock },
@@ -92,7 +112,15 @@ describe("JapanNewsReader - Rendering", () => {
 
   it("binds mobileMenuOpen to UHeader via v-model:open", () => {
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: {
+            name: "NewsCard",
+            props: ["news"],
+            template: '<div class="news-card">{{ news.title }}</div>',
+          },
+        },
+      },
     });
 
     expect(wrapper.vm.mobileMenuOpen).toBe(false);

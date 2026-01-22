@@ -4,8 +4,8 @@ import {
   getHandler,
   setupDefaults,
   mockTavilySearch,
-  mockTavilyFormat,
-  mockGeminiCategorize,
+  mockTavilyFormat as _mockTavilyFormat,
+  mockGeminiCategorize as _mockGeminiCategorize,
 } from "./setup";
 
 describe("News API - Error Handling", () => {
