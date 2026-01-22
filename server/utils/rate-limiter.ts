@@ -2,12 +2,23 @@ import { Redis } from "@upstash/redis";
 
 // Rate limit configuration - max requests per day (RPD)
 // Can be overridden via RATE_LIMIT_MAX_REQUESTS environment variable
-const RATE_LIMIT_CONFIG = {
-  // Maximum requests per day (default: 3, configurable via ENV)
-  maxRequests: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "3", 10),
-  // Time window in seconds (24 hours)
-  windowSeconds: 86400, // 24 * 60 * 60
-} as const;
+const RATE_LIMIT_WINDOW_SECONDS = 86400; // 24 * 60 * 60
+
+// Get max requests from runtime config or env
+function getMaxRequests(): number {
+  // Try to get from runtime config first (for production builds)
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const runtimeConfig = (globalThis as any).__NUXT_RUNTIME_CONFIG__;
+    if (runtimeConfig?.rateLimitMaxRequests) {
+      return parseInt(runtimeConfig.rateLimitMaxRequests, 10);
+    }
+  } catch {
+    // Fall through to process.env
+  }
+  // Fallback to process.env for dev mode
+  return parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "3", 10);
+}
 
 // Rate limit result type
 export interface RateLimitResult {
@@ -45,6 +56,7 @@ function getRedisClient(): Redis {
 /**
  * Check if a request should be rate limited
  * Uses Upstash Redis - requires Redis to be configured and operational
+ * Reads RATE_LIMIT_MAX_REQUESTS from runtime config or env (default: 3)
  * @param identifier - Unique identifier for the rate limit (e.g., IP address)
  * @returns RateLimitResult with allowed status and metadata
  * @throws RateLimitError if Redis is not configured or fails
@@ -67,8 +79,9 @@ export async function checkRateLimit(
   }
 
   try {
+    const maxRequests = getMaxRequests();
     const now = Date.now();
-    const windowStart = now - RATE_LIMIT_CONFIG.windowSeconds * 1000;
+    const windowStart = now - RATE_LIMIT_WINDOW_SECONDS * 1000;
     const key = `ratelimit:${identifier}`;
 
     // Use a sorted set to track request timestamps
@@ -84,7 +97,7 @@ export async function checkRateLimit(
     pipeline.zadd(key, { score: now, member: `${now}-${Math.random()}` });
 
     // Set expiration to prevent stale keys
-    pipeline.expire(key, RATE_LIMIT_CONFIG.windowSeconds);
+    pipeline.expire(key, RATE_LIMIT_WINDOW_SECONDS);
 
     const results = await pipeline.exec<[number, number, string, boolean]>();
 
@@ -93,14 +106,14 @@ export async function checkRateLimit(
     }
 
     const currentCount = results[1] as number;
-    const remaining = Math.max(0, RATE_LIMIT_CONFIG.maxRequests - currentCount);
-    const allowed = currentCount < RATE_LIMIT_CONFIG.maxRequests;
+    const remaining = Math.max(0, maxRequests - currentCount);
+    const allowed = currentCount < maxRequests;
 
     return {
       allowed,
       remaining,
-      resetTime: new Date(now + RATE_LIMIT_CONFIG.windowSeconds * 1000),
-      limit: RATE_LIMIT_CONFIG.maxRequests,
+      resetTime: new Date(now + RATE_LIMIT_WINDOW_SECONDS * 1000),
+      limit: maxRequests,
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
