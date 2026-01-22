@@ -2,8 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: "2026-01-14",
   devtools: { enabled: true },
+  ssr: false,
   css: ["./app/assets/css/tailwind.css"],
-  modules: ["@nuxt/test-utils/module", "@nuxt/ui"],
+  modules: ["@nuxt/test-utils/module", "@nuxt/ui", "@nuxt/eslint", "@nuxt/hints"],
   app: {
     head: {
       link: [
