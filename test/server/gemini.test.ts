@@ -151,7 +151,7 @@ describe("GeminiService", () => {
         text: '[{"category": "Technology", "summary": "Test summary", "invalid": json}]',
       });
 
-      const result = await service.categorizeNewsItems(mockNews, {
+      await service.categorizeNewsItems(mockNews, {
         apiKey: "test-api-key",
       });
 

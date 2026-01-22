@@ -2,6 +2,8 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
 import { nextTick } from "vue";
 
+import JapanNewsReader from "~/app/components/JapanNewsReader.vue";
+
 // Mock @internationalized/date BEFORE importing the component
 vi.mock("@internationalized/date", () => {
   class MockCalendarDate {
@@ -32,8 +34,6 @@ vi.mock("@internationalized/date", () => {
     CalendarDate: MockCalendarDate,
   };
 });
-
-import JapanNewsReader from "~/app/components/JapanNewsReader.vue";
 
 const NewsCardMock = {
   name: "NewsCard",
@@ -205,10 +205,11 @@ describe("JapanNewsReader", () => {
       },
     });
 
-    const cardElement = wrapper.find(".u-card");
-    expect(cardElement.exists()).toBe(true);
-    expect(cardElement.text()).toContain("No news loaded yet");
-    expect(cardElement.text()).toContain('click "Get News"');
+    // Find the empty state div (replaced UCard with native div for LCP optimization)
+    const emptyState = wrapper.find('[style*="contain: layout style paint"]');
+    expect(emptyState.exists()).toBe(true);
+    expect(emptyState.text()).toContain("No news loaded yet");
+    expect(emptyState.text()).toContain('click "Get News"');
   });
 
   it("renders NewsCard components when news is loaded", async () => {
@@ -1733,15 +1734,15 @@ describe("JapanNewsReader", () => {
     expect(wrapper.vm.news.length).toBe(0);
     expect(wrapper.vm.loading).toBe(false);
 
-    // This should render the UCard at line 190
-    const cardElements = wrapper.findAll(".u-card");
-    expect(cardElements.length).toBeGreaterThan(0);
+    // This should render the empty state div (replaced UCard with native div for LCP optimization)
+    const emptyStateElements = wrapper.findAll('[style*="contain: layout style paint"]');
+    expect(emptyStateElements.length).toBeGreaterThan(0);
 
-    // Find the card with "No news loaded yet" text
-    const emptyCard = Array.from(cardElements).find((card) =>
-      card.text().includes("No news loaded yet"),
+    // Find the element with "No news loaded yet" text
+    const emptyState = Array.from(emptyStateElements).find((el) =>
+      el.text().includes("No news loaded yet"),
     );
-    expect(emptyCard?.exists()).toBe(true);
+    expect(emptyState?.exists()).toBe(true);
   });
 
   it("covers line 233 - shows pagination when filtered news exceeds items per page", async () => {

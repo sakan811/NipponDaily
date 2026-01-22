@@ -2,6 +2,9 @@ import { vi } from "vitest";
 import { config } from "@vue/test-utils";
 import { ref, computed, reactive, onMounted, onUnmounted } from "vue";
 
+// Add custom matchers
+import type { MatcherFunction } from "vitest";
+
 // Make Vue composition functions globally available
 (global as any).ref = ref;
 (global as any).computed = computed;
@@ -117,7 +120,7 @@ class MockGoogleGenAI {
     generateContent: mockGenerateContent,
   };
 
-  constructor(options: any) {
+  constructor(_options: any) {
     // Constructor mock - handle the apiKey parameter
     return this;
   }
@@ -313,9 +316,6 @@ export const resetAllMocks = () => {
     timestamp: new Date().toISOString(),
   });
 };
-
-// Add custom matchers
-import type { MatcherFunction } from "vitest";
 
 const toBeInTheDocument: MatcherFunction = function (received) {
   // Use happy-dom's document implementation
