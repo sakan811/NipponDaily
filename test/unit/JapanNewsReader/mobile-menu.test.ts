@@ -95,24 +95,72 @@ describe("JapanNewsReader - Mobile Menu", () => {
   });
 
   it("mobile Get News button closes menu after click", async () => {
+    // Stub UHeader to always render body content and bind mobileMenuOpen
+    // Also stub UButton to ensure block class is rendered
+    const UHeaderMock = {
+      name: "UHeader",
+      props: ["open"],
+      emits: ["update:open"],
+      template: `
+        <div class="u-header">
+          <div class="header-left"><slot name="left"></slot></div>
+          <div class="header-right"><slot name="right"></slot></div>
+          <div class="header-body" v-if="open"><slot name="body"></slot></div>
+        </div>
+      `,
+    };
+    const UButtonMock = {
+      name: "UButton",
+      props: ["block", "disabled", "loading", "color", "size", "icon", "label"],
+      emits: ["click"],
+      template: `<button :class="['u-button', block ? 'block' : '']" data-block="true" @click="click"><slot></slot>{{label}}</button>`,
+      methods: {
+        click() {
+          // @ts-ignore
+          this.$emit("click");
+        },
+      },
+    };
     const wrapper = mountReader({
-      global: { components: { NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' } } },
+      global: {
+        components: {
+          NewsCard: { name: "NewsCard", props: ["news"], template: '<div class="news-card">{{ news.title }}</div>' }
+        },
+        stubs: {
+          UHeader: UHeaderMock,
+          UButton: UButtonMock,
+        },
+      },
     });
 
-    // Find mobile button by block class (unique to mobile version)
-    const mobileButtons = wrapper
-      .findAll(".u-button")
-      .filter((b) => b.classes().includes("block"));
-
-    // Skip if mobile menu not rendered (UHeader controls visibility)
-    if (mobileButtons.length === 0) {
-      return;
-    }
-
+    // Open the mobile menu so body content renders
     wrapper.vm.mobileMenuOpen = true;
-    await mobileButtons[0].trigger("click");
     await nextTick();
 
+    // Find mobile Get News button by looking for it within the header body
+    // The mobile button is inside .header-body and has data-block="true"
+    const headerBody = wrapper.find(".header-body");
+    const mobileButtons = headerBody.findAll("button[data-block='true']");
+
+    // The mobile button should now be found
+    expect(mobileButtons.length).toBeGreaterThan(0);
+
+    // The mobile Get News button should have "Get News" or "Getting..." text
+    const getNewsButton = mobileButtons.find((b) => {
+      const text = b.text();
+      return text.includes("Getting") || text.includes("Get News");
+    });
+
+    expect(getNewsButton).toBeDefined();
+
+    // Click the mobile Get News button and wait for async operations
+    await getNewsButton!.trigger("click");
+    await nextTick();
+    // Wait for the async refreshNews to complete
+    await wrapper.vm.$nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    // Menu should close after async operation completes
     expect(wrapper.vm.mobileMenuOpen).toBe(false);
   });
 
