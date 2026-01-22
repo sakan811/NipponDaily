@@ -1735,7 +1735,9 @@ describe("JapanNewsReader", () => {
     expect(wrapper.vm.loading).toBe(false);
 
     // This should render the empty state div (replaced UCard with native div for LCP optimization)
-    const emptyStateElements = wrapper.findAll('[style*="contain: layout style paint"]');
+    const emptyStateElements = wrapper.findAll(
+      '[style*="contain: layout style paint"]',
+    );
     expect(emptyStateElements.length).toBeGreaterThan(0);
 
     // Find the element with "No news loaded yet" text

@@ -4,7 +4,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <span>{{ appName }}</span>
         </NuxtLink>
       </template>
@@ -329,8 +329,8 @@
                 class="mb-4"
                 style="color: rgb(100 116 139); contain: layout style"
               >
-                Select your preferred time range and category, set the number
-                of articles to fetch (1-20), then click "Get News" to fetch
+                Select your preferred time range and category, set the number of
+                articles to fetch (1-20), then click "Get News" to fetch
                 targeted news from Japan
               </p>
               <p class="text-sm opacity-70">
@@ -338,7 +338,7 @@
                   >Tip: Time range and category filters will affect the search
                   results, not just the display. The news count controls how
                   many articles to fetch.</em
-                  >
+                >
               </p>
             </div>
             <NewsCard
