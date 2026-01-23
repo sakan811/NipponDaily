@@ -10,7 +10,14 @@ export default defineConfig({
     setupFiles: ["./test/setup.ts"],
     environment: "happy-dom",
     include: ["test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    exclude: ["node_modules", "dist", ".idea", ".git", ".cache"],
+    exclude: [
+      "node_modules",
+      "dist",
+      ".idea",
+      ".git",
+      ".cache",
+      "test/integration/**",
+    ],
     environmentMatchGlobs: [
       ["test/server/**", "node"],
       ["test/unit/**", "happy-dom"],
