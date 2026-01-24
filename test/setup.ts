@@ -1,4 +1,4 @@
-import { vi } from "vitest";
+import { vi, expect } from "vitest";
 import { config } from "@vue/test-utils";
 import { ref, computed, reactive, onMounted, onUnmounted } from "vue";
 
