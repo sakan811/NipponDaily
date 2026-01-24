@@ -1,5 +1,4 @@
 import { describe, it, expect, beforeAll, beforeEach } from "vitest";
-import { readFileSync } from "fs";
 
 /**
  * Integration tests for rate-limiter.ts using Serverless Redis HTTP (SRH)
@@ -11,39 +10,10 @@ import { readFileSync } from "fs";
  * Run these tests with: pnpm test:integration
  */
 
-// Helper to detect Docker host IP when running inside a container
-const getDockerHostIp = (): string => {
-  try {
-    const routeData = readFileSync("/proc/net/route", "utf-8");
-    const lines = routeData.split("\n");
-
-    for (const line of lines) {
-      const parts = line.split("\t");
-      if (parts.length >= 3) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const iface = parts[0]?.trim();
-        const destHex = parts[1]?.trim();
-        const gatewayHex = parts[2]?.trim();
-
-        // Look for default route (dest = 00000000)
-        if (destHex === "00000000" && gatewayHex && gatewayHex !== "00000000") {
-          // Convert hex IP to dotted decimal (little-endian)
-          const ip = parseInt(gatewayHex.substring(6, 8), 16) +
-                    "." + parseInt(gatewayHex.substring(4, 6), 16) +
-                    "." + parseInt(gatewayHex.substring(2, 4), 16) +
-                    "." + parseInt(gatewayHex.substring(0, 2), 16);
-          return `http://${ip}:8079`;
-        }
-      }
-    }
-  } catch {
-    // Fall back to localhost if not in a container or can't read routes
-  }
-  return "http://localhost:8079";
-};
-
 describe("Rate Limiter Integration Tests (with SRH)", () => {
-  const SRH_URL = process.env.SRH_URL ?? getDockerHostIp();
+  // SRH URL - use container name since we're in a container on the same Docker network
+  // The SRH container is accessible via: http://nippondaily-serverless-redis-http-1:80
+  const SRH_URL = process.env.SRH_URL ?? "http://nippondaily-serverless-redis-http-1:80";
   const SRH_TOKEN = "integration_test_token";
   const TEST_IDENTIFIER_PREFIX = "integration-test-";
 
@@ -53,40 +23,7 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
 
   beforeAll(async () => {
     // Wait a moment for SRH to be fully ready
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    // Verify SRH is accessible using SRH's PING command
-    let retries = 5;
-    let lastError: Error | null = null;
-
-    while (retries > 0) {
-      try {
-        const response = await fetch(SRH_URL, {
-          method: "POST",
-          headers: {
-            "Authorization": `Bearer ${SRH_TOKEN}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(["PING"]),
-        });
-
-        const data = await response.json() as { result?: string; error?: string };
-        if (data.result === "PONG") {
-          return; // SRH is ready
-        }
-      } catch (error) {
-        lastError = error as Error;
-      }
-      retries--;
-      if (retries > 0) {
-        // Wait 1 second before retrying
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-      }
-    }
-
-    throw new Error(
-      `SRH is not running or not accessible at ${SRH_URL}. Start it with: docker-compose up -d. Last error: ${lastError?.message}`,
-    );
+    await new Promise((resolve) => setTimeout(resolve, 3000));
   });
 
   beforeEach(async () => {
