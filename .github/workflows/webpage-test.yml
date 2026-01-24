@@ -40,13 +40,8 @@ jobs:
           - 80:80
         env:
           SRH_MODE: env
-          SRH_TOKEN: ${{ env.SRH_TOKEN }}
+          SRH_TOKEN: example_token
           SRH_CONNECTION_STRING: redis://redis:6379
-        options: >-
-          --health-cmd "curl -f http://localhost/ || exit 1"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
       - name: Checkout code
@@ -73,4 +68,4 @@ jobs:
         run: pnpm run test:integration:ci
         env:
           SRH_URL: http://srh:80
-          SRH_TOKEN: ${{ env.SRH_TOKEN }}
+          SRH_TOKEN: example_token
