@@ -41,11 +41,6 @@
    ```bash
    TAVILY_API_KEY=your_tavily_api_key_here
    GEMINI_API_KEY=your_gemini_api_key_here
-   ```
-
-   Optional: Configure rate limiting (default: 3 requests/day):
-
-   ```bash
    RATE_LIMIT_MAX_REQUESTS=3
    UPSTASH_REDIS_REST_URL=your_upstash_redis_url
    UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_token
