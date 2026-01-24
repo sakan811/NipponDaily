@@ -12,6 +12,9 @@ permissions:
   contents: read
   checks: write
 
+env:
+  SRH_TOKEN: example_token
+
 jobs:
   test:
     strategy:
@@ -20,6 +23,16 @@ jobs:
           - 24
 
     runs-on: ubuntu-latest
+
+    services:
+      redis:
+        image: redis/redis-stack-server:6.2.6-v6
+      srh:
+        image: hiett/serverless-redis-http:latest
+        env:
+          SRH_MODE: env
+          SRH_TOKEN: ${{ env.SRH_TOKEN }}
+          SRH_CONNECTION_STRING: redis://redis:6379
 
     steps:
       - name: Checkout code
@@ -39,5 +52,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run tests
+      - name: Run unit tests
         run: pnpm run test
+
+      - name: Run integration tests
+        run: pnpm run test:integration
+        env:
+          UPSTASH_REDIS_REST_URL: http://srh:80
+          UPSTASH_REDIS_REST_TOKEN: ${{ env.SRH_TOKEN }}
