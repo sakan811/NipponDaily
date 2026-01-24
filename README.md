@@ -1,8 +1,6 @@
 # NipponDaily
 
-<p align="center">
-  <img src="./public/android-chrome-512x512.png" alt="NipponDaily App Icon" width="256" height="256" style="max-width: 100%; height: auto;" />
-</p>
+![NipponDaily App Icon](./public/android-chrome-512x512.png)
 
 **Your multilingual gateway to Japanese news.** Get AI-powered translations, smart categorization, and concise summaries of Japan-related news from across the web. Read stories that matter to you—in your language.
 
@@ -22,15 +20,28 @@
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
 - **Dark Mode**: Toggle between light and dark themes via the color mode button
 
-## Quick Start
+## Usage
 
-1. **Install dependencies**:
+1. **Set Language**: Type your preferred language for translated content (default: "English")
+2. **Choose Amount**: Enter how many articles to fetch (1-20, default: 10)
+3. **Select Time Range**: Choose from All Time, Today, This Week (default), This Month, This Year, or a Custom Date Range (affects search)
+4. **Select Category**: Choose a category to filter results (affects both search and display)
+5. **Get News**: Click "Get News" to fetch targeted articles
+6. **Read & Explore**: Browse summaries with client-side pagination (3 items per page) and click "Read Original" for full stories
+
+---
+
+## Development
+
+### Quick Start
+
+1. **Install dependencies** (from `package.json:5-26`):
 
    ```bash
    pnpm install
    ```
 
-2. **Set up environment**:
+2. **Set up environment** (see `.env.example:1-17`):
 
    ```bash
    cp .env.example .env
@@ -54,30 +65,45 @@
 
    Visit <http://localhost:3000>
 
-## Usage
-
-1. **Set Language**: Type your preferred language for translated content (default: "English")
-2. **Choose Amount**: Enter how many articles to fetch (1-20, default: 10)
-3. **Select Time Range**: Choose from All Time, Today, This Week (default), This Month, This Year, or a Custom Date Range (affects search)
-4. **Select Category**: Choose a category to filter results (affects both search and display)
-5. **Get News**: Click "Get News" to fetch targeted articles
-6. **Read & Explore**: Browse summaries with client-side pagination (3 items per page) and click "Read Original" for full stories
-
----
-
-## Development
-
 ### Tech Stack
 
-- **Frontend**: Vue 3, Nuxt 4, TypeScript
-- **APIs**: Tavily Search, Google Gemini AI
-- **Styling**: Tailwind CSS v4, Nuxt UI
-- **Testing**: Vitest
-- **Code Quality**: ESLint, Prettier
+- **Frontend**: Vue 3, Nuxt 4, TypeScript (from `package.json:27-37`)
+- **APIs**: Tavily Search (`@tavily/core`), Google Gemini AI (`@google/genai`)
+- **Styling**: Tailwind CSS v4, Nuxt UI v4 (from `package.json:29-30,34`)
+- **Testing**: Vitest with happy-dom and node environments (from `vitest.config.ts:12-31`)
+- **Code Quality**: ESLint, Prettier (from `package.json:40-42,56`)
+
+### Development Commands
+
+All scripts are defined in `package.json:5-26`:
+
+```bash
+# Development
+pnpm dev              # Start development server (http://localhost:3000)
+pnpm build            # Build for production
+pnpm start            # Run production server (localhost only, from package.json:8)
+
+# Testing
+pnpm test             # Run tests in watch mode
+pnpm test:run         # Run tests once
+pnpm test:coverage    # Run tests with coverage report
+pnpm test:integration # Run integration tests with SRH Docker (from package.json:15)
+
+# Docker for integration tests
+pnpm docker:up        # Start SRH services
+pnpm docker:down      # Stop SRH services
+pnpm docker:logs      # View SRH logs
+
+# Code Quality
+pnpm lint             # Lint and auto-fix
+pnpm format           # Format with Prettier
+pnpm type-check       # TypeScript type checking
+pnpm check-qa         # Run all QA checks (lint, format, type-check, build, test)
+```
 
 ### Color Palette
 
-The app uses Nuxt UI v4's semantic color system with Tailwind v4's native palette:
+The app uses Nuxt UI v4's semantic color system with Tailwind v4's native palette (from `app/app.config.ts:1-14`):
 
 | Semantic Color | Tailwind Color | Usage                                          |
 | -------------- | -------------- | ---------------------------------------------- |
@@ -89,36 +115,20 @@ The app uses Nuxt UI v4's semantic color system with Tailwind v4's native palett
 | Error          | `orange`       | Error messages, politics category              |
 | Neutral        | `stone`        | Fallback category, disabled states             |
 
-Color configuration is defined in `app/app.config.ts`:
-
-```typescript
-ui: {
-  colors: {
-    primary: "orange",
-    secondary: "sky",
-    success: "amber",
-    info: "sky",
-    warning: "amber",
-    error: "orange",
-    neutral: "stone",
-  },
-}
-```
-
-**Category Color Mappings**:
+**Category Color Mappings** (from `app/components/NewsCard.vue:185-204`):
 
 | Category   | Semantic Color | Tailwind Base |
 | ---------- | -------------- | ------------- |
+| Politics   | Error          | orange        |
 | Business   | Primary        | orange        |
 | Technology | Info           | sky           |
-| Sports     | Success        | amber         |
 | Culture    | Warning        | amber         |
-| Politics   | Error          | orange        |
+| Sports     | Success        | amber         |
 | Other      | Neutral        | stone         |
 
-> **Note**: Dark mode is supported via the UColorModeButton component (visible in the header and mobile menu), which leverages Nuxt UI's integration with `@nuxtjs/color-mode`. Color values are dynamically adjusted by Nuxt UI for dark mode.
+> **Note**: Dark mode is supported via the UColorModeButton component (visible in the header and mobile menu at `app/components/JapanNewsReader.vue:14,61`), which leverages Nuxt UI's integration with `@nuxtjs/color-mode`. Color values are dynamically adjusted by Nuxt UI for dark mode.
 
-**Credibility Score** (Multi-Factor Algorithm):
+**Credibility Score** (Multi-Factor Algorithm from `server/services/gemini.ts:170-175`):
 
 The credibility score is computed as a weighted average of four metrics:
 
@@ -127,7 +137,7 @@ The credibility score is computed as a weighted average of four metrics:
 - Content Quality: 20%
 - AI Confidence: 20%
 
-**Credibility Score Badge Color Gradient**:
+**Credibility Score Badge Color Gradient** (from `app/components/NewsCard.vue:229-233`):
 
 - 100%: `hsl(120, 70%, 45%)` - Green
 - 75%: `hsl(90, 70%, 45%)` - Yellow-Green
@@ -143,28 +153,67 @@ The credibility score uses a dynamic gradient computed as `hue = score × 120` (
 - **Server**: Nuxt API routes managing Tavily search and Gemini AI integration
 - **Services**: Modular services for external API communication
 
+**Directory Structure**:
+
+```text
+app/                    # Nuxt app directory
+├── app.config.ts      # Nuxt UI v4 color configuration (app/app.config.ts:1-14)
+├── app.vue            # Root component
+├── components/        # Vue components
+│   ├── JapanNewsReader.vue  # Main news reader (state, filters, pagination)
+│   └── NewsCard.vue         # Individual news item display
+├── layouts/
+│   └── default.vue    # Default layout
+└── assets/css/
+    └── tailwind.css   # Tailwind v4 CSS
+
+server/                # Server-side code
+├── api/
+│   └── news.get.ts   # GET /api/news endpoint (rate limiting, Zod validation)
+├── services/
+│   ├── gemini.ts     # Gemini AI service (categorization, translation, credibility)
+│   └── tavily.ts     # Tavily search service
+└── utils/
+    └── rate-limiter.ts  # Rate limiting (Upstash Redis sorted set sliding window)
+
+types/                 # TypeScript definitions
+└── index.ts          # NewsItem, CredibilityMetadata, ApiResponse (types/index.ts:1-29)
+
+constants/             # Category constants
+└── categories.ts     # NEWS_CATEGORIES, VALID_CATEGORIES (constants/categories.ts:1-21)
+
+test/                  # Vitest tests
+├── integration/       # Integration tests with SRH
+│   └── rate-limiter.test.ts
+├── server/            # Server/API tests
+│   ├── api/          # API endpoint tests (by topic)
+│   └── gemini/       # Gemini service tests (by topic)
+└── unit/              # Component/unit tests
+    ├── JapanNewsReader/  # Component tests (by topic)
+    └── NewsCard.test.ts
+
+vitest.config.ts              # Unit test config (happy-dom + node)
+vitest.integration.config.ts  # Integration test config (SRH)
+nuxt.config.ts               # Nuxt configuration (nuxt.config.ts:1-36)
+```
+
 ### Limitations
 
-- **Article Count**: 10 articles default, 20 maximum per request
-- **Rate Limiting**: 3 requests per day per IP (configurable via `RATE_LIMIT_MAX_REQUESTS`)
-- **Dependencies**: Requires both Tavily API and Google Gemini API keys
-- **Categorization**: AI-based with fallback to "Other" category on failures
-
-### Development Commands
-
-```bash
-pnpm dev              # Start development server
-pnpm build            # Build for production
-pnpm test:run         # Run tests once
-pnpm test:coverage    # Run tests with coverage
-pnpm check-qa         # Run all quality checks
-```
+- **Article Count**: 10 articles default, 20 maximum per request (from `server/api/news.get.ts:62-72`)
+- **Rate Limiting**: 3 requests per day per IP (configurable via `RATE_LIMIT_MAX_REQUESTS`, from `server/utils/rate-limiter.ts:32-37`)
+- **Dependencies**: Requires both Tavily API and Google Gemini API keys (from `nuxt.config.ts:24-27`)
+- **Redis Required**: Rate limiting requires Upstash Redis to be configured (returns HTTP 500 if unavailable, from `server/api/news.get.ts:174-184`)
+- **Categorization**: AI-based with fallback to "Other" category on failures (from `constants/categories.ts:10-17`)
+- **Date Range**: Custom date range limited to 365 days maximum, must be after 2000-01-01 (from `server/api/news.get.ts:86-135`)
 
 ### Environment Variables
 
+See `.env.example:1-17` for reference. Runtime config is defined in `nuxt.config.ts:24-34`:
+
 - `GEMINI_API_KEY`: Google Gemini API key (required)
 - `TAVILY_API_KEY`: Tavily API key for news search (required)
-- `GEMINI_MODEL`: Gemini model (defaults to gemini-2.5-flash)
-- `RATE_LIMIT_MAX_REQUESTS`: Maximum requests per day (default: 3)
-- `UPSTASH_REDIS_REST_URL`: Upstash Redis URL for rate limiting (optional, fail-open if not set)
-- `UPSTASH_REDIS_REST_TOKEN`: Upstash Redis token for rate limiting (optional, fail-open if not set)
+- `GEMINI_MODEL`: Gemini model (optional, defaults to `gemini-2.5-flash`, from `server/services/gemini.ts:20-22`)
+- `RATE_LIMIT_MAX_REQUESTS`: Maximum requests per day (optional, default: 3, from `server/utils/rate-limiter.ts:32-37`)
+- `UPSTASH_REDIS_REST_URL`: Upstash Redis URL for rate limiting (required for production)
+- `UPSTASH_REDIS_REST_TOKEN`: Upstash Redis token for rate limiting (required for production)
+- `SRH_URL`: Serverless Redis HTTP URL for integration tests (optional, from `.env.example:17`)
