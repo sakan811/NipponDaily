@@ -11,10 +11,9 @@ import { describe, it, expect, beforeAll, beforeEach } from "vitest";
  */
 
 describe("Rate Limiter Integration Tests (with SRH)", () => {
-  // SRH URL - use container name since we're in a container on the same Docker network
-  // The SRH container is accessible via: http://nippondaily-serverless-redis-http-1:80
-  const SRH_URL = process.env.SRH_URL ?? "http://nippondaily-serverless-redis-http-1:80";
-  const SRH_TOKEN = "integration_test_token";
+  // SRH URL - use SRH_URL env var or fall back to common defaults
+  const SRH_URL = process.env.SRH_URL ?? "http://localhost:8079";
+  const SRH_TOKEN = process.env.SRH_TOKEN ?? "integration_test_token";
   const TEST_IDENTIFIER_PREFIX = "integration-test-";
 
   // Helper to generate unique test identifiers
@@ -22,8 +21,30 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
     `${TEST_IDENTIFIER_PREFIX}${Date.now()}-${Math.random()}`;
 
   beforeAll(async () => {
-    // Wait a moment for SRH to be fully ready
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    // Wait for SRH to be fully ready with retries
+    const maxRetries = 30;
+    const retryDelay = 1000; // 1 second
+
+    for (let i = 0; i < maxRetries; i++) {
+      try {
+        const { Redis } = await import("@upstash/redis");
+        const redis = new Redis({
+          url: SRH_URL,
+          token: SRH_TOKEN,
+        });
+
+        // Try to ping Redis
+        await redis.ping();
+        console.log("SRH is ready!");
+        return;
+      } catch (error) {
+        if (i === maxRetries - 1) {
+          throw new Error(`SRH not ready after ${maxRetries} retries: ${error}`);
+        }
+        console.log(`Waiting for SRH to be ready... (${i + 1}/${maxRetries})`);
+        await new Promise((resolve) => setTimeout(resolve, retryDelay));
+      }
+    }
   });
 
   beforeEach(async () => {
