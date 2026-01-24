@@ -14,10 +14,10 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     globals: true,
-    setupFiles: [],
+    setupFiles: ["./test/setup.ts"],
     environment: "node",
     include: ["test/integration/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    exclude: ["node_modules", "dist", ".idea", ".git", ".cache", "test/unit", "test/server"],
+    exclude: ["node_modules", "dist", ".idea", ".git", ".cache"],
     testTimeout: 30000, // 30 second timeout for integration tests
     hookTimeout: 30000,
     coverage: {
@@ -35,6 +35,7 @@ export default defineConfig({
         "*.config.{ts,js,mjs,cjs}",
         ".nuxt/**",
         ".output/**",
+        "scripts/**",
       ],
     },
   },
