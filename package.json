@@ -48,7 +48,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^25.0.10",
     "@vitejs/plugin-vue": "^6.0.3",
-    "@vitest/coverage-v8": "4.0.17",
+    "@vitest/coverage-v8": "4.0.18",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.39.2",
     "globals": "^17.1.0",
@@ -57,6 +57,6 @@
     "typescript": "^5.9.3",
     "unplugin-auto-import": "^21.0.0",
     "vite-tsconfig-paths": "^6.0.5",
-    "vitest": "^4.0.17"
+    "vitest": "^4.0.18"
   }
 }
