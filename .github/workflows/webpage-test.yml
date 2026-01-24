@@ -27,12 +27,26 @@ jobs:
     services:
       redis:
         image: redis/redis-stack-server:6.2.6-v6
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
       srh:
         image: hiett/serverless-redis-http:latest
+        ports:
+          - 80:80
         env:
           SRH_MODE: env
           SRH_TOKEN: ${{ env.SRH_TOKEN }}
           SRH_CONNECTION_STRING: redis://redis:6379
+        options: >-
+          --health-cmd "curl -f http://localhost/ || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout code
