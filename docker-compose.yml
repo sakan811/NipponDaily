@@ -3,6 +3,11 @@ services:
     image: redis
     ports:
       - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
   serverless-redis-http:
     ports:
       - "8079:80"
@@ -11,3 +16,11 @@ services:
       SRH_MODE: env
       SRH_TOKEN: integration_test_token
       SRH_CONNECTION_STRING: "redis://redis:6379"
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:80"]
+      interval: 1s
+      timeout: 3s
+      retries: 10
