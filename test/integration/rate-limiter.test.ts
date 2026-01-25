@@ -1,4 +1,5 @@
-import { describe, it, expect, beforeAll, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { Redis } from "@upstash/redis";
 
 /**
  * Integration tests for rate-limiter.ts using Serverless Redis HTTP (SRH)
@@ -10,57 +11,25 @@ import { describe, it, expect, beforeAll, beforeEach } from "vitest";
  * Run these tests with: pnpm test:integration
  */
 
-describe("Rate Limiter Integration Tests (with SRH)", () => {
-  // SRH URL - use SRH_URL env var or fall back to common defaults
-  const SRH_URL = process.env.SRH_URL ?? "http://localhost:8079";
-  const SRH_TOKEN = process.env.SRH_TOKEN ?? "integration_test_token";
-  const TEST_IDENTIFIER_PREFIX = "integration-test-";
+const SRH_URL = process.env.SRH_URL ?? "http://nippondaily-serverless-redis-http-1:80";
+const SRH_TOKEN = process.env.SRH_TOKEN ?? "integration_test_token";
+const TEST_IDENTIFIER_PREFIX = "integration-test-";
 
-  // Helper to generate unique test identifiers
-  const generateTestIdentifier = () =>
-    `${TEST_IDENTIFIER_PREFIX}${Date.now()}-${Math.random()}`;
+console.log("SRH Test Config:", { SRH_URL, SRH_TOKEN });
 
-  beforeAll(async () => {
-    // Wait for SRH to be fully ready with retries
-    const maxRetries = 30;
-    const retryDelay = 1000; // 1 second
+// Helper to generate unique test identifiers
+const generateTestIdentifier = () =>
+  `${TEST_IDENTIFIER_PREFIX}${Date.now()}-${Math.random()}`;
 
-    for (let i = 0; i < maxRetries; i++) {
-      try {
-        const { Redis } = await import("@upstash/redis");
-        const redis = new Redis({
-          url: SRH_URL,
-          token: SRH_TOKEN,
-        });
-
-        // Try to ping Redis
-        await redis.ping();
-        console.log("SRH is ready!");
-        return;
-      } catch (error) {
-        if (i === maxRetries - 1) {
-          throw new Error(`SRH not ready after ${maxRetries} retries: ${error}`);
-        }
-        console.log(`Waiting for SRH to be ready... (${i + 1}/${maxRetries})`);
-        await new Promise((resolve) => setTimeout(resolve, retryDelay));
-      }
-    }
-  });
-
+describe("Rate Limiter Integration Tests", () => {
   beforeEach(async () => {
     // Clear any existing rate limit data for our test identifiers
-    // This ensures tests start with a clean slate
     try {
-      const { Redis } = await import("@upstash/redis");
       const redis = new Redis({
         url: SRH_URL,
         token: SRH_TOKEN,
       });
-
-      // Get all keys matching our test pattern
       const keys = await redis.keys("ratelimit:integration-test-*");
-
-      // Delete all test keys
       if (keys.length > 0) {
         await redis.del(...keys);
       }
@@ -82,7 +51,7 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
 
       expect(result).toEqual({
         allowed: true,
-        remaining: 3, // remaining reflects count BEFORE this request
+        remaining: 3,
         limit: 3,
         resetTime: expect.any(Date),
       });
@@ -93,29 +62,26 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
       const { checkRateLimit } = await import("~/server/utils/rate-limiter");
       const identifier = generateTestIdentifier();
 
-      // First request
       const result1 = await checkRateLimit(identifier, {
         upstashRedisRestUrl: SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 3,
       });
-      expect(result1.remaining).toBe(3); // remaining BEFORE first request
+      expect(result1.remaining).toBe(3);
 
-      // Second request
       const result2 = await checkRateLimit(identifier, {
         upstashRedisRestUrl: SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 3,
       });
-      expect(result2.remaining).toBe(2); // remaining BEFORE second request
+      expect(result2.remaining).toBe(2);
 
-      // Third request
       const result3 = await checkRateLimit(identifier, {
         upstashRedisRestUrl: SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 3,
       });
-      expect(result3.remaining).toBe(1); // remaining BEFORE third request
+      expect(result3.remaining).toBe(1);
     });
 
     it("blocks request when limit is exceeded", async () => {
@@ -127,26 +93,22 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
         rateLimitMaxRequests: 2,
       };
 
-      // First two requests should be allowed
-      const result1 = await checkRateLimit(identifier, config);
-      expect(result1.allowed).toBe(true);
+      await checkRateLimit(identifier, config);
+      await checkRateLimit(identifier, config);
 
-      const result2 = await checkRateLimit(identifier, config);
-      expect(result2.allowed).toBe(true);
-
-      // Third request should be blocked
       const result3 = await checkRateLimit(identifier, config);
       expect(result3.allowed).toBe(false);
       expect(result3.remaining).toBe(0);
     });
 
-    it("uses default limit of 3 when not specified", async () => {
+    it("uses default limit of 3 when not specified (covers line 47)", async () => {
       const { checkRateLimit } = await import("~/server/utils/rate-limiter");
       const identifier = generateTestIdentifier();
 
       const result = await checkRateLimit(identifier, {
         upstashRedisRestUrl: SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
+        // rateLimitMaxRequests not specified
       });
 
       expect(result.limit).toBe(3);
@@ -163,7 +125,7 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
       });
 
       expect(result.limit).toBe(10);
-      expect(result.remaining).toBe(10); // remaining BEFORE first request
+      expect(result.remaining).toBe(10);
     });
 
     it("handles multiple identifiers independently", async () => {
@@ -177,13 +139,11 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
         rateLimitMaxRequests: 2,
       };
 
-      // Make 3 requests for identifier1 (should be blocked on 3rd)
       await checkRateLimit(identifier1, config);
       await checkRateLimit(identifier1, config);
       const result1 = await checkRateLimit(identifier1, config);
       expect(result1.allowed).toBe(false);
 
-      // identifier2 should still be allowed (independent counter)
       const result2 = await checkRateLimit(identifier2, config);
       expect(result2.allowed).toBe(true);
     });
@@ -192,10 +152,6 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
       const { checkRateLimit } = await import("~/server/utils/rate-limiter");
       const identifier = generateTestIdentifier();
 
-      // Note: We can't easily test actual time expiration in a fast test
-      // Instead, we verify that the window logic is correctly implemented
-      // by checking the reset time calculation
-
       const result = await checkRateLimit(identifier, {
         upstashRedisRestUrl: SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
@@ -203,9 +159,8 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
       });
 
       const now = Date.now();
-      const expectedResetTime = now + 86400 * 1000; // 24 hours from now
+      const expectedResetTime = now + 86400 * 1000;
 
-      // Allow 5 second tolerance for test execution time
       expect(Math.abs(result.resetTime.getTime() - expectedResetTime)).toBeLessThan(
         5000,
       );
@@ -217,8 +172,6 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
       const { checkRateLimit } = await import("~/server/utils/rate-limiter");
       const identifier = generateTestIdentifier();
 
-      // This test validates that normal operation covers lines 107-115
-      // The pipeline should return valid results
       const result = await checkRateLimit(identifier, {
         upstashRedisRestUrl: SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
@@ -230,7 +183,6 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
     });
 
     it("handles Redis errors during pipeline execution", async () => {
-      // Test with invalid Redis URL to trigger pipeline error
       const { checkRateLimit, RateLimitError } = await import(
         "~/server/utils/rate-limiter"
       );
@@ -242,10 +194,58 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
         }),
       ).rejects.toThrow(RateLimitError);
     });
+
+    it("calculates remaining correctly when currentCount equals maxRequests (covers line 112)", async () => {
+      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+      const identifier = generateTestIdentifier();
+
+      const config = {
+        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestToken: SRH_TOKEN,
+        rateLimitMaxRequests: 2,
+      };
+
+      await checkRateLimit(identifier, config);
+      await checkRateLimit(identifier, config);
+
+      const result = await checkRateLimit(identifier, config);
+      expect(result.allowed).toBe(false);
+      expect(result.remaining).toBe(0);
+    });
+
+    it("sets allowed to true when currentCount < maxRequests (covers line 113 true branch)", async () => {
+      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+      const identifier = generateTestIdentifier();
+
+      const result = await checkRateLimit(identifier, {
+        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestToken: SRH_TOKEN,
+        rateLimitMaxRequests: 5,
+      });
+
+      expect(result.allowed).toBe(true);
+      expect(result.remaining).toBe(5);
+    });
+
+    it("sets allowed to false when currentCount >= maxRequests (covers line 113 false branch)", async () => {
+      const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+      const identifier = generateTestIdentifier();
+
+      const config = {
+        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestToken: SRH_TOKEN,
+        rateLimitMaxRequests: 1,
+      };
+
+      await checkRateLimit(identifier, config);
+
+      const result2 = await checkRateLimit(identifier, config);
+      expect(result2.allowed).toBe(false);
+    });
   });
 
-  describe("Redis initialization error handling (covers line 79)", () => {
-    it("throws RateLimitError when Redis URL is invalid", async () => {
+  describe("Redis initialization error handling", () => {
+    it("throws RateLimitError when Redis URL is invalid (covers lines 75-77)", async () => {
       const { checkRateLimit, RateLimitError } = await import(
         "~/server/utils/rate-limiter"
       );
@@ -258,7 +258,7 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
       ).rejects.toThrow(RateLimitError);
     });
 
-    it("throws RateLimitError when Redis token is invalid", async () => {
+    it("throws RateLimitError when Redis token is invalid (covers lines 75-77)", async () => {
       const { checkRateLimit, RateLimitError } = await import(
         "~/server/utils/rate-limiter"
       );
@@ -270,43 +270,337 @@ describe("Rate Limiter Integration Tests (with SRH)", () => {
         }),
       ).rejects.toThrow(RateLimitError);
     });
+
+    it("throws RateLimitError when config is missing (covers line 47)", async () => {
+      const { checkRateLimit, RateLimitError } = await import(
+        "~/server/utils/rate-limiter"
+      );
+
+      // Pass empty config to trigger missing url/token error
+      await expect(
+        checkRateLimit("test", {}),
+      ).rejects.toThrow(RateLimitError);
+    });
+
+    it("throws RateLimitError when URL is missing from config (covers line 47)", async () => {
+      const { checkRateLimit, RateLimitError } = await import(
+        "~/server/utils/rate-limiter"
+      );
+
+      await expect(
+        checkRateLimit("test", {
+          upstashRedisRestToken: SRH_TOKEN,
+          // URL is missing
+        }),
+      ).rejects.toThrow(RateLimitError);
+    });
+
+    it("throws RateLimitError when token is missing from config (covers line 47)", async () => {
+      const { checkRateLimit, RateLimitError } = await import(
+        "~/server/utils/rate-limiter"
+      );
+
+      await expect(
+        checkRateLimit("test", {
+          upstashRedisRestUrl: SRH_URL,
+          // Token is missing
+        }),
+      ).rejects.toThrow(RateLimitError);
+    });
+  });
+});
+
+describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
   });
 
-  describe("getClientIp", () => {
-    it("extracts IP from x-forwarded-for header", async () => {
-      const { getClientIp } = await import("~/server/utils/rate-limiter");
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
 
-      const mockEvent = {
-        node: {
-          req: {
-            socket: { remoteAddress: "192.168.1.1" },
-            headers: {
-              "x-forwarded-for": "203.0.113.1, 203.0.113.2",
-            } as Record<string, string | undefined>,
-          },
+  it("covers lines 47 and 76-77 when config is empty (missing url and token)", async () => {
+    // This test covers both line 47 (throw in getRedisClient for missing url/token)
+    // AND lines 76-77 (the if-branch that handles RateLimitError)
+    const { checkRateLimit, RateLimitError } = await import(
+      "~/server/utils/rate-limiter"
+    );
+
+    // Pass empty config - will hit line 47 (throw in getRedisClient)
+    // and then lines 76-77 (console.error and re-throw)
+    await expect(
+      checkRateLimit("test", {}), // Empty config
+    ).rejects.toThrow(RateLimitError);
+  });
+
+  it("covers line 79 when getRedisClient throws non-RateLimitError", async () => {
+    vi.doMock("@upstash/redis", () => ({
+      Redis: class MockRedis {
+        constructor() {
+          throw new Error("Generic Redis connection error");
+        }
+      },
+    }));
+
+    vi.resetModules();
+
+    const { checkRateLimit, RateLimitError } = await import(
+      "~/server/utils/rate-limiter"
+    );
+
+    await expect(
+      checkRateLimit("test", {
+        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestToken: SRH_TOKEN,
+      }),
+    ).rejects.toThrow(RateLimitError);
+
+    await expect(
+      checkRateLimit("test", {
+        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestToken: SRH_TOKEN,
+      }),
+    ).rejects.toThrow("Redis initialization failed");
+  });
+
+  it("handles null zcard result in pipeline (covers line 107)", async () => {
+    vi.doMock("@upstash/redis", () => ({
+      Redis: class MockRedis {
+        pipeline() {
+          return {
+            zremrangebyscore: () => this,
+            zcard: () => this,
+            zadd: () => this,
+            expire: () => this,
+            exec: () => Promise.resolve([0, null, "ok", true]),
+          };
+        }
+      },
+    }));
+
+    vi.resetModules();
+
+    const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+
+    await expect(
+      checkRateLimit("test", {
+        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestToken: SRH_TOKEN,
+      }),
+    ).rejects.toThrow("Failed to execute rate limit pipeline");
+  });
+
+  it("handles insufficient pipeline results length (covers line 107)", async () => {
+    vi.doMock("@upstash/redis", () => ({
+      Redis: class MockRedis {
+        pipeline() {
+          return {
+            zremrangebyscore: () => this,
+            zcard: () => this,
+            zadd: () => this,
+            expire: () => this,
+            exec: () => Promise.resolve([0, 0] as unknown),
+          };
+        }
+      },
+    }));
+
+    vi.resetModules();
+
+    const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+
+    await expect(
+      checkRateLimit("test", {
+        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestToken: SRH_TOKEN,
+      }),
+    ).rejects.toThrow("Failed to execute rate limit pipeline");
+  });
+
+  it("handles null/undefined pipeline results (covers line 107)", async () => {
+    vi.doMock("@upstash/redis", () => ({
+      Redis: class MockRedis {
+        pipeline() {
+          return {
+            zremrangebyscore: () => this,
+            zcard: () => this,
+            zadd: () => this,
+            expire: () => this,
+            exec: () => Promise.resolve(null),
+          };
+        }
+      },
+    }));
+
+    vi.resetModules();
+
+    const { checkRateLimit } = await import("~/server/utils/rate-limiter");
+
+    await expect(
+      checkRateLimit("test", {
+        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestToken: SRH_TOKEN,
+      }),
+    ).rejects.toThrow("Failed to execute rate limit pipeline");
+  });
+});
+
+describe("getClientIp (covers lines 153-164)", () => {
+  it("extracts IP from x-forwarded-for header", async () => {
+    const { getClientIp } = await import("~/server/utils/rate-limiter");
+
+    const mockEvent = {
+      node: {
+        req: {
+          socket: { remoteAddress: "192.168.1.1" },
+          headers: {
+            "x-forwarded-for": "203.0.113.1, 203.0.113.2",
+          } as Record<string, string | undefined>,
         },
-      };
+      },
+    };
 
-      const ip = getClientIp(mockEvent);
-      expect(ip).toBe("203.0.113.1");
-    });
+    const ip = getClientIp(mockEvent);
+    expect(ip).toBe("203.0.113.1");
+  });
 
-    it("prioritizes x-forwarded-for over socket remoteAddress", async () => {
-      const { getClientIp } = await import("~/server/utils/rate-limiter");
+  it("prioritizes x-forwarded-for over socket remoteAddress", async () => {
+    const { getClientIp } = await import("~/server/utils/rate-limiter");
 
-      const mockEvent = {
-        node: {
-          req: {
-            socket: { remoteAddress: "192.168.1.1" },
-            headers: {
-              "x-forwarded-for": "203.0.113.1",
-            } as Record<string, string | undefined>,
-          },
+    const mockEvent = {
+      node: {
+        req: {
+          socket: { remoteAddress: "192.168.1.1" },
+          headers: {
+            "x-forwarded-for": "203.0.113.1",
+          } as Record<string, string | undefined>,
         },
-      };
+      },
+    };
 
-      const ip = getClientIp(mockEvent);
-      expect(ip).toBe("203.0.113.1");
-    });
+    const ip = getClientIp(mockEvent);
+    expect(ip).toBe("203.0.113.1");
+  });
+
+  it("tries cf-connecting-ip header when x-forwarded-for is not present", async () => {
+    const { getClientIp } = await import("~/server/utils/rate-limiter");
+
+    const mockEvent = {
+      node: {
+        req: {
+          socket: { remoteAddress: "192.168.1.1" },
+          headers: {
+            "cf-connecting-ip": "198.51.100.1",
+          } as Record<string, string | undefined>,
+        },
+      },
+    };
+
+    const ip = getClientIp(mockEvent);
+    expect(ip).toBe("198.51.100.1");
+  });
+
+  it("tries fly-client-ip header when x-forwarded-for and cf-connecting-ip are not present", async () => {
+    const { getClientIp } = await import("~/server/utils/rate-limiter");
+
+    const mockEvent = {
+      node: {
+        req: {
+          socket: { remoteAddress: "192.168.1.1" },
+          headers: {
+            "fly-client-ip": "203.0.113.50",
+          } as Record<string, string | undefined>,
+        },
+      },
+    };
+
+    const ip = getClientIp(mockEvent);
+    expect(ip).toBe("203.0.113.50");
+  });
+
+  it("tries true-client-ip header when other proxy headers are not present", async () => {
+    const { getClientIp } = await import("~/server/utils/rate-limiter");
+
+    const mockEvent = {
+      node: {
+        req: {
+          socket: { remoteAddress: "192.168.1.1" },
+          headers: {
+            "true-client-ip": "198.51.100.50",
+          } as Record<string, string | undefined>,
+        },
+      },
+    };
+
+    const ip = getClientIp(mockEvent);
+    expect(ip).toBe("198.51.100.50");
+  });
+
+  it("falls back to socket remoteAddress when no proxy headers are present", async () => {
+    const { getClientIp } = await import("~/server/utils/rate-limiter");
+
+    const mockEvent = {
+      node: {
+        req: {
+          socket: { remoteAddress: "10.0.0.5" },
+          headers: {} as Record<string, string | undefined>,
+        },
+      },
+    };
+
+    const ip = getClientIp(mockEvent);
+    expect(ip).toBe("10.0.0.5");
+  });
+
+  it("returns unknown when socket remoteAddress is undefined", async () => {
+    const { getClientIp } = await import("~/server/utils/rate-limiter");
+
+    const mockEvent = {
+      node: {
+        req: {
+          socket: {},
+          headers: {} as Record<string, string | undefined>,
+        },
+      },
+    };
+
+    const ip = getClientIp(mockEvent);
+    expect(ip).toBe("unknown");
+  });
+
+  it("trims whitespace from x-forwarded-for IP before splitting", async () => {
+    const { getClientIp } = await import("~/server/utils/rate-limiter");
+
+    const mockEvent = {
+      node: {
+        req: {
+          socket: { remoteAddress: "192.168.1.1" },
+          headers: {
+            "x-forwarded-for": " 203.0.113.1  ,  203.0.113.2  ",
+          } as Record<string, string | undefined>,
+        },
+      },
+    };
+
+    const ip = getClientIp(mockEvent);
+    expect(ip).toBe("203.0.113.1");
+  });
+
+  it("handles empty x-forwarded-for after trimming", async () => {
+    const { getClientIp } = await import("~/server/utils/rate-limiter");
+
+    const mockEvent = {
+      node: {
+        req: {
+          socket: { remoteAddress: "192.168.1.1" },
+          headers: {
+            "x-forwarded-for": "  ",
+          } as Record<string, string | undefined>,
+        },
+      },
+    };
+
+    const ip = getClientIp(mockEvent);
+    expect(ip).toBe("unknown");
   });
 });

@@ -14,7 +14,7 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     globals: true,
-    setupFiles: ["./test/setup.ts"],
+    // No setupFiles needed for integration tests - we use dynamic imports
     environment: "node",
     include: ["test/integration/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     exclude: ["node_modules", "dist", ".idea", ".git", ".cache"],
