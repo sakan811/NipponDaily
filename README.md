@@ -35,13 +35,13 @@
 
 ### Quick Start
 
-1. **Install dependencies** (from `package.json:5-26`):
+1. **Install dependencies** (from `package.json:5-24`):
 
    ```bash
    pnpm install
    ```
 
-2. **Set up environment** (see `.env.example:1-17`):
+2. **Set up environment** (see `.env.example`):
 
    ```bash
    cp .env.example .env
@@ -67,15 +67,15 @@
 
 ### Tech Stack
 
-- **Frontend**: Vue 3, Nuxt 4, TypeScript (from `package.json:27-37`)
+- **Frontend**: Vue 3, Nuxt 4, TypeScript (from `package.json:25-34`)
 - **APIs**: Tavily Search (`@tavily/core`), Google Gemini AI (`@google/genai`)
-- **Styling**: Tailwind CSS v4, Nuxt UI v4 (from `package.json:29-30,34`)
-- **Testing**: Vitest with happy-dom and node environments (from `vitest.config.ts:12-31`)
-- **Code Quality**: ESLint, Prettier (from `package.json:40-42,56`)
+- **Styling**: Tailwind CSS v4, Nuxt UI v4 (from `package.json:27,32`)
+- **Testing**: Vitest with happy-dom and node environments (from `vitest.config.ts:6-59`)
+- **Code Quality**: ESLint, Prettier, TypeScript (from `package.json:43-44,54-55`)
 
 ### Development Commands
 
-All scripts are defined in `package.json:5-26`:
+All scripts are defined in `package.json:5-24`:
 
 ```bash
 # Development
@@ -88,22 +88,23 @@ pnpm test             # Run tests in watch mode
 pnpm test:run         # Run tests once
 pnpm test:coverage    # Run tests with coverage report
 pnpm test:integration # Run integration tests with SRH Docker (from package.json:15)
+pnpm test:integration:coverage # Run integration tests with coverage (from package.json:16)
+pnpm test:coverage:all    # Run all tests (unit + integration) with coverage (from package.json:17)
 
 # Docker for integration tests
-pnpm docker:up        # Start SRH services
-pnpm docker:down      # Stop SRH services
-pnpm docker:logs      # View SRH logs
+pnpm docker:up        # Start SRH services (from package.json:18)
+pnpm docker:down      # Stop SRH services (from package.json:19)
 
 # Code Quality
 pnpm lint             # Lint and auto-fix
 pnpm format           # Format with Prettier
 pnpm type-check       # TypeScript type checking
-pnpm check-qa         # Run all QA checks (lint, format, type-check, build, test)
+pnpm check-qa         # Run all QA checks (lint, format, type-check, build, test, from package.json:23)
 ```
 
 ### Color Palette
 
-The app uses Nuxt UI v4's semantic color system with Tailwind v4's native palette (from `app/app.config.ts:1-14`):
+The app uses Nuxt UI v4's semantic color system with Tailwind v4's native palette (from `app/app.config.ts:3-12`):
 
 | Semantic Color | Tailwind Color | Usage                                          |
 | -------------- | -------------- | ---------------------------------------------- |
@@ -126,9 +127,9 @@ The app uses Nuxt UI v4's semantic color system with Tailwind v4's native palett
 | Sports     | Success        | amber         |
 | Other      | Neutral        | stone         |
 
-> **Note**: Dark mode is supported via the UColorModeButton component (visible in the header and mobile menu at `app/components/JapanNewsReader.vue:14,61`), which leverages Nuxt UI's integration with `@nuxtjs/color-mode`. Color values are dynamically adjusted by Nuxt UI for dark mode.
+> **Note**: Dark mode is supported via the UColorModeButton component (visible in the header and mobile menu at `app/components/JapanNewsReader.vue:14,61`), which leverages Nuxt UI's built-in color mode support. Color values are dynamically adjusted by Nuxt UI for dark mode.
 
-**Credibility Score** (Multi-Factor Algorithm from `server/services/gemini.ts:170-175`):
+**Credibility Score** (Multi-Factor Algorithm from `server/services/gemini.ts:171-175`):
 
 The credibility score is computed as a weighted average of four metrics:
 
@@ -157,7 +158,7 @@ The credibility score uses a dynamic gradient computed as `hue = score × 120` (
 
 ```text
 app/                    # Nuxt app directory
-├── app.config.ts      # Nuxt UI v4 color configuration (app/app.config.ts:1-14)
+├── app.config.ts      # Nuxt UI v4 color configuration (app/app.config.ts:3-12)
 ├── app.vue            # Root component
 ├── components/        # Vue components
 │   ├── JapanNewsReader.vue  # Main news reader (state, filters, pagination)
@@ -187,19 +188,23 @@ test/                  # Vitest tests
 │   └── rate-limiter.test.ts
 ├── server/            # Server/API tests
 │   ├── api/          # API endpoint tests (by topic)
-│   └── gemini/       # Gemini service tests (by topic)
+│   ├── gemini/       # Gemini service tests (by topic)
+│   ├── tavily.test.ts # Tavily service tests
+│   └── rate-limiter.test.ts # Rate limiter unit tests
 └── unit/              # Component/unit tests
     ├── JapanNewsReader/  # Component tests (by topic)
-    └── NewsCard.test.ts
+    ├── NewsCard.test.ts
+    ├── types.test.ts  # TypeScript type tests
+    └── app.test.ts    # App component tests
 
 vitest.config.ts              # Unit test config (happy-dom + node)
-vitest.integration.config.ts  # Integration test config (SRH)
+vitest.integration.config.ts  # Integration test config (SRH, from vitest.integration.config.ts:1-51)
 nuxt.config.ts               # Nuxt configuration (nuxt.config.ts:1-36)
 ```
 
 ### Limitations
 
-- **Article Count**: 10 articles default, 20 maximum per request (from `server/api/news.get.ts:62-72`)
+- **Article Count**: 10 articles default, 20 maximum per request (from `server/api/news.get.ts:62-71`)
 - **Rate Limiting**: 3 requests per day per IP (configurable via `RATE_LIMIT_MAX_REQUESTS`, from `server/utils/rate-limiter.ts:32-37`)
 - **Dependencies**: Requires both Tavily API and Google Gemini API keys (from `nuxt.config.ts:24-27`)
 - **Redis Required**: Rate limiting requires Upstash Redis to be configured (returns HTTP 500 if unavailable, from `server/api/news.get.ts:174-184`)
@@ -208,7 +213,7 @@ nuxt.config.ts               # Nuxt configuration (nuxt.config.ts:1-36)
 
 ### Environment Variables
 
-See `.env.example:1-17` for reference. Runtime config is defined in `nuxt.config.ts:24-34`:
+See `.env.example` for reference. Runtime config is defined in `nuxt.config.ts:24-34`:
 
 - `GEMINI_API_KEY`: Google Gemini API key (required)
 - `TAVILY_API_KEY`: Tavily API key for news search (required)
@@ -216,4 +221,4 @@ See `.env.example:1-17` for reference. Runtime config is defined in `nuxt.config
 - `RATE_LIMIT_MAX_REQUESTS`: Maximum requests per day (optional, default: 3, from `server/utils/rate-limiter.ts:32-37`)
 - `UPSTASH_REDIS_REST_URL`: Upstash Redis URL for rate limiting (required for production)
 - `UPSTASH_REDIS_REST_TOKEN`: Upstash Redis token for rate limiting (required for production)
-- `SRH_URL`: Serverless Redis HTTP URL for integration tests (optional, from `.env.example:17`)
+- `SRH_URL`: Serverless Redis HTTP URL for integration tests (optional, from `.env.example:16-17`)
