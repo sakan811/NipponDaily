@@ -47,14 +47,27 @@
    cp .env.example .env
    ```
 
-   Add API keys to `.env`:
+   Configure environment variables in `.env`:
 
    ```bash
-   TAVILY_API_KEY=your_tavily_api_key_here
+   # Required: Gemini AI for categorization/translation
    GEMINI_API_KEY=your_gemini_api_key_here
+
+   # Optional: Gemini model (default: gemini-2.5-flash)
+   GEMINI_MODEL=gemini-2.5-flash
+
+   # Required: Tavily Search API for news discovery
+   TAVILY_API_KEY=your_tavily_api_key_here
+
+   # Optional: Rate limit requests per day (default: 3)
    RATE_LIMIT_MAX_REQUESTS=3
+
+   # Required for production: Upstash Redis for rate limiting
    UPSTASH_REDIS_REST_URL=your_upstash_redis_url
    UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_token
+
+   # Optional: Serverless Redis HTTP URL for integration tests
+   TEST_SRH_URL="http://nippondaily-serverless-redis-http-1:80"
    ```
 
 3. **Start development server**:
@@ -67,11 +80,16 @@
 
 ### Tech Stack
 
-- **Frontend**: Vue 3, Nuxt 4, TypeScript (from `package.json:25-34`)
+- **Frontend**: Vue 3, Nuxt 4, TypeScript (from `package.json:25-36`)
 - **APIs**: Tavily Search (`@tavily/core`), Google Gemini AI (`@google/genai`)
 - **Styling**: Tailwind CSS v4, Nuxt UI v4 (from `package.json:27,32`)
 - **Testing**: Vitest with happy-dom and node environments (from `vitest.config.ts:6-59`)
 - **Code Quality**: ESLint, Prettier, TypeScript (from `package.json:43-44,54-55`)
+
+**Test Setup** (`test/setup.ts`):
+- Custom DOM matchers and comprehensive mocks for Nuxt UI components
+- Mocks for external services (@google/genai, @tavily/core, @internationalized/date)
+- Global test utilities for mock news items and error responses
 
 ### Development Commands
 
@@ -188,14 +206,17 @@ test/                  # Vitest tests
 │   └── rate-limiter.test.ts
 ├── server/            # Server/API tests
 │   ├── api/          # API endpoint tests (by topic)
+│   │   └── setup.ts  # API test shared setup
 │   ├── gemini/       # Gemini service tests (by topic)
 │   ├── tavily.test.ts # Tavily service tests
 │   └── rate-limiter.test.ts # Rate limiter unit tests
-└── unit/              # Component/unit tests
-    ├── JapanNewsReader/  # Component tests (by topic)
-    ├── NewsCard.test.ts
-    ├── types.test.ts  # TypeScript type tests
-    └── app.test.ts    # App component tests
+├── unit/              # Component/unit tests
+│   ├── JapanNewsReader/  # Component tests (by topic)
+│   │   └── setup.ts  # JapanNewsReader test shared setup
+│   ├── NewsCard.test.ts
+│   ├── types.test.ts  # TypeScript type tests
+│   └── app.test.ts    # App component tests
+└── setup.ts           # Test setup (custom matchers, mocks)
 
 vitest.config.ts              # Unit test config (happy-dom + node)
 vitest.integration.config.ts  # Integration test config (SRH, from vitest.integration.config.ts:1-51)
@@ -204,9 +225,9 @@ nuxt.config.ts               # Nuxt configuration (nuxt.config.ts:1-36)
 
 ### Limitations
 
-- **Article Count**: 10 articles default, 20 maximum per request (from `server/api/news.get.ts:62-71`)
+- **Article Count**: 10 articles default, 20 maximum per request (from `server/api/news.get.ts:62-72`)
 - **Rate Limiting**: 3 requests per day per IP (configurable via `RATE_LIMIT_MAX_REQUESTS`, from `server/utils/rate-limiter.ts:32-37`)
-- **Dependencies**: Requires both Tavily API and Google Gemini API keys (from `nuxt.config.ts:24-27`)
+- **Dependencies**: Requires both Tavily API and Google Gemini API keys (from `nuxt.config.ts:24-34`)
 - **Redis Required**: Rate limiting requires Upstash Redis to be configured (returns HTTP 500 if unavailable, from `server/api/news.get.ts:174-184`)
 - **Categorization**: AI-based with fallback to "Other" category on failures (from `constants/categories.ts:10-17`)
 - **Date Range**: Custom date range limited to 365 days maximum, must be after 2000-01-01 (from `server/api/news.get.ts:86-135`)
@@ -221,4 +242,4 @@ See `.env.example` for reference. Runtime config is defined in `nuxt.config.ts:2
 - `RATE_LIMIT_MAX_REQUESTS`: Maximum requests per day (optional, default: 3, from `server/utils/rate-limiter.ts:32-37`)
 - `UPSTASH_REDIS_REST_URL`: Upstash Redis URL for rate limiting (required for production)
 - `UPSTASH_REDIS_REST_TOKEN`: Upstash Redis token for rate limiting (required for production)
-- `SRH_URL`: Serverless Redis HTTP URL for integration tests (optional, from `.env.example:16-17`)
+- `TEST_SRH_URL`: Serverless Redis HTTP URL for integration tests (optional, from `.env.example:16-17`)
