@@ -11,11 +11,11 @@ import { Redis } from "@upstash/redis";
  * Run these tests with: pnpm test:integration
  */
 
-const SRH_URL = process.env.SRH_URL ?? "http://nippondaily-serverless-redis-http-1:80";
+const TEST_SRH_URL = process.env.TEST_SRH_URL ?? "http://nippondaily-serverless-redis-http-1:80";
 const SRH_TOKEN = process.env.SRH_TOKEN ?? "integration_test_token";
 const TEST_IDENTIFIER_PREFIX = "integration-test-";
 
-console.log("SRH Test Config:", { SRH_URL, SRH_TOKEN });
+console.log("SRH Test Config:", { TEST_SRH_URL, SRH_TOKEN });
 
 // Helper to generate unique test identifiers
 const generateTestIdentifier = () =>
@@ -26,7 +26,7 @@ describe("Rate Limiter Integration Tests", () => {
     // Clear any existing rate limit data for our test identifiers
     try {
       const redis = new Redis({
-        url: SRH_URL,
+        url: TEST_SRH_URL,
         token: SRH_TOKEN,
       });
       const keys = await redis.keys("ratelimit:integration-test-*");
@@ -44,7 +44,7 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier = generateTestIdentifier();
 
       const result = await checkRateLimit(identifier, {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 3,
       });
@@ -63,21 +63,21 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier = generateTestIdentifier();
 
       const result1 = await checkRateLimit(identifier, {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 3,
       });
       expect(result1.remaining).toBe(3);
 
       const result2 = await checkRateLimit(identifier, {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 3,
       });
       expect(result2.remaining).toBe(2);
 
       const result3 = await checkRateLimit(identifier, {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 3,
       });
@@ -88,7 +88,7 @@ describe("Rate Limiter Integration Tests", () => {
       const { checkRateLimit } = await import("~/server/utils/rate-limiter");
       const identifier = generateTestIdentifier();
       const config = {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 2,
       };
@@ -106,7 +106,7 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier = generateTestIdentifier();
 
       const result = await checkRateLimit(identifier, {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         // rateLimitMaxRequests not specified
       });
@@ -119,7 +119,7 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier = generateTestIdentifier();
 
       const result = await checkRateLimit(identifier, {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 10,
       });
@@ -134,7 +134,7 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier2 = generateTestIdentifier();
 
       const config = {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 2,
       };
@@ -153,7 +153,7 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier = generateTestIdentifier();
 
       const result = await checkRateLimit(identifier, {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 1,
       });
@@ -173,7 +173,7 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier = generateTestIdentifier();
 
       const result = await checkRateLimit(identifier, {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 3,
       });
@@ -200,7 +200,7 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier = generateTestIdentifier();
 
       const config = {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 2,
       };
@@ -218,7 +218,7 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier = generateTestIdentifier();
 
       const result = await checkRateLimit(identifier, {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 5,
       });
@@ -232,7 +232,7 @@ describe("Rate Limiter Integration Tests", () => {
       const identifier = generateTestIdentifier();
 
       const config = {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
         rateLimitMaxRequests: 1,
       };
@@ -265,7 +265,7 @@ describe("Rate Limiter Integration Tests", () => {
 
       await expect(
         checkRateLimit("test", {
-          upstashRedisRestUrl: SRH_URL,
+          upstashRedisRestUrl: TEST_SRH_URL,
           upstashRedisRestToken: "invalid-token",
         }),
       ).rejects.toThrow(RateLimitError);
@@ -302,7 +302,7 @@ describe("Rate Limiter Integration Tests", () => {
 
       await expect(
         checkRateLimit("test", {
-          upstashRedisRestUrl: SRH_URL,
+          upstashRedisRestUrl: TEST_SRH_URL,
           // Token is missing
         }),
       ).rejects.toThrow(RateLimitError);
@@ -350,14 +350,14 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
 
     await expect(
       checkRateLimit("test", {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
       }),
     ).rejects.toThrow(RateLimitError);
 
     await expect(
       checkRateLimit("test", {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
       }),
     ).rejects.toThrow("Redis initialization failed");
@@ -384,7 +384,7 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
 
     await expect(
       checkRateLimit("test", {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
       }),
     ).rejects.toThrow("Failed to execute rate limit pipeline");
@@ -411,7 +411,7 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
 
     await expect(
       checkRateLimit("test", {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
       }),
     ).rejects.toThrow("Failed to execute rate limit pipeline");
@@ -438,7 +438,7 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
 
     await expect(
       checkRateLimit("test", {
-        upstashRedisRestUrl: SRH_URL,
+        upstashRedisRestUrl: TEST_SRH_URL,
         upstashRedisRestToken: SRH_TOKEN,
       }),
     ).rejects.toThrow("Failed to execute rate limit pipeline");
