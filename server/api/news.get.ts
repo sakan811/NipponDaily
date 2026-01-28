@@ -165,8 +165,8 @@ export default defineEventHandler(async (event) => {
 
   try {
     rateLimitResult = await checkRateLimit(clientIp, {
-      upstashRedisRestUrl: config.upstashRedisRestUrl,
-      upstashRedisRestToken: config.upstashRedisRestToken,
+      upstashRedisRestUrl: config.upstashRedisRestUrl as string,
+      upstashRedisRestToken: config.upstashRedisRestToken as string,
       rateLimitMaxRequests: config.rateLimitMaxRequests
         ? parseInt(config.rateLimitMaxRequests as string, 10)
         : undefined,
@@ -210,7 +210,7 @@ export default defineEventHandler(async (event) => {
       timeRange: validatedQuery.timeRange,
       startDate: validatedQuery.startDate,
       endDate: validatedQuery.endDate,
-      apiKey: config.tavilyApiKey,
+      apiKey: config.tavilyApiKey as string,
     });
 
     // Format Tavily results to NewsItem format
@@ -218,8 +218,8 @@ export default defineEventHandler(async (event) => {
 
     // Use Gemini to categorize the news
     news = await geminiService.categorizeNewsItems(news, {
-      apiKey: config.geminiApiKey,
-      model: config.geminiModel,
+      apiKey: config.geminiApiKey as string,
+      model: config.geminiModel as string | undefined,
       language: validatedQuery.language,
     });
 

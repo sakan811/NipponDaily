@@ -15,7 +15,9 @@ export default defineConfig({
         extends: true,
         test: {
           environment: "happy-dom",
-          include: ["test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+          include: [
+            "test/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+          ],
           exclude: ["node_modules", "dist", ".idea", ".git", ".cache"],
         },
       },
@@ -24,7 +26,9 @@ export default defineConfig({
         extends: true,
         test: {
           environment: "node",
-          include: ["test/server/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+          include: [
+            "test/server/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+          ],
           exclude: ["node_modules", "dist", ".idea", ".git", ".cache"],
         },
       },

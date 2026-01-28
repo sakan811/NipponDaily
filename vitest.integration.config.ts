@@ -16,7 +16,9 @@ export default defineConfig({
     globals: true,
     // No setupFiles needed for integration tests - we use dynamic imports
     environment: "node",
-    include: ["test/integration/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+    include: [
+      "test/integration/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}",
+    ],
     exclude: ["node_modules", "dist", ".idea", ".git", ".cache"],
     testTimeout: 30000, // 30 second timeout for integration tests
     hookTimeout: 30000,

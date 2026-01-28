@@ -77,12 +77,12 @@ describe("Index Page (Landing)", () => {
     );
 
     // Multi-Language Translation
-    expect(wrapper.text()).toContain(
-      "Read news in your preferred language",
-    );
+    expect(wrapper.text()).toContain("Read news in your preferred language");
 
     // Credibility Scoring
-    expect(wrapper.text()).toContain("Weighted score based on source reputation");
+    expect(wrapper.text()).toContain(
+      "Weighted score based on source reputation",
+    );
 
     // Flexible Filtering
     expect(wrapper.text()).toContain("Filter by category and time range");
