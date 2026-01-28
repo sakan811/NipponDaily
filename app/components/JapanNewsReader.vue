@@ -10,9 +10,9 @@
       </template>
 
       <template #right>
-        <div class="flex items-center gap-2 hidden lg:flex">
+        <div class="flex items-center gap-2">
           <UColorModeButton />
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 hidden lg:flex">
             <label for="newsAmount" class="text-sm text-secondary-500">
               News:
             </label>
@@ -28,7 +28,7 @@
               class="w-20"
             />
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 hidden lg:flex">
             <label for="targetLanguage" class="text-sm text-secondary-500">
               Lang:
             </label>
@@ -41,24 +41,25 @@
               class="w-36"
             />
           </div>
-          <UButton
-            :disabled="loading"
-            :loading="loading"
-            color="primary"
-            size="sm"
-            icon="i-heroicons-magnifying-glass"
-            @click="refreshNews"
-          >
-            <span class="hidden sm:inline">{{
-              loading ? "Getting..." : "Get News"
-            }}</span>
-          </UButton>
+          <div class="hidden lg:flex">
+            <UButton
+              :disabled="loading"
+              :loading="loading"
+              color="primary"
+              size="sm"
+              icon="i-heroicons-magnifying-glass"
+              @click="refreshNews"
+            >
+              <span class="hidden sm:inline">{{
+                loading ? "Getting..." : "Get News"
+              }}</span>
+            </UButton>
+          </div>
         </div>
       </template>
 
       <template #body>
         <div class="space-y-4">
-          <UColorModeButton block />
           <div class="space-y-3">
             <div>
               <label for="mobileNewsAmount" class="text-sm text-secondary-500">
