@@ -87,6 +87,7 @@
 - **Code Quality**: ESLint, Prettier, TypeScript (from `package.json:43-44,54-55`)
 
 **Test Setup** (`test/setup.ts`):
+
 - Custom DOM matchers and comprehensive mocks for Nuxt UI components
 - Mocks for external services (@google/genai, @tavily/core, @internationalized/date)
 - Global test utilities for mock news items and error responses

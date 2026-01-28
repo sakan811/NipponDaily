@@ -11,7 +11,8 @@ import { Redis } from "@upstash/redis";
  * Run these tests with: pnpm test:integration
  */
 
-const TEST_SRH_URL = process.env.TEST_SRH_URL ?? "http://nippondaily-serverless-redis-http-1:80";
+const TEST_SRH_URL =
+  process.env.TEST_SRH_URL ?? "http://nippondaily-serverless-redis-http-1:80";
 const SRH_TOKEN = process.env.SRH_TOKEN ?? "integration_test_token";
 const TEST_IDENTIFIER_PREFIX = "integration-test-";
 
@@ -161,9 +162,9 @@ describe("Rate Limiter Integration Tests", () => {
       const now = Date.now();
       const expectedResetTime = now + 86400 * 1000;
 
-      expect(Math.abs(result.resetTime.getTime() - expectedResetTime)).toBeLessThan(
-        5000,
-      );
+      expect(
+        Math.abs(result.resetTime.getTime() - expectedResetTime),
+      ).toBeLessThan(5000);
     });
   });
 
@@ -183,9 +184,8 @@ describe("Rate Limiter Integration Tests", () => {
     });
 
     it("handles Redis errors during pipeline execution", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
 
       await expect(
         checkRateLimit("invalid-test", {
@@ -246,9 +246,8 @@ describe("Rate Limiter Integration Tests", () => {
 
   describe("Redis initialization error handling", () => {
     it("throws RateLimitError when Redis URL is invalid (covers lines 75-77)", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
 
       await expect(
         checkRateLimit("test", {
@@ -259,9 +258,8 @@ describe("Rate Limiter Integration Tests", () => {
     });
 
     it("throws RateLimitError when Redis token is invalid (covers lines 75-77)", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
 
       await expect(
         checkRateLimit("test", {
@@ -272,20 +270,16 @@ describe("Rate Limiter Integration Tests", () => {
     });
 
     it("throws RateLimitError when config is missing (covers line 47)", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
 
       // Pass empty config to trigger missing url/token error
-      await expect(
-        checkRateLimit("test", {}),
-      ).rejects.toThrow(RateLimitError);
+      await expect(checkRateLimit("test", {})).rejects.toThrow(RateLimitError);
     });
 
     it("throws RateLimitError when URL is missing from config (covers line 47)", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
 
       await expect(
         checkRateLimit("test", {
@@ -296,9 +290,8 @@ describe("Rate Limiter Integration Tests", () => {
     });
 
     it("throws RateLimitError when token is missing from config (covers line 47)", async () => {
-      const { checkRateLimit, RateLimitError } = await import(
-        "~/server/utils/rate-limiter"
-      );
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
 
       await expect(
         checkRateLimit("test", {
@@ -322,9 +315,8 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
   it("covers lines 47 and 76-77 when config is empty (missing url and token)", async () => {
     // This test covers both line 47 (throw in getRedisClient for missing url/token)
     // AND lines 76-77 (the if-branch that handles RateLimitError)
-    const { checkRateLimit, RateLimitError } = await import(
-      "~/server/utils/rate-limiter"
-    );
+    const { checkRateLimit, RateLimitError } =
+      await import("~/server/utils/rate-limiter");
 
     // Pass empty config - will hit line 47 (throw in getRedisClient)
     // and then lines 76-77 (console.error and re-throw)
@@ -335,18 +327,18 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
 
   it("covers line 79 when getRedisClient throws non-RateLimitError", async () => {
     vi.doMock("@upstash/redis", () => ({
-      Redis: class MockRedis {
+      // eslint-disable-next-line @typescript-eslint/no-extraneous-class
+      Redis: class {
         constructor() {
           throw new Error("Generic Redis connection error");
         }
-      },
+      } as never,
     }));
 
     vi.resetModules();
 
-    const { checkRateLimit, RateLimitError } = await import(
-      "~/server/utils/rate-limiter"
-    );
+    const { checkRateLimit, RateLimitError } =
+      await import("~/server/utils/rate-limiter");
 
     await expect(
       checkRateLimit("test", {
@@ -365,7 +357,7 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
 
   it("handles null zcard result in pipeline (covers line 107)", async () => {
     vi.doMock("@upstash/redis", () => ({
-      Redis: class MockRedis {
+      Redis: class {
         pipeline() {
           return {
             zremrangebyscore: () => this,
@@ -375,7 +367,7 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
             exec: () => Promise.resolve([0, null, "ok", true]),
           };
         }
-      },
+      } as never,
     }));
 
     vi.resetModules();
@@ -392,7 +384,7 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
 
   it("handles insufficient pipeline results length (covers line 107)", async () => {
     vi.doMock("@upstash/redis", () => ({
-      Redis: class MockRedis {
+      Redis: class {
         pipeline() {
           return {
             zremrangebyscore: () => this,
@@ -402,7 +394,7 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
             exec: () => Promise.resolve([0, 0] as unknown),
           };
         }
-      },
+      } as never,
     }));
 
     vi.resetModules();
@@ -419,7 +411,7 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
 
   it("handles null/undefined pipeline results (covers line 107)", async () => {
     vi.doMock("@upstash/redis", () => ({
-      Redis: class MockRedis {
+      Redis: class {
         pipeline() {
           return {
             zremrangebyscore: () => this,
@@ -429,7 +421,7 @@ describe("Rate Limiter Edge Cases (with mocked Redis)", () => {
             exec: () => Promise.resolve(null),
           };
         }
-      },
+      } as never,
     }));
 
     vi.resetModules();
