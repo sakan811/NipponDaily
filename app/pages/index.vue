@@ -1,7 +1,7 @@
 <template>
   <UPage>
     <!-- Header -->
-    <UHeader>
+    <UHeader :toggle="false">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
           <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
@@ -13,10 +13,6 @@
         <div class="flex items-center gap-2">
           <UColorModeButton />
         </div>
-      </template>
-
-      <template #body>
-        <UColorModeButton block />
       </template>
     </UHeader>
 
