@@ -178,7 +178,10 @@ export { mockTavilyClient, mockGenerateContent };
 
 // Configure Vue Test Utils with enhanced mocks
 config.global.stubs = {
-  NuxtLink: { template: "<a><slot /></a>" },
+  NuxtLink: {
+    template: '<a :href="to"><slot /></a>',
+    props: ["to"],
+  },
   NuxtLayout: { template: "<div><slot /></div>" },
   UButton: {
     template:
@@ -256,6 +259,23 @@ config.global.stubs = {
   UTooltip: {
     template: '<div class="u-tooltip"><slot /></div>',
     props: ["text", "ui"],
+  },
+  UPage: { template: '<div class="u-page"><slot /></div>' },
+  UPageHero: {
+    template: '<section class="u-page-hero"><slot name="headline" /><h1>{{ title }}</h1><p>{{ description }}</p><a v-for="(link, i) in links" :key="i" :href="link.to">{{ link.label }}</a></section>',
+    props: ["title", "description", "links", "ui", "class"],
+  },
+  UPageSection: {
+    template: '<section class="u-page-section"><h2>{{ title }}</h2><p>{{ description }}</p><slot /></section>',
+    props: ["title", "description"],
+  },
+  UPageGrid: { template: '<div class="u-page-grid"><slot /></div>' },
+  UPageCard: {
+    template: '<div class="u-page-card"><h3>{{ title }}</h3><p>{{ description }}</p></div>',
+    props: ["title", "description", "icon"],
+  },
+  UFooter: {
+    template: '<footer class="u-footer"><slot name="left" /><slot name="right" /><slot name="top" /></footer>',
   },
 };
 
