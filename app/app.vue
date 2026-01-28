@@ -1,7 +1,5 @@
 <template>
   <NuxtLayout>
-    <UMain>
-      <JapanNewsReader />
-    </UMain>
+    <NuxtPage />
   </NuxtLayout>
 </template>
