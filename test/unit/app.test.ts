@@ -3,55 +3,45 @@ import { mount } from "@vue/test-utils";
 import App from "~/app/app.vue";
 
 // Mock components
-const JapanNewsReaderMock = {
-  name: "JapanNewsReader",
-  template: '<div class="japan-news-reader">JapanNewsReader</div>',
-};
-
 const NuxtRouteAnnouncerMock = {
   name: "NuxtRouteAnnouncer",
   template: '<div class="route-announcer"></div>',
 };
 
-const NuxtLayoutMock = {
-  name: "NuxtLayout",
-  template: '<div class="nuxt-layout"><slot /></div>',
+const NuxtPageMock = {
+  name: "NuxtPage",
+  template: '<div class="nuxt-page"><slot /></div>',
 };
 
-const UMainMock = {
-  name: "UMain",
-  template: '<main class="u-main"><slot /></main>',
+const UAppMock = {
+  name: "UApp",
+  template: '<div class="u-app"><slot /></div>',
 };
-
-vi.mock("~/app/components/JapanNewsReader.vue", () => ({
-  default: JapanNewsReaderMock,
-}));
 
 vi.mock("#app/components/NuxtRouteAnnouncer", () => ({
   default: NuxtRouteAnnouncerMock,
 }));
 
 const globalComponents = {
-  JapanNewsReader: JapanNewsReaderMock,
   NuxtRouteAnnouncer: NuxtRouteAnnouncerMock,
-  NuxtLayout: NuxtLayoutMock,
-  UMain: UMainMock,
+  NuxtPage: NuxtPageMock,
+  UApp: UAppMock,
 };
 
 describe("App", () => {
   it("renders main layout with correct structure", () => {
     const wrapper = mount(App, { global: { components: globalComponents } });
 
-    // App renders NuxtLayout > UMain > JapanNewsReader
-    expect(wrapper.findComponent(NuxtLayoutMock).exists()).toBe(true);
-    expect(wrapper.findComponent(UMainMock).exists()).toBe(true);
-    expect(wrapper.findComponent(JapanNewsReaderMock).exists()).toBe(true);
+    // App renders UApp > NuxtRouteAnnouncer + NuxtPage
+    expect(wrapper.findComponent(UAppMock).exists()).toBe(true);
+    expect(wrapper.findComponent(NuxtRouteAnnouncerMock).exists()).toBe(true);
+    expect(wrapper.findComponent(NuxtPageMock).exists()).toBe(true);
   });
 
   it("renders child components", () => {
     const wrapper = mount(App, { global: { components: globalComponents } });
 
-    expect(wrapper.findComponent(JapanNewsReaderMock).exists()).toBe(true);
-    expect(wrapper.findComponent(NuxtLayoutMock).exists()).toBe(true);
+    expect(wrapper.findComponent(NuxtRouteAnnouncerMock).exists()).toBe(true);
+    expect(wrapper.findComponent(UAppMock).exists()).toBe(true);
   });
 });
