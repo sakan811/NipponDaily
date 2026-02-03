@@ -47,7 +47,7 @@ describe("News API - Sorting", () => {
       },
     ];
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
@@ -89,7 +89,7 @@ describe("News API - Sorting", () => {
       },
     ];
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
@@ -139,7 +139,7 @@ describe("News API - Sorting", () => {
       },
     ];
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
@@ -191,7 +191,7 @@ describe("News API - Sorting", () => {
       },
     ];
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);
@@ -251,7 +251,7 @@ describe("News API - Sorting", () => {
       },
     ];
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
     mockGeminiCategorize.mockResolvedValue(mockNews);

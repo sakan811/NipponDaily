@@ -22,7 +22,7 @@ describe("News API - Time Range Validation", () => {
     for (const timeRange of validTimeRanges) {
       (global as any).getQuery.mockReturnValue({
         timeRange,
-        language: "English",
+        language: "en",
       });
       mockTavilySearch.mockResolvedValue({ results: [] });
       mockTavilyFormat.mockReturnValue([]);
@@ -50,7 +50,7 @@ describe("News API - Time Range Validation", () => {
   it("defaults to 'week' when invalid timeRange is provided", async () => {
     (global as any).getQuery.mockReturnValue({
       timeRange: "invalid",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -75,7 +75,7 @@ describe("News API - Time Range Validation", () => {
   });
 
   it("defaults to 'week' when timeRange is not provided", async () => {
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
     mockGeminiCategorize.mockResolvedValue([]);
@@ -110,7 +110,7 @@ describe("News API - Time Range Validation", () => {
     for (const { input, expected } of testCases) {
       (global as any).getQuery.mockReturnValue({
         timeRange: input,
-        language: "English",
+        language: "en",
       });
       mockTavilySearch.mockResolvedValue({ results: [] });
       mockTavilyFormat.mockReturnValue([]);
@@ -138,7 +138,7 @@ describe("News API - Time Range Validation", () => {
   it("handles empty string timeRange", async () => {
     (global as any).getQuery.mockReturnValue({
       timeRange: "",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -168,7 +168,7 @@ describe("News API - Time Range Validation", () => {
     for (const timeRange of testCases) {
       (global as any).getQuery.mockReturnValue({
         timeRange,
-        language: "English",
+        language: "en",
       });
       mockTavilySearch.mockResolvedValue({ results: [] });
       mockTavilyFormat.mockReturnValue([]);
@@ -198,7 +198,7 @@ describe("News API - Time Range Validation", () => {
       timeRange: "month",
       category: "technology",
       limit: "5",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);

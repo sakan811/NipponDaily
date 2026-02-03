@@ -18,7 +18,7 @@ describe("News API - Error Handling", () => {
 
   it("handles service errors", async () => {
     const error = new Error("Service error");
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockRejectedValue(error);
 
     await expect(
@@ -47,7 +47,7 @@ describe("News API - Error Handling", () => {
     process.env.NODE_ENV = "development";
     const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     const error = new Error("Dev error");
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockRejectedValue(error);
 
     try {
@@ -74,7 +74,7 @@ describe("News API - Error Handling", () => {
   });
 
   it("handles non-Error objects in error handling", async () => {
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockRejectedValue("String error message");
 
     await expect(

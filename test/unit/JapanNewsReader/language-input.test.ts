@@ -134,7 +134,6 @@ describe("JapanNewsReader - Language Input", () => {
     });
 
     // Set language to Japanese (locale code "ja")
-    // The locale.name for "ja" is "日本語" (Japanese name for Japanese)
     wrapper.vm.targetLanguage = "ja";
     await wrapper.vm.fetchNews();
 
@@ -142,7 +141,7 @@ describe("JapanNewsReader - Language Input", () => {
       query: {
         category: undefined,
         timeRange: "week",
-        language: "日本語", // API receives localized language name
+        language: "ja", // API receives ISO 639-1 locale code
         limit: 10,
       },
     });
@@ -169,7 +168,7 @@ describe("JapanNewsReader - Language Input", () => {
       query: {
         category: undefined,
         timeRange: "week",
-        language: "English", // empty string should fallback to "English" per component logic
+        language: "", // Frontend sends empty string, server would validate to "en"
         limit: 10,
       },
     });

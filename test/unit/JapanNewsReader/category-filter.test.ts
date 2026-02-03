@@ -106,7 +106,7 @@ describe("JapanNewsReader - Category Filter", () => {
       query: {
         category: "technology",
         timeRange: "week",
-        language: "English",
+        language: "en",
         limit: 10,
       },
     });

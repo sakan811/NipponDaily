@@ -20,7 +20,7 @@ describe("News API - Zod Date Validation", () => {
   it("rejects when only startDate is provided without endDate", async () => {
     (global as any).getQuery.mockReturnValue({
       startDate: "2024-01-01",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -55,7 +55,7 @@ describe("News API - Zod Date Validation", () => {
   it("rejects when only endDate is provided without startDate", async () => {
     (global as any).getQuery.mockReturnValue({
       endDate: "2024-01-31",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -88,7 +88,7 @@ describe("News API - Zod Date Validation", () => {
     (global as any).getQuery.mockReturnValue({
       startDate: "01/01/2024",
       endDate: "2024-01-31",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -122,7 +122,7 @@ describe("News API - Zod Date Validation", () => {
     (global as any).getQuery.mockReturnValue({
       startDate: "1999-12-31",
       endDate: "2000-01-01",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -160,7 +160,7 @@ describe("News API - Zod Date Validation", () => {
     (global as any).getQuery.mockReturnValue({
       startDate: futureDateStr,
       endDate: futureDateStr,
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -194,7 +194,7 @@ describe("News API - Zod Date Validation", () => {
     (global as any).getQuery.mockReturnValue({
       startDate: "2024-12-31",
       endDate: "2024-01-01",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -228,7 +228,7 @@ describe("News API - Zod Date Validation", () => {
     (global as any).getQuery.mockReturnValue({
       startDate: "2024-01-01",
       endDate: "2025-01-02", // 367 days later in 2024 (leap year)
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -262,7 +262,7 @@ describe("News API - Zod Date Validation", () => {
     (global as any).getQuery.mockReturnValue({
       startDate: "2024-01-01",
       endDate: "2024-12-31",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -292,7 +292,7 @@ describe("News API - Zod Date Validation", () => {
     (global as any).getQuery.mockReturnValue({
       startDate: "not-a-date",
       endDate: "2024-01-31",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);

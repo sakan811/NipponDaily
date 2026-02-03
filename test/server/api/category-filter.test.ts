@@ -44,7 +44,7 @@ describe("News API - Category Filter", () => {
     expect(mockGeminiCategorize).toHaveBeenCalledWith(mockNews, {
       apiKey: "test-api-key",
       model: "gemini-1.5-flash",
-      language: "English",
+      language: "en",
     });
   });
 
@@ -78,7 +78,7 @@ describe("News API - Category Filter", () => {
     const mockNews = createMockNews();
     (global as any).getQuery.mockReturnValue({
       category: "",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
@@ -106,7 +106,7 @@ describe("News API - Category Filter", () => {
     const mockNews = createMockNews();
     (global as any).getQuery.mockReturnValue({
       category: "   ",
-      language: "English",
+      language: "en",
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);

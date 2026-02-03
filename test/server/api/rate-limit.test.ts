@@ -20,7 +20,7 @@ describe("News API - Rate Limit Error Handling", () => {
       ),
     );
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
 
     await expect(
       handler({
@@ -59,7 +59,7 @@ describe("News API - Rate Limit Error Handling", () => {
       ),
     );
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
 
     await expect(
       handler({
@@ -91,7 +91,7 @@ describe("News API - Rate Limit Error Handling", () => {
     // Mock checkRateLimit to throw a generic error
     mockCheckRateLimit.mockRejectedValue(new Error("Unexpected error"));
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
 
     await expect(
       handler({
@@ -124,7 +124,7 @@ describe("News API - Rate Limit Error Handling", () => {
       limit: 3,
     });
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
 
     await expect(
       handler({
@@ -167,7 +167,7 @@ describe("News API - Rate Limit Error Handling", () => {
       limit: 10,
     });
 
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
 
     await expect(
       handler({

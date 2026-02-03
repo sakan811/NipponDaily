@@ -24,6 +24,31 @@ class GeminiService {
   /**
    * Categorize news items and generate summaries using Gemini AI
    */
+  /**
+   * Validate and normalize ISO 639-1 locale code
+   * Matches format: en, ja, zh, zh_cn, en_gb, pt_br, etc.
+   * Rejects potential prompt injection attempts
+   */
+  private validateLocaleCode(input?: string | null): string {
+    if (!input || typeof input !== "string") {
+      return "en";
+    }
+
+    const normalized = input.trim().toLowerCase();
+
+    // ISO 639-1 pattern: 2-letter code, optional _region (2 letters)
+    // Matches: en, ja, zh, zh_cn, en_gb, pt_br, etc.
+    // Rejects: English, "en;DROP TABLE", "en\nIgnore", etc.
+    const LOCALE_PATTERN = /^[a-z]{2}(?:_[a-z]{2})?$/;
+
+    if (LOCALE_PATTERN.test(normalized)) {
+      return normalized;
+    }
+
+    // Return default for invalid input
+    return "en";
+  }
+
   async categorizeNewsItems(
     newsItems: NewsItem[],
     options?: {
@@ -42,8 +67,8 @@ class GeminiService {
     }
 
     try {
-      // Get language with fallback to English
-      const language = options?.language || "English";
+      // Validate and normalize locale code (prevents prompt injection)
+      const localeCode = this.validateLocaleCode(options?.language);
 
       const newsText = newsItems
         .map(
@@ -54,7 +79,7 @@ class GeminiService {
 
       const prompt = `You are a specialized AI assistant for categorizing Japanese news articles, generating summaries, and assessing source credibility. Please analyze the following news articles and provide categorization, translated title, summary, and credibility assessment for each one.
 
-Target Language: ${language}
+Target Language (ISO 639-1 locale code): ${localeCode}
 Available categories: ${VALID_CATEGORIES.filter((cat) => cat !== "Other").join(", ")}
 
 ${newsText}
@@ -87,11 +112,11 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
                 },
                 translatedTitle: {
                   type: Type.STRING,
-                  description: `The title translated into ${language}`,
+                  description: `The title translated into the language specified by locale code: ${localeCode}`,
                 },
                 summary: {
                   type: Type.STRING,
-                  description: `A concise summary (2-3 sentences maximum) in ${language}`,
+                  description: `A concise summary (2-3 sentences maximum) in the language specified by locale code: ${localeCode}`,
                 },
                 sourceReputation: {
                   type: Type.NUMBER,

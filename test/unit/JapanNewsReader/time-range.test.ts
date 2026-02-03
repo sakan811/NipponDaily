@@ -99,7 +99,7 @@ describe("JapanNewsReader - Time Range", () => {
       query: {
         category: undefined,
         timeRange: "day",
-        language: "English",
+        language: "en",
         limit: 10,
       },
     });
@@ -126,7 +126,7 @@ describe("JapanNewsReader - Time Range", () => {
       query: {
         category: undefined,
         timeRange: "month",
-        language: "English",
+        language: "en",
         limit: 10,
       },
     });
