@@ -49,13 +49,13 @@ const newsQuerySchema = z
       .nullable()
       .optional(),
 
-    // Target language for translation (handles null/undefined/empty)
+    // Target language for translation (ISO 639-1 locale code, handles null/undefined/empty)
     language: z
       .string()
       .nullable()
       .optional()
       .transform((val) => {
-        if (!val || val.trim() === "") return "English";
+        if (!val || val.trim() === "") return "en";
         return val;
       }),
 
@@ -139,7 +139,7 @@ const newsQuerySchema = z
     timeRange: data.timeRange ?? "week",
     startDate: data.startDate ?? undefined,
     endDate: data.endDate ?? undefined,
-    language: data.language ?? "English",
+    language: data.language ?? "en",
     limit: data.limit,
   }))
   // Final output transform - ensure all null values are converted to undefined
@@ -148,7 +148,7 @@ const newsQuerySchema = z
     timeRange: data.timeRange === null ? "week" : data.timeRange,
     startDate: data.startDate === null ? undefined : data.startDate,
     endDate: data.endDate === null ? undefined : data.endDate,
-    language: data.language === null ? "English" : data.language,
+    language: data.language === null ? "en" : data.language,
     limit: data.limit,
   }));
 

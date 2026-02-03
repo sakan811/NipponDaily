@@ -17,7 +17,7 @@ describe("News API - Basic Functionality", () => {
   });
 
   it("returns news successfully with default parameters", async () => {
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
     mockGeminiCategorize.mockResolvedValue([]);
@@ -44,12 +44,12 @@ describe("News API - Basic Functionality", () => {
     expect(mockGeminiCategorize).toHaveBeenCalledWith([], {
       apiKey: "test-api-key",
       model: "gemini-1.5-flash",
-      language: "English",
+      language: "en",
     });
   });
 
   it("returns success response with correct structure", async () => {
-    (global as any).getQuery.mockReturnValue({ language: "English" });
+    (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
     mockGeminiCategorize.mockResolvedValue([]);

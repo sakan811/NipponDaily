@@ -81,7 +81,7 @@ export const getHandler = async () => {
 export const setupDefaults = () => {
   vi.clearAllMocks();
   delete process.env.NODE_ENV;
-  (global as any).getQuery.mockReturnValue({ language: "English" });
+  (global as any).getQuery.mockReturnValue({ language: "en" });
   mockCheckRateLimit.mockResolvedValue({
     allowed: true,
     remaining: 3,

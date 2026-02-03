@@ -189,7 +189,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
       query: {
         category: undefined,
         timeRange: "week",
-        language: "Español",
+        language: "es", // Spanish locale code
         limit: 10,
       },
     });

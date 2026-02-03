@@ -459,17 +459,11 @@ const fetchNews = async () => {
   rateLimitResetTime.value = null;
 
   try {
-    // Map locale code to language name for API
-    const localeObject = Object.values(locales).find(
-      (l) => l.code === targetLanguage.value,
-    );
-    const languageName = localeObject?.name || "English";
-
-    // Build query parameters
+    // Build query parameters - send locale code directly (validated server-side)
     const query: Record<string, string | number | undefined> = {
       category:
         selectedCategory.value === "all" ? undefined : selectedCategory.value,
-      language: languageName,
+      language: targetLanguage.value, // e.g., "en", "ja", "zh_cn"
       limit: newsAmount.value,
     };
 

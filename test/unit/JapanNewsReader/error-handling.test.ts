@@ -33,7 +33,7 @@ describe("JapanNewsReader - Error Handling", () => {
       query: {
         category: undefined,
         timeRange: "week",
-        language: "English",
+        language: "en",
         limit: 10,
       },
     });
@@ -212,7 +212,7 @@ describe("JapanNewsReader - Error Handling", () => {
       query: {
         category: undefined,
         timeRange: "week",
-        language: "English",
+        language: "en",
         limit: 10,
       },
     });
