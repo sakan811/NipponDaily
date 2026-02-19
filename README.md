@@ -1,6 +1,8 @@
 # NipponDaily
 
-![NipponDaily App Icon](./public/android-chrome-512x512.png)
+<p align="center">
+  <img src="./public/android-chrome-512x512.png" width="256" height="256" alt="logo" />
+</p>
 
 **Your multilingual gateway to Japanese news.** Get AI-powered translations, smart categorization, and concise summaries of Japan-related news from across the web. Read stories that matter to you—in your language.
 
