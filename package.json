@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@google/genai": "^1.41.0",
+    "@nuxt/content": "^3.11.2",
     "@nuxt/ui": "^4.4.0",
     "@tavily/core": "^0.7.1",
     "@upstash/redis": "^1.36.2",
