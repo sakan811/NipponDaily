@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["./app/assets/css/tailwind.css"],
   modules: [
-    "@nuxt/content",
     "@nuxt/test-utils/module",
     "@nuxt/ui",
     "@nuxt/eslint",

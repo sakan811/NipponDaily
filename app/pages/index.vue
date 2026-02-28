@@ -11,6 +11,13 @@
 
       <template #right>
         <div class="flex items-center gap-2">
+          <UButton
+            to="/docs"
+            label="Docs"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-book-open"
+          />
           <UColorModeButton />
         </div>
       </template>
@@ -27,6 +34,13 @@
           color: 'primary',
           icon: 'i-heroicons-arrow-right',
           trailing: true,
+        },
+        {
+          label: 'Read Docs',
+          to: '/docs',
+          color: 'secondary',
+          variant: 'outline',
+          icon: 'i-heroicons-book-open',
         },
       ]"
       class="!py-12 sm:!py-16 lg:!py-24"

@@ -11,6 +11,14 @@
 
       <template #right>
         <div class="flex items-center gap-2">
+          <UButton
+            to="/docs"
+            label="Docs"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-book-open"
+            class="hidden sm:flex"
+          />
           <UColorModeButton />
           <div class="flex items-center gap-2 hidden lg:flex">
             <label for="newsAmount" class="text-sm text-secondary-500">
