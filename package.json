@@ -30,6 +30,13 @@
     "nuxt": "^4.3.1",
     "ofetch": "^1.5.1",
     "tailwindcss": "^4.2.1",
+    "@google/genai": "^1.41.0",
+    "@nuxt/ui": "^4.4.0",
+    "@tavily/core": "^0.7.2",
+    "@upstash/redis": "^1.36.2",
+    "nuxt": "^4.3.1",
+    "ofetch": "^1.5.1",
+    "tailwindcss": "^4.2.0",
     "vue": "^3.5.29",
     "vue-router": "^5.0.3",
     "zod": "^4.3.6"
