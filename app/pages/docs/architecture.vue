@@ -1,9 +1,9 @@
 <template>
   <UPage>
-    <UHeader :toggle="false">
+    <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
           <span>NipponDaily</span>
         </NuxtLink>
       </template>
@@ -16,6 +16,7 @@
             variant="ghost"
             color="secondary"
             icon="i-heroicons-arrow-left"
+            class="hidden sm:flex"
           />
           <UButton
             to="/news"
@@ -23,38 +24,47 @@
             variant="ghost"
             color="primary"
             icon="i-heroicons-newspaper"
+            class="hidden sm:flex"
           />
           <UColorModeButton />
         </div>
       </template>
+
+      <template #body>
+        <div class="flex flex-col gap-4">
+          <UButton
+            to="/docs"
+            label="Docs Overview"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-arrow-left"
+            block
+            @click="mobileMenuOpen = false"
+          />
+          <UButton
+            to="/news"
+            label="Get News"
+            variant="ghost"
+            color="primary"
+            icon="i-heroicons-newspaper"
+            block
+            @click="mobileMenuOpen = false"
+          />
+        </div>
+      </template>
     </UHeader>
 
-    <main class="max-w-4xl mx-auto py-8 px-4 prose dark:prose-invert max-w-none">
+    <main class="max-w-4xl mx-auto py-8 px-4 prose dark:prose-invert">
       <h1 class="text-3xl font-bold mb-6 text-primary-500">System Architecture</h1>
       
       <p class="mb-8 text-gray-700 dark:text-gray-300">
         NipponDaily is built with a modern stack focusing on performance, scalability, and AI integration. The following diagram illustrates the high-level architecture of the application.
       </p>
 
-      <div class="my-10 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-        <h3 class="text-center mb-6 text-xl font-semibold">High-Level Flow</h3>
-        <div class="mermaid flex justify-center">
-graph TD
-    User([User]) <--> Frontend[Nuxt.js Frontend]
-    Frontend <--> API[Nitro API Engine]
-    
-    subgraph "Server Side"
-        API <--> Services[Services Layer]
-        Services <--> Tavily[Tavily Search API]
-        Services <--> Gemini[Google Gemini AI]
-        API <--> Redis[(Upstash Redis Cache)]
-    end
-    
-    Tavily -- Raw News --> Services
-    Gemini -- AI Analysis --> Services
-    Services -- Processed News --> API
-    API -- Response --> Frontend
-        </div>
+      <div class="my-10">
+        <h3 class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200">High-Level Flow (Zoomable)</h3>
+        <MermaidDiagram id="arch-diag" :code="architectureDiagram" />
+        <p class="text-center text-xs text-gray-500 mt-2 italic">Tip: Use your mouse wheel to zoom and drag to pan the diagram.</p>
       </div>
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">Core Components</h2>
@@ -108,28 +118,48 @@ graph TD
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+const mobileMenuOpen = ref(false)
+const architectureDiagram = `
+graph TD
+    User([User]) <--> Frontend[Nuxt.js Frontend]
+    Frontend <--> API[Nitro API Engine]
+    
+    subgraph "Server Side"
+        API <--> Services[Services Layer]
+        Services <--> Tavily[Tavily Search API]
+        Services <--> Gemini[Google Gemini AI]
+        API <--> Redis[(Upstash Redis Cache)]
+    end
+    
+    Tavily -- Raw News --> Services
+    Gemini -- AI Analysis --> Services
+    Services -- Processed News --> API
+    API -- Response --> Frontend
+`
 
 useHead({
   script: [
     {
-      src: 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js',
+      src: 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js',
       defer: true,
       onload: () => {
-        // @ts-ignore
-        mermaid.initialize({ startOnLoad: true, theme: 'neutral' })
+        // @ts-expect-error: mermaid is loaded from CDN
+        mermaid.initialize({ 
+          startOnLoad: false, 
+          theme: 'neutral',
+          securityLevel: 'loose',
+        })
+        window.dispatchEvent(new Event('mermaid-ready'))
+      }
+    },
+    {
+      src: 'https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js',
+      defer: true,
+      onload: () => {
+        window.dispatchEvent(new Event('svg-pan-zoom-ready'))
       }
     }
   ]
-})
-
-onMounted(() => {
-  // If mermaid is already loaded, we might need to re-run it
-  // @ts-ignore
-  if (typeof mermaid !== 'undefined') {
-    // @ts-ignore
-    mermaid.contentLoaded()
-  }
 })
 </script>
 

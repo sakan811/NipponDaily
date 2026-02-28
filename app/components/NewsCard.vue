@@ -237,7 +237,7 @@ const credibilityIconColor = computed(() => {
     props.news.credibilityScore === undefined ||
     props.news.credibilityScore === null
   ) {
-    return "#5d7275"; // cadet-500 fallback
+    return "var(--ui-color-neutral-500)";
   }
   return getCredibilityColor(props.news.credibilityScore);
 });
@@ -247,7 +247,7 @@ const credibilityTextColor = computed(() => {
     props.news.credibilityScore === undefined ||
     props.news.credibilityScore === null
   ) {
-    return "#5d7275"; // cadet-500 fallback
+    return "var(--ui-color-neutral-500)";
   }
   return getCredibilityColor(props.news.credibilityScore);
 });

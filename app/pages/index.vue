@@ -1,23 +1,16 @@
 <template>
   <UPage>
     <!-- Header -->
-    <UHeader :toggle="false">
+    <UHeader>
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
           <span>NipponDaily</span>
         </NuxtLink>
       </template>
 
       <template #right>
         <div class="flex items-center gap-2">
-          <UButton
-            to="/docs"
-            label="Docs"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-book-open"
-          />
           <UColorModeButton />
         </div>
       </template>
@@ -90,6 +83,7 @@
 </template>
 
 <script setup lang="ts">
+const mobileMenuOpen = ref(false)
 const features = ref([
   {
     title: "AI-Powered Categorization",

@@ -1,9 +1,9 @@
 <template>
   <UPage>
-    <UHeader :toggle="false">
+    <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
           <span>NipponDaily</span>
         </NuxtLink>
       </template>
@@ -16,6 +16,7 @@
             variant="ghost"
             color="secondary"
             icon="i-heroicons-arrow-left"
+            class="hidden sm:flex"
           />
           <UButton
             to="/news"
@@ -23,13 +24,37 @@
             variant="ghost"
             color="primary"
             icon="i-heroicons-newspaper"
+            class="hidden sm:flex"
           />
           <UColorModeButton />
         </div>
       </template>
+
+      <template #body>
+        <div class="flex flex-col gap-4">
+          <UButton
+            to="/docs"
+            label="Docs Overview"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-arrow-left"
+            block
+            @click="mobileMenuOpen = false"
+          />
+          <UButton
+            to="/news"
+            label="Get News"
+            variant="ghost"
+            color="primary"
+            icon="i-heroicons-newspaper"
+            block
+            @click="mobileMenuOpen = false"
+          />
+        </div>
+      </template>
     </UHeader>
 
-    <main class="max-w-6xl mx-auto py-8 px-4 prose dark:prose-invert max-w-none">
+    <main class="max-w-4xl mx-auto py-8 px-4 prose dark:prose-invert">
       <h1 class="text-3xl font-bold mb-6 text-primary-500">Features</h1>
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
         AI-powered tools for smarter Japanese news consumption. NipponDaily combines cutting-edge AI with reliable news sources to bring you the best reading experience.
@@ -55,6 +80,7 @@
 </template>
 
 <script setup lang="ts">
+const mobileMenuOpen = ref(false)
 const features = [
   {
     title: "AI-Powered Categorization",

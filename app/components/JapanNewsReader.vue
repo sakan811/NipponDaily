@@ -4,21 +4,13 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
           <span>{{ appName }}</span>
         </NuxtLink>
       </template>
 
       <template #right>
         <div class="flex items-center gap-2">
-          <UButton
-            to="/docs"
-            label="Docs"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-book-open"
-            class="hidden sm:flex"
-          />
           <UColorModeButton />
           <div class="flex items-center gap-2 hidden lg:flex">
             <label for="newsAmount" class="text-sm text-secondary-500">
@@ -289,9 +281,9 @@
 
               <!-- General Error -->
               <div v-else class="space-y-4">
-                <p class="text-primary-500">{{ error }}</p>
+                <p class="text-error-500">{{ error }}</p>
                 <UButton
-                  color="primary"
+                  color="error"
                   :disabled="loading"
                   @click="refreshNews"
                 >
@@ -334,10 +326,7 @@
                 </svg>
               </div>
               <h3 class="text-xl font-semibold mb-2">No news loaded yet</h3>
-              <p
-                class="mb-4"
-                style="color: rgb(100 116 139); contain: layout style"
-              >
+              <p class="mb-4 text-secondary-500 dark:text-secondary-400" style="contain: layout style">
                 Select your preferred time range and category, set the number of
                 articles to fetch (1-20), then click "Get News" to fetch
                 targeted news from Japan
@@ -350,6 +339,7 @@
                 >
               </p>
             </div>
+
             <NewsCard
               v-for="item in paginatedNews"
               :key="item.title"
