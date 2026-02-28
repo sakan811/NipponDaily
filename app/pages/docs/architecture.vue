@@ -72,9 +72,9 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <UCard>
           <template #header>
-            <h4 class="font-bold">Frontend (Nuxt 3)</h4>
+            <h4 class="font-bold">Frontend (Nuxt 4)</h4>
           </template>
-          <p class="text-sm">Built with Nuxt 3, using Nuxt UI for components and Tailwind CSS for styling. It provides a responsive and fast user interface.</p>
+          <p class="text-sm">Built with Nuxt 4, using Nuxt UI v4 for components and Tailwind CSS v4 for styling. It provides a responsive and fast user interface.</p>
         </UCard>
         
         <UCard>
@@ -95,7 +95,7 @@
           <template #header>
             <h4 class="font-bold">AI (Google Gemini)</h4>
           </template>
-          <p class="text-sm">Google Gemini Pro handles categorization, translation, summarization, and credibility scoring of news articles.</p>
+          <p class="text-sm">Google Gemini Flash 2.5 handles categorization, translation, summarization, and credibility scoring of news articles.</p>
         </UCard>
         
         <UCard>
