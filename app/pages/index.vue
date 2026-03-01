@@ -74,8 +74,8 @@
     <UFooter>
       <template #left>
         <p class="text-sm text-secondary-500">
-          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. All rights
-          reserved.
+          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
+          under the Apache-2.0 License.
         </p>
       </template>
     </UFooter>
