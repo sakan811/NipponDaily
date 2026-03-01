@@ -102,7 +102,9 @@ describe("Index Page (Landing)", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.find(".u-footer").exists()).toBe(true);
-    expect(wrapper.text()).toContain("NipponDaily. All rights reserved.");
+    expect(wrapper.text()).toContain(
+      "NipponDaily. Released under the Apache-2.0 License.",
+    );
   });
 
   it("renders divider between hero and features", () => {

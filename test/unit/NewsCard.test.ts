@@ -142,7 +142,9 @@ describe("NewsCard", () => {
         props: { news: { ...mockNews, credibilityScore: undefined } },
       });
 
-      expect(wrapper.vm.credibilityTextColor).toBe("#5d7275");
+      expect(wrapper.vm.credibilityTextColor).toBe(
+        "var(--ui-color-neutral-500)",
+      );
     });
 
     it("returns green color for 100% credibility", () => {
@@ -197,7 +199,9 @@ describe("NewsCard", () => {
         props: { news: { ...mockNews, credibilityScore: undefined } },
       });
 
-      expect(wrapper.vm.credibilityIconColor).toBe("#5d7275");
+      expect(wrapper.vm.credibilityIconColor).toBe(
+        "var(--ui-color-neutral-500)",
+      );
     });
 
     it("returns green color for 100% credibility", () => {

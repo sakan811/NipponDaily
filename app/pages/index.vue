@@ -1,7 +1,7 @@
 <template>
   <UPage>
     <!-- Header -->
-    <UHeader :toggle="false">
+    <UHeader>
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
           <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
@@ -27,6 +27,13 @@
           color: 'primary',
           icon: 'i-heroicons-arrow-right',
           trailing: true,
+        },
+        {
+          label: 'Read Docs',
+          to: '/docs',
+          color: 'secondary',
+          variant: 'outline',
+          icon: 'i-heroicons-book-open',
         },
       ]"
       class="!py-12 sm:!py-16 lg:!py-24"
@@ -67,8 +74,8 @@
     <UFooter>
       <template #left>
         <p class="text-sm text-secondary-500">
-          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. All rights
-          reserved.
+          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
+          under the Apache-2.0 License.
         </p>
       </template>
     </UFooter>

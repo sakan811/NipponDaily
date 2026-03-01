@@ -312,4 +312,58 @@ describe("News API - Zod Date Validation", () => {
       statusMessage: "Bad Request",
     });
   });
+
+  it("rejects date range when endDate is before minimum date", async () => {
+    (global as any).getQuery.mockReturnValue({
+      startDate: "2000-01-01",
+      endDate: "1999-12-31",
+      language: "en",
+    });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue([]);
+    mockGeminiCategorize.mockResolvedValue([]);
+
+    await expect(
+      handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      }),
+    ).rejects.toMatchObject({
+      statusCode: 400,
+      statusMessage: "Bad Request",
+    });
+  });
+
+  it("rejects when only endDate is in the future", async () => {
+    const futureDate = new Date();
+    futureDate.setDate(futureDate.getDate() + 10);
+    const futureDateStr = futureDate.toISOString().split("T")[0];
+
+    (global as any).getQuery.mockReturnValue({
+      startDate: "2024-01-01",
+      endDate: futureDateStr,
+      language: "en",
+    });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue([]);
+    mockGeminiCategorize.mockResolvedValue([]);
+
+    await expect(
+      handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      }),
+    ).rejects.toMatchObject({
+      statusCode: 400,
+      statusMessage: "Bad Request",
+    });
+  });
 });

@@ -74,4 +74,58 @@ describe("News API - Limit Parameter", () => {
       apiKey: "test-tavily-key",
     });
   });
+
+  it("uses default limit when limit is null or undefined", async () => {
+    (global as any).getQuery.mockReturnValue({ limit: null });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue([]);
+    mockGeminiCategorize.mockResolvedValue([]);
+
+    await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
+
+    expect(mockTavilySearch).toHaveBeenLastCalledWith(
+      expect.objectContaining({ maxResults: 10 }),
+    );
+
+    (global as any).getQuery.mockReturnValue({ limit: undefined });
+    await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
+
+    expect(mockTavilySearch).toHaveBeenLastCalledWith(
+      expect.objectContaining({ maxResults: 10 }),
+    );
+  });
+
+  it("handles NaN limit by defaulting to 10", async () => {
+    (global as any).getQuery.mockReturnValue({ limit: "not-a-number" });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue([]);
+    mockGeminiCategorize.mockResolvedValue([]);
+
+    await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
+
+    expect(mockTavilySearch).toHaveBeenLastCalledWith(
+      expect.objectContaining({ maxResults: 10 }),
+    );
+  });
 });
