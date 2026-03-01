@@ -4,7 +4,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <span>{{ appName }}</span>
         </NuxtLink>
       </template>
@@ -282,11 +282,7 @@
               <!-- General Error -->
               <div v-else class="space-y-4">
                 <p class="text-error-500">{{ error }}</p>
-                <UButton
-                  color="error"
-                  :disabled="loading"
-                  @click="refreshNews"
-                >
+                <UButton color="error" :disabled="loading" @click="refreshNews">
                   {{ loading ? "Retrying..." : "Try Again" }}
                 </UButton>
               </div>
@@ -326,7 +322,10 @@
                 </svg>
               </div>
               <h3 class="text-xl font-semibold mb-2">No news loaded yet</h3>
-              <p class="mb-4 text-secondary-500 dark:text-secondary-400" style="contain: layout style">
+              <p
+                class="mb-4 text-secondary-500 dark:text-secondary-400"
+                style="contain: layout style"
+              >
                 Select your preferred time range and category, set the number of
                 articles to fetch (1-20), then click "Get News" to fetch
                 targeted news from Japan

@@ -11,8 +11,7 @@ import { Redis } from "@upstash/redis";
  * Run these tests with: pnpm test:integration
  */
 
-const TEST_SRH_URL =
-  process.env.TEST_SRH_URL ?? "http://nippondaily-serverless-redis-http-1:80";
+const TEST_SRH_URL = process.env.TEST_SRH_URL ?? "http://localhost:8079";
 const SRH_TOKEN = process.env.SRH_TOKEN ?? "integration_test_token";
 const TEST_IDENTIFIER_PREFIX = "integration-test-";
 

@@ -163,6 +163,31 @@ describe("JapanNewsReader - Error Handling", () => {
     expect(tryAgainButton).toBeDefined();
   });
 
+  it("handles 429 error with non-string message and no reset time", async () => {
+    mockFetch.mockRejectedValueOnce({
+      statusCode: 429,
+      data: {
+        error: { some: "object" },
+      },
+    });
+
+    const wrapper = mount(JapanNewsReader, {
+      global: {
+        components: {
+          NewsCard: NewsCardMock,
+        },
+      },
+    });
+
+    await wrapper.vm.fetchNews();
+    await vi.waitFor(() => wrapper.vm.isRateLimitError === true);
+
+    expect(wrapper.vm.error).toBe(
+      "Daily rate limit exceeded. Please try again tomorrow.",
+    );
+    expect(wrapper.vm.rateLimitResetTime).toBe(null);
+  });
+
   it("can retry fetching news after error", async () => {
     // First call fails
     mockFetch.mockRejectedValueOnce(new Error("Network error"));
