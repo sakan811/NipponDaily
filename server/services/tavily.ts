@@ -13,6 +13,7 @@ interface TavilyResult {
   rawContent?: string;
   score: number;
   publishedDate: string;
+  favicon?: string;
 }
 
 // Type for search options
@@ -24,6 +25,7 @@ interface TavilySearchOptions {
   timeRange?: "day" | "week" | "month" | "year" | "y" | "m" | "w" | "d";
   startDate?: string; // ISO date format: YYYY-MM-DD
   endDate?: string; // ISO date format: YYYY-MM-DD
+  includeFavicon?: boolean;
 }
 
 // Type alias for TavilySearchResponse for internal use
@@ -85,6 +87,7 @@ class TavilyService {
         maxResults: maxResults,
         searchDepth: "basic",
         includeRawContent: "markdown",
+        includeFavicon: true,
       };
 
       // Use custom date range if provided, otherwise use preset timeRange
@@ -116,6 +119,7 @@ class TavilyService {
         publishedAt: result.publishedDate || new Date().toISOString(),
         category: "Other" as const,
         url: result.url,
+        favicon: result.favicon,
       };
     });
   }

@@ -33,7 +33,14 @@
       <div class="space-y-3 mb-4">
         <!-- Source -->
         <div class="flex items-center text-sm text-secondary-500">
+          <img
+            v-if="news.favicon"
+            :src="news.favicon"
+            class="w-4 h-4 mr-1 rounded-sm object-cover"
+            alt="Source Icon"
+          />
           <svg
+            v-else
             class="w-4 h-4 mr-1"
             fill="none"
             stroke="currentColor"

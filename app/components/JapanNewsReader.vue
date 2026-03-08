@@ -275,7 +275,7 @@
                   :disabled="loading"
                   @click="refreshNews"
                 >
-                  {{ loading ? "Checking..." : "Try Again" }}
+                  Try Again
                 </UButton>
               </div>
 
@@ -283,7 +283,7 @@
               <div v-else class="space-y-4">
                 <p class="text-error-500">{{ error }}</p>
                 <UButton color="error" :disabled="loading" @click="refreshNews">
-                  {{ loading ? "Retrying..." : "Try Again" }}
+                  Try Again
                 </UButton>
               </div>
             </div>

@@ -52,6 +52,7 @@ describe("TavilyService", () => {
           maxResults: 5,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "week",
         },
       );
@@ -74,6 +75,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "week",
         },
       );
@@ -95,6 +97,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "week",
         },
       );
@@ -113,6 +116,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "week",
         },
       );
@@ -131,6 +135,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "week",
         },
       );
@@ -152,6 +157,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "week",
         },
       );
@@ -174,6 +180,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "day",
         },
       );
@@ -195,6 +202,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
         },
       );
     });
@@ -215,6 +223,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "month",
         },
       );
@@ -236,6 +245,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "year",
         },
       );
@@ -259,6 +269,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           startDate: "2024-01-01",
           endDate: "2024-01-31",
         },
@@ -284,6 +295,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           startDate: "2024-06-01",
           endDate: "2024-06-30",
         },
@@ -308,6 +320,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "month",
         },
       );
@@ -331,6 +344,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "month",
         },
       );
@@ -360,6 +374,7 @@ describe("TavilyService", () => {
           maxResults: 10,
           searchDepth: "basic",
           includeRawContent: "markdown",
+          includeFavicon: true,
           timeRange: "week",
         },
       );
