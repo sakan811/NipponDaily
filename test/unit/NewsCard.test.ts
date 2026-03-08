@@ -11,8 +11,31 @@ const mockNews = {
   category: "Technology",
   url: "https://example.com/news/test-article",
 };
-
 describe("NewsCard", () => {
+  it("renders favicon when provided", () => {
+    const newsWithFavicon = {
+      ...mockNews,
+      favicon: "https://example.com/favicon.ico",
+    };
+    const wrapper = mount(NewsCard, {
+      props: { news: newsWithFavicon },
+    });
+
+    const img = wrapper.find('img[alt="Source Icon"]');
+    expect(img.exists()).toBe(true);
+    expect(img.attributes("src")).toBe("https://example.com/favicon.ico");
+  });
+
+  it("renders default icon when favicon is missing", () => {
+    const newsWithoutFavicon = { ...mockNews, favicon: undefined };
+    const wrapper = mount(NewsCard, {
+      props: { news: newsWithoutFavicon },
+    });
+
+    expect(wrapper.find('img[alt="Source Icon"]').exists()).toBe(false);
+    expect(wrapper.find("svg").exists()).toBe(true);
+  });
+
   it("renders news information correctly", () => {
     const wrapper = mount(NewsCard, {
       props: { news: mockNews },

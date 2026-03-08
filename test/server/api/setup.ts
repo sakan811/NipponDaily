@@ -13,6 +13,7 @@ const { mockUseRuntimeConfig } = vi.hoisted(() => {
   }));
   return { mockUseRuntimeConfig };
 });
+export { mockUseRuntimeConfig };
 
 vi.mock("#app", () => ({
   useRuntimeConfig: mockUseRuntimeConfig,
@@ -89,4 +90,7 @@ export const setupDefaults = () => {
     limit: 3,
   });
   mockGetClientIp.mockReturnValue("127.0.0.1");
+  mockTavilySearch.mockResolvedValue({});
+  mockTavilyFormat.mockReturnValue([]);
+  mockGeminiCategorize.mockResolvedValue([]);
 };

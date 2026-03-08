@@ -136,19 +136,10 @@ const newsQuerySchema = z
   .transform((data) => ({
     // Transform null to undefined for service compatibility
     category: data.category ?? undefined,
-    timeRange: data.timeRange ?? "week",
+    timeRange: data.timeRange,
     startDate: data.startDate ?? undefined,
     endDate: data.endDate ?? undefined,
-    language: data.language ?? "en",
-    limit: data.limit,
-  }))
-  // Final output transform - ensure all null values are converted to undefined
-  .transform((data) => ({
-    category: data.category === null ? undefined : data.category,
-    timeRange: data.timeRange === null ? "week" : data.timeRange,
-    startDate: data.startDate === null ? undefined : data.startDate,
-    endDate: data.endDate === null ? undefined : data.endDate,
-    language: data.language === null ? "en" : data.language,
+    language: data.language,
     limit: data.limit,
   }));
 

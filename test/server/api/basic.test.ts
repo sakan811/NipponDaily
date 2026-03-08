@@ -69,4 +69,41 @@ describe("News API - Basic Functionality", () => {
     expect(response).toHaveProperty("timestamp");
     expect(typeof response.timestamp).toBe("string");
   });
+
+  it("handles null parameters by coalescing to undefined or defaults", async () => {
+    (global as any).getQuery.mockReturnValue({
+      category: null,
+      timeRange: null,
+      startDate: null,
+      endDate: null,
+      language: null,
+      limit: 5,
+    });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue([]);
+    mockGeminiCategorize.mockResolvedValue([]);
+
+    await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
+
+    expect(mockTavilySearch).toHaveBeenCalledWith({
+      maxResults: 5,
+      category: undefined,
+      timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
+      apiKey: "test-tavily-key",
+    });
+    expect(mockGeminiCategorize).toHaveBeenCalledWith([], {
+      apiKey: "test-api-key",
+      model: "gemini-1.5-flash",
+      language: "en",
+    });
+  });
 });

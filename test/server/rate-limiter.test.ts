@@ -12,8 +12,12 @@ const mockPipeline = {
 vi.mock("@upstash/redis", () => {
   return {
     Redis: class {
-      // eslint-disable-next-line @typescript-eslint/no-useless-constructor
-      constructor() {}
+      constructor() {
+        if (process.env.TEST_THROW_INIT_ERROR === "true")
+          throw new Error("Init failed");
+        if (process.env.TEST_THROW_INIT_NON_ERROR === "true")
+          throw "String error";
+      }
       pipeline() {
         return mockPipeline;
       }
@@ -29,6 +33,8 @@ describe("Rate Limiter", () => {
       delete process.env.UPSTASH_REDIS_REST_URL;
       delete process.env.UPSTASH_REDIS_REST_TOKEN;
       delete process.env.RATE_LIMIT_MAX_REQUESTS;
+      delete process.env.TEST_THROW_INIT_ERROR;
+      delete process.env.TEST_THROW_INIT_NON_ERROR;
       vi.resetModules();
     });
 
@@ -104,16 +110,35 @@ describe("Rate Limiter", () => {
     });
 
     it("handles Redis initialization error (line 79 coverage)", async () => {
-      // Use vi.doMock to trigger line 79 error
-      vi.doMock("@upstash/redis", () => ({
-        // eslint-disable-next-line @typescript-eslint/no-extraneous-class
-        Redis: class {
-          constructor() {
-            throw new Error("Init failed");
-          }
-        },
-      }));
+      process.env.TEST_THROW_INIT_ERROR = "true";
 
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
+
+      await expect(
+        checkRateLimit("test-ip", {
+          upstashRedisRestUrl: "https://test.io",
+          upstashRedisRestToken: "token",
+        }),
+      ).rejects.toThrow(RateLimitError);
+    });
+
+    it("handles Redis initialization error (non-Error)", async () => {
+      process.env.TEST_THROW_INIT_NON_ERROR = "true";
+
+      const { checkRateLimit, RateLimitError } =
+        await import("~/server/utils/rate-limiter");
+
+      await expect(
+        checkRateLimit("test-ip", {
+          upstashRedisRestUrl: "https://test.io",
+          upstashRedisRestToken: "token",
+        }),
+      ).rejects.toThrow(RateLimitError);
+    });
+
+    it("handles Redis connection failure in pipeline (non-Error)", async () => {
+      mockPipeline.exec.mockRejectedValueOnce("String error");
       const { checkRateLimit, RateLimitError } =
         await import("~/server/utils/rate-limiter");
 

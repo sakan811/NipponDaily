@@ -16,6 +16,7 @@ export interface NewsItem {
   publishedAt: string;
   category: CategoryName;
   url?: string;
+  favicon?: string;
   credibilityScore?: number; // Overall 0-1 credibility score
   credibilityMetadata?: CredibilityMetadata; // Detailed breakdown of credibility factors
 }
