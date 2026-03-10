@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     rateLimitMaxRequests: process.env.RATE_LIMIT_MAX_REQUESTS,
     public: {
       apiBase: "/api",
+      debugErrorUi: process.env.DEBUG_ERROR_UI === "true",
     },
   },
 });

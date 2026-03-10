@@ -16,5 +16,8 @@ export const VALID_CATEGORIES = [
   "Other",
 ] as const;
 
+export const AI_FALLBACK_SUMMARY =
+  "No summary available. Read full article at source.";
+
 export type CategoryId = (typeof NEWS_CATEGORIES)[number]["id"];
 export type CategoryName = (typeof VALID_CATEGORIES)[number];

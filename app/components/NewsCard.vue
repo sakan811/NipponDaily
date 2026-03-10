@@ -7,9 +7,21 @@
     <!-- News Header -->
     <div class="p-4 sm:p-6">
       <div class="flex items-start justify-between mb-3">
-        <UBadge :color="categoryColor" size="md" variant="soft">
-          {{ news.category }}
-        </UBadge>
+        <div class="flex items-center gap-2">
+          <UBadge :color="categoryColor" size="md" variant="soft">
+            {{ news.category }}
+          </UBadge>
+          <UTooltip
+            v-if="isAiFallback"
+            text="AI categorization failed for this article"
+          >
+            <UIcon
+              name="i-heroicons-exclamation-triangle"
+              class="w-4 h-4 text-warning-500 animate-pulse"
+              aria-hidden="true"
+            />
+          </UTooltip>
+        </div>
         <span class="text-xs text-secondary-500">
           {{ formatDate(news.publishedAt) }}
         </span>
@@ -23,7 +35,19 @@
       </h3>
 
       <!-- News Summary -->
+      <div v-if="isAiFallback" class="mb-4">
+        <p
+          class="text-secondary-400 italic text-sm sm:text-base leading-relaxed [word-wrap:break-word] [overflow-wrap:break-word]"
+        >
+          <UIcon
+            name="i-heroicons-sparkles-slash"
+            class="inline-block w-4 h-4 mr-1 mb-0.5 opacity-70"
+          />
+          {{ news.summary }}
+        </p>
+      </div>
       <p
+        v-else
         class="text-secondary-500 mb-4 leading-relaxed text-sm sm:text-base [word-wrap:break-word] [overflow-wrap:break-word]"
       >
         {{ news.summary }}
@@ -182,12 +206,19 @@
 
 <script setup lang="ts">
 import type { NewsItem } from "~~/types/index";
+import { AI_FALLBACK_SUMMARY } from "~~/constants/categories";
 
 interface Props {
   news: NewsItem;
 }
 
 const props = defineProps<Props>();
+
+const isAiFallback = computed(() => {
+  return (
+    props.news.category === "Other" && props.news.summary === AI_FALLBACK_SUMMARY
+  );
+});
 
 const categoryColor = computed(() => {
   const category = props.news.category.toLowerCase();
