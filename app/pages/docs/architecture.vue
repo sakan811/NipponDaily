@@ -108,7 +108,8 @@
           </template>
           <p class="text-sm">
             We use the Tavily Search API specifically optimized for LLMs to find
-            the most relevant and up-to-date Japanese news.
+            the most relevant and up-to-date Japanese news, including
+            dynamically fetched source Favicons.
           </p>
         </UCard>
 
@@ -118,7 +119,8 @@
           </template>
           <p class="text-sm">
             Google Gemini Flash 2.5 handles categorization, translation,
-            summarization, and credibility scoring of news articles.
+            summarization, and credibility scoring of news articles, with an
+            automatic fallback mechanism for service resilience.
           </p>
         </UCard>
 
@@ -132,6 +134,28 @@
           </p>
         </UCard>
       </div>
+
+      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
+        Developer Debug Mode
+      </h2>
+
+      <p class="mb-4">
+        Setting <code>DEBUG_ERROR_UI=true</code> in the environment unlocks a UI
+        panel for developers to dynamically toggle and test general API errors,
+        rate limit states, and AI fallback components without modifying code or
+        exceeding actual API quotas.
+      </p>
+
+      <blockquote
+        class="border-l-4 border-warning-500 pl-4 italic my-6 text-gray-600 dark:text-gray-400"
+      >
+        <strong>Safety Note</strong>: This toggle simply forces the error and
+        fallback UI states to be visible for layout testing. It does not
+        intercept actual API requests, and it does not bypass real rate limits.
+        Because it exposes internal testing controls to the client,
+        <code>DEBUG_ERROR_UI</code> should never be enabled in production
+        environments.
+      </blockquote>
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
         Color Palette
