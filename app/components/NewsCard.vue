@@ -216,7 +216,8 @@ const props = defineProps<Props>();
 
 const isAiFallback = computed(() => {
   return (
-    props.news.category === "Other" && props.news.summary === AI_FALLBACK_SUMMARY
+    props.news.category === "Other" &&
+    props.news.summary === AI_FALLBACK_SUMMARY
   );
 });
 

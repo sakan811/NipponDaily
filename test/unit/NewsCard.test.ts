@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import NewsCard from "~/app/components/NewsCard.vue";
+import { AI_FALLBACK_SUMMARY } from "~~/constants/categories";
 
 const mockNews = {
   title: "Test News Article",
@@ -24,6 +25,35 @@ describe("NewsCard", () => {
     const img = wrapper.find('img[alt="Source Icon"]');
     expect(img.exists()).toBe(true);
     expect(img.attributes("src")).toBe("https://example.com/favicon.ico");
+  });
+
+  it("renders AI fallback warning when isAiFallback is true", () => {
+    const newsWithAiFallback = {
+      ...mockNews,
+      category: "Other",
+      summary: AI_FALLBACK_SUMMARY,
+    };
+    const wrapper = mount(NewsCard, {
+      props: { news: newsWithAiFallback },
+    });
+
+    // v-if="isAiFallback" on line 15 (UTooltip)
+    expect(wrapper.find(".u-tooltip").exists()).toBe(true);
+    // UIcon on line 18
+    expect(wrapper.find(".u-icon").exists()).toBe(true);
+    // Check for the fallback summary styling (line 38)
+    expect(wrapper.text()).toContain(AI_FALLBACK_SUMMARY);
+    expect(wrapper.find("p.italic").exists()).toBe(true);
+  });
+
+  it("renders default summary when isAiFallback is false", () => {
+    const wrapper = mount(NewsCard, {
+      props: { news: mockNews },
+    });
+
+    expect(wrapper.findComponent({ name: "UTooltip" }).exists()).toBe(false);
+    expect(wrapper.find("p.italic").exists()).toBe(false);
+    expect(wrapper.text()).toContain(mockNews.summary);
   });
 
   it("renders default icon when favicon is missing", () => {

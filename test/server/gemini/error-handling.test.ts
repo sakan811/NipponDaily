@@ -310,4 +310,16 @@ describe("GeminiService - Error Handling", () => {
       "No summary available. Read full article at source.",
     );
   });
+
+  it("returns early when newsItems is empty and client is not initialized", async () => {
+    const { GeminiService } = await import("~/server/services/gemini");
+    const freshService = new GeminiService();
+
+    const result = await freshService.categorizeNewsItems([], {
+      apiKey: undefined, // Don't provide API key to avoid initialization
+    });
+
+    expect(result).toEqual([]);
+    expect(result).toHaveLength(0);
+  });
 });

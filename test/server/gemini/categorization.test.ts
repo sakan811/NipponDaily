@@ -38,7 +38,10 @@ describe("GeminiService - Categorization", () => {
       mockNews.map((item) => ({
         ...item,
         category: "Other",
-        summary: item.summary || item.content,
+        summary: "No summary available. Read full article at source.",
+        content: "No summary available. Read full article at source.",
+        credibilityScore: expect.any(Number),
+        credibilityMetadata: expect.any(Object),
       })),
     );
   });
