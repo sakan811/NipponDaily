@@ -2,6 +2,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 import type { NewsItem, CredibilityMetadata } from "../../types/index";
 import {
   VALID_CATEGORIES,
+  AI_FALLBACK_SUMMARY,
   type CategoryName,
 } from "../../constants/categories";
 
@@ -62,7 +63,12 @@ class GeminiService {
       this.initializeClient(options.apiKey);
     }
 
-    if (!this.client || newsItems.length === 0) {
+    if (!this.client) {
+      if (newsItems.length === 0) return newsItems;
+      return newsItems.map((item) => this.getFallbackItem(item));
+    }
+
+    if (newsItems.length === 0) {
       return newsItems;
     }
 
@@ -217,58 +223,42 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
         );
       }
 
-      // Fallback: return items with validated categories
-      return newsItems.map((item) => {
-        const defaultCredibilityMetadata: CredibilityMetadata = {
-          sourceReputation: 0.5, // Default neutral score
-          domainTrust: this.getDomainTrustScore(item.source),
-          contentQuality: 0.5,
-          aiConfidence: 0.3, // Lower confidence since AI failed
-        };
-
-        const credibilityScore =
-          defaultCredibilityMetadata.sourceReputation * 0.3 +
-          defaultCredibilityMetadata.domainTrust * 0.3 +
-          defaultCredibilityMetadata.contentQuality * 0.2 +
-          defaultCredibilityMetadata.aiConfidence * 0.2;
-
-        return {
-          ...item,
-          category: this.validateCategory(item.category),
-          summary: "No summary available. Read full article at source.",
-          content: "No summary available. Read full article at source.",
-          credibilityScore,
-          credibilityMetadata: defaultCredibilityMetadata,
-        };
-      });
+      // Fallback: return items with 'Other' category and fallback summary
+      return newsItems.map((item) => this.getFallbackItem(item));
     } catch (error) {
       console.error("Error categorizing news with Gemini:", error);
-      // Return items with validated categories
-      return newsItems.map((item) => {
-        const defaultCredibilityMetadata: CredibilityMetadata = {
-          sourceReputation: 0.5, // Default neutral score
-          domainTrust: this.getDomainTrustScore(item.source),
-          contentQuality: 0.5,
-          aiConfidence: 0.3, // Lower confidence since AI failed
-        };
-
-        const credibilityScore =
-          defaultCredibilityMetadata.sourceReputation * 0.3 +
-          defaultCredibilityMetadata.domainTrust * 0.3 +
-          defaultCredibilityMetadata.contentQuality * 0.2 +
-          defaultCredibilityMetadata.aiConfidence * 0.2;
-
-        return {
-          ...item,
-          category: this.validateCategory(item.category),
-          summary: "No summary available. Read full article at source.",
-          content: "No summary available. Read full article at source.",
-          credibilityScore,
-          credibilityMetadata: defaultCredibilityMetadata,
-        };
-      });
+      // Return items with fallback logic
+      return newsItems.map((item) => this.getFallbackItem(item));
     }
   }
+
+  /**
+   * Create a fallback NewsItem when AI processing fails
+   */
+  private getFallbackItem(item: NewsItem): NewsItem {
+    const defaultCredibilityMetadata: CredibilityMetadata = {
+      sourceReputation: 0.5, // Default neutral score
+      domainTrust: this.getDomainTrustScore(item.source),
+      contentQuality: 0.5,
+      aiConfidence: 0.1, // Very low confidence since AI failed or wasn't used
+    };
+
+    const credibilityScore =
+      defaultCredibilityMetadata.sourceReputation * 0.3 +
+      defaultCredibilityMetadata.domainTrust * 0.3 +
+      defaultCredibilityMetadata.contentQuality * 0.2 +
+      defaultCredibilityMetadata.aiConfidence * 0.2;
+
+    return {
+      ...item,
+      category: "Other",
+      summary: "No summary available. Read full article at source.",
+      content: "No summary available. Read full article at source.",
+      credibilityScore,
+      credibilityMetadata: defaultCredibilityMetadata,
+    };
+  }
+
 
   /**
    * Get domain trust score based on known reputable news sources

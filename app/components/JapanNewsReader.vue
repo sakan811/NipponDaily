@@ -223,7 +223,7 @@
 
           <!-- Error State -->
           <UCard
-            v-if="error"
+            v-if="error || isDebugErrorUi"
             data-testid="error-state"
             :ui="{
               base: {
@@ -238,11 +238,46 @@
                 padding: 'px-4 py-5 sm:p-6',
               },
             }"
-            class="text-center"
+            class="text-center mb-8"
           >
             <div class="p-2">
+              <!-- Debug Controls -->
+              <div
+                v-if="isDebugErrorUi && !error"
+                class="mb-6 p-3 bg-primary-50 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800 rounded-lg text-xs text-left"
+              >
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-bold text-primary-600 dark:text-primary-400"
+                    >DEBUG MODE: Error UI Testing</span
+                  >
+                  <UButton
+                    size="xs"
+                    color="primary"
+                    variant="soft"
+                    @click="isDebugRateLimit = !isDebugRateLimit"
+                  >
+                    Switch to
+                    {{ isDebugRateLimit ? "General" : "Rate Limit" }} UI
+                  </UButton>
+                </div>
+                <p class="text-secondary-500 leading-relaxed mb-2">
+                  This panel is only visible because
+                  <code
+                    class="bg-gray-200 dark:bg-gray-700 px-1 rounded text-primary-600 dark:text-primary-400"
+                    >DEBUG_ERROR_UI=true</code
+                  >
+                  is set. Below you can see the main error layouts and a mock
+                  AI-failed news card.
+                </p>
+              </div>
+
               <!-- Rate Limit Error -->
-              <div v-if="isRateLimitError" class="space-y-4">
+              <div
+                v-if="
+                  isRateLimitError || (isDebugErrorUi && !error && isDebugRateLimit)
+                "
+                class="space-y-4"
+              >
                 <div class="flex justify-center">
                   <svg
                     class="w-12 h-12 text-warning-500"
@@ -262,12 +297,21 @@
                   <h3 class="text-lg font-semibold text-warning-500 mb-2">
                     Daily Limit Reached
                   </h3>
-                  <p class="text-secondary-500 mb-2">{{ error }}</p>
+                  <p class="text-secondary-500 mb-2">
+                    {{
+                      error ||
+                      "Daily rate limit exceeded (3 request/day). Please try again tomorrow."
+                    }}
+                  </p>
                   <p
-                    v-if="rateLimitResetTime"
+                    v-if="rateLimitResetTime || (isDebugErrorUi && !error)"
                     class="text-sm text-secondary-400"
                   >
-                    Resets at: {{ rateLimitResetTime }}
+                    Resets at:
+                    {{
+                      rateLimitResetTime ||
+                      new Date(Date.now() + 86400000).toLocaleString()
+                    }}
                   </p>
                 </div>
                 <UButton
@@ -281,7 +325,11 @@
 
               <!-- General Error -->
               <div v-else class="space-y-4">
-                <p class="text-error-500">{{ error }}</p>
+                <p class="text-error-500">
+                  {{
+                    error || "Service temporarily unavailable. Please try again."
+                  }}
+                </p>
                 <UButton color="error" :disabled="loading" @click="refreshNews">
                   Try Again
                 </UButton>
@@ -301,7 +349,7 @@
           <div v-else class="space-y-4">
             <!-- Instruction text when no news is loaded -->
             <div
-              v-if="news.length === 0 && !loading"
+              v-if="news.length === 0 && !loading && !isDebugErrorUi"
               class="bg-white dark:bg-gray-900 rounded-lg shadow text-center p-8"
               style="contain: layout style paint"
             >
@@ -339,6 +387,16 @@
               </p>
             </div>
 
+            <!-- Debug Mock Card -->
+            <div v-if="isDebugErrorUi && !error" class="mb-4">
+              <div
+                class="text-xs font-bold text-primary-500 mb-2 uppercase tracking-wider"
+              >
+                Mock: AI Fallback Card
+              </div>
+              <NewsCard :news="mockFallbackItem" />
+            </div>
+
             <NewsCard
               v-for="item in paginatedNews"
               :key="item.title"
@@ -371,7 +429,7 @@
 import { watch, ref } from "vue";
 import { CalendarDate } from "@internationalized/date";
 import type { NewsItem } from "~~/types/index";
-import { NEWS_CATEGORIES } from "~~/constants/categories";
+import { NEWS_CATEGORIES, AI_FALLBACK_SUMMARY } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
 import * as locales from "@nuxt/ui/locale";
 
@@ -385,6 +443,29 @@ const appName = "NipponDaily";
 const rateLimitResetTime = ref<string | null>(null);
 const isRateLimitError = ref(false);
 const selectedCategory = ref<CategoryId>("all");
+
+// Debug state for UI testing
+const config = useRuntimeConfig();
+const isDebugErrorUi = computed(() => config.public.debugErrorUi === true);
+const isDebugRateLimit = ref(true);
+
+const mockFallbackItem: NewsItem = {
+  title: "Example Article with AI Processing Failure",
+  summary: AI_FALLBACK_SUMMARY,
+  content: AI_FALLBACK_SUMMARY,
+  source: "Nippon News Example",
+  publishedAt: new Date().toISOString(),
+  category: "Other",
+  url: "https://example.com",
+  credibilityScore: 0.45,
+  credibilityMetadata: {
+    sourceReputation: 0.5,
+    domainTrust: 0.6,
+    contentQuality: 0.5,
+    aiConfidence: 0.1,
+  },
+};
+
 const selectedTimeRange = ref<
   "none" | "day" | "week" | "month" | "year" | "custom"
 >("week");
