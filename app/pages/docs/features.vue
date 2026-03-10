@@ -106,14 +106,32 @@ const features = [
   {
     title: "Flexible Filtering",
     description:
-      "Filter by category and time range—Today, This Week, This Month, This Year, or custom dates up to 365 days.",
+      "Filter by category and time range—All Time, Today, This Week, This Month, This Year, or custom dates up to 365 days.",
     icon: "i-heroicons-funnel",
   },
   {
     title: "Daily Rate Limits",
     description:
-      "Fair usage limits with 3 fetch requests per day. You can fetch up to 20 articles per request.",
+      "Configurable fair usage limits per day to prevent abuse. You can fetch up to 20 articles per request.",
     icon: "i-heroicons-clock",
+  },
+  {
+    title: "AI Processing Fallback",
+    description:
+      "Graceful handling of AI service interruptions with fallback data structures and visual status indicators to ensure continuous news accessibility.",
+    icon: "i-heroicons-arrow-path",
+  },
+  {
+    title: "Favicon Support",
+    description:
+      "Visual identification of news sources through dynamically fetched Favicons alongside news items.",
+    icon: "i-heroicons-photo",
+  },
+  {
+    title: "Developer Debug Mode",
+    description:
+      "Built-in UI testing toggles to securely simulate and test API failures and rate limit layouts.",
+    icon: "i-heroicons-wrench-screwdriver",
   },
   {
     title: "Dark Mode Support",
