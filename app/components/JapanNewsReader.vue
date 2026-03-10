@@ -274,7 +274,8 @@
               <!-- Rate Limit Error -->
               <div
                 v-if="
-                  isRateLimitError || (isDebugErrorUi && !error && isDebugRateLimit)
+                  isRateLimitError ||
+                  (isDebugErrorUi && !error && isDebugRateLimit)
                 "
                 class="space-y-4"
               >
@@ -327,7 +328,8 @@
               <div v-else class="space-y-4">
                 <p class="text-error-500">
                   {{
-                    error || "Service temporarily unavailable. Please try again."
+                    error ||
+                    "Service temporarily unavailable. Please try again."
                   }}
                 </p>
                 <UButton color="error" :disabled="loading" @click="refreshNews">

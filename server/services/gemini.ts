@@ -252,13 +252,12 @@ Focus on accuracy, clarity, and objective credibility assessment.`;
     return {
       ...item,
       category: "Other",
-      summary: "No summary available. Read full article at source.",
-      content: "No summary available. Read full article at source.",
+      summary: AI_FALLBACK_SUMMARY,
+      content: AI_FALLBACK_SUMMARY,
       credibilityScore,
       credibilityMetadata: defaultCredibilityMetadata,
     };
   }
-
 
   /**
    * Get domain trust score based on known reputable news sources

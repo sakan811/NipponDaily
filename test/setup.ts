@@ -256,6 +256,10 @@ config.global.stubs = {
     props: ["id", "modelValue", "locales", "disabled", "size", "class"],
     emits: ["update:modelValue"],
   },
+  UIcon: {
+    template: '<span class="u-icon" :name="name" />',
+    props: ["name", "class", "aria-hidden"],
+  },
   UTooltip: {
     template: '<div class="u-tooltip"><slot /></div>',
     props: ["text", "ui"],

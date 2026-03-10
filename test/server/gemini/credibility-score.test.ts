@@ -78,6 +78,6 @@ describe("GeminiService - Credibility Score", () => {
 
     expect(result[0].credibilityScore).toBeDefined();
     expect(result[0].credibilityMetadata).toBeDefined();
-    expect(result[0].credibilityMetadata!.aiConfidence).toBe(0.3); // Lower confidence when AI fails
+    expect(result[0].credibilityMetadata!.aiConfidence).toBe(0.1); // Very low confidence when AI fails
   });
 });

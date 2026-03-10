@@ -4,12 +4,31 @@
   <img src="./public/android-chrome-512x512.png" width="256" height="256" alt="logo" />
 </p>
 
-**Your multilingual gateway to Japanese news.** Get AI-powered translations, smart categorization, and concise summaries of Japan-related news from across the web. Read stories that matter to you—in your language.
+**Your multilingual gateway to Japanese news.** NipponDaily is a news aggregator that fetches Japan-related news, then processes articles with Google Gemini AI for categorization, translation, and credibility assessment. Read stories that matter to you—in your language.
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
-[![CodeQL](https://github.com/sakan811/NipponDaily/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/github-code-scanning/codeql)
 
-## Quick Setup
+## 🚀 Features
+
+- **Multilingual Search**: Fetch Japan-related news from the web via Tavily Search API.
+- **AI Processing**: Use Google Gemini for:
+  - **Categorization**: Group articles into relevant topics (Politics, Tech, Culture, etc.).
+  - **Translation**: High-quality translations of article summaries and metadata.
+  - **Credibility Assessment**: AI-driven evaluation of article reliability and domain trust.
+- **Customizable Discovery**: Filter by date range, category, and preferred language.
+- **Smart UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for a fast, responsive experience.
+- **Robust Security**: Rate limiting with Upstash Redis to manage API usage effectively.
+
+## 🛠 Tech Stack
+
+- **Framework**: [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **AI Engine**: [Google Gemini AI](https://deepmind.google/technologies/gemini/)
+- **Search API**: [Tavily Search API](https://tavily.com/)
+- **Data/Cache**: [Upstash Redis](https://upstash.com/) (for rate limiting)
+- **Testing**: [Vitest](https://vitest.dev/), [Docker](https://www.docker.com/) (for integration tests)
+
+## 📋 Quick Setup
 
 1. **Install dependencies**:
 
@@ -23,27 +42,16 @@
    cp .env.example .env
    ```
 
-   Configure environment variables in `.env`:
+   Configure the following in `.env`:
 
    ```bash
-   # Required: Gemini AI for categorization/translation
+   # Required: APIs
    GEMINI_API_KEY=your_gemini_api_key_here
-
-   # Optional: Gemini model (default: gemini-2.5-flash)
-   GEMINI_MODEL=gemini-2.5-flash
-
-   # Required: Tavily Search API for news discovery
    TAVILY_API_KEY=your_tavily_api_key_here
 
-   # Optional: Rate limit requests per day (default: 3)
-   RATE_LIMIT_MAX_REQUESTS=3
-
-   # Required for production: Upstash Redis for rate limiting
-   UPSTASH_REDIS_REST_URL=your_upstash_redis_url
-   UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_token
-
-   # Optional: Serverless Redis HTTP URL for integration tests
-   TEST_SRH_URL="http://nippondaily-serverless-redis-http-1:80"
+   # Required for production (Rate Limiting)
+   UPSTASH_REDIS_REST_URL="your_upstash_redis_url"
+   UPSTASH_REDIS_REST_TOKEN="your_upstash_redis_token"
    ```
 
 3. **Start development server**:
@@ -54,23 +62,65 @@
 
    Visit <http://localhost:3000>
 
-## Limitations
+### 🔑 Environment Variables
 
-- **Article Count**: 10 articles default, 20 maximum per request
-- **Rate Limiting**: 3 requests per day per IP (configurable via `RATE_LIMIT_MAX_REQUESTS`)
-- **Dependencies**: Requires both Tavily API and Google Gemini API keys
-- **Redis Required**: Rate limiting requires Upstash Redis to be configured
-- **Categorization**: AI-based with fallback to "Other" category on failures
-- **Date Range**: Custom date range limited to 365 days maximum, must be after 2000-01-01
+See `.env.example` for reference. Configure these in your `.env` file:
 
-## Environment Variables
+| Variable                   | Required | Description                                             | Default            |
+| :------------------------- | :------- | :------------------------------------------------------ | :----------------- |
+| `GEMINI_API_KEY`           | **Yes**  | Google Gemini API key for AI processing.                | -                  |
+| `TAVILY_API_KEY`           | **Yes**  | Tavily Search API key for news discovery.               | -                  |
+| `GEMINI_MODEL`             | No       | Google Gemini model to use for processing.              | `gemini-2.5-flash` |
+| `UPSTASH_REDIS_REST_URL`   | Yes\*    | Upstash Redis URL for rate limiting.                    | -                  |
+| `UPSTASH_REDIS_REST_TOKEN` | Yes\*    | Upstash Redis token for rate limiting.                  | -                  |
+| `RATE_LIMIT_MAX_REQUESTS`  | No       | Maximum API requests allowed per IP per day.            | `3`                |
+| `DEBUG_ERROR_UI`           | No       | Set to `true` to force error UI components for testing. | `false`            |
+| `TEST_SRH_URL`             | No       | URL for Serverless Redis HTTP in integration tests.     | See `.env.example` |
 
-See `.env.example` for reference. Runtime config is defined in `nuxt.config.ts`:
+_\* Required for production and to enable rate limiting features._
 
-- `GEMINI_API_KEY`: Google Gemini API key (required)
-- `TAVILY_API_KEY`: Tavily API key for news search (required)
-- `GEMINI_MODEL`: Gemini model (optional, defaults to `gemini-2.5-flash`)
-- `RATE_LIMIT_MAX_REQUESTS`: Maximum requests per day (optional, default: 3)
-- `UPSTASH_REDIS_REST_URL`: Upstash Redis URL for rate limiting (required for production)
-- `UPSTASH_REDIS_REST_TOKEN`: Upstash Redis token for rate limiting (required for production)
-- `TEST_SRH_URL`: Serverless Redis HTTP URL for integration tests (optional)
+## 📜 Available Commands
+
+| Command                  | Description                                               |
+| :----------------------- | :-------------------------------------------------------- |
+| `pnpm dev`               | Start development server on localhost:3000                |
+| `pnpm build`             | Create a production-ready build                           |
+| `pnpm start`             | Run the production server locally                         |
+| `pnpm generate`          | Static site generation (SSG)                              |
+| `pnpm preview`           | Preview production build                                  |
+| `pnpm test`              | Run tests in watch mode                                   |
+| `pnpm test:run`          | Run tests once                                            |
+| `pnpm test:coverage`     | Run tests with coverage report                            |
+| `pnpm test:integration`  | Run integration tests (requires Docker)                   |
+| `pnpm test:coverage:all` | Run all tests (unit + integration) with coverage          |
+| `pnpm docker:up`         | Start SRH (Serverless Redis HTTP) services                |
+| `pnpm docker:down`       | Stop SRH services                                         |
+| `pnpm lint`              | Lint and auto-fix code                                    |
+| `pnpm format`            | Format code with Prettier                                 |
+| `pnpm type-check`        | Perform TypeScript type checking                          |
+| `pnpm check-qa`          | Run all QA checks (lint, format, type-check, build, test) |
+
+## 🧪 Testing
+
+NipponDaily uses a tiered testing strategy:
+
+- **Unit Tests**: Test individual components and utilities (`test/unit`).
+- **Server Tests**: Verify API endpoints and server-side logic (`test/server`).
+- **Integration Tests**: Test against a real Redis instance using [Serverless Redis HTTP (SRH)](https://github.com/hiett/serverless-redis-http) via Docker (`test/integration`).
+
+To run integration tests locally:
+
+```bash
+# Start Docker services
+pnpm docker:up
+
+# Run integration tests
+pnpm test:integration
+```
+
+## ⚠️ Limitations
+
+- **Article Count**: 10 articles default, 20 maximum per request.
+- **Rate Limiting**: Configurable via `RATE_LIMIT_MAX_REQUESTS` (default: 3 requests per day per IP).
+- **Date Range**: Search results limited to 365 days, must be after 2000-01-01.
+- **Dependencies**: Requires both Tavily API and Google Gemini API keys.
