@@ -28,13 +28,6 @@
           icon: 'i-heroicons-arrow-right',
           trailing: true,
         },
-        {
-          label: 'Read Docs',
-          to: '/docs',
-          color: 'secondary',
-          variant: 'outline',
-          icon: 'i-heroicons-book-open',
-        },
       ]"
       class="!py-12 sm:!py-16 lg:!py-24"
       :ui="{ links: { wrapper: 'flex flex-wrap gap-4 justify-center' } }"
