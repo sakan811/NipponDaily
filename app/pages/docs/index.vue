@@ -1,38 +1,16 @@
 <template>
   <UPage>
-    <UHeader v-model:open="mobileMenuOpen">
+    <UHeader>
       <template #left>
-        <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
+        <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
           <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
-          <span>NipponDaily</span>
+          <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
 
       <template #right>
         <div class="flex items-center gap-2">
-          <UButton
-            to="/news"
-            label="Get News"
-            variant="ghost"
-            color="primary"
-            icon="i-heroicons-newspaper"
-            class="hidden sm:flex"
-          />
           <UColorModeButton />
-        </div>
-      </template>
-
-      <template #body>
-        <div class="flex flex-col gap-4">
-          <UButton
-            to="/news"
-            label="Get News"
-            variant="ghost"
-            color="primary"
-            icon="i-heroicons-newspaper"
-            block
-            @click="mobileMenuOpen = false"
-          />
         </div>
       </template>
     </UHeader>
@@ -70,8 +48,8 @@
     <UFooter>
       <template #left>
         <p class="text-sm text-secondary-500">
-          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. All rights
-          reserved.
+          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
+          under the Apache-2.0 License.
         </p>
       </template>
     </UFooter>
@@ -79,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-const mobileMenuOpen = ref(false);
+// Docs overview
 </script>
 
 <style>
