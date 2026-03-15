@@ -19,7 +19,9 @@ class GeminiService {
   }
 
   private getModels(defaultModel?: string): string[] {
-    const modelStr = defaultModel || "gemini-2.5-flash,gemma-3-27b-it";
+    const modelStr =
+      defaultModel ||
+      "gemini-2.5-flash,gemini-3-flash-preview,gemini-3.1-flash-lite-preview";
     const models = modelStr
       .split(",")
       .map((m) => m.trim())

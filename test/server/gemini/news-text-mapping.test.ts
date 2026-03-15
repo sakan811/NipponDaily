@@ -180,7 +180,11 @@ describe("GeminiService - News Text Mapping", () => {
     // Verify the prompt was created and called with expected content structure
     expect(mockGenerateContent).toHaveBeenCalledTimes(1);
     const callArgs = mockGenerateContent.mock.calls[0][0];
-    const modelOptions = ["gemini-2.5-flash", "gemma-3-27b-it"];
+    const modelOptions = [
+      "gemini-2.5-flash",
+      "gemini-3-flash-preview",
+      "gemini-3.1-flash-lite-preview",
+    ];
     expect(modelOptions).toContain(callArgs.model);
     expect(callArgs.contents).toContain("News with rawContent");
     expect(callArgs.contents).toContain(
