@@ -18,8 +18,17 @@ class GeminiService {
     this.client = new GoogleGenAI({ apiKey });
   }
 
-  private getModel(defaultModel?: string): string {
-    return defaultModel || "gemini-2.5-flash";
+  private getModels(defaultModel?: string): string[] {
+    const modelStr = defaultModel || "gemini-2.5-flash,gemma-3-27b-it";
+    const models = modelStr
+      .split(",")
+      .map((m) => m.trim())
+      .filter(Boolean);
+
+    if (models.length === 0) return ["gemini-2.5-flash"];
+
+    // Shuffle the array to distribute traffic evenly, and try remaining models if one fails
+    return [...models].sort(() => Math.random() - 0.5);
   }
 
   /**
@@ -102,67 +111,89 @@ For each article, provide:
 
 Focus on accuracy, clarity, and objective credibility assessment.`;
 
-      const response = await this.client.models.generateContent({
-        model: this.getModel(options?.model),
-        contents: prompt,
-        config: {
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: Type.ARRAY,
-            items: {
-              type: Type.OBJECT,
-              properties: {
-                category: {
-                  type: Type.STRING,
-                  description: `The news category. Must be one of: ${VALID_CATEGORIES.filter((cat) => cat !== "Other").join(", ")}, or Other`,
-                },
-                translatedTitle: {
-                  type: Type.STRING,
-                  description: `The title translated into the language specified by locale code: ${localeCode}`,
-                },
-                summary: {
-                  type: Type.STRING,
-                  description: `A concise summary (2-3 sentences maximum) in the language specified by locale code: ${localeCode}`,
-                },
-                sourceReputation: {
-                  type: Type.NUMBER,
-                  description: "Source reputation score from 0 to 1",
-                },
-                domainTrust: {
-                  type: Type.NUMBER,
-                  description: "Domain trust score from 0 to 1",
-                },
-                contentQuality: {
-                  type: Type.NUMBER,
-                  description: "Content quality score from 0 to 1",
-                },
-                aiConfidence: {
-                  type: Type.NUMBER,
-                  description: "AI confidence score from 0 to 1",
+      const modelsToTry = this.getModels(options?.model);
+      let response = null;
+      let lastError = null;
+
+      for (const model of modelsToTry) {
+        try {
+          response = await this.client.models.generateContent({
+            model: model,
+            contents: prompt,
+            config: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: Type.ARRAY,
+                items: {
+                  type: Type.OBJECT,
+                  properties: {
+                    category: {
+                      type: Type.STRING,
+                      description: `The news category. Must be one of: ${VALID_CATEGORIES.filter((cat) => cat !== "Other").join(", ")}, or Other`,
+                    },
+                    translatedTitle: {
+                      type: Type.STRING,
+                      description: `The title translated into the language specified by locale code: ${localeCode}`,
+                    },
+                    summary: {
+                      type: Type.STRING,
+                      description: `A concise summary (2-3 sentences maximum) in the language specified by locale code: ${localeCode}`,
+                    },
+                    sourceReputation: {
+                      type: Type.NUMBER,
+                      description: "Source reputation score from 0 to 1",
+                    },
+                    domainTrust: {
+                      type: Type.NUMBER,
+                      description: "Domain trust score from 0 to 1",
+                    },
+                    contentQuality: {
+                      type: Type.NUMBER,
+                      description: "Content quality score from 0 to 1",
+                    },
+                    aiConfidence: {
+                      type: Type.NUMBER,
+                      description: "AI confidence score from 0 to 1",
+                    },
+                  },
+                  required: [
+                    "category",
+                    "translatedTitle",
+                    "summary",
+                    "sourceReputation",
+                    "domainTrust",
+                    "contentQuality",
+                    "aiConfidence",
+                  ],
+                  propertyOrdering: [
+                    "category",
+                    "translatedTitle",
+                    "summary",
+                    "sourceReputation",
+                    "domainTrust",
+                    "contentQuality",
+                    "aiConfidence",
+                  ],
                 },
               },
-              required: [
-                "category",
-                "translatedTitle",
-                "summary",
-                "sourceReputation",
-                "domainTrust",
-                "contentQuality",
-                "aiConfidence",
-              ],
-              propertyOrdering: [
-                "category",
-                "translatedTitle",
-                "summary",
-                "sourceReputation",
-                "domainTrust",
-                "contentQuality",
-                "aiConfidence",
-              ],
             },
-          },
-        },
-      });
+          });
+          break; // Success
+        } catch (error) {
+          console.warn(
+            `Model ${model} failed, trying next fallback if available. Error:`,
+            error instanceof Error ? error.message : error,
+          );
+          lastError = error;
+        }
+      }
+
+      if (!response) {
+        throw (
+          lastError ||
+          new Error("All configured models failed to generate content")
+        );
+      }
 
       const text = response.text || "";
 
