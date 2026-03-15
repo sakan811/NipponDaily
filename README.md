@@ -66,16 +66,16 @@
 
 See `.env.example` for reference. Configure these in your `.env` file:
 
-| Variable                   | Required | Description                                             | Default            |
-| :------------------------- | :------- | :------------------------------------------------------ | :----------------- |
-| `GEMINI_API_KEY`           | **Yes**  | Google Gemini API key for AI processing.                | -                  |
-| `TAVILY_API_KEY`           | **Yes**  | Tavily Search API key for news discovery.               | -                  |
-| `GEMINI_MODEL`             | No       | Google Gemini model to use for processing.              | `gemini-2.5-flash` |
-| `UPSTASH_REDIS_REST_URL`   | Yes\*    | Upstash Redis URL for rate limiting.                    | -                  |
-| `UPSTASH_REDIS_REST_TOKEN` | Yes\*    | Upstash Redis token for rate limiting.                  | -                  |
-| `RATE_LIMIT_MAX_REQUESTS`  | No       | Maximum API requests allowed per IP per day.            | `3`                |
-| `DEBUG_ERROR_UI`           | No       | Set to `true` to force error UI components for testing. | `false`            |
-| `TEST_SRH_URL`             | No       | URL for Serverless Redis HTTP in integration tests.     | See `.env.example` |
+| Variable                   | Required | Description                                             | Default                           |
+| :------------------------- | :------- | :------------------------------------------------------ | :-------------------------------- |
+| `GEMINI_API_KEY`           | **Yes**  | Google Gemini API key for AI processing.                | -                                 |
+| `TAVILY_API_KEY`           | **Yes**  | Tavily Search API key for news discovery.               | -                                 |
+| `GEMINI_MODEL`             | No       | Google Gemini model(s) to use, comma-separated.         | `gemini-2.5-flash,gemma-3-27b-it` |
+| `UPSTASH_REDIS_REST_URL`   | Yes\*    | Upstash Redis URL for rate limiting.                    | -                                 |
+| `UPSTASH_REDIS_REST_TOKEN` | Yes\*    | Upstash Redis token for rate limiting.                  | -                                 |
+| `RATE_LIMIT_MAX_REQUESTS`  | No       | Maximum API requests allowed per IP per day.            | `3`                               |
+| `DEBUG_ERROR_UI`           | No       | Set to `true` to force error UI components for testing. | `false`                           |
+| `TEST_SRH_URL`             | No       | URL for Serverless Redis HTTP in integration tests.     | See `.env.example`                |
 
 _\* Required for production and to enable rate limiting features._
 
