@@ -101,9 +101,9 @@
             <h4 class="font-bold">AI (Google Gemini)</h4>
           </template>
           <p class="text-sm">
-            Google Gemini Flash 2.5 handles categorization, translation,
-            summarization, and credibility scoring of news articles, with an
-            automatic fallback mechanism for service resilience.
+            Google Gemini handles categorization, translation, summarization,
+            and credibility scoring of news articles, with an automatic fallback
+            mechanism for service resilience.
           </p>
         </UCard>
 
