@@ -23,15 +23,16 @@
     "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run && pnpm test:integration"
   },
   "dependencies": {
-    "@google/genai": "^1.45.0",
+    "@google/genai": "^1.46.0",
     "@nuxt/ui": "^4.5.1",
     "@tavily/core": "^0.7.2",
+    "@tiptap/y-tiptap": "^3.0.2",
     "@upstash/redis": "^1.37.0",
     "nuxt": "^4.4.2",
     "ofetch": "^1.5.1",
-    "tailwindcss": "^4.2.1",
+    "tailwindcss": "^4.2.2",
     "vue": "^3.5.30",
-    "vue-router": "^5.0.3",
+    "vue-router": "^4.6.4",
     "zod": "^4.3.6"
   },
   "devDependencies": {
@@ -39,14 +40,14 @@
     "@iconify-json/heroicons": "^1.2.3",
     "@iconify-json/lucide": "^1.2.98",
     "@internationalized/date": "^3.12.0",
-    "@nuxt/devtools": "^3.2.3",
+    "@nuxt/devtools": "^3.2.4",
     "@nuxt/eslint": "^1.15.2",
     "@nuxt/hints": "1.0.0",
     "@nuxt/test-utils": "^4.0.0",
-    "@tailwindcss/vite": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^25.5.0",
     "@vitejs/plugin-vue": "^6.0.5",
-    "@vitest/coverage-v8": "4.0.18",
+    "@vitest/coverage-v8": "^4.1.0",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.39.4",
     "globals": "^17.4.0",
@@ -60,7 +61,9 @@
   },
   "pnpm": {
     "overrides": {
-      "serialize-javascript": "7.0.3"
+      "serialize-javascript": "7.0.3",
+      "h3-next": "npm:h3@2.0.1-rc.15",
+      "@tiptap/y-tiptap": "^3.0.2"
     }
   }
 }
