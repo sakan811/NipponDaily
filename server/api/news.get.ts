@@ -13,7 +13,6 @@ import { z } from "zod";
  */
 const newsQuerySchema = z
   .object({
-    // Category filter - optional string (handles null/undefined/empty)
     category: z
       .string()
       .nullable()
@@ -23,21 +22,18 @@ const newsQuerySchema = z
         return val;
       }),
 
-    // Time range filter with whitelist (handles null/undefined/empty)
     timeRange: z
       .string()
       .nullable()
       .optional()
       .transform((val) => {
         if (!val || val.trim() === "" || val === "week") return "week";
-        // Validate against allowed values
         const allowed = ["none", "day", "week", "month", "year"] as const;
         if (allowed.includes(val as "none" | "day" | "week" | "month" | "year"))
           return val as "none" | "day" | "week" | "month" | "year";
         return "week";
       }),
 
-    // Custom date range - both required together
     startDate: z
       .string()
       .regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format")
@@ -49,7 +45,6 @@ const newsQuerySchema = z
       .nullable()
       .optional(),
 
-    // Target language for translation (ISO 639-1 locale code, handles null/undefined/empty)
     language: z
       .string()
       .nullable()
@@ -59,8 +54,6 @@ const newsQuerySchema = z
         return val;
       }),
 
-    // Number of articles to fetch (1-20)
-    // Handle both string and number input (query params are strings)
     limit: z
       .union([z.string(), z.number(), z.null(), z.undefined()])
       .transform((val) => {
@@ -71,7 +64,6 @@ const newsQuerySchema = z
       .default(10),
   })
   .refine(
-    // Custom refinement: startDate and endDate must be provided together
     (data) => {
       if (data.startDate || data.endDate) {
         return data.startDate !== undefined && data.endDate !== undefined;
@@ -84,10 +76,9 @@ const newsQuerySchema = z
     },
   )
   .refine(
-    // Custom refinement: validate date range
     (data) => {
       if (!data.startDate || !data.endDate) {
-        return true; // Skip if no dates provided
+        return true; 
       }
 
       const MIN_DATE = new Date("2000-01-01");
@@ -97,33 +88,15 @@ const newsQuerySchema = z
       const start = new Date(data.startDate);
       const end = new Date(data.endDate);
 
-      // Check if dates are valid
-      if (isNaN(start.getTime()) || isNaN(end.getTime())) {
-        return false;
-      }
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) return false;
+      if (start < MIN_DATE || end < MIN_DATE) return false;
+      if (start > now || end > now) return false;
+      if (start > end) return false;
 
-      // Check minimum date
-      if (start < MIN_DATE || end < MIN_DATE) {
-        return false;
-      }
-
-      // Check for future dates
-      if (start > now || end > now) {
-        return false;
-      }
-
-      // Ensure startDate <= endDate
-      if (start > end) {
-        return false;
-      }
-
-      // Check max range (365 days)
       const daysDiff = Math.ceil(
         (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24),
       );
-      if (daysDiff > MAX_RANGE_DAYS) {
-        return false;
-      }
+      if (daysDiff > MAX_RANGE_DAYS) return false;
 
       return true;
     },
@@ -134,7 +107,6 @@ const newsQuerySchema = z
     },
   )
   .transform((data) => ({
-    // Transform null to undefined for service compatibility
     category: data.category ?? undefined,
     timeRange: data.timeRange,
     startDate: data.startDate ?? undefined,
@@ -143,14 +115,10 @@ const newsQuerySchema = z
     limit: data.limit,
   }));
 
-// TypeScript type inferred from schema (after transform)
 type NewsQuery = z.infer<typeof newsQuerySchema>;
 
 export default defineEventHandler(async (event) => {
-  // Get runtime config first (needed for rate limit config)
   const config = useRuntimeConfig();
-
-  // Check rate limit before processing request
   const clientIp = getClientIp(event);
   let rateLimitResult: Awaited<ReturnType<typeof checkRateLimit>>;
 
@@ -167,9 +135,7 @@ export default defineEventHandler(async (event) => {
       throw createError({
         statusCode: 500,
         statusMessage: "Rate limit service unavailable",
-        data: {
-          error: String(error.message),
-        },
+        data: { error: String(error.message) },
       });
     }
     throw error;
@@ -181,7 +147,7 @@ export default defineEventHandler(async (event) => {
       statusMessage: "Too many requests",
       data: {
         error: `Daily rate limit exceeded (${rateLimitResult.limit} request/day). Please try again tomorrow.`,
-        retryAfter: 86400, // 24 hours
+        retryAfter: 86400,
         resetTime: rateLimitResult.resetTime.toISOString(),
         limit: rateLimitResult.limit,
       },
@@ -189,56 +155,46 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    // Get and validate query parameters using Zod
     const query = getQuery(event);
     const validatedQuery = newsQuerySchema.parse(query) as NewsQuery;
 
     // Fetch news from Tavily
     const tavilyResponse = await tavilyService.searchJapanNews({
       maxResults: validatedQuery.limit,
-      category:
-        validatedQuery.category === "all" ? undefined : validatedQuery.category,
+      category: validatedQuery.category === "all" ? undefined : validatedQuery.category,
       timeRange: validatedQuery.timeRange,
       startDate: validatedQuery.startDate,
       endDate: validatedQuery.endDate,
       apiKey: config.tavilyApiKey as string,
     });
 
-    // Format Tavily results to NewsItem format
-    let news = tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
+    // Format Tavily results to raw NewsItem format
+    let rawNewsItems = tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
 
-    // Use Gemini to categorize the news
-    news = await geminiService.categorizeNewsItems(news, {
+    // Sort news by published date descending
+    rawNewsItems.sort((a, b) => {
+      const dateA = isNaN(new Date(a.publishedAt).getTime()) ? new Date(0).getTime() : new Date(a.publishedAt).getTime();
+      const dateB = isNaN(new Date(b.publishedAt).getTime()) ? new Date(0).getTime() : new Date(b.publishedAt).getTime();
+      return dateB - dateA;
+    });
+
+    // Enforce the requested limit BEFORE sending to AI to save tokens/time
+    rawNewsItems = rawNewsItems.slice(0, validatedQuery.limit);
+
+    // Filter by category if specified (doing this before AI synthesis)
+    if (validatedQuery.category && validatedQuery.category !== "all") {
+      rawNewsItems = rawNewsItems.filter(
+        (item) => item.category.toLowerCase() === validatedQuery.category!.toLowerCase(),
+      );
+    }
+
+    // NEW LOGIC: Use Gemini to generate a single synthesized briefing
+    const briefing = await geminiService.generateNewsBriefing(rawNewsItems, {
       apiKey: config.geminiApiKey as string,
       model: config.geminiModel as string | undefined,
       language: validatedQuery.language,
     });
 
-    // Filter by category if specified
-    if (validatedQuery.category && validatedQuery.category !== "all") {
-      news = news.filter(
-        (item) =>
-          item.category.toLowerCase() ===
-          validatedQuery.category!.toLowerCase(),
-      );
-    }
-
-    // Sort news by published date in descending order (latest first)
-    news.sort((a, b) => {
-      // Handle potential invalid dates by treating them as oldest possible
-      const dateA = isNaN(new Date(a.publishedAt).getTime())
-        ? new Date(0).getTime()
-        : new Date(a.publishedAt).getTime();
-      const dateB = isNaN(new Date(b.publishedAt).getTime())
-        ? new Date(0).getTime()
-        : new Date(b.publishedAt).getTime();
-      return dateB - dateA; // Sort in descending order (latest first)
-    });
-
-    // Limit results (in case categorization returned more than requested)
-    news = news.slice(0, validatedQuery.limit);
-
-    // Add rate limit headers to response
     setResponseHeaders(event, {
       "X-RateLimit-Limit": rateLimitResult.limit.toString(),
       "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
@@ -247,12 +203,11 @@ export default defineEventHandler(async (event) => {
 
     return {
       success: true,
-      data: news,
-      count: news.length,
+      data: briefing,
+      count: briefing.sourcesProcessed?.length || 0,
       timestamp: new Date().toISOString(),
     };
   } catch (error) {
-    // Handle Zod validation errors
     if (error instanceof z.ZodError) {
       throw createError({
         statusCode: 400,
@@ -275,8 +230,7 @@ export default defineEventHandler(async (event) => {
       statusCode: 500,
       statusMessage: "Failed to fetch news",
       data: {
-        error:
-          error instanceof Error ? error.message : "Unknown error occurred",
+        error: error instanceof Error ? error.message : "Unknown error occurred",
       },
     });
   }
