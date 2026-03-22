@@ -27,3 +27,21 @@ export interface ApiResponse<T = unknown> {
   count?: number;
   timestamp: string;
 }
+
+// --- NEW TYPES FOR SYNTHESIZED BRIEFING ---
+
+export interface BriefingSource {
+  title: string;
+  source: string;
+  url?: string;
+  credibilityScore: number;
+}
+
+export interface NewsBriefing {
+  mainHeadline: string;
+  executiveSummary: string;
+  thematicAnalysis: string;
+  overallCredibilityScore: number;
+  sourcesProcessed: BriefingSource[];
+  isAiFallback?: boolean;
+}

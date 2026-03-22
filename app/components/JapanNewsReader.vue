@@ -1,6 +1,5 @@
 <template>
   <div class="min-h-screen">
-    <!-- Header -->
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
@@ -14,7 +13,7 @@
           <UColorModeButton />
           <div class="flex items-center gap-2 hidden lg:flex">
             <label for="newsAmount" class="text-sm text-secondary-500">
-              News:
+              Sources:
             </label>
             <UInput
               id="newsAmount"
@@ -47,11 +46,11 @@
               :loading="loading"
               color="primary"
               size="sm"
-              icon="i-heroicons-magnifying-glass"
+              icon="i-heroicons-bolt"
               @click="refreshNews"
             >
               <span class="hidden sm:inline">{{
-                loading ? "Getting..." : "Get News"
+                loading ? "Synthesizing..." : "Generate Briefing"
               }}</span>
             </UButton>
           </div>
@@ -63,7 +62,7 @@
           <div class="space-y-3">
             <div>
               <label for="mobileNewsAmount" class="text-sm text-secondary-500">
-                News count (1-20):
+                Sources count (1-20):
               </label>
               <UInput
                 id="mobileNewsAmount"
@@ -96,7 +95,7 @@
               :loading="loading"
               color="primary"
               block
-              icon="i-heroicons-magnifying-glass"
+              icon="i-heroicons-bolt"
               @click="
                 async () => {
                   await refreshNews();
@@ -104,24 +103,21 @@
                 }
               "
             >
-              {{ loading ? "Getting..." : "Get News" }}
+              {{ loading ? "Synthesizing..." : "Generate Briefing" }}
             </UButton>
           </div>
         </div>
       </template>
     </UHeader>
 
-    <!-- Main Content -->
     <main
       class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-full overflow-x-hidden"
     >
       <div class="grid grid-cols-1 gap-6 sm:gap-8">
-        <!-- News Section -->
         <div>
-          <!-- Time Range Filter -->
           <div class="mb-3 sm:mb-4">
             <p class="text-sm text-secondary-500 mb-2 max-w-fit">
-              <em>Select a time range to focus news search results</em>
+              <em>Select a time range to focus the search results</em>
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
               <UTooltip
@@ -143,7 +139,6 @@
               </UTooltip>
             </div>
 
-            <!-- Custom Date Range Picker -->
             <div
               v-if="selectedTimeRange === 'custom'"
               class="mt-3 grid grid-cols-1 gap-4"
@@ -188,13 +183,9 @@
             </div>
           </div>
 
-          <!-- Category Filter -->
           <div class="mb-4 sm:mb-6">
             <p class="text-sm text-secondary-500 mb-2 max-w-fit">
-              <em
-                >Choose categories to filter both search and displayed
-                results</em
-              >
+              <em>Choose a category to focus the briefing</em>
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
               <UTooltip
@@ -221,7 +212,6 @@
             </div>
           </div>
 
-          <!-- Error State -->
           <UCard
             v-if="error || isDebugErrorUi"
             data-testid="error-state"
@@ -241,7 +231,6 @@
             class="text-center mb-8"
           >
             <div class="p-2">
-              <!-- Debug Controls -->
               <div
                 v-if="isDebugErrorUi && !error"
                 class="mb-6 p-3 bg-primary-50 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800 rounded-lg text-xs text-left"
@@ -267,11 +256,10 @@
                     >DEBUG_ERROR_UI=true</code
                   >
                   is set. Below you can see the main error layouts and a mock
-                  AI-failed news card.
+                  AI-failed briefing card.
                 </p>
               </div>
 
-              <!-- Rate Limit Error -->
               <div
                 v-if="
                   isRateLimitError ||
@@ -324,7 +312,6 @@
                 </UButton>
               </div>
 
-              <!-- General Error -->
               <div v-else class="space-y-4">
                 <p class="text-error-500">
                   {{
@@ -339,88 +326,76 @@
             </div>
           </UCard>
 
-          <!-- News Loading State -->
-          <div v-if="loading && news.length === 0" class="space-y-4">
-            <USkeleton v-for="i in 3" :key="i" class="h-48 w-full rounded-lg" />
-            <p class="text-center text-secondary-500 text-sm mt-4">
-              Fetching latest news from Japan...
+          <div v-if="loading" class="space-y-6">
+            <UCard class="w-full shadow-md border-t-4 border-t-primary-500">
+              <div class="p-4 sm:p-6 space-y-6">
+                <div class="border-b pb-4">
+                  <USkeleton class="h-6 w-32 mb-3 rounded-full" />
+                  <USkeleton class="h-10 w-3/4 rounded-lg" />
+                </div>
+                <div class="space-y-2">
+                  <USkeleton class="h-4 w-24 mb-2" />
+                  <USkeleton class="h-4 w-full" />
+                  <USkeleton class="h-4 w-full" />
+                  <USkeleton class="h-4 w-5/6" />
+                </div>
+                <div class="bg-primary-50 dark:bg-primary-950/20 p-4 rounded-xl space-y-2">
+                  <USkeleton class="h-4 w-32 mb-2" />
+                  <USkeleton class="h-4 w-full" />
+                  <USkeleton class="h-4 w-4/5" />
+                </div>
+              </div>
+            </UCard>
+            <p class="text-center text-secondary-500 text-sm mt-4 animate-pulse flex items-center justify-center gap-2">
+              <UIcon name="i-heroicons-cpu-chip" class="w-5 h-5" />
+              AI is currently synthesizing the latest news from Japan...
             </p>
           </div>
 
-          <!-- News List -->
-          <div v-else class="space-y-4">
-            <!-- Instruction text when no news is loaded -->
-            <div
-              v-if="news.length === 0 && !loading && !isDebugErrorUi"
-              class="bg-white dark:bg-gray-900 rounded-lg shadow text-center p-8"
-              style="contain: layout style paint"
-            >
-              <div class="mb-4">
-                <svg
-                  class="w-16 h-16 mx-auto text-secondary-500 opacity-50"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold mb-2">No news loaded yet</h3>
-              <p
-                class="mb-4 text-secondary-500 dark:text-secondary-400"
-                style="contain: layout style"
-              >
-                Select your preferred time range and category, set the number of
-                articles to fetch (1-20), then click "Get News" to fetch
-                targeted news from Japan
-              </p>
-              <p class="text-sm opacity-70">
-                <em
-                  >Tip: Time range and category filters will affect the search
-                  results, not just the display. The news count controls how
-                  many articles to fetch.</em
-                >
-              </p>
-            </div>
-
-            <!-- Debug Mock Card -->
+          <div v-else-if="briefingData" class="space-y-4">
             <div v-if="isDebugErrorUi && !error" class="mb-4">
               <div
                 class="text-xs font-bold text-primary-500 mb-2 uppercase tracking-wider"
               >
                 Mock: AI Fallback Card
               </div>
-              <NewsCard :news="mockFallbackItem" />
+              <BriefingCard :briefing="mockFallbackBriefing" />
             </div>
 
-            <NewsCard
-              v-for="item in paginatedNews"
-              :key="item.title"
-              :news="item"
-            />
+            <BriefingCard :briefing="briefingData" />
           </div>
 
-          <!-- Pagination -->
           <div
-            v-if="filteredNews.length > itemsPerPage"
-            class="flex justify-center mt-6"
+            v-else-if="!loading && !isDebugErrorUi"
+            class="bg-white dark:bg-gray-900 rounded-lg shadow text-center p-8 border border-gray-100 dark:border-gray-800"
+            style="contain: layout style paint"
           >
-            <UPagination
-              v-model:page="page"
-              :total="filteredNews.length"
-              :items-per-page="itemsPerPage"
-              :sibling-count="1"
-              show-edges
-              color="primary"
-              size="sm"
-            />
+            <div class="mb-4">
+              <svg
+                class="w-16 h-16 mx-auto text-primary-500 opacity-20"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Ready to Synthesize</h3>
+            <p
+              class="mb-4 text-secondary-500 dark:text-secondary-400 max-w-lg mx-auto"
+              style="contain: layout style"
+            >
+              Select your preferred time range and category, set the number of
+              sources to analyze (1-20), then click "Generate Briefing" to create a synthesized report.
+            </p>
           </div>
+
         </div>
       </div>
     </main>
@@ -428,19 +403,23 @@
 </template>
 
 <script setup lang="ts">
-import { watch, ref } from "vue";
+import { ref } from "vue";
 import { CalendarDate } from "@internationalized/date";
-import type { NewsItem } from "~~/types/index";
-import { NEWS_CATEGORIES, AI_FALLBACK_SUMMARY } from "~~/constants/categories";
+import type { NewsBriefing } from "~~/types/index";
+import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
 import * as locales from "@nuxt/ui/locale";
 
+// Import components (Nuxt usually auto-imports, but explicitly declaring helps some IDEs)
+import BriefingCard from "./BriefingCard.vue";
+
 // State
-const news = ref<NewsItem[]>([]);
+const briefingData = ref<NewsBriefing | null>(null);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 const appName = "NipponDaily";
+
 // Rate limit specific state
 const rateLimitResetTime = ref<string | null>(null);
 const isRateLimitError = ref(false);
@@ -451,30 +430,23 @@ const config = useRuntimeConfig();
 const isDebugErrorUi = computed(() => config.public.debugErrorUi === true);
 const isDebugRateLimit = ref(true);
 
-const mockFallbackItem: NewsItem = {
-  title: "Example Article with AI Processing Failure",
-  summary: AI_FALLBACK_SUMMARY,
-  content: AI_FALLBACK_SUMMARY,
-  source: "Nippon News Example",
-  publishedAt: new Date().toISOString(),
-  category: "Other",
-  url: "https://example.com",
-  credibilityScore: 0.45,
-  credibilityMetadata: {
-    sourceReputation: 0.5,
-    domainTrust: 0.6,
-    contentQuality: 0.5,
-    aiConfidence: 0.1,
-  },
+const mockFallbackBriefing: NewsBriefing = {
+  isAiFallback: true,
+  mainHeadline: "Latest News Processing Unavailable",
+  executiveSummary: "Our AI analysis engine is currently unavailable or encountered an error. Below are the raw sources we retrieved from the latest search query.",
+  thematicAnalysis: "Unable to synthesize relationships between articles at this time due to system fallback mode.",
+  overallCredibilityScore: 0.5,
+  sourcesProcessed: [
+    { title: "Example Raw Article 1", source: "NHK News", url: "https://example.com", credibilityScore: 0.95 },
+    { title: "Example Raw Article 2", source: "Unknown Blog", url: "https://example.com", credibilityScore: 0.4 }
+  ]
 };
 
 const selectedTimeRange = ref<
   "none" | "day" | "week" | "month" | "year" | "custom"
 >("week");
 const targetLanguage = ref("en");
-const newsAmount = ref(10);
-const page = ref(1);
-const itemsPerPage = 3;
+const newsAmount = ref(10); // Now represents sources requested
 
 // Calendar state for custom date range
 const today = new CalendarDate(
@@ -482,9 +454,8 @@ const today = new CalendarDate(
   new Date().getMonth() + 1,
   new Date().getDate(),
 );
-const minDate = new CalendarDate(2020, 1, 1); // Limit to reasonable past date
+const minDate = new CalendarDate(2020, 1, 1);
 const maxDate = today;
-// Initialize with defaults (7 days ago to today) as a range
 const oneWeekAgo = today.subtract({ days: 7 });
 const customDateRange = ref<{ start: typeof oneWeekAgo; end: typeof today }>({
   start: oneWeekAgo,
@@ -504,32 +475,6 @@ const timeRangeOptions = [
   { id: "custom", name: "Custom Range" },
 ] as const;
 
-// Computed
-const filteredNews = computed(() => {
-  let result = news.value;
-  if (selectedCategory.value !== "all") {
-    result = news.value.filter(
-      (item) =>
-        item.category.toLowerCase() === selectedCategory.value.toLowerCase(),
-    );
-  }
-  return result;
-});
-
-const paginatedNews = computed(() => {
-  const start = (page.value - 1) * itemsPerPage;
-  return filteredNews.value.slice(start, start + itemsPerPage);
-});
-
-// Watch
-watch(selectedCategory, () => {
-  page.value = 1;
-});
-
-watch(news, () => {
-  page.value = 1;
-});
-
 // Methods
 const fetchNews = async () => {
   loading.value = true;
@@ -539,15 +484,13 @@ const fetchNews = async () => {
   rateLimitResetTime.value = null;
 
   try {
-    // Build query parameters - send locale code directly (validated server-side)
     const query: Record<string, string | number | undefined> = {
       category:
         selectedCategory.value === "all" ? undefined : selectedCategory.value,
-      language: targetLanguage.value, // e.g., "en", "ja", "zh_cn"
+      language: targetLanguage.value,
       limit: newsAmount.value,
     };
 
-    // Handle time range - for custom, pass startDate and endDate
     if (selectedTimeRange.value === "custom") {
       if (customDateRange.value.start && customDateRange.value.end) {
         query.startDate = `${customDateRange.value.start.year}-${customDateRange.value.start.month
@@ -561,27 +504,26 @@ const fetchNews = async () => {
           .toString()
           .padStart(2, "0")}`;
       } else {
-        // If custom is selected but no dates are picked, default to week
         query.timeRange = "week";
       }
     } else {
       query.timeRange = selectedTimeRange.value;
     }
 
+    // Expecting a single Briefing object now, not an array of NewsItems
     const response = await $fetch<{
       success: boolean;
-      data: NewsItem[];
+      data: NewsBriefing;
       count: number;
       timestamp: string;
     }>("/api/news", {
       query,
     });
 
-    news.value = response.data || [];
+    briefingData.value = response.data;
   } catch (err: unknown) {
-    console.error("Error fetching news:", err);
+    console.error("Error generating briefing:", err);
 
-    // Type guard for fetch error with data
     const errorData = err as {
       statusCode?: number;
       data?: {
@@ -591,7 +533,6 @@ const fetchNews = async () => {
       };
     };
 
-    // Check if this is a rate limit error (HTTP 429)
     if (errorData.statusCode === 429) {
       isRateLimitError.value = true;
       rateLimitResetTime.value = errorData.data?.resetTime || null;
@@ -601,7 +542,6 @@ const fetchNews = async () => {
           ? errorMsg
           : "Daily rate limit exceeded. Please try again tomorrow.";
     } else if (errorData.statusCode === 500) {
-      // Rate limit service unavailable (Redis not configured)
       const errorMsg = errorData.data?.error;
       if (
         typeof errorMsg === "string" &&
@@ -620,7 +560,7 @@ const fetchNews = async () => {
       error.value =
         typeof errorMsg === "string"
           ? errorMsg
-          : "Failed to fetch news. Please try again.";
+          : "Failed to generate briefing. Please try again.";
     }
   } finally {
     loading.value = false;
@@ -628,7 +568,6 @@ const fetchNews = async () => {
 };
 
 const refreshNews = async () => {
-  // Validate news amount before fetching
   if (newsAmount.value > 20) {
     newsAmount.value = 20;
   }
@@ -638,9 +577,6 @@ const refreshNews = async () => {
   await fetchNews();
 };
 
-// Lifecycle - Auto-fetch removed, news only loads when button is clicked
-
-// Define component name for clarity
 defineOptions({
   name: "JapanNewsReader",
 });
