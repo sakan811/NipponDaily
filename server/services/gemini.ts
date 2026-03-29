@@ -107,7 +107,7 @@ ${newsText}`;
       const result = JSON.parse(response.text);
       
       // Calculate individual credibility for sources
-      result.sourcesProcessed = result.sourcesProcessed.map((s: any) => ({
+      result.sourcesProcessed = result.sourcesProcessed.map((s: BriefingSource) => ({
         ...s,
         credibilityScore: this.getDomainTrustScore(s.source)
       }));
