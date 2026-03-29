@@ -37,4 +37,9 @@ export default defineNuxtConfig({
       debugErrorUi: process.env.DEBUG_ERROR_UI === "true",
     },
   },
+  vite: {
+    optimizeDeps: {
+      include: ["@internationalized/date"],
+    },
+  },
 });

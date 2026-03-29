@@ -48,7 +48,6 @@ vi.mock("~/app/components/BriefingCard.vue", () => ({
   },
 }));
 
-// Mock ULocaleSelect component - define it but don't use vi.mock
 const ULocaleSelectMock = {
   name: "ULocaleSelect",
   props: ["id", "modelValue", "locales", "disabled", "size", "class"],
@@ -57,12 +56,18 @@ const ULocaleSelectMock = {
     '<select :id="id" :disabled="disabled" :class="class" @change="$emit(\'update:modelValue\', $event.target.value)"><slot></slot></select>',
 };
 
+const ClientOnlyMock = {
+  name: "ClientOnly",
+  template: '<div><slot></slot></div>',
+};
+
 // Helper function to mount with common mocks
 export const mountReader = (options = {}) => {
   return mount(JapanNewsReader, {
     global: {
       components: {
         NewsCard: mockBriefingCard,
+        ClientOnly: ClientOnlyMock,
       },
       stubs: {
         ULocaleSelect: ULocaleSelectMock,
