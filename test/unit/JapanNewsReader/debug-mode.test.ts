@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
 import JapanNewsReader from "~/app/components/JapanNewsReader.vue";
-import { NewsCardMock } from "./setup";
+import { mockBriefingCard } from "./setup";
 
 describe("JapanNewsReader - Debug Mode", () => {
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe("JapanNewsReader - Debug Mode", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -51,7 +51,7 @@ describe("JapanNewsReader - Debug Mode", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });

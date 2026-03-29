@@ -30,7 +30,9 @@ describe("News API - Limit Parameter", () => {
     (global as any).getQuery.mockReturnValue({ limit: "3" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue(mockNews);
+    mockGeminiCategorize.mockImplementation(async (items) => {
+      return { mainHeadline: "Test", sourcesProcessed: items };
+    });
 
     const response = await handler({
       node: {
@@ -41,7 +43,7 @@ describe("News API - Limit Parameter", () => {
       },
     });
 
-    expect(response.data).toHaveLength(3);
+    expect(response.data.sourcesProcessed).toHaveLength(3);
     expect(response.count).toBe(3);
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 3,
@@ -55,7 +57,7 @@ describe("News API - Limit Parameter", () => {
     (global as any).getQuery.mockReturnValue({ limit: "invalid" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
+    mockGeminiCategorize.mockResolvedValue({ sourcesProcessed: [] });
 
     const response = await handler({
       node: {
@@ -66,7 +68,7 @@ describe("News API - Limit Parameter", () => {
       },
     });
 
-    expect(response.data).toHaveLength(0);
+    expect(response.data.sourcesProcessed).toHaveLength(0);
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
       category: undefined,

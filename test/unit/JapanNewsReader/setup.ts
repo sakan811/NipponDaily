@@ -34,14 +34,18 @@ vi.mock("@internationalized/date", () => {
   };
 });
 
-const NewsCardMock = {
-  name: "NewsCard",
-  props: ["news"],
-  template: '<div class="news-card">{{ news.title }}</div>',
+const mockBriefingCard = {
+  name: "BriefingCard",
+  props: ["briefing"],
+  template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
 };
 
-vi.mock("~/app/components/NewsCard.vue", () => ({
-  default: NewsCardMock,
+vi.mock("~/app/components/BriefingCard.vue", () => ({
+  default: {
+    name: "BriefingCard",
+    props: ["briefing"],
+    template: '<div class="briefing-card">{{ briefing?.mainHeadline }}</div>',
+  },
 }));
 
 // Mock ULocaleSelect component - define it but don't use vi.mock
@@ -58,7 +62,7 @@ export const mountReader = (options = {}) => {
   return mount(JapanNewsReader, {
     global: {
       components: {
-        NewsCard: NewsCardMock,
+        NewsCard: mockBriefingCard,
       },
       stubs: {
         ULocaleSelect: ULocaleSelectMock,
@@ -69,24 +73,17 @@ export const mountReader = (options = {}) => {
   });
 };
 
-export const mockNews = [
-  {
-    title: "Tech News",
-    summary: "Tech Summary",
-    content: "Tech Content",
-    source: "Tech Source",
-    publishedAt: "2024-01-15T10:00:00Z",
-    category: "Technology",
-  },
-  {
-    title: "Politics News",
-    summary: "Politics Summary",
-    content: "Politics Content",
-    source: "Politics Source",
-    publishedAt: "2024-01-15T11:00:00Z",
-    category: "Politics",
-  },
-];
+export const mockNews = {
+  isAiFallback: false,
+  mainHeadline: "Tech News Headline",
+  executiveSummary: "Tech Executive Summary",
+  thematicAnalysis: "Tech Thematic Analysis",
+  overallCredibilityScore: 0.85,
+  sourcesProcessed: [
+    { title: "Tech News", source: "Tech Source", url: "https://example.com", credibilityScore: 0.9, publishedAt: "2024-01-15T10:00:00Z", category: "Technology" },
+    { title: "Politics News", source: "Politics Source", url: "https://example.com", credibilityScore: 0.8, publishedAt: "2024-01-15T11:00:00Z", category: "Politics" }
+  ]
+};
 
 export const createMockFetch = () => {
   return vi.fn().mockResolvedValue({
@@ -97,4 +94,4 @@ export const createMockFetch = () => {
   });
 };
 
-export { NewsCardMock, ULocaleSelectMock };
+export { mockBriefingCard, ULocaleSelectMock };

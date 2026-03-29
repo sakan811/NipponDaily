@@ -58,7 +58,7 @@
         </p>
       </div>
 
-      <div class="border-t dark:border-gray-800 pt-5 mt-6">
+      <div class="border-t dark:border-gray-800 pt-5 mt-6" v-if="briefing.sourcesProcessed && briefing.sourcesProcessed.length > 0">
         <h3 class="text-xs font-bold text-secondary-500 uppercase tracking-wider mb-4 flex items-center gap-1.5">
           <UIcon name="i-heroicons-globe-alt" class="w-4 h-4" />
           Sources Consulted ({{ briefing.sourcesProcessed.length }})

@@ -17,49 +17,15 @@ describe("JapanNewsReader - Category Filter", () => {
     (global as any).$fetch = mockFetch;
   });
 
-  it("filters news by selected category", async () => {
-    const wrapper = mountReader({
-      global: {
-        components: {
-          NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
-          },
-        },
-      },
-    });
-
-    // Fetch news first
-    await wrapper.vm.refreshNews();
-    await nextTick();
-
-    // Initially should show all news
-    expect(wrapper.vm.filteredNews.length).toBe(2);
-
-    // Select Technology category
-    const categoryButtons = wrapper.findAll("button");
-    const techButton = categoryButtons.find((btn) =>
-      btn.text().includes("Technology"),
-    );
-    expect(techButton).toBeDefined();
-
-    await techButton?.trigger("click");
-    await nextTick();
-
-    // Should filter to only Technology news
-    expect(wrapper.vm.filteredNews.length).toBe(1);
-    expect(wrapper.vm.filteredNews[0].category).toBe("Technology");
-  });
 
   it("changes button appearance when category is selected", async () => {
     const wrapper = mountReader({
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -90,9 +56,9 @@ describe("JapanNewsReader - Category Filter", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },

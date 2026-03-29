@@ -22,9 +22,9 @@ describe("JapanNewsReader - Mobile Menu", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -42,9 +42,9 @@ describe("JapanNewsReader - Mobile Menu", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -60,9 +60,9 @@ describe("JapanNewsReader - Mobile Menu", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -85,9 +85,9 @@ describe("JapanNewsReader - Mobile Menu", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -103,9 +103,9 @@ describe("JapanNewsReader - Mobile Menu", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -122,9 +122,9 @@ describe("JapanNewsReader - Mobile Menu", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -173,9 +173,9 @@ describe("JapanNewsReader - Mobile Menu", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
         stubs: {
@@ -197,10 +197,10 @@ describe("JapanNewsReader - Mobile Menu", () => {
     // The mobile button should now be found
     expect(mobileButtons.length).toBeGreaterThan(0);
 
-    // The mobile Get News button should have "Get News" or "Getting..." text
+    // The mobile Get News button should have "Generate Briefing" or "Synthesizing..." text
     const getNewsButton = mobileButtons.find((b) => {
       const text = b.text();
-      return text.includes("Getting") || text.includes("Get News");
+      return text.includes("Getting") || text.includes("Generate Briefing");
     });
 
     expect(getNewsButton).toBeDefined();
@@ -221,9 +221,9 @@ describe("JapanNewsReader - Mobile Menu", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
