@@ -3,7 +3,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
           <span>{{ appName }}</span>
         </NuxtLink>
       </template>
@@ -11,22 +11,7 @@
       <template #right>
         <div class="flex items-center gap-2">
           <UColorModeButton />
-          <div class="flex items-center gap-2 hidden lg:flex">
-            <label for="newsAmount" class="text-sm text-secondary-500">
-              Sources:
-            </label>
-            <UInput
-              id="newsAmount"
-              v-model.number="newsAmount"
-              type="number"
-              :min="1"
-              :max="20"
-              placeholder="10"
-              :disabled="loading"
-              size="sm"
-              class="w-20"
-            />
-          </div>
+
           <div class="flex items-center gap-2 hidden lg:flex">
             <label for="targetLanguage" class="text-sm text-secondary-500">
               Lang:
@@ -60,21 +45,7 @@
       <template #body>
         <div class="space-y-4">
           <div class="space-y-3">
-            <div>
-              <label for="mobileNewsAmount" class="text-sm text-secondary-500">
-                Sources count (1-20):
-              </label>
-              <UInput
-                id="mobileNewsAmount"
-                v-model.number="newsAmount"
-                type="number"
-                :min="1"
-                :max="20"
-                placeholder="10"
-                :disabled="loading"
-                class="w-full mt-1"
-              />
-            </div>
+
             <div>
               <label
                 for="mobileTargetLanguage"
@@ -292,16 +263,18 @@
                       "Daily rate limit exceeded (3 request/day). Please try again tomorrow."
                     }}
                   </p>
-                  <p
-                    v-if="rateLimitResetTime || (isDebugErrorUi && !error)"
-                    class="text-sm text-secondary-400"
-                  >
-                    Resets at:
-                    {{
-                      rateLimitResetTime ||
-                      new Date(Date.now() + 86400000).toLocaleString()
-                    }}
-                  </p>
+                  <ClientOnly>
+                    <p
+                      v-if="rateLimitResetTime || (isDebugErrorUi && !error)"
+                      class="text-sm text-secondary-400"
+                    >
+                      Resets at:
+                      {{
+                        rateLimitResetTime ||
+                        new Date(Date.now() + 86400000).toLocaleString()
+                      }}
+                    </p>
+                  </ClientOnly>
                 </div>
                 <UButton
                   color="warning"
@@ -391,8 +364,7 @@
               class="mb-4 text-secondary-500 dark:text-secondary-400 max-w-lg mx-auto"
               style="contain: layout style"
             >
-              Select your preferred time range and category, set the number of
-              sources to analyze (1-20), then click "Generate Briefing" to create a synthesized report.
+              Select your preferred time range and category, then click "Generate Briefing" to create a synthesized report.
             </p>
           </div>
 
@@ -446,7 +418,7 @@ const selectedTimeRange = ref<
   "none" | "day" | "week" | "month" | "year" | "custom"
 >("week");
 const targetLanguage = ref("en");
-const newsAmount = ref(10); // Now represents sources requested
+
 
 // Calendar state for custom date range
 const today = new CalendarDate(
@@ -488,7 +460,7 @@ const fetchNews = async () => {
       category:
         selectedCategory.value === "all" ? undefined : selectedCategory.value,
       language: targetLanguage.value,
-      limit: newsAmount.value,
+      limit: 20,
     };
 
     if (selectedTimeRange.value === "custom") {
@@ -568,12 +540,6 @@ const fetchNews = async () => {
 };
 
 const refreshNews = async () => {
-  if (newsAmount.value > 20) {
-    newsAmount.value = 20;
-  }
-  if (newsAmount.value < 1) {
-    newsAmount.value = 1;
-  }
   await fetchNews();
 };
 

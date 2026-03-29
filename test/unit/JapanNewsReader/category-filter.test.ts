@@ -73,7 +73,7 @@ describe("JapanNewsReader - Category Filter", () => {
         category: "technology",
         timeRange: "week",
         language: "en",
-        limit: 10,
+        limit: 20,
       },
     });
   });
