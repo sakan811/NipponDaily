@@ -3,7 +3,7 @@ import { mount } from "@vue/test-utils";
 import { nextTick } from "vue";
 
 import JapanNewsReader from "~/app/components/JapanNewsReader.vue";
-import { NewsCardMock, mockNews } from "./setup";
+import { mockBriefingCard, mockNews } from "./setup";
 
 describe("JapanNewsReader - Custom Date Range", () => {
   let mockFetch: any;
@@ -21,7 +21,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
   it("renders custom date range picker button", () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     const customButton = wrapper
@@ -33,7 +33,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
   it("selects custom time range when custom button is clicked", async () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     const customButton = wrapper
@@ -48,7 +48,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
   it("includes startDate and endDate in query when custom time range with dates is selected", async () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     // Set custom time range with valid dates
@@ -70,7 +70,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
   it("defaults to week time range when custom is selected but no dates are picked", async () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     // Set custom time range without dates
@@ -88,7 +88,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
   it("uses custom date range when both start and end dates are present", async () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     wrapper.vm.selectedTimeRange = "custom";
@@ -109,7 +109,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
   it("pads month and day with zeros for single digit values", async () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     wrapper.vm.selectedTimeRange = "custom";
@@ -131,7 +131,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
   it("UCalendar v-model binds to customDateRange", async () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           UCalendar: {
             name: "UCalendar",
@@ -187,7 +187,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           UCalendar: UCalendarStub,
         },
@@ -208,7 +208,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
   it("date range button displays selected dates in correct format", async () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           UCalendar: {
             name: "UCalendar",
@@ -248,7 +248,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
   it("date range button shows 'Select date range' when no dates selected", async () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           UCalendar: {
             name: "UCalendar",
@@ -280,7 +280,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
   it("customDateRange is initialized with default values (one week ago to today)", () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     // Verify that customDateRange has initial values
@@ -316,7 +316,7 @@ describe("JapanNewsReader - Custom Date Range", () => {
 
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           UCalendar: UCalendarStub,
           UHeader: {

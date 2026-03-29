@@ -22,9 +22,9 @@ describe("JapanNewsReader - Loading State", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -64,9 +64,9 @@ describe("JapanNewsReader - Loading State", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -75,8 +75,8 @@ describe("JapanNewsReader - Loading State", () => {
     // Find the empty state div (replaced UCard with native div for LCP optimization)
     const emptyState = wrapper.find('[style*="contain: layout style paint"]');
     expect(emptyState.exists()).toBe(true);
-    expect(emptyState.text()).toContain("No news loaded yet");
-    expect(emptyState.text()).toContain('click "Get News"');
+    expect(emptyState.text()).toContain("Ready to Synthesize");
+    expect(emptyState.text()).toContain("Select your preferred time range");
   });
 
   it("disables button when loading", async () => {
@@ -84,9 +84,9 @@ describe("JapanNewsReader - Loading State", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -116,11 +116,11 @@ describe("JapanNewsReader - Loading State", () => {
     const getNewsButton = wrapper
       .findAll("button")
       .find(
-        (b) => b.text().includes("Getting...") || b.text().includes("Get News"),
+        (b) => b.text().includes("Synthesizing...") || b.text().includes("Generate Briefing"),
       );
     expect(getNewsButton).toBeDefined();
     expect(getNewsButton?.attributes("disabled")).toBeDefined();
-    expect(getNewsButton?.text()).toContain("Getting...");
+    expect(getNewsButton?.text()).toContain("Synthesizing...");
 
     // Wait for the fetch to complete
     await fetchPromise;

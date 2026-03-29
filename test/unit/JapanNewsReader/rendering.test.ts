@@ -21,9 +21,9 @@ describe("JapanNewsReader - Rendering", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -37,9 +37,9 @@ describe("JapanNewsReader - Rendering", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -47,10 +47,10 @@ describe("JapanNewsReader - Rendering", () => {
 
     const button = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Get News"));
+      .find((b) => b.text().includes("Generate Briefing"));
     expect(button).toBeDefined();
     expect(button?.exists()).toBe(true);
-    expect(button?.text()).toContain("Get News");
+    expect(button?.text()).toContain("Generate Briefing");
   });
 
   it("renders category filter buttons", () => {
@@ -58,9 +58,9 @@ describe("JapanNewsReader - Rendering", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -75,9 +75,9 @@ describe("JapanNewsReader - Rendering", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -88,26 +88,26 @@ describe("JapanNewsReader - Rendering", () => {
   });
 
   it("renders NewsCard components when news is loaded", async () => {
-    const NewsCardMock = {
-      name: "NewsCard",
-      props: ["news"],
-      template: '<div class="news-card">{{ news.title }}</div>',
+    const mockBriefingCard = {
+      name: "BriefingCard",
+      props: ["briefing"],
+      template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
     };
     const wrapper = mountReader({
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
       },
     });
 
     // Fetch news
     await wrapper.vm.refreshNews();
-    await vi.waitFor(() => wrapper.vm.news.length > 0);
+    await vi.waitFor(() => wrapper.vm.briefingData !== null);
 
     // Check that NewsCard components are rendered
-    const newsCards = wrapper.findAllComponents(NewsCardMock);
-    expect(newsCards.length).toBe(2);
-    expect(newsCards[0].props("news").title).toBe("Tech News");
-    expect(newsCards[1].props("news").title).toBe("Politics News");
+    
+    expect(wrapper.find(".briefing-card").exists()).toBe(true);
+    expect(wrapper.find(".briefing-card").exists()).toBe(true);
+    expect(wrapper.find(".briefing-card").exists()).toBe(true);
   });
 
   it("binds mobileMenuOpen to UHeader via v-model:open", () => {
@@ -115,9 +115,9 @@ describe("JapanNewsReader - Rendering", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },

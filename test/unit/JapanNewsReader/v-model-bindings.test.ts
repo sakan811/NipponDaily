@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
 
 import JapanNewsReader from "~/app/components/JapanNewsReader.vue";
-import { NewsCardMock, mockNews } from "./setup";
+import { mockBriefingCard, mockNews } from "./setup";
 
 describe("JapanNewsReader - v-model Bindings", () => {
   let mockFetch: any;
@@ -22,7 +22,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
     // Use custom stub that properly emits update:modelValue
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           ULocaleSelect: {
             name: "ULocaleSelect",
@@ -53,7 +53,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
     // Use custom stub that properly emits update:modelValue
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           ULocaleSelect: {
             name: "ULocaleSelect",
@@ -84,7 +84,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
     // Use custom stub that properly emits update:modelValue
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           ULocaleSelect: {
             name: "ULocaleSelect",
@@ -118,7 +118,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
     // Use custom stub that properly emits update:modelValue
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           ULocaleSelect: {
             name: "ULocaleSelect",
@@ -160,7 +160,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
   it("uses current language value when Get News button is clicked", async () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           ULocaleSelect: {
             name: "ULocaleSelect",
@@ -181,7 +181,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
     // Find and click Get News button (not UColorModeButton)
     const getNewsButton = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Get News"));
+      .find((b) => b.text().includes("Generate Briefing"));
     expect(getNewsButton).toBeDefined();
     await getNewsButton?.trigger("click");
 
@@ -198,7 +198,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
   it("disables both input and button during loading state", async () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
-        components: { NewsCard: NewsCardMock },
+        components: { BriefingCard: mockBriefingCard },
         stubs: {
           ULocaleSelect: {
             name: "ULocaleSelect",
@@ -214,7 +214,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
     // Find the Get News button (not UColorModeButton)
     const getNewsButton = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Get News"));
+      .find((b) => b.text().includes("Generate Briefing"));
     expect(getNewsButton).toBeDefined();
 
     // Mock delayed response
@@ -241,7 +241,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
     // Check that loading state is true (this disables both input and button)
     expect(wrapper.vm.loading).toBe(true);
     expect(getNewsButton?.attributes("disabled")).toBeDefined();
-    expect(getNewsButton?.text()).toContain("Getting...");
+    expect(getNewsButton?.text()).toContain("Synthesizing...");
 
     // Wait for fetch to complete
     await fetchPromise;
@@ -249,6 +249,6 @@ describe("JapanNewsReader - v-model Bindings", () => {
     // Both should be enabled again
     expect(wrapper.vm.loading).toBe(false);
     expect(getNewsButton?.attributes("disabled")).toBeUndefined();
-    expect(getNewsButton?.text()).toContain("Get News");
+    expect(getNewsButton?.text()).toContain("Generate Briefing");
   });
 });

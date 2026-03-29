@@ -22,9 +22,9 @@ describe("JapanNewsReader - Get News Button", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -32,21 +32,21 @@ describe("JapanNewsReader - Get News Button", () => {
 
     const getNewsButton = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Get News"));
+      .find((b) => b.text().includes("Generate Briefing"));
     expect(getNewsButton).toBeDefined();
     expect(getNewsButton?.exists()).toBe(true);
-    expect(getNewsButton?.text()).toContain("Get News");
+    expect(getNewsButton?.text()).toContain("Generate Briefing");
     expect(getNewsButton?.attributes("disabled")).toBeUndefined();
   });
 
-  it("shows 'Getting...' text when loading", async () => {
+  it("shows 'Synthesizing...' text when loading", async () => {
     const wrapper = mountReader({
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -72,21 +72,21 @@ describe("JapanNewsReader - Get News Button", () => {
     // Find Get News button
     const getNewsButton = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Get News"));
+      .find((b) => b.text().includes("Generate Briefing"));
     expect(getNewsButton).toBeDefined();
 
     // Start loading
     const fetchPromise = wrapper.vm.refreshNews();
     await nextTick();
 
-    expect(getNewsButton?.text()).toContain("Getting...");
+    expect(getNewsButton?.text()).toContain("Synthesizing...");
     expect(getNewsButton?.attributes("disabled")).toBeDefined();
 
     // Wait for fetch to complete
     await fetchPromise;
 
-    // Should return to "Get News"
-    expect(getNewsButton?.text()).toContain("Get News");
+    // Should return to "Generate Briefing"
+    expect(getNewsButton?.text()).toContain("Generate Briefing");
     expect(getNewsButton?.attributes("disabled")).toBeUndefined();
   });
 
@@ -95,9 +95,9 @@ describe("JapanNewsReader - Get News Button", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -105,7 +105,7 @@ describe("JapanNewsReader - Get News Button", () => {
 
     const getNewsButton = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Get News"));
+      .find((b) => b.text().includes("Generate Briefing"));
     expect(getNewsButton).toBeDefined();
 
     // Initially enabled
@@ -147,18 +147,18 @@ describe("JapanNewsReader - Get News Button", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
     });
 
-    // Find the button that contains "Get News" text (not UColorModeButton)
+    // Find the button that contains "Generate Briefing" text (not UColorModeButton)
     const getNewsButton = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Get News"));
+      .find((b) => b.text().includes("Generate Briefing"));
 
     expect(getNewsButton).toBeDefined();
     // Check for UButton class (Nuxt UI component)

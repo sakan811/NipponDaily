@@ -22,9 +22,9 @@ describe("JapanNewsReader - News Amount Input", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -43,9 +43,9 @@ describe("JapanNewsReader - News Amount Input", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -64,9 +64,9 @@ describe("JapanNewsReader - News Amount Input", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -86,9 +86,9 @@ describe("JapanNewsReader - News Amount Input", () => {
       global: {
         components: {
           NewsCard: {
-            name: "NewsCard",
-            props: ["news"],
-            template: '<div class="news-card">{{ news.title }}</div>',
+            name: "BriefingCard",
+            props: ["briefing"],
+            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },

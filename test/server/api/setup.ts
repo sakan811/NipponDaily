@@ -33,7 +33,7 @@ vi.mock("~/server/services/tavily", () => ({
 
 vi.mock("~/server/services/gemini", () => ({
   geminiService: {
-    categorizeNewsItems: mockGeminiCategorize,
+    generateNewsBriefing: mockGeminiCategorize,
   },
 }));
 

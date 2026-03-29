@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
 
 import JapanNewsReader from "~/app/components/JapanNewsReader.vue";
-import { NewsCardMock, mockNews } from "./setup";
+import { mockBriefingCard, mockNews } from "./setup";
 
 describe("JapanNewsReader - Error Handling", () => {
   let mockFetch: any;
@@ -22,7 +22,7 @@ describe("JapanNewsReader - Error Handling", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -37,7 +37,7 @@ describe("JapanNewsReader - Error Handling", () => {
         limit: 10,
       },
     });
-    expect(wrapper.vm.news).toEqual(mockNews);
+    expect(wrapper.vm.briefingData).toEqual(mockNews);
     expect(wrapper.vm.loading).toBe(false);
     expect(wrapper.vm.error).toBe(null);
   });
@@ -46,7 +46,7 @@ describe("JapanNewsReader - Error Handling", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -60,7 +60,7 @@ describe("JapanNewsReader - Error Handling", () => {
 
     await wrapper.vm.fetchNews();
 
-    expect(wrapper.vm.news).toEqual([]);
+    expect(wrapper.vm.briefingData).toEqual(undefined);
     expect(wrapper.vm.loading).toBe(false);
     expect(wrapper.vm.error).toBe(null);
   });
@@ -74,7 +74,7 @@ describe("JapanNewsReader - Error Handling", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -91,7 +91,7 @@ describe("JapanNewsReader - Error Handling", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -99,7 +99,7 @@ describe("JapanNewsReader - Error Handling", () => {
     await wrapper.vm.fetchNews();
 
     expect(wrapper.vm.loading).toBe(false);
-    expect(wrapper.vm.error).toBe("Failed to fetch news. Please try again.");
+    expect(wrapper.vm.error).toBe("Failed to generate briefing. Please try again.");
   });
 
   it("shows error state when error occurs", async () => {
@@ -110,7 +110,7 @@ describe("JapanNewsReader - Error Handling", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -122,7 +122,7 @@ describe("JapanNewsReader - Error Handling", () => {
     const getNewsButton = wrapper
       .findAll("button")
       .find(
-        (b) => b.text().includes("Try Again") || b.text().includes("Get News"),
+        (b) => b.text().includes("Try Again") || b.text().includes("Generate Briefing"),
       );
     expect(getNewsButton).toBeDefined();
   });
@@ -142,7 +142,7 @@ describe("JapanNewsReader - Error Handling", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -174,7 +174,7 @@ describe("JapanNewsReader - Error Handling", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -195,7 +195,7 @@ describe("JapanNewsReader - Error Handling", () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -215,14 +215,14 @@ describe("JapanNewsReader - Error Handling", () => {
     await wrapper.vm.refreshNews();
 
     expect(wrapper.vm.error).toBe(null);
-    expect(wrapper.vm.news).toEqual(mockNews);
+    expect(wrapper.vm.briefingData).toEqual(mockNews);
   });
 
   it("calls refreshNews method correctly", async () => {
     const wrapper = mount(JapanNewsReader, {
       global: {
         components: {
-          NewsCard: NewsCardMock,
+          NewsCard: mockBriefingCard,
         },
       },
     });
@@ -245,7 +245,7 @@ describe("JapanNewsReader - Error Handling", () => {
 
   it("handles HTTP 500 error with Redis not configured message", async () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     // Mock HTTP 500 error with Redis not configured message
@@ -268,7 +268,7 @@ describe("JapanNewsReader - Error Handling", () => {
 
   it("handles HTTP 500 error with generic error message (not Redis)", async () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     // Mock HTTP 500 error with generic message
@@ -288,7 +288,7 @@ describe("JapanNewsReader - Error Handling", () => {
 
   it("handles HTTP 500 error with non-string error message", async () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     // Mock HTTP 500 error with non-string error
@@ -310,7 +310,7 @@ describe("JapanNewsReader - Error Handling", () => {
 
   it("handles HTTP 500 error with no error data", async () => {
     const wrapper = mount(JapanNewsReader, {
-      global: { components: { NewsCard: NewsCardMock } },
+      global: { components: { BriefingCard: mockBriefingCard } },
     });
 
     // Mock HTTP 500 error with no error message
