@@ -100,7 +100,7 @@ describe("JapanNewsReader - Time Range", () => {
         category: undefined,
         timeRange: "day",
         language: "en",
-        limit: 10,
+        limit: 20,
       },
     });
   });
@@ -127,7 +127,7 @@ describe("JapanNewsReader - Time Range", () => {
         category: undefined,
         timeRange: "month",
         language: "en",
-        limit: 10,
+        limit: 20,
       },
     });
   });

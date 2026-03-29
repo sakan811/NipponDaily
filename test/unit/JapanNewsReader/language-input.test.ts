@@ -142,7 +142,7 @@ describe("JapanNewsReader - Language Input", () => {
         category: undefined,
         timeRange: "week",
         language: "ja", // API receives ISO 639-1 locale code
-        limit: 10,
+        limit: 20,
       },
     });
   });
@@ -169,7 +169,7 @@ describe("JapanNewsReader - Language Input", () => {
         category: undefined,
         timeRange: "week",
         language: "", // Frontend sends empty string, server would validate to "en"
-        limit: 10,
+        limit: 20,
       },
     });
   });

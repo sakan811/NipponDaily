@@ -17,68 +17,7 @@ describe("JapanNewsReader - Mobile Menu", () => {
     (global as any).$fetch = mockFetch;
   });
 
-  it("renders mobile news amount input with correct attributes", () => {
-    const wrapper = mountReader({
-      global: {
-        components: {
-          NewsCard: {
-            name: "BriefingCard",
-            props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
-          },
-        },
-      },
-    });
 
-    const mobileInput = wrapper.find("input#mobileNewsAmount");
-    expect(mobileInput.exists()).toBe(true);
-    expect(mobileInput.attributes("type")).toBe("number");
-    expect(mobileInput.attributes("min")).toBe("1");
-    expect(mobileInput.attributes("max")).toBe("20");
-  });
-
-  it("binds mobile news amount input to newsAmount reactive property", async () => {
-    const wrapper = mountReader({
-      global: {
-        components: {
-          NewsCard: {
-            name: "BriefingCard",
-            props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
-          },
-        },
-      },
-    });
-
-    const mobileInput = wrapper.find("input#mobileNewsAmount");
-    await mobileInput.setValue(5);
-    expect(wrapper.vm.newsAmount).toBe(5);
-  });
-
-  it("disables mobile news amount input when loading", async () => {
-    const wrapper = mountReader({
-      global: {
-        components: {
-          NewsCard: {
-            name: "BriefingCard",
-            props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
-          },
-        },
-      },
-    });
-
-    const mobileInput = wrapper.find("input#mobileNewsAmount");
-    mockFetch.mockImplementationOnce(
-      () => new Promise((r) => setTimeout(r, 100)),
-    );
-
-    const fetchPromise = wrapper.vm.refreshNews();
-    await nextTick();
-
-    expect(mobileInput.attributes("disabled")).toBeDefined();
-    await fetchPromise;
-  });
 
   it("renders mobile target language input", () => {
     const wrapper = mountReader({

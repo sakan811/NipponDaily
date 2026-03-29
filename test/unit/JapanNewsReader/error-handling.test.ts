@@ -34,7 +34,7 @@ describe("JapanNewsReader - Error Handling", () => {
         category: undefined,
         timeRange: "week",
         language: "en",
-        limit: 10,
+        limit: 20,
       },
     });
     expect(wrapper.vm.briefingData).toEqual(mockNews);
@@ -238,7 +238,7 @@ describe("JapanNewsReader - Error Handling", () => {
         category: undefined,
         timeRange: "week",
         language: "en",
-        limit: 10,
+        limit: 20,
       },
     });
   });

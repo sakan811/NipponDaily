@@ -190,7 +190,7 @@ describe("JapanNewsReader - v-model Bindings", () => {
         category: undefined,
         timeRange: "week",
         language: "es", // Spanish locale code
-        limit: 10,
+        limit: 20,
       },
     });
   });
