@@ -58,7 +58,7 @@
         </p>
       </div>
 
-      <div class="border-t dark:border-gray-800 pt-5 mt-6" v-if="briefing.sourcesProcessed && briefing.sourcesProcessed.length > 0">
+      <div v-if="briefing.sourcesProcessed && briefing.sourcesProcessed.length > 0" class="border-t dark:border-gray-800 pt-5 mt-6">
         <h3 class="text-xs font-bold text-secondary-500 uppercase tracking-wider mb-4 flex items-center gap-1.5">
           <UIcon name="i-heroicons-globe-alt" class="w-4 h-4" />
           Sources Consulted ({{ briefing.sourcesProcessed.length }})
@@ -74,7 +74,7 @@
               class="mt-1 w-2.5 h-2.5 rounded-full flex-shrink-0"
               :style="{ backgroundColor: getCredibilityColor(source.credibilityScore) }"
               :title="`Source Trust: ${Math.round(source.credibilityScore * 100)}%`"
-            ></div>
+            />
             
             <div class="flex-1 min-w-0">
               <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
@@ -115,10 +115,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
 import type { NewsBriefing } from "~~/types/index";
 
-const props = defineProps<{
+defineProps<{
   briefing: NewsBriefing;
 }>();
 
