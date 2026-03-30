@@ -35,9 +35,9 @@ describe("Index Page (Landing)", () => {
   it("renders hero section with title and description", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Japan News, Smartly Delivered");
+    expect(wrapper.text()).toContain("Japan News, Synthesized by AI");
     expect(wrapper.text()).toContain(
-      "Discover, translate, and verify Japanese news articles",
+      "Stop scrolling through raw lists. Get AI-synthesized briefings",
     );
   });
 
@@ -46,55 +46,67 @@ describe("Index Page (Landing)", () => {
 
     const ctaLink = wrapper.find('a[href="/news"]');
     expect(ctaLink.exists()).toBe(true);
-    expect(ctaLink.text()).toContain("Start Reading");
+    expect(ctaLink.text()).toContain("Generate Briefing");
   });
 
   it("renders features section", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Features");
+    expect(wrapper.text()).toContain("Intelligence at a Glance");
     expect(wrapper.text()).toContain(
-      "AI-powered tools for smarter Japanese news consumption.",
+      "AI-powered tools designed for deep news consumption without the noise.",
     );
   });
 
   it("renders all feature cards", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("AI-Powered Categorization");
-    expect(wrapper.text()).toContain("Multi-Language Translation");
-    expect(wrapper.text()).toContain("Credibility Scoring");
-    expect(wrapper.text()).toContain("Flexible Filtering");
-    expect(wrapper.text()).toContain("Daily Rate Limits");
+    expect(wrapper.text()).toContain("Executive Briefing");
+    expect(wrapper.text()).toContain("Cross-Source Analysis");
+    expect(wrapper.text()).toContain("AI Trust Scoring");
+    expect(wrapper.text()).toContain("Multilingual Support");
+    expect(wrapper.text()).toContain("Adaptive Discovery");
+    expect(wrapper.text()).toContain("Fair Usage Limits");
   });
 
   it("renders feature descriptions", () => {
     const wrapper = mount(IndexPage);
 
-    // AI-Powered Categorization
+    // Executive Briefing
     expect(wrapper.text()).toContain(
-      "Articles automatically sorted into Politics, Business",
+      "Synthesized reports that distill complex Japanese news",
     );
 
-    // Multi-Language Translation
-    expect(wrapper.text()).toContain("Read news in your preferred language");
-
-    // Credibility Scoring
+    // Cross-Source Analysis
     expect(wrapper.text()).toContain(
-      "Weighted score based on source reputation",
+      "Identify relationships and contrasting viewpoints",
     );
 
-    // Flexible Filtering
-    expect(wrapper.text()).toContain("Filter by category and time range");
+    // AI Trust Scoring
+    expect(wrapper.text()).toContain(
+      "Automated evaluation of source reliability",
+    );
 
-    // Daily Rate Limits
-    expect(wrapper.text()).toContain("3 fetch requests per day");
+    // Multilingual Support
+    expect(wrapper.text()).toContain(
+      "Read Japanese context in your preferred language",
+    );
+
+    // Adaptive Discovery
+    expect(wrapper.text()).toContain(
+      "Filter by category and custom time ranges",
+    );
+
+    // Fair Usage Limits
+    expect(wrapper.text()).toContain(
+      "Smart daily rate limits to ensure equitable access",
+    );
   });
 
   it("renders AI-Powered badge in hero section", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("AI-Powered News Aggregator");
+    expect(wrapper.text()).toContain("AI Intelligence Aggregator");
     expect(wrapper.find(".u-badge").exists()).toBe(true);
   });
 
@@ -118,11 +130,11 @@ describe("Index Page (Landing)", () => {
     expect(() => mount(IndexPage)).not.toThrow();
   });
 
-  it("has 5 feature cards", () => {
+  it("has 6 feature cards", () => {
     const wrapper = mount(IndexPage);
 
     const featureCards = wrapper.findAll(".u-page-card");
-    expect(featureCards.length).toBe(5);
+    expect(featureCards.length).toBe(6);
   });
 
   it("renders favicon image", () => {
