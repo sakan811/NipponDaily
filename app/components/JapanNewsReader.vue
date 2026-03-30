@@ -3,7 +3,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <span>{{ appName }}</span>
         </NuxtLink>
       </template>
@@ -45,7 +45,6 @@
       <template #body>
         <div class="space-y-4">
           <div class="space-y-3">
-
             <div>
               <label
                 for="mobileTargetLanguage"
@@ -302,7 +301,7 @@
           <div v-if="loading" class="space-y-6">
             <UCard class="w-full shadow-md border-t-4 border-t-primary-500">
               <div class="p-4 sm:p-6 space-y-6">
-                <div class="border-b pb-4">
+                <div class="pb-4">
                   <USkeleton class="h-6 w-32 mb-3 rounded-full" />
                   <USkeleton class="h-10 w-3/4 rounded-lg" />
                 </div>
@@ -312,29 +311,33 @@
                   <USkeleton class="h-4 w-full" />
                   <USkeleton class="h-4 w-5/6" />
                 </div>
-                <div class="bg-primary-50 dark:bg-primary-950/20 p-4 rounded-xl space-y-2">
+                <div
+                  class="bg-primary-50 dark:bg-primary-950/20 p-4 rounded-xl space-y-2"
+                >
                   <USkeleton class="h-4 w-32 mb-2" />
                   <USkeleton class="h-4 w-full" />
                   <USkeleton class="h-4 w-4/5" />
                 </div>
               </div>
             </UCard>
-            <p class="text-center text-secondary-500 text-sm mt-4 animate-pulse flex items-center justify-center gap-2">
+            <p
+              class="text-center text-secondary-500 text-sm mt-4 animate-pulse flex items-center justify-center gap-2"
+            >
               <UIcon name="i-heroicons-cpu-chip" class="w-5 h-5" />
               AI is currently synthesizing the latest news from Japan...
             </p>
           </div>
 
-          <div v-else-if="briefingData" class="space-y-4">
-            <div v-if="isDebugErrorUi && !error" class="mb-4">
-              <div
-                class="text-xs font-bold text-primary-500 mb-2 uppercase tracking-wider"
-              >
-                Mock: AI Fallback Card
-              </div>
-              <BriefingCard :briefing="mockFallbackBriefing" />
+          <div v-if="isDebugErrorUi && !error" class="mb-4">
+            <div
+              class="text-xs font-bold text-primary-500 mb-2 uppercase tracking-wider"
+            >
+              Mock: AI Fallback Card
             </div>
+            <BriefingCard :briefing="mockFallbackBriefing" />
+          </div>
 
+          <div v-if="briefingData" class="space-y-4">
             <BriefingCard :briefing="briefingData" />
           </div>
 
@@ -364,10 +367,10 @@
               class="mb-4 text-secondary-500 dark:text-secondary-400 max-w-lg mx-auto"
               style="contain: layout style"
             >
-              Select your preferred time range and category, then click "Generate Briefing" to create a synthesized report.
+              Select your preferred time range and category, then click
+              "Generate Briefing" to create a synthesized report.
             </p>
           </div>
-
         </div>
       </div>
     </main>
@@ -405,20 +408,31 @@ const isDebugRateLimit = ref(true);
 const mockFallbackBriefing: NewsBriefing = {
   isAiFallback: true,
   mainHeadline: "Latest News Processing Unavailable",
-  executiveSummary: "Our AI analysis engine is currently unavailable or encountered an error. Below are the raw sources we retrieved from the latest search query.",
-  thematicAnalysis: "Unable to synthesize relationships between articles at this time due to system fallback mode.",
+  executiveSummary:
+    "Our AI analysis engine is currently unavailable or encountered an error. Below are the raw sources we retrieved from the latest search query.",
+  thematicAnalysis:
+    "Unable to synthesize relationships between articles at this time due to system fallback mode.",
   overallCredibilityScore: 0.5,
   sourcesProcessed: [
-    { title: "Example Raw Article 1", source: "NHK News", url: "https://example.com", credibilityScore: 0.95 },
-    { title: "Example Raw Article 2", source: "Unknown Blog", url: "https://example.com", credibilityScore: 0.4 }
-  ]
+    {
+      title: "Example Raw Article 1",
+      source: "NHK News",
+      url: "https://example.com",
+      credibilityScore: 0.95,
+    },
+    {
+      title: "Example Raw Article 2",
+      source: "Unknown Blog",
+      url: "https://example.com",
+      credibilityScore: 0.4,
+    },
+  ],
 };
 
 const selectedTimeRange = ref<
   "none" | "day" | "week" | "month" | "year" | "custom"
 >("week");
 const targetLanguage = ref("en");
-
 
 // Calendar state for custom date range
 const today = new CalendarDate(
