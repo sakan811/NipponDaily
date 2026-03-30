@@ -38,11 +38,10 @@
     </UHeader>
 
     <main class="max-w-4xl mx-auto py-8 px-4 prose dark:prose-invert">
-      <h1 class="text-3xl font-bold mb-6 text-primary-500">Features</h1>
+      <h1 class="text-3xl font-bold mb-6 text-primary-500">Core Features</h1>
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        AI-powered tools for smarter Japanese news consumption. NipponDaily
-        combines cutting-edge AI with reliable news sources to bring you the
-        best reading experience.
+        NipponDaily transforms raw news into actionable intelligence using
+        advanced AI synthesis.
       </p>
 
       <UPageGrid>
@@ -69,57 +68,57 @@
 const mobileMenuOpen = ref(false);
 const features = [
   {
-    title: "AI-Powered Categorization",
+    title: "Executive Briefing",
     description:
-      "Articles automatically sorted into Politics, Business, Technology, Culture, Sports, and Other using Google Gemini AI.",
-    icon: "i-heroicons-chart-bar",
+      "Synthesized reports that distill the most critical developments from multiple news sources into a single, cohesive narrative.",
+    icon: "i-heroicons-document-text",
   },
   {
-    title: "Multi-Language Translation",
+    title: "Cross-Source Analysis",
     description:
-      "Read news in your preferred language with AI-powered translation and summarization that preserves context.",
-    icon: "i-heroicons-language",
+      "Thematic synthesis that identifies relationships, corroborations, and contrasting viewpoints across different publishers.",
+    icon: "i-heroicons-link",
   },
   {
-    title: "Credibility Scoring",
+    title: "AI Trust Scoring",
     description:
-      "Weighted score based on source reputation, domain trust, content quality, and AI confidence to help you identify reliable news.",
+      "Automated credibility assessment based on source reputation, domain authority, and content quality metrics.",
     icon: "i-heroicons-shield-check",
   },
   {
-    title: "Flexible Filtering",
+    title: "Multilingual Intelligence",
     description:
-      "Filter by category and time range—All Time, Today, This Week, This Month, This Year, or custom dates up to 365 days.",
+      "Seamless translation of Japanese news context into your preferred language while preserving journalistic nuance.",
+    icon: "i-heroicons-language",
+  },
+  {
+    title: "Dynamic News Discovery",
+    description:
+      "Granular filtering by category and custom time ranges (up to 365 days) to find the specific stories that matter.",
     icon: "i-heroicons-funnel",
   },
   {
-    title: "Daily Rate Limits",
+    title: "Smart Fallback Mode",
     description:
-      "Configurable fair usage limits per day to prevent abuse. You can fetch up to 20 articles per request.",
-    icon: "i-heroicons-clock",
-  },
-  {
-    title: "AI Processing Fallback",
-    description:
-      "Graceful handling of AI service interruptions with fallback data structures and visual status indicators to ensure continuous news accessibility.",
+      "Resilient system design that gracefully transitions to raw data display if AI synthesis services are temporarily unavailable.",
     icon: "i-heroicons-arrow-path",
   },
   {
-    title: "Favicon Support",
+    title: "Source Verification",
     description:
-      "Visual identification of news sources through dynamically fetched Favicons alongside news items.",
-    icon: "i-heroicons-photo",
+      "Visual source identification through dynamically fetched favicons and direct links to original journalistic articles.",
+    icon: "i-heroicons-globe-alt",
   },
   {
-    title: "Developer Debug Mode",
+    title: "Adaptive Rate Limiting",
     description:
-      "Built-in UI testing toggles to securely simulate and test API failures and rate limit layouts.",
-    icon: "i-heroicons-wrench-screwdriver",
+      "Fair-usage limits managed by Redis to ensure service stability and predictable API consumption.",
+    icon: "i-heroicons-clock",
   },
   {
-    title: "Dark Mode Support",
+    title: "Dark Mode Native",
     description:
-      "Full dark mode support for a comfortable reading experience in any lighting condition.",
+      "Full system-wide dark mode support for a premium reading experience in low-light environments.",
     icon: "i-heroicons-moon",
   },
 ];
@@ -128,7 +127,6 @@ const features = [
 <style>
 @reference "../../assets/css/tailwind.css";
 
-/* Basic markdown styling for standard elements */
 h1 {
   @apply text-3xl font-bold mb-6 text-primary-500;
 }

@@ -4,20 +4,21 @@
   <img src="./public/android-chrome-512x512.png" width="256" height="256" alt="logo" />
 </p>
 
-**Your multilingual gateway to Japanese news.** NipponDaily is a news aggregator that fetches Japan-related news, then processes articles with Google Gemini AI for categorization, translation, and credibility assessment. Read stories that matter to you—in your language.
+**Your multilingual gateway to Japanese news.** NipponDaily is an AI-powered news aggregator that fetches Japan-related news, then processes articles with Google Gemini AI for executive briefings, cross-source synthesis, and credibility assessment. Read stories that matter to you—in your language.
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
 ## 🚀 Features
 
-- **Multilingual Search**: Fetch Japan-related news from the web via Tavily Search API.
-- **AI Processing**: Use Google Gemini for:
-  - **Categorization**: Group articles into relevant topics (Politics, Tech, Culture, etc.).
-  - **Translation**: High-quality translations of article summaries and metadata.
-  - **Credibility Assessment**: AI-driven evaluation of article reliability and domain trust.
+- **Executive Briefing**: AI-synthesized daily reports summarizing the most important Japanese news.
+- **Cross-Source Synthesis**: Thematic analysis that connects multiple news sources to provide broader context.
+- **Multilingual Search**: Fetch Japan-related news from the web via Tavily Search API and translate it instantly.
+- **AI Processing**: Powered by Google Gemini for:
+  - **Categorization**: Automatic grouping of news into relevant topics (Politics, Tech, Culture, etc.).
+  - **Credibility Assessment**: AI-driven evaluation of article reliability and domain trust with visual scoring.
 - **Customizable Discovery**: Filter by date range, category, and preferred language.
-- **Smart UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for a fast, responsive experience.
-- **Robust Security**: Rate limiting with Upstash Redis to manage API usage effectively.
+- **Smart UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for a fast, responsive, and accessible experience.
+- **Robust Security**: Redis-based rate limiting to manage API usage effectively.
 
 ## 🛠 Tech Stack
 
@@ -120,7 +121,7 @@ pnpm test:integration
 
 ## ⚠️ Limitations
 
-- **Article Count**: 10 articles default, 20 maximum per request.
+- **Article Count**: 20 maximum per request.
 - **Rate Limiting**: Configurable via `RATE_LIMIT_MAX_REQUESTS` (default: 3 requests per day per IP).
 - **Date Range**: Search results limited to 365 days, must be after 2000-01-01.
 - **Dependencies**: Requires both Tavily API and Google Gemini API keys.
