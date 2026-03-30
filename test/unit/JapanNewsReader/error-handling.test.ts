@@ -99,7 +99,9 @@ describe("JapanNewsReader - Error Handling", () => {
     await wrapper.vm.fetchNews();
 
     expect(wrapper.vm.loading).toBe(false);
-    expect(wrapper.vm.error).toBe("Failed to generate briefing. Please try again.");
+    expect(wrapper.vm.error).toBe(
+      "Failed to generate briefing. Please try again.",
+    );
   });
 
   it("shows error state when error occurs", async () => {
@@ -122,7 +124,9 @@ describe("JapanNewsReader - Error Handling", () => {
     const getNewsButton = wrapper
       .findAll("button")
       .find(
-        (b) => b.text().includes("Try Again") || b.text().includes("Generate Briefing"),
+        (b) =>
+          b.text().includes("Try Again") ||
+          b.text().includes("Generate Briefing"),
       );
     expect(getNewsButton).toBeDefined();
   });

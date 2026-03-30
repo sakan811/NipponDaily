@@ -78,7 +78,7 @@ const newsQuerySchema = z
   .refine(
     (data) => {
       if (!data.startDate || !data.endDate) {
-        return true; 
+        return true;
       }
 
       const MIN_DATE = new Date("2000-01-01");
@@ -161,7 +161,8 @@ export default defineEventHandler(async (event) => {
     // Fetch news from Tavily
     const tavilyResponse = await tavilyService.searchJapanNews({
       maxResults: validatedQuery.limit,
-      category: validatedQuery.category === "all" ? undefined : validatedQuery.category,
+      category:
+        validatedQuery.category === "all" ? undefined : validatedQuery.category,
       timeRange: validatedQuery.timeRange,
       startDate: validatedQuery.startDate,
       endDate: validatedQuery.endDate,
@@ -169,23 +170,60 @@ export default defineEventHandler(async (event) => {
     });
 
     // Format Tavily results to raw NewsItem format
-    let rawNewsItems = tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
+    let rawNewsItems =
+      tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
 
     // Sort news by published date descending
     rawNewsItems.sort((a, b) => {
-      const dateA = isNaN(new Date(a.publishedAt).getTime()) ? new Date(0).getTime() : new Date(a.publishedAt).getTime();
-      const dateB = isNaN(new Date(b.publishedAt).getTime()) ? new Date(0).getTime() : new Date(b.publishedAt).getTime();
+      const dateA = isNaN(new Date(a.publishedAt).getTime())
+        ? new Date(0).getTime()
+        : new Date(a.publishedAt).getTime();
+      const dateB = isNaN(new Date(b.publishedAt).getTime())
+        ? new Date(0).getTime()
+        : new Date(b.publishedAt).getTime();
       return dateB - dateA;
     });
 
     // Enforce the requested limit BEFORE sending to AI to save tokens/time
     rawNewsItems = rawNewsItems.slice(0, validatedQuery.limit);
 
-    // Filter by category if specified (doing this before AI synthesis)
-    if (validatedQuery.category && validatedQuery.category !== "all") {
-      rawNewsItems = rawNewsItems.filter(
-        (item) => item.category.toLowerCase() === validatedQuery.category!.toLowerCase(),
+    // Calculate publish time range
+    const validDates = rawNewsItems
+      .map((item) => new Date(item.publishedAt))
+      .filter((date) => !isNaN(date.getTime()));
+
+    let publishTimeRange = "Recent";
+    if (validDates.length > 0) {
+      validDates.sort((a, b) => b.getTime() - a.getTime()); // Ensure sorted descending
+      const latestDate = validDates[0]!;
+      const earliestDate = validDates[validDates.length - 1]!;
+
+      const formatOpts: Intl.DateTimeFormatOptions = {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      };
+      let lang = "en-US";
+      try {
+        if (validatedQuery.language) {
+          Intl.DateTimeFormat(validatedQuery.language);
+          lang = validatedQuery.language;
+        }
+      } catch {
+        lang = "en-US";
+      }
+
+      const latestFormatted = latestDate.toLocaleDateString(lang, formatOpts);
+      const earliestFormatted = earliestDate.toLocaleDateString(
+        lang,
+        formatOpts,
       );
+
+      if (earliestFormatted === latestFormatted) {
+        publishTimeRange = earliestFormatted;
+      } else {
+        publishTimeRange = `${earliestFormatted} - ${latestFormatted}`;
+      }
     }
 
     // NEW LOGIC: Use Gemini to generate a single synthesized briefing
@@ -194,6 +232,9 @@ export default defineEventHandler(async (event) => {
       model: config.geminiModel as string | undefined,
       language: validatedQuery.language,
     });
+
+    // Add the time range to the briefing
+    briefing.publishTimeRange = publishTimeRange;
 
     setResponseHeaders(event, {
       "X-RateLimit-Limit": rateLimitResult.limit.toString(),
@@ -230,7 +271,8 @@ export default defineEventHandler(async (event) => {
       statusCode: 500,
       statusMessage: "Failed to fetch news",
       data: {
-        error: error instanceof Error ? error.message : "Unknown error occurred",
+        error:
+          error instanceof Error ? error.message : "Unknown error occurred",
       },
     });
   }

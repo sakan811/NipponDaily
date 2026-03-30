@@ -17,8 +17,6 @@ describe("JapanNewsReader - Mobile Menu", () => {
     (global as any).$fetch = mockFetch;
   });
 
-
-
   it("renders mobile target language input", () => {
     const wrapper = mountReader({
       global: {
@@ -26,7 +24,8 @@ describe("JapanNewsReader - Mobile Menu", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -44,7 +43,8 @@ describe("JapanNewsReader - Mobile Menu", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -63,7 +63,8 @@ describe("JapanNewsReader - Mobile Menu", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -114,7 +115,8 @@ describe("JapanNewsReader - Mobile Menu", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
         stubs: {
@@ -162,7 +164,8 @@ describe("JapanNewsReader - Mobile Menu", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },

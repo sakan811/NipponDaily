@@ -34,6 +34,7 @@ export interface BriefingSource {
   title: string;
   source: string;
   url?: string;
+  favicon?: string;
   credibilityScore: number;
 }
 
@@ -44,4 +45,5 @@ export interface NewsBriefing {
   overallCredibilityScore: number;
   sourcesProcessed: BriefingSource[];
   isAiFallback?: boolean;
+  publishTimeRange?: string;
 }

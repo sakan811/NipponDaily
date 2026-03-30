@@ -58,7 +58,7 @@ const ULocaleSelectMock = {
 
 const ClientOnlyMock = {
   name: "ClientOnly",
-  template: '<div><slot></slot></div>',
+  template: "<div><slot></slot></div>",
 };
 
 // Helper function to mount with common mocks
@@ -85,9 +85,23 @@ export const mockNews = {
   thematicAnalysis: "Tech Thematic Analysis",
   overallCredibilityScore: 0.85,
   sourcesProcessed: [
-    { title: "Tech News", source: "Tech Source", url: "https://example.com", credibilityScore: 0.9, publishedAt: "2024-01-15T10:00:00Z", category: "Technology" },
-    { title: "Politics News", source: "Politics Source", url: "https://example.com", credibilityScore: 0.8, publishedAt: "2024-01-15T11:00:00Z", category: "Politics" }
-  ]
+    {
+      title: "Tech News",
+      source: "Tech Source",
+      url: "https://example.com",
+      credibilityScore: 0.9,
+      publishedAt: "2024-01-15T10:00:00Z",
+      category: "Technology",
+    },
+    {
+      title: "Politics News",
+      source: "Politics Source",
+      url: "https://example.com",
+      credibilityScore: 0.8,
+      publishedAt: "2024-01-15T11:00:00Z",
+      category: "Politics",
+    },
+  ],
 };
 
 export const createMockFetch = () => {

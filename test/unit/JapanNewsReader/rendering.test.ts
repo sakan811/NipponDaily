@@ -23,7 +23,8 @@ describe("JapanNewsReader - Rendering", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -39,7 +40,8 @@ describe("JapanNewsReader - Rendering", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -60,7 +62,8 @@ describe("JapanNewsReader - Rendering", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -77,7 +80,8 @@ describe("JapanNewsReader - Rendering", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -104,7 +108,7 @@ describe("JapanNewsReader - Rendering", () => {
     await vi.waitFor(() => wrapper.vm.briefingData !== null);
 
     // Check that NewsCard components are rendered
-    
+
     expect(wrapper.find(".briefing-card").exists()).toBe(true);
     expect(wrapper.find(".briefing-card").exists()).toBe(true);
     expect(wrapper.find(".briefing-card").exists()).toBe(true);
@@ -117,7 +121,8 @@ describe("JapanNewsReader - Rendering", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
