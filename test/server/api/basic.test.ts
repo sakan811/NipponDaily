@@ -20,7 +20,7 @@ describe("News API - Basic Functionality", () => {
     (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
+    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
       node: {
@@ -32,7 +32,7 @@ describe("News API - Basic Functionality", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(response.data).toEqual([]);
+    expect(response.data).toEqual({ publishTimeRange: "Recent" });
     expect(response.count).toBe(0);
     expect(response.timestamp).toBeDefined();
     expect(mockTavilySearch).toHaveBeenCalledWith({
@@ -52,7 +52,7 @@ describe("News API - Basic Functionality", () => {
     (global as any).getQuery.mockReturnValue({ language: "en" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
+    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
       node: {
@@ -81,7 +81,7 @@ describe("News API - Basic Functionality", () => {
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
+    mockGeminiCategorize.mockResolvedValue({});
 
     await handler({
       node: {

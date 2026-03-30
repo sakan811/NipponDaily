@@ -11,7 +11,10 @@ class GeminiService {
 
   private getModels(defaultModel?: string): string[] {
     const modelStr = defaultModel || "gemini-2.5-flash,gemini-3-flash-preview";
-    const models = modelStr.split(",").map((m) => m.trim()).filter(Boolean);
+    const models = modelStr
+      .split(",")
+      .map((m) => m.trim())
+      .filter(Boolean);
     if (models.length === 0) return ["gemini-2.5-flash"];
     return [...models].sort(() => Math.random() - 0.5);
   }
@@ -23,18 +26,9 @@ class GeminiService {
     return LOCALE_PATTERN.test(normalized) ? normalized : "en";
   }
 
-  private getDomainTrustScore(source: string): number {
-    // simplified for brevity, keep your original trustedDomains logic here!
-    if (!source) return 0.4;
-    const lowerSource = source.toLowerCase();
-    if (lowerSource.includes("nhk") || lowerSource.includes("nikkei")) return 0.95;
-    if (lowerSource.includes("asahi") || lowerSource.includes("yomiuri")) return 0.9;
-    return 0.6; 
-  }
-
   async generateNewsBriefing(
     newsItems: NewsItem[],
-    options?: { apiKey?: string; model?: string; language?: string }
+    options?: { apiKey?: string; model?: string; language?: string },
   ): Promise<NewsBriefing> {
     if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
 
@@ -44,9 +38,12 @@ class GeminiService {
 
     try {
       const localeCode = this.validateLocaleCode(options?.language);
-      
+
       const newsText = newsItems
-        .map((item, i) => `[Source ${i + 1}] Title: ${item.title}\nContent: ${item.rawContent || item.summary}\nPublisher: ${item.source}\nURL: ${item.url}`)
+        .map(
+          (item, i) =>
+            `[Source ${i + 1}] Title: ${item.title}\nContent: ${item.rawContent || item.summary}\nPublisher: ${item.source}\nURL: ${item.url}`,
+        )
         .join("\n\n---\n\n");
 
       const prompt = `You are an expert intelligence analyst specializing in Japanese news. Read the following articles and synthesize them into a single, cohesive briefing.
@@ -57,7 +54,7 @@ Instructions:
 2. executiveSummary: Write a 2-paragraph synthesis of what is happening.
 3. thematicAnalysis: Explain HOW these articles relate to each other. Do they corroborate each other? Do they show contrasting viewpoints? What is the broader implication?
 4. overallCredibilityScore: Assess the collective reliability (0.0 to 1.0) based on the publishers provided.
-5. sourcesProcessed: List the sources you used, translating their titles into the target language.
+5. sourcesProcessed: List the sources you used, translating their titles into the target language. For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness (e.g. Reuters, AP, NHK, Bloomberg = high; unknown blogs = low).
 
 Raw Articles:
 ${newsText}`;
@@ -86,15 +83,22 @@ ${newsText}`;
                       properties: {
                         title: { type: Type.STRING },
                         source: { type: Type.STRING },
-                        url: { type: Type.STRING }
+                        url: { type: Type.STRING },
+                        credibilityScore: { type: Type.NUMBER },
                       },
-                      required: ["title", "source", "url"]
-                    }
-                  }
+                      required: ["title", "source", "url", "credibilityScore"],
+                    },
+                  },
                 },
-                required: ["mainHeadline", "executiveSummary", "thematicAnalysis", "overallCredibilityScore", "sourcesProcessed"]
-              }
-            }
+                required: [
+                  "mainHeadline",
+                  "executiveSummary",
+                  "thematicAnalysis",
+                  "overallCredibilityScore",
+                  "sourcesProcessed",
+                ],
+              },
+            },
           });
           break;
         } catch (error) {
@@ -105,12 +109,19 @@ ${newsText}`;
       if (!response || !response.text) throw new Error("AI generation failed");
 
       const result = JSON.parse(response.text);
-      
-      // Calculate individual credibility for sources
-      result.sourcesProcessed = result.sourcesProcessed.map((s: BriefingSource) => ({
-        ...s,
-        credibilityScore: this.getDomainTrustScore(s.source)
-      }));
+
+      // Attach favicons from original news items
+      result.sourcesProcessed = result.sourcesProcessed.map(
+        (s: BriefingSource) => {
+          const itemMatch = s.url
+            ? newsItems.find((item) => item.url === s.url)
+            : newsItems.find((item) => item.title === s.title);
+          return {
+            ...s,
+            favicon: itemMatch?.favicon,
+          };
+        },
+      );
 
       return result as NewsBriefing;
     } catch (error) {
@@ -123,15 +134,18 @@ ${newsText}`;
     return {
       isAiFallback: true,
       mainHeadline: "Latest News Unprocessed",
-      executiveSummary: "Our AI analysis engine is currently unavailable. Below are the raw sources we retrieved.",
-      thematicAnalysis: "Unable to synthesize relationships between articles at this time.",
+      executiveSummary:
+        "Our AI analysis engine is currently unavailable. Below are the raw sources we retrieved.",
+      thematicAnalysis:
+        "Unable to synthesize relationships between articles at this time.",
       overallCredibilityScore: 0.5,
-      sourcesProcessed: items.map(item => ({
+      sourcesProcessed: items.map((item) => ({
         title: item.title,
         source: item.source,
         url: item.url,
-        credibilityScore: this.getDomainTrustScore(item.source)
-      }))
+        favicon: item.favicon,
+        credibilityScore: 0.5,
+      })),
     };
   }
 }

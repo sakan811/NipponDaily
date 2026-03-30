@@ -22,7 +22,7 @@ describe("News API - Category Filter", () => {
     (global as any).getQuery.mockReturnValue({ category: "technology" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
       node: {
@@ -34,7 +34,7 @@ describe("News API - Category Filter", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(response.data).toHaveLength(1);
+    expect(response.data).toEqual({ publishTimeRange: "Jan 15, 2024" });
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
       category: "technology",
@@ -53,7 +53,7 @@ describe("News API - Category Filter", () => {
     (global as any).getQuery.mockReturnValue({ category: "all" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
       node: {
@@ -65,7 +65,7 @@ describe("News API - Category Filter", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(response.data).toHaveLength(1);
+    expect(response.data).toEqual({ publishTimeRange: "Jan 15, 2024" });
     expect(mockTavilySearch).toHaveBeenCalledWith({
       maxResults: 10,
       category: undefined,
@@ -82,7 +82,7 @@ describe("News API - Category Filter", () => {
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
       node: {
@@ -110,7 +110,7 @@ describe("News API - Category Filter", () => {
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
       node: {

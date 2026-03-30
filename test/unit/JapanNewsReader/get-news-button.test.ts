@@ -24,7 +24,8 @@ describe("JapanNewsReader - Get News Button", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -46,7 +47,8 @@ describe("JapanNewsReader - Get News Button", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -97,7 +99,8 @@ describe("JapanNewsReader - Get News Button", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -149,7 +152,8 @@ describe("JapanNewsReader - Get News Button", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },

@@ -17,7 +17,6 @@ describe("JapanNewsReader - Category Filter", () => {
     (global as any).$fetch = mockFetch;
   });
 
-
   it("changes button appearance when category is selected", async () => {
     const wrapper = mountReader({
       global: {
@@ -25,7 +24,8 @@ describe("JapanNewsReader - Category Filter", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -58,7 +58,8 @@ describe("JapanNewsReader - Category Filter", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },

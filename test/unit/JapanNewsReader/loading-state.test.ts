@@ -24,7 +24,8 @@ describe("JapanNewsReader - Loading State", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -66,7 +67,8 @@ describe("JapanNewsReader - Loading State", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -86,7 +88,8 @@ describe("JapanNewsReader - Loading State", () => {
           NewsCard: {
             name: "BriefingCard",
             props: ["briefing"],
-            template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+            template:
+              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
           },
         },
       },
@@ -116,7 +119,9 @@ describe("JapanNewsReader - Loading State", () => {
     const getNewsButton = wrapper
       .findAll("button")
       .find(
-        (b) => b.text().includes("Synthesizing...") || b.text().includes("Generate Briefing"),
+        (b) =>
+          b.text().includes("Synthesizing...") ||
+          b.text().includes("Generate Briefing"),
       );
     expect(getNewsButton).toBeDefined();
     expect(getNewsButton?.attributes("disabled")).toBeDefined();
