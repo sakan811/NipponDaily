@@ -18,14 +18,14 @@
 
     <!-- Hero Section -->
     <UPageHero
-      title="Japan News, Smartly Delivered"
-      description="Discover, translate, and verify Japanese news articles with AI-powered categorization and credibility scoring."
+      title="Japan News, Synthesized by AI"
+      description="Stop scrolling through raw lists. Get AI-synthesized briefings that connect the dots across multiple Japanese news sources."
       :links="[
         {
-          label: 'Start Reading',
+          label: 'Generate Briefing',
           to: '/news',
           color: 'primary',
-          icon: 'i-heroicons-arrow-right',
+          icon: 'i-heroicons-bolt',
           trailing: true,
         },
       ]"
@@ -42,7 +42,7 @@
           <span
             class="w-2 h-2 rounded-full bg-primary-500 animate-pulse mr-1"
           />
-          AI-Powered News Aggregator
+          AI Intelligence Aggregator
         </UBadge>
       </template>
     </UPageHero>
@@ -51,8 +51,8 @@
 
     <!-- Features Section -->
     <UPageSection
-      title="Features"
-      description="AI-powered tools for smarter Japanese news consumption."
+      title="Intelligence at a Glance"
+      description="AI-powered tools designed for deep news consumption without the noise."
     >
       <UPageGrid>
         <UPageCard
@@ -78,33 +78,37 @@
 <script setup lang="ts">
 const features = ref([
   {
-    title: "AI-Powered Categorization",
+    title: "Executive Briefing",
     description:
-      "Articles automatically sorted into Politics, Business, Technology, Culture, Sports, and Other.",
-    icon: "i-heroicons-chart-bar",
+      "Synthesized reports that distill complex Japanese news into a single narrative.",
+    icon: "i-heroicons-document-text",
   },
   {
-    title: "Multi-Language Translation",
+    title: "Cross-Source Analysis",
     description:
-      "Read news in your preferred language with AI-powered translation and summarization.",
-    icon: "i-heroicons-language",
+      "Identify relationships and contrasting viewpoints across multiple publishers.",
+    icon: "i-heroicons-link",
   },
   {
-    title: "Credibility Scoring",
-    description:
-      "Weighted score based on source reputation, domain trust, content quality, and AI confidence.",
+    title: "AI Trust Scoring",
+    description: "Automated evaluation of source reliability and domain trust.",
     icon: "i-heroicons-shield-check",
   },
   {
-    title: "Flexible Filtering",
+    title: "Multilingual Support",
     description:
-      "Filter by category and time range—Today, This Week, This Month, This Year, or custom dates up to 365 days.",
+      "Read Japanese context in your preferred language with high-fidelity translation.",
+    icon: "i-heroicons-language",
+  },
+  {
+    title: "Adaptive Discovery",
+    description: "Filter by category and custom time ranges up to 365 days.",
     icon: "i-heroicons-funnel",
   },
   {
-    title: "Daily Rate Limits",
+    title: "Fair Usage Limits",
     description:
-      "3 fetch requests per day. You can fetch up to 20 articles per request.",
+      "Smart daily rate limits to ensure equitable access to AI resources for all users.",
     icon: "i-heroicons-clock",
   },
 ]);
