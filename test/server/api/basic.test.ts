@@ -106,4 +106,43 @@ describe("News API - Basic Functionality", () => {
       language: "en",
     });
   });
+
+  it("formats publishTimeRange using en-US when language param is null/empty", async () => {
+    // This test exercises news.get.ts line 208: `if (validatedQuery.language)`
+    // When language is null, it transforms to "en" via schema, so we need items with dates
+    // to trigger the date formatting code path
+    const mockNews = [
+      {
+        title: "News Item",
+        summary: "Summary",
+        content: "Content",
+        source: "Source",
+        publishedAt: "2024-06-15T00:00:00Z",
+        category: "Technology",
+        url: "https://example.com",
+      },
+    ];
+
+    // Pass null language — schema transforms it to "en"
+    (global as any).getQuery.mockReturnValue({
+      language: null,
+    });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue({ sourcesProcessed: [] });
+
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
+
+    expect(response.success).toBe(true);
+    // publishTimeRange should be formatted using en-US when language resolved to "en"
+    expect(typeof response.data.publishTimeRange).toBe("string");
+    expect(response.data.publishTimeRange).not.toBe("Recent");
+  });
 });

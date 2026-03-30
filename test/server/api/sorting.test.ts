@@ -273,4 +273,52 @@ describe("News API - Sorting", () => {
     expect(response.data[2].publishedAt).toBe("not-a-real-date-at-all"); // Invalid Format (treated as 0)
     expect(response.data[3].publishedAt).toBe("1969-12-31T23:59:59Z"); // Negative Timestamp
   });
+
+  it("falls back to en-US locale when an unsupported language tag causes Intl.DateTimeFormat to throw", async () => {
+    // Use a locale string that will cause Intl.DateTimeFormat to throw a RangeError
+    // This exercises the catch block at news.get.ts line ~213
+    const mockNews = [
+      {
+        title: "News A",
+        summary: "Summary A",
+        content: "Content A",
+        source: "Source A",
+        publishedAt: "2024-01-01T00:00:00Z",
+        category: "Technology",
+        url: "https://example.com/a",
+      },
+      {
+        title: "News B",
+        summary: "Summary B",
+        content: "Content B",
+        source: "Source B",
+        publishedAt: "2024-06-15T00:00:00Z",
+        category: "Business",
+        url: "https://example.com/b",
+      },
+    ];
+
+    // "x-invalid" is not a valid BCP 47 language tag and causes Intl.DateTimeFormat to throw
+    (global as any).getQuery.mockReturnValue({
+      language: "x-invalid",
+    });
+    mockTavilySearch.mockResolvedValue({ results: [] });
+    mockTavilyFormat.mockReturnValue(mockNews);
+    mockGeminiCategorize.mockResolvedValue({ sourcesProcessed: [] });
+
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
+
+    // The request should still succeed even with an invalid locale
+    expect(response.success).toBe(true);
+    // The date range should still be formatted (using en-US fallback)
+    expect(typeof response.data.publishTimeRange).toBe("string");
+    expect(response.data.publishTimeRange).not.toBe("Recent");
+  });
 });

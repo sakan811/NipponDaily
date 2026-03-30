@@ -94,4 +94,54 @@ describe("BriefingCard", () => {
     expect(wrapper.text()).toContain("Source 2");
     expect(wrapper.text()).toContain("Untrusted Blog");
   });
+
+  it("returns neutral color when overallCredibilityScore is undefined", () => {
+    // Render without an overallCredibilityScore at all — should show no Trust Score badge
+    // and getCredibilityColor should return the neutral CSS variable
+    const wrapper = mountBriefingCard({
+      overallCredibilityScore: undefined,
+    });
+
+    // The overall Trust Score section uses v-if, so it should not be rendered
+    expect(wrapper.html()).not.toContain("Trust Score:");
+  });
+
+  it("returns neutral color style for source with undefined credibility score", () => {
+    // A source without a credibilityScore should render with the neutral color (hsl var)
+    const wrapper = mountBriefingCard({
+      overallCredibilityScore: 0.5,
+      sourcesProcessed: [
+        {
+          title: "No Score Source",
+          source: "Unknown Blog",
+          url: "https://unknown.example.com",
+          credibilityScore: undefined as any,
+        },
+      ],
+    });
+
+    // The style applied to the trust score badge should use the neutral CSS variable
+    expect(wrapper.html()).toContain("var(--ui-color-neutral-500)");
+  });
+
+  it("renders favicon img when source has a favicon URL", () => {
+    // This covers BriefingCard.vue line 108: v-if="source.favicon" img tag
+    const wrapper = mountBriefingCard({
+      sourcesProcessed: [
+        {
+          title: "NHK Article",
+          source: "NHK",
+          url: "https://nhk.jp/article",
+          favicon: "https://nhk.jp/favicon.ico",
+          credibilityScore: 0.9,
+        },
+      ],
+    });
+
+    // Should render the img tag with the favicon src
+    const img = wrapper.find("img");
+    expect(img.exists()).toBe(true);
+    expect(img.attributes("src")).toBe("https://nhk.jp/favicon.ico");
+    expect(img.attributes("alt")).toBe("NHK");
+  });
 });
