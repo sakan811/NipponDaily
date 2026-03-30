@@ -44,17 +44,19 @@ describe("BriefingCard", () => {
       isAiFallback: true,
       overallCredibilityScore: 0.5,
     });
-    
+
     // UTooltip should be present
-    expect(wrapper.findComponent(NuxtUIComponents.UTooltip).exists()).toBe(true);
+    expect(wrapper.findComponent(NuxtUIComponents.UTooltip).exists()).toBe(
+      true,
+    );
     expect(wrapper.text()).toContain("50%");
   });
 
   it("calculates credibility color mapping correctly via component styles", () => {
     const wrapper = mountBriefingCard({
-      overallCredibilityScore: 1.0, 
+      overallCredibilityScore: 1.0,
     });
-    
+
     // A score of 1.0 -> hue 120
     expect(wrapper.html()).toContain("hsl(120, 70%, 45%)");
 
@@ -68,22 +70,27 @@ describe("BriefingCard", () => {
   it("displays sources appropriately", () => {
     const wrapper = mountBriefingCard({
       sourcesProcessed: [
-        { title: "Source 1", source: "Example News", url: "https://example.com/1", credibilityScore: 0.9 },
-        { title: "Source 2", source: "Untrusted Blog", credibilityScore: 0.3 }
-      ]
+        {
+          title: "Source 1",
+          source: "Example News",
+          url: "https://example.com/1",
+          credibilityScore: 0.9,
+        },
+        { title: "Source 2", source: "Untrusted Blog", credibilityScore: 0.3 },
+      ],
     });
 
     expect(wrapper.text()).toContain("Sources Consulted (2)");
     expect(wrapper.text()).toContain("Source 1");
     expect(wrapper.text()).toContain("Example News");
-    
+
     // Source 1 has URL, so should render an 'a' tag
     const links = wrapper.findAll("a");
-    // Could have 2 links for the first source (one reading title, one external icon link) 
+    // Could have 2 links for the first source (one reading title, one external icon link)
     expect(links.length).toBeGreaterThan(0);
     expect(wrapper.html()).toContain("https://example.com/1");
-    
-    // Source 2 has no URL, so no a tag 
+
+    // Source 2 has no URL, so no a tag
     expect(wrapper.text()).toContain("Source 2");
     expect(wrapper.text()).toContain("Untrusted Blog");
   });
