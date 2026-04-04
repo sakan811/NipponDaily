@@ -61,8 +61,8 @@
   },
   "pnpm": {
     "overrides": {
-      "serialize-javascript": "7.0.3",
-      "h3-next": "npm:h3@2.0.1-rc.15",
+      "serialize-javascript": "7.0.5",
+      "h3-next": "npm:h3@2.0.1-rc.18",
       "@tiptap/y-tiptap": "^3.0.2"
     }
   }
