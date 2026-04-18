@@ -65,7 +65,7 @@ class TavilyService {
     try {
       const {
         query = "latest Japan news",
-        maxResults = 10,
+        maxResults = 20,
         category = "",
         timeRange = "week",
         startDate,

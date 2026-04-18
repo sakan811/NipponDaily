@@ -57,11 +57,11 @@ const newsQuerySchema = z
     limit: z
       .union([z.string(), z.number(), z.null(), z.undefined()])
       .transform((val) => {
-        if (val === null || val === undefined) return 10;
+        if (val === null || val === undefined) return 20;
         const num = typeof val === "string" ? parseInt(val, 10) : val;
-        return isNaN(num) ? 10 : Math.max(1, Math.min(20, num));
+        return isNaN(num) ? 20 : Math.max(1, Math.min(20, num));
       })
-      .default(10),
+      .default(20),
   })
   .refine(
     (data) => {

@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable vue/no-v-html -->
   <UCard
     :ui="{
       root: 'w-full shadow-md transition-shadow duration-200 hover:shadow-lg border-t-4 border-t-primary-500',
@@ -50,11 +51,10 @@
           <UIcon name="i-heroicons-document-text" class="w-4 h-4" />
           Summary
         </h3>
-        <p
-          class="text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200 [word-wrap:break-word] whitespace-pre-line"
-        >
-          {{ briefing.executiveSummary }}
-        </p>
+        <div
+          class="markdown-content text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200 [word-wrap:break-word]"
+          v-html="renderMarkdown(briefing.executiveSummary)"
+        />
       </div>
 
       <div
@@ -66,11 +66,10 @@
           <UIcon name="i-heroicons-link" class="w-4 h-4" />
           Cross-Source Analysis
         </h3>
-        <p
-          class="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-300 whitespace-pre-line"
-        >
-          {{ briefing.thematicAnalysis }}
-        </p>
+        <div
+          class="markdown-content-small text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-300"
+          v-html="renderMarkdown(briefing.thematicAnalysis)"
+        />
       </div>
 
       <div
@@ -110,7 +109,7 @@
                     :alt="source.source"
                     class="w-4 h-4 rounded object-contain bg-white dark:bg-gray-800"
                     loading="lazy"
-                  />
+                  >
                   <UIcon
                     v-else
                     name="i-heroicons-newspaper"
@@ -180,6 +179,7 @@
 
 <script setup lang="ts">
 import type { NewsBriefing } from "~~/types/index";
+import { marked } from "marked";
 
 defineProps<{
   briefing: NewsBriefing;
@@ -194,4 +194,36 @@ const getCredibilityColor = (score: number | undefined): string => {
   const hue = Math.round(score * 120);
   return `hsl(${hue}, 70%, 45%)`;
 };
+
+const renderMarkdown = (text: string | undefined) => {
+  if (!text) return "";
+  return marked.parse(text, { breaks: true });
+};
 </script>
+
+<style scoped>
+:deep(.markdown-content ul),
+:deep(.markdown-content-small ul) {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+:deep(.markdown-content ol),
+:deep(.markdown-content-small ol) {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+:deep(.markdown-content p),
+:deep(.markdown-content-small p) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+:deep(.markdown-content strong),
+:deep(.markdown-content-small strong) {
+  font-weight: 600;
+  color: inherit;
+}
+</style>

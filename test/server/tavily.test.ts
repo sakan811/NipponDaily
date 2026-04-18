@@ -72,7 +72,7 @@ describe("TavilyService", () => {
         "latest technology news Japan",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -94,7 +94,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -113,7 +113,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -132,7 +132,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -154,7 +154,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -177,7 +177,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -199,7 +199,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -220,7 +220,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -242,7 +242,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -266,7 +266,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -292,7 +292,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -317,7 +317,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -341,7 +341,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,
@@ -371,7 +371,7 @@ describe("TavilyService", () => {
         "latest Japan news",
         {
           topic: "news",
-          maxResults: 10,
+          maxResults: 20,
           searchDepth: "basic",
           includeRawContent: "markdown",
           includeFavicon: true,

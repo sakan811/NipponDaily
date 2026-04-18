@@ -51,8 +51,8 @@ Target Language (ISO 639-1): ${localeCode}
 
 Instructions:
 1. mainHeadline: Create a single, overarching headline that captures the most important theme across these articles.
-2. executiveSummary: Write a 2-paragraph synthesis of what is happening.
-3. thematicAnalysis: Explain HOW these articles relate to each other. Do they corroborate each other? Do they show contrasting viewpoints? What is the broader implication?
+2. executiveSummary: Write a summary broken down by topic for easy skimming. Format as a Markdown unordered list (using "- "), ensuring there are line breaks (\n) separating each point.
+3. thematicAnalysis: Write your cross-source analysis broken down by topic for easy skimming. Format as a Markdown unordered list, ensuring there are line breaks (\n) separating each topic. Explain HOW these articles relate to each other.
 4. overallCredibilityScore: Assess the collective reliability (0.0 to 1.0) based on the publishers provided.
 5. sourcesProcessed: List the sources you used, translating their titles into the target language. For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness (e.g. Reuters, AP, NHK, Bloomberg = high; unknown blogs = low).
 

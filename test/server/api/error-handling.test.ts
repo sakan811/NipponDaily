@@ -36,9 +36,11 @@ describe("News API - Error Handling", () => {
       data: { error: "Service error" },
     });
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });
@@ -66,9 +68,11 @@ describe("News API - Error Handling", () => {
     expect(consoleSpy).toHaveBeenCalledWith("News API error:", error);
     consoleSpy.mockRestore();
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });
@@ -92,9 +96,11 @@ describe("News API - Error Handling", () => {
       data: { error: "Unknown error occurred" },
     });
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });
