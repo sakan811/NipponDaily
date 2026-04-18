@@ -109,7 +109,7 @@
                     :alt="source.source"
                     class="w-4 h-4 rounded object-contain bg-white dark:bg-gray-800"
                     loading="lazy"
-                  >
+                  />
                   <UIcon
                     v-else
                     name="i-heroicons-newspaper"
