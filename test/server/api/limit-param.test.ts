@@ -70,7 +70,7 @@ describe("News API - Limit Parameter", () => {
 
     expect(response.data.sourcesProcessed).toHaveLength(0);
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
       apiKey: "test-tavily-key",
@@ -93,7 +93,7 @@ describe("News API - Limit Parameter", () => {
     });
 
     expect(mockTavilySearch).toHaveBeenLastCalledWith(
-      expect.objectContaining({ maxResults: 10 }),
+      expect.objectContaining({ maxResults: 20 }),
     );
 
     (global as any).getQuery.mockReturnValue({ limit: undefined });
@@ -107,11 +107,11 @@ describe("News API - Limit Parameter", () => {
     });
 
     expect(mockTavilySearch).toHaveBeenLastCalledWith(
-      expect.objectContaining({ maxResults: 10 }),
+      expect.objectContaining({ maxResults: 20 }),
     );
   });
 
-  it("handles NaN limit by defaulting to 10", async () => {
+  it("handles NaN limit by defaulting to 20", async () => {
     (global as any).getQuery.mockReturnValue({ limit: "not-a-number" });
     mockTavilySearch.mockResolvedValue({ results: [] });
     mockTavilyFormat.mockReturnValue([]);
@@ -127,7 +127,7 @@ describe("News API - Limit Parameter", () => {
     });
 
     expect(mockTavilySearch).toHaveBeenLastCalledWith(
-      expect.objectContaining({ maxResults: 10 }),
+      expect.objectContaining({ maxResults: 20 }),
     );
   });
 });

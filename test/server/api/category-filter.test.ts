@@ -36,9 +36,11 @@ describe("News API - Category Filter", () => {
     expect(response.success).toBe(true);
     expect(response.data).toEqual({ publishTimeRange: "Jan 15, 2024" });
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: "technology",
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
     expect(mockGeminiCategorize).toHaveBeenCalledWith(mockNews, {
@@ -67,9 +69,11 @@ describe("News API - Category Filter", () => {
     expect(response.success).toBe(true);
     expect(response.data).toEqual({ publishTimeRange: "Jan 15, 2024" });
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });
@@ -95,9 +99,11 @@ describe("News API - Category Filter", () => {
 
     expect(response.success).toBe(true);
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });
@@ -123,9 +129,11 @@ describe("News API - Category Filter", () => {
 
     expect(response.success).toBe(true);
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });

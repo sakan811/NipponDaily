@@ -36,9 +36,11 @@ describe("News API - Basic Functionality", () => {
     expect(response.count).toBe(0);
     expect(response.timestamp).toBeDefined();
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
     expect(mockGeminiCategorize).toHaveBeenCalledWith([], {

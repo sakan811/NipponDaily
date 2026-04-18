@@ -39,9 +39,11 @@ describe("News API - Time Range Validation", () => {
 
       expect(response.success).toBe(true);
       expect(mockTavilySearch).toHaveBeenCalledWith({
-        maxResults: 10,
+        maxResults: 20,
         category: undefined,
         timeRange: timeRange,
+        startDate: undefined,
+        endDate: undefined,
         apiKey: "test-tavily-key",
       });
     }
@@ -67,9 +69,11 @@ describe("News API - Time Range Validation", () => {
 
     expect(response.success).toBe(true);
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });
@@ -91,9 +95,11 @@ describe("News API - Time Range Validation", () => {
 
     expect(response.success).toBe(true);
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });
@@ -127,9 +133,11 @@ describe("News API - Time Range Validation", () => {
 
       expect(response.success).toBe(true);
       expect(mockTavilySearch).toHaveBeenCalledWith({
-        maxResults: 10,
+        maxResults: 20,
         category: undefined,
         timeRange: expected,
+        startDate: undefined,
+        endDate: undefined,
         apiKey: "test-tavily-key",
       });
     }
@@ -155,9 +163,11 @@ describe("News API - Time Range Validation", () => {
 
     expect(response.success).toBe(true);
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });
@@ -185,9 +195,11 @@ describe("News API - Time Range Validation", () => {
 
       expect(response.success).toBe(true);
       expect(mockTavilySearch).toHaveBeenCalledWith({
-        maxResults: 10,
+        maxResults: 20,
         category: undefined,
         timeRange: "week",
+        startDate: undefined,
+        endDate: undefined,
         apiKey: "test-tavily-key",
       });
     }
@@ -218,6 +230,8 @@ describe("News API - Time Range Validation", () => {
       maxResults: 5,
       category: "technology",
       timeRange: "month",
+      startDate: undefined,
+      endDate: undefined,
       apiKey: "test-tavily-key",
     });
   });

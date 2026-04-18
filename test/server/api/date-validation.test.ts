@@ -279,7 +279,7 @@ describe("News API - Zod Date Validation", () => {
 
     expect(response.success).toBe(true);
     expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 10,
+      maxResults: 20,
       category: undefined,
       timeRange: "week",
       startDate: "2024-01-01",
