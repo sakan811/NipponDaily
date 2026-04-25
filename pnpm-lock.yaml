@@ -59,8 +59,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3
       '@iconify-json/lucide':
-        specifier: ^1.2.102
-        version: 1.2.102
+        specifier: ^1.2.103
+        version: 1.2.103
       '@internationalized/date':
         specifier: ^3.12.1
         version: 3.12.1
@@ -581,8 +581,8 @@ packages:
   '@iconify-json/heroicons@1.2.3':
     resolution: {integrity: sha512-n+vmCEgTesRsOpp5AB5ILB6srsgsYK+bieoQBNlafvoEhjVXLq8nIGN4B0v/s4DUfa0dOrjwE/cKJgIKdJXOEg==}
 
-  '@iconify-json/lucide@1.2.102':
-    resolution: {integrity: sha512-Dm3EEqu5NrmzyDMB2U1+8yroEj2/dB9V4KlH0m/szwwF/ofSf0cPaGTZqkd1aExXjCor+vU53ttRMCGuXf+/cg==}
+  '@iconify-json/lucide@1.2.103':
+    resolution: {integrity: sha512-A5WdDll62RPxYs1yeYa9b2mV1Vs+lK/wX0wYKR+xVnhwsfPGLBwo6qfyoAQLo7AaP7oHlkw3gnHdOCERegbwTA==}
 
   '@iconify/collections@1.0.669':
     resolution: {integrity: sha512-oy/ztmcRvljkx4wV/fQ5OmpHyjEstntRjgexMajmlWMCy3Q54C3ISHWfB6p5sTH7eQPo8EWre9TCnldOBqcuxg==}
@@ -6962,7 +6962,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/lucide@1.2.102':
+  '@iconify-json/lucide@1.2.103':
     dependencies:
       '@iconify/types': 2.0.0
 
