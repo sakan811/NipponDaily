@@ -23,7 +23,7 @@
     "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run && pnpm test:integration"
   },
   "dependencies": {
-    "@google/genai": "^1.50.1",
+    "@google/genai": "^2.3.0",
     "@nuxt/ui": "^4.7.1",
     "@tavily/core": "^0.7.3",
     "@tiptap/y-tiptap": "^3.0.3",
