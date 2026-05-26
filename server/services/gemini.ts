@@ -42,7 +42,7 @@ class GeminiService {
       const newsText = newsItems
         .map(
           (item, i) =>
-            `[Source ${i + 1}] Title: ${item.title}\nContent: ${item.rawContent || item.summary}\nPublisher: ${item.source}\nURL: ${item.url}`,
+            `[Source ${i + 1}] Title: ${item.title}\nContent: ${item.summary}\nPublisher: ${item.source}\nURL: ${item.url}`,
         )
         .join("\n\n---\n\n");
 

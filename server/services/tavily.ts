@@ -86,7 +86,7 @@ class TavilyService {
         topic: "news",
         maxResults: maxResults,
         searchDepth: "basic",
-        includeRawContent: "markdown",
+        includeRawContent: false,
         includeFavicon: true,
       };
 
@@ -114,7 +114,6 @@ class TavilyService {
         title: result.title || "Untitled",
         summary: result.content || "",
         content: result.content || "",
-        rawContent: result.rawContent || "",
         source: this.extractDomainFromUrl(result.url),
         publishedAt: result.publishedDate || new Date().toISOString(),
         category: "Other" as const,
