@@ -39,7 +39,12 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ["@internationalized/date"],
+      include: ["@internationalized/date", "marked"],
+    },
+  },
+  hints: {
+    features: {
+      lazyLoad: false,
     },
   },
 });
