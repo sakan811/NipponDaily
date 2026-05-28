@@ -143,41 +143,31 @@
         <table class="min-w-full border-collapse">
           <thead>
             <tr class="border-b border-gray-300 dark:border-gray-700">
-              <th class="py-2 px-4 text-left font-bold">Semantic</th>
-              <th class="py-2 px-4 text-left font-bold">Tailwind Color</th>
+              <th class="py-2 px-4 text-left font-bold">Traditional Pigment</th>
+              <th class="py-2 px-4 text-left font-bold">Semantic Mappings</th>
               <th class="py-2 px-4 text-left font-bold">Application</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
             <tr>
-              <td class="py-2 px-4">Primary</td>
-              <td class="py-2 px-4"><code>orange</code></td>
-              <td class="py-2 px-4">Main actions, briefing headers</td>
+              <td class="py-2 px-4"><strong>Torii Vermilion (朱色 - Shu-iro)</strong></td>
+              <td class="py-2 px-4">Primary (<code>orange</code>) / Error (<code>orange</code>)</td>
+              <td class="py-2 px-4">Main actions, briefing headers, active highlights</td>
             </tr>
             <tr>
-              <td class="py-2 px-4">Secondary</td>
-              <td class="py-2 px-4"><code>sky</code></td>
+              <td class="py-2 px-4"><strong>Serene Sky (空色 - Sora-iro)</strong></td>
+              <td class="py-2 px-4">Secondary (<code>sky</code>) / Info (<code>sky</code>)</td>
               <td class="py-2 px-4">Muted UI elements, secondary filters</td>
             </tr>
             <tr>
-              <td class="py-2 px-4">Success</td>
-              <td class="py-2 px-4"><code>amber</code></td>
-              <td class="py-2 px-4">Positive indicators (High Trust)</td>
+              <td class="py-2 px-4"><strong>Amber Gold (黄金色 - Kogane-iro)</strong></td>
+              <td class="py-2 px-4">Success (<code>amber</code>) / Warning (<code>amber</code>)</td>
+              <td class="py-2 px-4">Trust scores, warnings, alerts</td>
             </tr>
             <tr>
-              <td class="py-2 px-4">Warning</td>
-              <td class="py-2 px-4"><code>amber</code></td>
-              <td class="py-2 px-4">Alerts, medium-trust scores</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4">Error</td>
-              <td class="py-2 px-4"><code>orange</code></td>
-              <td class="py-2 px-4">System errors, low-trust scores</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4">Neutral</td>
-              <td class="py-2 px-4"><code>stone</code></td>
-              <td class="py-2 px-4">Backgrounds, borders, secondary text</td>
+              <td class="py-2 px-4"><strong>Zen Stone (灰白色 - Kaibakushoku)</strong></td>
+              <td class="py-2 px-4">Neutral (<code>stone</code>)</td>
+              <td class="py-2 px-4">Zen stone slate elements, grids, card borders, backgrounds</td>
             </tr>
           </tbody>
         </table>
