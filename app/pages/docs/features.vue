@@ -3,7 +3,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
