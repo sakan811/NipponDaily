@@ -91,7 +91,7 @@ export const mockNews = {
       url: "https://example.com",
       credibilityScore: 0.9,
       publishedAt: "2024-01-15T10:00:00Z",
-      category: "Technology",
+      category: "Tech" as any,
     },
     {
       title: "Politics News",
@@ -99,7 +99,7 @@ export const mockNews = {
       url: "https://example.com",
       credibilityScore: 0.8,
       publishedAt: "2024-01-15T11:00:00Z",
-      category: "Politics",
+      category: "Society" as any,
     },
   ],
 };
