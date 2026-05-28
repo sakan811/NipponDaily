@@ -44,11 +44,14 @@
         </h2>
 
         <!-- Regions & Prefectures Affected Tags -->
-        <div v-if="briefing.regionsAffected && briefing.regionsAffected.length > 0" class="flex flex-wrap gap-1.5 mt-3">
+        <div
+          v-if="briefing.regionsAffected && briefing.regionsAffected.length > 0"
+          class="flex flex-wrap gap-1.5 mt-3"
+        >
           <span
             v-for="region in briefing.regionsAffected"
             :key="region"
-            class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-stone-100 dark:bg-stone-850 text-stone-700 dark:text-stone-300 border border-stone-200/40 dark:border-stone-800 text-[11px] font-sans font-medium tracking-wide shadow-xs"
+            class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 border border-stone-200/40 dark:border-stone-700 text-[11px] font-sans font-medium tracking-wide shadow-xs"
           >
             <span>{{ getRegionEmoji(region) }}</span>
             <span>{{ region }}</span>
@@ -121,7 +124,7 @@
                     :alt="source.source"
                     class="w-4 h-4 rounded object-contain bg-white dark:bg-gray-800"
                     loading="lazy"
-                  >
+                  />
                   <UIcon
                     v-else
                     name="i-heroicons-newspaper"
@@ -208,7 +211,12 @@ const getRegionEmoji = (region: string): string => {
   if (norm.includes("kyushu")) return "🌋";
   if (norm.includes("kanto")) return "🏙️";
   if (norm.includes("kansai")) return "🏯";
-  if (norm.includes("nationwide") || norm.includes("national") || norm.includes("japan")) return "🇯🇵";
+  if (
+    norm.includes("nationwide") ||
+    norm.includes("national") ||
+    norm.includes("japan")
+  )
+    return "🇯🇵";
   return "📍";
 };
 
