@@ -45,4 +45,5 @@ export interface NewsBriefing {
   sourcesProcessed: BriefingSource[];
   isAiFallback?: boolean;
   publishTimeRange?: string;
+  regionsAffected?: string[];
 }

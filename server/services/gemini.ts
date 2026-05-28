@@ -51,10 +51,11 @@ Target Language (ISO 639-1): ${localeCode}
 
 Instructions:
 1. mainHeadline: Create a single, overarching headline that captures the most important theme across these articles.
-2. executiveSummary: Write a summary broken down by topic for easy skimming. Format as a Markdown unordered list (using "- "), ensuring there are line breaks (\n) separating each point.
+2. executiveSummary: Write a summary broken down by topic for easy skimming. Format as a Markdown unordered list (using "- "), ensuring there are line breaks (\n) separating each point. Focus on structural issues, cultural nuances, and context specific to Japan.
 3. thematicAnalysis: Write your cross-source analysis broken down by topic for easy skimming. Format as a Markdown unordered list, ensuring there are line breaks (\n) separating each topic. Explain HOW these articles relate to each other.
 4. overallCredibilityScore: Assess the collective reliability (0.0 to 1.0) based on the publishers provided.
 5. sourcesProcessed: List the sources you used, translating their titles into the target language. For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness (e.g. Reuters, AP, NHK, Bloomberg = high; unknown blogs = low).
+6. regionsAffected: Extract any specific Japanese prefectures or regions explicitly mentioned or heavily featured in these articles (e.g. "Tokyo", "Kyoto", "Osaka", "Hokkaido", "Okinawa", "Tohoku", "Kyushu"). If the news is national or does not target specific prefectures, leave the array empty.
 
 Raw Articles:
 ${newsText}`;
@@ -89,6 +90,10 @@ ${newsText}`;
                       required: ["title", "source", "url", "credibilityScore"],
                     },
                   },
+                  regionsAffected: {
+                    type: Type.ARRAY,
+                    items: { type: Type.STRING },
+                  },
                 },
                 required: [
                   "mainHeadline",
@@ -96,6 +101,7 @@ ${newsText}`;
                   "thematicAnalysis",
                   "overallCredibilityScore",
                   "sourcesProcessed",
+                  "regionsAffected",
                 ],
               },
             },
@@ -146,6 +152,7 @@ ${newsText}`;
         favicon: item.favicon,
         credibilityScore: 0.5,
       })),
+      regionsAffected: [],
     };
   }
 }
