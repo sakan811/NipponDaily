@@ -75,7 +75,15 @@ class TavilyService {
       // Build search query based on category
       let searchQuery = query;
       if (category && category !== "all") {
-        searchQuery = `latest ${category} news Japan`;
+        const queryMap: Record<string, string> = {
+          society: "Japan society daily life demographic trends aging population prefecture news",
+          tech: "Japan tech innovation robotics automotive semiconductor industry Tokyo science",
+          "pop-culture": "Japan anime manga video games pop culture Nintendo Sony entertainment news",
+          tourism: "Japan travel tourism local festivals Shinkansen tourism trends prefectures",
+          food: "Japan food gastronomy cuisine Washoku sake ramen restaurant trends agriculture",
+          "disaster-prep": "Japan earthquake typhoon weather natural disaster safety preparedness environment",
+        };
+        searchQuery = queryMap[category] || `latest ${category} news Japan`;
       }
 
       // Map UI timeRange values to API timeRange values
