@@ -7,7 +7,7 @@
     <UHeader class="border-b border-stone-200 dark:border-stone-800 bg-[#FCFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md">
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-3">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-8 h-8" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-8 h-8" >
           <div class="flex flex-col">
             <span class="font-serif font-bold text-lg tracking-wide leading-none">NIPPON DAILY</span>
             <span class="text-[9px] text-stone-500 dark:text-stone-400 font-serif tracking-widest mt-0.5">日本日報</span>
@@ -31,12 +31,12 @@
         </div>
 
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight">
-          Japan, Synthesized.<br class="hidden sm:inline" />
+          Japan, Synthesized.<br class="hidden sm:inline" >
           <span class="text-primary-500 italic font-normal">Deep Cultural & Regional</span> Intelligence.
         </h1>
 
         <p class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans">
-          Bypassing the generic noise. NipponDaily collects, synthesizes, and translates domestic Japanese sources across six authentic, highly-specialized news channels using advanced Gemini AI.
+          Bypassing the generic noise. NipponDaily collects, synthesizes, and translates domestic Japanese sources across six authentic, highly-specialized news channels using advanced AI.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-4">
