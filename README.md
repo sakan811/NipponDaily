@@ -8,17 +8,16 @@
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
-## 🚀 Features
+- **Consolidated AI Briefing**: Synthesizes multiple news sources into a single, cohesive, high-level briefing with a primary headline and structured executive summary.
+- **Cross-Source Thematic Analysis**: Dynamic analysis identifying relationships, consensus, or discrepancies between different publications.
+- **Multilingual Intelligence**: Real-time translation of curated news and synthesized briefings into a wide variety of target languages.
+- **Visual Trust Scoring**: Multi-level credibility assessments (overall and per-source) directly evaluated by Google Gemini AI with HSL-color-gradient visuals.
+- **Prefectural Tagging**: Automatically detects and visually badges specific Japanese regions or prefectures affected by the news (with custom local emojis).
+- **Customizable Discovery**: Fine-grained filtering by traditional category channels and precise date ranges (preset or custom).
+- **Smart UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for an immersive, fast, responsive editorial layout.
+- **Robust Security**: Redis-based sliding-window rate limiting to manage API usage and costs.
+- **Developer Debug Mode**: Specialized configuration flag to test rate limits, failures, and fallbacks without consuming API quotas.
 
-- **Executive Briefing**: AI-synthesized daily reports summarizing the most important Japanese news.
-- **Cross-Source Synthesis**: Thematic analysis that connects multiple news sources to provide broader context.
-- **Multilingual Search**: Fetch Japan-related news from the web via Tavily Search API and translate it instantly.
-- **AI Processing**: Powered by Google Gemini for:
-  - **Categorization**: Automatic grouping of news into relevant topics (Politics, Tech, Culture, etc.).
-  - **Credibility Assessment**: AI-driven evaluation of article reliability and domain trust with visual scoring.
-- **Customizable Discovery**: Filter by date range, category, and preferred language.
-- **Smart UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for a fast, responsive, and accessible experience.
-- **Robust Security**: Redis-based rate limiting to manage API usage effectively.
 
 ## 🛠 Tech Stack
 
@@ -71,7 +70,7 @@ See `.env.example` for reference. Configure these in your `.env` file:
 | :------------------------- | :------- | :------------------------------------------------------ | :---------------------------------------------------------------------- |
 | `GEMINI_API_KEY`           | **Yes**  | Google Gemini API key for AI processing.                | -                                                                       |
 | `TAVILY_API_KEY`           | **Yes**  | Tavily Search API key for news discovery.               | -                                                                       |
-| `GEMINI_MODEL`             | No       | Google Gemini model(s) to use, comma-separated.         | `gemini-2.5-flash,gemini-3-flash-preview,gemini-3.1-flash-lite-preview` |
+| `GEMINI_MODEL`             | No       | Google Gemini model(s) to use, comma-separated.         | `gemini-2.5-flash,gemini-3-flash-preview`                               |
 | `UPSTASH_REDIS_REST_URL`   | Yes\*    | Upstash Redis URL for rate limiting.                    | -                                                                       |
 | `UPSTASH_REDIS_REST_TOKEN` | Yes\*    | Upstash Redis token for rate limiting.                  | -                                                                       |
 | `RATE_LIMIT_MAX_REQUESTS`  | No       | Maximum API requests allowed per IP per day.            | `3`                                                                     |
