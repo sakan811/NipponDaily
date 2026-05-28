@@ -1,10 +1,13 @@
 <template>
   <div class="min-h-screen">
-    <UHeader v-model:open="mobileMenuOpen">
+    <UHeader v-model:open="mobileMenuOpen" class="border-b border-stone-200 dark:border-stone-800 bg-[#FCFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md">
       <template #left>
-        <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
+        <NuxtLink to="/" class="flex items-center gap-3">
           <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
-          <span>{{ appName }}</span>
+          <div class="flex flex-col">
+            <span class="font-serif font-bold text-sm tracking-wide leading-none">NIPPON DAILY</span>
+            <span class="text-[7px] text-stone-500 dark:text-stone-400 font-serif tracking-widest mt-0.5">日本日報</span>
+          </div>
         </NuxtLink>
       </template>
 
@@ -12,7 +15,7 @@
         <div class="flex items-center gap-2">
           <UColorModeButton />
 
-          <div class="flex items-center gap-2 hidden lg:flex">
+          <div class="hidden lg:flex items-center gap-2">
             <label for="targetLanguage" class="text-sm text-secondary-500">
               Lang:
             </label>
@@ -186,19 +189,9 @@
             v-if="error || isDebugErrorUi"
             data-testid="error-state"
             :ui="{
-              base: {
-                background: 'bg-white dark:bg-gray-900',
-                divide: 'divide-y divide-gray-200 dark:divide-gray-800',
-                rounded: 'rounded-lg',
-                shadow: 'shadow',
-              },
-              body: {
-                base: 'p-4 sm:p-6',
-                background: '',
-                padding: 'px-4 py-5 sm:p-6',
-              },
+              root: 'w-full shadow-md text-center mb-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-lg',
+              body: 'p-4 sm:p-6'
             }"
-            class="text-center mb-8"
           >
             <div class="p-2">
               <div
@@ -443,7 +436,7 @@ const today = new CalendarDate(
 const minDate = new CalendarDate(2020, 1, 1);
 const maxDate = today;
 const oneWeekAgo = today.subtract({ days: 7 });
-const customDateRange = ref<{ start: typeof oneWeekAgo; end: typeof today }>({
+const customDateRange = ref<any>({
   start: oneWeekAgo,
   end: today,
 });
