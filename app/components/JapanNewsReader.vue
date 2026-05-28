@@ -1,12 +1,21 @@
 <template>
   <div class="min-h-screen">
-    <UHeader v-model:open="mobileMenuOpen" class="border-b border-stone-200 dark:border-stone-800 bg-[#FCFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md">
+    <UHeader
+      v-model:open="mobileMenuOpen"
+      class="border-b border-stone-200 dark:border-stone-800 bg-[#FCFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md"
+    >
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-3">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <div class="flex flex-col">
-            <span class="font-serif font-bold text-sm tracking-wide leading-none">NIPPON DAILY</span>
-            <span class="text-[7px] text-stone-500 dark:text-stone-400 font-serif tracking-widest mt-0.5">日本日報</span>
+            <span
+              class="font-serif font-bold text-sm tracking-wide leading-none"
+              >NIPPON DAILY</span
+            >
+            <span
+              class="text-[7px] text-stone-500 dark:text-stone-400 font-serif tracking-widest mt-0.5"
+              >日本日報</span
+            >
           </div>
         </NuxtLink>
       </template>
@@ -190,7 +199,7 @@
             data-testid="error-state"
             :ui="{
               root: 'w-full shadow-md text-center mb-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-lg',
-              body: 'p-4 sm:p-6'
+              body: 'p-4 sm:p-6',
             }"
           >
             <div class="p-2">
@@ -386,7 +395,6 @@ const briefingData = ref<NewsBriefing | null>(null);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
-const appName = "NipponDaily";
 
 // Rate limit specific state
 const rateLimitResetTime = ref<string | null>(null);
@@ -436,7 +444,17 @@ const today = new CalendarDate(
 const minDate = new CalendarDate(2020, 1, 1);
 const maxDate = today;
 const oneWeekAgo = today.subtract({ days: 7 });
-const customDateRange = ref<any>({
+
+interface CalendarDateLike {
+  year: number;
+  month: number;
+  day: number;
+}
+
+const customDateRange = ref<{
+  start?: CalendarDateLike | null;
+  end?: CalendarDateLike | null;
+}>({
   start: oneWeekAgo,
   end: today,
 });
