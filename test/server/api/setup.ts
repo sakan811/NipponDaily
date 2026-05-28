@@ -67,7 +67,7 @@ export const createMockNews = (): NewsItem[] => [
     content: "Tech Content",
     source: "Tech Source",
     publishedAt: "2024-01-15T10:00:00Z",
-    category: "Technology",
+    category: "Tech" as any,
     url: "https://example.com",
   },
 ];

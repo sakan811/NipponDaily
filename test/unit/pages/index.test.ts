@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
 import { mount } from "@vue/test-utils";
 import IndexPage from "~/app/pages/index.vue";
 
@@ -13,17 +13,19 @@ describe("Index Page (Landing)", () => {
     vi.useRealTimers();
   });
 
-  it("renders page structure with UPage", () => {
+  it("renders main wrapper and shoji grid", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.find(".u-page").exists()).toBe(true);
+    expect(wrapper.find(".min-h-screen").exists()).toBe(true);
+    expect(wrapper.find(".absolute.inset-0").exists()).toBe(true);
   });
 
   it("renders header with logo and navigation", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.find(".u-header").exists()).toBe(true);
-    expect(wrapper.text()).toContain("NipponDaily");
+    expect(wrapper.text().toUpperCase()).toContain("NIPPON DAILY");
+    expect(wrapper.text()).toContain("日本日報");
   });
 
   it("renders UColorModeButton in header", () => {
@@ -35,113 +37,83 @@ describe("Index Page (Landing)", () => {
   it("renders hero section with title and description", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Japan News, Synthesized by AI");
+    expect(wrapper.text()).toContain("Japan, Synthesized.");
     expect(wrapper.text()).toContain(
-      "Stop scrolling through raw lists. Get AI-synthesized briefings",
+      "Bypassing the generic noise. NipponDaily collects, synthesizes, and translates",
     );
   });
 
   it("renders hero section with CTA link to /news", () => {
     const wrapper = mount(IndexPage);
 
-    const ctaLink = wrapper.find('a[href="/news"]');
+    const ctaLink = wrapper.find('[to="/news"]');
     expect(ctaLink.exists()).toBe(true);
-    expect(ctaLink.text()).toContain("Generate Briefing");
+    expect(ctaLink.text()).toContain("Enter Intelligence Hub");
   });
 
-  it("renders features section", () => {
+  it("renders six specialty channels section", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Intelligence at a Glance");
+    expect(wrapper.text()).toContain("Six Specialty Channels");
     expect(wrapper.text()).toContain(
-      "AI-powered tools designed for deep news consumption without the noise.",
+      "Curated streams capturing the true multi-faceted heart and pulse of modern Japan.",
     );
   });
 
-  it("renders all feature cards", () => {
+  it("renders all six custom Japanese channels", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Executive Briefing");
-    expect(wrapper.text()).toContain("Cross-Source Analysis");
-    expect(wrapper.text()).toContain("AI Trust Scoring");
-    expect(wrapper.text()).toContain("Multilingual Support");
-    expect(wrapper.text()).toContain("Adaptive Discovery");
-    expect(wrapper.text()).toContain("Fair Usage Limits");
+    expect(wrapper.text()).toContain("Society & Prefectures");
+    expect(wrapper.text()).toContain("Tech & Mobility");
+    expect(wrapper.text()).toContain("Pop Culture & Gaming");
+    expect(wrapper.text()).toContain("Travel & Heritage");
+    expect(wrapper.text()).toContain("Food & Gastronomy");
+    expect(wrapper.text()).toContain("Nature & Resilience");
   });
 
-  it("renders feature descriptions", () => {
+  it("renders channel Japanese tags", () => {
     const wrapper = mount(IndexPage);
 
-    // Executive Briefing
-    expect(wrapper.text()).toContain(
-      "Synthesized reports that distill complex Japanese news",
-    );
-
-    // Cross-Source Analysis
-    expect(wrapper.text()).toContain(
-      "Identify relationships and contrasting viewpoints",
-    );
-
-    // AI Trust Scoring
-    expect(wrapper.text()).toContain(
-      "Automated evaluation of source reliability",
-    );
-
-    // Multilingual Support
-    expect(wrapper.text()).toContain(
-      "Read Japanese context in your preferred language",
-    );
-
-    // Adaptive Discovery
-    expect(wrapper.text()).toContain(
-      "Filter by category and custom time ranges",
-    );
-
-    // Fair Usage Limits
-    expect(wrapper.text()).toContain(
-      "Smart daily rate limits to ensure equitable access",
-    );
+    expect(wrapper.text()).toContain("地方・社会");
+    expect(wrapper.text()).toContain("技術・産業");
+    expect(wrapper.text()).toContain("ポップカルチャー");
+    expect(wrapper.text()).toContain("観光・遺産");
+    expect(wrapper.text()).toContain("和食・食文化");
+    expect(wrapper.text()).toContain("自然・防災");
   });
 
-  it("renders AI-Powered badge in hero section", () => {
+  it("renders aesthetic philosophy section with Japanese pigments", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("AI Intelligence Aggregator");
-    expect(wrapper.find(".u-badge").exists()).toBe(true);
+    expect(wrapper.text()).toContain("Aesthetic Philosophy");
+    expect(wrapper.text()).toContain("Torii Vermilion");
+    expect(wrapper.text()).toContain("Serene Sky");
+    expect(wrapper.text()).toContain("Amber Gold");
+    expect(wrapper.text()).toContain("Zen Stone");
   });
 
-  it("renders footer with copyright", () => {
+  it("renders footer with copyright and license", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.find(".u-footer").exists()).toBe(true);
     expect(wrapper.text()).toContain(
-      "NipponDaily. Released under the Apache-2.0 License.",
+      "NIPPON DAILY (日本日報). All rights reserved. Released under the Apache-2.0 License.",
     );
-  });
-
-  it("renders divider between hero and features", () => {
-    const wrapper = mount(IndexPage);
-
-    const divider = wrapper.find(".border-t");
-    expect(divider.exists()).toBe(true);
   });
 
   it("renders without errors", () => {
     expect(() => mount(IndexPage)).not.toThrow();
   });
 
-  it("has 6 feature cards", () => {
+  it("does not render Developer Docs button on the UI", () => {
     const wrapper = mount(IndexPage);
-
-    const featureCards = wrapper.findAll(".u-page-card");
-    expect(featureCards.length).toBe(6);
+    expect(wrapper.text()).not.toContain("Developer Docs");
   });
 
-  it("renders favicon image", () => {
+  it("renders header favicon logo correctly", () => {
     const wrapper = mount(IndexPage);
-
-    const favicon = wrapper.find('img[alt="NipponDaily"]');
-    expect(favicon.exists()).toBe(true);
-    expect(favicon.attributes("src")).toBe("/favicon.ico");
+    const img = wrapper.find('.u-header img[src="/favicon.ico"]');
+    expect(img.exists()).toBe(true);
+    expect(img.attributes("alt")).toBe("NipponDaily");
   });
 });

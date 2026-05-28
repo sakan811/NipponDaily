@@ -33,7 +33,7 @@ describe("JapanNewsReader - Category Filter", () => {
 
     const categoryButtons = wrapper.findAll("button");
     const techButton = categoryButtons.find((btn) =>
-      btn.text().includes("Technology"),
+      btn.text().includes("Tech & Mobility"),
     );
 
     // Initially "All News" should be selected
@@ -65,13 +65,13 @@ describe("JapanNewsReader - Category Filter", () => {
       },
     });
 
-    // Set category to Technology
-    wrapper.vm.selectedCategory = "technology";
+    // Set category to Tech
+    wrapper.vm.selectedCategory = "tech";
     await wrapper.vm.fetchNews();
 
     expect(mockFetch).toHaveBeenCalledWith("/api/news", {
       query: {
-        category: "technology",
+        category: "tech",
         timeRange: "week",
         language: "en",
         limit: 20,

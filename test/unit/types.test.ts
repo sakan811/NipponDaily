@@ -10,12 +10,12 @@ describe("Types & Constants", () => {
       content: "Test Content",
       source: "Test Source",
       publishedAt: "2024-01-15T10:00:00Z",
-      category: "Technology",
+      category: "Tech",
       url: "https://example.com",
     };
 
     expect(newsItem.title).toBe("Test News");
-    expect(newsItem.category).toBe("Technology");
+    expect(newsItem.category).toBe("Tech");
   });
 
   it("validates ApiResponse generic type", () => {
@@ -31,9 +31,9 @@ describe("Types & Constants", () => {
   });
 
   it("validates category constants", () => {
-    expect(NEWS_CATEGORIES).toHaveLength(6);
-    expect(VALID_CATEGORIES).toHaveLength(6);
-    expect(VALID_CATEGORIES).toContain("Technology");
+    expect(NEWS_CATEGORIES).toHaveLength(7);
+    expect(VALID_CATEGORIES).toHaveLength(7);
+    expect(VALID_CATEGORIES).toContain("Tech");
     expect(VALID_CATEGORIES).toContain("Other");
   });
 });
