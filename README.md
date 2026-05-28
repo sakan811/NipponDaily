@@ -18,7 +18,6 @@
 - **Robust Security**: Redis-based sliding-window rate limiting to manage API usage and costs.
 - **Developer Debug Mode**: Specialized configuration flag to test rate limits, failures, and fallbacks without consuming API quotas.
 
-
 ## 🛠 Tech Stack
 
 - **Framework**: [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript)
@@ -66,16 +65,16 @@
 
 See `.env.example` for reference. Configure these in your `.env` file:
 
-| Variable                   | Required | Description                                             | Default                                                                 |
-| :------------------------- | :------- | :------------------------------------------------------ | :---------------------------------------------------------------------- |
-| `GEMINI_API_KEY`           | **Yes**  | Google Gemini API key for AI processing.                | -                                                                       |
-| `TAVILY_API_KEY`           | **Yes**  | Tavily Search API key for news discovery.               | -                                                                       |
-| `GEMINI_MODEL`             | No       | Google Gemini model(s) to use, comma-separated.         | `gemini-2.5-flash,gemini-3-flash-preview`                               |
-| `UPSTASH_REDIS_REST_URL`   | Yes\*    | Upstash Redis URL for rate limiting.                    | -                                                                       |
-| `UPSTASH_REDIS_REST_TOKEN` | Yes\*    | Upstash Redis token for rate limiting.                  | -                                                                       |
-| `RATE_LIMIT_MAX_REQUESTS`  | No       | Maximum API requests allowed per IP per day.            | `3`                                                                     |
-| `DEBUG_ERROR_UI`           | No       | Set to `true` to force error UI components for testing. | `false`                                                                 |
-| `TEST_SRH_URL`             | No       | URL for Serverless Redis HTTP in integration tests.     | See `.env.example`                                                      |
+| Variable                   | Required | Description                                             | Default                                   |
+| :------------------------- | :------- | :------------------------------------------------------ | :---------------------------------------- |
+| `GEMINI_API_KEY`           | **Yes**  | Google Gemini API key for AI processing.                | -                                         |
+| `TAVILY_API_KEY`           | **Yes**  | Tavily Search API key for news discovery.               | -                                         |
+| `GEMINI_MODEL`             | No       | Google Gemini model(s) to use, comma-separated.         | `gemini-2.5-flash,gemini-3-flash-preview` |
+| `UPSTASH_REDIS_REST_URL`   | Yes\*    | Upstash Redis URL for rate limiting.                    | -                                         |
+| `UPSTASH_REDIS_REST_TOKEN` | Yes\*    | Upstash Redis token for rate limiting.                  | -                                         |
+| `RATE_LIMIT_MAX_REQUESTS`  | No       | Maximum API requests allowed per IP per day.            | `3`                                       |
+| `DEBUG_ERROR_UI`           | No       | Set to `true` to force error UI components for testing. | `false`                                   |
+| `TEST_SRH_URL`             | No       | URL for Serverless Redis HTTP in integration tests.     | See `.env.example`                        |
 
 _\* Required for production and to enable rate limiting features._
 
