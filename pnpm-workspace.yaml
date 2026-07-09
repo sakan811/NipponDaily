@@ -1,7 +1,15 @@
-onlyBuiltDependencies:
-  - "@parcel/watcher"
-  - better-sqlite3
-  - esbuild
-  - protobufjs
-  - unrs-resolver
-  - vue-demi
+allowBuilds:
+  "@google/genai": true
+  "@parcel/watcher": true
+  better-sqlite3: true
+  esbuild: true
+  protobufjs: true
+  unrs-resolver: true
+  vue-demi: true
+
+overrides:
+  serialize-javascript: "7.0.5"
+  h3-next: "npm:h3@2.0.1-rc.18"
+  "@tiptap/y-tiptap": "^3.0.5"
+  unhead: "^2.1.13"
+  axios: "^1.15.0"
