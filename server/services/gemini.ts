@@ -54,7 +54,7 @@ Instructions:
 2. executiveSummary: Write a summary broken down by topic for easy skimming. Format as a Markdown unordered list (using "- "), ensuring there are line breaks (\n) separating each point. Focus on structural issues, cultural nuances, and context specific to Japan.
 3. thematicAnalysis: Write a cross-source analysis comparing the perspectives. Contrast the viewpoints, focus, and tone of domestic Japanese sources (written in Japanese/from Japan) with those of international/Western sources (written in English/from outside Japan) on these developments. Format as a Markdown unordered list, ensuring there are line breaks (\n) separating each topic.
 4. overallCredibilityScore: Assess the collective reliability (0.0 to 1.0) based on the publishers provided.
-5. sourcesProcessed: List the sources you used. Translate their titles into the target language. If the original title is in a different language, include the original title in parentheses at the end (e.g., "Translated Title (Original Title)"). For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness (e.g. Reuters, AP, NHK, Bloomberg = high; unknown blogs = low).
+5. sourcesProcessed: List the sources you used. Translate their titles into the target language. If the original title is in a different language, include the original title in parentheses at the end (e.g., "Translated Title (Original Title)"). For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness (e.g. Reuters, AP, NHK, Bloomberg = high; unknown blogs = low). Also, identify any specific regions or prefectures (e.g. "Tokyo", "Kyoto", "Osaka", "Hokkaido", "Okinawa", "Tohoku", "Kyushu") that this specific source article heavily focuses on, and list them in the "regions" array (leave empty if it is national news or general).
 6. regionsAffected: Extract any specific Japanese prefectures or regions explicitly mentioned or heavily featured in these articles (e.g. "Tokyo", "Kyoto", "Osaka", "Hokkaido", "Okinawa", "Tohoku", "Kyushu"). If the news is national or does not target specific prefectures, leave the array empty.
 
 Raw Articles:
@@ -86,8 +86,18 @@ ${newsText}`;
                         source: { type: Type.STRING },
                         url: { type: Type.STRING },
                         credibilityScore: { type: Type.NUMBER },
+                        regions: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING },
+                        },
                       },
-                      required: ["title", "source", "url", "credibilityScore"],
+                      required: [
+                        "title",
+                        "source",
+                        "url",
+                        "credibilityScore",
+                        "regions",
+                      ],
                     },
                   },
                   regionsAffected: {
@@ -151,6 +161,7 @@ ${newsText}`;
         url: item.url,
         favicon: item.favicon,
         credibilityScore: 0.5,
+        regions: [],
       })),
       regionsAffected: [],
     };

@@ -35,6 +35,7 @@ export interface BriefingSource {
   url?: string;
   favicon?: string;
   credibilityScore: number;
+  regions?: string[];
 }
 
 export interface NewsBriefing {
