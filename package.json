@@ -23,15 +23,15 @@
     "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run && pnpm test:integration"
   },
   "dependencies": {
-    "@google/genai": "^2.7.0",
+    "@google/genai": "^2.10.0",
     "@nuxt/ui": "^4.9.0",
     "@tavily/core": "^0.7.6",
-    "@tiptap/y-tiptap": "^3.0.5",
+    "@tiptap/y-tiptap": "^3.0.6",
     "@upstash/redis": "^1.38.0",
     "marked": "^18.0.5",
     "nuxt": "^4.4.8",
     "ofetch": "^1.5.1",
-    "tailwindcss": "^4.3.1",
+    "tailwindcss": "^4.3.2",
     "vue": "^3.5.39",
     "vue-router": "^5.1.0",
     "zod": "^4.4.3"
@@ -39,43 +39,25 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@iconify-json/heroicons": "^1.2.3",
-    "@iconify-json/lucide": "^1.2.114",
+    "@iconify-json/lucide": "^1.2.116",
     "@internationalized/date": "^3.12.2",
     "@nuxt/devtools": "^3.2.4",
-    "@nuxt/eslint": "^1.15.2",
+    "@nuxt/eslint": "^1.16.0",
     "@nuxt/hints": "1.1.3",
     "@nuxt/test-utils": "^4.0.3",
-    "@tailwindcss/vite": "^4.3.1",
+    "@tailwindcss/vite": "^4.3.2",
     "@types/node": "^26.1.0",
     "@vitejs/plugin-vue": "^6.0.7",
-    "@vitest/coverage-v8": "^4.1.7",
+    "@vitest/coverage-v8": "^4.1.10",
     "@vue/test-utils": "^2.4.11",
-    "eslint": "^10.5.0",
+    "eslint": "^10.6.0",
     "globals": "^17.7.0",
     "happy-dom": "^20.10.6",
     "prettier": "3.9.4",
     "typescript": "^5.9.3",
     "unplugin-auto-import": "^21.0.0",
-    "vite": "^7.3.5",
+    "vite": "^7.3.6",
     "vite-tsconfig-paths": "^6.1.1",
-    "vitest": "^4.1.7"
-  },
-  "pnpm": {
-    "overrides": {
-      "serialize-javascript": "7.0.5",
-      "h3-next": "npm:h3@2.0.1-rc.18",
-      "@tiptap/y-tiptap": "^3.0.5",
-      "unhead": "^2.1.13",
-      "axios": "^1.15.0"
-    },
-    "onlyBuiltDependencies": [
-      "@google/genai",
-      "@parcel/watcher",
-      "better-sqlite3",
-      "esbuild",
-      "protobufjs",
-      "unrs-resolver",
-      "vue-demi"
-    ]
+    "vitest": "^4.1.10"
   }
 }
