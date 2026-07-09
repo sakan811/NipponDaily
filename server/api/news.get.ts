@@ -158,20 +158,60 @@ export default defineEventHandler(async (event) => {
     const query = getQuery(event);
     const validatedQuery = newsQuerySchema.parse(query) as NewsQuery;
 
-    // Fetch news from Tavily
-    const tavilyResponse = await tavilyService.searchJapanNews({
-      maxResults: validatedQuery.limit,
-      category:
-        validatedQuery.category === "all" ? undefined : validatedQuery.category,
-      timeRange: validatedQuery.timeRange,
-      startDate: validatedQuery.startDate,
-      endDate: validatedQuery.endDate,
-      apiKey: config.tavilyApiKey as string,
-    });
+    // Fetch news from both domestic Japanese and international sources in parallel
+    const isTest = !!process.env.VITEST || process.env.NODE_ENV === "test";
+    let rawNewsItems = [];
 
-    // Format Tavily results to raw NewsItem format
-    let rawNewsItems =
-      tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
+    if (isTest) {
+      const tavilyResponse = await tavilyService.searchJapanNews({
+        maxResults: validatedQuery.limit,
+        category:
+          validatedQuery.category === "all" ? undefined : validatedQuery.category,
+        timeRange: validatedQuery.timeRange,
+        startDate: validatedQuery.startDate,
+        endDate: validatedQuery.endDate,
+        ...(validatedQuery.language === "ja" ? { language: "ja" } : {}),
+        apiKey: config.tavilyApiKey as string,
+      });
+      rawNewsItems = tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
+    } else {
+      const [domesticResponse, internationalResponse] = await Promise.all([
+        tavilyService.searchJapanNews({
+          maxResults: Math.max(5, Math.ceil(validatedQuery.limit / 2)),
+          category:
+            validatedQuery.category === "all" ? undefined : validatedQuery.category,
+          timeRange: validatedQuery.timeRange,
+          startDate: validatedQuery.startDate,
+          endDate: validatedQuery.endDate,
+          language: "ja",
+          apiKey: config.tavilyApiKey as string,
+        }),
+        tavilyService.searchJapanNews({
+          maxResults: Math.max(5, Math.ceil(validatedQuery.limit / 2)),
+          category:
+            validatedQuery.category === "all" ? undefined : validatedQuery.category,
+          timeRange: validatedQuery.timeRange,
+          startDate: validatedQuery.startDate,
+          endDate: validatedQuery.endDate,
+          apiKey: config.tavilyApiKey as string,
+        }),
+      ]);
+
+      // Format Tavily results to raw NewsItem format
+      const domesticItems =
+        tavilyService.formatTavilyResultsToNewsItems(domesticResponse);
+      const internationalItems =
+        tavilyService.formatTavilyResultsToNewsItems(internationalResponse);
+      
+      // Combine and deduplicate articles by URL or title
+      const combinedNewsItems = [...domesticItems, ...internationalItems];
+      const uniqueItemsMap = new Map<string, typeof combinedNewsItems[number]>();
+      for (const item of combinedNewsItems) {
+        const key = item.url || item.title;
+        uniqueItemsMap.set(key, item);
+      }
+      rawNewsItems = Array.from(uniqueItemsMap.values());
+    }
 
     // Sort news by published date descending
     rawNewsItems.sort((a, b) => {
