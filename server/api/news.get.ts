@@ -22,6 +22,16 @@ const newsQuerySchema = z
         return val;
       }),
 
+    query: z
+      .string()
+      .max(100, "Query cannot exceed 100 characters")
+      .nullable()
+      .optional()
+      .transform((val) => {
+        if (!val || val.trim() === "") return undefined;
+        return val;
+      }),
+
     timeRange: z
       .string()
       .nullable()
@@ -108,6 +118,7 @@ const newsQuerySchema = z
   )
   .transform((data) => ({
     category: data.category ?? undefined,
+    query: data.query ?? undefined,
     timeRange: data.timeRange,
     startDate: data.startDate ?? undefined,
     endDate: data.endDate ?? undefined,
@@ -164,6 +175,7 @@ export default defineEventHandler(async (event) => {
 
     if (isTest) {
       const tavilyResponse = await tavilyService.searchJapanNews({
+        query: validatedQuery.query,
         maxResults: validatedQuery.limit,
         category:
           validatedQuery.category === "all" ? undefined : validatedQuery.category,
@@ -177,6 +189,7 @@ export default defineEventHandler(async (event) => {
     } else {
       const [domesticResponse, internationalResponse] = await Promise.all([
         tavilyService.searchJapanNews({
+          query: validatedQuery.query ? `${validatedQuery.query} 日本` : undefined,
           maxResults: Math.max(5, Math.ceil(validatedQuery.limit / 2)),
           category:
             validatedQuery.category === "all" ? undefined : validatedQuery.category,
@@ -187,6 +200,7 @@ export default defineEventHandler(async (event) => {
           apiKey: config.tavilyApiKey as string,
         }),
         tavilyService.searchJapanNews({
+          query: validatedQuery.query,
           maxResults: Math.max(5, Math.ceil(validatedQuery.limit / 2)),
           category:
             validatedQuery.category === "all" ? undefined : validatedQuery.category,
