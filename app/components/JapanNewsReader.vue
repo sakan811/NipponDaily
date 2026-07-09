@@ -92,9 +92,7 @@
       </template>
     </UHeader>
 
-    <main
-      class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-7xl"
-    >
+    <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-7xl">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
         <!-- Sticky Map Column on Desktop -->
         <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
@@ -116,22 +114,37 @@
           >
             <div class="flex flex-col gap-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-semibold text-stone-500 dark:text-stone-400">
-                  {{ targetLanguage === 'ja' ? '選択された地域:' : 'Selected Region:' }}
+                <span
+                  class="text-xs font-semibold text-stone-500 dark:text-stone-400"
+                >
+                  {{
+                    targetLanguage === "ja"
+                      ? "選択された地域:"
+                      : "Selected Region:"
+                  }}
                 </span>
-                <UBadge color="primary" variant="solid" size="xs" class="font-serif">
+                <UBadge
+                  color="primary"
+                  variant="solid"
+                  size="xs"
+                  class="font-serif"
+                >
                   {{ getRegionDisplayName(selectedRegion) }}
                 </UBadge>
               </div>
-              
+
               <p class="text-xs text-stone-500 leading-relaxed">
-                {{ 
-                  hasArticlesForSelectedRegion 
-                    ? (targetLanguage === 'ja' ? `現在表示されているブリーフィングから、${getRegionDisplayName(selectedRegion)}に関連するソースのみを抽出しています。` : `Showing only sources relevant to ${getRegionDisplayName(selectedRegion)} from the current briefing.`)
-                    : (targetLanguage === 'ja' ? `現在のブリーフィングには${getRegionDisplayName(selectedRegion)}に関するニュースはありません。Tavilyでこの地域のニュースを直接検索しますか？` : `No active articles found for ${getRegionDisplayName(selectedRegion)} in this briefing. Start a dedicated Tavily search?`)
+                {{
+                  hasArticlesForSelectedRegion
+                    ? targetLanguage === "ja"
+                      ? `現在表示されているブリーフィングから、${getRegionDisplayName(selectedRegion)}に関連するソースのみを抽出しています。`
+                      : `Showing only sources relevant to ${getRegionDisplayName(selectedRegion)} from the current briefing.`
+                    : targetLanguage === "ja"
+                      ? `現在のブリーフィングには${getRegionDisplayName(selectedRegion)}に関するニュースはありません。Tavilyでこの地域のニュースを直接検索しますか？`
+                      : `No active articles found for ${getRegionDisplayName(selectedRegion)} in this briefing. Start a dedicated Tavily search?`
                 }}
               </p>
-              
+
               <div class="flex gap-2 mt-1">
                 <UButton
                   size="sm"
@@ -142,7 +155,11 @@
                   icon="i-heroicons-magnifying-glass"
                   @click="triggerTargetedRegionScan(selectedRegion)"
                 >
-                  {{ targetLanguage === 'ja' ? `${getRegionDisplayName(selectedRegion)}ニュースを検索` : `Search ${getRegionDisplayName(selectedRegion)} News` }}
+                  {{
+                    targetLanguage === "ja"
+                      ? `${getRegionDisplayName(selectedRegion)}ニュースを検索`
+                      : `Search ${getRegionDisplayName(selectedRegion)} News`
+                  }}
                 </UButton>
               </div>
             </div>
@@ -160,18 +177,28 @@
                 <UTooltip
                   v-for="timeRange in timeRangeOptions"
                   :key="timeRange.id"
-                  :text="targetLanguage === 'ja' ? `${getTimeRangeLabel(timeRange.id)}でニュースをフィルタリング` : `Filter news by ${timeRange.name.toLowerCase()}`"
+                  :text="
+                    targetLanguage === 'ja'
+                      ? `${getTimeRangeLabel(timeRange.id)}でニュースをフィルタリング`
+                      : `Filter news by ${timeRange.name.toLowerCase()}`
+                  "
                 >
                   <UButton
                     :color="
-                      selectedTimeRange === timeRange.id ? 'primary' : 'secondary'
+                      selectedTimeRange === timeRange.id
+                        ? 'primary'
+                        : 'secondary'
                     "
                     :variant="
                       selectedTimeRange === timeRange.id ? 'solid' : 'outline'
                     "
                     size="xs"
                     :label="getTimeRangeLabel(timeRange.id)"
-                    @click="() => { selectedTimeRange = timeRange.id; }"
+                    @click="
+                      () => {
+                        selectedTimeRange = timeRange.id;
+                      }
+                    "
                   />
                 </UTooltip>
               </div>
@@ -230,8 +257,12 @@
                   :key="category.id"
                   :text="
                     category.id === 'all'
-                      ? (targetLanguage === 'ja' ? 'すべてのカテゴリを表示' : 'Show all categories')
-                      : (targetLanguage === 'ja' ? `${t.categories[category.id as keyof typeof t.categories]}でニュースをフィルタリング` : `Filter news by ${category.name}`)
+                      ? targetLanguage === 'ja'
+                        ? 'すべてのカテゴリを表示'
+                        : 'Show all categories'
+                      : targetLanguage === 'ja'
+                        ? `${t.categories[category.id as keyof typeof t.categories]}でニュースをフィルタリング`
+                        : `Filter news by ${category.name}`
                   "
                 >
                   <UButton
@@ -242,8 +273,14 @@
                       selectedCategory === category.id ? 'solid' : 'outline'
                     "
                     size="xs"
-                    :label="t.categories[category.id as keyof typeof t.categories]"
-                    @click="() => { selectedCategory = category.id; }"
+                    :label="
+                      t.categories[category.id as keyof typeof t.categories]
+                    "
+                    @click="
+                      () => {
+                        selectedCategory = category.id;
+                      }
+                    "
                   />
                 </UTooltip>
               </div>
@@ -256,13 +293,28 @@
               :ui="{ body: 'p-4' }"
             >
               <div class="flex items-start gap-3">
-                <UIcon name="i-heroicons-exclamation-triangle" class="w-5 h-5 text-warning-500 shrink-0 mt-0.5" />
+                <UIcon
+                  name="i-heroicons-exclamation-triangle"
+                  class="w-5 h-5 text-warning-500 shrink-0 mt-0.5"
+                />
                 <div>
-                  <h4 class="text-sm font-semibold text-warning-800 dark:text-warning-400">
-                    {{ targetLanguage === 'ja' ? '地域ニュースが見つかりません' : 'No Regional Articles Found' }}
+                  <h4
+                    class="text-sm font-semibold text-warning-800 dark:text-warning-400"
+                  >
+                    {{
+                      targetLanguage === "ja"
+                        ? "地域ニュースが見つかりません"
+                        : "No Regional Articles Found"
+                    }}
                   </h4>
-                  <p class="text-xs text-warning-700 dark:text-warning-500 mt-1 leading-relaxed">
-                    {{ targetLanguage === 'ja' ? `現在の一般的なブリーフィングには、${getRegionDisplayName(selectedRegion)}に関するソースはありませんでした。上の「${getRegionDisplayName(selectedRegion)}ニュースを検索」をクリックして、Tavilyから直接ローカルニュースを取得してください。` : `No sources from the current briefing were tagged with ${getRegionDisplayName(selectedRegion)}. Click the search button on the left to pull dedicated regional news from Tavily.` }}
+                  <p
+                    class="text-xs text-warning-700 dark:text-warning-500 mt-1 leading-relaxed"
+                  >
+                    {{
+                      targetLanguage === "ja"
+                        ? `現在の一般的なブリーフィングには、${getRegionDisplayName(selectedRegion)}に関するソースはありませんでした。上の「${getRegionDisplayName(selectedRegion)}ニュースを検索」をクリックして、Tavilyから直接ローカルニュースを取得してください。`
+                        : `No sources from the current briefing were tagged with ${getRegionDisplayName(selectedRegion)}. Click the search button on the left to pull dedicated regional news from Tavily.`
+                    }}
                   </p>
                 </div>
               </div>
@@ -282,14 +334,19 @@
                   class="mb-6 p-3 bg-primary-50 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800 rounded-lg text-xs text-left"
                 >
                   <div class="flex items-center justify-between mb-2">
-                    <span class="font-bold text-primary-600 dark:text-primary-400"
+                    <span
+                      class="font-bold text-primary-600 dark:text-primary-400"
                       >DEBUG MODE: Error UI Testing</span
                     >
                     <UButton
                       size="xs"
                       color="primary"
                       variant="soft"
-                      @click="() => { isDebugRateLimit = !isDebugRateLimit; }"
+                      @click="
+                        () => {
+                          isDebugRateLimit = !isDebugRateLimit;
+                        }
+                      "
                     >
                       Switch to
                       {{ isDebugRateLimit ? "General" : "Rate Limit" }} UI
@@ -369,7 +426,11 @@
                       "Service temporarily unavailable. Please try again."
                     }}
                   </p>
-                  <UButton color="error" :disabled="loading" @click="refreshNews">
+                  <UButton
+                    color="error"
+                    :disabled="loading"
+                    @click="refreshNews"
+                  >
                     {{ t.tryAgain }}
                   </UButton>
                 </div>
@@ -412,16 +473,29 @@
               >
                 Mock: AI Fallback Card
               </div>
-              <BriefingCard :briefing="mockFallbackBriefing" :language="targetLanguage" />
-            </div>
-
-            <div v-if="filteredBriefingData && hasArticlesForSelectedRegion" class="space-y-4">
-              <!-- Render dynamic filtered briefing based on region selection -->
-              <BriefingCard :briefing="filteredBriefingData" :language="targetLanguage" />
+              <BriefingCard
+                :briefing="mockFallbackBriefing"
+                :language="targetLanguage"
+              />
             </div>
 
             <div
-              v-else-if="!loading && !isDebugErrorUi && (!selectedRegion || hasArticlesForSelectedRegion)"
+              v-if="filteredBriefingData && hasArticlesForSelectedRegion"
+              class="space-y-4"
+            >
+              <!-- Render dynamic filtered briefing based on region selection -->
+              <BriefingCard
+                :briefing="filteredBriefingData"
+                :language="targetLanguage"
+              />
+            </div>
+
+            <div
+              v-else-if="
+                !loading &&
+                !isDebugErrorUi &&
+                (!selectedRegion || hasArticlesForSelectedRegion)
+              "
               class="bg-white dark:bg-gray-900 rounded-lg shadow text-center p-8 border border-gray-100 dark:border-gray-800"
               style="contain: layout style paint"
             >
@@ -441,7 +515,9 @@
                   />
                 </svg>
               </div>
-              <h3 class="text-xl font-semibold mb-2">{{ t.readyToSynthesizeTitle }}</h3>
+              <h3 class="text-xl font-semibold mb-2">
+                {{ t.readyToSynthesizeTitle }}
+              </h3>
               <p
                 class="mb-4 text-secondary-500 dark:text-secondary-400 max-w-lg mx-auto"
                 style="contain: layout style"
@@ -465,15 +541,20 @@ import type { CategoryId } from "~~/constants/categories";
 import * as locales from "@nuxt/ui/locale";
 import JapanMap, { mapPrefectureToRegion } from "./JapanMap.vue";
 
+// Import components (Nuxt usually auto-imports, but explicitly declaring helps some IDEs)
+import BriefingCard from "./BriefingCard.vue";
+
 const translations = {
   en: {
     timeRangeSubtitle: "Select a time range to focus the search results",
     categorySubtitle: "Choose a category to focus the briefing",
     generateBriefing: "Generate Briefing",
     synthesizing: "Synthesizing...",
-    aiSynthesizingMsg: "AI is currently synthesizing the latest news from Japan...",
+    aiSynthesizingMsg:
+      "AI is currently synthesizing the latest news from Japan...",
     readyToSynthesizeTitle: "Ready to Synthesize",
-    readyToSynthesizeMsg: "Select your preferred time range and category, then click \"Generate Briefing\" to create a synthesized report.",
+    readyToSynthesizeMsg:
+      'Select your preferred time range and category, then click "Generate Briefing" to create a synthesized report.',
     dailyLimitTitle: "Daily Limit Reached",
     resetsAt: "Resets at:",
     tryAgain: "Try Again",
@@ -494,7 +575,7 @@ const translations = {
       tourism: "Travel & Heritage",
       food: "Food & Gastronomy",
       "disaster-prep": "Nature & Resilience",
-    }
+    },
   },
   ja: {
     timeRangeSubtitle: "検索結果を絞り込む期間を選択してください",
@@ -503,7 +584,8 @@ const translations = {
     synthesizing: "要約を生成中...",
     aiSynthesizingMsg: "AIが日本の最新ニュースを分析・要約しています...",
     readyToSynthesizeTitle: "ブリーフィング生成の準備完了",
-    readyToSynthesizeMsg: "お好みの期間とカテゴリを選択し、「ブリーフィングを生成」をクリックして要約レポートを作成してください。",
+    readyToSynthesizeMsg:
+      "お好みの期間とカテゴリを選択し、「ブリーフィングを生成」をクリックして要約レポートを作成してください。",
     dailyLimitTitle: "本日の制限に達しました",
     resetsAt: "リセット時刻:",
     tryAgain: "再試行",
@@ -524,8 +606,8 @@ const translations = {
       tourism: "観光・遺産",
       food: "和食・食文化",
       "disaster-prep": "自然・防災",
-    }
-  }
+    },
+  },
 } as const;
 
 const t = computed(() => {
@@ -535,18 +617,22 @@ const t = computed(() => {
 
 const getTimeRangeLabel = (id: string) => {
   switch (id) {
-    case "none": return t.value.allTime;
-    case "day": return t.value.today;
-    case "week": return t.value.thisWeek;
-    case "month": return t.value.thisMonth;
-    case "year": return t.value.thisYear;
-    case "custom": return t.value.customRange;
-    default: return id;
+    case "none":
+      return t.value.allTime;
+    case "day":
+      return t.value.today;
+    case "week":
+      return t.value.thisWeek;
+    case "month":
+      return t.value.thisMonth;
+    case "year":
+      return t.value.thisYear;
+    case "custom":
+      return t.value.customRange;
+    default:
+      return id;
   }
 };
-
-// Import components (Nuxt usually auto-imports, but explicitly declaring helps some IDEs)
-import BriefingCard from "./BriefingCard.vue";
 
 // State
 const briefingData = ref<NewsBriefing | null>(null);
@@ -656,16 +742,22 @@ const activeRegions = computed(() => {
 const isNationwideBriefing = computed(() => {
   if (!briefingData.value) return false;
   // If regionsAffected is empty, it's definitely nationwide
-  if (!briefingData.value.regionsAffected || briefingData.value.regionsAffected.length === 0) {
+  if (
+    !briefingData.value.regionsAffected ||
+    briefingData.value.regionsAffected.length === 0
+  ) {
     return true;
   }
   // If there is at least one article with no regions tagged, it is nationwide/mixed
-  return briefingData.value.sourcesProcessed.some(src => !src.regions || src.regions.length === 0);
+  return briefingData.value.sourcesProcessed.some(
+    (src) => !src.regions || src.regions.length === 0,
+  );
 });
 
 const regionCounts = computed(() => {
   const counts: Record<string, number> = {};
-  if (!briefingData.value || !briefingData.value.sourcesProcessed) return counts;
+  if (!briefingData.value || !briefingData.value.sourcesProcessed)
+    return counts;
 
   briefingData.value.sourcesProcessed.forEach((src) => {
     if (src.regions && src.regions.length > 0) {
@@ -686,7 +778,9 @@ const filteredBriefingData = computed(() => {
   if (!selectedRegion.value) return briefingData.value;
 
   const filteredSources = briefingData.value.sourcesProcessed.filter((src) => {
-    return src.regions?.some((reg) => mapPrefectureToRegion(reg) === selectedRegion.value);
+    return src.regions?.some(
+      (reg) => mapPrefectureToRegion(reg) === selectedRegion.value,
+    );
   });
 
   return {
@@ -699,7 +793,9 @@ const hasArticlesForSelectedRegion = computed(() => {
   if (!selectedRegion.value) return true;
   if (!briefingData.value || !briefingData.value.sourcesProcessed) return false;
   return briefingData.value.sourcesProcessed.some((src) =>
-    src.regions?.some((reg) => mapPrefectureToRegion(reg) === selectedRegion.value)
+    src.regions?.some(
+      (reg) => mapPrefectureToRegion(reg) === selectedRegion.value,
+    ),
   );
 });
 
@@ -741,12 +837,17 @@ const triggerTargetedRegionScan = async (regionId: string) => {
   if (!name) return;
 
   // Backup current briefing if we don't already have one backed up
-  if (briefingData.value && !backupBriefingData.value && !activeSearchQuery.value) {
+  if (
+    briefingData.value &&
+    !backupBriefingData.value &&
+    !activeSearchQuery.value
+  ) {
     backupBriefingData.value = briefingData.value;
   }
 
   const queryLang = targetLanguage.value === "ja" ? "ja" : "en";
-  activeSearchQuery.value = queryLang === "ja" ? `${name.ja} ニュース` : `${name.en} news`;
+  activeSearchQuery.value =
+    queryLang === "ja" ? `${name.ja} ニュース` : `${name.en} news`;
   selectedRegion.value = regionId;
   await fetchNews();
 };

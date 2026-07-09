@@ -178,21 +178,28 @@ export default defineEventHandler(async (event) => {
         query: validatedQuery.query,
         maxResults: validatedQuery.limit,
         category:
-          validatedQuery.category === "all" ? undefined : validatedQuery.category,
+          validatedQuery.category === "all"
+            ? undefined
+            : validatedQuery.category,
         timeRange: validatedQuery.timeRange,
         startDate: validatedQuery.startDate,
         endDate: validatedQuery.endDate,
         ...(validatedQuery.language === "ja" ? { language: "ja" } : {}),
         apiKey: config.tavilyApiKey as string,
       });
-      rawNewsItems = tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
+      rawNewsItems =
+        tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
     } else {
       const [domesticResponse, internationalResponse] = await Promise.all([
         tavilyService.searchJapanNews({
-          query: validatedQuery.query ? `${validatedQuery.query} 日本` : undefined,
+          query: validatedQuery.query
+            ? `${validatedQuery.query} 日本`
+            : undefined,
           maxResults: Math.max(5, Math.ceil(validatedQuery.limit / 2)),
           category:
-            validatedQuery.category === "all" ? undefined : validatedQuery.category,
+            validatedQuery.category === "all"
+              ? undefined
+              : validatedQuery.category,
           timeRange: validatedQuery.timeRange,
           startDate: validatedQuery.startDate,
           endDate: validatedQuery.endDate,
@@ -203,7 +210,9 @@ export default defineEventHandler(async (event) => {
           query: validatedQuery.query,
           maxResults: Math.max(5, Math.ceil(validatedQuery.limit / 2)),
           category:
-            validatedQuery.category === "all" ? undefined : validatedQuery.category,
+            validatedQuery.category === "all"
+              ? undefined
+              : validatedQuery.category,
           timeRange: validatedQuery.timeRange,
           startDate: validatedQuery.startDate,
           endDate: validatedQuery.endDate,
@@ -214,12 +223,16 @@ export default defineEventHandler(async (event) => {
       // Format Tavily results to raw NewsItem format
       const domesticItems =
         tavilyService.formatTavilyResultsToNewsItems(domesticResponse);
-      const internationalItems =
-        tavilyService.formatTavilyResultsToNewsItems(internationalResponse);
-      
+      const internationalItems = tavilyService.formatTavilyResultsToNewsItems(
+        internationalResponse,
+      );
+
       // Combine and deduplicate articles by URL or title
       const combinedNewsItems = [...domesticItems, ...internationalItems];
-      const uniqueItemsMap = new Map<string, typeof combinedNewsItems[number]>();
+      const uniqueItemsMap = new Map<
+        string,
+        (typeof combinedNewsItems)[number]
+      >();
       for (const item of combinedNewsItems) {
         const key = item.url || item.title;
         uniqueItemsMap.set(key, item);

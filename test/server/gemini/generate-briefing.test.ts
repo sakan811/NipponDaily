@@ -28,7 +28,12 @@ describe("GeminiService", () => {
         thematicAnalysis: "Test Analysis",
         overallCredibilityScore: 0.8,
         sourcesProcessed: [
-          { title: "Test", source: "NHK", url: "https://nhk.jp", regions: ["Tokyo"] },
+          {
+            title: "Test",
+            source: "NHK",
+            url: "https://nhk.jp",
+            regions: ["Tokyo"],
+          },
         ],
         regionsAffected: ["Tokyo"],
       }),
@@ -193,7 +198,12 @@ describe("GeminiService", () => {
         overallCredibilityScore: 0.8,
         sourcesProcessed: [
           // No url field here — should match by title
-          { title: "Test NHK Article", source: "NHK", credibilityScore: 0.9, regions: [] },
+          {
+            title: "Test NHK Article",
+            source: "NHK",
+            credibilityScore: 0.9,
+            regions: [],
+          },
         ],
         regionsAffected: [],
       }),
