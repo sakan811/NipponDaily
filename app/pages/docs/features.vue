@@ -31,7 +31,11 @@
             color="secondary"
             icon="i-heroicons-arrow-left"
             block
-            @click="mobileMenuOpen = false"
+            @click="
+              () => {
+                mobileMenuOpen = false;
+              }
+            "
           />
         </div>
       </template>
@@ -80,6 +84,18 @@ const features = [
     icon: "i-heroicons-link",
   },
   {
+    title: "Interactive Japan Map",
+    description:
+      "Visual SVG map of Japan showing active news density, letting readers dynamically filter briefings by region or trigger targeted localized news searches.",
+    icon: "i-heroicons-map",
+  },
+  {
+    title: "Multilingual AI Synthesis",
+    description:
+      "Translates and synthesizes news briefings in real-time into a wide variety of target languages (supported by Nuxt UI locales/ISO 639-1).",
+    icon: "i-heroicons-globe-alt",
+  },
+  {
     title: "AI Trust Scoring",
     description:
       "Automated credibility assessment based on source reputation, domain authority, and content quality metrics.",
@@ -113,7 +129,7 @@ const features = [
     title: "Bilingual Source Verification",
     description:
       "Displays original Japanese article titles in parentheses next to the translation, with direct links and favicons for easy cross-referencing.",
-    icon: "i-heroicons-globe-alt",
+    icon: "i-heroicons-book-open",
   },
   {
     title: "Adaptive Rate Limiting",

@@ -10,10 +10,11 @@
 
 - **Consolidated AI Briefing**: Synthesizes multiple news sources into a single, cohesive, high-level briefing with a primary headline and structured executive summary.
 - **Cross-Source Thematic Analysis**: Dynamic analysis identifying relationships, consensus, or discrepancies between different publications.
-- **Multilingual Intelligence**: Real-time translation of curated news and synthesized briefings into a wide variety of target languages.
+- **Multilingual AI Briefings**: Real-time translation of synthesized briefings into a wide variety of target languages (supported by Nuxt UI locales/ISO 639-1).
+- **Interactive Regional Map & Filtering**: Interactive SVG map of Japan to visualize news density and dynamically filter sources by region or launch targeted local news scans.
 - **Visual Trust Scoring**: Multi-level credibility assessments (overall and per-source) directly evaluated by Google Gemini AI with HSL-color-gradient visuals.
 - **Customizable Discovery**: Fine-grained filtering by traditional category channels and precise date ranges (preset or custom).
-- **Smart UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for an immersive, fast, responsive editorial layout.
+- **Smart & Bilingual UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for an immersive, fast, responsive editorial layout that translates instantly between English and Japanese.
 - **Robust Security**: Redis-based sliding-window rate limiting to manage API usage and costs.
 - **Developer Debug Mode**: Specialized configuration flag to test rate limits, failures, and fallbacks without consuming API quotas.
 

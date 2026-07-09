@@ -31,7 +31,11 @@
             color="secondary"
             icon="i-heroicons-arrow-left"
             block
-            @click="mobileMenuOpen = false"
+            @click="
+              () => {
+                mobileMenuOpen = false;
+              }
+            "
           />
         </div>
       </template>
@@ -117,6 +121,17 @@
             and prevents service abuse.
           </p>
         </UCard>
+
+        <UCard>
+          <template #header>
+            <h4 class="font-bold">Interactive Japan Map</h4>
+          </template>
+          <p class="text-sm">
+            SVG-based component visualizing news density by region. Filters news
+            sources dynamically or triggers targeted Tavily search requests for
+            regional news.
+          </p>
+        </UCard>
       </div>
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
@@ -128,6 +143,37 @@
         to simulate API failures, rate limit resets, and AI fallback states,
         allowing for exhaustive layout testing without consuming real quotas.
       </p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
+        Regional Intelligence & Map Interaction
+      </h2>
+
+      <p class="mb-4">
+        NipponDaily integrates geographical metadata directly into the search
+        and synthesis pipeline:
+      </p>
+
+      <ul class="list-disc pl-6 mb-6 space-y-2">
+        <li>
+          <strong>AI Region Extraction:</strong> Google Gemini analyzes the
+          content of all retrieved articles to identify which Japanese
+          prefectures or regions (e.g., Kanto, Kansai, Tohoku, Hokkaido,
+          Okinawa) are featured, mapping them into the
+          <code>regionsAffected</code> data field.
+        </li>
+        <li>
+          <strong>Interactive SVG Map (JapanMap.vue):</strong> Shows active
+          regions mentioned in the current news cycle. Clicking on a region
+          dynamically filters the active briefing to show only relevant local
+          sources.
+        </li>
+        <li>
+          <strong>Targeted Local Scans:</strong> If no articles in the current
+          briefing relate to the selected region, the interface allows
+          triggering a dedicated Tavily search using localized regional queries
+          (e.g., "東北 ニュース" or "Tohoku news") to pull fresh local news.
+        </li>
+      </ul>
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
         Color System
@@ -239,6 +285,9 @@ const mobileMenuOpen = ref(false);
 const architectureDiagram = `
 graph TD
     User([User]) <--> Frontend[Nuxt 4 App]
+    subgraph "Frontend Layer"
+        Frontend <--> Map[Interactive Japan Map]
+    end
     Frontend <--> API[Nitro Engine]
     
     subgraph "Processing Layer"
