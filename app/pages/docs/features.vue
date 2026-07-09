@@ -74,9 +74,9 @@ const features = [
     icon: "i-heroicons-document-text",
   },
   {
-    title: "Cross-Source Analysis",
+    title: "Cross-Source Perspective Analysis",
     description:
-      "Thematic synthesis that identifies relationships, corroborations, and contrasting viewpoints across different publishers.",
+      "Thematic synthesis that explicitly compares and contrasts viewpoints, focus, and tone of domestic Japanese outlets with global/Western media.",
     icon: "i-heroicons-link",
   },
   {
@@ -86,9 +86,15 @@ const features = [
     icon: "i-heroicons-shield-check",
   },
   {
-    title: "Multilingual Intelligence",
+    title: "Bilingual Search Pipeline",
     description:
-      "Seamless translation of Japanese news context into your preferred language while preserving journalistic nuance.",
+      "Queries Tavily using native Japanese queries to capture authentic domestic sources, and English queries for international perspectives.",
+    icon: "i-heroicons-magnifying-glass",
+  },
+  {
+    title: "Bilingual Navigation & UI",
+    description:
+      "Entire interface—from subtitles and calendars to loaders and buttons—translates instantly between English and Japanese.",
     icon: "i-heroicons-language",
   },
   {
@@ -104,9 +110,9 @@ const features = [
     icon: "i-heroicons-arrow-path",
   },
   {
-    title: "Source Verification",
+    title: "Bilingual Source Verification",
     description:
-      "Visual source identification through dynamically fetched favicons and direct links to original journalistic articles.",
+      "Displays original Japanese article titles in parentheses next to the translation, with direct links and favicons for easy cross-referencing.",
     icon: "i-heroicons-globe-alt",
   },
   {
