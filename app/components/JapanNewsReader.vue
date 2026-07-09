@@ -608,12 +608,7 @@ const minDate = new CalendarDate(2020, 1, 1);
 const maxDate = today;
 const oneWeekAgo = today.subtract({ days: 7 });
 
-interface CalendarDateLike {
-  year: number;
-  month: number;
-  day: number;
-}
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const customDateRange = ref<any>({
   start: oneWeekAgo,
   end: today,
