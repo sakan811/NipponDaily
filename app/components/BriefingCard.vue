@@ -10,11 +10,11 @@
         <div class="flex items-center justify-between gap-2 mb-3">
           <div class="flex items-center gap-2">
             <UBadge color="primary" variant="soft" size="md">
-              {{ briefing.publishTimeRange || "Recent News" }}
+              {{ briefing.publishTimeRange || t.recentNews }}
             </UBadge>
             <UTooltip
               v-if="briefing.isAiFallback"
-              text="AI Synthesis Failed - Displaying Raw Data"
+              :text="t.aiFailed"
             >
               <UIcon
                 name="i-heroicons-exclamation-triangle"
@@ -32,7 +32,7 @@
             }"
           >
             <UIcon name="i-heroicons-shield-check" class="w-4 h-4 mr-1" />
-            Trust Score:
+            {{ t.trustScore }}:
             {{ Math.round(briefing.overallCredibilityScore * 100) }}%
           </div>
         </div>
@@ -43,20 +43,6 @@
           {{ briefing.mainHeadline }}
         </h2>
 
-        <!-- Regions & Prefectures Affected Tags -->
-        <div
-          v-if="briefing.regionsAffected && briefing.regionsAffected.length > 0"
-          class="flex flex-wrap gap-1.5 mt-3"
-        >
-          <span
-            v-for="region in briefing.regionsAffected"
-            :key="region"
-            class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 border border-stone-200/40 dark:border-stone-700 text-[11px] font-sans font-medium tracking-wide shadow-xs"
-          >
-            <span>{{ getRegionEmoji(region) }}</span>
-            <span>{{ region }}</span>
-          </span>
-        </div>
       </div>
 
       <div>
@@ -64,7 +50,7 @@
           class="text-xs font-bold text-secondary-500 uppercase tracking-wider mb-2 flex items-center gap-1.5"
         >
           <UIcon name="i-heroicons-document-text" class="w-4 h-4" />
-          Summary
+          {{ t.summary }}
         </h3>
         <div
           class="markdown-content text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200 [word-wrap:break-word]"
@@ -79,7 +65,7 @@
           class="text-xs font-bold text-primary-600 dark:text-primary-400 uppercase tracking-wider mb-2 flex items-center gap-1.5"
         >
           <UIcon name="i-heroicons-link" class="w-4 h-4" />
-          Cross-Source Analysis
+          {{ t.crossSource }}
         </h3>
         <div
           class="markdown-content-small text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-300"
@@ -95,7 +81,7 @@
           class="text-xs font-bold text-secondary-500 uppercase tracking-wider mb-4 flex items-center gap-1.5"
         >
           <UIcon name="i-heroicons-globe-alt" class="w-4 h-4" />
-          Sources Consulted ({{ briefing.sourcesProcessed.length }})
+          {{ t.sourcesConsulted }} ({{ briefing.sourcesProcessed.length }})
         </h3>
 
         <ul class="space-y-3">
@@ -159,13 +145,13 @@
                     :style="{
                       color: getCredibilityColor(source.credibilityScore),
                     }"
-                    :title="`Source Trust: ${Math.round(source.credibilityScore * 100)}%`"
+                    :title="`${t.sourceTrust}: ${Math.round(source.credibilityScore * 100)}%`"
                   >
                     <UIcon
                       name="i-heroicons-shield-check"
                       class="w-3.5 h-3.5 mr-0.5"
                     />
-                    Trust Score:
+                    {{ t.trustScore }}:
                     {{ Math.round(source.credibilityScore * 100) }}%
                   </span>
                 </div>
@@ -178,7 +164,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="text-gray-400 hover:text-primary-500 p-1 flex-shrink-0"
-              aria-label="Read original article"
+              :aria-label="t.readOriginal"
             >
               <UIcon
                 name="i-heroicons-arrow-top-right-on-square"
@@ -195,30 +181,41 @@
 <script setup lang="ts">
 import type { NewsBriefing } from "~~/types/index";
 import { marked } from "marked";
+import { computed } from "vue";
 
-defineProps<{
+const props = defineProps<{
   briefing: NewsBriefing;
+  language?: string;
 }>();
 
-const getRegionEmoji = (region: string): string => {
-  const norm = region.toLowerCase().trim();
-  if (norm.includes("tokyo")) return "🗼";
-  if (norm.includes("kyoto")) return "⛩️";
-  if (norm.includes("osaka")) return "🐙";
-  if (norm.includes("hokkaido")) return "❄️";
-  if (norm.includes("okinawa")) return "🌴";
-  if (norm.includes("tohoku")) return "🍑";
-  if (norm.includes("kyushu")) return "🌋";
-  if (norm.includes("kanto")) return "🏙️";
-  if (norm.includes("kansai")) return "🏯";
-  if (
-    norm.includes("nationwide") ||
-    norm.includes("national") ||
-    norm.includes("japan")
-  )
-    return "🇯🇵";
-  return "📍";
-};
+const translations = {
+  en: {
+    recentNews: "Recent News",
+    aiFailed: "AI Synthesis Failed - Displaying Raw Data",
+    trustScore: "Trust Score",
+    summary: "Summary",
+    crossSource: "Cross-Source Analysis",
+    sourcesConsulted: "Sources Consulted",
+    readOriginal: "Read original article",
+    sourceTrust: "Source Trust",
+  },
+  ja: {
+    recentNews: "最近のニュース",
+    aiFailed: "AI要約に失敗しました - 生データを表示中",
+    trustScore: "信頼度スコア",
+    summary: "要約",
+    crossSource: "複数ソースのクロス分析",
+    sourcesConsulted: "参照されたニュースソース",
+    readOriginal: "元の記事を読む",
+    sourceTrust: "ソース信頼度",
+  },
+} as const;
+
+const t = computed(() => {
+  const lang = props.language === "ja" ? "ja" : "en";
+  return translations[lang];
+});
+
 
 // Helper function to generate gradient color from red (0%) to green (100%)
 const getCredibilityColor = (score: number | undefined): string => {

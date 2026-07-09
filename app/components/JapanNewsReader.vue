@@ -26,7 +26,7 @@
 
           <div class="hidden lg:flex items-center gap-2">
             <label for="targetLanguage" class="text-sm text-secondary-500">
-              Lang:
+              {{ t.langLabel }}
             </label>
             <ULocaleSelect
               id="targetLanguage"
@@ -47,7 +47,7 @@
               @click="refreshNews"
             >
               <span class="hidden sm:inline">{{
-                loading ? "Synthesizing..." : "Generate Briefing"
+                loading ? t.synthesizing : t.generateBriefing
               }}</span>
             </UButton>
           </div>
@@ -62,7 +62,7 @@
                 for="mobileTargetLanguage"
                 class="text-sm text-secondary-500"
               >
-                Translate to:
+                {{ t.translateLabel }}
               </label>
               <ULocaleSelect
                 id="mobileTargetLanguage"
@@ -85,7 +85,7 @@
                 }
               "
             >
-              {{ loading ? "Synthesizing..." : "Generate Briefing" }}
+              {{ loading ? t.synthesizing : t.generateBriefing }}
             </UButton>
           </div>
         </div>
@@ -99,13 +99,13 @@
         <div>
           <div class="mb-3 sm:mb-4">
             <p class="text-sm text-secondary-500 mb-2 max-w-fit">
-              <em>Select a time range to focus the search results</em>
+              <em>{{ t.timeRangeSubtitle }}</em>
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
               <UTooltip
                 v-for="timeRange in timeRangeOptions"
                 :key="timeRange.id"
-                :text="`Filter news by ${timeRange.name.toLowerCase()}`"
+                :text="targetLanguage === 'ja' ? `${getTimeRangeLabel(timeRange.id)}でニュースをフィルタリング` : `Filter news by ${timeRange.name.toLowerCase()}`"
               >
                 <UButton
                   :color="
@@ -115,7 +115,7 @@
                     selectedTimeRange === timeRange.id ? 'solid' : 'outline'
                   "
                   size="xs"
-                  :label="timeRange.name"
+                  :label="getTimeRangeLabel(timeRange.id)"
                   @click="selectedTimeRange = timeRange.id"
                 />
               </UTooltip>
@@ -143,7 +143,7 @@
                             .padStart(2, '0')}-${customDateRange.end.day
                             .toString()
                             .padStart(2, '0')}`
-                        : 'Select date range'
+                        : t.selectDateRange
                     "
                     variant="outline"
                     color="secondary"
@@ -167,7 +167,7 @@
 
           <div class="mb-4 sm:mb-6">
             <p class="text-sm text-secondary-500 mb-2 max-w-fit">
-              <em>Choose a category to focus the briefing</em>
+              <em>{{ t.categorySubtitle }}</em>
             </p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
               <UTooltip
@@ -175,8 +175,8 @@
                 :key="category.id"
                 :text="
                   category.id === 'all'
-                    ? 'Show all categories'
-                    : `Filter news by ${category.name}`
+                    ? (targetLanguage === 'ja' ? 'すべてのカテゴリを表示' : 'Show all categories')
+                    : (targetLanguage === 'ja' ? `${t.categories[category.id as keyof typeof t.categories]}でニュースをフィルタリング` : `Filter news by ${category.name}`)
                 "
               >
                 <UButton
@@ -187,7 +187,7 @@
                     selectedCategory === category.id ? 'solid' : 'outline'
                   "
                   size="xs"
-                  :label="category.name"
+                  :label="t.categories[category.id as keyof typeof t.categories]"
                   @click="selectedCategory = category.id"
                 />
               </UTooltip>
@@ -256,12 +256,14 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-semibold text-warning-500 mb-2">
-                    Daily Limit Reached
+                    {{ t.dailyLimitTitle }}
                   </h3>
                   <p class="text-secondary-500 mb-2">
                     {{
                       error ||
-                      "Daily rate limit exceeded (3 request/day). Please try again tomorrow."
+                      (targetLanguage === "ja"
+                        ? "本日の制限（1日3リクエスト）に達しました。明日もう一度お試しください。"
+                        : "Daily rate limit exceeded (3 request/day). Please try again tomorrow.")
                     }}
                   </p>
                   <ClientOnly>
@@ -269,7 +271,7 @@
                       v-if="rateLimitResetTime || (isDebugErrorUi && !error)"
                       class="text-sm text-secondary-400"
                     >
-                      Resets at:
+                      {{ t.resetsAt }}
                       {{
                         rateLimitResetTime ||
                         new Date(Date.now() + 86400000).toLocaleString()
@@ -282,7 +284,7 @@
                   :disabled="loading"
                   @click="refreshNews"
                 >
-                  Try Again
+                  {{ t.tryAgain }}
                 </UButton>
               </div>
 
@@ -294,7 +296,7 @@
                   }}
                 </p>
                 <UButton color="error" :disabled="loading" @click="refreshNews">
-                  Try Again
+                  {{ t.tryAgain }}
                 </UButton>
               </div>
             </div>
@@ -326,7 +328,7 @@
               class="text-center text-secondary-500 text-sm mt-4 animate-pulse flex items-center justify-center gap-2"
             >
               <UIcon name="i-heroicons-cpu-chip" class="w-5 h-5" />
-              AI is currently synthesizing the latest news from Japan...
+              {{ t.aiSynthesizingMsg }}
             </p>
           </div>
 
@@ -336,11 +338,11 @@
             >
               Mock: AI Fallback Card
             </div>
-            <BriefingCard :briefing="mockFallbackBriefing" />
+            <BriefingCard :briefing="mockFallbackBriefing" :language="targetLanguage" />
           </div>
 
           <div v-if="briefingData" class="space-y-4">
-            <BriefingCard :briefing="briefingData" />
+            <BriefingCard :briefing="briefingData" :language="targetLanguage" />
           </div>
 
           <div
@@ -364,13 +366,12 @@
                 />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-2">Ready to Synthesize</h3>
+            <h3 class="text-xl font-semibold mb-2">{{ t.readyToSynthesizeTitle }}</h3>
             <p
               class="mb-4 text-secondary-500 dark:text-secondary-400 max-w-lg mx-auto"
               style="contain: layout style"
             >
-              Select your preferred time range and category, then click
-              "Generate Briefing" to create a synthesized report.
+              {{ t.readyToSynthesizeMsg }}
             </p>
           </div>
         </div>
@@ -380,12 +381,92 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { CalendarDate } from "@internationalized/date";
 import type { NewsBriefing } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
 import * as locales from "@nuxt/ui/locale";
+
+const translations = {
+  en: {
+    timeRangeSubtitle: "Select a time range to focus the search results",
+    categorySubtitle: "Choose a category to focus the briefing",
+    generateBriefing: "Generate Briefing",
+    synthesizing: "Synthesizing...",
+    aiSynthesizingMsg: "AI is currently synthesizing the latest news from Japan...",
+    readyToSynthesizeTitle: "Ready to Synthesize",
+    readyToSynthesizeMsg: "Select your preferred time range and category, then click \"Generate Briefing\" to create a synthesized report.",
+    dailyLimitTitle: "Daily Limit Reached",
+    resetsAt: "Resets at:",
+    tryAgain: "Try Again",
+    langLabel: "Lang:",
+    translateLabel: "Translate to:",
+    allTime: "All Time",
+    today: "Today",
+    thisWeek: "This Week",
+    thisMonth: "This Month",
+    thisYear: "This Year",
+    customRange: "Custom Range",
+    selectDateRange: "Select date range",
+    categories: {
+      all: "All News",
+      society: "Society & Prefectures",
+      tech: "Tech & Mobility",
+      "pop-culture": "Pop Culture & Gaming",
+      tourism: "Travel & Heritage",
+      food: "Food & Gastronomy",
+      "disaster-prep": "Nature & Resilience",
+    }
+  },
+  ja: {
+    timeRangeSubtitle: "検索結果を絞り込む期間を選択してください",
+    categorySubtitle: "ブリーフィングのカテゴリを選択してください",
+    generateBriefing: "ブリーフィングを生成",
+    synthesizing: "要約を生成中...",
+    aiSynthesizingMsg: "AIが日本の最新ニュースを分析・要約しています...",
+    readyToSynthesizeTitle: "ブリーフィング生成の準備完了",
+    readyToSynthesizeMsg: "お好みの期間とカテゴリを選択し、「ブリーフィングを生成」をクリックして要約レポートを作成してください。",
+    dailyLimitTitle: "本日の制限に達しました",
+    resetsAt: "リセット時刻:",
+    tryAgain: "再試行",
+    langLabel: "表示言語:",
+    translateLabel: "翻訳先言語:",
+    allTime: "全期間",
+    today: "今日",
+    thisWeek: "今週",
+    thisMonth: "今月",
+    thisYear: "今年",
+    customRange: "カスタム範囲",
+    selectDateRange: "期間を選択してください",
+    categories: {
+      all: "すべてのニュース",
+      society: "社会・地方",
+      tech: "技術・産業",
+      "pop-culture": "ポップカルチャー・ゲーム",
+      tourism: "観光・遺産",
+      food: "和食・食文化",
+      "disaster-prep": "自然・防災",
+    }
+  }
+} as const;
+
+const t = computed(() => {
+  const lang = targetLanguage.value === "ja" ? "ja" : "en";
+  return translations[lang];
+});
+
+const getTimeRangeLabel = (id: string) => {
+  switch (id) {
+    case "none": return t.value.allTime;
+    case "day": return t.value.today;
+    case "week": return t.value.thisWeek;
+    case "month": return t.value.thisMonth;
+    case "year": return t.value.thisYear;
+    case "custom": return t.value.customRange;
+    default: return id;
+  }
+};
 
 // Import components (Nuxt usually auto-imports, but explicitly declaring helps some IDEs)
 import BriefingCard from "./BriefingCard.vue";

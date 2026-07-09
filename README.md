@@ -12,7 +12,6 @@
 - **Cross-Source Thematic Analysis**: Dynamic analysis identifying relationships, consensus, or discrepancies between different publications.
 - **Multilingual Intelligence**: Real-time translation of curated news and synthesized briefings into a wide variety of target languages.
 - **Visual Trust Scoring**: Multi-level credibility assessments (overall and per-source) directly evaluated by Google Gemini AI with HSL-color-gradient visuals.
-- **Prefectural Tagging**: Automatically detects and visually badges specific Japanese regions or prefectures affected by the news (with custom local emojis).
 - **Customizable Discovery**: Fine-grained filtering by traditional category channels and precise date ranges (preset or custom).
 - **Smart UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for an immersive, fast, responsive editorial layout.
 - **Robust Security**: Redis-based sliding-window rate limiting to manage API usage and costs.
