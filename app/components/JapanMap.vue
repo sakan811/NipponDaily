@@ -1,24 +1,45 @@
 <template>
-  <div class="relative bg-white/40 dark:bg-stone-900/30 backdrop-blur-sm border border-stone-200/60 dark:border-stone-800 rounded-xl p-4 sm:p-6 shadow-sm overflow-hidden select-none">
+  <div
+    class="relative bg-white/40 dark:bg-stone-900/30 backdrop-blur-sm border border-stone-200/60 dark:border-stone-800 rounded-xl p-4 sm:p-6 shadow-sm overflow-hidden select-none"
+  >
     <!-- Shoji grid decorative background inside the card -->
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none"
+    />
 
     <div class="relative flex flex-col items-center">
       <!-- Title & Controls -->
-      <div class="w-full flex items-center justify-between mb-4 border-b border-stone-200/50 dark:border-stone-800/80 pb-3">
+      <div
+        class="w-full flex items-center justify-between mb-4 border-b border-stone-200/50 dark:border-stone-800/80 pb-3"
+      >
         <div>
-          <h3 class="font-serif font-bold text-base text-stone-900 dark:text-white flex items-center gap-2">
+          <h3
+            class="font-serif font-bold text-base text-stone-900 dark:text-white flex items-center gap-2"
+          >
             <UIcon name="i-heroicons-map" class="text-primary-500 w-5 h-5" />
-            {{ language === 'ja' ? '日本ニュースマップ' : 'Japan News Map' }}
+            {{ language === "ja" ? "日本ニュースマップ" : "Japan News Map" }}
           </h3>
-          <p class="text-[10px] text-stone-400 dark:text-stone-500 font-sans tracking-wide mt-0.5">
-            {{ language === 'ja' ? '地域を選択してブリーフィングを絞り込みます' : 'Select a region to filter the news briefings' }}
+          <p
+            class="text-[10px] text-stone-400 dark:text-stone-500 font-sans tracking-wide mt-0.5"
+          >
+            {{
+              language === "ja"
+                ? "地域を選択してブリーフィングを絞り込みます"
+                : "Select a region to filter the news briefings"
+            }}
           </p>
         </div>
         <div class="flex items-center gap-2">
-          <div v-if="isNationwide && !selectedRegion" class="flex items-center gap-1 bg-primary-500/10 dark:bg-primary-500/5 px-2 py-0.5 rounded-full border border-primary-500/20 dark:border-primary-500/10 text-[9px] text-primary-600 dark:text-primary-400">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse" />
-            <span>{{ language === 'ja' ? '全国共通ニュース' : 'Nationwide news' }}</span>
+          <div
+            v-if="isNationwide && !selectedRegion"
+            class="flex items-center gap-1 bg-primary-500/10 dark:bg-primary-500/5 px-2 py-0.5 rounded-full border border-primary-500/20 dark:border-primary-500/10 text-[9px] text-primary-600 dark:text-primary-400"
+          >
+            <span
+              class="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse"
+            />
+            <span>{{
+              language === "ja" ? "全国共通ニュース" : "Nationwide news"
+            }}</span>
           </div>
           <UButton
             v-if="selectedRegion"
@@ -28,13 +49,15 @@
             icon="i-heroicons-arrow-left"
             @click="clearSelection"
           >
-            {{ language === 'ja' ? '全体に戻る' : 'Back to All' }}
+            {{ language === "ja" ? "全体に戻る" : "Back to All" }}
           </UButton>
         </div>
       </div>
 
       <!-- SVG Map Wrapper -->
-      <div class="relative w-full max-w-[420px] aspect-square flex items-center justify-center">
+      <div
+        class="relative w-full max-w-[420px] aspect-square flex items-center justify-center"
+      >
         <svg
           viewBox="0 0 500 500"
           class="w-full h-full drop-shadow-sm transition-all"
@@ -42,11 +65,26 @@
         >
           <!-- Grid Background (Shoji visual cue) -->
           <defs>
-            <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(128, 128, 128, 0.05)" stroke-width="1" />
+            <pattern
+              id="mapGrid"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="rgba(128, 128, 128, 0.05)"
+                stroke-width="1"
+              />
             </pattern>
           </defs>
-          <rect width="500" height="500" fill="url(#mapGrid)" pointer-events="none" />
+          <rect
+            width="500"
+            height="500"
+            fill="url(#mapGrid)"
+            pointer-events="none"
+          />
 
           <!-- Okinawa Inset Box Border -->
           <rect
@@ -79,10 +117,10 @@
                 selectedRegion === region.id
                   ? 'fill-primary-500/25 dark:fill-primary-500/20 stroke-primary-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.3)]'
                   : isRegionActive(region.id)
-                  ? 'fill-primary-500/12 dark:fill-primary-500/6 stroke-primary-500/70 hover:fill-primary-500/15 hover:stroke-primary-500 hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.2)]'
-                  : isNationwide
-                  ? 'fill-primary-500/5 dark:fill-primary-500/3 stroke-primary-500/30 hover:fill-primary-500/15 hover:stroke-primary-500 hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.2)]'
-                  : 'fill-stone-100/40 dark:fill-stone-900/20 stroke-stone-300 dark:stroke-stone-800 hover:fill-stone-200/40 dark:hover:fill-stone-800/40 hover:stroke-stone-400 dark:hover:stroke-stone-700'
+                    ? 'fill-primary-500/12 dark:fill-primary-500/6 stroke-primary-500/70 hover:fill-primary-500/15 hover:stroke-primary-500 hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.2)]'
+                    : isNationwide
+                      ? 'fill-primary-500/5 dark:fill-primary-500/3 stroke-primary-500/30 hover:fill-primary-500/15 hover:stroke-primary-500 hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.2)]'
+                      : 'fill-stone-100/40 dark:fill-stone-900/20 stroke-stone-300 dark:stroke-stone-800 hover:fill-stone-200/40 dark:hover:fill-stone-800/40 hover:stroke-stone-400 dark:hover:stroke-stone-700',
               ]"
               @click="onRegionClick(region.id)"
               @mouseenter="hoveredRegion = region"
@@ -102,14 +140,14 @@
                   selectedRegion === region.id
                     ? 'fill-primary-600 dark:fill-primary-400 font-bold'
                     : isRegionActive(region.id)
-                    ? 'fill-stone-800 dark:fill-stone-200 font-semibold'
-                    : isNationwide
-                    ? 'fill-stone-500 dark:fill-stone-400'
-                    : 'fill-stone-400 dark:fill-stone-600'
+                      ? 'fill-stone-800 dark:fill-stone-200 font-semibold'
+                      : isNationwide
+                        ? 'fill-stone-500 dark:fill-stone-400'
+                        : 'fill-stone-400 dark:fill-stone-600',
                 ]"
                 text-anchor="middle"
               >
-                {{ language === 'ja' ? region.jaName : region.name }}
+                {{ language === "ja" ? region.jaName : region.name }}
               </text>
 
               <!-- Optional Count Indicator / Active Dot -->
@@ -137,7 +175,9 @@
             v-if="hoveredRegion"
             class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-stone-900/95 dark:bg-stone-950/95 backdrop-blur-md border border-stone-800 dark:border-stone-700 text-white rounded-lg px-3 py-2 text-xs shadow-lg flex flex-col gap-1 min-w-[130px] z-20 pointer-events-none"
           >
-            <div class="flex items-center justify-between gap-3 border-b border-stone-800 pb-1">
+            <div
+              class="flex items-center justify-between gap-3 border-b border-stone-800 pb-1"
+            >
               <span class="font-serif font-bold text-primary-400">
                 {{ hoveredRegion.name }} ({{ hoveredRegion.jaName }})
               </span>
@@ -148,14 +188,42 @@
             </div>
             <div class="text-[10px] text-stone-300 font-sans space-y-0.5">
               <div class="flex justify-between gap-4">
-                <span>{{ language === 'ja' ? 'アクティブ' : 'Status' }}:</span>
-                <span class="font-semibold" :class="isRegionActive(hoveredRegion.id) ? 'text-primary-400' : 'text-stone-500'">
-                  {{ isRegionActive(hoveredRegion.id) ? (language === 'ja' ? 'ニュースあり' : 'Active News') : (isNationwide ? (language === 'ja' ? '全国共通ニュース' : 'Nationwide news') : (language === 'ja' ? 'ニュースなし' : 'No News')) }}
+                <span>{{ language === "ja" ? "アクティブ" : "Status" }}:</span>
+                <span
+                  class="font-semibold"
+                  :class="
+                    isRegionActive(hoveredRegion.id)
+                      ? 'text-primary-400'
+                      : 'text-stone-500'
+                  "
+                >
+                  {{
+                    isRegionActive(hoveredRegion.id)
+                      ? language === "ja"
+                        ? "ニュースあり"
+                        : "Active News"
+                      : isNationwide
+                        ? language === "ja"
+                          ? "全国共通ニュース"
+                          : "Nationwide news"
+                        : language === "ja"
+                          ? "ニュースなし"
+                          : "No News"
+                  }}
                 </span>
               </div>
-              <div v-if="isRegionActive(hoveredRegion.id) && getRegionNewsCount(hoveredRegion.id) > 0" class="flex justify-between gap-4">
-                <span>{{ language === 'ja' ? '記事数' : 'Articles' }}:</span>
-                <span class="font-bold text-white">{{ getRegionNewsCount(hoveredRegion.id) }} {{ language === 'ja' ? '件' : '' }}</span>
+              <div
+                v-if="
+                  isRegionActive(hoveredRegion.id) &&
+                  getRegionNewsCount(hoveredRegion.id) > 0
+                "
+                class="flex justify-between gap-4"
+              >
+                <span>{{ language === "ja" ? "記事数" : "Articles" }}:</span>
+                <span class="font-bold text-white"
+                  >{{ getRegionNewsCount(hoveredRegion.id) }}
+                  {{ language === "ja" ? "件" : "" }}</span
+                >
               </div>
             </div>
           </div>
@@ -163,18 +231,26 @@
       </div>
 
       <!-- Quick Legend Indicators -->
-      <div class="w-full grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-stone-200/50 dark:border-stone-800/80 text-[10px] text-stone-500 dark:text-stone-400 font-sans">
+      <div
+        class="w-full grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-stone-200/50 dark:border-stone-800/80 text-[10px] text-stone-500 dark:text-stone-400 font-sans"
+      >
         <div class="flex items-center gap-1.5 justify-center">
-          <span class="w-2.5 h-2.5 rounded border border-stone-300 dark:border-stone-800 bg-stone-100/40 dark:bg-stone-900/20" />
-          <span>{{ language === 'ja' ? '対象外' : 'Inactive' }}</span>
+          <span
+            class="w-2.5 h-2.5 rounded border border-stone-300 dark:border-stone-800 bg-stone-100/40 dark:bg-stone-900/20"
+          />
+          <span>{{ language === "ja" ? "対象外" : "Inactive" }}</span>
         </div>
         <div class="flex items-center gap-1.5 justify-center">
-          <span class="w-2.5 h-2.5 rounded border border-primary-500/70 bg-primary-500/10" />
-          <span>{{ language === 'ja' ? 'ニュースあり' : 'Active News' }}</span>
+          <span
+            class="w-2.5 h-2.5 rounded border border-primary-500/70 bg-primary-500/10"
+          />
+          <span>{{ language === "ja" ? "ニュースあり" : "Active News" }}</span>
         </div>
         <div class="flex items-center gap-1.5 justify-center">
-          <span class="w-2.5 h-2.5 rounded border border-primary-500 bg-primary-500/20 shadow-[0_0_4px_rgba(249,115,22,0.3)]" />
-          <span>{{ language === 'ja' ? '選択中' : 'Selected' }}</span>
+          <span
+            class="w-2.5 h-2.5 rounded border border-primary-500 bg-primary-500/20 shadow-[0_0_4px_rgba(249,115,22,0.3)]"
+          />
+          <span>{{ language === "ja" ? "選択中" : "Selected" }}</span>
         </div>
       </div>
     </div>
@@ -309,7 +385,9 @@ const clearSelection = () => {
  */
 export const mapPrefectureToRegion = (name: string): string => {
   if (!name) return "";
-  const normalized = name.trim().toLowerCase()
+  const normalized = name
+    .trim()
+    .toLowerCase()
     .replace(/(prefecture|ken|fu|to|ko|region|\s)/g, "");
 
   const mapping: Record<string, string> = {

@@ -85,7 +85,8 @@ class TavilyService {
           const queryMapJa: Record<string, string> = {
             society: "日本 社会 地方 ニュース 人口減少 地方創生",
             tech: "日本 テクノロジー ロボット 自動車 半導体 ハイテク ニュース",
-            "pop-culture": "日本 アニメ 漫画 ゲーム 任天堂 ソニー エンタメ 最新ニュース",
+            "pop-culture":
+              "日本 アニメ 漫画 ゲーム 任天堂 ソニー エンタメ 最新ニュース",
             tourism: "日本 観光 旅行 温泉 地方 祭り 観光ニュース",
             food: "日本 食文化 和食 ラーメン グルメ 農業 伝統食 ニュース",
             "disaster-prep": "日本 災害 地震 台風 防災 気象情報 ニュース",

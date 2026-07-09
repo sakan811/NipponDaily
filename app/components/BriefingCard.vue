@@ -12,10 +12,7 @@
             <UBadge color="primary" variant="soft" size="md">
               {{ briefing.publishTimeRange || t.recentNews }}
             </UBadge>
-            <UTooltip
-              v-if="briefing.isAiFallback"
-              :text="t.aiFailed"
-            >
+            <UTooltip v-if="briefing.isAiFallback" :text="t.aiFailed">
               <UIcon
                 name="i-heroicons-exclamation-triangle"
                 class="w-5 h-5 text-warning-500 animate-pulse"
@@ -42,7 +39,6 @@
         >
           {{ briefing.mainHeadline }}
         </h2>
-
       </div>
 
       <div>
@@ -158,13 +154,18 @@
                     </span>
 
                     <!-- Regions Badges -->
-                    <template v-if="source.regions && source.regions.length > 0">
+                    <template
+                      v-if="source.regions && source.regions.length > 0"
+                    >
                       <span
                         v-for="reg in source.regions"
                         :key="reg"
                         class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium bg-primary-500/10 dark:bg-primary-500/5 text-primary-600 dark:text-primary-400 border border-primary-500/20 dark:border-primary-500/10 rounded"
                       >
-                        <UIcon name="i-heroicons-map-pin" class="w-3 h-3 text-primary-500" />
+                        <UIcon
+                          name="i-heroicons-map-pin"
+                          class="w-3 h-3 text-primary-500"
+                        />
                         {{ getRegionDisplayName(reg) }}
                       </span>
                     </template>
@@ -172,8 +173,11 @@
                       <span
                         class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 border border-stone-200/50 dark:border-stone-700/50 rounded"
                       >
-                        <UIcon name="i-heroicons-globe-alt" class="w-3 h-3 text-stone-400" />
-                        {{ language === 'ja' ? '全国共通' : 'Nationwide' }}
+                        <UIcon
+                          name="i-heroicons-globe-alt"
+                          class="w-3 h-3 text-stone-400"
+                        />
+                        {{ language === "ja" ? "全国共通" : "Nationwide" }}
                       </span>
                     </template>
                   </div>
@@ -239,7 +243,6 @@ const t = computed(() => {
   return translations[lang];
 });
 
-
 // Helper function to generate gradient color from red (0%) to green (100%)
 const getCredibilityColor = (score: number | undefined): string => {
   if (score === undefined || score === null) {
@@ -252,7 +255,7 @@ const getCredibilityColor = (score: number | undefined): string => {
 
 const getRegionDisplayName = (region: string) => {
   const normalized = region.trim();
-  
+
   const translations: Record<string, { en: string; ja: string }> = {
     tokyo: { en: "Tokyo", ja: "東京" },
     kyoto: { en: "Kyoto", ja: "京都" },
