@@ -93,286 +93,362 @@
     </UHeader>
 
     <main
-      class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-full overflow-x-hidden"
+      class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-7xl"
     >
-      <div class="grid grid-cols-1 gap-6 sm:gap-8">
-        <div>
-          <div class="mb-3 sm:mb-4">
-            <p class="text-sm text-secondary-500 mb-2 max-w-fit">
-              <em>{{ t.timeRangeSubtitle }}</em>
-            </p>
-            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
-              <UTooltip
-                v-for="timeRange in timeRangeOptions"
-                :key="timeRange.id"
-                :text="targetLanguage === 'ja' ? `${getTimeRangeLabel(timeRange.id)}でニュースをフィルタリング` : `Filter news by ${timeRange.name.toLowerCase()}`"
-              >
-                <UButton
-                  :color="
-                    selectedTimeRange === timeRange.id ? 'primary' : 'secondary'
-                  "
-                  :variant="
-                    selectedTimeRange === timeRange.id ? 'solid' : 'outline'
-                  "
-                  size="xs"
-                  :label="getTimeRangeLabel(timeRange.id)"
-                  @click="selectedTimeRange = timeRange.id"
-                />
-              </UTooltip>
-            </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        <!-- Sticky Map Column on Desktop -->
+        <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
+          <JapanMap
+            :active-regions="activeRegions"
+            :selected-region="selectedRegion"
+            :region-counts="regionCounts"
+            :language="targetLanguage"
+            :is-nationwide="isNationwideBriefing"
+            @select-region="handleRegionSelect"
+            @clear-region="clearSelection"
+          />
 
-            <div
-              v-if="selectedTimeRange === 'custom'"
-              class="mt-3 grid grid-cols-1 gap-4"
-            >
-              <div>
-                <UPopover>
-                  <UButton
-                    icon="i-heroicons-calendar-days-20-solid"
-                    :label="
-                      customDateRange.start && customDateRange.end
-                        ? `${customDateRange.start.year}-${customDateRange.start.month
-                            .toString()
-                            .padStart(2, '0')}-${customDateRange.start.day
-                            .toString()
-                            .padStart(
-                              2,
-                              '0',
-                            )} - ${customDateRange.end.year}-${customDateRange.end.month
-                            .toString()
-                            .padStart(2, '0')}-${customDateRange.end.day
-                            .toString()
-                            .padStart(2, '0')}`
-                        : t.selectDateRange
-                    "
-                    variant="outline"
-                    color="secondary"
-                    size="sm"
-                    block
-                  />
-                  <template #content>
-                    <UCalendar
-                      v-model="customDateRange"
-                      :min-value="minDate"
-                      :max-value="maxDate"
-                      :number-of-months="2"
-                      range
-                      class="p-2"
-                    />
-                  </template>
-                </UPopover>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-4 sm:mb-6">
-            <p class="text-sm text-secondary-500 mb-2 max-w-fit">
-              <em>{{ t.categorySubtitle }}</em>
-            </p>
-            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
-              <UTooltip
-                v-for="category in categories"
-                :key="category.id"
-                :text="
-                  category.id === 'all'
-                    ? (targetLanguage === 'ja' ? 'すべてのカテゴリを表示' : 'Show all categories')
-                    : (targetLanguage === 'ja' ? `${t.categories[category.id as keyof typeof t.categories]}でニュースをフィルタリング` : `Filter news by ${category.name}`)
-                "
-              >
-                <UButton
-                  :color="
-                    selectedCategory === category.id ? 'primary' : 'secondary'
-                  "
-                  :variant="
-                    selectedCategory === category.id ? 'solid' : 'outline'
-                  "
-                  size="xs"
-                  :label="t.categories[category.id as keyof typeof t.categories]"
-                  @click="selectedCategory = category.id"
-                />
-              </UTooltip>
-            </div>
-          </div>
-
+          <!-- In-depth regional query state / action if region selected -->
           <UCard
-            v-if="error || isDebugErrorUi"
-            data-testid="error-state"
-            :ui="{
-              root: 'w-full shadow-md text-center mb-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-lg',
-              body: 'p-4 sm:p-6',
-            }"
+            v-if="selectedRegion"
+            class="border border-stone-200/60 dark:border-stone-800 bg-white/50 dark:bg-stone-900/50 backdrop-blur-sm rounded-xl"
+            :ui="{ body: 'p-4' }"
           >
-            <div class="p-2">
-              <div
-                v-if="isDebugErrorUi && !error"
-                class="mb-6 p-3 bg-primary-50 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800 rounded-lg text-xs text-left"
-              >
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-bold text-primary-600 dark:text-primary-400"
-                    >DEBUG MODE: Error UI Testing</span
-                  >
-                  <UButton
-                    size="xs"
-                    color="primary"
-                    variant="soft"
-                    @click="isDebugRateLimit = !isDebugRateLimit"
-                  >
-                    Switch to
-                    {{ isDebugRateLimit ? "General" : "Rate Limit" }} UI
-                  </UButton>
-                </div>
-                <p class="text-secondary-500 leading-relaxed mb-2">
-                  This panel is only visible because
-                  <code
-                    class="bg-gray-200 dark:bg-gray-700 px-1 rounded text-primary-600 dark:text-primary-400"
-                    >DEBUG_ERROR_UI=true</code
-                  >
-                  is set. Below you can see the main error layouts and a mock
-                  AI-failed briefing card.
-                </p>
+            <div class="flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold text-stone-500 dark:text-stone-400">
+                  {{ targetLanguage === 'ja' ? '選択された地域:' : 'Selected Region:' }}
+                </span>
+                <UBadge color="primary" variant="solid" size="xs" class="font-serif">
+                  {{ getRegionDisplayName(selectedRegion) }}
+                </UBadge>
               </div>
-
-              <div
-                v-if="
-                  isRateLimitError ||
-                  (isDebugErrorUi && !error && isDebugRateLimit)
-                "
-                class="space-y-4"
-              >
-                <div class="flex justify-center">
-                  <svg
-                    class="w-12 h-12 text-warning-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold text-warning-500 mb-2">
-                    {{ t.dailyLimitTitle }}
-                  </h3>
-                  <p class="text-secondary-500 mb-2">
-                    {{
-                      error ||
-                      (targetLanguage === "ja"
-                        ? "本日の制限（1日3リクエスト）に達しました。明日もう一度お試しください。"
-                        : "Daily rate limit exceeded (3 request/day). Please try again tomorrow.")
-                    }}
-                  </p>
-                  <ClientOnly>
-                    <p
-                      v-if="rateLimitResetTime || (isDebugErrorUi && !error)"
-                      class="text-sm text-secondary-400"
-                    >
-                      {{ t.resetsAt }}
-                      {{
-                        rateLimitResetTime ||
-                        new Date(Date.now() + 86400000).toLocaleString()
-                      }}
-                    </p>
-                  </ClientOnly>
-                </div>
+              
+              <p class="text-xs text-stone-500 leading-relaxed">
+                {{ 
+                  hasArticlesForSelectedRegion 
+                    ? (targetLanguage === 'ja' ? `現在表示されているブリーフィングから、${getRegionDisplayName(selectedRegion)}に関連するソースのみを抽出しています。` : `Showing only sources relevant to ${getRegionDisplayName(selectedRegion)} from the current briefing.`)
+                    : (targetLanguage === 'ja' ? `現在のブリーフィングには${getRegionDisplayName(selectedRegion)}に関するニュースはありません。Tavilyでこの地域のニュースを直接検索しますか？` : `No active articles found for ${getRegionDisplayName(selectedRegion)} in this briefing. Start a dedicated Tavily search?`)
+                }}
+              </p>
+              
+              <div class="flex gap-2 mt-1">
                 <UButton
-                  color="warning"
+                  size="sm"
+                  color="primary"
+                  block
+                  :loading="loading"
                   :disabled="loading"
-                  @click="refreshNews"
+                  icon="i-heroicons-magnifying-glass"
+                  @click="triggerTargetedRegionScan(selectedRegion)"
                 >
-                  {{ t.tryAgain }}
-                </UButton>
-              </div>
-
-              <div v-else class="space-y-4">
-                <p class="text-error-500">
-                  {{
-                    error ||
-                    "Service temporarily unavailable. Please try again."
-                  }}
-                </p>
-                <UButton color="error" :disabled="loading" @click="refreshNews">
-                  {{ t.tryAgain }}
+                  {{ targetLanguage === 'ja' ? `${getRegionDisplayName(selectedRegion)}ニュースを検索` : `Search ${getRegionDisplayName(selectedRegion)} News` }}
                 </UButton>
               </div>
             </div>
           </UCard>
+        </div>
 
-          <div v-if="loading" class="space-y-6">
-            <UCard class="w-full shadow-md border-t-4 border-t-primary-500">
-              <div class="p-4 sm:p-6 space-y-6">
-                <div class="pb-4">
-                  <USkeleton class="h-6 w-32 mb-3 rounded-full" />
-                  <USkeleton class="h-10 w-3/4 rounded-lg" />
-                </div>
-                <div class="space-y-2">
-                  <USkeleton class="h-4 w-24 mb-2" />
-                  <USkeleton class="h-4 w-full" />
-                  <USkeleton class="h-4 w-full" />
-                  <USkeleton class="h-4 w-5/6" />
-                </div>
-                <div
-                  class="bg-primary-50 dark:bg-primary-950/20 p-4 rounded-xl space-y-2"
+        <!-- News Feed & Controls Column -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <div class="mb-3 sm:mb-4">
+              <p class="text-sm text-secondary-500 mb-2 max-w-fit">
+                <em>{{ t.timeRangeSubtitle }}</em>
+              </p>
+              <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
+                <UTooltip
+                  v-for="timeRange in timeRangeOptions"
+                  :key="timeRange.id"
+                  :text="targetLanguage === 'ja' ? `${getTimeRangeLabel(timeRange.id)}でニュースをフィルタリング` : `Filter news by ${timeRange.name.toLowerCase()}`"
                 >
-                  <USkeleton class="h-4 w-32 mb-2" />
-                  <USkeleton class="h-4 w-full" />
-                  <USkeleton class="h-4 w-4/5" />
+                  <UButton
+                    :color="
+                      selectedTimeRange === timeRange.id ? 'primary' : 'secondary'
+                    "
+                    :variant="
+                      selectedTimeRange === timeRange.id ? 'solid' : 'outline'
+                    "
+                    size="xs"
+                    :label="getTimeRangeLabel(timeRange.id)"
+                    @click="() => { selectedTimeRange = timeRange.id; }"
+                  />
+                </UTooltip>
+              </div>
+
+              <div
+                v-if="selectedTimeRange === 'custom'"
+                class="mt-3 grid grid-cols-1 gap-4"
+              >
+                <div>
+                  <UPopover>
+                    <UButton
+                      icon="i-heroicons-calendar-days-20-solid"
+                      :label="
+                        customDateRange.start && customDateRange.end
+                          ? `${customDateRange.start.year}-${customDateRange.start.month
+                              .toString()
+                              .padStart(2, '0')}-${customDateRange.start.day
+                              .toString()
+                              .padStart(
+                                2,
+                                '0',
+                              )} - ${customDateRange.end.year}-${customDateRange.end.month
+                              .toString()
+                              .padStart(2, '0')}-${customDateRange.end.day
+                              .toString()
+                              .padStart(2, '0')}`
+                          : t.selectDateRange
+                      "
+                      variant="outline"
+                      color="secondary"
+                      size="sm"
+                      block
+                    />
+                    <template #content>
+                      <UCalendar
+                        v-model="customDateRange"
+                        :min-value="minDate"
+                        :max-value="maxDate"
+                        :number-of-months="2"
+                        range
+                        class="p-2"
+                      />
+                    </template>
+                  </UPopover>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 sm:mb-6">
+              <p class="text-sm text-secondary-500 mb-2 max-w-fit">
+                <em>{{ t.categorySubtitle }}</em>
+              </p>
+              <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
+                <UTooltip
+                  v-for="category in categories"
+                  :key="category.id"
+                  :text="
+                    category.id === 'all'
+                      ? (targetLanguage === 'ja' ? 'すべてのカテゴリを表示' : 'Show all categories')
+                      : (targetLanguage === 'ja' ? `${t.categories[category.id as keyof typeof t.categories]}でニュースをフィルタリング` : `Filter news by ${category.name}`)
+                  "
+                >
+                  <UButton
+                    :color="
+                      selectedCategory === category.id ? 'primary' : 'secondary'
+                    "
+                    :variant="
+                      selectedCategory === category.id ? 'solid' : 'outline'
+                    "
+                    size="xs"
+                    :label="t.categories[category.id as keyof typeof t.categories]"
+                    @click="() => { selectedCategory = category.id; }"
+                  />
+                </UTooltip>
+              </div>
+            </div>
+
+            <!-- Regional Filtering Header Callout if no articles found in general briefing -->
+            <UCard
+              v-if="selectedRegion && !hasArticlesForSelectedRegion && !loading"
+              class="border border-warning-200 dark:border-warning-900 bg-warning-50/50 dark:bg-warning-950/10 rounded-xl mb-6"
+              :ui="{ body: 'p-4' }"
+            >
+              <div class="flex items-start gap-3">
+                <UIcon name="i-heroicons-exclamation-triangle" class="w-5 h-5 text-warning-500 shrink-0 mt-0.5" />
+                <div>
+                  <h4 class="text-sm font-semibold text-warning-800 dark:text-warning-400">
+                    {{ targetLanguage === 'ja' ? '地域ニュースが見つかりません' : 'No Regional Articles Found' }}
+                  </h4>
+                  <p class="text-xs text-warning-700 dark:text-warning-500 mt-1 leading-relaxed">
+                    {{ targetLanguage === 'ja' ? `現在の一般的なブリーフィングには、${getRegionDisplayName(selectedRegion)}に関するソースはありませんでした。上の「${getRegionDisplayName(selectedRegion)}ニュースを検索」をクリックして、Tavilyから直接ローカルニュースを取得してください。` : `No sources from the current briefing were tagged with ${getRegionDisplayName(selectedRegion)}. Click the search button on the left to pull dedicated regional news from Tavily.` }}
+                  </p>
                 </div>
               </div>
             </UCard>
-            <p
-              class="text-center text-secondary-500 text-sm mt-4 animate-pulse flex items-center justify-center gap-2"
+
+            <UCard
+              v-if="error || isDebugErrorUi"
+              data-testid="error-state"
+              :ui="{
+                root: 'w-full shadow-md text-center mb-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-lg',
+                body: 'p-4 sm:p-6',
+              }"
             >
-              <UIcon name="i-heroicons-cpu-chip" class="w-5 h-5" />
-              {{ t.aiSynthesizingMsg }}
-            </p>
-          </div>
+              <div class="p-2">
+                <div
+                  v-if="isDebugErrorUi && !error"
+                  class="mb-6 p-3 bg-primary-50 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800 rounded-lg text-xs text-left"
+                >
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-primary-600 dark:text-primary-400"
+                      >DEBUG MODE: Error UI Testing</span
+                    >
+                    <UButton
+                      size="xs"
+                      color="primary"
+                      variant="soft"
+                      @click="() => { isDebugRateLimit = !isDebugRateLimit; }"
+                    >
+                      Switch to
+                      {{ isDebugRateLimit ? "General" : "Rate Limit" }} UI
+                    </UButton>
+                  </div>
+                  <p class="text-secondary-500 leading-relaxed mb-2">
+                    This panel is only visible because
+                    <code
+                      class="bg-gray-200 dark:bg-gray-700 px-1 rounded text-primary-600 dark:text-primary-400"
+                      >DEBUG_ERROR_UI=true</code
+                    >
+                    is set. Below you can see the main error layouts and a mock
+                    AI-failed briefing card.
+                  </p>
+                </div>
 
-          <div v-if="isDebugErrorUi && !error" class="mb-4">
-            <div
-              class="text-xs font-bold text-primary-500 mb-2 uppercase tracking-wider"
-            >
-              Mock: AI Fallback Card
-            </div>
-            <BriefingCard :briefing="mockFallbackBriefing" :language="targetLanguage" />
-          </div>
+                <div
+                  v-if="
+                    isRateLimitError ||
+                    (isDebugErrorUi && !error && isDebugRateLimit)
+                  "
+                  class="space-y-4"
+                >
+                  <div class="flex justify-center">
+                    <svg
+                      class="w-12 h-12 text-warning-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-warning-500 mb-2">
+                      {{ t.dailyLimitTitle }}
+                    </h3>
+                    <p class="text-secondary-500 mb-2">
+                      {{
+                        error ||
+                        (targetLanguage === "ja"
+                          ? "本日の制限（1日3リクエスト）に達しました。明日もう一度お試しください。"
+                          : "Daily rate limit exceeded (3 request/day). Please try again tomorrow.")
+                      }}
+                    </p>
+                    <ClientOnly>
+                      <p
+                        v-if="rateLimitResetTime || (isDebugErrorUi && !error)"
+                        class="text-sm text-secondary-400"
+                      >
+                        {{ t.resetsAt }}
+                        {{
+                          rateLimitResetTime ||
+                          new Date(Date.now() + 86400000).toLocaleString()
+                        }}
+                      </p>
+                    </ClientOnly>
+                  </div>
+                  <UButton
+                    color="warning"
+                    :disabled="loading"
+                    @click="refreshNews"
+                  >
+                    {{ t.tryAgain }}
+                  </UButton>
+                </div>
 
-          <div v-if="briefingData" class="space-y-4">
-            <BriefingCard :briefing="briefingData" :language="targetLanguage" />
-          </div>
+                <div v-else class="space-y-4">
+                  <p class="text-error-500">
+                    {{
+                      error ||
+                      "Service temporarily unavailable. Please try again."
+                    }}
+                  </p>
+                  <UButton color="error" :disabled="loading" @click="refreshNews">
+                    {{ t.tryAgain }}
+                  </UButton>
+                </div>
+              </div>
+            </UCard>
 
-          <div
-            v-else-if="!loading && !isDebugErrorUi"
-            class="bg-white dark:bg-gray-900 rounded-lg shadow text-center p-8 border border-gray-100 dark:border-gray-800"
-            style="contain: layout style paint"
-          >
-            <div class="mb-4">
-              <svg
-                class="w-16 h-16 mx-auto text-primary-500 opacity-20"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
+            <div v-if="loading" class="space-y-6">
+              <UCard class="w-full shadow-md border-t-4 border-t-primary-500">
+                <div class="p-4 sm:p-6 space-y-6">
+                  <div class="pb-4">
+                    <USkeleton class="h-6 w-32 mb-3 rounded-full" />
+                    <USkeleton class="h-10 w-3/4 rounded-lg" />
+                  </div>
+                  <div class="space-y-2">
+                    <USkeleton class="h-4 w-24 mb-2" />
+                    <USkeleton class="h-4 w-full" />
+                    <USkeleton class="h-4 w-full" />
+                    <USkeleton class="h-4 w-5/6" />
+                  </div>
+                  <div
+                    class="bg-primary-50 dark:bg-primary-950/20 p-4 rounded-xl space-y-2"
+                  >
+                    <USkeleton class="h-4 w-32 mb-2" />
+                    <USkeleton class="h-4 w-full" />
+                    <USkeleton class="h-4 w-4/5" />
+                  </div>
+                </div>
+              </UCard>
+              <p
+                class="text-center text-secondary-500 text-sm mt-4 animate-pulse flex items-center justify-center gap-2"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
+                <UIcon name="i-heroicons-cpu-chip" class="w-5 h-5" />
+                {{ t.aiSynthesizingMsg }}
+              </p>
             </div>
-            <h3 class="text-xl font-semibold mb-2">{{ t.readyToSynthesizeTitle }}</h3>
-            <p
-              class="mb-4 text-secondary-500 dark:text-secondary-400 max-w-lg mx-auto"
-              style="contain: layout style"
+
+            <div v-if="isDebugErrorUi && !error" class="mb-4">
+              <div
+                class="text-xs font-bold text-primary-500 mb-2 uppercase tracking-wider"
+              >
+                Mock: AI Fallback Card
+              </div>
+              <BriefingCard :briefing="mockFallbackBriefing" :language="targetLanguage" />
+            </div>
+
+            <div v-if="filteredBriefingData && hasArticlesForSelectedRegion" class="space-y-4">
+              <!-- Render dynamic filtered briefing based on region selection -->
+              <BriefingCard :briefing="filteredBriefingData" :language="targetLanguage" />
+            </div>
+
+            <div
+              v-else-if="!loading && !isDebugErrorUi && (!selectedRegion || hasArticlesForSelectedRegion)"
+              class="bg-white dark:bg-gray-900 rounded-lg shadow text-center p-8 border border-gray-100 dark:border-gray-800"
+              style="contain: layout style paint"
             >
-              {{ t.readyToSynthesizeMsg }}
-            </p>
+              <div class="mb-4">
+                <svg
+                  class="w-16 h-16 mx-auto text-primary-500 opacity-20"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">{{ t.readyToSynthesizeTitle }}</h3>
+              <p
+                class="mb-4 text-secondary-500 dark:text-secondary-400 max-w-lg mx-auto"
+                style="contain: layout style"
+              >
+                {{ t.readyToSynthesizeMsg }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -387,6 +463,7 @@ import type { NewsBriefing } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
 import * as locales from "@nuxt/ui/locale";
+import JapanMap, { mapPrefectureToRegion } from "./JapanMap.vue";
 
 const translations = {
   en: {
@@ -477,6 +554,11 @@ const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 
+// Regional Map specific state
+const selectedRegion = ref<string | null>(null);
+const activeSearchQuery = ref<string | null>(null);
+const backupBriefingData = ref<NewsBriefing | null>(null);
+
 // Rate limit specific state
 const rateLimitResetTime = ref<string | null>(null);
 const isRateLimitError = ref(false);
@@ -532,10 +614,7 @@ interface CalendarDateLike {
   day: number;
 }
 
-const customDateRange = ref<{
-  start?: CalendarDateLike | null;
-  end?: CalendarDateLike | null;
-}>({
+const customDateRange = ref<any>({
   start: oneWeekAgo,
   end: today,
 });
@@ -553,8 +632,145 @@ const timeRangeOptions = [
   { id: "custom", name: "Custom Range" },
 ] as const;
 
+// Computed map regions & statistics
+const activeRegions = computed(() => {
+  if (!briefingData.value) return [];
+  const list = new Set<string>();
+
+  if (briefingData.value.regionsAffected) {
+    briefingData.value.regionsAffected.forEach((reg) => {
+      const mapped = mapPrefectureToRegion(reg);
+      if (mapped) list.add(mapped);
+    });
+  }
+
+  if (briefingData.value.sourcesProcessed) {
+    briefingData.value.sourcesProcessed.forEach((src) => {
+      if (src.regions) {
+        src.regions.forEach((reg) => {
+          const mapped = mapPrefectureToRegion(reg);
+          if (mapped) list.add(mapped);
+        });
+      }
+    });
+  }
+
+  return Array.from(list);
+});
+
+const isNationwideBriefing = computed(() => {
+  if (!briefingData.value) return false;
+  // If regionsAffected is empty, it's definitely nationwide
+  if (!briefingData.value.regionsAffected || briefingData.value.regionsAffected.length === 0) {
+    return true;
+  }
+  // If there is at least one article with no regions tagged, it is nationwide/mixed
+  return briefingData.value.sourcesProcessed.some(src => !src.regions || src.regions.length === 0);
+});
+
+const regionCounts = computed(() => {
+  const counts: Record<string, number> = {};
+  if (!briefingData.value || !briefingData.value.sourcesProcessed) return counts;
+
+  briefingData.value.sourcesProcessed.forEach((src) => {
+    if (src.regions && src.regions.length > 0) {
+      src.regions.forEach((reg) => {
+        const mapped = mapPrefectureToRegion(reg);
+        if (mapped) {
+          counts[mapped] = (counts[mapped] || 0) + 1;
+        }
+      });
+    }
+  });
+
+  return counts;
+});
+
+const filteredBriefingData = computed(() => {
+  if (!briefingData.value) return null;
+  if (!selectedRegion.value) return briefingData.value;
+
+  const filteredSources = briefingData.value.sourcesProcessed.filter((src) => {
+    return src.regions?.some((reg) => mapPrefectureToRegion(reg) === selectedRegion.value);
+  });
+
+  return {
+    ...briefingData.value,
+    sourcesProcessed: filteredSources,
+  };
+});
+
+const hasArticlesForSelectedRegion = computed(() => {
+  if (!selectedRegion.value) return true;
+  if (!briefingData.value || !briefingData.value.sourcesProcessed) return false;
+  return briefingData.value.sourcesProcessed.some((src) =>
+    src.regions?.some((reg) => mapPrefectureToRegion(reg) === selectedRegion.value)
+  );
+});
+
+const handleRegionSelect = (regionId: string) => {
+  selectedRegion.value = regionId;
+};
+
+const getRegionDisplayName = (regionId: string) => {
+  const regionNames: Record<string, { en: string; ja: string }> = {
+    hokkaido: { en: "Hokkaido", ja: "北海道" },
+    tohoku: { en: "Tohoku", ja: "東北" },
+    kanto: { en: "Kanto", ja: "関東" },
+    chubu: { en: "Chubu", ja: "中部" },
+    kansai: { en: "Kansai", ja: "関西" },
+    chugoku: { en: "Chugoku", ja: "中国" },
+    shikoku: { en: "Shikoku", ja: "四国" },
+    kyushu: { en: "Kyushu", ja: "九州" },
+    okinawa: { en: "Okinawa", ja: "沖縄" },
+  };
+  const name = regionNames[regionId];
+  if (!name) return regionId;
+  return targetLanguage.value === "ja" ? name.ja : name.en;
+};
+
+const triggerTargetedRegionScan = async (regionId: string) => {
+  const regionNames: Record<string, { en: string; ja: string }> = {
+    hokkaido: { en: "Hokkaido", ja: "北海道" },
+    tohoku: { en: "Tohoku", ja: "東北" },
+    kanto: { en: "Kanto", ja: "関東" },
+    chubu: { en: "Chubu", ja: "中部" },
+    kansai: { en: "Kansai", ja: "関西" },
+    chugoku: { en: "Chugoku", ja: "中国" },
+    shikoku: { en: "Shikoku", ja: "四国" },
+    kyushu: { en: "Kyushu", ja: "九州" },
+    okinawa: { en: "Okinawa", ja: "沖縄" },
+  };
+
+  const name = regionNames[regionId];
+  if (!name) return;
+
+  // Backup current briefing if we don't already have one backed up
+  if (briefingData.value && !backupBriefingData.value && !activeSearchQuery.value) {
+    backupBriefingData.value = briefingData.value;
+  }
+
+  const queryLang = targetLanguage.value === "ja" ? "ja" : "en";
+  activeSearchQuery.value = queryLang === "ja" ? `${name.ja} ニュース` : `${name.en} news`;
+  selectedRegion.value = regionId;
+  await fetchNews();
+};
+
+const clearSelection = async () => {
+  selectedRegion.value = null;
+  activeSearchQuery.value = null;
+  if (backupBriefingData.value) {
+    briefingData.value = backupBriefingData.value;
+    backupBriefingData.value = null;
+  }
+};
+
 // Methods
 const fetchNews = async () => {
+  // If we are doing a general fetch (not targeted region query), clear the backup
+  if (!activeSearchQuery.value) {
+    backupBriefingData.value = null;
+  }
   loading.value = true;
   error.value = null;
   // Reset rate limit state
@@ -565,6 +781,7 @@ const fetchNews = async () => {
     const query: Record<string, string | number | undefined> = {
       category:
         selectedCategory.value === "all" ? undefined : selectedCategory.value,
+      query: activeSearchQuery.value || undefined,
       language: targetLanguage.value,
       limit: 20,
     };
@@ -646,6 +863,9 @@ const fetchNews = async () => {
 };
 
 const refreshNews = async () => {
+  activeSearchQuery.value = null;
+  selectedRegion.value = null;
+  backupBriefingData.value = null;
   await fetchNews();
 };
 
