@@ -90,7 +90,7 @@
             :key="idx"
             class="flex items-start gap-3 text-sm p-2 hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg transition-colors"
           >
-            <div class="flex items-center gap-2 mt-0.5 flex-shrink-0">
+            <div class="flex items-center gap-2 mt-0.5 shrink-0">
               <span
                 class="text-xs font-mono font-medium text-gray-500 dark:text-gray-400 w-5"
                 >[{{ idx + 1 }}]</span
@@ -102,7 +102,7 @@
                 class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2"
               >
                 <div
-                  class="flex items-center gap-1.5 flex-shrink-0 max-w-full sm:max-w-[150px]"
+                  class="flex items-center gap-1.5 shrink-0 max-w-full sm:max-w-[150px]"
                 >
                   <img
                     v-if="source.favicon"
@@ -140,20 +140,43 @@
                     {{ source.title }}
                   </span>
 
-                  <span
-                    class="flex items-center text-xs font-bold whitespace-nowrap flex-shrink-0"
-                    :style="{
-                      color: getCredibilityColor(source.credibilityScore),
-                    }"
-                    :title="`${t.sourceTrust}: ${Math.round(source.credibilityScore * 100)}%`"
-                  >
-                    <UIcon
-                      name="i-heroicons-shield-check"
-                      class="w-3.5 h-3.5 mr-0.5"
-                    />
-                    {{ t.trustScore }}:
-                    {{ Math.round(source.credibilityScore * 100) }}%
-                  </span>
+                  <!-- Source trust & regions container -->
+                  <div class="flex items-center gap-1.5 flex-wrap shrink-0">
+                    <span
+                      class="flex items-center text-xs font-bold whitespace-nowrap"
+                      :style="{
+                        color: getCredibilityColor(source.credibilityScore),
+                      }"
+                      :title="`${t.sourceTrust}: ${Math.round(source.credibilityScore * 100)}%`"
+                    >
+                      <UIcon
+                        name="i-heroicons-shield-check"
+                        class="w-3.5 h-3.5 mr-0.5"
+                      />
+                      {{ t.trustScore }}:
+                      {{ Math.round(source.credibilityScore * 100) }}%
+                    </span>
+
+                    <!-- Regions Badges -->
+                    <template v-if="source.regions && source.regions.length > 0">
+                      <span
+                        v-for="reg in source.regions"
+                        :key="reg"
+                        class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium bg-primary-500/10 dark:bg-primary-500/5 text-primary-600 dark:text-primary-400 border border-primary-500/20 dark:border-primary-500/10 rounded"
+                      >
+                        <UIcon name="i-heroicons-map-pin" class="w-3 h-3 text-primary-500" />
+                        {{ getRegionDisplayName(reg) }}
+                      </span>
+                    </template>
+                    <template v-else>
+                      <span
+                        class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 border border-stone-200/50 dark:border-stone-700/50 rounded"
+                      >
+                        <UIcon name="i-heroicons-globe-alt" class="w-3 h-3 text-stone-400" />
+                        {{ language === 'ja' ? '全国共通' : 'Nationwide' }}
+                      </span>
+                    </template>
+                  </div>
                 </div>
               </div>
             </div>
@@ -163,7 +186,7 @@
               :href="source.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-gray-400 hover:text-primary-500 p-1 flex-shrink-0"
+              class="text-gray-400 hover:text-primary-500 p-1 shrink-0"
               :aria-label="t.readOriginal"
             >
               <UIcon
@@ -225,6 +248,32 @@ const getCredibilityColor = (score: number | undefined): string => {
   // Map score (0-1) to hue (0-120): 0% = red (hue 0), 100% = green (hue 120)
   const hue = Math.round(score * 120);
   return `hsl(${hue}, 70%, 45%)`;
+};
+
+const getRegionDisplayName = (region: string) => {
+  const normalized = region.trim();
+  
+  const translations: Record<string, { en: string; ja: string }> = {
+    tokyo: { en: "Tokyo", ja: "東京" },
+    kyoto: { en: "Kyoto", ja: "京都" },
+    osaka: { en: "Osaka", ja: "大阪" },
+    hokkaido: { en: "Hokkaido", ja: "北海道" },
+    okinawa: { en: "Okinawa", ja: "沖縄" },
+    tohoku: { en: "Tohoku", ja: "東北" },
+    kanto: { en: "Kanto", ja: "関東" },
+    chubu: { en: "Chubu", ja: "中部" },
+    kansai: { en: "Kansai", ja: "関西" },
+    chugoku: { en: "Chugoku", ja: "中国" },
+    shikoku: { en: "Shikoku", ja: "四国" },
+    kyushu: { en: "Kyushu", ja: "九州" },
+  };
+
+  const key = normalized.toLowerCase();
+  const match = translations[key];
+  if (match) {
+    return props.language === "ja" ? match.ja : match.en;
+  }
+  return normalized;
 };
 
 const renderMarkdown = (text: string | undefined) => {
