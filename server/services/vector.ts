@@ -1,3 +1,6 @@
+import { Index } from "@upstash/vector";
+import { GoogleGenAI } from "@google/genai";
+
 export interface VectorMetadata {
   story_id: string;
   category?: string;
@@ -16,6 +19,19 @@ export interface VectorMatch {
 }
 
 class UpstashVectorService {
+  private client: GoogleGenAI | null = null;
+
+  private getGeminiClient() {
+    if (!this.client) {
+      const config = useRuntimeConfig();
+      const apiKey = config.geminiApiKey || process.env.GEMINI_API_KEY;
+      if (apiKey) {
+        this.client = new GoogleGenAI({ apiKey });
+      }
+    }
+    return this.client;
+  }
+
   private getCredentials() {
     const config = useRuntimeConfig();
     const url = config.upstashVectorRestUrl || process.env.UPSTASH_VECTOR_REST_URL;
@@ -26,6 +42,33 @@ class UpstashVectorService {
   private isConfigured(): boolean {
     const { url, token } = this.getCredentials();
     return !!(url && token);
+  }
+
+  private getIndex() {
+    const { url, token } = this.getCredentials();
+    if (!url || !token) return null;
+    return new Index({ url, token });
+  }
+
+  private async getEmbedding(text: string): Promise<number[]> {
+    const client = this.getGeminiClient();
+    if (!client) {
+      throw new Error("Gemini AI client is not configured for embedding generation.");
+    }
+
+    const response = await client.models.embedContent({
+      model: "gemini-embedding-2",
+      contents: text,
+      config: {
+        outputDimensionality: 1536,
+      },
+    });
+
+    if (!response.embedding || !response.embedding.values) {
+      throw new Error("Failed to retrieve embedding values from Gemini API response.");
+    }
+
+    return response.embedding.values;
   }
 
   /**
@@ -40,33 +83,28 @@ class UpstashVectorService {
       return [];
     }
 
-    const { url, token } = this.getCredentials();
-    const cleanUrl = url!.replace(/\/$/, "");
-    const namespace = options?.namespace ? `/${options.namespace}` : "";
-    const endpoint = `${cleanUrl}/query${namespace}`;
-
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          data: text,
-          topK: options?.topK ?? 1,
-          includeMetadata: true,
-          filter: options?.filter,
-        }),
-      });
+      const vector = await this.getEmbedding(text);
+      const index = this.getIndex();
+      if (!index) throw new Error("Index initialization failed.");
 
-      if (!response.ok) {
-        const errText = await response.text();
-        throw new Error(`Upstash Vector API error: ${response.status} - ${errText}`);
+      const queryOptions: { namespace?: string } = {};
+      if (options?.namespace) {
+        queryOptions.namespace = options.namespace;
       }
 
-      const result = await response.json();
-      return (result.result || []) as VectorMatch[];
+      const results = await index.query({
+        vector,
+        topK: options?.topK ?? 1,
+        includeMetadata: true,
+        filter: options?.filter,
+      }, queryOptions);
+
+      return (results || []).map(r => ({
+        id: r.id,
+        score: r.score ?? 0,
+        metadata: (r.metadata || {}) as VectorMetadata,
+      }));
     } catch (error) {
       console.error("Failed to query Upstash Vector:", error);
       return [];
@@ -75,7 +113,7 @@ class UpstashVectorService {
 
   /**
    * Upsert a document (raw text) to the index.
-   * Upstash Vector will embed it automatically using the index's configured model.
+   * We generate the embedding client-side and upsert to the vector index.
    */
   async upsertArticle(
     id: string,
@@ -88,34 +126,23 @@ class UpstashVectorService {
       return false;
     }
 
-    const { url, token } = this.getCredentials();
-    const cleanUrl = url!.replace(/\/$/, "");
-    const namespace = options?.namespace ? `/${options.namespace}` : "";
-    const endpoint = `${cleanUrl}/upsert-data${namespace}`;
-
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify([
-          {
-            id,
-            data: text,
-            metadata,
-          },
-        ]),
-      });
+      const vector = await this.getEmbedding(text);
+      const index = this.getIndex();
+      if (!index) throw new Error("Index initialization failed.");
 
-      if (!response.ok) {
-        const errText = await response.text();
-        throw new Error(`Upstash Vector API error: ${response.status} - ${errText}`);
+      const upsertOptions: { namespace?: string } = {};
+      if (options?.namespace) {
+        upsertOptions.namespace = options.namespace;
       }
 
-      const result = await response.json();
-      return result.status === "ok";
+      await index.upsert({
+        id,
+        vector,
+        metadata: metadata as any,
+      }, upsertOptions);
+
+      return true;
     } catch (error) {
       console.error("Failed to upsert to Upstash Vector:", error);
       return false;
