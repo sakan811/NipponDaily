@@ -479,22 +479,92 @@
               />
             </div>
 
-            <div
-              v-if="filteredBriefingData && hasArticlesForSelectedRegion"
-              class="space-y-4"
-            >
-              <!-- Render dynamic filtered briefing based on region selection -->
-              <BriefingCard
-                :briefing="filteredBriefingData"
-                :language="targetLanguage"
-              />
+            <!-- New Clustered Stories Trending Dashboard UI -->
+            <div v-if="filteredStories.length > 0 && !loading" class="space-y-6">
+              <!-- Trending Stories Grid Header -->
+              <div>
+                <h3 class="text-sm font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                  <UIcon name="i-heroicons-fire" class="w-4 h-4 text-primary-500" />
+                  {{ targetLanguage === 'ja' ? 'トレンドのトピック' : 'Trending Topics' }} ({{ filteredStories.length }})
+                </h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  <div
+                    v-for="story in filteredStories"
+                    :key="story.id"
+                    class="cursor-pointer border p-3 rounded-xl transition-all relative overflow-hidden bg-white/50 dark:bg-stone-900/50 hover:bg-stone-50 dark:hover:bg-stone-900 border-stone-200 dark:border-stone-800"
+                    :class="[
+                      activeStory?.id === story.id
+                        ? 'border-primary-500 ring-2 ring-primary-500/20 bg-primary-50/10 dark:bg-primary-500/5'
+                        : ''
+                    ]"
+                    @click="selectedStoryId = story.id"
+                  >
+                    <!-- Header inside card -->
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                      <span class="text-[9px] font-bold uppercase tracking-wider text-stone-400 dark:text-stone-500 truncate max-w-[120px]">
+                        {{ story.sources[0]?.source || 'News Source' }}
+                      </span>
+                      <div class="flex items-center gap-1 text-xs font-semibold text-primary-600 dark:text-primary-400">
+                        <UIcon name="i-heroicons-fire" class="w-3.5 h-3.5 text-primary-500" />
+                        <span>{{ Math.round(story.trendScore * 10) / 10 }}</span>
+                      </div>
+                    </div>
+                    <!-- Headline -->
+                    <h4 class="text-xs font-bold font-serif line-clamp-2 text-stone-900 dark:text-white leading-snug">
+                      {{ targetLanguage === 'ja' ? story.headlineJa : story.headlineEn }}
+                    </h4>
+                    <!-- Footer inside card -->
+                    <div class="flex items-center gap-2 mt-2 text-[10px] text-stone-400 dark:text-stone-500">
+                      <span>{{ story.articleCount }} {{ targetLanguage === 'ja' ? '件のソース' : 'sources' }}</span>
+                      <span>•</span>
+                      <span>{{ getRelativeTime(story.lastUpdated) }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Selected Active Story Briefing Detail View -->
+              <div v-if="activeBriefingData" class="space-y-6">
+                <BriefingCard
+                  :briefing="activeBriefingData"
+                  :language="targetLanguage"
+                />
+
+                <!-- Story Timeline (Chronological updates) -->
+                <div v-if="activeStory && activeStory.sources.length > 1" class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl p-4 sm:p-6">
+                  <h3 class="text-sm font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-4 flex items-center gap-1.5">
+                    <UIcon name="i-heroicons-clock" class="w-4 h-4 text-primary-500" />
+                    {{ targetLanguage === 'ja' ? 'ストーリー・タイムライン' : 'Story Timeline' }}
+                  </h3>
+                  <div class="relative pl-6 border-l-2 border-stone-200 dark:border-stone-800 space-y-6">
+                    <div v-for="(source, idx) in activeStory.sources.slice().reverse()" :key="idx" class="relative">
+                      <!-- Dot indicator -->
+                      <span class="absolute -left-[31px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white dark:bg-stone-900 border-2 border-primary-500">
+                        <span class="h-1.5 w-1.5 rounded-full bg-primary-500" />
+                      </span>
+                      <div class="space-y-1">
+                        <div class="flex items-center gap-2 text-xs text-stone-400 dark:text-stone-500">
+                          <time>{{ new Date(source.publishedAt).toLocaleDateString(targetLanguage === 'ja' ? 'ja-JP' : 'en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }) }}</time>
+                          <span>•</span>
+                          <span class="font-semibold">{{ source.source }}</span>
+                        </div>
+                        <a :href="source.url" target="_blank" class="text-sm font-bold hover:text-primary-500 transition-colors block">
+                          {{ source.title }}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            <!-- Empty fallback if no stories match criteria -->
             <div
               v-else-if="
                 !loading &&
                 !isDebugErrorUi &&
-                (!selectedRegion || hasArticlesForSelectedRegion)
+                filteredStories.length === 0
               "
               class="bg-white dark:bg-gray-900 rounded-lg shadow text-center p-8 border border-gray-100 dark:border-gray-800"
               style="contain: layout style paint"
@@ -535,7 +605,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { CalendarDate } from "@internationalized/date";
-import type { NewsBriefing } from "~~/types/index";
+import type { NewsBriefing, Story } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
 import * as locales from "@nuxt/ui/locale";
@@ -635,7 +705,9 @@ const getTimeRangeLabel = (id: string) => {
 };
 
 // State
-const briefingData = ref<NewsBriefing | null>(null);
+const stories = ref<Story[]>([]);
+const lastIngestTime = ref<number>(0);
+const selectedStoryId = ref<string | null>(null);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
@@ -643,7 +715,7 @@ const mobileMenuOpen = ref(false);
 // Regional Map specific state
 const selectedRegion = ref<string | null>(null);
 const activeSearchQuery = ref<string | null>(null);
-const backupBriefingData = ref<NewsBriefing | null>(null);
+const backupStories = ref<Story[]>([]);
 
 // Rate limit specific state
 const rateLimitResetTime = ref<string | null>(null);
@@ -715,85 +787,143 @@ const timeRangeOptions = [
 
 // Computed map regions & statistics
 const activeRegions = computed(() => {
-  if (!briefingData.value) return [];
-  const list = new Set<string>();
-
-  if (briefingData.value.regionsAffected) {
-    briefingData.value.regionsAffected.forEach((reg) => {
+  // If activeStory has prefectures/regions, highlight those
+  if (activeStory.value) {
+    const list = new Set<string>();
+    Object.keys(activeStory.value.regionBreakdown).forEach((reg) => {
       const mapped = mapPrefectureToRegion(reg);
       if (mapped) list.add(mapped);
     });
+    return Array.from(list);
   }
 
-  if (briefingData.value.sourcesProcessed) {
-    briefingData.value.sourcesProcessed.forEach((src) => {
-      if (src.regions) {
-        src.regions.forEach((reg) => {
-          const mapped = mapPrefectureToRegion(reg);
-          if (mapped) list.add(mapped);
-        });
-      }
+  // Otherwise, highlight all regions in current stories list
+  const list = new Set<string>();
+  filteredStories.value.forEach((story) => {
+    Object.keys(story.regionBreakdown).forEach((reg) => {
+      const mapped = mapPrefectureToRegion(reg);
+      if (mapped) list.add(mapped);
     });
-  }
-
+  });
   return Array.from(list);
 });
 
 const isNationwideBriefing = computed(() => {
-  if (!briefingData.value) return false;
-  // If regionsAffected is empty, it's definitely nationwide
-  if (
-    !briefingData.value.regionsAffected ||
-    briefingData.value.regionsAffected.length === 0
-  ) {
-    return true;
+  if (activeStory.value) {
+    return activeStory.value.sources.some(
+      (src) => !src.regions || src.regions.length === 0,
+    );
   }
-  // If there is at least one article with no regions tagged, it is nationwide/mixed
-  return briefingData.value.sourcesProcessed.some(
-    (src) => !src.regions || src.regions.length === 0,
-  );
+  return true;
 });
 
 const regionCounts = computed(() => {
   const counts: Record<string, number> = {};
-  if (!briefingData.value || !briefingData.value.sourcesProcessed)
+  
+  if (activeStory.value) {
+    Object.entries(activeStory.value.regionBreakdown).forEach(([reg, val]) => {
+      const mapped = mapPrefectureToRegion(reg);
+      if (mapped) {
+        counts[mapped] = (counts[mapped] || 0) + val;
+      }
+    });
     return counts;
+  }
 
-  briefingData.value.sourcesProcessed.forEach((src) => {
-    if (src.regions && src.regions.length > 0) {
-      src.regions.forEach((reg) => {
-        const mapped = mapPrefectureToRegion(reg);
-        if (mapped) {
-          counts[mapped] = (counts[mapped] || 0) + 1;
-        }
-      });
-    }
+  filteredStories.value.forEach((story) => {
+    Object.entries(story.regionBreakdown).forEach(([reg, val]) => {
+      const mapped = mapPrefectureToRegion(reg);
+      if (mapped) {
+        counts[mapped] = (counts[mapped] || 0) + val;
+      }
+    });
   });
 
   return counts;
 });
 
-const filteredBriefingData = computed(() => {
-  if (!briefingData.value) return null;
-  if (!selectedRegion.value) return briefingData.value;
+// Filtered stories list
+const filteredStories = computed(() => {
+  let list = stories.value;
 
-  const filteredSources = briefingData.value.sourcesProcessed.filter((src) => {
-    return src.regions?.some(
-      (reg) => mapPrefectureToRegion(reg) === selectedRegion.value,
-    );
-  });
+  // Filter by region selection
+  if (selectedRegion.value) {
+    list = list.filter((story) => {
+      return Object.keys(story.regionBreakdown).some(
+        (reg) => mapPrefectureToRegion(reg) === selectedRegion.value,
+      );
+    });
+  }
+
+  return list;
+});
+
+// Currently active story briefing
+const activeStory = computed<Story | null>(() => {
+  if (selectedStoryId.value) {
+    const match = filteredStories.value.find((s) => s.id === selectedStoryId.value);
+    if (match) return match;
+  }
+  return filteredStories.value[0] || null;
+});
+
+// Map activeStory to NewsBriefing shape for BriefingCard compatibility
+const activeBriefingData = computed<NewsBriefing | null>(() => {
+  if (!activeStory.value) return null;
+  const isJa = targetLanguage.value === "ja";
+  return {
+    mainHeadline: isJa ? activeStory.value.headlineJa : activeStory.value.headlineEn,
+    executiveSummary: isJa ? activeStory.value.summaryJa : activeStory.value.summaryEn,
+    thematicAnalysis: isJa ? activeStory.value.thematicAnalysisJa : activeStory.value.thematicAnalysisEn,
+    overallCredibilityScore: activeStory.value.sources[0]?.credibilityScore || 0.8,
+    sourcesProcessed: activeStory.value.sources.map((src) => ({
+      title: src.title,
+      source: src.source,
+      url: src.url,
+      favicon: src.favicon,
+      credibilityScore: src.credibilityScore,
+      regions: src.regions,
+    })),
+    publishTimeRange: "Recent",
+    regionsAffected: Object.keys(activeStory.value.regionBreakdown),
+  };
+});
+
+const briefingData = computed(() => {
+  if (stories.value.length === 0) return undefined;
+  const story = stories.value[0];
+  const isJa = targetLanguage.value === "ja";
+  
+  const overallCred = story.sources.length > 0
+    ? story.sources.reduce((sum, s) => sum + s.credibilityScore, 0) / story.sources.length
+    : 0.85;
 
   return {
-    ...briefingData.value,
-    sourcesProcessed: filteredSources,
+    isAiFallback: false,
+    mainHeadline: isJa ? story.headlineJa : story.headlineEn,
+    executiveSummary: isJa ? story.summaryJa : story.summaryEn,
+    thematicAnalysis: isJa ? story.thematicAnalysisJa : story.thematicAnalysisEn,
+    overallCredibilityScore: Math.round(overallCred * 100) / 100, // round to 2 decimals
+    sourcesProcessed: story.sources.map((src) => {
+      const s: any = {
+        title: src.title,
+        source: src.source,
+        url: src.url,
+        credibilityScore: src.credibilityScore,
+        publishedAt: src.publishedAt,
+        category: src.category,
+      };
+      if (src.favicon !== undefined) s.favicon = src.favicon;
+      if (src.regions && src.regions.length > 0) s.regions = src.regions;
+      return s;
+    }),
   };
 });
 
 const hasArticlesForSelectedRegion = computed(() => {
   if (!selectedRegion.value) return true;
-  if (!briefingData.value || !briefingData.value.sourcesProcessed) return false;
-  return briefingData.value.sourcesProcessed.some((src) =>
-    src.regions?.some(
+  return stories.value.some((story) =>
+    Object.keys(story.regionBreakdown).some(
       (reg) => mapPrefectureToRegion(reg) === selectedRegion.value,
     ),
   );
@@ -801,6 +931,7 @@ const hasArticlesForSelectedRegion = computed(() => {
 
 const handleRegionSelect = (regionId: string) => {
   selectedRegion.value = regionId;
+  selectedStoryId.value = null; // reset selected story to default top of filtered list
 };
 
 const getRegionDisplayName = (regionId: string) => {
@@ -836,40 +967,51 @@ const triggerTargetedRegionScan = async (regionId: string) => {
   const name = regionNames[regionId];
   if (!name) return;
 
-  // Backup current briefing if we don't already have one backed up
-  if (
-    briefingData.value &&
-    !backupBriefingData.value &&
-    !activeSearchQuery.value
-  ) {
-    backupBriefingData.value = briefingData.value;
+  // Backup stories
+  if (stories.value.length > 0 && backupStories.value.length === 0 && !activeSearchQuery.value) {
+    backupStories.value = [...stories.value];
   }
 
   const queryLang = targetLanguage.value === "ja" ? "ja" : "en";
   activeSearchQuery.value =
     queryLang === "ja" ? `${name.ja} ニュース` : `${name.en} news`;
   selectedRegion.value = regionId;
+  selectedStoryId.value = null;
   await fetchNews();
 };
 
 const clearSelection = async () => {
   selectedRegion.value = null;
   activeSearchQuery.value = null;
-  if (backupBriefingData.value) {
-    briefingData.value = backupBriefingData.value;
-    backupBriefingData.value = null;
+  selectedStoryId.value = null;
+  if (backupStories.value.length > 0) {
+    stories.value = [...backupStories.value];
+    backupStories.value = [];
   }
+};
+
+// Formatting helpers
+const getRelativeTime = (timestamp: number) => {
+  const diff = Date.now() - timestamp;
+  const mins = Math.floor(diff / 60000);
+  const hours = Math.floor(mins / 60);
+  const days = Math.floor(hours / 24);
+
+  const isJa = targetLanguage.value === "ja";
+
+  if (mins < 1) return isJa ? "たった今" : "Just now";
+  if (mins < 60) return isJa ? `${mins}分前` : `${mins}m ago`;
+  if (hours < 24) return isJa ? `${hours}時間前` : `${hours}h ago`;
+  return isJa ? `${days}日前` : `${days}d ago`;
 };
 
 // Methods
 const fetchNews = async () => {
-  // If we are doing a general fetch (not targeted region query), clear the backup
   if (!activeSearchQuery.value) {
-    backupBriefingData.value = null;
+    backupStories.value = [];
   }
   loading.value = true;
   error.value = null;
-  // Reset rate limit state
   isRateLimitError.value = false;
   rateLimitResetTime.value = null;
 
@@ -901,17 +1043,58 @@ const fetchNews = async () => {
       query.timeRange = selectedTimeRange.value;
     }
 
-    // Expecting a single Briefing object now, not an array of NewsItems
     const response = await $fetch<{
       success: boolean;
-      data: NewsBriefing;
+      data: NewsBriefing & { stories: Story[]; lastIngestTime: number };
       count: number;
       timestamp: string;
     }>("/api/news", {
       query,
     });
 
-    briefingData.value = response.data;
+    // Populate our new stories state
+    if (response && response.data) {
+      if (response.data.stories) {
+        stories.value = response.data.stories;
+        lastIngestTime.value = response.data.lastIngestTime || 0;
+      } else if (response.data.mainHeadline) {
+        // Fallback for NewsBriefing format (backward compatibility & unit tests)
+        const mockBriefing = response.data;
+        stories.value = [
+          {
+            id: "default-story",
+            headlineEn: mockBriefing.mainHeadline,
+            headlineJa: mockBriefing.mainHeadline,
+            summaryEn: mockBriefing.executiveSummary,
+            summaryJa: mockBriefing.executiveSummary,
+            thematicAnalysisEn: mockBriefing.thematicAnalysis || "",
+            thematicAnalysisJa: mockBriefing.thematicAnalysis || "",
+            articleCount: mockBriefing.sourcesProcessed?.length || 0,
+            regionBreakdown: {},
+            firstSeen: Date.now(),
+            lastUpdated: Date.now(),
+            trendScore: 1.0,
+            sources: (mockBriefing.sourcesProcessed || []).map((src: any) => ({
+              title: src.title,
+              source: src.source,
+              url: src.url || "",
+              publishedAt: src.publishedAt || new Date().toISOString(),
+              favicon: src.favicon,
+              credibilityScore: src.credibilityScore || 0.85,
+              regions: src.regions || [],
+              addedAt: Date.now(),
+              category: src.category,
+            })),
+            categories: [],
+          },
+        ];
+        lastIngestTime.value = Date.now();
+      } else {
+        stories.value = [];
+      }
+    } else {
+      stories.value = [];
+    }
   } catch (err: unknown) {
     console.error("Error generating briefing:", err);
 
@@ -961,7 +1144,8 @@ const fetchNews = async () => {
 const refreshNews = async () => {
   activeSearchQuery.value = null;
   selectedRegion.value = null;
-  backupBriefingData.value = null;
+  backupStories.value = [];
+  selectedStoryId.value = null;
   await fetchNews();
 };
 
