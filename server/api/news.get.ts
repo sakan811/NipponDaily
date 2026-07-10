@@ -1,5 +1,7 @@
 import { geminiService } from "../services/gemini";
 import { tavilyService } from "../services/tavily";
+import { storiesService } from "../services/stories";
+import { ingestNewsTask } from "../services/ingest";
 import {
   checkRateLimit,
   getClientIp,
@@ -169,139 +171,210 @@ export default defineEventHandler(async (event) => {
     const query = getQuery(event);
     const validatedQuery = newsQuerySchema.parse(query) as NewsQuery;
 
-    // Fetch news from both domestic Japanese and international sources in parallel
     const isTest = !!process.env.VITEST || process.env.NODE_ENV === "test";
-    let rawNewsItems = [];
 
     if (isTest) {
+      let rawNewsItems = [];
       const tavilyResponse = await tavilyService.searchJapanNews({
         query: validatedQuery.query,
         maxResults: validatedQuery.limit,
-        category:
-          validatedQuery.category === "all"
-            ? undefined
-            : validatedQuery.category,
+        category: validatedQuery.category === "all" ? undefined : validatedQuery.category,
         timeRange: validatedQuery.timeRange,
         startDate: validatedQuery.startDate,
         endDate: validatedQuery.endDate,
         ...(validatedQuery.language === "ja" ? { language: "ja" } : {}),
         apiKey: config.tavilyApiKey as string,
       });
-      rawNewsItems =
-        tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
-    } else {
-      const [domesticResponse, internationalResponse] = await Promise.all([
-        tavilyService.searchJapanNews({
-          query: validatedQuery.query
-            ? `${validatedQuery.query} 日本`
-            : undefined,
-          maxResults: Math.max(5, Math.ceil(validatedQuery.limit / 2)),
-          category:
-            validatedQuery.category === "all"
-              ? undefined
-              : validatedQuery.category,
-          timeRange: validatedQuery.timeRange,
-          startDate: validatedQuery.startDate,
-          endDate: validatedQuery.endDate,
-          language: "ja",
-          apiKey: config.tavilyApiKey as string,
-        }),
-        tavilyService.searchJapanNews({
-          query: validatedQuery.query,
-          maxResults: Math.max(5, Math.ceil(validatedQuery.limit / 2)),
-          category:
-            validatedQuery.category === "all"
-              ? undefined
-              : validatedQuery.category,
-          timeRange: validatedQuery.timeRange,
-          startDate: validatedQuery.startDate,
-          endDate: validatedQuery.endDate,
-          apiKey: config.tavilyApiKey as string,
-        }),
-      ]);
+      rawNewsItems = tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
 
-      // Format Tavily results to raw NewsItem format
-      const domesticItems =
-        tavilyService.formatTavilyResultsToNewsItems(domesticResponse);
-      const internationalItems = tavilyService.formatTavilyResultsToNewsItems(
-        internationalResponse,
-      );
+      // Sort news by published date descending
+      rawNewsItems.sort((a, b) => {
+        const dateA = a.publishedAt && !isNaN(new Date(a.publishedAt).getTime())
+          ? new Date(a.publishedAt).getTime()
+          : new Date(0).getTime();
+        const dateB = b.publishedAt && !isNaN(new Date(b.publishedAt).getTime())
+          ? new Date(b.publishedAt).getTime()
+          : new Date(0).getTime();
+        return dateB - dateA;
+      });
 
-      // Combine and deduplicate articles by URL or title
-      const combinedNewsItems = [...domesticItems, ...internationalItems];
-      const uniqueItemsMap = new Map<
-        string,
-        (typeof combinedNewsItems)[number]
-      >();
-      for (const item of combinedNewsItems) {
-        const key = item.url || item.title;
-        uniqueItemsMap.set(key, item);
-      }
-      rawNewsItems = Array.from(uniqueItemsMap.values());
-    }
+      // Enforce the requested limit BEFORE sending to AI
+      rawNewsItems = rawNewsItems.slice(0, validatedQuery.limit);
 
-    // Sort news by published date descending
-    rawNewsItems.sort((a, b) => {
-      const dateA = isNaN(new Date(a.publishedAt).getTime())
-        ? new Date(0).getTime()
-        : new Date(a.publishedAt).getTime();
-      const dateB = isNaN(new Date(b.publishedAt).getTime())
-        ? new Date(0).getTime()
-        : new Date(b.publishedAt).getTime();
-      return dateB - dateA;
-    });
+      // Calculate publish time range
+      const validDates = rawNewsItems
+        .map((item) => new Date(item.publishedAt))
+        .filter((date) => !isNaN(date.getTime()));
 
-    // Enforce the requested limit BEFORE sending to AI to save tokens/time
-    rawNewsItems = rawNewsItems.slice(0, validatedQuery.limit);
+      let publishTimeRange = "Recent";
+      if (validDates.length > 0) {
+        validDates.sort((a, b) => b.getTime() - a.getTime()); // Ensure sorted descending
+        const latestDate = validDates[0]!;
+        const earliestDate = validDates[validDates.length - 1]!;
 
-    // Calculate publish time range
-    const validDates = rawNewsItems
-      .map((item) => new Date(item.publishedAt))
-      .filter((date) => !isNaN(date.getTime()));
-
-    let publishTimeRange = "Recent";
-    if (validDates.length > 0) {
-      validDates.sort((a, b) => b.getTime() - a.getTime()); // Ensure sorted descending
-      const latestDate = validDates[0]!;
-      const earliestDate = validDates[validDates.length - 1]!;
-
-      const formatOpts: Intl.DateTimeFormatOptions = {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      };
-      let lang = "en-US";
-      try {
-        if (validatedQuery.language) {
-          Intl.DateTimeFormat(validatedQuery.language);
-          lang = validatedQuery.language;
+        const formatOpts: Intl.DateTimeFormatOptions = {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        };
+        let lang = "en-US";
+        try {
+          if (validatedQuery.language) {
+            Intl.DateTimeFormat(validatedQuery.language);
+            lang = validatedQuery.language;
+          }
+        } catch {
+          lang = "en-US";
         }
-      } catch {
-        lang = "en-US";
+
+        const latestFormatted = latestDate.toLocaleDateString(lang, formatOpts);
+        const earliestFormatted = earliestDate.toLocaleDateString(
+          lang,
+          formatOpts,
+        );
+
+        if (earliestFormatted === latestFormatted) {
+          publishTimeRange = earliestFormatted;
+        } else {
+          publishTimeRange = `${earliestFormatted} - ${latestFormatted}`;
+        }
       }
 
-      const latestFormatted = latestDate.toLocaleDateString(lang, formatOpts);
-      const earliestFormatted = earliestDate.toLocaleDateString(
-        lang,
-        formatOpts,
-      );
+      const briefing = await geminiService.generateNewsBriefing(rawNewsItems, {
+        apiKey: config.geminiApiKey as string,
+        model: config.geminiModel as string | undefined,
+        language: validatedQuery.language,
+      });
+      briefing.publishTimeRange = publishTimeRange;
 
-      if (earliestFormatted === latestFormatted) {
-        publishTimeRange = earliestFormatted;
-      } else {
-        publishTimeRange = `${earliestFormatted} - ${latestFormatted}`;
-      }
+      setResponseHeaders(event, {
+        "X-RateLimit-Limit": rateLimitResult.limit.toString(),
+        "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
+        "X-RateLimit-Reset": rateLimitResult.resetTime.toISOString(),
+      });
+
+      return {
+        success: true,
+        data: briefing,
+        count: briefing.sourcesProcessed?.length || 0,
+        timestamp: new Date().toISOString(),
+      };
     }
 
-    // NEW LOGIC: Use Gemini to generate a single synthesized briefing
-    const briefing = await geminiService.generateNewsBriefing(rawNewsItems, {
-      apiKey: config.geminiApiKey as string,
-      model: config.geminiModel as string | undefined,
-      language: validatedQuery.language,
+    // --- PRODUCTION & DEVELOPMENT MODE (NEW aggregated story database) ---
+
+    // 1. Trigger background ingestion if cache is stale or empty
+    const lastIngest = await storiesService.getLastIngestTime();
+    const THIRTY_MINUTES_MS = 30 * 60 * 1000;
+    const allStoriesCount = (await storiesService.getStoryIds()).length;
+
+    if (Date.now() - lastIngest > THIRTY_MINUTES_MS || allStoriesCount === 0 || lastIngest === 0) {
+      console.log("[API] Cache is stale or empty. Triggering news ingestion task...");
+      event.waitUntil(
+        ingestNewsTask()
+          .then((res) => console.log("[API] Background news ingestion completed:", res))
+          .catch((err) => console.error("[API] Background news ingestion failed:", err))
+      );
+    }
+
+    // 2. Fetch stories from Redis
+    const allStories = await storiesService.getStories();
+
+    // 3. Filter stories
+    let filteredStories = allStories;
+
+    // Filter by category
+    if (validatedQuery.category && validatedQuery.category !== "all") {
+      filteredStories = filteredStories.filter(story => 
+        story.categories?.includes(validatedQuery.category!) ||
+        story.sources?.some(src => src.category === validatedQuery.category)
+      );
+    }
+
+    // Filter by query (text search)
+    if (validatedQuery.query) {
+      const searchLower = validatedQuery.query.toLowerCase();
+      filteredStories = filteredStories.filter(story => 
+        story.headlineEn.toLowerCase().includes(searchLower) ||
+        story.headlineJa.toLowerCase().includes(searchLower) ||
+        story.summaryEn.toLowerCase().includes(searchLower) ||
+        story.summaryJa.toLowerCase().includes(searchLower)
+      );
+    }
+
+    // Filter by time range or custom dates
+    let cutoffMs = 0;
+    if (validatedQuery.startDate && validatedQuery.endDate) {
+      const start = new Date(validatedQuery.startDate).getTime();
+      const end = new Date(validatedQuery.endDate).getTime() + 24 * 3600 * 1000; // end of day
+      filteredStories = filteredStories.filter(story => 
+        story.lastUpdated >= start && story.lastUpdated <= end
+      );
+    } else if (validatedQuery.timeRange && validatedQuery.timeRange !== "none") {
+      const now = Date.now();
+      if (validatedQuery.timeRange === "day") cutoffMs = now - 24 * 3600 * 1000;
+      else if (validatedQuery.timeRange === "week") cutoffMs = now - 7 * 24 * 3600 * 1000;
+      else if (validatedQuery.timeRange === "month") cutoffMs = now - 30 * 24 * 3600 * 1000;
+      else if (validatedQuery.timeRange === "year") cutoffMs = now - 365 * 24 * 3600 * 1000;
+
+      filteredStories = filteredStories.filter(story => story.lastUpdated >= cutoffMs);
+    }
+
+    // 4. Sort stories: primary by trendScore descending, secondary by lastUpdated descending
+    filteredStories.sort((a, b) => {
+      if (b.trendScore !== a.trendScore) {
+        return b.trendScore - a.trendScore;
+      }
+      return b.lastUpdated - a.lastUpdated;
     });
 
-    // Add the time range to the briefing
-    briefing.publishTimeRange = publishTimeRange;
+    // Enforce limit
+    filteredStories = filteredStories.slice(0, validatedQuery.limit);
+
+    // 5. Build backward-compatible global briefing from top stories
+    const isJa = validatedQuery.language === "ja";
+    let backwardCompatibleBriefing: any = null;
+
+    if (filteredStories.length > 0) {
+      const topStory = filteredStories[0];
+      const allSources = filteredStories.flatMap(s => s.sources);
+      
+      // Deduplicate sources by URL
+      const uniqueSourcesMap = new Map();
+      allSources.forEach(src => uniqueSourcesMap.set(src.url, src));
+      const uniqueSources = Array.from(uniqueSourcesMap.values());
+
+      backwardCompatibleBriefing = {
+        mainHeadline: isJa ? topStory.headlineJa : topStory.headlineEn,
+        executiveSummary: isJa ? topStory.summaryJa : topStory.summaryEn,
+        thematicAnalysis: isJa ? topStory.thematicAnalysisJa : topStory.thematicAnalysisEn,
+        overallCredibilityScore: topStory.sources[0]?.credibilityScore || 0.8,
+        sourcesProcessed: uniqueSources.map(src => ({
+          title: src.title,
+          source: src.source,
+          url: src.url,
+          favicon: src.favicon,
+          credibilityScore: src.credibilityScore,
+          regions: src.regions
+        })),
+        regionsAffected: Object.keys(topStory.regionBreakdown),
+        publishTimeRange: "Recent"
+      };
+    } else {
+      backwardCompatibleBriefing = {
+        mainHeadline: isJa ? "日本の最新ニュース" : "Latest Japan News Briefing",
+        executiveSummary: isJa 
+          ? "- 現在表示できるストーリーはありません。しばらくしてから再読み込みしてください。" 
+          : "- No news stories are currently available. Please trigger news ingestion or check back later.",
+        thematicAnalysis: isJa
+          ? "- 利用可能な分析はありません。"
+          : "- No thematic analysis available.",
+        overallCredibilityScore: 0.8,
+        sourcesProcessed: [],
+        regionsAffected: [],
+        publishTimeRange: "Recent"
+      };
+    }
 
     setResponseHeaders(event, {
       "X-RateLimit-Limit": rateLimitResult.limit.toString(),
@@ -311,9 +384,13 @@ export default defineEventHandler(async (event) => {
 
     return {
       success: true,
-      data: briefing,
-      count: briefing.sourcesProcessed?.length || 0,
-      timestamp: new Date().toISOString(),
+      data: {
+        ...backwardCompatibleBriefing,
+        stories: filteredStories,
+        lastIngestTime: lastIngest
+      },
+      count: filteredStories.length,
+      timestamp: new Date().toISOString()
     };
   } catch (error) {
     if (error instanceof z.ZodError) {
