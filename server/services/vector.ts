@@ -64,11 +64,12 @@ class UpstashVectorService {
       },
     });
 
-    if (!response.embedding || !response.embedding.values) {
+    const embedding = response.embedding || (response.embeddings && response.embeddings[0]);
+    if (!embedding || !embedding.values) {
       throw new Error("Failed to retrieve embedding values from Gemini API response.");
     }
 
-    return response.embedding.values;
+    return embedding.values;
   }
 
   /**

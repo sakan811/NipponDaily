@@ -73,9 +73,11 @@ describe("UpstashVectorService", () => {
 
     const mockVector = Array(1536).fill(0.1);
     mockEmbedContent.mockResolvedValueOnce({
-      embedding: {
-        values: mockVector,
-      },
+      embeddings: [
+        {
+          values: mockVector,
+        },
+      ],
     });
 
     const mockResults = [
@@ -127,9 +129,11 @@ describe("UpstashVectorService", () => {
 
     const mockVector = Array(1536).fill(0.1);
     mockEmbedContent.mockResolvedValueOnce({
-      embedding: {
-        values: mockVector,
-      },
+      embeddings: [
+        {
+          values: mockVector,
+        },
+      ],
     });
 
     mockUpsert.mockResolvedValueOnce(["id-123"]);
