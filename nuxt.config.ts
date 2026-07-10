@@ -31,6 +31,8 @@ export default defineNuxtConfig({
     tavilyApiKey: process.env.TAVILY_API_KEY,
     upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
     upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+    upstashVectorRestUrl: process.env.UPSTASH_VECTOR_REST_URL,
+    upstashVectorRestToken: process.env.UPSTASH_VECTOR_REST_TOKEN,
     rateLimitMaxRequests: process.env.RATE_LIMIT_MAX_REQUESTS,
     public: {
       apiBase: "/api",

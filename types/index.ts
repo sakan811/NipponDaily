@@ -48,3 +48,35 @@ export interface NewsBriefing {
   publishTimeRange?: string;
   regionsAffected?: string[];
 }
+
+// --- CLUSTERED STORIES & LONG-TERM TRENDS ---
+
+export interface StorySource {
+  title: string;
+  source: string;
+  url: string;
+  publishedAt: string;
+  favicon?: string;
+  credibilityScore: number;
+  regions: string[];
+  addedAt: number; // timestamp in ms
+  category?: string;
+}
+
+export interface Story {
+  id: string;
+  headlineEn: string;
+  headlineJa: string;
+  summaryEn: string;
+  summaryJa: string;
+  thematicAnalysisEn: string;
+  thematicAnalysisJa: string;
+  articleCount: number;
+  regionBreakdown: Record<string, number>; // region_name -> count of sources
+  firstSeen: number; // timestamp ms
+  lastUpdated: number; // timestamp ms
+  trendScore: number;
+  sources: StorySource[];
+  categories: string[];
+}
+
