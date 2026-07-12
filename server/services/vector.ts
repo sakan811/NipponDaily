@@ -24,7 +24,7 @@ class UpstashVectorService {
   private getGeminiClient() {
     if (!this.client) {
       const config = useRuntimeConfig();
-      const apiKey = config.geminiApiKey || process.env.GEMINI_API_KEY;
+      const apiKey = (config.geminiApiKey as string) || process.env.GEMINI_API_KEY;
       if (apiKey) {
         this.client = new GoogleGenAI({ apiKey });
       }
@@ -34,8 +34,8 @@ class UpstashVectorService {
 
   private getCredentials() {
     const config = useRuntimeConfig();
-    const url = config.upstashVectorRestUrl || process.env.UPSTASH_VECTOR_REST_URL;
-    const token = config.upstashVectorRestToken || process.env.UPSTASH_VECTOR_REST_TOKEN;
+    const url = (config.upstashVectorRestUrl as string) || process.env.UPSTASH_VECTOR_REST_URL;
+    const token = (config.upstashVectorRestToken as string) || process.env.UPSTASH_VECTOR_REST_TOKEN;
     return { url, token };
   }
 
@@ -64,7 +64,7 @@ class UpstashVectorService {
       },
     });
 
-    const embedding = response.embedding || (response.embeddings && response.embeddings[0]);
+    const embedding = (response as any).embedding || (response.embeddings && response.embeddings[0]);
     if (!embedding || !embedding.values) {
       throw new Error("Failed to retrieve embedding values from Gemini API response.");
     }
@@ -101,7 +101,7 @@ class UpstashVectorService {
         filter: options?.filter,
       }, queryOptions);
 
-      return (results || []).map(r => ({
+      return (results || []).map((r: any) => ({
         id: r.id,
         score: r.score ?? 0,
         metadata: (r.metadata || {}) as VectorMetadata,

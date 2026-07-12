@@ -12,8 +12,8 @@ class StoriesService {
 
     try {
       const config = useRuntimeConfig();
-      const url = config.upstashRedisRestUrl || process.env.UPSTASH_REDIS_REST_URL;
-      const token = config.upstashRedisRestToken || process.env.UPSTASH_REDIS_REST_TOKEN;
+      const url = (config.upstashRedisRestUrl as string) || process.env.UPSTASH_REDIS_REST_URL;
+      const token = (config.upstashRedisRestToken as string) || process.env.UPSTASH_REDIS_REST_TOKEN;
 
       if (!url || !token) {
         return null;

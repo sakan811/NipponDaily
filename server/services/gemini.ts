@@ -158,10 +158,11 @@ ${newsText}`;
     thematicAnalysisJa: string;
     regionsAffected: string[];
     overallCredibilityScore: number;
+    categories: string[];
   }> {
     if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
     if (!this.client) {
-      this.client = new GoogleGenAI({ apiKey: useRuntimeConfig().geminiApiKey || process.env.GEMINI_API_KEY });
+      this.client = new GoogleGenAI({ apiKey: (useRuntimeConfig().geminiApiKey as string) || process.env.GEMINI_API_KEY });
     }
 
     const newsText = newsItems
@@ -184,6 +185,7 @@ Instructions:
 3. thematicAnalysisEn / thematicAnalysisJa: Write a cross-source analysis comparing perspectives. Contrast the viewpoints, focus, and tone of domestic Japanese sources vs international/Western sources if available. Format as a Markdown unordered list, with line breaks separating topics.
 4. regionsAffected: Identify any specific Japanese prefectures or regions explicitly mentioned or heavily featured (e.g. "Tokyo", "Kyoto", "Osaka", "Hokkaido", "Okinawa", "Tohoku", "Kyushu"). If national/general, leave the array empty.
 5. overallCredibilityScore: Assess the collective reliability (0.0 to 1.0) based on the publishers provided.
+6. categories: Classify this story into one or more categories that fit from this list: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
 
 Output in JSON format matching the schema.`;
 
@@ -209,6 +211,10 @@ Output in JSON format matching the schema.`;
                   items: { type: Type.STRING },
                 },
                 overallCredibilityScore: { type: Type.NUMBER },
+                categories: {
+                  type: Type.ARRAY,
+                  items: { type: Type.STRING },
+                },
               },
               required: [
                 "headlineEn",
@@ -219,6 +225,7 @@ Output in JSON format matching the schema.`;
                 "thematicAnalysisJa",
                 "regionsAffected",
                 "overallCredibilityScore",
+                "categories",
               ],
             },
           },
@@ -244,6 +251,7 @@ Output in JSON format matching the schema.`;
       thematicAnalysisJa: "- クロスソース分析は現在利用できません。",
       regionsAffected: [],
       overallCredibilityScore: 0.7,
+      categories: ["society"],
     };
   }
 
@@ -260,10 +268,11 @@ Output in JSON format matching the schema.`;
     thematicAnalysisJa: string;
     regionsAffected: string[];
     overallCredibilityScore: number;
+    categories: string[];
   }> {
     if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
     if (!this.client) {
-      this.client = new GoogleGenAI({ apiKey: useRuntimeConfig().geminiApiKey || process.env.GEMINI_API_KEY });
+      this.client = new GoogleGenAI({ apiKey: (useRuntimeConfig().geminiApiKey as string) || process.env.GEMINI_API_KEY });
     }
 
     const newArticlesText = newItems
@@ -300,6 +309,7 @@ Instructions:
 3. thematicAnalysisEn / thematicAnalysisJa: Update the thematic analysis comparing viewpoints if the new articles bring new perspectives (e.g. domestic vs international). Format as a Markdown unordered list, with line breaks separating topics.
 4. regionsAffected: Combine the existing regions affected [${Object.keys(existingStory.regionBreakdown).join(", ")}] with any new prefectures or regions mentioned in the new articles. Return all affected prefectures/regions as a list.
 5. overallCredibilityScore: Re-assess the overall credibility score (0.0 to 1.0) based on all sources.
+6. categories: Classify this story into one or more categories that fit from this list: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"]. You may reuse the existing categories [${existingStory.categories.join(", ")}] or adapt them based on the new content.
 
 Output in JSON format matching the schema.`;
 
@@ -325,6 +335,10 @@ Output in JSON format matching the schema.`;
                   items: { type: Type.STRING },
                 },
                 overallCredibilityScore: { type: Type.NUMBER },
+                categories: {
+                  type: Type.ARRAY,
+                  items: { type: Type.STRING },
+                },
               },
               required: [
                 "headlineEn",
@@ -335,6 +349,7 @@ Output in JSON format matching the schema.`;
                 "thematicAnalysisJa",
                 "regionsAffected",
                 "overallCredibilityScore",
+                "categories",
               ],
             },
           },
@@ -359,6 +374,7 @@ Output in JSON format matching the schema.`;
       thematicAnalysisJa: existingStory.thematicAnalysisJa,
       regionsAffected: Object.keys(existingStory.regionBreakdown),
       overallCredibilityScore: existingStory.sources[0]?.credibilityScore || 0.7,
+      categories: existingStory.categories || ["society"],
     };
   }
 

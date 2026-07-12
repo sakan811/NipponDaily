@@ -9,28 +9,21 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
   console.log("[Ingest] Beginning news ingestion pipeline...");
   const config = useRuntimeConfig();
 
-  const categories = ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"];
   const rawArticles: NewsItem[] = [];
 
-  // 1. Fetch recent news from Tavily across all channels
-  for (const cat of categories) {
-    try {
-      console.log(`[Ingest] Fetching Tavily news for category: ${cat}`);
-      const response = await tavilyService.searchJapanNews({
-        category: cat,
-        maxResults: 8, // fetch up to 8 per category
-        timeRange: "week",
-        apiKey: config.tavilyApiKey,
-      });
+  // 1. Fetch recent news from Tavily only once (20 articles, focusing on recent Japanese news in English)
+  try {
+    console.log("[Ingest] Fetching Tavily news once for recent Japan news...");
+    const response = await tavilyService.searchJapanNews({
+      maxResults: 20,
+      timeRange: "week",
+      apiKey: config.tavilyApiKey as string,
+    });
 
-      const items = tavilyService.formatTavilyResultsToNewsItems(response);
-      items.forEach((item) => {
-        item.category = cat as any;
-      });
-      rawArticles.push(...items);
-    } catch (e) {
-      console.error(`[Ingest] Failed to fetch news for category ${cat}:`, e);
-    }
+    const items = tavilyService.formatTavilyResultsToNewsItems(response);
+    rawArticles.push(...items);
+  } catch (e) {
+    console.error("[Ingest] Failed to fetch news from Tavily:", e);
   }
 
   // Deduplicate raw articles by URL or title
@@ -80,9 +73,9 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
       let storyId: string;
       const SIMILARITY_THRESHOLD = 0.82; // cos similarity threshold, start at 0.82 to be slightly inclusive
 
-      if (matches && matches.length > 0 && matches[0].score >= SIMILARITY_THRESHOLD) {
-        storyId = matches[0].metadata.story_id;
-        console.log(`[Ingest] Article "${article.title}" matched existing story: ${storyId} (score: ${matches[0].score.toFixed(3)})`);
+      if (matches && matches.length > 0 && matches[0]!.score >= SIMILARITY_THRESHOLD) {
+        storyId = matches[0]!.metadata.story_id;
+        console.log(`[Ingest] Article "${article.title}" matched existing story: ${storyId} (score: ${matches[0]!.score.toFixed(3)})`);
       } else {
         storyId = randomUUID();
         console.log(`[Ingest] Article "${article.title}" did not match. Minting new story ID: ${storyId}`);
@@ -120,7 +113,7 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
         console.log(`[Ingest] Updating existing story: ${storyId} with ${articles.length} new articles`);
         // Synthesize updates via LLM
         const briefingUpdate = await geminiService.updateStoryBriefing(existingStory, articles, {
-          apiKey: config.geminiApiKey,
+          apiKey: config.geminiApiKey as string,
         });
 
         // Map articles to StorySources
@@ -146,8 +139,11 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
           regionBreakdown[region] = (regionBreakdown[region] || 0) + 1;
         });
 
-        // Compile unique categories
-        const categoriesSet = new Set([...existingStory.categories, ...articles.map((a) => a.category as string)]);
+        // Compile unique categories from Gemini response
+        const categoriesSet = new Set([
+          ...(existingStory.categories || []),
+          ...(briefingUpdate.categories || [])
+        ]);
 
         updatedStory = {
           id: storyId,
@@ -169,7 +165,7 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
         console.log(`[Ingest] Generating new story: ${storyId} with ${articles.length} articles`);
         // Generate new briefing via LLM
         const briefing = await geminiService.generateStoryBriefing(articles, {
-          apiKey: config.geminiApiKey,
+          apiKey: config.geminiApiKey as string,
         });
 
         const newSources: StorySource[] = articles.map((a) => ({
@@ -203,7 +199,7 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
           lastUpdated: Date.now(),
           trendScore: 0, // recalculated later
           sources: newSources,
-          categories: articles.map((a) => a.category as string),
+          categories: briefing.categories || ["society"],
         };
       }
 

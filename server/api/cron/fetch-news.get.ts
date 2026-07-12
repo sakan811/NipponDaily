@@ -4,9 +4,9 @@ export default defineEventHandler(async (event) => {
   try {
     const result = await ingestNewsTask();
     return {
+      ...result,
       success: true,
       message: "News ingestion completed successfully",
-      ...result,
       timestamp: new Date().toISOString(),
     };
   } catch (error: any) {
