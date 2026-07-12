@@ -25,7 +25,9 @@ class UpstashVectorService {
     if (!this.client) {
       const config = useRuntimeConfig();
       const rawApiKey = config.geminiApiKey;
-      const apiKey = (typeof rawApiKey === "string" ? rawApiKey : "") || process.env.GEMINI_API_KEY;
+      const apiKey =
+        (typeof rawApiKey === "string" ? rawApiKey : "") ||
+        process.env.GEMINI_API_KEY;
       if (apiKey) {
         this.client = new GoogleGenAI({ apiKey });
       }
@@ -37,8 +39,12 @@ class UpstashVectorService {
     const config = useRuntimeConfig();
     const rawUrl = config.upstashVectorRestUrl;
     const rawToken = config.upstashVectorRestToken;
-    const url = (typeof rawUrl === "string" ? rawUrl : "") || process.env.UPSTASH_VECTOR_REST_URL;
-    const token = (typeof rawToken === "string" ? rawToken : "") || process.env.UPSTASH_VECTOR_REST_TOKEN;
+    const url =
+      (typeof rawUrl === "string" ? rawUrl : "") ||
+      process.env.UPSTASH_VECTOR_REST_URL;
+    const token =
+      (typeof rawToken === "string" ? rawToken : "") ||
+      process.env.UPSTASH_VECTOR_REST_TOKEN;
     return { url, token };
   }
 
@@ -56,11 +62,15 @@ class UpstashVectorService {
   private async getEmbedding(text: string): Promise<number[]> {
     const client = this.getGeminiClient();
     if (!client) {
-      throw new Error("Gemini AI client is not configured for embedding generation.");
+      throw new Error(
+        "Gemini AI client is not configured for embedding generation.",
+      );
     }
 
     const config = useRuntimeConfig();
-    const embeddingModel = (config.geminiEmbeddingModel as string | undefined) || "gemini-embedding-2";
+    const embeddingModel =
+      (config.geminiEmbeddingModel as string | undefined) ||
+      "gemini-embedding-2";
     const dim = embeddingModel.includes("embedding-2") ? 1536 : 768;
 
     const response = await client.models.embedContent({
@@ -71,9 +81,13 @@ class UpstashVectorService {
       },
     });
 
-    const embedding = (response as any).embedding || (response.embeddings && response.embeddings[0]);
+    const embedding =
+      (response as any).embedding ||
+      (response.embeddings && response.embeddings[0]);
     if (!embedding || !embedding.values) {
-      throw new Error("Failed to retrieve embedding values from Gemini API response.");
+      throw new Error(
+        "Failed to retrieve embedding values from Gemini API response.",
+      );
     }
 
     return embedding.values;
@@ -84,10 +98,12 @@ class UpstashVectorService {
    */
   async querySimilarity(
     text: string,
-    options?: { topK?: number; filter?: string; namespace?: string }
+    options?: { topK?: number; filter?: string; namespace?: string },
   ): Promise<VectorMatch[]> {
     if (!this.isConfigured()) {
-      console.warn("Upstash Vector is not configured. Skipping similarity query.");
+      console.warn(
+        "Upstash Vector is not configured. Skipping similarity query.",
+      );
       return [];
     }
 
@@ -101,12 +117,15 @@ class UpstashVectorService {
         queryOptions.namespace = options.namespace;
       }
 
-      const results = await index.query({
-        vector,
-        topK: options?.topK ?? 1,
-        includeMetadata: true,
-        filter: options?.filter,
-      }, queryOptions);
+      const results = await index.query(
+        {
+          vector,
+          topK: options?.topK ?? 1,
+          includeMetadata: true,
+          filter: options?.filter,
+        },
+        queryOptions,
+      );
 
       return (results || []).map((r: any) => ({
         id: r.id,
@@ -127,7 +146,7 @@ class UpstashVectorService {
     id: string,
     text: string,
     metadata: VectorMetadata,
-    options?: { namespace?: string }
+    options?: { namespace?: string },
   ): Promise<boolean> {
     if (!this.isConfigured()) {
       console.warn("Upstash Vector is not configured. Skipping upsert.");
@@ -144,11 +163,14 @@ class UpstashVectorService {
         upsertOptions.namespace = options.namespace;
       }
 
-      await index.upsert({
-        id,
-        vector,
-        metadata: metadata as any,
-      }, upsertOptions);
+      await index.upsert(
+        {
+          id,
+          vector,
+          metadata: metadata as any,
+        },
+        upsertOptions,
+      );
 
       return true;
     } catch (error) {

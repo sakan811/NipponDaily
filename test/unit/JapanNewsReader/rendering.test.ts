@@ -33,8 +33,6 @@ describe("JapanNewsReader - Rendering", () => {
     expect(wrapper.find(".container").exists()).toBe(true);
   });
 
-
-
   it("renders category filter buttons", () => {
     const wrapper = mountReader({
       global: {

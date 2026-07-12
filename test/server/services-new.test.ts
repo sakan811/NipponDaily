@@ -29,7 +29,8 @@ vi.mock("@google/genai", () => {
 
 // Mock stories service and dependencies
 vi.mock("~/server/services/vector", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("~/server/services/vector")>();
+  const actual =
+    await importOriginal<typeof import("~/server/services/vector")>();
   return actual;
 });
 
@@ -89,7 +90,10 @@ describe("UpstashVectorService", () => {
     ];
     mockQuery.mockResolvedValueOnce(mockResults);
 
-    const matches = await service.querySimilarity("test query", { topK: 1, namespace: "test-ns" });
+    const matches = await service.querySimilarity("test query", {
+      topK: 1,
+      namespace: "test-ns",
+    });
     expect(matches).toEqual([
       {
         id: "article-1",
@@ -115,7 +119,7 @@ describe("UpstashVectorService", () => {
       },
       {
         namespace: "test-ns",
-      }
+      },
     );
   });
 
@@ -138,9 +142,14 @@ describe("UpstashVectorService", () => {
 
     mockUpsert.mockResolvedValueOnce(["id-123"]);
 
-    const success = await service.upsertArticle("id-123", "text contents", {
-      story_id: "story-1",
-    }, { namespace: "test-ns" });
+    const success = await service.upsertArticle(
+      "id-123",
+      "text contents",
+      {
+        story_id: "story-1",
+      },
+      { namespace: "test-ns" },
+    );
 
     expect(success).toBe(true);
     expect(mockEmbedContent).toHaveBeenCalledWith({
@@ -159,7 +168,7 @@ describe("UpstashVectorService", () => {
       },
       {
         namespace: "test-ns",
-      }
+      },
     );
   });
 });

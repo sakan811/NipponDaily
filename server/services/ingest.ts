@@ -5,7 +5,11 @@ import { upstashVectorService } from "./vector";
 import { storiesService } from "./stories";
 import type { NewsItem, Story, StorySource } from "~~/types/index";
 
-export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdated: number; articlesProcessed: number }> {
+export async function ingestNewsTask(): Promise<{
+  success: boolean;
+  storiesUpdated: number;
+  articlesProcessed: number;
+}> {
   console.log("[Ingest] Beginning news ingestion pipeline...");
   const config = useRuntimeConfig();
 
@@ -15,7 +19,9 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
   try {
     console.log("[Ingest] Fetching Tavily news once for recent Japan news...");
     const rawTavilyKey = config.tavilyApiKey;
-    const tavilyApiKey = (typeof rawTavilyKey === "string" ? rawTavilyKey : "") || process.env.TAVILY_API_KEY;
+    const tavilyApiKey =
+      (typeof rawTavilyKey === "string" ? rawTavilyKey : "") ||
+      process.env.TAVILY_API_KEY;
     const response = await tavilyService.searchJapanNews({
       maxResults: 20,
       timeRange: "week",
@@ -38,7 +44,9 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
     }
   }
   const uniqueArticles = Array.from(uniqueArticlesMap.values());
-  console.log(`[Ingest] Fetched ${uniqueArticles.length} unique raw articles from Tavily.`);
+  console.log(
+    `[Ingest] Fetched ${uniqueArticles.length} unique raw articles from Tavily.`,
+  );
 
   // 2. Filter out already processed articles
   const newArticles: NewsItem[] = [];
@@ -75,12 +83,20 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
       let storyId: string;
       const SIMILARITY_THRESHOLD = 0.82; // cos similarity threshold, start at 0.82 to be slightly inclusive
 
-      if (matches && matches.length > 0 && matches[0]!.score >= SIMILARITY_THRESHOLD) {
+      if (
+        matches &&
+        matches.length > 0 &&
+        matches[0]!.score >= SIMILARITY_THRESHOLD
+      ) {
         storyId = matches[0]!.metadata.story_id;
-        console.log(`[Ingest] Article "${article.title}" matched existing story: ${storyId} (score: ${matches[0]!.score.toFixed(3)})`);
+        console.log(
+          `[Ingest] Article "${article.title}" matched existing story: ${storyId} (score: ${matches[0]!.score.toFixed(3)})`,
+        );
       } else {
         storyId = randomUUID();
-        console.log(`[Ingest] Article "${article.title}" did not match. Minting new story ID: ${storyId}`);
+        console.log(
+          `[Ingest] Article "${article.title}" did not match. Minting new story ID: ${storyId}`,
+        );
       }
 
       // Add to group
@@ -96,7 +112,9 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
         category: article.category as string,
         source: article.source,
         url: article.url,
-        published_at: Math.floor(new Date(article.publishedAt).getTime() / 1000),
+        published_at: Math.floor(
+          new Date(article.publishedAt).getTime() / 1000,
+        ),
         title: article.title,
       });
     } catch (e) {
@@ -112,13 +130,21 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
       let updatedStory: Story;
 
       if (existingStory) {
-        console.log(`[Ingest] Updating existing story: ${storyId} with ${articles.length} new articles`);
+        console.log(
+          `[Ingest] Updating existing story: ${storyId} with ${articles.length} new articles`,
+        );
         // Synthesize updates via LLM
         const rawGeminiKey = config.geminiApiKey;
-        const geminiApiKey = (typeof rawGeminiKey === "string" ? rawGeminiKey : "") || process.env.GEMINI_API_KEY;
-        const briefingUpdate = await geminiService.updateStoryBriefing(existingStory, articles, {
-          apiKey: geminiApiKey,
-        });
+        const geminiApiKey =
+          (typeof rawGeminiKey === "string" ? rawGeminiKey : "") ||
+          process.env.GEMINI_API_KEY;
+        const briefingUpdate = await geminiService.updateStoryBriefing(
+          existingStory,
+          articles,
+          {
+            apiKey: geminiApiKey,
+          },
+        );
 
         // Map articles to StorySources
         const newSources: StorySource[] = articles.map((a) => ({
@@ -135,7 +161,11 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
 
         // Merge sources and sort by published date descending
         const combinedSources = [...existingStory.sources, ...newSources];
-        combinedSources.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+        combinedSources.sort(
+          (a, b) =>
+            new Date(b.publishedAt).getTime() -
+            new Date(a.publishedAt).getTime(),
+        );
 
         // Update region breakdown
         const regionBreakdown = { ...existingStory.regionBreakdown };
@@ -146,7 +176,7 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
         // Compile unique categories from Gemini response
         const categoriesSet = new Set([
           ...(existingStory.categories || []),
-          ...(briefingUpdate.categories || [])
+          ...(briefingUpdate.categories || []),
         ]);
 
         updatedStory = {
@@ -166,10 +196,14 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
           categories: Array.from(categoriesSet),
         };
       } else {
-        console.log(`[Ingest] Generating new story: ${storyId} with ${articles.length} articles`);
+        console.log(
+          `[Ingest] Generating new story: ${storyId} with ${articles.length} articles`,
+        );
         // Generate new briefing via LLM
         const rawGeminiKey = config.geminiApiKey;
-        const geminiApiKey = (typeof rawGeminiKey === "string" ? rawGeminiKey : "") || process.env.GEMINI_API_KEY;
+        const geminiApiKey =
+          (typeof rawGeminiKey === "string" ? rawGeminiKey : "") ||
+          process.env.GEMINI_API_KEY;
         const briefing = await geminiService.generateStoryBriefing(articles, {
           apiKey: geminiApiKey,
         });
@@ -230,7 +264,9 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
 
   // Set last ingest time
   await storiesService.setLastIngestTime(Date.now());
-  console.log(`[Ingest] Ingestion completed. Stories updated/created: ${storiesUpdated}, Articles processed: ${newArticles.length}`);
+  console.log(
+    `[Ingest] Ingestion completed. Stories updated/created: ${storiesUpdated}, Articles processed: ${newArticles.length}`,
+  );
 
   return {
     success: true,

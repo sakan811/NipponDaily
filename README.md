@@ -66,34 +66,34 @@
 
 See `.env.example` for reference. Configure these in your `.env` file:
 
-| Variable                     | Required | Description                                             | Default                                   |
-| :--------------------------- | :------- | :------------------------------------------------------ | :---------------------------------------- |
-| `GEMINI_API_KEY`             | **Yes**  | Google Gemini API key for AI processing.                | -                                         |
-| `TAVILY_API_KEY`             | **Yes**  | Tavily Search API key for news discovery.               | -                                         |
-| `GEMINI_MODEL`               | No       | Google Gemini model for text briefing generation.       | `gemini-2.5-flash`                        |
-| `GEMINI_EMBEDDING_MODEL`     | No       | Google Gemini model for vector embeddings generation.   | `gemini-embedding-2`                      |
-| `UPSTASH_REDIS_REST_URL`     | **Yes**  | Upstash Redis REST URL for story database cache.       | -                                         |
-| `UPSTASH_REDIS_REST_TOKEN`   | **Yes**  | Upstash Redis REST token for story database cache.     | -                                         |
-| `UPSTASH_VECTOR_REST_URL`    | **Yes**  | Upstash Vector REST URL for story clustering.          | -                                         |
-| `UPSTASH_VECTOR_REST_TOKEN`  | **Yes**  | Upstash Vector REST token for story clustering.        | -                                         |
-| `DEBUG_ERROR_UI`             | No       | Set to `true` to force error UI components for testing. | `false`                                   |
+| Variable                    | Required | Description                                             | Default              |
+| :-------------------------- | :------- | :------------------------------------------------------ | :------------------- |
+| `GEMINI_API_KEY`            | **Yes**  | Google Gemini API key for AI processing.                | -                    |
+| `TAVILY_API_KEY`            | **Yes**  | Tavily Search API key for news discovery.               | -                    |
+| `GEMINI_MODEL`              | No       | Google Gemini model for text briefing generation.       | `gemini-2.5-flash`   |
+| `GEMINI_EMBEDDING_MODEL`    | No       | Google Gemini model for vector embeddings generation.   | `gemini-embedding-2` |
+| `UPSTASH_REDIS_REST_URL`    | **Yes**  | Upstash Redis REST URL for story database cache.        | -                    |
+| `UPSTASH_REDIS_REST_TOKEN`  | **Yes**  | Upstash Redis REST token for story database cache.      | -                    |
+| `UPSTASH_VECTOR_REST_URL`   | **Yes**  | Upstash Vector REST URL for story clustering.           | -                    |
+| `UPSTASH_VECTOR_REST_TOKEN` | **Yes**  | Upstash Vector REST token for story clustering.         | -                    |
+| `DEBUG_ERROR_UI`            | No       | Set to `true` to force error UI components for testing. | `false`              |
 
 ## 📜 Available Commands
 
-| Command                  | Description                                               |
-| :----------------------- | :-------------------------------------------------------- |
-| `pnpm dev`               | Start development server on localhost:3000                |
-| `pnpm build`             | Create a production-ready build                           |
-| `pnpm start`             | Run the production server locally                         |
-| `pnpm generate`          | Static site generation (SSG)                              |
-| `pnpm preview`           | Preview production build                                  |
-| `pnpm test`              | Run tests in watch mode                                   |
-| `pnpm test:run`          | Run tests once                                            |
-| `pnpm test:coverage`     | Run tests with coverage report                            |
-| `pnpm lint`              | Lint and auto-fix code                                    |
-| `pnpm format`            | Format code with Prettier                                 |
-| `pnpm type-check`        | Perform TypeScript type checking                          |
-| `pnpm check-qa`          | Run all QA checks (lint, format, type-check, build, test) |
+| Command              | Description                                               |
+| :------------------- | :-------------------------------------------------------- |
+| `pnpm dev`           | Start development server on localhost:3000                |
+| `pnpm build`         | Create a production-ready build                           |
+| `pnpm start`         | Run the production server locally                         |
+| `pnpm generate`      | Static site generation (SSG)                              |
+| `pnpm preview`       | Preview production build                                  |
+| `pnpm test`          | Run tests in watch mode                                   |
+| `pnpm test:run`      | Run tests once                                            |
+| `pnpm test:coverage` | Run tests with coverage report                            |
+| `pnpm lint`          | Lint and auto-fix code                                    |
+| `pnpm format`        | Format code with Prettier                                 |
+| `pnpm type-check`    | Perform TypeScript type checking                          |
+| `pnpm check-qa`      | Run all QA checks (lint, format, type-check, build, test) |
 
 ## 🧪 Testing
 

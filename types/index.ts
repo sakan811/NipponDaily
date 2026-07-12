@@ -79,4 +79,3 @@ export interface Story {
   sources: StorySource[];
   categories: string[];
 }
-

@@ -82,8 +82,6 @@ describe("JapanNewsReader - Mobile Menu", () => {
     await fetchPromise;
   });
 
-
-
   it("syncs mobileMenuOpen with UHeader via v-model", async () => {
     const wrapper = mountReader({
       global: {

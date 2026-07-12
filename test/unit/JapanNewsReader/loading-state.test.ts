@@ -80,6 +80,4 @@ describe("JapanNewsReader - Loading State", () => {
     expect(emptyState.text()).toContain("Ready to Synthesize");
     expect(emptyState.text()).toContain("Select your preferred time range");
   });
-
-
 });

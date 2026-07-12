@@ -1,5 +1,10 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import type { NewsItem, NewsBriefing, BriefingSource, Story } from "../../types/index";
+import type {
+  NewsItem,
+  NewsBriefing,
+  BriefingSource,
+  Story,
+} from "../../types/index";
 
 class GeminiService {
   private client: GoogleGenAI | null = null;
@@ -12,7 +17,7 @@ class GeminiService {
   private async generateContentWithRetry(
     params: { model: string; contents: string; config: any },
     retries = 3,
-    delayMs = 2000
+    delayMs = 2000,
   ): Promise<any> {
     try {
       if (!this.client) {
@@ -30,7 +35,7 @@ class GeminiService {
 
       if (is429 && retries > 0) {
         console.warn(
-          `[Gemini] API rate limited (429/RESOURCE_EXHAUSTED). Retrying in ${delayMs}ms... (${retries} retries left). Error: ${errorStr}`
+          `[Gemini] API rate limited (429/RESOURCE_EXHAUSTED). Retrying in ${delayMs}ms... (${retries} retries left). Error: ${errorStr}`,
         );
         await new Promise((resolve) => setTimeout(resolve, delayMs));
         return this.generateContentWithRetry(params, retries - 1, delayMs * 2);
@@ -41,7 +46,10 @@ class GeminiService {
 
   private getModels(defaultModel?: string): string[] {
     const config = useRuntimeConfig();
-    const modelStr = defaultModel || (config.geminiModel as string | undefined) || "gemini-2.5-flash";
+    const modelStr =
+      defaultModel ||
+      (config.geminiModel as string | undefined) ||
+      "gemini-2.5-flash";
     const models = modelStr
       .split(",")
       .map((m) => m.trim())
@@ -179,7 +187,7 @@ ${newsText}`;
 
   async generateStoryBriefing(
     newsItems: NewsItem[],
-    options?: { apiKey?: string; model?: string }
+    options?: { apiKey?: string; model?: string },
   ): Promise<{
     headlineEn: string;
     headlineJa: string;
@@ -195,7 +203,9 @@ ${newsText}`;
     if (!this.client) {
       const config = useRuntimeConfig();
       const rawApiKey = config.geminiApiKey;
-      const apiKey = (typeof rawApiKey === "string" ? rawApiKey : "") || process.env.GEMINI_API_KEY;
+      const apiKey =
+        (typeof rawApiKey === "string" ? rawApiKey : "") ||
+        process.env.GEMINI_API_KEY;
       this.client = new GoogleGenAI({ apiKey });
     }
 
@@ -275,7 +285,9 @@ Output in JSON format matching the schema.`;
 
     // Return a simple fallback if LLM completely fails
     const defaultHeadline = newsItems[0]?.title || "New Story Cluster";
-    const defaultSummary = newsItems.map(item => `- ${item.summary}`).join("\n");
+    const defaultSummary = newsItems
+      .map((item) => `- ${item.summary}`)
+      .join("\n");
     return {
       headlineEn: defaultHeadline,
       headlineJa: defaultHeadline,
@@ -292,7 +304,7 @@ Output in JSON format matching the schema.`;
   async updateStoryBriefing(
     existingStory: Story,
     newItems: NewsItem[],
-    options?: { apiKey?: string; model?: string }
+    options?: { apiKey?: string; model?: string },
   ): Promise<{
     headlineEn: string;
     headlineJa: string;
@@ -308,7 +320,9 @@ Output in JSON format matching the schema.`;
     if (!this.client) {
       const config = useRuntimeConfig();
       const rawApiKey = config.geminiApiKey;
-      const apiKey = (typeof rawApiKey === "string" ? rawApiKey : "") || process.env.GEMINI_API_KEY;
+      const apiKey =
+        (typeof rawApiKey === "string" ? rawApiKey : "") ||
+        process.env.GEMINI_API_KEY;
       this.client = new GoogleGenAI({ apiKey });
     }
 
@@ -401,7 +415,9 @@ Output in JSON format matching the schema.`;
     }
 
     // Return a fallback merging existing and new summaries
-    const newSummaryLines = newItems.map(item => `- ${item.summary}`).join("\n");
+    const newSummaryLines = newItems
+      .map((item) => `- ${item.summary}`)
+      .join("\n");
     return {
       headlineEn: existingStory.headlineEn,
       headlineJa: existingStory.headlineJa,
@@ -410,7 +426,8 @@ Output in JSON format matching the schema.`;
       thematicAnalysisEn: existingStory.thematicAnalysisEn,
       thematicAnalysisJa: existingStory.thematicAnalysisJa,
       regionsAffected: Object.keys(existingStory.regionBreakdown),
-      overallCredibilityScore: existingStory.sources[0]?.credibilityScore || 0.7,
+      overallCredibilityScore:
+        existingStory.sources[0]?.credibilityScore || 0.7,
       categories: existingStory.categories || ["society"],
     };
   }

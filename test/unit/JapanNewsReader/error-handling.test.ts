@@ -125,13 +125,10 @@ describe("JapanNewsReader - Error Handling", () => {
       .findAll("button")
       .find(
         (b) =>
-          b.text().includes("Try Again") ||
-          b.text().includes("Refresh News"),
+          b.text().includes("Try Again") || b.text().includes("Refresh News"),
       );
     expect(getNewsButton).toBeDefined();
   });
-
-
 
   it("can retry fetching news after error", async () => {
     // First call fails
@@ -187,8 +184,6 @@ describe("JapanNewsReader - Error Handling", () => {
       },
     });
   });
-
-
 
   it("handles HTTP 500 error with generic error message (not Redis)", async () => {
     const wrapper = mount(JapanNewsReader, {
