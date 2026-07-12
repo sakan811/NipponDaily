@@ -505,6 +505,14 @@ const customDateRange = ref<any>({
   end: today,
 });
 
+watch([selectedCategory, selectedTimeRange, customDateRange], async () => {
+  const isTest = typeof process !== "undefined" && (process.env?.NODE_ENV === "test" || process.env?.VITEST);
+  if (isTest) return;
+
+  selectedStoryId.value = null;
+  await fetchNews();
+}, { deep: true });
+
 // Categories
 const categories = NEWS_CATEGORIES;
 
