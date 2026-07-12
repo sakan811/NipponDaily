@@ -370,6 +370,7 @@ export default defineEventHandler(async (event) => {
       data: {
         error:
           error instanceof Error ? error.message : "Unknown error occurred",
+        stack: error instanceof Error ? error.stack : undefined,
       },
     });
   }
