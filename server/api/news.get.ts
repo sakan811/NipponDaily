@@ -270,9 +270,14 @@ export default defineEventHandler(async (event) => {
     if (validatedQuery.startDate && validatedQuery.endDate) {
       const start = new Date(validatedQuery.startDate).getTime();
       const end = new Date(validatedQuery.endDate).getTime() + 24 * 3600 * 1000; // end of day
-      filteredStories = filteredStories.filter(story => 
-        story.lastUpdated >= start && story.lastUpdated <= end
-      );
+      filteredStories = filteredStories.filter(story => {
+        if (!story.sources || story.sources.length === 0) return false;
+        const sourceTimes = story.sources.map(s => new Date(s.publishedAt).getTime());
+        const earliestSourceTime = Math.min(...sourceTimes);
+        const latestSourceTime = Math.max(...sourceTimes);
+        // Overlap: story active span [earliestSourceTime, latestSourceTime] intersects with filter range [start, end]
+        return latestSourceTime >= start && earliestSourceTime <= end;
+      });
     } else if (validatedQuery.timeRange && validatedQuery.timeRange !== "none") {
       const now = Date.now();
       if (validatedQuery.timeRange === "day") cutoffMs = now - 24 * 3600 * 1000;
@@ -280,7 +285,12 @@ export default defineEventHandler(async (event) => {
       else if (validatedQuery.timeRange === "month") cutoffMs = now - 30 * 24 * 3600 * 1000;
       else if (validatedQuery.timeRange === "year") cutoffMs = now - 365 * 24 * 3600 * 1000;
 
-      filteredStories = filteredStories.filter(story => story.lastUpdated >= cutoffMs);
+      filteredStories = filteredStories.filter(story => {
+        if (!story.sources || story.sources.length === 0) return false;
+        const sourceTimes = story.sources.map(s => new Date(s.publishedAt).getTime());
+        const latestSourceTime = Math.max(...sourceTimes);
+        return latestSourceTime >= cutoffMs;
+      });
     }
 
     // 4. Sort stories: primary by trendScore descending, secondary by lastUpdated descending

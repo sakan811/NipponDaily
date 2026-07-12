@@ -249,48 +249,88 @@
 
               <!-- 2. Selected Active Story Briefing Detail View (In-place) -->
               <div v-else-if="selectedStoryId && activeBriefingData" class="space-y-6">
-                <!-- Back Button -->
-                <div class="flex justify-start">
-                  <UButton
-                    icon="i-heroicons-arrow-left"
-                    color="secondary"
-                    variant="ghost"
-                    size="sm"
-                    label="Back to Trending Topics"
-                    @click="selectedStoryId = null"
+                
+                <!-- 2.1 Briefing Summary Sub-page -->
+                <div v-if="detailSubPage === 'summary'" class="space-y-6">
+                  <!-- Back Button to Trending topics -->
+                  <div class="flex justify-start">
+                    <UButton
+                      icon="i-heroicons-arrow-left"
+                      color="secondary"
+                      variant="ghost"
+                      size="sm"
+                      label="Back to Trending Topics"
+                      @click="() => { selectedStoryId = null; }"
+                    />
+                  </div>
+
+                  <BriefingCard
+                    :briefing="activeBriefingData"
+                    language="en"
                   />
+
+                  <!-- Button to go to the Story Timeline page -->
+                  <div class="flex justify-end mt-4">
+                    <UButton
+                      icon="i-heroicons-clock"
+                      color="primary"
+                      variant="solid"
+                      size="sm"
+                      label="View Story Timeline"
+                      @click="() => { detailSubPage = 'timeline'; }"
+                    />
+                  </div>
                 </div>
 
-                <BriefingCard
-                  :briefing="activeBriefingData"
-                  language="en"
-                />
+                <!-- 2.2 Story Timeline Sub-page -->
+                <div v-else-if="detailSubPage === 'timeline'" class="space-y-6">
+                  <!-- Navigation buttons at the top -->
+                  <div class="flex flex-wrap gap-2 justify-between items-center mb-4">
+                    <UButton
+                      icon="i-heroicons-arrow-left"
+                      color="secondary"
+                      variant="ghost"
+                      size="sm"
+                      label="Back to Summary"
+                      @click="() => { detailSubPage = 'summary'; }"
+                    />
+                    <UButton
+                      icon="i-heroicons-home"
+                      color="secondary"
+                      variant="ghost"
+                      size="sm"
+                      label="Back to Trending Topics"
+                      @click="() => { selectedStoryId = null; }"
+                    />
+                  </div>
 
-                <!-- Story Timeline (Chronological updates) -->
-                <div v-if="activeStory && activeStory.sources.length > 1" class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl p-4 sm:p-6">
-                  <h3 class="text-sm font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-4 flex items-center gap-1.5">
-                    <UIcon name="i-heroicons-clock" class="w-4 h-4 text-primary-500" />
-                    Story Timeline
-                  </h3>
-                  <div class="relative pl-6 border-l-2 border-stone-200 dark:border-stone-800 space-y-6">
-                    <div v-for="(source, idx) in activeStory.sources.slice().reverse()" :key="idx" class="relative">
-                      <!-- Dot indicator -->
-                      <span class="absolute -left-[31px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white dark:bg-stone-900 border-2 border-primary-500">
-                        <span class="h-1.5 w-1.5 rounded-full bg-primary-500" />
-                      </span>
-                      <div class="space-y-1">
-                        <div class="flex items-center gap-2 text-xs text-stone-400 dark:text-stone-500">
-                          <time>{{ new Date(source.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }) }}</time>
-                          <span>•</span>
-                          <span class="font-semibold">{{ source.source }}</span>
+                  <!-- Chronological Timeline Card -->
+                  <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl p-4 sm:p-6">
+                    <h3 class="text-sm font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-4 flex items-center gap-1.5">
+                      <UIcon name="i-heroicons-clock" class="w-4 h-4 text-primary-500" />
+                      Story Timeline
+                    </h3>
+                    <div class="relative pl-6 border-l-2 border-stone-200 dark:border-stone-800 space-y-6">
+                      <div v-for="(source, idx) in chronologicalSources" :key="idx" class="relative">
+                        <!-- Dot indicator -->
+                        <span class="absolute -left-[31px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white dark:bg-stone-900 border-2 border-primary-500">
+                          <span class="h-1.5 w-1.5 rounded-full bg-primary-500" />
+                        </span>
+                        <div class="space-y-1">
+                          <div class="flex items-center gap-2 text-xs text-stone-400 dark:text-stone-500">
+                            <time>{{ new Date(source.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }) }}</time>
+                            <span>•</span>
+                            <span class="font-semibold">{{ source.source }}</span>
+                          </div>
+                          <a :href="source.url" target="_blank" class="text-sm font-bold hover:text-primary-500 transition-colors block">
+                            {{ source.title }}
+                          </a>
                         </div>
-                        <a :href="source.url" target="_blank" class="text-sm font-bold hover:text-primary-500 transition-colors block">
-                          {{ source.title }}
-                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -337,7 +377,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import { CalendarDate } from "@internationalized/date";
 import type { NewsBriefing, Story } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
@@ -408,6 +448,12 @@ const getTimeRangeLabel = (id: string) => {
 const stories = ref<Story[]>([]);
 const lastIngestTime = ref<number>(0);
 const selectedStoryId = ref<string | null>(null);
+const detailSubPage = ref<"summary" | "timeline">("summary");
+
+watch(selectedStoryId, () => {
+  detailSubPage.value = "summary";
+});
+
 const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
@@ -508,6 +554,14 @@ const activeBriefingData = computed<NewsBriefing | null>(() => {
     publishTimeRange: "Recent",
     regionsAffected: Object.keys(activeStory.value.regionBreakdown),
   };
+});
+
+// Chronological timeline sources sorted oldest first (ascending)
+const chronologicalSources = computed(() => {
+  if (!activeStory.value) return [];
+  return [...activeStory.value.sources].sort((a, b) =>
+    new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
+  );
 });
 
 const briefingData = computed(() => {
