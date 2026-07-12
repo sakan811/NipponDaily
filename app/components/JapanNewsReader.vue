@@ -252,8 +252,8 @@
                 
                 <!-- 2.1 Briefing Summary Sub-page -->
                 <div v-if="detailSubPage === 'summary'" class="space-y-6">
-                  <!-- Back Button to Trending topics -->
-                  <div class="flex justify-start">
+                  <!-- Navigation buttons at the top -->
+                  <div class="flex flex-wrap gap-2 justify-between items-center mb-4">
                     <UButton
                       icon="i-heroicons-arrow-left"
                       color="secondary"
@@ -262,15 +262,6 @@
                       label="Back to Trending Topics"
                       @click="() => { selectedStoryId = null; }"
                     />
-                  </div>
-
-                  <BriefingCard
-                    :briefing="activeBriefingData"
-                    language="en"
-                  />
-
-                  <!-- Button to go to the Story Timeline page -->
-                  <div class="flex justify-end mt-4">
                     <UButton
                       icon="i-heroicons-clock"
                       color="primary"
@@ -280,6 +271,11 @@
                       @click="() => { detailSubPage = 'timeline'; }"
                     />
                   </div>
+
+                  <BriefingCard
+                    :briefing="activeBriefingData"
+                    language="en"
+                  />
                 </div>
 
                 <!-- 2.2 Story Timeline Sub-page -->
