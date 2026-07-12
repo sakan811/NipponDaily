@@ -40,13 +40,14 @@ class GeminiService {
   }
 
   private getModels(defaultModel?: string): string[] {
-    const modelStr = defaultModel || "gemini-2.5-flash,gemini-3-flash-preview";
+    const config = useRuntimeConfig();
+    const modelStr = defaultModel || (config.geminiModel as string | undefined) || "gemini-2.5-flash";
     const models = modelStr
       .split(",")
       .map((m) => m.trim())
       .filter(Boolean);
     if (models.length === 0) return ["gemini-2.5-flash"];
-    return [...models].sort(() => Math.random() - 0.5);
+    return models;
   }
 
   private validateLocaleCode(input?: string | null): string {

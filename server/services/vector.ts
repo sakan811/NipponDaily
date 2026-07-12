@@ -59,11 +59,15 @@ class UpstashVectorService {
       throw new Error("Gemini AI client is not configured for embedding generation.");
     }
 
+    const config = useRuntimeConfig();
+    const embeddingModel = (config.geminiEmbeddingModel as string | undefined) || "gemini-embedding-2";
+    const dim = embeddingModel.includes("embedding-2") ? 1536 : 768;
+
     const response = await client.models.embedContent({
-      model: "gemini-embedding-2",
+      model: embeddingModel,
       contents: text,
       config: {
-        outputDimensionality: 1536,
+        outputDimensionality: dim,
       },
     });
 

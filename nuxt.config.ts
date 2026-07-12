@@ -28,6 +28,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     geminiApiKey: process.env.GEMINI_API_KEY,
     geminiModel: process.env.GEMINI_MODEL,
+    geminiEmbeddingModel: process.env.GEMINI_EMBEDDING_MODEL,
     tavilyApiKey: process.env.TAVILY_API_KEY,
     upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
     upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
