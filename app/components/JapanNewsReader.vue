@@ -185,112 +185,20 @@
                 body: 'p-4 sm:p-6',
               }"
             >
-              <div class="p-2">
-                <div
-                  v-if="isDebugErrorUi && !error"
-                  class="mb-6 p-3 bg-primary-50 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800 rounded-lg text-xs text-left"
+              <div class="p-2 space-y-4">
+                <p class="text-error-500 font-medium">
+                  {{
+                    error ||
+                    "Service temporarily unavailable. Please try again."
+                  }}
+                </p>
+                <UButton
+                  color="error"
+                  :disabled="loading"
+                  @click="refreshNews"
                 >
-                  <div class="flex items-center justify-between mb-2">
-                    <span
-                      class="font-bold text-primary-600 dark:text-primary-400"
-                      >DEBUG MODE: Error UI Testing</span
-                    >
-                    <UButton
-                      size="xs"
-                      color="primary"
-                      variant="soft"
-                      @click="
-                        () => {
-                          isDebugRateLimit = !isDebugRateLimit;
-                        }
-                      "
-                    >
-                      Switch to
-                      {{ isDebugRateLimit ? "General" : "Rate Limit" }} UI
-                    </UButton>
-                  </div>
-                  <p class="text-secondary-500 leading-relaxed mb-2">
-                    This panel is only visible because
-                    <code
-                      class="bg-gray-200 dark:bg-gray-700 px-1 rounded text-primary-600 dark:text-primary-400"
-                      >DEBUG_ERROR_UI=true</code
-                    >
-                    is set. Below you can see the main error layouts and a mock
-                    AI-failed briefing card.
-                  </p>
-                </div>
-
-                <div
-                  v-if="
-                    isRateLimitError ||
-                    (isDebugErrorUi && !error && isDebugRateLimit)
-                  "
-                  class="space-y-4"
-                >
-                  <div class="flex justify-center">
-                    <svg
-                      class="w-12 h-12 text-warning-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="text-lg font-semibold text-warning-500 mb-2">
-                      {{ t.dailyLimitTitle }}
-                    </h3>
-                    <p class="text-secondary-500 mb-2">
-                      {{
-                        error ||
-                        (targetLanguage === "ja"
-                          ? "本日の制限（1日3リクエスト）に達しました。明日もう一度お試しください。"
-                          : "Daily rate limit exceeded (3 request/day). Please try again tomorrow.")
-                      }}
-                    </p>
-                    <ClientOnly>
-                      <p
-                        v-if="rateLimitResetTime || (isDebugErrorUi && !error)"
-                        class="text-sm text-secondary-400"
-                      >
-                        {{ t.resetsAt }}
-                        {{
-                          rateLimitResetTime ||
-                          new Date(Date.now() + 86400000).toLocaleString()
-                        }}
-                      </p>
-                    </ClientOnly>
-                  </div>
-                  <UButton
-                    color="warning"
-                    :disabled="loading"
-                    @click="refreshNews"
-                  >
-                    {{ t.tryAgain }}
-                  </UButton>
-                </div>
-
-                <div v-else class="space-y-4">
-                  <p class="text-error-500">
-                    {{
-                      error ||
-                      "Service temporarily unavailable. Please try again."
-                    }}
-                  </p>
-                  <UButton
-                    color="error"
-                    :disabled="loading"
-                    @click="refreshNews"
-                  >
-                    {{ t.tryAgain }}
-                  </UButton>
-                </div>
+                  {{ t.tryAgain }}
+                </UButton>
               </div>
             </UCard>
 
@@ -534,15 +442,11 @@ const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 
-// Rate limit specific state
-const rateLimitResetTime = ref<string | null>(null);
-const isRateLimitError = ref(false);
 const selectedCategory = ref<CategoryId>("all");
 
 // Debug state for UI testing
 const config = useRuntimeConfig();
 const isDebugErrorUi = computed(() => config.public.debugErrorUi === true);
-const isDebugRateLimit = ref(true);
 
 const mockFallbackBriefing: NewsBriefing = {
   isAiFallback: true,
@@ -639,7 +543,7 @@ const activeBriefingData = computed<NewsBriefing | null>(() => {
 
 const briefingData = computed(() => {
   if (stories.value.length === 0) return undefined;
-  const story = stories.value[0];
+  const story = stories.value[0]!;
   
   const overallCred = story.sources.length > 0
     ? story.sources.reduce((sum, s) => sum + s.credibilityScore, 0) / story.sources.length
@@ -684,8 +588,7 @@ const getRelativeTime = (timestamp: number) => {
 const fetchNews = async () => {
   loading.value = true;
   error.value = null;
-  isRateLimitError.value = false;
-  rateLimitResetTime.value = null;
+
 
   try {
     const query: Record<string, string | number | undefined> = {
@@ -773,39 +676,16 @@ const fetchNews = async () => {
       statusCode?: number;
       data?: {
         error?: string | unknown;
-        resetTime?: string;
-        limit?: number;
       };
     };
 
-    if (errorData.statusCode === 429) {
-      isRateLimitError.value = true;
-      rateLimitResetTime.value = errorData.data?.resetTime || null;
-      const errorMsg = errorData.data?.error;
-      error.value =
-        typeof errorMsg === "string"
-          ? errorMsg
-          : "Daily rate limit exceeded. Please try again tomorrow.";
+    const errorMsg = errorData.data?.error;
+    if (typeof errorMsg === "string") {
+      error.value = errorMsg;
     } else if (errorData.statusCode === 500) {
-      const errorMsg = errorData.data?.error;
-      if (
-        typeof errorMsg === "string" &&
-        errorMsg.includes("Redis not configured")
-      ) {
-        error.value =
-          "Rate limiting service is unavailable. Please contact the administrator to configure Redis.";
-      } else {
-        error.value =
-          typeof errorMsg === "string"
-            ? errorMsg
-            : "Service temporarily unavailable. Please try again.";
-      }
+      error.value = "Service temporarily unavailable. Please try again.";
     } else {
-      const errorMsg = errorData.data?.error;
-      error.value =
-        typeof errorMsg === "string"
-          ? errorMsg
-          : "Failed to generate briefing. Please try again.";
+      error.value = "Failed to generate briefing. Please try again.";
     }
   } finally {
     loading.value = false;

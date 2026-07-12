@@ -2,11 +2,6 @@ import { geminiService } from "../services/gemini";
 import { tavilyService } from "../services/tavily";
 import { storiesService } from "../services/stories";
 import { ingestNewsTask } from "../services/ingest";
-import {
-  checkRateLimit,
-  getClientIp,
-  RateLimitError,
-} from "../utils/rate-limiter";
 import { z } from "zod";
 
 /**
@@ -132,40 +127,6 @@ type NewsQuery = z.infer<typeof newsQuerySchema>;
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
-  const clientIp = getClientIp(event);
-  let rateLimitResult: Awaited<ReturnType<typeof checkRateLimit>>;
-
-  try {
-    rateLimitResult = await checkRateLimit(clientIp, {
-      upstashRedisRestUrl: config.upstashRedisRestUrl as string,
-      upstashRedisRestToken: config.upstashRedisRestToken as string,
-      rateLimitMaxRequests: config.rateLimitMaxRequests
-        ? parseInt(config.rateLimitMaxRequests as string, 10)
-        : undefined,
-    });
-  } catch (error) {
-    if (error instanceof RateLimitError) {
-      throw createError({
-        statusCode: 500,
-        statusMessage: "Rate limit service unavailable",
-        data: { error: String(error.message) },
-      });
-    }
-    throw error;
-  }
-
-  if (!rateLimitResult.allowed) {
-    throw createError({
-      statusCode: 429,
-      statusMessage: "Too many requests",
-      data: {
-        error: `Daily rate limit exceeded (${rateLimitResult.limit} request/day). Please try again tomorrow.`,
-        retryAfter: 86400,
-        resetTime: rateLimitResult.resetTime.toISOString(),
-        limit: rateLimitResult.limit,
-      },
-    });
-  }
 
   try {
     const query = getQuery(event);
@@ -247,11 +208,7 @@ export default defineEventHandler(async (event) => {
       });
       briefing.publishTimeRange = publishTimeRange;
 
-      setResponseHeaders(event, {
-        "X-RateLimit-Limit": rateLimitResult.limit.toString(),
-        "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
-        "X-RateLimit-Reset": rateLimitResult.resetTime.toISOString(),
-      });
+
 
       return {
         success: true,
@@ -376,11 +333,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    setResponseHeaders(event, {
-      "X-RateLimit-Limit": rateLimitResult.limit.toString(),
-      "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
-      "X-RateLimit-Reset": rateLimitResult.resetTime.toISOString(),
-    });
+
 
     return {
       success: true,
