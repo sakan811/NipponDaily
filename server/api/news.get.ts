@@ -265,10 +265,10 @@ export default defineEventHandler(async (event) => {
 
     // 1. Trigger background ingestion if cache is stale or empty
     const lastIngest = await storiesService.getLastIngestTime();
-    const THIRTY_MINUTES_MS = 30 * 60 * 1000;
+    const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours
     const allStoriesCount = (await storiesService.getStoryIds()).length;
 
-    if (Date.now() - lastIngest > THIRTY_MINUTES_MS || allStoriesCount === 0 || lastIngest === 0) {
+    if (Date.now() - lastIngest > ONE_DAY_MS || allStoriesCount === 0 || lastIngest === 0) {
       console.log("[API] Cache is stale or empty. Triggering news ingestion task...");
       event.waitUntil(
         ingestNewsTask()
@@ -336,7 +336,7 @@ export default defineEventHandler(async (event) => {
     let backwardCompatibleBriefing: any = null;
 
     if (filteredStories.length > 0) {
-      const topStory = filteredStories[0];
+      const topStory = filteredStories[0]!;
       const allSources = filteredStories.flatMap(s => s.sources);
       
       // Deduplicate sources by URL
