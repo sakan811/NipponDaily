@@ -129,7 +129,13 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
 
   try {
-    const query = getQuery(event);
+    let query: any;
+    try {
+      query = getQuery(event);
+    } catch (e) {
+      const urlObj = new URL(event.path || event.node?.req?.url || "", "http://localhost");
+      query = Object.fromEntries(urlObj.searchParams.entries());
+    }
     const validatedQuery = newsQuerySchema.parse(query) as NewsQuery;
 
     const isTest = !!process.env.VITEST || process.env.NODE_ENV === "test";
