@@ -24,26 +24,13 @@
         <div class="flex items-center gap-2">
           <UColorModeButton />
 
-          <div class="hidden lg:flex items-center gap-2">
-            <label for="targetLanguage" class="text-sm text-secondary-500">
-              {{ t.langLabel }}
-            </label>
-            <ULocaleSelect
-              id="targetLanguage"
-              v-model="targetLanguage"
-              :locales="Object.values(locales)"
-              :disabled="loading"
-              size="sm"
-              class="w-36"
-            />
-          </div>
           <div class="hidden lg:flex">
             <UButton
               :disabled="loading"
               :loading="loading"
               color="primary"
               size="sm"
-              icon="i-heroicons-bolt"
+              icon="i-heroicons-arrow-path"
               @click="refreshNews"
             >
               <span class="hidden sm:inline">{{
@@ -57,27 +44,12 @@
       <template #body>
         <div class="space-y-4">
           <div class="space-y-3">
-            <div>
-              <label
-                for="mobileTargetLanguage"
-                class="text-sm text-secondary-500"
-              >
-                {{ t.translateLabel }}
-              </label>
-              <ULocaleSelect
-                id="mobileTargetLanguage"
-                v-model="targetLanguage"
-                :locales="Object.values(locales)"
-                :disabled="loading"
-                class="w-full mt-1"
-              />
-            </div>
             <UButton
               :disabled="loading"
               :loading="loading"
               color="primary"
               block
-              icon="i-heroicons-bolt"
+              icon="i-heroicons-arrow-path"
               @click="
                 async () => {
                   await refreshNews();
@@ -92,82 +64,9 @@
       </template>
     </UHeader>
 
-    <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-7xl">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-        <!-- Sticky Map Column on Desktop -->
-        <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
-          <JapanMap
-            :active-regions="activeRegions"
-            :selected-region="selectedRegion"
-            :region-counts="regionCounts"
-            :language="targetLanguage"
-            :is-nationwide="isNationwideBriefing"
-            @select-region="handleRegionSelect"
-            @clear-region="clearSelection"
-          />
-
-          <!-- In-depth regional query state / action if region selected -->
-          <UCard
-            v-if="selectedRegion"
-            class="border border-stone-200/60 dark:border-stone-800 bg-white/50 dark:bg-stone-900/50 backdrop-blur-sm rounded-xl"
-            :ui="{ body: 'p-4' }"
-          >
-            <div class="flex flex-col gap-3">
-              <div class="flex items-center justify-between">
-                <span
-                  class="text-xs font-semibold text-stone-500 dark:text-stone-400"
-                >
-                  {{
-                    targetLanguage === "ja"
-                      ? "選択された地域:"
-                      : "Selected Region:"
-                  }}
-                </span>
-                <UBadge
-                  color="primary"
-                  variant="solid"
-                  size="xs"
-                  class="font-serif"
-                >
-                  {{ getRegionDisplayName(selectedRegion) }}
-                </UBadge>
-              </div>
-
-              <p class="text-xs text-stone-500 leading-relaxed">
-                {{
-                  hasArticlesForSelectedRegion
-                    ? targetLanguage === "ja"
-                      ? `現在表示されているブリーフィングから、${getRegionDisplayName(selectedRegion)}に関連するソースのみを抽出しています。`
-                      : `Showing only sources relevant to ${getRegionDisplayName(selectedRegion)} from the current briefing.`
-                    : targetLanguage === "ja"
-                      ? `現在のブリーフィングには${getRegionDisplayName(selectedRegion)}に関するニュースはありません。Tavilyでこの地域のニュースを直接検索しますか？`
-                      : `No active articles found for ${getRegionDisplayName(selectedRegion)} in this briefing. Start a dedicated Tavily search?`
-                }}
-              </p>
-
-              <div class="flex gap-2 mt-1">
-                <UButton
-                  size="sm"
-                  color="primary"
-                  block
-                  :loading="loading"
-                  :disabled="loading"
-                  icon="i-heroicons-magnifying-glass"
-                  @click="triggerTargetedRegionScan(selectedRegion)"
-                >
-                  {{
-                    targetLanguage === "ja"
-                      ? `${getRegionDisplayName(selectedRegion)}ニュースを検索`
-                      : `Search ${getRegionDisplayName(selectedRegion)} News`
-                  }}
-                </UButton>
-              </div>
-            </div>
-          </UCard>
-        </div>
-
-        <!-- News Feed & Controls Column -->
-        <div class="lg:col-span-7 space-y-6">
+    <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-4xl">
+      <!-- News Feed & Controls Column -->
+      <div class="space-y-6">
           <div>
             <div class="mb-3 sm:mb-4">
               <p class="text-sm text-secondary-500 mb-2 max-w-fit">
@@ -177,11 +76,7 @@
                 <UTooltip
                   v-for="timeRange in timeRangeOptions"
                   :key="timeRange.id"
-                  :text="
-                    targetLanguage === 'ja'
-                      ? `${getTimeRangeLabel(timeRange.id)}でニュースをフィルタリング`
-                      : `Filter news by ${timeRange.name.toLowerCase()}`
-                  "
+                  :text="`Filter news by ${timeRange.name.toLowerCase()}`"
                 >
                   <UButton
                     :color="
@@ -257,12 +152,8 @@
                   :key="category.id"
                   :text="
                     category.id === 'all'
-                      ? targetLanguage === 'ja'
-                        ? 'すべてのカテゴリを表示'
-                        : 'Show all categories'
-                      : targetLanguage === 'ja'
-                        ? `${t.categories[category.id as keyof typeof t.categories]}でニュースをフィルタリング`
-                        : `Filter news by ${category.name}`
+                      ? 'Show all categories'
+                      : `Filter news by ${category.name}`
                   "
                 >
                   <UButton
@@ -285,40 +176,6 @@
                 </UTooltip>
               </div>
             </div>
-
-            <!-- Regional Filtering Header Callout if no articles found in general briefing -->
-            <UCard
-              v-if="selectedRegion && !hasArticlesForSelectedRegion && !loading"
-              class="border border-warning-200 dark:border-warning-900 bg-warning-50/50 dark:bg-warning-950/10 rounded-xl mb-6"
-              :ui="{ body: 'p-4' }"
-            >
-              <div class="flex items-start gap-3">
-                <UIcon
-                  name="i-heroicons-exclamation-triangle"
-                  class="w-5 h-5 text-warning-500 shrink-0 mt-0.5"
-                />
-                <div>
-                  <h4
-                    class="text-sm font-semibold text-warning-800 dark:text-warning-400"
-                  >
-                    {{
-                      targetLanguage === "ja"
-                        ? "地域ニュースが見つかりません"
-                        : "No Regional Articles Found"
-                    }}
-                  </h4>
-                  <p
-                    class="text-xs text-warning-700 dark:text-warning-500 mt-1 leading-relaxed"
-                  >
-                    {{
-                      targetLanguage === "ja"
-                        ? `現在の一般的なブリーフィングには、${getRegionDisplayName(selectedRegion)}に関するソースはありませんでした。上の「${getRegionDisplayName(selectedRegion)}ニュースを検索」をクリックして、Tavilyから直接ローカルニュースを取得してください。`
-                        : `No sources from the current briefing were tagged with ${getRegionDisplayName(selectedRegion)}. Click the search button on the left to pull dedicated regional news from Tavily.`
-                    }}
-                  </p>
-                </div>
-              </div>
-            </UCard>
 
             <UCard
               v-if="error || isDebugErrorUi"
@@ -479,13 +336,13 @@
               />
             </div>
 
-            <!-- New Clustered Stories Trending Dashboard UI -->
+             <!-- New Clustered Stories Trending Dashboard UI -->
             <div v-if="filteredStories.length > 0 && !loading" class="space-y-6">
               <!-- Trending Stories Grid Header -->
               <div>
                 <h3 class="text-sm font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
                   <UIcon name="i-heroicons-fire" class="w-4 h-4 text-primary-500" />
-                  {{ targetLanguage === 'ja' ? 'トレンドのトピック' : 'Trending Topics' }} ({{ filteredStories.length }})
+                  Trending Topics ({{ filteredStories.length }})
                 </h3>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
@@ -512,11 +369,11 @@
                     </div>
                     <!-- Headline -->
                     <h4 class="text-xs font-bold font-serif line-clamp-2 text-stone-900 dark:text-white leading-snug">
-                      {{ targetLanguage === 'ja' ? story.headlineJa : story.headlineEn }}
+                      {{ story.headlineEn }}
                     </h4>
                     <!-- Footer inside card -->
                     <div class="flex items-center gap-2 mt-2 text-[10px] text-stone-400 dark:text-stone-500">
-                      <span>{{ story.articleCount }} {{ targetLanguage === 'ja' ? '件のソース' : 'sources' }}</span>
+                      <span>{{ story.articleCount }} sources</span>
                       <span>•</span>
                       <span>{{ getRelativeTime(story.lastUpdated) }}</span>
                     </div>
@@ -528,14 +385,14 @@
               <div v-if="activeBriefingData" class="space-y-6">
                 <BriefingCard
                   :briefing="activeBriefingData"
-                  :language="targetLanguage"
+                  language="en"
                 />
 
                 <!-- Story Timeline (Chronological updates) -->
                 <div v-if="activeStory && activeStory.sources.length > 1" class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl p-4 sm:p-6">
                   <h3 class="text-sm font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-4 flex items-center gap-1.5">
                     <UIcon name="i-heroicons-clock" class="w-4 h-4 text-primary-500" />
-                    {{ targetLanguage === 'ja' ? 'ストーリー・タイムライン' : 'Story Timeline' }}
+                    Story Timeline
                   </h3>
                   <div class="relative pl-6 border-l-2 border-stone-200 dark:border-stone-800 space-y-6">
                     <div v-for="(source, idx) in activeStory.sources.slice().reverse()" :key="idx" class="relative">
@@ -545,7 +402,7 @@
                       </span>
                       <div class="space-y-1">
                         <div class="flex items-center gap-2 text-xs text-stone-400 dark:text-stone-500">
-                          <time>{{ new Date(source.publishedAt).toLocaleDateString(targetLanguage === 'ja' ? 'ja-JP' : 'en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }) }}</time>
+                          <time>{{ new Date(source.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }) }}</time>
                           <span>•</span>
                           <span class="font-semibold">{{ source.source }}</span>
                         </div>
@@ -594,7 +451,6 @@
               >
                 {{ t.readyToSynthesizeMsg }}
               </p>
-            </div>
           </div>
         </div>
       </div>
@@ -608,8 +464,6 @@ import { CalendarDate } from "@internationalized/date";
 import type { NewsBriefing, Story } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
-import * as locales from "@nuxt/ui/locale";
-import JapanMap, { mapPrefectureToRegion } from "./JapanMap.vue";
 
 // Import components (Nuxt usually auto-imports, but explicitly declaring helps some IDEs)
 import BriefingCard from "./BriefingCard.vue";
@@ -618,13 +472,13 @@ const translations = {
   en: {
     timeRangeSubtitle: "Select a time range to focus the search results",
     categorySubtitle: "Choose a category to focus the briefing",
-    generateBriefing: "Generate Briefing",
-    synthesizing: "Synthesizing...",
+    generateBriefing: "Refresh News",
+    synthesizing: "Refreshing...",
     aiSynthesizingMsg:
-      "AI is currently synthesizing the latest news from Japan...",
+      "Refreshing the latest news from Japan...",
     readyToSynthesizeTitle: "Ready to Synthesize",
     readyToSynthesizeMsg:
-      'Select your preferred time range and category, then click "Generate Briefing" to create a synthesized report.',
+      'Select your preferred time range and category, then click "Refresh News" to load latest stories.',
     dailyLimitTitle: "Daily Limit Reached",
     resetsAt: "Resets at:",
     tryAgain: "Try Again",
@@ -647,42 +501,10 @@ const translations = {
       "disaster-prep": "Nature & Resilience",
     },
   },
-  ja: {
-    timeRangeSubtitle: "検索結果を絞り込む期間を選択してください",
-    categorySubtitle: "ブリーフィングのカテゴリを選択してください",
-    generateBriefing: "ブリーフィングを生成",
-    synthesizing: "要約を生成中...",
-    aiSynthesizingMsg: "AIが日本の最新ニュースを分析・要約しています...",
-    readyToSynthesizeTitle: "ブリーフィング生成の準備完了",
-    readyToSynthesizeMsg:
-      "お好みの期間とカテゴリを選択し、「ブリーフィングを生成」をクリックして要約レポートを作成してください。",
-    dailyLimitTitle: "本日の制限に達しました",
-    resetsAt: "リセット時刻:",
-    tryAgain: "再試行",
-    langLabel: "表示言語:",
-    translateLabel: "翻訳先言語:",
-    allTime: "全期間",
-    today: "今日",
-    thisWeek: "今週",
-    thisMonth: "今月",
-    thisYear: "今年",
-    customRange: "カスタム範囲",
-    selectDateRange: "期間を選択してください",
-    categories: {
-      all: "すべてのニュース",
-      society: "社会・地方",
-      tech: "技術・産業",
-      "pop-culture": "ポップカルチャー・ゲーム",
-      tourism: "観光・遺産",
-      food: "和食・食文化",
-      "disaster-prep": "自然・防災",
-    },
-  },
 } as const;
 
 const t = computed(() => {
-  const lang = targetLanguage.value === "ja" ? "ja" : "en";
-  return translations[lang];
+  return translations.en;
 });
 
 const getTimeRangeLabel = (id: string) => {
@@ -711,11 +533,6 @@ const selectedStoryId = ref<string | null>(null);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
-
-// Regional Map specific state
-const selectedRegion = ref<string | null>(null);
-const activeSearchQuery = ref<string | null>(null);
-const backupStories = ref<Story[]>([]);
 
 // Rate limit specific state
 const rateLimitResetTime = ref<string | null>(null);
@@ -785,77 +602,9 @@ const timeRangeOptions = [
   { id: "custom", name: "Custom Range" },
 ] as const;
 
-// Computed map regions & statistics
-const activeRegions = computed(() => {
-  // If activeStory has prefectures/regions, highlight those
-  if (activeStory.value) {
-    const list = new Set<string>();
-    Object.keys(activeStory.value.regionBreakdown).forEach((reg) => {
-      const mapped = mapPrefectureToRegion(reg);
-      if (mapped) list.add(mapped);
-    });
-    return Array.from(list);
-  }
-
-  // Otherwise, highlight all regions in current stories list
-  const list = new Set<string>();
-  filteredStories.value.forEach((story) => {
-    Object.keys(story.regionBreakdown).forEach((reg) => {
-      const mapped = mapPrefectureToRegion(reg);
-      if (mapped) list.add(mapped);
-    });
-  });
-  return Array.from(list);
-});
-
-const isNationwideBriefing = computed(() => {
-  if (activeStory.value) {
-    return activeStory.value.sources.some(
-      (src) => !src.regions || src.regions.length === 0,
-    );
-  }
-  return true;
-});
-
-const regionCounts = computed(() => {
-  const counts: Record<string, number> = {};
-  
-  if (activeStory.value) {
-    Object.entries(activeStory.value.regionBreakdown).forEach(([reg, val]) => {
-      const mapped = mapPrefectureToRegion(reg);
-      if (mapped) {
-        counts[mapped] = (counts[mapped] || 0) + val;
-      }
-    });
-    return counts;
-  }
-
-  filteredStories.value.forEach((story) => {
-    Object.entries(story.regionBreakdown).forEach(([reg, val]) => {
-      const mapped = mapPrefectureToRegion(reg);
-      if (mapped) {
-        counts[mapped] = (counts[mapped] || 0) + val;
-      }
-    });
-  });
-
-  return counts;
-});
-
 // Filtered stories list
 const filteredStories = computed(() => {
-  let list = stories.value;
-
-  // Filter by region selection
-  if (selectedRegion.value) {
-    list = list.filter((story) => {
-      return Object.keys(story.regionBreakdown).some(
-        (reg) => mapPrefectureToRegion(reg) === selectedRegion.value,
-      );
-    });
-  }
-
-  return list;
+  return stories.value;
 });
 
 // Currently active story briefing
@@ -870,11 +619,10 @@ const activeStory = computed<Story | null>(() => {
 // Map activeStory to NewsBriefing shape for BriefingCard compatibility
 const activeBriefingData = computed<NewsBriefing | null>(() => {
   if (!activeStory.value) return null;
-  const isJa = targetLanguage.value === "ja";
   return {
-    mainHeadline: isJa ? activeStory.value.headlineJa : activeStory.value.headlineEn,
-    executiveSummary: isJa ? activeStory.value.summaryJa : activeStory.value.summaryEn,
-    thematicAnalysis: isJa ? activeStory.value.thematicAnalysisJa : activeStory.value.thematicAnalysisEn,
+    mainHeadline: activeStory.value.headlineEn,
+    executiveSummary: activeStory.value.summaryEn,
+    thematicAnalysis: activeStory.value.thematicAnalysisEn,
     overallCredibilityScore: activeStory.value.sources[0]?.credibilityScore || 0.8,
     sourcesProcessed: activeStory.value.sources.map((src) => ({
       title: src.title,
@@ -892,7 +640,6 @@ const activeBriefingData = computed<NewsBriefing | null>(() => {
 const briefingData = computed(() => {
   if (stories.value.length === 0) return undefined;
   const story = stories.value[0];
-  const isJa = targetLanguage.value === "ja";
   
   const overallCred = story.sources.length > 0
     ? story.sources.reduce((sum, s) => sum + s.credibilityScore, 0) / story.sources.length
@@ -900,9 +647,9 @@ const briefingData = computed(() => {
 
   return {
     isAiFallback: false,
-    mainHeadline: isJa ? story.headlineJa : story.headlineEn,
-    executiveSummary: isJa ? story.summaryJa : story.summaryEn,
-    thematicAnalysis: isJa ? story.thematicAnalysisJa : story.thematicAnalysisEn,
+    mainHeadline: story.headlineEn,
+    executiveSummary: story.summaryEn,
+    thematicAnalysis: story.thematicAnalysisEn,
     overallCredibilityScore: Math.round(overallCred * 100) / 100, // round to 2 decimals
     sourcesProcessed: story.sources.map((src) => {
       const s: any = {
@@ -920,76 +667,6 @@ const briefingData = computed(() => {
   };
 });
 
-const hasArticlesForSelectedRegion = computed(() => {
-  if (!selectedRegion.value) return true;
-  return stories.value.some((story) =>
-    Object.keys(story.regionBreakdown).some(
-      (reg) => mapPrefectureToRegion(reg) === selectedRegion.value,
-    ),
-  );
-});
-
-const handleRegionSelect = (regionId: string) => {
-  selectedRegion.value = regionId;
-  selectedStoryId.value = null; // reset selected story to default top of filtered list
-};
-
-const getRegionDisplayName = (regionId: string) => {
-  const regionNames: Record<string, { en: string; ja: string }> = {
-    hokkaido: { en: "Hokkaido", ja: "北海道" },
-    tohoku: { en: "Tohoku", ja: "東北" },
-    kanto: { en: "Kanto", ja: "関東" },
-    chubu: { en: "Chubu", ja: "中部" },
-    kansai: { en: "Kansai", ja: "関西" },
-    chugoku: { en: "Chugoku", ja: "中国" },
-    shikoku: { en: "Shikoku", ja: "四国" },
-    kyushu: { en: "Kyushu", ja: "九州" },
-    okinawa: { en: "Okinawa", ja: "沖縄" },
-  };
-  const name = regionNames[regionId];
-  if (!name) return regionId;
-  return targetLanguage.value === "ja" ? name.ja : name.en;
-};
-
-const triggerTargetedRegionScan = async (regionId: string) => {
-  const regionNames: Record<string, { en: string; ja: string }> = {
-    hokkaido: { en: "Hokkaido", ja: "北海道" },
-    tohoku: { en: "Tohoku", ja: "東北" },
-    kanto: { en: "Kanto", ja: "関東" },
-    chubu: { en: "Chubu", ja: "中部" },
-    kansai: { en: "Kansai", ja: "関西" },
-    chugoku: { en: "Chugoku", ja: "中国" },
-    shikoku: { en: "Shikoku", ja: "四国" },
-    kyushu: { en: "Kyushu", ja: "九州" },
-    okinawa: { en: "Okinawa", ja: "沖縄" },
-  };
-
-  const name = regionNames[regionId];
-  if (!name) return;
-
-  // Backup stories
-  if (stories.value.length > 0 && backupStories.value.length === 0 && !activeSearchQuery.value) {
-    backupStories.value = [...stories.value];
-  }
-
-  const queryLang = targetLanguage.value === "ja" ? "ja" : "en";
-  activeSearchQuery.value =
-    queryLang === "ja" ? `${name.ja} ニュース` : `${name.en} news`;
-  selectedRegion.value = regionId;
-  selectedStoryId.value = null;
-  await fetchNews();
-};
-
-const clearSelection = async () => {
-  selectedRegion.value = null;
-  activeSearchQuery.value = null;
-  selectedStoryId.value = null;
-  if (backupStories.value.length > 0) {
-    stories.value = [...backupStories.value];
-    backupStories.value = [];
-  }
-};
-
 // Formatting helpers
 const getRelativeTime = (timestamp: number) => {
   const diff = Date.now() - timestamp;
@@ -997,19 +674,14 @@ const getRelativeTime = (timestamp: number) => {
   const hours = Math.floor(mins / 60);
   const days = Math.floor(hours / 24);
 
-  const isJa = targetLanguage.value === "ja";
-
-  if (mins < 1) return isJa ? "たった今" : "Just now";
-  if (mins < 60) return isJa ? `${mins}分前` : `${mins}m ago`;
-  if (hours < 24) return isJa ? `${hours}時間前` : `${hours}h ago`;
-  return isJa ? `${days}日前` : `${days}d ago`;
+  if (mins < 1) return "Just now";
+  if (mins < 60) return `${mins}m ago`;
+  if (hours < 24) return `${hours}h ago`;
+  return `${days}d ago`;
 };
 
 // Methods
 const fetchNews = async () => {
-  if (!activeSearchQuery.value) {
-    backupStories.value = [];
-  }
   loading.value = true;
   error.value = null;
   isRateLimitError.value = false;
@@ -1019,8 +691,7 @@ const fetchNews = async () => {
     const query: Record<string, string | number | undefined> = {
       category:
         selectedCategory.value === "all" ? undefined : selectedCategory.value,
-      query: activeSearchQuery.value || undefined,
-      language: targetLanguage.value,
+      language: "en",
       limit: 20,
     };
 
@@ -1142,9 +813,6 @@ const fetchNews = async () => {
 };
 
 const refreshNews = async () => {
-  activeSearchQuery.value = null;
-  selectedRegion.value = null;
-  backupStories.value = [];
   selectedStoryId.value = null;
   await fetchNews();
 };
