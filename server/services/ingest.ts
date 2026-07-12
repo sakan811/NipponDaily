@@ -14,10 +14,12 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
   // 1. Fetch recent news from Tavily only once (20 articles, focusing on recent Japanese news in English)
   try {
     console.log("[Ingest] Fetching Tavily news once for recent Japan news...");
+    const rawTavilyKey = config.tavilyApiKey;
+    const tavilyApiKey = (typeof rawTavilyKey === "string" ? rawTavilyKey : "") || process.env.TAVILY_API_KEY;
     const response = await tavilyService.searchJapanNews({
       maxResults: 20,
       timeRange: "week",
-      apiKey: config.tavilyApiKey as string,
+      apiKey: tavilyApiKey,
     });
 
     const items = tavilyService.formatTavilyResultsToNewsItems(response);
@@ -112,8 +114,10 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
       if (existingStory) {
         console.log(`[Ingest] Updating existing story: ${storyId} with ${articles.length} new articles`);
         // Synthesize updates via LLM
+        const rawGeminiKey = config.geminiApiKey;
+        const geminiApiKey = (typeof rawGeminiKey === "string" ? rawGeminiKey : "") || process.env.GEMINI_API_KEY;
         const briefingUpdate = await geminiService.updateStoryBriefing(existingStory, articles, {
-          apiKey: config.geminiApiKey as string,
+          apiKey: geminiApiKey,
         });
 
         // Map articles to StorySources
@@ -164,8 +168,10 @@ export async function ingestNewsTask(): Promise<{ success: boolean; storiesUpdat
       } else {
         console.log(`[Ingest] Generating new story: ${storyId} with ${articles.length} articles`);
         // Generate new briefing via LLM
+        const rawGeminiKey = config.geminiApiKey;
+        const geminiApiKey = (typeof rawGeminiKey === "string" ? rawGeminiKey : "") || process.env.GEMINI_API_KEY;
         const briefing = await geminiService.generateStoryBriefing(articles, {
-          apiKey: config.geminiApiKey as string,
+          apiKey: geminiApiKey,
         });
 
         const newSources: StorySource[] = articles.map((a) => ({

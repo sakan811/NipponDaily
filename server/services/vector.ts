@@ -24,7 +24,8 @@ class UpstashVectorService {
   private getGeminiClient() {
     if (!this.client) {
       const config = useRuntimeConfig();
-      const apiKey = (config.geminiApiKey as string) || process.env.GEMINI_API_KEY;
+      const rawApiKey = config.geminiApiKey;
+      const apiKey = (typeof rawApiKey === "string" ? rawApiKey : "") || process.env.GEMINI_API_KEY;
       if (apiKey) {
         this.client = new GoogleGenAI({ apiKey });
       }
@@ -34,8 +35,10 @@ class UpstashVectorService {
 
   private getCredentials() {
     const config = useRuntimeConfig();
-    const url = (config.upstashVectorRestUrl as string) || process.env.UPSTASH_VECTOR_REST_URL;
-    const token = (config.upstashVectorRestToken as string) || process.env.UPSTASH_VECTOR_REST_TOKEN;
+    const rawUrl = config.upstashVectorRestUrl;
+    const rawToken = config.upstashVectorRestToken;
+    const url = (typeof rawUrl === "string" ? rawUrl : "") || process.env.UPSTASH_VECTOR_REST_URL;
+    const token = (typeof rawToken === "string" ? rawToken : "") || process.env.UPSTASH_VECTOR_REST_TOKEN;
     return { url, token };
   }
 

@@ -192,7 +192,10 @@ ${newsText}`;
   }> {
     if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
     if (!this.client) {
-      this.client = new GoogleGenAI({ apiKey: (useRuntimeConfig().geminiApiKey as string) || process.env.GEMINI_API_KEY });
+      const config = useRuntimeConfig();
+      const rawApiKey = config.geminiApiKey;
+      const apiKey = (typeof rawApiKey === "string" ? rawApiKey : "") || process.env.GEMINI_API_KEY;
+      this.client = new GoogleGenAI({ apiKey });
     }
 
     const newsText = newsItems
@@ -302,7 +305,10 @@ Output in JSON format matching the schema.`;
   }> {
     if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
     if (!this.client) {
-      this.client = new GoogleGenAI({ apiKey: (useRuntimeConfig().geminiApiKey as string) || process.env.GEMINI_API_KEY });
+      const config = useRuntimeConfig();
+      const rawApiKey = config.geminiApiKey;
+      const apiKey = (typeof rawApiKey === "string" ? rawApiKey : "") || process.env.GEMINI_API_KEY;
+      this.client = new GoogleGenAI({ apiKey });
     }
 
     const newArticlesText = newItems

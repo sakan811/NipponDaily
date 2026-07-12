@@ -160,7 +160,7 @@ class StoriesService {
 
     for (const story of stories) {
       const articles = story.sources || [];
-      
+
       const count6h = articles.filter(
         (a) => (a.addedAt || 0) >= sixHoursAgo
       ).length;
