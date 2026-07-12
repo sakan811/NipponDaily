@@ -3,7 +3,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -117,7 +117,8 @@
             <h4 class="font-bold">Database & Cache (Upstash)</h4>
           </template>
           <p class="text-sm">
-            Powered by Upstash Redis and Vector database, storing clustered story articles, daily briefings, and ingestion caching metadata.
+            Powered by Upstash Redis and Vector database, storing clustered
+            story articles, daily briefings, and ingestion caching metadata.
           </p>
         </UCard>
       </div>
@@ -131,8 +132,6 @@
         to simulate API failures, rate limit resets, and AI fallback states,
         allowing for exhaustive layout testing without consuming real quotas.
       </p>
-
-
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
         Color System
@@ -258,31 +257,6 @@ graph TD
         Ingest <--> Gemini[Gemini AI]
     end
 `;
-
-useHead({
-  script: [
-    {
-      src: "https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js",
-      defer: true,
-      onload: () => {
-        // @ts-expect-error: mermaid is loaded from CDN
-        mermaid.initialize({
-          startOnLoad: false,
-          theme: "neutral",
-          securityLevel: "loose",
-        });
-        window.dispatchEvent(new Event("mermaid-ready"));
-      },
-    },
-    {
-      src: "https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js",
-      defer: true,
-      onload: () => {
-        window.dispatchEvent(new Event("svg-pan-zoom-ready"));
-      },
-    },
-  ],
-});
 </script>
 
 <style>

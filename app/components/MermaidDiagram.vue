@@ -89,10 +89,53 @@ const handleReady = () => {
   }
 };
 
+const loadScript = (src: string, onloadEvent: string) => {
+  if (document.querySelector(`script[src="${src}"]`)) {
+    // Script already loading or loaded — just fire the event if globals exist
+    handleReady();
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = src;
+  script.defer = true;
+  script.onload = () => {
+    window.dispatchEvent(new Event(onloadEvent));
+  };
+  document.head.appendChild(script);
+};
+
 onMounted(() => {
   isMounted.value = true;
   window.addEventListener("mermaid-ready", handleReady);
   window.addEventListener("svg-pan-zoom-ready", handleReady);
+
+  // Load CDN scripts if not already present
+  // @ts-expect-error: mermaid is a CDN global
+  if (typeof mermaid === "undefined") {
+    const mermaidScript = document.createElement("script");
+    mermaidScript.src =
+      "https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js";
+    mermaidScript.defer = true;
+    mermaidScript.onload = () => {
+      // @ts-expect-error: mermaid is a CDN global
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: "neutral",
+        securityLevel: "loose",
+      });
+      window.dispatchEvent(new Event("mermaid-ready"));
+    };
+    document.head.appendChild(mermaidScript);
+  }
+
+  // @ts-expect-error: svgPanZoom is a CDN global
+  if (typeof svgPanZoom === "undefined") {
+    loadScript(
+      "https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js",
+      "svg-pan-zoom-ready",
+    );
+  }
+
   handleReady();
 });
 
