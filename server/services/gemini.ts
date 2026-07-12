@@ -9,6 +9,36 @@ class GeminiService {
     this.client = new GoogleGenAI({ apiKey });
   }
 
+  private async generateContentWithRetry(
+    params: { model: string; contents: string; config: any },
+    retries = 3,
+    delayMs = 2000
+  ): Promise<any> {
+    try {
+      if (!this.client) {
+        throw new Error("Gemini AI client not initialized");
+      }
+      return await this.client.models.generateContent(params);
+    } catch (error: any) {
+      const errorStr = String(error.message || error);
+      const is429 =
+        error.status === 429 ||
+        error.statusCode === 429 ||
+        errorStr.includes("429") ||
+        errorStr.includes("RESOURCE_EXHAUSTED") ||
+        errorStr.includes("Too Many Requests");
+
+      if (is429 && retries > 0) {
+        console.warn(
+          `[Gemini] API rate limited (429/RESOURCE_EXHAUSTED). Retrying in ${delayMs}ms... (${retries} retries left). Error: ${errorStr}`
+        );
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+        return this.generateContentWithRetry(params, retries - 1, delayMs * 2);
+      }
+      throw error;
+    }
+  }
+
   private getModels(defaultModel?: string): string[] {
     const modelStr = defaultModel || "gemini-2.5-flash,gemini-3-flash-preview";
     const models = modelStr
@@ -65,7 +95,7 @@ ${newsText}`;
 
       for (const model of modelsToTry) {
         try {
-          response = await this.client.models.generateContent({
+          response = await this.generateContentWithRetry({
             model: model,
             contents: prompt,
             config: {
@@ -192,7 +222,7 @@ Output in JSON format matching the schema.`;
     const modelsToTry = this.getModels(options?.model);
     for (const model of modelsToTry) {
       try {
-        const response = await this.client.models.generateContent({
+        const response = await this.generateContentWithRetry({
           model: model,
           contents: prompt,
           config: {
@@ -316,7 +346,7 @@ Output in JSON format matching the schema.`;
     const modelsToTry = this.getModels(options?.model);
     for (const model of modelsToTry) {
       try {
-        const response = await this.client.models.generateContent({
+        const response = await this.generateContentWithRetry({
           model: model,
           contents: prompt,
           config: {
