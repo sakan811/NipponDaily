@@ -33,27 +33,7 @@ describe("JapanNewsReader - Rendering", () => {
     expect(wrapper.find(".container").exists()).toBe(true);
   });
 
-  it("renders get news button", () => {
-    const wrapper = mountReader({
-      global: {
-        components: {
-          NewsCard: {
-            name: "BriefingCard",
-            props: ["briefing"],
-            template:
-              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
-          },
-        },
-      },
-    });
 
-    const button = wrapper
-      .findAll("button")
-      .find((b) => b.text().includes("Refresh News"));
-    expect(button).toBeDefined();
-    expect(button?.exists()).toBe(true);
-    expect(button?.text()).toContain("Refresh News");
-  });
 
   it("renders category filter buttons", () => {
     const wrapper = mountReader({
@@ -105,12 +85,10 @@ describe("JapanNewsReader - Rendering", () => {
 
     // Fetch news
     await wrapper.vm.refreshNews();
-    await vi.waitFor(() => wrapper.vm.briefingData !== null);
+    wrapper.vm.selectedStoryId = wrapper.vm.filteredStories[0]?.id || "story-1";
+    await wrapper.vm.$nextTick();
 
     // Check that NewsCard components are rendered
-
-    expect(wrapper.find(".briefing-card").exists()).toBe(true);
-    expect(wrapper.find(".briefing-card").exists()).toBe(true);
     expect(wrapper.find(".briefing-card").exists()).toBe(true);
   });
 

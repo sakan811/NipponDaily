@@ -81,53 +81,5 @@ describe("JapanNewsReader - Loading State", () => {
     expect(emptyState.text()).toContain("Select your preferred time range");
   });
 
-  it("disables button when loading", async () => {
-    const wrapper = mountReader({
-      global: {
-        components: {
-          NewsCard: {
-            name: "BriefingCard",
-            props: ["briefing"],
-            template:
-              '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
-          },
-        },
-      },
-    });
 
-    // Mock delayed response
-    mockFetch.mockImplementationOnce(
-      () =>
-        new Promise((resolve) =>
-          setTimeout(
-            () =>
-              resolve({
-                success: true,
-                data: mockNews,
-                count: 2,
-                timestamp: "2024-01-15T10:00:00Z",
-              }),
-            100,
-          ),
-        ),
-    );
-
-    // Start loading
-    const fetchPromise = wrapper.vm.refreshNews();
-    await nextTick();
-
-    const getNewsButton = wrapper
-      .findAll("button")
-      .find(
-        (b) =>
-          b.text().includes("Refreshing...") ||
-          b.text().includes("Refresh News"),
-      );
-    expect(getNewsButton).toBeDefined();
-    expect(getNewsButton?.attributes("disabled")).toBeDefined();
-    expect(getNewsButton?.text()).toContain("Refreshing...");
-
-    // Wait for the fetch to complete
-    await fetchPromise;
-  });
 });

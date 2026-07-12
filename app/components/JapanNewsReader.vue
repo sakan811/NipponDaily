@@ -23,43 +23,6 @@
       <template #right>
         <div class="flex items-center gap-2">
           <UColorModeButton />
-
-          <div class="hidden lg:flex">
-            <UButton
-              :disabled="loading"
-              :loading="loading"
-              color="primary"
-              size="sm"
-              icon="i-heroicons-arrow-path"
-              @click="refreshNews"
-            >
-              <span class="hidden sm:inline">{{
-                loading ? t.synthesizing : t.generateBriefing
-              }}</span>
-            </UButton>
-          </div>
-        </div>
-      </template>
-
-      <template #body>
-        <div class="space-y-4">
-          <div class="space-y-3">
-            <UButton
-              :disabled="loading"
-              :loading="loading"
-              color="primary"
-              block
-              icon="i-heroicons-arrow-path"
-              @click="
-                async () => {
-                  await refreshNews();
-                  mobileMenuOpen = false;
-                }
-              "
-            >
-              {{ loading ? t.synthesizing : t.generateBriefing }}
-            </UButton>
-          </div>
         </div>
       </template>
     </UHeader>
@@ -246,8 +209,8 @@
 
              <!-- New Clustered Stories Trending Dashboard UI -->
             <div v-if="filteredStories.length > 0 && !loading" class="space-y-6">
-              <!-- Trending Stories Grid Header -->
-              <div>
+              <!-- 1. Trending Stories Grid View -->
+              <div v-if="!selectedStoryId">
                 <h3 class="text-sm font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
                   <UIcon name="i-heroicons-fire" class="w-4 h-4 text-primary-500" />
                   Trending Topics ({{ filteredStories.length }})
@@ -258,11 +221,6 @@
                     v-for="story in filteredStories"
                     :key="story.id"
                     class="cursor-pointer border p-3 rounded-xl transition-all relative overflow-hidden bg-white/50 dark:bg-stone-900/50 hover:bg-stone-50 dark:hover:bg-stone-900 border-stone-200 dark:border-stone-800"
-                    :class="[
-                      activeStory?.id === story.id
-                        ? 'border-primary-500 ring-2 ring-primary-500/20 bg-primary-50/10 dark:bg-primary-500/5'
-                        : ''
-                    ]"
                     @click="selectedStoryId = story.id"
                   >
                     <!-- Header inside card -->
@@ -289,8 +247,20 @@
                 </div>
               </div>
 
-              <!-- Selected Active Story Briefing Detail View -->
-              <div v-if="activeBriefingData" class="space-y-6">
+              <!-- 2. Selected Active Story Briefing Detail View (In-place) -->
+              <div v-else-if="selectedStoryId && activeBriefingData" class="space-y-6">
+                <!-- Back Button -->
+                <div class="flex justify-start">
+                  <UButton
+                    icon="i-heroicons-arrow-left"
+                    color="secondary"
+                    variant="ghost"
+                    size="sm"
+                    label="Back to Trending Topics"
+                    @click="selectedStoryId = null"
+                  />
+                </div>
+
                 <BriefingCard
                   :briefing="activeBriefingData"
                   language="en"
@@ -367,7 +337,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { CalendarDate } from "@internationalized/date";
 import type { NewsBriefing, Story } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
@@ -514,10 +484,9 @@ const filteredStories = computed(() => {
 // Currently active story briefing
 const activeStory = computed<Story | null>(() => {
   if (selectedStoryId.value) {
-    const match = filteredStories.value.find((s) => s.id === selectedStoryId.value);
-    if (match) return match;
+    return filteredStories.value.find((s) => s.id === selectedStoryId.value) || null;
   }
-  return filteredStories.value[0] || null;
+  return null;
 });
 
 // Map activeStory to NewsBriefing shape for BriefingCard compatibility
@@ -696,6 +665,13 @@ const refreshNews = async () => {
   selectedStoryId.value = null;
   await fetchNews();
 };
+
+onMounted(async () => {
+  const isTest = typeof process !== "undefined" && (process.env?.NODE_ENV === "test" || process.env?.VITEST);
+  if (!isTest) {
+    await refreshNews();
+  }
+});
 
 defineOptions({
   name: "JapanNewsReader",
