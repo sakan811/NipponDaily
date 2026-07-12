@@ -120,12 +120,12 @@ describe("JapanNewsReader - Loading State", () => {
       .findAll("button")
       .find(
         (b) =>
-          b.text().includes("Synthesizing...") ||
-          b.text().includes("Generate Briefing"),
+          b.text().includes("Refreshing...") ||
+          b.text().includes("Refresh News"),
       );
     expect(getNewsButton).toBeDefined();
     expect(getNewsButton?.attributes("disabled")).toBeDefined();
-    expect(getNewsButton?.text()).toContain("Synthesizing...");
+    expect(getNewsButton?.text()).toContain("Refreshing...");
 
     // Wait for the fetch to complete
     await fetchPromise;

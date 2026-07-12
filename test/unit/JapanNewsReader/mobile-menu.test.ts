@@ -138,10 +138,10 @@ describe("JapanNewsReader - Mobile Menu", () => {
     // The mobile button should now be found
     expect(mobileButtons.length).toBeGreaterThan(0);
 
-    // The mobile Get News button should have "Generate Briefing" or "Synthesizing..." text
+    // The mobile Get News button should have "Refresh News" or "Synthesizing..." text
     const getNewsButton = mobileButtons.find((b) => {
       const text = b.text();
-      return text.includes("Getting") || text.includes("Generate Briefing");
+      return text.includes("Getting") || text.includes("Refresh News");
     });
 
     expect(getNewsButton).toBeDefined();

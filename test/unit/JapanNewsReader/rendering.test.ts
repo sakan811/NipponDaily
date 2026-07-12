@@ -49,10 +49,10 @@ describe("JapanNewsReader - Rendering", () => {
 
     const button = wrapper
       .findAll("button")
-      .find((b) => b.text().includes("Generate Briefing"));
+      .find((b) => b.text().includes("Refresh News"));
     expect(button).toBeDefined();
     expect(button?.exists()).toBe(true);
-    expect(button?.text()).toContain("Generate Briefing");
+    expect(button?.text()).toContain("Refresh News");
   });
 
   it("renders category filter buttons", () => {
