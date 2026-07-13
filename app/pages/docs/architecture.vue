@@ -3,7 +3,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -74,9 +74,9 @@
             <h4 class="font-bold">Frontend (Nuxt 4)</h4>
           </template>
           <p class="text-sm">
-            Built with Nuxt 4 and Vue 3, utilizing Nuxt UI v4 and Tailwind CSS
-            v4. The UI is designed for "Synthesized Reading," prioritizing
-            briefings over raw lists.
+            Built with Nuxt 4 and Vue 3, utilizing custom UI components and
+            Tailwind CSS v4. The UI is designed for "Synthesized Reading,"
+            prioritizing briefings over raw lists.
           </p>
         </UCard>
 
@@ -138,9 +138,9 @@
       </h2>
 
       <p>
-        The application leverages Nuxt UI v4's semantic system, mapped to
-        Tailwind v4's native colors as defined in
-        <code>app.config.ts</code>:
+        The application leverages Tailwind CSS v4's theme color mappings
+        configured in
+        <code>app/assets/css/tailwind.css</code>:
       </p>
 
       <div class="overflow-x-auto my-6">

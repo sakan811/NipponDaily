@@ -39,7 +39,7 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.text()).toContain("Japan, Synthesized.");
     expect(wrapper.text()).toContain(
-      "Bypassing the generic noise. NipponDaily collects, synthesizes, and translates",
+      "Bypassing the generic noise. NipponDaily aggregates, synthesizes, and analyzes",
     );
   });
 

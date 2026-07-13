@@ -3,7 +3,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -124,6 +124,12 @@ const features = [
     description:
       "Resilient system design that falls back to memory caches or raw source data if Vector DB/API services are temporarily offline.",
     icon: "i-heroicons-arrow-path",
+  },
+  {
+    title: "Custom Editorial UI Library",
+    description:
+      "Lightweight, custom components (UButton, UCard, UHeader, etc.) built natively on Tailwind CSS v4, optimized for reader engagement and content clarity.",
+    icon: "i-heroicons-paint-brush",
   },
   {
     title: "Dark Mode Native",

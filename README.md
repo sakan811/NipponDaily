@@ -14,16 +14,16 @@
 - **Visual Trust Scoring**: Multi-level credibility assessments (overall and per-source) directly evaluated by Google Gemini AI with HSL-color-gradient visuals.
 - **Customizable Discovery & Span Filtering**: Fine-grained filtering by traditional category channels and precise date ranges (preset or custom), analyzing the actual publish timeline span of each story.
 - **Automated Background Ingestion**: Seamless news discovery and Gemini updates scheduled in the background to ensure instantaneous loading of curated topics.
-- **Smart & Editorial UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for an immersive, fast, responsive editorial layout with dark mode native.
+- **Smart & Editorial UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4, utilizing locally maintained custom UI components for a fast, responsive, and immersive editorial layout with native dark mode.
 
 ## 🛠 Tech Stack
 
 - **Framework**: [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) with custom design tokens
 - **AI Engine**: [Google Gemini AI](https://deepmind.google/technologies/gemini/)
 - **Search API**: [Tavily Search API](https://tavily.com/)
 - **Storage/Cache**: [Upstash Redis](https://upstash.com/) & [Upstash Vector](https://upstash.com/) (for background ingestion cache and story vector databases)
-- **Testing**: [Vitest](https://vitest.dev/), [Docker](https://www.docker.com/) (for integration tests)
+- **Testing**: [Vitest](https://vitest.dev/)
 
 ## 📋 Quick Setup
 
@@ -44,6 +44,8 @@
    ```bash
    # Required: APIs & Database Cache
    GEMINI_API_KEY=your_gemini_api_key_here
+   GEMINI_MODEL=gemini-2.5-flash
+   GEMINI_EMBEDDING_MODEL=gemini-embedding-2
    TAVILY_API_KEY=your_tavily_api_key_here
    UPSTASH_REDIS_REST_URL="your_upstash_redis_url"
    UPSTASH_REDIS_REST_TOKEN="your_upstash_redis_token"
@@ -70,8 +72,8 @@ See `.env.example` for reference. Configure these in your `.env` file:
 | :-------------------------- | :------- | :------------------------------------------------------ | :------------------- |
 | `GEMINI_API_KEY`            | **Yes**  | Google Gemini API key for AI processing.                | -                    |
 | `TAVILY_API_KEY`            | **Yes**  | Tavily Search API key for news discovery.               | -                    |
-| `GEMINI_MODEL`              | No       | Google Gemini model for text briefing generation.       | `gemini-2.5-flash`   |
-| `GEMINI_EMBEDDING_MODEL`    | No       | Google Gemini model for vector embeddings generation.   | `gemini-embedding-2` |
+| `GEMINI_MODEL`              | **Yes**  | Google Gemini model to use.                             | `gemini-2.5-flash`   |
+| `GEMINI_EMBEDDING_MODEL`    | **Yes**  | Google Gemini model for vector embeddings generation.   | `gemini-embedding-2` |
 | `UPSTASH_REDIS_REST_URL`    | **Yes**  | Upstash Redis REST URL for story database cache.        | -                    |
 | `UPSTASH_REDIS_REST_TOKEN`  | **Yes**  | Upstash Redis REST token for story database cache.      | -                    |
 | `UPSTASH_VECTOR_REST_URL`   | **Yes**  | Upstash Vector REST URL for story clustering.           | -                    |
