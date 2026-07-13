@@ -6,7 +6,7 @@
     >
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-3">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-sm tracking-wide leading-none"
@@ -190,9 +190,7 @@
             >
               Mock: AI Fallback Card
             </div>
-            <BriefingCard
-              :briefing="mockFallbackBriefing"
-            />
+            <BriefingCard :briefing="mockFallbackBriefing" />
           </div>
 
           <!-- New Clustered Stories Trending Dashboard UI -->
@@ -643,12 +641,18 @@ const getStoryTimeRange = (story: Story | null): string => {
   }
 
   if (sameMonth) {
-    const earliestStr = earliest.toLocaleDateString("en-US", formatOptsMonthDay);
+    const earliestStr = earliest.toLocaleDateString(
+      "en-US",
+      formatOptsMonthDay,
+    );
     return `${earliestStr} - ${latestDay}, ${latestYear}`;
   }
 
   if (sameYear) {
-    const earliestStr = earliest.toLocaleDateString("en-US", formatOptsMonthDay);
+    const earliestStr = earliest.toLocaleDateString(
+      "en-US",
+      formatOptsMonthDay,
+    );
     const latestStr = latest.toLocaleDateString("en-US", formatOptsMonthDay);
     return `${earliestStr} - ${latestStr}, ${latestYear}`;
   }
@@ -687,38 +691,6 @@ const chronologicalSources = computed(() => {
     (a, b) =>
       new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime(),
   );
-});
-
-const briefingData = computed(() => {
-  if (stories.value.length === 0) return undefined;
-  const story = stories.value[0]!;
-
-  const overallCred =
-    story.sources.length > 0
-      ? story.sources.reduce((sum, s) => sum + s.credibilityScore, 0) /
-        story.sources.length
-      : 0.85;
-
-  return {
-    isAiFallback: false,
-    mainHeadline: story.headline,
-    executiveSummary: story.summary,
-    thematicAnalysis: story.thematicAnalysis,
-    overallCredibilityScore: Math.round(overallCred * 100) / 100,
-    sourcesProcessed: story.sources.map((src) => {
-      const s: any = {
-        title: src.title,
-        source: src.source,
-        url: src.url,
-        credibilityScore: src.credibilityScore,
-        publishedAt: src.publishedAt,
-        category: src.category,
-      };
-      if (src.favicon !== undefined) s.favicon = src.favicon;
-      if (src.regions && src.regions.length > 0) s.regions = src.regions;
-      return s;
-    }),
-  };
 });
 
 // Formatting helpers

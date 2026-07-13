@@ -3,7 +3,7 @@
     <UHeader v-model:open="mobileMenuOpen">
       <template #left>
         <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -64,8 +64,6 @@
           Tip: Use your mouse wheel to zoom and drag to pan the diagram.
         </p>
       </div>
-
-
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
         Core Components
@@ -205,7 +203,10 @@
           class="flex flex-col items-center p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200/40 dark:border-stone-800/40 shadow-sm"
         >
           <div class="w-8 h-8 rounded-full mb-2" :class="color.bgClass" />
-          <span class="text-xs font-serif font-bold text-stone-900 dark:text-white">{{ color.name }}</span>
+          <span
+            class="text-xs font-serif font-bold text-stone-900 dark:text-white"
+            >{{ color.name }}</span
+          >
           <span
             class="text-[9px] text-stone-500 dark:text-stone-400 font-serif mt-0.5"
             >{{ color.romaji }}</span
@@ -235,7 +236,8 @@
       </h2>
 
       <p>
-        Transforms raw article URLs into AI-synthesised story briefings in five steps:
+        Transforms raw article URLs into AI-synthesised story briefings in five
+        steps:
       </p>
 
       <!-- Step 1 -->
@@ -243,8 +245,9 @@
         Step 1 — Fetch (Tavily)
       </h3>
       <p>
-        Tavily returns pre-filtered, high-quality excerpts — no HTML parsing needed.
-        Capped at 20 articles per run, deduplicated by URL before any downstream processing.
+        Tavily returns pre-filtered, high-quality excerpts — no HTML parsing
+        needed. Capped at 20 articles per run, deduplicated by URL before any
+        downstream processing.
       </p>
 
       <!-- Step 2 -->
@@ -252,8 +255,9 @@
         Step 2 — Deduplication (Redis)
       </h3>
       <p>
-        A Redis <code>SADD</code>/<code>SISMEMBER</code> seen-set gives O(1) duplicate
-        detection <em>before</em> vector embedding and AI calls — the two costliest steps.
+        A Redis <code>SADD</code>/<code>SISMEMBER</code> seen-set gives O(1)
+        duplicate detection <em>before</em> vector embedding and AI calls — the
+        two costliest steps.
       </p>
 
       <!-- Step 3 -->
@@ -262,8 +266,8 @@
       </h3>
       <p>
         Articles are embedded and compared via cosine similarity. A threshold of
-        <code>0.82</code> groups same-event coverage into one story without merging
-        loosely related topics (e.g. two separate earthquakes).
+        <code>0.82</code> groups same-event coverage into one story without
+        merging loosely related topics (e.g. two separate earthquakes).
       </p>
 
       <!-- Step 4 -->
@@ -271,9 +275,10 @@
         Step 4 — AI Briefing (Gemini)
       </h3>
       <p>
-        Gemini synthesises each story group into an English headline, bullet-point summary,
-        and cross-source analysis. Japanese-language sources are translated inline.
-        Existing stories are <em>updated</em> incrementally rather than regenerated, preserving
+        Gemini synthesises each story group into an English headline,
+        bullet-point summary, and cross-source analysis. Japanese-language
+        sources are translated inline. Existing stories are
+        <em>updated</em> incrementally rather than regenerated, preserving
         analytical continuity at lower cost.
       </p>
 
@@ -282,9 +287,11 @@
         Step 5 — Persist &amp; Score
       </h3>
       <p>
-        Stories are written to Redis only after a successful briefing, so the cache never
-        holds half-processed entries. Velocity (trending) scores are recalculated across
-        <em>all</em> stories at the end of each run — trending is relative, not per-story.
+        Stories are written to Redis only after a successful briefing, so the
+        cache never holds half-processed entries. Velocity (trending) scores are
+        recalculated across
+        <em>all</em> stories at the end of each run — trending is relative, not
+        per-story.
       </p>
 
       <!-- Auto-trigger note -->
@@ -293,7 +300,8 @@
       >
         <p class="mb-0 text-amber-800 dark:text-amber-200 text-sm">
           ⚡ <strong>Auto-trigger:</strong> <code>GET /api/news</code> fires a
-          background ingestion automatically when the cache is stale (&gt; 24 h) or empty.
+          background ingestion automatically when the cache is stale (&gt; 24 h)
+          or empty.
         </p>
       </div>
 
@@ -309,7 +317,8 @@
         <code>POST /api/ingest</code>
       </h3>
       <p>
-        Runs the full ingestion pipeline. Called on a schedule via <strong>QStash</strong>
+        Runs the full ingestion pipeline. Called on a schedule via
+        <strong>QStash</strong>
         — register the URL in the Upstash console, no code changes needed.
       </p>
 
@@ -319,8 +328,8 @@
         <p class="mb-0 text-sky-800 dark:text-sky-200 text-sm">
           🗓 <strong>QStash one-time setup:</strong>
           <em>QStash → Schedules → New Schedule</em>, URL
-          <code>https://your-domain.com/api/ingest</code>, method <code>POST</code>,
-          cron e.g. <code>0 */6 * * *</code>.
+          <code>https://your-domain.com/api/ingest</code>, method
+          <code>POST</code>, cron e.g. <code>0 */6 * * *</code>.
         </p>
       </div>
 
@@ -361,13 +370,17 @@ doppler run -- curl -X POST http://localhost:3000/api/ingest</code></pre>
               <td class="py-2 px-4"><code>category</code></td>
               <td class="py-2 px-4">string</td>
               <td class="py-2 px-4">—</td>
-              <td class="py-2 px-4">Topic filter (e.g. <code>society</code>, <code>tech</code>)</td>
+              <td class="py-2 px-4">
+                Topic filter (e.g. <code>society</code>, <code>tech</code>)
+              </td>
             </tr>
             <tr>
               <td class="py-2 px-4"><code>query</code></td>
               <td class="py-2 px-4">string (max 100)</td>
               <td class="py-2 px-4">—</td>
-              <td class="py-2 px-4">Full-text search across headlines &amp; summaries</td>
+              <td class="py-2 px-4">
+                Full-text search across headlines &amp; summaries
+              </td>
             </tr>
             <tr>
               <td class="py-2 px-4"><code>timeRange</code></td>
@@ -379,9 +392,9 @@ doppler run -- curl -X POST http://localhost:3000/api/ingest</code></pre>
               <td class="py-2 px-4">Relative time window</td>
             </tr>
             <tr>
-              <td class="py-2 px-4"
-                ><code>startDate</code> / <code>endDate</code></td
-              >
+              <td class="py-2 px-4">
+                <code>startDate</code> / <code>endDate</code>
+              </td>
               <td class="py-2 px-4">YYYY-MM-DD</td>
               <td class="py-2 px-4">—</td>
               <td class="py-2 px-4">

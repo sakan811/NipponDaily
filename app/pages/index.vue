@@ -13,7 +13,7 @@
     >
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-3">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-8 h-8" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-8 h-8" />
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-lg tracking-wide leading-none"
@@ -43,7 +43,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Japan, Synthesized.<br class="hidden sm:inline" >
+          Japan, Synthesized.<br class="hidden sm:inline" />
           <span class="text-primary-500 italic font-normal"
             >Deep Cultural & Regional</span
           >
@@ -104,7 +104,6 @@
                 >
                   <UIcon :name="channel.icon" class="w-5 h-5" />
                 </div>
-
               </div>
               <div class="space-y-1.5">
                 <h3
@@ -122,7 +121,6 @@
           </UCard>
         </div>
       </section>
-
     </main>
 
     <!-- Footer -->
@@ -131,8 +129,8 @@
     >
       <template #left>
         <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          &copy; 2025 - {{ new Date().getFullYear() }} NIPPON DAILY.
-          All rights reserved. Released under the Apache-2.0 License.
+          &copy; 2025 - {{ new Date().getFullYear() }} NIPPON DAILY. All rights
+          reserved. Released under the Apache-2.0 License.
         </p>
       </template>
     </UFooter>
