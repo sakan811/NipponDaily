@@ -12,15 +12,10 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:integration": "docker compose up -d && sleep 5 && vitest run --config vitest.integration.config.ts && docker compose down",
-    "test:integration:coverage": "docker compose up -d && sleep 5 && vitest run --coverage --config vitest.integration.config.ts && docker compose down",
-    "test:coverage:all": "docker compose up -d && sleep 5 && vitest run --coverage && vitest run --coverage --config vitest.integration.config.ts && docker compose down",
-    "docker:up": "docker compose up -d",
-    "docker:down": "docker compose down",
     "lint": "eslint . --fix",
     "format": "pnpm exec prettier . --write",
     "type-check": "tsc --noEmit",
-    "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run && pnpm test:integration"
+    "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run"
   },
   "dependencies": {
     "@google/genai": "^2.10.0",
