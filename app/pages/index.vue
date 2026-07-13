@@ -131,43 +131,6 @@
         </div>
       </section>
 
-      <div
-        class="border-t border-stone-200 dark:border-stone-800/80 my-16 sm:my-24"
-      />
-
-      <!-- Poetic Pigment System Section -->
-      <section
-        class="max-w-4xl mx-auto rounded-2xl bg-stone-100/50 dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-800 p-8 sm:p-12 space-y-6 text-center backdrop-blur-sm"
-      >
-        <h2
-          class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
-        >
-          Aesthetic Philosophy
-        </h2>
-        <p
-          class="text-sm leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans"
-        >
-          NipponDaily's interface is built on modern simplicity, utilizing
-          premium design tokens inspired by traditional Japanese pigment
-          systems. Experience a serene, ink-print editorial that respects
-          content and reader focus.
-        </p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-          <div
-            v-for="(color, idx) in paletteColors"
-            :key="idx"
-            class="flex flex-col items-center p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200/40 dark:border-stone-800/40 shadow-sm"
-          >
-            <div class="w-8 h-8 rounded-full mb-2" :class="color.bgClass" />
-            <span class="text-xs font-serif font-bold">{{ color.name }}</span>
-            <span
-              class="text-[9px] text-stone-400 dark:text-stone-500 font-serif mt-0.5"
-              >{{ color.kanji }}</span
-            >
-          </div>
-        </div>
-      </section>
     </main>
 
     <!-- Footer -->
@@ -229,21 +192,6 @@ const channels = ref([
     description:
       "Seismic and meteorological developments, structural disaster preparation, environmental stewardship, and geographical surveys.",
     icon: "i-heroicons-shield-exclamation",
-  },
-]);
-
-const paletteColors = ref([
-  {
-    name: "Torii Vermilion",
-    kanji: "朱色 - Shu-iro",
-    bgClass: "bg-primary-500",
-  },
-  { name: "Serene Sky", kanji: "空色 - Sora-iro", bgClass: "bg-secondary-500" },
-  { name: "Amber Gold", kanji: "黄金 - Kogane", bgClass: "bg-success-500" },
-  {
-    name: "Zen Stone",
-    kanji: "灰白 - Kaibaku",
-    bgClass: "bg-stone-300 dark:bg-stone-700",
   },
 ]);
 </script>

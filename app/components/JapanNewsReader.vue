@@ -12,10 +12,6 @@
               class="font-serif font-bold text-sm tracking-wide leading-none"
               >NIPPON DAILY</span
             >
-            <span
-              class="text-[7px] text-stone-500 dark:text-stone-400 font-serif tracking-widest mt-0.5"
-              >日本日報</span
-            >
           </div>
         </NuxtLink>
       </template>
