@@ -16,12 +16,12 @@ export default defineEventHandler(async (_event) => {
       message: "News ingestion completed successfully",
       timestamp: new Date().toISOString(),
     };
-  } catch (error: any) {
+  } catch (error) {
     console.error("[POST /api/ingest] Ingestion error:", error);
     throw createError({
       statusCode: 500,
       statusMessage: "Failed to execute news ingestion",
-      data: { error: error.message },
+      data: { error: error instanceof Error ? error.message : String(error) },
     });
   }
 });

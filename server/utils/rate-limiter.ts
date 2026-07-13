@@ -128,13 +128,16 @@ export async function checkRateLimit(
 /**
  * Extract client IP address from Nuxt event
  */
-export function getClientIp(event: any): string {
-  // Try to get IP from various headers (for proxied requests)
-  const headers = (
-    event.node.req as typeof event.node.req & {
+export function getClientIp(event: {
+  node: {
+    req: {
       headers?: Record<string, string | undefined>;
-    }
-  ).headers;
+      socket?: { remoteAddress?: string };
+    };
+  };
+}): string {
+  // Try to get IP from various headers (for proxied requests)
+  const headers = event.node.req.headers;
 
   const forwardedFor = headers?.["x-forwarded-for"];
   const cfConnectingIp = headers?.["cf-connecting-ip"];

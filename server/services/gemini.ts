@@ -1,5 +1,9 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import type {
+  GenerateContentParameters,
+  GenerateContentResponse,
+} from "@google/genai";
+import type {
   NewsItem,
   NewsBriefing,
   BriefingSource,
@@ -15,20 +19,25 @@ class GeminiService {
   }
 
   private async generateContentWithRetry(
-    params: { model: string; contents: string; config: any },
+    params: GenerateContentParameters,
     retries = 3,
     delayMs = 2000,
-  ): Promise<any> {
+  ): Promise<GenerateContentResponse> {
     try {
       if (!this.client) {
         throw new Error("Gemini AI client not initialized");
       }
       return await this.client.models.generateContent(params);
-    } catch (error: any) {
-      const errorStr = String(error.message || error);
+    } catch (error) {
+      const err = error as {
+        status?: number;
+        statusCode?: number;
+        message?: string;
+      };
+      const errorStr = String(err.message || error);
       const is429 =
-        error.status === 429 ||
-        error.statusCode === 429 ||
+        err.status === 429 ||
+        err.statusCode === 429 ||
         errorStr.includes("429") ||
         errorStr.includes("RESOURCE_EXHAUSTED") ||
         errorStr.includes("Too Many Requests");
