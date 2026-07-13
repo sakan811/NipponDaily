@@ -1,3 +1,5 @@
+import tailwindcss from "@tailwindcss/vite";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2026-01-14",
@@ -5,12 +7,26 @@ export default defineNuxtConfig({
   css: ["./app/assets/css/tailwind.css"],
   modules: [
     "@nuxt/test-utils/module",
-    "@nuxt/ui",
     "@nuxt/eslint",
     "@nuxt/hints",
   ],
   app: {
     head: {
+      script: [
+        {
+          innerHTML: `(function() {
+            try {
+              const theme = localStorage.getItem('color-theme');
+              if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+              } else {
+                document.documentElement.classList.remove('dark');
+              }
+            } catch (_) {}
+          })()`,
+          type: 'text/javascript'
+        }
+      ],
       link: [
         {
           rel: "icon",
@@ -41,6 +57,7 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    plugins: [tailwindcss()],
     optimizeDeps: {
       include: ["@internationalized/date", "marked"],
     },
