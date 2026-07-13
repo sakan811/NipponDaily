@@ -125,71 +125,9 @@ describe("JapanNewsReader - Error Handling", () => {
       .findAll("button")
       .find(
         (b) =>
-          b.text().includes("Try Again") ||
-          b.text().includes("Generate Briefing"),
+          b.text().includes("Try Again") || b.text().includes("Refresh News"),
       );
     expect(getNewsButton).toBeDefined();
-  });
-
-  it("shows rate limit error with reset time", async () => {
-    const resetTime = "2024-01-16T10:00:00.000Z";
-    mockFetch.mockRejectedValueOnce({
-      statusCode: 429,
-      data: {
-        error:
-          "Daily rate limit exceeded (3 requests/day). Please try again tomorrow.",
-        resetTime: resetTime,
-        limit: 3,
-      },
-    });
-
-    const wrapper = mount(JapanNewsReader, {
-      global: {
-        components: {
-          NewsCard: mockBriefingCard,
-        },
-      },
-    });
-
-    await wrapper.vm.fetchNews();
-    await vi.waitFor(() => wrapper.vm.isRateLimitError === true);
-
-    // Check for rate limit specific UI elements
-    expect(wrapper.vm.isRateLimitError).toBe(true);
-    expect(wrapper.vm.rateLimitResetTime).toBe(resetTime);
-    expect(wrapper.text()).toContain("Daily Limit Reached");
-    expect(wrapper.text()).toContain("Daily rate limit exceeded");
-    expect(wrapper.text()).toContain("Resets at:");
-
-    // Check that the try again button is present and has warning color
-    const buttons = wrapper.findAll("button");
-    const tryAgainButton = buttons.find((b) => b.text().includes("Try Again"));
-    expect(tryAgainButton).toBeDefined();
-  });
-
-  it("handles 429 error with non-string message and no reset time", async () => {
-    mockFetch.mockRejectedValueOnce({
-      statusCode: 429,
-      data: {
-        error: { some: "object" },
-      },
-    });
-
-    const wrapper = mount(JapanNewsReader, {
-      global: {
-        components: {
-          NewsCard: mockBriefingCard,
-        },
-      },
-    });
-
-    await wrapper.vm.fetchNews();
-    await vi.waitFor(() => wrapper.vm.isRateLimitError === true);
-
-    expect(wrapper.vm.error).toBe(
-      "Daily rate limit exceeded. Please try again tomorrow.",
-    );
-    expect(wrapper.vm.rateLimitResetTime).toBe(null);
   });
 
   it("can retry fetching news after error", async () => {
@@ -245,29 +183,6 @@ describe("JapanNewsReader - Error Handling", () => {
         limit: 20,
       },
     });
-  });
-
-  it("handles HTTP 500 error with Redis not configured message", async () => {
-    const wrapper = mount(JapanNewsReader, {
-      global: { components: { BriefingCard: mockBriefingCard } },
-    });
-
-    // Mock HTTP 500 error with Redis not configured message
-    mockFetch.mockRejectedValueOnce({
-      statusCode: 500,
-      data: {
-        error:
-          "Redis not configured: UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN environment variables are required for rate limiting",
-      },
-    });
-
-    await wrapper.vm.fetchNews();
-    await vi.waitFor(() => wrapper.vm.error !== null);
-
-    expect(wrapper.vm.loading).toBe(false);
-    expect(wrapper.vm.error).toBe(
-      "Rate limiting service is unavailable. Please contact the administrator to configure Redis.",
-    );
   });
 
   it("handles HTTP 500 error with generic error message (not Redis)", async () => {

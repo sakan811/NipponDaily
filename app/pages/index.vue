@@ -4,7 +4,7 @@
   >
     <!-- Fine grid decoration to resemble shoji paper screens -->
     <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-60"
+      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-60"
     />
 
     <!-- Header -->
@@ -18,10 +18,6 @@
             <span
               class="font-serif font-bold text-lg tracking-wide leading-none"
               >NIPPON DAILY</span
-            >
-            <span
-              class="text-[9px] text-stone-500 dark:text-stone-400 font-serif tracking-widest mt-0.5"
-              >日本日報</span
             >
           </div>
         </NuxtLink>
@@ -57,9 +53,10 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans"
         >
-          Bypassing the generic noise. NipponDaily collects, synthesizes, and
-          translates domestic Japanese sources across six authentic,
-          highly-specialized news channels using advanced AI.
+          Bypassing the generic noise. NipponDaily aggregates, synthesizes, and
+          analyzes English-language coverage of Japan-related news—including
+          translated domestic publications and international media—across six
+          specialized channels using advanced AI.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-4">
@@ -107,11 +104,7 @@
                 >
                   <UIcon :name="channel.icon" class="w-5 h-5" />
                 </div>
-                <span
-                  class="text-[10px] tracking-widest uppercase font-serif text-stone-400 dark:text-stone-500 font-bold"
-                >
-                  {{ channel.jpLabel }}
-                </span>
+
               </div>
               <div class="space-y-1.5">
                 <h3
@@ -130,43 +123,6 @@
         </div>
       </section>
 
-      <div
-        class="border-t border-stone-200 dark:border-stone-800/80 my-16 sm:my-24"
-      />
-
-      <!-- Poetic Pigment System Section -->
-      <section
-        class="max-w-4xl mx-auto rounded-2xl bg-stone-100/50 dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-800 p-8 sm:p-12 space-y-6 text-center backdrop-blur-sm"
-      >
-        <h2
-          class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
-        >
-          Aesthetic Philosophy
-        </h2>
-        <p
-          class="text-sm leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans"
-        >
-          NipponDaily's interface is built on modern simplicity, utilizing
-          premium design tokens inspired by traditional Japanese pigment
-          systems. Experience a serene, ink-print editorial that respects
-          content and reader focus.
-        </p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-          <div
-            v-for="(color, idx) in paletteColors"
-            :key="idx"
-            class="flex flex-col items-center p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200/40 dark:border-stone-800/40 shadow-sm"
-          >
-            <div class="w-8 h-8 rounded-full mb-2" :class="color.bgClass" />
-            <span class="text-xs font-serif font-bold">{{ color.name }}</span>
-            <span
-              class="text-[9px] text-stone-400 dark:text-stone-500 font-serif mt-0.5"
-              >{{ color.kanji }}</span
-            >
-          </div>
-        </div>
-      </section>
     </main>
 
     <!-- Footer -->
@@ -175,7 +131,7 @@
     >
       <template #left>
         <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          &copy; 2025 - {{ new Date().getFullYear() }} NIPPON DAILY (日本日報).
+          &copy; 2025 - {{ new Date().getFullYear() }} NIPPON DAILY.
           All rights reserved. Released under the Apache-2.0 License.
         </p>
       </template>
@@ -189,60 +145,39 @@ import { ref } from "vue";
 const channels = ref([
   {
     title: "Society & Prefectures",
-    jpLabel: "地方・社会",
     description:
       "Deep insights into demographic shifts, rural revitalization efforts, prefectural policies, and local Japanese daily life.",
     icon: "i-heroicons-user-group",
   },
   {
     title: "Tech & Mobility",
-    jpLabel: "技術・産業",
     description:
       "The cutting edge: Japanese robotics, microchip foundries, Shinkansen expansions, aerospace development, and automotive giants.",
     icon: "i-heroicons-cpu-chip",
   },
   {
     title: "Pop Culture & Gaming",
-    jpLabel: "ポップカルチャー",
     description:
       "Global releases and movements in anime, manga publishing houses, iconic gaming studios (Nintendo, Sony), J-Pop, and Tokyo youth trends.",
     icon: "i-heroicons-play-circle",
   },
   {
     title: "Travel & Heritage",
-    jpLabel: "観光・遺産",
     description:
       "Curated guides to hidden hot spring (onsen) villages, regional festivals (matsuri), historical preservation, and structural tourism.",
     icon: "i-heroicons-map",
   },
   {
     title: "Food & Gastronomy",
-    jpLabel: "和食・食文化",
     description:
       "Washoku culinary arts, Michelin guides, traditional sake/whisky craft distilleries, agricultural techniques, and regional delicacies.",
     icon: "i-heroicons-cake",
   },
   {
     title: "Nature & Resilience",
-    jpLabel: "自然・防災",
     description:
       "Seismic and meteorological developments, structural disaster preparation, environmental stewardship, and geographical surveys.",
     icon: "i-heroicons-shield-exclamation",
-  },
-]);
-
-const paletteColors = ref([
-  {
-    name: "Torii Vermilion",
-    kanji: "朱色 - Shu-iro",
-    bgClass: "bg-primary-500",
-  },
-  { name: "Serene Sky", kanji: "空色 - Sora-iro", bgClass: "bg-secondary-500" },
-  { name: "Amber Gold", kanji: "黄金 - Kogane", bgClass: "bg-success-500" },
-  {
-    name: "Zen Stone",
-    kanji: "灰白 - Kaibaku",
-    bgClass: "bg-stone-300 dark:bg-stone-700",
   },
 ]);
 </script>

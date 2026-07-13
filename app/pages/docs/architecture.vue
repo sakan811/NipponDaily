@@ -74,9 +74,9 @@
             <h4 class="font-bold">Frontend (Nuxt 4)</h4>
           </template>
           <p class="text-sm">
-            Built with Nuxt 4 and Vue 3, utilizing Nuxt UI v4 and Tailwind CSS
-            v4. The UI is designed for "Synthesized Reading," prioritizing
-            briefings over raw lists.
+            Built with Nuxt 4 and Vue 3, utilizing custom UI components and
+            Tailwind CSS v4. The UI is designed for "Synthesized Reading,"
+            prioritizing briefings over raw lists.
           </p>
         </UCard>
 
@@ -114,22 +114,11 @@
 
         <UCard>
           <template #header>
-            <h4 class="font-bold">Rate Limiting (Upstash)</h4>
+            <h4 class="font-bold">Database & Cache (Upstash)</h4>
           </template>
           <p class="text-sm">
-            Sliding-window rate limiting via Redis ensures API cost management
-            and prevents service abuse.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-bold">Interactive Japan Map</h4>
-          </template>
-          <p class="text-sm">
-            SVG-based component visualizing news density by region. Filters news
-            sources dynamically or triggers targeted Tavily search requests for
-            regional news.
+            Powered by Upstash Redis and Vector database, storing clustered
+            story articles, daily briefings, and ingestion caching metadata.
           </p>
         </UCard>
       </div>
@@ -145,44 +134,13 @@
       </p>
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        Regional Intelligence & Map Interaction
-      </h2>
-
-      <p class="mb-4">
-        NipponDaily integrates geographical metadata directly into the search
-        and synthesis pipeline:
-      </p>
-
-      <ul class="list-disc pl-6 mb-6 space-y-2">
-        <li>
-          <strong>AI Region Extraction:</strong> Google Gemini analyzes the
-          content of all retrieved articles to identify which Japanese
-          prefectures or regions (e.g., Kanto, Kansai, Tohoku, Hokkaido,
-          Okinawa) are featured, mapping them into the
-          <code>regionsAffected</code> data field.
-        </li>
-        <li>
-          <strong>Interactive SVG Map (JapanMap.vue):</strong> Shows active
-          regions mentioned in the current news cycle. Clicking on a region
-          dynamically filters the active briefing to show only relevant local
-          sources.
-        </li>
-        <li>
-          <strong>Targeted Local Scans:</strong> If no articles in the current
-          briefing relate to the selected region, the interface allows
-          triggering a dedicated Tavily search using localized regional queries
-          (e.g., "東北 ニュース" or "Tohoku news") to pull fresh local news.
-        </li>
-      </ul>
-
-      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        Color System
+        Color Palette & System
       </h2>
 
       <p>
-        The application leverages Nuxt UI v4's semantic system, mapped to
-        Tailwind v4's native colors as defined in
-        <code>app.config.ts</code>:
+        The application leverages Tailwind CSS v4's theme color mappings
+        configured in
+        <code>app/assets/css/tailwind.css</code>:
       </p>
 
       <div class="overflow-x-auto my-6">
@@ -197,7 +155,7 @@
           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
             <tr>
               <td class="py-2 px-4">
-                <strong>Torii Vermilion (朱色 - Shu-iro)</strong>
+                <strong>Torii Vermilion (Shu-iro)</strong>
               </td>
               <td class="py-2 px-4">
                 Primary (<code>orange</code>) / Error (<code>orange</code>)
@@ -208,7 +166,7 @@
             </tr>
             <tr>
               <td class="py-2 px-4">
-                <strong>Serene Sky (空色 - Sora-iro)</strong>
+                <strong>Serene Sky (Sora-iro)</strong>
               </td>
               <td class="py-2 px-4">
                 Secondary (<code>sky</code>) / Info (<code>sky</code>)
@@ -217,7 +175,7 @@
             </tr>
             <tr>
               <td class="py-2 px-4">
-                <strong>Amber Gold (黄金色 - Kogane-iro)</strong>
+                <strong>Amber Gold (Kogane-iro)</strong>
               </td>
               <td class="py-2 px-4">
                 Success (<code>amber</code>) / Warning (<code>amber</code>)
@@ -226,7 +184,7 @@
             </tr>
             <tr>
               <td class="py-2 px-4">
-                <strong>Zen Stone (灰白色 - Kaibakushoku)</strong>
+                <strong>Zen Stone (Kaibakushoku)</strong>
               </td>
               <td class="py-2 px-4">Neutral (<code>stone</code>)</td>
               <td class="py-2 px-4">
@@ -235,6 +193,21 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 my-6 not-prose">
+        <div
+          v-for="(color, idx) in paletteColors"
+          :key="idx"
+          class="flex flex-col items-center p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200/40 dark:border-stone-800/40 shadow-sm"
+        >
+          <div class="w-8 h-8 rounded-full mb-2" :class="color.bgClass" />
+          <span class="text-xs font-serif font-bold text-stone-900 dark:text-white">{{ color.name }}</span>
+          <span
+            class="text-[9px] text-stone-500 dark:text-stone-400 font-serif mt-0.5"
+            >{{ color.romaji }}</span
+          >
+        </div>
       </div>
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
@@ -282,49 +255,38 @@
 
 <script setup lang="ts">
 const mobileMenuOpen = ref(false);
+
+const paletteColors = [
+  {
+    name: "Torii Vermilion",
+    romaji: "Shu-iro",
+    bgClass: "bg-primary-500",
+  },
+  { name: "Serene Sky", romaji: "Sora-iro", bgClass: "bg-secondary-500" },
+  { name: "Amber Gold", romaji: "Kogane", bgClass: "bg-success-500" },
+  {
+    name: "Zen Stone",
+    romaji: "Kaibaku",
+    bgClass: "bg-stone-300 dark:bg-stone-700",
+  },
+];
 const architectureDiagram = `
 graph TD
     User([User]) <--> Frontend[Nuxt 4 App]
-    subgraph "Frontend Layer"
-        Frontend <--> Map[Interactive Japan Map]
-    end
     Frontend <--> API[Nitro Engine]
     
-    subgraph "Processing Layer"
-        API <--> Tavily[Tavily Search]
-        API <--> Gemini[Gemini AI]
-        API <--> Redis[(Upstash Redis)]
+    subgraph "Storage & Cache Layer"
+        API <--> Redis[(Upstash Redis Cache)]
+        API <--> Vector[(Upstash Vector DB)]
+        Ingest[Ingest Task] --> Vector
+        Ingest --> Redis
     end
     
-    Gemini -- Briefing & Synthesis --> API
-    Tavily -- Raw Context --> API
-    API -- Integrated Intelligence --> Frontend
+    subgraph "Processing Layer"
+        Ingest <--> Tavily[Tavily Search]
+        Ingest <--> Gemini[Gemini AI]
+    end
 `;
-
-useHead({
-  script: [
-    {
-      src: "https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js",
-      defer: true,
-      onload: () => {
-        // @ts-expect-error: mermaid is loaded from CDN
-        mermaid.initialize({
-          startOnLoad: false,
-          theme: "neutral",
-          securityLevel: "loose",
-        });
-        window.dispatchEvent(new Event("mermaid-ready"));
-      },
-    },
-    {
-      src: "https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js",
-      defer: true,
-      onload: () => {
-        window.dispatchEvent(new Event("svg-pan-zoom-ready"));
-      },
-    },
-  ],
-});
 </script>
 
 <style>

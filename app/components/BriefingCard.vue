@@ -177,7 +177,7 @@
                           name="i-heroicons-globe-alt"
                           class="w-3 h-3 text-stone-400"
                         />
-                        {{ language === "ja" ? "全国共通" : "Nationwide" }}
+                        Nationwide
                       </span>
                     </template>
                   </div>
@@ -226,21 +226,10 @@ const translations = {
     readOriginal: "Read original article",
     sourceTrust: "Source Trust",
   },
-  ja: {
-    recentNews: "最近のニュース",
-    aiFailed: "AI要約に失敗しました - 生データを表示中",
-    trustScore: "信頼度スコア",
-    summary: "要約",
-    crossSource: "複数ソースのクロス分析",
-    sourcesConsulted: "参照されたニュースソース",
-    readOriginal: "元の記事を読む",
-    sourceTrust: "ソース信頼度",
-  },
 } as const;
 
 const t = computed(() => {
-  const lang = props.language === "ja" ? "ja" : "en";
-  return translations[lang];
+  return translations.en;
 });
 
 // Helper function to generate gradient color from red (0%) to green (100%)
@@ -256,25 +245,25 @@ const getCredibilityColor = (score: number | undefined): string => {
 const getRegionDisplayName = (region: string) => {
   const normalized = region.trim();
 
-  const translations: Record<string, { en: string; ja: string }> = {
-    tokyo: { en: "Tokyo", ja: "東京" },
-    kyoto: { en: "Kyoto", ja: "京都" },
-    osaka: { en: "Osaka", ja: "大阪" },
-    hokkaido: { en: "Hokkaido", ja: "北海道" },
-    okinawa: { en: "Okinawa", ja: "沖縄" },
-    tohoku: { en: "Tohoku", ja: "東北" },
-    kanto: { en: "Kanto", ja: "関東" },
-    chubu: { en: "Chubu", ja: "中部" },
-    kansai: { en: "Kansai", ja: "関西" },
-    chugoku: { en: "Chugoku", ja: "中国" },
-    shikoku: { en: "Shikoku", ja: "四国" },
-    kyushu: { en: "Kyushu", ja: "九州" },
+  const regionNames: Record<string, string> = {
+    tokyo: "Tokyo",
+    kyoto: "Kyoto",
+    osaka: "Osaka",
+    hokkaido: "Hokkaido",
+    okinawa: "Okinawa",
+    tohoku: "Tohoku",
+    kanto: "Kanto",
+    chubu: "Chubu",
+    kansai: "Kansai",
+    chugoku: "Chugoku",
+    shikoku: "Shikoku",
+    kyushu: "Kyushu",
   };
 
   const key = normalized.toLowerCase();
-  const match = translations[key];
+  const match = regionNames[key];
   if (match) {
-    return props.language === "ja" ? match.ja : match.en;
+    return match;
   }
   return normalized;
 };

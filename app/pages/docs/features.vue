@@ -84,16 +84,16 @@ const features = [
     icon: "i-heroicons-link",
   },
   {
-    title: "Interactive Japan Map",
+    title: "Story Timeline Navigation",
     description:
-      "Visual SVG map of Japan showing active news density, letting readers dynamically filter briefings by region or trigger targeted localized news searches.",
-    icon: "i-heroicons-map",
+      "In-depth drill-down from a trending topic summary card into a dedicated chronological timeline page detailing the progression of articles.",
+    icon: "i-heroicons-clock",
   },
   {
-    title: "Multilingual AI Synthesis",
+    title: "Chronological Ordering",
     description:
-      "Translates and synthesizes news briefings in real-time into a wide variety of target languages (supported by Nuxt UI locales/ISO 639-1).",
-    icon: "i-heroicons-globe-alt",
+      "Timelines display all source articles sorted chronologically (oldest-first) to document the historical narrative flow.",
+    icon: "i-heroicons-bars-3-bottom-left",
   },
   {
     title: "AI Trust Scoring",
@@ -102,40 +102,34 @@ const features = [
     icon: "i-heroicons-shield-check",
   },
   {
-    title: "Bilingual Search Pipeline",
+    title: "Targeted Search Pipeline",
     description:
-      "Queries Tavily using native Japanese queries to capture authentic domestic sources, and English queries for international perspectives.",
+      "Queries Tavily search API with optimized boundaries to capture authentic Japan-related news in English.",
     icon: "i-heroicons-magnifying-glass",
   },
   {
-    title: "Bilingual Navigation & UI",
+    title: "Span-based Time Filtering",
     description:
-      "Entire interface—from subtitles and calendars to loaders and buttons—translates instantly between English and Japanese.",
-    icon: "i-heroicons-language",
-  },
-  {
-    title: "Dynamic News Discovery",
-    description:
-      "Granular filtering by category and custom time ranges (up to 365 days) to find the specific stories that matter.",
+      "Filters trending topics by evaluating whether the story's actual publish period overlaps with selected time or date ranges.",
     icon: "i-heroicons-funnel",
   },
   {
-    title: "Smart Fallback Mode",
+    title: "Automated Background Ingestion",
     description:
-      "Resilient system design that gracefully transitions to raw data display if AI synthesis services are temporarily unavailable.",
+      "News discovery and Gemini processing run in the background (once daily or via CRON), storing story clusters in Vector DB and Redis.",
+    icon: "i-heroicons-cpu-chip",
+  },
+  {
+    title: "Smart Cache Fallback Mode",
+    description:
+      "Resilient system design that falls back to memory caches or raw source data if Vector DB/API services are temporarily offline.",
     icon: "i-heroicons-arrow-path",
   },
   {
-    title: "Bilingual Source Verification",
+    title: "Custom Editorial UI Library",
     description:
-      "Displays original Japanese article titles in parentheses next to the translation, with direct links and favicons for easy cross-referencing.",
-    icon: "i-heroicons-book-open",
-  },
-  {
-    title: "Adaptive Rate Limiting",
-    description:
-      "Fair-usage limits managed by Redis to ensure service stability and predictable API consumption.",
-    icon: "i-heroicons-clock",
+      "Lightweight, custom components (UButton, UCard, UHeader, etc.) built natively on Tailwind CSS v4, optimized for reader engagement and content clarity.",
+    icon: "i-heroicons-paint-brush",
   },
   {
     title: "Dark Mode Native",

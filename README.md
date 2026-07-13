@@ -4,28 +4,26 @@
   <img src="./public/android-chrome-512x512.png" width="256" height="256" alt="logo" />
 </p>
 
-**Your multilingual gateway to Japanese news.** NipponDaily is an AI-powered news aggregator that fetches Japan-related news, then processes articles with Google Gemini AI for executive briefings, cross-source synthesis, and credibility assessment. Read stories that matter to you—in your language.
+**Your gateway to Japanese news.** NipponDaily is an AI-powered news aggregator that fetches Japan-related news in English, then clusters articles and processes them with Google Gemini AI for executive briefings, cross-source synthesis, and credibility assessment.
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
 - **Consolidated AI Briefing**: Synthesizes multiple news sources into a single, cohesive, high-level briefing with a primary headline and structured executive summary.
 - **Cross-Source Thematic Analysis**: Dynamic analysis identifying relationships, consensus, or discrepancies between different publications.
-- **Multilingual AI Briefings**: Real-time translation of synthesized briefings into a wide variety of target languages (supported by Nuxt UI locales/ISO 639-1).
-- **Interactive Regional Map & Filtering**: Interactive SVG map of Japan to visualize news density and dynamically filter sources by region or launch targeted local news scans.
+- **Story Timeline Navigation**: Drill down from a trending topic summary card into a dedicated, oldest-first chronological timeline detailing the progression of articles within that topic.
 - **Visual Trust Scoring**: Multi-level credibility assessments (overall and per-source) directly evaluated by Google Gemini AI with HSL-color-gradient visuals.
-- **Customizable Discovery**: Fine-grained filtering by traditional category channels and precise date ranges (preset or custom).
-- **Smart & Bilingual UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 for an immersive, fast, responsive editorial layout that translates instantly between English and Japanese.
-- **Robust Security**: Redis-based sliding-window rate limiting to manage API usage and costs.
-- **Developer Debug Mode**: Specialized configuration flag to test rate limits, failures, and fallbacks without consuming API quotas.
+- **Customizable Discovery & Span Filtering**: Fine-grained filtering by traditional category channels and precise date ranges (preset or custom), analyzing the actual publish timeline span of each story.
+- **Automated Background Ingestion**: Seamless news discovery and Gemini updates scheduled in the background to ensure instantaneous loading of curated topics.
+- **Smart & Editorial UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4, utilizing locally maintained custom UI components for a fast, responsive, and immersive editorial layout with native dark mode.
 
 ## 🛠 Tech Stack
 
 - **Framework**: [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) with custom design tokens
 - **AI Engine**: [Google Gemini AI](https://deepmind.google/technologies/gemini/)
 - **Search API**: [Tavily Search API](https://tavily.com/)
-- **Data/Cache**: [Upstash Redis](https://upstash.com/) (for rate limiting)
-- **Testing**: [Vitest](https://vitest.dev/), [Docker](https://www.docker.com/) (for integration tests)
+- **Storage/Cache**: [Upstash Redis](https://upstash.com/) & [Upstash Vector](https://upstash.com/) (for background ingestion cache and story vector databases)
+- **Testing**: [Vitest](https://vitest.dev/)
 
 ## 📋 Quick Setup
 
@@ -44,14 +42,19 @@
    Configure the following in `.env`:
 
    ```bash
-   # Required: APIs
+   # Required: APIs & Database Cache
    GEMINI_API_KEY=your_gemini_api_key_here
+   GEMINI_MODEL=gemini-2.5-flash
+   GEMINI_EMBEDDING_MODEL=gemini-embedding-2
    TAVILY_API_KEY=your_tavily_api_key_here
-
-   # Required for production (Rate Limiting)
    UPSTASH_REDIS_REST_URL="your_upstash_redis_url"
    UPSTASH_REDIS_REST_TOKEN="your_upstash_redis_token"
+   UPSTASH_VECTOR_REST_URL="your_upstash_vector_url"
+   UPSTASH_VECTOR_REST_TOKEN="your_upstash_vector_token"
    ```
+
+   > [!TIP]
+   > Developers are highly encouraged to sign up and use the Upstash service directly for development. Upstash offers a generous free tier for both Redis and Vector databases, which is more than sufficient for local setup and testing.
 
 3. **Start development server**:
 
@@ -65,61 +68,57 @@
 
 See `.env.example` for reference. Configure these in your `.env` file:
 
-| Variable                   | Required | Description                                             | Default                                   |
-| :------------------------- | :------- | :------------------------------------------------------ | :---------------------------------------- |
-| `GEMINI_API_KEY`           | **Yes**  | Google Gemini API key for AI processing.                | -                                         |
-| `TAVILY_API_KEY`           | **Yes**  | Tavily Search API key for news discovery.               | -                                         |
-| `GEMINI_MODEL`             | No       | Google Gemini model(s) to use, comma-separated.         | `gemini-2.5-flash,gemini-3-flash-preview` |
-| `UPSTASH_REDIS_REST_URL`   | Yes\*    | Upstash Redis URL for rate limiting.                    | -                                         |
-| `UPSTASH_REDIS_REST_TOKEN` | Yes\*    | Upstash Redis token for rate limiting.                  | -                                         |
-| `RATE_LIMIT_MAX_REQUESTS`  | No       | Maximum API requests allowed per IP per day.            | `3`                                       |
-| `DEBUG_ERROR_UI`           | No       | Set to `true` to force error UI components for testing. | `false`                                   |
-| `TEST_SRH_URL`             | No       | URL for Serverless Redis HTTP in integration tests.     | See `.env.example`                        |
-
-_\* Required for production and to enable rate limiting features._
+| Variable                    | Required | Description                                             | Default              |
+| :-------------------------- | :------- | :------------------------------------------------------ | :------------------- |
+| `GEMINI_API_KEY`            | **Yes**  | Google Gemini API key for AI processing.                | -                    |
+| `TAVILY_API_KEY`            | **Yes**  | Tavily Search API key for news discovery.               | -                    |
+| `GEMINI_MODEL`              | **Yes**  | Google Gemini model to use.                             | `gemini-2.5-flash`   |
+| `GEMINI_EMBEDDING_MODEL`    | **Yes**  | Google Gemini model for vector embeddings generation.   | `gemini-embedding-2` |
+| `UPSTASH_REDIS_REST_URL`    | **Yes**  | Upstash Redis REST URL for story database cache.        | -                    |
+| `UPSTASH_REDIS_REST_TOKEN`  | **Yes**  | Upstash Redis REST token for story database cache.      | -                    |
+| `UPSTASH_VECTOR_REST_URL`   | **Yes**  | Upstash Vector REST URL for story clustering.           | -                    |
+| `UPSTASH_VECTOR_REST_TOKEN` | **Yes**  | Upstash Vector REST token for story clustering.         | -                    |
+| `DEBUG_ERROR_UI`            | No       | Set to `true` to force error UI components for testing. | `false`              |
 
 ## 📜 Available Commands
 
-| Command                  | Description                                               |
-| :----------------------- | :-------------------------------------------------------- |
-| `pnpm dev`               | Start development server on localhost:3000                |
-| `pnpm build`             | Create a production-ready build                           |
-| `pnpm start`             | Run the production server locally                         |
-| `pnpm generate`          | Static site generation (SSG)                              |
-| `pnpm preview`           | Preview production build                                  |
-| `pnpm test`              | Run tests in watch mode                                   |
-| `pnpm test:run`          | Run tests once                                            |
-| `pnpm test:coverage`     | Run tests with coverage report                            |
-| `pnpm test:integration`  | Run integration tests (requires Docker)                   |
-| `pnpm test:coverage:all` | Run all tests (unit + integration) with coverage          |
-| `pnpm docker:up`         | Start SRH (Serverless Redis HTTP) services                |
-| `pnpm docker:down`       | Stop SRH services                                         |
-| `pnpm lint`              | Lint and auto-fix code                                    |
-| `pnpm format`            | Format code with Prettier                                 |
-| `pnpm type-check`        | Perform TypeScript type checking                          |
-| `pnpm check-qa`          | Run all QA checks (lint, format, type-check, build, test) |
+| Command              | Description                                               |
+| :------------------- | :-------------------------------------------------------- |
+| `pnpm dev`           | Start development server on localhost:3000                |
+| `pnpm build`         | Create a production-ready build                           |
+| `pnpm start`         | Run the production server locally                         |
+| `pnpm generate`      | Static site generation (SSG)                              |
+| `pnpm preview`       | Preview production build                                  |
+| `pnpm test`          | Run tests in watch mode                                   |
+| `pnpm test:run`      | Run tests once                                            |
+| `pnpm test:coverage` | Run tests with coverage report                            |
+| `pnpm lint`          | Lint and auto-fix code                                    |
+| `pnpm format`        | Format code with Prettier                                 |
+| `pnpm type-check`    | Perform TypeScript type checking                          |
+| `pnpm check-qa`      | Run all QA checks (lint, format, type-check, build, test) |
 
 ## 🧪 Testing
 
-NipponDaily uses a tiered testing strategy:
+NipponDaily uses a clean testing setup:
 
 - **Unit Tests**: Test individual components and utilities (`test/unit`).
-- **Server Tests**: Verify API endpoints and server-side logic (`test/server`).
-- **Integration Tests**: Test against a real Redis instance using [Serverless Redis HTTP (SRH)](https://github.com/hiett/serverless-redis-http) via Docker (`test/integration`).
+- **Server/API Tests**: Verify API endpoints and server-side logic (`test/server`).
 
-To run integration tests locally:
+To run the test suite:
 
 ```bash
-# Start Docker services
-pnpm docker:up
+# Run tests in watch mode
+pnpm test
 
-# Run integration tests
-pnpm test:integration
+# Run tests once
+pnpm test:run
+
+# Run coverage report
+pnpm test:coverage
 ```
 
 ## ⚠️ Limitations
 
-- **Article Count**: 20 maximum per request.
-- **Rate Limiting**: Configurable via `RATE_LIMIT_MAX_REQUESTS` (default: 3 requests per day per IP).
+- **Article Count**: 20 maximum per ingestion task.
 - **Date Range**: Search results limited to 365 days, must be after 2000-01-01.
-- **Dependencies**: Requires both Tavily API and Google Gemini API keys.
+- **Dependencies**: Requires Tavily API, Google Gemini API, Upstash Redis, and Upstash Vector keys.
