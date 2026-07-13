@@ -135,7 +135,9 @@ class TavilyService {
       return response;
     } catch (error) {
       console.error("Error searching news with Tavily:", error);
-      throw new Error("Failed to search news with Tavily API");
+      throw new Error("Failed to search news with Tavily API", {
+        cause: error,
+      });
     }
   }
 

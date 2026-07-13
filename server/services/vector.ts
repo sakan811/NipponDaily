@@ -9,7 +9,7 @@ export interface VectorMetadata {
   published_at?: number;
   title?: string;
   regions?: string[];
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface VectorMatch {
@@ -81,9 +81,13 @@ class UpstashVectorService {
       },
     });
 
+    const responseData = response as {
+      embedding?: { values: number[] };
+      embeddings?: Array<{ values: number[] }>;
+    };
     const embedding =
-      (response as any).embedding ||
-      (response.embeddings && response.embeddings[0]);
+      responseData.embedding ||
+      (responseData.embeddings && responseData.embeddings[0]);
     if (!embedding || !embedding.values) {
       throw new Error(
         "Failed to retrieve embedding values from Gemini API response.",
@@ -117,7 +121,7 @@ class UpstashVectorService {
         queryOptions.namespace = options.namespace;
       }
 
-      const results = await index.query(
+      const results = await index.query<VectorMetadata>(
         {
           vector,
           topK: options?.topK ?? 1,
@@ -127,8 +131,8 @@ class UpstashVectorService {
         queryOptions,
       );
 
-      return (results || []).map((r: any) => ({
-        id: r.id,
+      return (results || []).map((r) => ({
+        id: String(r.id),
         score: r.score ?? 0,
         metadata: (r.metadata || {}) as VectorMetadata,
       }));
@@ -167,7 +171,7 @@ class UpstashVectorService {
         {
           id,
           vector,
-          metadata: metadata as any,
+          metadata: metadata as Record<string, unknown>,
         },
         upsertOptions,
       );
