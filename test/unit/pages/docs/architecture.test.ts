@@ -4,11 +4,18 @@ import ArchitecturePage from "~/app/pages/docs/architecture.vue";
 
 const NuxtUIComponents = {
   UPage: { template: '<div class="u-page"><slot /></div>' },
-  UHeader: { template: '<div class="u-header"><slot name="left" /><slot name="right" /><slot name="body" /><slot /></div>' },
+  UHeader: {
+    template:
+      '<div class="u-header"><slot name="left" /><slot name="right" /><slot name="body" /><slot /></div>',
+  },
   UButton: { template: '<button class="u-button"><slot /></button>' },
   UColorModeButton: { template: '<button class="u-color-mode-button" />' },
-  UCard: { template: '<div class="u-card"><slot name="header" /><slot /></div>' },
-  UFooter: { template: '<div class="u-footer"><slot name="left" /><slot /></div>' },
+  UCard: {
+    template: '<div class="u-card"><slot name="header" /><slot /></div>',
+  },
+  UFooter: {
+    template: '<div class="u-footer"><slot name="left" /><slot /></div>',
+  },
   MermaidDiagram: { template: '<div class="mermaid-diagram" />' },
 };
 
