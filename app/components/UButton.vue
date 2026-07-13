@@ -1,9 +1,5 @@
 <template>
-  <NuxtLink
-    v-if="to"
-    :to="to"
-    :class="computedClasses"
-  >
+  <NuxtLink v-if="to" :to="to" :class="computedClasses">
     <UIcon v-if="icon && !trailing" :name="icon" class="w-4 h-4 shrink-0" />
     <span v-if="label">{{ label }}</span>
     <slot />
@@ -50,7 +46,7 @@ const props = withDefaults(
     disabled: false,
     block: false,
     type: "button",
-  }
+  },
 );
 
 const emit = defineEmits<{
@@ -64,8 +60,11 @@ const handleClick = (event: MouseEvent) => {
 };
 
 const computedClasses = computed(() => {
-  const base = "u-button inline-flex items-center justify-center font-medium transition-all duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500";
-  const disabledStyles = props.disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : "active:scale-[0.98]";
+  const base =
+    "u-button inline-flex items-center justify-center font-medium transition-all duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500";
+  const disabledStyles = props.disabled
+    ? "opacity-50 cursor-not-allowed pointer-events-none"
+    : "active:scale-[0.98]";
   const width = props.block ? "w-full" : "";
 
   // Size styles
@@ -84,28 +83,38 @@ const computedClasses = computed(() => {
 
   if (variant === "solid") {
     if (color === "primary") {
-      colorVariantStyle = "bg-primary-500 hover:bg-primary-600 text-white shadow-sm shadow-primary-500/10";
+      colorVariantStyle =
+        "bg-primary-500 hover:bg-primary-600 text-white shadow-sm shadow-primary-500/10";
     } else if (color === "secondary") {
-      colorVariantStyle = "bg-secondary-500 hover:bg-secondary-600 text-white shadow-sm shadow-secondary-500/10";
+      colorVariantStyle =
+        "bg-secondary-500 hover:bg-secondary-600 text-white shadow-sm shadow-secondary-500/10";
     } else if (color === "success") {
-      colorVariantStyle = "bg-success-500 hover:bg-success-600 text-white shadow-sm shadow-success-500/10";
+      colorVariantStyle =
+        "bg-success-500 hover:bg-success-600 text-white shadow-sm shadow-success-500/10";
     } else if (color === "error") {
-      colorVariantStyle = "bg-error-500 hover:bg-error-600 text-white shadow-sm shadow-error-500/10";
+      colorVariantStyle =
+        "bg-error-500 hover:bg-error-600 text-white shadow-sm shadow-error-500/10";
     } else {
       // gray/default
-      colorVariantStyle = "bg-stone-800 dark:bg-stone-200 hover:bg-stone-900 dark:hover:bg-white text-white dark:text-stone-950";
+      colorVariantStyle =
+        "bg-stone-800 dark:bg-stone-200 hover:bg-stone-900 dark:hover:bg-white text-white dark:text-stone-950";
     }
   } else if (variant === "outline") {
     if (color === "primary") {
-      colorVariantStyle = "border border-primary-500 text-primary-500 hover:bg-primary-500/10";
+      colorVariantStyle =
+        "border border-primary-500 text-primary-500 hover:bg-primary-500/10";
     } else if (color === "secondary") {
-      colorVariantStyle = "border border-secondary-500 text-secondary-500 hover:bg-secondary-500/10";
+      colorVariantStyle =
+        "border border-secondary-500 text-secondary-500 hover:bg-secondary-500/10";
     } else if (color === "success") {
-      colorVariantStyle = "border border-success-500 text-success-500 hover:bg-success-500/10";
+      colorVariantStyle =
+        "border border-success-500 text-success-500 hover:bg-success-500/10";
     } else if (color === "error") {
-      colorVariantStyle = "border border-error-500 text-error-500 hover:bg-error-500/10";
+      colorVariantStyle =
+        "border border-error-500 text-error-500 hover:bg-error-500/10";
     } else {
-      colorVariantStyle = "border border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/50";
+      colorVariantStyle =
+        "border border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/50";
     }
   } else if (variant === "ghost") {
     if (color === "primary") {
@@ -117,19 +126,25 @@ const computedClasses = computed(() => {
     } else if (color === "error") {
       colorVariantStyle = "text-error-500 hover:bg-error-500/10";
     } else {
-      colorVariantStyle = "text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50";
+      colorVariantStyle =
+        "text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50";
     }
   } else if (variant === "soft") {
     if (color === "primary") {
-      colorVariantStyle = "bg-primary-500/10 text-primary-600 dark:text-primary-400 hover:bg-primary-500/20";
+      colorVariantStyle =
+        "bg-primary-500/10 text-primary-600 dark:text-primary-400 hover:bg-primary-500/20";
     } else if (color === "secondary") {
-      colorVariantStyle = "bg-secondary-500/10 text-secondary-600 dark:text-secondary-400 hover:bg-secondary-500/20";
+      colorVariantStyle =
+        "bg-secondary-500/10 text-secondary-600 dark:text-secondary-400 hover:bg-secondary-500/20";
     } else if (color === "success") {
-      colorVariantStyle = "bg-success-500/10 text-success-600 dark:text-success-400 hover:bg-success-500/20";
+      colorVariantStyle =
+        "bg-success-500/10 text-success-600 dark:text-success-400 hover:bg-success-500/20";
     } else if (color === "error") {
-      colorVariantStyle = "bg-error-500/10 text-error-600 dark:text-error-400 hover:bg-error-500/20";
+      colorVariantStyle =
+        "bg-error-500/10 text-error-600 dark:text-error-400 hover:bg-error-500/20";
     } else {
-      colorVariantStyle = "bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700/60";
+      colorVariantStyle =
+        "bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700/60";
     }
   }
 

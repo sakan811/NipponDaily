@@ -30,7 +30,7 @@ const props = withDefaults(
   }>(),
   {
     ui: undefined,
-  }
+  },
 );
 
 const rootClass = computed(() => {
@@ -41,7 +41,10 @@ const rootClass = computed(() => {
 });
 
 const headerClass = computed(() => {
-  return props.ui?.header ?? "px-4 sm:px-6 py-4 border-b border-stone-100 dark:border-stone-800/80";
+  return (
+    props.ui?.header ??
+    "px-4 sm:px-6 py-4 border-b border-stone-100 dark:border-stone-800/80"
+  );
 });
 
 const bodyClass = computed(() => {
@@ -49,6 +52,9 @@ const bodyClass = computed(() => {
 });
 
 const footerClass = computed(() => {
-  return props.ui?.footer ?? "px-4 sm:px-6 py-4 border-t border-stone-100 dark:border-stone-800/80";
+  return (
+    props.ui?.footer ??
+    "px-4 sm:px-6 py-4 border-t border-stone-100 dark:border-stone-800/80"
+  );
 });
 </script>

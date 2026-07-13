@@ -7,7 +7,9 @@
     >
       {{ text }}
       <!-- Triangle pointer -->
-      <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-stone-900 dark:border-t-stone-800" />
+      <div
+        class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-stone-900 dark:border-t-stone-800"
+      />
     </div>
   </div>
 </template>

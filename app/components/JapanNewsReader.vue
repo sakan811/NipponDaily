@@ -6,7 +6,7 @@
     >
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-3">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-sm tracking-wide leading-none"

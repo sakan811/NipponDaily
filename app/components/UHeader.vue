@@ -15,7 +15,10 @@
           class="md:hidden p-2 rounded-lg text-stone-500 hover:text-stone-900 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors"
           @click="toggleMenu"
         >
-          <UIcon :name="open ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" class="w-5 h-5" />
+          <UIcon
+            :name="open ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'"
+            class="w-5 h-5"
+          />
         </button>
       </div>
     </div>
@@ -46,7 +49,7 @@ const props = withDefaults(
   }>(),
   {
     open: false,
-  }
+  },
 );
 
 const emit = defineEmits<{
