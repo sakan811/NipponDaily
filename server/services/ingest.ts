@@ -4,6 +4,7 @@ import { geminiService } from "./gemini";
 import { upstashVectorService } from "./vector";
 import { storiesService } from "./stories";
 import type { NewsItem, Story, StorySource } from "~~/types/index";
+import type { CategoryName } from "~~/constants/categories";
 
 export async function ingestNewsTask(): Promise<{
   success: boolean;
@@ -53,10 +54,13 @@ export async function ingestNewsTask(): Promise<{
         // Override category of formatted items to match CategoryName
         return items.map((item) => ({
           ...item,
-          category: (categoryIdToName[catId] || "Other") as any,
+          category: (categoryIdToName[catId] || "Other") as CategoryName,
         }));
       } catch (err) {
-        console.error(`[Ingest] Failed to fetch Tavily news for category "${catId}":`, err);
+        console.error(
+          `[Ingest] Failed to fetch Tavily news for category "${catId}":`,
+          err,
+        );
         return [];
       }
     });
@@ -111,8 +115,11 @@ export async function ingestNewsTask(): Promise<{
       const dataStr = `${article.title} \n ${article.summary}`;
       const cutoff72h = Math.floor((Date.now() - 72 * 3600 * 1000) / 1000);
 
+      // Generate embedding vector once to reuse it and save API quota
+      const vector = await upstashVectorService.getEmbedding(dataStr);
+
       // Query vector similarity
-      const matches = await upstashVectorService.querySimilarity(dataStr, {
+      const matches = await upstashVectorService.querySimilarity(vector, {
         topK: 1,
         filter: `published_at >= ${cutoff72h}`,
       });
@@ -142,9 +149,9 @@ export async function ingestNewsTask(): Promise<{
       }
       storyGroups.get(storyId)!.push(article);
 
-      // Upsert into Upstash Vector index
+      // Upsert into Upstash Vector index using the pre-computed vector
       const articleId = createHash("sha256").update(article.url!).digest("hex");
-      await upstashVectorService.upsertArticle(articleId, dataStr, {
+      await upstashVectorService.upsertArticle(articleId, vector, {
         story_id: storyId,
         category: article.category as string,
         source: article.source,
@@ -186,22 +193,30 @@ export async function ingestNewsTask(): Promise<{
   const BATCH_SIZE = 5;
   for (let i = 0; i < storiesToProcess.length; i += BATCH_SIZE) {
     const batch = storiesToProcess.slice(i, i + BATCH_SIZE);
-    let resultsMap: Record<string, {
-      headline: string;
-      summary: string;
-      thematicAnalysis: string;
-      regionsAffected: string[];
-      overallCredibilityScore: number;
-      categories: string[];
-    }> = {};
+    let resultsMap: Record<
+      string,
+      {
+        headline: string;
+        summary: string;
+        thematicAnalysis: string;
+        regionsAffected: string[];
+        overallCredibilityScore: number;
+        categories: string[];
+      }
+    > = {};
 
     try {
-      console.log(`[Ingest] Processing batch of ${batch.length} stories with Gemini...`);
+      console.log(
+        `[Ingest] Processing batch of ${batch.length} stories with Gemini...`,
+      );
       resultsMap = await geminiService.batchProcessStories(batch, {
         apiKey: geminiApiKey,
       });
     } catch (batchError) {
-      console.error("[Ingest] Batch processing failed, will fall back to individual processing:", batchError);
+      console.error(
+        "[Ingest] Batch processing failed, will fall back to individual processing:",
+        batchError,
+      );
     }
 
     // Process each story in the batch (saving and marking articles)
@@ -212,33 +227,49 @@ export async function ingestNewsTask(): Promise<{
 
         // Graceful fallback to individual requests if batch missed this story or failed
         if (!briefingResult) {
-          console.log(`[Ingest] Story ${storyId} not found in batch results. Processing individually...`);
+          console.log(
+            `[Ingest] Story ${storyId} not found in batch results. Processing individually...`,
+          );
           try {
             if (existingStory) {
-              briefingResult = await geminiService.updateStoryBriefing(existingStory, articles, {
-                apiKey: geminiApiKey,
-              });
+              briefingResult = await geminiService.updateStoryBriefing(
+                existingStory,
+                articles,
+                {
+                  apiKey: geminiApiKey,
+                },
+              );
             } else {
-              briefingResult = await geminiService.generateStoryBriefing(articles, {
-                apiKey: geminiApiKey,
-              });
+              briefingResult = await geminiService.generateStoryBriefing(
+                articles,
+                {
+                  apiKey: geminiApiKey,
+                },
+              );
             }
           } catch (individualError) {
-            console.error(`[Ingest] Individual fallback failed for story ${storyId}:`, individualError);
+            console.error(
+              `[Ingest] Individual fallback failed for story ${storyId}:`,
+              individualError,
+            );
             // Local fallback generation
             if (existingStory) {
               briefingResult = {
                 headline: existingStory.headline,
-                summary: existingStory.summary + "\n" + articles.map(a => `- ${a.summary}`).join("\n"),
+                summary:
+                  existingStory.summary +
+                  "\n" +
+                  articles.map((a) => `- ${a.summary}`).join("\n"),
                 thematicAnalysis: existingStory.thematicAnalysis,
                 regionsAffected: Object.keys(existingStory.regionBreakdown),
-                overallCredibilityScore: existingStory.sources[0]?.credibilityScore || 0.7,
+                overallCredibilityScore:
+                  existingStory.sources[0]?.credibilityScore || 0.7,
                 categories: existingStory.categories || ["society"],
               };
             } else {
               briefingResult = {
                 headline: articles[0]?.title || "New Story Cluster",
-                summary: articles.map(a => `- ${a.summary}`).join("\n"),
+                summary: articles.map((a) => `- ${a.summary}`).join("\n"),
                 thematicAnalysis: "- Cross-source analysis unavailable.",
                 regionsAffected: [],
                 overallCredibilityScore: 0.7,

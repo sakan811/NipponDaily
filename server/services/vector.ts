@@ -59,7 +59,7 @@ class UpstashVectorService {
     return new Index({ url, token });
   }
 
-  private async getEmbedding(text: string): Promise<number[]> {
+  async getEmbedding(text: string): Promise<number[]> {
     const client = this.getGeminiClient();
     if (!client) {
       throw new Error(
@@ -73,35 +73,37 @@ class UpstashVectorService {
       "gemini-embedding-2";
     const dim = embeddingModel.includes("embedding-2") ? 1536 : 768;
 
-    const response = await client.models.embedContent({
-      model: embeddingModel,
-      contents: text,
-      config: {
-        outputDimensionality: dim,
-      },
+    return retryWithBackoff(async () => {
+      const response = await client.models.embedContent({
+        model: embeddingModel,
+        contents: text,
+        config: {
+          outputDimensionality: dim,
+        },
+      });
+
+      const responseData = response as {
+        embedding?: { values: number[] };
+        embeddings?: Array<{ values: number[] }>;
+      };
+      const embedding =
+        responseData.embedding ||
+        (responseData.embeddings && responseData.embeddings[0]);
+      if (!embedding || !embedding.values) {
+        throw new Error(
+          "Failed to retrieve embedding values from Gemini API response.",
+        );
+      }
+
+      return embedding.values;
     });
-
-    const responseData = response as {
-      embedding?: { values: number[] };
-      embeddings?: Array<{ values: number[] }>;
-    };
-    const embedding =
-      responseData.embedding ||
-      (responseData.embeddings && responseData.embeddings[0]);
-    if (!embedding || !embedding.values) {
-      throw new Error(
-        "Failed to retrieve embedding values from Gemini API response.",
-      );
-    }
-
-    return embedding.values;
   }
 
   /**
    * Search for semantically similar articles
    */
   async querySimilarity(
-    text: string,
+    textOrVector: string | number[],
     options?: { topK?: number; filter?: string; namespace?: string },
   ): Promise<VectorMatch[]> {
     if (!this.isConfigured()) {
@@ -112,7 +114,10 @@ class UpstashVectorService {
     }
 
     try {
-      const vector = await this.getEmbedding(text);
+      const vector =
+        typeof textOrVector === "string"
+          ? await this.getEmbedding(textOrVector)
+          : textOrVector;
       const index = this.getIndex();
       if (!index) throw new Error("Index initialization failed.");
 
@@ -143,12 +148,11 @@ class UpstashVectorService {
   }
 
   /**
-   * Upsert a document (raw text) to the index.
-   * We generate the embedding client-side and upsert to the vector index.
+   * Upsert a document (raw text or pre-computed vector) to the index.
    */
   async upsertArticle(
     id: string,
-    text: string,
+    textOrVector: string | number[],
     metadata: VectorMetadata,
     options?: { namespace?: string },
   ): Promise<boolean> {
@@ -158,7 +162,10 @@ class UpstashVectorService {
     }
 
     try {
-      const vector = await this.getEmbedding(text);
+      const vector =
+        typeof textOrVector === "string"
+          ? await this.getEmbedding(textOrVector)
+          : textOrVector;
       const index = this.getIndex();
       if (!index) throw new Error("Index initialization failed.");
 
@@ -181,6 +188,40 @@ class UpstashVectorService {
       console.error("Failed to upsert to Upstash Vector:", error);
       return false;
     }
+  }
+}
+
+async function retryWithBackoff<T>(
+  fn: () => Promise<T>,
+  retries = 5,
+  delay = 2000,
+  factor = 2,
+): Promise<T> {
+  try {
+    return await fn();
+  } catch (error) {
+    if (retries <= 0) {
+      throw error;
+    }
+    const errStr = error instanceof Error ? error.message : String(error);
+    const isRateLimit =
+      errStr.includes("429") ||
+      errStr.includes("quota") ||
+      errStr.includes("RESOURCE_EXHAUSTED") ||
+      (error &&
+        typeof error === "object" &&
+        "status" in error &&
+        (error as { status?: number }).status === 429);
+    if (!isRateLimit) {
+      throw error;
+    }
+    const jitter = Math.random() * 1000;
+    const nextDelay = delay * factor + jitter;
+    console.warn(
+      `[Gemini Embedding] Rate limited (429/Resource Exhausted). Retrying in ${(delay / 1000).toFixed(2)}s... (${retries} retries left)`,
+    );
+    await new Promise((resolve) => setTimeout(resolve, delay));
+    return retryWithBackoff(fn, retries - 1, nextDelay, factor);
   }
 }
 
