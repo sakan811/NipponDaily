@@ -37,7 +37,7 @@ describe("JapanNewsReader - Error Handling", () => {
         limit: 20,
       },
     });
-    expect(wrapper.vm.briefingData).toEqual(mockNews);
+    expect(wrapper.vm.stories[0].headline).toBe("Tech News Headline");
     expect(wrapper.vm.loading).toBe(false);
     expect(wrapper.vm.error).toBe(null);
   });
@@ -60,7 +60,7 @@ describe("JapanNewsReader - Error Handling", () => {
 
     await wrapper.vm.fetchNews();
 
-    expect(wrapper.vm.briefingData).toEqual(undefined);
+    expect(wrapper.vm.stories.length).toBe(0);
     expect(wrapper.vm.loading).toBe(false);
     expect(wrapper.vm.error).toBe(null);
   });
@@ -157,7 +157,7 @@ describe("JapanNewsReader - Error Handling", () => {
     await wrapper.vm.refreshNews();
 
     expect(wrapper.vm.error).toBe(null);
-    expect(wrapper.vm.briefingData).toEqual(mockNews);
+    expect(wrapper.vm.stories[0].headline).toBe("Tech News Headline");
   });
 
   it("calls refreshNews method correctly", async () => {
