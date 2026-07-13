@@ -50,12 +50,7 @@ class GeminiService {
       defaultModel ||
       (config.geminiModel as string | undefined) ||
       "gemini-2.5-flash";
-    const models = modelStr
-      .split(",")
-      .map((m) => m.trim())
-      .filter(Boolean);
-    if (models.length === 0) return ["gemini-2.5-flash"];
-    return models;
+    return [modelStr.trim()];
   }
 
   private validateLocaleCode(input?: string | null): string {
