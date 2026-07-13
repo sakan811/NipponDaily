@@ -19,10 +19,6 @@
               class="font-serif font-bold text-lg tracking-wide leading-none"
               >NIPPON DAILY</span
             >
-            <span
-              class="text-[9px] text-stone-500 dark:text-stone-400 font-serif tracking-widest mt-0.5"
-              >日本日報</span
-            >
           </div>
         </NuxtLink>
       </template>
@@ -108,11 +104,7 @@
                 >
                   <UIcon :name="channel.icon" class="w-5 h-5" />
                 </div>
-                <span
-                  class="text-[10px] tracking-widest uppercase font-serif text-stone-400 dark:text-stone-500 font-bold"
-                >
-                  {{ channel.jpLabel }}
-                </span>
+
               </div>
               <div class="space-y-1.5">
                 <h3
@@ -139,7 +131,7 @@
     >
       <template #left>
         <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          &copy; 2025 - {{ new Date().getFullYear() }} NIPPON DAILY (日本日報).
+          &copy; 2025 - {{ new Date().getFullYear() }} NIPPON DAILY.
           All rights reserved. Released under the Apache-2.0 License.
         </p>
       </template>
@@ -153,42 +145,36 @@ import { ref } from "vue";
 const channels = ref([
   {
     title: "Society & Prefectures",
-    jpLabel: "地方・社会",
     description:
       "Deep insights into demographic shifts, rural revitalization efforts, prefectural policies, and local Japanese daily life.",
     icon: "i-heroicons-user-group",
   },
   {
     title: "Tech & Mobility",
-    jpLabel: "技術・産業",
     description:
       "The cutting edge: Japanese robotics, microchip foundries, Shinkansen expansions, aerospace development, and automotive giants.",
     icon: "i-heroicons-cpu-chip",
   },
   {
     title: "Pop Culture & Gaming",
-    jpLabel: "ポップカルチャー",
     description:
       "Global releases and movements in anime, manga publishing houses, iconic gaming studios (Nintendo, Sony), J-Pop, and Tokyo youth trends.",
     icon: "i-heroicons-play-circle",
   },
   {
     title: "Travel & Heritage",
-    jpLabel: "観光・遺産",
     description:
       "Curated guides to hidden hot spring (onsen) villages, regional festivals (matsuri), historical preservation, and structural tourism.",
     icon: "i-heroicons-map",
   },
   {
     title: "Food & Gastronomy",
-    jpLabel: "和食・食文化",
     description:
       "Washoku culinary arts, Michelin guides, traditional sake/whisky craft distilleries, agricultural techniques, and regional delicacies.",
     icon: "i-heroicons-cake",
   },
   {
     title: "Nature & Resilience",
-    jpLabel: "自然・防災",
     description:
       "Seismic and meteorological developments, structural disaster preparation, environmental stewardship, and geographical surveys.",
     icon: "i-heroicons-shield-exclamation",

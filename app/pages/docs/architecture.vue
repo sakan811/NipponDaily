@@ -134,7 +134,7 @@
       </p>
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        Color System
+        Color Palette & System
       </h2>
 
       <p>
@@ -155,7 +155,7 @@
           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
             <tr>
               <td class="py-2 px-4">
-                <strong>Torii Vermilion (朱色 - Shu-iro)</strong>
+                <strong>Torii Vermilion (Shu-iro)</strong>
               </td>
               <td class="py-2 px-4">
                 Primary (<code>orange</code>) / Error (<code>orange</code>)
@@ -166,7 +166,7 @@
             </tr>
             <tr>
               <td class="py-2 px-4">
-                <strong>Serene Sky (空色 - Sora-iro)</strong>
+                <strong>Serene Sky (Sora-iro)</strong>
               </td>
               <td class="py-2 px-4">
                 Secondary (<code>sky</code>) / Info (<code>sky</code>)
@@ -175,7 +175,7 @@
             </tr>
             <tr>
               <td class="py-2 px-4">
-                <strong>Amber Gold (黄金色 - Kogane-iro)</strong>
+                <strong>Amber Gold (Kogane-iro)</strong>
               </td>
               <td class="py-2 px-4">
                 Success (<code>amber</code>) / Warning (<code>amber</code>)
@@ -184,7 +184,7 @@
             </tr>
             <tr>
               <td class="py-2 px-4">
-                <strong>Zen Stone (灰白色 - Kaibakushoku)</strong>
+                <strong>Zen Stone (Kaibakushoku)</strong>
               </td>
               <td class="py-2 px-4">Neutral (<code>stone</code>)</td>
               <td class="py-2 px-4">
@@ -193,6 +193,21 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 my-6 not-prose">
+        <div
+          v-for="(color, idx) in paletteColors"
+          :key="idx"
+          class="flex flex-col items-center p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200/40 dark:border-stone-800/40 shadow-sm"
+        >
+          <div class="w-8 h-8 rounded-full mb-2" :class="color.bgClass" />
+          <span class="text-xs font-serif font-bold text-stone-900 dark:text-white">{{ color.name }}</span>
+          <span
+            class="text-[9px] text-stone-500 dark:text-stone-400 font-serif mt-0.5"
+            >{{ color.romaji }}</span
+          >
+        </div>
       </div>
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
@@ -240,6 +255,21 @@
 
 <script setup lang="ts">
 const mobileMenuOpen = ref(false);
+
+const paletteColors = [
+  {
+    name: "Torii Vermilion",
+    romaji: "Shu-iro",
+    bgClass: "bg-primary-500",
+  },
+  { name: "Serene Sky", romaji: "Sora-iro", bgClass: "bg-secondary-500" },
+  { name: "Amber Gold", romaji: "Kogane", bgClass: "bg-success-500" },
+  {
+    name: "Zen Stone",
+    romaji: "Kaibaku",
+    bgClass: "bg-stone-300 dark:bg-stone-700",
+  },
+];
 const architectureDiagram = `
 graph TD
     User([User]) <--> Frontend[Nuxt 4 App]

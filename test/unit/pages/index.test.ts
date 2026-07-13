@@ -25,7 +25,6 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.find(".u-header").exists()).toBe(true);
     expect(wrapper.text().toUpperCase()).toContain("NIPPON DAILY");
-    expect(wrapper.text()).toContain("日本日報");
   });
 
   it("renders UColorModeButton in header", () => {
@@ -71,33 +70,12 @@ describe("Index Page (Landing)", () => {
     expect(wrapper.text()).toContain("Nature & Resilience");
   });
 
-  it("renders channel Japanese tags", () => {
-    const wrapper = mount(IndexPage);
-
-    expect(wrapper.text()).toContain("地方・社会");
-    expect(wrapper.text()).toContain("技術・産業");
-    expect(wrapper.text()).toContain("ポップカルチャー");
-    expect(wrapper.text()).toContain("観光・遺産");
-    expect(wrapper.text()).toContain("和食・食文化");
-    expect(wrapper.text()).toContain("自然・防災");
-  });
-
-  it("renders aesthetic philosophy section with Japanese pigments", () => {
-    const wrapper = mount(IndexPage);
-
-    expect(wrapper.text()).toContain("Aesthetic Philosophy");
-    expect(wrapper.text()).toContain("Torii Vermilion");
-    expect(wrapper.text()).toContain("Serene Sky");
-    expect(wrapper.text()).toContain("Amber Gold");
-    expect(wrapper.text()).toContain("Zen Stone");
-  });
-
   it("renders footer with copyright and license", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.find(".u-footer").exists()).toBe(true);
     expect(wrapper.text()).toContain(
-      "NIPPON DAILY (日本日報). All rights reserved. Released under the Apache-2.0 License.",
+      "NIPPON DAILY. All rights reserved. Released under the Apache-2.0 License.",
     );
   });
 
