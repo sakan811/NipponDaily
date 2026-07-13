@@ -246,8 +246,9 @@
       </h3>
       <p>
         Tavily returns pre-filtered, high-quality excerpts — no HTML parsing
-        needed. Capped at 20 articles per run, deduplicated by URL before any
-        downstream processing.
+        needed. Fetches 20 articles in parallel for each specific category
+        (Society, Tech, Pop Culture, Tourism, Food, Nature) totaling up to 120
+        articles, and assigns categories properly before deduplication.
       </p>
 
       <!-- Step 2 -->
@@ -275,11 +276,12 @@
         Step 4 — AI Briefing (Gemini)
       </h3>
       <p>
-        Gemini synthesises each story group into an English headline,
-        bullet-point summary, and cross-source analysis. Japanese-language
-        sources are translated inline. Existing stories are
-        <em>updated</em> incrementally rather than regenerated, preserving
-        analytical continuity at lower cost.
+        Story groups are processed in batches (max 5 stories per request) using
+        Gemini's <code>batchProcessStories</code> API to optimize token usage and stay
+        within free-tier rate limits. Gemini synthesises each story group into
+        an English headline, bullet-point summary, and cross-source analysis,
+        translating Japanese-language sources inline. If a batch fails, the system
+        gracefully falls back to individual processing or local summaries.
       </p>
 
       <!-- Step 5 -->
