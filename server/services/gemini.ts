@@ -184,12 +184,9 @@ ${newsText}`;
     newsItems: NewsItem[],
     options?: { apiKey?: string; model?: string },
   ): Promise<{
-    headlineEn: string;
-    headlineJa: string;
-    summaryEn: string;
-    summaryJa: string;
-    thematicAnalysisEn: string;
-    thematicAnalysisJa: string;
+    headline: string;
+    summary: string;
+    thematicAnalysis: string;
     regionsAffected: string[];
     overallCredibilityScore: number;
     categories: string[];
@@ -211,20 +208,22 @@ ${newsText}`;
       )
       .join("\n\n---\n\n");
 
-    const prompt = `You are an expert news editor specializing in Japan.
+    const prompt = `You are an expert news editor specializing in Japan. All output must be in English.
+If any source article is in Japanese, translate and incorporate its content into the English briefing.
+
 You have a story cluster containing the following article(s).
-Create a comprehensive news briefing for this story in both English and Japanese.
+Create a comprehensive news briefing for this story in English.
 
 Articles:
 ${newsText}
 
 Instructions:
-1. headlineEn / headlineJa: Create a concise, engaging headline capturing the core theme of the story in English and Japanese.
-2. summaryEn / summaryJa: Create a detailed bullet-point summary of the key facts. Focus on structural issues, cultural nuances, and context specific to Japan. Format as a Markdown unordered list (using "- "), ensuring there are line breaks (\\n) separating each point.
-3. thematicAnalysisEn / thematicAnalysisJa: Write a cross-source analysis comparing perspectives. Contrast the viewpoints, focus, and tone of domestic Japanese sources vs international/Western sources if available. Format as a Markdown unordered list, with line breaks separating topics.
-4. regionsAffected: Identify any specific Japanese prefectures or regions explicitly mentioned or heavily featured (e.g. "Tokyo", "Kyoto", "Osaka", "Hokkaido", "Okinawa", "Tohoku", "Kyushu"). If national/general, leave the array empty.
-5. overallCredibilityScore: Assess the collective reliability (0.0 to 1.0) based on the publishers provided.
-6. categories: Classify this story into one or more categories that fit from this list: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
+1. headline: A concise, engaging English headline capturing the core theme.
+2. summary: A detailed bullet-point summary in English. Format as a Markdown unordered list (using "- "), with line breaks (\\n) separating each point.
+3. thematicAnalysis: A cross-source analysis comparing perspectives in English. Contrast domestic Japanese sources vs international/Western sources where available. Format as a Markdown unordered list.
+4. regionsAffected: Specific Japanese prefectures or regions mentioned (e.g. "Tokyo", "Osaka"). Empty if national/general.
+5. overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
+6. categories: One or more from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
 
 Output in JSON format matching the schema.`;
 
@@ -239,12 +238,9 @@ Output in JSON format matching the schema.`;
             responseSchema: {
               type: Type.OBJECT,
               properties: {
-                headlineEn: { type: Type.STRING },
-                headlineJa: { type: Type.STRING },
-                summaryEn: { type: Type.STRING },
-                summaryJa: { type: Type.STRING },
-                thematicAnalysisEn: { type: Type.STRING },
-                thematicAnalysisJa: { type: Type.STRING },
+                headline: { type: Type.STRING },
+                summary: { type: Type.STRING },
+                thematicAnalysis: { type: Type.STRING },
                 regionsAffected: {
                   type: Type.ARRAY,
                   items: { type: Type.STRING },
@@ -256,12 +252,9 @@ Output in JSON format matching the schema.`;
                 },
               },
               required: [
-                "headlineEn",
-                "headlineJa",
-                "summaryEn",
-                "summaryJa",
-                "thematicAnalysisEn",
-                "thematicAnalysisJa",
+                "headline",
+                "summary",
+                "thematicAnalysis",
                 "regionsAffected",
                 "overallCredibilityScore",
                 "categories",
@@ -284,12 +277,9 @@ Output in JSON format matching the schema.`;
       .map((item) => `- ${item.summary}`)
       .join("\n");
     return {
-      headlineEn: defaultHeadline,
-      headlineJa: defaultHeadline,
-      summaryEn: defaultSummary,
-      summaryJa: defaultSummary,
-      thematicAnalysisEn: "- Cross-source analysis unavailable.",
-      thematicAnalysisJa: "- クロスソース分析は現在利用できません。",
+      headline: defaultHeadline,
+      summary: defaultSummary,
+      thematicAnalysis: "- Cross-source analysis unavailable.",
       regionsAffected: [],
       overallCredibilityScore: 0.7,
       categories: ["society"],
@@ -301,12 +291,9 @@ Output in JSON format matching the schema.`;
     newItems: NewsItem[],
     options?: { apiKey?: string; model?: string },
   ): Promise<{
-    headlineEn: string;
-    headlineJa: string;
-    summaryEn: string;
-    summaryJa: string;
-    thematicAnalysisEn: string;
-    thematicAnalysisJa: string;
+    headline: string;
+    summary: string;
+    thematicAnalysis: string;
     regionsAffected: string[];
     overallCredibilityScore: number;
     categories: string[];
@@ -328,34 +315,29 @@ Output in JSON format matching the schema.`;
       )
       .join("\n\n---\n\n");
 
-    const prompt = `You are an expert news editor. You are maintaining a bilingual news briefing for a specific story in Japan.
-We have an existing briefing for this story, and new articles have just been published about it.
-Your task is to update the story briefing (headline, bullet-point summary, and thematic analysis) in both English and Japanese to incorporate the new information from the new articles, while retaining historical context and important details from the existing briefing.
+    const prompt = `You are an expert news editor. All output must be in English.
+If any new source article is in Japanese, translate and incorporate its content into the English briefing.
 
-Existing Story Briefing (English):
-- Headline: ${existingStory.headlineEn}
-- Summary:
-${existingStory.summaryEn}
-- Thematic Analysis:
-${existingStory.thematicAnalysisEn}
+You are maintaining an English news briefing for a specific story in Japan.
+New articles have just been published. Update the briefing to incorporate the new information while retaining historical context.
 
-Existing Story Briefing (Japanese):
-- Headline: ${existingStory.headlineJa}
+Existing Story Briefing:
+- Headline: ${existingStory.headline}
 - Summary:
-${existingStory.summaryJa}
+${existingStory.summary}
 - Thematic Analysis:
-${existingStory.thematicAnalysisJa}
+${existingStory.thematicAnalysis}
 
 New Article(s):
 ${newArticlesText}
 
 Instructions:
-1. headlineEn / headlineJa: Update the headline if the story has evolved significantly. Otherwise, keep it similar to the existing one.
-2. summaryEn / summaryJa: Update the bullet-point summary to incorporate the new facts, events, or numbers from the new articles. Keep it formatted as a Markdown unordered list (using "- "), ensuring there are line breaks (\\n) separating each point.
-3. thematicAnalysisEn / thematicAnalysisJa: Update the thematic analysis comparing viewpoints if the new articles bring new perspectives (e.g. domestic vs international). Format as a Markdown unordered list, with line breaks separating topics.
-4. regionsAffected: Combine the existing regions affected [${Object.keys(existingStory.regionBreakdown).join(", ")}] with any new prefectures or regions mentioned in the new articles. Return all affected prefectures/regions as a list.
-5. overallCredibilityScore: Re-assess the overall credibility score (0.0 to 1.0) based on all sources.
-6. categories: Classify this story into one or more categories that fit from this list: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"]. You may reuse the existing categories [${existingStory.categories.join(", ")}] or adapt them based on the new content.
+1. headline: Update if the story has evolved significantly; otherwise keep it close to the existing one.
+2. summary: Update the bullet-point summary with new facts. Keep as a Markdown unordered list (using "- ") with line breaks (\\n) between each point.
+3. thematicAnalysis: Update if new articles bring new perspectives. Format as a Markdown unordered list.
+4. regionsAffected: Combine existing regions [${Object.keys(existingStory.regionBreakdown).join(", ")}] with any new ones from the new articles.
+5. overallCredibilityScore: Re-assess reliability (0.0 to 1.0) based on all sources.
+6. categories: Classify from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"]. May reuse existing [${existingStory.categories.join(", ")}].
 
 Output in JSON format matching the schema.`;
 
@@ -370,12 +352,9 @@ Output in JSON format matching the schema.`;
             responseSchema: {
               type: Type.OBJECT,
               properties: {
-                headlineEn: { type: Type.STRING },
-                headlineJa: { type: Type.STRING },
-                summaryEn: { type: Type.STRING },
-                summaryJa: { type: Type.STRING },
-                thematicAnalysisEn: { type: Type.STRING },
-                thematicAnalysisJa: { type: Type.STRING },
+                headline: { type: Type.STRING },
+                summary: { type: Type.STRING },
+                thematicAnalysis: { type: Type.STRING },
                 regionsAffected: {
                   type: Type.ARRAY,
                   items: { type: Type.STRING },
@@ -387,12 +366,9 @@ Output in JSON format matching the schema.`;
                 },
               },
               required: [
-                "headlineEn",
-                "headlineJa",
-                "summaryEn",
-                "summaryJa",
-                "thematicAnalysisEn",
-                "thematicAnalysisJa",
+                "headline",
+                "summary",
+                "thematicAnalysis",
                 "regionsAffected",
                 "overallCredibilityScore",
                 "categories",
@@ -414,12 +390,9 @@ Output in JSON format matching the schema.`;
       .map((item) => `- ${item.summary}`)
       .join("\n");
     return {
-      headlineEn: existingStory.headlineEn,
-      headlineJa: existingStory.headlineJa,
-      summaryEn: `${existingStory.summaryEn}\n${newSummaryLines}`,
-      summaryJa: `${existingStory.summaryJa}\n${newSummaryLines}`,
-      thematicAnalysisEn: existingStory.thematicAnalysisEn,
-      thematicAnalysisJa: existingStory.thematicAnalysisJa,
+      headline: existingStory.headline,
+      summary: `${existingStory.summary}\n${newSummaryLines}`,
+      thematicAnalysis: existingStory.thematicAnalysis,
       regionsAffected: Object.keys(existingStory.regionBreakdown),
       overallCredibilityScore:
         existingStory.sources[0]?.credibilityScore || 0.7,

@@ -1,5 +1,5 @@
 import { Redis } from "@upstash/redis";
-import type { Story, StorySource } from "~~/types/index";
+import type { Story } from "~~/types/index";
 
 class StoriesService {
   private client: Redis | null = null;

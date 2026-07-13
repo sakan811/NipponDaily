@@ -65,12 +65,9 @@ export interface StorySource {
 
 export interface Story {
   id: string;
-  headlineEn: string;
-  headlineJa: string;
-  summaryEn: string;
-  summaryJa: string;
-  thematicAnalysisEn: string;
-  thematicAnalysisJa: string;
+  headline: string;
+  summary: string;
+  thematicAnalysis: string;
   articleCount: number;
   regionBreakdown: Record<string, number>; // region_name -> count of sources
   firstSeen: number; // timestamp ms

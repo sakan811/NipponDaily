@@ -181,12 +181,9 @@ export async function ingestNewsTask(): Promise<{
 
         updatedStory = {
           id: storyId,
-          headlineEn: briefingUpdate.headlineEn,
-          headlineJa: briefingUpdate.headlineJa,
-          summaryEn: briefingUpdate.summaryEn,
-          summaryJa: briefingUpdate.summaryJa,
-          thematicAnalysisEn: briefingUpdate.thematicAnalysisEn,
-          thematicAnalysisJa: briefingUpdate.thematicAnalysisJa,
+          headline: briefingUpdate.headline,
+          summary: briefingUpdate.summary,
+          thematicAnalysis: briefingUpdate.thematicAnalysis,
           articleCount: combinedSources.length,
           regionBreakdown,
           firstSeen: existingStory.firstSeen,
@@ -227,12 +224,9 @@ export async function ingestNewsTask(): Promise<{
 
         updatedStory = {
           id: storyId,
-          headlineEn: briefing.headlineEn,
-          headlineJa: briefing.headlineJa,
-          summaryEn: briefing.summaryEn,
-          summaryJa: briefing.summaryJa,
-          thematicAnalysisEn: briefing.thematicAnalysisEn,
-          thematicAnalysisJa: briefing.thematicAnalysisJa,
+          headline: briefing.headline,
+          summary: briefing.summary,
+          thematicAnalysis: briefing.thematicAnalysis,
           articleCount: newSources.length,
           regionBreakdown,
           firstSeen: Date.now(),

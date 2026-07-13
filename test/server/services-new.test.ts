@@ -197,8 +197,7 @@ describe("StoriesService", () => {
     try {
       const mockStory = {
         id: "mem-story",
-        headlineEn: "Mem Story Headline",
-        headlineJa: "Mem Story Headline",
+        headline: "Mem Story Headline",
         sources: [],
         regionBreakdown: {},
       };
