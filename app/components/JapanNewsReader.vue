@@ -6,7 +6,7 @@
     >
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-3">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" >
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-sm tracking-wide leading-none"
@@ -192,7 +192,6 @@
             </div>
             <BriefingCard
               :briefing="mockFallbackBriefing"
-              :language="targetLanguage"
             />
           </div>
 
@@ -238,7 +237,7 @@
                   <h4
                     class="text-xs font-bold font-serif line-clamp-2 text-stone-900 dark:text-white leading-snug"
                   >
-                    {{ story.headlineEn }}
+                    {{ story.headline }}
                   </h4>
                   <!-- Footer inside card -->
                   <div
@@ -347,7 +346,7 @@
                     >
                       <!-- Dot indicator -->
                       <span
-                        class="absolute -left-[31px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white dark:bg-stone-900 border-2 border-primary-500"
+                        class="absolute left-[-31px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white dark:bg-stone-900 border-2 border-primary-500"
                       >
                         <span class="h-1.5 w-1.5 rounded-full bg-primary-500" />
                       </span>
@@ -539,7 +538,6 @@ const mockFallbackBriefing: NewsBriefing = {
 const selectedTimeRange = ref<
   "none" | "day" | "week" | "month" | "year" | "custom"
 >("week");
-const targetLanguage = ref("en");
 
 // Calendar state for custom date range
 const today = new CalendarDate(
@@ -664,9 +662,9 @@ const getStoryTimeRange = (story: Story | null): string => {
 const activeBriefingData = computed<NewsBriefing | null>(() => {
   if (!activeStory.value) return null;
   return {
-    mainHeadline: activeStory.value.headlineEn,
-    executiveSummary: activeStory.value.summaryEn,
-    thematicAnalysis: activeStory.value.thematicAnalysisEn,
+    mainHeadline: activeStory.value.headline,
+    executiveSummary: activeStory.value.summary,
+    thematicAnalysis: activeStory.value.thematicAnalysis,
     overallCredibilityScore:
       activeStory.value.sources[0]?.credibilityScore || 0.8,
     sourcesProcessed: activeStory.value.sources.map((src) => ({
@@ -703,10 +701,10 @@ const briefingData = computed(() => {
 
   return {
     isAiFallback: false,
-    mainHeadline: story.headlineEn,
-    executiveSummary: story.summaryEn,
-    thematicAnalysis: story.thematicAnalysisEn,
-    overallCredibilityScore: Math.round(overallCred * 100) / 100, // round to 2 decimals
+    mainHeadline: story.headline,
+    executiveSummary: story.summary,
+    thematicAnalysis: story.thematicAnalysis,
+    overallCredibilityScore: Math.round(overallCred * 100) / 100,
     sourcesProcessed: story.sources.map((src) => {
       const s: any = {
         title: src.title,
@@ -788,28 +786,36 @@ const fetchNews = async () => {
         stories.value = [
           {
             id: "default-story",
-            headlineEn: mockBriefing.mainHeadline,
-            headlineJa: mockBriefing.mainHeadline,
-            summaryEn: mockBriefing.executiveSummary,
-            summaryJa: mockBriefing.executiveSummary,
-            thematicAnalysisEn: mockBriefing.thematicAnalysis || "",
-            thematicAnalysisJa: mockBriefing.thematicAnalysis || "",
+            headline: mockBriefing.mainHeadline,
+            summary: mockBriefing.executiveSummary,
+            thematicAnalysis: mockBriefing.thematicAnalysis || "",
             articleCount: mockBriefing.sourcesProcessed?.length || 0,
             regionBreakdown: {},
             firstSeen: Date.now(),
             lastUpdated: Date.now(),
             trendScore: 1.0,
-            sources: (mockBriefing.sourcesProcessed || []).map((src: any) => ({
-              title: src.title,
-              source: src.source,
-              url: src.url || "",
-              publishedAt: src.publishedAt || new Date().toISOString(),
-              favicon: src.favicon,
-              credibilityScore: src.credibilityScore || 0.85,
-              regions: src.regions || [],
-              addedAt: Date.now(),
-              category: src.category,
-            })),
+            sources: (mockBriefing.sourcesProcessed || []).map(
+              (src: {
+                title: string;
+                source: string;
+                url?: string;
+                publishedAt?: string;
+                favicon?: string;
+                credibilityScore?: number;
+                regions?: string[];
+                category?: string;
+              }) => ({
+                title: src.title,
+                source: src.source,
+                url: src.url || "",
+                publishedAt: src.publishedAt || new Date().toISOString(),
+                favicon: src.favicon,
+                credibilityScore: src.credibilityScore || 0.85,
+                regions: src.regions || [],
+                addedAt: Date.now(),
+                category: src.category,
+              }),
+            ),
             categories: [],
           },
         ];

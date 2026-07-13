@@ -3,6 +3,7 @@ import { tavilyService } from "../services/tavily";
 import { storiesService } from "../services/stories";
 import { ingestNewsTask } from "../services/ingest";
 import { z } from "zod";
+import type { NewsBriefing } from "~~/types/index";
 
 /**
  * Zod 4 schema for news API query parameters
@@ -56,10 +57,7 @@ const newsQuerySchema = z
       .string()
       .nullable()
       .optional()
-      .transform((val) => {
-        if (!val || val.trim() === "") return "en";
-        return val;
-      }),
+      .transform(() => "en"),
 
     limit: z
       .union([z.string(), z.number(), z.null(), z.undefined()])
@@ -129,10 +127,10 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
 
   try {
-    let query: any;
+    let query: Record<string, unknown>;
     try {
       query = getQuery(event);
-    } catch (e) {
+    } catch {
       const urlObj = new URL(
         event.path || event.node?.req?.url || "",
         "http://localhost",
@@ -279,10 +277,8 @@ export default defineEventHandler(async (event) => {
       const searchLower = validatedQuery.query.toLowerCase();
       filteredStories = filteredStories.filter(
         (story) =>
-          story.headlineEn.toLowerCase().includes(searchLower) ||
-          story.headlineJa.toLowerCase().includes(searchLower) ||
-          story.summaryEn.toLowerCase().includes(searchLower) ||
-          story.summaryJa.toLowerCase().includes(searchLower),
+          story.headline.toLowerCase().includes(searchLower) ||
+          story.summary.toLowerCase().includes(searchLower),
       );
     }
 
@@ -336,8 +332,7 @@ export default defineEventHandler(async (event) => {
     filteredStories = filteredStories.slice(0, validatedQuery.limit);
 
     // 5. Build backward-compatible global briefing from top stories
-    const isJa = validatedQuery.language === "ja";
-    let backwardCompatibleBriefing: any = null;
+    let backwardCompatibleBriefing: NewsBriefing | null = null;
 
     if (filteredStories.length > 0) {
       const topStory = filteredStories[0]!;
@@ -349,11 +344,9 @@ export default defineEventHandler(async (event) => {
       const uniqueSources = Array.from(uniqueSourcesMap.values());
 
       backwardCompatibleBriefing = {
-        mainHeadline: isJa ? topStory.headlineJa : topStory.headlineEn,
-        executiveSummary: isJa ? topStory.summaryJa : topStory.summaryEn,
-        thematicAnalysis: isJa
-          ? topStory.thematicAnalysisJa
-          : topStory.thematicAnalysisEn,
+        mainHeadline: topStory.headline,
+        executiveSummary: topStory.summary,
+        thematicAnalysis: topStory.thematicAnalysis,
         overallCredibilityScore: topStory.sources[0]?.credibilityScore || 0.8,
         sourcesProcessed: uniqueSources.map((src) => ({
           title: src.title,
@@ -368,15 +361,10 @@ export default defineEventHandler(async (event) => {
       };
     } else {
       backwardCompatibleBriefing = {
-        mainHeadline: isJa
-          ? "日本の最新ニュース"
-          : "Latest Japan News Briefing",
-        executiveSummary: isJa
-          ? "- 現在表示できるストーリーはありません。しばらくしてから再読み込みしてください。"
-          : "- No news stories are currently available. Please trigger news ingestion or check back later.",
-        thematicAnalysis: isJa
-          ? "- 利用可能な分析はありません。"
-          : "- No thematic analysis available.",
+        mainHeadline: "Latest Japan News Briefing",
+        executiveSummary:
+          "- No news stories are currently available. Please trigger news ingestion or check back later.",
+        thematicAnalysis: "- No thematic analysis available.",
         overallCredibilityScore: 0.8,
         sourcesProcessed: [],
         regionsAffected: [],
