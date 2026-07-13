@@ -277,11 +277,12 @@
       </h3>
       <p>
         Story groups are processed in batches (max 5 stories per request) using
-        Gemini's <code>batchProcessStories</code> API to optimize token usage and stay
-        within free-tier rate limits. Gemini synthesises each story group into
-        an English headline, bullet-point summary, and cross-source analysis,
-        translating Japanese-language sources inline. If a batch fails, the system
-        gracefully falls back to individual processing or local summaries.
+        Gemini's <code>batchProcessStories</code> API to optimize token usage
+        and stay within free-tier rate limits. Gemini synthesises each story
+        group into an English headline, bullet-point summary, and cross-source
+        analysis, translating Japanese-language sources inline. If a batch
+        fails, the system gracefully falls back to individual processing or
+        local summaries.
       </p>
 
       <!-- Step 5 -->

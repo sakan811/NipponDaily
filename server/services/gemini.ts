@@ -415,15 +415,20 @@ Output in JSON format matching the schema.`;
       existingStory?: Story;
       articles: NewsItem[];
     }>,
-    options?: { apiKey?: string; model?: string }
-  ): Promise<Record<string, {
-    headline: string;
-    summary: string;
-    thematicAnalysis: string;
-    regionsAffected: string[];
-    overallCredibilityScore: number;
-    categories: string[];
-  }>> {
+    options?: { apiKey?: string; model?: string },
+  ): Promise<
+    Record<
+      string,
+      {
+        headline: string;
+        summary: string;
+        thematicAnalysis: string;
+        regionsAffected: string[];
+        overallCredibilityScore: number;
+        categories: string[];
+      }
+    >
+  > {
     if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
     if (!this.client) {
       const config = useRuntimeConfig();
@@ -438,13 +443,17 @@ Output in JSON format matching the schema.`;
       return {};
     }
 
-    const storiesPromptData = storiesToProcess.map((item, idx) => {
-      const articlesText = item.articles
-        .map((a, aIdx) => `  [Article ${aIdx + 1}] Title: ${a.title}\n  Summary: ${a.summary || a.content || ""}\n  Source: ${a.source}\n  URL: ${a.url}`)
-        .join("\n\n");
-      
-      if (item.existingStory) {
-        return `Story Cluster #${idx + 1} (Story ID: ${item.storyId})
+    const storiesPromptData = storiesToProcess
+      .map((item, idx) => {
+        const articlesText = item.articles
+          .map(
+            (a, aIdx) =>
+              `  [Article ${aIdx + 1}] Title: ${a.title}\n  Summary: ${a.summary || a.content || ""}\n  Source: ${a.source}\n  URL: ${a.url}`,
+          )
+          .join("\n\n");
+
+        if (item.existingStory) {
+          return `Story Cluster #${idx + 1} (Story ID: ${item.storyId})
 [Type: UPDATE]
 Existing Headline: ${item.existingStory.headline}
 Existing Summary:
@@ -454,13 +463,14 @@ ${item.existingStory.thematicAnalysis}
 
 New Articles:
 ${articlesText}`;
-      } else {
-        return `Story Cluster #${idx + 1} (Story ID: ${item.storyId})
+        } else {
+          return `Story Cluster #${idx + 1} (Story ID: ${item.storyId})
 [Type: NEW]
 Articles:
 ${articlesText}`;
-      }
-    }).join("\n\n====================\n\n");
+        }
+      })
+      .join("\n\n====================\n\n");
 
     const prompt = `You are an expert news editor specializing in Japan. All output must be in English.
 If any source article is in Japanese, translate and incorporate its content into the English briefing.
@@ -529,14 +539,17 @@ Output in JSON format matching the schema.`;
 
         if (response && response.text) {
           const parsed = JSON.parse(response.text);
-          const resultsMap: Record<string, {
-            headline: string;
-            summary: string;
-            thematicAnalysis: string;
-            regionsAffected: string[];
-            overallCredibilityScore: number;
-            categories: string[];
-          }> = {};
+          const resultsMap: Record<
+            string,
+            {
+              headline: string;
+              summary: string;
+              thematicAnalysis: string;
+              regionsAffected: string[];
+              overallCredibilityScore: number;
+              categories: string[];
+            }
+          > = {};
 
           if (parsed && Array.isArray(parsed.results)) {
             for (const item of parsed.results) {
