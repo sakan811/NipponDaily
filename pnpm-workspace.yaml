@@ -16,5 +16,4 @@ overrides:
   serialize-javascript: 7.0.5
   unhead: ^2.1.13
 
-patchedDependencies:
-  "@nuxt/ui@4.9.0": patches/@nuxt__ui@4.9.0.patch
+
