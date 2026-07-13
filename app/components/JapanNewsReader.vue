@@ -603,6 +603,67 @@ const activeStory = computed<Story | null>(() => {
   return null;
 });
 
+// Helper function to format timeline range as Month Day - Day, Year (e.g. May 21 - 23, 2025)
+const getStoryTimeRange = (story: Story | null): string => {
+  if (!story || !story.sources || story.sources.length === 0) {
+    return "Recent";
+  }
+
+  const validDates = story.sources
+    .map((src) => new Date(src.publishedAt))
+    .filter((date) => !isNaN(date.getTime()));
+
+  if (validDates.length === 0) {
+    return "Recent";
+  }
+
+  // Sort ascending (earliest to latest)
+  validDates.sort((a, b) => a.getTime() - b.getTime());
+  const earliest = validDates[0]!;
+  const latest = validDates[validDates.length - 1]!;
+
+  const formatOptsMonthDay: Intl.DateTimeFormatOptions = {
+    month: "short",
+    day: "numeric",
+  };
+
+  const formatOptsFull: Intl.DateTimeFormatOptions = {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  };
+
+  const earliestYear = earliest.getFullYear();
+  const latestYear = latest.getFullYear();
+  const earliestMonth = earliest.getMonth();
+  const latestMonth = latest.getMonth();
+  const earliestDay = earliest.getDate();
+  const latestDay = latest.getDate();
+
+  const sameYear = earliestYear === latestYear;
+  const sameMonth = earliestMonth === latestMonth && sameYear;
+  const sameDay = earliestDay === latestDay && sameMonth;
+
+  if (sameDay) {
+    return earliest.toLocaleDateString("en-US", formatOptsFull);
+  }
+
+  if (sameMonth) {
+    const earliestStr = earliest.toLocaleDateString("en-US", formatOptsMonthDay);
+    return `${earliestStr} - ${latestDay}, ${latestYear}`;
+  }
+
+  if (sameYear) {
+    const earliestStr = earliest.toLocaleDateString("en-US", formatOptsMonthDay);
+    const latestStr = latest.toLocaleDateString("en-US", formatOptsMonthDay);
+    return `${earliestStr} - ${latestStr}, ${latestYear}`;
+  }
+
+  const earliestStr = earliest.toLocaleDateString("en-US", formatOptsFull);
+  const latestStr = latest.toLocaleDateString("en-US", formatOptsFull);
+  return `${earliestStr} - ${latestStr}`;
+};
+
 // Map activeStory to NewsBriefing shape for BriefingCard compatibility
 const activeBriefingData = computed<NewsBriefing | null>(() => {
   if (!activeStory.value) return null;
@@ -620,7 +681,7 @@ const activeBriefingData = computed<NewsBriefing | null>(() => {
       credibilityScore: src.credibilityScore,
       regions: src.regions,
     })),
-    publishTimeRange: "Recent",
+    publishTimeRange: getStoryTimeRange(activeStory.value),
     regionsAffected: Object.keys(activeStory.value.regionBreakdown),
   };
 });
