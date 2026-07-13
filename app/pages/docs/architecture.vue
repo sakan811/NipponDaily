@@ -52,17 +52,20 @@
         transforms it into synthesized intelligence using Google Gemini.
       </p>
 
+      <!-- Diagram 1: System Overview -->
       <div class="my-10">
         <h3
           class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
         >
-          Intelligence Pipeline (Zoomable)
+          System Overview (Zoomable)
         </h3>
-        <MermaidDiagram id="arch-diag" :code="architectureDiagram" />
+        <MermaidDiagram id="arch-diag" :code="systemDiagram" />
         <p class="text-center text-xs text-gray-500 mt-2 italic">
           Tip: Use your mouse wheel to zoom and drag to pan the diagram.
         </p>
       </div>
+
+
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
         Core Components
@@ -210,6 +213,351 @@
         </div>
       </div>
 
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- NEWS INGESTION PIPELINE                                          -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+
+      <!-- Diagram 2: Ingestion Pipeline -->
+      <div class="my-10">
+        <h3
+          class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
+        >
+          Ingestion Pipeline — Redis &amp; Vector Interaction (Zoomable)
+        </h3>
+        <MermaidDiagram id="ingest-diag" :code="ingestDiagram" />
+        <p class="text-center text-xs text-gray-500 mt-2 italic">
+          Shows exactly when Redis and Vector are read vs. written at each step.
+        </p>
+      </div>
+
+      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
+        News Ingestion Pipeline
+      </h2>
+
+      <p>
+        The ingestion pipeline transforms raw article URLs into AI-synthesised story briefings. Each step exists for a specific reason — the diagram above shows the data flow; this section explains the design decisions behind it.
+      </p>
+
+      <!-- Step 1 -->
+      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
+        Step 1 — Fetch Articles (Tavily)
+      </h3>
+      <p>
+        Tavily is used over a generic web scraper because it returns
+        <strong>pre-filtered, high-quality journalistic sources</strong> with
+        clean excerpts — no HTML parsing needed. Capping at 20 articles and
+        scoping to the past week keeps each ingestion run fast and cost-bounded
+        while still covering recent news cycles. Deduplicating raw URLs
+        immediately prevents the same article from flowing into the more
+        expensive downstream steps twice.
+      </p>
+
+      <!-- Step 2 -->
+      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
+        Step 2 — Deduplication Against Redis
+      </h3>
+      <p>
+        The pipeline runs on a recurring schedule, so the same article will
+        almost certainly appear in multiple fetch windows. A Redis
+        <strong>seen-set</strong> (a <code>SADD</code>/<code>SISMEMBER</code>
+        pattern) gives O(1) membership checks at virtually zero cost. This
+        gate is placed <em>before</em> vector embedding and AI calls — the two
+        costliest operations — so repeated articles never consume API quota or
+        inflate the vector index.
+      </p>
+
+      <!-- Step 3 -->
+      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
+        Step 3 — Semantic Clustering (Upstash Vector)
+      </h3>
+      <p>
+        Grouping articles by topic rather than keyword is the key insight that
+        makes NipponDaily feel like a <em>briefing service</em> rather than a
+        link list. Two Reuters and one NHK article covering the same trade deal
+        should become <strong>one story</strong> with a richer briefing, not
+        three separate cards.
+      </p>
+      <p>
+        Cosine similarity on the embedded title + summary is used because it
+        captures semantic meaning regardless of surface wording. The threshold
+        of <code>0.82</code> was tuned empirically — high enough to avoid
+        merging loosely related stories (e.g., two separate earthquakes), yet
+        low enough to catch rephrased coverage of the same event. Tagging each
+        vector with <code>story_id</code> metadata makes it trivial to pull all
+        articles for a given story when regenerating its briefing.
+      </p>
+
+      <!-- Step 4 -->
+      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
+        Step 4 — AI Briefing Generation (Google Gemini)
+      </h3>
+      <p>
+        This is where raw articles become <em>synthesised intelligence</em>.
+        Rather than surfacing individual headlines, Gemini is prompted to
+        produce a structured briefing that spans all sources in the story group,
+        extracting consensus facts, surfacing contradictions, and assessing
+        credibility. Bilingual output (<code>En</code> / <code>Ja</code>) is
+        generated in a single prompt call to avoid latency from a second
+        translation pass.
+      </p>
+      <p>
+        The <strong>generate vs. update split</strong> exists because a
+        completely new story needs a full briefing from scratch, while an
+        existing story benefits from an incremental prompt that instructs Gemini
+        to <em>revise</em> the prior briefing in light of new sources — this
+        preserves analytical continuity and is cheaper than re-generating
+        everything. The credibility score is computed only once at story
+        creation; subsequent updates inherit and refine it through the update
+        prompt rather than re-scoring from zero.
+      </p>
+
+      <!-- Step 5 -->
+      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
+        Step 5 — Persist &amp; Score
+      </h3>
+      <p>
+        Redis is written <em>last</em> — only after a briefing has been
+        successfully generated — so the story cache never contains
+        half-processed entries. Marking URLs as processed here (rather than
+        upfront) means a pipeline crash mid-run won't permanently skip articles
+        that were never actually briefed.
+      </p>
+      <p>
+        Velocity scoring runs as a final batch pass over the entire story
+        database because trending is a <em>relative</em> metric: a story's rank
+        depends on how quickly it's accumulating new sources compared to all
+        other stories at that moment. Doing this once at the end of ingestion
+        (rather than per-story inline) ensures consistency and avoids
+        recalculating the full ranking set on every individual story write.
+      </p>
+
+      <!-- Auto-trigger note -->
+      <div
+        class="my-6 p-4 rounded-xl border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30"
+      >
+        <p class="mb-0 text-amber-800 dark:text-amber-200 text-sm">
+          ⚡ <strong>Auto-trigger:</strong> The
+          <code>GET /api/news</code> endpoint also triggers a background
+          ingestion automatically when the Redis cache is stale (&gt; 24 hours)
+          or empty. You do not need to call the cron endpoint manually in normal
+          operation.
+        </p>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- API REFERENCE                                                     -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
+        API Reference
+      </h2>
+
+      <!-- /api/ingest -->
+      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
+        <code>POST /api/ingest</code>
+      </h3>
+      <p>
+        The ingestion webhook. <strong>QStash</strong> (configured in the
+        Upstash dashboard) calls this URL on your schedule. No integration
+        code is required in the app — just register the URL and the app does
+        the rest.
+      </p>
+
+      <div
+        class="my-4 p-4 rounded-xl border border-sky-300 dark:border-sky-700 bg-sky-50 dark:bg-sky-950/30"
+      >
+        <p class="mb-0 text-sky-800 dark:text-sky-200 text-sm">
+          🗓 <strong>QStash Setup (one-time, in Upstash Console):</strong>
+          Go to <em>QStash → Schedules → New Schedule</em>, set the URL to
+          <code>https://your-domain.com/api/ingest</code>, method
+          <code>POST</code>, and choose a cron expression (e.g.
+          <code>0 */6 * * *</code> for every 6 hours). No code changes needed.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto my-4">
+        <table class="min-w-full border-collapse">
+          <thead>
+            <tr class="border-b border-gray-300 dark:border-gray-700">
+              <th class="py-2 px-4 text-left font-bold">Property</th>
+              <th class="py-2 px-4 text-left font-bold">Value</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+            <tr>
+              <td class="py-2 px-4">Method</td>
+              <td class="py-2 px-4"><code>POST</code></td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4">Caller</td>
+              <td class="py-2 px-4">QStash scheduler (Upstash dashboard)</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4">Body / parameters</td>
+              <td class="py-2 px-4">None required</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4">Side effects</td>
+              <td class="py-2 px-4">
+                Writes to Upstash Redis &amp; Vector DB
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Test manually (curl):</strong></p>
+      <pre
+        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
+      ><code># Trigger ingestion locally (no auth needed)
+curl -X POST http://localhost:3000/api/ingest
+
+# With Doppler env vars
+doppler run -- curl -X POST http://localhost:3000/api/ingest</code></pre>
+
+      <p><strong>Success response (200):</strong></p>
+      <pre
+        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
+      ><code>{
+  "success": true,
+  "message": "News ingestion completed successfully",
+  "timestamp": "2026-07-13T05:00:00.000Z",
+  "storiesUpdated": 4,
+  "articlesProcessed": 12
+}</code></pre>
+
+      <p><strong>Error response (500):</strong></p>
+      <pre
+        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
+      ><code>{
+  "statusCode": 500,
+  "statusMessage": "Failed to execute news ingestion",
+  "data": { "error": "..." }
+}</code></pre>
+
+      <!-- /api/news -->
+      <h3 class="text-xl font-bold mt-10 mb-3 text-gray-800 dark:text-gray-200">
+        <code>GET /api/news</code>
+      </h3>
+      <p>
+        Returns the current story briefings from Redis. Automatically triggers a
+        background ingestion if the cache is stale or empty (no blocking wait).
+      </p>
+
+      <div class="overflow-x-auto my-4">
+        <table class="min-w-full border-collapse">
+          <thead>
+            <tr class="border-b border-gray-300 dark:border-gray-700">
+              <th class="py-2 px-4 text-left font-bold">Parameter</th>
+              <th class="py-2 px-4 text-left font-bold">Type</th>
+              <th class="py-2 px-4 text-left font-bold">Default</th>
+              <th class="py-2 px-4 text-left font-bold">Description</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+            <tr>
+              <td class="py-2 px-4"><code>category</code></td>
+              <td class="py-2 px-4">string</td>
+              <td class="py-2 px-4">—</td>
+              <td class="py-2 px-4">
+                Filter by topic tag (e.g. <code>politics</code>,
+                <code>economy</code>, <code>all</code>)
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4"><code>query</code></td>
+              <td class="py-2 px-4">string (max 100)</td>
+              <td class="py-2 px-4">—</td>
+              <td class="py-2 px-4">Full-text search across headlines &amp; summaries</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4"><code>timeRange</code></td>
+              <td class="py-2 px-4">
+                <code>day</code> | <code>week</code> | <code>month</code> |
+                <code>year</code> | <code>none</code>
+              </td>
+              <td class="py-2 px-4"><code>week</code></td>
+              <td class="py-2 px-4">Relative time window filter</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4"
+                ><code>startDate</code> / <code>endDate</code></td
+              >
+              <td class="py-2 px-4">YYYY-MM-DD</td>
+              <td class="py-2 px-4">—</td>
+              <td class="py-2 px-4">
+                Absolute date range (both required together, max 365 days)
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4"><code>language</code></td>
+              <td class="py-2 px-4">string</td>
+              <td class="py-2 px-4"><code>en</code></td>
+              <td class="py-2 px-4">
+                Response language — use <code>ja</code> for Japanese content
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4"><code>limit</code></td>
+              <td class="py-2 px-4">number (1–20)</td>
+              <td class="py-2 px-4"><code>20</code></td>
+              <td class="py-2 px-4">Maximum number of stories to return</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Example calls (curl):</strong></p>
+      <pre
+        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
+      ><code># Default — top 20 stories from the past week
+curl http://localhost:3000/api/news
+
+# Filter by category + limit
+curl "http://localhost:3000/api/news?category=politics&amp;limit=5"
+
+# Full-text search
+curl "http://localhost:3000/api/news?query=Tokyo+earthquake"
+
+# Custom date range
+curl "http://localhost:3000/api/news?startDate=2026-07-01&amp;endDate=2026-07-07"
+
+# Japanese content
+curl "http://localhost:3000/api/news?language=ja"</code></pre>
+
+      <p><strong>Success response (200) — abbreviated:</strong></p>
+      <pre
+        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
+      ><code>{
+  "success": true,
+  "count": 8,
+  "timestamp": "2026-07-13T05:00:00.000Z",
+  "data": {
+    "mainHeadline": "...",
+    "executiveSummary": "...",
+    "thematicAnalysis": "...",
+    "overallCredibilityScore": 0.87,
+    "sourcesProcessed": [ ... ],
+    "regionsAffected": ["Tokyo", "Osaka"],
+    "publishTimeRange": "Jul 7, 2026 - Jul 13, 2026",
+    "stories": [ ... ],
+    "lastIngestTime": 1752382800000
+  }
+}</code></pre>
+
+      <p><strong>Validation error (400):</strong></p>
+      <pre
+        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
+      ><code>{
+  "statusCode": 400,
+  "statusMessage": "Bad Request",
+  "data": {
+    "error": "Invalid query parameters",
+    "details": [
+      { "path": "startDate", "message": "Invalid date range" }
+    ]
+  }
+}</code></pre>
+
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
         Trust & Credibility
       </h2>
@@ -270,22 +618,70 @@ const paletteColors = [
     bgClass: "bg-stone-300 dark:bg-stone-700",
   },
 ];
-const architectureDiagram = `
-graph TD
-    User([User]) <--> Frontend[Nuxt 4 App]
-    Frontend <--> API[Nitro Engine]
-    
-    subgraph "Storage & Cache Layer"
-        API <--> Redis[(Upstash Redis Cache)]
-        API <--> Vector[(Upstash Vector DB)]
-        Ingest[Ingest Task] --> Vector
-        Ingest --> Redis
+const systemDiagram = `
+flowchart TD
+    User(["👤 User"])
+    QStash(["🕐 QStash\nScheduler"])
+
+    User -- "GET /api/news" --> NewsAPI["GET /api/news\n(Nitro)"]
+    NewsAPI -- "stories + briefings" --> User
+
+    QStash -- "POST /api/ingest\n(on schedule)" --> IngestAPI["POST /api/ingest\n(Nitro)"]
+
+    subgraph Storage ["💾 Storage Layer (Upstash)"]
+        Redis[("Redis\nStory Cache")]
+        Vector[("Vector DB\nSemantic Index")]
     end
-    
-    subgraph "Processing Layer"
-        Ingest <--> Tavily[Tavily Search]
-        Ingest <--> Gemini[Gemini AI]
+
+    subgraph External ["🌐 External APIs"]
+        Tavily["Tavily Search"]
+        Gemini["Gemini AI"]
     end
+
+    IngestAPI --> Tavily
+    IngestAPI --> Gemini
+    IngestAPI --> Redis
+    IngestAPI --> Vector
+
+    NewsAPI -- "read stories" --> Redis
+    NewsAPI -. "auto-trigger\nif cache stale" .-> IngestAPI
+`;
+
+const ingestDiagram = `
+flowchart TD
+    Start(["QStash triggers\nPOST /api/ingest"])
+
+    Start --> S1["Step 1 · Fetch\nTavily Search → 20 articles"]
+
+    S1 --> S2["Step 2 · Deduplicate\nCheck each URL vs Redis seen-set"]
+    S2 -- "READ" --> RedisA[("Redis\nseen-set")]
+    RedisA -- "skip already-seen" --> S2
+
+    S2 --> S3["Step 3 · Cluster\nEmbed title+summary → query Vector"]
+    S3 -- "QUERY (topK=1)" --> VectorDB[("Vector DB\nsemantic index")]
+    VectorDB -- "cosine score" --> Dec{"Score ≥ 0.82?"}
+    Dec -- "Yes → append to\nexisting story" --> Merge["Merge article\ninto story group"]
+    Dec -- "No → mint\nnew story UUID" --> New["Create new\nstory group"]
+    Merge --> Upsert["WRITE vector\nwith story_id tag"]
+    New --> Upsert
+    Upsert --> VectorDB
+
+    Merge --> S4
+    New --> S4
+
+    S4["Step 4 · AI Briefing\nGemini generates / updates briefing"]
+    S4 -- "new story" --> GenBrief["generateStoryBriefing\nheadline + summary + credibility"]
+    S4 -- "existing story" --> UpdBrief["updateStoryBriefing\nmerge sources + revise analysis"]
+
+    GenBrief --> S5
+    UpdBrief --> S5
+
+    S5["Step 5 · Persist"]
+    S5 -- "WRITE story JSON" --> RedisB[("Redis\nstory cache")]
+    S5 -- "WRITE processed URL" --> RedisC[("Redis\nseen-set")]
+    S5 --> Velocity["updateVelocityScores\nrecalculate trending for all stories"]
+    Velocity -- "WRITE trend scores" --> RedisB
+    Velocity --> Done(["✅ Done"])
 `;
 </script>
 
