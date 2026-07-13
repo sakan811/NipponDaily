@@ -409,6 +409,159 @@ Output in JSON format matching the schema.`;
     };
   }
 
+  async batchProcessStories(
+    storiesToProcess: Array<{
+      storyId: string;
+      existingStory?: Story;
+      articles: NewsItem[];
+    }>,
+    options?: { apiKey?: string; model?: string }
+  ): Promise<Record<string, {
+    headline: string;
+    summary: string;
+    thematicAnalysis: string;
+    regionsAffected: string[];
+    overallCredibilityScore: number;
+    categories: string[];
+  }>> {
+    if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
+    if (!this.client) {
+      const config = useRuntimeConfig();
+      const rawApiKey = config.geminiApiKey;
+      const apiKey =
+        (typeof rawApiKey === "string" ? rawApiKey : "") ||
+        process.env.GEMINI_API_KEY;
+      this.client = new GoogleGenAI({ apiKey });
+    }
+
+    if (storiesToProcess.length === 0) {
+      return {};
+    }
+
+    const storiesPromptData = storiesToProcess.map((item, idx) => {
+      const articlesText = item.articles
+        .map((a, aIdx) => `  [Article ${aIdx + 1}] Title: ${a.title}\n  Summary: ${a.summary || a.content || ""}\n  Source: ${a.source}\n  URL: ${a.url}`)
+        .join("\n\n");
+      
+      if (item.existingStory) {
+        return `Story Cluster #${idx + 1} (Story ID: ${item.storyId})
+[Type: UPDATE]
+Existing Headline: ${item.existingStory.headline}
+Existing Summary:
+${item.existingStory.summary}
+Existing Thematic Analysis:
+${item.existingStory.thematicAnalysis}
+
+New Articles:
+${articlesText}`;
+      } else {
+        return `Story Cluster #${idx + 1} (Story ID: ${item.storyId})
+[Type: NEW]
+Articles:
+${articlesText}`;
+      }
+    }).join("\n\n====================\n\n");
+
+    const prompt = `You are an expert news editor specializing in Japan. All output must be in English.
+If any source article is in Japanese, translate and incorporate its content into the English briefing.
+
+You are given ${storiesToProcess.length} story clusters. For each cluster, you must generate or update the news briefing in English.
+
+Input Story Clusters:
+${storiesPromptData}
+
+Instructions for each Story Cluster:
+1. headline: A concise, engaging English headline capturing the core theme. For UPDATE types, update if the story has evolved significantly; otherwise keep it close to the existing one.
+2. summary: A detailed bullet-point summary in English. Format as a Markdown unordered list (using "- "), with line breaks (\\n) separating each point.
+3. thematicAnalysis: A cross-source analysis comparing perspectives in English. Contrast domestic Japanese sources vs international/Western sources where available. Format as a Markdown unordered list.
+4. regionsAffected: Specific Japanese prefectures or regions mentioned (e.g. "Tokyo", "Osaka"). Empty if national/general. For UPDATE types, combine existing regions with any new ones.
+5. overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
+6. categories: One or more from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
+
+Output in JSON format matching the schema.`;
+
+    const modelsToTry = this.getModels(options?.model);
+    for (const model of modelsToTry) {
+      try {
+        const response = await this.generateContentWithRetry({
+          model: model,
+          contents: prompt,
+          config: {
+            responseMimeType: "application/json",
+            responseSchema: {
+              type: Type.OBJECT,
+              properties: {
+                results: {
+                  type: Type.ARRAY,
+                  items: {
+                    type: Type.OBJECT,
+                    properties: {
+                      storyId: { type: Type.STRING },
+                      headline: { type: Type.STRING },
+                      summary: { type: Type.STRING },
+                      thematicAnalysis: { type: Type.STRING },
+                      regionsAffected: {
+                        type: Type.ARRAY,
+                        items: { type: Type.STRING },
+                      },
+                      overallCredibilityScore: { type: Type.NUMBER },
+                      categories: {
+                        type: Type.ARRAY,
+                        items: { type: Type.STRING },
+                      },
+                    },
+                    required: [
+                      "storyId",
+                      "headline",
+                      "summary",
+                      "thematicAnalysis",
+                      "regionsAffected",
+                      "overallCredibilityScore",
+                      "categories",
+                    ],
+                  },
+                },
+              },
+              required: ["results"],
+            },
+          },
+        });
+
+        if (response && response.text) {
+          const parsed = JSON.parse(response.text);
+          const resultsMap: Record<string, {
+            headline: string;
+            summary: string;
+            thematicAnalysis: string;
+            regionsAffected: string[];
+            overallCredibilityScore: number;
+            categories: string[];
+          }> = {};
+
+          if (parsed && Array.isArray(parsed.results)) {
+            for (const item of parsed.results) {
+              if (item && item.storyId) {
+                resultsMap[item.storyId] = {
+                  headline: item.headline,
+                  summary: item.summary,
+                  thematicAnalysis: item.thematicAnalysis,
+                  regionsAffected: item.regionsAffected,
+                  overallCredibilityScore: item.overallCredibilityScore,
+                  categories: item.categories,
+                };
+              }
+            }
+          }
+          return resultsMap;
+        }
+      } catch (error) {
+        console.warn(`Model ${model} failed in batchProcessStories.`, error);
+      }
+    }
+
+    throw new Error("Batch processing with Gemini failed");
+  }
+
   private getFallbackBriefing(items: NewsItem[]): NewsBriefing {
     return {
       isAiFallback: true,

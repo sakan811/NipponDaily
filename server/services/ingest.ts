@@ -15,23 +15,60 @@ export async function ingestNewsTask(): Promise<{
 
   const rawArticles: NewsItem[] = [];
 
-  // 1. Fetch recent news from Tavily only once (20 articles, focusing on recent Japanese news in English)
+  // 1. Fetch recent news from Tavily for all categories (20 each)
   try {
-    console.log("[Ingest] Fetching Tavily news once for recent Japan news...");
+    console.log("[Ingest] Fetching Tavily news for all categories...");
     const rawTavilyKey = config.tavilyApiKey;
     const tavilyApiKey =
       (typeof rawTavilyKey === "string" ? rawTavilyKey : "") ||
       process.env.TAVILY_API_KEY;
-    const response = await tavilyService.searchJapanNews({
-      maxResults: 20,
-      timeRange: "week",
-      apiKey: tavilyApiKey,
+
+    const categoriesToFetch = [
+      "society",
+      "tech",
+      "pop-culture",
+      "tourism",
+      "food",
+      "disaster-prep",
+    ];
+
+    const categoryIdToName: Record<string, string> = {
+      society: "Society",
+      tech: "Tech",
+      "pop-culture": "Pop Culture",
+      tourism: "Tourism",
+      food: "Food",
+      "disaster-prep": "Nature",
+    };
+
+    const fetchPromises = categoriesToFetch.map(async (catId) => {
+      try {
+        const response = await tavilyService.searchJapanNews({
+          maxResults: 20,
+          category: catId,
+          timeRange: "week",
+          apiKey: tavilyApiKey,
+        });
+        const items = tavilyService.formatTavilyResultsToNewsItems(response);
+        // Override category of formatted items to match CategoryName
+        return items.map((item) => ({
+          ...item,
+          category: (categoryIdToName[catId] || "Other") as any,
+        }));
+      } catch (err) {
+        console.error(`[Ingest] Failed to fetch Tavily news for category "${catId}":`, err);
+        return [];
+      }
     });
 
-    const items = tavilyService.formatTavilyResultsToNewsItems(response);
-    rawArticles.push(...items);
+    const results = await Promise.allSettled(fetchPromises);
+    for (const res of results) {
+      if (res.status === "fulfilled") {
+        rawArticles.push(...res.value);
+      }
+    }
   } catch (e) {
-    console.error("[Ingest] Failed to fetch news from Tavily:", e);
+    console.error("[Ingest] Failed during Tavily categories search:", e);
   }
 
   // Deduplicate raw articles by URL or title
@@ -122,133 +159,190 @@ export async function ingestNewsTask(): Promise<{
     }
   }
 
-  // 4. Update or Create story briefings using Gemini
+  // 4. Update or Create story briefings using Gemini in batches
   let storiesUpdated = 0;
+  const rawGeminiKey = config.geminiApiKey;
+  const geminiApiKey =
+    (typeof rawGeminiKey === "string" ? rawGeminiKey : "") ||
+    process.env.GEMINI_API_KEY;
+
+  // Gather stories to process
+  const storiesToProcess: Array<{
+    storyId: string;
+    existingStory?: Story;
+    articles: NewsItem[];
+  }> = [];
+
   for (const [storyId, articles] of storyGroups.entries()) {
+    const existingStory = await storiesService.getStory(storyId);
+    storiesToProcess.push({
+      storyId,
+      existingStory: existingStory || undefined,
+      articles,
+    });
+  }
+
+  // Split into batches of at most 5 stories to avoid model confusion and payload limits
+  const BATCH_SIZE = 5;
+  for (let i = 0; i < storiesToProcess.length; i += BATCH_SIZE) {
+    const batch = storiesToProcess.slice(i, i + BATCH_SIZE);
+    let resultsMap: Record<string, {
+      headline: string;
+      summary: string;
+      thematicAnalysis: string;
+      regionsAffected: string[];
+      overallCredibilityScore: number;
+      categories: string[];
+    }> = {};
+
     try {
-      const existingStory = await storiesService.getStory(storyId);
-      let updatedStory: Story;
+      console.log(`[Ingest] Processing batch of ${batch.length} stories with Gemini...`);
+      resultsMap = await geminiService.batchProcessStories(batch, {
+        apiKey: geminiApiKey,
+      });
+    } catch (batchError) {
+      console.error("[Ingest] Batch processing failed, will fall back to individual processing:", batchError);
+    }
 
-      if (existingStory) {
-        console.log(
-          `[Ingest] Updating existing story: ${storyId} with ${articles.length} new articles`,
-        );
-        // Synthesize updates via LLM
-        const rawGeminiKey = config.geminiApiKey;
-        const geminiApiKey =
-          (typeof rawGeminiKey === "string" ? rawGeminiKey : "") ||
-          process.env.GEMINI_API_KEY;
-        const briefingUpdate = await geminiService.updateStoryBriefing(
-          existingStory,
-          articles,
-          {
-            apiKey: geminiApiKey,
-          },
-        );
+    // Process each story in the batch (saving and marking articles)
+    for (const item of batch) {
+      const { storyId, existingStory, articles } = item;
+      try {
+        let briefingResult = resultsMap[storyId];
 
-        // Map articles to StorySources
-        const newSources: StorySource[] = articles.map((a) => ({
-          title: a.title,
-          source: a.source,
-          url: a.url!,
-          publishedAt: a.publishedAt,
-          favicon: a.favicon,
-          credibilityScore: 0.8, // default fallback
-          regions: briefingUpdate.regionsAffected || [],
-          addedAt: Date.now(),
-          category: a.category as string,
-        }));
-
-        // Merge sources and sort by published date descending
-        const combinedSources = [...existingStory.sources, ...newSources];
-        combinedSources.sort(
-          (a, b) =>
-            new Date(b.publishedAt).getTime() -
-            new Date(a.publishedAt).getTime(),
-        );
-
-        // Update region breakdown
-        const regionBreakdown = { ...existingStory.regionBreakdown };
-        briefingUpdate.regionsAffected.forEach((region) => {
-          regionBreakdown[region] = (regionBreakdown[region] || 0) + 1;
-        });
-
-        // Compile unique categories from Gemini response
-        const categoriesSet = new Set([
-          ...(existingStory.categories || []),
-          ...(briefingUpdate.categories || []),
-        ]);
-
-        updatedStory = {
-          id: storyId,
-          headline: briefingUpdate.headline,
-          summary: briefingUpdate.summary,
-          thematicAnalysis: briefingUpdate.thematicAnalysis,
-          articleCount: combinedSources.length,
-          regionBreakdown,
-          firstSeen: existingStory.firstSeen,
-          lastUpdated: Date.now(),
-          trendScore: existingStory.trendScore, // recalculated later
-          sources: combinedSources,
-          categories: Array.from(categoriesSet),
-        };
-      } else {
-        console.log(
-          `[Ingest] Generating new story: ${storyId} with ${articles.length} articles`,
-        );
-        // Generate new briefing via LLM
-        const rawGeminiKey = config.geminiApiKey;
-        const geminiApiKey =
-          (typeof rawGeminiKey === "string" ? rawGeminiKey : "") ||
-          process.env.GEMINI_API_KEY;
-        const briefing = await geminiService.generateStoryBriefing(articles, {
-          apiKey: geminiApiKey,
-        });
-
-        const newSources: StorySource[] = articles.map((a) => ({
-          title: a.title,
-          source: a.source,
-          url: a.url!,
-          publishedAt: a.publishedAt,
-          favicon: a.favicon,
-          credibilityScore: briefing.overallCredibilityScore || 0.8,
-          regions: briefing.regionsAffected || [],
-          addedAt: Date.now(),
-          category: a.category as string,
-        }));
-
-        const regionBreakdown: Record<string, number> = {};
-        briefing.regionsAffected.forEach((region) => {
-          regionBreakdown[region] = (regionBreakdown[region] || 0) + 1;
-        });
-
-        updatedStory = {
-          id: storyId,
-          headline: briefing.headline,
-          summary: briefing.summary,
-          thematicAnalysis: briefing.thematicAnalysis,
-          articleCount: newSources.length,
-          regionBreakdown,
-          firstSeen: Date.now(),
-          lastUpdated: Date.now(),
-          trendScore: 0, // recalculated later
-          sources: newSources,
-          categories: briefing.categories || ["society"],
-        };
-      }
-
-      // Save story to Redis
-      await storiesService.saveStory(updatedStory);
-      storiesUpdated++;
-
-      // Mark all raw articles in this story as processed
-      for (const article of articles) {
-        if (article.url) {
-          await storiesService.markArticleProcessed(article.url);
+        // Graceful fallback to individual requests if batch missed this story or failed
+        if (!briefingResult) {
+          console.log(`[Ingest] Story ${storyId} not found in batch results. Processing individually...`);
+          try {
+            if (existingStory) {
+              briefingResult = await geminiService.updateStoryBriefing(existingStory, articles, {
+                apiKey: geminiApiKey,
+              });
+            } else {
+              briefingResult = await geminiService.generateStoryBriefing(articles, {
+                apiKey: geminiApiKey,
+              });
+            }
+          } catch (individualError) {
+            console.error(`[Ingest] Individual fallback failed for story ${storyId}:`, individualError);
+            // Local fallback generation
+            if (existingStory) {
+              briefingResult = {
+                headline: existingStory.headline,
+                summary: existingStory.summary + "\n" + articles.map(a => `- ${a.summary}`).join("\n"),
+                thematicAnalysis: existingStory.thematicAnalysis,
+                regionsAffected: Object.keys(existingStory.regionBreakdown),
+                overallCredibilityScore: existingStory.sources[0]?.credibilityScore || 0.7,
+                categories: existingStory.categories || ["society"],
+              };
+            } else {
+              briefingResult = {
+                headline: articles[0]?.title || "New Story Cluster",
+                summary: articles.map(a => `- ${a.summary}`).join("\n"),
+                thematicAnalysis: "- Cross-source analysis unavailable.",
+                regionsAffected: [],
+                overallCredibilityScore: 0.7,
+                categories: ["society"],
+              };
+            }
+          }
         }
+
+        let updatedStory: Story;
+
+        if (existingStory) {
+          // Map articles to StorySources
+          const newSources: StorySource[] = articles.map((a) => ({
+            title: a.title,
+            source: a.source,
+            url: a.url!,
+            publishedAt: a.publishedAt,
+            favicon: a.favicon,
+            credibilityScore: 0.8, // default fallback
+            regions: briefingResult.regionsAffected || [],
+            addedAt: Date.now(),
+            category: a.category as string,
+          }));
+
+          // Merge sources and sort by published date descending
+          const combinedSources = [...existingStory.sources, ...newSources];
+          combinedSources.sort(
+            (a, b) =>
+              new Date(b.publishedAt).getTime() -
+              new Date(a.publishedAt).getTime(),
+          );
+
+          // Update region breakdown
+          const regionBreakdown = { ...existingStory.regionBreakdown };
+          briefingResult.regionsAffected.forEach((region) => {
+            regionBreakdown[region] = (regionBreakdown[region] || 0) + 1;
+          });
+
+          // Compile unique categories from Gemini response
+          const categoriesSet = new Set([
+            ...(existingStory.categories || []),
+            ...(briefingResult.categories || []),
+          ]);
+
+          updatedStory = {
+            id: storyId,
+            headline: briefingResult.headline,
+            summary: briefingResult.summary,
+            thematicAnalysis: briefingResult.thematicAnalysis,
+            articleCount: combinedSources.length,
+            regionBreakdown,
+            firstSeen: existingStory.firstSeen,
+            lastUpdated: Date.now(),
+            trendScore: existingStory.trendScore,
+            sources: combinedSources,
+            categories: Array.from(categoriesSet),
+          };
+        } else {
+          const newSources: StorySource[] = articles.map((a) => ({
+            title: a.title,
+            source: a.source,
+            url: a.url!,
+            publishedAt: a.publishedAt,
+            favicon: a.favicon,
+            credibilityScore: briefingResult.overallCredibilityScore || 0.8,
+            regions: briefingResult.regionsAffected || [],
+            addedAt: Date.now(),
+            category: a.category as string,
+          }));
+
+          const regionBreakdown: Record<string, number> = {};
+          briefingResult.regionsAffected.forEach((region) => {
+            regionBreakdown[region] = (regionBreakdown[region] || 0) + 1;
+          });
+
+          updatedStory = {
+            id: storyId,
+            headline: briefingResult.headline,
+            summary: briefingResult.summary,
+            thematicAnalysis: briefingResult.thematicAnalysis,
+            articleCount: newSources.length,
+            regionBreakdown,
+            firstSeen: Date.now(),
+            lastUpdated: Date.now(),
+            trendScore: 0,
+            sources: newSources,
+            categories: briefingResult.categories || ["society"],
+          };
+        }
+
+        // Save story to Redis
+        await storiesService.saveStory(updatedStory);
+        storiesUpdated++;
+
+        // Mark all raw articles in this story as processed
+        for (const article of articles) {
+          if (article.url) {
+            await storiesService.markArticleProcessed(article.url);
+          }
+        }
+      } catch (e) {
+        console.error(`[Ingest] Failed to process story ${storyId}:`, e);
       }
-    } catch (e) {
-      console.error(`[Ingest] Failed to process story ${storyId}:`, e);
     }
   }
 
