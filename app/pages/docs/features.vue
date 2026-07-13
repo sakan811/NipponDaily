@@ -104,7 +104,7 @@ const features = [
   {
     title: "Targeted Search Pipeline",
     description:
-      "Queries Tavily search API with optimized boundaries to capture authentic Japan-related news in English.",
+      "Queries Tavily search API across all major news categories (20 articles each) to capture authentic Japan-related news in English.",
     icon: "i-heroicons-magnifying-glass",
   },
   {
@@ -116,7 +116,7 @@ const features = [
   {
     title: "Automated Background Ingestion",
     description:
-      "News discovery and Gemini processing run in the background (once daily or via CRON), storing story clusters in Vector DB and Redis.",
+      "News discovery and Gemini processing run in the background (once daily or via CRON), using Gemini batching to optimize request counts.",
     icon: "i-heroicons-cpu-chip",
   },
   {
