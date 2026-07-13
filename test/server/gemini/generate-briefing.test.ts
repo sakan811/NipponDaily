@@ -230,4 +230,99 @@ describe("GeminiService", () => {
     // The favicon should be attached from the matched news item by title
     expect(result.sourcesProcessed[0].favicon).toBe(favicon);
   });
+
+  describe("batchProcessStories", () => {
+    it("returns empty object when storiesToProcess is empty", async () => {
+      const result = await service.batchProcessStories([], { apiKey: "test-key" });
+      expect(result).toEqual({});
+      expect(mockGenerateContent).not.toHaveBeenCalled();
+    });
+
+    it("sends structured batch prompt and returns parsed results", async () => {
+      const mockBatchResponse = {
+        results: [
+          {
+            storyId: "story-1",
+            headline: "Tech Breakthrough",
+            summary: "- New AI model released",
+            thematicAnalysis: "- Industry-wide impact",
+            regionsAffected: ["Tokyo"],
+            overallCredibilityScore: 0.9,
+            categories: ["tech"],
+          },
+          {
+            storyId: "story-2",
+            headline: "Kyoto Tourism Surge",
+            summary: "- Record visitors in Kyoto",
+            thematicAnalysis: "- Local economy boosts",
+            regionsAffected: ["Kyoto"],
+            overallCredibilityScore: 0.85,
+            categories: ["tourism"],
+          },
+        ],
+      };
+
+      mockGenerateContent.mockResolvedValueOnce({
+        text: JSON.stringify(mockBatchResponse),
+      });
+
+      const storiesToProcess = [
+        {
+          storyId: "story-1",
+          articles: [
+            {
+              title: "Article 1",
+              summary: "Details about AI",
+              content: "Details about AI",
+              source: "Tech News",
+              publishedAt: "2024-01-01",
+              category: "Tech" as any,
+            },
+          ],
+        },
+        {
+          storyId: "story-2",
+          existingStory: {
+            id: "story-2",
+            headline: "Old Kyoto Headline",
+            summary: "- Old summary",
+            thematicAnalysis: "- Old analysis",
+            articleCount: 1,
+            regionBreakdown: { Kyoto: 1 },
+            firstSeen: 12345,
+            lastUpdated: 12345,
+            trendScore: 0,
+            sources: [],
+            categories: ["tourism"],
+          },
+          articles: [
+            {
+              title: "Article 2",
+              summary: "Details about Kyoto",
+              content: "Details about Kyoto",
+              source: "Travel Guide",
+              publishedAt: "2024-01-02",
+              category: "Tourism" as any,
+            },
+          ],
+        },
+      ];
+
+      const result = await service.batchProcessStories(storiesToProcess, {
+        apiKey: "test-key",
+      });
+
+      expect(result["story-1"]).toBeDefined();
+      expect(result["story-1"].headline).toBe("Tech Breakthrough");
+      expect(result["story-2"].headline).toBe("Kyoto Tourism Surge");
+      expect(mockGenerateContent).toHaveBeenCalled();
+
+      // Check that the prompt contains instructions for UPDATE and NEW
+      const prompt = mockGenerateContent.mock.calls[0][0].contents;
+      expect(prompt).toContain("Story Cluster #1");
+      expect(prompt).toContain("[Type: NEW]");
+      expect(prompt).toContain("Story Cluster #2");
+      expect(prompt).toContain("[Type: UPDATE]");
+    });
+  });
 });
