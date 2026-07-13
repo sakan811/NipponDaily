@@ -233,7 +233,9 @@ describe("GeminiService", () => {
 
   describe("batchProcessStories", () => {
     it("returns empty object when storiesToProcess is empty", async () => {
-      const result = await service.batchProcessStories([], { apiKey: "test-key" });
+      const result = await service.batchProcessStories([], {
+        apiKey: "test-key",
+      });
       expect(result).toEqual({});
       expect(mockGenerateContent).not.toHaveBeenCalled();
     });
