@@ -167,4 +167,27 @@ describe("Regroup API Endpoint", () => {
     expect(mockUpdateVelocityScores).toHaveBeenCalledTimes(1);
     expect(mockSetLastIngestTime).toHaveBeenCalledTimes(1);
   });
+
+  it("returns early without calling Gemini when there are no stories in Redis and no orphaned articles in Vector DB", async () => {
+    vi.mocked(readBody).mockResolvedValueOnce({ dryRun: false });
+
+    // Mock empty databases
+    mockGetStories.mockResolvedValueOnce([]);
+    mockGetAllArticles.mockResolvedValueOnce([]);
+
+    const response = await regroupHandler({} as any);
+
+    expect(response.success).toBe(true);
+    expect(response.originalStoriesCount).toBe(0);
+    expect(response.newStoriesCount).toBe(0);
+    expect(response.data).toEqual([]);
+
+    // Verify Gemini was NOT called
+    expect(mockRegroupStories).not.toHaveBeenCalled();
+
+    // Verify database modification operations were NOT called
+    expect(mockClearAllStories).not.toHaveBeenCalled();
+    expect(mockSaveStory).not.toHaveBeenCalled();
+    expect(mockUpdateArticleStory).not.toHaveBeenCalled();
+  });
 });
