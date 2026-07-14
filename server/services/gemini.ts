@@ -27,6 +27,15 @@ class GeminiService {
       if (!this.client) {
         throw new Error("Gemini AI client not initialized");
       }
+
+      // Configure high thinking configuration (except embedding)
+      if (!params.config) {
+        params.config = {};
+      }
+      params.config.thinkingConfig = {
+        thinkingLevel: "HIGH",
+      };
+
       return await this.client.models.generateContent(params);
     } catch (error) {
       const err = error as {
