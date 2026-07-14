@@ -58,6 +58,7 @@ class GeminiService {
     const modelStr =
       defaultModel ||
       (config.geminiModel as string | undefined) ||
+      process.env.GEMINI_MODEL ||
       "gemini-2.5-flash";
     return [modelStr.trim()];
   }
@@ -573,6 +574,170 @@ Output in JSON format matching the schema.`;
     }
 
     throw new Error("Batch processing with Gemini failed");
+  }
+
+  async regroupStories(
+    currentStories: Array<{
+      storyId: string;
+      headline: string;
+      summary: string;
+      categories: string[];
+      articles: Array<{
+        title: string;
+        source: string;
+        url: string;
+        category?: string;
+        publishedAt: string;
+      }>;
+    }>,
+    orphanedArticles: Array<{
+      title: string;
+      source: string;
+      url: string;
+      category?: string;
+      publishedAt: string;
+    }>,
+    options?: { apiKey?: string; model?: string },
+  ): Promise<{
+    stories: Array<{
+      storyId: string;
+      headline: string;
+      summary: string;
+      thematicAnalysis: string;
+      categories: string[];
+      regionsAffected: string[];
+      overallCredibilityScore: number;
+      articleUrls: string[];
+    }>;
+  }> {
+    if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
+    if (!this.client) {
+      const config = useRuntimeConfig();
+      const rawApiKey = config.geminiApiKey;
+      const apiKey =
+        (typeof rawApiKey === "string" ? rawApiKey : "") ||
+        process.env.GEMINI_API_KEY;
+      this.client = new GoogleGenAI({ apiKey });
+    }
+
+    const currentStoriesPromptData = currentStories
+      .map((item, idx) => {
+        const articlesText = item.articles
+          .map(
+            (a, aIdx) =>
+              `  [Article ${aIdx + 1}] Title: ${a.title}\n  Source: ${a.source}\n  URL: ${a.url}\n  PublishedAt: ${a.publishedAt}`,
+          )
+          .join("\n\n");
+
+        return `Story Cluster #${idx + 1} (Story ID: ${item.storyId})
+Existing Headline: ${item.headline}
+Existing Summary:
+${item.summary}
+Articles:
+${articlesText}`;
+      })
+      .join("\n\n====================\n\n");
+
+    const orphanedArticlesText = orphanedArticles
+      .map(
+        (a, aIdx) =>
+          `[Orphaned Article ${aIdx + 1}] Title: ${a.title}\nSource: ${a.source}\nURL: ${a.url}\nPublishedAt: ${a.publishedAt}`,
+      )
+      .join("\n\n");
+
+    const prompt = `You are an expert news editor specializing in Japan. All output must be in English.
+If any source article is in Japanese, translate and incorporate its content into the English briefings.
+
+Review the existing story groupings and suggest corrections, merges, splits, and new groupings to resolve any misclusterings.
+We have some existing story clusters (each containing source articles) and some orphaned articles that do not belong to any cluster yet.
+
+Existing Story Clusters:
+${currentStoriesPromptData || "None"}
+
+Orphaned Articles (not grouped yet):
+${orphanedArticlesText || "None"}
+
+Instructions for Re-grouping:
+1. Review the articles in each existing cluster and the orphaned articles.
+2. Group related articles together into cohesive stories.
+3. If some articles in a story cluster are unrelated to the main story, split them off. For split-off articles:
+   - Either place them in another matching story cluster.
+   - Or create a new story cluster for them.
+4. If two existing story clusters are about the same event or highly overlapping topics, merge them.
+5. If an article doesn't belong to any existing story, either group it with a matching story or create a new story.
+6. For each resulting story cluster:
+   - storyId: Reuse the existing story ID if the story is largely unchanged, or if another story was merged into it. If a new story is created (either from orphaned articles or split-off articles), generate a new UUID or unique string ID.
+   - headline: A concise, engaging headline in English.
+   - summary: A detailed bullet-point summary in English. Format as a Markdown unordered list (using "- "), with line breaks (\\n) separating each point.
+   - thematicAnalysis: A cross-source analysis comparing perspectives in English. Format as a Markdown unordered list (using "- ").
+   - categories: One or more categories from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
+   - regionsAffected: Specific Japanese prefectures or regions mentioned (e.g. "Tokyo", "Osaka"). Empty if national/general.
+   - overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
+   - articleUrls: The exact list of article URLs that belong to this story. Every article URL from the input (both existing and orphaned) must be assigned to exactly one story.
+
+Output in JSON format matching the schema.`;
+
+    const modelsToTry = this.getModels(options?.model);
+    for (const model of modelsToTry) {
+      try {
+        const response = await this.generateContentWithRetry({
+          model: model,
+          contents: prompt,
+          config: {
+            responseMimeType: "application/json",
+            responseSchema: {
+              type: Type.OBJECT,
+              properties: {
+                stories: {
+                  type: Type.ARRAY,
+                  items: {
+                    type: Type.OBJECT,
+                    properties: {
+                      storyId: { type: Type.STRING },
+                      headline: { type: Type.STRING },
+                      summary: { type: Type.STRING },
+                      thematicAnalysis: { type: Type.STRING },
+                      categories: {
+                        type: Type.ARRAY,
+                        items: { type: Type.STRING },
+                      },
+                      regionsAffected: {
+                        type: Type.ARRAY,
+                        items: { type: Type.STRING },
+                      },
+                      overallCredibilityScore: { type: Type.NUMBER },
+                      articleUrls: {
+                        type: Type.ARRAY,
+                        items: { type: Type.STRING },
+                      },
+                    },
+                    required: [
+                      "storyId",
+                      "headline",
+                      "summary",
+                      "thematicAnalysis",
+                      "categories",
+                      "regionsAffected",
+                      "overallCredibilityScore",
+                      "articleUrls",
+                    ],
+                  },
+                },
+              },
+              required: ["stories"],
+            },
+          },
+        });
+
+        if (response && response.text) {
+          return JSON.parse(response.text);
+        }
+      } catch (error) {
+        console.warn(`Model ${model} failed in regroupStories.`, error);
+      }
+    }
+
+    throw new Error("Regrouping with Gemini failed");
   }
 
   private getFallbackBriefing(items: NewsItem[]): NewsBriefing {
