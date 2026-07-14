@@ -344,6 +344,82 @@
       <!-- API REFERENCE                                                     -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
+        Gemini Rate Limiting & Quota Management
+      </h2>
+      <p class="mb-4">
+        To run reliably under the restrictive constraints of the Gemini Free
+        Tier (e.g., 5 Requests Per Minute, 1,500 Requests Per Day), the
+        application employs custom rate limit handling strategies for each API
+        process:
+      </p>
+
+      <h3 class="text-xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">
+        1. Ingestion Pipeline (<code>POST /api/ingest</code>)
+      </h3>
+      <ul
+        class="list-disc pl-6 mb-6 space-y-1 text-gray-700 dark:text-gray-300"
+      >
+        <li>
+          <strong>Batch Briefings:</strong> Instead of executing a separate
+          request for every story cluster, it batches them into groups of up to
+          15 stories per API call to minimize daily request consumption.
+        </li>
+        <li>
+          <strong>Throttling Delay:</strong> To prevent exceeding the 5 RPM
+          limit, it enforces a 12-second delay between successive batch
+          requests.
+        </li>
+        <li>
+          <strong>Embedding Backoff Retry:</strong> Individual embedding
+          requests for new articles have a built-in exponential backoff retry
+          mechanism (retrying up to 5 times for 429/Resource Exhausted errors).
+        </li>
+        <li>
+          <strong>Cascading Failure Protection (Cascading Fallback):</strong> If
+          a batch fails, individual story requests are bypassed, falling back
+          directly to local text synthesis (to prevent request flooding and rate
+          limit exhaust).
+        </li>
+      </ul>
+
+      <h3 class="text-xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">
+        2. Regrouping Pipeline (<code>POST /api/regroup</code>)
+      </h3>
+      <ul
+        class="list-disc pl-6 mb-6 space-y-1 text-gray-700 dark:text-gray-300"
+      >
+        <li>
+          <strong>Single-Pass Aggregation:</strong> Combines the entire dataset
+          (existing stories + orphans) into a single request, ensuring
+          regrouping consumes at most 1 request.
+        </li>
+        <li>
+          <strong>Early-Return Optimization:</strong> Bypasses Gemini requests
+          entirely if both the Redis story cache and Upstash Vector DB are
+          empty.
+        </li>
+        <li>
+          <strong>Model Failover:</strong> Sequentially falls back through the
+          available Gemini models (<code>gemini-3.5-flash</code> &rarr;
+          <code>gemini-3-flash</code> &rarr; <code>gemini-2.5-flash</code>) on
+          transient failure or rate-limiting.
+        </li>
+      </ul>
+
+      <h3 class="text-xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">
+        3. Client News API (<code>GET /api/news</code>)
+      </h3>
+      <ul
+        class="list-disc pl-6 mb-6 space-y-1 text-gray-700 dark:text-gray-300"
+      >
+        <li>
+          <strong>Zero Live Calls:</strong> Serves current stories exclusively
+          from the Redis cache. Live Gemini calls are decoupled from customer
+          queries, keeping client traffic isolated from API limits.
+        </li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
         API Reference
       </h2>
 
@@ -356,6 +432,51 @@
         Vector database, reconciles them, and sends them to Google Gemini in a
         single pass to correct any grouping or clustering mistakes.
       </p>
+
+      <h4 class="font-bold text-gray-800 dark:text-gray-200 mt-4 mb-2">
+        Detailed Execution Process:
+      </h4>
+      <ol
+        class="list-decimal pl-6 mb-6 space-y-1 text-gray-700 dark:text-gray-300"
+      >
+        <li>
+          <strong>Fetch current state:</strong> Reads all current stories from
+          the Redis cache and all article vectors + metadata from the Upstash
+          Vector database.
+        </li>
+        <li>
+          <strong>Reconcile datasets:</strong> Maps each article to its current
+          story (based on the Redis story's source list) and identifies any
+          "orphaned" articles (articles present in Vector DB but not assigned to
+          any story in Redis).
+        </li>
+        <li>
+          <strong>Early-return check:</strong> If the database is completely
+          empty (no stories in Redis and no orphaned articles in Vector DB), the
+          process logs this state and returns early, bypassing any Gemini
+          requests.
+        </li>
+        <li>
+          <strong>Single-Pass Regroup (Gemini):</strong> Packages all existing
+          story clusters and orphaned articles into a single prompt payload.
+          Sends this payload to Gemini in a single pass to correct
+          misclusterings, split stories, merge overlapping topics, and assign
+          orphaned articles.
+        </li>
+        <li>
+          <strong>Rebuild stories metadata:</strong> Parses Gemini's JSON
+          response, maps the assigned article URLs back to their full metadata,
+          computes region breakdowns, and aggregates categories.
+        </li>
+        <li>
+          <strong>Database Commit:</strong> If <code>dryRun</code> is false, it
+          clears the old story cache in Redis, saves the new story objects,
+          updates the <code>story_id</code> metadata tags for every modified
+          article in the Upstash Vector index, and updates story velocity
+          (trending) scores.
+        </li>
+      </ol>
+
       <p>
         Supports a <code>dryRun</code> mode to verify regrouping results before
         committing destructive changes to Redis and Upstash Vector metadata.
