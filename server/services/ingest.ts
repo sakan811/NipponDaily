@@ -1,14 +1,12 @@
-import { randomUUID, createHash } from "node:crypto";
+import { createHash } from "node:crypto";
 import { tavilyService } from "./tavily";
-import { geminiService } from "./gemini";
 import { upstashVectorService } from "./vector";
 import { storiesService } from "./stories";
-import type { NewsItem, Story, StorySource } from "~~/types/index";
+import type { NewsItem } from "~~/types/index";
 import type { CategoryName } from "~~/constants/categories";
 
 export async function ingestNewsTask(): Promise<{
   success: boolean;
-  storiesUpdated: number;
   articlesProcessed: number;
 }> {
   console.log("[Ingest] Beginning news ingestion pipeline...");
@@ -101,58 +99,22 @@ export async function ingestNewsTask(): Promise<{
   console.log(`[Ingest] Found ${newArticles.length} new articles to process.`);
 
   if (newArticles.length === 0) {
-    // Even if no new articles, recalculate velocity scores and update
-    await storiesService.updateVelocityScores();
     await storiesService.setLastIngestTime(Date.now());
-    return { success: true, storiesUpdated: 0, articlesProcessed: 0 };
+    return { success: true, articlesProcessed: 0 };
   }
 
-  // 3. Cluster new articles using Upstash Vector
-  const storyGroups = new Map<string, NewsItem[]>(); // story_id -> articles[]
-
+  // 3. Embed new articles and save to Upstash Vector
   for (const article of newArticles) {
     try {
       const dataStr = `${article.title} \n ${article.summary}`;
-      const cutoff72h = Math.floor((Date.now() - 72 * 3600 * 1000) / 1000);
 
-      // Generate embedding vector once to reuse it and save API quota
+      // Generate embedding vector
       const vector = await upstashVectorService.getEmbedding(dataStr);
 
-      // Query vector similarity
-      const matches = await upstashVectorService.querySimilarity(vector, {
-        topK: 1,
-        filter: `published_at >= ${cutoff72h}`,
-      });
-
-      let storyId: string;
-      const SIMILARITY_THRESHOLD = 0.82; // cos similarity threshold, start at 0.82 to be slightly inclusive
-
-      if (
-        matches &&
-        matches.length > 0 &&
-        matches[0]!.score >= SIMILARITY_THRESHOLD
-      ) {
-        storyId = matches[0]!.metadata.story_id;
-        console.log(
-          `[Ingest] Article "${article.title}" matched existing story: ${storyId} (score: ${matches[0]!.score.toFixed(3)})`,
-        );
-      } else {
-        storyId = randomUUID();
-        console.log(
-          `[Ingest] Article "${article.title}" did not match. Minting new story ID: ${storyId}`,
-        );
-      }
-
-      // Add to group
-      if (!storyGroups.has(storyId)) {
-        storyGroups.set(storyId, []);
-      }
-      storyGroups.get(storyId)!.push(article);
-
-      // Upsert into Upstash Vector index using the pre-computed vector
+      // Upsert into Upstash Vector index with no story_id (will be grouped later)
       const articleId = createHash("sha256").update(article.url!).digest("hex");
       await upstashVectorService.upsertArticle(articleId, vector, {
-        story_id: storyId,
+        story_id: "", // Empty to denote orphaned/ungrouped
         category: article.category as string,
         source: article.source,
         url: article.url,
@@ -161,230 +123,22 @@ export async function ingestNewsTask(): Promise<{
         ),
         title: article.title,
       });
+
+      // Mark article as processed
+      await storiesService.markArticleProcessed(article.url!);
     } catch (e) {
-      console.error(`[Ingest] Error clustering article "${article.title}":`, e);
+      console.error(`[Ingest] Error embedding article "${article.title}":`, e);
     }
   }
-
-  // 4. Update or Create story briefings using Gemini in batches
-  let storiesUpdated = 0;
-  const rawGeminiKey = config.geminiApiKey;
-  const geminiApiKey =
-    (typeof rawGeminiKey === "string" ? rawGeminiKey : "") ||
-    process.env.GEMINI_API_KEY;
-
-  // Gather stories to process
-  const storiesToProcess: Array<{
-    storyId: string;
-    existingStory?: Story;
-    articles: NewsItem[];
-  }> = [];
-
-  for (const [storyId, articles] of storyGroups.entries()) {
-    const existingStory = await storiesService.getStory(storyId);
-    storiesToProcess.push({
-      storyId,
-      existingStory: existingStory || undefined,
-      articles,
-    });
-  }
-
-  // Split into batches of at most 15 stories to respect model constraints and minimize requests
-  const BATCH_SIZE = 15;
-  for (let i = 0; i < storiesToProcess.length; i += BATCH_SIZE) {
-    // Add delay between batches to respect the 5 RPM rate limit of the free tier
-    if (i > 0) {
-      const waitTimeMs = 12000; // 12 seconds to ensure we do not exceed 5 RPM
-      console.log(
-        `[Ingest] Waiting ${waitTimeMs / 1000}s between batches to respect free tier RPM limit...`,
-      );
-      await new Promise((resolve) => setTimeout(resolve, waitTimeMs));
-    }
-
-    const batch = storiesToProcess.slice(i, i + BATCH_SIZE);
-    let resultsMap: Record<
-      string,
-      {
-        headline: string;
-        summary: string;
-        thematicAnalysis: string;
-        regionsAffected: string[];
-        overallCredibilityScore: number;
-        categories: string[];
-      }
-    > = {};
-
-    let batchFailed = false;
-    try {
-      console.log(
-        `[Ingest] Processing batch of ${batch.length} stories with Gemini...`,
-      );
-      resultsMap = await geminiService.batchProcessStories(batch, {
-        apiKey: geminiApiKey,
-      });
-    } catch (batchError) {
-      batchFailed = true;
-      console.error(
-        "[Ingest] Batch processing failed. Skipping individual fallback to conserve API rate limits:",
-        batchError,
-      );
-    }
-
-    // Process each story in the batch (saving and marking articles)
-    for (const item of batch) {
-      const { storyId, existingStory, articles } = item;
-      try {
-        let briefingResult = resultsMap[storyId];
-
-        // Graceful fallback: If batch failed or missed this story, use local fallback to conserve API requests
-        if (!briefingResult) {
-          if (batchFailed) {
-            console.log(
-              `[Ingest] Batch failed. Using local fallback for story ${storyId} to conserve rate limits.`,
-            );
-          } else {
-            console.log(
-              `[Ingest] Story ${storyId} not found in batch results. Using local fallback to conserve rate limits.`,
-            );
-          }
-
-          // Local fallback generation
-          if (existingStory) {
-            briefingResult = {
-              headline: existingStory.headline,
-              summary:
-                existingStory.summary +
-                "\n" +
-                articles.map((a) => `- ${a.summary}`).join("\n"),
-              thematicAnalysis: existingStory.thematicAnalysis,
-              regionsAffected: Object.keys(existingStory.regionBreakdown),
-              overallCredibilityScore:
-                existingStory.sources[0]?.credibilityScore || 0.7,
-              categories: existingStory.categories || ["society"],
-            };
-          } else {
-            briefingResult = {
-              headline: articles[0]?.title || "New Story Cluster",
-              summary: articles.map((a) => `- ${a.summary}`).join("\n"),
-              thematicAnalysis: "- Cross-source analysis unavailable.",
-              regionsAffected: [],
-              overallCredibilityScore: 0.7,
-              categories: ["society"],
-            };
-          }
-        }
-
-        let updatedStory: Story;
-
-        if (existingStory) {
-          // Map articles to StorySources
-          const newSources: StorySource[] = articles.map((a) => ({
-            title: a.title,
-            source: a.source,
-            url: a.url!,
-            publishedAt: a.publishedAt,
-            favicon: a.favicon,
-            credibilityScore: 0.8, // default fallback
-            regions: briefingResult.regionsAffected || [],
-            addedAt: Date.now(),
-            category: a.category as string,
-          }));
-
-          // Merge sources and sort by published date descending
-          const combinedSources = [...existingStory.sources, ...newSources];
-          combinedSources.sort(
-            (a, b) =>
-              new Date(b.publishedAt).getTime() -
-              new Date(a.publishedAt).getTime(),
-          );
-
-          // Update region breakdown
-          const regionBreakdown = { ...existingStory.regionBreakdown };
-          briefingResult.regionsAffected.forEach((region) => {
-            regionBreakdown[region] = (regionBreakdown[region] || 0) + 1;
-          });
-
-          // Compile unique categories from Gemini response
-          const categoriesSet = new Set([
-            ...(existingStory.categories || []),
-            ...(briefingResult.categories || []),
-          ]);
-
-          updatedStory = {
-            id: storyId,
-            headline: briefingResult.headline,
-            summary: briefingResult.summary,
-            thematicAnalysis: briefingResult.thematicAnalysis,
-            articleCount: combinedSources.length,
-            regionBreakdown,
-            firstSeen: existingStory.firstSeen,
-            lastUpdated: Date.now(),
-            trendScore: existingStory.trendScore,
-            sources: combinedSources,
-            categories: Array.from(categoriesSet),
-          };
-        } else {
-          const newSources: StorySource[] = articles.map((a) => ({
-            title: a.title,
-            source: a.source,
-            url: a.url!,
-            publishedAt: a.publishedAt,
-            favicon: a.favicon,
-            credibilityScore: briefingResult.overallCredibilityScore || 0.8,
-            regions: briefingResult.regionsAffected || [],
-            addedAt: Date.now(),
-            category: a.category as string,
-          }));
-
-          const regionBreakdown: Record<string, number> = {};
-          briefingResult.regionsAffected.forEach((region) => {
-            regionBreakdown[region] = (regionBreakdown[region] || 0) + 1;
-          });
-
-          updatedStory = {
-            id: storyId,
-            headline: briefingResult.headline,
-            summary: briefingResult.summary,
-            thematicAnalysis: briefingResult.thematicAnalysis,
-            articleCount: newSources.length,
-            regionBreakdown,
-            firstSeen: Date.now(),
-            lastUpdated: Date.now(),
-            trendScore: 0,
-            sources: newSources,
-            categories: briefingResult.categories || ["society"],
-          };
-        }
-
-        // Save story to Redis
-        await storiesService.saveStory(updatedStory);
-        storiesUpdated++;
-
-        // Mark all raw articles in this story as processed
-        for (const article of articles) {
-          if (article.url) {
-            await storiesService.markArticleProcessed(article.url);
-          }
-        }
-      } catch (e) {
-        console.error(`[Ingest] Failed to process story ${storyId}:`, e);
-      }
-    }
-  }
-
-  // 5. Recalculate trending scores for all stories
-  console.log("[Ingest] Updating trending velocity scores...");
-  await storiesService.updateVelocityScores();
 
   // Set last ingest time
   await storiesService.setLastIngestTime(Date.now());
   console.log(
-    `[Ingest] Ingestion completed. Stories updated/created: ${storiesUpdated}, Articles processed: ${newArticles.length}`,
+    `[Ingest] Ingestion completed. Articles processed and embedded: ${newArticles.length}`,
   );
 
   return {
     success: true,
-    storiesUpdated,
     articlesProcessed: newArticles.length,
   };
 }

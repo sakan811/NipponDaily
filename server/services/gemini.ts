@@ -819,6 +819,153 @@ Output in JSON format matching the schema.`;
     throw new Error("Regrouping with Gemini failed");
   }
 
+  async groupArticles(
+    currentStories: Array<{
+      storyId: string;
+      headline: string;
+      categories: string[];
+      articles: Array<{
+        title: string;
+        source: string;
+        url: string;
+        category?: string;
+        publishedAt: string;
+      }>;
+    }>,
+    orphanedArticles: Array<{
+      title: string;
+      source: string;
+      url: string;
+      category?: string;
+      publishedAt: string;
+    }>,
+    options?: { apiKey?: string; model?: string },
+  ): Promise<{
+    stories: Array<{
+      storyId: string;
+      headline: string;
+      categories: string[];
+      articleUrls: string[];
+    }>;
+  }> {
+    if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
+    if (!this.client) {
+      const config = useRuntimeConfig();
+      const rawApiKey = config.geminiApiKey;
+      const apiKey =
+        (typeof rawApiKey === "string" ? rawApiKey : "") ||
+        process.env.GEMINI_API_KEY;
+      this.client = new GoogleGenAI({ apiKey });
+    }
+
+    const currentStoriesPromptData = currentStories
+      .map((item, idx) => {
+        const articlesText = item.articles
+          .map(
+            (a, aIdx) =>
+              `  [Article ${aIdx + 1}] Title: ${a.title}\n  Source: ${a.source}\n  URL: ${a.url}\n  PublishedAt: ${a.publishedAt}`,
+          )
+          .join("\n\n");
+
+        return `Story Cluster #${idx + 1} (Story ID: ${item.storyId})
+Existing Headline: ${item.headline}
+Articles:
+${articlesText}`;
+      })
+      .join("\n\n====================\n\n");
+
+    const orphanedArticlesText = orphanedArticles
+      .map(
+        (a, aIdx) =>
+          `[Orphaned Article ${aIdx + 1}] Title: ${a.title}\nSource: ${a.source}\nURL: ${a.url}\nPublishedAt: ${a.publishedAt}`,
+      )
+      .join("\n\n");
+
+    const prompt = `You are an expert news editor specializing in Japan.
+We have some existing story clusters (each containing source articles) and some orphaned articles that do not belong to any cluster yet.
+
+Existing Story Clusters:
+${currentStoriesPromptData || "None"}
+
+Orphaned Articles (not grouped yet):
+${orphanedArticlesText || "None"}
+
+Instructions for Grouping:
+1. Review the articles in each existing cluster and the orphaned articles.
+2. Group related articles together into cohesive stories.
+3. If some articles in a story cluster are unrelated to the main story, split them off. For split-off articles:
+   - Either place them in another matching story cluster.
+   - Or create a new story cluster for them.
+4. If two existing story clusters are about the same event or highly overlapping topics, merge them.
+5. If an article doesn't belong to any existing story, either group it with a matching story or create a new story.
+6. For each resulting story cluster:
+   - storyId: Reuse the existing story ID if the story is largely unchanged, or if another story was merged into it. If a new story is created, generate a new UUID or unique string ID.
+   - headline: A concise, engaging headline in English.
+   - categories: One or more categories from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
+   - articleUrls: The exact list of article URLs that belong to this story. Every article URL from the input (both existing and orphaned) must be assigned to exactly one story.
+
+Do NOT summarize the story. Only group the articles and provide a headline and categories.
+Output in JSON format matching the schema.`;
+
+    const modelsToTry = this.getModels(options?.model);
+    for (let i = 0; i < modelsToTry.length; i++) {
+      const model = modelsToTry[i]!;
+      const isLastModel = i === modelsToTry.length - 1;
+      try {
+        const response = await this.generateContentWithRetry(
+          {
+            model: model,
+            contents: prompt,
+            config: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: Type.OBJECT,
+                properties: {
+                  stories: {
+                    type: Type.ARRAY,
+                    items: {
+                      type: Type.OBJECT,
+                      properties: {
+                        storyId: { type: Type.STRING },
+                        headline: { type: Type.STRING },
+                        categories: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING },
+                        },
+                        articleUrls: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING },
+                        },
+                      },
+                      required: [
+                        "storyId",
+                        "headline",
+                        "categories",
+                        "articleUrls",
+                      ],
+                    },
+                  },
+                },
+                required: ["stories"],
+              },
+            },
+          },
+          3,
+          2000,
+          isLastModel,
+        );
+
+        if (response && response.text) {
+          return JSON.parse(response.text);
+        }
+      } catch (error) {
+        console.warn(`Model ${model} failed in groupArticles.`, error);
+      }
+    }
+
+    throw new Error("Grouping with Gemini failed");
+  }
+
   private getFallbackBriefing(items: NewsItem[]): NewsBriefing {
     return {
       isAiFallback: true,

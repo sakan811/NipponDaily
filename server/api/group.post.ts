@@ -5,41 +5,30 @@ import { upstashVectorService } from "../services/vector";
 import { geminiService } from "../services/gemini";
 import type { Story, StorySource } from "~~/types/index";
 
-const regroupBodySchema = z.object({
+const groupBodySchema = z.object({
   dryRun: z.boolean().optional().default(false),
 });
 
 /**
- * POST /api/regroup
+ * POST /api/group
  *
- * Reconciles stories from Redis and vectors/metadata from Upstash Vector.
- *
- * Process Flow:
- * 1. Fetch State: Retrieve existing stories (Redis) and all article metadata (Vector DB).
- * 2. Reconcile: Map articles to their current stories and identify any orphaned articles.
- * 3. Early Return: If no stories or orphaned articles exist, exit early to bypass Gemini and save quota.
- * 4. Single-Pass Synthesis: Send the entire dataset of clusters + orphans to Gemini in a single pass call.
- * 5. Rebuild: Parse response, reconstruct story objects, resolve region breakdowns & trend scores.
- * 6. Commit (if dryRun=false): Clear old stories, write new ones, and update vector metadata story_id tags.
+ * Groups articles from Vector DB and Redis into cohesive stories.
+ * Replaces the old regroup API, but only clusters articles (does not summarize).
  */
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
 
   try {
     const body = await readBody(event).catch(() => ({}));
-    const { dryRun } = regroupBodySchema.parse(body);
+    const { dryRun } = groupBodySchema.parse(body);
 
     console.log(
-      `[POST /api/regroup] Starting stories regrouping pipeline... DryRun: ${dryRun}`,
+      `[POST /api/group] Starting stories grouping pipeline... DryRun: ${dryRun}`,
     );
 
     // Step 1: Fetch state from Redis and Upstash Vector DB
     let redisStories = await storiesService.getStories();
     let vectorArticles = await upstashVectorService.getAllArticles();
-
-    console.log(
-      `[POST /api/regroup] Fetched ${redisStories.length} stories from Redis and ${vectorArticles.length} articles from Vector DB.`,
-    );
 
     // Apply 30-day cutoff to protect Gemini 250k token limit
     const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
@@ -55,14 +44,9 @@ export default defineEventHandler(async (event) => {
       return pubTime >= cutoffTime;
     });
 
-    console.log(
-      `[POST /api/regroup] After 30-day cutoff: ${redisStories.length} stories and ${vectorArticles.length} articles remain.`,
-    );
-
     // Step 2: Reconcile articles into a unified map of articleUrl -> StorySource
     const articleMap = new Map<string, StorySource>();
 
-    // Populated from Redis stories first
     for (const story of redisStories) {
       for (const src of story.sources) {
         if (src.url) {
@@ -71,7 +55,6 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    // Supplement from Vector DB
     for (const vec of vectorArticles) {
       const meta = vec.metadata;
       if (meta.url && !articleMap.has(meta.url)) {
@@ -90,11 +73,9 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    // Group articles by their current story ID or identify as orphaned
     const currentStoriesForGemini = redisStories.map((story) => ({
       storyId: story.id,
       headline: story.headline,
-      summary: story.summary,
       categories: story.categories,
       articles: story.sources.map((src) => ({
         title: src.title,
@@ -105,7 +86,6 @@ export default defineEventHandler(async (event) => {
       })),
     }));
 
-    // Find any orphaned articles (articles in Vector DB/metadata that are not in any Redis story sources)
     const orphanedArticles = [];
     for (const [url, src] of articleMap.entries()) {
       const inRedis = redisStories.some((s) =>
@@ -122,16 +102,7 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    console.log(
-      `[POST /api/regroup] Reconciled article map has ${articleMap.size} unique articles. Found ${orphanedArticles.length} orphaned articles.`,
-    );
-
-    // Step 3: Early Return Optimization
-    // Bypasses the Gemini regroup API request entirely if both repositories are empty.
     if (redisStories.length === 0 && orphanedArticles.length === 0) {
-      console.log(
-        `[POST /api/regroup] No stories or orphaned articles exist. Skipping Gemini regroup API call to conserve quota.`,
-      );
       return {
         success: true,
         dryRun,
@@ -142,11 +113,8 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    // Step 4: Send grouping data to Gemini in one pass
-    console.log(
-      `[POST /api/regroup] Sending regroup data to Gemini AI model...`,
-    );
-    const regroupResult = await geminiService.regroupStories(
+    console.log(`[POST /api/group] Sending group data to Gemini AI model...`);
+    const groupResult = await geminiService.groupArticles(
       currentStoriesForGemini,
       orphanedArticles,
       {
@@ -157,19 +125,13 @@ export default defineEventHandler(async (event) => {
       },
     );
 
-    console.log(
-      `[POST /api/regroup] Gemini successfully returned ${regroupResult.stories.length} regrouped stories.`,
-    );
-
-    // 6. Build the new stories objects based on Gemini's output
     const newStories: Story[] = [];
     const originalStoriesMap = new Map<string, Story>();
     for (const s of redisStories) {
       originalStoriesMap.set(s.id, s);
     }
 
-    for (const gs of regroupResult.stories) {
-      // Find the sources for the URLs decided by Gemini
+    for (const gs of groupResult.stories) {
       const sources: StorySource[] = [];
       for (const url of gs.articleUrls) {
         const src = articleMap.get(url);
@@ -178,67 +140,49 @@ export default defineEventHandler(async (event) => {
         }
       }
 
-      // Compute region breakdown
-      const regionBreakdown: Record<string, number> = {};
-      for (const src of sources) {
-        for (const region of src.regions || []) {
-          regionBreakdown[region] = (regionBreakdown[region] || 0) + 1;
-        }
-      }
-      // Guarantee Gemini's suggested regions are initialized
-      gs.regionsAffected.forEach((region) => {
-        if (!regionBreakdown[region]) {
-          regionBreakdown[region] = 1;
-        }
-      });
-
-      // Check if we can reuse metadata from an existing story
       const existing = originalStoriesMap.get(gs.storyId);
       const firstSeen = existing ? existing.firstSeen : Date.now();
       const trendScore = existing ? existing.trendScore : 0;
+      const isSummarized = existing ? (existing.isSummarized ?? true) : false;
+      const oldSummary = existing ? existing.summary : "";
+      const oldThematic = existing ? existing.thematicAnalysis : "";
+      const oldRegions = existing ? existing.regionBreakdown : {};
+
+      // Need summary generation if sources length changed or if it was never summarized
+      const needsSummary =
+        !isSummarized ||
+        !existing ||
+        existing.sources.length !== sources.length;
 
       newStories.push({
         id: gs.storyId,
         headline: gs.headline,
-        summary: gs.summary,
-        thematicAnalysis: gs.thematicAnalysis,
+        summary: oldSummary,
+        thematicAnalysis: oldThematic,
         articleCount: sources.length,
-        regionBreakdown,
+        regionBreakdown: oldRegions,
         firstSeen,
         lastUpdated: Date.now(),
         trendScore,
         sources,
         categories: gs.categories,
+        isSummarized: !needsSummary,
       });
     }
 
-    // 7. If not dryRun, write back to Redis and update Vector DB
     if (!dryRun) {
-      console.log(
-        `[POST /api/regroup] DryRun is false. Committing updates to Redis and Upstash Vector DB...`,
-      );
-      // Clear old stories
       await storiesService.clearAllStories();
 
-      // Save new stories and update vector DB
       for (const story of newStories) {
-        // Save to Redis
         await storiesService.saveStory(story);
 
-        // Update each article's story_id in the vector database
         for (const src of story.sources) {
           await upstashVectorService.updateArticleStory(src.url, story.id);
         }
       }
 
-      // Update velocity scores
       await storiesService.updateVelocityScores();
-      await storiesService.setLastIngestTime(Date.now());
     }
-
-    console.log(
-      `[POST /api/regroup] Stories regrouping completed successfully. DryRun: ${dryRun}. Original: ${redisStories.length}, New: ${newStories.length}`,
-    );
 
     return {
       success: true,
@@ -263,10 +207,10 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    console.error("[POST /api/regroup] Error:", error);
+    console.error("[POST /api/group] Error:", error);
     throw createError({
       statusCode: 500,
-      statusMessage: "Failed to regroup stories",
+      statusMessage: "Failed to group stories",
       data: { error: error instanceof Error ? error.message : String(error) },
     });
   }
