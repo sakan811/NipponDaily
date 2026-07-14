@@ -42,15 +42,15 @@
    Configure the following in `.env`:
 
    ```bash
-   # Required: APIs & Database Cache
-   GEMINI_API_KEY=your_gemini_api_key_here
-   GEMINI_MODEL=gemini-2.5-flash
-   GEMINI_EMBEDDING_MODEL=gemini-embedding-2
-   TAVILY_API_KEY=your_tavily_api_key_here
-   UPSTASH_REDIS_REST_URL="your_upstash_redis_url"
-   UPSTASH_REDIS_REST_TOKEN="your_upstash_redis_token"
-   UPSTASH_VECTOR_REST_URL="your_upstash_vector_url"
-   UPSTASH_VECTOR_REST_TOKEN="your_upstash_vector_token"
+    # Required: APIs & Database Cache
+    GEMINI_API_KEY=your_gemini_api_key_here
+    GEMINI_MODEL=gemini-3.5-flash,gemini-3-flash,gemini-2.5-flash
+    GEMINI_EMBEDDING_MODEL=gemini-embedding-2
+    TAVILY_API_KEY=your_tavily_api_key_here
+    UPSTASH_REDIS_REST_URL="your_upstash_redis_url"
+    UPSTASH_REDIS_REST_TOKEN="your_upstash_redis_token"
+    UPSTASH_VECTOR_REST_URL="your_upstash_vector_url"
+    UPSTASH_VECTOR_REST_TOKEN="your_upstash_vector_token"
    ```
 
    > [!TIP]
@@ -68,17 +68,17 @@
 
 See `.env.example` for reference. Configure these in your `.env` file:
 
-| Variable                    | Required | Description                                             | Default              |
-| :-------------------------- | :------- | :------------------------------------------------------ | :------------------- |
-| `GEMINI_API_KEY`            | **Yes**  | Google Gemini API key for AI processing.                | -                    |
-| `TAVILY_API_KEY`            | **Yes**  | Tavily Search API key for news discovery.               | -                    |
-| `GEMINI_MODEL`              | **Yes**  | Google Gemini model to use.                             | `gemini-2.5-flash`   |
-| `GEMINI_EMBEDDING_MODEL`    | **Yes**  | Google Gemini model for vector embeddings generation.   | `gemini-embedding-2` |
-| `UPSTASH_REDIS_REST_URL`    | **Yes**  | Upstash Redis REST URL for story database cache.        | -                    |
-| `UPSTASH_REDIS_REST_TOKEN`  | **Yes**  | Upstash Redis REST token for story database cache.      | -                    |
-| `UPSTASH_VECTOR_REST_URL`   | **Yes**  | Upstash Vector REST URL for story clustering.           | -                    |
-| `UPSTASH_VECTOR_REST_TOKEN` | **Yes**  | Upstash Vector REST token for story clustering.         | -                    |
-| `DEBUG_ERROR_UI`            | No       | Set to `true` to force error UI components for testing. | `false`              |
+| Variable                    | Required | Description                                                                                                                                                                         | Default                                            |
+| :-------------------------- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------- |
+| `GEMINI_API_KEY`            | **Yes**  | Google Gemini API key for AI processing.                                                                                                                                            | -                                                  |
+| `TAVILY_API_KEY`            | **Yes**  | Tavily Search API key for news discovery.                                                                                                                                           | -                                                  |
+| `GEMINI_MODEL`              | **Yes**  | Comma-separated list of Google Gemini models to try (fails over sequentially on 429 errors). Note that Gemini Flash free-tier rate limits apply: 5 RPM, 250K TPM, 20 RPD per model. | `gemini-3.5-flash,gemini-3-flash,gemini-2.5-flash` |
+| `GEMINI_EMBEDDING_MODEL`    | **Yes**  | Google Gemini model for vector embeddings generation.                                                                                                                               | `gemini-embedding-2`                               |
+| `UPSTASH_REDIS_REST_URL`    | **Yes**  | Upstash Redis REST URL for story database cache.                                                                                                                                    | -                                                  |
+| `UPSTASH_REDIS_REST_TOKEN`  | **Yes**  | Upstash Redis REST token for story database cache.                                                                                                                                  | -                                                  |
+| `UPSTASH_VECTOR_REST_URL`   | **Yes**  | Upstash Vector REST URL for story clustering.                                                                                                                                       | -                                                  |
+| `UPSTASH_VECTOR_REST_TOKEN` | **Yes**  | Upstash Vector REST token for story clustering.                                                                                                                                     | -                                                  |
+| `DEBUG_ERROR_UI`            | No       | Set to `true` to force error UI components for testing.                                                                                                                             | `false`                                            |
 
 ## 📜 Available Commands
 
