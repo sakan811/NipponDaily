@@ -1,5 +1,6 @@
 import { Index } from "@upstash/vector";
 import { GoogleGenAI } from "@google/genai";
+import { createHash } from "node:crypto";
 
 export interface VectorMetadata {
   story_id: string;
@@ -186,6 +187,76 @@ class UpstashVectorService {
       return true;
     } catch (error) {
       console.error("Failed to upsert to Upstash Vector:", error);
+      return false;
+    }
+  }
+
+  /**
+   * Fetch all articles currently in the vector database
+   */
+  async getAllArticles(): Promise<VectorMatch[]> {
+    if (!this.isConfigured()) {
+      console.warn("Upstash Vector is not configured. Skipping fetch all articles.");
+      return [];
+    }
+
+    try {
+      const index = this.getIndex();
+      if (!index) throw new Error("Index initialization failed.");
+
+      const results: VectorMatch[] = [];
+      let cursor = "";
+
+      do {
+        const rangeResult = await index.range<VectorMetadata>({
+          cursor,
+          limit: 1000,
+          includeMetadata: true,
+        });
+
+        if (rangeResult && rangeResult.vectors) {
+          results.push(
+            ...rangeResult.vectors.map((v) => ({
+              id: String(v.id),
+              score: 1, // Range results do not have similarity scores, default to 1
+              metadata: (v.metadata || {}) as VectorMetadata,
+            })),
+          );
+        }
+
+        cursor = rangeResult.nextCursor || "";
+      } while (cursor !== "");
+
+      return results;
+    } catch (error) {
+      console.error("Failed to fetch all articles from Upstash Vector:", error);
+      return [];
+    }
+  }
+
+  /**
+   * Update the story_id metadata for a given article URL
+   */
+  async updateArticleStory(url: string, newStoryId: string): Promise<boolean> {
+    if (!this.isConfigured()) {
+      console.warn("Upstash Vector is not configured. Skipping update article story.");
+      return false;
+    }
+
+    try {
+      const index = this.getIndex();
+      if (!index) throw new Error("Index initialization failed.");
+
+      const articleId = createHash("sha256").update(url).digest("hex");
+      await index.update({
+        id: articleId,
+        metadata: { story_id: newStoryId },
+        metadataUpdateMode: "PATCH",
+      });
+
+      return true;
+    } catch (error) {
+      console.error(`Failed to update story_id for article ${url}:`, error);
       return false;
     }
   }

@@ -3,11 +3,15 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 // Mock @upstash/vector
 const mockQuery = vi.fn();
 const mockUpsert = vi.fn();
+const mockRange = vi.fn();
+const mockUpdate = vi.fn();
 
 vi.mock("@upstash/vector", () => {
   class Index {
     query = mockQuery;
     upsert = mockUpsert;
+    range = mockRange;
+    update = mockUpdate;
   }
   return {
     Index,
@@ -171,6 +175,49 @@ describe("UpstashVectorService", () => {
       },
     );
   });
+
+  it("fetches all articles with pagination", async () => {
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashVectorRestUrl: "https://mock-vector.upstash.io",
+      upstashVectorRestToken: "mock-token",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+
+    mockRange
+      .mockResolvedValueOnce({
+        nextCursor: "cursor-1",
+        vectors: [{ id: "art-1", metadata: { story_id: "story-1" } }],
+      })
+      .mockResolvedValueOnce({
+        nextCursor: "",
+        vectors: [{ id: "art-2", metadata: { story_id: "story-2" } }],
+      });
+
+    const articles = await service.getAllArticles();
+    expect(articles).toEqual([
+      { id: "art-1", score: 1, metadata: { story_id: "story-1" } },
+      { id: "art-2", score: 1, metadata: { story_id: "story-2" } },
+    ]);
+    expect(mockRange).toHaveBeenCalledTimes(2);
+  });
+
+  it("updates article story association", async () => {
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashVectorRestUrl: "https://mock-vector.upstash.io",
+      upstashVectorRestToken: "mock-token",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+
+    mockUpdate.mockResolvedValueOnce({ updated: 1 });
+
+    const success = await service.updateArticleStory("https://example.com/article", "story-new");
+    expect(success).toBe(true);
+    expect(mockUpdate).toHaveBeenCalledWith({
+      id: expect.any(String),
+      metadata: { story_id: "story-new" },
+      metadataUpdateMode: "PATCH",
+    });
+  });
 });
 
 describe("StoriesService", () => {
@@ -209,6 +256,64 @@ describe("StoriesService", () => {
 
       const ids = await service.getStoryIds();
       expect(ids).toContain("mem-story");
+    } finally {
+      process.env.UPSTASH_REDIS_REST_URL = originalUrl;
+      process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
+    }
+  });
+
+  it("deletes story from memory fallback when Redis is not configured", async () => {
+    const originalUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const originalToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+    process.env.UPSTASH_REDIS_REST_URL = "";
+    process.env.UPSTASH_REDIS_REST_TOKEN = "";
+
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "",
+      upstashRedisRestToken: "",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+
+    try {
+      const mockStory = {
+        id: "delete-me-story",
+        headline: "Delete Me",
+        sources: [],
+        regionBreakdown: {},
+      };
+
+      await service.saveStory(mockStory as any);
+      await service.deleteStory("delete-me-story");
+      const retrieved = await service.getStory("delete-me-story");
+      expect(retrieved).toBeNull();
+    } finally {
+      process.env.UPSTASH_REDIS_REST_URL = originalUrl;
+      process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
+    }
+  });
+
+  it("clears all stories from memory fallback when Redis is not configured", async () => {
+    const originalUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const originalToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+    process.env.UPSTASH_REDIS_REST_URL = "";
+    process.env.UPSTASH_REDIS_REST_TOKEN = "";
+
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "",
+      upstashRedisRestToken: "",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+
+    try {
+      const mockStory1 = { id: "story-c1", headline: "Story 1", sources: [], regionBreakdown: {} };
+      const mockStory2 = { id: "story-c2", headline: "Story 2", sources: [], regionBreakdown: {} };
+
+      await service.saveStory(mockStory1 as any);
+      await service.saveStory(mockStory2 as any);
+      await service.clearAllStories();
+
+      const ids = await service.getStoryIds();
+      expect(ids).toEqual([]);
     } finally {
       process.env.UPSTASH_REDIS_REST_URL = originalUrl;
       process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
