@@ -210,7 +210,10 @@ describe("UpstashVectorService", () => {
 
     mockUpdate.mockResolvedValueOnce({ updated: 1 });
 
-    const success = await service.updateArticleStory("https://example.com/article", "story-new");
+    const success = await service.updateArticleStory(
+      "https://example.com/article",
+      "story-new",
+    );
     expect(success).toBe(true);
     expect(mockUpdate).toHaveBeenCalledWith({
       id: expect.any(String),
@@ -305,8 +308,18 @@ describe("StoriesService", () => {
     (global as any).useRuntimeConfig = mockUseRuntimeConfig;
 
     try {
-      const mockStory1 = { id: "story-c1", headline: "Story 1", sources: [], regionBreakdown: {} };
-      const mockStory2 = { id: "story-c2", headline: "Story 2", sources: [], regionBreakdown: {} };
+      const mockStory1 = {
+        id: "story-c1",
+        headline: "Story 1",
+        sources: [],
+        regionBreakdown: {},
+      };
+      const mockStory2 = {
+        id: "story-c2",
+        headline: "Story 2",
+        sources: [],
+        regionBreakdown: {},
+      };
 
       await service.saveStory(mockStory1 as any);
       await service.saveStory(mockStory2 as any);
