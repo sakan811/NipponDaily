@@ -119,6 +119,6 @@ pnpm test:coverage
 
 ## ⚠️ Limitations
 
-- **Article Count**: 20 maximum per ingestion task.
+- **Article Count**: 20 maximum per category (up to 120 total) per ingestion task.
 - **Date Range**: Search results limited to 365 days, must be after 2000-01-01.
 - **Dependencies**: Requires Tavily API, Google Gemini API, Upstash Redis, and Upstash Vector keys.
