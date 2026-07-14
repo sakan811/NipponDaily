@@ -34,11 +34,25 @@ export default defineEventHandler(async (event) => {
     );
 
     // Step 1: Fetch state from Redis and Upstash Vector DB
-    const redisStories = await storiesService.getStories();
-    const vectorArticles = await upstashVectorService.getAllArticles();
+    let redisStories = await storiesService.getStories();
+    let vectorArticles = await upstashVectorService.getAllArticles();
 
     console.log(
       `[POST /api/regroup] Fetched ${redisStories.length} stories from Redis and ${vectorArticles.length} articles from Vector DB.`,
+    );
+
+    // Apply 30-day cutoff to protect Gemini 250k token limit
+    const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
+    const cutoffTime = Date.now() - THIRTY_DAYS_MS;
+
+    redisStories = redisStories.filter((story) => story.firstSeen >= cutoffTime);
+    vectorArticles = vectorArticles.filter((vec) => {
+      const pubTime = vec.metadata.published_at ? vec.metadata.published_at * 1000 : Date.now();
+      return pubTime >= cutoffTime;
+    });
+
+    console.log(
+      `[POST /api/regroup] After 30-day cutoff: ${redisStories.length} stories and ${vectorArticles.length} articles remain.`,
     );
 
     // Step 2: Reconcile articles into a unified map of articleUrl -> StorySource
