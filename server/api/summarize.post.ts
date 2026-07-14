@@ -1,7 +1,7 @@
-import { defineEventHandler, createError } from "h3";
 import { storiesService } from "../services/stories";
 import { geminiService } from "../services/gemini";
 import type { Story, NewsItem, StorySource } from "../../types/index";
+import type { CategoryName } from "../../constants/categories";
 
 /**
  * POST /api/summarize
@@ -44,13 +44,7 @@ export default defineEventHandler(async () => {
         title: src.title,
         source: src.source,
         url: src.url,
-        category: src.category as
-          | "society"
-          | "tech"
-          | "pop-culture"
-          | "tourism"
-          | "food"
-          | "disaster-prep",
+        category: (src.category || "Other") as CategoryName,
         publishedAt: src.publishedAt,
         favicon: src.favicon,
         summary: "", // We might not have raw article summaries here, but titles are enough for Gemini.
