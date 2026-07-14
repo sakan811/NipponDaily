@@ -114,9 +114,9 @@ const features = [
     icon: "i-heroicons-funnel",
   },
   {
-    title: "Automated Background Ingestion",
+    title: "Automated Background Pipelines",
     description:
-      "News discovery and Gemini processing run in the background (once daily or via CRON), using Gemini batching to optimize request counts.",
+      "News discovery, processing, and AI regrouping all run automatically in the background (via QStash CRON schedules), keeping the database perfectly synced.",
     icon: "i-heroicons-cpu-chip",
   },
   {
