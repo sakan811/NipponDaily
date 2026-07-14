@@ -42,21 +42,23 @@
     </UHeader>
 
     <main class="max-w-4xl mx-auto py-8 px-4 prose dark:prose-invert">
-      <h1 class="text-3xl font-bold mb-6 text-primary-500">
+      <h1 class="text-4xl font-extrabold mb-4 text-primary-500">
         System Architecture
       </h1>
 
-      <p class="mb-8 text-gray-700 dark:text-gray-300">
-        NipponDaily is built with a modern stack focusing on performance,
-        scalability, and AI integration. The system aggregates raw news and
-        transforms it into synthesized intelligence using Google Gemini.
+      <div class="p-4 mb-8 rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
+        <p class="m-0 text-blue-900 dark:text-blue-100">
+          <strong>👋 Welcome!</strong> Whether you are an experienced developer or a beginner exploring how modern AI apps are built, this guide will walk you through how NipponDaily works behind the scenes. We've broken down complex topics to make them easy to understand, without skipping any of the technical details.
+        </p>
+      </div>
+
+      <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
+        NipponDaily is built with a modern stack focusing on performance, scalability, and AI integration. In simple terms, the system aggregates raw news from the internet and transforms it into synthesized intelligence (easy-to-read summaries) using Google Gemini AI.
       </p>
 
       <!-- Diagram 1: System Overview -->
       <div class="my-10">
-        <h3
-          class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
-        >
+        <h3 class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200">
           System Overview (Zoomable)
         </h3>
         <MermaidDiagram id="arch-diag" :code="systemDiagram" />
@@ -65,94 +67,102 @@
         </p>
       </div>
 
-      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        Core Components
+      <h2 class="text-3xl font-bold mt-12 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2">
+        1. Core Components
       </h2>
+      <p class="mb-6">Here are the main building blocks (technologies) that make NipponDaily work:</p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <UCard>
           <template #header>
-            <h4 class="font-bold">Frontend (Nuxt 4)</h4>
+            <h4 class="font-bold flex items-center gap-2"><UIcon name="i-heroicons-window" /> Frontend (Nuxt 4)</h4>
           </template>
+          <p class="text-sm mb-2">
+            <strong>What it does:</strong> This is the user interface you see and interact with in your browser.
+          </p>
           <p class="text-sm">
-            Built with Nuxt 4 and Vue 3, utilizing custom UI components and
-            Tailwind CSS v4. The UI is designed for "Synthesized Reading,"
-            prioritizing briefings over raw lists.
+            <strong>Technical Details:</strong> Built with Nuxt 4 and Vue 3, utilizing custom UI components and Tailwind CSS v4. The UI is designed for "Synthesized Reading," prioritizing summarized briefings over raw lists of links.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
-            <h4 class="font-bold">API Engine (Nitro)</h4>
+            <h4 class="font-bold flex items-center gap-2"><UIcon name="i-heroicons-server" /> API Engine (Nitro)</h4>
           </template>
+          <p class="text-sm mb-2">
+            <strong>What it does:</strong> The backend server that connects the frontend to our databases and AI.
+          </p>
           <p class="text-sm">
-            The Nitro-powered backend handles request validation, search
-            orchestration, and secure communication with AI services and Redis.
+            <strong>Technical Details:</strong> The Nitro-powered backend handles request validation, search orchestration, and secure communication with AI services and Redis.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
-            <h4 class="font-bold">Search (Tavily)</h4>
+            <h4 class="font-bold flex items-center gap-2"><UIcon name="i-heroicons-magnifying-glass" /> Search (Tavily)</h4>
           </template>
+          <p class="text-sm mb-2">
+            <strong>What it does:</strong> Our search engine that finds the latest news articles.
+          </p>
           <p class="text-sm">
-            Optimized news discovery via Tavily API, specifically filtered for
-            Japan-related context and high-quality journalistic sources.
+            <strong>Technical Details:</strong> Optimized news discovery via Tavily API, specifically filtered for Japan-related context and high-quality journalistic sources.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
-            <h4 class="font-bold">AI (Google Gemini)</h4>
+            <h4 class="font-bold flex items-center gap-2"><UIcon name="i-heroicons-sparkles" /> AI (Google Gemini)</h4>
           </template>
+          <p class="text-sm mb-2">
+            <strong>What it does:</strong> The "brain" that reads and summarizes the news for you.
+          </p>
           <p class="text-sm">
-            Handles <strong>Executive Briefing</strong> generation,
-            <strong>Cross-Source Analysis</strong>, and
-            <strong>Trust Scoring</strong>. Features automatic fallback to
-            preserve accessibility.
+            <strong>Technical Details:</strong> Handles <strong>Executive Briefing</strong> generation, <strong>Cross-Source Analysis</strong>, and <strong>Trust Scoring</strong>. Features automatic fallback to preserve accessibility if the AI is busy.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
-            <h4 class="font-bold">Database & Cache (Upstash)</h4>
+            <h4 class="font-bold flex items-center gap-2"><UIcon name="i-heroicons-circle-stack" /> Database & Cache (Upstash)</h4>
           </template>
+          <p class="text-sm mb-2">
+            <strong>What it does:</strong> Where we store the news so the website loads instantly.
+          </p>
           <p class="text-sm">
-            Powered by Upstash Redis and Vector database, storing clustered
-            story articles, daily briefings, and ingestion caching metadata.
+            <strong>Technical Details:</strong> Powered by Upstash Redis and Vector database, storing clustered story articles, daily briefings, and ingestion caching metadata.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
-            <h4 class="font-bold">Re-grouping Engine</h4>
+            <h4 class="font-bold flex items-center gap-2"><UIcon name="i-heroicons-arrow-path-rounded-square" /> Re-grouping Engine</h4>
           </template>
+          <p class="text-sm mb-2">
+            <strong>What it does:</strong> A tool that fixes any mistakes the AI made when grouping similar stories together.
+          </p>
           <p class="text-sm">
-            An automated correction endpoint (`POST /api/regroup`) that
-            reconciles data across Redis and Upstash Vector, using Gemini in a
-            single pass to evaluate and resolve any story clustering mistakes.
+            <strong>Technical Details:</strong> An automated correction endpoint (<code>POST /api/regroup</code>) that reconciles data across Redis and Upstash Vector, using Gemini in a single pass to evaluate and resolve any story clustering mistakes.
           </p>
         </UCard>
       </div>
 
-      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        Developer Debug Mode
+      <h2 class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2">
+        2. Developer Debug Mode
       </h2>
 
       <p class="mb-4">
-        Setting <code>DEBUG_ERROR_UI=true</code> enables a specialized UI panel
-        to simulate API failures, rate limit resets, and AI fallback states,
-        allowing for exhaustive layout testing without consuming real quotas.
+        We included a special tool for developers to test how the app handles errors without actually breaking anything or using up API credits.
+      </p>
+      <p class="mb-4">
+        <strong>Technical Details:</strong> Setting <code>DEBUG_ERROR_UI=true</code> enables a specialized UI panel to simulate API failures, rate limit resets, and AI fallback states, allowing for exhaustive layout testing without consuming real quotas.
       </p>
 
-      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        Color Palette & System
+      <h2 class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2">
+        3. Color Palette & System
       </h2>
 
       <p>
-        The application leverages Tailwind CSS v4's theme color mappings
-        configured in
-        <code>app/assets/css/tailwind.css</code>:
+        The application leverages Tailwind CSS v4's theme color mappings configured in <code>app/assets/css/tailwind.css</code>. We use traditional Japanese colors to give the app its unique feel:
       </p>
 
       <div class="overflow-x-auto my-6">
@@ -166,42 +176,24 @@
           </thead>
           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
             <tr>
-              <td class="py-2 px-4">
-                <strong>Torii Vermilion (Shu-iro)</strong>
-              </td>
-              <td class="py-2 px-4">
-                Primary (<code>orange</code>) / Error (<code>orange</code>)
-              </td>
-              <td class="py-2 px-4">
-                Main actions, briefing headers, active highlights
-              </td>
+              <td class="py-2 px-4"><strong>Torii Vermilion (Shu-iro)</strong></td>
+              <td class="py-2 px-4">Primary (<code>orange</code>) / Error (<code>orange</code>)</td>
+              <td class="py-2 px-4">Main actions, briefing headers, active highlights</td>
             </tr>
             <tr>
-              <td class="py-2 px-4">
-                <strong>Serene Sky (Sora-iro)</strong>
-              </td>
-              <td class="py-2 px-4">
-                Secondary (<code>sky</code>) / Info (<code>sky</code>)
-              </td>
+              <td class="py-2 px-4"><strong>Serene Sky (Sora-iro)</strong></td>
+              <td class="py-2 px-4">Secondary (<code>sky</code>) / Info (<code>sky</code>)</td>
               <td class="py-2 px-4">Muted UI elements, secondary filters</td>
             </tr>
             <tr>
-              <td class="py-2 px-4">
-                <strong>Amber Gold (Kogane-iro)</strong>
-              </td>
-              <td class="py-2 px-4">
-                Success (<code>amber</code>) / Warning (<code>amber</code>)
-              </td>
+              <td class="py-2 px-4"><strong>Amber Gold (Kogane-iro)</strong></td>
+              <td class="py-2 px-4">Success (<code>amber</code>) / Warning (<code>amber</code>)</td>
               <td class="py-2 px-4">Trust scores, warnings, alerts</td>
             </tr>
             <tr>
-              <td class="py-2 px-4">
-                <strong>Zen Stone (Kaibakushoku)</strong>
-              </td>
+              <td class="py-2 px-4"><strong>Zen Stone (Kaibakushoku)</strong></td>
               <td class="py-2 px-4">Neutral (<code>stone</code>)</td>
-              <td class="py-2 px-4">
-                Zen stone slate elements, grids, card borders, backgrounds
-              </td>
+              <td class="py-2 px-4">Zen stone slate elements, grids, card borders, backgrounds</td>
             </tr>
           </tbody>
         </table>
@@ -214,14 +206,8 @@
           class="flex flex-col items-center p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200/40 dark:border-stone-800/40 shadow-sm"
         >
           <div class="w-8 h-8 rounded-full mb-2" :class="color.bgClass" />
-          <span
-            class="text-xs font-serif font-bold text-stone-900 dark:text-white"
-            >{{ color.name }}</span
-          >
-          <span
-            class="text-[9px] text-stone-500 dark:text-stone-400 font-serif mt-0.5"
-            >{{ color.romaji }}</span
-          >
+          <span class="text-xs font-serif font-bold text-stone-900 dark:text-white">{{ color.name }}</span>
+          <span class="text-[9px] text-stone-500 dark:text-stone-400 font-serif mt-0.5">{{ color.romaji }}</span>
         </div>
       </div>
 
@@ -229,441 +215,420 @@
       <!-- NEWS INGESTION PIPELINE                                          -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
+      <h2 class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2">
+        4. News Ingestion Pipeline
+      </h2>
+
+      <p class="text-lg mb-6">
+        This is the core journey of a news article: how it transforms from a raw URL on the web into an AI-synthesised story briefing you can read on the site.
+      </p>
+
       <!-- Diagram 2: Ingestion Pipeline -->
-      <div class="my-10">
-        <h3
-          class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
-        >
+      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 rounded-xl">
+        <h3 class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200">
           Ingestion Pipeline — Redis &amp; Vector Interaction (Zoomable)
         </h3>
         <MermaidDiagram id="ingest-diag" :code="ingestDiagram" />
-        <p class="text-center text-xs text-gray-500 mt-2 italic">
-          Shows exactly when Redis and Vector are read vs. written at each step.
+        <p class="text-center text-xs text-gray-500 mt-4 italic">
+          This chart shows exactly when our databases (Redis and Vector) are read from and written to at each step.
         </p>
       </div>
 
-      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        News Ingestion Pipeline
-      </h2>
+      <p class="font-semibold text-xl mt-10 mb-4">The process happens in 5 steps:</p>
 
-      <p>
-        Transforms raw article URLs into AI-synthesised story briefings in five
-        steps:
-      </p>
+      <div class="space-y-8 pl-4 border-l-4 border-primary-200 dark:border-primary-800">
+        
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 1</span> Fetch (Tavily)
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> We search the web for the latest news across different categories.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> Tavily returns pre-filtered, high-quality excerpts — no HTML parsing needed. Fetches 20 articles in parallel for each specific category (Society, Tech, Pop Culture, Tourism, Food, Nature) totaling up to 120 articles, and assigns categories properly before deduplication.
+          </p>
+        </div>
 
-      <!-- Step 1 -->
-      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
-        Step 1 — Fetch (Tavily)
-      </h3>
-      <p>
-        Tavily returns pre-filtered, high-quality excerpts — no HTML parsing
-        needed. Fetches 20 articles in parallel for each specific category
-        (Society, Tech, Pop Culture, Tourism, Food, Nature) totaling up to 120
-        articles, and assigns categories properly before deduplication.
-      </p>
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 2</span> Deduplication (Redis)
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> We throw away articles we have already processed to save time and money.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> A Redis <code>SADD</code>/<code>SISMEMBER</code> seen-set gives O(1) duplicate detection <em>before</em> vector embedding and AI calls — the two costliest steps.
+          </p>
+        </div>
 
-      <!-- Step 2 -->
-      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
-        Step 2 — Deduplication (Redis)
-      </h3>
-      <p>
-        A Redis <code>SADD</code>/<code>SISMEMBER</code> seen-set gives O(1)
-        duplicate detection <em>before</em> vector embedding and AI calls — the
-        two costliest steps.
-      </p>
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 3</span> Semantic Clustering (Upstash Vector)
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> AI groups articles that are talking about the exact same event together, so you don't read the same news twice.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> Articles are embedded and compared via cosine similarity. A threshold of <code>0.82</code> groups same-event coverage into one story without merging loosely related topics (e.g. two separate earthquakes).
+          </p>
+        </div>
 
-      <!-- Step 3 -->
-      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
-        Step 3 — Semantic Clustering (Upstash Vector)
-      </h3>
-      <p>
-        Articles are embedded and compared via cosine similarity. A threshold of
-        <code>0.82</code> groups same-event coverage into one story without
-        merging loosely related topics (e.g. two separate earthquakes).
-      </p>
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 4</span> AI Briefing (Gemini)
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> The AI reads the grouped articles and writes a neat, professional summary.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            <strong>Technical Details:</strong> Story groups are processed in batches of up to 15 stories using Gemini's <code>batchProcessStories</code> API. To run safely within Gemini's free-tier rate limits (5 RPM, 250K TPM, 20 RPD per model):
+          </p>
+          <ul class="list-disc pl-6 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+            <li><strong>Batch Optimization:</strong> Increasing the batch size to 15 groups all stories into a single request whenever possible, minimizing API consumption against the daily 20 RPD request quota.</li>
+            <li><strong>Rate Limiting Throttling:</strong> A 12-second delay is introduced between successive batch requests to respect the 5 Requests Per Minute limit.</li>
+            <li><strong>Model Failover:</strong> The system sequential tries <code>gemini-3.5-flash</code>, <code>gemini-3-flash</code>, and <code>gemini-2.5-flash</code>, skipping 429-limited models immediately. It retries only when the last model in the failover list fails.</li>
+            <li><strong>Cascading Failure Protection:</strong> If a batch API call fails completely, individual LLM story calls are bypassed, falling back directly to local text briefings to prevent rate-limit request flooding.</li>
+          </ul>
+        </div>
 
-      <!-- Step 4 -->
-      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
-        Step 4 — AI Briefing (Gemini)
-      </h3>
-      <p>
-        Story groups are processed in batches of up to 15 stories using Gemini's
-        <code>batchProcessStories</code> API. To run safely within Gemini's
-        free-tier rate limits (5 RPM, 250K TPM, 20 RPD per model):
-      </p>
-      <ul class="list-disc pl-6 mb-6 space-y-1">
-        <li>
-          <strong>Batch Optimization:</strong> Increasing the batch size to 15
-          groups all stories into a single request whenever possible, minimizing
-          API consumption against the daily 20 RPD request quota.
-        </li>
-        <li>
-          <strong>Rate Limiting Throttling:</strong> A 12-second delay is
-          introduced between successive batch requests to respect the 5 Requests
-          Per Minute limit.
-        </li>
-        <li>
-          <strong>Model Failover:</strong> The system sequential tries
-          <code>gemini-3.5-flash</code>, <code>gemini-3-flash</code>, and
-          <code>gemini-2.5-flash</code>, skipping 429-limited models
-          immediately. It retries only when the last model in the failover list
-          fails.
-        </li>
-        <li>
-          <strong>Cascading Failure Protection:</strong> If a batch API call
-          fails completely, individual LLM story calls are bypassed, falling
-          back directly to local text briefings to prevent rate-limit request
-          flooding.
-        </li>
-      </ul>
-
-      <!-- Step 5 -->
-      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
-        Step 5 — Persist &amp; Score
-      </h3>
-      <p>
-        Stories are written to Redis only after a successful briefing, so the
-        cache never holds half-processed entries. Velocity (trending) scores are
-        recalculated across
-        <em>all</em> stories at the end of each run — trending is relative, not
-        per-story.
-      </p>
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 5</span> Persist &amp; Score
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> We save the final summaries to our database and figure out which stories are currently trending the most.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> Stories are written to Redis only after a successful briefing, so the cache never holds half-processed entries. Velocity (trending) scores are recalculated across <em>all</em> stories at the end of each run — trending is relative, not per-story.
+          </p>
+        </div>
+      </div>
 
       <!-- Auto-trigger note -->
-      <div
-        class="my-6 p-4 rounded-xl border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30"
-      >
-        <p class="mb-0 text-amber-800 dark:text-amber-200 text-sm">
-          ⚡ <strong>Auto-trigger:</strong> <code>GET /api/news</code> fires a
-          background ingestion automatically when the cache is stale (&gt; 24 h)
-          or empty.
+      <div class="my-8 p-4 rounded-xl border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30 flex items-start gap-3">
+        <UIcon name="i-heroicons-bolt" class="text-amber-500 w-6 h-6 shrink-0 mt-0.5" />
+        <div>
+          <p class="m-0 text-amber-900 dark:text-amber-100 font-semibold mb-1">
+            How does it start automatically?
+          </p>
+          <p class="m-0 text-amber-800 dark:text-amber-200 text-sm">
+            <code>GET /api/news</code> fires a background ingestion automatically when the cache is stale (&gt; 24 h) or empty.
+          </p>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- REGROUPING PIPELINE                                              -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      
+      <h2 class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2">
+        5. Regrouping Engine Pipeline
+      </h2>
+
+      <p class="text-lg mb-6">
+        Sometimes, the initial vector similarity search might mistakenly cluster loosely related articles together, or leave out important ones that missed the similarity threshold. The Re-grouping Engine acts as an automated editor to correct these vector search mistakes by having the AI evaluate the entire database at once to organize them correctly.
+      </p>
+
+      <!-- Diagram 3: Regroup Pipeline -->
+      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 rounded-xl">
+        <h3 class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200">
+          Regrouping Engine Flow (Zoomable)
+        </h3>
+        <MermaidDiagram id="regroup-diag" :code="regroupDiagram" />
+        <p class="text-center text-xs text-gray-500 mt-4 italic">
+          This chart visualizes how all articles are passed to Gemini in a single prompt to fix clustering mistakes.
         </p>
+      </div>
+
+      <p class="font-semibold text-xl mt-10 mb-4">The regrouping process happens in these detailed steps:</p>
+
+      <div class="space-y-8 pl-4 border-l-4 border-primary-200 dark:border-primary-800">
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 1</span> Fetch Current State
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> We gather everything currently saved in our databases.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> Reads all current stories from the Redis cache and all article vectors + metadata from the Upstash Vector database.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 2</span> Reconcile Datasets
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> We figure out which articles belong to which stories, and spot any left-behind articles that the system missed.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> Maps each article to its current story (based on the Redis story's source list) and identifies any "orphaned" articles (articles present in Vector DB but not assigned to any story in Redis).
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 3</span> Single-Pass Regroup (Gemini)
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> We ask the AI to re-evaluate the entire board and fix any mistakes it made in the past.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> If not empty, it packages all existing story clusters and orphaned articles into a single prompt payload. Sends this payload to Gemini in a single pass to correct misclusterings, split stories, merge overlapping topics, and assign orphaned articles.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 4</span> Rebuild Metadata
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> We translate the AI's corrections back into data our app understands.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> Parses Gemini's JSON response, maps the assigned article URLs back to their full metadata, computes region breakdowns, and aggregates categories.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 5</span> Database Commit
+          </h3>
+          <p class="mb-2"><strong>The Concept:</strong> We overwrite the old data with the newly corrected stories.</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> If <code>dryRun</code> is false, it clears the old story cache in Redis, saves the new story objects, updates the <code>story_id</code> metadata tags for every modified article in the Upstash Vector index, and updates story velocity (trending) scores.
+          </p>
+        </div>
+      </div>
+
+      <div class="my-8 p-4 rounded-xl border border-sky-300 dark:border-sky-700 bg-sky-50 dark:bg-sky-950/30 flex items-start gap-3">
+        <UIcon name="i-heroicons-shield-check" class="text-sky-500 w-6 h-6 shrink-0 mt-0.5" />
+        <div>
+          <p class="m-0 text-sky-900 dark:text-sky-100 font-semibold mb-1">
+            Safe Testing (Dry Run)
+          </p>
+          <p class="m-0 text-sky-800 dark:text-sky-200 text-sm">
+            The endpoint supports a <code>dryRun: true</code> mode to let developers verify the regrouping results safely before it commits destructive changes to Redis and Upstash Vector.
+          </p>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- QUOTA MANAGEMENT                                                   -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <h2 class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2">
+        6. Gemini Rate Limiting & Quota Management
+      </h2>
+      <p class="mb-4">
+        Because we use the free version of Google Gemini, we are strictly limited on how many requests we can make (e.g., only 5 requests per minute, and 1,500 total requests per day). We use clever strategies to avoid getting blocked.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <UCard>
+          <h3 class="text-lg font-bold mb-2">1. Ingestion Pipeline</h3>
+          <p class="text-xs text-gray-500 mb-3">(<code>POST /api/ingest</code>)</p>
+          <ul class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <li><strong>Batch Briefings:</strong> Instead of executing a separate request for every story cluster, it batches them into groups of up to 15 stories per API call.</li>
+            <li><strong>Throttling Delay:</strong> Enforces a 12-second delay between batch requests to not exceed 5 RPM.</li>
+            <li><strong>Embedding Backoff:</strong> Retries up to 5 times for 429/Resource Exhausted errors.</li>
+            <li><strong>Cascading Fallback:</strong> If a batch fails, falls back directly to local text synthesis.</li>
+          </ul>
+        </UCard>
+
+        <UCard>
+          <h3 class="text-lg font-bold mb-2">2. Regrouping Pipeline</h3>
+          <p class="text-xs text-gray-500 mb-3">(<code>POST /api/regroup</code>)</p>
+          <ul class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <li><strong>Single-Pass Aggregation:</strong> Combines the entire dataset into a single request.</li>
+            <li><strong>Early-Return:</strong> Bypasses Gemini entirely if databases are empty.</li>
+            <li><strong>Model Failover:</strong> Sequentially falls back through available Gemini models (3.5-flash &rarr; 3-flash &rarr; 2.5-flash).</li>
+          </ul>
+        </UCard>
+
+        <UCard>
+          <h3 class="text-lg font-bold mb-2">3. Client News API</h3>
+          <p class="text-xs text-gray-500 mb-3">(<code>GET /api/news</code>)</p>
+          <ul class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <li><strong>Zero Live Calls:</strong> Serves current stories exclusively from the Redis cache. Client traffic never hits the Gemini API limits directly.</li>
+          </ul>
+        </UCard>
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
       <!-- API REFERENCE                                                     -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
-      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        Gemini Rate Limiting & Quota Management
+      
+      <h2 class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2">
+        7. API Reference
       </h2>
-      <p class="mb-4">
-        To run reliably under the restrictive constraints of the Gemini Free
-        Tier (e.g., 5 Requests Per Minute, 1,500 Requests Per Day), the
-        application employs custom rate limit handling strategies for each API
-        process:
-      </p>
-
-      <h3 class="text-xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">
-        1. Ingestion Pipeline (<code>POST /api/ingest</code>)
-      </h3>
-      <ul
-        class="list-disc pl-6 mb-6 space-y-1 text-gray-700 dark:text-gray-300"
-      >
-        <li>
-          <strong>Batch Briefings:</strong> Instead of executing a separate
-          request for every story cluster, it batches them into groups of up to
-          15 stories per API call to minimize daily request consumption.
-        </li>
-        <li>
-          <strong>Throttling Delay:</strong> To prevent exceeding the 5 RPM
-          limit, it enforces a 12-second delay between successive batch
-          requests.
-        </li>
-        <li>
-          <strong>Embedding Backoff Retry:</strong> Individual embedding
-          requests for new articles have a built-in exponential backoff retry
-          mechanism (retrying up to 5 times for 429/Resource Exhausted errors).
-        </li>
-        <li>
-          <strong>Cascading Failure Protection (Cascading Fallback):</strong> If
-          a batch fails, individual story requests are bypassed, falling back
-          directly to local text synthesis (to prevent request flooding and rate
-          limit exhaust).
-        </li>
-      </ul>
-
-      <h3 class="text-xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">
-        2. Regrouping Pipeline (<code>POST /api/regroup</code>)
-      </h3>
-      <ul
-        class="list-disc pl-6 mb-6 space-y-1 text-gray-700 dark:text-gray-300"
-      >
-        <li>
-          <strong>Single-Pass Aggregation:</strong> Combines the entire dataset
-          (existing stories + orphans) into a single request, ensuring
-          regrouping consumes at most 1 request.
-        </li>
-        <li>
-          <strong>Early-Return Optimization:</strong> Bypasses Gemini requests
-          entirely if both the Redis story cache and Upstash Vector DB are
-          empty.
-        </li>
-        <li>
-          <strong>Model Failover:</strong> Sequentially falls back through the
-          available Gemini models (<code>gemini-3.5-flash</code> &rarr;
-          <code>gemini-3-flash</code> &rarr; <code>gemini-2.5-flash</code>) on
-          transient failure or rate-limiting.
-        </li>
-      </ul>
-
-      <h3 class="text-xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">
-        3. Client News API (<code>GET /api/news</code>)
-      </h3>
-      <ul
-        class="list-disc pl-6 mb-6 space-y-1 text-gray-700 dark:text-gray-300"
-      >
-        <li>
-          <strong>Zero Live Calls:</strong> Serves current stories exclusively
-          from the Redis cache. Live Gemini calls are decoupled from customer
-          queries, keeping client traffic isolated from API limits.
-        </li>
-      </ul>
-
-      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        API Reference
-      </h2>
+      <p class="mb-8">Technical details on how our backend endpoints work.</p>
 
       <!-- /api/regroup -->
-      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
-        <code>POST /api/regroup</code>
-      </h3>
-      <p>
-        Fetches all current stories from Redis and all articles from the Upstash
-        Vector database, reconciles them, and sends them to Google Gemini in a
-        single pass to correct any grouping or clustering mistakes.
-      </p>
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="primary" variant="subtle">POST</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/regroup</h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          Fetches all current stories from Redis and all articles from the Upstash Vector database, reconciles them, and sends them to Google Gemini in a single pass to correct any grouping or clustering mistakes.
+        </p>
 
-      <h4 class="font-bold text-gray-800 dark:text-gray-200 mt-4 mb-2">
-        Detailed Execution Process:
-      </h4>
-      <ol
-        class="list-decimal pl-6 mb-6 space-y-1 text-gray-700 dark:text-gray-300"
-      >
-        <li>
-          <strong>Fetch current state:</strong> Reads all current stories from
-          the Redis cache and all article vectors + metadata from the Upstash
-          Vector database.
-        </li>
-        <li>
-          <strong>Reconcile datasets:</strong> Maps each article to its current
-          story (based on the Redis story's source list) and identifies any
-          "orphaned" articles (articles present in Vector DB but not assigned to
-          any story in Redis).
-        </li>
-        <li>
-          <strong>Early-return check:</strong> If the database is completely
-          empty (no stories in Redis and no orphaned articles in Vector DB), the
-          process logs this state and returns early, bypassing any Gemini
-          requests.
-        </li>
-        <li>
-          <strong>Single-Pass Regroup (Gemini):</strong> Packages all existing
-          story clusters and orphaned articles into a single prompt payload.
-          Sends this payload to Gemini in a single pass to correct
-          misclusterings, split stories, merge overlapping topics, and assign
-          orphaned articles.
-        </li>
-        <li>
-          <strong>Rebuild stories metadata:</strong> Parses Gemini's JSON
-          response, maps the assigned article URLs back to their full metadata,
-          computes region breakdowns, and aggregates categories.
-        </li>
-        <li>
-          <strong>Database Commit:</strong> If <code>dryRun</code> is false, it
-          clears the old story cache in Redis, saves the new story objects,
-          updates the <code>story_id</code> metadata tags for every modified
-          article in the Upstash Vector index, and updates story velocity
-          (trending) scores.
-        </li>
-      </ol>
-
-      <p>
-        Supports a <code>dryRun</code> mode to verify regrouping results before
-        committing destructive changes to Redis and Upstash Vector metadata.
-      </p>
-
-      <pre
-        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
-      ><code># Run a preview dry-run (does not modify databases)
-curl -X POST http://localhost:3000/api/regroup \
-  -H "Content-Type: application/json" \
-  -d '{"dryRun": true}'
-
-# Run actual database updates
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">Request Example</p>
+            <pre class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"><code># Run actual database updates
 curl -X POST http://localhost:3000/api/regroup \
   -H "Content-Type: application/json" \
   -d '{"dryRun": false}'</code></pre>
-
-      <p><strong>Success (200):</strong></p>
-      <pre
-        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
-      ><code>{
+          </div>
+          <div>
+             <p class="text-xs font-bold text-gray-500 mb-1">Response (200 OK)</p>
+             <pre class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"><code>{
   "success": true,
   "dryRun": true,
   "originalStoriesCount": 5,
   "newStoriesCount": 4,
-  "data": [ ... ],
-  "timestamp": "2026-07-14T13:30:00.000Z"
+  "data": [ ... ]
 }</code></pre>
+          </div>
+        </div>
+      </UCard>
 
       <!-- /api/ingest -->
-      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
-        <code>POST /api/ingest</code>
-      </h3>
-      <p>
-        Runs the full ingestion pipeline. Called on a schedule via
-        <strong>QStash</strong>
-        — register the URL in the Upstash console, no code changes needed.
-      </p>
-
-      <div
-        class="my-4 p-4 rounded-xl border border-sky-300 dark:border-sky-700 bg-sky-50 dark:bg-sky-950/30"
-      >
-        <p class="mb-0 text-sky-800 dark:text-sky-200 text-sm">
-          🗓 <strong>QStash one-time setup:</strong>
-          <em>QStash → Schedules → New Schedule</em>, URL
-          <code>https://your-domain.com/api/ingest</code>, method
-          <code>POST</code>, cron e.g. <code>0 */6 * * *</code>.
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="primary" variant="subtle">POST</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/ingest</h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          Runs the full ingestion pipeline. Called on a schedule via <strong>QStash</strong> — register the URL in the Upstash console, no code changes needed.
         </p>
-      </div>
 
-      <pre
-        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
-      ><code># Trigger locally
-curl -X POST http://localhost:3000/api/ingest
+        <div class="mb-4 p-3 rounded-lg border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20 text-sm">
+          <strong>🗓 QStash one-time setup:</strong> <em>QStash → Schedules → New Schedule</em>, URL <code>https://your-domain.com/api/ingest</code>, method <code>POST</code>, cron e.g. <code>0 */6 * * *</code>.
+        </div>
 
-# With Doppler env vars
-doppler run -- curl -X POST http://localhost:3000/api/ingest</code></pre>
-
-      <p><strong>Success (200):</strong></p>
-      <pre
-        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
-      ><code>{ "success": true, "storiesUpdated": 4, "articlesProcessed": 12 }</code></pre>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">Trigger Locally</p>
+            <pre class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"><code>curl -X POST http://localhost:3000/api/ingest</code></pre>
+          </div>
+          <div>
+             <p class="text-xs font-bold text-gray-500 mb-1">Response (200 OK)</p>
+             <pre class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"><code>{ 
+  "success": true, 
+  "storiesUpdated": 4, 
+  "articlesProcessed": 12 
+}</code></pre>
+          </div>
+        </div>
+      </UCard>
 
       <!-- /api/news -->
-      <h3 class="text-xl font-bold mt-10 mb-3 text-gray-800 dark:text-gray-200">
-        <code>GET /api/news</code>
-      </h3>
-      <p>
-        Returns story briefings from Redis. Auto-triggers background ingestion
-        if the cache is stale or empty.
-      </p>
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="green" variant="subtle">GET</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/news</h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          Returns story briefings from Redis. Auto-triggers background ingestion if the cache is stale or empty.
+        </p>
 
-      <div class="overflow-x-auto my-4">
-        <table class="min-w-full border-collapse">
-          <thead>
-            <tr class="border-b border-gray-300 dark:border-gray-700">
-              <th class="py-2 px-4 text-left font-bold">Parameter</th>
-              <th class="py-2 px-4 text-left font-bold">Type</th>
-              <th class="py-2 px-4 text-left font-bold">Default</th>
-              <th class="py-2 px-4 text-left font-bold">Description</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-            <tr>
-              <td class="py-2 px-4"><code>category</code></td>
-              <td class="py-2 px-4">string</td>
-              <td class="py-2 px-4">—</td>
-              <td class="py-2 px-4">
-                Topic filter (e.g. <code>society</code>, <code>tech</code>)
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4"><code>query</code></td>
-              <td class="py-2 px-4">string (max 100)</td>
-              <td class="py-2 px-4">—</td>
-              <td class="py-2 px-4">
-                Full-text search across headlines &amp; summaries
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4"><code>timeRange</code></td>
-              <td class="py-2 px-4">
-                <code>day</code> | <code>week</code> | <code>month</code> |
-                <code>year</code> | <code>none</code>
-              </td>
-              <td class="py-2 px-4"><code>week</code></td>
-              <td class="py-2 px-4">Relative time window</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4">
-                <code>startDate</code> / <code>endDate</code>
-              </td>
-              <td class="py-2 px-4">YYYY-MM-DD</td>
-              <td class="py-2 px-4">—</td>
-              <td class="py-2 px-4">
-                Absolute date range (both required together, max 365 days)
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4"><code>limit</code></td>
-              <td class="py-2 px-4">number (1–20)</td>
-              <td class="py-2 px-4"><code>20</code></td>
-              <td class="py-2 px-4">Max stories to return</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="overflow-x-auto mb-4">
+          <table class="min-w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-gray-300 dark:border-gray-700">
+                <th class="py-2 px-2 text-left font-bold">Parameter</th>
+                <th class="py-2 px-2 text-left font-bold">Type</th>
+                <th class="py-2 px-2 text-left font-bold">Description</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+              <tr>
+                <td class="py-2 px-2"><code>category</code></td>
+                <td class="py-2 px-2 text-gray-500">string</td>
+                <td class="py-2 px-2">Topic filter (e.g. <code>society</code>, <code>tech</code>)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>query</code></td>
+                <td class="py-2 px-2 text-gray-500">string (max 100)</td>
+                <td class="py-2 px-2">Full-text search across headlines &amp; summaries</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>timeRange</code></td>
+                <td class="py-2 px-2 text-gray-500">enum (default: <code>week</code>)</td>
+                <td class="py-2 px-2">Relative time window</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>startDate</code> / <code>endDate</code></td>
+                <td class="py-2 px-2 text-gray-500">YYYY-MM-DD</td>
+                <td class="py-2 px-2">Absolute date range (both required together, max 365 days)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>limit</code></td>
+                <td class="py-2 px-2 text-gray-500">number (default: <code>20</code>)</td>
+                <td class="py-2 px-2">Max stories to return (1-20)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <pre
-        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
-      ><code># Top 20 stories this week
-curl http://localhost:3000/api/news
-
-# Filter by category
-curl "http://localhost:3000/api/news?category=tech&amp;limit=5"
-
-# Full-text search
-curl "http://localhost:3000/api/news?query=Tokyo+earthquake"</code></pre>
-
-      <p><strong>Success (200) — abbreviated:</strong></p>
-      <pre
-        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
-      ><code>{
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">Request Examples</p>
+            <pre class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"><code># Filter by category
+curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
+          </div>
+          <div>
+             <p class="text-xs font-bold text-gray-500 mb-1">Response (200 OK)</p>
+             <pre class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"><code>{
   "success": true,
   "count": 8,
   "data": {
     "mainHeadline": "...",
-    "stories": [ ... ],
-    "lastIngestTime": 1752382800000
+    "stories": [ ... ]
   }
 }</code></pre>
+          </div>
+        </div>
+      </UCard>
 
-      <p><strong>Validation error (400):</strong></p>
-      <pre
-        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
-      ><code>{ "statusCode": 400, "data": { "error": "Invalid query parameters", "details": [...] } }</code></pre>
 
-      <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
-        Trust & Credibility
+      <h2 class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2">
+        8. Trust & Credibility
       </h2>
-      <p>
-        Every briefing includes an AI-computed <strong>Trust Score</strong>.
-        This score is a weighted assessment of source reputation, content
-        verifiability, and publisher history.
+      <p class="mb-4">
+        Every briefing includes an AI-computed <strong>Trust Score</strong>. This score is a weighted assessment of source reputation, content verifiability, and publisher history, helping readers know how reliable the news is at a glance.
       </p>
 
-      <h3 class="text-xl font-bold mt-8 mb-4 text-gray-800 dark:text-gray-200">
-        Trust Gradient
-      </h3>
-      <p>
-        The trust score badge uses a dynamic HSL gradient:
-        <code>hsl(score × 120, 70%, 45%)</code>, ranging from:
-      </p>
-      <ul class="list-disc pl-6 mb-6 space-y-1">
-        <li>
-          100% (High Trust):
-          <span class="text-green-600 font-bold">Green</span>
-        </li>
-        <li>
-          50% (Moderate):
-          <span class="text-yellow-600 font-bold">Yellow</span>
-        </li>
-        <li>
-          0% (Low Trust):
-          <span class="text-red-600 font-bold">Red</span>
-        </li>
-      </ul>
+      <div class="p-6 rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
+        <h3 class="text-xl font-bold mb-4 m-0 text-gray-800 dark:text-gray-200">
+          Trust Gradient Indicator
+        </h3>
+        <p class="text-sm mb-6">
+          The trust score badge uses a dynamic color scale that smoothly transitions from green to red based on the score (Formula: <code>hsl(score × 120, 70%, 45%)</code>).
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between not-prose">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold shadow-md">100%</div>
+            <div>
+              <p class="font-bold text-sm text-stone-900 dark:text-white m-0">High Trust</p>
+              <p class="text-xs text-stone-500 m-0">Verified sources</p>
+            </div>
+          </div>
+          
+          <div class="hidden sm:block w-16 h-1 bg-gradient-to-r from-green-600 via-yellow-600 to-red-600 rounded-full"></div>
+          
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-yellow-600 flex items-center justify-center text-white font-bold shadow-md">50%</div>
+            <div>
+              <p class="font-bold text-sm text-stone-900 dark:text-white m-0">Moderate</p>
+              <p class="text-xs text-stone-500 m-0">Mixed signals</p>
+            </div>
+          </div>
+          
+          <div class="hidden sm:block w-16 h-1 bg-gradient-to-r from-green-600 via-yellow-600 to-red-600 rounded-full"></div>
+          
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white font-bold shadow-md">0%</div>
+            <div>
+              <p class="font-bold text-sm text-stone-900 dark:text-white m-0">Low Trust</p>
+              <p class="text-xs text-stone-500 m-0">Unreliable</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <UFooter>
@@ -764,11 +729,38 @@ flowchart TD
     Velocity -- "WRITE trend scores" --> RedisB
     Velocity --> Done(["✅ Done"])
 `;
+
+const regroupDiagram = `
+flowchart TD
+    Start(["User triggers\nPOST /api/regroup"])
+
+    Start --> S1["Step 1 · Fetch State\nRead Redis & Upstash"]
+    S1 -- "Read All Stories" --> Redis[("Redis\nStory Cache")]
+    S1 -- "Read All Vectors" --> VectorDB[("Vector DB\nSemantic Index")]
+
+    S1 --> S2["Step 2 · Reconcile\nIdentify orphaned articles"]
+
+    S2 --> Dec{"Is DB Empty?"}
+    Dec -- "Yes" --> EarlyReturn(["✅ Return Early (No-op)"])
+    Dec -- "No" --> S3["Step 3 · AI Regrouping\nGemini evaluates all data in one pass"]
+
+    S3 -- "Send entire dataset" --> Gemini["Gemini AI (Single Pass)"]
+    Gemini -- "JSON grouping correction" --> S4["Step 4 · Rebuild Metadata\nParse JSON, compute regions/categories"]
+
+    S4 --> Cond{"dryRun == true?"}
+    Cond -- "Yes" --> DryRunEnd(["✅ Return Preview"])
+    Cond -- "No" --> S5["Step 5 · Database Commit"]
+
+    S5 -- "Clear & Save New Stories" --> Redis
+    S5 -- "Update story_id tags" --> VectorDB
+    S5 --> Done(["✅ Done"])
+`;
 </script>
 
 <style>
 @reference "../../assets/css/tailwind.css";
 
+/* Basic styling rules for markdown elements are retained but simplified for UCard compatibility */
 h1 {
   @apply text-3xl font-bold mb-6 text-primary-500;
 }
