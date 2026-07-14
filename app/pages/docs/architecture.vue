@@ -497,8 +497,9 @@
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
             <strong>Technical Details:</strong> Parses Gemini's JSON response,
-            maps the assigned article URLs back to their full metadata, computes
-            region breakdowns, and aggregates categories.
+            maps the assigned article URLs back to their full metadata, retains
+            existing region breakdowns (updated later during summarization), and
+            aggregates categories.
           </p>
         </div>
 
@@ -568,8 +569,10 @@
             writes a neat, professional summary.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-            <strong>Technical Details:</strong> Unsummarized stories are
-            processed in batches of up to 15 stories using Gemini's
+            <strong>Technical Details:</strong> Unsummarized stories (marked
+            with <code>isSummarized: false</code> by the grouping pipeline
+            because they are new or have updated source articles) are processed
+            in batches of up to 15 stories using Gemini's
             <code>batchProcessStories</code> API. To run safely within Gemini's
             free-tier rate limits, a 12-second delay is introduced between
             batches.
@@ -578,8 +581,7 @@
 
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 2</span> Persist &amp;
-            Score
+            <span class="text-primary-500 mr-2">Step 2</span> Persist Summaries
           </h3>
           <p class="mb-2">
             <strong>The Concept:</strong> We save the final summaries to our
@@ -607,31 +609,33 @@
         avoid getting blocked.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <UCard>
-          <h3 class="text-lg font-bold mb-2">1. Ingestion Pipeline</h3>
+          <h3 class="text-lg font-bold mb-2">1. Summarization Pipeline</h3>
           <p class="text-xs text-gray-500 mb-3">
-            (<code>POST /api/ingest</code>)
+            (<code>POST /api/summarize</code>)
           </p>
           <ul
             class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300"
           >
             <li>
-              <strong>Batch Briefings:</strong> Instead of executing a separate
-              request for every story cluster, it batches them into groups of up
-              to 15 stories per API call.
+              <strong>Batch Briefings:</strong> Summarization batches up to 15
+              new or updated stories (marked with
+              <code>isSummarized: false</code> by the grouping pipeline) per API
+              call to conserve request quota.
             </li>
             <li>
               <strong>Throttling Delay:</strong> Enforces a 12-second delay
-              between batch requests to not exceed 5 RPM.
+              between summarization batches to stay under 5 RPM limit.
             </li>
             <li>
-              <strong>Embedding Backoff:</strong> Retries up to 5 times for
-              429/Resource Exhausted errors.
+              <strong>Implicit 30-Day Cutoff:</strong> Inherits the grouping
+              pipeline's 30-day cutoff, as only stories younger than 30 days are
+              present in Redis to be summarized.
             </li>
             <li>
-              <strong>Cascading Fallback:</strong> If a batch fails, falls back
-              directly to local text synthesis.
+              <strong>Error Handling:</strong> If a summarization batch fails
+              completely, it safely skips and leaves stories for the next run.
             </li>
           </ul>
         </UCard>
@@ -653,23 +657,14 @@
               databases are empty.
             </li>
             <li>
+              <strong>Token Limit Protection (30-day cutoff):</strong> Strictly
+              filters out stories and articles older than 30 days before sending
+              to Gemini, keeping payloads under 250k input tokens.
+            </li>
+            <li>
               <strong>Model Failover:</strong> Sequentially falls back through
               available Gemini models (3.5-flash &rarr; 3-flash &rarr;
               2.5-flash).
-            </li>
-          </ul>
-        </UCard>
-
-        <UCard>
-          <h3 class="text-lg font-bold mb-2">3. Client News API</h3>
-          <p class="text-xs text-gray-500 mb-3">(<code>GET /api/news</code>)</p>
-          <ul
-            class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300"
-          >
-            <li>
-              <strong>Zero Live Calls:</strong> Serves current stories
-              exclusively from the Redis cache. Client traffic never hits the
-              Gemini API limits directly.
             </li>
           </ul>
         </UCard>
@@ -690,7 +685,7 @@
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
-            <UBadge color="primary" variant="subtle">POST</UBadge>
+            <UBadge color="primary" variant="soft">POST</UBadge>
             <h3 class="font-mono text-lg font-bold m-0">/api/group</h3>
           </div>
         </template>
@@ -736,10 +731,11 @@ curl -X POST http://localhost:3000/api/group \
               class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
             ><code>{
   "success": true,
-  "dryRun": true,
+  "dryRun": false,
   "originalStoriesCount": 5,
   "newStoriesCount": 4,
-  "data": [ ... ]
+  "data": [ ... ],
+  "timestamp": "2026-07-14T15:00:00.000Z"
 }</code></pre>
           </div>
         </div>
@@ -749,7 +745,7 @@ curl -X POST http://localhost:3000/api/group \
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
-            <UBadge color="primary" variant="subtle">POST</UBadge>
+            <UBadge color="primary" variant="soft">POST</UBadge>
             <h3 class="font-mono text-lg font-bold m-0">/api/summarize</h3>
           </div>
         </template>
@@ -764,6 +760,18 @@ curl -X POST http://localhost:3000/api/group \
               class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
             ><code>curl -X POST http://localhost:3000/api/summarize</code></pre>
           </div>
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">
+              Response (200 OK)
+            </p>
+            <pre
+              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+            ><code>{
+  "success": true,
+  "summarizedCount": 3,
+  "timestamp": "2026-07-14T15:00:00.000Z"
+}</code></pre>
+          </div>
         </div>
       </UCard>
 
@@ -771,7 +779,7 @@ curl -X POST http://localhost:3000/api/group \
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
-            <UBadge color="primary" variant="subtle">POST</UBadge>
+            <UBadge color="primary" variant="soft">POST</UBadge>
             <h3 class="font-mono text-lg font-bold m-0">/api/ingest</h3>
           </div>
         </template>
@@ -805,8 +813,9 @@ curl -X POST http://localhost:3000/api/group \
               class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
             ><code>{ 
   "success": true, 
-  "storiesUpdated": 4, 
-  "articlesProcessed": 12 
+  "articlesProcessed": 12,
+  "message": "News ingestion completed successfully",
+  "timestamp": "2026-07-14T15:00:00.000Z"
 }</code></pre>
           </div>
         </div>
@@ -816,7 +825,7 @@ curl -X POST http://localhost:3000/api/group \
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
-            <UBadge color="green" variant="subtle">GET</UBadge>
+            <UBadge color="green" variant="soft">GET</UBadge>
             <h3 class="font-mono text-lg font-bold m-0">/api/news</h3>
           </div>
         </template>
@@ -895,8 +904,10 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
   "count": 8,
   "data": {
     "mainHeadline": "...",
-    "stories": [ ... ]
-  }
+    "stories": [ ... ],
+    "lastIngestTime": 1718000000000
+  },
+  "timestamp": "2026-07-14T15:00:00.000Z"
 }</code></pre>
           </div>
         </div>
@@ -1003,10 +1014,10 @@ const paletteColors = [
     bgClass: "bg-primary-500",
   },
   { name: "Serene Sky", romaji: "Sora-iro", bgClass: "bg-secondary-500" },
-  { name: "Amber Gold", romaji: "Kogane", bgClass: "bg-success-500" },
+  { name: "Amber Gold", romaji: "Kogane-iro", bgClass: "bg-success-500" },
   {
     name: "Zen Stone",
-    romaji: "Kaibaku",
+    romaji: "Kaibakushoku",
     bgClass: "bg-stone-300 dark:bg-stone-700",
   },
 ];
@@ -1043,7 +1054,6 @@ Semantic Index")]
     end
 
     IngestAPI --> Tavily
-    IngestAPI --> Gemini
     IngestAPI --> Vector
     IngestAPI --> Redis
 
@@ -1065,7 +1075,7 @@ flowchart TD
 POST /api/ingest"])
 
     Start --> S1["Step 1 · Fetch
-Tavily Search → 20 articles"]
+Tavily Search → 120 articles"]
 
     S1 --> S2["Step 2 · Deduplicate
 Check each URL vs Redis seen-set"]
@@ -1107,7 +1117,7 @@ Gemini evaluates all data in one pass"]
 
     S3 -- "Send entire dataset" --> Gemini["Gemini AI (Single Pass)"]
     Gemini -- "JSON grouping correction" --> S4["Step 4 · Rebuild Metadata
-Parse JSON, compute regions/categories"]
+Parse JSON, retain regions & aggregate categories"]
 
     S4 --> Cond{"dryRun == true?"}
     Cond -- "Yes" --> DryRunEnd(["✅ Return Preview"])
