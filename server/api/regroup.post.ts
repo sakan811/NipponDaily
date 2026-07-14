@@ -45,9 +45,13 @@ export default defineEventHandler(async (event) => {
     const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
     const cutoffTime = Date.now() - THIRTY_DAYS_MS;
 
-    redisStories = redisStories.filter((story) => story.firstSeen >= cutoffTime);
+    redisStories = redisStories.filter(
+      (story) => story.firstSeen >= cutoffTime,
+    );
     vectorArticles = vectorArticles.filter((vec) => {
-      const pubTime = vec.metadata.published_at ? vec.metadata.published_at * 1000 : Date.now();
+      const pubTime = vec.metadata.published_at
+        ? vec.metadata.published_at * 1000
+        : Date.now();
       return pubTime >= cutoffTime;
     });
 
