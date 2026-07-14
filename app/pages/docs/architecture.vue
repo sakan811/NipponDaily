@@ -424,7 +424,7 @@
         >
           Grouping Engine Flow (Zoomable)
         </h3>
-        <MermaidDiagram id="regroup-diag" :code="regroupDiagram" />
+        <MermaidDiagram id="group-diag" :code="groupDiagram" />
         <p class="text-center text-xs text-gray-500 mt-4 italic">
           This chart visualizes how all articles are passed to Gemini in a
           single prompt to group them.
@@ -1013,17 +1013,28 @@ const paletteColors = [
 const systemDiagram = `
 flowchart TD
     User(["👤 User"])
-    QStash(["🕐 QStash\nScheduler"])
+    QStash(["🕐 QStash
+Scheduler"])
 
-    User -- "GET /api/news" --> NewsAPI["GET /api/news\n(Nitro)"]
+    User -- "GET /api/news" --> NewsAPI["GET /api/news
+(Nitro)"]
     NewsAPI -- "stories + briefings" --> User
 
-    QStash -- "POST /api/ingest\n(on schedule)" --> IngestAPI["POST /api/ingest\n(Nitro)"]
-    QStash -- "POST /api/regroup\n(on schedule)" --> RegroupAPI["POST /api/regroup\n(Nitro)"]
+    QStash -- "POST /api/ingest
+(on schedule)" --> IngestAPI["POST /api/ingest
+(Nitro)"]
+    QStash -- "POST /api/group
+(on schedule)" --> GroupAPI["POST /api/group
+(Nitro)"]
+    QStash -- "POST /api/summarize
+(on schedule)" --> SummarizeAPI["POST /api/summarize
+(Nitro)"]
 
     subgraph Storage ["💾 Storage Layer (Upstash)"]
-        Redis[("Redis\nStory Cache")]
-        Vector[("Vector DB\nSemantic Index")]
+        Redis[("Redis
+Story Cache")]
+        Vector[("Vector DB
+Semantic Index")]
     end
 
     subgraph External ["🌐 External APIs"]
@@ -1033,70 +1044,70 @@ flowchart TD
 
     IngestAPI --> Tavily
     IngestAPI --> Gemini
-    IngestAPI --> Redis
     IngestAPI --> Vector
+    IngestAPI --> Redis
 
-    RegroupAPI --> Gemini
-    RegroupAPI --> Redis
-    RegroupAPI --> Vector
+    GroupAPI --> Gemini
+    GroupAPI --> Redis
+    GroupAPI --> Vector
+
+    SummarizeAPI --> Gemini
+    SummarizeAPI --> Redis
 
     NewsAPI -- "read stories" --> Redis
-    NewsAPI -. "auto-trigger\nif cache stale" .-> IngestAPI
+    NewsAPI -. "auto-trigger
+if cache stale" .-> IngestAPI
 `;
 
 const ingestDiagram = `
 flowchart TD
-    Start(["QStash triggers\nPOST /api/ingest"])
+    Start(["QStash triggers
+POST /api/ingest"])
 
-    Start --> S1["Step 1 · Fetch\nTavily Search → 20 articles"]
+    Start --> S1["Step 1 · Fetch
+Tavily Search → 20 articles"]
 
-    S1 --> S2["Step 2 · Deduplicate\nCheck each URL vs Redis seen-set"]
-    S2 -- "READ" --> RedisA[("Redis\nseen-set")]
+    S1 --> S2["Step 2 · Deduplicate
+Check each URL vs Redis seen-set"]
+    S2 -- "READ" --> RedisA[("Redis
+seen-set")]
     RedisA -- "skip already-seen" --> S2
 
-    S2 --> S3["Step 3 · Cluster\nEmbed title+summary → query Vector"]
-    S3 -- "QUERY (topK=1)" --> VectorDB[("Vector DB\nsemantic index")]
-    VectorDB -- "cosine score" --> Dec{"Score ≥ 0.82?"}
-    Dec -- "Yes → append to\nexisting story" --> Merge["Merge article\ninto story group"]
-    Dec -- "No → mint\nnew story UUID" --> New["Create new\nstory group"]
-    Merge --> Upsert["WRITE vector\nwith story_id tag"]
-    New --> Upsert
-    Upsert --> VectorDB
+    S2 --> S3["Step 3 · Vector Embedding
+Embed article → write to Vector DB"]
+    S3 -- "WRITE vector
+with metadata" --> VectorDB[("Vector DB
+semantic index")]
+    S3 -- "WRITE processed URL" --> RedisC[("Redis
+seen-set")]
 
-    Merge --> S4
-    New --> S4
-
-    S4["Step 4 · AI Briefing\nGemini generates / updates briefing"]
-    S4 -- "new story" --> GenBrief["generateStoryBriefing\nheadline + summary + credibility"]
-    S4 -- "existing story" --> UpdBrief["updateStoryBriefing\nmerge sources + revise analysis"]
-
-    GenBrief --> S5
-    UpdBrief --> S5
-
-    S5["Step 5 · Persist"]
-    S5 -- "WRITE story JSON" --> RedisB[("Redis\nstory cache")]
-    S5 -- "WRITE processed URL" --> RedisC[("Redis\nseen-set")]
-    S5 --> Velocity["updateVelocityScores\nrecalculate trending for all stories"]
-    Velocity -- "WRITE trend scores" --> RedisB
-    Velocity --> Done(["✅ Done"])
+    VectorDB --> Done(["✅ Done"])
+    RedisC --> Done
 `;
 
-const regroupDiagram = `
+const groupDiagram = `
 flowchart TD
-    Start(["QStash triggers\nPOST /api/regroup"])
+    Start(["QStash triggers
+POST /api/group"])
 
-    Start --> S1["Step 1 · Fetch State\nRead Redis & Upstash"]
-    S1 -- "Read All Stories" --> Redis[("Redis\nStory Cache")]
-    S1 -- "Read All Vectors" --> VectorDB[("Vector DB\nSemantic Index")]
+    Start --> S1["Step 1 · Fetch State
+Read Redis & Upstash"]
+    S1 -- "Read All Stories" --> Redis[("Redis
+Story Cache")]
+    S1 -- "Read All Vectors" --> VectorDB[("Vector DB
+Semantic Index")]
 
-    S1 --> S2["Step 2 · Reconcile\nIdentify orphaned articles"]
+    S1 --> S2["Step 2 · Reconcile
+Identify orphaned articles"]
 
     S2 --> Dec{"Is DB Empty?"}
     Dec -- "Yes" --> EarlyReturn(["✅ Return Early (No-op)"])
-    Dec -- "No" --> S3["Step 3 · AI Regrouping\nGemini evaluates all data in one pass"]
+    Dec -- "No" --> S3["Step 3 · AI Grouping
+Gemini evaluates all data in one pass"]
 
     S3 -- "Send entire dataset" --> Gemini["Gemini AI (Single Pass)"]
-    Gemini -- "JSON grouping correction" --> S4["Step 4 · Rebuild Metadata\nParse JSON, compute regions/categories"]
+    Gemini -- "JSON grouping correction" --> S4["Step 4 · Rebuild Metadata
+Parse JSON, compute regions/categories"]
 
     S4 --> Cond{"dryRun == true?"}
     Cond -- "Yes" --> DryRunEnd(["✅ Return Preview"])
