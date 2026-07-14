@@ -189,9 +189,18 @@ export async function ingestNewsTask(): Promise<{
     });
   }
 
-  // Split into batches of at most 5 stories to avoid model confusion and payload limits
-  const BATCH_SIZE = 5;
+  // Split into batches of at most 15 stories to respect model constraints and minimize requests
+  const BATCH_SIZE = 15;
   for (let i = 0; i < storiesToProcess.length; i += BATCH_SIZE) {
+    // Add delay between batches to respect the 5 RPM rate limit of the free tier
+    if (i > 0) {
+      const waitTimeMs = 12000; // 12 seconds to ensure we do not exceed 5 RPM
+      console.log(
+        `[Ingest] Waiting ${waitTimeMs / 1000}s between batches to respect free tier RPM limit...`,
+      );
+      await new Promise((resolve) => setTimeout(resolve, waitTimeMs));
+    }
+
     const batch = storiesToProcess.slice(i, i + BATCH_SIZE);
     let resultsMap: Record<
       string,
@@ -205,6 +214,7 @@ export async function ingestNewsTask(): Promise<{
       }
     > = {};
 
+    let batchFailed = false;
     try {
       console.log(
         `[Ingest] Processing batch of ${batch.length} stories with Gemini...`,
@@ -213,8 +223,9 @@ export async function ingestNewsTask(): Promise<{
         apiKey: geminiApiKey,
       });
     } catch (batchError) {
+      batchFailed = true;
       console.error(
-        "[Ingest] Batch processing failed, will fall back to individual processing:",
+        "[Ingest] Batch processing failed. Skipping individual fallback to conserve API rate limits:",
         batchError,
       );
     }
@@ -225,57 +236,41 @@ export async function ingestNewsTask(): Promise<{
       try {
         let briefingResult = resultsMap[storyId];
 
-        // Graceful fallback to individual requests if batch missed this story or failed
+        // Graceful fallback: If batch failed or missed this story, use local fallback to conserve API requests
         if (!briefingResult) {
-          console.log(
-            `[Ingest] Story ${storyId} not found in batch results. Processing individually...`,
-          );
-          try {
-            if (existingStory) {
-              briefingResult = await geminiService.updateStoryBriefing(
-                existingStory,
-                articles,
-                {
-                  apiKey: geminiApiKey,
-                },
-              );
-            } else {
-              briefingResult = await geminiService.generateStoryBriefing(
-                articles,
-                {
-                  apiKey: geminiApiKey,
-                },
-              );
-            }
-          } catch (individualError) {
-            console.error(
-              `[Ingest] Individual fallback failed for story ${storyId}:`,
-              individualError,
+          if (batchFailed) {
+            console.log(
+              `[Ingest] Batch failed. Using local fallback for story ${storyId} to conserve rate limits.`,
             );
-            // Local fallback generation
-            if (existingStory) {
-              briefingResult = {
-                headline: existingStory.headline,
-                summary:
-                  existingStory.summary +
-                  "\n" +
-                  articles.map((a) => `- ${a.summary}`).join("\n"),
-                thematicAnalysis: existingStory.thematicAnalysis,
-                regionsAffected: Object.keys(existingStory.regionBreakdown),
-                overallCredibilityScore:
-                  existingStory.sources[0]?.credibilityScore || 0.7,
-                categories: existingStory.categories || ["society"],
-              };
-            } else {
-              briefingResult = {
-                headline: articles[0]?.title || "New Story Cluster",
-                summary: articles.map((a) => `- ${a.summary}`).join("\n"),
-                thematicAnalysis: "- Cross-source analysis unavailable.",
-                regionsAffected: [],
-                overallCredibilityScore: 0.7,
-                categories: ["society"],
-              };
-            }
+          } else {
+            console.log(
+              `[Ingest] Story ${storyId} not found in batch results. Using local fallback to conserve rate limits.`,
+            );
+          }
+
+          // Local fallback generation
+          if (existingStory) {
+            briefingResult = {
+              headline: existingStory.headline,
+              summary:
+                existingStory.summary +
+                "\n" +
+                articles.map((a) => `- ${a.summary}`).join("\n"),
+              thematicAnalysis: existingStory.thematicAnalysis,
+              regionsAffected: Object.keys(existingStory.regionBreakdown),
+              overallCredibilityScore:
+                existingStory.sources[0]?.credibilityScore || 0.7,
+              categories: existingStory.categories || ["society"],
+            };
+          } else {
+            briefingResult = {
+              headline: articles[0]?.title || "New Story Cluster",
+              summary: articles.map((a) => `- ${a.summary}`).join("\n"),
+              thematicAnalysis: "- Cross-source analysis unavailable.",
+              regionsAffected: [],
+              overallCredibilityScore: 0.7,
+              categories: ["society"],
+            };
           }
         }
 
