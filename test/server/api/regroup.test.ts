@@ -59,6 +59,7 @@ describe("Regroup API Endpoint", () => {
     const mockStories = [
       {
         id: "story-1",
+        firstSeen: Date.now(),
         headline: "Original Headline",
         summary: "Original Summary",
         categories: ["society"],
@@ -112,6 +113,7 @@ describe("Regroup API Endpoint", () => {
     const mockStories = [
       {
         id: "story-1",
+        firstSeen: Date.now(),
         headline: "Original Headline",
         summary: "Original Summary",
         categories: ["society"],
