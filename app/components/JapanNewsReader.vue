@@ -221,14 +221,27 @@
                     >
                       {{ story.sources[0]?.source || "News Source" }}
                     </span>
-                    <div
-                      class="flex items-center gap-1 text-xs font-semibold text-primary-600 dark:text-primary-400"
-                    >
-                      <UIcon
-                        name="i-heroicons-fire"
-                        class="w-3.5 h-3.5 text-primary-500"
-                      />
-                      <span>{{ Math.round(story.trendScore * 10) / 10 }}</span>
+                    <div class="flex items-center gap-2">
+                      <UBadge
+                        v-if="!story.isSummarized"
+                        color="primary"
+                        variant="soft"
+                        size="xs"
+                        class="animate-pulse"
+                      >
+                        Summarizing...
+                      </UBadge>
+                      <div
+                        class="flex items-center gap-1 text-xs font-semibold text-primary-600 dark:text-primary-400"
+                      >
+                        <UIcon
+                          name="i-heroicons-fire"
+                          class="w-3.5 h-3.5 text-primary-500"
+                        />
+                        <span>{{
+                          Math.round(story.trendScore * 10) / 10
+                        }}</span>
+                      </div>
                     </div>
                   </div>
                   <!-- Headline -->
@@ -286,7 +299,28 @@
                   />
                 </div>
 
-                <BriefingCard :briefing="activeBriefingData" language="en" />
+                <div
+                  v-if="!activeStory?.isSummarized"
+                  class="text-center p-8 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl"
+                >
+                  <UIcon
+                    name="i-heroicons-cpu-chip"
+                    class="w-12 h-12 text-primary-500 animate-pulse mx-auto mb-4"
+                  />
+                  <h3
+                    class="text-lg font-bold text-stone-900 dark:text-white mb-2"
+                  >
+                    AI is Summarizing this Story
+                  </h3>
+                  <p class="text-sm text-stone-500 dark:text-stone-400">
+                    Please check back in a few moments.
+                  </p>
+                </div>
+                <BriefingCard
+                  v-else
+                  :briefing="activeBriefingData"
+                  language="en"
+                />
               </div>
 
               <!-- 2.2 Story Timeline Sub-page -->
@@ -766,6 +800,7 @@ const fetchNews = async () => {
             firstSeen: Date.now(),
             lastUpdated: Date.now(),
             trendScore: 1.0,
+            isSummarized: true,
             sources: (mockBriefing.sourcesProcessed || []).map(
               (src: {
                 title: string;
