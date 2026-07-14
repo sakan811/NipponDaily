@@ -23,11 +23,15 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event).catch(() => ({}));
     const { dryRun } = regroupBodySchema.parse(body);
 
+    console.log(`[POST /api/regroup] Starting stories regrouping pipeline... DryRun: ${dryRun}`);
+
     // 1. Fetch stories from Redis
     const redisStories = await storiesService.getStories();
 
     // 2. Fetch all article vectors/metadata from Upstash Vector
     const vectorArticles = await upstashVectorService.getAllArticles();
+
+    console.log(`[POST /api/regroup] Fetched ${redisStories.length} stories from Redis and ${vectorArticles.length} articles from Vector DB.`);
 
     // 3. Reconcile articles into a unified map of articleUrl -> StorySource
     const articleMap = new Map<string, StorySource>();
@@ -92,7 +96,10 @@ export default defineEventHandler(async (event) => {
       }
     }
 
+    console.log(`[POST /api/regroup] Reconciled article map has ${articleMap.size} unique articles. Found ${orphanedArticles.length} orphaned articles.`);
+
     // 5. Send grouping data to Gemini in one pass
+    console.log(`[POST /api/regroup] Sending regroup data to Gemini AI model...`);
     const regroupResult = await geminiService.regroupStories(
       currentStoriesForGemini,
       orphanedArticles,
@@ -103,6 +110,8 @@ export default defineEventHandler(async (event) => {
           process.env.GEMINI_MODEL,
       },
     );
+
+    console.log(`[POST /api/regroup] Gemini successfully returned ${regroupResult.stories.length} regrouped stories.`);
 
     // 6. Build the new stories objects based on Gemini's output
     const newStories: Story[] = [];
@@ -157,6 +166,7 @@ export default defineEventHandler(async (event) => {
 
     // 7. If not dryRun, write back to Redis and update Vector DB
     if (!dryRun) {
+      console.log(`[POST /api/regroup] DryRun is false. Committing updates to Redis and Upstash Vector DB...`);
       // Clear old stories
       await storiesService.clearAllStories();
 
@@ -175,6 +185,8 @@ export default defineEventHandler(async (event) => {
       await storiesService.updateVelocityScores();
       await storiesService.setLastIngestTime(Date.now());
     }
+
+    console.log(`[POST /api/regroup] Stories regrouping completed successfully. DryRun: ${dryRun}. Original: ${redisStories.length}, New: ${newStories.length}`);
 
     return {
       success: true,
