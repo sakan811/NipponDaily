@@ -13,7 +13,7 @@
 - **Story Timeline Navigation**: Drill down from a trending topic summary card into a dedicated, oldest-first chronological timeline detailing the progression of articles within that topic.
 - **Visual Trust Scoring**: Multi-level credibility assessments (overall and per-source) directly evaluated by Google Gemini AI with HSL-color-gradient visuals.
 - **Customizable Discovery & Span Filtering**: Fine-grained filtering by traditional category channels and precise date ranges (preset or custom), analyzing the actual publish timeline span of each story.
-- **Automated Background Ingestion**: Seamless news discovery and Gemini updates scheduled in the background to ensure instantaneous loading of curated topics.
+- **Automated Background Pipelines**: Seamless news discovery, Gemini updates, and AI regrouping scheduled in the background (via QStash CRON) to ensure instantaneous loading of curated topics while enforcing token limit protections (30-day context window).
 - **Smart & Editorial UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4, utilizing locally maintained custom UI components for a fast, responsive, and immersive editorial layout with native dark mode.
 
 ## 🛠 Tech Stack

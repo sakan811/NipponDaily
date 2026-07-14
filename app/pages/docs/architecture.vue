@@ -458,6 +458,14 @@
         <p class="text-sm mb-4">
           Fetches all current stories from Redis and all articles from the Upstash Vector database, reconciles them, and sends them to Google Gemini in a single pass to correct any grouping or clustering mistakes.
         </p>
+        
+        <div class="mb-4 p-3 rounded-lg border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20 text-sm">
+          <strong>🗓 QStash Scheduled:</strong> Similar to the ingest pipeline, this runs on an automated schedule (e.g. <code>0 0 * * *</code>) to perform daily database corrections.
+        </div>
+
+        <div class="mb-4 p-3 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm">
+          <strong>⚡ Token Limit Protection (30-day cutoff):</strong> To prevent exceeding Gemini's 250k input token limit as the database grows, the pipeline strictly filters out stories and articles older than 30 days before sending the payload. Older stories simply age out of the Redis cache.
+        </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div>
@@ -668,7 +676,7 @@ flowchart TD
     NewsAPI -- "stories + briefings" --> User
 
     QStash -- "POST /api/ingest\n(on schedule)" --> IngestAPI["POST /api/ingest\n(Nitro)"]
-    User -- "POST /api/regroup" --> RegroupAPI["POST /api/regroup\n(Nitro)"]
+    QStash -- "POST /api/regroup\n(on schedule)" --> RegroupAPI["POST /api/regroup\n(Nitro)"]
 
     subgraph Storage ["💾 Storage Layer (Upstash)"]
         Redis[("Redis\nStory Cache")]
@@ -732,7 +740,7 @@ flowchart TD
 
 const regroupDiagram = `
 flowchart TD
-    Start(["User triggers\nPOST /api/regroup"])
+    Start(["QStash triggers\nPOST /api/regroup"])
 
     Start --> S1["Step 1 · Fetch State\nRead Redis & Upstash"]
     S1 -- "Read All Stories" --> Redis[("Redis\nStory Cache")]
