@@ -157,10 +157,13 @@ describe("Regroup API Endpoint", () => {
         id: "story-new",
         headline: "New Regrouped Headline",
         categories: ["tech"],
-      })
+      }),
     );
     expect(mockUpdateArticleStory).toHaveBeenCalledTimes(1);
-    expect(mockUpdateArticleStory).toHaveBeenCalledWith("https://example.com/1", "story-new");
+    expect(mockUpdateArticleStory).toHaveBeenCalledWith(
+      "https://example.com/1",
+      "story-new",
+    );
     expect(mockUpdateVelocityScores).toHaveBeenCalledTimes(1);
     expect(mockSetLastIngestTime).toHaveBeenCalledTimes(1);
   });

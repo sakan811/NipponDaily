@@ -78,7 +78,9 @@ export default defineEventHandler(async (event) => {
     // Find any orphaned articles (articles in Vector DB/metadata that are not in any Redis story sources)
     const orphanedArticles = [];
     for (const [url, src] of articleMap.entries()) {
-      const inRedis = redisStories.some((s) => s.sources.some((a) => a.url === url));
+      const inRedis = redisStories.some((s) =>
+        s.sources.some((a) => a.url === url),
+      );
       if (!inRedis) {
         orphanedArticles.push({
           title: src.title,
@@ -96,8 +98,10 @@ export default defineEventHandler(async (event) => {
       orphanedArticles,
       {
         apiKey: config.geminiApiKey as string,
-        model: (config.geminiModel as string | undefined) || process.env.GEMINI_MODEL,
-      }
+        model:
+          (config.geminiModel as string | undefined) ||
+          process.env.GEMINI_MODEL,
+      },
     );
 
     // 6. Build the new stories objects based on Gemini's output

@@ -196,7 +196,9 @@ class UpstashVectorService {
    */
   async getAllArticles(): Promise<VectorMatch[]> {
     if (!this.isConfigured()) {
-      console.warn("Upstash Vector is not configured. Skipping fetch all articles.");
+      console.warn(
+        "Upstash Vector is not configured. Skipping fetch all articles.",
+      );
       return [];
     }
 
@@ -239,7 +241,9 @@ class UpstashVectorService {
    */
   async updateArticleStory(url: string, newStoryId: string): Promise<boolean> {
     if (!this.isConfigured()) {
-      console.warn("Upstash Vector is not configured. Skipping update article story.");
+      console.warn(
+        "Upstash Vector is not configured. Skipping update article story.",
+      );
       return false;
     }
 

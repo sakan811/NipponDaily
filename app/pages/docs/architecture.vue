@@ -128,9 +128,9 @@
             <h4 class="font-bold">Re-grouping Engine</h4>
           </template>
           <p class="text-sm">
-            An automated correction endpoint (`POST /api/regroup`) that reconciles
-            data across Redis and Upstash Vector, using Gemini in a single pass
-            to evaluate and resolve any story clustering mistakes.
+            An automated correction endpoint (`POST /api/regroup`) that
+            reconciles data across Redis and Upstash Vector, using Gemini in a
+            single pass to evaluate and resolve any story clustering mistakes.
           </p>
         </UCard>
       </div>
@@ -332,12 +332,12 @@
       </h3>
       <p>
         Fetches all current stories from Redis and all articles from the Upstash
-        Vector database, reconciles them, and sends them to Google Gemini in a single
-        pass to correct any grouping or clustering mistakes.
+        Vector database, reconciles them, and sends them to Google Gemini in a
+        single pass to correct any grouping or clustering mistakes.
       </p>
       <p>
-        Supports a <code>dryRun</code> mode to verify regrouping results before committing
-        destructive changes to Redis and Upstash Vector metadata.
+        Supports a <code>dryRun</code> mode to verify regrouping results before
+        committing destructive changes to Redis and Upstash Vector metadata.
       </p>
 
       <pre

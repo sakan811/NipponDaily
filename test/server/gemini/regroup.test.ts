@@ -74,13 +74,20 @@ describe("GeminiService - regroupStories", () => {
       },
     ];
 
-    const result = await service.regroupStories(currentStories, orphanedArticles, {
-      apiKey: "test-key",
-    });
+    const result = await service.regroupStories(
+      currentStories,
+      orphanedArticles,
+      {
+        apiKey: "test-key",
+      },
+    );
 
     expect(result.stories).toHaveLength(1);
     expect(result.stories[0].storyId).toBe("story-1");
-    expect(result.stories[0].articleUrls).toEqual(["https://example.com/1", "https://example.com/2"]);
+    expect(result.stories[0].articleUrls).toEqual([
+      "https://example.com/1",
+      "https://example.com/2",
+    ]);
     expect(mockGenerateContent).toHaveBeenCalled();
   });
 });
