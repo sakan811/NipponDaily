@@ -287,14 +287,35 @@
         Step 4 — AI Briefing (Gemini)
       </h3>
       <p>
-        Story groups are processed in batches (max 5 stories per request) using
-        Gemini's <code>batchProcessStories</code> API to optimize token usage
-        and stay within free-tier rate limits. Gemini synthesises each story
-        group into an English headline, bullet-point summary, and cross-source
-        analysis, translating Japanese-language sources inline. If a batch
-        fails, the system gracefully falls back to individual processing or
-        local summaries.
+        Story groups are processed in batches of up to 15 stories using Gemini's
+        <code>batchProcessStories</code> API. To run safely within Gemini's
+        free-tier rate limits (5 RPM, 250K TPM, 20 RPD per model):
       </p>
+      <ul class="list-disc pl-6 mb-6 space-y-1">
+        <li>
+          <strong>Batch Optimization:</strong> Increasing the batch size to 15
+          groups all stories into a single request whenever possible, minimizing
+          API consumption against the daily 20 RPD request quota.
+        </li>
+        <li>
+          <strong>Rate Limiting Throttling:</strong> A 12-second delay is
+          introduced between successive batch requests to respect the 5 Requests
+          Per Minute limit.
+        </li>
+        <li>
+          <strong>Model Failover:</strong> The system sequential tries
+          <code>gemini-3.5-flash</code>, <code>gemini-3-flash</code>, and
+          <code>gemini-2.5-flash</code>, skipping 429-limited models
+          immediately. It retries only when the last model in the failover list
+          fails.
+        </li>
+        <li>
+          <strong>Cascading Failure Protection:</strong> If a batch API call
+          fails completely, individual LLM story calls are bypassed, falling
+          back directly to local text briefings to prevent rate-limit request
+          flooding.
+        </li>
+      </ul>
 
       <!-- Step 5 -->
       <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
