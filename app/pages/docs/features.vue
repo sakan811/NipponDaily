@@ -116,7 +116,7 @@ const features = [
   {
     title: "Automated Background Pipelines",
     description:
-      "News discovery, processing, and AI regrouping all run automatically in the background (via QStash CRON schedules), keeping the database perfectly synced.",
+      "News discovery, processing, clustering, and AI summarization all run automatically in separate background pipelines (via QStash CRON schedules), keeping the database perfectly synced while protecting quotas.",
     icon: "i-heroicons-cpu-chip",
   },
   {

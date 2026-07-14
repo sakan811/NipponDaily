@@ -181,19 +181,19 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-arrow-path-rounded-square" /> Re-grouping
+              <UIcon name="i-heroicons-arrow-path-rounded-square" /> Grouping
               Engine
             </h4>
           </template>
           <p class="text-sm mb-2">
-            <strong>What it does:</strong> A tool that fixes any mistakes the AI
-            made when grouping similar stories together.
+            <strong>What it does:</strong> A tool that groups similar stories
+            together using AI.
           </p>
           <p class="text-sm">
-            <strong>Technical Details:</strong> An automated correction endpoint
-            (<code>POST /api/regroup</code>) that reconciles data across Redis
-            and Upstash Vector, using Gemini in a single pass to evaluate and
-            resolve any story clustering mistakes.
+            <strong>Technical Details:</strong> An automated grouping endpoint
+            (<code>POST /api/group</code>) that reconciles data across Redis and
+            Upstash Vector, using Gemini in a single pass to evaluate and
+            cluster articles into cohesive stories before summarization.
           </p>
         </UCard>
       </div>
@@ -326,7 +326,7 @@
       </div>
 
       <p class="font-semibold text-xl mt-10 mb-4">
-        The process happens in 5 steps:
+        The process happens in 3 steps:
       </p>
 
       <div
@@ -369,86 +369,19 @@
 
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 3</span> Semantic
-            Clustering (Upstash Vector)
+            <span class="text-primary-500 mr-2">Step 3</span> Vector Embedding
+            (Upstash Vector)
           </h3>
           <p class="mb-2">
-            <strong>The Concept:</strong> AI groups articles that are talking
-            about the exact same event together, so you don't read the same news
-            twice.
+            <strong>The Concept:</strong> We create a mathematical
+            representation of the article so AI can understand it later.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Articles are embedded and
-            compared via cosine similarity. A threshold of
-            <code>0.82</code> groups same-event coverage into one story without
-            merging loosely related topics (e.g. two separate earthquakes).
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 4</span> AI Briefing
-            (Gemini)
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> The AI reads the grouped articles and
-            writes a neat, professional summary.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-            <strong>Technical Details:</strong> Story groups are processed in
-            batches of up to 15 stories using Gemini's
-            <code>batchProcessStories</code> API. To run safely within Gemini's
-            free-tier rate limits (5 RPM, 250K TPM, 20 RPD per model):
-          </p>
-          <ul
-            class="list-disc pl-6 space-y-1 text-sm text-gray-600 dark:text-gray-400"
-          >
-            <li>
-              <strong>Batch Optimization:</strong> Increasing the batch size to
-              15 groups all stories into a single request whenever possible,
-              minimizing API consumption against the daily 20 RPD request quota.
-            </li>
-            <li>
-              <strong>Rate Limiting Throttling:</strong> A 12-second delay is
-              introduced between successive batch requests to respect the 5
-              Requests Per Minute limit.
-            </li>
-            <li>
-              <strong>Model Failover:</strong> The system sequential tries
-              <code>gemini-3.5-flash</code>, <code>gemini-3-flash</code>, and
-              <code>gemini-2.5-flash</code>, skipping 429-limited models
-              immediately. It retries only when the last model in the failover
-              list fails.
-            </li>
-            <li>
-              <strong>Cascading Failure Protection:</strong> If a batch API call
-              fails completely, individual LLM story calls are bypassed, falling
-              back directly to local text briefings to prevent rate-limit
-              request flooding.
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 5</span> Persist &amp;
-            Score
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We save the final summaries to our
-            database and figure out which stories are currently trending the
-            most.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Stories are written to Redis
-            only after a successful briefing, so the cache never holds
-            half-processed entries. Velocity (trending) scores are recalculated
-            across <em>all</em> stories at the end of each run — trending is
-            relative, not per-story.
+            <strong>Technical Details:</strong> Articles are embedded using
+            Gemini's embedding model and stored in Upstash Vector.
           </p>
         </div>
       </div>
-
       <!-- Auto-trigger note -->
       <div
         class="my-8 p-4 rounded-xl border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30 flex items-start gap-3"
@@ -469,21 +402,19 @@
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- REGROUPING PIPELINE                                              -->
+      <!-- GROUPING PIPELINE                                              -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        5. Regrouping Engine Pipeline
+        5. Grouping Engine Pipeline
       </h2>
 
       <p class="text-lg mb-6">
-        Sometimes, the initial vector similarity search might mistakenly cluster
-        loosely related articles together, or leave out important ones that
-        missed the similarity threshold. The Re-grouping Engine acts as an
-        automated editor to correct these vector search mistakes by having the
-        AI evaluate the entire database at once to organize them correctly.
+        The Grouping Engine uses AI to evaluate all available articles and
+        cluster them into cohesive stories based on the specific events or
+        topics they cover.
       </p>
 
       <!-- Diagram 3: Regroup Pipeline -->
@@ -491,17 +422,17 @@
         <h3
           class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
         >
-          Regrouping Engine Flow (Zoomable)
+          Grouping Engine Flow (Zoomable)
         </h3>
         <MermaidDiagram id="regroup-diag" :code="regroupDiagram" />
         <p class="text-center text-xs text-gray-500 mt-4 italic">
           This chart visualizes how all articles are passed to Gemini in a
-          single prompt to fix clustering mistakes.
+          single prompt to group them.
         </p>
       </div>
 
       <p class="font-semibold text-xl mt-10 mb-4">
-        The regrouping process happens in these detailed steps:
+        The grouping process happens in these detailed steps:
       </p>
 
       <div
@@ -542,19 +473,17 @@
 
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 3</span> Single-Pass
-            Regroup (Gemini)
+            <span class="text-primary-500 mr-2">Step 3</span> Single-Pass Group
+            (Gemini)
           </h3>
           <p class="mb-2">
-            <strong>The Concept:</strong> We ask the AI to re-evaluate the
-            entire board and fix any mistakes it made in the past.
+            <strong>The Concept:</strong> We ask the AI to evaluate the articles
+            and organize them into distinct stories.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> If not empty, it packages all
-            existing story clusters and orphaned articles into a single prompt
-            payload. Sends this payload to Gemini in a single pass to correct
-            misclusterings, split stories, merge overlapping topics, and assign
-            orphaned articles.
+            <strong>Technical Details:</strong> Packages all existing story
+            clusters and orphaned articles into a single prompt payload. Sends
+            this payload to Gemini in a single pass to group articles.
           </p>
         </div>
 
@@ -604,8 +533,61 @@
           </p>
           <p class="m-0 text-sky-800 dark:text-sky-200 text-sm">
             The endpoint supports a <code>dryRun: true</code> mode to let
-            developers verify the regrouping results safely before it commits
+            developers verify the grouping results safely before it commits
             destructive changes to Redis and Upstash Vector.
+          </p>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- SUMMARIZATION PIPELINE                                           -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+
+      <h2
+        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
+      >
+        6. Summarization Pipeline
+      </h2>
+
+      <p class="text-lg mb-6">
+        Once stories are grouped, the Summarization Pipeline uses Gemini to
+        write neat, professional summaries, generate cross-source thematic
+        analyses, and assess credibility.
+      </p>
+
+      <div
+        class="space-y-8 pl-4 border-l-4 border-primary-200 dark:border-primary-800"
+      >
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 1</span> AI Briefing
+            (Gemini)
+          </h3>
+          <p class="mb-2">
+            <strong>The Concept:</strong> The AI reads the grouped articles and
+            writes a neat, professional summary.
+          </p>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            <strong>Technical Details:</strong> Unsummarized stories are
+            processed in batches of up to 15 stories using Gemini's
+            <code>batchProcessStories</code> API. To run safely within Gemini's
+            free-tier rate limits, a 12-second delay is introduced between
+            batches.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 2</span> Persist &amp;
+            Score
+          </h3>
+          <p class="mb-2">
+            <strong>The Concept:</strong> We save the final summaries to our
+            database.
+          </p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> Summarized stories are written
+            back to Redis and marked as <code>isSummarized: true</code>.
           </p>
         </div>
       </div>
@@ -616,7 +598,7 @@
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        6. Gemini Rate Limiting & Quota Management
+        7. Gemini Rate Limiting & Quota Management
       </h2>
       <p class="mb-4">
         Because we use the free version of Google Gemini, we are strictly
@@ -655,9 +637,9 @@
         </UCard>
 
         <UCard>
-          <h3 class="text-lg font-bold mb-2">2. Regrouping Pipeline</h3>
+          <h3 class="text-lg font-bold mb-2">2. Grouping Pipeline</h3>
           <p class="text-xs text-gray-500 mb-3">
-            (<code>POST /api/regroup</code>)
+            (<code>POST /api/group</code>)
           </p>
           <ul
             class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300"
@@ -700,23 +682,22 @@
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        7. API Reference
+        8. API Reference
       </h2>
       <p class="mb-8">Technical details on how our backend endpoints work.</p>
 
-      <!-- /api/regroup -->
+      <!-- /api/group -->
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
             <UBadge color="primary" variant="subtle">POST</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/regroup</h3>
+            <h3 class="font-mono text-lg font-bold m-0">/api/group</h3>
           </div>
         </template>
         <p class="text-sm mb-4">
           Fetches all current stories from Redis and all articles from the
           Upstash Vector database, reconciles them, and sends them to Google
-          Gemini in a single pass to correct any grouping or clustering
-          mistakes.
+          Gemini in a single pass to group and cluster articles into stories.
         </p>
 
         <div
@@ -743,7 +724,7 @@
             <pre
               class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
             ><code># Run actual database updates
-curl -X POST http://localhost:3000/api/regroup \
+curl -X POST http://localhost:3000/api/group \
   -H "Content-Type: application/json" \
   -d '{"dryRun": false}'</code></pre>
           </div>
@@ -760,6 +741,28 @@ curl -X POST http://localhost:3000/api/regroup \
   "newStoriesCount": 4,
   "data": [ ... ]
 }</code></pre>
+          </div>
+        </div>
+      </UCard>
+
+      <!-- /api/summarize -->
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="primary" variant="subtle">POST</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/summarize</h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          Finds all stories that have `isSummarized: false` and processes them
+          via Gemini to generate summaries, thematic analyses, and region tags.
+        </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">Trigger Locally</p>
+            <pre
+              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+            ><code>curl -X POST http://localhost:3000/api/summarize</code></pre>
           </div>
         </div>
       </UCard>
