@@ -122,6 +122,17 @@
             story articles, daily briefings, and ingestion caching metadata.
           </p>
         </UCard>
+
+        <UCard>
+          <template #header>
+            <h4 class="font-bold">Re-grouping Engine</h4>
+          </template>
+          <p class="text-sm">
+            An automated correction endpoint (`POST /api/regroup`) that reconciles
+            data across Redis and Upstash Vector, using Gemini in a single pass
+            to evaluate and resolve any story clustering mistakes.
+          </p>
+        </UCard>
       </div>
 
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
@@ -314,6 +325,44 @@
       <h2 class="text-2xl font-bold mt-12 mb-4 text-primary-500">
         API Reference
       </h2>
+
+      <!-- /api/regroup -->
+      <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
+        <code>POST /api/regroup</code>
+      </h3>
+      <p>
+        Fetches all current stories from Redis and all articles from the Upstash
+        Vector database, reconciles them, and sends them to Google Gemini in a single
+        pass to correct any grouping or clustering mistakes.
+      </p>
+      <p>
+        Supports a <code>dryRun</code> mode to verify regrouping results before committing
+        destructive changes to Redis and Upstash Vector metadata.
+      </p>
+
+      <pre
+        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
+      ><code># Run a preview dry-run (does not modify databases)
+curl -X POST http://localhost:3000/api/regroup \
+  -H "Content-Type: application/json" \
+  -d '{"dryRun": true}'
+
+# Run actual database updates
+curl -X POST http://localhost:3000/api/regroup \
+  -H "Content-Type: application/json" \
+  -d '{"dryRun": false}'</code></pre>
+
+      <p><strong>Success (200):</strong></p>
+      <pre
+        class="bg-stone-100 dark:bg-stone-900 rounded-xl p-4 overflow-x-auto text-sm"
+      ><code>{
+  "success": true,
+  "dryRun": true,
+  "originalStoriesCount": 5,
+  "newStoriesCount": 4,
+  "data": [ ... ],
+  "timestamp": "2026-07-14T13:30:00.000Z"
+}</code></pre>
 
       <!-- /api/ingest -->
       <h3 class="text-xl font-bold mt-8 mb-3 text-gray-800 dark:text-gray-200">
@@ -512,6 +561,7 @@ flowchart TD
     NewsAPI -- "stories + briefings" --> User
 
     QStash -- "POST /api/ingest\n(on schedule)" --> IngestAPI["POST /api/ingest\n(Nitro)"]
+    User -- "POST /api/regroup" --> RegroupAPI["POST /api/regroup\n(Nitro)"]
 
     subgraph Storage ["💾 Storage Layer (Upstash)"]
         Redis[("Redis\nStory Cache")]
@@ -527,6 +577,10 @@ flowchart TD
     IngestAPI --> Gemini
     IngestAPI --> Redis
     IngestAPI --> Vector
+
+    RegroupAPI --> Gemini
+    RegroupAPI --> Redis
+    RegroupAPI --> Vector
 
     NewsAPI -- "read stories" --> Redis
     NewsAPI -. "auto-trigger\nif cache stale" .-> IngestAPI
