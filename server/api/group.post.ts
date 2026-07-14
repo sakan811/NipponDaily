@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { defineEventHandler, readBody, createError } from "h3";
 import { storiesService } from "../services/stories";
 import { upstashVectorService } from "../services/vector";
 import { geminiService } from "../services/gemini";
