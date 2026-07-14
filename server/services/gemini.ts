@@ -23,6 +23,7 @@ class GeminiService {
     params: GenerateContentParameters,
     retries = 3,
     delayMs = 2000,
+    isLastModel = true,
   ): Promise<GenerateContentResponse> {
     try {
       if (!this.client) {
@@ -52,12 +53,25 @@ class GeminiService {
         errorStr.includes("RESOURCE_EXHAUSTED") ||
         errorStr.includes("Too Many Requests");
 
-      if (is429 && retries > 0) {
-        console.warn(
-          `[Gemini] API rate limited (429/RESOURCE_EXHAUSTED). Retrying in ${delayMs}ms... (${retries} retries left). Error: ${errorStr}`,
-        );
-        await new Promise((resolve) => setTimeout(resolve, delayMs));
-        return this.generateContentWithRetry(params, retries - 1, delayMs * 2);
+      if (is429) {
+        if (!isLastModel) {
+          console.warn(
+            `[Gemini] API rate limited (429/RESOURCE_EXHAUSTED) for model ${params.model}. Falling back to next model immediately. Error: ${errorStr}`,
+          );
+          throw error;
+        }
+        if (retries > 0) {
+          console.warn(
+            `[Gemini] API rate limited (429/RESOURCE_EXHAUSTED) on last model ${params.model}. Retrying in ${delayMs}ms... (${retries} retries left). Error: ${errorStr}`,
+          );
+          await new Promise((resolve) => setTimeout(resolve, delayMs));
+          return this.generateContentWithRetry(
+            params,
+            retries - 1,
+            delayMs * 2,
+            isLastModel,
+          );
+        }
       }
       throw error;
     }
@@ -65,12 +79,32 @@ class GeminiService {
 
   private getModels(defaultModel?: string): string[] {
     const config = useRuntimeConfig();
-    const modelStr =
-      defaultModel ||
+    const configuredModelsStr =
       (config.geminiModel as string | undefined) ||
       process.env.GEMINI_MODEL ||
-      "gemini-2.5-flash";
-    return [modelStr.trim()];
+      "gemini-3.5-flash,gemini-3-flash,gemini-2.5-flash";
+
+    const configuredModels = configuredModelsStr
+      .split(",")
+      .map((m) => m.trim())
+      .filter((m) => m.length > 0 && !m.toLowerCase().includes("lite"));
+
+    if (defaultModel) {
+      const preferredModels = defaultModel
+        .split(",")
+        .map((m) => m.trim())
+        .filter((m) => m.length > 0 && !m.toLowerCase().includes("lite"));
+
+      const remainingModels = configuredModels.filter(
+        (m) => !preferredModels.includes(m),
+      );
+      const combined = [...preferredModels, ...remainingModels];
+      return combined.length > 0 ? combined : configuredModels;
+    }
+
+    return configuredModels.length > 0
+      ? configuredModels
+      : ["gemini-3.5-flash", "gemini-3-flash", "gemini-2.5-flash"];
   }
 
   private validateLocaleCode(input?: string | null): string {
@@ -117,59 +151,66 @@ ${newsText}`;
       const modelsToTry = this.getModels(options?.model);
       let response = null;
 
-      for (const model of modelsToTry) {
+      for (let i = 0; i < modelsToTry.length; i++) {
+        const model = modelsToTry[i]!;
+        const isLastModel = i === modelsToTry.length - 1;
         try {
-          response = await this.generateContentWithRetry({
-            model: model,
-            contents: prompt,
-            config: {
-              responseMimeType: "application/json",
-              responseSchema: {
-                type: Type.OBJECT,
-                properties: {
-                  mainHeadline: { type: Type.STRING },
-                  executiveSummary: { type: Type.STRING },
-                  thematicAnalysis: { type: Type.STRING },
-                  overallCredibilityScore: { type: Type.NUMBER },
-                  sourcesProcessed: {
-                    type: Type.ARRAY,
-                    items: {
-                      type: Type.OBJECT,
-                      properties: {
-                        title: { type: Type.STRING },
-                        source: { type: Type.STRING },
-                        url: { type: Type.STRING },
-                        credibilityScore: { type: Type.NUMBER },
-                        regions: {
-                          type: Type.ARRAY,
-                          items: { type: Type.STRING },
+          response = await this.generateContentWithRetry(
+            {
+              model: model,
+              contents: prompt,
+              config: {
+                responseMimeType: "application/json",
+                responseSchema: {
+                  type: Type.OBJECT,
+                  properties: {
+                    mainHeadline: { type: Type.STRING },
+                    executiveSummary: { type: Type.STRING },
+                    thematicAnalysis: { type: Type.STRING },
+                    overallCredibilityScore: { type: Type.NUMBER },
+                    sourcesProcessed: {
+                      type: Type.ARRAY,
+                      items: {
+                        type: Type.OBJECT,
+                        properties: {
+                          title: { type: Type.STRING },
+                          source: { type: Type.STRING },
+                          url: { type: Type.STRING },
+                          credibilityScore: { type: Type.NUMBER },
+                          regions: {
+                            type: Type.ARRAY,
+                            items: { type: Type.STRING },
+                          },
                         },
+                        required: [
+                          "title",
+                          "source",
+                          "url",
+                          "credibilityScore",
+                          "regions",
+                        ],
                       },
-                      required: [
-                        "title",
-                        "source",
-                        "url",
-                        "credibilityScore",
-                        "regions",
-                      ],
+                    },
+                    regionsAffected: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING },
                     },
                   },
-                  regionsAffected: {
-                    type: Type.ARRAY,
-                    items: { type: Type.STRING },
-                  },
+                  required: [
+                    "mainHeadline",
+                    "executiveSummary",
+                    "thematicAnalysis",
+                    "overallCredibilityScore",
+                    "sourcesProcessed",
+                    "regionsAffected",
+                  ],
                 },
-                required: [
-                  "mainHeadline",
-                  "executiveSummary",
-                  "thematicAnalysis",
-                  "overallCredibilityScore",
-                  "sourcesProcessed",
-                  "regionsAffected",
-                ],
               },
             },
-          });
+            3,
+            2000,
+            isLastModel,
+          );
           break;
         } catch (error) {
           console.warn(`Model ${model} failed.`, error);
@@ -248,40 +289,47 @@ Instructions:
 Output in JSON format matching the schema.`;
 
     const modelsToTry = this.getModels(options?.model);
-    for (const model of modelsToTry) {
+    for (let i = 0; i < modelsToTry.length; i++) {
+      const model = modelsToTry[i]!;
+      const isLastModel = i === modelsToTry.length - 1;
       try {
-        const response = await this.generateContentWithRetry({
-          model: model,
-          contents: prompt,
-          config: {
-            responseMimeType: "application/json",
-            responseSchema: {
-              type: Type.OBJECT,
-              properties: {
-                headline: { type: Type.STRING },
-                summary: { type: Type.STRING },
-                thematicAnalysis: { type: Type.STRING },
-                regionsAffected: {
-                  type: Type.ARRAY,
-                  items: { type: Type.STRING },
+        const response = await this.generateContentWithRetry(
+          {
+            model: model,
+            contents: prompt,
+            config: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: Type.OBJECT,
+                properties: {
+                  headline: { type: Type.STRING },
+                  summary: { type: Type.STRING },
+                  thematicAnalysis: { type: Type.STRING },
+                  regionsAffected: {
+                    type: Type.ARRAY,
+                    items: { type: Type.STRING },
+                  },
+                  overallCredibilityScore: { type: Type.NUMBER },
+                  categories: {
+                    type: Type.ARRAY,
+                    items: { type: Type.STRING },
+                  },
                 },
-                overallCredibilityScore: { type: Type.NUMBER },
-                categories: {
-                  type: Type.ARRAY,
-                  items: { type: Type.STRING },
-                },
+                required: [
+                  "headline",
+                  "summary",
+                  "thematicAnalysis",
+                  "regionsAffected",
+                  "overallCredibilityScore",
+                  "categories",
+                ],
               },
-              required: [
-                "headline",
-                "summary",
-                "thematicAnalysis",
-                "regionsAffected",
-                "overallCredibilityScore",
-                "categories",
-              ],
             },
           },
-        });
+          3,
+          2000,
+          isLastModel,
+        );
 
         if (response && response.text) {
           return JSON.parse(response.text);
@@ -362,40 +410,47 @@ Instructions:
 Output in JSON format matching the schema.`;
 
     const modelsToTry = this.getModels(options?.model);
-    for (const model of modelsToTry) {
+    for (let i = 0; i < modelsToTry.length; i++) {
+      const model = modelsToTry[i]!;
+      const isLastModel = i === modelsToTry.length - 1;
       try {
-        const response = await this.generateContentWithRetry({
-          model: model,
-          contents: prompt,
-          config: {
-            responseMimeType: "application/json",
-            responseSchema: {
-              type: Type.OBJECT,
-              properties: {
-                headline: { type: Type.STRING },
-                summary: { type: Type.STRING },
-                thematicAnalysis: { type: Type.STRING },
-                regionsAffected: {
-                  type: Type.ARRAY,
-                  items: { type: Type.STRING },
+        const response = await this.generateContentWithRetry(
+          {
+            model: model,
+            contents: prompt,
+            config: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: Type.OBJECT,
+                properties: {
+                  headline: { type: Type.STRING },
+                  summary: { type: Type.STRING },
+                  thematicAnalysis: { type: Type.STRING },
+                  regionsAffected: {
+                    type: Type.ARRAY,
+                    items: { type: Type.STRING },
+                  },
+                  overallCredibilityScore: { type: Type.NUMBER },
+                  categories: {
+                    type: Type.ARRAY,
+                    items: { type: Type.STRING },
+                  },
                 },
-                overallCredibilityScore: { type: Type.NUMBER },
-                categories: {
-                  type: Type.ARRAY,
-                  items: { type: Type.STRING },
-                },
+                required: [
+                  "headline",
+                  "summary",
+                  "thematicAnalysis",
+                  "regionsAffected",
+                  "overallCredibilityScore",
+                  "categories",
+                ],
               },
-              required: [
-                "headline",
-                "summary",
-                "thematicAnalysis",
-                "regionsAffected",
-                "overallCredibilityScore",
-                "categories",
-              ],
             },
           },
-        });
+          3,
+          2000,
+          isLastModel,
+        );
 
         if (response && response.text) {
           return JSON.parse(response.text);
@@ -502,51 +557,58 @@ Instructions for each Story Cluster:
 Output in JSON format matching the schema.`;
 
     const modelsToTry = this.getModels(options?.model);
-    for (const model of modelsToTry) {
+    for (let i = 0; i < modelsToTry.length; i++) {
+      const model = modelsToTry[i]!;
+      const isLastModel = i === modelsToTry.length - 1;
       try {
-        const response = await this.generateContentWithRetry({
-          model: model,
-          contents: prompt,
-          config: {
-            responseMimeType: "application/json",
-            responseSchema: {
-              type: Type.OBJECT,
-              properties: {
-                results: {
-                  type: Type.ARRAY,
-                  items: {
-                    type: Type.OBJECT,
-                    properties: {
-                      storyId: { type: Type.STRING },
-                      headline: { type: Type.STRING },
-                      summary: { type: Type.STRING },
-                      thematicAnalysis: { type: Type.STRING },
-                      regionsAffected: {
-                        type: Type.ARRAY,
-                        items: { type: Type.STRING },
+        const response = await this.generateContentWithRetry(
+          {
+            model: model,
+            contents: prompt,
+            config: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: Type.OBJECT,
+                properties: {
+                  results: {
+                    type: Type.ARRAY,
+                    items: {
+                      type: Type.OBJECT,
+                      properties: {
+                        storyId: { type: Type.STRING },
+                        headline: { type: Type.STRING },
+                        summary: { type: Type.STRING },
+                        thematicAnalysis: { type: Type.STRING },
+                        regionsAffected: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING },
+                        },
+                        overallCredibilityScore: { type: Type.NUMBER },
+                        categories: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING },
+                        },
                       },
-                      overallCredibilityScore: { type: Type.NUMBER },
-                      categories: {
-                        type: Type.ARRAY,
-                        items: { type: Type.STRING },
-                      },
+                      required: [
+                        "storyId",
+                        "headline",
+                        "summary",
+                        "thematicAnalysis",
+                        "regionsAffected",
+                        "overallCredibilityScore",
+                        "categories",
+                      ],
                     },
-                    required: [
-                      "storyId",
-                      "headline",
-                      "summary",
-                      "thematicAnalysis",
-                      "regionsAffected",
-                      "overallCredibilityScore",
-                      "categories",
-                    ],
                   },
                 },
+                required: ["results"],
               },
-              required: ["results"],
             },
           },
-        });
+          3,
+          2000,
+          isLastModel,
+        );
 
         if (response && response.text) {
           const parsed = JSON.parse(response.text);
@@ -688,56 +750,63 @@ Instructions for Re-grouping:
 Output in JSON format matching the schema.`;
 
     const modelsToTry = this.getModels(options?.model);
-    for (const model of modelsToTry) {
+    for (let i = 0; i < modelsToTry.length; i++) {
+      const model = modelsToTry[i]!;
+      const isLastModel = i === modelsToTry.length - 1;
       try {
-        const response = await this.generateContentWithRetry({
-          model: model,
-          contents: prompt,
-          config: {
-            responseMimeType: "application/json",
-            responseSchema: {
-              type: Type.OBJECT,
-              properties: {
-                stories: {
-                  type: Type.ARRAY,
-                  items: {
-                    type: Type.OBJECT,
-                    properties: {
-                      storyId: { type: Type.STRING },
-                      headline: { type: Type.STRING },
-                      summary: { type: Type.STRING },
-                      thematicAnalysis: { type: Type.STRING },
-                      categories: {
-                        type: Type.ARRAY,
-                        items: { type: Type.STRING },
+        const response = await this.generateContentWithRetry(
+          {
+            model: model,
+            contents: prompt,
+            config: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: Type.OBJECT,
+                properties: {
+                  stories: {
+                    type: Type.ARRAY,
+                    items: {
+                      type: Type.OBJECT,
+                      properties: {
+                        storyId: { type: Type.STRING },
+                        headline: { type: Type.STRING },
+                        summary: { type: Type.STRING },
+                        thematicAnalysis: { type: Type.STRING },
+                        categories: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING },
+                        },
+                        regionsAffected: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING },
+                        },
+                        overallCredibilityScore: { type: Type.NUMBER },
+                        articleUrls: {
+                          type: Type.ARRAY,
+                          items: { type: Type.STRING },
+                        },
                       },
-                      regionsAffected: {
-                        type: Type.ARRAY,
-                        items: { type: Type.STRING },
-                      },
-                      overallCredibilityScore: { type: Type.NUMBER },
-                      articleUrls: {
-                        type: Type.ARRAY,
-                        items: { type: Type.STRING },
-                      },
+                      required: [
+                        "storyId",
+                        "headline",
+                        "summary",
+                        "thematicAnalysis",
+                        "categories",
+                        "regionsAffected",
+                        "overallCredibilityScore",
+                        "articleUrls",
+                      ],
                     },
-                    required: [
-                      "storyId",
-                      "headline",
-                      "summary",
-                      "thematicAnalysis",
-                      "categories",
-                      "regionsAffected",
-                      "overallCredibilityScore",
-                      "articleUrls",
-                    ],
                   },
                 },
+                required: ["stories"],
               },
-              required: ["stories"],
             },
           },
-        });
+          3,
+          2000,
+          isLastModel,
+        );
 
         if (response && response.text) {
           return JSON.parse(response.text);
