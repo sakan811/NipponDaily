@@ -182,6 +182,29 @@ class StoriesService {
       await this.saveStory(story);
     }
   }
+
+  async deleteStory(storyId: string): Promise<void> {
+    const redis = this.getRedisClient();
+    if (!redis) {
+      this.memoryStories.delete(storyId);
+      return;
+    }
+
+    try {
+      await redis.del(`story:${storyId}`);
+      await redis.srem("news:stories", storyId);
+    } catch (e) {
+      console.error(`Error deleting story ${storyId} from Redis:`, e);
+      this.memoryStories.delete(storyId);
+    }
+  }
+
+  async clearAllStories(): Promise<void> {
+    const ids = await this.getStoryIds();
+    for (const id of ids) {
+      await this.deleteStory(id);
+    }
+  }
 }
 
 export const storiesService = new StoriesService();
