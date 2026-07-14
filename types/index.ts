@@ -75,4 +75,5 @@ export interface Story {
   trendScore: number;
   sources: StorySource[];
   categories: string[];
+  isSummarized?: boolean;
 }
