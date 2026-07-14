@@ -2,6 +2,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 import type {
   GenerateContentParameters,
   GenerateContentResponse,
+  ThinkingLevel,
 } from "@google/genai";
 import type {
   NewsItem,
@@ -33,7 +34,7 @@ class GeminiService {
         params.config = {};
       }
       params.config.thinkingConfig = {
-        thinkingLevel: "HIGH",
+        thinkingLevel: "HIGH" as ThinkingLevel,
       };
 
       return await this.client.models.generateContent(params);
