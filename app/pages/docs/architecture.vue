@@ -334,18 +334,16 @@
       >
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 1</span> Fetch (Tavily)
+            <span class="text-primary-500 mr-2">Step 1</span> Fetch &amp; Frontline Filter (Tavily)
           </h3>
           <p class="mb-2">
             <strong>The Concept:</strong> We search the web for the latest news
-            across different categories.
+            across different categories and run a fast frontline check to filter out obviously unrelated articles.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
             <strong>Technical Details:</strong> Tavily returns pre-filtered,
-            high-quality excerpts — no HTML parsing needed. Fetches 20 articles
-            in parallel for each specific category (Society, Tech, Pop Culture,
-            Tourism, Food, Nature) totaling up to 120 articles, and assigns
-            categories properly before deduplication.
+            high-quality excerpts. Fetches 20 articles in parallel for each category.
+            We then perform a light keyword-matching and character check to reject obviously non-Japan news prior to deduplication, preserving API quotas and database space.
           </p>
         </div>
 
@@ -378,7 +376,7 @@
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
             <strong>Technical Details:</strong> Articles are embedded using
-            Gemini's embedding model and stored in Upstash Vector.
+            Gemini's embedding model and stored in Upstash Vector, using the SHA-256 hash of the article's URL as the document ID.
           </p>
         </div>
       </div>
@@ -466,40 +464,31 @@
           <p class="text-sm text-gray-600 dark:text-gray-400">
             <strong>Technical Details:</strong> Maps each article to its current
             story (based on the Redis story's source list) and identifies any
-            "orphaned" articles (articles present in Vector DB but not assigned
-            to any story in Redis).
+            "orphaned" articles. All compiled articles are mapped into the grouping payload.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 3</span> Single-Pass Group
-            (Gemini)
+            <span class="text-primary-500 mr-2">Step 3</span> Single-Pass Group &amp; Relevance Check
           </h3>
           <p class="mb-2">
-            <strong>The Concept:</strong> We ask the AI to evaluate the articles
-            and organize them into distinct stories.
+            <strong>The Concept:</strong> We ask the AI to evaluate the articles, organize them into cohesive stories, and dynamically isolate non-Japan content.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Packages all existing story
-            clusters and orphaned articles into a single prompt payload. Sends
-            this payload to Gemini in a single pass to group articles.
+            <strong>Technical Details:</strong> Packages all existing story clusters and orphaned articles into a single prompt payload. Sends this payload to Gemini to group articles and dynamically isolate any articles unrelated to Japan into the <code>unrelatedArticleUrls</code> array.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 4</span> Rebuild Metadata
+            <span class="text-primary-500 mr-2">Step 4</span> Rebuild &amp; Filter Metadata
           </h3>
           <p class="mb-2">
-            <strong>The Concept:</strong> We translate the AI's corrections back
-            into data our app understands.
+            <strong>The Concept:</strong> We translate the AI's corrections back into data our app understands, performing database cleanups for unrelated articles.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Parses Gemini's JSON response,
-            maps the assigned article URLs back to their full metadata, retains
-            existing region breakdowns (updated later during summarization), and
-            aggregates categories.
+            <strong>Technical Details:</strong> Parses Gemini's JSON response. If any unrelated article URLs are returned, they are immediately deleted from Upstash Vector (using their SHA-256 URL hash) and Redis processed set (if <code>dryRun</code> is false). Maps valid assigned article URLs back to full metadata, dropping any empty stories.
           </p>
         </div>
 
@@ -691,7 +680,8 @@
         </template>
         <p class="text-sm mb-4">
           Fetches all current stories from Redis and all articles from the
-          Upstash Vector database, reconciles them, and sends them to Google
+          Upstash Vector database, reconciles them, filters out and deletes any
+          non-Japan articles, and sends the remaining data to Google
           Gemini in a single pass to group and cluster articles into stories.
         </p>
 
@@ -1077,7 +1067,10 @@ POST /api/ingest"])
     Start --> S1["Step 1 · Fetch
 Tavily Search → 120 articles"]
 
-    S1 --> S2["Step 2 · Deduplicate
+    S1 --> S1_5["Step 1.5 · Frontline Filter
+Check keywords/chars for Japan relevance"]
+
+    S1_5 --> S2["Step 2 · Deduplicate
 Check each URL vs Redis seen-set"]
     S2 -- "READ" --> RedisA[("Redis
 seen-set")]
@@ -1108,16 +1101,16 @@ Story Cache")]
 Semantic Index")]
 
     S1 --> S2["Step 2 · Reconcile
-Identify orphaned articles"]
+Map existing stories & identify orphans"]
 
     S2 --> Dec{"Is DB Empty?"}
     Dec -- "Yes" --> EarlyReturn(["✅ Return Early (No-op)"])
-    Dec -- "No" --> S3["Step 3 · AI Grouping
-Gemini evaluates all data in one pass"]
+    Dec -- "No" --> S3["Step 3 · AI Group & Relevance Check
+Gemini groups articles & isolates unrelated content"]
 
     S3 -- "Send entire dataset" --> Gemini["Gemini AI (Single Pass)"]
-    Gemini -- "JSON grouping correction" --> S4["Step 4 · Rebuild Metadata
-Parse JSON, retain regions & aggregate categories"]
+    Gemini -- "JSON story groups + unrelatedArticleUrls" --> S4["Step 4 · Rebuild & Filter Metadata
+Delete unrelated articles from DB, drop empty stories"]
 
     S4 --> Cond{"dryRun == true?"}
     Cond -- "Yes" --> DryRunEnd(["✅ Return Preview"])
