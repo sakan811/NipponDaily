@@ -174,10 +174,10 @@
                         class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 border border-stone-200/50 dark:border-stone-700/50 rounded"
                       >
                         <UIcon
-                          name="i-heroicons-globe-alt"
+                          name="i-heroicons-map-pin"
                           class="w-3 h-3 text-stone-400"
                         />
-                        Nationwide
+                        Not Mentioned
                       </span>
                     </template>
                   </div>
@@ -257,6 +257,9 @@ const getRegionDisplayName = (region: string) => {
     chugoku: "Chugoku",
     shikoku: "Shikoku",
     kyushu: "Kyushu",
+    japan: "Japan",
+    china: "China",
+    "not mentioned": "Not Mentioned",
   };
 
   const key = normalized.toLowerCase();
@@ -269,7 +272,8 @@ const getRegionDisplayName = (region: string) => {
 
 const renderMarkdown = (text: string | undefined) => {
   if (!text) return "";
-  return marked.parse(text, { breaks: true });
+  const processedText = text.replace(/\\n/g, "\n");
+  return marked.parse(processedText, { breaks: true });
 };
 </script>
 
