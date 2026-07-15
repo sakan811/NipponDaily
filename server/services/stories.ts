@@ -123,6 +123,21 @@ class StoriesService {
     }
   }
 
+  async removeProcessedArticle(url: string): Promise<void> {
+    const redis = this.getRedisClient();
+    if (!redis) {
+      this.memoryProcessedArticles.delete(url);
+      return;
+    }
+
+    try {
+      await redis.srem("news:processed_articles", url);
+    } catch (e) {
+      console.error(`Error removing processed article ${url} from Redis:`, e);
+      this.memoryProcessedArticles.delete(url);
+    }
+  }
+
   async getLastIngestTime(): Promise<number> {
     const redis = this.getRedisClient();
     if (!redis) {

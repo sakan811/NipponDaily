@@ -264,6 +264,28 @@ class UpstashVectorService {
       return false;
     }
   }
+
+  /**
+   * Delete an article from Upstash Vector by its URL
+   */
+  async deleteArticle(url: string): Promise<boolean> {
+    if (!this.isConfigured()) {
+      console.warn("Upstash Vector is not configured. Skipping delete.");
+      return false;
+    }
+
+    try {
+      const index = this.getIndex();
+      if (!index) throw new Error("Index initialization failed.");
+
+      const articleId = createHash("sha256").update(url).digest("hex");
+      await index.delete(articleId);
+      return true;
+    } catch (error) {
+      console.error(`Failed to delete article ${url} from Upstash Vector:`, error);
+      return false;
+    }
+  }
 }
 
 async function retryWithBackoff<T>(
