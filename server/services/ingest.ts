@@ -5,6 +5,71 @@ import { storiesService } from "./stories";
 import type { NewsItem } from "~~/types/index";
 import type { CategoryName } from "~~/constants/categories";
 
+export function isRelatedToJapan(title: string, summary: string): boolean {
+  const text = `${title} ${summary}`.toLowerCase();
+  
+  // 1. Check for Japanese characters (Hiragana, Katakana, Kanji)
+  const hasJapanese = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/.test(text);
+  if (hasJapanese) return true;
+
+  // 2. Check for Japan-specific keywords
+  const japanKeywords = [
+    "japan",
+    "japanese",
+    "tokyo",
+    "kyoto",
+    "osaka",
+    "hokkaido",
+    "okinawa",
+    "yokohama",
+    "nagoya",
+    "sapporo",
+    "kobe",
+    "fukuoka",
+    "shinkansen",
+    "yen",
+    "nintendo",
+    "sony",
+    "toyota",
+    "honda",
+    "fukushima",
+    "hiroshima",
+    "nagasaki",
+    "prefecture",
+    "mount fuji",
+    "washoku",
+    "sake",
+    "ramen",
+    "shibuya",
+    "shinjuku",
+    "fuji",
+    "kanto",
+    "kansai",
+    "tohoku",
+    "chubu",
+    "chugoku",
+    "shikoku",
+    "kyushu",
+    "kishida",
+    "emperor of japan",
+    "diet of japan",
+    "jsdf",
+    "nikkei",
+    "nhk",
+    "asahi",
+    "mainichi",
+    "yomiuri",
+    "okinawan",
+    "sushi",
+    "manga",
+    "anime",
+    "sumo",
+    "kabuki"
+  ];
+
+  return japanKeywords.some((keyword) => text.includes(keyword));
+}
+
 export async function ingestNewsTask(): Promise<{
   success: boolean;
   articlesProcessed: number;
@@ -49,8 +114,12 @@ export async function ingestNewsTask(): Promise<{
           apiKey: tavilyApiKey,
         });
         const items = tavilyService.formatTavilyResultsToNewsItems(response);
+        // Filter out news unrelated to Japan immediately
+        const filteredItems = items.filter((item) =>
+          isRelatedToJapan(item.title, item.summary || item.content),
+        );
         // Override category of formatted items to match CategoryName
-        return items.map((item) => ({
+        return filteredItems.map((item) => ({
           ...item,
           category: (categoryIdToName[catId] || "Other") as CategoryName,
         }));
@@ -133,6 +202,7 @@ export async function ingestNewsTask(): Promise<{
 
   // Set last ingest time
   await storiesService.setLastIngestTime(Date.now());
+
   console.log(
     `[Ingest] Ingestion completed. Articles processed and embedded: ${newArticles.length}`,
   );
