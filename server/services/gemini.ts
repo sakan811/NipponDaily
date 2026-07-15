@@ -142,8 +142,8 @@ Instructions:
 2. executiveSummary: Write a summary broken down by topic for easy skimming. Format as a Markdown unordered list (using "- "), ensuring there are line breaks (\n) separating each point. Focus on structural issues, cultural nuances, and context specific to Japan.
 3. thematicAnalysis: Write a cross-source analysis comparing the perspectives. Contrast the viewpoints, focus, and tone of domestic Japanese sources (written in Japanese/from Japan) with those of international/Western sources (written in English/from outside Japan) on these developments. Format as a Markdown unordered list, ensuring there are line breaks (\n) separating each topic.
 4. overallCredibilityScore: Assess the collective reliability (0.0 to 1.0) based on the publishers provided.
-5. sourcesProcessed: List the sources you used. Translate their titles into the target language. If the original title is in a different language, include the original title in parentheses at the end (e.g., "Translated Title (Original Title)"). For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness (e.g. Reuters, AP, NHK, Bloomberg = high; unknown blogs = low). Also, identify any specific regions or prefectures (e.g. "Tokyo", "Kyoto", "Osaka", "Hokkaido", "Okinawa", "Tohoku", "Kyushu") that this specific source article heavily focuses on, and list them in the "regions" array (leave empty if it is national news or general).
-6. regionsAffected: Extract any specific Japanese prefectures or regions explicitly mentioned or heavily featured in these articles (e.g. "Tokyo", "Kyoto", "Osaka", "Hokkaido", "Okinawa", "Tohoku", "Kyushu"). If the news is national or does not target specific prefectures, leave the array empty.
+5. sourcesProcessed: List the sources you used. Translate their titles into the target language. If the original title is in a different language, include the original title in parentheses at the end (e.g., "Translated Title (Original Title)"). For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness. Also, dynamically identify any specific locations mentioned in this source article (such as countries like Japan or China, or prefectures/cities like Tokyo, Osaka, etc.) and list them in the "regions" array. If no location can be found, tag as "Not Mentioned" (do not use "Nationwide").
+6. regionsAffected: Extract any specific locations dynamically mentioned or heavily featured in these articles (e.g. "Tokyo", "Japan", "China", etc.). If no location can be found, tag as "Not Mentioned" (do not use "Nationwide").
 
 Raw Articles:
 ${newsText}`;
@@ -282,7 +282,7 @@ Instructions:
 1. headline: A concise, engaging English headline capturing the core theme.
 2. summary: A detailed bullet-point summary in English. Format as a Markdown unordered list (using "- "), with line breaks (\\n) separating each point.
 3. thematicAnalysis: A cross-source analysis comparing perspectives in English. Contrast domestic Japanese sources vs international/Western sources where available. Format as a Markdown unordered list.
-4. regionsAffected: Specific Japanese prefectures or regions mentioned (e.g. "Tokyo", "Osaka"). Empty if national/general.
+4. regionsAffected: Find the locations mentioned dynamically from the articles and tag them (e.g., "Japan", "China", "Tokyo", etc.). If you cannot find any location, tag as "Not Mentioned" (do not use "Nationwide").
 5. overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
 6. categories: One or more from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
 
@@ -403,7 +403,7 @@ Instructions:
 1. headline: Update if the story has evolved significantly; otherwise keep it close to the existing one.
 2. summary: Update the bullet-point summary with new facts. Keep as a Markdown unordered list (using "- ") with line breaks (\\n) between each point.
 3. thematicAnalysis: Update if new articles bring new perspectives. Format as a Markdown unordered list.
-4. regionsAffected: Combine existing regions [${Object.keys(existingStory.regionBreakdown).join(", ")}] with any new ones from the new articles.
+4. regionsAffected: Find the locations mentioned dynamically in the new and existing articles and tag them (e.g. "Japan", "China", "Tokyo", etc.). Combine existing regions [${Object.keys(existingStory.regionBreakdown).join(", ")}] with any new ones. If no location can be found, tag as "Not Mentioned" (do not use "Nationwide").
 5. overallCredibilityScore: Re-assess reliability (0.0 to 1.0) based on all sources.
 6. categories: Classify from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"]. May reuse existing [${existingStory.categories.join(", ")}].
 
@@ -550,7 +550,7 @@ Instructions for each Story Cluster:
 1. headline: A concise, engaging English headline capturing the core theme. For UPDATE types, update if the story has evolved significantly; otherwise keep it close to the existing one.
 2. summary: A detailed bullet-point summary in English. Format as a Markdown unordered list (using "- "), with line breaks (\\n) separating each point.
 3. thematicAnalysis: A cross-source analysis comparing perspectives in English. Contrast domestic Japanese sources vs international/Western sources where available. Format as a Markdown unordered list.
-4. regionsAffected: Specific Japanese prefectures or regions mentioned (e.g. "Tokyo", "Osaka"). Empty if national/general. For UPDATE types, combine existing regions with any new ones.
+4. regionsAffected: Find the locations mentioned dynamically and tag them (e.g. "Japan", "China", "Tokyo", etc.). If no location can be found, tag as "Not Mentioned" (do not use "Nationwide"). For UPDATE types, combine/re-evaluate these location tags.
 5. overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
 6. categories: One or more from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
 
@@ -743,7 +743,7 @@ Instructions for Re-grouping:
    - summary: A detailed bullet-point summary in English. Format as a Markdown unordered list (using "- "), with line breaks (\\n) separating each point.
    - thematicAnalysis: A cross-source analysis comparing perspectives in English. Format as a Markdown unordered list (using "- ").
    - categories: One or more categories from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
-   - regionsAffected: Specific Japanese prefectures or regions mentioned (e.g. "Tokyo", "Osaka"). Empty if national/general.
+   - regionsAffected: Find the locations mentioned dynamically and tag them (e.g. "Japan", "China", "Tokyo", etc.). If no location can be found, tag as "Not Mentioned" (do not use "Nationwide").
    - overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
    - articleUrls: The exact list of article URLs that belong to this story. Every article URL from the input (both existing and orphaned) must be assigned to exactly one story.
 
@@ -847,6 +847,7 @@ Output in JSON format matching the schema.`;
       categories: string[];
       articleUrls: string[];
     }>;
+    unrelatedArticleUrls: string[];
   }> {
     if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
     if (!this.client) {
@@ -902,7 +903,8 @@ Instructions for Grouping:
    - storyId: Reuse the existing story ID if the story is largely unchanged, or if another story was merged into it. If a new story is created, generate a new UUID or unique string ID.
    - headline: A concise, engaging headline in English.
    - categories: One or more categories from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
-   - articleUrls: The exact list of article URLs that belong to this story. Every article URL from the input (both existing and orphaned) must be assigned to exactly one story.
+   - articleUrls: The exact list of article URLs that belong to this story.
+7. Crucially, evaluate if any article (either from existing clusters or orphaned) is NOT related to Japan (i.e. has no clear context or focus concerning Japanese society, culture, technology, tourism, food, economy, or disaster prep). Do NOT group or assign these unrelated articles to any story. Instead, list their exact URLs in the "unrelatedArticleUrls" array.
 
 Do NOT summarize the story. Only group the articles and provide a headline and categories.
 Output in JSON format matching the schema.`;
@@ -945,8 +947,12 @@ Output in JSON format matching the schema.`;
                       ],
                     },
                   },
+                  unrelatedArticleUrls: {
+                    type: Type.ARRAY,
+                    items: { type: Type.STRING },
+                  },
                 },
-                required: ["stories"],
+                required: ["stories", "unrelatedArticleUrls"],
               },
             },
           },

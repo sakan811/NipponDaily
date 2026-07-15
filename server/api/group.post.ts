@@ -2,6 +2,7 @@ import { z } from "zod";
 import { storiesService } from "../services/stories";
 import { upstashVectorService } from "../services/vector";
 import { geminiService } from "../services/gemini";
+import { isRelatedToJapan } from "../services/ingest";
 import type { Story, StorySource } from "~~/types/index";
 
 const groupBodySchema = z.object({
@@ -124,6 +125,19 @@ export default defineEventHandler(async (event) => {
       },
     );
 
+    // Delete non-Japan articles identified by Gemini
+    if (groupResult.unrelatedArticleUrls && groupResult.unrelatedArticleUrls.length > 0) {
+      console.log(`[Group Sweep] Gemini identified ${groupResult.unrelatedArticleUrls.length} unrelated articles.`);
+      for (const url of groupResult.unrelatedArticleUrls) {
+        console.log(`[Group Sweep] Deleting unrelated article: ${url}`);
+        if (!dryRun) {
+          await upstashVectorService.deleteArticle(url);
+          await storiesService.removeProcessedArticle(url);
+        }
+        articleMap.delete(url);
+      }
+    }
+
     const newStories: Story[] = [];
     const originalStoriesMap = new Map<string, Story>();
     for (const s of redisStories) {
@@ -137,6 +151,12 @@ export default defineEventHandler(async (event) => {
         if (src) {
           sources.push(src);
         }
+      }
+
+      // Skip stories that end up with 0 valid sources
+      if (sources.length === 0) {
+        console.log(`[Group Sweep] Skipping story "${gs.headline}" (ID: ${gs.storyId}) - no valid sources.`);
+        continue;
       }
 
       const existing = originalStoriesMap.get(gs.storyId);
@@ -183,7 +203,7 @@ export default defineEventHandler(async (event) => {
       await storiesService.updateVelocityScores();
     }
 
-    return {
+     return {
       success: true,
       dryRun,
       originalStoriesCount: redisStories.length,
