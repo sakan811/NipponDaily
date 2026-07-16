@@ -153,33 +153,7 @@
                       {{ Math.round(source.credibilityScore * 100) }}%
                     </span>
 
-                    <!-- Regions Badges -->
-                    <template
-                      v-if="source.regions && source.regions.length > 0"
-                    >
-                      <span
-                        v-for="reg in source.regions"
-                        :key="reg"
-                        class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium bg-primary-500/10 dark:bg-primary-500/5 text-primary-600 dark:text-primary-400 border border-primary-500/20 dark:border-primary-500/10 rounded"
-                      >
-                        <UIcon
-                          name="i-heroicons-map-pin"
-                          class="w-3 h-3 text-primary-500"
-                        />
-                        {{ getRegionDisplayName(reg) }}
-                      </span>
-                    </template>
-                    <template v-else>
-                      <span
-                        class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 border border-stone-200/50 dark:border-stone-700/50 rounded"
-                      >
-                        <UIcon
-                          name="i-heroicons-map-pin"
-                          class="w-3 h-3 text-stone-400"
-                        />
-                        Not Mentioned
-                      </span>
-                    </template>
+                    <!-- No Regions Badges -->
                   </div>
                 </div>
               </div>
@@ -239,35 +213,6 @@ const getCredibilityColor = (score: number | undefined): string => {
   // Map score (0-1) to hue (0-120): 0% = red (hue 0), 100% = green (hue 120)
   const hue = Math.round(score * 120);
   return `hsl(${hue}, 70%, 45%)`;
-};
-
-const getRegionDisplayName = (region: string) => {
-  const normalized = region.trim();
-
-  const regionNames: Record<string, string> = {
-    tokyo: "Tokyo",
-    kyoto: "Kyoto",
-    osaka: "Osaka",
-    hokkaido: "Hokkaido",
-    okinawa: "Okinawa",
-    tohoku: "Tohoku",
-    kanto: "Kanto",
-    chubu: "Chubu",
-    kansai: "Kansai",
-    chugoku: "Chugoku",
-    shikoku: "Shikoku",
-    kyushu: "Kyushu",
-    japan: "Japan",
-    china: "China",
-    "not mentioned": "Not Mentioned",
-  };
-
-  const key = normalized.toLowerCase();
-  const match = regionNames[key];
-  if (match) {
-    return match;
-  }
-  return normalized;
 };
 
 const renderMarkdown = (text: string | undefined) => {
