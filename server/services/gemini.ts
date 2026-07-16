@@ -142,8 +142,7 @@ Instructions:
 2. executiveSummary: Write a summary broken down by topic for easy skimming. Format as a Markdown unordered list (using "- "), ensuring there are line breaks (\n) separating each point. Focus on structural issues, cultural nuances, and context specific to Japan.
 3. thematicAnalysis: Write a cross-source analysis comparing the perspectives. Contrast the viewpoints, focus, and tone of domestic Japanese sources (written in Japanese/from Japan) with those of international/Western sources (written in English/from outside Japan) on these developments. Format as a Markdown unordered list, ensuring there are line breaks (\n) separating each topic.
 4. overallCredibilityScore: Assess the collective reliability (0.0 to 1.0) based on the publishers provided.
-5. sourcesProcessed: List the sources you used. Translate their titles into the target language. If the original title is in a different language, include the original title in parentheses at the end (e.g., "Translated Title (Original Title)"). For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness. Also, dynamically identify any specific locations mentioned in this source article (such as countries like Japan or China, or prefectures/cities like Tokyo, Osaka, etc.) and list them in the "regions" array. If no location can be found, tag as "Not Mentioned" (do not use "Nationwide").
-6. regionsAffected: Extract any specific locations dynamically mentioned or heavily featured in these articles (e.g. "Tokyo", "Japan", "China", etc.). If no location can be found, tag as "Not Mentioned" (do not use "Nationwide").
+5. sourcesProcessed: List the sources you used. Translate their titles into the target language. If the original title is in a different language, include the original title in parentheses at the end (e.g., "Translated Title (Original Title)"). For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness.
 
 Raw Articles:
 ${newsText}`;
@@ -177,23 +176,14 @@ ${newsText}`;
                           source: { type: Type.STRING },
                           url: { type: Type.STRING },
                           credibilityScore: { type: Type.NUMBER },
-                          regions: {
-                            type: Type.ARRAY,
-                            items: { type: Type.STRING },
-                          },
                         },
                         required: [
                           "title",
                           "source",
                           "url",
                           "credibilityScore",
-                          "regions",
                         ],
                       },
-                    },
-                    regionsAffected: {
-                      type: Type.ARRAY,
-                      items: { type: Type.STRING },
                     },
                   },
                   required: [
@@ -202,7 +192,6 @@ ${newsText}`;
                     "thematicAnalysis",
                     "overallCredibilityScore",
                     "sourcesProcessed",
-                    "regionsAffected",
                   ],
                 },
               },
@@ -248,7 +237,6 @@ ${newsText}`;
     headline: string;
     summary: string;
     thematicAnalysis: string;
-    regionsAffected: string[];
     overallCredibilityScore: number;
     categories: string[];
   }> {
@@ -282,9 +270,8 @@ Instructions:
 1. headline: A concise, engaging English headline capturing the core theme.
 2. summary: A detailed bullet-point summary in English. Format as a Markdown unordered list (using "- "), with line breaks (\\n) separating each point.
 3. thematicAnalysis: A cross-source analysis comparing perspectives in English. Contrast domestic Japanese sources vs international/Western sources where available. Format as a Markdown unordered list.
-4. regionsAffected: Find the locations mentioned dynamically from the articles and tag them (e.g., "Japan", "China", "Tokyo", etc.). If you cannot find any location, tag as "Not Mentioned" (do not use "Nationwide").
-5. overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
-6. categories: One or more from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
+4. overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
+5. categories: One or more from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
 
 Output in JSON format matching the schema.`;
 
@@ -305,10 +292,6 @@ Output in JSON format matching the schema.`;
                   headline: { type: Type.STRING },
                   summary: { type: Type.STRING },
                   thematicAnalysis: { type: Type.STRING },
-                  regionsAffected: {
-                    type: Type.ARRAY,
-                    items: { type: Type.STRING },
-                  },
                   overallCredibilityScore: { type: Type.NUMBER },
                   categories: {
                     type: Type.ARRAY,
@@ -319,7 +302,6 @@ Output in JSON format matching the schema.`;
                   "headline",
                   "summary",
                   "thematicAnalysis",
-                  "regionsAffected",
                   "overallCredibilityScore",
                   "categories",
                 ],
@@ -348,7 +330,6 @@ Output in JSON format matching the schema.`;
       headline: defaultHeadline,
       summary: defaultSummary,
       thematicAnalysis: "- Cross-source analysis unavailable.",
-      regionsAffected: [],
       overallCredibilityScore: 0.7,
       categories: ["society"],
     };
@@ -362,7 +343,6 @@ Output in JSON format matching the schema.`;
     headline: string;
     summary: string;
     thematicAnalysis: string;
-    regionsAffected: string[];
     overallCredibilityScore: number;
     categories: string[];
   }> {
@@ -403,9 +383,8 @@ Instructions:
 1. headline: Update if the story has evolved significantly; otherwise keep it close to the existing one.
 2. summary: Update the bullet-point summary with new facts. Keep as a Markdown unordered list (using "- ") with line breaks (\\n) between each point.
 3. thematicAnalysis: Update if new articles bring new perspectives. Format as a Markdown unordered list.
-4. regionsAffected: Find the locations mentioned dynamically in the new and existing articles and tag them (e.g. "Japan", "China", "Tokyo", etc.). Combine existing regions [${Object.keys(existingStory.regionBreakdown).join(", ")}] with any new ones. If no location can be found, tag as "Not Mentioned" (do not use "Nationwide").
-5. overallCredibilityScore: Re-assess reliability (0.0 to 1.0) based on all sources.
-6. categories: Classify from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"]. May reuse existing [${existingStory.categories.join(", ")}].
+4. overallCredibilityScore: Re-assess reliability (0.0 to 1.0) based on all sources.
+5. categories: Classify from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"]. May reuse existing [${existingStory.categories.join(", ")}].
 
 Output in JSON format matching the schema.`;
 
@@ -426,10 +405,6 @@ Output in JSON format matching the schema.`;
                   headline: { type: Type.STRING },
                   summary: { type: Type.STRING },
                   thematicAnalysis: { type: Type.STRING },
-                  regionsAffected: {
-                    type: Type.ARRAY,
-                    items: { type: Type.STRING },
-                  },
                   overallCredibilityScore: { type: Type.NUMBER },
                   categories: {
                     type: Type.ARRAY,
@@ -440,7 +415,6 @@ Output in JSON format matching the schema.`;
                   "headline",
                   "summary",
                   "thematicAnalysis",
-                  "regionsAffected",
                   "overallCredibilityScore",
                   "categories",
                 ],
@@ -468,7 +442,6 @@ Output in JSON format matching the schema.`;
       headline: existingStory.headline,
       summary: `${existingStory.summary}\n${newSummaryLines}`,
       thematicAnalysis: existingStory.thematicAnalysis,
-      regionsAffected: Object.keys(existingStory.regionBreakdown),
       overallCredibilityScore:
         existingStory.sources[0]?.credibilityScore || 0.7,
       categories: existingStory.categories || ["society"],
@@ -478,7 +451,13 @@ Output in JSON format matching the schema.`;
   async batchProcessStories(
     storiesToProcess: Array<{
       storyId: string;
-      existingStory?: Story;
+      existingStory?: {
+        headline: string;
+        summary: string;
+        thematicAnalysis: string;
+        categories: string[];
+        sources: Array<{ credibilityScore: number }>;
+      };
       articles: NewsItem[];
     }>,
     options?: { apiKey?: string; model?: string },
@@ -489,7 +468,6 @@ Output in JSON format matching the schema.`;
         headline: string;
         summary: string;
         thematicAnalysis: string;
-        regionsAffected: string[];
         overallCredibilityScore: number;
         categories: string[];
       }
@@ -550,9 +528,8 @@ Instructions for each Story Cluster:
 1. headline: A concise, engaging English headline capturing the core theme. For UPDATE types, update if the story has evolved significantly; otherwise keep it close to the existing one.
 2. summary: A detailed bullet-point summary in English. Format as a Markdown unordered list (using "- "), with line breaks (\\n) separating each point.
 3. thematicAnalysis: A cross-source analysis comparing perspectives in English. Contrast domestic Japanese sources vs international/Western sources where available. Format as a Markdown unordered list.
-4. regionsAffected: Find the locations mentioned dynamically and tag them (e.g. "Japan", "China", "Tokyo", etc.). If no location can be found, tag as "Not Mentioned" (do not use "Nationwide"). For UPDATE types, combine/re-evaluate these location tags.
-5. overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
-6. categories: One or more from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
+4. overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
+5. categories: One or more from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
 
 Output in JSON format matching the schema.`;
 
@@ -579,10 +556,6 @@ Output in JSON format matching the schema.`;
                         headline: { type: Type.STRING },
                         summary: { type: Type.STRING },
                         thematicAnalysis: { type: Type.STRING },
-                        regionsAffected: {
-                          type: Type.ARRAY,
-                          items: { type: Type.STRING },
-                        },
                         overallCredibilityScore: { type: Type.NUMBER },
                         categories: {
                           type: Type.ARRAY,
@@ -594,7 +567,6 @@ Output in JSON format matching the schema.`;
                         "headline",
                         "summary",
                         "thematicAnalysis",
-                        "regionsAffected",
                         "overallCredibilityScore",
                         "categories",
                       ],
@@ -618,7 +590,6 @@ Output in JSON format matching the schema.`;
               headline: string;
               summary: string;
               thematicAnalysis: string;
-              regionsAffected: string[];
               overallCredibilityScore: number;
               categories: string[];
             }
@@ -631,7 +602,6 @@ Output in JSON format matching the schema.`;
                   headline: item.headline,
                   summary: item.summary,
                   thematicAnalysis: item.thematicAnalysis,
-                  regionsAffected: item.regionsAffected,
                   overallCredibilityScore: item.overallCredibilityScore,
                   categories: item.categories,
                 };
@@ -677,7 +647,6 @@ Output in JSON format matching the schema.`;
       summary: string;
       thematicAnalysis: string;
       categories: string[];
-      regionsAffected: string[];
       overallCredibilityScore: number;
       articleUrls: string[];
     }>;
@@ -743,7 +712,6 @@ Instructions for Re-grouping:
    - summary: A detailed bullet-point summary in English. Format as a Markdown unordered list (using "- "), with line breaks (\\n) separating each point.
    - thematicAnalysis: A cross-source analysis comparing perspectives in English. Format as a Markdown unordered list (using "- ").
    - categories: One or more categories from: ["society", "tech", "pop-culture", "tourism", "food", "disaster-prep"].
-   - regionsAffected: Find the locations mentioned dynamically and tag them (e.g. "Japan", "China", "Tokyo", etc.). If no location can be found, tag as "Not Mentioned" (do not use "Nationwide").
    - overallCredibilityScore: Collective reliability (0.0 to 1.0) based on publishers.
    - articleUrls: The exact list of article URLs that belong to this story. Every article URL from the input (both existing and orphaned) must be assigned to exactly one story.
 
@@ -776,10 +744,6 @@ Output in JSON format matching the schema.`;
                           type: Type.ARRAY,
                           items: { type: Type.STRING },
                         },
-                        regionsAffected: {
-                          type: Type.ARRAY,
-                          items: { type: Type.STRING },
-                        },
                         overallCredibilityScore: { type: Type.NUMBER },
                         articleUrls: {
                           type: Type.ARRAY,
@@ -792,7 +756,6 @@ Output in JSON format matching the schema.`;
                         "summary",
                         "thematicAnalysis",
                         "categories",
-                        "regionsAffected",
                         "overallCredibilityScore",
                         "articleUrls",
                       ],
@@ -987,9 +950,7 @@ Output in JSON format matching the schema.`;
         url: item.url,
         favicon: item.favicon,
         credibilityScore: 0.5,
-        regions: [],
       })),
-      regionsAffected: [],
     };
   }
 }

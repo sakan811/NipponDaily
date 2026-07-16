@@ -7,9 +7,12 @@ import type { CategoryName } from "~~/constants/categories";
 
 export function isRelatedToJapan(title: string, summary: string): boolean {
   const text = `${title} ${summary}`.toLowerCase();
-  
+
   // 1. Check for Japanese characters (Hiragana, Katakana, Kanji)
-  const hasJapanese = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/.test(text);
+  const hasJapanese =
+    /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/.test(
+      text,
+    );
   if (hasJapanese) return true;
 
   // 2. Check for Japan-specific keywords
@@ -64,7 +67,7 @@ export function isRelatedToJapan(title: string, summary: string): boolean {
     "manga",
     "anime",
     "sumo",
-    "kabuki"
+    "kabuki",
   ];
 
   return japanKeywords.some((keyword) => text.includes(keyword));
