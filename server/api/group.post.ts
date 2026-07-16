@@ -2,7 +2,6 @@ import { z } from "zod";
 import { storiesService } from "../services/stories";
 import { upstashVectorService } from "../services/vector";
 import { geminiService } from "../services/gemini";
-import { isRelatedToJapan } from "../services/ingest";
 import type { Story, StorySource } from "~~/types/index";
 
 const groupBodySchema = z.object({
@@ -66,7 +65,6 @@ export default defineEventHandler(async (event) => {
             ? new Date(meta.published_at * 1000).toISOString()
             : new Date().toISOString(),
           credibilityScore: 0.8,
-          regions: meta.regions || [],
           addedAt: Date.now(),
           category: meta.category,
         });
@@ -126,8 +124,13 @@ export default defineEventHandler(async (event) => {
     );
 
     // Delete non-Japan articles identified by Gemini
-    if (groupResult.unrelatedArticleUrls && groupResult.unrelatedArticleUrls.length > 0) {
-      console.log(`[Group Sweep] Gemini identified ${groupResult.unrelatedArticleUrls.length} unrelated articles.`);
+    if (
+      groupResult.unrelatedArticleUrls &&
+      groupResult.unrelatedArticleUrls.length > 0
+    ) {
+      console.log(
+        `[Group Sweep] Gemini identified ${groupResult.unrelatedArticleUrls.length} unrelated articles.`,
+      );
       for (const url of groupResult.unrelatedArticleUrls) {
         console.log(`[Group Sweep] Deleting unrelated article: ${url}`);
         if (!dryRun) {
@@ -155,7 +158,9 @@ export default defineEventHandler(async (event) => {
 
       // Skip stories that end up with 0 valid sources
       if (sources.length === 0) {
-        console.log(`[Group Sweep] Skipping story "${gs.headline}" (ID: ${gs.storyId}) - no valid sources.`);
+        console.log(
+          `[Group Sweep] Skipping story "${gs.headline}" (ID: ${gs.storyId}) - no valid sources.`,
+        );
         continue;
       }
 
@@ -165,7 +170,6 @@ export default defineEventHandler(async (event) => {
       const isSummarized = existing ? (existing.isSummarized ?? true) : false;
       const oldSummary = existing ? existing.summary : "";
       const oldThematic = existing ? existing.thematicAnalysis : "";
-      const oldRegions = existing ? existing.regionBreakdown : {};
 
       // Need summary generation if sources length changed or if it was never summarized
       const needsSummary =
@@ -179,7 +183,6 @@ export default defineEventHandler(async (event) => {
         summary: oldSummary,
         thematicAnalysis: oldThematic,
         articleCount: sources.length,
-        regionBreakdown: oldRegions,
         firstSeen,
         lastUpdated: Date.now(),
         trendScore,
@@ -203,7 +206,7 @@ export default defineEventHandler(async (event) => {
       await storiesService.updateVelocityScores();
     }
 
-     return {
+    return {
       success: true,
       dryRun,
       originalStoriesCount: redisStories.length,

@@ -354,9 +354,7 @@ export default defineEventHandler(async (event) => {
           url: src.url,
           favicon: src.favicon,
           credibilityScore: src.credibilityScore,
-          regions: src.regions,
         })),
-        regionsAffected: Object.keys(topStory.regionBreakdown),
         publishTimeRange: "Recent",
       };
     } else {
@@ -367,7 +365,6 @@ export default defineEventHandler(async (event) => {
         thematicAnalysis: "- No thematic analysis available.",
         overallCredibilityScore: 0.8,
         sourcesProcessed: [],
-        regionsAffected: [],
         publishTimeRange: "Recent",
       };
     }

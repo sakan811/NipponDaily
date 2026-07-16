@@ -9,7 +9,6 @@ export interface VectorMetadata {
   url?: string;
   published_at?: number;
   title?: string;
-  regions?: string[];
   [key: string]: unknown;
 }
 
@@ -282,7 +281,10 @@ class UpstashVectorService {
       await index.delete(articleId);
       return true;
     } catch (error) {
-      console.error(`Failed to delete article ${url} from Upstash Vector:`, error);
+      console.error(
+        `Failed to delete article ${url} from Upstash Vector:`,
+        error,
+      );
       return false;
     }
   }
