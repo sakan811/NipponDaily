@@ -35,7 +35,6 @@ export interface BriefingSource {
   url?: string;
   favicon?: string;
   credibilityScore: number;
-  regions?: string[];
 }
 
 export interface NewsBriefing {
@@ -46,7 +45,6 @@ export interface NewsBriefing {
   sourcesProcessed: BriefingSource[];
   isAiFallback?: boolean;
   publishTimeRange?: string;
-  regionsAffected?: string[];
 }
 
 // --- CLUSTERED STORIES & LONG-TERM TRENDS ---
@@ -58,7 +56,6 @@ export interface StorySource {
   publishedAt: string;
   favicon?: string;
   credibilityScore: number;
-  regions: string[];
   addedAt: number; // timestamp in ms
   category?: string;
 }
@@ -69,7 +66,6 @@ export interface Story {
   summary: string;
   thematicAnalysis: string;
   articleCount: number;
-  regionBreakdown: Record<string, number>; // region_name -> count of sources
   firstSeen: number; // timestamp ms
   lastUpdated: number; // timestamp ms
   trendScore: number;

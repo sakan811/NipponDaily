@@ -77,7 +77,6 @@ export default defineEventHandler(async () => {
           headline: string;
           summary: string;
           thematicAnalysis: string;
-          regionsAffected: string[];
           overallCredibilityScore: number;
           categories: string[];
         }
@@ -108,11 +107,6 @@ export default defineEventHandler(async () => {
             (s) => s.id === item.storyId,
           )!;
 
-          const regionBreakdown = { ...originalStory.regionBreakdown };
-          (result.regionsAffected || []).forEach((region: string) => {
-            regionBreakdown[region] = (regionBreakdown[region] || 0) + 1;
-          });
-
           const categoriesSet = new Set([
             ...(originalStory.categories || []),
             ...(result.categories || []),
@@ -121,7 +115,6 @@ export default defineEventHandler(async () => {
           originalStory.headline = result.headline;
           originalStory.summary = result.summary;
           originalStory.thematicAnalysis = result.thematicAnalysis;
-          originalStory.regionBreakdown = regionBreakdown;
           originalStory.categories = Array.from(categoriesSet);
           originalStory.isSummarized = true;
 
