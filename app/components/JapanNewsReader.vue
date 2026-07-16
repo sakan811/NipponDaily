@@ -711,10 +711,8 @@ const activeBriefingData = computed<NewsBriefing | null>(() => {
       url: src.url,
       favicon: src.favicon,
       credibilityScore: src.credibilityScore,
-      regions: src.regions,
     })),
     publishTimeRange: getStoryTimeRange(activeStory.value),
-    regionsAffected: Object.keys(activeStory.value.regionBreakdown),
   };
 });
 
@@ -796,7 +794,6 @@ const fetchNews = async () => {
             summary: mockBriefing.executiveSummary,
             thematicAnalysis: mockBriefing.thematicAnalysis || "",
             articleCount: mockBriefing.sourcesProcessed?.length || 0,
-            regionBreakdown: {},
             firstSeen: Date.now(),
             lastUpdated: Date.now(),
             trendScore: 1.0,
@@ -809,7 +806,6 @@ const fetchNews = async () => {
                 publishedAt?: string;
                 favicon?: string;
                 credibilityScore?: number;
-                regions?: string[];
                 category?: string;
               }) => ({
                 title: src.title,
@@ -818,7 +814,6 @@ const fetchNews = async () => {
                 publishedAt: src.publishedAt || new Date().toISOString(),
                 favicon: src.favicon,
                 credibilityScore: src.credibilityScore || 0.85,
-                regions: src.regions || [],
                 addedAt: Date.now(),
                 category: src.category,
               }),
