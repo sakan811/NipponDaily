@@ -32,10 +32,8 @@ describe("GeminiService", () => {
             title: "Test",
             source: "NHK",
             url: "https://nhk.jp",
-            regions: ["Tokyo"],
           },
         ],
-        regionsAffected: ["Tokyo"],
       }),
     });
 
@@ -202,10 +200,8 @@ describe("GeminiService", () => {
             title: "Test NHK Article",
             source: "NHK",
             credibilityScore: 0.9,
-            regions: [],
           },
         ],
-        regionsAffected: [],
       }),
     });
 
@@ -248,7 +244,6 @@ describe("GeminiService", () => {
             headline: "Tech Breakthrough",
             summary: "- New AI model released",
             thematicAnalysis: "- Industry-wide impact",
-            regionsAffected: ["Tokyo"],
             overallCredibilityScore: 0.9,
             categories: ["tech"],
           },
@@ -257,7 +252,6 @@ describe("GeminiService", () => {
             headline: "Kyoto Tourism Surge",
             summary: "- Record visitors in Kyoto",
             thematicAnalysis: "- Local economy boosts",
-            regionsAffected: ["Kyoto"],
             overallCredibilityScore: 0.85,
             categories: ["tourism"],
           },
@@ -290,7 +284,6 @@ describe("GeminiService", () => {
             summary: "- Old summary",
             thematicAnalysis: "- Old analysis",
             articleCount: 1,
-            regionBreakdown: { Kyoto: 1 },
             firstSeen: 12345,
             lastUpdated: 12345,
             trendScore: 0,
