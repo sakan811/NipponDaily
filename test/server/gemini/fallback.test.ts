@@ -116,10 +116,8 @@ describe("GeminiService - Fallback & Rate Limiting", () => {
                 title: "Test Source",
                 source: "NHK",
                 url: "https://nhk.jp",
-                regions: [],
               },
             ],
-            regionsAffected: [],
           }),
         });
 
@@ -178,10 +176,8 @@ describe("GeminiService - Fallback & Rate Limiting", () => {
                 title: "Test Source",
                 source: "NHK",
                 url: "https://nhk.jp",
-                regions: [],
               },
             ],
-            regionsAffected: [],
           }),
         });
 
