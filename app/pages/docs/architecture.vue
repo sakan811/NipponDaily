@@ -223,15 +223,22 @@
 
       <p>
         The application leverages Tailwind CSS v4's theme color mappings
-        configured in <code>app/assets/css/tailwind.css</code>. We use
-        traditional Japanese colors to give the app its unique feel:
+        configured in <code>app/assets/css/tailwind.css</code>. We use a dual
+        color system: traditional Japanese pigments for Light mode, and their
+        functional high-contrast opposites for Dark mode to maximize
+        readability.
       </p>
 
       <div class="overflow-x-auto my-6">
         <table class="min-w-full border-collapse">
           <thead>
             <tr class="border-b border-gray-300 dark:border-gray-700">
-              <th class="py-2 px-4 text-left font-bold">Traditional Pigment</th>
+              <th class="py-2 px-4 text-left font-bold">
+                Traditional Pigment (Light)
+              </th>
+              <th class="py-2 px-4 text-left font-bold">
+                Opposite Color (Dark)
+              </th>
               <th class="py-2 px-4 text-left font-bold">Semantic Mappings</th>
               <th class="py-2 px-4 text-left font-bold">Application</th>
             </tr>
@@ -242,7 +249,10 @@
                 <strong>Torii Vermilion (Shu-iro)</strong>
               </td>
               <td class="py-2 px-4">
-                Primary (<code>orange</code>) / Error (<code>orange</code>)
+                <strong>Electric Indigo</strong>
+              </td>
+              <td class="py-2 px-4">
+                Primary (<code>orange</code> / <code>indigo</code>)
               </td>
               <td class="py-2 px-4">
                 Main actions, briefing headers, active highlights
@@ -250,8 +260,9 @@
             </tr>
             <tr>
               <td class="py-2 px-4"><strong>Serene Sky (Sora-iro)</strong></td>
+              <td class="py-2 px-4"><strong>Serene Amber</strong></td>
               <td class="py-2 px-4">
-                Secondary (<code>sky</code>) / Info (<code>sky</code>)
+                Secondary (<code>sky</code> / <code>amber</code>)
               </td>
               <td class="py-2 px-4">Muted UI elements, secondary filters</td>
             </tr>
@@ -259,8 +270,10 @@
               <td class="py-2 px-4">
                 <strong>Amber Gold (Kogane-iro)</strong>
               </td>
+              <td class="py-2 px-4"><strong>Emerald / Yellow</strong></td>
               <td class="py-2 px-4">
-                Success (<code>amber</code>) / Warning (<code>amber</code>)
+                Success &amp; Warning (<code>amber</code> /
+                <code>emerald</code> &amp; <code>yellow</code>)
               </td>
               <td class="py-2 px-4">Trust scores, warnings, alerts</td>
             </tr>
@@ -268,7 +281,10 @@
               <td class="py-2 px-4">
                 <strong>Zen Stone (Kaibakushoku)</strong>
               </td>
-              <td class="py-2 px-4">Neutral (<code>stone</code>)</td>
+              <td class="py-2 px-4"><strong>Zinc Muted</strong></td>
+              <td class="py-2 px-4">
+                Neutral (<code>stone</code> / <code>zinc</code>)
+              </td>
               <td class="py-2 px-4">
                 Zen stone slate elements, grids, card borders, backgrounds
               </td>
@@ -281,15 +297,15 @@
         <div
           v-for="(color, idx) in paletteColors"
           :key="idx"
-          class="flex flex-col items-center p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200/40 dark:border-stone-800/40 shadow-sm"
+          class="flex flex-col items-center p-3 rounded-xl bg-white dark:bg-zinc-900 border border-stone-200/40 dark:border-zinc-800/40 shadow-sm"
         >
           <div class="w-8 h-8 rounded-full mb-2" :class="color.bgClass" />
           <span
-            class="text-xs font-serif font-bold text-stone-900 dark:text-white"
+            class="text-xs font-serif font-bold text-stone-900 dark:text-white text-center"
             >{{ color.name }}</span
           >
           <span
-            class="text-[9px] text-stone-500 dark:text-stone-400 font-serif mt-0.5"
+            class="text-[9px] text-stone-500 dark:text-stone-400 font-serif mt-0.5 text-center"
             >{{ color.romaji }}</span
           >
         </div>
@@ -334,16 +350,20 @@
       >
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 1</span> Fetch &amp; Frontline Filter (Tavily)
+            <span class="text-primary-500 mr-2">Step 1</span> Fetch &amp;
+            Frontline Filter (Tavily)
           </h3>
           <p class="mb-2">
             <strong>The Concept:</strong> We search the web for the latest news
-            across different categories and run a fast frontline check to filter out obviously unrelated articles.
+            across different categories and run a fast frontline check to filter
+            out obviously unrelated articles.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
             <strong>Technical Details:</strong> Tavily returns pre-filtered,
-            high-quality excerpts. Fetches 20 articles in parallel for each category.
-            We then perform a light keyword-matching and character check to reject obviously non-Japan news prior to deduplication, preserving API quotas and database space.
+            high-quality excerpts. Fetches 20 articles in parallel for each
+            category. We then perform a light keyword-matching and character
+            check to reject obviously non-Japan news prior to deduplication,
+            preserving API quotas and database space.
           </p>
         </div>
 
@@ -376,7 +396,8 @@
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
             <strong>Technical Details:</strong> Articles are embedded using
-            Gemini's embedding model and stored in Upstash Vector, using the SHA-256 hash of the article's URL as the document ID.
+            Gemini's embedding model and stored in Upstash Vector, using the
+            SHA-256 hash of the article's URL as the document ID.
           </p>
         </div>
       </div>
@@ -464,31 +485,46 @@
           <p class="text-sm text-gray-600 dark:text-gray-400">
             <strong>Technical Details:</strong> Maps each article to its current
             story (based on the Redis story's source list) and identifies any
-            "orphaned" articles. All compiled articles are mapped into the grouping payload.
+            "orphaned" articles. All compiled articles are mapped into the
+            grouping payload.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 3</span> Single-Pass Group &amp; Relevance Check
+            <span class="text-primary-500 mr-2">Step 3</span> Single-Pass Group
+            &amp; Relevance Check
           </h3>
           <p class="mb-2">
-            <strong>The Concept:</strong> We ask the AI to evaluate the articles, organize them into cohesive stories, and dynamically isolate non-Japan content.
+            <strong>The Concept:</strong> We ask the AI to evaluate the
+            articles, organize them into cohesive stories, and dynamically
+            isolate non-Japan content.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Packages all existing story clusters and orphaned articles into a single prompt payload. Sends this payload to Gemini to group articles and dynamically isolate any articles unrelated to Japan into the <code>unrelatedArticleUrls</code> array.
+            <strong>Technical Details:</strong> Packages all existing story
+            clusters and orphaned articles into a single prompt payload. Sends
+            this payload to Gemini to group articles and dynamically isolate any
+            articles unrelated to Japan into the
+            <code>unrelatedArticleUrls</code> array.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 4</span> Rebuild &amp; Filter Metadata
+            <span class="text-primary-500 mr-2">Step 4</span> Rebuild &amp;
+            Filter Metadata
           </h3>
           <p class="mb-2">
-            <strong>The Concept:</strong> We translate the AI's corrections back into data our app understands, performing database cleanups for unrelated articles.
+            <strong>The Concept:</strong> We translate the AI's corrections back
+            into data our app understands, performing database cleanups for
+            unrelated articles.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Parses Gemini's JSON response. If any unrelated article URLs are returned, they are immediately deleted from Upstash Vector (using their SHA-256 URL hash) and Redis processed set (if <code>dryRun</code> is false). Maps valid assigned article URLs back to full metadata, dropping any empty stories.
+            <strong>Technical Details:</strong> Parses Gemini's JSON response.
+            If any unrelated article URLs are returned, they are immediately
+            deleted from Upstash Vector (using their SHA-256 URL hash) and Redis
+            processed set (if <code>dryRun</code> is false). Maps valid assigned
+            article URLs back to full metadata, dropping any empty stories.
           </p>
         </div>
 
@@ -681,8 +717,8 @@
         <p class="text-sm mb-4">
           Fetches all current stories from Redis and all articles from the
           Upstash Vector database, reconciles them, filters out and deletes any
-          non-Japan articles, and sends the remaining data to Google
-          Gemini in a single pass to group and cluster articles into stories.
+          non-Japan articles, and sends the remaining data to Google Gemini in a
+          single pass to group and cluster articles into stories.
         </p>
 
         <div
@@ -741,7 +777,7 @@ curl -X POST http://localhost:3000/api/group \
         </template>
         <p class="text-sm mb-4">
           Finds all stories that have `isSummarized: false` and processes them
-          via Gemini to generate summaries, thematic analyses, and region tags.
+          via Gemini to generate summaries and thematic analyses.
         </p>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div>
@@ -999,16 +1035,24 @@ const mobileMenuOpen = ref(false);
 
 const paletteColors = [
   {
-    name: "Torii Vermilion",
-    romaji: "Shu-iro",
-    bgClass: "bg-primary-500",
+    name: "Torii Vermilion / Indigo",
+    romaji: "Shu-iro / Indigo",
+    bgClass: "bg-orange-500 dark:bg-indigo-500",
   },
-  { name: "Serene Sky", romaji: "Sora-iro", bgClass: "bg-secondary-500" },
-  { name: "Amber Gold", romaji: "Kogane-iro", bgClass: "bg-success-500" },
   {
-    name: "Zen Stone",
-    romaji: "Kaibakushoku",
-    bgClass: "bg-stone-300 dark:bg-stone-700",
+    name: "Serene Sky / Amber",
+    romaji: "Sora-iro / Amber",
+    bgClass: "bg-sky-500 dark:bg-amber-500",
+  },
+  {
+    name: "Amber Gold / Emerald",
+    romaji: "Kogane-iro / Emerald",
+    bgClass: "bg-amber-500 dark:bg-emerald-500",
+  },
+  {
+    name: "Zen Stone / Zinc",
+    romaji: "Kaibakushoku / Zinc",
+    bgClass: "bg-stone-300 dark:bg-zinc-700",
   },
 ];
 const systemDiagram = `
