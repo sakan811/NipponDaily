@@ -249,7 +249,6 @@ describe("StoriesService", () => {
         id: "mem-story",
         headline: "Mem Story Headline",
         sources: [],
-        regionBreakdown: {},
       };
 
       // Should save and retrieve from memory Map
@@ -282,7 +281,6 @@ describe("StoriesService", () => {
         id: "delete-me-story",
         headline: "Delete Me",
         sources: [],
-        regionBreakdown: {},
       };
 
       await service.saveStory(mockStory as any);
@@ -312,13 +310,11 @@ describe("StoriesService", () => {
         id: "story-c1",
         headline: "Story 1",
         sources: [],
-        regionBreakdown: {},
       };
       const mockStory2 = {
         id: "story-c2",
         headline: "Story 2",
         sources: [],
-        regionBreakdown: {},
       };
 
       await service.saveStory(mockStory1 as any);
