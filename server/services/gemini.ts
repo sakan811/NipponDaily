@@ -138,9 +138,16 @@ class GeminiService {
 Target Language (ISO 639-1): ${localeCode}
 
 Instructions:
-1. mainHeadline: Create a single, overarching headline that captures the most important theme across these articles.
-2. executiveSummary: Write a summary broken down by topic for easy skimming. Format as a Markdown unordered list (using "- "), ensuring there are line breaks (\n) separating each point. Focus on structural issues, cultural nuances, and context specific to Japan.
-3. thematicAnalysis: Write a cross-source analysis comparing the perspectives. Contrast the viewpoints, focus, and tone of domestic Japanese sources (written in Japanese/from Japan) with those of international/Western sources (written in English/from outside Japan) on these developments. Format as a Markdown unordered list, ensuring there are line breaks (\n) separating each topic.
+1. mainHeadline: Create a single headline capturing the most important theme. If the articles do not share one coherent throughline, the headline should name the shared topic domain honestly (e.g. "Aging Japan: This Week's Developments") rather than inventing false cohesion across unrelated stories.
+2. executiveSummary: Write a summary broken down by topic for easy skimming. Format as a Markdown unordered list (using "- "), with line breaks (\n) separating each point. Focus on structural issues, cultural nuances, and context specific to Japan.
+   - Order bullets by significance: the single most nationally-consequential fact (a hard statistic, a policy change, a milestone) comes first. Anecdotal, local, or human-interest items come last.
+   - Every bullet must contain at least one concrete, specific detail — a number, a named institution, a named policy, a named study. Do not write a bullet that only gestures at a topic (e.g. "advanced rehabilitation facilities exist") without the specific finding attached.
+   - If the source articles do NOT share a single throughline — e.g. a national statistic, a local business profile, and a medical study that only share the loose theme of "aging Japan" — do not flatten them into one undifferentiated list. Instead group bullets under short bolded sub-headers (e.g. **Demographics**, **Local Communities**, **Medical Research**) so the reader can tell at a glance which items are hard news vs. color.
+   - Skip any source that adds no independent fact beyond what's already covered by another bullet.
+3. thematicAnalysis: Write a cross-source analysis comparing perspectives. Contrast the viewpoints, focus, and tone of domestic Japanese sources (written in Japanese/from Japan) with those of international/Western sources (written in English/from outside Japan) on these developments. Format as a Markdown unordered list, with line breaks (\n) separating each point.
+   - Each bullet must make exactly ONE comparative claim. Do not join two unrelated observations with "while" or "and" — if domestic sources emphasize X and international sources emphasize Y, and X and Y aren't actually causally or thematically linked, write them as two separate bullets.
+   - Name which claim comes from domestic Japanese sources and which from international/Western sources explicitly.
+   - If sources actually agree rather than diverge on a topic, say so directly instead of manufacturing a contrast.
 4. overallCredibilityScore: Assess the collective reliability (0.0 to 1.0) based on the publishers provided.
 5. sourcesProcessed: List the sources you used. Translate their titles into the target language. If the original title is in a different language, include the original title in parentheses at the end (e.g., "Translated Title (Original Title)"). For each source, assign a credibilityScore (0.0 to 1.0) based on your knowledge of the publisher's reputation, editorial standards, and trustworthiness.
 
