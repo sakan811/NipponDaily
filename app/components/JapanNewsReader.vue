@@ -231,17 +231,19 @@
                       >
                         Summarizing...
                       </UBadge>
-                      <div
-                        class="flex items-center gap-1 text-xs font-semibold text-primary-600 dark:text-primary-400"
+                      <UBadge
+                        v-if="story.trendScore && story.trendScore > 5"
+                        color="primary"
+                        variant="soft"
+                        size="xs"
+                        class="flex items-center gap-1"
                       >
                         <UIcon
                           name="i-heroicons-fire"
-                          class="w-3.5 h-3.5 text-primary-500"
+                          class="w-3 h-3 text-primary-500 animate-pulse"
                         />
-                        <span>{{
-                          Math.round(story.trendScore * 10) / 10
-                        }}</span>
-                      </div>
+                        <span>Trending</span>
+                      </UBadge>
                     </div>
                   </div>
                   <!-- Headline -->
@@ -796,7 +798,7 @@ const fetchNews = async () => {
             articleCount: mockBriefing.sourcesProcessed?.length || 0,
             firstSeen: Date.now(),
             lastUpdated: Date.now(),
-            trendScore: 1.0,
+            trendScore: mockBriefing.sourcesProcessed?.length || 0,
             isSummarized: true,
             sources: (mockBriefing.sourcesProcessed || []).map(
               (src: {
