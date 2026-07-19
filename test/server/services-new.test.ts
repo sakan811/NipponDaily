@@ -328,4 +328,80 @@ describe("StoriesService", () => {
       process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
     }
   });
+
+  it("calculates trend score based on sources from the last 14 days", async () => {
+    const originalUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const originalToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+    process.env.UPSTASH_REDIS_REST_URL = "";
+    process.env.UPSTASH_REDIS_REST_TOKEN = "";
+
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "",
+      upstashRedisRestToken: "",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+
+    try {
+      const now = Date.now();
+      const mockStory = {
+        id: "trend-story",
+        headline: "Trend Story",
+        trendScore: 0,
+        sources: [
+          // 3 recent sources (within last 14 days)
+          {
+            title: "S1",
+            source: "S1",
+            url: "url1",
+            publishedAt: "2024-01-01",
+            credibilityScore: 0.8,
+            addedAt: now - 2 * 24 * 3600 * 1000,
+          },
+          {
+            title: "S2",
+            source: "S2",
+            url: "url2",
+            publishedAt: "2024-01-02",
+            credibilityScore: 0.8,
+            addedAt: now - 5 * 24 * 3600 * 1000,
+          },
+          {
+            title: "S3",
+            source: "S3",
+            url: "url3",
+            publishedAt: "2024-01-03",
+            credibilityScore: 0.8,
+            addedAt: now - 10 * 24 * 3600 * 1000,
+          },
+          // 2 old sources (more than 14 days ago)
+          {
+            title: "S4",
+            source: "S4",
+            url: "url4",
+            publishedAt: "2024-01-04",
+            credibilityScore: 0.8,
+            addedAt: now - 15 * 24 * 3600 * 1000,
+          },
+          {
+            title: "S5",
+            source: "S5",
+            url: "url5",
+            publishedAt: "2024-01-05",
+            credibilityScore: 0.8,
+            addedAt: now - 20 * 24 * 3600 * 1000,
+          },
+        ],
+      };
+
+      await service.saveStory(mockStory as any);
+      await service.updateVelocityScores();
+
+      const retrieved = await service.getStory("trend-story");
+      // trendScore should be 3 (only counting the 3 recent sources)
+      expect(retrieved?.trendScore).toBe(3);
+    } finally {
+      process.env.UPSTASH_REDIS_REST_URL = originalUrl;
+      process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
+    }
+  });
 });

@@ -174,26 +174,15 @@ class StoriesService {
   async updateVelocityScores(): Promise<void> {
     const stories = await this.getStories();
     const now = Date.now();
-    const sixHoursAgo = now - 6 * 3600 * 1000;
-    const twelveHoursAgo = now - 12 * 3600 * 1000;
+    const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
+    const cutoff = now - TWO_WEEKS_MS;
 
     for (const story of stories) {
-      const articles = story.sources || [];
-
-      const count6h = articles.filter(
-        (a) => (a.addedAt || 0) >= sixHoursAgo,
-      ).length;
-
-      const countPrior6h = articles.filter(
-        (a) =>
-          (a.addedAt || 0) >= twelveHoursAgo && (a.addedAt || 0) < sixHoursAgo,
-      ).length;
-
-      const velocity = count6h - countPrior6h;
-      // Formula: base count in last 6h, plus positive change velocity bonus
-      const trendScore = count6h * 1.5 + velocity * 0.5;
-
-      story.trendScore = Math.max(0, trendScore);
+      const recentSources = (story.sources || []).filter((src) => {
+        const time = src.addedAt || new Date(src.publishedAt).getTime() || 0;
+        return time >= cutoff;
+      });
+      story.trendScore = recentSources.length;
       await this.saveStory(story);
     }
   }
