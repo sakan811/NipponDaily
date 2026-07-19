@@ -139,7 +139,9 @@ export default defineEventHandler(async (event) => {
     }
     const validatedQuery = newsQuerySchema.parse(query) as NewsQuery;
 
-    const isTest = !!process.env.VITEST || process.env.NODE_ENV === "test";
+    const isTest =
+      (!!process.env.VITEST || process.env.NODE_ENV === "test") &&
+      process.env.TEST_DB_MODE !== "true";
 
     if (isTest) {
       let rawNewsItems = [];
@@ -258,6 +260,19 @@ export default defineEventHandler(async (event) => {
     // 2. Fetch stories from Redis
     const allStories = await storiesService.getStories();
 
+    // Dynamically calculate trendScore for all stories relative to current time
+    const now = Date.now();
+    const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
+    const cutoff = now - TWO_WEEKS_MS;
+
+    for (const story of allStories) {
+      const recentSources = (story.sources || []).filter((src) => {
+        const time = src.addedAt || new Date(src.publishedAt).getTime() || 0;
+        return time >= cutoff;
+      });
+      story.trendScore = recentSources.length;
+    }
+
     // 3. Filter stories
     let filteredStories = allStories;
 
@@ -320,7 +335,7 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    // 4. Sort stories: primary by trendScore descending, secondary by lastUpdated descending
+    // 4. Sort stories: primary by trendScore descending (recent sources count), secondary by lastUpdated descending
     filteredStories.sort((a, b) => {
       if (b.trendScore !== a.trendScore) {
         return b.trendScore - a.trendScore;
