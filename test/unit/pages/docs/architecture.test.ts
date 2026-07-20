@@ -39,9 +39,9 @@ describe("Architecture Page", () => {
     expect(wrapper.text()).toContain("System Architecture");
     expect(wrapper.text()).toContain("Frontend (Nuxt 4)");
     expect(wrapper.text()).toContain("Color Palette & System");
-    expect(wrapper.text()).toContain("Torii Vermilion");
-    expect(wrapper.text()).toContain("Serene Sky");
-    expect(wrapper.text()).toContain("Amber Gold");
-    expect(wrapper.text()).toContain("Zen Stone");
+    expect(wrapper.text()).toContain("Sakura Blossom");
+    expect(wrapper.text()).toContain("Sage Leaf");
+    expect(wrapper.text()).toContain("Herbal Green");
+    expect(wrapper.text()).toContain("Cream Washi");
   });
 });

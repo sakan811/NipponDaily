@@ -2,11 +2,20 @@
   <div class="min-h-screen">
     <UHeader
       v-model:open="mobileMenuOpen"
-      class="border-b border-stone-200 dark:border-stone-800 bg-[#FCFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md"
+      class="border-b border-stone-200 dark:border-stone-800 bg-[#FDFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md"
     >
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-3">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-6 h-6" />
+          <img
+            src="/favicon-light.ico"
+            alt="NipponDaily"
+            class="w-6 h-6 dark:hidden border border-neutral-900 rounded-sm"
+          >
+          <img
+            src="/favicon-dark.ico"
+            alt="NipponDaily"
+            class="w-6 h-6 hidden dark:block border border-neutral-50 rounded-sm"
+          >
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-sm tracking-wide leading-none"

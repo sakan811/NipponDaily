@@ -90,8 +90,11 @@ describe("Index Page (Landing)", () => {
 
   it("renders header favicon logo correctly", () => {
     const wrapper = mount(IndexPage);
-    const img = wrapper.find('.u-header img[src="/favicon.ico"]');
-    expect(img.exists()).toBe(true);
-    expect(img.attributes("alt")).toBe("NipponDaily");
+    const lightImg = wrapper.find('.u-header img[src="/favicon-light.ico"]');
+    const darkImg = wrapper.find('.u-header img[src="/favicon-dark.ico"]');
+    expect(lightImg.exists()).toBe(true);
+    expect(lightImg.attributes("alt")).toBe("NipponDaily");
+    expect(darkImg.exists()).toBe(true);
+    expect(darkImg.attributes("alt")).toBe("NipponDaily");
   });
 });

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="u-header sticky top-0 z-40 w-full bg-[#FCFBF7]/80 dark:bg-[#0B0E14]/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50"
+    class="u-header sticky top-0 z-40 w-full bg-[#FDFBF7]/80 dark:bg-[#0B0E14]/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50"
   >
     <div class="mx-auto px-4 max-w-6xl h-16 flex items-center justify-between">
       <!-- Left side (Logo & Brand) -->
@@ -36,7 +36,7 @@
     >
       <div
         v-if="open && $slots.body"
-        class="md:hidden border-b border-stone-200 dark:border-stone-800 bg-[#FCFBF7] dark:bg-[#0B0E14] px-4 py-4 space-y-3 shadow-lg"
+        class="md:hidden border-b border-stone-200 dark:border-stone-800 bg-[#FDFBF7] dark:bg-[#0B0E14] px-4 py-4 space-y-3 shadow-lg"
       >
         <slot name="body" />
       </div>
