@@ -1,6 +1,6 @@
 <template>
   <div
-    class="u-page flex flex-col min-h-screen bg-[#FCFBF7] dark:bg-[#0B0E14] relative"
+    class="u-page flex flex-col min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] relative"
   >
     <slot />
   </div>

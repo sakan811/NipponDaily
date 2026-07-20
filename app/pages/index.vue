@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-[#FCFBF7] dark:bg-[#0B0E14] text-[#1F2022] dark:text-[#E2E4E9] selection:bg-primary-500/20"
+    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-[#1F2022] dark:text-[#E2E4E9] selection:bg-primary-500/20"
   >
     <!-- Fine grid decoration to resemble shoji paper screens -->
     <div
@@ -9,11 +9,20 @@
 
     <!-- Header -->
     <UHeader
-      class="border-b border-stone-200 dark:border-stone-800 bg-[#FCFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md"
+      class="border-b border-stone-200 dark:border-stone-800 bg-[#FDFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md"
     >
       <template #left>
         <NuxtLink to="/" class="flex items-center gap-3">
-          <img src="/favicon.ico" alt="NipponDaily" class="w-8 h-8" />
+          <img
+            src="/favicon-light.ico"
+            alt="NipponDaily"
+            class="w-8 h-8 dark:hidden border border-neutral-900 rounded-sm"
+          >
+          <img
+            src="/favicon-dark.ico"
+            alt="NipponDaily"
+            class="w-8 h-8 hidden dark:block border border-neutral-50 rounded-sm"
+          >
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-lg tracking-wide leading-none"
@@ -43,7 +52,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Japan, Synthesized.<br class="hidden sm:inline" />
+          Japan, Synthesized.<br class="hidden sm:inline" >
           <span class="text-primary-500 italic font-normal"
             >Deep Cultural & Regional</span
           >
@@ -125,7 +134,7 @@
 
     <!-- Footer -->
     <UFooter
-      class="border-t border-stone-200 dark:border-stone-800 bg-[#FCFBF7] dark:bg-[#0B0E14]"
+      class="border-t border-stone-200 dark:border-stone-800 bg-[#FDFBF7] dark:bg-[#0B0E14]"
     >
       <template #left>
         <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
