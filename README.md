@@ -1,7 +1,9 @@
 # NipponDaily
 
 <p align="center">
-  <img src="./public/android-chrome-512x512.png" width="256" height="256" alt="logo" />
+  <img src="./public/light/android-chrome-512x512.png" width="256" height="256" alt="logo light" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./public/dark/android-chrome-512x512.png" width="256" height="256" alt="logo dark" />
 </p>
 
 **Your gateway to Japanese news.** NipponDaily is an AI-powered news aggregator that fetches Japan-related news in English, then clusters articles and processes them with Google Gemini AI for executive briefings, cross-source synthesis, and credibility assessment.
