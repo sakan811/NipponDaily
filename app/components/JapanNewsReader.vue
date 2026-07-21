@@ -798,6 +798,32 @@ const fetchNews = async () => {
       } else if (response.data.mainHeadline) {
         // Fallback for NewsBriefing format (backward compatibility & unit tests)
         const mockBriefing = response.data;
+        const mappedSources = (mockBriefing.sourcesProcessed || []).map(
+          (src: {
+            title: string;
+            source: string;
+            url?: string;
+            publishedAt?: string;
+            favicon?: string;
+            credibilityScore?: number;
+            category?: string;
+          }) => ({
+            title: src.title,
+            source: src.source,
+            url: src.url || "",
+            publishedAt: src.publishedAt || new Date().toISOString(),
+            favicon: src.favicon,
+            credibilityScore: src.credibilityScore || 0.85,
+            addedAt: Date.now(),
+            category: src.category,
+          }),
+        );
+        const sourceTimes = mappedSources.map((src) => {
+          const pubTime = src.publishedAt ? new Date(src.publishedAt).getTime() : 0;
+          return isNaN(pubTime) ? (src.addedAt || 0) : pubTime;
+        });
+        const fallbackLastUpdated = sourceTimes.length > 0 ? Math.max(...sourceTimes) : Date.now();
+
         stories.value = [
           {
             id: "default-story",
@@ -806,29 +832,10 @@ const fetchNews = async () => {
             thematicAnalysis: mockBriefing.thematicAnalysis || "",
             articleCount: mockBriefing.sourcesProcessed?.length || 0,
             firstSeen: Date.now(),
-            lastUpdated: Date.now(),
+            lastUpdated: fallbackLastUpdated,
             trendScore: mockBriefing.sourcesProcessed?.length || 0,
             isSummarized: true,
-            sources: (mockBriefing.sourcesProcessed || []).map(
-              (src: {
-                title: string;
-                source: string;
-                url?: string;
-                publishedAt?: string;
-                favicon?: string;
-                credibilityScore?: number;
-                category?: string;
-              }) => ({
-                title: src.title,
-                source: src.source,
-                url: src.url || "",
-                publishedAt: src.publishedAt || new Date().toISOString(),
-                favicon: src.favicon,
-                credibilityScore: src.credibilityScore || 0.85,
-                addedAt: Date.now(),
-                category: src.category,
-              }),
-            ),
+            sources: mappedSources,
             categories: [],
           },
         ];
