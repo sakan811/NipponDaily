@@ -177,6 +177,12 @@ export default defineEventHandler(async (event) => {
         !existing ||
         existing.sources.length !== sources.length;
 
+      const sourceTimes = sources.map((src) => {
+        const pubTime = src.publishedAt ? new Date(src.publishedAt).getTime() : 0;
+        return isNaN(pubTime) ? (src.addedAt || 0) : pubTime;
+      });
+      const lastUpdated = sourceTimes.length > 0 ? Math.max(...sourceTimes) : Date.now();
+
       newStories.push({
         id: gs.storyId,
         headline: gs.headline,
@@ -184,7 +190,7 @@ export default defineEventHandler(async (event) => {
         thematicAnalysis: oldThematic,
         articleCount: sources.length,
         firstSeen,
-        lastUpdated: Date.now(),
+        lastUpdated,
         trendScore,
         sources,
         categories: gs.categories,
