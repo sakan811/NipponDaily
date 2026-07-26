@@ -4,11 +4,7 @@ import type {
   GenerateContentResponse,
   ThinkingLevel,
 } from "@google/genai";
-import type {
-  NewsItem,
-  NewsBriefing,
-  BriefingSource,
-} from "../../types/index";
+import type { NewsItem, NewsBriefing, BriefingSource } from "../../types/index";
 
 class GeminiService {
   private client: GoogleGenAI | null = null;

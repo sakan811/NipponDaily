@@ -59,6 +59,8 @@ describe("SummaryFallback Component", () => {
       },
     });
 
-    expect(wrapper.text()).toContain("DEBUG_ERROR_UI: Summary Process Failure Preview");
+    expect(wrapper.text()).toContain(
+      "DEBUG_ERROR_UI: Summary Process Failure Preview",
+    );
   });
 });
