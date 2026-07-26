@@ -82,10 +82,8 @@ export default defineNuxtConfig({
     upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
     upstashVectorRestUrl: process.env.UPSTASH_VECTOR_REST_URL,
     upstashVectorRestToken: process.env.UPSTASH_VECTOR_REST_TOKEN,
-    rateLimitMaxRequests: process.env.RATE_LIMIT_MAX_REQUESTS,
     public: {
       apiBase: "/api",
-      debugErrorUi: process.env.DEBUG_ERROR_UI === "true",
     },
   },
   vite: {
