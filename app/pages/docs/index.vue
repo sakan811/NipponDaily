@@ -6,12 +6,12 @@
           <img
             src="/favicon-light.ico"
             alt="NipponDaily"
-            class="w-6 h-6 dark:hidden border border-neutral-900 rounded-sm"
+            class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
           >
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
-            class="w-6 h-6 hidden dark:block border border-neutral-50 rounded-sm"
+            class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
           >
           <span>NipponDaily Docs</span>
         </NuxtLink>
