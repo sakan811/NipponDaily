@@ -5,15 +5,15 @@
         <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
           <img
             src="/favicon-light.ico"
-            alt="NipponDaily"
+            alt="Nippon Daily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
           >
           <img
             src="/favicon-dark.ico"
-            alt="NipponDaily"
+            alt="Nippon Daily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
           >
-          <span>NipponDaily Docs</span>
+          <span>Nippon Daily Docs</span>
         </NuxtLink>
       </template>
 
@@ -53,7 +53,7 @@
     <main class="max-w-4xl mx-auto py-8 px-4 prose dark:prose-invert">
       <h1 class="text-3xl font-bold mb-6 text-primary-500">Core Features</h1>
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily transforms raw news into actionable intelligence using
+        Nippon Daily transforms raw news into actionable intelligence using
         advanced AI synthesis.
       </p>
 
@@ -69,7 +69,7 @@
     <UFooter>
       <template #left>
         <p class="text-sm text-secondary-500">
-          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
+          &copy; 2025 - {{ new Date().getFullYear() }} Nippon Daily. Released
           under the Apache-2.0 License.
         </p>
       </template>
