@@ -143,25 +143,58 @@
             </div>
           </div>
 
-          <UCard
-            v-if="error || isDebugErrorUi"
-            data-testid="error-state"
-            :ui="{
-              root: 'w-full shadow-md text-center mb-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-lg',
-              body: 'p-4 sm:p-6',
-            }"
+          <!-- DEBUG_ERROR_UI Testing & Design Panel -->
+          <div
+            v-if="isDebugErrorUi"
+            class="mb-6 p-4 rounded-xl border border-amber-500/40 bg-amber-500/10 dark:bg-amber-950/30 backdrop-blur-sm space-y-3"
           >
-            <div class="p-2 space-y-4">
-              <p class="text-error-500 font-medium">
-                {{
-                  error || "Service temporarily unavailable. Please try again."
-                }}
-              </p>
-              <UButton color="error" :disabled="loading" @click="refreshNews">
-                {{ t.tryAgain }}
-              </UButton>
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-700 dark:text-amber-300">
+                <UIcon name="i-heroicons-bug-ant" class="w-4 h-4" />
+                <span>DEBUG_ERROR_UI Testing & Design Toolbar</span>
+              </div>
+              <UBadge color="warning" variant="soft" size="xs">DEBUG Mode Active</UBadge>
             </div>
-          </UCard>
+            <div class="flex flex-wrap gap-2">
+              <UButton
+                size="xs"
+                :color="debugSimulationMode === 'none' ? 'primary' : 'secondary'"
+                label="Standard / Live Mode"
+                @click="debugSimulationMode = 'none'"
+              />
+              <UButton
+                size="xs"
+                :color="debugSimulationMode === 'trending_error' ? 'error' : 'secondary'"
+                icon="i-heroicons-cloud-arrow-down"
+                label="Failed Trending Fetching"
+                @click="debugSimulationMode = 'trending_error'"
+              />
+              <UButton
+                size="xs"
+                :color="debugSimulationMode === 'summary_error' ? 'warning' : 'secondary'"
+                icon="i-heroicons-exclamation-triangle"
+                label="Failed Summary Process"
+                @click="debugSimulationMode = 'summary_error'"
+              />
+              <UButton
+                size="xs"
+                :color="debugSimulationMode === 'ai_fallback' ? 'primary' : 'secondary'"
+                icon="i-heroicons-document-text"
+                label="AI Fallback Briefing Card"
+                @click="debugSimulationMode = 'ai_fallback'"
+              />
+            </div>
+          </div>
+
+          <!-- 1. Failed Trending Fetching Fallback Component -->
+          <TrendingFallback
+            v-if="error || (isDebugErrorUi && debugSimulationMode === 'trending_error')"
+            :error="error || (isDebugErrorUi ? 'Debug Test: Failed to fetch trending boxes from server.' : null)"
+            :loading="loading"
+            :is-debug="isDebugErrorUi"
+            class="mb-8"
+            @retry="refreshNews"
+          />
 
           <div v-if="loading" class="space-y-6">
             <UCard class="w-full shadow-md border-t-4 border-t-primary-500">
@@ -193,13 +226,22 @@
             </p>
           </div>
 
-          <div v-if="isDebugErrorUi && !error" class="mb-4">
-            <div
-              class="text-xs font-bold text-primary-500 mb-2 uppercase tracking-wider"
-            >
-              Mock: AI Fallback Card
+          <!-- 2. Failed Summary Process State / AI Fallback Card Preview -->
+          <div v-if="isDebugErrorUi && !error && debugSimulationMode === 'ai_fallback'" class="mb-6 space-y-2">
+            <div class="text-xs font-bold text-primary-500 uppercase tracking-wider">
+              Mock: AI Briefing Fallback Preview
             </div>
             <BriefingCard :briefing="mockFallbackBriefing" />
+          </div>
+
+          <div v-if="isDebugErrorUi && !error && debugSimulationMode === 'summary_error'" class="mb-6">
+            <SummaryFallback
+              headline="[Debug Mode] AI Summarization Failure Preview"
+              :sources="mockRawSources"
+              :loading="loading"
+              :is-debug="true"
+              @retry="refreshNews"
+            />
           </div>
 
           <!-- New Clustered Stories Trending Dashboard UI -->
@@ -310,23 +352,15 @@
                   />
                 </div>
 
-                <div
+                <!-- 2. Failed Summary Process Component -->
+                <SummaryFallback
                   v-if="!activeStory?.isSummarized"
-                  class="text-center p-8 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl"
-                >
-                  <UIcon
-                    name="i-heroicons-cpu-chip"
-                    class="w-12 h-12 text-primary-500 animate-pulse mx-auto mb-4"
-                  />
-                  <h3
-                    class="text-lg font-bold text-stone-900 dark:text-white mb-2"
-                  >
-                    AI is Summarizing this Story
-                  </h3>
-                  <p class="text-sm text-stone-500 dark:text-stone-400">
-                    Please check back in a few moments.
-                  </p>
-                </div>
+                  :headline="activeStory?.headline"
+                  :sources="activeStory?.sources"
+                  :loading="loading"
+                  :is-debug="isDebugErrorUi"
+                  @retry="refreshNews"
+                />
                 <BriefingCard
                   v-else
                   :briefing="activeBriefingData"
@@ -469,13 +503,16 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from "vue";
+import { useRoute } from "vue-router";
 import { CalendarDate } from "@internationalized/date";
 import type { NewsBriefing, Story } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
 
-// Import components (Nuxt usually auto-imports, but explicitly declaring helps some IDEs)
+// Import components
 import BriefingCard from "./BriefingCard.vue";
+import TrendingFallback from "./TrendingFallback.vue";
+import SummaryFallback from "./SummaryFallback.vue";
 
 const translations = {
   en: {
@@ -550,9 +587,38 @@ const mobileMenuOpen = ref(false);
 
 const selectedCategory = ref<CategoryId>("all");
 
-// Debug state for UI testing
-const config = useRuntimeConfig();
-const isDebugErrorUi = computed(() => config.public.debugErrorUi === true);
+// Debug state for UI testing & designing (Activated via URL query: ?debug_error_ui=true)
+const isDebugErrorUi = computed(() => {
+  try {
+    const route = useRoute();
+    if (route && route.query) {
+      return (
+        route.query.debug_error_ui === "true" ||
+        route.query.debug_error_ui === "1" ||
+        route.query.debug === "error"
+      );
+    }
+  } catch {
+    return false;
+  }
+  return false;
+});
+const debugSimulationMode = ref<"none" | "trending_error" | "summary_error" | "ai_fallback">(
+  isDebugErrorUi.value ? "trending_error" : "none",
+);
+
+const mockRawSources = [
+  {
+    title: "Toyota and NTT Expand Autonomous Mobility Partnership in Tokyo",
+    source: "Nikkei Asia",
+    url: "https://asia.nikkei.com",
+  },
+  {
+    title: "Japan Weather Agency Issues Special Resilience Survey for Tohoku Region",
+    source: "NHK World",
+    url: "https://www3.nhk.or.jp",
+  },
+];
 
 const mockFallbackBriefing: NewsBriefing = {
   isAiFallback: true,
@@ -749,10 +815,38 @@ const getRelativeTime = (timestamp: number) => {
   return `${days}d ago`;
 };
 
+watch(debugSimulationMode, () => {
+  if (isDebugErrorUi.value) {
+    if (debugSimulationMode.value === "trending_error") {
+      error.value =
+        "DEBUG_ERROR_UI: Service temporarily unavailable. Failed to fetch trending stories from Redis database.";
+    } else {
+      error.value = null;
+    }
+  }
+});
+
 // Methods
 const fetchNews = async () => {
   loading.value = true;
   error.value = null;
+
+  // In DEBUG_ERROR_UI mode, bypass actual Redis/API requests when simulating error states
+  if (isDebugErrorUi.value && debugSimulationMode.value === "trending_error") {
+    error.value =
+      "DEBUG_ERROR_UI: Service temporarily unavailable. Failed to fetch trending stories from Redis database.";
+    loading.value = false;
+    return;
+  }
+
+  if (
+    isDebugErrorUi.value &&
+    (debugSimulationMode.value === "summary_error" ||
+      debugSimulationMode.value === "ai_fallback")
+  ) {
+    loading.value = false;
+    return;
+  }
 
   try {
     const query: Record<string, string | number | undefined> = {
