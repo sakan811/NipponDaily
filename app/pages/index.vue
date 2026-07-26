@@ -9,7 +9,6 @@
 
     <!-- Header -->
     <UHeader
-      v-model:open="mobileMenuOpen"
       class="border-b border-stone-200 dark:border-stone-800 bg-[#FDFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md"
     >
       <template #left>
@@ -35,48 +34,7 @@
 
       <template #right>
         <div class="flex items-center gap-4">
-          <UButton
-            to="/news"
-            label="News Feed"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-newspaper"
-            size="sm"
-            class="hidden sm:flex"
-          />
-          <UButton
-            to="/docs"
-            label="Docs"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-book-open"
-            size="sm"
-            class="hidden sm:flex"
-          />
           <UColorModeButton class="hover:text-primary-500 transition-colors" />
-        </div>
-      </template>
-
-      <template #body>
-        <div class="flex flex-col gap-3 p-4">
-          <UButton
-            to="/news"
-            label="News Feed"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-newspaper"
-            block
-            @click="mobileMenuOpen = false"
-          />
-          <UButton
-            to="/docs"
-            label="Documentation"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-book-open"
-            block
-            @click="mobileMenuOpen = false"
-          />
         </div>
       </template>
     </UHeader>

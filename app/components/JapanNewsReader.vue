@@ -27,48 +27,7 @@
 
       <template #right>
         <div class="flex items-center gap-4">
-          <UButton
-            to="/"
-            label="Home"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-home"
-            size="sm"
-            class="hidden sm:flex"
-          />
-          <UButton
-            to="/docs"
-            label="Docs"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-book-open"
-            size="sm"
-            class="hidden sm:flex"
-          />
           <UColorModeButton class="hover:text-primary-500 transition-colors" />
-        </div>
-      </template>
-
-      <template #body>
-        <div class="flex flex-col gap-3 p-4">
-          <UButton
-            to="/"
-            label="Home"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-home"
-            block
-            @click="mobileMenuOpen = false"
-          />
-          <UButton
-            to="/docs"
-            label="Documentation"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-book-open"
-            block
-            @click="mobileMenuOpen = false"
-          />
         </div>
       </template>
     </UHeader>
