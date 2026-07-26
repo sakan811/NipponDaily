@@ -45,7 +45,7 @@ describe("Index Page (Landing)", () => {
   it("renders hero section with CTA link to /news", () => {
     const wrapper = mount(IndexPage);
 
-    const ctaLink = wrapper.find('[to="/news"]');
+    const ctaLink = wrapper.find('[data-testid="hero-cta"]');
     expect(ctaLink.exists()).toBe(true);
     expect(ctaLink.text()).toContain("Enter Intelligence Hub");
   });

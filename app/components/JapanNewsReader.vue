@@ -9,16 +9,16 @@
           <img
             src="/favicon-light.ico"
             alt="Nippon Daily"
-            class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
+            class="w-8 h-8 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
           >
           <img
             src="/favicon-dark.ico"
             alt="Nippon Daily"
-            class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
+            class="w-8 h-8 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
           >
           <div class="flex flex-col">
             <span
-              class="font-serif font-bold text-sm tracking-wide leading-none"
+              class="font-serif font-bold text-lg tracking-wide leading-none"
               >Nippon Daily</span
             >
           </div>
@@ -26,8 +26,49 @@
       </template>
 
       <template #right>
-        <div class="flex items-center gap-2">
-          <UColorModeButton />
+        <div class="flex items-center gap-4">
+          <UButton
+            to="/"
+            label="Home"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-home"
+            size="sm"
+            class="hidden sm:flex"
+          />
+          <UButton
+            to="/docs"
+            label="Docs"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-book-open"
+            size="sm"
+            class="hidden sm:flex"
+          />
+          <UColorModeButton class="hover:text-primary-500 transition-colors" />
+        </div>
+      </template>
+
+      <template #body>
+        <div class="flex flex-col gap-3 p-4">
+          <UButton
+            to="/"
+            label="Home"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-home"
+            block
+            @click="mobileMenuOpen = false"
+          />
+          <UButton
+            to="/docs"
+            label="Documentation"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-book-open"
+            block
+            @click="mobileMenuOpen = false"
+          />
         </div>
       </template>
     </UHeader>
