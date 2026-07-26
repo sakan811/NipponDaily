@@ -10,12 +10,12 @@
             src="/favicon-light.ico"
             alt="Nippon Daily"
             class="w-8 h-8 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
+          />
           <img
             src="/favicon-dark.ico"
             alt="Nippon Daily"
             class="w-8 h-8 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
+          />
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-lg tracking-wide leading-none"
@@ -149,36 +149,54 @@
             class="mb-6 p-4 rounded-xl border border-amber-500/40 bg-amber-500/10 dark:bg-amber-950/30 backdrop-blur-sm space-y-3"
           >
             <div class="flex items-center justify-between flex-wrap gap-2">
-              <div class="flex items-center gap-2 text-xs font-mono font-bold text-amber-700 dark:text-amber-300">
+              <div
+                class="flex items-center gap-2 text-xs font-mono font-bold text-amber-700 dark:text-amber-300"
+              >
                 <UIcon name="i-heroicons-bug-ant" class="w-4 h-4" />
                 <span>DEBUG_ERROR_UI Testing & Design Toolbar</span>
               </div>
-              <UBadge color="warning" variant="soft" size="xs">DEBUG Mode Active</UBadge>
+              <UBadge color="warning" variant="soft" size="xs"
+                >DEBUG Mode Active</UBadge
+              >
             </div>
             <div class="flex flex-wrap gap-2">
               <UButton
                 size="xs"
-                :color="debugSimulationMode === 'none' ? 'primary' : 'secondary'"
+                :color="
+                  debugSimulationMode === 'none' ? 'primary' : 'secondary'
+                "
                 label="Standard / Live Mode"
                 @click="debugSimulationMode = 'none'"
               />
               <UButton
                 size="xs"
-                :color="debugSimulationMode === 'trending_error' ? 'error' : 'secondary'"
+                :color="
+                  debugSimulationMode === 'trending_error'
+                    ? 'error'
+                    : 'secondary'
+                "
                 icon="i-heroicons-cloud-arrow-down"
                 label="Failed Trending Fetching"
                 @click="debugSimulationMode = 'trending_error'"
               />
               <UButton
                 size="xs"
-                :color="debugSimulationMode === 'summary_error' ? 'warning' : 'secondary'"
+                :color="
+                  debugSimulationMode === 'summary_error'
+                    ? 'warning'
+                    : 'secondary'
+                "
                 icon="i-heroicons-exclamation-triangle"
                 label="Failed Summary Process"
                 @click="debugSimulationMode = 'summary_error'"
               />
               <UButton
                 size="xs"
-                :color="debugSimulationMode === 'ai_fallback' ? 'primary' : 'secondary'"
+                :color="
+                  debugSimulationMode === 'ai_fallback'
+                    ? 'primary'
+                    : 'secondary'
+                "
                 icon="i-heroicons-document-text"
                 label="AI Fallback Briefing Card"
                 @click="debugSimulationMode = 'ai_fallback'"
@@ -188,8 +206,16 @@
 
           <!-- 1. Failed Trending Fetching Fallback Component -->
           <TrendingFallback
-            v-if="error || (isDebugErrorUi && debugSimulationMode === 'trending_error')"
-            :error="error || (isDebugErrorUi ? 'Debug Test: Failed to fetch trending boxes from server.' : null)"
+            v-if="
+              error ||
+              (isDebugErrorUi && debugSimulationMode === 'trending_error')
+            "
+            :error="
+              error ||
+              (isDebugErrorUi
+                ? 'Debug Test: Failed to fetch trending boxes from server.'
+                : null)
+            "
             :loading="loading"
             :is-debug="isDebugErrorUi"
             class="mb-8"
@@ -227,14 +253,28 @@
           </div>
 
           <!-- 2. Failed Summary Process State / AI Fallback Card Preview -->
-          <div v-if="isDebugErrorUi && !error && debugSimulationMode === 'ai_fallback'" class="mb-6 space-y-2">
-            <div class="text-xs font-bold text-primary-500 uppercase tracking-wider">
+          <div
+            v-if="
+              isDebugErrorUi && !error && debugSimulationMode === 'ai_fallback'
+            "
+            class="mb-6 space-y-2"
+          >
+            <div
+              class="text-xs font-bold text-primary-500 uppercase tracking-wider"
+            >
               Mock: AI Briefing Fallback Preview
             </div>
             <BriefingCard :briefing="mockFallbackBriefing" />
           </div>
 
-          <div v-if="isDebugErrorUi && !error && debugSimulationMode === 'summary_error'" class="mb-6">
+          <div
+            v-if="
+              isDebugErrorUi &&
+              !error &&
+              debugSimulationMode === 'summary_error'
+            "
+            class="mb-6"
+          >
             <SummaryFallback
               headline="[Debug Mode] AI Summarization Failure Preview"
               :sources="mockRawSources"
@@ -603,9 +643,9 @@ const isDebugErrorUi = computed(() => {
   }
   return false;
 });
-const debugSimulationMode = ref<"none" | "trending_error" | "summary_error" | "ai_fallback">(
-  isDebugErrorUi.value ? "trending_error" : "none",
-);
+const debugSimulationMode = ref<
+  "none" | "trending_error" | "summary_error" | "ai_fallback"
+>(isDebugErrorUi.value ? "trending_error" : "none");
 
 const mockRawSources = [
   {
@@ -614,7 +654,8 @@ const mockRawSources = [
     url: "https://asia.nikkei.com",
   },
   {
-    title: "Japan Weather Agency Issues Special Resilience Survey for Tohoku Region",
+    title:
+      "Japan Weather Agency Issues Special Resilience Survey for Tohoku Region",
     source: "NHK World",
     url: "https://www3.nhk.or.jp",
   },
@@ -913,10 +954,13 @@ const fetchNews = async () => {
           }),
         );
         const sourceTimes = mappedSources.map((src) => {
-          const pubTime = src.publishedAt ? new Date(src.publishedAt).getTime() : 0;
-          return isNaN(pubTime) ? (src.addedAt || 0) : pubTime;
+          const pubTime = src.publishedAt
+            ? new Date(src.publishedAt).getTime()
+            : 0;
+          return isNaN(pubTime) ? src.addedAt || 0 : pubTime;
         });
-        const fallbackLastUpdated = sourceTimes.length > 0 ? Math.max(...sourceTimes) : Date.now();
+        const fallbackLastUpdated =
+          sourceTimes.length > 0 ? Math.max(...sourceTimes) : Date.now();
 
         stories.value = [
           {

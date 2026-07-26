@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="Nippon Daily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
+          />
           <img
             src="/favicon-dark.ico"
             alt="Nippon Daily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
+          />
           <span>Nippon Daily Docs</span>
         </NuxtLink>
       </template>
@@ -61,9 +61,9 @@
         <p class="m-0 text-blue-900 dark:text-blue-100">
           <strong>👋 Welcome!</strong> Whether you are an experienced developer
           or a beginner exploring how modern AI apps are built, this guide will
-          walk you through how Nippon Daily works behind the scenes. We've broken
-          down complex topics to make them easy to understand, without skipping
-          any of the technical details.
+          walk you through how Nippon Daily works behind the scenes. We've
+          broken down complex topics to make them easy to understand, without
+          skipping any of the technical details.
         </p>
       </div>
 
@@ -219,9 +219,10 @@
       </p>
       <p class="mb-4">
         <strong>Technical Details:</strong> Appending
-        <code>?debug_error_ui=true</code> to any page URL enables an interactive UI testing toolbar to
-        simulate trending news fetching errors, AI summarization failures, and fallback cards,
-        allowing for exhaustive layout testing without consuming API quotas or making database calls.
+        <code>?debug_error_ui=true</code> to any page URL enables an interactive
+        UI testing toolbar to simulate trending news fetching errors, AI
+        summarization failures, and fallback cards, allowing for exhaustive
+        layout testing without consuming API quotas or making database calls.
       </p>
 
       <h2

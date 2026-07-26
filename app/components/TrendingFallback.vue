@@ -1,8 +1,5 @@
 <template>
-  <div
-    data-testid="trending-fallback-container"
-    class="w-full space-y-6"
-  >
+  <div data-testid="trending-fallback-container" class="w-full space-y-6">
     <!-- Failed Trending Fetching Card -->
     <UCard
       data-testid="error-state"
@@ -34,8 +31,11 @@
           </p>
         </div>
 
-        <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed font-sans">
-          The Japan news aggregation pipeline could not fetch trending topic clusters from Tavily or Upstash database.
+        <p
+          class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed font-sans"
+        >
+          The Japan news aggregation pipeline could not fetch trending topic
+          clusters from Tavily or Upstash database.
         </p>
 
         <!-- Retry Action -->
@@ -60,27 +60,39 @@
       class="p-4 rounded-xl border border-dashed border-amber-500/40 bg-amber-500/5 space-y-3"
     >
       <div class="flex items-center justify-between">
-        <span class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1.5">
+        <span
+          class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1.5"
+        >
           <UIcon name="i-heroicons-bug-ant" class="w-4 h-4" />
           DEBUG_ERROR_UI: Mock Trending Fallback Preview
         </span>
-        <UBadge color="warning" variant="soft" size="xs">Testing & Design Mode</UBadge>
+        <UBadge color="warning" variant="soft" size="xs"
+          >Testing & Design Mode</UBadge
+        >
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 opacity-75 pointer-events-none">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 gap-3 opacity-75 pointer-events-none"
+      >
         <div
           v-for="i in 2"
           :key="i"
           class="border p-3 rounded-xl bg-white/40 dark:bg-stone-900/40 border-stone-200 dark:border-stone-800"
         >
           <div class="flex items-center justify-between gap-2 mb-1.5">
-            <span class="text-[9px] font-bold text-stone-400 uppercase">Mock Source {{ i }}</span>
+            <span class="text-[9px] font-bold text-stone-400 uppercase"
+              >Mock Source {{ i }}</span
+            >
             <UBadge color="error" variant="soft" size="xs">Fetch Failed</UBadge>
           </div>
-          <h4 class="text-xs font-bold font-serif text-stone-700 dark:text-stone-300">
+          <h4
+            class="text-xs font-bold font-serif text-stone-700 dark:text-stone-300"
+          >
             [Fallback Preview] Sample Trending Topic #{{ i }}
           </h4>
-          <p class="text-[10px] text-stone-400 mt-2">Cached snapshot unavailable</p>
+          <p class="text-[10px] text-stone-400 mt-2">
+            Cached snapshot unavailable
+          </p>
         </div>
       </div>
     </div>

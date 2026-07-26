@@ -17,12 +17,12 @@
             src="/favicon-light.ico"
             alt="Nippon Daily"
             class="w-8 h-8 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
+          />
           <img
             src="/favicon-dark.ico"
             alt="Nippon Daily"
             class="w-8 h-8 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
+          />
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-lg tracking-wide leading-none"
@@ -52,7 +52,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Real-Time AI Briefings.<br class="hidden sm:inline" >
+          Real-Time AI Briefings.<br class="hidden sm:inline" />
           <span class="text-primary-500 italic font-normal"
             >Cross-Source Synthesis &</span
           >
@@ -62,7 +62,10 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans"
         >
-          Nippon Daily clusters multi-source Japanese coverage in real time using vector embeddings and Google Gemini AI—delivering executive briefings, cross-perspective synthesis, and automated credibility scoring across 6 channels.
+          Nippon Daily clusters multi-source Japanese coverage in real time
+          using vector embeddings and Google Gemini AI—delivering executive
+          briefings, cross-perspective synthesis, and automated credibility
+          scoring across 6 channels.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-4">
@@ -146,8 +149,6 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-
-const mobileMenuOpen = ref(false);
 
 const channels = ref([
   {

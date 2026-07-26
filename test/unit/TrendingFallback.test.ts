@@ -13,7 +13,9 @@ describe("TrendingFallback Component", () => {
     });
 
     expect(wrapper.text()).toContain("Unable to Retrieve Trending Topics");
-    expect(wrapper.text()).toContain("Service temporarily unavailable. Please try again.");
+    expect(wrapper.text()).toContain(
+      "Service temporarily unavailable. Please try again.",
+    );
   });
 
   it("renders custom error message when error prop is provided", () => {
@@ -53,6 +55,8 @@ describe("TrendingFallback Component", () => {
       },
     });
 
-    expect(wrapper.text()).toContain("DEBUG_ERROR_UI: Mock Trending Fallback Preview");
+    expect(wrapper.text()).toContain(
+      "DEBUG_ERROR_UI: Mock Trending Fallback Preview",
+    );
   });
 });
