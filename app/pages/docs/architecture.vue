@@ -218,10 +218,10 @@
         errors without actually breaking anything or using up API credits.
       </p>
       <p class="mb-4">
-        <strong>Technical Details:</strong> Setting
-        <code>DEBUG_ERROR_UI=true</code> enables a specialized UI panel to
-        simulate API failures, rate limit resets, and AI fallback states,
-        allowing for exhaustive layout testing without consuming real quotas.
+        <strong>Technical Details:</strong> Appending
+        <code>?debug_error_ui=true</code> to any page URL enables an interactive UI testing toolbar to
+        simulate trending news fetching errors, AI summarization failures, and fallback cards,
+        allowing for exhaustive layout testing without consuming API quotas or making database calls.
       </p>
 
       <h2
