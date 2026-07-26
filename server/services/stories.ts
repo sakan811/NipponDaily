@@ -31,10 +31,6 @@ class StoriesService {
     }
   }
 
-  private isRedisConfigured(): boolean {
-    return this.getRedisClient() !== null;
-  }
-
   async getStory(storyId: string): Promise<Story | null> {
     const redis = this.getRedisClient();
     if (!redis) {

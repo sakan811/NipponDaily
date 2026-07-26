@@ -37,28 +37,6 @@ vi.mock("~/server/services/gemini", () => ({
   },
 }));
 
-// Mock rate limiter to always allow requests during tests
-export const mockCheckRateLimit = vi.fn(() =>
-  Promise.resolve({
-    allowed: true,
-    remaining: 3,
-    resetTime: new Date(Date.now() + 86400000),
-    limit: 3,
-  }),
-);
-
-export const mockGetClientIp = vi.fn(() => "127.0.0.1");
-
-vi.mock("~/server/utils/rate-limiter", async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import("~/server/utils/rate-limiter")>();
-  return {
-    ...actual,
-    checkRateLimit: mockCheckRateLimit,
-    getClientIp: mockGetClientIp,
-  };
-});
-
 // Helper function to create mock news
 export const createMockNews = (): NewsItem[] => [
   {
@@ -83,13 +61,6 @@ export const setupDefaults = () => {
   vi.clearAllMocks();
   delete process.env.NODE_ENV;
   (global as any).getQuery.mockReturnValue({ language: "en" });
-  mockCheckRateLimit.mockResolvedValue({
-    allowed: true,
-    remaining: 3,
-    resetTime: new Date(Date.now() + 86400000),
-    limit: 3,
-  });
-  mockGetClientIp.mockReturnValue("127.0.0.1");
   mockTavilySearch.mockResolvedValue({});
   mockTavilyFormat.mockReturnValue([]);
   mockGeminiCategorize.mockResolvedValue([]);
