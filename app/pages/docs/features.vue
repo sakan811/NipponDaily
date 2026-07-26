@@ -129,6 +129,12 @@ const features = [
     icon: "i-heroicons-cpu-chip",
   },
   {
+    title: "Resilient Fallback Components",
+    description:
+      "Graceful UI fallback states (TrendingFallback & SummaryFallback) that render raw source coverage when AI or storage services encounter errors, with an interactive testing toolbar via ?debug_error_ui=true.",
+    icon: "i-heroicons-exclamation-triangle",
+  },
+  {
     title: "Smart Cache Fallback Mode",
     description:
       "Resilient system design that falls back to memory caches or raw source data if Vector DB/API services are temporarily offline.",
