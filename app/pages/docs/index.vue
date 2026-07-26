@@ -5,15 +5,15 @@
         <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
           <img
             src="/favicon-light.ico"
-            alt="NipponDaily"
+            alt="Nippon Daily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
           >
           <img
             src="/favicon-dark.ico"
-            alt="NipponDaily"
+            alt="Nippon Daily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
           >
-          <span>NipponDaily Docs</span>
+          <span>Nippon Daily Docs</span>
         </NuxtLink>
       </template>
 
@@ -31,7 +31,7 @@
         Documentation Overview
       </h1>
       <p class="mb-8 text-lg text-gray-700 dark:text-gray-300 max-w-2xl">
-        Welcome to the NipponDaily documentation. Here you can find details
+        Welcome to the Nippon Daily documentation. Here you can find details
         about our system architecture and the features we offer.
       </p>
 
@@ -57,7 +57,7 @@
     <UFooter>
       <template #left>
         <p class="text-sm text-secondary-500">
-          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
+          &copy; 2025 - {{ new Date().getFullYear() }} Nippon Daily. Released
           under the Apache-2.0 License.
         </p>
       </template>

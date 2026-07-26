@@ -36,9 +36,9 @@ describe("Index Page (Landing)", () => {
   it("renders hero section with title and description", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Japan, Synthesized.");
+    expect(wrapper.text()).toContain("Real-Time AI Briefings.");
     expect(wrapper.text()).toContain(
-      "Bypassing the generic noise. NipponDaily aggregates, synthesizes, and analyzes",
+      "Nippon Daily clusters multi-source Japanese coverage in real time using vector embeddings and Google Gemini AI",
     );
   });
 
@@ -75,7 +75,7 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.find(".u-footer").exists()).toBe(true);
     expect(wrapper.text()).toContain(
-      "NIPPON DAILY. All rights reserved. Released under the Apache-2.0 License.",
+      "Nippon Daily. All rights reserved. Released under the Apache-2.0 License.",
     );
   });
 
@@ -93,8 +93,8 @@ describe("Index Page (Landing)", () => {
     const lightImg = wrapper.find('.u-header img[src="/favicon-light.ico"]');
     const darkImg = wrapper.find('.u-header img[src="/favicon-dark.ico"]');
     expect(lightImg.exists()).toBe(true);
-    expect(lightImg.attributes("alt")).toBe("NipponDaily");
+    expect(lightImg.attributes("alt")).toBe("Nippon Daily");
     expect(darkImg.exists()).toBe(true);
-    expect(darkImg.attributes("alt")).toBe("NipponDaily");
+    expect(darkImg.attributes("alt")).toBe("Nippon Daily");
   });
 });

@@ -15,18 +15,18 @@
         <NuxtLink to="/" class="flex items-center gap-3">
           <img
             src="/favicon-light.ico"
-            alt="NipponDaily"
+            alt="Nippon Daily"
             class="w-8 h-8 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
           >
           <img
             src="/favicon-dark.ico"
-            alt="NipponDaily"
+            alt="Nippon Daily"
             class="w-8 h-8 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
           >
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-lg tracking-wide leading-none"
-              >NIPPON DAILY</span
+              >Nippon Daily</span
             >
           </div>
         </NuxtLink>
@@ -46,26 +46,23 @@
           class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary-500/20 bg-primary-500/5 text-primary-600 dark:text-primary-400 text-xs font-medium tracking-wide"
         >
           <span class="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse" />
-          Intelligence Portal Dedicated Solely to Japan
+          AI-Powered Japan News Aggregator & Briefings
         </div>
 
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Japan, Synthesized.<br class="hidden sm:inline" >
+          Real-Time AI Briefings.<br class="hidden sm:inline" >
           <span class="text-primary-500 italic font-normal"
-            >Deep Cultural & Regional</span
+            >Cross-Source Synthesis &</span
           >
-          Intelligence.
+          Credibility Intelligence.
         </h1>
 
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans"
         >
-          Bypassing the generic noise. NipponDaily aggregates, synthesizes, and
-          analyzes English-language coverage of Japan-related news—including
-          translated domestic publications and international media—across six
-          specialized channels using advanced AI.
+          Nippon Daily clusters multi-source Japanese coverage in real time using vector embeddings and Google Gemini AI—delivering executive briefings, cross-perspective synthesis, and automated credibility scoring across 6 channels.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-4">
@@ -138,7 +135,7 @@
     >
       <template #left>
         <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          &copy; 2025 - {{ new Date().getFullYear() }} NIPPON DAILY. All rights
+          &copy; 2025 - {{ new Date().getFullYear() }} Nippon Daily. All rights
           reserved. Released under the Apache-2.0 License.
         </p>
       </template>

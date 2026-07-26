@@ -8,18 +8,18 @@
         <NuxtLink to="/" class="flex items-center gap-3">
           <img
             src="/favicon-light.ico"
-            alt="NipponDaily"
+            alt="Nippon Daily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
           >
           <img
             src="/favicon-dark.ico"
-            alt="NipponDaily"
+            alt="Nippon Daily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
           >
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-sm tracking-wide leading-none"
-              >NIPPON DAILY</span
+              >Nippon Daily</span
             >
           </div>
         </NuxtLink>
