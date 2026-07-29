@@ -1,36 +1,6 @@
 <template>
   <div class="min-h-screen">
-    <UHeader
-      v-model:open="mobileMenuOpen"
-      class="border-b border-stone-200 dark:border-stone-800 bg-[#FDFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md"
-    >
-      <template #left>
-        <NuxtLink to="/" class="flex items-center gap-3">
-          <img
-            src="/favicon-light.ico"
-            alt="NipponDaily"
-            class="w-8 h-8 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          />
-          <img
-            src="/favicon-dark.ico"
-            alt="NipponDaily"
-            class="w-8 h-8 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          />
-          <div class="flex flex-col">
-            <span
-              class="font-serif font-bold text-lg tracking-wide leading-none"
-              >NipponDaily</span
-            >
-          </div>
-        </NuxtLink>
-      </template>
-
-      <template #right>
-        <div class="flex items-center gap-4">
-          <UColorModeButton class="hover:text-primary-500 transition-colors" />
-        </div>
-      </template>
-    </UHeader>
+    <AppHeader v-model:open="mobileMenuOpen" />
 
     <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-4xl">
       <!-- News Feed & Controls Column -->
@@ -74,18 +44,7 @@
                     icon="i-heroicons-calendar-days-20-solid"
                     :label="
                       customDateRange.start && customDateRange.end
-                        ? `${customDateRange.start.year}-${customDateRange.start.month
-                            .toString()
-                            .padStart(2, '0')}-${customDateRange.start.day
-                            .toString()
-                            .padStart(
-                              2,
-                              '0',
-                            )} - ${customDateRange.end.year}-${customDateRange.end.month
-                            .toString()
-                            .padStart(2, '0')}-${customDateRange.end.day
-                            .toString()
-                            .padStart(2, '0')}`
+                        ? `${formatCalendarDateYMD(customDateRange.start)} - ${formatCalendarDateYMD(customDateRange.end)}`
                         : t.selectDateRange
                     "
                     variant="outline"
@@ -548,8 +507,10 @@ import { CalendarDate } from "@internationalized/date";
 import type { NewsBriefing, Story } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
+import { formatCalendarDateYMD } from "../utils/date";
 
 // Import components
+import AppHeader from "./AppHeader.vue";
 import BriefingCard from "./BriefingCard.vue";
 import TrendingFallback from "./TrendingFallback.vue";
 import SummaryFallback from "./SummaryFallback.vue";
@@ -899,16 +860,8 @@ const fetchNews = async () => {
 
     if (selectedTimeRange.value === "custom") {
       if (customDateRange.value.start && customDateRange.value.end) {
-        query.startDate = `${customDateRange.value.start.year}-${customDateRange.value.start.month
-          .toString()
-          .padStart(2, "0")}-${customDateRange.value.start.day
-          .toString()
-          .padStart(2, "0")}`;
-        query.endDate = `${customDateRange.value.end.year}-${customDateRange.value.end.month
-          .toString()
-          .padStart(2, "0")}-${customDateRange.value.end.day
-          .toString()
-          .padStart(2, "0")}`;
+        query.startDate = formatCalendarDateYMD(customDateRange.value.start);
+        query.endDate = formatCalendarDateYMD(customDateRange.value.end);
       } else {
         query.timeRange = "week";
       }

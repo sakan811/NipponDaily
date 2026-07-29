@@ -1,7 +1,8 @@
 import { geminiService } from "../services/gemini";
 import { tavilyService } from "../services/tavily";
-import { storiesService } from "../services/stories";
+import { storiesService, calculateTrendScore } from "../services/stories";
 import { ingestNewsTask } from "../services/ingest";
+import { deduplicateByUrl } from "../utils/dedupe";
 import { z } from "zod";
 import type { NewsBriefing } from "~~/types/index";
 
@@ -262,15 +263,8 @@ export default defineEventHandler(async (event) => {
 
     // Dynamically calculate trendScore for all stories relative to current time
     const now = Date.now();
-    const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
-    const cutoff = now - TWO_WEEKS_MS;
-
     for (const story of allStories) {
-      const recentSources = (story.sources || []).filter((src) => {
-        const time = src.addedAt || new Date(src.publishedAt).getTime() || 0;
-        return time >= cutoff;
-      });
-      story.trendScore = recentSources.length;
+      story.trendScore = calculateTrendScore(story, now);
     }
 
     // 3. Filter stories
@@ -354,9 +348,7 @@ export default defineEventHandler(async (event) => {
       const allSources = filteredStories.flatMap((s) => s.sources);
 
       // Deduplicate sources by URL
-      const uniqueSourcesMap = new Map();
-      allSources.forEach((src) => uniqueSourcesMap.set(src.url, src));
-      const uniqueSources = Array.from(uniqueSourcesMap.values());
+      const uniqueSources = deduplicateByUrl(allSources);
 
       backwardCompatibleBriefing = {
         mainHeadline: topStory.headline,

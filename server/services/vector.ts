@@ -1,6 +1,7 @@
 import { Index } from "@upstash/vector";
 import { GoogleGenAI } from "@google/genai";
-import { createHash } from "node:crypto";
+import { getEnvOrConfig } from "../utils/config";
+import { getArticleId } from "../utils/hash";
 
 export interface VectorMetadata {
   story_id: string;
@@ -23,11 +24,7 @@ class UpstashVectorService {
 
   private getGeminiClient() {
     if (!this.client) {
-      const config = useRuntimeConfig();
-      const rawApiKey = config.geminiApiKey;
-      const apiKey =
-        (typeof rawApiKey === "string" ? rawApiKey : "") ||
-        process.env.GEMINI_API_KEY;
+      const apiKey = getEnvOrConfig("geminiApiKey", "GEMINI_API_KEY");
       if (apiKey) {
         this.client = new GoogleGenAI({ apiKey });
       }
@@ -36,15 +33,14 @@ class UpstashVectorService {
   }
 
   private getCredentials() {
-    const config = useRuntimeConfig();
-    const rawUrl = config.upstashVectorRestUrl;
-    const rawToken = config.upstashVectorRestToken;
-    const url =
-      (typeof rawUrl === "string" ? rawUrl : "") ||
-      process.env.UPSTASH_VECTOR_REST_URL;
-    const token =
-      (typeof rawToken === "string" ? rawToken : "") ||
-      process.env.UPSTASH_VECTOR_REST_TOKEN;
+    const url = getEnvOrConfig(
+      "upstashVectorRestUrl",
+      "UPSTASH_VECTOR_REST_URL",
+    );
+    const token = getEnvOrConfig(
+      "upstashVectorRestToken",
+      "UPSTASH_VECTOR_REST_TOKEN",
+    );
     return { url, token };
   }
 
@@ -250,7 +246,7 @@ class UpstashVectorService {
       const index = this.getIndex();
       if (!index) throw new Error("Index initialization failed.");
 
-      const articleId = createHash("sha256").update(url).digest("hex");
+      const articleId = getArticleId(url);
       await index.update({
         id: articleId,
         metadata: { story_id: newStoryId },
@@ -277,7 +273,7 @@ class UpstashVectorService {
       const index = this.getIndex();
       if (!index) throw new Error("Index initialization failed.");
 
-      const articleId = createHash("sha256").update(url).digest("hex");
+      const articleId = getArticleId(url);
       await index.delete(articleId);
       return true;
     } catch (error) {

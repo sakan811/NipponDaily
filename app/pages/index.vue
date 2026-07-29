@@ -8,36 +8,7 @@
     />
 
     <!-- Header -->
-    <UHeader
-      class="border-b border-stone-200 dark:border-stone-800 bg-[#FDFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md"
-    >
-      <template #left>
-        <NuxtLink to="/" class="flex items-center gap-3">
-          <img
-            src="/favicon-light.ico"
-            alt="NipponDaily"
-            class="w-8 h-8 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          />
-          <img
-            src="/favicon-dark.ico"
-            alt="NipponDaily"
-            class="w-8 h-8 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          />
-          <div class="flex flex-col">
-            <span
-              class="font-serif font-bold text-lg tracking-wide leading-none"
-              >NipponDaily</span
-            >
-          </div>
-        </NuxtLink>
-      </template>
-
-      <template #right>
-        <div class="flex items-center gap-4">
-          <UColorModeButton class="hover:text-primary-500 transition-colors" />
-        </div>
-      </template>
-    </UHeader>
+    <AppHeader />
 
     <!-- Hero Section -->
     <main class="relative z-10 container mx-auto px-4 max-w-6xl py-16 sm:py-24">
@@ -62,10 +33,10 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans"
         >
-          NipponDaily clusters multi-source Japanese coverage in real time
-          using vector embeddings and Google Gemini AI—delivering executive
-          briefings, cross-perspective synthesis, and automated credibility
-          scoring across 6 channels.
+          NipponDaily clusters multi-source Japanese coverage in real time using
+          vector embeddings and Google Gemini AI—delivering executive briefings,
+          cross-perspective synthesis, and automated credibility scoring across
+          6 channels.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-4">
@@ -149,6 +120,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import AppHeader from "../components/AppHeader.vue";
 
 const channels = ref([
   {

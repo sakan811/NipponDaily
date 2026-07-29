@@ -1,5 +1,22 @@
 import { Redis } from "@upstash/redis";
 import type { Story } from "~~/types/index";
+import { getEnvOrConfig } from "../utils/config";
+
+/**
+ * Recalculates trend score based on sources published or added within the last 2 weeks.
+ */
+export function calculateTrendScore(
+  story: Story,
+  now: number = Date.now(),
+): number {
+  const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
+  const cutoff = now - TWO_WEEKS_MS;
+  const recentSources = (story.sources || []).filter((src) => {
+    const time = src.addedAt || new Date(src.publishedAt).getTime() || 0;
+    return time >= cutoff;
+  });
+  return recentSources.length;
+}
 
 class StoriesService {
   private client: Redis | null = null;
@@ -11,13 +28,14 @@ class StoriesService {
     if (this.client) return this.client;
 
     try {
-      const config = useRuntimeConfig();
-      const url =
-        (config.upstashRedisRestUrl as string) ||
-        process.env.UPSTASH_REDIS_REST_URL;
-      const token =
-        (config.upstashRedisRestToken as string) ||
-        process.env.UPSTASH_REDIS_REST_TOKEN;
+      const url = getEnvOrConfig(
+        "upstashRedisRestUrl",
+        "UPSTASH_REDIS_REST_URL",
+      );
+      const token = getEnvOrConfig(
+        "upstashRedisRestToken",
+        "UPSTASH_REDIS_REST_TOKEN",
+      );
 
       if (!url || !token) {
         return null;
@@ -170,15 +188,9 @@ class StoriesService {
   async updateVelocityScores(): Promise<void> {
     const stories = await this.getStories();
     const now = Date.now();
-    const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
-    const cutoff = now - TWO_WEEKS_MS;
 
     for (const story of stories) {
-      const recentSources = (story.sources || []).filter((src) => {
-        const time = src.addedAt || new Date(src.publishedAt).getTime() || 0;
-        return time >= cutoff;
-      });
-      story.trendScore = recentSources.length;
+      story.trendScore = calculateTrendScore(story, now);
       await this.saveStory(story);
     }
   }

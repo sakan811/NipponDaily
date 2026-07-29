@@ -2,6 +2,7 @@ import { z } from "zod";
 import { storiesService } from "../services/stories";
 import { upstashVectorService } from "../services/vector";
 import { geminiService } from "../services/gemini";
+import { getEnvOrConfig } from "../utils/config";
 import type { Story, StorySource } from "~~/types/index";
 
 const groupBodySchema = z.object({
@@ -15,8 +16,6 @@ const groupBodySchema = z.object({
  * Replaces the old regroup API, but only clusters articles (does not summarize).
  */
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig();
-
   try {
     const body = await readBody(event).catch(() => ({}));
     const { dryRun } = groupBodySchema.parse(body);
@@ -116,10 +115,8 @@ export default defineEventHandler(async (event) => {
       currentStoriesForGemini,
       orphanedArticles,
       {
-        apiKey: config.geminiApiKey as string,
-        model:
-          (config.geminiModel as string | undefined) ||
-          process.env.GEMINI_MODEL,
+        apiKey: getEnvOrConfig("geminiApiKey", "GEMINI_API_KEY"),
+        model: getEnvOrConfig("geminiModel", "GEMINI_MODEL"),
       },
     );
 

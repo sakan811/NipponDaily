@@ -20,3 +20,21 @@ export const VALID_CATEGORIES = [
 
 export type CategoryId = (typeof NEWS_CATEGORIES)[number]["id"];
 export type CategoryName = (typeof VALID_CATEGORIES)[number];
+
+export const CATEGORY_ID_TO_NAME_MAP: Record<string, CategoryName> = {
+  society: "Society",
+  tech: "Tech",
+  "pop-culture": "Pop Culture",
+  tourism: "Tourism",
+  food: "Food",
+  "disaster-prep": "Nature",
+};
+
+export const FETCHABLE_CATEGORY_IDS = [
+  "society",
+  "tech",
+  "pop-culture",
+  "tourism",
+  "food",
+  "disaster-prep",
+] as const;

@@ -61,9 +61,9 @@
         <p class="m-0 text-blue-900 dark:text-blue-100">
           <strong>👋 Welcome!</strong> Whether you are an experienced developer
           or a beginner exploring how modern AI apps are built, this guide will
-          walk you through how NipponDaily works behind the scenes. We've
-          broken down complex topics to make them easy to understand, without
-          skipping any of the technical details.
+          walk you through how NipponDaily works behind the scenes. We've broken
+          down complex topics to make them easy to understand, without skipping
+          any of the technical details.
         </p>
       </div>
 
