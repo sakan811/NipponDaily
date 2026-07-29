@@ -1,5 +1,6 @@
 import { storiesService } from "../services/stories";
 import { geminiService } from "../services/gemini";
+import { getEnvOrConfig } from "../utils/config";
 import type { Story, NewsItem, StorySource } from "../../types/index";
 import type { CategoryName } from "../../constants/categories";
 
@@ -10,8 +11,6 @@ import type { CategoryName } from "../../constants/categories";
  * via Gemini to generate summaries, thematic analyses, and region tags.
  */
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig();
-
   try {
     console.log(`[POST /api/summarize] Starting summarization pipeline...`);
     const allStories = await storiesService.getStories();
@@ -87,10 +86,8 @@ export default defineEventHandler(async () => {
           `[POST /api/summarize] Processing batch of ${batch.length} stories with Gemini...`,
         );
         resultsMap = await geminiService.batchProcessStories(batch, {
-          apiKey: config.geminiApiKey as string,
-          model:
-            (config.geminiModel as string | undefined) ||
-            process.env.GEMINI_MODEL,
+          apiKey: getEnvOrConfig("geminiApiKey", "GEMINI_API_KEY"),
+          model: getEnvOrConfig("geminiModel", "GEMINI_MODEL"),
         });
       } catch (batchError) {
         console.error(

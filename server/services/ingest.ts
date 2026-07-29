@@ -1,9 +1,15 @@
-import { createHash } from "node:crypto";
 import { tavilyService } from "./tavily";
 import { upstashVectorService } from "./vector";
 import { storiesService } from "./stories";
 import type { NewsItem } from "~~/types/index";
-import type { CategoryName } from "~~/constants/categories";
+import {
+  CATEGORY_ID_TO_NAME_MAP,
+  FETCHABLE_CATEGORY_IDS,
+  type CategoryName,
+} from "~~/constants/categories";
+import { getEnvOrConfig } from "../utils/config";
+import { getArticleId } from "../utils/hash";
+import { deduplicateByUrl } from "../utils/dedupe";
 
 export function isRelatedToJapan(title: string, summary: string): boolean {
   const text = `${title} ${summary}`.toLowerCase();
@@ -78,37 +84,15 @@ export async function ingestNewsTask(): Promise<{
   articlesProcessed: number;
 }> {
   console.log("[Ingest] Beginning news ingestion pipeline...");
-  const config = useRuntimeConfig();
+  const tavilyApiKey = getEnvOrConfig("tavilyApiKey", "TAVILY_API_KEY");
 
   const rawArticles: NewsItem[] = [];
 
   // 1. Fetch recent news from Tavily for all categories (20 each)
   try {
     console.log("[Ingest] Fetching Tavily news for all categories...");
-    const rawTavilyKey = config.tavilyApiKey;
-    const tavilyApiKey =
-      (typeof rawTavilyKey === "string" ? rawTavilyKey : "") ||
-      process.env.TAVILY_API_KEY;
 
-    const categoriesToFetch = [
-      "society",
-      "tech",
-      "pop-culture",
-      "tourism",
-      "food",
-      "disaster-prep",
-    ];
-
-    const categoryIdToName: Record<string, string> = {
-      society: "Society",
-      tech: "Tech",
-      "pop-culture": "Pop Culture",
-      tourism: "Tourism",
-      food: "Food",
-      "disaster-prep": "Nature",
-    };
-
-    const fetchPromises = categoriesToFetch.map(async (catId) => {
+    const fetchPromises = FETCHABLE_CATEGORY_IDS.map(async (catId) => {
       try {
         const response = await tavilyService.searchJapanNews({
           maxResults: 20,
@@ -124,7 +108,7 @@ export async function ingestNewsTask(): Promise<{
         // Override category of formatted items to match CategoryName
         return filteredItems.map((item) => ({
           ...item,
-          category: (categoryIdToName[catId] || "Other") as CategoryName,
+          category: (CATEGORY_ID_TO_NAME_MAP[catId] || "Other") as CategoryName,
         }));
       } catch (err) {
         console.error(
@@ -146,15 +130,7 @@ export async function ingestNewsTask(): Promise<{
   }
 
   // Deduplicate raw articles by URL or title
-  const uniqueArticlesMap = new Map<string, NewsItem>();
-  for (const article of rawArticles) {
-    if (article.url) {
-      uniqueArticlesMap.set(article.url, article);
-    } else {
-      uniqueArticlesMap.set(article.title, article);
-    }
-  }
-  const uniqueArticles = Array.from(uniqueArticlesMap.values());
+  const uniqueArticles = deduplicateByUrl(rawArticles);
   console.log(
     `[Ingest] Fetched ${uniqueArticles.length} unique raw articles from Tavily.`,
   );
@@ -184,7 +160,7 @@ export async function ingestNewsTask(): Promise<{
       const vector = await upstashVectorService.getEmbedding(dataStr);
 
       // Upsert into Upstash Vector index with no story_id (will be grouped later)
-      const articleId = createHash("sha256").update(article.url!).digest("hex");
+      const articleId = getArticleId(article.url!);
       await upstashVectorService.upsertArticle(articleId, vector, {
         story_id: "", // Empty to denote orphaned/ungrouped
         category: article.category as string,

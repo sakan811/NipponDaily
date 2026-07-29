@@ -5,13 +5,22 @@ import type {
   ThinkingLevel,
 } from "@google/genai";
 import type { NewsItem, NewsBriefing, BriefingSource } from "../../types/index";
+import { getEnvOrConfig } from "../utils/config";
 
 class GeminiService {
   private client: GoogleGenAI | null = null;
 
   private initializeClient(apiKey?: string) {
-    if (!apiKey) return;
-    this.client = new GoogleGenAI({ apiKey });
+    const key = apiKey || getEnvOrConfig("geminiApiKey", "GEMINI_API_KEY");
+    if (!key) return;
+    this.client = new GoogleGenAI({ apiKey: key });
+  }
+
+  private ensureClient(apiKey?: string): GoogleGenAI | null {
+    if (!this.client || apiKey) {
+      this.initializeClient(apiKey);
+    }
+    return this.client;
   }
 
   private async generateContentWithRetry(
@@ -73,10 +82,8 @@ class GeminiService {
   }
 
   private getModels(defaultModel?: string): string[] {
-    const config = useRuntimeConfig();
     const configuredModelsStr =
-      (config.geminiModel as string | undefined) ||
-      process.env.GEMINI_MODEL ||
+      getEnvOrConfig("geminiModel", "GEMINI_MODEL") ||
       "gemini-3.5-flash,gemini-3-flash,gemini-2.5-flash";
 
     const configuredModels = configuredModelsStr
@@ -109,11 +116,54 @@ class GeminiService {
     return LOCALE_PATTERN.test(normalized) ? normalized : "en";
   }
 
+  private async executeWithModelFallback<T>(
+    prompt: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    responseSchema: any,
+    options?: { apiKey?: string; model?: string },
+    methodName = "Gemini",
+  ): Promise<T> {
+    if (!this.ensureClient(options?.apiKey)) {
+      throw new Error("Gemini AI client not initialized");
+    }
+
+    const modelsToTry = this.getModels(options?.model);
+    for (let i = 0; i < modelsToTry.length; i++) {
+      const model = modelsToTry[i]!;
+      const isLastModel = i === modelsToTry.length - 1;
+      try {
+        const response = await this.generateContentWithRetry(
+          {
+            model: model,
+            contents: prompt,
+            config: {
+              responseMimeType: "application/json",
+              responseSchema,
+            },
+          },
+          3,
+          2000,
+          isLastModel,
+        );
+
+        if (response && response.text) {
+          return JSON.parse(response.text) as T;
+        }
+      } catch (error) {
+        console.warn(`Model ${model} failed in ${methodName}.`, error);
+      }
+    }
+
+    throw new Error(`${methodName} with Gemini failed`);
+  }
+
   async generateNewsBriefing(
     newsItems: NewsItem[],
     options?: { apiKey?: string; model?: string; language?: string },
   ): Promise<NewsBriefing> {
-    if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
+    if (options?.apiKey) {
+      this.initializeClient(options.apiKey);
+    }
 
     if (!this.client || newsItems.length === 0) {
       return this.getFallbackBriefing(newsItems);
@@ -149,68 +199,42 @@ Instructions:
 Raw Articles:
 ${newsText}`;
 
-      const modelsToTry = this.getModels(options?.model);
-      let response = null;
-
-      for (let i = 0; i < modelsToTry.length; i++) {
-        const model = modelsToTry[i]!;
-        const isLastModel = i === modelsToTry.length - 1;
-        try {
-          response = await this.generateContentWithRetry(
-            {
-              model: model,
-              contents: prompt,
-              config: {
-                responseMimeType: "application/json",
-                responseSchema: {
-                  type: Type.OBJECT,
-                  properties: {
-                    mainHeadline: { type: Type.STRING },
-                    executiveSummary: { type: Type.STRING },
-                    thematicAnalysis: { type: Type.STRING },
-                    overallCredibilityScore: { type: Type.NUMBER },
-                    sourcesProcessed: {
-                      type: Type.ARRAY,
-                      items: {
-                        type: Type.OBJECT,
-                        properties: {
-                          title: { type: Type.STRING },
-                          source: { type: Type.STRING },
-                          url: { type: Type.STRING },
-                          credibilityScore: { type: Type.NUMBER },
-                        },
-                        required: [
-                          "title",
-                          "source",
-                          "url",
-                          "credibilityScore",
-                        ],
-                      },
-                    },
-                  },
-                  required: [
-                    "mainHeadline",
-                    "executiveSummary",
-                    "thematicAnalysis",
-                    "overallCredibilityScore",
-                    "sourcesProcessed",
-                  ],
-                },
+      const schema = {
+        type: Type.OBJECT,
+        properties: {
+          mainHeadline: { type: Type.STRING },
+          executiveSummary: { type: Type.STRING },
+          thematicAnalysis: { type: Type.STRING },
+          overallCredibilityScore: { type: Type.NUMBER },
+          sourcesProcessed: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                title: { type: Type.STRING },
+                source: { type: Type.STRING },
+                url: { type: Type.STRING },
+                credibilityScore: { type: Type.NUMBER },
               },
+              required: ["title", "source", "url", "credibilityScore"],
             },
-            3,
-            2000,
-            isLastModel,
-          );
-          break;
-        } catch (error) {
-          console.warn(`Model ${model} failed.`, error);
-        }
-      }
+          },
+        },
+        required: [
+          "mainHeadline",
+          "executiveSummary",
+          "thematicAnalysis",
+          "overallCredibilityScore",
+          "sourcesProcessed",
+        ],
+      };
 
-      if (!response || !response.text) throw new Error("AI generation failed");
-
-      const result = JSON.parse(response.text);
+      const result = await this.executeWithModelFallback<NewsBriefing>(
+        prompt,
+        schema,
+        options,
+        "generateNewsBriefing",
+      );
 
       // Attach favicons from original news items
       result.sourcesProcessed = result.sourcesProcessed.map(
@@ -225,7 +249,7 @@ ${newsText}`;
         },
       );
 
-      return result as NewsBriefing;
+      return result;
     } catch (error) {
       console.error("Briefing generation failed:", error);
       return this.getFallbackBriefing(newsItems);
@@ -257,16 +281,6 @@ ${newsText}`;
       }
     >
   > {
-    if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
-    if (!this.client) {
-      const config = useRuntimeConfig();
-      const rawApiKey = config.geminiApiKey;
-      const apiKey =
-        (typeof rawApiKey === "string" ? rawApiKey : "") ||
-        process.env.GEMINI_API_KEY;
-      this.client = new GoogleGenAI({ apiKey });
-    }
-
     if (storiesToProcess.length === 0) {
       return {};
     }
@@ -317,89 +331,74 @@ Instructions for each Story Cluster:
 
 Output in JSON format matching the schema.`;
 
-    const modelsToTry = this.getModels(options?.model);
-    for (let i = 0; i < modelsToTry.length; i++) {
-      const model = modelsToTry[i]!;
-      const isLastModel = i === modelsToTry.length - 1;
-      try {
-        const response = await this.generateContentWithRetry(
-          {
-            model: model,
-            contents: prompt,
-            config: {
-              responseMimeType: "application/json",
-              responseSchema: {
-                type: Type.OBJECT,
-                properties: {
-                  results: {
-                    type: Type.ARRAY,
-                    items: {
-                      type: Type.OBJECT,
-                      properties: {
-                        storyId: { type: Type.STRING },
-                        headline: { type: Type.STRING },
-                        summary: { type: Type.STRING },
-                        thematicAnalysis: { type: Type.STRING },
-                        overallCredibilityScore: { type: Type.NUMBER },
-                        categories: {
-                          type: Type.ARRAY,
-                          items: { type: Type.STRING },
-                        },
-                      },
-                      required: [
-                        "storyId",
-                        "headline",
-                        "summary",
-                        "thematicAnalysis",
-                        "overallCredibilityScore",
-                        "categories",
-                      ],
-                    },
-                  },
-                },
-                required: ["results"],
+    const schema = {
+      type: Type.OBJECT,
+      properties: {
+        results: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              storyId: { type: Type.STRING },
+              headline: { type: Type.STRING },
+              summary: { type: Type.STRING },
+              thematicAnalysis: { type: Type.STRING },
+              overallCredibilityScore: { type: Type.NUMBER },
+              categories: {
+                type: Type.ARRAY,
+                items: { type: Type.STRING },
               },
             },
+            required: [
+              "storyId",
+              "headline",
+              "summary",
+              "thematicAnalysis",
+              "overallCredibilityScore",
+              "categories",
+            ],
           },
-          3,
-          2000,
-          isLastModel,
-        );
+        },
+      },
+      required: ["results"],
+    };
 
-        if (response && response.text) {
-          const parsed = JSON.parse(response.text);
-          const resultsMap: Record<
-            string,
-            {
-              headline: string;
-              summary: string;
-              thematicAnalysis: string;
-              overallCredibilityScore: number;
-              categories: string[];
-            }
-          > = {};
+    const parsed = await this.executeWithModelFallback<{
+      results: Array<{
+        storyId: string;
+        headline: string;
+        summary: string;
+        thematicAnalysis: string;
+        overallCredibilityScore: number;
+        categories: string[];
+      }>;
+    }>(prompt, schema, options, "batchProcessStories");
 
-          if (parsed && Array.isArray(parsed.results)) {
-            for (const item of parsed.results) {
-              if (item && item.storyId) {
-                resultsMap[item.storyId] = {
-                  headline: item.headline,
-                  summary: item.summary,
-                  thematicAnalysis: item.thematicAnalysis,
-                  overallCredibilityScore: item.overallCredibilityScore,
-                  categories: item.categories,
-                };
-              }
-            }
-          }
-          return resultsMap;
+    const resultsMap: Record<
+      string,
+      {
+        headline: string;
+        summary: string;
+        thematicAnalysis: string;
+        overallCredibilityScore: number;
+        categories: string[];
+      }
+    > = {};
+
+    if (parsed && Array.isArray(parsed.results)) {
+      for (const item of parsed.results) {
+        if (item && item.storyId) {
+          resultsMap[item.storyId] = {
+            headline: item.headline,
+            summary: item.summary,
+            thematicAnalysis: item.thematicAnalysis,
+            overallCredibilityScore: item.overallCredibilityScore,
+            categories: item.categories,
+          };
         }
-      } catch (error) {
-        console.warn(`Model ${model} failed in batchProcessStories.`, error);
       }
     }
-
-    throw new Error("Batch processing with Gemini failed");
+    return resultsMap;
   }
 
   async groupArticles(
@@ -432,16 +431,6 @@ Output in JSON format matching the schema.`;
     }>;
     unrelatedArticleUrls: string[];
   }> {
-    if (!this.client && options?.apiKey) this.initializeClient(options.apiKey);
-    if (!this.client) {
-      const config = useRuntimeConfig();
-      const rawApiKey = config.geminiApiKey;
-      const apiKey =
-        (typeof rawApiKey === "string" ? rawApiKey : "") ||
-        process.env.GEMINI_API_KEY;
-      this.client = new GoogleGenAI({ apiKey });
-    }
-
     const currentStoriesPromptData = currentStories
       .map((item, idx) => {
         const articlesText = item.articles
@@ -492,67 +481,45 @@ Instructions for Grouping:
 Do NOT summarize the story. Only group the articles and provide a headline and categories.
 Output in JSON format matching the schema.`;
 
-    const modelsToTry = this.getModels(options?.model);
-    for (let i = 0; i < modelsToTry.length; i++) {
-      const model = modelsToTry[i]!;
-      const isLastModel = i === modelsToTry.length - 1;
-      try {
-        const response = await this.generateContentWithRetry(
-          {
-            model: model,
-            contents: prompt,
-            config: {
-              responseMimeType: "application/json",
-              responseSchema: {
-                type: Type.OBJECT,
-                properties: {
-                  stories: {
-                    type: Type.ARRAY,
-                    items: {
-                      type: Type.OBJECT,
-                      properties: {
-                        storyId: { type: Type.STRING },
-                        headline: { type: Type.STRING },
-                        categories: {
-                          type: Type.ARRAY,
-                          items: { type: Type.STRING },
-                        },
-                        articleUrls: {
-                          type: Type.ARRAY,
-                          items: { type: Type.STRING },
-                        },
-                      },
-                      required: [
-                        "storyId",
-                        "headline",
-                        "categories",
-                        "articleUrls",
-                      ],
-                    },
-                  },
-                  unrelatedArticleUrls: {
-                    type: Type.ARRAY,
-                    items: { type: Type.STRING },
-                  },
-                },
-                required: ["stories", "unrelatedArticleUrls"],
+    const schema = {
+      type: Type.OBJECT,
+      properties: {
+        stories: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              storyId: { type: Type.STRING },
+              headline: { type: Type.STRING },
+              categories: {
+                type: Type.ARRAY,
+                items: { type: Type.STRING },
+              },
+              articleUrls: {
+                type: Type.ARRAY,
+                items: { type: Type.STRING },
               },
             },
+            required: ["storyId", "headline", "categories", "articleUrls"],
           },
-          3,
-          2000,
-          isLastModel,
-        );
+        },
+        unrelatedArticleUrls: {
+          type: Type.ARRAY,
+          items: { type: Type.STRING },
+        },
+      },
+      required: ["stories", "unrelatedArticleUrls"],
+    };
 
-        if (response && response.text) {
-          return JSON.parse(response.text);
-        }
-      } catch (error) {
-        console.warn(`Model ${model} failed in groupArticles.`, error);
-      }
-    }
-
-    throw new Error("Grouping with Gemini failed");
+    return await this.executeWithModelFallback<{
+      stories: Array<{
+        storyId: string;
+        headline: string;
+        categories: string[];
+        articleUrls: string[];
+      }>;
+      unrelatedArticleUrls: string[];
+    }>(prompt, schema, options, "groupArticles");
   }
 
   private getFallbackBriefing(items: NewsItem[]): NewsBriefing {
