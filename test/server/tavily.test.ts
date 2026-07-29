@@ -141,6 +141,33 @@ describe("TavilyService", () => {
       );
     });
 
+    it("uses Japanese category search query maps when language is ja", async () => {
+      const mockResponse = createMockTavilyResponse();
+      mockTavilyClient.search.mockResolvedValue(mockResponse);
+
+      await service.searchJapanNews({
+        category: "tech",
+        language: "ja",
+        apiKey: "test-tavily-key",
+      });
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "日本 テクノロジー ロボット 自動車 半導体 ハイテク ニュース 最新",
+        expect.anything(),
+      );
+
+      await service.searchJapanNews({
+        category: "custom-cat",
+        language: "ja",
+        apiKey: "test-tavily-key",
+      });
+
+      expect(mockTavilyClient.search).toHaveBeenCalledWith(
+        "日本 最新ニュース custom-cat",
+        expect.anything(),
+      );
+    });
+
     it("uses default options when options parameter is null", async () => {
       const mockResponse = createMockTavilyResponse();
       mockTavilyClient.search.mockResolvedValue(mockResponse);
