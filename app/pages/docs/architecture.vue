@@ -5,15 +5,15 @@
         <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
           <img
             src="/favicon-light.ico"
-            alt="Nippon Daily"
+            alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
           />
           <img
             src="/favicon-dark.ico"
-            alt="Nippon Daily"
+            alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
           />
-          <span>Nippon Daily Docs</span>
+          <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
 
@@ -61,14 +61,14 @@
         <p class="m-0 text-blue-900 dark:text-blue-100">
           <strong>👋 Welcome!</strong> Whether you are an experienced developer
           or a beginner exploring how modern AI apps are built, this guide will
-          walk you through how Nippon Daily works behind the scenes. We've
+          walk you through how NipponDaily works behind the scenes. We've
           broken down complex topics to make them easy to understand, without
           skipping any of the technical details.
         </p>
       </div>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        Nippon Daily is built with a modern stack focusing on performance,
+        NipponDaily is built with a modern stack focusing on performance,
         scalability, and AI integration. In simple terms, the system aggregates
         raw news from the internet and transforms it into synthesized
         intelligence (easy-to-read summaries) using Google Gemini AI.
@@ -93,7 +93,7 @@
         1. Core Components
       </h2>
       <p class="mb-6">
-        Here are the main building blocks (technologies) that make Nippon Daily
+        Here are the main building blocks (technologies) that make NipponDaily
         work:
       </p>
 
@@ -1254,7 +1254,7 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
     <UFooter>
       <template #left>
         <p class="text-sm text-secondary-500">
-          &copy; 2025 - {{ new Date().getFullYear() }} Nippon Daily. Released
+          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
           under the Apache-2.0 License.
         </p>
       </template>
