@@ -15,18 +15,18 @@
         <NuxtLink to="/" class="flex items-center gap-3">
           <img
             src="/favicon-light.ico"
-            alt="Nippon Daily"
+            alt="NipponDaily"
             class="w-8 h-8 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
           />
           <img
             src="/favicon-dark.ico"
-            alt="Nippon Daily"
+            alt="NipponDaily"
             class="w-8 h-8 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
           />
           <div class="flex flex-col">
             <span
               class="font-serif font-bold text-lg tracking-wide leading-none"
-              >Nippon Daily</span
+              >NipponDaily</span
             >
           </div>
         </NuxtLink>
@@ -62,7 +62,7 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans"
         >
-          Nippon Daily clusters multi-source Japanese coverage in real time
+          NipponDaily clusters multi-source Japanese coverage in real time
           using vector embeddings and Google Gemini AI—delivering executive
           briefings, cross-perspective synthesis, and automated credibility
           scoring across 6 channels.
@@ -139,7 +139,7 @@
     >
       <template #left>
         <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          &copy; 2025 - {{ new Date().getFullYear() }} Nippon Daily. All rights
+          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. All rights
           reserved. Released under the Apache-2.0 License.
         </p>
       </template>

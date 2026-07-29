@@ -24,7 +24,7 @@ describe("Index Page (Landing)", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.find(".u-header").exists()).toBe(true);
-    expect(wrapper.text().toUpperCase()).toContain("NIPPON DAILY");
+    expect(wrapper.text().toUpperCase()).toContain("NIPPONDAILY");
   });
 
   it("renders UColorModeButton in header", () => {
@@ -38,7 +38,7 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.text()).toContain("Real-Time AI Briefings.");
     expect(wrapper.text()).toContain(
-      "Nippon Daily clusters multi-source Japanese coverage in real time using vector embeddings and Google Gemini AI",
+      "NipponDaily clusters multi-source Japanese coverage in real time using vector embeddings and Google Gemini AI",
     );
   });
 
@@ -75,7 +75,7 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.find(".u-footer").exists()).toBe(true);
     expect(wrapper.text()).toContain(
-      "Nippon Daily. All rights reserved. Released under the Apache-2.0 License.",
+      "NipponDaily. All rights reserved. Released under the Apache-2.0 License.",
     );
   });
 
@@ -93,8 +93,8 @@ describe("Index Page (Landing)", () => {
     const lightImg = wrapper.find('.u-header img[src="/favicon-light.ico"]');
     const darkImg = wrapper.find('.u-header img[src="/favicon-dark.ico"]');
     expect(lightImg.exists()).toBe(true);
-    expect(lightImg.attributes("alt")).toBe("Nippon Daily");
+    expect(lightImg.attributes("alt")).toBe("NipponDaily");
     expect(darkImg.exists()).toBe(true);
-    expect(darkImg.attributes("alt")).toBe("Nippon Daily");
+    expect(darkImg.attributes("alt")).toBe("NipponDaily");
   });
 });
