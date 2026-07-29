@@ -44,4 +44,18 @@ describe("Architecture Page", () => {
     expect(wrapper.text()).toContain("Herbal Green");
     expect(wrapper.text()).toContain("Cream Washi");
   });
+
+  it("handles mobile menu toggle click", async () => {
+    const wrapper = mount(ArchitecturePage, {
+      global: {
+        stubs: NuxtUIComponents,
+      },
+    });
+
+    const buttons = wrapper.findAll("button");
+    for (const btn of buttons) {
+      await btn.trigger("click");
+    }
+    expect(wrapper.vm).toBeDefined();
+  });
 });

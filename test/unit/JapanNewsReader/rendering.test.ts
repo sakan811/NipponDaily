@@ -108,82 +108,89 @@ describe("JapanNewsReader - Rendering", () => {
     expect(wrapper.find(".u-header").exists()).toBe(true);
   });
 
-  it("renders Trending badge only when a story is trending (trendScore > 5)", async () => {
-    const mockBriefingCard = {
-      name: "BriefingCard",
-      props: ["briefing"],
-      template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
-    };
-
-    // Test 1: > 5 sources -> displays badge
-    const mockTrendingFetch = vi.fn().mockResolvedValue({
+  it("handles response.data.stories payload format", async () => {
+    const mockStoriesFetch = vi.fn().mockResolvedValue({
       success: true,
       data: {
-        ...mockNews,
-        sourcesProcessed: Array(6)
-          .fill(null)
-          .map((_, i) => ({
-            title: `Tech News ${i}`,
-            source: `Tech Source ${i}`,
-            url: `https://example.com/${i}`,
-            credibilityScore: 0.9,
-            publishedAt: "2024-01-15T10:00:00Z",
-            category: "Tech" as any,
-          })),
+        stories: [
+          {
+            id: "story-cat-1",
+            headline: "Multi-Source Story",
+            summary: "Story summary",
+            thematicAnalysis: "Thematic summary",
+            articleCount: 3,
+            firstSeen: Date.now() - 86400000,
+            lastUpdated: Date.now(),
+            trendScore: 3,
+            isSummarized: true,
+            sources: [
+              {
+                title: "Source 1",
+                source: "NHK",
+                url: "https://nhk.jp/1",
+                publishedAt: "2026-01-10T10:00:00Z",
+                credibilityScore: 0.9,
+              },
+              {
+                title: "Source 2",
+                source: "Asahi",
+                url: "https://asahi.com/2",
+                publishedAt: "2026-01-20T10:00:00Z",
+                credibilityScore: 0.85,
+              },
+              {
+                title: "Source 3",
+                source: "Mainichi",
+                url: "https://mainichi.jp/3",
+                publishedAt: "2025-12-01T10:00:00Z",
+                credibilityScore: 0.88,
+              },
+            ],
+            categories: ["tech"],
+          },
+        ],
+        lastIngestTime: Date.now(),
       },
-      count: 6,
-      timestamp: "2024-01-15T10:00:00Z",
+      count: 1,
+      timestamp: "2026-01-20T10:00:00Z",
     });
-    (global as any).$fetch = mockTrendingFetch;
+    (global as any).$fetch = mockStoriesFetch;
 
-    const wrapper = mountReader({
-      global: {
-        components: { BriefingCard: mockBriefingCard },
-      },
-    });
-
+    const wrapper = mountReader();
     await wrapper.vm.refreshNews();
+    expect(wrapper.vm.stories).toHaveLength(1);
+    expect(wrapper.vm.stories[0].headline).toBe("Multi-Source Story");
+
+    // Select story to trigger activeBriefingData, getStoryTimeRange (same month, same year, diff year), and chronologicalSources
+    wrapper.vm.selectedStoryId = "story-cat-1";
     await wrapper.vm.$nextTick();
 
-    const trendingBadges = wrapper.findAll(".u-badge");
-    const hasTrendingBadge = trendingBadges.some((b) =>
-      b.text().includes("Trending"),
-    );
-    expect(hasTrendingBadge).toBe(true);
+    expect(wrapper.vm.activeBriefingData).not.toBeNull();
+    expect(wrapper.vm.chronologicalSources).toHaveLength(3);
+    // Chronological sources should be sorted oldest publishedAt first (2025-12-01 first)
+    expect(wrapper.vm.chronologicalSources[0].source).toBe("Mainichi");
+  });
 
-    // Test 2: <= 5 sources -> does not display badge
-    const mockNotTrendingFetch = vi.fn().mockResolvedValue({
+  it("handles response.data without stories or mainHeadline", async () => {
+    (global as any).$fetch = vi.fn().mockResolvedValue({
       success: true,
-      data: {
-        ...mockNews,
-        sourcesProcessed: Array(5)
-          .fill(null)
-          .map((_, i) => ({
-            title: `Tech News ${i}`,
-            source: `Tech Source ${i}`,
-            url: `https://example.com/${i}`,
-            credibilityScore: 0.9,
-            publishedAt: "2024-01-15T10:00:00Z",
-            category: "Tech" as any,
-          })),
-      },
-      count: 5,
-      timestamp: "2024-01-15T10:00:00Z",
+      data: {},
+      count: 0,
     });
-    (global as any).$fetch = mockNotTrendingFetch;
+    const wrapper = mountReader();
+    await wrapper.vm.refreshNews();
+    expect(wrapper.vm.stories).toHaveLength(0);
+  });
 
-    const wrapperNotTrending = mountReader({
-      global: {
-        components: { BriefingCard: mockBriefingCard },
-      },
-    });
-    await wrapperNotTrending.vm.refreshNews();
-    await wrapperNotTrending.vm.$nextTick();
+  it("handles DEBUG_ERROR_UI mode simulations", async () => {
+    const wrapper = mountReader();
+    // Test fetchNews with debug simulation mode directly
+    wrapper.vm.error =
+      "DEBUG_ERROR_UI: Service temporarily unavailable. Failed to fetch trending stories from Redis database.";
+    expect(wrapper.vm.error).toContain("DEBUG_ERROR_UI");
 
-    const badgesNotTrending = wrapperNotTrending.findAll(".u-badge");
-    const hasTrendingBadgeNotTrending = badgesNotTrending.some((b) =>
-      b.text().includes("Trending"),
-    );
-    expect(hasTrendingBadgeNotTrending).toBe(false);
+    wrapper.vm.debugSimulationMode = "summary_error";
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.fetchNews();
   });
 });

@@ -185,8 +185,6 @@ describe("GeminiService", () => {
   });
 
   it("matches source by title instead of URL when sourcesProcessed entry has no url", async () => {
-    // When the AI returns a source without a URL, the favicon matching
-    // should fall back to matching by title (covers gemini.ts line 118)
     const favicon = "https://nhk.jp/favicon.ico";
     mockGenerateContent.mockResolvedValue({
       text: JSON.stringify({
@@ -195,7 +193,6 @@ describe("GeminiService", () => {
         thematicAnalysis: "Test Analysis",
         overallCredibilityScore: 0.8,
         sourcesProcessed: [
-          // No url field here — should match by title
           {
             title: "Test NHK Article",
             source: "NHK",
@@ -223,8 +220,75 @@ describe("GeminiService", () => {
       apiKey: "test-key",
     });
 
-    // The favicon should be attached from the matched news item by title
     expect(result.sourcesProcessed[0].favicon).toBe(favicon);
+  });
+
+  describe("groupArticles", () => {
+    it("groups articles into cohesive story clusters via AI prompt", async () => {
+      const mockGroupResponse = {
+        stories: [
+          {
+            storyId: "story-grouped-1",
+            headline: "Grouped Story Headline",
+            categories: ["tech"],
+            articleUrls: [
+              "https://example.com/art1",
+              "https://example.com/art2",
+            ],
+          },
+        ],
+        unrelatedArticleUrls: ["https://example.com/unrelated"],
+      };
+
+      mockGenerateContent.mockResolvedValueOnce({
+        text: JSON.stringify(mockGroupResponse),
+      });
+
+      const currentStories = [
+        {
+          storyId: "story-1",
+          headline: "Old Story Headline",
+          categories: ["tech"],
+          articles: [
+            {
+              title: "Article 1",
+              source: "NHK",
+              url: "https://example.com/art1",
+              publishedAt: "2026-07-29T00:00:00Z",
+            },
+          ],
+        },
+      ];
+
+      const orphanedArticles = [
+        {
+          title: "Orphaned Article",
+          source: "Asahi",
+          url: "https://example.com/art2",
+          publishedAt: "2026-07-29T00:00:00Z",
+        },
+        {
+          title: "Unrelated Article",
+          source: "Global News",
+          url: "https://example.com/unrelated",
+          publishedAt: "2026-07-29T00:00:00Z",
+        },
+      ];
+
+      const result = await service.groupArticles(
+        currentStories,
+        orphanedArticles,
+        {
+          apiKey: "test-key",
+        },
+      );
+
+      expect(result.stories).toHaveLength(1);
+      expect(result.stories[0].storyId).toBe("story-grouped-1");
+      expect(result.unrelatedArticleUrls).toContain(
+        "https://example.com/unrelated",
+      );
+    });
   });
 
   describe("batchProcessStories", () => {
@@ -312,7 +376,6 @@ describe("GeminiService", () => {
       expect(result["story-2"].headline).toBe("Kyoto Tourism Surge");
       expect(mockGenerateContent).toHaveBeenCalled();
 
-      // Check that the prompt contains instructions for UPDATE and NEW
       const prompt = mockGenerateContent.mock.calls[0][0].contents;
       expect(prompt).toContain("Story Cluster #1");
       expect(prompt).toContain("[Type: NEW]");

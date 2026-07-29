@@ -144,4 +144,12 @@ describe("BriefingCard", () => {
     expect(img.attributes("src")).toBe("https://nhk.jp/favicon.ico");
     expect(img.attributes("alt")).toBe("NHK");
   });
+
+  it("handles undefined thematicAnalysis gracefully in renderMarkdown", () => {
+    const wrapper = mountBriefingCard({
+      thematicAnalysis: undefined,
+      executiveSummary: undefined,
+    });
+    expect(wrapper.exists()).toBe(true);
+  });
 });

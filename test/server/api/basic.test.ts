@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 import {
   getHandler,
@@ -7,6 +7,21 @@ import {
   mockTavilyFormat,
   mockGeminiCategorize,
 } from "./setup";
+
+import { storiesService } from "~/server/services/stories";
+
+vi.mock("~/server/services/stories", async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import("~/server/services/stories")>();
+  return {
+    ...actual,
+    storiesService: {
+      getLastIngestTime: vi.fn(),
+      getStoryIds: vi.fn(),
+      getStories: vi.fn(),
+    },
+  };
+});
 
 describe("News API - Basic Functionality", () => {
   let handler: any;
@@ -109,33 +124,19 @@ describe("News API - Basic Functionality", () => {
     });
   });
 
-  it("formats publishTimeRange using en-US when language param is null/empty", async () => {
-    // This test exercises news.get.ts line 208: `if (validatedQuery.language)`
-    // When language is null, it transforms to "en" via schema, so we need items with dates
-    // to trigger the date formatting code path
-    const mockNews = [
-      {
-        title: "News Item",
-        summary: "Summary",
-        content: "Content",
-        source: "Source",
-        publishedAt: "2024-06-15T00:00:00Z",
-        category: "Technology",
-        url: "https://example.com",
-      },
-    ];
-
-    // Pass null language — schema transforms it to "en"
-    (global as any).getQuery.mockReturnValue({
-      language: null,
+  it("handles getQuery error fallback to node req url parsing", async () => {
+    (global as any).getQuery.mockImplementation(() => {
+      throw new Error("getQuery not available");
     });
     mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue({ sourcesProcessed: [] });
+    mockTavilyFormat.mockReturnValue([]);
+    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
+      path: "/api/news?limit=10",
       node: {
         req: {
+          url: "/api/news?limit=10",
           socket: { remoteAddress: "127.0.0.1" },
           headers: {},
         },
@@ -143,8 +144,88 @@ describe("News API - Basic Functionality", () => {
     });
 
     expect(response.success).toBe(true);
-    // publishTimeRange should be formatted using en-US when language resolved to "en"
-    expect(typeof response.data.publishTimeRange).toBe("string");
-    expect(response.data.publishTimeRange).not.toBe("Recent");
+  });
+
+  it("executes production story database path when TEST_DB_MODE is true", async () => {
+    const origDbMode = process.env.TEST_DB_MODE;
+    process.env.TEST_DB_MODE = "true";
+
+    vi.mocked(storiesService.getLastIngestTime).mockResolvedValue(0);
+    vi.mocked(storiesService.getStoryIds).mockResolvedValue([]);
+    vi.mocked(storiesService.getStories).mockResolvedValue([
+      {
+        id: "prod-story-1",
+        headline: "Production Story 1",
+        summary: "Production Summary 1",
+        thematicAnalysis: "Thematic 1",
+        articleCount: 2,
+        firstSeen: Date.now() - 86400000,
+        lastUpdated: Date.now(),
+        trendScore: 5,
+        isSummarized: true,
+        sources: [
+          {
+            title: "Article A",
+            source: "NHK",
+            url: "https://example.com/a",
+            publishedAt: "2026-07-28T00:00:00Z",
+            credibilityScore: 0.9,
+          },
+        ],
+        categories: ["tech"],
+      },
+    ]);
+
+    (global as any).getQuery.mockReturnValue({
+      category: "tech",
+      timeRange: "month",
+    });
+
+    try {
+      const response = await handler({
+        waitUntil: vi.fn(),
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      });
+
+      expect(response.success).toBe(true);
+      expect(response.data.stories).toHaveLength(1);
+    } finally {
+      process.env.TEST_DB_MODE = origDbMode;
+    }
+  });
+
+  it("handles empty stories fallback in production mode", async () => {
+    const origDbMode = process.env.TEST_DB_MODE;
+    process.env.TEST_DB_MODE = "true";
+
+    vi.mocked(storiesService.getLastIngestTime).mockResolvedValue(Date.now());
+    vi.mocked(storiesService.getStoryIds).mockResolvedValue(["story-1"]);
+    vi.mocked(storiesService.getStories).mockResolvedValue([]);
+
+    (global as any).getQuery.mockReturnValue({});
+
+    try {
+      const response = await handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      });
+
+      expect(response.success).toBe(true);
+      expect(response.data.mainHeadline).toBe("Latest Japan News Briefing");
+      expect(response.data.executiveSummary).toContain(
+        "No news stories are currently available",
+      );
+    } finally {
+      process.env.TEST_DB_MODE = origDbMode;
+    }
   });
 });

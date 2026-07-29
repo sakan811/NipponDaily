@@ -63,4 +63,23 @@ describe("SummaryFallback Component", () => {
       "DEBUG_ERROR_UI: Summary Process Failure Preview",
     );
   });
+
+  it("renders default topic coverage title when headline is missing and renders source without url", () => {
+    const mockSourcesWithoutUrl = [
+      {
+        title: "No URL Source",
+        source: "Offline Paper",
+      },
+    ];
+
+    const wrapper = mount(SummaryFallback, {
+      props: {
+        sources: mockSourcesWithoutUrl,
+      },
+    });
+
+    expect(wrapper.text()).toContain("Topic Coverage (Raw Sources)");
+    expect(wrapper.text()).toContain("No URL Source");
+    expect(wrapper.text()).toContain("Offline Paper");
+  });
 });
