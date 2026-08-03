@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          />
+          >
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          />
+          >
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -127,6 +127,12 @@ const features = [
     description:
       "News discovery, processing, clustering, and AI summarization all run automatically in separate background pipelines (via QStash CRON schedules), keeping the database perfectly synced while protecting quotas.",
     icon: "i-heroicons-cpu-chip",
+  },
+  {
+    title: "Automated Data Retention",
+    description:
+      "A dedicated cleanup pipeline permanently prunes stories and article embeddings older than 30 days from Redis and Upstash Vector, keeping both stores from growing unbounded.",
+    icon: "i-heroicons-trash",
   },
   {
     title: "Resilient Fallback Components",

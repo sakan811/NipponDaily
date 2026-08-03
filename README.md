@@ -16,6 +16,7 @@
 - **Visual Trust Scoring**: Multi-level credibility assessments (overall and per-source) directly evaluated by Google Gemini AI with HSL-color-gradient visuals.
 - **Customizable Discovery & Span Filtering**: Fine-grained filtering by traditional category channels and precise date ranges (preset or custom), analyzing the actual publish timeline span of each story.
 - **Automated Background Pipelines**: Seamless news discovery, and AI grouping and summarization scheduled in separate background pipelines (via QStash CRON) to ensure instantaneous loading of curated topics while enforcing token limit protections and respecting Gemini's free tier quotas.
+- **Automated Data Retention**: A dedicated cleanup pipeline permanently prunes stories and article embeddings older than 30 days from Redis and Upstash Vector so neither store grows unbounded.
 - **Smart & Editorial UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4, utilizing locally maintained custom UI components for a fast, responsive, and immersive editorial layout. Features a complementary color system: a soft, romantic Sakura day theme (pale pink blossoms against cream washi white, grounded by sage and warm bark brown) and a midnight-inverted dark theme (vibrant teal leaves and warm evening orchid accents against a midnight slate sky canvas).
 
 ## 🛠 Tech Stack
