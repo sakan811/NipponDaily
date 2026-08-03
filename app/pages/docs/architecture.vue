@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          />
+          >
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          />
+          >
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -852,12 +852,115 @@
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
+      <!-- CLEANUP PIPELINE                                                   -->
+      <!-- ══════════════════════════════════════════════════════════════════ -->
+
+      <h2
+        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
+      >
+        7. Automated Data Retention (Cleanup Pipeline)
+      </h2>
+
+      <p class="text-lg mb-6">
+        The Grouping Pipeline's 30-day cutoff (Section 5) only decides what
+        gets sent to Gemini. Rebuilding the story set on commit happens to
+        drop stale <em>stories</em> from Redis, but filtered-out Upstash
+        Vector <em>articles</em> are never evaluated by Gemini, so they're
+        never flagged for deletion — they just accumulate forever. The
+        Cleanup Pipeline directly targets both stores on its own schedule: it
+        permanently prunes anything older than 30 days, closing the Vector
+        gap and providing a Redis safety net independent of grouping.
+      </p>
+
+      <!-- Diagram 4: Cleanup Pipeline -->
+      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 rounded-xl">
+        <h3
+          class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
+        >
+          Cleanup Pipeline — Redis &amp; Vector Pruning (Zoomable)
+        </h3>
+        <MermaidDiagram id="cleanup-diag" :code="cleanupDiagram" />
+        <p class="text-center text-xs text-gray-500 mt-4 italic">
+          This chart shows how stale records are identified and permanently
+          removed from both databases.
+        </p>
+      </div>
+
+      <p class="font-semibold text-xl mt-10 mb-4">
+        The cleanup process happens in 2 steps:
+      </p>
+
+      <div
+        class="space-y-8 pl-4 border-l-4 border-primary-200 dark:border-primary-800"
+      >
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 1</span> Prune Stale
+            Stories (Redis)
+          </h3>
+          <p class="mb-2">
+            <strong>The Concept:</strong> Any story whose sources haven't been
+            updated in over a month is considered stale and removed. This
+            mirrors what the Grouping Pipeline's commit step already does as a
+            side effect, acting as a safety net for when grouping is skipped
+            or delayed.
+          </p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> Reads all stories from Redis
+            and deletes any where <code>lastUpdated</code> falls before the
+            30-day cutoff, removing both the <code>story:&#123;id&#125;</code>
+            key and its entry in the <code>news:stories</code> set.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+            <span class="text-primary-500 mr-2">Step 2</span> Prune Stale
+            Articles (Upstash Vector)
+          </h3>
+          <p class="mb-2">
+            <strong>The Concept:</strong> Any embedded article older than a
+            month is deleted from the vector index, and unmarked so it won't
+            be treated as permanently "seen."
+          </p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Technical Details:</strong> Reads all vectors via
+            <code>getAllArticles()</code>, filters by
+            <code>metadata.published_at</code> against the 30-day cutoff,
+            deletes matches from Upstash Vector by their SHA-256 URL hash, and
+            removes the corresponding URL from Redis's
+            <code>news:processed_articles</code> seen-set.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="my-8 p-4 rounded-xl border border-sky-300 dark:border-sky-700 bg-sky-50 dark:bg-sky-950/30 flex items-start gap-3"
+      >
+        <UIcon
+          name="i-heroicons-shield-check"
+          class="text-sky-500 w-6 h-6 shrink-0 mt-0.5"
+        />
+        <div>
+          <p class="m-0 text-sky-900 dark:text-sky-100 font-semibold mb-1">
+            Safe Testing (Dry Run)
+          </p>
+          <p class="m-0 text-sky-800 dark:text-sky-200 text-sm">
+            Like <code>/api/group</code>, the endpoint supports a
+            <code>dryRun: true</code> mode that reports how many stories and
+            articles would be deleted without actually committing the
+            deletion.
+          </p>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════ -->
       <!-- QUOTA MANAGEMENT                                                   -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        7. Gemini Rate Limiting & Quota Management
+        8. Gemini Rate Limiting & Quota Management
       </h2>
       <p class="mb-4">
         Because we use the free version of Google Gemini, we are strictly
@@ -866,7 +969,7 @@
         avoid getting blocked.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         <UCard>
           <h3 class="text-lg font-bold mb-2">1. Summarization Pipeline</h3>
           <p class="text-xs text-gray-500 mb-3">
@@ -925,6 +1028,29 @@
             </li>
           </ul>
         </UCard>
+
+        <UCard>
+          <h3 class="text-lg font-bold mb-2">3. Cleanup Pipeline</h3>
+          <p class="text-xs text-gray-500 mb-3">
+            (<code>POST /api/cleanup</code>)
+          </p>
+          <ul
+            class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300"
+          >
+            <li>
+              <strong>No Gemini Calls:</strong> Purely deletes stale Redis and
+              Vector records — doesn't consume any AI quota at all.
+            </li>
+            <li>
+              <strong>Independent Schedule:</strong> Runs on its own QStash
+              schedule, decoupled from grouping and summarization.
+            </li>
+            <li>
+              <strong>Dry Run Support:</strong> Reports deletion counts without
+              committing changes when <code>dryRun: true</code>.
+            </li>
+          </ul>
+        </UCard>
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -934,7 +1060,7 @@
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        8. API Reference
+        9. API Reference
       </h2>
       <p class="mb-8">Technical details on how our backend endpoints work.</p>
 
@@ -967,8 +1093,13 @@
           <strong>⚡ Token Limit Protection (30-day cutoff):</strong> To prevent
           exceeding Gemini's 250k input token limit as the database grows, the
           pipeline strictly filters out stories and articles older than 30 days
-          before sending the payload. Older stories simply age out of the Redis
-          cache.
+          before sending the payload. On commit, rebuilding the story set from
+          scratch drops stale <em>stories</em> from Redis as a side effect —
+          but filtered-out Upstash Vector <em>articles</em> are simply skipped,
+          never deleted, since Gemini never sees them to flag them. The
+          dedicated <code>POST /api/cleanup</code> pipeline (see Section 7)
+          closes that gap and also acts as a Redis safety net for when
+          grouping hasn't run recently.
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -993,6 +1124,58 @@ curl -X POST http://localhost:3000/api/group \
   "originalStoriesCount": 5,
   "newStoriesCount": 4,
   "data": [ ... ],
+  "timestamp": "2026-07-14T15:00:00.000Z"
+}</code></pre>
+          </div>
+        </div>
+      </UCard>
+
+      <!-- /api/cleanup -->
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="primary" variant="soft">POST</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/cleanup</h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          Permanently deletes stories from Redis and articles from Upstash
+          Vector that are older than 30 days, so neither store grows
+          unbounded. Complements the Grouping Pipeline's in-memory 30-day
+          cutoff, which only excludes old data from Gemini payloads without
+          removing it from Vector.
+        </p>
+
+        <div
+          class="mb-4 p-3 rounded-lg border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20 text-sm"
+        >
+          <strong>🗓 QStash Scheduled:</strong> Runs on its own automated
+          schedule (e.g. <code>0 3 * * *</code>), independent of the ingest,
+          group, and summarize schedules.
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">Request Example</p>
+            <pre
+              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+            ><code># Preview without deleting
+curl -X POST http://localhost:3000/api/cleanup \
+  -H "Content-Type: application/json" \
+  -d '{"dryRun": true}'</code></pre>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">
+              Response (200 OK)
+            </p>
+            <pre
+              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+            ><code>{
+  "success": true,
+  "storiesDeleted": 2,
+  "articlesDeleted": 7,
+  "dryRun": true,
+  "message": "Cleanup completed successfully",
   "timestamp": "2026-07-14T15:00:00.000Z"
 }</code></pre>
           </div>
@@ -1174,7 +1357,7 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        8. Trust & Credibility
+        10. Trust & Credibility
       </h2>
       <p class="mb-4">
         Every briefing includes an AI-computed <strong>Trust Score</strong>.
@@ -1284,6 +1467,9 @@ Scheduler"])
     QStash -- "POST /api/summarize
 (on schedule)" --> SummarizeAPI["POST /api/summarize
 (Nitro)"]
+    QStash -- "POST /api/cleanup
+(on schedule)" --> CleanupAPI["POST /api/cleanup
+(Nitro)"]
 
     subgraph Storage ["💾 Storage Layer (Upstash)"]
         Redis[("Redis
@@ -1307,6 +1493,9 @@ Semantic Index")]
 
     SummarizeAPI --> Gemini
     SummarizeAPI --> Redis
+
+    CleanupAPI -. "delete >30d" .-> Redis
+    CleanupAPI -. "delete >30d" .-> Vector
 
     NewsAPI -- "read stories" --> Redis
     NewsAPI -. "auto-trigger
@@ -1373,6 +1562,30 @@ Delete unrelated articles from DB, drop empty stories"]
     S5 -- "Clear & Save New Stories" --> Redis
     S5 -- "Update story_id tags" --> VectorDB
     S5 --> Done(["✅ Done"])
+`;
+
+const cleanupDiagram = `
+flowchart TD
+    Start(["QStash triggers
+POST /api/cleanup"])
+
+    Start --> S1["Step 1 · Prune Stories
+Read all stories, delete where
+lastUpdated < 30 days ago"]
+    S1 -- "DELETE stale stories" --> Redis[("Redis
+Story Cache")]
+
+    S1 --> S2["Step 2 · Prune Vectors
+Read all vectors, delete where
+published_at < 30 days ago"]
+    S2 -- "DELETE stale vectors" --> VectorDB[("Vector DB
+Semantic Index")]
+    S2 -- "Unmark deleted URLs" --> RedisSeen[("Redis
+seen-set")]
+
+    S2 --> Cond{"dryRun == true?"}
+    Cond -- "Yes" --> DryRunEnd(["✅ Return Preview Counts"])
+    Cond -- "No" --> Done(["✅ Done"])
 `;
 </script>
 
