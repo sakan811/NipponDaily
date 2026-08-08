@@ -20,7 +20,7 @@
   "dependencies": {
     "@google/genai": "^2.13.0",
     "@tavily/core": "^0.7.6",
-    "@upstash/redis": "^1.38.0",
+    "@upstash/redis": "^1.38.2",
     "@upstash/vector": "^1.2.3",
     "marked": "^18.0.7",
     "nuxt": "^4.5.1",
