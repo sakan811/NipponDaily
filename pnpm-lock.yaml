@@ -12,8 +12,8 @@ importers:
         specifier: ^2.16.0
         version: 2.16.0
       '@tavily/core':
-        specifier: ^0.7.6
-        version: 0.7.6
+        specifier: ^0.7.7
+        version: 0.7.7
       '@upstash/redis':
         specifier: ^1.38.2
         version: 1.38.2
@@ -1551,8 +1551,8 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
 
-  '@tavily/core@0.7.6':
-    resolution: {integrity: sha512-swNz2RaietpfXWrA+y/ERSQ9H3bq0mNu0hcp2OcVKqTrUUcdygEXIXr67o6qQ1XSjgBbB3FNQtAkrPPB8bYkaA==}
+  '@tavily/core@0.7.7':
+    resolution: {integrity: sha512-6Sc+u4nPEdzLB2D7Ubut/sLI2wR3Wc81P1VCJNTsdFtvgLOpVGGGEYAG9VUCLOzVCeEUT5SzHRIMSnsqJ4Pdow==}
 
   '@tybys/wasm-util@0.10.3':
     resolution: {integrity: sha512-F3fo1MYrRJYL3zER0OUOmkutjr1Vp23m7OsSgp7nq4SP6OqX6C/56XFIPAl5bt3zaBRjmW7SGz3u/6LwFpYcOg==}
@@ -2073,8 +2073,8 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
-  axios@1.18.1:
-    resolution: {integrity: sha512-3nTvFlvpn9Zu/RkHUqtc7/+al4UpRW5az71ap5zccp6e8RAYEzhMTecX8Dz1wWDYrPpUoB1HAQEGEAEvUr7S9g==}
+  axios@1.19.0:
+    resolution: {integrity: sha512-ht/iuYZXEjFxLH/Hkezgd7m6JKlHHXEUSneaDz8uZe1Gj5QZtCnpyDsckvAiEnT89OEbCLmnte4R4sn7P0EKFw==}
 
   b4a@1.8.1:
     resolution: {integrity: sha512-aiqre1Nr0B/6DgE2N5vwTc+2/oQZ4Wh1t4NznYY4E00y8LCt6NqdRv81so00oo27D8MVKTpUa/MwUUtBLXCoDw==}
@@ -6832,9 +6832,9 @@ snapshots:
       tailwindcss: 4.3.3
       vite: 8.2.0(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0)
 
-  '@tavily/core@0.7.6':
+  '@tavily/core@0.7.7':
     dependencies:
-      axios: 1.18.1
+      axios: 1.19.0
       https-proxy-agent: 7.0.6
       js-tiktoken: 1.0.21
     transitivePeerDependencies:
@@ -7453,7 +7453,7 @@ snapshots:
       postcss: 8.5.26
       postcss-value-parser: 4.2.0
 
-  axios@1.18.1:
+  axios@1.19.0:
     dependencies:
       follow-redirects: 1.16.0
       form-data: 4.0.6
