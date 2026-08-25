@@ -140,7 +140,7 @@
         >
       </div>
       <p class="text-xs text-stone-500 dark:text-stone-400">
-        This demonstrates the Summary Fallback component layout when Gemini API
+        This demonstrates the Summary Fallback component layout when AI
         summarization fails or encounters rate limits.
       </p>
     </div>
