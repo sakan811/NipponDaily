@@ -38,7 +38,7 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.text()).toContain("Real-Time AI Briefings.");
     expect(wrapper.text()).toContain(
-      "NipponDaily clusters multi-source Japanese coverage in real time using vector embeddings and Google Gemini AI",
+      "NipponDaily clusters multi-source Japanese coverage using AI-driven analysis",
     );
   });
 

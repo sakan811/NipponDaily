@@ -27,9 +27,6 @@ process.env.NODE_ENV = "test";
 
 // Enhanced Nuxt composables mock with more comprehensive coverage
 const mockRuntimeConfig = vi.fn(() => ({
-  geminiApiKey: "test-api-key",
-  geminiModel: "gemini-1.5-flash",
-  tavilyApiKey: "test-tavily-key",
   public: {
     apiBase: "/api",
   },
@@ -101,57 +98,6 @@ global.fetch = vi.fn(() =>
   }),
 );
 
-// Mock Google GenAI for service tests
-const mockGenerateContent = vi.fn(() =>
-  Promise.resolve({
-    text: JSON.stringify([
-      {
-        category: "Technology",
-        translatedTitle: "Test News (Translated)",
-        summary: "Test Summary",
-      },
-    ]),
-  }),
-);
-
-// Create a proper constructor mock for GoogleGenAI
-class MockGoogleGenAI {
-  models = {
-    generateContent: mockGenerateContent,
-  };
-
-  constructor(_options: any) {
-    // Constructor mock - handle the apiKey parameter
-    return this;
-  }
-}
-
-// Mock Type enum for Google GenAI
-const mockType = {
-  TYPE_UNSPECIFIED: "TYPE_UNSPECIFIED",
-  STRING: "STRING",
-  NUMBER: "NUMBER",
-  INTEGER: "INTEGER",
-  BOOLEAN: "BOOLEAN",
-  ARRAY: "ARRAY",
-  OBJECT: "OBJECT",
-  NULL: "NULL",
-};
-
-vi.mock("@google/genai", () => ({
-  GoogleGenAI: MockGoogleGenAI,
-  Type: mockType,
-}));
-
-// Mock Tavily for service tests
-const mockTavilyClient: any = {
-  search: vi.fn(),
-};
-
-vi.mock("@tavily/core", () => ({
-  tavily: vi.fn(() => mockTavilyClient),
-}));
-
 // Mock @internationalized/date for calendar components
 class MockCalendarDate {
   constructor(year: number, month: number, day: number) {
@@ -173,8 +119,6 @@ class MockCalendarDate {
 vi.mock("@internationalized/date", () => ({
   CalendarDate: MockCalendarDate,
 }));
-
-export { mockTavilyClient, mockGenerateContent };
 
 // Configure Vue Test Utils with enhanced mocks
 config.global.stubs = {

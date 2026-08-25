@@ -3,10 +3,8 @@ import { describe, it, expect, beforeEach } from "vitest";
 import {
   getHandler,
   setupDefaults,
-  createMockNews,
-  mockTavilySearch,
-  mockTavilyFormat,
-  mockGeminiCategorize,
+  createMockStory,
+  mockGetStories,
 } from "./setup";
 
 describe("News API - Category Filter", () => {
@@ -17,12 +15,25 @@ describe("News API - Category Filter", () => {
     handler = await getHandler();
   });
 
-  it("filters news by category", async () => {
-    const mockNews = createMockNews();
-    (global as any).getQuery.mockReturnValue({ category: "technology" });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue({});
+  it("filters stories by category", async () => {
+    const techStory = createMockStory({ id: "tech-1", categories: ["tech"] });
+    const foodStory = createMockStory({
+      id: "food-1",
+      categories: ["food"],
+      sources: [
+        {
+          title: "Food Source",
+          source: "Food Source",
+          url: "https://example.com/food",
+          publishedAt: new Date().toISOString(),
+          credibilityScore: 0.9,
+          addedAt: Date.now(),
+          category: "food",
+        },
+      ],
+    });
+    mockGetStories.mockResolvedValue([techStory, foodStory]);
+    (global as any).getQuery.mockReturnValue({ category: "tech" });
 
     const response = await handler({
       node: {
@@ -34,28 +45,15 @@ describe("News API - Category Filter", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(response.data).toEqual({ publishTimeRange: "Jan 15, 2024" });
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: "technology",
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
-    });
-    expect(mockGeminiCategorize).toHaveBeenCalledWith(mockNews, {
-      apiKey: "test-api-key",
-      model: "gemini-1.5-flash",
-      language: "en",
-    });
+    expect(response.data.stories).toHaveLength(1);
+    expect(response.data.stories[0].id).toBe("tech-1");
   });
 
-  it('returns all news when category is "all"', async () => {
-    const mockNews = createMockNews();
+  it('returns all stories when category is "all"', async () => {
+    const techStory = createMockStory({ id: "tech-1", categories: ["tech"] });
+    const foodStory = createMockStory({ id: "food-1", categories: ["food"] });
+    mockGetStories.mockResolvedValue([techStory, foodStory]);
     (global as any).getQuery.mockReturnValue({ category: "all" });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
       node: {
@@ -67,26 +65,16 @@ describe("News API - Category Filter", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(response.data).toEqual({ publishTimeRange: "Jan 15, 2024" });
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
-    });
+    expect(response.data.stories).toHaveLength(2);
   });
 
   it("handles empty category string", async () => {
-    const mockNews = createMockNews();
+    const techStory = createMockStory({ id: "tech-1", categories: ["tech"] });
+    mockGetStories.mockResolvedValue([techStory]);
     (global as any).getQuery.mockReturnValue({
       category: "",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
       node: {
@@ -98,25 +86,16 @@ describe("News API - Category Filter", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
-    });
+    expect(response.data.stories).toHaveLength(1);
   });
 
   it("handles category with only whitespace", async () => {
-    const mockNews = createMockNews();
+    const techStory = createMockStory({ id: "tech-1", categories: ["tech"] });
+    mockGetStories.mockResolvedValue([techStory]);
     (global as any).getQuery.mockReturnValue({
       category: "   ",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue(mockNews);
-    mockGeminiCategorize.mockResolvedValue({});
 
     const response = await handler({
       node: {
@@ -128,13 +107,38 @@ describe("News API - Category Filter", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
+    expect(response.data.stories).toHaveLength(1);
+  });
+
+  it("matches by source category when story-level categories don't include it", async () => {
+    const story = createMockStory({
+      id: "mixed-1",
+      categories: ["society"],
+      sources: [
+        {
+          title: "Tech Source",
+          source: "Tech Source",
+          url: "https://example.com/tech",
+          publishedAt: new Date().toISOString(),
+          credibilityScore: 0.9,
+          addedAt: Date.now(),
+          category: "tech",
+        },
+      ],
     });
+    mockGetStories.mockResolvedValue([story]);
+    (global as any).getQuery.mockReturnValue({ category: "tech" });
+
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
+    });
+
+    expect(response.success).toBe(true);
+    expect(response.data.stories).toHaveLength(1);
   });
 });

@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
+          />
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
+          />
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -111,9 +111,9 @@ const features = [
     icon: "i-heroicons-shield-check",
   },
   {
-    title: "Targeted Search Pipeline",
+    title: "Agent-Driven News Discovery",
     description:
-      "Queries Tavily search API across all major news categories (20 articles each) to capture authentic Japan-related news in English.",
+      "A Claude web agent researches Japan-related news across all major categories on its own schedule, entirely outside this codebase.",
     icon: "i-heroicons-magnifying-glass",
   },
   {
@@ -123,15 +123,15 @@ const features = [
     icon: "i-heroicons-funnel",
   },
   {
-    title: "Automated Background Pipelines",
+    title: "MCP-Driven Story Pipeline",
     description:
-      "News discovery, processing, clustering, and AI summarization all run automatically in separate background pipelines (via QStash CRON schedules), keeping the database perfectly synced while protecting quotas.",
+      "News discovery, clustering, and summarization happen entirely outside this codebase — a Claude web agent writes finished stories in through a bearer-token-protected remote MCP server.",
     icon: "i-heroicons-cpu-chip",
   },
   {
     title: "Automated Data Retention",
     description:
-      "A dedicated cleanup pipeline permanently prunes stories and article embeddings older than 30 days from Redis and Upstash Vector, keeping both stores from growing unbounded.",
+      "A dedicated cleanup pipeline permanently prunes stories older than 30 days from Redis, keeping the store from growing unbounded.",
     icon: "i-heroicons-trash",
   },
   {
@@ -141,9 +141,9 @@ const features = [
     icon: "i-heroicons-exclamation-triangle",
   },
   {
-    title: "Smart Cache Fallback Mode",
+    title: "In-Memory Fallback Mode",
     description:
-      "Resilient system design that falls back to memory caches or raw source data if Vector DB/API services are temporarily offline.",
+      "Resilient system design that falls back to an in-memory store if Redis is temporarily unreachable or unconfigured.",
     icon: "i-heroicons-arrow-path",
   },
   {

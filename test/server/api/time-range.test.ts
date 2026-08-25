@@ -3,9 +3,8 @@ import { describe, it, expect, beforeEach } from "vitest";
 import {
   getHandler,
   setupDefaults,
-  mockTavilySearch,
-  mockTavilyFormat,
-  mockGeminiCategorize,
+  createMockStory,
+  mockGetStories,
 } from "./setup";
 
 describe("News API - Time Range Validation", () => {
@@ -16,6 +15,25 @@ describe("News API - Time Range Validation", () => {
     handler = await getHandler();
   });
 
+  const storyWithSourceAge = (id: string, daysAgo: number) => {
+    const publishedAt = new Date(
+      Date.now() - daysAgo * 24 * 3600 * 1000,
+    ).toISOString();
+    return createMockStory({
+      id,
+      sources: [
+        {
+          title: `Source ${id}`,
+          source: `Source ${id}`,
+          url: `https://example.com/${id}`,
+          publishedAt,
+          credibilityScore: 0.9,
+          addedAt: Date.now(),
+        },
+      ],
+    });
+  };
+
   it("accepts valid timeRange values", async () => {
     const validTimeRanges = ["none", "day", "week", "month", "year"];
 
@@ -24,9 +42,7 @@ describe("News API - Time Range Validation", () => {
         timeRange,
         language: "en",
       });
-      mockTavilySearch.mockResolvedValue({ results: [] });
-      mockTavilyFormat.mockReturnValue([]);
-      mockGeminiCategorize.mockResolvedValue([]);
+      mockGetStories.mockResolvedValue([createMockStory()]);
 
       const response = await handler({
         node: {
@@ -38,25 +54,16 @@ describe("News API - Time Range Validation", () => {
       });
 
       expect(response.success).toBe(true);
-      expect(mockTavilySearch).toHaveBeenCalledWith({
-        maxResults: 20,
-        category: undefined,
-        timeRange: timeRange,
-        startDate: undefined,
-        endDate: undefined,
-        apiKey: "test-tavily-key",
-      });
     }
   });
 
   it("defaults to 'week' when invalid timeRange is provided", async () => {
+    // Story published 10 days ago is outside the "week" window
+    mockGetStories.mockResolvedValue([storyWithSourceAge("old", 10)]);
     (global as any).getQuery.mockReturnValue({
       timeRange: "invalid",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     const response = await handler({
       node: {
@@ -68,21 +75,12 @@ describe("News API - Time Range Validation", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
-    });
+    expect(response.data.stories).toHaveLength(0);
   });
 
   it("defaults to 'week' when timeRange is not provided", async () => {
+    mockGetStories.mockResolvedValue([storyWithSourceAge("old", 10)]);
     (global as any).getQuery.mockReturnValue({ language: "en" });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     const response = await handler({
       node: {
@@ -94,33 +92,18 @@ describe("News API - Time Range Validation", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
-    });
+    expect(response.data.stories).toHaveLength(0);
   });
 
-  it("accepts timeRange case variations", async () => {
-    const testCases = [
-      { input: "NONE", expected: "week" },
-      { input: "Day", expected: "week" },
-      { input: "WEEK", expected: "week" },
-      { input: "Month", expected: "week" },
-      { input: "YEAR", expected: "week" },
-    ];
+  it("accepts timeRange case variations by normalizing to 'week'", async () => {
+    const testCases = ["NONE", "Day", "WEEK", "Month", "YEAR"];
 
-    for (const { input, expected } of testCases) {
+    for (const input of testCases) {
+      mockGetStories.mockResolvedValue([storyWithSourceAge("old", 10)]);
       (global as any).getQuery.mockReturnValue({
         timeRange: input,
         language: "en",
       });
-      mockTavilySearch.mockResolvedValue({ results: [] });
-      mockTavilyFormat.mockReturnValue([]);
-      mockGeminiCategorize.mockResolvedValue([]);
 
       const response = await handler({
         node: {
@@ -132,25 +115,17 @@ describe("News API - Time Range Validation", () => {
       });
 
       expect(response.success).toBe(true);
-      expect(mockTavilySearch).toHaveBeenCalledWith({
-        maxResults: 20,
-        category: undefined,
-        timeRange: expected,
-        startDate: undefined,
-        endDate: undefined,
-        apiKey: "test-tavily-key",
-      });
+      // Every case variation is treated as invalid input and normalized to "week"
+      expect(response.data.stories).toHaveLength(0);
     }
   });
 
-  it("handles empty string timeRange", async () => {
+  it("handles empty string timeRange by defaulting to 'week'", async () => {
+    mockGetStories.mockResolvedValue([storyWithSourceAge("old", 10)]);
     (global as any).getQuery.mockReturnValue({
       timeRange: "",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     const response = await handler({
       node: {
@@ -162,27 +137,18 @@ describe("News API - Time Range Validation", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
-    });
+    expect(response.data.stories).toHaveLength(0);
   });
 
-  it("handles null and undefined timeRange values", async () => {
+  it("handles null and undefined timeRange values by defaulting to 'week'", async () => {
     const testCases = [null, undefined];
 
     for (const timeRange of testCases) {
+      mockGetStories.mockResolvedValue([storyWithSourceAge("old", 10)]);
       (global as any).getQuery.mockReturnValue({
         timeRange,
         language: "en",
       });
-      mockTavilySearch.mockResolvedValue({ results: [] });
-      mockTavilyFormat.mockReturnValue([]);
-      mockGeminiCategorize.mockResolvedValue([]);
 
       const response = await handler({
         node: {
@@ -194,27 +160,20 @@ describe("News API - Time Range Validation", () => {
       });
 
       expect(response.success).toBe(true);
-      expect(mockTavilySearch).toHaveBeenCalledWith({
-        maxResults: 20,
-        category: undefined,
-        timeRange: "week",
-        startDate: undefined,
-        endDate: undefined,
-        apiKey: "test-tavily-key",
-      });
+      expect(response.data.stories).toHaveLength(0);
     }
   });
 
   it("validates timeRange alongside other parameters", async () => {
+    mockGetStories.mockResolvedValue([
+      createMockStory({ id: "recent", categories: ["tech"] }),
+    ]);
     (global as any).getQuery.mockReturnValue({
       timeRange: "month",
-      category: "technology",
+      category: "tech",
       limit: "5",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     const response = await handler({
       node: {
@@ -226,13 +185,26 @@ describe("News API - Time Range Validation", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 5,
-      category: "technology",
-      timeRange: "month",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
+    expect(response.data.stories).toHaveLength(1);
+  });
+
+  it("includes a story within the 'day' window and excludes one outside it", async () => {
+    mockGetStories.mockResolvedValue([
+      storyWithSourceAge("recent", 0),
+      storyWithSourceAge("old", 2),
+    ]);
+    (global as any).getQuery.mockReturnValue({ timeRange: "day" });
+
+    const response = await handler({
+      node: {
+        req: {
+          socket: { remoteAddress: "127.0.0.1" },
+          headers: {},
+        },
+      },
     });
+
+    expect(response.success).toBe(true);
+    expect(response.data.stories.map((s: any) => s.id)).toEqual(["recent"]);
   });
 });

@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
+          />
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
+          />
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -68,10 +68,13 @@
       </div>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily is built with a modern stack focusing on performance,
-        scalability, and AI integration. In simple terms, the system aggregates
-        raw news from the internet and transforms it into synthesized
-        intelligence (easy-to-read summaries) using Google Gemini AI.
+        NipponDaily is built with a modern stack focusing on performance and
+        simplicity. In simple terms, the website itself only reads pre-computed
+        news stories out of a database — all the "intelligence" (finding
+        articles, clustering them, writing summaries, and scoring credibility)
+        is produced by a Claude web agent running entirely outside this
+        codebase, which writes its finished work in through a small remote MCP
+        server this project exposes.
       </p>
 
       <!-- Diagram 1: System Overview -->
@@ -124,56 +127,20 @@
           </template>
           <p class="text-sm mb-2">
             <strong>What it does:</strong> The backend server that connects the
-            frontend to our databases and AI.
+            frontend to our database.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> The Nitro-powered backend
-            handles request validation, search orchestration, and secure
-            communication with AI services and Redis.
+            handles request validation, filtering/sorting of stories, and secure
+            communication with Redis. It never calls any external search or AI
+            provider itself.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-magnifying-glass" /> Search (Tavily)
-            </h4>
-          </template>
-          <p class="text-sm mb-2">
-            <strong>What it does:</strong> Our search engine that finds the
-            latest news articles.
-          </p>
-          <p class="text-sm">
-            <strong>Technical Details:</strong> Optimized news discovery via
-            Tavily API, specifically filtered for Japan-related context and
-            high-quality journalistic sources.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-sparkles" /> AI (Google Gemini)
-            </h4>
-          </template>
-          <p class="text-sm mb-2">
-            <strong>What it does:</strong> The "brain" that reads and summarizes
-            the news for you.
-          </p>
-          <p class="text-sm">
-            <strong>Technical Details:</strong> Handles
-            <strong>Executive Briefing</strong> generation,
-            <strong>Cross-Source Analysis</strong>, and
-            <strong>Trust Scoring</strong>. Features automatic fallback to
-            preserve accessibility if the AI is busy.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-circle-stack" /> Database & Cache
-              (Upstash)
+              <UIcon name="i-heroicons-circle-stack" /> Database (Upstash Redis)
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -181,28 +148,47 @@
             website loads instantly.
           </p>
           <p class="text-sm">
-            <strong>Technical Details:</strong> Powered by Upstash Redis and
-            Vector database, storing clustered story articles, daily briefings,
-            and ingestion caching metadata.
+            <strong>Technical Details:</strong> Powered by Upstash Redis,
+            storing clustered <code>Story</code> objects and ingestion metadata
+            — all written by the MCP agent, never generated synchronously on a
+            page request.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-arrow-path-rounded-square" /> Grouping
-              Engine
+              <UIcon name="i-heroicons-command-line" /> MCP Server
             </h4>
           </template>
           <p class="text-sm mb-2">
-            <strong>What it does:</strong> A tool that groups similar stories
-            together using AI.
+            <strong>What it does:</strong> The bridge that lets an external
+            agent write finished news stories directly into our database.
           </p>
           <p class="text-sm">
-            <strong>Technical Details:</strong> An automated grouping endpoint
-            (<code>POST /api/group</code>) that reconciles data across Redis and
-            Upstash Vector, using Gemini in a single pass to evaluate and
-            cluster articles into cohesive stories before summarization.
+            <strong>Technical Details:</strong> A remote MCP (Model Context
+            Protocol) server at <code>ALL /api/mcp</code>, built with
+            <code>mcp-handler</code> and protected by a constant-time bearer
+            token check. Exposes tools to list, upsert, and clean up stories —
+            see Section 4.
+          </p>
+        </UCard>
+
+        <UCard>
+          <template #header>
+            <h4 class="font-bold flex items-center gap-2">
+              <UIcon name="i-heroicons-sparkles" /> Claude Web Agent (External)
+            </h4>
+          </template>
+          <p class="text-sm mb-2">
+            <strong>What it does:</strong> The "brain" that finds Japan news,
+            writes summaries, and decides how to cluster articles into stories.
+          </p>
+          <p class="text-sm">
+            <strong>Technical Details:</strong> Runs entirely outside this
+            repository, on a schedule the site operator controls. It calls this
+            project's MCP server to persist its work — no search or AI provider
+            credentials live in this codebase at all.
           </p>
         </UCard>
       </div>
@@ -215,14 +201,14 @@
 
       <p class="mb-4">
         We included a special tool for developers to test how the app handles
-        errors without actually breaking anything or using up API credits.
+        errors without actually breaking anything.
       </p>
       <p class="mb-4">
         <strong>Technical Details:</strong> Appending
         <code>?debug_error_ui=true</code> to any page URL enables an interactive
         UI testing toolbar to simulate trending news fetching errors, AI
         summarization failures, and fallback cards, allowing for exhaustive
-        layout testing without consuming API quotas or making database calls.
+        layout testing without needing a live failure or touching the database.
       </p>
 
       <h2
@@ -544,311 +530,129 @@
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- NEWS INGESTION PIPELINE                                          -->
+      <!-- MCP-DRIVEN STORY PIPELINE                                          -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        4. News Ingestion Pipeline
+        4. MCP-Driven Story Pipeline
       </h2>
 
       <p class="text-lg mb-6">
-        This is the core journey of a news article: how it transforms from a raw
-        URL on the web into an AI-synthesised story briefing you can read on the
-        site.
+        There is no in-repo ingestion pipeline. Instead of this codebase calling
+        a search API and an AI provider on a schedule, a
+        <strong>Claude web agent</strong> — configured and scheduled by the site
+        operator, entirely outside this repository — researches Japan news on
+        its own and calls the tools below to write finished
+        <code>Story</code> objects directly into Redis.
       </p>
 
-      <!-- Diagram 2: Ingestion Pipeline -->
+      <!-- Diagram: MCP Pipeline -->
       <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 rounded-xl">
         <h3
           class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
         >
-          Ingestion Pipeline — Redis &amp; Vector Interaction (Zoomable)
+          A Typical Agent Run (Zoomable)
         </h3>
-        <MermaidDiagram id="ingest-diag" :code="ingestDiagram" />
+        <MermaidDiagram id="mcp-diag" :code="mcpDiagram" />
         <p class="text-center text-xs text-gray-500 mt-4 italic">
-          This chart shows exactly when our databases (Redis and Vector) are
-          read from and written to at each step.
+          Everything above the dashed line into Redis happens outside this
+          codebase — the MCP server just exposes the tools that let it in.
         </p>
       </div>
 
       <p class="font-semibold text-xl mt-10 mb-4">
-        The process happens in 3 steps:
+        <code>ALL /api/mcp</code> registers five tools:
       </p>
 
-      <div
-        class="space-y-8 pl-4 border-l-4 border-primary-200 dark:border-primary-800"
-      >
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 1</span> Fetch &amp;
-            Frontline Filter (Tavily)
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We search the web for the latest news
-            across different categories and run a fast frontline check to filter
-            out obviously unrelated articles.
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <UCard>
+          <template #header>
+            <h4 class="font-mono text-sm font-bold m-0">get_recent_stories</h4>
+          </template>
+          <p class="text-sm">
+            Lists existing story clusters from Redis, most recently updated
+            first, so the agent can decide whether new coverage should extend an
+            existing story or start a new one.
           </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Tavily returns pre-filtered,
-            high-quality excerpts. Fetches 20 articles in parallel for each
-            category. We then perform a light keyword-matching and character
-            check to reject obviously non-Japan news prior to deduplication,
-            preserving API quotas and database space.
-          </p>
-        </div>
+        </UCard>
 
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 2</span> Deduplication
-            (Redis)
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We throw away articles we have already
-            processed to save time and money.
+        <UCard>
+          <template #header>
+            <h4 class="font-mono text-sm font-bold m-0">
+              check_processed_urls
+            </h4>
+          </template>
+          <p class="text-sm">
+            Given candidate article URLs, returns which ones are already
+            ingested so the agent doesn't create duplicate coverage.
           </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> A Redis <code>SADD</code>/<code
-              >SISMEMBER</code
-            >
-            seen-set gives O(1) duplicate detection <em>before</em> vector
-            embedding and AI calls — the two costliest steps.
-          </p>
-        </div>
+        </UCard>
 
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 3</span> Vector Embedding
-            (Upstash Vector)
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We create a mathematical
-            representation of the article so AI can understand it later.
+        <UCard>
+          <template #header>
+            <h4 class="font-mono text-sm font-bold m-0">upsert_story</h4>
+          </template>
+          <p class="text-sm">
+            Creates or updates a story cluster — headline, summary, thematic
+            analysis, categories, and sources — visible on the site immediately.
+            Replaces the full source list rather than merging, and marks every
+            source URL as processed.
           </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Articles are embedded using
-            Gemini's embedding model and stored in Upstash Vector, using the
-            SHA-256 hash of the article's URL as the document ID.
+        </UCard>
+
+        <UCard>
+          <template #header>
+            <h4 class="font-mono text-sm font-bold m-0">cleanup_old_data</h4>
+          </template>
+          <p class="text-sm">
+            Deletes stories older than 30 days from Redis — the same logic as
+            <code>POST /api/cleanup</code> (Section 5). The agent is expected to
+            call this before writing new coverage each run.
           </p>
-        </div>
+        </UCard>
+
+        <UCard>
+          <template #header>
+            <h4 class="font-mono text-sm font-bold m-0">
+              mark_ingest_complete
+            </h4>
+          </template>
+          <p class="text-sm">
+            Records the current time as the last-ingest timestamp, which the UI
+            surfaces to readers as "updated X ago."
+          </p>
+        </UCard>
       </div>
-      <!-- Auto-trigger note -->
+
       <div
-        class="my-8 p-4 rounded-xl border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30 flex items-start gap-3"
+        class="my-8 p-4 rounded-xl border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/30 flex items-start gap-3"
       >
         <UIcon
-          name="i-heroicons-bolt"
-          class="text-amber-500 w-6 h-6 shrink-0 mt-0.5"
+          name="i-heroicons-information-circle"
+          class="text-blue-500 w-6 h-6 shrink-0 mt-0.5"
         />
         <div>
-          <p class="m-0 text-amber-900 dark:text-amber-100 font-semibold mb-1">
-            How does it start automatically?
+          <p class="m-0 text-blue-900 dark:text-blue-100 font-semibold mb-1">
+            No auto-triggered ingestion
           </p>
-          <p class="m-0 text-amber-800 dark:text-amber-200 text-sm">
-            <code>GET /api/news</code> fires a background ingestion
-            automatically when the cache is stale (&gt; 24 h) or empty.
-          </p>
-        </div>
-      </div>
-
-      <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- GROUPING PIPELINE                                              -->
-      <!-- ══════════════════════════════════════════════════════════════════ -->
-
-      <h2
-        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
-      >
-        5. Grouping Engine Pipeline
-      </h2>
-
-      <p class="text-lg mb-6">
-        The Grouping Engine uses AI to evaluate all available articles and
-        cluster them into cohesive stories based on the specific events or
-        topics they cover.
-      </p>
-
-      <!-- Diagram 3: Regroup Pipeline -->
-      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 rounded-xl">
-        <h3
-          class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
-        >
-          Grouping Engine Flow (Zoomable)
-        </h3>
-        <MermaidDiagram id="group-diag" :code="groupDiagram" />
-        <p class="text-center text-xs text-gray-500 mt-4 italic">
-          This chart visualizes how all articles are passed to Gemini in a
-          single prompt to group them.
-        </p>
-      </div>
-
-      <p class="font-semibold text-xl mt-10 mb-4">
-        The grouping process happens in these detailed steps:
-      </p>
-
-      <div
-        class="space-y-8 pl-4 border-l-4 border-primary-200 dark:border-primary-800"
-      >
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 1</span> Fetch Current
-            State
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We gather everything currently saved
-            in our databases.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Reads all current stories from
-            the Redis cache and all article vectors + metadata from the Upstash
-            Vector database.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 2</span> Reconcile Datasets
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We figure out which articles belong to
-            which stories, and spot any left-behind articles that the system
-            missed.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Maps each article to its current
-            story (based on the Redis story's source list) and identifies any
-            "orphaned" articles. All compiled articles are mapped into the
-            grouping payload.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 3</span> Single-Pass Group
-            &amp; Relevance Check
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We ask the AI to evaluate the
-            articles, organize them into cohesive stories, and dynamically
-            isolate non-Japan content.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Packages all existing story
-            clusters and orphaned articles into a single prompt payload. Sends
-            this payload to Gemini to group articles and dynamically isolate any
-            articles unrelated to Japan into the
-            <code>unrelatedArticleUrls</code> array.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 4</span> Rebuild &amp;
-            Filter Metadata
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We translate the AI's corrections back
-            into data our app understands, performing database cleanups for
-            unrelated articles.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Parses Gemini's JSON response.
-            If any unrelated article URLs are returned, they are immediately
-            deleted from Upstash Vector (using their SHA-256 URL hash) and Redis
-            processed set (if <code>dryRun</code> is false). Maps valid assigned
-            article URLs back to full metadata, dropping any empty stories.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 5</span> Database Commit
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We overwrite the old data with the
-            newly corrected stories.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> If <code>dryRun</code> is false,
-            it clears the old story cache in Redis, saves the new story objects,
-            updates the <code>story_id</code> metadata tags for every modified
-            article in the Upstash Vector index, and updates story velocity
-            (trending) scores.
+          <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
+            <code>GET /api/news</code> only ever reads from Redis — it never
+            fetches or generates content itself, even if the store is empty or
+            stale. If nothing shows up, the MCP agent hasn't run yet.
           </p>
         </div>
       </div>
 
       <div
-        class="my-8 p-4 rounded-xl border border-sky-300 dark:border-sky-700 bg-sky-50 dark:bg-sky-950/30 flex items-start gap-3"
+        class="mb-8 p-3 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
       >
-        <UIcon
-          name="i-heroicons-shield-check"
-          class="text-sky-500 w-6 h-6 shrink-0 mt-0.5"
-        />
-        <div>
-          <p class="m-0 text-sky-900 dark:text-sky-100 font-semibold mb-1">
-            Safe Testing (Dry Run)
-          </p>
-          <p class="m-0 text-sky-800 dark:text-sky-200 text-sm">
-            The endpoint supports a <code>dryRun: true</code> mode to let
-            developers verify the grouping results safely before it commits
-            destructive changes to Redis and Upstash Vector.
-          </p>
-        </div>
-      </div>
-
-      <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- SUMMARIZATION PIPELINE                                           -->
-      <!-- ══════════════════════════════════════════════════════════════════ -->
-
-      <h2
-        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
-      >
-        6. Summarization Pipeline
-      </h2>
-
-      <p class="text-lg mb-6">
-        Once stories are grouped, the Summarization Pipeline uses Gemini to
-        write neat, professional summaries, generate cross-source thematic
-        analyses, and assess credibility.
-      </p>
-
-      <div
-        class="space-y-8 pl-4 border-l-4 border-primary-200 dark:border-primary-800"
-      >
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 1</span> AI Briefing
-            (Gemini)
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> The AI reads the grouped articles and
-            writes a neat, professional summary.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-            <strong>Technical Details:</strong> Unsummarized stories (marked
-            with <code>isSummarized: false</code> by the grouping pipeline
-            because they are new or have updated source articles) are processed
-            in batches of up to 15 stories using Gemini's
-            <code>batchProcessStories</code> API. To run safely within Gemini's
-            free-tier rate limits, a 12-second delay is introduced between
-            batches.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 2</span> Persist Summaries
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> We save the final summaries to our
-            database.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Summarized stories are written
-            back to Redis and marked as <code>isSummarized: true</code>.
-          </p>
-        </div>
+        <strong>🔒 Authentication:</strong> Every call to
+        <code>/api/mcp</code> requires an
+        <code>Authorization: Bearer &lt;MCP_AUTH_TOKEN&gt;</code> header (or a
+        <code>?token=</code> query param), checked with a constant-time
+        comparison. Requests without a valid token get a <code>401</code>.
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -858,37 +662,34 @@
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        7. Automated Data Retention (Cleanup Pipeline)
+        5. Automated Data Retention (Cleanup Pipeline)
       </h2>
 
       <p class="text-lg mb-6">
-        The Grouping Pipeline's 30-day cutoff (Section 5) only decides what
-        gets sent to Gemini. Rebuilding the story set on commit happens to
-        drop stale <em>stories</em> from Redis, but filtered-out Upstash
-        Vector <em>articles</em> are never evaluated by Gemini, so they're
-        never flagged for deletion — they just accumulate forever. The
-        Cleanup Pipeline directly targets both stores on its own schedule: it
-        permanently prunes anything older than 30 days, closing the Vector
-        gap and providing a Redis safety net independent of grouping.
+        The MCP tool <code>cleanup_old_data</code> and the standalone
+        <code>POST /api/cleanup</code> endpoint share the exact same logic:
+        permanently delete stories older than 30 days from Redis so the store
+        doesn't grow unbounded. The agent is expected to call
+        <code>cleanup_old_data</code> before writing new coverage each run, but
+        the QStash-scheduled endpoint below acts as an independent safety net in
+        case the agent's run is skipped or delayed.
       </p>
 
-      <!-- Diagram 4: Cleanup Pipeline -->
+      <!-- Diagram: Cleanup Pipeline -->
       <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 rounded-xl">
         <h3
           class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
         >
-          Cleanup Pipeline — Redis &amp; Vector Pruning (Zoomable)
+          Cleanup Pipeline — Redis Pruning (Zoomable)
         </h3>
         <MermaidDiagram id="cleanup-diag" :code="cleanupDiagram" />
         <p class="text-center text-xs text-gray-500 mt-4 italic">
           This chart shows how stale records are identified and permanently
-          removed from both databases.
+          removed from Redis.
         </p>
       </div>
 
-      <p class="font-semibold text-xl mt-10 mb-4">
-        The cleanup process happens in 2 steps:
-      </p>
+      <p class="font-semibold text-xl mt-10 mb-4">The cleanup process:</p>
 
       <div
         class="space-y-8 pl-4 border-l-4 border-primary-200 dark:border-primary-800"
@@ -900,36 +701,13 @@
           </h3>
           <p class="mb-2">
             <strong>The Concept:</strong> Any story whose sources haven't been
-            updated in over a month is considered stale and removed. This
-            mirrors what the Grouping Pipeline's commit step already does as a
-            side effect, acting as a safety net for when grouping is skipped
-            or delayed.
+            updated in over a month is considered stale and removed.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Reads all stories from Redis
-            and deletes any where <code>lastUpdated</code> falls before the
-            30-day cutoff, removing both the <code>story:&#123;id&#125;</code>
-            key and its entry in the <code>news:stories</code> set.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 2</span> Prune Stale
-            Articles (Upstash Vector)
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> Any embedded article older than a
-            month is deleted from the vector index, and unmarked so it won't
-            be treated as permanently "seen."
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Reads all vectors via
-            <code>getAllArticles()</code>, filters by
-            <code>metadata.published_at</code> against the 30-day cutoff,
-            deletes matches from Upstash Vector by their SHA-256 URL hash, and
-            removes the corresponding URL from Redis's
-            <code>news:processed_articles</code> seen-set.
+            <strong>Technical Details:</strong> Reads all stories from Redis and
+            deletes any where <code>lastUpdated</code> falls before the 30-day
+            cutoff, removing both the <code>story:&#123;id&#125;</code> key and
+            its entry in the <code>news:stories</code> set.
           </p>
         </div>
       </div>
@@ -946,111 +724,12 @@
             Safe Testing (Dry Run)
           </p>
           <p class="m-0 text-sky-800 dark:text-sky-200 text-sm">
-            Like <code>/api/group</code>, the endpoint supports a
-            <code>dryRun: true</code> mode that reports how many stories and
-            articles would be deleted without actually committing the
-            deletion.
+            Both <code>cleanup_old_data</code> and
+            <code>POST /api/cleanup</code> support a
+            <code>dryRun: true</code> mode that reports how many stories would
+            be deleted without actually committing the deletion.
           </p>
         </div>
-      </div>
-
-      <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- QUOTA MANAGEMENT                                                   -->
-      <!-- ══════════════════════════════════════════════════════════════════ -->
-      <h2
-        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
-      >
-        8. Gemini Rate Limiting & Quota Management
-      </h2>
-      <p class="mb-4">
-        Because we use the free version of Google Gemini, we are strictly
-        limited on how many requests we can make (e.g., only 5 requests per
-        minute, and 1,500 total requests per day). We use clever strategies to
-        avoid getting blocked.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        <UCard>
-          <h3 class="text-lg font-bold mb-2">1. Summarization Pipeline</h3>
-          <p class="text-xs text-gray-500 mb-3">
-            (<code>POST /api/summarize</code>)
-          </p>
-          <ul
-            class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300"
-          >
-            <li>
-              <strong>Batch Briefings:</strong> Summarization batches up to 15
-              new or updated stories (marked with
-              <code>isSummarized: false</code> by the grouping pipeline) per API
-              call to conserve request quota.
-            </li>
-            <li>
-              <strong>Throttling Delay:</strong> Enforces a 12-second delay
-              between summarization batches to stay under 5 RPM limit.
-            </li>
-            <li>
-              <strong>Implicit 30-Day Cutoff:</strong> Inherits the grouping
-              pipeline's 30-day cutoff, as only stories younger than 30 days are
-              present in Redis to be summarized.
-            </li>
-            <li>
-              <strong>Error Handling:</strong> If a summarization batch fails
-              completely, it safely skips and leaves stories for the next run.
-            </li>
-          </ul>
-        </UCard>
-
-        <UCard>
-          <h3 class="text-lg font-bold mb-2">2. Grouping Pipeline</h3>
-          <p class="text-xs text-gray-500 mb-3">
-            (<code>POST /api/group</code>)
-          </p>
-          <ul
-            class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300"
-          >
-            <li>
-              <strong>Single-Pass Aggregation:</strong> Combines the entire
-              dataset into a single request.
-            </li>
-            <li>
-              <strong>Early-Return:</strong> Bypasses Gemini entirely if
-              databases are empty.
-            </li>
-            <li>
-              <strong>Token Limit Protection (30-day cutoff):</strong> Strictly
-              filters out stories and articles older than 30 days before sending
-              to Gemini, keeping payloads under 250k input tokens.
-            </li>
-            <li>
-              <strong>Model Failover:</strong> Sequentially falls back through
-              available Gemini models (3.5-flash &rarr; 3-flash &rarr;
-              2.5-flash).
-            </li>
-          </ul>
-        </UCard>
-
-        <UCard>
-          <h3 class="text-lg font-bold mb-2">3. Cleanup Pipeline</h3>
-          <p class="text-xs text-gray-500 mb-3">
-            (<code>POST /api/cleanup</code>)
-          </p>
-          <ul
-            class="list-disc pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300"
-          >
-            <li>
-              <strong>No Gemini Calls:</strong> Purely deletes stale Redis and
-              Vector records — doesn't consume any AI quota at all.
-            </li>
-            <li>
-              <strong>Independent Schedule:</strong> Runs on its own QStash
-              schedule, decoupled from grouping and summarization.
-            </li>
-            <li>
-              <strong>Dry Run Support:</strong> Reports deletion counts without
-              committing changes when <code>dryRun: true</code>.
-            </li>
-          </ul>
-        </UCard>
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -1060,207 +739,9 @@
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        9. API Reference
+        6. API Reference
       </h2>
       <p class="mb-8">Technical details on how our backend endpoints work.</p>
-
-      <!-- /api/group -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="primary" variant="soft">POST</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/group</h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          Fetches all current stories from Redis and all articles from the
-          Upstash Vector database, reconciles them, filters out and deletes any
-          non-Japan articles, and sends the remaining data to Google Gemini in a
-          single pass to group and cluster articles into stories.
-        </p>
-
-        <div
-          class="mb-4 p-3 rounded-lg border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20 text-sm"
-        >
-          <strong>🗓 QStash Scheduled:</strong> Similar to the ingest pipeline,
-          this runs on an automated schedule (e.g. <code>0 0 * * *</code>) to
-          perform daily database corrections.
-        </div>
-
-        <div
-          class="mb-4 p-3 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
-        >
-          <strong>⚡ Token Limit Protection (30-day cutoff):</strong> To prevent
-          exceeding Gemini's 250k input token limit as the database grows, the
-          pipeline strictly filters out stories and articles older than 30 days
-          before sending the payload. On commit, rebuilding the story set from
-          scratch drops stale <em>stories</em> from Redis as a side effect —
-          but filtered-out Upstash Vector <em>articles</em> are simply skipped,
-          never deleted, since Gemini never sees them to flag them. The
-          dedicated <code>POST /api/cleanup</code> pipeline (see Section 7)
-          closes that gap and also acts as a Redis safety net for when
-          grouping hasn't run recently.
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">Request Example</p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code># Run actual database updates
-curl -X POST http://localhost:3000/api/group \
-  -H "Content-Type: application/json" \
-  -d '{"dryRun": false}'</code></pre>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">
-              Response (200 OK)
-            </p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code>{
-  "success": true,
-  "dryRun": false,
-  "originalStoriesCount": 5,
-  "newStoriesCount": 4,
-  "data": [ ... ],
-  "timestamp": "2026-07-14T15:00:00.000Z"
-}</code></pre>
-          </div>
-        </div>
-      </UCard>
-
-      <!-- /api/cleanup -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="primary" variant="soft">POST</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/cleanup</h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          Permanently deletes stories from Redis and articles from Upstash
-          Vector that are older than 30 days, so neither store grows
-          unbounded. Complements the Grouping Pipeline's in-memory 30-day
-          cutoff, which only excludes old data from Gemini payloads without
-          removing it from Vector.
-        </p>
-
-        <div
-          class="mb-4 p-3 rounded-lg border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20 text-sm"
-        >
-          <strong>🗓 QStash Scheduled:</strong> Runs on its own automated
-          schedule (e.g. <code>0 3 * * *</code>), independent of the ingest,
-          group, and summarize schedules.
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">Request Example</p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code># Preview without deleting
-curl -X POST http://localhost:3000/api/cleanup \
-  -H "Content-Type: application/json" \
-  -d '{"dryRun": true}'</code></pre>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">
-              Response (200 OK)
-            </p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code>{
-  "success": true,
-  "storiesDeleted": 2,
-  "articlesDeleted": 7,
-  "dryRun": true,
-  "message": "Cleanup completed successfully",
-  "timestamp": "2026-07-14T15:00:00.000Z"
-}</code></pre>
-          </div>
-        </div>
-      </UCard>
-
-      <!-- /api/summarize -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="primary" variant="soft">POST</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/summarize</h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          Finds all stories that have `isSummarized: false` and processes them
-          via Gemini to generate summaries and thematic analyses.
-        </p>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">Trigger Locally</p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code>curl -X POST http://localhost:3000/api/summarize</code></pre>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">
-              Response (200 OK)
-            </p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code>{
-  "success": true,
-  "summarizedCount": 3,
-  "timestamp": "2026-07-14T15:00:00.000Z"
-}</code></pre>
-          </div>
-        </div>
-      </UCard>
-
-      <!-- /api/ingest -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="primary" variant="soft">POST</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/ingest</h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          Runs the full ingestion pipeline. Called on a schedule via
-          <strong>QStash</strong> — register the URL in the Upstash console, no
-          code changes needed.
-        </p>
-
-        <div
-          class="mb-4 p-3 rounded-lg border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20 text-sm"
-        >
-          <strong>🗓 QStash one-time setup:</strong>
-          <em>QStash → Schedules → New Schedule</em>, URL
-          <code>https://your-domain.com/api/ingest</code>, method
-          <code>POST</code>, cron e.g. <code>0 */6 * * *</code>.
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">Trigger Locally</p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code>curl -X POST http://localhost:3000/api/ingest</code></pre>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">
-              Response (200 OK)
-            </p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code>{ 
-  "success": true, 
-  "articlesProcessed": 12,
-  "message": "News ingestion completed successfully",
-  "timestamp": "2026-07-14T15:00:00.000Z"
-}</code></pre>
-          </div>
-        </div>
-      </UCard>
 
       <!-- /api/news -->
       <UCard class="mb-8">
@@ -1271,8 +752,9 @@ curl -X POST http://localhost:3000/api/cleanup \
           </div>
         </template>
         <p class="text-sm mb-4">
-          Returns story briefings from Redis. Auto-triggers background ingestion
-          if the cache is stale or empty.
+          Returns story briefings straight from Redis — filtered, sorted, and
+          paginated. Does not call any external search or AI provider, and never
+          triggers ingestion of any kind.
         </p>
 
         <div class="overflow-x-auto mb-4">
@@ -1354,16 +836,125 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
         </div>
       </UCard>
 
+      <!-- /api/cleanup -->
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="primary" variant="soft">POST</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/cleanup</h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          Permanently deletes stories from Redis that are older than 30 days, so
+          the store doesn't grow unbounded. The only in-repo background task —
+          everything else is driven by the MCP agent.
+        </p>
+
+        <div
+          class="mb-4 p-3 rounded-lg border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20 text-sm"
+        >
+          <strong>🗓 QStash Scheduled:</strong> Runs on its own automated
+          schedule (e.g. <code>0 3 * * *</code>), configured directly in the
+          Upstash console — no QStash integration code lives in this repo.
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">Request Example</p>
+            <pre
+              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+            ><code># Preview without deleting
+curl -X POST http://localhost:3000/api/cleanup \
+  -H "Content-Type: application/json" \
+  -d '{"dryRun": true}'</code></pre>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">
+              Response (200 OK)
+            </p>
+            <pre
+              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+            ><code>{
+  "success": true,
+  "storiesDeleted": 2,
+  "dryRun": true,
+  "message": "Cleanup completed successfully",
+  "timestamp": "2026-07-14T15:00:00.000Z"
+}</code></pre>
+          </div>
+        </div>
+      </UCard>
+
+      <!-- /api/mcp -->
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="secondary" variant="soft">ALL</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/mcp</h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          The remote MCP server described in Section 4 — this is how the Claude
+          web agent (or any other MCP-speaking client) writes stories into
+          Redis. Not a plain REST endpoint; speaks the MCP protocol over HTTP
+          via <code>mcp-handler</code>.
+        </p>
+
+        <div
+          class="mb-4 p-3 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
+        >
+          <strong>🔒 Auth required:</strong>
+          <code>Authorization: Bearer &lt;MCP_AUTH_TOKEN&gt;</code> header or
+          <code>?token=</code> query param on every request, generated with
+          <code>openssl rand -hex 32</code>. Missing or wrong tokens get a
+          <code>401</code>.
+        </div>
+
+        <div class="overflow-x-auto mb-2">
+          <table class="min-w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-gray-300 dark:border-gray-700">
+                <th class="py-2 px-2 text-left font-bold">Tool</th>
+                <th class="py-2 px-2 text-left font-bold">Purpose</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+              <tr>
+                <td class="py-2 px-2"><code>get_recent_stories</code></td>
+                <td class="py-2 px-2">List recent story clusters</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>check_processed_urls</code></td>
+                <td class="py-2 px-2">Detect already-ingested URLs</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>upsert_story</code></td>
+                <td class="py-2 px-2">Create/update a story cluster</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>cleanup_old_data</code></td>
+                <td class="py-2 px-2">Delete stories older than 30 days</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>mark_ingest_complete</code></td>
+                <td class="py-2 px-2">Record the last-ingest timestamp</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </UCard>
+
       <h2
         class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        10. Trust & Credibility
+        7. Trust & Credibility
       </h2>
       <p class="mb-4">
-        Every briefing includes an AI-computed <strong>Trust Score</strong>.
-        This score is a weighted assessment of source reputation, content
-        verifiability, and publisher history, helping readers know how reliable
-        the news is at a glance.
+        Every story includes a <strong>Trust Score</strong> the Claude agent
+        assigns per source when it calls <code>upsert_story</code>, based on its
+        own assessment of publisher reputation, editorial standards, and
+        trustworthiness — then aggregated into an overall score so readers can
+        tell how reliable a story's coverage is at a glance.
       </p>
 
       <div
@@ -1450,118 +1041,67 @@ const mobileMenuOpen = ref(false);
 
 const systemDiagram = `
 flowchart TD
+    Claude(["🤖 Claude Web Agent
+(external, scheduled by operator)"])
     User(["👤 User"])
-    QStash(["🕐 QStash
-Scheduler"])
+    QStash(["🕐 QStash Scheduler"])
+
+    Claude -- "researches Japan news
+on its own" --> MCP["ALL /api/mcp
+(Nitro, bearer-token protected)"]
+
+    MCP -- "get_recent_stories /
+check_processed_urls /
+upsert_story / cleanup_old_data /
+mark_ingest_complete" --> Redis[("Redis
+Story Database")]
 
     User -- "GET /api/news" --> NewsAPI["GET /api/news
 (Nitro)"]
+    NewsAPI -- "read stories" --> Redis
     NewsAPI -- "stories + briefings" --> User
 
-    QStash -- "POST /api/ingest
-(on schedule)" --> IngestAPI["POST /api/ingest
-(Nitro)"]
-    QStash -- "POST /api/group
-(on schedule)" --> GroupAPI["POST /api/group
-(Nitro)"]
-    QStash -- "POST /api/summarize
-(on schedule)" --> SummarizeAPI["POST /api/summarize
-(Nitro)"]
     QStash -- "POST /api/cleanup
 (on schedule)" --> CleanupAPI["POST /api/cleanup
 (Nitro)"]
-
-    subgraph Storage ["💾 Storage Layer (Upstash)"]
-        Redis[("Redis
-Story Cache")]
-        Vector[("Vector DB
-Semantic Index")]
-    end
-
-    subgraph External ["🌐 External APIs"]
-        Tavily["Tavily Search"]
-        Gemini["Gemini AI"]
-    end
-
-    IngestAPI --> Tavily
-    IngestAPI --> Vector
-    IngestAPI --> Redis
-
-    GroupAPI --> Gemini
-    GroupAPI --> Redis
-    GroupAPI --> Vector
-
-    SummarizeAPI --> Gemini
-    SummarizeAPI --> Redis
-
-    CleanupAPI -. "delete >30d" .-> Redis
-    CleanupAPI -. "delete >30d" .-> Vector
-
-    NewsAPI -- "read stories" --> Redis
-    NewsAPI -. "auto-trigger
-if cache stale" .-> IngestAPI
+    CleanupAPI -. "delete stories >30d" .-> Redis
 `;
 
-const ingestDiagram = `
+const mcpDiagram = `
 flowchart TD
-    Start(["QStash triggers
-POST /api/ingest"])
+    Start(["Claude web agent
+runs on its own schedule"])
 
-    Start --> S1["Step 1 · Fetch
-Tavily Search → 120 articles"]
+    Start --> S1["Step 1 · cleanup_old_data
+Preview/delete stories >30 days old"]
+    S1 -. "DELETE stale stories" .-> Redis[("Redis
+Story Database")]
 
-    S1 --> S1_5["Step 1.5 · Frontline Filter
-Check keywords/chars for Japan relevance"]
+    S1 --> S2["Step 2 · get_recent_stories
+List existing clusters to avoid
+duplicate coverage"]
+    S2 -. "READ" .-> Redis
 
-    S1_5 --> S2["Step 2 · Deduplicate
-Check each URL vs Redis seen-set"]
-    S2 -- "READ" --> RedisA[("Redis
-seen-set")]
-    RedisA -- "skip already-seen" --> S2
+    S2 --> S3["Step 3 · Research
+Agent searches the web for
+Japan-related news itself"]
 
-    S2 --> S3["Step 3 · Vector Embedding
-Embed article → write to Vector DB"]
-    S3 -- "WRITE vector
-with metadata" --> VectorDB[("Vector DB
-semantic index")]
-    S3 -- "WRITE processed URL" --> RedisC[("Redis
-seen-set")]
+    S3 --> S4["Step 4 · check_processed_urls
+Skip candidate URLs already ingested"]
+    S4 -. "READ seen sources" .-> Redis
 
-    VectorDB --> Done(["✅ Done"])
-    RedisC --> Done
-`;
+    S4 --> S5["Step 5 · upsert_story
+Write headline, summary, thematic
+analysis & sources for each cluster"]
+    S5 -- "WRITE story +
+mark sources processed" --> Redis
 
-const groupDiagram = `
-flowchart TD
-    Start(["QStash triggers
-POST /api/group"])
+    S5 --> S6["Step 6 · mark_ingest_complete
+Record last-ingest timestamp"]
+    S6 -- "WRITE" --> Redis
 
-    Start --> S1["Step 1 · Fetch State
-Read Redis & Upstash"]
-    S1 -- "Read All Stories" --> Redis[("Redis
-Story Cache")]
-    S1 -- "Read All Vectors" --> VectorDB[("Vector DB
-Semantic Index")]
-
-    S1 --> S2["Step 2 · Reconcile
-Map existing stories & identify orphans"]
-
-    S2 --> Dec{"Is DB Empty?"}
-    Dec -- "Yes" --> EarlyReturn(["✅ Return Early (No-op)"])
-    Dec -- "No" --> S3["Step 3 · AI Group & Relevance Check
-Gemini groups articles & isolates unrelated content"]
-
-    S3 -- "Send entire dataset" --> Gemini["Gemini AI (Single Pass)"]
-    Gemini -- "JSON story groups + unrelatedArticleUrls" --> S4["Step 4 · Rebuild & Filter Metadata
-Delete unrelated articles from DB, drop empty stories"]
-
-    S4 --> Cond{"dryRun == true?"}
-    Cond -- "Yes" --> DryRunEnd(["✅ Return Preview"])
-    Cond -- "No" --> S5["Step 5 · Database Commit"]
-
-    S5 -- "Clear & Save New Stories" --> Redis
-    S5 -- "Update story_id tags" --> VectorDB
-    S5 --> Done(["✅ Done"])
+    S6 --> Done(["✅ Done — visible on
+GET /api/news immediately"])
 `;
 
 const cleanupDiagram = `
@@ -1569,21 +1109,13 @@ flowchart TD
     Start(["QStash triggers
 POST /api/cleanup"])
 
-    Start --> S1["Step 1 · Prune Stories
+    Start --> S1["Prune Stale Stories
 Read all stories, delete where
 lastUpdated < 30 days ago"]
     S1 -- "DELETE stale stories" --> Redis[("Redis
-Story Cache")]
+Story Database")]
 
-    S1 --> S2["Step 2 · Prune Vectors
-Read all vectors, delete where
-published_at < 30 days ago"]
-    S2 -- "DELETE stale vectors" --> VectorDB[("Vector DB
-Semantic Index")]
-    S2 -- "Unmark deleted URLs" --> RedisSeen[("Redis
-seen-set")]
-
-    S2 --> Cond{"dryRun == true?"}
+    S1 --> Cond{"dryRun == true?"}
     Cond -- "Yes" --> DryRunEnd(["✅ Return Preview Counts"])
     Cond -- "No" --> Done(["✅ Done"])
 `;

@@ -10,12 +10,12 @@
           src="/favicon-light.ico"
           alt="NipponDaily"
           class="w-8 h-8 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-        >
+        />
         <img
           src="/favicon-dark.ico"
           alt="NipponDaily"
           class="w-8 h-8 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-        >
+        />
         <div class="flex flex-col">
           <span class="font-serif font-bold text-lg tracking-wide leading-none"
             >NipponDaily</span
