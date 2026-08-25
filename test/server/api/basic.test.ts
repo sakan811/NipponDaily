@@ -1,6 +1,12 @@
 import { describe, it, expect, beforeEach } from "vitest";
 
-import { getHandler, setupDefaults, createMockStory, mockGetStories, mockGetLastIngestTime } from "./setup";
+import {
+  getHandler,
+  setupDefaults,
+  createMockStory,
+  mockGetStories,
+  mockGetLastIngestTime,
+} from "./setup";
 
 describe("News API - Basic Functionality", () => {
   let handler: any;

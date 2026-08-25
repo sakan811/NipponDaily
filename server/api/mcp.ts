@@ -51,7 +51,9 @@ const storySourceInputSchema = z.object({
     .describe(
       "Publisher domain, e.g. https://www3.nhk.or.jp. Derived from the URL if omitted.",
     ),
-  publishedAt: z.string().describe("ISO 8601 timestamp of original publish date."),
+  publishedAt: z
+    .string()
+    .describe("ISO 8601 timestamp of original publish date."),
   credibilityScore: z.number().min(0).max(1),
   category: z.enum(FETCHABLE_CATEGORY_IDS),
   favicon: z.string().optional(),
@@ -126,7 +128,9 @@ const mcpHandler = createMcpHandler(
           id: z
             .string()
             .optional()
-            .describe("Existing story id to update. Omit to create a new story."),
+            .describe(
+              "Existing story id to update. Omit to create a new story.",
+            ),
           headline: z.string(),
           summary: z
             .string()
@@ -140,7 +144,14 @@ const mcpHandler = createMcpHandler(
           sources: z.array(storySourceInputSchema).min(1),
         }),
       },
-      async ({ id, headline, summary, thematicAnalysis, categories, sources }) => {
+      async ({
+        id,
+        headline,
+        summary,
+        thematicAnalysis,
+        categories,
+        sources,
+      }) => {
         const existing = id ? await storiesService.getStory(id) : null;
         const storyId = existing?.id ?? id ?? randomUUID();
         const now = Date.now();
@@ -159,7 +170,8 @@ const mcpHandler = createMcpHandler(
         const publishTimes = finalSources
           .map((s) => new Date(s.publishedAt).getTime())
           .filter((t) => !isNaN(t));
-        const lastUpdated = publishTimes.length > 0 ? Math.max(...publishTimes) : now;
+        const lastUpdated =
+          publishTimes.length > 0 ? Math.max(...publishTimes) : now;
 
         const story: Story = {
           id: storyId,
@@ -181,7 +193,9 @@ const mcpHandler = createMcpHandler(
         }
 
         return {
-          content: [{ type: "text", text: JSON.stringify({ saved: true, story }) }],
+          content: [
+            { type: "text", text: JSON.stringify({ saved: true, story }) },
+          ],
         };
       },
     );
@@ -199,7 +213,9 @@ const mcpHandler = createMcpHandler(
       async ({ dryRun }) => {
         const result = await cleanupOldDataTask({ dryRun });
         return {
-          content: [{ type: "text", text: JSON.stringify({ ...result, dryRun }) }],
+          content: [
+            { type: "text", text: JSON.stringify({ ...result, dryRun }) },
+          ],
         };
       },
     );
@@ -218,7 +234,12 @@ const mcpHandler = createMcpHandler(
         const ts = timestamp ?? Date.now();
         await storiesService.setLastIngestTime(ts);
         return {
-          content: [{ type: "text", text: JSON.stringify({ success: true, timestamp: ts }) }],
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify({ success: true, timestamp: ts }),
+            },
+          ],
         };
       },
     );

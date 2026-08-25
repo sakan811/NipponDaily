@@ -1,6 +1,11 @@
 import { describe, it, expect, beforeEach } from "vitest";
 
-import { getHandler, setupDefaults, createMockStory, mockGetStories } from "./setup";
+import {
+  getHandler,
+  setupDefaults,
+  createMockStory,
+  mockGetStories,
+} from "./setup";
 
 describe("News API - Time Range Validation", () => {
   let handler: any;

@@ -1,6 +1,11 @@
 import { describe, it, expect, beforeEach } from "vitest";
 
-import { getHandler, setupDefaults, createMockStory, mockGetStories } from "./setup";
+import {
+  getHandler,
+  setupDefaults,
+  createMockStory,
+  mockGetStories,
+} from "./setup";
 
 describe("News API - Limit Parameter", () => {
   let handler: any;
@@ -34,7 +39,9 @@ describe("News API - Limit Parameter", () => {
   it("handles invalid limit parameter", async () => {
     (global as any).getQuery.mockReturnValue({ limit: "invalid" });
     mockGetStories.mockResolvedValue(
-      Array.from({ length: 25 }, (_, i) => createMockStory({ id: `story-${i}` })),
+      Array.from({ length: 25 }, (_, i) =>
+        createMockStory({ id: `story-${i}` }),
+      ),
     );
 
     const response = await handler({
@@ -52,7 +59,9 @@ describe("News API - Limit Parameter", () => {
 
   it("uses default limit when limit is null or undefined", async () => {
     mockGetStories.mockResolvedValue(
-      Array.from({ length: 25 }, (_, i) => createMockStory({ id: `story-${i}` })),
+      Array.from({ length: 25 }, (_, i) =>
+        createMockStory({ id: `story-${i}` }),
+      ),
     );
 
     (global as any).getQuery.mockReturnValue({ limit: null });
@@ -81,7 +90,9 @@ describe("News API - Limit Parameter", () => {
   it("handles NaN limit by defaulting to 20", async () => {
     (global as any).getQuery.mockReturnValue({ limit: "not-a-number" });
     mockGetStories.mockResolvedValue(
-      Array.from({ length: 25 }, (_, i) => createMockStory({ id: `story-${i}` })),
+      Array.from({ length: 25 }, (_, i) =>
+        createMockStory({ id: `story-${i}` }),
+      ),
     );
 
     const response = await handler({
@@ -99,7 +110,9 @@ describe("News API - Limit Parameter", () => {
   it("clamps limit above the maximum of 20", async () => {
     (global as any).getQuery.mockReturnValue({ limit: "50" });
     mockGetStories.mockResolvedValue(
-      Array.from({ length: 25 }, (_, i) => createMockStory({ id: `story-${i}` })),
+      Array.from({ length: 25 }, (_, i) =>
+        createMockStory({ id: `story-${i}` }),
+      ),
     );
 
     const response = await handler({

@@ -22,7 +22,9 @@ export async function cleanupOldDataTask(options?: {
 
   // Prune stale stories from Redis
   const stories = await storiesService.getStories();
-  const staleStories = stories.filter((story) => story.lastUpdated < cutoffTime);
+  const staleStories = stories.filter(
+    (story) => story.lastUpdated < cutoffTime,
+  );
 
   for (const story of staleStories) {
     console.log(
