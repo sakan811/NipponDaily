@@ -1122,6 +1122,30 @@ Story Database")]
     Cond -- "Yes" --> DryRunEnd(["✅ Return Preview Counts"])
     Cond -- "No" --> Done(["✅ Done"])
 `;
+
+const cleanupDiagram = `
+flowchart TD
+    Start(["QStash triggers
+POST /api/cleanup"])
+
+    Start --> S1["Step 1 · Prune Stories
+Read all stories, delete where
+lastUpdated < 30 days ago"]
+    S1 -- "DELETE stale stories" --> Redis[("Redis
+Story Cache")]
+
+    S1 --> S2["Step 2 · Prune Vectors
+Read all vectors, delete where
+published_at < 30 days ago"]
+    S2 -- "DELETE stale vectors" --> VectorDB[("Vector DB
+Semantic Index")]
+    S2 -- "Unmark deleted URLs" --> RedisSeen[("Redis
+seen-set")]
+
+    S2 --> Cond{"dryRun == true?"}
+    Cond -- "Yes" --> DryRunEnd(["✅ Return Preview Counts"])
+    Cond -- "No" --> Done(["✅ Done"])
+`;
 </script>
 
 <style>
