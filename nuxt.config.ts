@@ -74,14 +74,9 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    geminiApiKey: process.env.GEMINI_API_KEY,
-    geminiModel: process.env.GEMINI_MODEL,
-    geminiEmbeddingModel: process.env.GEMINI_EMBEDDING_MODEL,
-    tavilyApiKey: process.env.TAVILY_API_KEY,
     upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
     upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
-    upstashVectorRestUrl: process.env.UPSTASH_VECTOR_REST_URL,
-    upstashVectorRestToken: process.env.UPSTASH_VECTOR_REST_TOKEN,
+    mcpAuthToken: process.env.MCP_AUTH_TOKEN,
     public: {
       apiBase: "/api",
     },
@@ -90,6 +85,9 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
     optimizeDeps: {
       include: ["@internationalized/date", "marked"],
+    },
+    server: {
+      allowedHosts: [".pinggy.net"],
     },
   },
   hints: {

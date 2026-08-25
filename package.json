@@ -18,11 +18,10 @@
     "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run"
   },
   "dependencies": {
-    "@google/genai": "^2.13.0",
-    "@tavily/core": "^0.7.6",
+    "@modelcontextprotocol/server": "^2.0.0",
     "@upstash/redis": "^1.38.0",
-    "@upstash/vector": "^1.2.3",
     "marked": "^18.0.7",
+    "mcp-handler": "^2.1.1",
     "nuxt": "^4.5.1",
     "tailwindcss": "^4.3.3",
     "vue": "^3.5.40",
