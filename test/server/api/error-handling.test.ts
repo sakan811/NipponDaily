@@ -1,12 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 
-import {
-  getHandler,
-  setupDefaults,
-  mockTavilySearch,
-  mockTavilyFormat as _mockTavilyFormat,
-  mockGeminiCategorize as _mockGeminiCategorize,
-} from "./setup";
+import { getHandler, setupDefaults, mockGetStories } from "./setup";
 
 describe("News API - Error Handling", () => {
   let handler: any;
@@ -19,7 +13,7 @@ describe("News API - Error Handling", () => {
   it("handles service errors", async () => {
     const error = new Error("Service error");
     (global as any).getQuery.mockReturnValue({ language: "en" });
-    mockTavilySearch.mockRejectedValue(error);
+    mockGetStories.mockRejectedValue(error);
 
     await expect(
       handler({
@@ -35,14 +29,6 @@ describe("News API - Error Handling", () => {
       statusMessage: "Failed to fetch news",
       data: { error: "Service error" },
     });
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
-    });
   });
 
   it("logs errors in development environment", async () => {
@@ -50,7 +36,7 @@ describe("News API - Error Handling", () => {
     const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     const error = new Error("Dev error");
     (global as any).getQuery.mockReturnValue({ language: "en" });
-    mockTavilySearch.mockRejectedValue(error);
+    mockGetStories.mockRejectedValue(error);
 
     try {
       await handler({
@@ -67,19 +53,11 @@ describe("News API - Error Handling", () => {
 
     expect(consoleSpy).toHaveBeenCalledWith("News API error:", error);
     consoleSpy.mockRestore();
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
-    });
   });
 
   it("handles non-Error objects in error handling", async () => {
     (global as any).getQuery.mockReturnValue({ language: "en" });
-    mockTavilySearch.mockRejectedValue("String error message");
+    mockGetStories.mockRejectedValue("String error message");
 
     await expect(
       handler({
@@ -94,14 +72,6 @@ describe("News API - Error Handling", () => {
       statusCode: 500,
       statusMessage: "Failed to fetch news",
       data: { error: "Unknown error occurred" },
-    });
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: undefined,
-      endDate: undefined,
-      apiKey: "test-tavily-key",
     });
   });
 });

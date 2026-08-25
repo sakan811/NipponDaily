@@ -1,13 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 
-import {
-  getHandler,
-  setupDefaults,
-  createMockNews as _createMockNews,
-  mockTavilySearch,
-  mockTavilyFormat,
-  mockGeminiCategorize,
-} from "./setup";
+import { getHandler, setupDefaults, createMockStory, mockGetStories } from "./setup";
 
 describe("News API - Zod Date Validation", () => {
   let handler: any;
@@ -22,9 +15,6 @@ describe("News API - Zod Date Validation", () => {
       startDate: "2024-01-01",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
@@ -57,9 +47,6 @@ describe("News API - Zod Date Validation", () => {
       endDate: "2024-01-31",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
@@ -90,9 +77,6 @@ describe("News API - Zod Date Validation", () => {
       endDate: "2024-01-31",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
@@ -124,9 +108,6 @@ describe("News API - Zod Date Validation", () => {
       endDate: "2000-01-01",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
@@ -162,9 +143,6 @@ describe("News API - Zod Date Validation", () => {
       endDate: futureDateStr,
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
@@ -196,9 +174,6 @@ describe("News API - Zod Date Validation", () => {
       endDate: "2024-01-01",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
@@ -230,9 +205,6 @@ describe("News API - Zod Date Validation", () => {
       endDate: "2025-01-02", // 367 days later in 2024 (leap year)
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
@@ -259,14 +231,12 @@ describe("News API - Zod Date Validation", () => {
   });
 
   it("accepts valid date range within limits", async () => {
+    mockGetStories.mockResolvedValue([createMockStory()]);
     (global as any).getQuery.mockReturnValue({
       startDate: "2024-01-01",
       endDate: "2024-12-31",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     const response = await handler({
       node: {
@@ -278,14 +248,6 @@ describe("News API - Zod Date Validation", () => {
     });
 
     expect(response.success).toBe(true);
-    expect(mockTavilySearch).toHaveBeenCalledWith({
-      maxResults: 20,
-      category: undefined,
-      timeRange: "week",
-      startDate: "2024-01-01",
-      endDate: "2024-12-31",
-      apiKey: "test-tavily-key",
-    });
   });
 
   it("rejects invalid date format with random characters", async () => {
@@ -294,9 +256,6 @@ describe("News API - Zod Date Validation", () => {
       endDate: "2024-01-31",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
@@ -319,9 +278,6 @@ describe("News API - Zod Date Validation", () => {
       endDate: "1999-12-31",
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
@@ -348,9 +304,6 @@ describe("News API - Zod Date Validation", () => {
       endDate: futureDateStr,
       language: "en",
     });
-    mockTavilySearch.mockResolvedValue({ results: [] });
-    mockTavilyFormat.mockReturnValue([]);
-    mockGeminiCategorize.mockResolvedValue([]);
 
     await expect(
       handler({
