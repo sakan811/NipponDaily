@@ -9,9 +9,8 @@ const cleanupBodySchema = z.object({
  * POST /api/cleanup
  *
  * Called by QStash on a configured schedule (set up in the Upstash QStash
- * dashboard — no integration code needed here). Deletes stories and vector
- * articles older than 30 days from Redis and Upstash Vector so both stores
- * don't grow unbounded.
+ * dashboard — no integration code needed here). Deletes stories older than
+ * 30 days from Redis so the store doesn't grow unbounded.
  */
 export default defineEventHandler(async (event) => {
   try {

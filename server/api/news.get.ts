@@ -1,7 +1,4 @@
-import { geminiService } from "../services/gemini";
-import { tavilyService } from "../services/tavily";
 import { storiesService, calculateTrendScore } from "../services/stories";
-import { ingestNewsTask } from "../services/ingest";
 import { deduplicateByUrl } from "../utils/dedupe";
 import { z } from "zod";
 import type { NewsBriefing } from "~~/types/index";
@@ -125,8 +122,6 @@ const newsQuerySchema = z
 type NewsQuery = z.infer<typeof newsQuerySchema>;
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig();
-
   try {
     let query: Record<string, unknown>;
     try {
@@ -140,125 +135,8 @@ export default defineEventHandler(async (event) => {
     }
     const validatedQuery = newsQuerySchema.parse(query) as NewsQuery;
 
-    const isTest =
-      (!!process.env.VITEST || process.env.NODE_ENV === "test") &&
-      process.env.TEST_DB_MODE !== "true";
-
-    if (isTest) {
-      let rawNewsItems = [];
-      const tavilyResponse = await tavilyService.searchJapanNews({
-        query: validatedQuery.query,
-        maxResults: validatedQuery.limit,
-        category:
-          validatedQuery.category === "all"
-            ? undefined
-            : validatedQuery.category,
-        timeRange: validatedQuery.timeRange,
-        startDate: validatedQuery.startDate,
-        endDate: validatedQuery.endDate,
-        ...(validatedQuery.language === "ja" ? { language: "ja" } : {}),
-        apiKey: config.tavilyApiKey as string,
-      });
-      rawNewsItems =
-        tavilyService.formatTavilyResultsToNewsItems(tavilyResponse);
-
-      // Sort news by published date descending
-      rawNewsItems.sort((a, b) => {
-        const dateA =
-          a.publishedAt && !isNaN(new Date(a.publishedAt).getTime())
-            ? new Date(a.publishedAt).getTime()
-            : new Date(0).getTime();
-        const dateB =
-          b.publishedAt && !isNaN(new Date(b.publishedAt).getTime())
-            ? new Date(b.publishedAt).getTime()
-            : new Date(0).getTime();
-        return dateB - dateA;
-      });
-
-      // Enforce the requested limit BEFORE sending to AI
-      rawNewsItems = rawNewsItems.slice(0, validatedQuery.limit);
-
-      // Calculate publish time range
-      const validDates = rawNewsItems
-        .map((item) => new Date(item.publishedAt))
-        .filter((date) => !isNaN(date.getTime()));
-
-      let publishTimeRange = "Recent";
-      if (validDates.length > 0) {
-        validDates.sort((a, b) => b.getTime() - a.getTime()); // Ensure sorted descending
-        const latestDate = validDates[0]!;
-        const earliestDate = validDates[validDates.length - 1]!;
-
-        const formatOpts: Intl.DateTimeFormatOptions = {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        };
-        let lang = "en-US";
-        try {
-          if (validatedQuery.language) {
-            Intl.DateTimeFormat(validatedQuery.language);
-            lang = validatedQuery.language;
-          }
-        } catch {
-          lang = "en-US";
-        }
-
-        const latestFormatted = latestDate.toLocaleDateString(lang, formatOpts);
-        const earliestFormatted = earliestDate.toLocaleDateString(
-          lang,
-          formatOpts,
-        );
-
-        if (earliestFormatted === latestFormatted) {
-          publishTimeRange = earliestFormatted;
-        } else {
-          publishTimeRange = `${earliestFormatted} - ${latestFormatted}`;
-        }
-      }
-
-      const briefing = await geminiService.generateNewsBriefing(rawNewsItems, {
-        apiKey: config.geminiApiKey as string,
-        model: config.geminiModel as string | undefined,
-        language: validatedQuery.language,
-      });
-      briefing.publishTimeRange = publishTimeRange;
-
-      return {
-        success: true,
-        data: briefing,
-        count: briefing.sourcesProcessed?.length || 0,
-        timestamp: new Date().toISOString(),
-      };
-    }
-
-    // --- PRODUCTION & DEVELOPMENT MODE (NEW aggregated story database) ---
-
-    // 1. Trigger background ingestion if cache is stale or empty
+    // 1. Fetch stories from Redis (populated by the Claude-web MCP agent)
     const lastIngest = await storiesService.getLastIngestTime();
-    const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 hours
-    const allStoriesCount = (await storiesService.getStoryIds()).length;
-
-    if (
-      Date.now() - lastIngest > ONE_DAY_MS ||
-      allStoriesCount === 0 ||
-      lastIngest === 0
-    ) {
-      console.log(
-        "[API] Cache is stale or empty. Triggering news ingestion task...",
-      );
-      event.waitUntil(
-        ingestNewsTask()
-          .then((res) =>
-            console.log("[API] Background news ingestion completed:", res),
-          )
-          .catch((err) =>
-            console.error("[API] Background news ingestion failed:", err),
-          ),
-      );
-    }
-
-    // 2. Fetch stories from Redis
     const allStories = await storiesService.getStories();
 
     // Dynamically calculate trendScore for all stories relative to current time
@@ -267,7 +145,7 @@ export default defineEventHandler(async (event) => {
       story.trendScore = calculateTrendScore(story, now);
     }
 
-    // 3. Filter stories
+    // 2. Filter stories
     let filteredStories = allStories;
 
     // Filter by category
@@ -329,7 +207,7 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    // 4. Sort stories: primary by trendScore descending (recent sources count), secondary by lastUpdated descending
+    // 3. Sort stories: primary by trendScore descending (recent sources count), secondary by lastUpdated descending
     filteredStories.sort((a, b) => {
       if (b.trendScore !== a.trendScore) {
         return b.trendScore - a.trendScore;
@@ -340,7 +218,7 @@ export default defineEventHandler(async (event) => {
     // Enforce limit
     filteredStories = filteredStories.slice(0, validatedQuery.limit);
 
-    // 5. Build backward-compatible global briefing from top stories
+    // 4. Build backward-compatible global briefing from top stories
     let backwardCompatibleBriefing: NewsBriefing | null = null;
 
     if (filteredStories.length > 0) {
@@ -368,7 +246,7 @@ export default defineEventHandler(async (event) => {
       backwardCompatibleBriefing = {
         mainHeadline: "Latest Japan News Briefing",
         executiveSummary:
-          "- No news stories are currently available. Please trigger news ingestion or check back later.",
+          "- No news stories are currently available. Please check back later.",
         thematicAnalysis: "- No thematic analysis available.",
         overallCredibilityScore: 0.8,
         sourcesProcessed: [],
