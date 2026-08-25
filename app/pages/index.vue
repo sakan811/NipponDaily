@@ -23,7 +23,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Real-Time AI Briefings.<br class="hidden sm:inline" >
+          Real-Time AI Briefings.<br class="hidden sm:inline" />
           <span class="text-primary-500 italic font-normal"
             >Cross-Source Synthesis &</span
           >
@@ -34,8 +34,8 @@
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans"
         >
           NipponDaily clusters multi-source Japanese coverage using AI-driven
-          analysis—delivering executive briefings, cross-perspective
-          synthesis, and automated credibility scoring across 6 channels.
+          analysis—delivering executive briefings, cross-perspective synthesis,
+          and automated credibility scoring across 6 channels.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-4">

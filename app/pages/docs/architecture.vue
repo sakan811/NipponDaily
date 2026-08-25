@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
+          />
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
+          />
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -131,17 +131,16 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> The Nitro-powered backend
-            handles request validation, filtering/sorting of stories, and
-            secure communication with Redis. It never calls any external search
-            or AI provider itself.
+            handles request validation, filtering/sorting of stories, and secure
+            communication with Redis. It never calls any external search or AI
+            provider itself.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-circle-stack" /> Database (Upstash
-              Redis)
+              <UIcon name="i-heroicons-circle-stack" /> Database (Upstash Redis)
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -183,14 +182,13 @@
           </template>
           <p class="text-sm mb-2">
             <strong>What it does:</strong> The "brain" that finds Japan news,
-            writes summaries, and decides how to cluster articles into
-            stories.
+            writes summaries, and decides how to cluster articles into stories.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Runs entirely outside this
-            repository, on a schedule the site operator controls. It calls
-            this project's MCP server to persist its work — no search or AI
-            provider credentials live in this codebase at all.
+            repository, on a schedule the site operator controls. It calls this
+            project's MCP server to persist its work — no search or AI provider
+            credentials live in this codebase at all.
           </p>
         </UCard>
       </div>
@@ -542,11 +540,11 @@
       </h2>
 
       <p class="text-lg mb-6">
-        There is no in-repo ingestion pipeline. Instead of this codebase
-        calling a search API and an AI provider on a schedule, a
-        <strong>Claude web agent</strong> — configured and scheduled by the
-        site operator, entirely outside this repository — researches Japan
-        news on its own and calls the tools below to write finished
+        There is no in-repo ingestion pipeline. Instead of this codebase calling
+        a search API and an AI provider on a schedule, a
+        <strong>Claude web agent</strong> — configured and scheduled by the site
+        operator, entirely outside this repository — researches Japan news on
+        its own and calls the tools below to write finished
         <code>Story</code> objects directly into Redis.
       </p>
 
@@ -575,8 +573,8 @@
           </template>
           <p class="text-sm">
             Lists existing story clusters from Redis, most recently updated
-            first, so the agent can decide whether new coverage should extend
-            an existing story or start a new one.
+            first, so the agent can decide whether new coverage should extend an
+            existing story or start a new one.
           </p>
         </UCard>
 
@@ -598,9 +596,9 @@
           </template>
           <p class="text-sm">
             Creates or updates a story cluster — headline, summary, thematic
-            analysis, categories, and sources — visible on the site
-            immediately. Replaces the full source list rather than merging,
-            and marks every source URL as processed.
+            analysis, categories, and sources — visible on the site immediately.
+            Replaces the full source list rather than merging, and marks every
+            source URL as processed.
           </p>
         </UCard>
 
@@ -610,8 +608,8 @@
           </template>
           <p class="text-sm">
             Deletes stories older than 30 days from Redis — the same logic as
-            <code>POST /api/cleanup</code> (Section 5). The agent is expected
-            to call this before writing new coverage each run.
+            <code>POST /api/cleanup</code> (Section 5). The agent is expected to
+            call this before writing new coverage each run.
           </p>
         </UCard>
 
@@ -622,8 +620,8 @@
             </h4>
           </template>
           <p class="text-sm">
-            Records the current time as the last-ingest timestamp, which the
-            UI surfaces to readers as "updated X ago."
+            Records the current time as the last-ingest timestamp, which the UI
+            surfaces to readers as "updated X ago."
           </p>
         </UCard>
       </div>
@@ -654,8 +652,7 @@
         <code>/api/mcp</code> requires an
         <code>Authorization: Bearer &lt;MCP_AUTH_TOKEN&gt;</code> header (or a
         <code>?token=</code> query param), checked with a constant-time
-        comparison. Requests without a valid token get a
-        <code>401</code>.
+        comparison. Requests without a valid token get a <code>401</code>.
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -674,8 +671,8 @@
         permanently delete stories older than 30 days from Redis so the store
         doesn't grow unbounded. The agent is expected to call
         <code>cleanup_old_data</code> before writing new coverage each run, but
-        the QStash-scheduled endpoint below acts as an independent safety net
-        in case the agent's run is skipped or delayed.
+        the QStash-scheduled endpoint below acts as an independent safety net in
+        case the agent's run is skipped or delayed.
       </p>
 
       <!-- Diagram: Cleanup Pipeline -->
@@ -707,10 +704,10 @@
             updated in over a month is considered stale and removed.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Reads all stories from Redis
-            and deletes any where <code>lastUpdated</code> falls before the
-            30-day cutoff, removing both the <code>story:&#123;id&#125;</code>
-            key and its entry in the <code>news:stories</code> set.
+            <strong>Technical Details:</strong> Reads all stories from Redis and
+            deletes any where <code>lastUpdated</code> falls before the 30-day
+            cutoff, removing both the <code>story:&#123;id&#125;</code> key and
+            its entry in the <code>news:stories</code> set.
           </p>
         </div>
       </div>
@@ -756,8 +753,8 @@
         </template>
         <p class="text-sm mb-4">
           Returns story briefings straight from Redis — filtered, sorted, and
-          paginated. Does not call any external search or AI provider, and
-          never triggers ingestion of any kind.
+          paginated. Does not call any external search or AI provider, and never
+          triggers ingestion of any kind.
         </p>
 
         <div class="overflow-x-auto mb-4">
@@ -848,9 +845,9 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
           </div>
         </template>
         <p class="text-sm mb-4">
-          Permanently deletes stories from Redis that are older than 30 days,
-          so the store doesn't grow unbounded. The only in-repo background
-          task — everything else is driven by the MCP agent.
+          Permanently deletes stories from Redis that are older than 30 days, so
+          the store doesn't grow unbounded. The only in-repo background task —
+          everything else is driven by the MCP agent.
         </p>
 
         <div
@@ -897,10 +894,10 @@ curl -X POST http://localhost:3000/api/cleanup \
           </div>
         </template>
         <p class="text-sm mb-4">
-          The remote MCP server described in Section 4 — this is how the
-          Claude web agent (or any other MCP-speaking client) writes stories
-          into Redis. Not a plain REST endpoint; speaks the MCP protocol over
-          HTTP via <code>mcp-handler</code>.
+          The remote MCP server described in Section 4 — this is how the Claude
+          web agent (or any other MCP-speaking client) writes stories into
+          Redis. Not a plain REST endpoint; speaks the MCP protocol over HTTP
+          via <code>mcp-handler</code>.
         </p>
 
         <div
@@ -954,8 +951,8 @@ curl -X POST http://localhost:3000/api/cleanup \
       </h2>
       <p class="mb-4">
         Every story includes a <strong>Trust Score</strong> the Claude agent
-        assigns per source when it calls <code>upsert_story</code>, based on
-        its own assessment of publisher reputation, editorial standards, and
+        assigns per source when it calls <code>upsert_story</code>, based on its
+        own assessment of publisher reputation, editorial standards, and
         trustworthiness — then aggregated into an overall score so readers can
         tell how reliable a story's coverage is at a glance.
       </p>
@@ -1119,30 +1116,6 @@ lastUpdated < 30 days ago"]
 Story Database")]
 
     S1 --> Cond{"dryRun == true?"}
-    Cond -- "Yes" --> DryRunEnd(["✅ Return Preview Counts"])
-    Cond -- "No" --> Done(["✅ Done"])
-`;
-
-const cleanupDiagram = `
-flowchart TD
-    Start(["QStash triggers
-POST /api/cleanup"])
-
-    Start --> S1["Step 1 · Prune Stories
-Read all stories, delete where
-lastUpdated < 30 days ago"]
-    S1 -- "DELETE stale stories" --> Redis[("Redis
-Story Cache")]
-
-    S1 --> S2["Step 2 · Prune Vectors
-Read all vectors, delete where
-published_at < 30 days ago"]
-    S2 -- "DELETE stale vectors" --> VectorDB[("Vector DB
-Semantic Index")]
-    S2 -- "Unmark deleted URLs" --> RedisSeen[("Redis
-seen-set")]
-
-    S2 --> Cond{"dryRun == true?"}
     Cond -- "Yes" --> DryRunEnd(["✅ Return Preview Counts"])
     Cond -- "No" --> Done(["✅ Done"])
 `;
