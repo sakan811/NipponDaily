@@ -75,6 +75,7 @@ vi.mock("h3", () => ({
   defineEventHandler: vi.fn((handler) => handler),
   toNodeListener: vi.fn(),
   fromNodeMiddleware: vi.fn(),
+  fromWebHandler: vi.fn((handler) => handler),
 }));
 
 // Make H3 functions globally available for server tests
