@@ -24,6 +24,19 @@ function extractDomain(url: string): string {
   }
 }
 
+function extractFavicon(url: string): string | undefined {
+  try {
+    const u = new URL(url);
+    return `${u.protocol}//${u.hostname}/favicon.ico`;
+  } catch {
+    return undefined;
+  }
+}
+
+function unionCategories(sources: { category: string }[]): string[] {
+  return Array.from(new Set(sources.map((s) => s.category)));
+}
+
 function isAuthorized(request: Request): boolean {
   const expected = getEnvOrConfig("mcpAuthToken", "MCP_AUTH_TOKEN");
   if (!expected) return false;
@@ -54,9 +67,15 @@ const storySourceInputSchema = z.object({
   publishedAt: z
     .string()
     .describe("ISO 8601 timestamp of original publish date."),
-  credibilityScore: z.number().min(0).max(1),
+  credibilityScore: z
+    .number()
+    .min(0)
+    .max(1)
+    .optional()
+    .describe(
+      "Your assessment (0-1) of this publisher's reliability, based on reputation, editorial standards, and trustworthiness. Only required the FIRST time a given domain is cited — NipponDaily caches it per-domain and reuses it automatically for every later source from the same domain, so you can omit this once a domain has been scored before. Omitting it for a domain with no cached score yet returns an error asking you to supply one.",
+    ),
   category: z.enum(FETCHABLE_CATEGORY_IDS),
-  favicon: z.string().optional(),
 });
 
 const mcpHandler = createMcpHandler(
@@ -111,7 +130,7 @@ const mcpHandler = createMcpHandler(
       {
         title: "Check processed URLs",
         description:
-          "Given candidate article URLs, return which ones NipponDaily has already ingested so you don't create duplicate coverage.",
+          "Given candidate article URLs, return which of them NipponDaily has already ingested, so you don't create duplicate coverage. Any URL you passed in that isn't in the returned `processed` list is unprocessed — treat it as new.",
         inputSchema: z.object({
           urls: z.array(z.string().url()).min(1).max(200),
         }),
@@ -121,11 +140,8 @@ const mcpHandler = createMcpHandler(
           urls.map((url) => storiesService.isArticleProcessed(url)),
         );
         const processed = urls.filter((_, i) => flags[i]);
-        const unprocessed = urls.filter((_, i) => !flags[i]);
         return {
-          content: [
-            { type: "text", text: JSON.stringify({ processed, unprocessed }) },
-          ],
+          content: [{ type: "text", text: JSON.stringify({ processed }) }],
         };
       },
     );
@@ -135,7 +151,7 @@ const mcpHandler = createMcpHandler(
       {
         title: "Upsert story",
         description:
-          "Create or update a NipponDaily story cluster in Redis, visible in the app immediately. To extend an existing story, pass its `id` (from get_recent_stories) and ONLY the new or changed sources — by default these are merged into the existing source list (deduped/updated by URL), so you never need to resend sources that haven't changed. Pass replaceSources: true to instead discard the old source list entirely (e.g. to remove a source). Marks every submitted source URL as processed so the site's own ingestion pipeline won't re-fetch them.",
+          "Create or update a NipponDaily story cluster in Redis, visible in the app immediately. To extend an existing story, pass its `id` (from get_recent_stories) and ONLY the new or changed sources — by default these are merged into the existing source list (deduped/updated by URL), so you never need to resend sources that haven't changed. Pass replaceSources: true to instead discard the old source list entirely (e.g. to remove a source). Marks every submitted source URL as processed so the site's own ingestion pipeline won't re-fetch them. The story's overall `categories` are derived automatically from its sources' categories — don't pass it separately.",
         inputSchema: z.object({
           id: z
             .string()
@@ -152,7 +168,6 @@ const mcpHandler = createMcpHandler(
             .describe(
               "Markdown bullet list contrasting domestic Japanese vs. international sources.",
             ),
-          categories: z.array(z.enum(FETCHABLE_CATEGORY_IDS)).min(1),
           sources: z
             .array(storySourceInputSchema)
             .min(1)
@@ -173,7 +188,6 @@ const mcpHandler = createMcpHandler(
         headline,
         summary,
         thematicAnalysis,
-        categories,
         sources,
         replaceSources,
       }) => {
@@ -181,16 +195,41 @@ const mcpHandler = createMcpHandler(
         const storyId = existing?.id ?? id ?? randomUUID();
         const now = Date.now();
 
-        const incomingSources: StorySource[] = sources.map((src) => ({
-          title: src.title,
-          url: src.url,
-          source: src.source || extractDomain(src.url),
-          publishedAt: src.publishedAt,
-          credibilityScore: src.credibilityScore,
-          category: src.category,
-          favicon: src.favicon,
-          addedAt: now,
-        }));
+        const incomingSources: StorySource[] = [];
+        for (const src of sources) {
+          const domain = src.source || extractDomain(src.url);
+          let credibilityScore = src.credibilityScore;
+          if (credibilityScore === undefined) {
+            const cached = await storiesService.getDomainCredibility(domain);
+            if (cached === null) {
+              return {
+                content: [
+                  {
+                    type: "text",
+                    text: JSON.stringify({
+                      saved: false,
+                      error: `No cached credibility score for domain "${domain}" yet. Provide credibilityScore (0-1) for this source based on your own assessment of the publisher — it will be cached and reused automatically for future sources from this domain.`,
+                    }),
+                  },
+                ],
+              };
+            }
+            credibilityScore = cached;
+          } else {
+            await storiesService.setDomainCredibility(domain, credibilityScore);
+          }
+
+          incomingSources.push({
+            title: src.title,
+            url: src.url,
+            source: domain,
+            publishedAt: src.publishedAt,
+            credibilityScore,
+            category: src.category,
+            favicon: extractFavicon(src.url),
+            addedAt: now,
+          });
+        }
 
         let finalSources: StorySource[];
         if (existing && !replaceSources) {
@@ -221,7 +260,11 @@ const mcpHandler = createMcpHandler(
           lastUpdated,
           trendScore: 0,
           sources: finalSources,
-          categories,
+          categories: unionCategories(
+            finalSources.filter((s): s is StorySource & { category: string } =>
+              Boolean(s.category),
+            ),
+          ),
           isSummarized: true,
         };
 
@@ -252,7 +295,7 @@ const mcpHandler = createMcpHandler(
       {
         title: "Merge stories",
         description:
-          "Re-group two or more existing story clusters (from get_recent_stories) into a single story — use when clusters written separately turn out to share a real throughline. Combines all of their sources (deduped by URL), saves the result under one kept id, and deletes the other now-redundant story ids. You must still write a fresh headline/summary/thematicAnalysis that fits the combined coverage — this does not synthesize text for you.",
+          "Re-group two or more existing story clusters (from get_recent_stories) into a single story — use when clusters written separately turn out to share a real throughline. Combines all of their sources (deduped by URL), saves the result under one kept id, and deletes the other now-redundant story ids. You must still write a fresh headline/summary/thematicAnalysis that fits the combined coverage — this does not synthesize text for you. The merged story's `categories` are derived automatically from the merged stories' own categories.",
         inputSchema: z.object({
           storyIds: z
             .array(z.string())
@@ -273,17 +316,9 @@ const mcpHandler = createMcpHandler(
             .describe(
               "Markdown bullet list contrasting domestic Japanese vs. international sources.",
             ),
-          categories: z.array(z.enum(FETCHABLE_CATEGORY_IDS)).min(1),
         }),
       },
-      async ({
-        storyIds,
-        keepId,
-        headline,
-        summary,
-        thematicAnalysis,
-        categories,
-      }) => {
+      async ({ storyIds, keepId, headline, summary, thematicAnalysis }) => {
         const uniqueIds = Array.from(new Set(storyIds));
         const found = (
           await Promise.all(uniqueIds.map((id) => storiesService.getStory(id)))
@@ -349,7 +384,7 @@ const mcpHandler = createMcpHandler(
           lastUpdated,
           trendScore: 0,
           sources: mergedSources,
-          categories,
+          categories: Array.from(new Set(found.flatMap((s) => s.categories))),
           isSummarized: true,
         };
 
