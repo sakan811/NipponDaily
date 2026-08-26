@@ -66,13 +66,20 @@ const mcpHandler = createMcpHandler(
       {
         title: "Get recent stories",
         description:
-          "List NipponDaily's existing story clusters from Redis, most recently updated first. Use this before writing new coverage to decide whether it should extend an existing story (pass its id to upsert_story) or start a new one.",
+          "List NipponDaily's existing story clusters from Redis, most recently updated first. Use this before writing new coverage to decide whether it should extend an existing story (pass its id to upsert_story) or start a new one. Returns headlines only by default, not per-source URLs — for URL-level dedup, call check_processed_urls instead of expanding sources here.",
         inputSchema: z.object({
           days: z.number().int().min(1).max(30).optional().default(7),
           limit: z.number().int().min(1).max(100).optional().default(30),
+          includeSources: z
+            .boolean()
+            .optional()
+            .default(false)
+            .describe(
+              "Include each story's full source list (url/title/publishedAt). Leave false unless you specifically need per-article detail — it's the most token-expensive field this tool can return.",
+            ),
         }),
       },
-      async ({ days, limit }) => {
+      async ({ days, limit, includeSources }) => {
         const stories = await storiesService.getStories();
         const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
         const recent = stories
@@ -84,11 +91,16 @@ const mcpHandler = createMcpHandler(
             headline: s.headline,
             categories: s.categories,
             lastUpdated: s.lastUpdated,
-            sources: s.sources.map((src) => ({
-              url: src.url,
-              title: src.title,
-              publishedAt: src.publishedAt,
-            })),
+            sourceCount: s.sources.length,
+            ...(includeSources
+              ? {
+                  sources: s.sources.map((src) => ({
+                    url: src.url,
+                    title: src.title,
+                    publishedAt: src.publishedAt,
+                  })),
+                }
+              : {}),
           }));
         return { content: [{ type: "text", text: JSON.stringify(recent) }] };
       },
@@ -123,7 +135,7 @@ const mcpHandler = createMcpHandler(
       {
         title: "Upsert story",
         description:
-          "Create or update a NipponDaily story cluster in Redis, visible in the app immediately. To extend an existing story, pass its `id` (from get_recent_stories) and include ALL of its sources plus the new ones — this replaces the story's full source list rather than merging. Marks every source URL as processed so the site's own ingestion pipeline won't re-fetch them.",
+          "Create or update a NipponDaily story cluster in Redis, visible in the app immediately. To extend an existing story, pass its `id` (from get_recent_stories) and ONLY the new or changed sources — by default these are merged into the existing source list (deduped/updated by URL), so you never need to resend sources that haven't changed. Pass replaceSources: true to instead discard the old source list entirely (e.g. to remove a source). Marks every submitted source URL as processed so the site's own ingestion pipeline won't re-fetch them.",
         inputSchema: z.object({
           id: z
             .string()
@@ -141,7 +153,19 @@ const mcpHandler = createMcpHandler(
               "Markdown bullet list contrasting domestic Japanese vs. international sources.",
             ),
           categories: z.array(z.enum(FETCHABLE_CATEGORY_IDS)).min(1),
-          sources: z.array(storySourceInputSchema).min(1),
+          sources: z
+            .array(storySourceInputSchema)
+            .min(1)
+            .describe(
+              "Sources to add or update. When `id` refers to an existing story, only include NEW sources or ones whose fields changed — existing sources are preserved and merged in automatically unless replaceSources is true.",
+            ),
+          replaceSources: z
+            .boolean()
+            .optional()
+            .default(false)
+            .describe(
+              "If true, `sources` becomes the story's full source list instead of being merged with existing ones. Use only when you need to drop an existing source.",
+            ),
         }),
       },
       async ({
@@ -151,12 +175,13 @@ const mcpHandler = createMcpHandler(
         thematicAnalysis,
         categories,
         sources,
+        replaceSources,
       }) => {
         const existing = id ? await storiesService.getStory(id) : null;
         const storyId = existing?.id ?? id ?? randomUUID();
         const now = Date.now();
 
-        const finalSources: StorySource[] = sources.map((src) => ({
+        const incomingSources: StorySource[] = sources.map((src) => ({
           title: src.title,
           url: src.url,
           source: src.source || extractDomain(src.url),
@@ -166,6 +191,19 @@ const mcpHandler = createMcpHandler(
           favicon: src.favicon,
           addedAt: now,
         }));
+
+        let finalSources: StorySource[];
+        if (existing && !replaceSources) {
+          const sourceMap = new Map<string, StorySource>(
+            existing.sources.map((src) => [src.url, src]),
+          );
+          for (const src of incomingSources) {
+            sourceMap.set(src.url, src);
+          }
+          finalSources = Array.from(sourceMap.values());
+        } else {
+          finalSources = incomingSources;
+        }
 
         const publishTimes = finalSources
           .map((s) => new Date(s.publishedAt).getTime())
@@ -188,13 +226,22 @@ const mcpHandler = createMcpHandler(
         };
 
         await storiesService.saveStory(story);
-        for (const src of finalSources) {
+        for (const src of incomingSources) {
           await storiesService.markArticleProcessed(src.url);
         }
 
         return {
           content: [
-            { type: "text", text: JSON.stringify({ saved: true, story }) },
+            {
+              type: "text",
+              text: JSON.stringify({
+                saved: true,
+                id: story.id,
+                isNew: !existing,
+                articleCount: story.articleCount,
+                sourcesAdded: incomingSources.length,
+              }),
+            },
           ],
         };
       },
@@ -324,7 +371,8 @@ const mcpHandler = createMcpHandler(
               type: "text",
               text: JSON.stringify({
                 merged: true,
-                story: mergedStory,
+                id: mergedStory.id,
+                articleCount: mergedStory.articleCount,
                 deletedIds,
               }),
             },
