@@ -338,7 +338,7 @@ const mcpHandler = createMcpHandler(
       {
         title: "Cleanup old data",
         description:
-          "Delete stories from Redis that are older than one month (same retention window as the site's own /api/cleanup job). Run this first, before writing new coverage, so stale stories don't accumulate. Pass dryRun: true to preview counts without deleting anything.",
+          "Delete stories from Redis that are older than one month. Run this first, before writing new coverage, so stale stories don't accumulate. Also callable ad hoc for manual cleanup outside the regular pipeline run. Pass dryRun: true to preview counts without deleting anything.",
         inputSchema: z.object({
           dryRun: z.boolean().optional().default(false),
         }),
