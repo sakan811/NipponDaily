@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
+          />
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
+          />
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -626,10 +626,10 @@
             <h4 class="font-mono text-sm font-bold m-0">cleanup_old_data</h4>
           </template>
           <p class="text-sm">
-            Deletes stories older than 30 days from Redis (Section 5). The
-            agent is expected to call this before writing new coverage each
-            run; the site operator can also trigger it ad hoc by asking the
-            agent to run it manually.
+            Deletes stories older than 30 days from Redis (Section 5). The agent
+            is expected to call this before writing new coverage each run; the
+            site operator can also trigger it ad hoc by asking the agent to run
+            it manually.
           </p>
         </UCard>
 
@@ -688,12 +688,11 @@
       <p class="text-lg mb-6">
         The MCP tool <code>cleanup_old_data</code> permanently deletes stories
         older than 30 days from Redis so the store doesn't grow unbounded. The
-        Claude web agent — running on a schedule configured in Claude's own
-        web scheduling, not QStash — calls it before writing new coverage each
-        run. There's no separate HTTP endpoint for this; the site operator can
-        also trigger cleanup ad hoc by asking the agent (or any other
-        MCP-speaking client with the bearer token) to call the same tool
-        manually.
+        Claude web agent — running on a schedule configured in Claude's own web
+        scheduling, not QStash — calls it before writing new coverage each run.
+        There's no separate HTTP endpoint for this; the site operator can also
+        trigger cleanup ad hoc by asking the agent (or any other MCP-speaking
+        client with the bearer token) to call the same tool manually.
       </p>
 
       <!-- Diagram: Cleanup Pipeline -->
@@ -746,8 +745,8 @@
           </p>
           <p class="m-0 text-sky-800 dark:text-sky-200 text-sm">
             <code>cleanup_old_data</code> supports a <code>dryRun: true</code>
-            mode that reports how many stories would be deleted without
-            actually committing the deletion.
+            mode that reports how many stories would be deleted without actually
+            committing the deletion.
           </p>
         </div>
       </div>
@@ -904,7 +903,9 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
               </tr>
               <tr>
                 <td class="py-2 px-2"><code>merge_stories</code></td>
-                <td class="py-2 px-2">Combine two or more story clusters into one</td>
+                <td class="py-2 px-2">
+                  Combine two or more story clusters into one
+                </td>
               </tr>
               <tr>
                 <td class="py-2 px-2"><code>cleanup_old_data</code></td>
@@ -929,7 +930,10 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
         assigns per source when it calls <code>upsert_story</code>, based on its
         own assessment of publisher reputation, editorial standards, and
         trustworthiness — then aggregated into an overall score so readers can
-        tell how reliable a story's coverage is at a glance.
+        tell how reliable a story's coverage is at a glance. The agent only
+        needs to judge a given publisher once: NipponDaily caches each domain's
+        score in Redis and reuses it automatically for every later source from
+        that domain.
       </p>
 
       <div
