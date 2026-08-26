@@ -21,24 +21,37 @@ search/summarization service to call; you do the discovery and the writing.
 ## 0. Clean up stale data
 
 Call `cleanup_old_data` first (real run, not `dryRun`) to delete stories older than one
-month, so the store doesn't grow unbounded before you add today's coverage.
+month, so the store doesn't grow unbounded before you add today's coverage. (You can also
+be asked to run just this step on its own, outside the regular pipeline — same tool call,
+no need to run the rest of this prompt.)
 
-## 1. Find today's news
+## 1. Check what's already being tracked
 
-Web search for recent (last 24–48h) Japan-related news across society, tech, pop
-culture, tourism, food, and disaster-prep — drawing on both domestic Japanese outlets and
-international/Western coverage. Only keep articles that are genuinely about Japan
-(mentions Japan, a Japanese place, institution, or culture-specific topic — not just
-tangential).
+Call `get_recent_stories` **before** searching → review existing story headlines,
+categories, and sources. Keep this list in mind for step 2 — it's what tells you which
+searches are "find updates on X" versus "find anything new."
 
-## 2. Check what's already been processed
+## 2. Find today's news, per category
 
-- Call `get_recent_stories` → review existing story headlines, categories, and sources
-  so you can extend or re-group an ongoing story instead of duplicating it.
-- Call `check_processed_urls` with your candidate article URLs → skip any URL already
-  processed.
+Work through all six categories — `society`, `tech`, `pop-culture`, `tourism`, `food`,
+`disaster-prep` — and for each one, search twice:
 
-## 3. Synthesize into one or more Story objects
+- **Follow-ups on existing stories**: for every story from step 1 whose categories include
+  this one, search for new coverage of that specific topic (use its headline/key entities
+  as the query) to find out whether it has developed further in the last 24–48h.
+- **New topics**: search the category broadly for recent (last 24–48h) Japan-related news
+  that isn't already covered by an existing story.
+
+Only keep articles that are genuinely about Japan (mentions Japan, a Japanese place,
+institution, or culture-specific topic — not just tangential). Don't force a search on a
+category with no live story and no fresh news — an empty result for a category is fine.
+
+## 3. Check what's already been processed
+
+Call `check_processed_urls` with your full candidate article URL list (both follow-up and
+new-topic results from step 2) → skip any URL already processed.
+
+## 4. Synthesize into one or more Story objects
 
 Do not force everything into one artificial headline. If today's articles share a real
 throughline, write one Story. If they're genuinely disjoint (e.g. a national statistic, a
@@ -98,7 +111,7 @@ Assign each new story a stable id (a new UUID — `upsert_story` generates one f
 you omit `id`); reuse the existing story's id when extending it, or pick the `keepId`
 when merging.
 
-## 4. Write to Redis
+## 5. Write to Redis
 
 - **New or extended story**: call `upsert_story` with `id` (omit for new stories),
   `headline`, `summary`, `thematicAnalysis`, `categories`, and `sources` (the FULL source
@@ -107,7 +120,25 @@ when merging.
 - **Re-grouped stories**: call `merge_stories` with `storyIds`, an optional `keepId`, and
   the rewritten `headline`/`summary`/`thematicAnalysis`/`categories`.
 
-## 5. Mark ingest complete
+## 6. Mark ingest complete
 
 Call `mark_ingest_complete` once you're done, so the app doesn't consider its cache stale
 and try to trigger its own ingestion.
+
+## Token discipline
+
+This run touches a lot of search results and tool output — keep it scoped:
+
+- **`get_recent_stories`**: pass `days` no larger than you actually need (default 7 is
+  usually enough to catch ongoing stories) rather than pulling the full history.
+- **One search per follow-up/new-topic slot, not several rephrasings.** If the first
+  query for a category turns up nothing new, move on instead of trying synonyms.
+- **Read search snippets, not full article pages**, unless a snippet is missing a field
+  you need (`publishedAt`, a specific figure for a bullet) — a full-page fetch costs far
+  more than the snippet did.
+- **Don't re-fetch or re-summarize a source `check_processed_urls` already marked
+  processed** — skip it immediately, don't reason about it further.
+- **Batch tool calls** where the tools allow it (e.g. one `check_processed_urls` call with
+  every candidate URL, not one call per URL).
+- **Skip categories with nothing to report.** An empty category this run is a normal
+  outcome, not something to re-search for.
