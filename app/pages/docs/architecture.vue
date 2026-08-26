@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          />
+          >
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          />
+          >
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -186,7 +186,8 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Runs entirely outside this
-            repository, on a schedule the site operator controls. It calls this
+            repository, on a schedule set up in Claude's own web scheduling
+            feature (not a cron job hosted by this project). It calls this
             project's MCP server to persist its work — no search or AI provider
             credentials live in this codebase at all.
           </p>
@@ -542,10 +543,11 @@
       <p class="text-lg mb-6">
         There is no in-repo ingestion pipeline. Instead of this codebase calling
         a search API and an AI provider on a schedule, a
-        <strong>Claude web agent</strong> — configured and scheduled by the site
-        operator, entirely outside this repository — researches Japan news on
-        its own and calls the tools below to write finished
-        <code>Story</code> objects directly into Redis.
+        <strong>Claude web agent</strong> — scheduled via Claude's own web
+        scheduling feature, entirely outside this repository — checks existing
+        coverage first, then researches Japan news across six categories (both
+        follow-ups on ongoing stories and brand-new topics) and calls the tools
+        below to write finished <code>Story</code> objects directly into Redis.
       </p>
 
       <!-- Diagram: MCP Pipeline -->
@@ -563,7 +565,7 @@
       </div>
 
       <p class="font-semibold text-xl mt-10 mb-4">
-        <code>ALL /api/mcp</code> registers five tools:
+        <code>ALL /api/mcp</code> registers six tools:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -573,8 +575,10 @@
           </template>
           <p class="text-sm">
             Lists existing story clusters from Redis, most recently updated
-            first, so the agent can decide whether new coverage should extend an
-            existing story or start a new one.
+            first. Called before searching each run, so the agent knows which
+            topics to search for follow-up coverage on versus searching fresh
+            for, and can decide whether new coverage should extend an existing
+            story or start a new one.
           </p>
         </UCard>
 
@@ -604,12 +608,27 @@
 
         <UCard>
           <template #header>
+            <h4 class="font-mono text-sm font-bold m-0">merge_stories</h4>
+          </template>
+          <p class="text-sm">
+            Re-groups two or more existing story clusters into one — combining
+            their sources (deduped by URL) under a single kept id and deleting
+            the other now-redundant ids. Used when clusters written separately
+            turn out to share a real throughline; the agent still supplies a
+            fresh headline, summary, and thematic analysis for the merged
+            result.
+          </p>
+        </UCard>
+
+        <UCard>
+          <template #header>
             <h4 class="font-mono text-sm font-bold m-0">cleanup_old_data</h4>
           </template>
           <p class="text-sm">
-            Deletes stories older than 30 days from Redis — the same logic as
-            <code>POST /api/cleanup</code> (Section 5). The agent is expected to
-            call this before writing new coverage each run.
+            Deletes stories older than 30 days from Redis (Section 5). The
+            agent is expected to call this before writing new coverage each
+            run; the site operator can also trigger it ad hoc by asking the
+            agent to run it manually.
           </p>
         </UCard>
 
@@ -666,13 +685,14 @@
       </h2>
 
       <p class="text-lg mb-6">
-        The MCP tool <code>cleanup_old_data</code> and the standalone
-        <code>POST /api/cleanup</code> endpoint share the exact same logic:
-        permanently delete stories older than 30 days from Redis so the store
-        doesn't grow unbounded. The agent is expected to call
-        <code>cleanup_old_data</code> before writing new coverage each run, but
-        the QStash-scheduled endpoint below acts as an independent safety net in
-        case the agent's run is skipped or delayed.
+        The MCP tool <code>cleanup_old_data</code> permanently deletes stories
+        older than 30 days from Redis so the store doesn't grow unbounded. The
+        Claude web agent — running on a schedule configured in Claude's own
+        web scheduling, not QStash — calls it before writing new coverage each
+        run. There's no separate HTTP endpoint for this; the site operator can
+        also trigger cleanup ad hoc by asking the agent (or any other
+        MCP-speaking client with the bearer token) to call the same tool
+        manually.
       </p>
 
       <!-- Diagram: Cleanup Pipeline -->
@@ -724,10 +744,9 @@
             Safe Testing (Dry Run)
           </p>
           <p class="m-0 text-sky-800 dark:text-sky-200 text-sm">
-            Both <code>cleanup_old_data</code> and
-            <code>POST /api/cleanup</code> support a
-            <code>dryRun: true</code> mode that reports how many stories would
-            be deleted without actually committing the deletion.
+            <code>cleanup_old_data</code> supports a <code>dryRun: true</code>
+            mode that reports how many stories would be deleted without
+            actually committing the deletion.
           </p>
         </div>
       </div>
@@ -836,55 +855,6 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
         </div>
       </UCard>
 
-      <!-- /api/cleanup -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="primary" variant="soft">POST</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/cleanup</h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          Permanently deletes stories from Redis that are older than 30 days, so
-          the store doesn't grow unbounded. The only in-repo background task —
-          everything else is driven by the MCP agent.
-        </p>
-
-        <div
-          class="mb-4 p-3 rounded-lg border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20 text-sm"
-        >
-          <strong>🗓 QStash Scheduled:</strong> Runs on its own automated
-          schedule (e.g. <code>0 3 * * *</code>), configured directly in the
-          Upstash console — no QStash integration code lives in this repo.
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">Request Example</p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code># Preview without deleting
-curl -X POST http://localhost:3000/api/cleanup \
-  -H "Content-Type: application/json" \
-  -d '{"dryRun": true}'</code></pre>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">
-              Response (200 OK)
-            </p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code>{
-  "success": true,
-  "storiesDeleted": 2,
-  "dryRun": true,
-  "message": "Cleanup completed successfully",
-  "timestamp": "2026-07-14T15:00:00.000Z"
-}</code></pre>
-          </div>
-        </div>
-      </UCard>
-
       <!-- /api/mcp -->
       <UCard class="mb-8">
         <template #header>
@@ -930,6 +900,10 @@ curl -X POST http://localhost:3000/api/cleanup \
               <tr>
                 <td class="py-2 px-2"><code>upsert_story</code></td>
                 <td class="py-2 px-2">Create/update a story cluster</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>merge_stories</code></td>
+                <td class="py-2 px-2">Combine two or more story clusters into one</td>
               </tr>
               <tr>
                 <td class="py-2 px-2"><code>cleanup_old_data</code></td>
@@ -1042,17 +1016,23 @@ const mobileMenuOpen = ref(false);
 const systemDiagram = `
 flowchart TD
     Claude(["🤖 Claude Web Agent
-(external, scheduled by operator)"])
+(scheduled via Claude web,
+not by this codebase)"])
     User(["👤 User"])
-    QStash(["🕐 QStash Scheduler"])
+    Operator(["🧑‍💻 Site Operator
+(manual/ad-hoc)"])
 
     Claude -- "researches Japan news
 on its own" --> MCP["ALL /api/mcp
 (Nitro, bearer-token protected)"]
 
+    Operator -. "asks agent to run
+cleanup_old_data manually" .-> MCP
+
     MCP -- "get_recent_stories /
 check_processed_urls /
-upsert_story / cleanup_old_data /
+upsert_story / merge_stories /
+cleanup_old_data /
 mark_ingest_complete" --> Redis[("Redis
 Story Database")]
 
@@ -1060,11 +1040,6 @@ Story Database")]
 (Nitro)"]
     NewsAPI -- "read stories" --> Redis
     NewsAPI -- "stories + briefings" --> User
-
-    QStash -- "POST /api/cleanup
-(on schedule)" --> CleanupAPI["POST /api/cleanup
-(Nitro)"]
-    CleanupAPI -. "delete stories >30d" .-> Redis
 `;
 
 const mcpDiagram = `
@@ -1082,9 +1057,11 @@ List existing clusters to avoid
 duplicate coverage"]
     S2 -. "READ" .-> Redis
 
-    S2 --> S3["Step 3 · Research
-Agent searches the web for
-Japan-related news itself"]
+    S2 --> S3["Step 3 · Research (per category)
+For each of 6 categories: search
+for follow-ups on tracked stories
+from Step 2, then search broadly
+for new topics"]
 
     S3 --> S4["Step 4 · check_processed_urls
 Skip candidate URLs already ingested"]
@@ -1096,18 +1073,23 @@ analysis & sources for each cluster"]
     S5 -- "WRITE story +
 mark sources processed" --> Redis
 
-    S5 --> S6["Step 6 · mark_ingest_complete
-Record last-ingest timestamp"]
-    S6 -- "WRITE" --> Redis
+    S5 -. "Step 6 (optional) · merge_stories
+Combine clusters that turn out to
+share a real throughline" .-> Redis
 
-    S6 --> Done(["✅ Done — visible on
+    S5 --> S7["Step 7 · mark_ingest_complete
+Record last-ingest timestamp"]
+    S7 -- "WRITE" --> Redis
+
+    S7 --> Done(["✅ Done — visible on
 GET /api/news immediately"])
 `;
 
 const cleanupDiagram = `
 flowchart TD
-    Start(["QStash triggers
-POST /api/cleanup"])
+    Start(["cleanup_old_data MCP tool
+(scheduled Claude web agent,
+or manual ad-hoc request)"])
 
     Start --> S1["Prune Stale Stories
 Read all stories, delete where

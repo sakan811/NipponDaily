@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          />
+          >
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          />
+          >
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -107,7 +107,7 @@ const features = [
   {
     title: "AI Trust Scoring",
     description:
-      "Automated credibility assessment based on source reputation, domain authority, and content quality metrics.",
+      "Per-source credibility scores (0.0-1.0) assigned by the Claude web agent when it writes a story, aggregated into an overall score and rendered with an HSL color gradient.",
     icon: "i-heroicons-shield-check",
   },
   {
@@ -125,7 +125,7 @@ const features = [
   {
     title: "MCP-Driven Story Pipeline",
     description:
-      "News discovery, clustering, and summarization happen entirely outside this codebase — a Claude web agent writes finished stories in through a bearer-token-protected remote MCP server.",
+      "News discovery, clustering, and summarization happen entirely outside this codebase — a Claude web agent writes, merges, and prunes finished stories through a bearer-token-protected remote MCP server.",
     icon: "i-heroicons-cpu-chip",
   },
   {
