@@ -201,6 +201,139 @@ const mcpHandler = createMcpHandler(
     );
 
     server.registerTool(
+      "merge_stories",
+      {
+        title: "Merge stories",
+        description:
+          "Re-group two or more existing story clusters (from get_recent_stories) into a single story — use when clusters written separately turn out to share a real throughline. Combines all of their sources (deduped by URL), saves the result under one kept id, and deletes the other now-redundant story ids. You must still write a fresh headline/summary/thematicAnalysis that fits the combined coverage — this does not synthesize text for you.",
+        inputSchema: z.object({
+          storyIds: z
+            .array(z.string())
+            .min(2)
+            .describe("Ids of the existing stories to merge together."),
+          keepId: z
+            .string()
+            .optional()
+            .describe(
+              "Which of storyIds to keep as the merged story's id. Defaults to the story with the earliest firstSeen.",
+            ),
+          headline: z.string(),
+          summary: z
+            .string()
+            .describe("Markdown bullet list ('- ' per line, \\n-separated)."),
+          thematicAnalysis: z
+            .string()
+            .describe(
+              "Markdown bullet list contrasting domestic Japanese vs. international sources.",
+            ),
+          categories: z.array(z.enum(FETCHABLE_CATEGORY_IDS)).min(1),
+        }),
+      },
+      async ({
+        storyIds,
+        keepId,
+        headline,
+        summary,
+        thematicAnalysis,
+        categories,
+      }) => {
+        const uniqueIds = Array.from(new Set(storyIds));
+        const found = (
+          await Promise.all(uniqueIds.map((id) => storiesService.getStory(id)))
+        ).filter((s): s is Story => s !== null);
+
+        if (found.length < 2) {
+          return {
+            content: [
+              {
+                type: "text",
+                text: JSON.stringify({
+                  merged: false,
+                  error: `Need at least 2 existing stories to merge; found ${found.length} of ${uniqueIds.length} requested ids.`,
+                }),
+              },
+            ],
+          };
+        }
+
+        const targetId =
+          keepId ??
+          found.reduce((oldest, s) =>
+            s.firstSeen < oldest.firstSeen ? s : oldest,
+          ).id;
+
+        if (!found.some((s) => s.id === targetId)) {
+          return {
+            content: [
+              {
+                type: "text",
+                text: JSON.stringify({
+                  merged: false,
+                  error: `keepId "${targetId}" is not one of the found story ids.`,
+                }),
+              },
+            ],
+          };
+        }
+
+        const sourceMap = new Map<string, StorySource>();
+        for (const s of found) {
+          for (const src of s.sources) {
+            sourceMap.set(src.url, src);
+          }
+        }
+        const mergedSources = Array.from(sourceMap.values());
+
+        const publishTimes = mergedSources
+          .map((s) => new Date(s.publishedAt).getTime())
+          .filter((t) => !isNaN(t));
+        const now = Date.now();
+        const lastUpdated =
+          publishTimes.length > 0 ? Math.max(...publishTimes) : now;
+        const firstSeen = Math.min(...found.map((s) => s.firstSeen));
+
+        const mergedStory: Story = {
+          id: targetId,
+          headline,
+          summary,
+          thematicAnalysis,
+          articleCount: mergedSources.length,
+          firstSeen,
+          lastUpdated,
+          trendScore: 0,
+          sources: mergedSources,
+          categories,
+          isSummarized: true,
+        };
+
+        await storiesService.saveStory(mergedStory);
+        for (const src of mergedSources) {
+          await storiesService.markArticleProcessed(src.url);
+        }
+
+        const deletedIds = found
+          .map((s) => s.id)
+          .filter((id) => id !== targetId);
+        for (const id of deletedIds) {
+          await storiesService.deleteStory(id);
+        }
+
+        return {
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify({
+                merged: true,
+                story: mergedStory,
+                deletedIds,
+              }),
+            },
+          ],
+        };
+      },
+    );
+
+    server.registerTool(
       "cleanup_old_data",
       {
         title: "Cleanup old data",
