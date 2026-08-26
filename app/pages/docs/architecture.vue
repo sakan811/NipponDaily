@@ -601,8 +601,9 @@
           <p class="text-sm">
             Creates or updates a story cluster — headline, summary, thematic
             analysis, categories, and sources — visible on the site immediately.
-            Replaces the full source list rather than merging, and marks every
-            source URL as processed.
+            Merges submitted sources into the existing list by URL rather than
+            requiring the full list to be resent (pass replaceSources: true to
+            override), and marks every submitted source URL as processed.
           </p>
         </UCard>
 
