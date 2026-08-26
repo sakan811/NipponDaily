@@ -23,6 +23,7 @@ class StoriesService {
   private memoryStories = new Map<string, Story>();
   private memoryProcessedArticles = new Set<string>();
   private memoryLastIngestTime: number = 0;
+  private memoryDomainCredibility = new Map<string, number>();
 
   private getRedisClient(): Redis | null {
     if (this.client) return this.client;
@@ -134,6 +135,36 @@ class StoriesService {
     } catch (e) {
       console.error(`Error marking article ${url} as processed:`, e);
       this.memoryProcessedArticles.add(url);
+    }
+  }
+
+  async getDomainCredibility(domain: string): Promise<number | null> {
+    const redis = this.getRedisClient();
+    if (!redis) {
+      return this.memoryDomainCredibility.get(domain) ?? null;
+    }
+
+    try {
+      const val = await redis.hget<number>("news:domain_credibility", domain);
+      return val ?? null;
+    } catch (e) {
+      console.error(`Error getting credibility for domain ${domain}:`, e);
+      return this.memoryDomainCredibility.get(domain) ?? null;
+    }
+  }
+
+  async setDomainCredibility(domain: string, score: number): Promise<void> {
+    const redis = this.getRedisClient();
+    if (!redis) {
+      this.memoryDomainCredibility.set(domain, score);
+      return;
+    }
+
+    try {
+      await redis.hset("news:domain_credibility", { [domain]: score });
+    } catch (e) {
+      console.error(`Error setting credibility for domain ${domain}:`, e);
+      this.memoryDomainCredibility.set(domain, score);
     }
   }
 
