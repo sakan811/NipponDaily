@@ -15,12 +15,12 @@
           src="/favicon-light.ico"
           alt="NipponDaily"
           class="w-[1em] h-[1em] dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm opacity-70"
-        >
+        />
         <img
           src="/favicon-dark.ico"
           alt="NipponDaily"
           class="w-[1em] h-[1em] hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm opacity-70"
-        >
+        />
         <span
           class="font-serif font-bold text-[1em] tracking-tight leading-none text-stone-900 dark:text-white"
           >NipponDaily</span
