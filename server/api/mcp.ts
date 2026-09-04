@@ -269,9 +269,11 @@ const mcpHandler = createMcpHandler(
         };
 
         await storiesService.saveStory(story);
-        for (const src of incomingSources) {
-          await storiesService.markArticleProcessed(src.url);
-        }
+        await Promise.all(
+          incomingSources.map((src) =>
+            storiesService.markArticleProcessed(src.url),
+          ),
+        );
 
         return {
           content: [
@@ -389,16 +391,18 @@ const mcpHandler = createMcpHandler(
         };
 
         await storiesService.saveStory(mergedStory);
-        for (const src of mergedSources) {
-          await storiesService.markArticleProcessed(src.url);
-        }
+        await Promise.all(
+          mergedSources.map((src) =>
+            storiesService.markArticleProcessed(src.url),
+          ),
+        );
 
         const deletedIds = found
           .map((s) => s.id)
           .filter((id) => id !== targetId);
-        for (const id of deletedIds) {
-          await storiesService.deleteStory(id);
-        }
+        await Promise.all(
+          deletedIds.map((id) => storiesService.deleteStory(id)),
+        );
 
         return {
           content: [

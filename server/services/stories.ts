@@ -96,16 +96,25 @@ class StoriesService {
 
   async getStories(): Promise<Story[]> {
     const ids = await this.getStoryIds();
-    const stories: Story[] = [];
+    if (ids.length === 0) return [];
 
-    for (const id of ids) {
-      const story = await this.getStory(id);
-      if (story) {
-        stories.push(story);
-      }
+    const redis = this.getRedisClient();
+    if (!redis) {
+      return ids
+        .map((id) => this.memoryStories.get(id))
+        .filter((s): s is Story => s !== undefined);
     }
 
-    return stories;
+    try {
+      const keys = ids.map((id) => `story:${id}`);
+      const results = await redis.mget<Story[]>(...keys);
+      return results.filter((s): s is Story => s !== null);
+    } catch (e) {
+      console.error("Error getting stories from Redis:", e);
+      return ids
+        .map((id) => this.memoryStories.get(id))
+        .filter((s): s is Story => s !== undefined);
+    }
   }
 
   async isArticleProcessed(url: string): Promise<boolean> {
@@ -213,19 +222,6 @@ class StoriesService {
     }
   }
 
-  /**
-   * Recalculate trending scores for all stories based on recent additions
-   */
-  async updateVelocityScores(): Promise<void> {
-    const stories = await this.getStories();
-    const now = Date.now();
-
-    for (const story of stories) {
-      story.trendScore = calculateTrendScore(story, now);
-      await this.saveStory(story);
-    }
-  }
-
   async deleteStory(storyId: string): Promise<void> {
     const redis = this.getRedisClient();
     if (!redis) {
@@ -239,13 +235,6 @@ class StoriesService {
     } catch (e) {
       console.error(`Error deleting story ${storyId} from Redis:`, e);
       this.memoryStories.delete(storyId);
-    }
-  }
-
-  async clearAllStories(): Promise<void> {
-    const ids = await this.getStoryIds();
-    for (const id of ids) {
-      await this.deleteStory(id);
     }
   }
 }
