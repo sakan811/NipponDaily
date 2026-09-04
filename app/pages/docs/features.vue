@@ -87,9 +87,9 @@ const features = [
     icon: "i-heroicons-document-text",
   },
   {
-    title: "Cross-Source Perspective Analysis",
+    title: "Connections & Root-Cause Analysis",
     description:
-      "Thematic synthesis that explicitly compares and contrasts viewpoints, focus, and tone of domestic Japanese outlets with global/Western media.",
+      "Each story mapped as a node in a web: the structural driver behind the event, the trend line it sits on, links to other tracked stories, and where domestic Japanese and international coverage diverge in emphasis.",
     icon: "i-heroicons-link",
   },
   {
