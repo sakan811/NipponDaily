@@ -33,21 +33,13 @@ describe("JapanNewsReader - Time Range", () => {
 
     const timeRangeButtons = wrapper.findAll("button").filter((button) => {
       const text = button.text();
-      return [
-        "All Time",
-        "Today",
-        "This Week",
-        "This Month",
-        "This Year",
-      ].includes(text);
+      return ["All Time", "Today", "This Week"].includes(text);
     });
 
-    expect(timeRangeButtons.length).toBe(5);
+    expect(timeRangeButtons.length).toBe(3);
     expect(timeRangeButtons[0].text()).toBe("All Time");
     expect(timeRangeButtons[1].text()).toBe("Today");
     expect(timeRangeButtons[2].text()).toBe("This Week");
-    expect(timeRangeButtons[3].text()).toBe("This Month");
-    expect(timeRangeButtons[4].text()).toBe("This Year");
   });
 
   it("selects 'This Week' time range by default", () => {
@@ -122,14 +114,14 @@ describe("JapanNewsReader - Time Range", () => {
       },
     });
 
-    // Set time range to "month"
-    wrapper.vm.selectedTimeRange = "month";
+    // Set time range to "none"
+    wrapper.vm.selectedTimeRange = "none";
     await wrapper.vm.fetchNews();
 
     expect(mockFetch).toHaveBeenCalledWith("/api/news", {
       query: {
         category: undefined,
-        timeRange: "month",
+        timeRange: "none",
         language: "en",
         limit: 20,
       },

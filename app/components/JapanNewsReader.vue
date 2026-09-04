@@ -533,8 +533,6 @@ const translations = {
     allTime: "All Time",
     today: "Today",
     thisWeek: "This Week",
-    thisMonth: "This Month",
-    thisYear: "This Year",
     customRange: "Custom Range",
     selectDateRange: "Select date range",
     categories: {
@@ -561,10 +559,6 @@ const getTimeRangeLabel = (id: string) => {
       return t.value.today;
     case "week":
       return t.value.thisWeek;
-    case "month":
-      return t.value.thisMonth;
-    case "year":
-      return t.value.thisYear;
     case "custom":
       return t.value.customRange;
     default:
@@ -646,9 +640,7 @@ const mockFallbackBriefing: NewsBriefing = {
   ],
 };
 
-const selectedTimeRange = ref<
-  "none" | "day" | "week" | "month" | "year" | "custom"
->("week");
+const selectedTimeRange = ref<"none" | "day" | "week" | "custom">("week");
 
 // Calendar state for custom date range
 const today = new CalendarDate(
@@ -688,8 +680,6 @@ const timeRangeOptions = [
   { id: "none", name: "All Time" },
   { id: "day", name: "Today" },
   { id: "week", name: "This Week" },
-  { id: "month", name: "This Month" },
-  { id: "year", name: "This Year" },
   { id: "custom", name: "Custom Range" },
 ] as const;
 

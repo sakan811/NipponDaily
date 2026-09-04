@@ -35,7 +35,7 @@ describe("News API - Time Range Validation", () => {
   };
 
   it("accepts valid timeRange values", async () => {
-    const validTimeRanges = ["none", "day", "week", "month", "year"];
+    const validTimeRanges = ["none", "day", "week"];
 
     for (const timeRange of validTimeRanges) {
       (global as any).getQuery.mockReturnValue({
@@ -96,7 +96,7 @@ describe("News API - Time Range Validation", () => {
   });
 
   it("accepts timeRange case variations by normalizing to 'week'", async () => {
-    const testCases = ["NONE", "Day", "WEEK", "Month", "YEAR"];
+    const testCases = ["NONE", "Day", "WEEK"];
 
     for (const input of testCases) {
       mockGetStories.mockResolvedValue([storyWithSourceAge("old", 10)]);
@@ -116,6 +116,32 @@ describe("News API - Time Range Validation", () => {
 
       expect(response.success).toBe(true);
       // Every case variation is treated as invalid input and normalized to "week"
+      expect(response.data.stories).toHaveLength(0);
+    }
+  });
+
+  it("treats removed 'month' and 'year' values as invalid and normalizes to 'week'", async () => {
+    const testCases = ["month", "year"];
+
+    for (const timeRange of testCases) {
+      mockGetStories.mockResolvedValue([storyWithSourceAge("old", 10)]);
+      (global as any).getQuery.mockReturnValue({
+        timeRange,
+        language: "en",
+      });
+
+      const response = await handler({
+        node: {
+          req: {
+            socket: { remoteAddress: "127.0.0.1" },
+            headers: {},
+          },
+        },
+      });
+
+      expect(response.success).toBe(true);
+      // "month"/"year" are no longer supported (stories are pruned after 30 days),
+      // so they fall back to the "week" default like any other invalid value.
       expect(response.data.stories).toHaveLength(0);
     }
   });
@@ -169,7 +195,7 @@ describe("News API - Time Range Validation", () => {
       createMockStory({ id: "recent", categories: ["tech"] }),
     ]);
     (global as any).getQuery.mockReturnValue({
-      timeRange: "month",
+      timeRange: "week",
       category: "tech",
       limit: "5",
       language: "en",
