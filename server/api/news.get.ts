@@ -34,9 +34,9 @@ const newsQuerySchema = z
       .optional()
       .transform((val) => {
         if (!val || val.trim() === "" || val === "week") return "week";
-        const allowed = ["none", "day", "week", "month", "year"] as const;
-        if (allowed.includes(val as "none" | "day" | "week" | "month" | "year"))
-          return val as "none" | "day" | "week" | "month" | "year";
+        const allowed = ["none", "day", "week"] as const;
+        if (allowed.includes(val as "none" | "day" | "week"))
+          return val as "none" | "day" | "week";
         return "week";
       }),
 
@@ -192,10 +192,6 @@ export default defineEventHandler(async (event) => {
       if (validatedQuery.timeRange === "day") cutoffMs = now - 24 * 3600 * 1000;
       else if (validatedQuery.timeRange === "week")
         cutoffMs = now - 7 * 24 * 3600 * 1000;
-      else if (validatedQuery.timeRange === "month")
-        cutoffMs = now - 30 * 24 * 3600 * 1000;
-      else if (validatedQuery.timeRange === "year")
-        cutoffMs = now - 365 * 24 * 3600 * 1000;
 
       filteredStories = filteredStories.filter((story) => {
         if (!story.sources || story.sources.length === 0) return false;

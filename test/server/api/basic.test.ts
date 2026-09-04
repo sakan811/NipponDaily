@@ -114,7 +114,7 @@ describe("News API - Basic Functionality", () => {
 
     (global as any).getQuery.mockReturnValue({
       category: "tech",
-      timeRange: "month",
+      timeRange: "week",
     });
 
     const response = await handler({
