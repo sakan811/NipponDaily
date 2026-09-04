@@ -13,12 +13,9 @@
     <!-- Hero Section -->
     <main class="relative z-10 container mx-auto px-4 max-w-6xl py-16 sm:py-24">
       <div class="text-center max-w-3xl mx-auto space-y-6">
-        <div
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary-500/20 bg-primary-500/5 text-primary-600 dark:text-primary-400 text-xs font-medium tracking-wide"
-        >
-          <span class="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse" />
+        <p class="kicker text-primary-600 dark:text-primary-400">
           AI-Powered Japan News Aggregator & Briefings
-        </div>
+        </p>
 
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
@@ -31,7 +28,7 @@
         </h1>
 
         <p
-          class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-sans"
+          class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-body-serif"
         >
           NipponDaily clusters multi-source Japanese coverage using AI-driven
           analysis—delivering executive briefings, cross-perspective synthesis,
@@ -47,58 +44,57 @@
             size="lg"
             icon="i-heroicons-arrow-right"
             trailing
-            class="px-6 py-3 font-medium tracking-wide shadow-lg shadow-primary-500/20 hover:shadow-primary-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all"
+            class="px-6 py-3 font-medium tracking-wide"
           />
         </div>
       </div>
 
-      <div
-        class="border-t border-stone-200 dark:border-stone-800/80 my-16 sm:my-24"
-      />
+      <div class="rule-double my-16 sm:my-24" />
 
-      <!-- Specialty Channels Grid -->
-      <section class="space-y-12">
-        <div class="text-center max-w-lg mx-auto">
+      <!-- Specialty Channels: Contents Index -->
+      <section class="space-y-10">
+        <div class="text-center max-w-lg mx-auto space-y-3">
           <h2
             class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
           >
             Six Specialty Channels
           </h2>
-          <p class="text-sm text-stone-500 dark:text-stone-400 mt-2 font-sans">
+          <div class="rule-double max-w-[120px] mx-auto" />
+          <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
             Curated streams capturing the true multi-faceted heart and pulse of
             modern Japan.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <UCard
+        <p class="kicker text-stone-400 dark:text-stone-500">
+          Inside This Edition
+        </p>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 border-t border-stone-300 dark:border-stone-800"
+        >
+          <div
             v-for="(channel, idx) in channels"
             :key="idx"
-            class="group hover:shadow-xl hover:border-primary-500/30 border border-stone-200/60 dark:border-stone-800 bg-white/50 dark:bg-stone-900/50 backdrop-blur-sm transition-all duration-300 rounded-xl"
-            :ui="{ body: 'p-6' }"
+            class="group flex items-start gap-4 py-5 px-1 border-b border-stone-300 dark:border-stone-800 md:odd:border-r md:odd:pr-6 md:even:pl-6"
           >
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <div
-                  class="flex items-center justify-center w-10 h-10 rounded-lg bg-stone-100 dark:bg-stone-800 text-primary-500 group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300"
-                >
-                  <UIcon :name="channel.icon" class="w-5 h-5" />
-                </div>
-              </div>
-              <div class="space-y-1.5">
-                <h3
-                  class="text-lg font-serif font-bold text-stone-900 dark:text-white group-hover:text-primary-500 transition-colors duration-200"
-                >
-                  {{ channel.title }}
-                </h3>
-                <p
-                  class="text-xs leading-relaxed text-stone-500 dark:text-stone-400 font-sans"
-                >
-                  {{ channel.description }}
-                </p>
-              </div>
+            <span
+              class="font-serif text-2xl text-stone-300 dark:text-stone-700 group-hover:text-primary-500 transition-colors duration-200 leading-none pt-0.5"
+              >{{ String(idx + 1).padStart(2, "0") }}</span
+            >
+            <div class="space-y-1">
+              <h3
+                class="text-lg font-serif font-bold text-stone-900 dark:text-white group-hover:text-primary-500 transition-colors duration-200"
+              >
+                {{ channel.title }}
+              </h3>
+              <p
+                class="text-xs leading-relaxed text-stone-500 dark:text-stone-400 font-sans"
+              >
+                {{ channel.description }}
+              </p>
             </div>
-          </UCard>
+          </div>
         </div>
       </section>
     </main>

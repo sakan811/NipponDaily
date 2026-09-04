@@ -1,7 +1,10 @@
 <template>
   <header
-    class="u-header sticky top-0 z-40 w-full bg-[#FDFBF7]/80 dark:bg-[#0B0E14]/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50"
+    class="u-header sticky top-0 z-40 w-full bg-[#FDFBF7] dark:bg-[#0B0E14]"
   >
+    <div v-if="$slots.top" class="mx-auto px-4 max-w-6xl">
+      <slot name="top" />
+    </div>
     <div class="mx-auto px-4 max-w-6xl h-16 flex items-center justify-between">
       <!-- Left side (Logo & Brand) -->
       <div class="flex items-center">
@@ -24,6 +27,8 @@
         </button>
       </div>
     </div>
+
+    <div class="rule-double" />
 
     <!-- Mobile Drawer Panel -->
     <transition

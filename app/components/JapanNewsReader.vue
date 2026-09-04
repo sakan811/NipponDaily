@@ -7,10 +7,12 @@
       <div class="space-y-6">
         <div>
           <div class="mb-3 sm:mb-4">
-            <p class="text-sm text-secondary-500 mb-2 max-w-fit">
-              <em>{{ t.timeRangeSubtitle }}</em>
+            <p class="kicker text-secondary-500 mb-2">
+              {{ t.timeRangeSubtitle }}
             </p>
-            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
+            <div
+              class="flex flex-wrap items-center gap-x-2 gap-y-2 sm:gap-x-3 justify-start pb-3 border-b border-stone-300 dark:border-stone-800"
+            >
               <UTooltip
                 v-for="timeRange in timeRangeOptions"
                 :key="timeRange.id"
@@ -25,6 +27,7 @@
                   "
                   size="xs"
                   :label="getTimeRangeLabel(timeRange.id)"
+                  class="kicker rounded-none"
                   @click="
                     () => {
                       selectedTimeRange = timeRange.id;
@@ -68,10 +71,12 @@
           </div>
 
           <div class="mb-4 sm:mb-6">
-            <p class="text-sm text-secondary-500 mb-2 max-w-fit">
-              <em>{{ t.categorySubtitle }}</em>
+            <p class="kicker text-secondary-500 mb-2">
+              {{ t.categorySubtitle }}
             </p>
-            <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-start">
+            <div
+              class="flex flex-wrap items-center gap-x-2 gap-y-2 sm:gap-x-3 justify-start pb-3 border-b border-stone-300 dark:border-stone-800"
+            >
               <UTooltip
                 v-for="category in categories"
                 :key="category.id"
@@ -92,6 +97,7 @@
                   :label="
                     t.categories[category.id as keyof typeof t.categories]
                   "
+                  class="kicker rounded-none"
                   @click="
                     () => {
                       selectedCategory = category.id;
@@ -105,7 +111,7 @@
           <!-- DEBUG_ERROR_UI Testing & Design Panel -->
           <div
             v-if="isDebugErrorUi"
-            class="mb-6 p-4 rounded-xl border border-amber-500/40 bg-amber-500/10 dark:bg-amber-950/30 backdrop-blur-sm space-y-3"
+            class="mb-6 p-4 rounded-sm border border-dashed border-amber-500/40 bg-amber-500/10 dark:bg-amber-950/30 space-y-3"
           >
             <div class="flex items-center justify-between flex-wrap gap-2">
               <div
@@ -182,11 +188,11 @@
           />
 
           <div v-if="loading" class="space-y-6">
-            <UCard class="w-full shadow-md border-t-4 border-t-primary-500">
+            <UCard class="w-full border-t-2 border-t-primary-500">
               <div class="p-4 sm:p-6 space-y-6">
                 <div class="pb-4">
-                  <USkeleton class="h-6 w-32 mb-3 rounded-full" />
-                  <USkeleton class="h-10 w-3/4 rounded-lg" />
+                  <USkeleton class="h-6 w-32 mb-3 rounded-sm" />
+                  <USkeleton class="h-10 w-3/4 rounded-sm" />
                 </div>
                 <div class="space-y-2">
                   <USkeleton class="h-4 w-24 mb-2" />
@@ -195,7 +201,7 @@
                   <USkeleton class="h-4 w-5/6" />
                 </div>
                 <div
-                  class="bg-primary-50 dark:bg-primary-950/20 p-4 rounded-xl space-y-2"
+                  class="bg-primary-50 dark:bg-primary-950/20 p-4 rounded-sm space-y-2"
                 >
                   <USkeleton class="h-4 w-32 mb-2" />
                   <USkeleton class="h-4 w-full" />
@@ -245,10 +251,10 @@
 
           <!-- New Clustered Stories Trending Dashboard UI -->
           <div v-if="filteredStories.length > 0 && !loading" class="space-y-6">
-            <!-- 1. Trending Stories Grid View -->
+            <!-- 1. Front Page: Lead Story + Column Grid -->
             <div v-if="!selectedStoryId">
               <h3
-                class="text-sm font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-3 flex items-center gap-1.5"
+                class="kicker text-stone-500 dark:text-stone-400 mb-3 flex items-center gap-1.5"
               >
                 <UIcon
                   name="i-heroicons-fire"
@@ -257,58 +263,126 @@
                 Trending Topics ({{ filteredStories.length }})
               </h3>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              <div class="border-t border-stone-300 dark:border-stone-800">
+                <!-- Lead story -->
                 <div
-                  v-for="story in filteredStories"
-                  :key="story.id"
-                  class="cursor-pointer border p-3 rounded-xl transition-all relative overflow-hidden bg-white/50 dark:bg-stone-900/50 hover:bg-stone-50 dark:hover:bg-stone-900 border-stone-200 dark:border-stone-800"
-                  @click="selectedStoryId = story.id"
+                  v-if="filteredStories[0]"
+                  class="cursor-pointer group py-5 border-b border-stone-300 dark:border-stone-800"
+                  @click="selectedStoryId = filteredStories[0]!.id"
                 >
-                  <!-- Header inside card -->
-                  <div class="flex items-center justify-between gap-2 mb-1.5">
+                  <div class="flex items-center gap-2 mb-2 flex-wrap">
                     <span
-                      class="text-[9px] font-bold uppercase tracking-wider text-stone-400 dark:text-stone-500 truncate max-w-[120px]"
+                      class="kicker text-primary-600 dark:text-primary-400 truncate max-w-[200px]"
                     >
-                      {{ story.sources[0]?.source || "News Source" }}
+                      {{
+                        filteredStories[0].sources[0]?.source || "News Source"
+                      }}
                     </span>
-                    <div class="flex items-center gap-2">
-                      <UBadge
-                        v-if="!story.isSummarized"
-                        color="primary"
-                        variant="soft"
-                        size="xs"
-                        class="animate-pulse"
-                      >
-                        Summarizing...
-                      </UBadge>
-                      <UBadge
-                        v-if="story.trendScore && story.trendScore > 5"
-                        color="primary"
-                        variant="soft"
-                        size="xs"
-                        class="flex items-center gap-1"
-                      >
-                        <UIcon
-                          name="i-heroicons-fire"
-                          class="w-3 h-3 text-primary-500 animate-pulse"
-                        />
-                        <span>Trending</span>
-                      </UBadge>
-                    </div>
+                    <UBadge
+                      v-if="!filteredStories[0].isSummarized"
+                      color="primary"
+                      variant="soft"
+                      size="xs"
+                      class="animate-pulse"
+                    >
+                      Summarizing...
+                    </UBadge>
+                    <UBadge
+                      v-if="
+                        filteredStories[0].trendScore &&
+                        filteredStories[0].trendScore > 5
+                      "
+                      color="primary"
+                      variant="soft"
+                      size="xs"
+                      class="flex items-center gap-1"
+                    >
+                      <UIcon
+                        name="i-heroicons-fire"
+                        class="w-3 h-3 text-primary-500 animate-pulse"
+                      />
+                      <span>Trending</span>
+                    </UBadge>
                   </div>
-                  <!-- Headline -->
                   <h4
-                    class="text-xs font-bold font-serif line-clamp-2 text-stone-900 dark:text-white leading-snug"
+                    class="font-serif font-bold text-2xl sm:text-3xl leading-tight text-stone-900 dark:text-white group-hover:underline decoration-1 underline-offset-4"
                   >
-                    {{ story.headline }}
+                    {{ filteredStories[0].headline }}
                   </h4>
-                  <!-- Footer inside card -->
-                  <div
-                    class="flex items-center gap-2 mt-2 text-[10px] text-stone-400 dark:text-stone-500"
+                  <p
+                    v-if="getDek(filteredStories[0].summary)"
+                    class="mt-2 font-body-serif text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl line-clamp-2"
                   >
-                    <span>{{ story.articleCount }} sources</span>
+                    {{ getDek(filteredStories[0].summary) }}
+                  </p>
+                  <div
+                    class="flex items-center gap-2 mt-3 text-xs text-stone-400 dark:text-stone-500"
+                  >
+                    <span>{{ filteredStories[0].articleCount }} sources</span>
                     <span>•</span>
-                    <span>{{ getRelativeTime(story.lastUpdated) }}</span>
+                    <span>{{
+                      getRelativeTime(filteredStories[0].lastUpdated)
+                    }}</span>
+                  </div>
+                </div>
+
+                <!-- Remaining stories: column list -->
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 divide-stone-300 dark:divide-stone-800"
+                >
+                  <div
+                    v-for="(story, idx) in filteredStories.slice(1)"
+                    :key="story.id"
+                    class="cursor-pointer group py-4 sm:px-5"
+                    :class="{
+                      'sm:border-l border-stone-300 dark:border-stone-800':
+                        idx % 3 !== 0,
+                    }"
+                    @click="selectedStoryId = story.id"
+                  >
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                      <span
+                        class="text-[9px] font-bold uppercase tracking-wider text-stone-400 dark:text-stone-500 truncate max-w-[120px]"
+                      >
+                        {{ story.sources[0]?.source || "News Source" }}
+                      </span>
+                      <div class="flex items-center gap-2">
+                        <UBadge
+                          v-if="!story.isSummarized"
+                          color="primary"
+                          variant="soft"
+                          size="xs"
+                          class="animate-pulse"
+                        >
+                          Summarizing...
+                        </UBadge>
+                        <UBadge
+                          v-if="story.trendScore && story.trendScore > 5"
+                          color="primary"
+                          variant="soft"
+                          size="xs"
+                          class="flex items-center gap-1"
+                        >
+                          <UIcon
+                            name="i-heroicons-fire"
+                            class="w-3 h-3 text-primary-500 animate-pulse"
+                          />
+                          <span>Trending</span>
+                        </UBadge>
+                      </div>
+                    </div>
+                    <h4
+                      class="text-sm font-bold font-serif line-clamp-2 text-stone-900 dark:text-white leading-snug group-hover:underline decoration-1 underline-offset-2"
+                    >
+                      {{ story.headline }}
+                    </h4>
+                    <div
+                      class="flex items-center gap-2 mt-2 text-[10px] text-stone-400 dark:text-stone-500"
+                    >
+                      <span>{{ story.articleCount }} sources</span>
+                      <span>•</span>
+                      <span>{{ getRelativeTime(story.lastUpdated) }}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -401,10 +475,10 @@
 
                 <!-- Chronological Timeline Card -->
                 <div
-                  class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl p-4 sm:p-6"
+                  class="bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 rounded-sm p-4 sm:p-6"
                 >
                   <h3
-                    class="text-sm font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-4 flex items-center gap-1.5"
+                    class="kicker text-stone-500 dark:text-stone-400 mb-4 flex items-center gap-1.5"
                   >
                     <UIcon
                       name="i-heroicons-clock"
@@ -465,7 +539,7 @@
             v-else-if="
               !loading && !isDebugErrorUi && filteredStories.length === 0
             "
-            class="bg-white dark:bg-gray-900 rounded-lg shadow text-center p-8 border border-gray-100 dark:border-gray-800"
+            class="bg-white dark:bg-neutral-900 rounded-sm text-center p-8 border border-stone-300 dark:border-stone-800"
             style="contain: layout style paint"
           >
             <div class="mb-4">
@@ -484,7 +558,7 @@
                 />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-2">
+            <h3 class="text-xl font-serif font-semibold mb-2">
               {{ t.readyToSynthesizeTitle }}
             </h3>
             <p
@@ -805,6 +879,16 @@ const getRelativeTime = (timestamp: number) => {
   if (mins < 60) return `${mins}m ago`;
   if (hours < 24) return `${hours}h ago`;
   return `${days}d ago`;
+};
+
+// Plain-text dek for the lead story: first non-empty line, bullet markers stripped
+const getDek = (summary: string | undefined): string => {
+  if (!summary) return "";
+  const firstLine = summary
+    .split("\n")
+    .map((line) => line.trim())
+    .find((line) => line.length > 0);
+  return firstLine ? firstLine.replace(/^[-*•]\s*/, "") : "";
 };
 
 watch(debugSimulationMode, () => {

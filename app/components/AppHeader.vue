@@ -1,26 +1,30 @@
 <template>
-  <UHeader
-    :open="open"
-    class="border-b border-stone-200 dark:border-stone-800 bg-[#FDFBF7]/90 dark:bg-[#0B0E14]/90 backdrop-blur-md"
-    @update:open="$emit('update:open', $event)"
-  >
+  <UHeader :open="open" @update:open="$emit('update:open', $event)">
+    <template #top>
+      <div
+        class="h-8 flex items-center justify-between text-stone-500 dark:text-stone-400"
+      >
+        <span class="kicker">{{ dateline }}</span>
+        <span class="kicker hidden sm:inline">Japan News & Analysis</span>
+      </div>
+    </template>
+
     <template #left>
-      <NuxtLink to="/" class="flex items-center gap-3">
+      <NuxtLink to="/" class="flex items-center gap-2.5 text-2xl sm:text-3xl">
         <img
           src="/favicon-light.ico"
           alt="NipponDaily"
-          class="w-8 h-8 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
+          class="w-[1em] h-[1em] dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm opacity-70"
         >
         <img
           src="/favicon-dark.ico"
           alt="NipponDaily"
-          class="w-8 h-8 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
+          class="w-[1em] h-[1em] hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm opacity-70"
         >
-        <div class="flex flex-col">
-          <span class="font-serif font-bold text-lg tracking-wide leading-none"
-            >NipponDaily</span
-          >
-        </div>
+        <span
+          class="font-serif font-bold text-[1em] tracking-tight leading-none text-stone-900 dark:text-white"
+          >NipponDaily</span
+        >
       </NuxtLink>
     </template>
 
@@ -33,6 +37,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
+
 defineProps<{
   open?: boolean;
 }>();
@@ -40,4 +46,15 @@ defineProps<{
 defineEmits<{
   (e: "update:open", value: boolean): void;
 }>();
+
+const dateline = ref("");
+
+onMounted(() => {
+  dateline.value = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+});
 </script>
