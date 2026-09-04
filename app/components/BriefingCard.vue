@@ -2,11 +2,11 @@
   <!-- eslint-disable vue/no-v-html -->
   <UCard
     :ui="{
-      root: 'w-full shadow-md transition-shadow duration-200 hover:shadow-lg border-t-4 border-t-primary-500',
+      root: 'w-full rounded-sm shadow-none border-t border-b border-x-0 sm:border-x border-stone-300 dark:border-stone-800',
     }"
   >
     <div class="p-4 sm:p-6 space-y-6">
-      <div class="border-b dark:border-gray-800 pb-4">
+      <div class="border-b border-stone-300 dark:border-stone-800 pb-4">
         <div class="flex items-center justify-between gap-2 mb-3">
           <div class="flex items-center gap-2">
             <UBadge color="primary" variant="soft" size="md">
@@ -20,18 +20,6 @@
               />
             </UTooltip>
           </div>
-
-          <div
-            v-if="briefing.overallCredibilityScore !== undefined"
-            class="flex items-center text-sm font-medium"
-            :style="{
-              color: getCredibilityColor(briefing.overallCredibilityScore),
-            }"
-          >
-            <UIcon name="i-heroicons-shield-check" class="w-4 h-4 mr-1" />
-            {{ t.trustScore }}:
-            {{ Math.round(briefing.overallCredibilityScore * 100) }}%
-          </div>
         </div>
 
         <h2
@@ -39,32 +27,42 @@
         >
           {{ briefing.mainHeadline }}
         </h2>
+
+        <div
+          v-if="briefing.overallCredibilityScore !== undefined"
+          class="kicker mt-2 flex items-center gap-1"
+          :style="{
+            color: getCredibilityColor(briefing.overallCredibilityScore),
+          }"
+        >
+          <UIcon name="i-heroicons-shield-check" class="w-3.5 h-3.5" />
+          <span
+            >{{ t.trustScore }}:
+            {{ Math.round(briefing.overallCredibilityScore * 100) }}%</span
+          >
+        </div>
       </div>
 
       <div>
-        <h3
-          class="text-xs font-bold text-secondary-500 uppercase tracking-wider mb-2 flex items-center gap-1.5"
-        >
+        <h3 class="kicker text-secondary-500 mb-2 flex items-center gap-1.5">
           <UIcon name="i-heroicons-document-text" class="w-4 h-4" />
           {{ t.summary }}
         </h3>
         <div
-          class="markdown-content text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200 [word-wrap:break-word]"
+          class="drop-cap markdown-content font-body-serif text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200 [word-wrap:break-word]"
           v-html="renderMarkdown(briefing.executiveSummary)"
         />
       </div>
 
-      <div
-        class="bg-primary-50/50 dark:bg-primary-950/20 p-4 sm:p-5 rounded-xl border border-primary-100 dark:border-primary-900"
-      >
+      <div class="border-l-4 border-primary-500 pl-4 sm:pl-5 py-1">
         <h3
-          class="text-xs font-bold text-primary-600 dark:text-primary-400 uppercase tracking-wider mb-2 flex items-center gap-1.5"
+          class="kicker text-primary-600 dark:text-primary-400 mb-2 flex items-center gap-1.5"
         >
           <UIcon name="i-heroicons-link" class="w-4 h-4" />
           {{ t.crossSource }}
         </h3>
         <div
-          class="markdown-content-small text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-300"
+          class="markdown-content-small font-body-serif italic text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-300"
           v-html="renderMarkdown(briefing.thematicAnalysis)"
         />
       </div>
@@ -73,18 +71,16 @@
         v-if="briefing.sourcesProcessed && briefing.sourcesProcessed.length > 0"
         class="border-t dark:border-gray-800 pt-5 mt-6"
       >
-        <h3
-          class="text-xs font-bold text-secondary-500 uppercase tracking-wider mb-4 flex items-center gap-1.5"
-        >
+        <h3 class="kicker text-secondary-500 mb-4 flex items-center gap-1.5">
           <UIcon name="i-heroicons-globe-alt" class="w-4 h-4" />
           {{ t.sourcesConsulted }} ({{ briefing.sourcesProcessed.length }})
         </h3>
 
-        <ul class="space-y-3">
+        <ul>
           <li
             v-for="(source, idx) in briefing.sourcesProcessed"
             :key="idx"
-            class="flex items-start gap-3 text-sm p-2 hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg transition-colors"
+            class="flex items-start gap-3 text-sm py-3 border-b border-stone-200 dark:border-stone-800 last:border-b-0"
           >
             <div class="flex items-center gap-2 mt-0.5 shrink-0">
               <span

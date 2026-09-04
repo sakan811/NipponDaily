@@ -29,7 +29,7 @@ const props = withDefaults(
 
 const badgeClasses = computed(() => {
   const base =
-    "u-badge inline-flex items-center font-medium rounded-full select-none";
+    "u-badge inline-flex items-center font-bold uppercase tracking-wide rounded-sm select-none";
 
   // Sizes
   const sizes = {

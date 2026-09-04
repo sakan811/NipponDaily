@@ -64,15 +64,15 @@ const computedClasses = computed(() => {
     "u-button inline-flex items-center justify-center font-medium transition-all duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500";
   const disabledStyles = props.disabled
     ? "opacity-50 cursor-not-allowed pointer-events-none"
-    : "active:scale-[0.98]";
+    : "";
   const width = props.block ? "w-full" : "";
 
   // Size styles
   const sizes = {
-    xs: "px-2 py-1 text-xs rounded-md gap-1",
-    sm: "px-3 py-1.5 text-xs sm:text-sm rounded-lg gap-1.5",
-    md: "px-4 py-2 text-sm rounded-lg gap-2",
-    lg: "px-5 py-2.5 text-base rounded-xl gap-2",
+    xs: "px-2 py-1 text-xs rounded-sm gap-1",
+    sm: "px-3 py-1.5 text-xs sm:text-sm rounded-sm gap-1.5",
+    md: "px-4 py-2 text-sm rounded-sm gap-2",
+    lg: "px-5 py-2.5 text-base rounded-sm gap-2",
   };
   const sizeStyle = sizes[props.size] || sizes.sm;
 
@@ -83,17 +83,13 @@ const computedClasses = computed(() => {
 
   if (variant === "solid") {
     if (color === "primary") {
-      colorVariantStyle =
-        "bg-primary-500 hover:bg-primary-600 text-white shadow-sm shadow-primary-500/10";
+      colorVariantStyle = "bg-primary-500 hover:bg-primary-600 text-white";
     } else if (color === "secondary") {
-      colorVariantStyle =
-        "bg-secondary-500 hover:bg-secondary-600 text-white shadow-sm shadow-secondary-500/10";
+      colorVariantStyle = "bg-secondary-500 hover:bg-secondary-600 text-white";
     } else if (color === "success") {
-      colorVariantStyle =
-        "bg-success-500 hover:bg-success-600 text-white shadow-sm shadow-success-500/10";
+      colorVariantStyle = "bg-success-500 hover:bg-success-600 text-white";
     } else if (color === "error") {
-      colorVariantStyle =
-        "bg-error-500 hover:bg-error-600 text-white shadow-sm shadow-error-500/10";
+      colorVariantStyle = "bg-error-500 hover:bg-error-600 text-white";
     } else {
       // gray/default
       colorVariantStyle =

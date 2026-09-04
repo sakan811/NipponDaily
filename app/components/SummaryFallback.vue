@@ -2,7 +2,7 @@
   <div data-testid="summary-fallback-container" class="w-full space-y-6">
     <UCard
       data-testid="summary-fallback-card"
-      class="w-full shadow-md border-t-4 border-t-amber-500 bg-white/90 dark:bg-stone-900/90 rounded-xl"
+      class="w-full shadow-none border-t-2 border-t-amber-500 bg-white dark:bg-stone-900/90 rounded-sm"
       :ui="{ body: 'p-6 sm:p-8 space-y-6' }"
     >
       <!-- Warning Header -->
@@ -126,7 +126,7 @@
     <!-- DEBUG_ERROR_UI Showcase Mode -->
     <div
       v-if="isDebug"
-      class="p-4 rounded-xl border border-dashed border-amber-500/40 bg-amber-500/5 space-y-3"
+      class="p-4 rounded-sm border border-dashed border-amber-500/40 bg-amber-500/5 space-y-3"
     >
       <div class="flex items-center justify-between">
         <span

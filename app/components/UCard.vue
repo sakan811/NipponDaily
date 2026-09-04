@@ -37,7 +37,7 @@ const rootClass = computed(() => {
   if (props.ui?.root !== undefined) {
     return props.ui.root;
   }
-  return "u-card w-full rounded-xl border border-stone-200/60 dark:border-stone-800 bg-white dark:bg-stone-900/50 shadow-sm";
+  return "u-card w-full rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 shadow-none";
 });
 
 const headerClass = computed(() => {

@@ -3,7 +3,7 @@
     <!-- Failed Trending Fetching Card -->
     <UCard
       data-testid="error-state"
-      class="w-full shadow-md text-center bg-white/80 dark:bg-stone-900/80 border border-stone-200 dark:border-stone-800 rounded-xl backdrop-blur-sm"
+      class="w-full shadow-none text-center bg-white dark:bg-stone-900/80 border border-stone-300 dark:border-stone-800 rounded-sm"
       :ui="{ body: 'p-6 sm:p-8' }"
     >
       <div class="max-w-md mx-auto space-y-4">
@@ -57,7 +57,7 @@
     <!-- DEBUG_ERROR_UI Showcase for Designers/Developers -->
     <div
       v-if="isDebug"
-      class="p-4 rounded-xl border border-dashed border-amber-500/40 bg-amber-500/5 space-y-3"
+      class="p-4 rounded-sm border border-dashed border-amber-500/40 bg-amber-500/5 space-y-3"
     >
       <div class="flex items-center justify-between">
         <span
@@ -77,7 +77,7 @@
         <div
           v-for="i in 2"
           :key="i"
-          class="border p-3 rounded-xl bg-white/40 dark:bg-stone-900/40 border-stone-200 dark:border-stone-800"
+          class="border p-3 rounded-sm bg-white/40 dark:bg-stone-900/40 border-stone-200 dark:border-stone-800"
         >
           <div class="flex items-center justify-between gap-2 mb-1.5">
             <span class="text-[9px] font-bold text-stone-400 uppercase"
