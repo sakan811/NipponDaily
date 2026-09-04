@@ -11,7 +11,7 @@
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
 - **Consolidated AI Briefing**: Synthesizes multiple news sources into a single, cohesive, high-level briefing with a primary headline and structured executive summary.
-- **Cross-Source Thematic Analysis**: Dynamic analysis identifying relationships, consensus, or discrepancies between different publications.
+- **Connections & Root-Cause Analysis**: Each story mapped as a node in a web — the structural driver behind the event, the trend line it sits on, links to other tracked stories, and where domestic Japanese and international coverage diverge in emphasis.
 - **Story Timeline Navigation**: Drill down from a trending topic summary card into a dedicated, oldest-first chronological timeline detailing the progression of articles within that topic.
 - **Visual Trust Scoring**: Multi-level credibility assessments (overall and per-source), assigned by the Claude agent and rendered with HSL-color-gradient visuals.
 - **Customizable Discovery & Span Filtering**: Fine-grained filtering by traditional category channels and precise date ranges (preset or custom), evaluating the actual publish timeline span of each story.
