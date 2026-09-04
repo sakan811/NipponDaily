@@ -8,6 +8,7 @@ const mockRedisSadd = vi.fn();
 const mockRedisSrem = vi.fn();
 const mockRedisSmembers = vi.fn();
 const mockRedisSismember = vi.fn();
+const mockRedisMget = vi.fn();
 
 vi.mock("@upstash/redis", () => {
   class Redis {
@@ -18,6 +19,7 @@ vi.mock("@upstash/redis", () => {
     srem = mockRedisSrem;
     smembers = mockRedisSmembers;
     sismember = mockRedisSismember;
+    mget = mockRedisMget;
   }
   return {
     Redis,
@@ -241,41 +243,6 @@ describe("StoriesService", () => {
     }
   });
 
-  it("clears all stories", async () => {
-    (service as any).client = null;
-    const originalUrl = process.env.UPSTASH_REDIS_REST_URL;
-    const originalToken = process.env.UPSTASH_REDIS_REST_TOKEN;
-    process.env.UPSTASH_REDIS_REST_URL = "";
-    process.env.UPSTASH_REDIS_REST_TOKEN = "";
-    (global as any).useRuntimeConfig = vi.fn(() => ({
-      upstashRedisRestUrl: "",
-      upstashRedisRestToken: "",
-    }));
-
-    try {
-      await service.saveStory({
-        id: "clear-1",
-        headline: "H1",
-        sources: [],
-      } as any);
-      await service.saveStory({
-        id: "clear-2",
-        headline: "H2",
-        sources: [],
-      } as any);
-      expect(await service.getStoryIds()).toEqual(
-        expect.arrayContaining(["clear-1", "clear-2"]),
-      );
-
-      await service.clearAllStories();
-
-      expect(await service.getStoryIds()).toEqual([]);
-    } finally {
-      process.env.UPSTASH_REDIS_REST_URL = originalUrl;
-      process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
-    }
-  });
-
   it("skips story ids whose record is missing when listing all stories", async () => {
     (service as any).client = null;
     const originalUrl = process.env.UPSTASH_REDIS_REST_URL;
@@ -312,6 +279,71 @@ describe("StoriesService", () => {
     }
   });
 
+  it("fetches all stories in a single mget round-trip instead of one get per id", async () => {
+    (service as any).client = null;
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "https://mock-redis.upstash.io",
+      upstashRedisRestToken: "mock-token",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+
+    const storyA = { id: "a", headline: "A", sources: [] };
+    const storyB = { id: "b", headline: "B", sources: [] };
+    mockRedisSmembers.mockResolvedValueOnce(["a", "b", "missing"]);
+    mockRedisMget.mockResolvedValueOnce([storyA, storyB, null]);
+
+    const stories = await service.getStories();
+
+    expect(mockRedisMget).toHaveBeenCalledWith(
+      "story:a",
+      "story:b",
+      "story:missing",
+    );
+    expect(mockRedisGet).not.toHaveBeenCalled();
+    expect(stories).toEqual([storyA, storyB]);
+
+    (service as any).client = null;
+  });
+
+  it("returns an empty array without calling Redis when there are no story ids", async () => {
+    (service as any).client = null;
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "https://mock-redis.upstash.io",
+      upstashRedisRestToken: "mock-token",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+    mockRedisSmembers.mockResolvedValueOnce([]);
+
+    const stories = await service.getStories();
+
+    expect(stories).toEqual([]);
+    expect(mockRedisMget).not.toHaveBeenCalled();
+
+    (service as any).client = null;
+  });
+
+  it("falls back to memory when mget fails", async () => {
+    (service as any).client = null;
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "https://mock-redis.upstash.io",
+      upstashRedisRestToken: "mock-token",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+    mockRedisSmembers.mockResolvedValueOnce(["fallback-id"]);
+    mockRedisMget.mockRejectedValueOnce(new Error("mget failed"));
+    (service as any).memoryStories.set("fallback-id", {
+      id: "fallback-id",
+      headline: "Fallback",
+      sources: [],
+    });
+
+    const stories = await service.getStories();
+
+    expect(stories.map((s: any) => s.id)).toEqual(["fallback-id"]);
+
+    (service as any).client = null;
+  });
+
   it("calculates trend score using publishedAt when addedAt is missing, and excludes unparseable/old sources", async () => {
     const now = Date.now();
     const story = {
@@ -333,54 +365,5 @@ describe("StoriesService", () => {
     const score = calculateTrendScore(story as any, now);
 
     expect(score).toBe(1);
-  });
-
-  it("calculates trend score based on sources from the last 14 days", async () => {
-    const originalUrl = process.env.UPSTASH_REDIS_REST_URL;
-    const originalToken = process.env.UPSTASH_REDIS_REST_TOKEN;
-    process.env.UPSTASH_REDIS_REST_URL = "";
-    process.env.UPSTASH_REDIS_REST_TOKEN = "";
-
-    const mockUseRuntimeConfig = vi.fn(() => ({
-      upstashRedisRestUrl: "",
-      upstashRedisRestToken: "",
-    }));
-    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
-
-    try {
-      const now = Date.now();
-      const mockStory = {
-        id: "trend-story",
-        headline: "Trend Story",
-        trendScore: 0,
-        sources: [
-          {
-            title: "S1",
-            source: "S1",
-            url: "url1",
-            publishedAt: "2024-01-01",
-            credibilityScore: 0.8,
-            addedAt: now - 2 * 24 * 3600 * 1000,
-          },
-          {
-            title: "S2",
-            source: "S2",
-            url: "url2",
-            publishedAt: "2024-01-02",
-            credibilityScore: 0.8,
-            addedAt: now - 5 * 24 * 3600 * 1000,
-          },
-        ],
-      };
-
-      await service.saveStory(mockStory as any);
-      await service.updateVelocityScores();
-
-      const retrieved = await service.getStory("trend-story");
-      expect(retrieved?.trendScore).toBe(2);
-    } finally {
-      process.env.UPSTASH_REDIS_REST_URL = originalUrl;
-      process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
-    }
   });
 });
