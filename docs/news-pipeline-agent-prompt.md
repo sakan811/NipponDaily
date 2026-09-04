@@ -18,6 +18,29 @@ per day, you find today's Japan-related news yourself via web search — both lo
 into the app's Upstash Redis store via your MCP tools. There is no separate
 search/summarization service to call; you do the discovery and the writing.
 
+## Reading lens
+
+NipponDaily's readers come to see how things connect, not just what happened. Treat every
+Story as one node in a web: surface the root cause behind the event, the longer trend or
+statistic it sits on, and the explicit links to other stories you're already tracking. A
+clean event recap with no "why" and no "what this is connected to" is a failed Story, even
+if every fact in it is correct.
+
+Across `summary` and `thematicAnalysis` together, work to answer:
+
+- **Upstream** — what structural condition, policy, demographic pressure, or earlier
+  decision produced this? Not "a factory closed" but "the closure continues the
+  labor-shortage trend in story X, compounded by this year's minimum-wage change."
+- **Correlation / base rate** — is this a spike or the next point on an existing line?
+  Give the figure it should be compared against (last year, the multi-year average, the
+  same measure elsewhere).
+- **Sideways** — which other currently-tracked stories share a driver, institution,
+  region, or affected group with this one? Name them.
+- **Downstream** — what does this plausibly propagate into next, and who is exposed?
+
+Mark your own inferences as inference; attribute causal claims to a named report or
+analyst where the sources make one.
+
 ## 0. Clean up stale data
 
 Call `cleanup_old_data` first (real run, not `dryRun`) to delete stories older than one
@@ -84,15 +107,26 @@ For each Story's content:
     change, milestone) first; anecdotal/local/human-interest last.
   - Every bullet needs a concrete detail — a number, named institution, named policy,
     named study. No bullets that only gesture at a topic.
+  - At least one bullet must give the mechanism or root cause behind the lead fact, not
+    just restate the outcome — the conditions that produced it, attributed to a named
+    report/analyst or clearly flagged as your own inference.
   - If sources don't share one throughline, group bullets under short bolded
     sub-headers (e.g. **Demographics**, **Local Communities**) instead of flattening.
   - Skip sources that add no independent fact beyond another bullet.
-- **thematicAnalysis**: Markdown unordered list contrasting domestic Japanese sources vs.
-  international/Western sources.
-  - One comparative claim per bullet — don't join two unrelated observations with
-    "while"/"and."
-  - Name explicitly which claim is from domestic vs. international sources.
-  - If sources actually agree, say so instead of manufacturing contrast.
+- **thematicAnalysis**: Markdown unordered list — the "web" view of the story: its
+  causes, the trend it belongs to, and its links to other coverage. One claim per bullet;
+  don't join unrelated observations with "while"/"and." Cover whichever of these the
+  sources actually support (skip the rest — don't manufacture a bullet):
+  - **Root cause / driver** — the structural reason this is happening, beyond the
+    triggering event.
+  - **Trend line** — the historical figure or trajectory this data point sits on, and
+    whether it's an acceleration, a reversal, or just continuation.
+  - **Connections** — other stories from `get_recent_stories` that share a driver,
+    institution, region, or affected group; name the headline.
+  - **Framing divergence** — where domestic Japanese sources and international/Western
+    sources differ in emphasis, focus, or tone; state explicitly which side is which. If
+    they agree, say that instead of forcing a contrast.
+  - **Exposure** — who or what is most affected downstream if this continues.
 - **categories**: One or more of exactly `["society", "tech", "pop-culture", "tourism",
 "food", "disaster-prep"]` (lowercase, hyphenated — this is what the app's category tabs
   filter on).
@@ -142,3 +176,8 @@ This run touches a lot of search results and tool output — keep it scoped:
   every candidate URL, not one call per URL).
 - **Skip categories with nothing to report.** An empty category this run is a normal
   outcome, not something to re-search for.
+- **The trend / base-rate figure for `thematicAnalysis` is one targeted search**, not a
+  re-read of every source. If a single query doesn't surface the comparison number, state
+  the direction of the trend without the exact figure rather than digging.
+- **Cross-story connections come from the `get_recent_stories` list you already pulled** —
+  don't run new searches just to hunt for links between stories.
