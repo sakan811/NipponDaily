@@ -7,12 +7,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
+          />
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
+          />
           <span>NipponDaily Docs</span>
         </NuxtLink>
       </template>
@@ -95,7 +95,7 @@ const features = [
   {
     title: "Story Timeline Navigation",
     description:
-      "In-depth drill-down from a trending topic summary card into a dedicated chronological timeline page detailing the progression of articles.",
+      "In-depth drill-down from a trending topic on the front page — lead story or column grid — into a dedicated chronological timeline page detailing the progression of articles.",
     icon: "i-heroicons-clock",
   },
   {
@@ -149,7 +149,7 @@ const features = [
   {
     title: "Custom Editorial UI Library",
     description:
-      "Lightweight, custom components (UButton, UCard, UHeader, etc.) built natively on Tailwind CSS v4, optimized for reader engagement and content clarity.",
+      "Lightweight, custom components (UButton, UCard, UHeader, etc.) built natively on Tailwind CSS v4 in a newspaper-inspired style — masthead header with dateline, kicker labels, double-rule dividers, and a drop-cap lede — optimized for reader engagement and content clarity.",
     icon: "i-heroicons-paint-brush",
   },
   {
