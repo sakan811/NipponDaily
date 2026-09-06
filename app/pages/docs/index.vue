@@ -19,6 +19,13 @@
 
       <template #right>
         <div class="flex items-center gap-2">
+          <UButton
+            to="/"
+            label="Home"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-home"
+          />
           <UColorModeButton />
         </div>
       </template>
@@ -52,6 +59,14 @@
           class="px-8"
         />
       </div>
+
+      <!-- Dev-only reference, deliberately understated -->
+      <NuxtLink
+        to="/docs/error-states"
+        class="mt-10 text-xs font-mono text-stone-400 dark:text-stone-500 no-underline hover:text-primary-500 transition-colors"
+      >
+        dev: error &amp; fallback state catalogue →
+      </NuxtLink>
     </main>
 
     <UFooter>

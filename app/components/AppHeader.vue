@@ -5,7 +5,11 @@
         class="h-8 flex items-center justify-between text-stone-500 dark:text-stone-400"
       >
         <span class="kicker">{{ dateline }}</span>
-        <span class="kicker hidden sm:inline">Japan News & Analysis</span>
+        <NuxtLink
+          to="/docs/features"
+          class="kicker hidden sm:inline no-underline hover:text-primary-500 transition-colors"
+          >Japan News &amp; Analysis</NuxtLink
+        >
       </div>
     </template>
 
