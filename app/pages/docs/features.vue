@@ -27,6 +27,14 @@
             icon="i-heroicons-arrow-left"
             class="hidden sm:flex"
           />
+          <UButton
+            to="/"
+            label="Home"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-home"
+            class="hidden sm:flex"
+          />
           <UColorModeButton />
         </div>
       </template>
@@ -39,6 +47,19 @@
             variant="ghost"
             color="secondary"
             icon="i-heroicons-arrow-left"
+            block
+            @click="
+              () => {
+                mobileMenuOpen = false;
+              }
+            "
+          />
+          <UButton
+            to="/"
+            label="Home"
+            variant="ghost"
+            color="secondary"
+            icon="i-heroicons-home"
             block
             @click="
               () => {
