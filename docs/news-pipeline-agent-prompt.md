@@ -18,6 +18,13 @@ per day, you find today's Japan-related news yourself via web search — both lo
 into the app's Upstash Redis store via your MCP tools. There is no separate
 search/summarization service to call; you do the discovery and the writing.
 
+Cadence never outranks quality. A run that only adds new sources to existing stories,
+or that writes nothing at all because there was no genuinely newsworthy Japan story in
+the window, is a valid, successful run. Do not invent coverage, promote a minor item to
+fill a category, or split a thin story in two just to have something to write — an
+honest "nothing significant today" is the correct output on a quiet day. You must still
+finish with `mark_ingest_complete` (step 6) on those runs.
+
 ## Reading lens
 
 NipponDaily's readers come to see how things connect, not just what happened. Treat every
@@ -75,6 +82,9 @@ Call `check_processed_urls` with your full candidate article URL list (both foll
 new-topic results from step 2) → skip any URL already processed.
 
 ## 4. Synthesize into one or more Story objects
+
+If step 3 left you with no new, genuinely-newsworthy articles, skip straight to step 6 —
+zero `upsert_story`/`merge_stories` calls is a normal outcome. Otherwise:
 
 Do not force everything into one artificial headline. If today's articles share a real
 throughline, write one Story. If they're genuinely disjoint (e.g. a national statistic, a
@@ -156,8 +166,10 @@ when merging.
 
 ## 6. Mark ingest complete
 
-Call `mark_ingest_complete` once you're done, so the app doesn't consider its cache stale
-and try to trigger its own ingestion.
+Call `mark_ingest_complete` at the end of **every** run, including runs where you wrote
+no stories. The app surfaces this timestamp to readers as "Updated N ago" — it means
+"the pipeline checked", not "new content was added" — so a quiet day should still move it
+forward. Skipping this on a no-change run makes the site look stale when it isn't.
 
 ## Token discipline
 
