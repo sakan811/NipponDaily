@@ -60,7 +60,7 @@ describe("JapanNewsReader - Loading State", () => {
     await fetchPromise;
   });
 
-  it("shows instruction text when no news is loaded and not loading", () => {
+  it("shows empty-state text when no news is loaded and not loading", () => {
     const wrapper = mountReader({
       global: {
         components: {
@@ -77,7 +77,7 @@ describe("JapanNewsReader - Loading State", () => {
     // Find the empty state div (replaced UCard with native div for LCP optimization)
     const emptyState = wrapper.find('[style*="contain: layout style paint"]');
     expect(emptyState.exists()).toBe(true);
-    expect(emptyState.text()).toContain("Ready to Synthesize");
-    expect(emptyState.text()).toContain("Select your preferred time range");
+    expect(emptyState.text()).toContain("No stories in this time range");
+    expect(emptyState.text()).toContain("Try a wider time range");
   });
 });
