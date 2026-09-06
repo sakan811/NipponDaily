@@ -132,6 +132,21 @@ const iconSvg = computed(() => {
 
     // Bars 3 bottom left
     "bars-3-bottom-left": `<line x1="3" y1="12" x2="17" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="13" y2="18"/>`,
+
+    // Window
+    window: `<rect x="2" y="3" width="20" height="18" rx="2" ry="2"/><line x1="2" y1="9" x2="22" y2="9"/>`,
+
+    // Server
+    server: `<rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>`,
+
+    // Circle stack (database)
+    "circle-stack": `<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/>`,
+
+    // Command line
+    "command-line": `<rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><polyline points="6 9 9 12 6 15"/><line x1="12" y1="15" x2="17" y2="15"/>`,
+
+    // Sparkles
+    sparkles: `<path d="M12 3l1.9 4.8L18 9.5l-4.1 1.7L12 16l-1.9-4.8L6 9.5l4.1-1.7L12 3z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14z"/>`,
   };
 
   // Fallback if icon not found in dictionary

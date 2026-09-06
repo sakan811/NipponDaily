@@ -73,7 +73,7 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-window" /> Frontend (Nuxt 4)
+              <UIcon name="i-heroicons-window" class="w-5 h-5 shrink-0 text-primary-500" /> Frontend (Nuxt 4)
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -91,7 +91,7 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-server" /> API Engine (Nitro)
+              <UIcon name="i-heroicons-server" class="w-5 h-5 shrink-0 text-primary-500" /> API Engine (Nitro)
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -109,7 +109,7 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-circle-stack" /> Database (Upstash Redis)
+              <UIcon name="i-heroicons-circle-stack" class="w-5 h-5 shrink-0 text-primary-500" /> Database (Upstash Redis)
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -127,7 +127,7 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-command-line" /> MCP Server
+              <UIcon name="i-heroicons-command-line" class="w-5 h-5 shrink-0 text-primary-500" /> MCP Server
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -146,7 +146,7 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-sparkles" /> Claude Web Agent (External)
+              <UIcon name="i-heroicons-sparkles" class="w-5 h-5 shrink-0 text-primary-500" /> Claude Web Agent (External)
             </h4>
           </template>
           <p class="text-sm mb-2">
