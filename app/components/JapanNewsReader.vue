@@ -5,6 +5,12 @@
     <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-4xl">
       <!-- News Feed & Controls Column -->
       <div class="space-y-6">
+        <div
+          class="flex items-center gap-1.5 text-xs text-stone-400 dark:text-stone-500"
+        >
+          <UIcon name="i-heroicons-arrow-path" class="w-3.5 h-3.5" />
+          <span>{{ lastUpdatedText }}</span>
+        </div>
         <div>
           <div class="mb-3 sm:mb-4">
             <p class="kicker text-secondary-500 mb-2">
@@ -567,6 +573,18 @@
             >
               {{ t.readyToSynthesizeMsg }}
             </p>
+            <UButton
+              v-if="selectedTimeRange !== 'none'"
+              color="primary"
+              variant="solid"
+              size="sm"
+              :label="t.showAllTime"
+              @click="
+                () => {
+                  selectedTimeRange = 'none';
+                }
+              "
+            />
           </div>
         </div>
       </div>
@@ -596,9 +614,12 @@ const translations = {
     generateBriefing: "Refresh News",
     synthesizing: "Refreshing...",
     aiSynthesizingMsg: "Refreshing the latest news from Japan...",
-    readyToSynthesizeTitle: "Ready to Synthesize",
+    readyToSynthesizeTitle: "No stories in this time range",
     readyToSynthesizeMsg:
-      'Select your preferred time range and category, then click "Refresh News" to load latest stories.',
+      "Nothing was published in the selected window. Try a wider time range or a different category.",
+    showAllTime: "Show all time",
+    lastUpdatedPrefix: "Updated",
+    lastUpdatedUnknown: "Awaiting first update",
     dailyLimitTitle: "Daily Limit Reached",
     resetsAt: "Resets at:",
     tryAgain: "Try Again",
@@ -880,6 +901,12 @@ const getRelativeTime = (timestamp: number) => {
   if (hours < 24) return `${hours}h ago`;
   return `${days}d ago`;
 };
+
+// Site-wide freshness indicator, driven by the MCP agent's last completed run
+const lastUpdatedText = computed(() => {
+  if (!lastIngestTime.value) return t.value.lastUpdatedUnknown;
+  return `${t.value.lastUpdatedPrefix} ${getRelativeTime(lastIngestTime.value)}`;
+});
 
 // Plain-text dek for the lead story: first non-empty line, bullet markers stripped
 const getDek = (summary: string | undefined): string => {
