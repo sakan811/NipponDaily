@@ -266,7 +266,7 @@
                   name="i-heroicons-fire"
                   class="w-4 h-4 text-primary-500"
                 />
-                Trending Topics ({{ filteredStories.length }})
+                Trending Topics ({{ trendingCount }})
               </h3>
 
               <div class="border-t border-stone-300 dark:border-stone-800">
@@ -782,6 +782,12 @@ const timeRangeOptions = [
 const filteredStories = computed(() => {
   return stories.value;
 });
+
+// Number of stories currently marked as "Trending" (matches the per-card TRENDING badge)
+const trendingCount = computed(
+  () =>
+    filteredStories.value.filter((s) => s.trendScore && s.trendScore > 5).length,
+);
 
 // Currently active story briefing
 const activeStory = computed<Story | null>(() => {
