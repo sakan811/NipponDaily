@@ -74,7 +74,7 @@ See `.env.example` for reference. Configure these in your `.env` file:
 | `UPSTASH_REDIS_REST_TOKEN` | **Yes**  | Upstash Redis REST token.                                                                                         | -       |
 | `MCP_AUTH_TOKEN`           | **Yes**  | Bearer token required to call the remote MCP server at `/api/mcp` (`Authorization: Bearer <token>` or `?token=`). | -       |
 
-`.env.example` also lists `RATE_LIMIT_MAX_REQUESTS` and `TEST_SRH_URL`, but neither is currently read anywhere in the codebase — there is no rate limiter and no integration test suite at present.
+There is currently no request rate limiting and no integration test suite — all tests run against mocks.
 
 ### 🐞 UI Debugging & Testing
 
