@@ -1,78 +1,26 @@
 <template>
-  <UPage>
-    <UHeader v-model:open="mobileMenuOpen">
-      <template #left>
-        <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
-          <img
-            src="/favicon-light.ico"
-            alt="NipponDaily"
-            class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
-          <img
-            src="/favicon-dark.ico"
-            alt="NipponDaily"
-            class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
-          <span>NipponDaily Docs</span>
-        </NuxtLink>
-      </template>
+  <div
+    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
+  >
+    <!-- Fine grid decoration to resemble shoji paper screens -->
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-60"
+    />
 
-      <template #right>
-        <div class="flex items-center gap-2">
-          <UButton
-            to="/docs"
-            label="Docs Overview"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-arrow-left"
-            class="hidden sm:flex"
-          />
-          <UButton
-            to="/"
-            label="Home"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-home"
-            class="hidden sm:flex"
-          />
-          <UColorModeButton />
-        </div>
-      </template>
+    <AppHeader />
 
-      <template #body>
-        <div class="flex flex-col gap-4">
-          <UButton
-            to="/docs"
-            label="Docs Overview"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-arrow-left"
-            block
-            @click="
-              () => {
-                mobileMenuOpen = false;
-              }
-            "
-          />
-          <UButton
-            to="/"
-            label="Home"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-home"
-            block
-            @click="
-              () => {
-                mobileMenuOpen = false;
-              }
-            "
-          />
-        </div>
-      </template>
-    </UHeader>
-
-    <main class="max-w-4xl mx-auto py-8 px-4 prose dark:prose-invert">
-      <h1 class="text-4xl font-extrabold mb-4 text-primary-500">
+    <main
+      class="relative z-10 container mx-auto px-4 max-w-4xl py-12 flex-1 prose dark:prose-invert"
+    >
+      <NuxtLink
+        to="/docs"
+        class="kicker text-stone-400 dark:text-stone-500 no-underline hover:text-primary-500 transition-colors"
+      >
+        &larr; Documentation
+      </NuxtLink>
+      <h1
+        class="text-3xl sm:text-4xl font-serif font-bold mb-4 mt-4 text-stone-900 dark:text-white"
+      >
         System Architecture
       </h1>
 
@@ -112,7 +60,7 @@
       </div>
 
       <h2
-        class="text-3xl font-bold mt-12 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
+        class="text-3xl font-serif font-bold mt-12 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
         1. Core Components
       </h2>
@@ -216,7 +164,7 @@
       </div>
 
       <h2
-        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
+        class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
         2. Developer Debug Mode
       </h2>
@@ -234,7 +182,7 @@
       </p>
 
       <h2
-        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
+        class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
         3. Color Palette & System
       </h2>
@@ -556,7 +504,7 @@
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
-        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
+        class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
         4. MCP-Driven Story Pipeline
       </h2>
@@ -701,7 +649,7 @@
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
-        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
+        class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
         5. Automated Data Retention (Cleanup Pipeline)
       </h2>
@@ -777,7 +725,7 @@
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
-        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
+        class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
         6. API Reference
       </h2>
@@ -942,7 +890,7 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
       </UCard>
 
       <h2
-        class="text-3xl font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
+        class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
         7. Trust & Credibility
       </h2>
@@ -1025,19 +973,21 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
       </div>
     </main>
 
-    <UFooter>
+    <UFooter
+      class="relative z-10 border-t border-stone-200 dark:border-stone-800 bg-[#FDFBF7] dark:bg-[#0B0E14]"
+    >
       <template #left>
-        <p class="text-sm text-secondary-500">
+        <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
           &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
           under the Apache-2.0 License.
         </p>
       </template>
     </UFooter>
-  </UPage>
+  </div>
 </template>
 
 <script setup lang="ts">
-const mobileMenuOpen = ref(false);
+import AppHeader from "../../components/AppHeader.vue";
 
 const systemDiagram = `
 flowchart TD
@@ -1134,10 +1084,10 @@ Story Database")]
 
 /* Basic styling rules for markdown elements are retained but simplified for UCard compatibility */
 h1 {
-  @apply text-3xl font-bold mb-6 text-primary-500;
+  @apply text-3xl font-serif font-bold mb-6 text-stone-900 dark:text-white;
 }
 h2 {
-  @apply text-2xl font-bold mt-12 mb-4 text-primary-500;
+  @apply text-2xl font-serif font-bold mt-12 mb-4 text-primary-500;
 }
 p {
   @apply mb-4 text-gray-700 dark:text-gray-300;

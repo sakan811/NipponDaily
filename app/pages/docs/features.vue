@@ -1,105 +1,61 @@
 <template>
-  <UPage>
-    <UHeader v-model:open="mobileMenuOpen">
-      <template #left>
-        <NuxtLink to="/docs" class="flex items-center gap-2 font-bold text-xl">
-          <img
-            src="/favicon-light.ico"
-            alt="NipponDaily"
-            class="w-6 h-6 dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm"
-          >
-          <img
-            src="/favicon-dark.ico"
-            alt="NipponDaily"
-            class="w-6 h-6 hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm"
-          >
-          <span>NipponDaily Docs</span>
+  <div
+    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
+  >
+    <!-- Fine grid decoration to resemble shoji paper screens -->
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-60"
+    />
+
+    <AppHeader />
+
+    <main class="relative z-10 container mx-auto px-4 max-w-4xl py-16 flex-1">
+      <div class="max-w-2xl space-y-4">
+        <NuxtLink
+          to="/docs"
+          class="kicker text-stone-400 dark:text-stone-500 no-underline hover:text-primary-500 transition-colors"
+        >
+          &larr; Documentation
         </NuxtLink>
-      </template>
+        <h1
+          class="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
+        >
+          Core Features
+        </h1>
+        <div class="rule-double max-w-[120px]" />
+        <p
+          class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
+        >
+          NipponDaily transforms raw news into actionable intelligence using
+          advanced AI synthesis.
+        </p>
+      </div>
 
-      <template #right>
-        <div class="flex items-center gap-2">
-          <UButton
-            to="/docs"
-            label="Docs Overview"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-arrow-left"
-            class="hidden sm:flex"
-          />
-          <UButton
-            to="/"
-            label="Home"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-home"
-            class="hidden sm:flex"
-          />
-          <UColorModeButton />
-        </div>
-      </template>
-
-      <template #body>
-        <div class="flex flex-col gap-4">
-          <UButton
-            to="/docs"
-            label="Docs Overview"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-arrow-left"
-            block
-            @click="
-              () => {
-                mobileMenuOpen = false;
-              }
-            "
-          />
-          <UButton
-            to="/"
-            label="Home"
-            variant="ghost"
-            color="secondary"
-            icon="i-heroicons-home"
-            block
-            @click="
-              () => {
-                mobileMenuOpen = false;
-              }
-            "
-          />
-        </div>
-      </template>
-    </UHeader>
-
-    <main class="max-w-4xl mx-auto py-8 px-4 prose dark:prose-invert">
-      <h1 class="text-3xl font-bold mb-6 text-primary-500">Core Features</h1>
-      <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily transforms raw news into actionable intelligence using
-        advanced AI synthesis.
-      </p>
-
-      <UPageGrid>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
         <UPageCard
           v-for="(feature, index) in features"
           :key="index"
           v-bind="feature"
         />
-      </UPageGrid>
+      </div>
     </main>
 
-    <UFooter>
+    <UFooter
+      class="relative z-10 border-t border-stone-200 dark:border-stone-800 bg-[#FDFBF7] dark:bg-[#0B0E14]"
+    >
       <template #left>
-        <p class="text-sm text-secondary-500">
+        <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
           &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
           under the Apache-2.0 License.
         </p>
       </template>
     </UFooter>
-  </UPage>
+  </div>
 </template>
 
 <script setup lang="ts">
-const mobileMenuOpen = ref(false);
+import AppHeader from "../../components/AppHeader.vue";
+
 const features = [
   {
     title: "Executive Briefing",
@@ -181,14 +137,3 @@ const features = [
   },
 ];
 </script>
-
-<style>
-@reference "../../assets/css/tailwind.css";
-
-h1 {
-  @apply text-3xl font-bold mb-6 text-primary-500;
-}
-p {
-  @apply mb-4 text-gray-700 dark:text-gray-300;
-}
-</style>
