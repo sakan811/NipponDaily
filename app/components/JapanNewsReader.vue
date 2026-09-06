@@ -786,7 +786,8 @@ const filteredStories = computed(() => {
 // Number of stories currently marked as "Trending" (matches the per-card TRENDING badge)
 const trendingCount = computed(
   () =>
-    filteredStories.value.filter((s) => s.trendScore && s.trendScore > 5).length,
+    filteredStories.value.filter((s) => s.trendScore && s.trendScore > 5)
+      .length,
 );
 
 // Currently active story briefing
