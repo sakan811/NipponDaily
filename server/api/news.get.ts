@@ -28,6 +28,18 @@ const newsQuerySchema = z
         return val;
       }),
 
+    difficulty: z
+      .string()
+      .nullable()
+      .optional()
+      .transform((val) => {
+        if (!val || val.trim() === "") return undefined;
+        const allowed = ["N5", "N4", "N3", "N2", "N1"];
+        return allowed.includes(val.toUpperCase())
+          ? val.toUpperCase()
+          : undefined;
+      }),
+
     timeRange: z
       .string()
       .nullable()
@@ -112,6 +124,7 @@ const newsQuerySchema = z
   .transform((data) => ({
     category: data.category ?? undefined,
     query: data.query ?? undefined,
+    difficulty: data.difficulty ?? undefined,
     timeRange: data.timeRange,
     startDate: data.startDate ?? undefined,
     endDate: data.endDate ?? undefined,
@@ -156,6 +169,13 @@ export default defineEventHandler(async (event) => {
           story.sources?.some(
             (src) => src.category === validatedQuery.category,
           ),
+      );
+    }
+
+    // Filter by JLPT difficulty level (stories without a lesson estimate are excluded)
+    if (validatedQuery.difficulty) {
+      filteredStories = filteredStories.filter(
+        (story) => story.difficultyLevel === validatedQuery.difficulty,
       );
     }
 
