@@ -147,6 +147,21 @@ const iconSvg = computed(() => {
 
     // Sparkles
     sparkles: `<path d="M12 3l1.9 4.8L18 9.5l-4.1 1.7L12 16l-1.9-4.8L6 9.5l4.1-1.7L12 3z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14z"/>`,
+
+    // Chevron down
+    "chevron-down": `<polyline points="6 9 12 15 18 9"/>`,
+
+    // Academic cap (lesson / study)
+    "academic-cap": `<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/><line x1="22" y1="10" x2="22" y2="16"/>`,
+
+    // Book open (vocabulary)
+    "book-open": `<path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/>`,
+
+    // Language (grammar notes)
+    language: `<path d="M4 5h10"/><path d="M9 3v2c0 5-3 9-7 10"/><path d="M6 9c0 3 3.5 6 8 6"/><path d="m14 21 4-9 4 9"/><path d="M15.5 18h5"/>`,
+
+    // Adjustments horizontal (filters)
+    "adjustments-horizontal": `<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="7" cy="18" r="2"/>`,
   };
 
   // Fallback if icon not found in dictionary
