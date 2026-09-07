@@ -351,6 +351,103 @@ describe("server/api/mcp.ts", () => {
       expect(savedStory.categories).toEqual(["food"]);
     });
 
+    it("stores the optional Japanese-learning lesson fields when provided", async () => {
+      mockGetStory.mockResolvedValue(null);
+
+      await registeredTools.upsert_story!.handler({
+        headline: "H",
+        summary: "- s",
+        thematicAnalysis: "- t",
+        sources: [
+          {
+            title: "Article",
+            url: "https://lesson.example.com/1",
+            publishedAt: "2026-01-01T00:00:00Z",
+            credibilityScore: 0.8,
+            category: "society",
+          },
+        ],
+        replaceSources: false,
+        originalText: "首相は記者会見で表明した。",
+        furiganaText:
+          "<ruby>首相<rt>しゅしょう</rt></ruby>は<ruby>表明<rt>ひょうめい</rt></ruby>した。",
+        vocabList: [
+          {
+            term: "首相",
+            reading: "しゅしょう",
+            meaning: "prime minister",
+            jlptLevel: "N3",
+            exampleSentence: "首相は記者会見で表明した。",
+          },
+        ],
+        grammarNotes: [
+          {
+            pattern: "〜で",
+            explanation: "location/means marker",
+            exampleSentence: "記者会見で表明した。",
+          },
+        ],
+        difficultyLevel: "N3",
+      });
+
+      const savedStory = mockSaveStory.mock.calls[0][0];
+      expect(savedStory.originalText).toBe("首相は記者会見で表明した。");
+      expect(savedStory.furiganaText).toContain("<ruby>");
+      expect(savedStory.vocabList).toHaveLength(1);
+      expect(savedStory.grammarNotes[0].pattern).toBe("〜で");
+      expect(savedStory.difficultyLevel).toBe("N3");
+    });
+
+    it("keeps existing lesson fields on an extend when they are not resubmitted", async () => {
+      const existing = makeStory({
+        id: "story-1",
+        originalText: "元の日本語テキスト。",
+        difficultyLevel: "N4",
+      });
+      mockGetStory.mockResolvedValue(existing);
+
+      await registeredTools.upsert_story!.handler({
+        id: "story-1",
+        headline: "Updated Headline",
+        summary: "- s",
+        thematicAnalysis: "- t",
+        sources: [
+          {
+            title: "New Article",
+            url: "https://new.example.com/b",
+            publishedAt: "2026-01-01T00:00:00Z",
+            credibilityScore: 0.8,
+            category: "society",
+          },
+        ],
+        replaceSources: false,
+      });
+
+      const savedStory = mockSaveStory.mock.calls[0][0];
+      expect(savedStory.originalText).toBe("元の日本語テキスト。");
+      expect(savedStory.difficultyLevel).toBe("N4");
+    });
+
+    it("rejects an invalid difficultyLevel", () => {
+      const schema = registeredTools.upsert_story!.config.inputSchema;
+      const parsed = schema.safeParse({
+        headline: "H",
+        summary: "- s",
+        thematicAnalysis: "- t",
+        sources: [
+          {
+            title: "Article",
+            url: "https://x.example.com/1",
+            publishedAt: "2026-01-01T00:00:00Z",
+            credibilityScore: 0.8,
+            category: "society",
+          },
+        ],
+        difficultyLevel: "N7",
+      });
+      expect(parsed.success).toBe(false);
+    });
+
     it("derives the domain from the URL when source is omitted", async () => {
       mockGetStory.mockResolvedValue(null);
 
@@ -476,6 +573,32 @@ describe("server/api/mcp.ts", () => {
       expect(savedStory.sources).toHaveLength(2);
       expect(savedStory.categories.sort()).toEqual(["society", "tech"]);
       expect(savedStory.firstSeen).toBe(1000);
+    });
+
+    it("regenerates lesson fields from input, falling back to a merged story's own values", async () => {
+      mockGetStory.mockImplementation(async (id: string) =>
+        makeStory({
+          id,
+          firstSeen: id === "a" ? 1000 : 2000,
+          ...(id === "a"
+            ? { originalText: "Aの日本語。", difficultyLevel: "N5" as const }
+            : {}),
+        }),
+      );
+
+      await registeredTools.merge_stories!.handler({
+        storyIds: ["a", "b"],
+        headline: "Merged",
+        summary: "- s",
+        thematicAnalysis: "- t",
+        difficultyLevel: "N2",
+      });
+
+      const savedStory = mockSaveStory.mock.calls[0][0];
+      // submitted difficultyLevel wins
+      expect(savedStory.difficultyLevel).toBe("N2");
+      // originalText not submitted -> falls back to story "a"
+      expect(savedStory.originalText).toBe("Aの日本語。");
     });
 
     it("honors an explicit keepId", async () => {

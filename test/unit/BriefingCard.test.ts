@@ -10,6 +10,20 @@ const NuxtUIComponents = {
   UIcon: { template: '<span class="u-icon" />' },
 };
 
+const mountWith = (props: any) =>
+  mount(BriefingCard, {
+    props: {
+      briefing: {
+        mainHeadline: "Test Headline",
+        executiveSummary: "Test Summary",
+        thematicAnalysis: "Test Analysis",
+        sourcesProcessed: [],
+      },
+      ...props,
+    },
+    global: { stubs: NuxtUIComponents },
+  });
+
 describe("BriefingCard", () => {
   const mountBriefingCard = (briefing: any = {}) => {
     return mount(BriefingCard, {
@@ -151,5 +165,59 @@ describe("BriefingCard", () => {
       executiveSummary: undefined,
     });
     expect(wrapper.exists()).toBe(true);
+  });
+
+  describe("Japanese lesson section", () => {
+    it("is absent when no lesson prop is passed", () => {
+      const wrapper = mountWith({});
+      expect(wrapper.text()).not.toContain("Study this in Japanese");
+    });
+
+    it("renders vocab, grammar and difficulty when a lesson is passed", () => {
+      const wrapper = mountWith({
+        lesson: {
+          difficultyLevel: "N3",
+          furiganaText: "<ruby>首相<rt>しゅしょう</rt></ruby>は",
+          vocabList: [
+            {
+              term: "首相",
+              reading: "しゅしょう",
+              meaning: "prime minister",
+              jlptLevel: "N3",
+              exampleSentence: "首相は表明した。",
+            },
+          ],
+          grammarNotes: [
+            {
+              pattern: "〜は",
+              explanation: "topic marker",
+              exampleSentence: "首相は表明した。",
+            },
+          ],
+        },
+      });
+
+      const text = wrapper.text();
+      expect(text).toContain("Study this in Japanese");
+      expect(text).toContain("prime minister");
+      expect(text).toContain("topic marker");
+      // ruby markup is preserved, not stripped
+      expect(wrapper.html()).toContain("<ruby>");
+      expect(wrapper.html()).toContain("<rt>しゅしょう</rt>");
+    });
+
+    it("escapes disallowed markup in furiganaText but keeps ruby tags", () => {
+      const wrapper = mountWith({
+        lesson: {
+          furiganaText:
+            "<img src=x onerror=alert(1)><ruby>水<rt>みず</rt></ruby>",
+        },
+      });
+
+      const html = wrapper.html();
+      expect(html).not.toContain("<img");
+      expect(html).toContain("&lt;img");
+      expect(html).toContain("<ruby>水<rt>みず</rt></ruby>");
+    });
   });
 });
