@@ -6,18 +6,19 @@
   <img src="./public/dark/android-chrome-512x512.png" width="256" height="256" alt="logo dark" />
 </p>
 
-**Your gateway to Japanese news.** NipponDaily is a Japan-focused news aggregator built with Nuxt 4, Vue 3, and TypeScript. The site itself only reads pre-computed story clusters out of Upstash Redis and serves them via `GET /api/news` — it doesn't fetch news or run any AI processing itself. All news discovery, clustering, and summarization is done by an external Claude web agent, which writes finished stories directly into Redis through this project's remote MCP server.
+**Your gateway to Japanese news — and to learning Japanese from it.** NipponDaily is a Japan-focused news aggregator that also teaches Japanese through real news stories, built with Nuxt 4, Vue 3, and TypeScript. There are no user accounts; lesson content is anonymous and rotates on the same 30-day window as the news. The site itself only reads pre-computed story clusters out of Upstash Redis and serves them via `GET /api/news` — it doesn't fetch news or run any AI processing itself. All news discovery, clustering, summarization, and per-story Japanese-lesson authoring is done by an external Claude web agent running weekly, which writes finished stories (lesson fields included) directly into Redis through this project's remote MCP server.
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
 - **Consolidated AI Briefing**: Synthesizes multiple news sources into a single, cohesive, high-level briefing with a primary headline and a structured executive summary.
+- **Japanese Lessons from the News**: Each story can carry a lesson the agent authors from its Japanese-language sources — a representative passage with inline furigana (`<ruby>`) markup, an 8–15 term vocabulary list with readings and JLPT levels, and 1–3 grammar notes — shown in a collapsed "Study this in Japanese" panel. Browse or filter stories by JLPT difficulty (N5–N1) alongside the category tabs. Stories built from English-only coverage simply have no lesson.
 - **Cross-Source Analysis**: Every story carries a thematic breakdown of how its sources cover the same event — shared framing and where the accounts diverge — rendered alongside the executive summary.
 - **Story Timeline Navigation**: Drill down from a trending topic on the front page into a dedicated, oldest-first chronological timeline of every source article in that cluster.
 - **Visual Trust Scoring**: Credibility assessments at both the overall and per-source level, assigned by the Claude agent and rendered with an HSL color gradient (red → green).
 - **Trend Detection**: Stories are ranked and badged by how many of their sources landed in the last two weeks, surfacing what is actively developing.
-- **Customizable Discovery & Span Filtering**: Filter by category channel and by date — preset windows (today, this week, all time) or a custom range — matched against each story's actual publish span rather than a single timestamp.
-- **MCP-Driven Story Pipeline**: A Claude web agent researches Japan news on its own schedule and calls tools on this project's remote MCP server (`get_recent_stories`, `check_processed_urls`, `upsert_story`, `merge_stories`, `cleanup_old_data`, `mark_ingest_complete`) to read, write, merge, and prune story clusters directly in Redis.
-- **Automated Data Retention**: The `cleanup_old_data` MCP tool permanently prunes stories older than 30 days from Redis so the store doesn't grow unbounded — run automatically as step 0 of every agent pipeline run, or ad hoc by asking the agent to run it manually.
+- **Customizable Discovery & Span Filtering**: Filter by category channel, by JLPT difficulty (N5–N1), and by date — preset windows (today, this week, all time) or a custom range — matched against each story's actual publish span rather than a single timestamp.
+- **MCP-Driven Story Pipeline**: A Claude web agent researches a week of Japan news on a weekly schedule, authors a Japanese lesson per story, and calls tools on this project's remote MCP server (`get_recent_stories`, `check_processed_urls`, `upsert_story`, `merge_stories`, `cleanup_old_data`, `mark_ingest_complete`) to read, write, merge, and prune story clusters directly in Redis. The agent's full operating prompt lives at [`docs/news-pipeline-agent-prompt.md`](docs/news-pipeline-agent-prompt.md).
+- **Automated Data Retention**: The `cleanup_old_data` MCP tool permanently prunes stories older than 30 days from Redis (lesson fields included) so the store doesn't grow unbounded — run automatically as step 0 of every agent pipeline run, or ad hoc by asking the agent to run it manually.
 - **Editorial, Newspaper-Inspired UI**: A masthead-style header (dateline + tagline), front-page layout with a lead story and column-grid secondary stories, kicker labels, double-rule dividers, and a drop-cap lede on the executive briefing — built with Nuxt 4, Vue 3, and Tailwind CSS 4 using locally maintained custom UI components. Complements a color system with two themes: a soft, romantic Sakura day theme (pale pink blossoms against cream washi white, grounded by sage and warm bark brown) and a midnight-inverted dark theme (vibrant teal leaves and warm evening orchid accents against a midnight slate sky canvas).
 
 ## 🛠 Tech Stack
@@ -122,7 +123,7 @@ pnpm test:coverage
 
 ## 🤖 MCP Server
 
-`server/api/mcp.ts` exposes a remote MCP server at `/api/mcp`, protected by a constant-time bearer-token check against `MCP_AUTH_TOKEN`. It's how an external Claude web agent — researching Japan news entirely outside this repo — writes finished story clusters into the same Redis keys `GET /api/news` reads from. Registered tools: `get_recent_stories`, `check_processed_urls`, `upsert_story`, `merge_stories`, `cleanup_old_data`, and `mark_ingest_complete`. See [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for full tool schemas and diagrams.
+`server/api/mcp.ts` exposes a remote MCP server at `/api/mcp`, protected by a constant-time bearer-token check against `MCP_AUTH_TOKEN`. It's how an external Claude web agent — researching Japan news and authoring each story's Japanese lesson entirely outside this repo — writes finished story clusters into the same Redis keys `GET /api/news` reads from. Registered tools: `get_recent_stories`, `check_processed_urls`, `upsert_story`, `merge_stories`, `cleanup_old_data`, and `mark_ingest_complete` (`upsert_story` and `merge_stories` also accept the optional lesson fields `originalText`, `furiganaText`, `vocabList`, `grammarNotes`, `difficultyLevel`). See [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for full tool schemas and diagrams, and [docs/news-pipeline-agent-prompt.md](docs/news-pipeline-agent-prompt.md) for the agent's operating prompt.
 
 ## 📚 Documentation
 
@@ -131,6 +132,10 @@ The running site ships in-app documentation at `/docs`:
 - **System Architecture** (`/docs/architecture`) — a tour of the stack plus the MCP server's full tool schemas, with diagrams
 - **Core Features** (`/docs/features`) — the reader-facing capabilities
 - **Error & Fallback States** (`/docs/error-states`) — a live catalogue of every degraded, empty, or failure state the UI can render, shown with the real components and mock data
+
+Repo-only docs:
+
+- [`docs/news-pipeline-agent-prompt.md`](docs/news-pipeline-agent-prompt.md) — the operating prompt for the external weekly pipeline agent (discovery, clustering, and lesson generation). Keep it in sync with the MCP tool set.
 
 ## ⚠️ Limitations
 
