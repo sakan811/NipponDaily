@@ -68,6 +68,117 @@
       </div>
 
       <div
+        v-if="hasLesson"
+        class="border-t border-stone-300 dark:border-stone-800 pt-5"
+      >
+        <details class="group">
+          <summary
+            class="kicker text-secondary-500 flex items-center gap-1.5 cursor-pointer select-none list-none"
+          >
+            <UIcon name="i-heroicons-academic-cap" class="w-4 h-4" />
+            <span>{{ t.japaneseLesson }}</span>
+            <UBadge
+              v-if="lesson?.difficultyLevel"
+              color="primary"
+              variant="soft"
+              size="xs"
+            >
+              {{ lesson.difficultyLevel }}
+            </UBadge>
+            <UIcon
+              name="i-heroicons-chevron-down"
+              class="w-3.5 h-3.5 ml-auto transition-transform group-open:rotate-180"
+            />
+          </summary>
+
+          <div class="mt-4 space-y-6">
+            <div v-if="lesson?.furiganaText || lesson?.originalText">
+              <h4 class="kicker text-secondary-500 mb-2">
+                {{ t.originalPassage }}
+              </h4>
+              <p
+                v-if="lesson?.furiganaText"
+                class="furigana-text font-body-serif text-lg leading-loose text-gray-800 dark:text-gray-200 [word-wrap:break-word]"
+                v-html="safeFurigana(lesson.furiganaText)"
+              />
+              <p
+                v-else
+                class="font-body-serif text-lg leading-loose text-gray-800 dark:text-gray-200 [word-wrap:break-word]"
+              >
+                {{ lesson?.originalText }}
+              </p>
+            </div>
+
+            <div v-if="lesson?.vocabList && lesson.vocabList.length > 0">
+              <h4
+                class="kicker text-secondary-500 mb-2 flex items-center gap-1.5"
+              >
+                <UIcon name="i-heroicons-book-open" class="w-4 h-4" />
+                {{ t.vocabulary }} ({{ lesson.vocabList.length }})
+              </h4>
+              <ul class="divide-y divide-stone-200 dark:divide-stone-800">
+                <li
+                  v-for="(vocab, i) in lesson.vocabList"
+                  :key="i"
+                  class="py-2.5"
+                >
+                  <div class="flex items-baseline gap-2 flex-wrap">
+                    <span
+                      class="font-serif font-bold text-base text-gray-900 dark:text-gray-100"
+                    >
+                      {{ vocab.term }}
+                    </span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">
+                      {{ vocab.reading }}
+                    </span>
+                    <UBadge color="secondary" variant="soft" size="xs">
+                      {{ vocab.jlptLevel }}
+                    </UBadge>
+                  </div>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">
+                    {{ vocab.meaning }}
+                  </p>
+                  <p
+                    v-if="vocab.exampleSentence"
+                    class="text-xs italic text-gray-500 dark:text-gray-400 mt-0.5 [word-wrap:break-word]"
+                  >
+                    {{ vocab.exampleSentence }}
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div v-if="lesson?.grammarNotes && lesson.grammarNotes.length > 0">
+              <h4
+                class="kicker text-secondary-500 mb-2 flex items-center gap-1.5"
+              >
+                <UIcon name="i-heroicons-language" class="w-4 h-4" />
+                {{ t.grammarNotes }} ({{ lesson.grammarNotes.length }})
+              </h4>
+              <ul class="space-y-3">
+                <li v-for="(note, i) in lesson.grammarNotes" :key="i">
+                  <p
+                    class="font-serif font-bold text-sm text-gray-900 dark:text-gray-100"
+                  >
+                    {{ note.pattern }}
+                  </p>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">
+                    {{ note.explanation }}
+                  </p>
+                  <p
+                    v-if="note.exampleSentence"
+                    class="text-xs italic text-gray-500 dark:text-gray-400 mt-0.5 [word-wrap:break-word]"
+                  >
+                    {{ note.exampleSentence }}
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div
         v-if="briefing.sourcesProcessed && briefing.sourcesProcessed.length > 0"
         class="border-t dark:border-gray-800 pt-5 mt-6"
       >
@@ -176,13 +287,39 @@
 </template>
 
 <script setup lang="ts">
-import type { NewsBriefing } from "~~/types/index";
+import type { NewsBriefing, StoryLesson } from "~~/types/index";
 import { marked } from "marked";
 import { computed } from "vue";
 
-defineProps<{
+const props = defineProps<{
   briefing: NewsBriefing;
+  lesson?: StoryLesson;
 }>();
+
+const hasLesson = computed(() => {
+  const l = props.lesson;
+  return Boolean(
+    l &&
+    (l.furiganaText ||
+      l.originalText ||
+      (l.vocabList && l.vocabList.length > 0) ||
+      (l.grammarNotes && l.grammarNotes.length > 0)),
+  );
+});
+
+/**
+ * Render agent-supplied furigana HTML. Everything is HTML-escaped first, then
+ * only bare <ruby>/<rt>/<rp> tags are restored — attributes and any other tag
+ * stay escaped, so no script/style/event-handler markup can survive.
+ */
+const safeFurigana = (html: string | undefined): string => {
+  if (!html) return "";
+  const escaped = html
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  return escaped.replace(/&lt;(\/?)(ruby|rt|rp)&gt;/gi, "<$1$2>");
+};
 
 const translations = {
   en: {
@@ -194,6 +331,10 @@ const translations = {
     sourcesConsulted: "Sources Consulted",
     readOriginal: "Read original article",
     sourceTrust: "Source Trust",
+    japaneseLesson: "Study this in Japanese",
+    originalPassage: "Original passage",
+    vocabulary: "Vocabulary",
+    grammarNotes: "Grammar notes",
   },
 } as const;
 
@@ -242,5 +383,13 @@ const renderMarkdown = (text: string | undefined) => {
 :deep(.markdown-content-small strong) {
   font-weight: 600;
   color: inherit;
+}
+.furigana-text {
+  ruby-position: over;
+}
+.furigana-text :deep(rt) {
+  font-size: 0.6em;
+  font-weight: 400;
+  color: var(--color-secondary-500);
 }
 </style>
