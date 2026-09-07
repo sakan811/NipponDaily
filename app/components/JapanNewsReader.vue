@@ -114,6 +114,42 @@
             </div>
           </div>
 
+          <div class="mb-4 sm:mb-6">
+            <p class="kicker text-secondary-500 mb-2">
+              {{ t.difficultySubtitle }}
+            </p>
+            <div
+              class="flex flex-wrap items-center gap-x-2 gap-y-2 sm:gap-x-3 justify-start pb-3 border-b border-stone-300 dark:border-stone-800"
+            >
+              <UTooltip
+                v-for="level in difficultyLevels"
+                :key="level.id"
+                :text="
+                  level.id === 'all'
+                    ? 'Show stories at any level'
+                    : `Show ${level.id} (JLPT) stories`
+                "
+              >
+                <UButton
+                  :color="
+                    selectedDifficulty === level.id ? 'primary' : 'secondary'
+                  "
+                  :variant="
+                    selectedDifficulty === level.id ? 'solid' : 'outline'
+                  "
+                  size="xs"
+                  :label="level.name"
+                  class="kicker rounded-none"
+                  @click="
+                    () => {
+                      selectedDifficulty = level.id;
+                    }
+                  "
+                />
+              </UTooltip>
+            </div>
+          </div>
+
           <!-- DEBUG_ERROR_UI Testing & Design Panel -->
           <div
             v-if="isDebugErrorUi"
@@ -294,6 +330,14 @@
                       Summarizing...
                     </UBadge>
                     <UBadge
+                      v-if="filteredStories[0].difficultyLevel"
+                      color="secondary"
+                      variant="soft"
+                      size="xs"
+                    >
+                      {{ filteredStories[0].difficultyLevel }}
+                    </UBadge>
+                    <UBadge
                       v-if="
                         filteredStories[0].trendScore &&
                         filteredStories[0].trendScore > 5
@@ -361,6 +405,14 @@
                           class="animate-pulse"
                         >
                           Summarizing...
+                        </UBadge>
+                        <UBadge
+                          v-if="story.difficultyLevel"
+                          color="secondary"
+                          variant="soft"
+                          size="xs"
+                        >
+                          {{ story.difficultyLevel }}
                         </UBadge>
                         <UBadge
                           v-if="story.trendScore && story.trendScore > 5"
@@ -443,6 +495,7 @@
                 <BriefingCard
                   v-else
                   :briefing="activeBriefingData"
+                  :lesson="activeStoryLesson"
                   language="en"
                 />
               </div>
@@ -596,7 +649,7 @@
 import { ref, computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import { CalendarDate } from "@internationalized/date";
-import type { NewsBriefing, Story } from "~~/types/index";
+import type { NewsBriefing, Story, StoryLesson } from "~~/types/index";
 import { NEWS_CATEGORIES } from "~~/constants/categories";
 import type { CategoryId } from "~~/constants/categories";
 import { formatCalendarDateYMD } from "../utils/date";
@@ -611,6 +664,7 @@ const translations = {
   en: {
     timeRangeSubtitle: "Select a time range to focus the search results",
     categorySubtitle: "Choose a category to focus the briefing",
+    difficultySubtitle: "Filter by Japanese difficulty (JLPT level)",
     generateBriefing: "Refresh News",
     synthesizing: "Refreshing...",
     aiSynthesizingMsg: "Refreshing the latest news from Japan...",
@@ -676,6 +730,9 @@ const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 
 const selectedCategory = ref<CategoryId>("all");
+
+type DifficultyId = "all" | "N5" | "N4" | "N3" | "N2" | "N1";
+const selectedDifficulty = ref<DifficultyId>("all");
 
 // Debug state for UI testing & designing (Activated via URL query: ?debug_error_ui=true)
 const isDebugErrorUi = computed(() => {
@@ -754,7 +811,7 @@ const customDateRange = ref<any>({
 });
 
 watch(
-  [selectedCategory, selectedTimeRange, customDateRange],
+  [selectedCategory, selectedDifficulty, selectedTimeRange, customDateRange],
   async () => {
     const isTest =
       typeof process !== "undefined" &&
@@ -769,6 +826,16 @@ watch(
 
 // Categories
 const categories = NEWS_CATEGORIES;
+
+// JLPT difficulty levels for the lesson-level filter
+const difficultyLevels = [
+  { id: "all", name: "All Levels" },
+  { id: "N5", name: "N5" },
+  { id: "N4", name: "N4" },
+  { id: "N3", name: "N3" },
+  { id: "N2", name: "N2" },
+  { id: "N1", name: "N1" },
+] as const;
 
 // Time range options
 const timeRangeOptions = [
@@ -887,6 +954,21 @@ const activeBriefingData = computed<NewsBriefing | null>(() => {
   };
 });
 
+// Japanese-learning lesson content for the active story (undefined when the
+// story carries no lesson, e.g. it was built from English-only coverage)
+const activeStoryLesson = computed<StoryLesson | undefined>(() => {
+  const s = activeStory.value;
+  if (!s) return undefined;
+  const lesson: StoryLesson = {
+    originalText: s.originalText,
+    furiganaText: s.furiganaText,
+    vocabList: s.vocabList,
+    grammarNotes: s.grammarNotes,
+    difficultyLevel: s.difficultyLevel,
+  };
+  return lesson;
+});
+
 // Chronological timeline sources sorted oldest first (ascending)
 const chronologicalSources = computed(() => {
   if (!activeStory.value) return [];
@@ -962,6 +1044,10 @@ const fetchNews = async () => {
     const query: Record<string, string | number | undefined> = {
       category:
         selectedCategory.value === "all" ? undefined : selectedCategory.value,
+      difficulty:
+        selectedDifficulty.value === "all"
+          ? undefined
+          : selectedDifficulty.value,
       language: "en",
       limit: 20,
     };
