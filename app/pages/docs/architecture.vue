@@ -37,13 +37,15 @@
       </div>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily is built with a modern stack focusing on performance and
-        simplicity. In simple terms, the website itself only reads pre-computed
-        news stories out of a database — all the "intelligence" (finding
-        articles, clustering them, writing summaries, and scoring credibility)
-        is produced by a Claude web agent running entirely outside this
-        codebase, which writes its finished work in through a small remote MCP
-        server this project exposes.
+        NipponDaily is a Japan news aggregator that doubles as a
+        Japanese-learning app — each story carries an optional lesson (a
+        Japanese passage with furigana, a vocabulary list, and grammar notes).
+        In simple terms, the website itself only reads pre-computed stories out
+        of a database — all the "intelligence" (finding articles, clustering
+        them, writing summaries, scoring credibility, and authoring each story's
+        Japanese lesson) is produced by a Claude web agent that runs weekly,
+        entirely outside this codebase, and writes its finished work in through
+        a small remote MCP server this project exposes.
       </p>
 
       <!-- Diagram 1: System Overview -->
@@ -73,7 +75,11 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-window" class="w-5 h-5 shrink-0 text-primary-500" /> Frontend (Nuxt 4)
+              <UIcon
+                name="i-heroicons-window"
+                class="w-5 h-5 shrink-0 text-primary-500"
+              />
+              Frontend (Nuxt 4)
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -91,7 +97,11 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-server" class="w-5 h-5 shrink-0 text-primary-500" /> API Engine (Nitro)
+              <UIcon
+                name="i-heroicons-server"
+                class="w-5 h-5 shrink-0 text-primary-500"
+              />
+              API Engine (Nitro)
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -109,7 +119,11 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-circle-stack" class="w-5 h-5 shrink-0 text-primary-500" /> Database (Upstash Redis)
+              <UIcon
+                name="i-heroicons-circle-stack"
+                class="w-5 h-5 shrink-0 text-primary-500"
+              />
+              Database (Upstash Redis)
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -127,7 +141,11 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-command-line" class="w-5 h-5 shrink-0 text-primary-500" /> MCP Server
+              <UIcon
+                name="i-heroicons-command-line"
+                class="w-5 h-5 shrink-0 text-primary-500"
+              />
+              MCP Server
             </h4>
           </template>
           <p class="text-sm mb-2">
@@ -146,19 +164,24 @@
         <UCard>
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
-              <UIcon name="i-heroicons-sparkles" class="w-5 h-5 shrink-0 text-primary-500" /> Claude Web Agent (External)
+              <UIcon
+                name="i-heroicons-sparkles"
+                class="w-5 h-5 shrink-0 text-primary-500"
+              />
+              Claude Web Agent (External)
             </h4>
           </template>
           <p class="text-sm mb-2">
             <strong>What it does:</strong> The "brain" that finds Japan news,
-            writes summaries, and decides how to cluster articles into stories.
+            writes summaries, decides how to cluster articles into stories, and
+            authors the Japanese lesson attached to each story.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Runs entirely outside this
-            repository, on a schedule set up in Claude's own web scheduling
-            feature (not a cron job hosted by this project). It calls this
-            project's MCP server to persist its work — no search or AI provider
-            credentials live in this codebase at all.
+            repository, once a week, on a schedule set up in Claude's own web
+            scheduling feature (not a cron job hosted by this project). It calls
+            this project's MCP server to persist its work — no search or AI
+            provider credentials live in this codebase at all.
           </p>
         </UCard>
       </div>
@@ -512,11 +535,14 @@
       <p class="text-lg mb-6">
         There is no in-repo ingestion pipeline. Instead of this codebase calling
         a search API and an AI provider on a schedule, a
-        <strong>Claude web agent</strong> — scheduled via Claude's own web
-        scheduling feature, entirely outside this repository — checks existing
-        coverage first, then researches Japan news across six categories (both
-        follow-ups on ongoing stories and brand-new topics) and calls the tools
-        below to write finished <code>Story</code> objects directly into Redis.
+        <strong>Claude web agent</strong> — scheduled weekly via Claude's own
+        web scheduling feature, entirely outside this repository — checks
+        existing coverage first, then researches a week of Japan news across six
+        categories (both follow-ups on ongoing stories and brand-new topics),
+        generates a Japanese lesson for each story, and calls the tools below to
+        write finished <code>Story</code> objects directly into Redis. The
+        agent's full operating prompt lives at
+        <code>docs/news-pipeline-agent-prompt.md</code>.
       </p>
 
       <!-- Diagram: MCP Pipeline -->
@@ -569,10 +595,14 @@
           </template>
           <p class="text-sm">
             Creates or updates a story cluster — headline, summary, thematic
-            analysis, categories, and sources — visible on the site immediately.
-            Merges submitted sources into the existing list by URL rather than
-            requiring the full list to be resent (pass replaceSources: true to
-            override), and marks every submitted source URL as processed.
+            analysis, sources, and the optional lesson fields (originalText,
+            furiganaText, vocabList, grammarNotes, difficultyLevel) — visible on
+            the site immediately. Categories are derived server-side from the
+            sources. Merges submitted sources into the existing list by URL
+            rather than requiring the full list to be resent (pass
+            replaceSources: true to override), and marks every submitted source
+            URL as processed. On an extend, any lesson field left out keeps its
+            existing value.
           </p>
         </UCard>
 
@@ -585,8 +615,9 @@
             their sources (deduped by URL) under a single kept id and deleting
             the other now-redundant ids. Used when clusters written separately
             turn out to share a real throughline; the agent still supplies a
-            fresh headline, summary, and thematic analysis for the merged
-            result.
+            fresh headline, summary, thematic analysis, and lesson fields for
+            the merged result (any omitted lesson field falls back to the first
+            merged story that had one).
           </p>
         </UCard>
 
@@ -760,6 +791,16 @@
                 <td class="py-2 px-2 text-gray-500">string</td>
                 <td class="py-2 px-2">
                   Topic filter (e.g. <code>society</code>, <code>tech</code>)
+                </td>
+              </tr>
+              <tr>
+                <td class="py-2 px-2"><code>difficulty</code></td>
+                <td class="py-2 px-2 text-gray-500">
+                  enum (<code>N5</code>–<code>N1</code>)
+                </td>
+                <td class="py-2 px-2">
+                  JLPT lesson-difficulty filter (matches
+                  <code>story.difficultyLevel</code>; invalid values ignored)
                 </td>
               </tr>
               <tr>
@@ -1021,7 +1062,7 @@ Story Database")]
 const mcpDiagram = `
 flowchart TD
     Start(["Claude web agent
-runs on its own schedule"])
+runs weekly on its own schedule"])
 
     Start --> S1["Step 1 · cleanup_old_data
 Preview/delete stories >30 days old"]
@@ -1035,25 +1076,26 @@ duplicate coverage"]
 
     S2 --> S3["Step 3 · Research (per category)
 For each of 6 categories: search
-for follow-ups on tracked stories
-from Step 2, then search broadly
-for new topics"]
+the last 7 days for follow-ups on
+tracked stories, then for new topics"]
 
     S3 --> S4["Step 4 · check_processed_urls
 Skip candidate URLs already ingested"]
     S4 -. "READ seen sources" .-> Redis
 
-    S4 --> S5["Step 5 · upsert_story
-Write headline, summary, thematic
-analysis & sources for each cluster"]
+    S4 --> S5["Step 5 · Author lesson + upsert_story
+Generate furigana passage, vocab &
+grammar from the JP sources, then
+write headline, summary, thematic
+analysis, sources & lesson per cluster"]
     S5 -- "WRITE story +
 mark sources processed" --> Redis
 
-    S5 -. "Step 6 (optional) · merge_stories
+    S5 -. "Step 5b (optional) · merge_stories
 Combine clusters that turn out to
 share a real throughline" .-> Redis
 
-    S5 --> S7["Step 7 · mark_ingest_complete
+    S5 --> S7["Step 6 · mark_ingest_complete
 Record last-ingest timestamp"]
     S7 -- "WRITE" --> Redis
 

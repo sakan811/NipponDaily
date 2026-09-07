@@ -82,6 +82,18 @@ const features = [
     icon: "i-heroicons-bars-3-bottom-left",
   },
   {
+    title: "Japanese Lessons from the News",
+    description:
+      "Each story can carry a lesson authored by the Claude web agent from its Japanese-language sources: a representative passage with inline furigana (ruby) markup, an 8–15 term vocabulary list with readings and JLPT levels, and 1–3 grammar notes. Shown in a collapsed 'Study this in Japanese' panel so the news view stays uncluttered.",
+    icon: "i-heroicons-academic-cap",
+  },
+  {
+    title: "Browse by JLPT Difficulty",
+    description:
+      "Filter stories by lesson difficulty (N5–N1) alongside the category tabs; each story shows its estimated level as a badge.",
+    icon: "i-heroicons-adjustments-horizontal",
+  },
+  {
     title: "AI Trust Scoring",
     description:
       "Per-source credibility scores (0.0-1.0) assigned by the Claude web agent when it writes a story, aggregated into an overall score and rendered with an HSL color gradient.",
@@ -90,7 +102,7 @@ const features = [
   {
     title: "Agent-Driven News Discovery",
     description:
-      "A Claude web agent researches Japan-related news across all major categories on its own schedule, entirely outside this codebase.",
+      "A Claude web agent researches a week of Japan-related news across all major categories on a weekly schedule, entirely outside this codebase.",
     icon: "i-heroicons-magnifying-glass",
   },
   {
@@ -102,7 +114,7 @@ const features = [
   {
     title: "MCP-Driven Story Pipeline",
     description:
-      "News discovery, clustering, and summarization happen entirely outside this codebase — a Claude web agent writes, merges, and prunes finished stories through a bearer-token-protected remote MCP server.",
+      "News discovery, clustering, summarization, and Japanese-lesson authoring happen entirely outside this codebase — a Claude web agent writes, merges, and prunes finished stories through a bearer-token-protected remote MCP server.",
     icon: "i-heroicons-cpu-chip",
   },
   {
