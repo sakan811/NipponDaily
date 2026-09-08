@@ -3,7 +3,6 @@
     <AppHeader v-model:open="mobileMenuOpen" />
 
     <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-4xl">
-      <!-- News Feed & Controls Column -->
       <div class="space-y-6">
         <div
           class="flex items-center gap-1.5 text-xs text-stone-400 dark:text-stone-500"
@@ -11,109 +10,8 @@
           <UIcon name="i-heroicons-arrow-path" class="w-3.5 h-3.5" />
           <span>{{ lastUpdatedText }}</span>
         </div>
+
         <div>
-          <div class="mb-3 sm:mb-4">
-            <p class="kicker text-secondary-500 mb-2">
-              {{ t.timeRangeSubtitle }}
-            </p>
-            <div
-              class="flex flex-wrap items-center gap-x-2 gap-y-2 sm:gap-x-3 justify-start pb-3 border-b border-stone-300 dark:border-stone-800"
-            >
-              <UTooltip
-                v-for="timeRange in timeRangeOptions"
-                :key="timeRange.id"
-                :text="`Filter news by ${timeRange.name.toLowerCase()}`"
-              >
-                <UButton
-                  :color="
-                    selectedTimeRange === timeRange.id ? 'primary' : 'secondary'
-                  "
-                  :variant="
-                    selectedTimeRange === timeRange.id ? 'solid' : 'outline'
-                  "
-                  size="xs"
-                  :label="getTimeRangeLabel(timeRange.id)"
-                  class="kicker rounded-none"
-                  @click="
-                    () => {
-                      selectedTimeRange = timeRange.id;
-                    }
-                  "
-                />
-              </UTooltip>
-            </div>
-
-            <div
-              v-if="selectedTimeRange === 'custom'"
-              class="mt-3 grid grid-cols-1 gap-4"
-            >
-              <div>
-                <UPopover>
-                  <UButton
-                    icon="i-heroicons-calendar-days-20-solid"
-                    :label="
-                      customDateRange.start && customDateRange.end
-                        ? `${formatCalendarDateYMD(customDateRange.start)} - ${formatCalendarDateYMD(customDateRange.end)}`
-                        : t.selectDateRange
-                    "
-                    variant="outline"
-                    color="secondary"
-                    size="sm"
-                    block
-                  />
-                  <template #content>
-                    <UCalendar
-                      v-model="customDateRange"
-                      :min-value="minDate"
-                      :max-value="maxDate"
-                      :number-of-months="2"
-                      range
-                      class="p-2"
-                    />
-                  </template>
-                </UPopover>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-4 sm:mb-6">
-            <p class="kicker text-secondary-500 mb-2">
-              {{ t.categorySubtitle }}
-            </p>
-            <div
-              class="flex flex-wrap items-center gap-x-2 gap-y-2 sm:gap-x-3 justify-start pb-3 border-b border-stone-300 dark:border-stone-800"
-            >
-              <UTooltip
-                v-for="category in categories"
-                :key="category.id"
-                :text="
-                  category.id === 'all'
-                    ? 'Show all categories'
-                    : `Filter news by ${category.name}`
-                "
-              >
-                <UButton
-                  :color="
-                    selectedCategory === category.id ? 'primary' : 'secondary'
-                  "
-                  :variant="
-                    selectedCategory === category.id ? 'solid' : 'outline'
-                  "
-                  size="xs"
-                  :label="
-                    t.categories[category.id as keyof typeof t.categories]
-                  "
-                  class="kicker rounded-none"
-                  @click="
-                    () => {
-                      selectedCategory = category.id;
-                    }
-                  "
-                />
-              </UTooltip>
-            </div>
-          </div>
-
           <div class="mb-4 sm:mb-6">
             <p class="kicker text-secondary-500 mb-2">
               {{ t.difficultySubtitle }}
@@ -126,8 +24,8 @@
                 :key="level.id"
                 :text="
                   level.id === 'all'
-                    ? 'Show stories at any level'
-                    : `Show ${level.id} (JLPT) stories`
+                    ? 'Show lessons at any level'
+                    : `Show ${level.id} (JLPT) lessons`
                 "
               >
                 <UButton
@@ -178,49 +76,24 @@
               <UButton
                 size="xs"
                 :color="
-                  debugSimulationMode === 'trending_error'
-                    ? 'error'
-                    : 'secondary'
+                  debugSimulationMode === 'fetch_error' ? 'error' : 'secondary'
                 "
                 icon="i-heroicons-cloud-arrow-down"
-                label="Failed Trending Fetching"
-                @click="debugSimulationMode = 'trending_error'"
-              />
-              <UButton
-                size="xs"
-                :color="
-                  debugSimulationMode === 'summary_error'
-                    ? 'warning'
-                    : 'secondary'
-                "
-                icon="i-heroicons-exclamation-triangle"
-                label="Failed Summary Process"
-                @click="debugSimulationMode = 'summary_error'"
-              />
-              <UButton
-                size="xs"
-                :color="
-                  debugSimulationMode === 'ai_fallback'
-                    ? 'primary'
-                    : 'secondary'
-                "
-                icon="i-heroicons-document-text"
-                label="AI Fallback Briefing Card"
-                @click="debugSimulationMode = 'ai_fallback'"
+                label="Failed News Fetching"
+                @click="debugSimulationMode = 'fetch_error'"
               />
             </div>
           </div>
 
-          <!-- 1. Failed Trending Fetching Fallback Component -->
+          <!-- Failed fetch fallback -->
           <TrendingFallback
             v-if="
-              error ||
-              (isDebugErrorUi && debugSimulationMode === 'trending_error')
+              error || (isDebugErrorUi && debugSimulationMode === 'fetch_error')
             "
             :error="
               error ||
               (isDebugErrorUi
-                ? 'Debug Test: Failed to fetch trending boxes from server.'
+                ? 'Debug Test: Failed to fetch lessons from server.'
                 : null)
             "
             :loading="loading"
@@ -242,364 +115,85 @@
                   <USkeleton class="h-4 w-full" />
                   <USkeleton class="h-4 w-5/6" />
                 </div>
-                <div
-                  class="bg-primary-50 dark:bg-primary-950/20 p-4 rounded-sm space-y-2"
-                >
-                  <USkeleton class="h-4 w-32 mb-2" />
-                  <USkeleton class="h-4 w-full" />
-                  <USkeleton class="h-4 w-4/5" />
-                </div>
               </div>
             </UCard>
             <p
               class="text-center text-secondary-500 text-sm mt-4 animate-pulse flex items-center justify-center gap-2"
             >
               <UIcon name="i-heroicons-cpu-chip" class="w-5 h-5" />
-              {{ t.aiSynthesizingMsg }}
+              {{ t.loadingMsg }}
             </p>
           </div>
 
-          <!-- 2. Failed Summary Process State / AI Fallback Card Preview -->
-          <div
-            v-if="
-              isDebugErrorUi && !error && debugSimulationMode === 'ai_fallback'
-            "
-            class="mb-6 space-y-2"
-          >
-            <div
-              class="text-xs font-bold text-primary-500 uppercase tracking-wider"
-            >
-              Mock: AI Briefing Fallback Preview
-            </div>
-            <BriefingCard :briefing="mockFallbackBriefing" />
-          </div>
-
-          <div
-            v-if="
-              isDebugErrorUi &&
-              !error &&
-              debugSimulationMode === 'summary_error'
-            "
-            class="mb-6"
-          >
-            <SummaryFallback
-              headline="[Debug Mode] AI Summarization Failure Preview"
-              :sources="mockRawSources"
-              :loading="loading"
-              :is-debug="true"
-              @retry="refreshNews"
-            />
-          </div>
-
-          <!-- New Clustered Stories Trending Dashboard UI -->
-          <div v-if="filteredStories.length > 0 && !loading" class="space-y-6">
-            <!-- 1. Front Page: Lead Story + Column Grid -->
-            <div v-if="!selectedStoryId">
+          <!-- Lesson list / detail -->
+          <div v-if="lessons.length > 0 && !loading" class="space-y-6">
+            <!-- List view -->
+            <div v-if="!selectedLesson">
               <h3
                 class="kicker text-stone-500 dark:text-stone-400 mb-3 flex items-center gap-1.5"
               >
                 <UIcon
-                  name="i-heroicons-fire"
+                  name="i-heroicons-academic-cap"
                   class="w-4 h-4 text-primary-500"
                 />
-                Trending Topics ({{ trendingCount }})
+                {{ t.lessonsHeading }} ({{ lessons.length }})
               </h3>
 
-              <div class="border-t border-stone-300 dark:border-stone-800">
-                <!-- Lead story -->
-                <div
-                  v-if="filteredStories[0]"
-                  class="cursor-pointer group py-5 border-b border-stone-300 dark:border-stone-800"
-                  @click="selectedStoryId = filteredStories[0]!.id"
+              <ul class="border-t border-stone-300 dark:border-stone-800">
+                <li
+                  v-for="lesson in lessons"
+                  :key="lesson.id"
+                  class="cursor-pointer group py-4 border-b border-stone-300 dark:border-stone-800"
+                  @click="selectedLessonId = lesson.id"
                 >
-                  <div class="flex items-center gap-2 mb-2 flex-wrap">
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
                     <span
-                      class="kicker text-primary-600 dark:text-primary-400 truncate max-w-[200px]"
+                      class="kicker text-primary-600 dark:text-primary-400 truncate max-w-55"
                     >
-                      {{
-                        filteredStories[0].sources[0]?.source || "News Source"
-                      }}
+                      {{ displaySource(lesson.source) }}
                     </span>
-                    <UBadge
-                      v-if="!filteredStories[0].isSummarized"
-                      color="primary"
-                      variant="soft"
-                      size="xs"
-                      class="animate-pulse"
-                    >
-                      Summarizing...
-                    </UBadge>
-                    <UBadge
-                      v-if="filteredStories[0].difficultyLevel"
-                      color="secondary"
-                      variant="soft"
-                      size="xs"
-                    >
-                      {{ filteredStories[0].difficultyLevel }}
-                    </UBadge>
-                    <UBadge
-                      v-if="
-                        filteredStories[0].trendScore &&
-                        filteredStories[0].trendScore > 5
-                      "
-                      color="primary"
-                      variant="soft"
-                      size="xs"
-                      class="flex items-center gap-1"
-                    >
-                      <UIcon
-                        name="i-heroicons-fire"
-                        class="w-3 h-3 text-primary-500 animate-pulse"
-                      />
-                      <span>Trending</span>
+                    <UBadge color="secondary" variant="soft" size="xs">
+                      {{ lesson.difficultyLevel }}
                     </UBadge>
                   </div>
                   <h4
-                    class="font-serif font-bold text-2xl sm:text-3xl leading-tight text-stone-900 dark:text-white group-hover:underline decoration-1 underline-offset-4"
+                    class="font-serif font-bold text-lg sm:text-xl leading-snug text-stone-900 dark:text-white group-hover:underline decoration-1 underline-offset-4"
                   >
-                    {{ filteredStories[0].headline }}
+                    {{ lesson.title }}
                   </h4>
                   <p
-                    v-if="getDek(filteredStories[0].summary)"
-                    class="mt-2 font-body-serif text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl line-clamp-2"
+                    v-if="lesson.titleJa"
+                    class="text-sm text-stone-500 dark:text-stone-400 mt-0.5"
                   >
-                    {{ getDek(filteredStories[0].summary) }}
+                    {{ lesson.titleJa }}
                   </p>
                   <div
-                    class="flex items-center gap-2 mt-3 text-xs text-stone-400 dark:text-stone-500"
+                    class="flex items-center gap-2 mt-2 text-xs text-stone-400 dark:text-stone-500"
                   >
-                    <span>{{ filteredStories[0].articleCount }} sources</span>
-                    <span>•</span>
-                    <span>{{
-                      getRelativeTime(filteredStories[0].lastUpdated)
-                    }}</span>
+                    <span>{{ getRelativeTime(publishedMs(lesson)) }}</span>
                   </div>
-                </div>
-
-                <!-- Remaining stories: column list -->
-                <div
-                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 divide-stone-300 dark:divide-stone-800"
-                >
-                  <div
-                    v-for="(story, idx) in filteredStories.slice(1)"
-                    :key="story.id"
-                    class="cursor-pointer group py-4 sm:px-5"
-                    :class="{
-                      'sm:border-l border-stone-300 dark:border-stone-800':
-                        idx % 3 !== 0,
-                    }"
-                    @click="selectedStoryId = story.id"
-                  >
-                    <div class="flex items-center justify-between gap-2 mb-1.5">
-                      <span
-                        class="text-[9px] font-bold uppercase tracking-wider text-stone-400 dark:text-stone-500 truncate max-w-[120px]"
-                      >
-                        {{ story.sources[0]?.source || "News Source" }}
-                      </span>
-                      <div class="flex items-center gap-2">
-                        <UBadge
-                          v-if="!story.isSummarized"
-                          color="primary"
-                          variant="soft"
-                          size="xs"
-                          class="animate-pulse"
-                        >
-                          Summarizing...
-                        </UBadge>
-                        <UBadge
-                          v-if="story.difficultyLevel"
-                          color="secondary"
-                          variant="soft"
-                          size="xs"
-                        >
-                          {{ story.difficultyLevel }}
-                        </UBadge>
-                        <UBadge
-                          v-if="story.trendScore && story.trendScore > 5"
-                          color="primary"
-                          variant="soft"
-                          size="xs"
-                          class="flex items-center gap-1"
-                        >
-                          <UIcon
-                            name="i-heroicons-fire"
-                            class="w-3 h-3 text-primary-500 animate-pulse"
-                          />
-                          <span>Trending</span>
-                        </UBadge>
-                      </div>
-                    </div>
-                    <h4
-                      class="text-sm font-bold font-serif line-clamp-2 text-stone-900 dark:text-white leading-snug group-hover:underline decoration-1 underline-offset-2"
-                    >
-                      {{ story.headline }}
-                    </h4>
-                    <div
-                      class="flex items-center gap-2 mt-2 text-[10px] text-stone-400 dark:text-stone-500"
-                    >
-                      <span>{{ story.articleCount }} sources</span>
-                      <span>•</span>
-                      <span>{{ getRelativeTime(story.lastUpdated) }}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
 
-            <!-- 2. Selected Active Story Briefing Detail View (In-place) -->
-            <div
-              v-else-if="selectedStoryId && activeBriefingData"
-              class="space-y-6"
-            >
-              <!-- 2.1 Briefing Summary Sub-page -->
-              <div v-if="detailSubPage === 'summary'" class="space-y-6">
-                <!-- Navigation buttons at the top -->
-                <div
-                  class="flex flex-wrap gap-2 justify-between items-center mb-4"
-                >
-                  <UButton
-                    icon="i-heroicons-arrow-left"
-                    color="secondary"
-                    variant="ghost"
-                    size="sm"
-                    label="Back to Trending Topics"
-                    @click="
-                      () => {
-                        selectedStoryId = null;
-                      }
-                    "
-                  />
-                  <UButton
-                    icon="i-heroicons-clock"
-                    color="primary"
-                    variant="solid"
-                    size="sm"
-                    label="View Story Timeline"
-                    @click="
-                      () => {
-                        detailSubPage = 'timeline';
-                      }
-                    "
-                  />
-                </div>
-
-                <!-- 2. Failed Summary Process Component -->
-                <SummaryFallback
-                  v-if="!activeStory?.isSummarized"
-                  :headline="activeStory?.headline"
-                  :sources="activeStory?.sources"
-                  :loading="loading"
-                  :is-debug="isDebugErrorUi"
-                  @retry="refreshNews"
-                />
-                <BriefingCard
-                  v-else
-                  :briefing="activeBriefingData"
-                  :lesson="activeStoryLesson"
-                  language="en"
-                />
-              </div>
-
-              <!-- 2.2 Story Timeline Sub-page -->
-              <div v-else-if="detailSubPage === 'timeline'" class="space-y-6">
-                <!-- Navigation buttons at the top -->
-                <div
-                  class="flex flex-wrap gap-2 justify-between items-center mb-4"
-                >
-                  <UButton
-                    icon="i-heroicons-arrow-left"
-                    color="secondary"
-                    variant="ghost"
-                    size="sm"
-                    label="Back to Summary"
-                    @click="
-                      () => {
-                        detailSubPage = 'summary';
-                      }
-                    "
-                  />
-                  <UButton
-                    icon="i-heroicons-home"
-                    color="secondary"
-                    variant="ghost"
-                    size="sm"
-                    label="Back to Trending Topics"
-                    @click="
-                      () => {
-                        selectedStoryId = null;
-                      }
-                    "
-                  />
-                </div>
-
-                <!-- Chronological Timeline Card -->
-                <div
-                  class="bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-800 rounded-sm p-4 sm:p-6"
-                >
-                  <h3
-                    class="kicker text-stone-500 dark:text-stone-400 mb-4 flex items-center gap-1.5"
-                  >
-                    <UIcon
-                      name="i-heroicons-clock"
-                      class="w-4 h-4 text-primary-500"
-                    />
-                    Story Timeline
-                  </h3>
-                  <div
-                    class="relative pl-6 border-l-2 border-stone-200 dark:border-stone-800 space-y-6"
-                  >
-                    <div
-                      v-for="(source, idx) in chronologicalSources"
-                      :key="idx"
-                      class="relative"
-                    >
-                      <!-- Dot indicator -->
-                      <span
-                        class="absolute left-[-31px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white dark:bg-stone-900 border-2 border-primary-500"
-                      >
-                        <span class="h-1.5 w-1.5 rounded-full bg-primary-500" />
-                      </span>
-                      <div class="space-y-1">
-                        <div
-                          class="flex items-center gap-2 text-xs text-stone-400 dark:text-stone-500"
-                        >
-                          <time>{{
-                            new Date(source.publishedAt).toLocaleDateString(
-                              "en-US",
-                              {
-                                month: "short",
-                                day: "numeric",
-                                year: "numeric",
-                                hour: "2-digit",
-                                minute: "2-digit",
-                              },
-                            )
-                          }}</time>
-                          <span>•</span>
-                          <span class="font-semibold">{{ source.source }}</span>
-                        </div>
-                        <a
-                          :href="source.url"
-                          target="_blank"
-                          class="text-sm font-bold hover:text-primary-500 transition-colors block"
-                        >
-                          {{ source.title }}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <!-- Detail view -->
+            <div v-else class="space-y-4">
+              <UButton
+                icon="i-heroicons-arrow-left"
+                color="secondary"
+                variant="ghost"
+                size="sm"
+                label="Back to lessons"
+                @click="selectedLessonId = null"
+              />
+              <LessonCard :lesson="selectedLesson" />
             </div>
           </div>
 
-          <!-- Empty fallback if no stories match criteria -->
+          <!-- Empty state -->
           <div
-            v-else-if="
-              !loading && !isDebugErrorUi && filteredStories.length === 0
-            "
+            v-else-if="!loading && !isDebugErrorUi && lessons.length === 0"
             class="bg-white dark:bg-neutral-900 rounded-sm text-center p-8 border border-stone-300 dark:border-stone-800"
-            style="contain: layout style paint"
           >
             <div class="mb-4">
               <svg
@@ -618,25 +212,20 @@
               </svg>
             </div>
             <h3 class="text-xl font-serif font-semibold mb-2">
-              {{ t.readyToSynthesizeTitle }}
+              {{ t.emptyTitle }}
             </h3>
             <p
               class="mb-4 text-secondary-500 dark:text-secondary-400 max-w-lg mx-auto"
-              style="contain: layout style"
             >
-              {{ t.readyToSynthesizeMsg }}
+              {{ t.emptyMsg }}
             </p>
             <UButton
-              v-if="selectedTimeRange !== 'none'"
+              v-if="selectedDifficulty !== 'all'"
               color="primary"
               variant="solid"
               size="sm"
-              :label="t.showAllTime"
-              @click="
-                () => {
-                  selectedTimeRange = 'none';
-                }
-              "
+              label="Show all levels"
+              @click="selectedDifficulty = 'all'"
             />
           </div>
         </div>
@@ -648,93 +237,46 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
-import { CalendarDate } from "@internationalized/date";
-import type { NewsBriefing, Story, StoryLesson } from "~~/types/index";
-import { NEWS_CATEGORIES } from "~~/constants/categories";
-import type { CategoryId } from "~~/constants/categories";
-import { formatCalendarDateYMD } from "../utils/date";
+import type { Lesson } from "~~/types/index";
 
-// Import components
 import AppHeader from "./AppHeader.vue";
-import BriefingCard from "./BriefingCard.vue";
+import LessonCard from "./LessonCard.vue";
 import TrendingFallback from "./TrendingFallback.vue";
-import SummaryFallback from "./SummaryFallback.vue";
 
 const translations = {
   en: {
-    timeRangeSubtitle: "Select a time range to focus the search results",
-    categorySubtitle: "Choose a category to focus the briefing",
     difficultySubtitle: "Filter by Japanese difficulty (JLPT level)",
-    generateBriefing: "Refresh News",
-    synthesizing: "Refreshing...",
-    aiSynthesizingMsg: "Refreshing the latest news from Japan...",
-    readyToSynthesizeTitle: "No stories in this time range",
-    readyToSynthesizeMsg:
-      "Nothing was published in the selected window. Try a wider time range or a different category.",
-    showAllTime: "Show all time",
+    loadingMsg: "Loading the latest lessons from Japan...",
+    lessonsHeading: "Lessons",
+    emptyTitle: "No lessons at this level",
+    emptyMsg:
+      "Nothing matches the selected JLPT level yet. Try a different level or check back after the next weekly update.",
     lastUpdatedPrefix: "Updated",
     lastUpdatedUnknown: "Awaiting first update",
-    dailyLimitTitle: "Daily Limit Reached",
-    resetsAt: "Resets at:",
-    tryAgain: "Try Again",
-    langLabel: "Lang:",
-    translateLabel: "Translate to:",
-    allTime: "All Time",
-    today: "Today",
-    thisWeek: "This Week",
-    customRange: "Custom Range",
-    selectDateRange: "Select date range",
-    categories: {
-      all: "All News",
-      society: "Society & Prefectures",
-      tech: "Tech & Mobility",
-      "pop-culture": "Pop Culture & Gaming",
-      tourism: "Travel & Heritage",
-      food: "Food & Gastronomy",
-      "disaster-prep": "Nature & Resilience",
-    },
   },
 } as const;
 
-const t = computed(() => {
-  return translations.en;
-});
+const t = computed(() => translations.en);
 
-const getTimeRangeLabel = (id: string) => {
-  switch (id) {
-    case "none":
-      return t.value.allTime;
-    case "day":
-      return t.value.today;
-    case "week":
-      return t.value.thisWeek;
-    case "custom":
-      return t.value.customRange;
-    default:
-      return id;
-  }
-};
+type DifficultyId = "all" | "N5" | "N4" | "N3" | "N2" | "N1";
 
-// State
-const stories = ref<Story[]>([]);
+const lessons = ref<Lesson[]>([]);
 const lastIngestTime = ref<number>(0);
-const selectedStoryId = ref<string | null>(null);
-const detailSubPage = ref<"summary" | "timeline">("summary");
-
-watch(selectedStoryId, () => {
-  detailSubPage.value = "summary";
-});
-
+const selectedLessonId = ref<string | null>(null);
+const selectedDifficulty = ref<DifficultyId>("all");
 const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 
-const selectedCategory = ref<CategoryId>("all");
+const difficultyLevels = [
+  { id: "all", name: "All Levels" },
+  { id: "N5", name: "N5" },
+  { id: "N4", name: "N4" },
+  { id: "N3", name: "N3" },
+  { id: "N2", name: "N2" },
+  { id: "N1", name: "N1" },
+] as const;
 
-type DifficultyId = "all" | "N5" | "N4" | "N3" | "N2" | "N1";
-const selectedDifficulty = ref<DifficultyId>("all");
-
-// Debug state for UI testing & designing (Activated via URL query: ?debug_error_ui=true)
 const isDebugErrorUi = computed(() => {
   try {
     const route = useRoute();
@@ -750,235 +292,28 @@ const isDebugErrorUi = computed(() => {
   }
   return false;
 });
-const debugSimulationMode = ref<
-  "none" | "trending_error" | "summary_error" | "ai_fallback"
->(isDebugErrorUi.value ? "trending_error" : "none");
+const debugSimulationMode = ref<"none" | "fetch_error">(
+  isDebugErrorUi.value ? "fetch_error" : "none",
+);
 
-const mockRawSources = [
-  {
-    title: "Toyota and NTT Expand Autonomous Mobility Partnership in Tokyo",
-    source: "Nikkei Asia",
-    url: "https://asia.nikkei.com",
-  },
-  {
-    title:
-      "Japan Weather Agency Issues Special Resilience Survey for Tohoku Region",
-    source: "NHK World",
-    url: "https://www3.nhk.or.jp",
-  },
-];
+const selectedLesson = computed<Lesson | null>(() => {
+  if (!selectedLessonId.value) return null;
+  return lessons.value.find((l) => l.id === selectedLessonId.value) || null;
+});
 
-const mockFallbackBriefing: NewsBriefing = {
-  isAiFallback: true,
-  mainHeadline: "Latest News Processing Unavailable",
-  executiveSummary:
-    "Our AI analysis engine is currently unavailable or encountered an error. Below are the raw sources we retrieved from the latest search query.",
-  thematicAnalysis:
-    "Unable to synthesize relationships between articles at this time due to system fallback mode.",
-  overallCredibilityScore: 0.5,
-  sourcesProcessed: [
-    {
-      title: "Example Raw Article 1",
-      source: "NHK News",
-      url: "https://example.com",
-      credibilityScore: 0.95,
-    },
-    {
-      title: "Example Raw Article 2",
-      source: "Unknown Blog",
-      url: "https://example.com",
-      credibilityScore: 0.4,
-    },
-  ],
+const publishedMs = (lesson: Lesson): number => {
+  const t = new Date(lesson.publishedAt).getTime();
+  return isNaN(t) ? lesson.addedAt || 0 : t;
 };
 
-const selectedTimeRange = ref<"none" | "day" | "week" | "custom">("week");
-
-// Calendar state for custom date range
-const today = new CalendarDate(
-  new Date().getFullYear(),
-  new Date().getMonth() + 1,
-  new Date().getDate(),
-);
-const minDate = new CalendarDate(2020, 1, 1);
-const maxDate = today;
-const oneWeekAgo = today.subtract({ days: 7 });
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const customDateRange = ref<any>({
-  start: oneWeekAgo,
-  end: today,
-});
-
-watch(
-  [selectedCategory, selectedDifficulty, selectedTimeRange, customDateRange],
-  async () => {
-    const isTest =
-      typeof process !== "undefined" &&
-      (process.env?.NODE_ENV === "test" || process.env?.VITEST);
-    if (isTest) return;
-
-    selectedStoryId.value = null;
-    await fetchNews();
-  },
-  { deep: true },
-);
-
-// Categories
-const categories = NEWS_CATEGORIES;
-
-// JLPT difficulty levels for the lesson-level filter
-const difficultyLevels = [
-  { id: "all", name: "All Levels" },
-  { id: "N5", name: "N5" },
-  { id: "N4", name: "N4" },
-  { id: "N3", name: "N3" },
-  { id: "N2", name: "N2" },
-  { id: "N1", name: "N1" },
-] as const;
-
-// Time range options
-const timeRangeOptions = [
-  { id: "none", name: "All Time" },
-  { id: "day", name: "Today" },
-  { id: "week", name: "This Week" },
-  { id: "custom", name: "Custom Range" },
-] as const;
-
-// Filtered stories list
-const filteredStories = computed(() => {
-  return stories.value;
-});
-
-// Number of stories currently marked as "Trending" (matches the per-card TRENDING badge)
-const trendingCount = computed(
-  () =>
-    filteredStories.value.filter((s) => s.trendScore && s.trendScore > 5)
-      .length,
-);
-
-// Currently active story briefing
-const activeStory = computed<Story | null>(() => {
-  if (selectedStoryId.value) {
-    return (
-      filteredStories.value.find((s) => s.id === selectedStoryId.value) || null
-    );
+const displaySource = (source: string): string => {
+  try {
+    return new URL(source).hostname.replace(/^www\d?\./, "");
+  } catch {
+    return source;
   }
-  return null;
-});
-
-// Helper function to format timeline range as Month Day - Day, Year (e.g. May 21 - 23, 2025)
-const getStoryTimeRange = (story: Story | null): string => {
-  if (!story || !story.sources || story.sources.length === 0) {
-    return "Recent";
-  }
-
-  const validDates = story.sources
-    .map((src) => new Date(src.publishedAt))
-    .filter((date) => !isNaN(date.getTime()));
-
-  if (validDates.length === 0) {
-    return "Recent";
-  }
-
-  // Sort ascending (earliest to latest)
-  validDates.sort((a, b) => a.getTime() - b.getTime());
-  const earliest = validDates[0]!;
-  const latest = validDates[validDates.length - 1]!;
-
-  const formatOptsMonthDay: Intl.DateTimeFormatOptions = {
-    month: "short",
-    day: "numeric",
-  };
-
-  const formatOptsFull: Intl.DateTimeFormatOptions = {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  };
-
-  const earliestYear = earliest.getFullYear();
-  const latestYear = latest.getFullYear();
-  const earliestMonth = earliest.getMonth();
-  const latestMonth = latest.getMonth();
-  const earliestDay = earliest.getDate();
-  const latestDay = latest.getDate();
-
-  const sameYear = earliestYear === latestYear;
-  const sameMonth = earliestMonth === latestMonth && sameYear;
-  const sameDay = earliestDay === latestDay && sameMonth;
-
-  if (sameDay) {
-    return earliest.toLocaleDateString("en-US", formatOptsFull);
-  }
-
-  if (sameMonth) {
-    const earliestStr = earliest.toLocaleDateString(
-      "en-US",
-      formatOptsMonthDay,
-    );
-    return `${earliestStr} - ${latestDay}, ${latestYear}`;
-  }
-
-  if (sameYear) {
-    const earliestStr = earliest.toLocaleDateString(
-      "en-US",
-      formatOptsMonthDay,
-    );
-    const latestStr = latest.toLocaleDateString("en-US", formatOptsMonthDay);
-    return `${earliestStr} - ${latestStr}, ${latestYear}`;
-  }
-
-  const earliestStr = earliest.toLocaleDateString("en-US", formatOptsFull);
-  const latestStr = latest.toLocaleDateString("en-US", formatOptsFull);
-  return `${earliestStr} - ${latestStr}`;
 };
 
-// Map activeStory to NewsBriefing shape for BriefingCard compatibility
-const activeBriefingData = computed<NewsBriefing | null>(() => {
-  if (!activeStory.value) return null;
-  return {
-    mainHeadline: activeStory.value.headline,
-    executiveSummary: activeStory.value.summary,
-    thematicAnalysis: activeStory.value.thematicAnalysis,
-    overallCredibilityScore:
-      activeStory.value.sources[0]?.credibilityScore || 0.8,
-    sourcesProcessed: activeStory.value.sources.map((src) => ({
-      title: src.title,
-      source: src.source,
-      url: src.url,
-      favicon: src.favicon,
-      credibilityScore: src.credibilityScore,
-    })),
-    publishTimeRange: getStoryTimeRange(activeStory.value),
-  };
-});
-
-// Japanese-learning lesson content for the active story (undefined when the
-// story carries no lesson, e.g. it was built from English-only coverage)
-const activeStoryLesson = computed<StoryLesson | undefined>(() => {
-  const s = activeStory.value;
-  if (!s) return undefined;
-  const lesson: StoryLesson = {
-    originalText: s.originalText,
-    furiganaText: s.furiganaText,
-    vocabList: s.vocabList,
-    grammarNotes: s.grammarNotes,
-    difficultyLevel: s.difficultyLevel,
-  };
-  return lesson;
-});
-
-// Chronological timeline sources sorted oldest first (ascending)
-const chronologicalSources = computed(() => {
-  if (!activeStory.value) return [];
-  return [...activeStory.value.sources].sort(
-    (a, b) =>
-      new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime(),
-  );
-});
-
-// Formatting helpers
 const getRelativeTime = (timestamp: number) => {
   const diff = Date.now() - timestamp;
   const mins = Math.floor(diff / 60000);
@@ -991,163 +326,76 @@ const getRelativeTime = (timestamp: number) => {
   return `${days}d ago`;
 };
 
-// Site-wide freshness indicator, driven by the MCP agent's last completed run
 const lastUpdatedText = computed(() => {
   if (!lastIngestTime.value) return t.value.lastUpdatedUnknown;
   return `${t.value.lastUpdatedPrefix} ${getRelativeTime(lastIngestTime.value)}`;
 });
 
-// Plain-text dek for the lead story: first non-empty line, bullet markers stripped
-const getDek = (summary: string | undefined): string => {
-  if (!summary) return "";
-  const firstLine = summary
-    .split("\n")
-    .map((line) => line.trim())
-    .find((line) => line.length > 0);
-  return firstLine ? firstLine.replace(/^[-*•]\s*/, "") : "";
-};
+watch(selectedDifficulty, async () => {
+  const isTest =
+    typeof process !== "undefined" &&
+    (process.env?.NODE_ENV === "test" || process.env?.VITEST);
+  if (isTest) return;
+  selectedLessonId.value = null;
+  await fetchNews();
+});
 
 watch(debugSimulationMode, () => {
   if (isDebugErrorUi.value) {
-    if (debugSimulationMode.value === "trending_error") {
-      error.value =
-        "DEBUG_ERROR_UI: Service temporarily unavailable. Failed to fetch trending stories from Redis database.";
-    } else {
-      error.value = null;
-    }
+    error.value =
+      debugSimulationMode.value === "fetch_error"
+        ? "DEBUG_ERROR_UI: Service temporarily unavailable. Failed to fetch lessons from Redis database."
+        : null;
   }
 });
 
-// Methods
 const fetchNews = async () => {
   loading.value = true;
   error.value = null;
 
-  // In DEBUG_ERROR_UI mode, bypass actual Redis/API requests when simulating error states
-  if (isDebugErrorUi.value && debugSimulationMode.value === "trending_error") {
+  if (isDebugErrorUi.value && debugSimulationMode.value === "fetch_error") {
     error.value =
-      "DEBUG_ERROR_UI: Service temporarily unavailable. Failed to fetch trending stories from Redis database.";
-    loading.value = false;
-    return;
-  }
-
-  if (
-    isDebugErrorUi.value &&
-    (debugSimulationMode.value === "summary_error" ||
-      debugSimulationMode.value === "ai_fallback")
-  ) {
+      "DEBUG_ERROR_UI: Service temporarily unavailable. Failed to fetch lessons from Redis database.";
     loading.value = false;
     return;
   }
 
   try {
     const query: Record<string, string | number | undefined> = {
-      category:
-        selectedCategory.value === "all" ? undefined : selectedCategory.value,
       difficulty:
         selectedDifficulty.value === "all"
           ? undefined
           : selectedDifficulty.value,
-      language: "en",
       limit: 20,
     };
 
-    if (selectedTimeRange.value === "custom") {
-      if (customDateRange.value.start && customDateRange.value.end) {
-        query.startDate = formatCalendarDateYMD(customDateRange.value.start);
-        query.endDate = formatCalendarDateYMD(customDateRange.value.end);
-      } else {
-        query.timeRange = "week";
-      }
-    } else {
-      query.timeRange = selectedTimeRange.value;
-    }
-
     const response = await $fetch<{
       success: boolean;
-      data: NewsBriefing & { stories: Story[]; lastIngestTime: number };
+      data: { lessons: Lesson[]; lastIngestTime: number };
       count: number;
       timestamp: string;
-    }>("/api/news", {
-      query,
-    });
+    }>("/api/news", { query });
 
-    // Populate our new stories state
-    if (response && response.data) {
-      if (response.data.stories) {
-        stories.value = response.data.stories;
-        lastIngestTime.value = response.data.lastIngestTime || 0;
-      } else if (response.data.mainHeadline) {
-        // Fallback for NewsBriefing format (backward compatibility & unit tests)
-        const mockBriefing = response.data;
-        const mappedSources = (mockBriefing.sourcesProcessed || []).map(
-          (src: {
-            title: string;
-            source: string;
-            url?: string;
-            publishedAt?: string;
-            favicon?: string;
-            credibilityScore?: number;
-            category?: string;
-          }) => ({
-            title: src.title,
-            source: src.source,
-            url: src.url || "",
-            publishedAt: src.publishedAt || new Date().toISOString(),
-            favicon: src.favicon,
-            credibilityScore: src.credibilityScore || 0.85,
-            addedAt: Date.now(),
-            category: src.category,
-          }),
-        );
-        const sourceTimes = mappedSources.map((src) => {
-          const pubTime = src.publishedAt
-            ? new Date(src.publishedAt).getTime()
-            : 0;
-          return isNaN(pubTime) ? src.addedAt || 0 : pubTime;
-        });
-        const fallbackLastUpdated =
-          sourceTimes.length > 0 ? Math.max(...sourceTimes) : Date.now();
-
-        stories.value = [
-          {
-            id: "default-story",
-            headline: mockBriefing.mainHeadline,
-            summary: mockBriefing.executiveSummary,
-            thematicAnalysis: mockBriefing.thematicAnalysis || "",
-            articleCount: mockBriefing.sourcesProcessed?.length || 0,
-            firstSeen: Date.now(),
-            lastUpdated: fallbackLastUpdated,
-            trendScore: mockBriefing.sourcesProcessed?.length || 0,
-            isSummarized: true,
-            sources: mappedSources,
-            categories: [],
-          },
-        ];
-        lastIngestTime.value = Date.now();
-      } else {
-        stories.value = [];
-      }
+    if (response?.data?.lessons) {
+      lessons.value = response.data.lessons;
+      lastIngestTime.value = response.data.lastIngestTime || 0;
     } else {
-      stories.value = [];
+      lessons.value = [];
     }
   } catch (err: unknown) {
-    console.error("Error generating briefing:", err);
+    console.error("Error fetching lessons:", err);
 
     const errorData = err as {
       statusCode?: number;
-      data?: {
-        error?: string | unknown;
-      };
+      data?: { error?: string | unknown };
     };
-
     const errorMsg = errorData.data?.error;
     if (typeof errorMsg === "string") {
       error.value = errorMsg;
     } else if (errorData.statusCode === 500) {
       error.value = "Service temporarily unavailable. Please try again.";
     } else {
-      error.value = "Failed to generate briefing. Please try again.";
+      error.value = "Failed to fetch lessons. Please try again.";
     }
   } finally {
     loading.value = false;
@@ -1155,7 +403,7 @@ const fetchNews = async () => {
 };
 
 const refreshNews = async () => {
-  selectedStoryId.value = null;
+  selectedLessonId.value = null;
   await fetchNews();
 };
 
