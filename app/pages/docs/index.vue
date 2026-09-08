@@ -71,14 +71,14 @@ const pages = [
     to: "/docs/architecture",
     title: "System Architecture",
     description:
-      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis story store it reads from, and the remote MCP server a Claude web agent uses to write finished news clusters straight into the database.",
+      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis lesson store it reads from, and the remote MCP server a Claude web agent uses to write finished lessons straight into the database.",
     icon: "i-heroicons-building-office-2",
   },
   {
     to: "/docs/features",
     title: "Core Features",
     description:
-      "The reader-facing capabilities: executive briefings, cross-source synthesis and root-cause analysis, per-source credibility scoring, story timelines, and span-based time filtering.",
+      "The reader-facing capabilities: one article per lesson with furigana, rōmaji, vocab and grammar; per-publisher credibility scoring; and a JLPT difficulty filter.",
     icon: "i-heroicons-star",
   },
   {
