@@ -15,6 +15,7 @@ describe("Types", () => {
       credibilityScore: 0.9,
       difficultyLevel: "N3",
       originalText: "日本語。",
+      englishText: "Japanese.",
       furiganaText: "<ruby>日本語<rt>にほんご</rt></ruby>。",
       romajiText: "Nihongo.",
       vocabList: [],

@@ -32,6 +32,7 @@ export const makeLesson = (overrides: Partial<Lesson> = {}): Lesson => {
     credibilityScore: 0.9,
     difficultyLevel: "N3",
     originalText: "日本語の本文です。",
+    englishText: "This is the Japanese body text.",
     furiganaText:
       "<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>本文<rt>ほんぶん</rt></ruby>です。",
     romajiText: "Nihongo no honbun desu.",

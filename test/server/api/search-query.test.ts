@@ -58,6 +58,28 @@ describe("News API - Free-text query search", () => {
     expect(response.data.lessons.map((l: any) => l.id)).toEqual(["a"]);
   });
 
+  it("matches lessons whose englishText translation contains the query", async () => {
+    mockGetLessons.mockResolvedValue([
+      createMockLesson({
+        id: "a",
+        title: "Unrelated",
+        originalText: "関係ない文章。",
+        englishText: "The bullet train opened a new line in Kyushu.",
+      }),
+      createMockLesson({
+        id: "b",
+        title: "Something else",
+        originalText: "別の文章。",
+        englishText: "An unrelated translation.",
+      }),
+    ]);
+    (global as any).getQuery.mockReturnValue({ query: "bullet train" });
+
+    const response = await handler(mockEvent);
+
+    expect(response.data.lessons.map((l: any) => l.id)).toEqual(["a"]);
+  });
+
   it("returns no lessons when nothing matches the query", async () => {
     mockGetLessons.mockResolvedValue([
       createMockLesson({ id: "a", title: "Tokyo Earthquake Update" }),

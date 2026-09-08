@@ -22,6 +22,7 @@ const baseLesson: Lesson = {
   credibilityScore: 0.85,
   difficultyLevel: "N3",
   originalText: "首相は表明した。",
+  englishText: "The prime minister made a statement.",
   furiganaText: "<ruby>首相<rt>しゅしょう</rt></ruby>は",
   romajiText: "Shushō wa",
   vocabList: [
@@ -86,6 +87,17 @@ describe("LessonCard", () => {
     expect(text).toContain("Shushō wa");
     expect(wrapper.html()).toContain("<ruby>");
     expect(wrapper.html()).toContain("<rt>しゅしょう</rt>");
+  });
+
+  it("renders the English translation of the passage when present", () => {
+    const wrapper = mountCard();
+    expect(wrapper.text()).toContain("English translation");
+    expect(wrapper.text()).toContain("The prime minister made a statement.");
+  });
+
+  it("omits the translation section when englishText is empty", () => {
+    const wrapper = mountCard({ englishText: "" });
+    expect(wrapper.text()).not.toContain("English translation");
   });
 
   it("escapes disallowed markup in furiganaText but keeps ruby tags", () => {
