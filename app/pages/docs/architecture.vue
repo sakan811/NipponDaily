@@ -37,15 +37,16 @@
       </div>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily is a Japan news aggregator that doubles as a
-        Japanese-learning app — each story carries an optional lesson (a
-        Japanese passage with furigana, a vocabulary list, and grammar notes).
-        In simple terms, the website itself only reads pre-computed stories out
-        of a database — all the "intelligence" (finding articles, clustering
-        them, writing summaries, scoring credibility, and authoring each story's
-        Japanese lesson) is produced by a Claude web agent that runs weekly,
-        entirely outside this codebase, and writes its finished work in through
-        a small remote MCP server this project exposes.
+        NipponDaily is a Japanese-learning app built on real Japan news — each
+        record is one Japanese-language article turned into a self-contained
+        lesson (a Japanese passage with furigana and rōmaji, a vocabulary list,
+        and grammar notes). In simple terms, the website itself only reads
+        pre-computed lessons out of a database — all the "intelligence" (finding
+        Japanese-language articles, scoring credibility, and authoring each
+        lesson) is produced by a Claude web agent that runs weekly, entirely
+        outside this codebase, and writes its finished work in through a small
+        remote MCP server this project exposes. There is no clustering, no
+        cross-article synthesis, and no topic taxonomy.
       </p>
 
       <!-- Diagram 1: System Overview -->
@@ -110,7 +111,7 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> The Nitro-powered backend
-            handles request validation, filtering/sorting of stories, and secure
+            handles request validation, filtering/sorting of lessons, and secure
             communication with Redis. It never calls any external search or AI
             provider itself.
           </p>
@@ -132,9 +133,9 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Powered by Upstash Redis,
-            storing clustered <code>Story</code> objects and ingestion metadata
-            — all written by the MCP agent, never generated synchronously on a
-            page request.
+            storing <code>Lesson</code> records and ingestion metadata — all
+            written by the MCP agent, never generated synchronously on a page
+            request.
           </p>
         </UCard>
 
@@ -150,13 +151,13 @@
           </template>
           <p class="text-sm mb-2">
             <strong>What it does:</strong> The bridge that lets an external
-            agent write finished news stories directly into our database.
+            agent write finished lessons directly into our database.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> A remote MCP (Model Context
             Protocol) server at <code>ALL /api/mcp</code>, built with
             <code>mcp-handler</code> and protected by a constant-time bearer
-            token check. Exposes tools to list, upsert, and clean up stories —
+            token check. Exposes tools to list, upsert, and clean up lessons —
             see Section 4.
           </p>
         </UCard>
@@ -172,9 +173,9 @@
             </h4>
           </template>
           <p class="text-sm mb-2">
-            <strong>What it does:</strong> The "brain" that finds Japan news,
-            writes summaries, decides how to cluster articles into stories, and
-            authors the Japanese lesson attached to each story.
+            <strong>What it does:</strong> The "brain" that finds
+            Japanese-language Japan news and authors a self-contained Japanese
+            lesson from each article.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Runs entirely outside this
@@ -199,9 +200,9 @@
       <p class="mb-4">
         <strong>Technical Details:</strong> Appending
         <code>?debug_error_ui=true</code> to any page URL enables an interactive
-        UI testing toolbar to simulate trending news fetching errors, AI
-        summarization failures, and fallback cards, allowing for exhaustive
-        layout testing without needing a live failure or touching the database.
+        UI testing toolbar to simulate a failed <code>/api/news</code> fetch,
+        allowing for layout testing without needing a live failure or touching
+        the database.
       </p>
 
       <h2
@@ -308,7 +309,7 @@
               </td>
               <td class="py-3 px-4 text-sm">Primary (<code>primary</code>)</td>
               <td class="py-3 px-4 text-sm leading-relaxed">
-                Main actions, primary buttons, briefing headers, active
+                Main actions, primary buttons, lesson card headers, active
                 highlights
               </td>
             </tr>
@@ -523,25 +524,24 @@
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- MCP-DRIVEN STORY PIPELINE                                          -->
+      <!-- MCP-DRIVEN LESSON PIPELINE                                         -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        4. MCP-Driven Story Pipeline
+        4. MCP-Driven Lesson Pipeline
       </h2>
 
       <p class="text-lg mb-6">
         There is no in-repo ingestion pipeline. Instead of this codebase calling
         a search API and an AI provider on a schedule, a
         <strong>Claude web agent</strong> — scheduled weekly via Claude's own
-        web scheduling feature, entirely outside this repository — checks
-        existing coverage first, then researches a week of Japan news across six
-        categories (both follow-ups on ongoing stories and brand-new topics),
-        generates a Japanese lesson for each story, and calls the tools below to
-        write finished <code>Story</code> objects directly into Redis. The
-        agent's full operating prompt lives at
+        web scheduling feature, entirely outside this repository — checks what's
+        already published, then searches that week's Japanese-language Japan
+        news, authors one self-contained lesson per article, and calls the tools
+        below to write finished <code>Lesson</code> records directly into Redis.
+        The agent's full operating prompt lives at
         <code>docs/news-pipeline-agent-prompt.md</code>.
       </p>
 
@@ -560,20 +560,19 @@
       </div>
 
       <p class="font-semibold text-xl mt-10 mb-4">
-        <code>ALL /api/mcp</code> registers six tools:
+        <code>ALL /api/mcp</code> registers five tools:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <UCard>
           <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">get_recent_stories</h4>
+            <h4 class="font-mono text-sm font-bold m-0">get_recent_lessons</h4>
           </template>
           <p class="text-sm">
-            Lists existing story clusters from Redis, most recently updated
-            first. Called before searching each run, so the agent knows which
-            topics to search for follow-up coverage on versus searching fresh
-            for, and can decide whether new coverage should extend an existing
-            story or start a new one.
+            Lists existing lessons from Redis, newest article first (id, title,
+            url, source, publishedAt, difficultyLevel). Called before searching
+            each run so the agent doesn't re-teach an article it already
+            covered.
           </p>
         </UCard>
 
@@ -585,39 +584,21 @@
           </template>
           <p class="text-sm">
             Given candidate article URLs, returns which ones are already
-            ingested so the agent doesn't create duplicate coverage.
+            ingested so the agent doesn't create duplicate lessons.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">upsert_story</h4>
+            <h4 class="font-mono text-sm font-bold m-0">upsert_lesson</h4>
           </template>
           <p class="text-sm">
-            Creates or updates a story cluster — headline, summary, thematic
-            analysis, sources, and the optional lesson fields (originalText,
-            furiganaText, vocabList, grammarNotes, difficultyLevel) — visible on
-            the site immediately. Categories are derived server-side from the
-            sources. Merges submitted sources into the existing list by URL
-            rather than requiring the full list to be resent (pass
-            replaceSources: true to override), and marks every submitted source
-            URL as processed. On an extend, any lesson field left out keeps its
-            existing value.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">merge_stories</h4>
-          </template>
-          <p class="text-sm">
-            Re-groups two or more existing story clusters into one — combining
-            their sources (deduped by URL) under a single kept id and deleting
-            the other now-redundant ids. Used when clusters written separately
-            turn out to share a real throughline; the agent still supplies a
-            fresh headline, summary, thematic analysis, and lesson fields for
-            the merged result (any omitted lesson field falls back to the first
-            merged story that had one).
+            Creates or updates one lesson — a single article plus its
+            originalText, furiganaText, romajiText, vocabList, grammarNotes and
+            difficultyLevel — visible on the site immediately. To update, pass
+            the lesson's id or re-use its url; any mergeable field left out
+            keeps its stored value. <code>favicon</code> and <code>source</code>
+            are derived server-side; the submitted URL is marked processed.
           </p>
         </UCard>
 
@@ -626,10 +607,10 @@
             <h4 class="font-mono text-sm font-bold m-0">cleanup_old_data</h4>
           </template>
           <p class="text-sm">
-            Deletes stories older than 30 days from Redis (Section 5). The agent
-            is expected to call this before writing new coverage each run; the
-            site operator can also trigger it ad hoc by asking the agent to run
-            it manually.
+            Deletes lessons whose article is older than 30 days from Redis
+            (Section 5). The agent is expected to call this before writing new
+            lessons each run; the site operator can also trigger it ad hoc by
+            asking the agent to run it manually.
           </p>
         </UCard>
 
@@ -660,7 +641,7 @@
           <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
             <code>GET /api/news</code> only ever reads from Redis — it never
             fetches or generates content itself, even if the store is empty or
-            stale. If nothing shows up, the MCP agent hasn't run yet.
+            stale. If no lessons show up, the MCP agent hasn't run yet.
           </p>
         </div>
       </div>
@@ -686,13 +667,14 @@
       </h2>
 
       <p class="text-lg mb-6">
-        The MCP tool <code>cleanup_old_data</code> permanently deletes stories
-        older than 30 days from Redis so the store doesn't grow unbounded. The
-        Claude web agent — running on a schedule configured in Claude's own web
-        scheduling, not QStash — calls it before writing new coverage each run.
-        There's no separate HTTP endpoint for this; the site operator can also
-        trigger cleanup ad hoc by asking the agent (or any other MCP-speaking
-        client with the bearer token) to call the same tool manually.
+        The MCP tool <code>cleanup_old_data</code> permanently deletes lessons
+        whose article is older than 30 days from Redis so the store doesn't grow
+        unbounded. The Claude web agent — running on a schedule configured in
+        Claude's own web scheduling, not QStash — calls it before writing new
+        lessons each run. There's no separate HTTP endpoint for this; the site
+        operator can also trigger cleanup ad hoc by asking the agent (or any
+        other MCP-speaking client with the bearer token) to call the same tool
+        manually.
       </p>
 
       <!-- Diagram: Cleanup Pipeline -->
@@ -717,17 +699,17 @@
         <div>
           <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
             <span class="text-primary-500 mr-2">Step 1</span> Prune Stale
-            Stories (Redis)
+            Lessons (Redis)
           </h3>
           <p class="mb-2">
-            <strong>The Concept:</strong> Any story whose sources haven't been
-            updated in over a month is considered stale and removed.
+            <strong>The Concept:</strong> Any lesson whose article was published
+            over a month ago is considered stale and removed.
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Reads all stories from Redis and
-            deletes any where <code>lastUpdated</code> falls before the 30-day
-            cutoff, removing both the <code>story:&#123;id&#125;</code> key and
-            its entry in the <code>news:stories</code> set.
+            <strong>Technical Details:</strong> Reads all lessons from Redis and
+            deletes any where <code>publishedAt</code> falls before the 30-day
+            cutoff, removing both the <code>lesson:&#123;id&#125;</code> key and
+            its entry in the <code>news:lessons</code> set.
           </p>
         </div>
       </div>
@@ -745,7 +727,7 @@
           </p>
           <p class="m-0 text-sky-800 dark:text-sky-200 text-sm">
             <code>cleanup_old_data</code> supports a <code>dryRun: true</code>
-            mode that reports how many stories would be deleted without actually
+            mode that reports how many lessons would be deleted without actually
             committing the deletion.
           </p>
         </div>
@@ -771,9 +753,9 @@
           </div>
         </template>
         <p class="text-sm mb-4">
-          Returns story briefings straight from Redis — filtered, sorted, and
-          paginated. Does not call any external search or AI provider, and never
-          triggers ingestion of any kind.
+          Returns lessons straight from Redis — filtered, sorted
+          newest-article-first, and paginated. Does not call any external search
+          or AI provider, and never triggers ingestion of any kind.
         </p>
 
         <div class="overflow-x-auto mb-4">
@@ -787,43 +769,21 @@
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
               <tr>
-                <td class="py-2 px-2"><code>category</code></td>
-                <td class="py-2 px-2 text-gray-500">string</td>
-                <td class="py-2 px-2">
-                  Topic filter (e.g. <code>society</code>, <code>tech</code>)
-                </td>
-              </tr>
-              <tr>
                 <td class="py-2 px-2"><code>difficulty</code></td>
                 <td class="py-2 px-2 text-gray-500">
                   enum (<code>N5</code>–<code>N1</code>)
                 </td>
                 <td class="py-2 px-2">
-                  JLPT lesson-difficulty filter (matches
-                  <code>story.difficultyLevel</code>; invalid values ignored)
+                  JLPT difficulty filter (matches <code>difficultyLevel</code>
+                  exactly, case-insensitive; invalid values ignored)
                 </td>
               </tr>
               <tr>
                 <td class="py-2 px-2"><code>query</code></td>
                 <td class="py-2 px-2 text-gray-500">string (max 100)</td>
                 <td class="py-2 px-2">
-                  Full-text search across headlines &amp; summaries
-                </td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2"><code>timeRange</code></td>
-                <td class="py-2 px-2 text-gray-500">
-                  enum (default: <code>week</code>)
-                </td>
-                <td class="py-2 px-2">Relative time window</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2">
-                  <code>startDate</code> / <code>endDate</code>
-                </td>
-                <td class="py-2 px-2 text-gray-500">YYYY-MM-DD</td>
-                <td class="py-2 px-2">
-                  Absolute date range (both required together, max 365 days)
+                  Full-text search across <code>title</code>,
+                  <code>titleJa</code> &amp; <code>originalText</code>
                 </td>
               </tr>
               <tr>
@@ -831,7 +791,7 @@
                 <td class="py-2 px-2 text-gray-500">
                   number (default: <code>20</code>)
                 </td>
-                <td class="py-2 px-2">Max stories to return (1-20)</td>
+                <td class="py-2 px-2">Max lessons to return (1-20)</td>
               </tr>
             </tbody>
           </table>
@@ -842,8 +802,8 @@
             <p class="text-xs font-bold text-gray-500 mb-1">Request Examples</p>
             <pre
               class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code># Filter by category
-curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
+            ><code># Filter by JLPT level
+curl "http://localhost:3000/api/news?difficulty=N4&amp;limit=5"</code></pre>
           </div>
           <div>
             <p class="text-xs font-bold text-gray-500 mb-1">
@@ -853,10 +813,9 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
               class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
             ><code>{
   "success": true,
-  "count": 8,
+  "count": 10,
   "data": {
-    "mainHeadline": "...",
-    "stories": [ ... ],
+    "lessons": [ ... ],
     "lastIngestTime": 1718000000000
   },
   "timestamp": "2026-07-14T15:00:00.000Z"
@@ -875,7 +834,7 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
         </template>
         <p class="text-sm mb-4">
           The remote MCP server described in Section 4 — this is how the Claude
-          web agent (or any other MCP-speaking client) writes stories into
+          web agent (or any other MCP-speaking client) writes lessons into
           Redis. Not a plain REST endpoint; speaks the MCP protocol over HTTP
           via <code>mcp-handler</code>.
         </p>
@@ -900,26 +859,22 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
               <tr>
-                <td class="py-2 px-2"><code>get_recent_stories</code></td>
-                <td class="py-2 px-2">List recent story clusters</td>
+                <td class="py-2 px-2"><code>get_recent_lessons</code></td>
+                <td class="py-2 px-2">List recent lessons</td>
               </tr>
               <tr>
                 <td class="py-2 px-2"><code>check_processed_urls</code></td>
                 <td class="py-2 px-2">Detect already-ingested URLs</td>
               </tr>
               <tr>
-                <td class="py-2 px-2"><code>upsert_story</code></td>
-                <td class="py-2 px-2">Create/update a story cluster</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2"><code>merge_stories</code></td>
-                <td class="py-2 px-2">
-                  Combine two or more story clusters into one
-                </td>
+                <td class="py-2 px-2"><code>upsert_lesson</code></td>
+                <td class="py-2 px-2">Create/update one lesson</td>
               </tr>
               <tr>
                 <td class="py-2 px-2"><code>cleanup_old_data</code></td>
-                <td class="py-2 px-2">Delete stories older than 30 days</td>
+                <td class="py-2 px-2">
+                  Delete lessons whose article is older than 30 days
+                </td>
               </tr>
               <tr>
                 <td class="py-2 px-2"><code>mark_ingest_complete</code></td>
@@ -936,14 +891,13 @@ curl "http://localhost:3000/api/news?category=tech&amp;limit=5"</code></pre>
         7. Trust & Credibility
       </h2>
       <p class="mb-4">
-        Every story includes a <strong>Trust Score</strong> the Claude agent
-        assigns per source when it calls <code>upsert_story</code>, based on its
-        own assessment of publisher reputation, editorial standards, and
-        trustworthiness — then aggregated into an overall score so readers can
-        tell how reliable a story's coverage is at a glance. The agent only
-        needs to judge a given publisher once: NipponDaily caches each domain's
-        score in Redis and reuses it automatically for every later source from
-        that domain.
+        Every lesson includes a <strong>Trust Score</strong> the Claude agent
+        assigns when it calls <code>upsert_lesson</code>, based on its own
+        assessment of publisher reputation, editorial standards, and
+        trustworthiness — so readers can tell how reliable the underlying
+        article is at a glance. The agent only needs to judge a given publisher
+        once: NipponDaily caches each domain's score in Redis and reuses it
+        automatically for every later article from that domain.
       </p>
 
       <div
@@ -1046,17 +1000,17 @@ on its own" --> MCP["ALL /api/mcp
     Operator -. "asks agent to run
 cleanup_old_data manually" .-> MCP
 
-    MCP -- "get_recent_stories /
+    MCP -- "get_recent_lessons /
 check_processed_urls /
-upsert_story / merge_stories /
+upsert_lesson /
 cleanup_old_data /
 mark_ingest_complete" --> Redis[("Redis
-Story Database")]
+Lesson Database")]
 
     User -- "GET /api/news" --> NewsAPI["GET /api/news
 (Nitro)"]
-    NewsAPI -- "read stories" --> Redis
-    NewsAPI -- "stories + briefings" --> User
+    NewsAPI -- "read lessons" --> Redis
+    NewsAPI -- "lessons" --> User
 `;
 
 const mcpDiagram = `
@@ -1064,38 +1018,34 @@ flowchart TD
     Start(["Claude web agent
 runs weekly on its own schedule"])
 
-    Start --> S1["Step 1 · cleanup_old_data
-Preview/delete stories >30 days old"]
-    S1 -. "DELETE stale stories" .-> Redis[("Redis
-Story Database")]
+    Start --> S1["Step 0 · cleanup_old_data
+Preview/delete lessons whose
+article is >30 days old"]
+    S1 -. "DELETE stale lessons" .-> Redis[("Redis
+Lesson Database")]
 
-    S1 --> S2["Step 2 · get_recent_stories
-List existing clusters to avoid
-duplicate coverage"]
+    S1 --> S2["Step 1 · get_recent_lessons
+List published lessons to avoid
+re-teaching the same article"]
     S2 -. "READ" .-> Redis
 
-    S2 --> S3["Step 3 · Research (per category)
-For each of 6 categories: search
-the last 7 days for follow-ups on
-tracked stories, then for new topics"]
+    S2 --> S3["Step 2 · Research
+Search the week's Japanese-language
+Japan news, pick teachable articles
+across a spread of JLPT levels"]
 
-    S3 --> S4["Step 4 · check_processed_urls
+    S3 --> S4["Step 3 · check_processed_urls
 Skip candidate URLs already ingested"]
-    S4 -. "READ seen sources" .-> Redis
+    S4 -. "READ processed URLs" .-> Redis
 
-    S4 --> S5["Step 5 · Author lesson + upsert_story
-Generate furigana passage, vocab &
-grammar from the JP sources, then
-write headline, summary, thematic
-analysis, sources & lesson per cluster"]
-    S5 -- "WRITE story +
-mark sources processed" --> Redis
+    S4 --> S5["Step 4 · Author lesson + upsert_lesson
+For each article: pull a passage,
+add furigana + romaji + vocab + grammar,
+estimate difficulty, then write one lesson"]
+    S5 -- "WRITE lesson +
+mark URL processed" --> Redis
 
-    S5 -. "Step 5b (optional) · merge_stories
-Combine clusters that turn out to
-share a real throughline" .-> Redis
-
-    S5 --> S7["Step 6 · mark_ingest_complete
+    S5 --> S7["Step 5 · mark_ingest_complete
 Record last-ingest timestamp"]
     S7 -- "WRITE" --> Redis
 
@@ -1109,11 +1059,11 @@ flowchart TD
 (scheduled Claude web agent,
 or manual ad-hoc request)"])
 
-    Start --> S1["Prune Stale Stories
-Read all stories, delete where
-lastUpdated < 30 days ago"]
-    S1 -- "DELETE stale stories" --> Redis[("Redis
-Story Database")]
+    Start --> S1["Prune Stale Lessons
+Read all lessons, delete where
+publishedAt < 30 days ago"]
+    S1 -- "DELETE stale lessons" --> Redis[("Redis
+Lesson Database")]
 
     S1 --> Cond{"dryRun == true?"}
     Cond -- "Yes" --> DryRunEnd(["✅ Return Preview Counts"])

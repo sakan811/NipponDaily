@@ -26,8 +26,8 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          NipponDaily transforms raw news into actionable intelligence using
-          advanced AI synthesis.
+          NipponDaily turns each week's real Japan news into self-contained
+          Japanese lessons.
         </p>
       </div>
 
@@ -58,75 +58,51 @@ import AppHeader from "../../components/AppHeader.vue";
 
 const features = [
   {
-    title: "Executive Briefing",
-    description:
-      "Synthesized reports that distill the most critical developments from multiple news sources into a single, cohesive narrative.",
-    icon: "i-heroicons-document-text",
-  },
-  {
-    title: "Connections & Root-Cause Analysis",
-    description:
-      "Each story mapped as a node in a web: the structural driver behind the event, the trend line it sits on, links to other tracked stories, and where domestic Japanese and international coverage diverge in emphasis.",
-    icon: "i-heroicons-link",
-  },
-  {
-    title: "Story Timeline Navigation",
-    description:
-      "In-depth drill-down from a trending topic on the front page — lead story or column grid — into a dedicated chronological timeline page detailing the progression of articles.",
-    icon: "i-heroicons-clock",
-  },
-  {
-    title: "Chronological Ordering",
-    description:
-      "Timelines display all source articles sorted chronologically (oldest-first) to document the historical narrative flow.",
-    icon: "i-heroicons-bars-3-bottom-left",
-  },
-  {
     title: "Japanese Lessons from the News",
     description:
-      "Each story can carry a lesson authored by the Claude web agent from its Japanese-language sources: a representative passage with inline furigana (ruby) markup, an 8–15 term vocabulary list with readings and JLPT levels, and 1–3 grammar notes. Shown in a collapsed 'Study this in Japanese' panel so the news view stays uncluttered.",
+      "Every record is one Japanese-language article turned into a lesson by the Claude web agent: a representative passage with inline furigana (ruby) markup, its Hepburn rōmaji, an 8–15 term vocabulary list with readings and JLPT levels, and 1–3 grammar notes.",
     icon: "i-heroicons-academic-cap",
   },
   {
     title: "Browse by JLPT Difficulty",
     description:
-      "Filter stories by lesson difficulty (N5–N1) alongside the category tabs; each story shows its estimated level as a badge.",
+      "Filter lessons by difficulty (N5–N1); each lesson shows its estimated level as a badge and the list is ordered newest article first.",
     icon: "i-heroicons-adjustments-horizontal",
+  },
+  {
+    title: "One Article, One Lesson",
+    description:
+      "No clustering, no cross-article synthesis, no topic taxonomy — each lesson stands on its own so the reading view stays simple.",
+    icon: "i-heroicons-document-text",
   },
   {
     title: "AI Trust Scoring",
     description:
-      "Per-source credibility scores (0.0-1.0) assigned by the Claude web agent when it writes a story, aggregated into an overall score and rendered with an HSL color gradient.",
+      "A credibility score (0.0-1.0) assigned by the Claude web agent when it writes a lesson, cached per publisher domain and rendered with an HSL color gradient.",
     icon: "i-heroicons-shield-check",
   },
   {
     title: "Agent-Driven News Discovery",
     description:
-      "A Claude web agent researches a week of Japan-related news across all major categories on a weekly schedule, entirely outside this codebase.",
+      "A Claude web agent researches the week's teachable Japan news from Japanese-language publishers on a weekly schedule, entirely outside this codebase.",
     icon: "i-heroicons-magnifying-glass",
   },
   {
-    title: "Span-based Time Filtering",
+    title: "MCP-Driven Lesson Pipeline",
     description:
-      "Filters trending topics by evaluating whether the story's actual publish period overlaps with selected time or date ranges.",
-    icon: "i-heroicons-funnel",
-  },
-  {
-    title: "MCP-Driven Story Pipeline",
-    description:
-      "News discovery, clustering, summarization, and Japanese-lesson authoring happen entirely outside this codebase — a Claude web agent writes, merges, and prunes finished stories through a bearer-token-protected remote MCP server.",
+      "News discovery and Japanese-lesson authoring happen entirely outside this codebase — a Claude web agent writes and prunes finished lessons through a bearer-token-protected remote MCP server.",
     icon: "i-heroicons-cpu-chip",
   },
   {
     title: "Automated Data Retention",
     description:
-      "A dedicated cleanup pipeline permanently prunes stories older than 30 days from Redis, keeping the store from growing unbounded.",
+      "A dedicated cleanup pipeline permanently prunes lessons whose article is older than 30 days from Redis, keeping the store from growing unbounded.",
     icon: "i-heroicons-trash",
   },
   {
-    title: "Resilient Fallback Components",
+    title: "Resilient Fallback Component",
     description:
-      "Graceful UI fallback states (TrendingFallback & SummaryFallback) that render raw source coverage when AI or storage services encounter errors, with an interactive testing toolbar via ?debug_error_ui=true.",
+      "A graceful UI fallback state (TrendingFallback) shown when the /api/news fetch fails, with an interactive testing toolbar via ?debug_error_ui=true.",
     icon: "i-heroicons-exclamation-triangle",
   },
   {
