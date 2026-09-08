@@ -2,115 +2,60 @@ import { vi } from "vitest";
 import { mount } from "@vue/test-utils";
 
 import JapanNewsReader from "~/app/components/JapanNewsReader.vue";
+import type { Lesson } from "~~/types/index";
 
-// Mock @internationalized/date BEFORE importing the component
-vi.mock("@internationalized/date", () => {
-  class MockCalendarDate {
-    constructor(year: number, month: number, day: number) {
-      this.year = year;
-      this.month = month;
-      this.day = day;
-    }
-    year: number;
-    month: number;
-    day: number;
-    subtract(options: { days: number }) {
-      return new MockCalendarDate(
-        this.year,
-        this.month,
-        this.day - options.days,
-      );
-    }
-    add(options: { days: number }) {
-      return new MockCalendarDate(
-        this.year,
-        this.month,
-        this.day + options.days,
-      );
-    }
-  }
-  return {
-    CalendarDate: MockCalendarDate,
-  };
-});
-
-const mockBriefingCard = {
-  name: "BriefingCard",
-  props: ["briefing"],
-  template: '<div class="briefing-card">{{ briefing.mainHeadline }}</div>',
+export const mockLessonCard = {
+  name: "LessonCard",
+  props: ["lesson"],
+  template: '<div class="lesson-card">{{ lesson?.title }}</div>',
 };
 
-vi.mock("~/app/components/BriefingCard.vue", () => ({
+vi.mock("~/app/components/LessonCard.vue", () => ({
   default: {
-    name: "BriefingCard",
-    props: ["briefing"],
-    template: '<div class="briefing-card">{{ briefing?.mainHeadline }}</div>',
+    name: "LessonCard",
+    props: ["lesson"],
+    template: '<div class="lesson-card">{{ lesson?.title }}</div>',
   },
 }));
 
-const ULocaleSelectMock = {
-  name: "ULocaleSelect",
-  props: ["id", "modelValue", "locales", "disabled", "size", "class"],
-  emits: ["update:modelValue"],
-  template:
-    '<select :id="id" :disabled="disabled" :class="class" @change="$emit(\'update:modelValue\', $event.target.value)"><slot></slot></select>',
+export const makeLesson = (overrides: Partial<Lesson> = {}): Lesson => {
+  const now = Date.now();
+  return {
+    id: "lesson-1",
+    title: "Tech News Headline",
+    titleJa: "テックニュースの見出し",
+    source: "https://www3.nhk.or.jp",
+    url: "https://www3.nhk.or.jp/news/1",
+    favicon: "https://www3.nhk.or.jp/favicon.ico",
+    publishedAt: new Date(now - 3600000).toISOString(),
+    addedAt: now,
+    credibilityScore: 0.9,
+    difficultyLevel: "N3",
+    originalText: "日本語の本文です。",
+    furiganaText:
+      "<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>本文<rt>ほんぶん</rt></ruby>です。",
+    romajiText: "Nihongo no honbun desu.",
+    vocabList: [],
+    grammarNotes: [],
+    ...overrides,
+  };
 };
 
-const ClientOnlyMock = {
-  name: "ClientOnly",
-  template: "<div><slot></slot></div>",
-};
+export const mockNewsResponse = (lessons: Lesson[] = [makeLesson()]) => ({
+  success: true,
+  data: {
+    lessons,
+    lastIngestTime: Date.now(),
+  },
+  count: lessons.length,
+  timestamp: new Date().toISOString(),
+});
 
-// Helper function to mount with common mocks
-export const mountReader = (options = {}) => {
-  return mount(JapanNewsReader, {
+export const mountReader = (options: any = {}) =>
+  mount(JapanNewsReader, {
     global: {
-      components: {
-        NewsCard: mockBriefingCard,
-        ClientOnly: ClientOnlyMock,
-      },
-      stubs: {
-        ULocaleSelect: ULocaleSelectMock,
-      },
+      components: { LessonCard: mockLessonCard },
       ...(options.global || {}),
     },
     ...options,
   });
-};
-
-export const mockNews = {
-  isAiFallback: false,
-  mainHeadline: "Tech News Headline",
-  executiveSummary: "Tech Executive Summary",
-  thematicAnalysis: "Tech Thematic Analysis",
-  overallCredibilityScore: 0.85,
-  sourcesProcessed: [
-    {
-      title: "Tech News",
-      source: "Tech Source",
-      url: "https://example.com",
-      credibilityScore: 0.9,
-      publishedAt: "2024-01-15T10:00:00Z",
-      category: "Tech" as any,
-    },
-    {
-      title: "Politics News",
-      source: "Politics Source",
-      url: "https://example.com",
-      credibilityScore: 0.8,
-      publishedAt: "2024-01-15T11:00:00Z",
-      category: "Society" as any,
-    },
-  ],
-};
-
-export const createMockFetch = () => {
-  return vi.fn().mockResolvedValue({
-    success: true,
-    data: mockNews,
-    count: 2,
-    timestamp: "2024-01-15T10:00:00Z",
-  });
-};
-
-export { mockBriefingCard, ULocaleSelectMock };

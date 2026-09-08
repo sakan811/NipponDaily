@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, beforeAll } from "vitest";
-import type { Story } from "~~/types/index";
+import type { Lesson } from "~~/types/index";
 
 type ToolHandler = (
   args: any,
@@ -21,24 +21,24 @@ vi.mock("mcp-handler", () => ({
   }),
 }));
 
-const mockGetStories = vi.fn();
+const mockGetLessons = vi.fn();
 const mockIsArticleProcessed = vi.fn();
-const mockGetStory = vi.fn();
-const mockSaveStory = vi.fn();
+const mockGetLesson = vi.fn();
+const mockSaveLesson = vi.fn();
 const mockMarkArticleProcessed = vi.fn();
-const mockDeleteStory = vi.fn();
+const mockDeleteLesson = vi.fn();
 const mockGetDomainCredibility = vi.fn();
 const mockSetDomainCredibility = vi.fn();
 const mockSetLastIngestTime = vi.fn();
 
-vi.mock("~/server/services/stories", () => ({
-  storiesService: {
-    getStories: mockGetStories,
+vi.mock("~/server/services/lessons", () => ({
+  lessonsService: {
+    getLessons: mockGetLessons,
     isArticleProcessed: mockIsArticleProcessed,
-    getStory: mockGetStory,
-    saveStory: mockSaveStory,
+    getLesson: mockGetLesson,
+    saveLesson: mockSaveLesson,
     markArticleProcessed: mockMarkArticleProcessed,
-    deleteStory: mockDeleteStory,
+    deleteLesson: mockDeleteLesson,
     getDomainCredibility: mockGetDomainCredibility,
     setDomainCredibility: mockSetDomainCredibility,
     setLastIngestTime: mockSetLastIngestTime,
@@ -47,33 +47,57 @@ vi.mock("~/server/services/stories", () => ({
 
 const AUTH_TOKEN = "test-mcp-secret-token";
 
-const makeStory = (overrides: Partial<Story> = {}): Story => ({
-  id: "story-1",
-  headline: "Existing Headline",
-  summary: "- old summary",
-  thematicAnalysis: "- old analysis",
-  articleCount: 1,
-  firstSeen: 1000,
-  lastUpdated: 2000,
-  trendScore: 0,
-  sources: [
-    {
-      title: "Old Article",
-      source: "https://old.example.com",
-      url: "https://old.example.com/a",
-      publishedAt: "2024-01-01T00:00:00Z",
-      credibilityScore: 0.7,
-      addedAt: 1000,
-      category: "tech",
-    },
-  ],
-  categories: ["tech"],
-  isSummarized: true,
+const makeLesson = (overrides: Partial<Lesson> = {}): Lesson => ({
+  id: "lesson-1",
+  title: "Existing Lesson",
+  titleJa: "既存のレッスン",
+  source: "https://old.example.com",
+  url: "https://old.example.com/a",
+  favicon: "https://old.example.com/favicon.ico",
+  publishedAt: "2026-01-01T00:00:00Z",
+  addedAt: 1000,
+  credibilityScore: 0.7,
+  difficultyLevel: "N3",
+  originalText: "元の日本語テキスト。",
+  furiganaText: "<ruby>元<rt>もと</rt></ruby>の",
+  romajiText: "Moto no",
+  vocabList: [],
+  grammarNotes: [],
   ...overrides,
 });
 
 const parseResult = (result: { content: { type: string; text: string }[] }) =>
   JSON.parse(result.content[0]!.text);
+
+const validLessonInput = (overrides: Record<string, unknown> = {}) => ({
+  title: "Article",
+  url: "https://news.example.com/1",
+  publishedAt: "2026-02-01T00:00:00Z",
+  credibilityScore: 0.9,
+  difficultyLevel: "N3",
+  originalText: "日本語。",
+  furiganaText: "<ruby>日本語<rt>にほんご</rt></ruby>。",
+  romajiText: "Nihongo.",
+  vocabList: [
+    {
+      term: "日本語",
+      reading: "にほんご",
+      romaji: "nihongo",
+      meaning: "Japanese language",
+      jlptLevel: "N5",
+      exampleSentence: "日本語。",
+    },
+  ],
+  grammarNotes: [
+    {
+      pattern: "〜。",
+      explanation: "sentence end",
+      exampleSentence: "日本語。",
+      romaji: "Nihongo.",
+    },
+  ],
+  ...overrides,
+});
 
 describe("server/api/mcp.ts", () => {
   let defaultExport: (req: Request) => Promise<Response>;
@@ -134,45 +158,42 @@ describe("server/api/mcp.ts", () => {
     });
   });
 
-  describe("get_recent_stories tool", () => {
-    it("filters by cutoff days, sorts by lastUpdated desc, and respects limit", async () => {
+  it("registers exactly five tools and no merge tool", () => {
+    expect(Object.keys(registeredTools).sort()).toEqual([
+      "check_processed_urls",
+      "cleanup_old_data",
+      "get_recent_lessons",
+      "mark_ingest_complete",
+      "upsert_lesson",
+    ]);
+  });
+
+  describe("get_recent_lessons tool", () => {
+    it("filters by cutoff days, sorts by publishedAt desc, and respects limit", async () => {
       const now = Date.now();
-      mockGetStories.mockResolvedValue([
-        makeStory({ id: "old", lastUpdated: now - 40 * 24 * 60 * 60 * 1000 }),
-        makeStory({ id: "recentA", lastUpdated: now - 1000 }),
-        makeStory({ id: "recentB", lastUpdated: now - 500 }),
+      mockGetLessons.mockResolvedValue([
+        makeLesson({
+          id: "old",
+          publishedAt: new Date(now - 200 * 24 * 60 * 60 * 1000).toISOString(),
+        }),
+        makeLesson({
+          id: "recentA",
+          publishedAt: new Date(now - 2000).toISOString(),
+        }),
+        makeLesson({
+          id: "recentB",
+          publishedAt: new Date(now - 500).toISOString(),
+        }),
       ]);
 
-      const result = await registeredTools.get_recent_stories!.handler({
-        days: 7,
+      const result = await registeredTools.get_recent_lessons!.handler({
+        days: 30,
         limit: 30,
-        includeSources: false,
       });
       const parsed = parseResult(result);
 
-      expect(parsed.map((s: any) => s.id)).toEqual(["recentB", "recentA"]);
-      expect(parsed[0].sources).toBeUndefined();
-    });
-
-    it("includes sources when includeSources is true", async () => {
-      mockGetStories.mockResolvedValue([
-        makeStory({ id: "s1", lastUpdated: Date.now() }),
-      ]);
-
-      const result = await registeredTools.get_recent_stories!.handler({
-        days: 7,
-        limit: 30,
-        includeSources: true,
-      });
-      const parsed = parseResult(result);
-
-      expect(parsed[0].sources).toEqual([
-        {
-          url: "https://old.example.com/a",
-          title: "Old Article",
-          publishedAt: "2024-01-01T00:00:00Z",
-        },
-      ]);
+      expect(parsed.map((l: any) => l.id)).toEqual(["recentB", "recentA"]);
+      expect(parsed[0]).toHaveProperty("difficultyLevel");
     });
   });
 
@@ -191,25 +212,13 @@ describe("server/api/mcp.ts", () => {
     });
   });
 
-  describe("upsert_story tool", () => {
-    it("creates a new story, caching the provided credibility score per domain", async () => {
-      mockGetStory.mockResolvedValue(null);
+  describe("upsert_lesson tool", () => {
+    it("creates a new lesson, caching the provided credibility score per domain", async () => {
+      mockGetLesson.mockResolvedValue(null);
+      mockGetLessons.mockResolvedValue([]);
 
-      const result = await registeredTools.upsert_story!.handler({
-        headline: "New Headline",
-        summary: "- s",
-        thematicAnalysis: "- t",
-        sources: [
-          {
-            title: "Article",
-            url: "https://news.example.com/1",
-            publishedAt: "2026-01-01T00:00:00Z",
-            credibilityScore: 0.9,
-            category: "tech",
-          },
-        ],
-        replaceSources: false,
-      });
+      const result =
+        await registeredTools.upsert_lesson!.handler(validLessonInput());
       const parsed = parseResult(result);
 
       expect(parsed.saved).toBe(true);
@@ -218,414 +227,108 @@ describe("server/api/mcp.ts", () => {
         "https://news.example.com",
         0.9,
       );
-      expect(mockSaveStory).toHaveBeenCalled();
-      const savedStory = mockSaveStory.mock.calls[0][0];
-      expect(savedStory.categories).toEqual(["tech"]);
+      const saved = mockSaveLesson.mock.calls[0][0];
+      expect(saved.source).toBe("https://news.example.com");
+      expect(saved.favicon).toBe("https://news.example.com/favicon.ico");
       expect(mockMarkArticleProcessed).toHaveBeenCalledWith(
         "https://news.example.com/1",
       );
     });
 
     it("reuses a cached domain credibility score when credibilityScore is omitted", async () => {
-      mockGetStory.mockResolvedValue(null);
+      mockGetLesson.mockResolvedValue(null);
+      mockGetLessons.mockResolvedValue([]);
       mockGetDomainCredibility.mockResolvedValue(0.55);
 
-      const result = await registeredTools.upsert_story!.handler({
-        headline: "H",
-        summary: "- s",
-        thematicAnalysis: "- t",
-        sources: [
-          {
-            title: "Article",
-            url: "https://cached.example.com/1",
-            publishedAt: "2026-01-01T00:00:00Z",
-            category: "tech",
-          },
-        ],
-        replaceSources: false,
-      });
+      const result = await registeredTools.upsert_lesson!.handler(
+        validLessonInput({
+          url: "https://cached.example.com/1",
+          credibilityScore: undefined,
+        }),
+      );
       const parsed = parseResult(result);
 
       expect(parsed.saved).toBe(true);
-      const savedStory = mockSaveStory.mock.calls[0][0];
-      expect(savedStory.sources[0].credibilityScore).toBe(0.55);
+      const saved = mockSaveLesson.mock.calls[0][0];
+      expect(saved.credibilityScore).toBe(0.55);
       expect(mockSetDomainCredibility).not.toHaveBeenCalled();
     });
 
     it("errors without saving when no cached score exists and none was provided", async () => {
-      mockGetStory.mockResolvedValue(null);
+      mockGetLesson.mockResolvedValue(null);
+      mockGetLessons.mockResolvedValue([]);
       mockGetDomainCredibility.mockResolvedValue(null);
 
-      const result = await registeredTools.upsert_story!.handler({
-        headline: "H",
-        summary: "- s",
-        thematicAnalysis: "- t",
-        sources: [
-          {
-            title: "Article",
-            url: "https://unscored.example.com/1",
-            publishedAt: "2026-01-01T00:00:00Z",
-            category: "tech",
-          },
-        ],
-        replaceSources: false,
-      });
+      const result = await registeredTools.upsert_lesson!.handler(
+        validLessonInput({
+          url: "https://unscored.example.com/1",
+          credibilityScore: undefined,
+        }),
+      );
       const parsed = parseResult(result);
 
       expect(parsed.saved).toBe(false);
       expect(parsed.error).toMatch(/No cached credibility score/);
-      expect(mockSaveStory).not.toHaveBeenCalled();
+      expect(mockSaveLesson).not.toHaveBeenCalled();
     });
 
-    it("merges new sources into an existing story's source list by URL by default", async () => {
-      const existing = makeStory({
-        id: "story-1",
-        sources: [
-          {
-            title: "Old Article",
-            source: "https://old.example.com",
-            url: "https://old.example.com/a",
-            publishedAt: "2024-01-01T00:00:00Z",
-            credibilityScore: 0.7,
-            addedAt: 1000,
-            category: "tech",
-          },
-        ],
-      });
-      mockGetStory.mockResolvedValue(existing);
-
-      const result = await registeredTools.upsert_story!.handler({
-        id: "story-1",
-        headline: "Updated Headline",
-        summary: "- s",
-        thematicAnalysis: "- t",
-        sources: [
-          {
-            title: "New Article",
-            url: "https://new.example.com/b",
-            publishedAt: "2026-01-01T00:00:00Z",
-            credibilityScore: 0.8,
-            category: "society",
-          },
-        ],
-        replaceSources: false,
-      });
-      const parsed = parseResult(result);
-
-      expect(parsed.isNew).toBe(false);
-      const savedStory = mockSaveStory.mock.calls[0][0];
-      expect(savedStory.sources.map((s: any) => s.url)).toEqual([
-        "https://old.example.com/a",
-        "https://new.example.com/b",
-      ]);
-      expect(savedStory.categories.sort()).toEqual(["society", "tech"]);
-      expect(savedStory.firstSeen).toBe(existing.firstSeen);
-    });
-
-    it("replaces the full source list when replaceSources is true", async () => {
-      const existing = makeStory();
-      mockGetStory.mockResolvedValue(existing);
-
-      const result = await registeredTools.upsert_story!.handler({
-        id: "story-1",
-        headline: "Updated Headline",
-        summary: "- s",
-        thematicAnalysis: "- t",
-        sources: [
-          {
-            title: "Only Article",
-            url: "https://only.example.com/z",
-            publishedAt: "2026-01-01T00:00:00Z",
-            credibilityScore: 0.6,
-            category: "food",
-          },
-        ],
-        replaceSources: true,
-      });
-      parseResult(result);
-
-      const savedStory = mockSaveStory.mock.calls[0][0];
-      expect(savedStory.sources.map((s: any) => s.url)).toEqual([
-        "https://only.example.com/z",
-      ]);
-      expect(savedStory.categories).toEqual(["food"]);
-    });
-
-    it("stores the optional Japanese-learning lesson fields when provided", async () => {
-      mockGetStory.mockResolvedValue(null);
-
-      await registeredTools.upsert_story!.handler({
-        headline: "H",
-        summary: "- s",
-        thematicAnalysis: "- t",
-        sources: [
-          {
-            title: "Article",
-            url: "https://lesson.example.com/1",
-            publishedAt: "2026-01-01T00:00:00Z",
-            credibilityScore: 0.8,
-            category: "society",
-          },
-        ],
-        replaceSources: false,
-        originalText: "首相は記者会見で表明した。",
-        furiganaText:
-          "<ruby>首相<rt>しゅしょう</rt></ruby>は<ruby>表明<rt>ひょうめい</rt></ruby>した。",
-        vocabList: [
-          {
-            term: "首相",
-            reading: "しゅしょう",
-            meaning: "prime minister",
-            jlptLevel: "N3",
-            exampleSentence: "首相は記者会見で表明した。",
-          },
-        ],
-        grammarNotes: [
-          {
-            pattern: "〜で",
-            explanation: "location/means marker",
-            exampleSentence: "記者会見で表明した。",
-          },
-        ],
-        difficultyLevel: "N3",
-      });
-
-      const savedStory = mockSaveStory.mock.calls[0][0];
-      expect(savedStory.originalText).toBe("首相は記者会見で表明した。");
-      expect(savedStory.furiganaText).toContain("<ruby>");
-      expect(savedStory.vocabList).toHaveLength(1);
-      expect(savedStory.grammarNotes[0].pattern).toBe("〜で");
-      expect(savedStory.difficultyLevel).toBe("N3");
-    });
-
-    it("keeps existing lesson fields on an extend when they are not resubmitted", async () => {
-      const existing = makeStory({
-        id: "story-1",
+    it("updates the existing lesson when the url already exists, keeping omitted mergeable fields", async () => {
+      const existing = makeLesson({
+        id: "lesson-1",
+        url: "https://old.example.com/a",
         originalText: "元の日本語テキスト。",
         difficultyLevel: "N4",
-      });
-      mockGetStory.mockResolvedValue(existing);
-
-      await registeredTools.upsert_story!.handler({
-        id: "story-1",
-        headline: "Updated Headline",
-        summary: "- s",
-        thematicAnalysis: "- t",
-        sources: [
+        vocabList: [
           {
-            title: "New Article",
-            url: "https://new.example.com/b",
-            publishedAt: "2026-01-01T00:00:00Z",
-            credibilityScore: 0.8,
-            category: "society",
-          },
-        ],
-        replaceSources: false,
-      });
-
-      const savedStory = mockSaveStory.mock.calls[0][0];
-      expect(savedStory.originalText).toBe("元の日本語テキスト。");
-      expect(savedStory.difficultyLevel).toBe("N4");
-    });
-
-    it("rejects an invalid difficultyLevel", () => {
-      const schema = registeredTools.upsert_story!.config.inputSchema;
-      const parsed = schema.safeParse({
-        headline: "H",
-        summary: "- s",
-        thematicAnalysis: "- t",
-        sources: [
-          {
-            title: "Article",
-            url: "https://x.example.com/1",
-            publishedAt: "2026-01-01T00:00:00Z",
-            credibilityScore: 0.8,
-            category: "society",
-          },
-        ],
-        difficultyLevel: "N7",
-      });
-      expect(parsed.success).toBe(false);
-    });
-
-    it("derives the domain from the URL when source is omitted", async () => {
-      mockGetStory.mockResolvedValue(null);
-
-      await registeredTools.upsert_story!.handler({
-        headline: "H",
-        summary: "- s",
-        thematicAnalysis: "- t",
-        sources: [
-          {
-            title: "Article",
-            url: "https://derived.example.com/path/1",
-            publishedAt: "2026-01-01T00:00:00Z",
-            credibilityScore: 0.5,
-            category: "tech",
-          },
-        ],
-        replaceSources: false,
-      });
-
-      expect(mockSetDomainCredibility).toHaveBeenCalledWith(
-        "https://derived.example.com",
-        0.5,
-      );
-    });
-  });
-
-  describe("merge_stories tool", () => {
-    it("errors when fewer than 2 of the requested story ids are found", async () => {
-      mockGetStory.mockImplementation(async (id: string) =>
-        id === "a" ? makeStory({ id: "a" }) : null,
-      );
-
-      const result = await registeredTools.merge_stories!.handler({
-        storyIds: ["a", "b"],
-        headline: "H",
-        summary: "- s",
-        thematicAnalysis: "- t",
-      });
-      const parsed = parseResult(result);
-
-      expect(parsed.merged).toBe(false);
-      expect(mockSaveStory).not.toHaveBeenCalled();
-    });
-
-    it("errors when keepId is not among the found story ids", async () => {
-      mockGetStory.mockImplementation(async (id: string) =>
-        makeStory({ id, firstSeen: 1000 }),
-      );
-
-      const result = await registeredTools.merge_stories!.handler({
-        storyIds: ["a", "b"],
-        keepId: "c",
-        headline: "H",
-        summary: "- s",
-        thematicAnalysis: "- t",
-      });
-      const parsed = parseResult(result);
-
-      expect(parsed.merged).toBe(false);
-      expect(parsed.error).toMatch(/not one of the found story ids/);
-    });
-
-    it("merges sources deduped by URL, keeps the earliest-firstSeen story by default, and deletes the rest", async () => {
-      const storyA = makeStory({
-        id: "a",
-        firstSeen: 2000,
-        categories: ["tech"],
-        sources: [
-          {
-            title: "Shared",
-            source: "https://shared.example.com",
-            url: "https://shared.example.com/x",
-            publishedAt: "2024-01-01T00:00:00Z",
-            credibilityScore: 0.7,
-            addedAt: 1000,
-            category: "tech",
+            term: "元",
+            reading: "もと",
+            romaji: "moto",
+            meaning: "origin",
+            jlptLevel: "N4",
+            exampleSentence: "元の。",
           },
         ],
       });
-      const storyB = makeStory({
-        id: "b",
-        firstSeen: 1000,
-        categories: ["society"],
-        sources: [
-          {
-            title: "Shared (updated)",
-            source: "https://shared.example.com",
-            url: "https://shared.example.com/x",
-            publishedAt: "2024-02-01T00:00:00Z",
-            credibilityScore: 0.7,
-            addedAt: 2000,
-            category: "society",
-          },
-          {
-            title: "Unique",
-            source: "https://unique.example.com",
-            url: "https://unique.example.com/y",
-            publishedAt: "2024-03-01T00:00:00Z",
-            credibilityScore: 0.6,
-            addedAt: 3000,
-            category: "society",
-          },
-        ],
-      });
-      mockGetStory.mockImplementation(async (id: string) =>
-        id === "a" ? storyA : id === "b" ? storyB : null,
-      );
+      mockGetLesson.mockResolvedValue(null);
+      mockGetLessons.mockResolvedValue([existing]);
 
-      const result = await registeredTools.merge_stories!.handler({
-        storyIds: ["a", "b"],
-        headline: "Merged Headline",
-        summary: "- s",
-        thematicAnalysis: "- t",
-      });
-      const parsed = parseResult(result);
-
-      expect(parsed.merged).toBe(true);
-      expect(parsed.id).toBe("b");
-      expect(parsed.deletedIds).toEqual(["a"]);
-      expect(mockDeleteStory).toHaveBeenCalledWith("a");
-
-      const savedStory = mockSaveStory.mock.calls[0][0];
-      expect(savedStory.sources).toHaveLength(2);
-      expect(savedStory.categories.sort()).toEqual(["society", "tech"]);
-      expect(savedStory.firstSeen).toBe(1000);
-    });
-
-    it("regenerates lesson fields from input, falling back to a merged story's own values", async () => {
-      mockGetStory.mockImplementation(async (id: string) =>
-        makeStory({
-          id,
-          firstSeen: id === "a" ? 1000 : 2000,
-          ...(id === "a"
-            ? { originalText: "Aの日本語。", difficultyLevel: "N5" as const }
-            : {}),
-        }),
-      );
-
-      await registeredTools.merge_stories!.handler({
-        storyIds: ["a", "b"],
-        headline: "Merged",
-        summary: "- s",
-        thematicAnalysis: "- t",
+      await registeredTools.upsert_lesson!.handler({
+        title: "Old Article (updated title)",
+        url: "https://old.example.com/a",
+        publishedAt: "2026-01-01T00:00:00Z",
+        credibilityScore: 0.7,
         difficultyLevel: "N2",
       });
 
-      const savedStory = mockSaveStory.mock.calls[0][0];
-      // submitted difficultyLevel wins
-      expect(savedStory.difficultyLevel).toBe("N2");
-      // originalText not submitted -> falls back to story "a"
-      expect(savedStory.originalText).toBe("Aの日本語。");
+      const saved = mockSaveLesson.mock.calls[0][0];
+      expect(saved.id).toBe("lesson-1");
+      expect(saved.title).toBe("Old Article (updated title)");
+      expect(saved.difficultyLevel).toBe("N2");
+      // Mergeable fields not resent are preserved.
+      expect(saved.originalText).toBe("元の日本語テキスト。");
+      expect(saved.vocabList).toHaveLength(1);
+      expect(saved.addedAt).toBe(existing.addedAt);
     });
 
-    it("honors an explicit keepId", async () => {
-      mockGetStory.mockImplementation(async (id: string) =>
-        makeStory({ id, firstSeen: id === "a" ? 1000 : 2000 }),
+    it("rejects an invalid difficultyLevel", () => {
+      const schema = registeredTools.upsert_lesson!.config.inputSchema ?? null;
+      // config may be the raw zod object; guard for both shapes.
+      const parsed = schema.safeParse(
+        validLessonInput({ difficultyLevel: "N7" }),
       );
-
-      const result = await registeredTools.merge_stories!.handler({
-        storyIds: ["a", "b"],
-        keepId: "b",
-        headline: "H",
-        summary: "- s",
-        thematicAnalysis: "- t",
-      });
-      const parsed = parseResult(result);
-
-      expect(parsed.id).toBe("b");
-      expect(parsed.deletedIds).toEqual(["a"]);
+      expect(parsed.success).toBe(false);
     });
   });
 
   describe("cleanup_old_data tool", () => {
-    it("deletes stale stories and reports the count", async () => {
+    it("deletes stale lessons and reports the count", async () => {
       const now = Date.now();
-      mockGetStories.mockResolvedValue([
-        makeStory({ id: "stale", lastUpdated: now - 40 * 24 * 60 * 60 * 1000 }),
-        makeStory({ id: "fresh", lastUpdated: now }),
+      mockGetLessons.mockResolvedValue([
+        makeLesson({
+          id: "stale",
+          publishedAt: new Date(now - 40 * 24 * 60 * 60 * 1000).toISOString(),
+        }),
+        makeLesson({ id: "fresh", publishedAt: new Date(now).toISOString() }),
       ]);
 
       const result = await registeredTools.cleanup_old_data!.handler({
@@ -633,14 +336,17 @@ describe("server/api/mcp.ts", () => {
       });
       const parsed = parseResult(result);
 
-      expect(parsed.storiesDeleted).toBe(1);
-      expect(mockDeleteStory).toHaveBeenCalledWith("stale");
+      expect(parsed.lessonsDeleted).toBe(1);
+      expect(mockDeleteLesson).toHaveBeenCalledWith("stale");
     });
 
     it("does not delete anything when dryRun is true", async () => {
       const now = Date.now();
-      mockGetStories.mockResolvedValue([
-        makeStory({ id: "stale", lastUpdated: now - 40 * 24 * 60 * 60 * 1000 }),
+      mockGetLessons.mockResolvedValue([
+        makeLesson({
+          id: "stale",
+          publishedAt: new Date(now - 40 * 24 * 60 * 60 * 1000).toISOString(),
+        }),
       ]);
 
       const result = await registeredTools.cleanup_old_data!.handler({
@@ -648,9 +354,9 @@ describe("server/api/mcp.ts", () => {
       });
       const parsed = parseResult(result);
 
-      expect(parsed.storiesDeleted).toBe(1);
+      expect(parsed.lessonsDeleted).toBe(1);
       expect(parsed.dryRun).toBe(true);
-      expect(mockDeleteStory).not.toHaveBeenCalled();
+      expect(mockDeleteLesson).not.toHaveBeenCalled();
     });
   });
 

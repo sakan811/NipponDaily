@@ -3,10 +3,19 @@ import { describe, it, expect, beforeEach } from "vitest";
 import {
   getHandler,
   setupDefaults,
-  createMockStory,
-  mockGetStories,
+  createMockLesson,
+  mockGetLessons,
   mockGetLastIngestTime,
 } from "./setup";
+
+const mockEvent = {
+  node: {
+    req: {
+      socket: { remoteAddress: "127.0.0.1" },
+      headers: {},
+    },
+  },
+};
 
 describe("News API - Basic Functionality", () => {
   let handler: any;
@@ -16,68 +25,41 @@ describe("News API - Basic Functionality", () => {
     handler = await getHandler();
   });
 
-  it("returns empty-state briefing when there are no stories", async () => {
-    (global as any).getQuery.mockReturnValue({ language: "en" });
-    mockGetStories.mockResolvedValue([]);
+  it("returns an empty lessons list when there are none", async () => {
+    (global as any).getQuery.mockReturnValue({});
+    mockGetLessons.mockResolvedValue([]);
 
-    const response = await handler({
-      node: {
-        req: {
-          socket: { remoteAddress: "127.0.0.1" },
-          headers: {},
-        },
-      },
-    });
+    const response = await handler(mockEvent);
 
     expect(response.success).toBe(true);
     expect(response.count).toBe(0);
     expect(response.timestamp).toBeDefined();
-    expect(response.data.stories).toEqual([]);
-    expect(response.data.mainHeadline).toBe("Latest Japan News Briefing");
-    expect(response.data.executiveSummary).toContain(
-      "No news stories are currently available",
-    );
+    expect(response.data.lessons).toEqual([]);
   });
 
   it("returns success response with correct structure", async () => {
-    (global as any).getQuery.mockReturnValue({ language: "en" });
-    mockGetStories.mockResolvedValue([createMockStory()]);
+    (global as any).getQuery.mockReturnValue({});
+    mockGetLessons.mockResolvedValue([createMockLesson()]);
 
-    const response = await handler({
-      node: {
-        req: {
-          socket: { remoteAddress: "127.0.0.1" },
-          headers: {},
-        },
-      },
-    });
+    const response = await handler(mockEvent);
 
     expect(response).toHaveProperty("success", true);
     expect(response).toHaveProperty("data");
-    expect(response).toHaveProperty("count");
-    expect(response).toHaveProperty("timestamp");
+    expect(response).toHaveProperty("count", 1);
     expect(typeof response.timestamp).toBe("string");
+    expect(response.data.lessons[0].title).toBe("Tech News");
+    expect(response.data).toHaveProperty("lastIngestTime");
   });
 
   it("handles null parameters by coalescing to undefined or defaults", async () => {
     (global as any).getQuery.mockReturnValue({
-      category: null,
-      timeRange: null,
-      startDate: null,
-      endDate: null,
-      language: null,
+      difficulty: null,
+      query: null,
       limit: 5,
     });
-    mockGetStories.mockResolvedValue([createMockStory()]);
+    mockGetLessons.mockResolvedValue([createMockLesson()]);
 
-    const response = await handler({
-      node: {
-        req: {
-          socket: { remoteAddress: "127.0.0.1" },
-          headers: {},
-        },
-      },
-    });
+    const response = await handler(mockEvent);
 
     expect(response.success).toBe(true);
   });
@@ -86,7 +68,7 @@ describe("News API - Basic Functionality", () => {
     (global as any).getQuery.mockImplementation(() => {
       throw new Error("getQuery not available");
     });
-    mockGetStories.mockResolvedValue([]);
+    mockGetLessons.mockResolvedValue([]);
 
     const response = await handler({
       path: "/api/news?limit=10",
@@ -102,53 +84,17 @@ describe("News API - Basic Functionality", () => {
     expect(response.success).toBe(true);
   });
 
-  it("returns stories from the Redis story database", async () => {
+  it("returns lessons from the Redis lesson database", async () => {
     mockGetLastIngestTime.mockResolvedValue(0);
-    mockGetStories.mockResolvedValue([
-      createMockStory({
-        id: "prod-story-1",
-        headline: "Production Story 1",
-        categories: ["tech"],
-      }),
+    mockGetLessons.mockResolvedValue([
+      createMockLesson({ id: "prod-1", title: "Production Lesson 1" }),
     ]);
-
-    (global as any).getQuery.mockReturnValue({
-      category: "tech",
-      timeRange: "week",
-    });
-
-    const response = await handler({
-      node: {
-        req: {
-          socket: { remoteAddress: "127.0.0.1" },
-          headers: {},
-        },
-      },
-    });
-
-    expect(response.success).toBe(true);
-    expect(response.data.stories).toHaveLength(1);
-  });
-
-  it("handles empty stories fallback", async () => {
-    mockGetLastIngestTime.mockResolvedValue(Date.now());
-    mockGetStories.mockResolvedValue([]);
-
     (global as any).getQuery.mockReturnValue({});
 
-    const response = await handler({
-      node: {
-        req: {
-          socket: { remoteAddress: "127.0.0.1" },
-          headers: {},
-        },
-      },
-    });
+    const response = await handler(mockEvent);
 
     expect(response.success).toBe(true);
-    expect(response.data.mainHeadline).toBe("Latest Japan News Briefing");
-    expect(response.data.executiveSummary).toContain(
-      "No news stories are currently available",
-    );
+    expect(response.data.lessons).toHaveLength(1);
+    expect(response.data.lessons[0].id).toBe("prod-1");
   });
 });
