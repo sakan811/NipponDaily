@@ -59,6 +59,7 @@ const makeLesson = (overrides: Partial<Lesson> = {}): Lesson => ({
   credibilityScore: 0.7,
   difficultyLevel: "N3",
   originalText: "元の日本語テキスト。",
+  englishText: "The original Japanese text.",
   furiganaText: "<ruby>元<rt>もと</rt></ruby>の",
   romajiText: "Moto no",
   vocabList: [],
@@ -76,6 +77,7 @@ const validLessonInput = (overrides: Record<string, unknown> = {}) => ({
   credibilityScore: 0.9,
   difficultyLevel: "N3",
   originalText: "日本語。",
+  englishText: "Japanese.",
   furiganaText: "<ruby>日本語<rt>にほんご</rt></ruby>。",
   romajiText: "Nihongo.",
   vocabList: [
@@ -306,6 +308,7 @@ describe("server/api/mcp.ts", () => {
       expect(saved.difficultyLevel).toBe("N2");
       // Mergeable fields not resent are preserved.
       expect(saved.originalText).toBe("元の日本語テキスト。");
+      expect(saved.englishText).toBe("The original Japanese text.");
       expect(saved.vocabList).toHaveLength(1);
       expect(saved.addedAt).toBe(existing.addedAt);
     });
