@@ -80,6 +80,7 @@ const MERGEABLE_LESSON_FIELDS = [
   "titleJa",
   "credibilityScore",
   "originalText",
+  "englishText",
   "furiganaText",
   "romajiText",
   "vocabList",
@@ -121,6 +122,12 @@ const upsertLessonInputSchema = z.object({
     .optional()
     .describe(
       "A representative passage (a few sentences to a short paragraph) from the article's Japanese text to teach from — not the whole article.",
+    ),
+  englishText: z
+    .string()
+    .optional()
+    .describe(
+      "A faithful English translation of the whole originalText passage, for learners to check their reading against.",
     ),
   furiganaText: z
     .string()
@@ -213,7 +220,7 @@ const mcpHandler = createMcpHandler(
       {
         title: "Upsert lesson",
         description:
-          "Create or update one NipponDaily lesson in Redis — a single Japanese news article plus the lesson authored from its own Japanese text (originalText, furiganaText, romajiText, vocabList, grammarNotes, difficultyLevel). Visible in the app immediately. There is no clustering, no cross-article synthesis and no topic taxonomy. To update, pass the lesson's `id` (from get_recent_lessons) or just re-use its `url`; any mergeable field you omit keeps its stored value. Marks the source URL as processed. `favicon` is always derived server-side from the domain; `credibilityScore` is cached per-domain and may be omitted once a domain has been scored.",
+          "Create or update one NipponDaily lesson in Redis — a single Japanese news article plus the lesson authored from its own Japanese text (originalText, englishText, furiganaText, romajiText, vocabList, grammarNotes, difficultyLevel). Visible in the app immediately. There is no clustering, no cross-article synthesis and no topic taxonomy. To update, pass the lesson's `id` (from get_recent_lessons) or just re-use its `url`; any mergeable field you omit keeps its stored value. Marks the source URL as processed. `favicon` is always derived server-side from the domain; `credibilityScore` is cached per-domain and may be omitted once a domain has been scored.",
         inputSchema: upsertLessonInputSchema,
       },
       async (input) => {
@@ -271,6 +278,7 @@ const mcpHandler = createMcpHandler(
           credibilityScore,
           difficultyLevel: input.difficultyLevel,
           originalText: (merged.originalText as string) ?? "",
+          englishText: (merged.englishText as string) ?? "",
           furiganaText: (merged.furiganaText as string) ?? "",
           romajiText: (merged.romajiText as string) ?? "",
           vocabList: (merged.vocabList as Lesson["vocabList"]) ?? [],
