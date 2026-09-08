@@ -1,136 +1,40 @@
-import { storiesService, calculateTrendScore } from "../services/stories";
-import { deduplicateByUrl } from "../utils/dedupe";
+import { lessonsService } from "../services/lessons";
 import { z } from "zod";
-import type { NewsBriefing } from "~~/types/index";
 
 /**
- * Zod 4 schema for news API query parameters
- * Provides type-safe validation with detailed error messages
+ * Zod schema for GET /api/news query parameters.
  */
-const newsQuerySchema = z
-  .object({
-    category: z
-      .string()
-      .nullable()
-      .optional()
-      .transform((val) => {
-        if (!val || val.trim() === "") return undefined;
-        return val;
-      }),
+const newsQuerySchema = z.object({
+  query: z
+    .string()
+    .max(100, "Query cannot exceed 100 characters")
+    .nullable()
+    .optional()
+    .transform((val) => {
+      if (!val || val.trim() === "") return undefined;
+      return val;
+    }),
 
-    query: z
-      .string()
-      .max(100, "Query cannot exceed 100 characters")
-      .nullable()
-      .optional()
-      .transform((val) => {
-        if (!val || val.trim() === "") return undefined;
-        return val;
-      }),
+  difficulty: z
+    .string()
+    .nullable()
+    .optional()
+    .transform((val) => {
+      if (!val || val.trim() === "") return undefined;
+      const allowed = ["N5", "N4", "N3", "N2", "N1"];
+      const upper = val.toUpperCase();
+      return allowed.includes(upper) ? upper : undefined;
+    }),
 
-    difficulty: z
-      .string()
-      .nullable()
-      .optional()
-      .transform((val) => {
-        if (!val || val.trim() === "") return undefined;
-        const allowed = ["N5", "N4", "N3", "N2", "N1"];
-        return allowed.includes(val.toUpperCase())
-          ? val.toUpperCase()
-          : undefined;
-      }),
-
-    timeRange: z
-      .string()
-      .nullable()
-      .optional()
-      .transform((val) => {
-        if (!val || val.trim() === "" || val === "week") return "week";
-        const allowed = ["none", "day", "week"] as const;
-        if (allowed.includes(val as "none" | "day" | "week"))
-          return val as "none" | "day" | "week";
-        return "week";
-      }),
-
-    startDate: z
-      .string()
-      .regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format")
-      .nullable()
-      .optional(),
-    endDate: z
-      .string()
-      .regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format")
-      .nullable()
-      .optional(),
-
-    language: z
-      .string()
-      .nullable()
-      .optional()
-      .transform(() => "en"),
-
-    limit: z
-      .union([z.string(), z.number(), z.null(), z.undefined()])
-      .transform((val) => {
-        if (val === null || val === undefined) return 20;
-        const num = typeof val === "string" ? parseInt(val, 10) : val;
-        return isNaN(num) ? 20 : Math.max(1, Math.min(20, num));
-      })
-      .default(20),
-  })
-  .refine(
-    (data) => {
-      if (data.startDate || data.endDate) {
-        return data.startDate !== undefined && data.endDate !== undefined;
-      }
-      return true;
-    },
-    {
-      message: "Both startDate and endDate must be provided together",
-      path: ["startDate"],
-    },
-  )
-  .refine(
-    (data) => {
-      if (!data.startDate || !data.endDate) {
-        return true;
-      }
-
-      const MIN_DATE = new Date("2000-01-01");
-      const MAX_RANGE_DAYS = 365;
-      const now = new Date();
-
-      const start = new Date(data.startDate);
-      const end = new Date(data.endDate);
-
-      if (isNaN(start.getTime()) || isNaN(end.getTime())) return false;
-      if (start < MIN_DATE || end < MIN_DATE) return false;
-      if (start > now || end > now) return false;
-      if (start > end) return false;
-
-      const daysDiff = Math.ceil(
-        (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24),
-      );
-      if (daysDiff > MAX_RANGE_DAYS) return false;
-
-      return true;
-    },
-    {
-      message:
-        "Invalid date range: must be after 2000-01-01, not in the future, start ≤ end, and within 365 days",
-      path: ["startDate"],
-    },
-  )
-  .transform((data) => ({
-    category: data.category ?? undefined,
-    query: data.query ?? undefined,
-    difficulty: data.difficulty ?? undefined,
-    timeRange: data.timeRange,
-    startDate: data.startDate ?? undefined,
-    endDate: data.endDate ?? undefined,
-    language: data.language,
-    limit: data.limit,
-  }));
+  limit: z
+    .union([z.string(), z.number(), z.null(), z.undefined()])
+    .transform((val) => {
+      if (val === null || val === undefined) return 20;
+      const num = typeof val === "string" ? parseInt(val, 10) : val;
+      return isNaN(num) ? 20 : Math.max(1, Math.min(20, num));
+    })
+    .default(20),
+});
 
 type NewsQuery = z.infer<typeof newsQuerySchema>;
 
@@ -148,136 +52,42 @@ export default defineEventHandler(async (event) => {
     }
     const validatedQuery = newsQuerySchema.parse(query) as NewsQuery;
 
-    // 1. Fetch stories from Redis (populated by the Claude-web MCP agent)
-    const lastIngest = await storiesService.getLastIngestTime();
-    const allStories = await storiesService.getStories();
+    // 1. Fetch lessons from Redis (populated by the Claude-web MCP agent)
+    const lastIngest = await lessonsService.getLastIngestTime();
+    let lessons = await lessonsService.getLessons();
 
-    // Dynamically calculate trendScore for all stories relative to current time
-    const now = Date.now();
-    for (const story of allStories) {
-      story.trendScore = calculateTrendScore(story, now);
-    }
-
-    // 2. Filter stories
-    let filteredStories = allStories;
-
-    // Filter by category
-    if (validatedQuery.category && validatedQuery.category !== "all") {
-      filteredStories = filteredStories.filter(
-        (story) =>
-          story.categories?.includes(validatedQuery.category!) ||
-          story.sources?.some(
-            (src) => src.category === validatedQuery.category,
-          ),
-      );
-    }
-
-    // Filter by JLPT difficulty level (stories without a lesson estimate are excluded)
+    // 2. Filter by JLPT difficulty (exact match)
     if (validatedQuery.difficulty) {
-      filteredStories = filteredStories.filter(
-        (story) => story.difficultyLevel === validatedQuery.difficulty,
+      lessons = lessons.filter(
+        (l) => l.difficultyLevel === validatedQuery.difficulty,
       );
     }
 
-    // Filter by query (text search)
+    // 3. Filter by free-text query (title / titleJa / passage)
     if (validatedQuery.query) {
-      const searchLower = validatedQuery.query.toLowerCase();
-      filteredStories = filteredStories.filter(
-        (story) =>
-          story.headline.toLowerCase().includes(searchLower) ||
-          story.summary.toLowerCase().includes(searchLower),
+      const q = validatedQuery.query.toLowerCase();
+      lessons = lessons.filter(
+        (l) =>
+          l.title.toLowerCase().includes(q) ||
+          (l.titleJa?.toLowerCase().includes(q) ?? false) ||
+          (l.originalText?.toLowerCase().includes(q) ?? false),
       );
     }
 
-    // Filter by time range or custom dates
-    let cutoffMs = 0;
-    if (validatedQuery.startDate && validatedQuery.endDate) {
-      const start = new Date(validatedQuery.startDate).getTime();
-      const end = new Date(validatedQuery.endDate).getTime() + 24 * 3600 * 1000; // end of day
-      filteredStories = filteredStories.filter((story) => {
-        if (!story.sources || story.sources.length === 0) return false;
-        const sourceTimes = story.sources.map((s) =>
-          new Date(s.publishedAt).getTime(),
-        );
-        const earliestSourceTime = Math.min(...sourceTimes);
-        const latestSourceTime = Math.max(...sourceTimes);
-        // Overlap: story active span [earliestSourceTime, latestSourceTime] intersects with filter range [start, end]
-        return latestSourceTime >= start && earliestSourceTime <= end;
-      });
-    } else if (
-      validatedQuery.timeRange &&
-      validatedQuery.timeRange !== "none"
-    ) {
-      const now = Date.now();
-      if (validatedQuery.timeRange === "day") cutoffMs = now - 24 * 3600 * 1000;
-      else if (validatedQuery.timeRange === "week")
-        cutoffMs = now - 7 * 24 * 3600 * 1000;
-
-      filteredStories = filteredStories.filter((story) => {
-        if (!story.sources || story.sources.length === 0) return false;
-        const sourceTimes = story.sources.map((s) =>
-          new Date(s.publishedAt).getTime(),
-        );
-        const latestSourceTime = Math.max(...sourceTimes);
-        return latestSourceTime >= cutoffMs;
-      });
-    }
-
-    // 3. Sort stories: primary by trendScore descending (recent sources count), secondary by lastUpdated descending
-    filteredStories.sort((a, b) => {
-      if (b.trendScore !== a.trendScore) {
-        return b.trendScore - a.trendScore;
-      }
-      return b.lastUpdated - a.lastUpdated;
-    });
-
-    // Enforce limit
-    filteredStories = filteredStories.slice(0, validatedQuery.limit);
-
-    // 4. Build backward-compatible global briefing from top stories
-    let backwardCompatibleBriefing: NewsBriefing | null = null;
-
-    if (filteredStories.length > 0) {
-      const topStory = filteredStories[0]!;
-      const allSources = filteredStories.flatMap((s) => s.sources);
-
-      // Deduplicate sources by URL
-      const uniqueSources = deduplicateByUrl(allSources);
-
-      backwardCompatibleBriefing = {
-        mainHeadline: topStory.headline,
-        executiveSummary: topStory.summary,
-        thematicAnalysis: topStory.thematicAnalysis,
-        overallCredibilityScore: topStory.sources[0]?.credibilityScore || 0.8,
-        sourcesProcessed: uniqueSources.map((src) => ({
-          title: src.title,
-          source: src.source,
-          url: src.url,
-          favicon: src.favicon,
-          credibilityScore: src.credibilityScore,
-        })),
-        publishTimeRange: "Recent",
-      };
-    } else {
-      backwardCompatibleBriefing = {
-        mainHeadline: "Latest Japan News Briefing",
-        executiveSummary:
-          "- No news stories are currently available. Please check back later.",
-        thematicAnalysis: "- No thematic analysis available.",
-        overallCredibilityScore: 0.8,
-        sourcesProcessed: [],
-        publishTimeRange: "Recent",
-      };
-    }
+    // 4. Sort newest article first, then enforce limit
+    lessons.sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    );
+    lessons = lessons.slice(0, validatedQuery.limit);
 
     return {
       success: true,
       data: {
-        ...backwardCompatibleBriefing,
-        stories: filteredStories,
+        lessons,
         lastIngestTime: lastIngest,
       },
-      count: filteredStories.length,
+      count: lessons.length,
       timestamp: new Date().toISOString(),
     };
   } catch (error) {
