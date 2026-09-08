@@ -40,7 +40,7 @@
             :alt="sourceName"
             class="w-4 h-4 rounded object-contain bg-white dark:bg-gray-800"
             loading="lazy"
-          />
+          >
           <UIcon
             v-else
             name="i-heroicons-newspaper"
@@ -87,6 +87,16 @@
           >
             {{ lesson.romajiText }}
           </p>
+          <template v-if="lesson.englishText">
+            <h4 class="kicker text-secondary-500 mt-4 mb-2">
+              {{ t.translation }}
+            </h4>
+            <p
+              class="font-body-serif text-base leading-relaxed text-gray-700 dark:text-gray-300 [word-wrap:break-word]"
+            >
+              {{ lesson.englishText }}
+            </p>
+          </template>
         </div>
 
         <div v-if="lesson.vocabList && lesson.vocabList.length > 0">
@@ -207,6 +217,7 @@ const translations = {
   en: {
     trustScore: "Trust Score",
     originalPassage: "Original passage",
+    translation: "English translation",
     vocabulary: "Vocabulary",
     grammarNotes: "Grammar notes",
   },
