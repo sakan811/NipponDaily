@@ -89,9 +89,10 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Built with Nuxt 4 and Vue 3,
-            utilizing custom UI components and Tailwind CSS v4. The UI is
-            designed for "Synthesized Reading," prioritizing summarized
-            briefings over raw lists of links.
+            utilizing custom UI components and Tailwind CSS v4. The UI is a
+            newspaper-inspired reader that presents one lesson at a time — a
+            Japanese passage with furigana and rōmaji, a vocabulary list, and
+            grammar notes — with a JLPT difficulty filter.
           </p>
         </UCard>
 
@@ -594,8 +595,8 @@
           </template>
           <p class="text-sm">
             Creates or updates one lesson — a single article plus its
-            originalText, furiganaText, romajiText, vocabList, grammarNotes and
-            difficultyLevel — visible on the site immediately. To update, pass
+            originalText, englishText, furiganaText, romajiText, vocabList,
+            grammarNotes and difficultyLevel — visible on the site immediately. To update, pass
             the lesson's id or re-use its url; any mergeable field left out
             keeps its stored value. <code>favicon</code> and <code>source</code>
             are derived server-side; the submitted URL is marked processed.
@@ -783,7 +784,8 @@
                 <td class="py-2 px-2 text-gray-500">string (max 100)</td>
                 <td class="py-2 px-2">
                   Full-text search across <code>title</code>,
-                  <code>titleJa</code> &amp; <code>originalText</code>
+                  <code>titleJa</code>, <code>originalText</code> &amp;
+                  <code>englishText</code>
                 </td>
               </tr>
               <tr>
