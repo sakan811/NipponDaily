@@ -63,14 +63,15 @@ export default defineEventHandler(async (event) => {
       );
     }
 
-    // 3. Filter by free-text query (title / titleJa / passage)
+    // 3. Filter by free-text query (title / titleJa / passage / translation)
     if (validatedQuery.query) {
       const q = validatedQuery.query.toLowerCase();
       lessons = lessons.filter(
         (l) =>
           l.title.toLowerCase().includes(q) ||
           (l.titleJa?.toLowerCase().includes(q) ?? false) ||
-          (l.originalText?.toLowerCase().includes(q) ?? false),
+          (l.originalText?.toLowerCase().includes(q) ?? false) ||
+          (l.englishText?.toLowerCase().includes(q) ?? false),
       );
     }
 
