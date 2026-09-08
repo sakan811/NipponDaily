@@ -12,7 +12,8 @@ tools on `/api/mcp` listed below.
 
 **The site is a Japanese-learning app.** Each record is **one Japanese-language news
 article turned into a self-contained lesson** — a passage of the article's own Japanese
-(`originalText`), the same passage with furigana (`furiganaText`), its rōmaji
+(`originalText`), its English translation (`englishText`), the same passage with furigana
+(`furiganaText`), its rōmaji
 (`romajiText`), a vocab list (`vocabList`), grammar notes (`grammarNotes`) and one
 overall difficulty estimate (`difficultyLevel`). There is **no clustering**, **no
 cross-article synthesis**, **no summary/analysis prose**, and **no topic taxonomy**. Your
@@ -70,6 +71,8 @@ passage produce:
   automatically afterwards.
 - **`difficultyLevel`** — one overall `N5`–`N1` estimate for the lesson.
 - **`originalText`** — the passage itself.
+- **`englishText`** — a faithful English translation of the whole passage, so learners
+  can check their reading.
 - **`furiganaText`** — the same passage with furigana as inline `<ruby>` tags, e.g.
   `<ruby>漢字<rt>かんじ</rt></ruby>`. Only `<ruby>`/`<rt>`/`<rp>` tags survive rendering —
   the app HTML-escapes everything else, including attributes — so keep the markup to bare
