@@ -54,6 +54,8 @@ export interface Lesson {
   difficultyLevel: JlptLevel;
   /** A representative passage from the article's Japanese text. */
   originalText: string;
+  /** English translation of originalText. */
+  englishText: string;
   /** The same passage with furigana as inline <ruby> HTML markup. */
   furiganaText: string;
   /** Hepburn rōmaji transliteration of originalText. */
