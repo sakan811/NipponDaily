@@ -2,15 +2,15 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 
 import { cleanupOldDataTask } from "~/server/services/cleanup";
 
-const { mockGetStories, mockDeleteStory } = vi.hoisted(() => ({
-  mockGetStories: vi.fn(),
-  mockDeleteStory: vi.fn(),
+const { mockGetLessons, mockDeleteLesson } = vi.hoisted(() => ({
+  mockGetLessons: vi.fn(),
+  mockDeleteLesson: vi.fn(),
 }));
 
-vi.mock("~/server/services/stories", () => ({
-  storiesService: {
-    getStories: mockGetStories,
-    deleteStory: mockDeleteStory,
+vi.mock("~/server/services/lessons", () => ({
+  lessonsService: {
+    getLessons: mockGetLessons,
+    deleteLesson: mockDeleteLesson,
   },
 }));
 
@@ -21,40 +21,52 @@ describe("cleanupOldDataTask", () => {
     vi.clearAllMocks();
   });
 
-  it("deletes only stories older than 30 days", async () => {
+  it("deletes only lessons whose article is older than 30 days", async () => {
     const now = Date.now();
-    mockGetStories.mockResolvedValue([
-      { id: "stale", headline: "Old", lastUpdated: now - ONE_MONTH_MS - 1000 },
-      { id: "fresh", headline: "New", lastUpdated: now },
+    mockGetLessons.mockResolvedValue([
+      {
+        id: "stale",
+        title: "Old",
+        publishedAt: new Date(now - ONE_MONTH_MS - 1000).toISOString(),
+      },
+      { id: "fresh", title: "New", publishedAt: new Date(now).toISOString() },
     ]);
 
     const result = await cleanupOldDataTask();
 
-    expect(result).toEqual({ success: true, storiesDeleted: 1 });
-    expect(mockDeleteStory).toHaveBeenCalledTimes(1);
-    expect(mockDeleteStory).toHaveBeenCalledWith("stale");
+    expect(result).toEqual({ success: true, lessonsDeleted: 1 });
+    expect(mockDeleteLesson).toHaveBeenCalledTimes(1);
+    expect(mockDeleteLesson).toHaveBeenCalledWith("stale");
   });
 
   it("does not delete anything in dryRun mode, but still reports the count", async () => {
     const now = Date.now();
-    mockGetStories.mockResolvedValue([
-      { id: "stale", headline: "Old", lastUpdated: now - ONE_MONTH_MS - 1000 },
+    mockGetLessons.mockResolvedValue([
+      {
+        id: "stale",
+        title: "Old",
+        publishedAt: new Date(now - ONE_MONTH_MS - 1000).toISOString(),
+      },
     ]);
 
     const result = await cleanupOldDataTask({ dryRun: true });
 
-    expect(result).toEqual({ success: true, storiesDeleted: 1 });
-    expect(mockDeleteStory).not.toHaveBeenCalled();
+    expect(result).toEqual({ success: true, lessonsDeleted: 1 });
+    expect(mockDeleteLesson).not.toHaveBeenCalled();
   });
 
-  it("deletes nothing and reports zero when all stories are recent", async () => {
-    mockGetStories.mockResolvedValue([
-      { id: "fresh", headline: "New", lastUpdated: Date.now() },
+  it("deletes nothing and reports zero when all lessons are recent", async () => {
+    mockGetLessons.mockResolvedValue([
+      {
+        id: "fresh",
+        title: "New",
+        publishedAt: new Date().toISOString(),
+      },
     ]);
 
     const result = await cleanupOldDataTask();
 
-    expect(result).toEqual({ success: true, storiesDeleted: 0 });
-    expect(mockDeleteStory).not.toHaveBeenCalled();
+    expect(result).toEqual({ success: true, lessonsDeleted: 0 });
+    expect(mockDeleteLesson).not.toHaveBeenCalled();
   });
 });

@@ -1,5 +1,5 @@
 import { vi } from "vitest";
-import type { Story } from "~~/types/index";
+import type { Lesson } from "~~/types/index";
 
 // Mock useRuntimeConfig with hoisted mock
 const { mockUseRuntimeConfig } = vi.hoisted(() => {
@@ -16,50 +16,44 @@ vi.mock("#app", () => ({
   useRuntimeConfig: mockUseRuntimeConfig,
 }));
 
-// Mock the stories service — news.get.ts reads exclusively from Redis via this service
+// Mock the lessons service — news.get.ts reads exclusively from Redis via this service
 export const mockGetLastIngestTime = vi.fn();
-export const mockGetStories = vi.fn();
+export const mockGetLessons = vi.fn();
 
-vi.mock("~/server/services/stories", async (importOriginal) => {
+vi.mock("~/server/services/lessons", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("~/server/services/stories")>();
+    await importOriginal<typeof import("~/server/services/lessons")>();
   return {
     ...actual,
-    storiesService: {
+    lessonsService: {
       getLastIngestTime: mockGetLastIngestTime,
-      getStories: mockGetStories,
+      getLessons: mockGetLessons,
     },
   };
 });
 
-// Helper function to create mock stories. Defaults to "now" for all
-// timestamps so category/limit/sorting tests aren't inadvertently filtered
-// out by the timeRange window; pass explicit dates for time-range tests.
-export const createMockStory = (overrides: Partial<Story> = {}): Story => {
+// Helper to create a mock lesson. Defaults to "now" for publishedAt so
+// difficulty/limit/search tests aren't affected by sort order unless they set
+// explicit dates.
+export const createMockLesson = (overrides: Partial<Lesson> = {}): Lesson => {
   const now = Date.now();
-  const nowIso = new Date(now).toISOString();
   return {
-    id: "story-1",
-    headline: "Tech News",
-    summary: "- Tech Summary",
-    thematicAnalysis: "- Tech Analysis",
-    articleCount: 1,
-    firstSeen: now,
-    lastUpdated: now,
-    trendScore: 1,
-    isSummarized: true,
-    categories: ["tech"],
-    sources: [
-      {
-        title: "Tech News",
-        source: "Tech Source",
-        url: "https://example.com",
-        publishedAt: nowIso,
-        credibilityScore: 0.9,
-        addedAt: now,
-        category: "tech",
-      },
-    ],
+    id: "lesson-1",
+    title: "Tech News",
+    titleJa: "テックニュース",
+    source: "https://example.com",
+    url: "https://example.com/article",
+    favicon: "https://example.com/favicon.ico",
+    publishedAt: new Date(now).toISOString(),
+    addedAt: now,
+    credibilityScore: 0.9,
+    difficultyLevel: "N3",
+    originalText: "日本語の本文です。",
+    furiganaText:
+      "<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>本文<rt>ほんぶん</rt></ruby>です。",
+    romajiText: "Nihongo no honbun desu.",
+    vocabList: [],
+    grammarNotes: [],
     ...overrides,
   };
 };
@@ -74,7 +68,7 @@ export const getHandler = async () => {
 export const setupDefaults = () => {
   vi.clearAllMocks();
   delete process.env.NODE_ENV;
-  (global as any).getQuery.mockReturnValue({ language: "en" });
+  (global as any).getQuery.mockReturnValue({});
   mockGetLastIngestTime.mockResolvedValue(Date.now());
-  mockGetStories.mockResolvedValue([]);
+  mockGetLessons.mockResolvedValue([]);
 };

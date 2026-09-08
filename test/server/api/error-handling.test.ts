@@ -1,6 +1,15 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 
-import { getHandler, setupDefaults, mockGetStories } from "./setup";
+import { getHandler, setupDefaults, mockGetLessons } from "./setup";
+
+const mockEvent = {
+  node: {
+    req: {
+      socket: { remoteAddress: "127.0.0.1" },
+      headers: {},
+    },
+  },
+};
 
 describe("News API - Error Handling", () => {
   let handler: any;
@@ -12,19 +21,10 @@ describe("News API - Error Handling", () => {
 
   it("handles service errors", async () => {
     const error = new Error("Service error");
-    (global as any).getQuery.mockReturnValue({ language: "en" });
-    mockGetStories.mockRejectedValue(error);
+    (global as any).getQuery.mockReturnValue({});
+    mockGetLessons.mockRejectedValue(error);
 
-    await expect(
-      handler({
-        node: {
-          req: {
-            socket: { remoteAddress: "127.0.0.1" },
-            headers: {},
-          },
-        },
-      }),
-    ).rejects.toMatchObject({
+    await expect(handler(mockEvent)).rejects.toMatchObject({
       statusCode: 500,
       statusMessage: "Failed to fetch news",
       data: { error: "Service error" },
@@ -35,18 +35,11 @@ describe("News API - Error Handling", () => {
     process.env.NODE_ENV = "development";
     const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     const error = new Error("Dev error");
-    (global as any).getQuery.mockReturnValue({ language: "en" });
-    mockGetStories.mockRejectedValue(error);
+    (global as any).getQuery.mockReturnValue({});
+    mockGetLessons.mockRejectedValue(error);
 
     try {
-      await handler({
-        node: {
-          req: {
-            socket: { remoteAddress: "127.0.0.1" },
-            headers: {},
-          },
-        },
-      });
+      await handler(mockEvent);
     } catch {
       // Expected error - no action needed
     }
@@ -56,19 +49,10 @@ describe("News API - Error Handling", () => {
   });
 
   it("handles non-Error objects in error handling", async () => {
-    (global as any).getQuery.mockReturnValue({ language: "en" });
-    mockGetStories.mockRejectedValue("String error message");
+    (global as any).getQuery.mockReturnValue({});
+    mockGetLessons.mockRejectedValue("String error message");
 
-    await expect(
-      handler({
-        node: {
-          req: {
-            socket: { remoteAddress: "127.0.0.1" },
-            headers: {},
-          },
-        },
-      }),
-    ).rejects.toMatchObject({
+    await expect(handler(mockEvent)).rejects.toMatchObject({
       statusCode: 500,
       statusMessage: "Failed to fetch news",
       data: { error: "Unknown error occurred" },
