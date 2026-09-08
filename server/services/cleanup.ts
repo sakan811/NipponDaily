@@ -1,14 +1,14 @@
-import { storiesService } from "./stories";
+import { lessonsService } from "./lessons";
 
 const ONE_MONTH_MS = 30 * 24 * 60 * 60 * 1000;
 
 export interface CleanupResult {
   success: boolean;
-  storiesDeleted: number;
+  lessonsDeleted: number;
 }
 
 /**
- * Permanently removes stories from Redis that are older than one month.
+ * Permanently removes lessons from Redis whose article is older than one month.
  */
 export async function cleanupOldDataTask(options?: {
   dryRun?: boolean;
@@ -20,25 +20,25 @@ export async function cleanupOldDataTask(options?: {
     `[Cleanup] Starting cleanup of data older than ${new Date(cutoffTime).toISOString()}... DryRun: ${dryRun}`,
   );
 
-  // Prune stale stories from Redis
-  const stories = await storiesService.getStories();
-  const staleStories = stories.filter(
-    (story) => story.lastUpdated < cutoffTime,
-  );
+  const lessons = await lessonsService.getLessons();
+  const staleLessons = lessons.filter((lesson) => {
+    const time = new Date(lesson.publishedAt).getTime() || lesson.addedAt || 0;
+    return time < cutoffTime;
+  });
 
-  for (const story of staleStories) {
+  for (const lesson of staleLessons) {
     console.log(
-      `[Cleanup] Removing stale story "${story.headline}" (ID: ${story.id})`,
+      `[Cleanup] Removing stale lesson "${lesson.title}" (ID: ${lesson.id})`,
     );
     if (!dryRun) {
-      await storiesService.deleteStory(story.id);
+      await lessonsService.deleteLesson(lesson.id);
     }
   }
 
-  console.log(`[Cleanup] Completed. Stories deleted: ${staleStories.length}`);
+  console.log(`[Cleanup] Completed. Lessons deleted: ${staleLessons.length}`);
 
   return {
     success: true,
-    storiesDeleted: staleStories.length,
+    lessonsDeleted: staleLessons.length,
   };
 }
