@@ -1,26 +1,14 @@
 import { Redis } from "@upstash/redis";
-import type { Story } from "~~/types/index";
+import type { Lesson } from "~~/types/index";
 import { getEnvOrConfig } from "../utils/config";
 
 /**
- * Recalculates trend score based on sources published or added within the last 2 weeks.
+ * Redis CRUD for standalone {@link Lesson} records. Each lesson is one Japanese
+ * news article plus the lesson authored from it — there is no clustering.
  */
-export function calculateTrendScore(
-  story: Story,
-  now: number = Date.now(),
-): number {
-  const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
-  const cutoff = now - TWO_WEEKS_MS;
-  const recentSources = (story.sources || []).filter((src) => {
-    const time = src.addedAt || new Date(src.publishedAt).getTime() || 0;
-    return time >= cutoff;
-  });
-  return recentSources.length;
-}
-
-class StoriesService {
+class LessonsService {
   private client: Redis | null = null;
-  private memoryStories = new Map<string, Story>();
+  private memoryLessons = new Map<string, Lesson>();
   private memoryProcessedArticles = new Set<string>();
   private memoryLastIngestTime: number = 0;
   private memoryDomainCredibility = new Map<string, number>();
@@ -50,70 +38,86 @@ class StoriesService {
     }
   }
 
-  async getStory(storyId: string): Promise<Story | null> {
+  async getLesson(lessonId: string): Promise<Lesson | null> {
     const redis = this.getRedisClient();
     if (!redis) {
-      return this.memoryStories.get(storyId) || null;
+      return this.memoryLessons.get(lessonId) || null;
     }
 
     try {
-      return await redis.get<Story>(`story:${storyId}`);
+      return await redis.get<Lesson>(`lesson:${lessonId}`);
     } catch (e) {
-      console.error(`Error getting story ${storyId} from Redis:`, e);
-      return this.memoryStories.get(storyId) || null;
+      console.error(`Error getting lesson ${lessonId} from Redis:`, e);
+      return this.memoryLessons.get(lessonId) || null;
     }
   }
 
-  async saveStory(story: Story): Promise<void> {
+  async saveLesson(lesson: Lesson): Promise<void> {
     const redis = this.getRedisClient();
     if (!redis) {
-      this.memoryStories.set(story.id, story);
+      this.memoryLessons.set(lesson.id, lesson);
       return;
     }
 
     try {
-      await redis.set(`story:${story.id}`, JSON.stringify(story));
-      await redis.sadd("news:stories", story.id);
+      await redis.set(`lesson:${lesson.id}`, JSON.stringify(lesson));
+      await redis.sadd("news:lessons", lesson.id);
     } catch (e) {
-      console.error(`Error saving story ${story.id} to Redis:`, e);
-      this.memoryStories.set(story.id, story);
+      console.error(`Error saving lesson ${lesson.id} to Redis:`, e);
+      this.memoryLessons.set(lesson.id, lesson);
     }
   }
 
-  async getStoryIds(): Promise<string[]> {
+  async getLessonIds(): Promise<string[]> {
     const redis = this.getRedisClient();
     if (!redis) {
-      return Array.from(this.memoryStories.keys());
+      return Array.from(this.memoryLessons.keys());
     }
 
     try {
-      return await redis.smembers("news:stories");
+      return await redis.smembers("news:lessons");
     } catch (e) {
-      console.error("Error getting story IDs from Redis:", e);
-      return Array.from(this.memoryStories.keys());
+      console.error("Error getting lesson IDs from Redis:", e);
+      return Array.from(this.memoryLessons.keys());
     }
   }
 
-  async getStories(): Promise<Story[]> {
-    const ids = await this.getStoryIds();
+  async getLessons(): Promise<Lesson[]> {
+    const ids = await this.getLessonIds();
     if (ids.length === 0) return [];
 
     const redis = this.getRedisClient();
     if (!redis) {
       return ids
-        .map((id) => this.memoryStories.get(id))
-        .filter((s): s is Story => s !== undefined);
+        .map((id) => this.memoryLessons.get(id))
+        .filter((l): l is Lesson => l !== undefined);
     }
 
     try {
-      const keys = ids.map((id) => `story:${id}`);
-      const results = await redis.mget<Story[]>(...keys);
-      return results.filter((s): s is Story => s !== null);
+      const keys = ids.map((id) => `lesson:${id}`);
+      const results = await redis.mget<Lesson[]>(...keys);
+      return results.filter((l): l is Lesson => l !== null);
     } catch (e) {
-      console.error("Error getting stories from Redis:", e);
+      console.error("Error getting lessons from Redis:", e);
       return ids
-        .map((id) => this.memoryStories.get(id))
-        .filter((s): s is Story => s !== undefined);
+        .map((id) => this.memoryLessons.get(id))
+        .filter((l): l is Lesson => l !== undefined);
+    }
+  }
+
+  async deleteLesson(lessonId: string): Promise<void> {
+    const redis = this.getRedisClient();
+    if (!redis) {
+      this.memoryLessons.delete(lessonId);
+      return;
+    }
+
+    try {
+      await redis.del(`lesson:${lessonId}`);
+      await redis.srem("news:lessons", lessonId);
+    } catch (e) {
+      console.error(`Error deleting lesson ${lessonId} from Redis:`, e);
+      this.memoryLessons.delete(lessonId);
     }
   }
 
@@ -147,6 +151,21 @@ class StoriesService {
     }
   }
 
+  async removeProcessedArticle(url: string): Promise<void> {
+    const redis = this.getRedisClient();
+    if (!redis) {
+      this.memoryProcessedArticles.delete(url);
+      return;
+    }
+
+    try {
+      await redis.srem("news:processed_articles", url);
+    } catch (e) {
+      console.error(`Error removing processed article ${url} from Redis:`, e);
+      this.memoryProcessedArticles.delete(url);
+    }
+  }
+
   async getDomainCredibility(domain: string): Promise<number | null> {
     const redis = this.getRedisClient();
     if (!redis) {
@@ -174,21 +193,6 @@ class StoriesService {
     } catch (e) {
       console.error(`Error setting credibility for domain ${domain}:`, e);
       this.memoryDomainCredibility.set(domain, score);
-    }
-  }
-
-  async removeProcessedArticle(url: string): Promise<void> {
-    const redis = this.getRedisClient();
-    if (!redis) {
-      this.memoryProcessedArticles.delete(url);
-      return;
-    }
-
-    try {
-      await redis.srem("news:processed_articles", url);
-    } catch (e) {
-      console.error(`Error removing processed article ${url} from Redis:`, e);
-      this.memoryProcessedArticles.delete(url);
     }
   }
 
@@ -221,23 +225,7 @@ class StoriesService {
       this.memoryLastIngestTime = time;
     }
   }
-
-  async deleteStory(storyId: string): Promise<void> {
-    const redis = this.getRedisClient();
-    if (!redis) {
-      this.memoryStories.delete(storyId);
-      return;
-    }
-
-    try {
-      await redis.del(`story:${storyId}`);
-      await redis.srem("news:stories", storyId);
-    } catch (e) {
-      console.error(`Error deleting story ${storyId} from Redis:`, e);
-      this.memoryStories.delete(storyId);
-    }
-  }
 }
 
-export const storiesService = new StoriesService();
-export { StoriesService };
+export const lessonsService = new LessonsService();
+export { LessonsService };

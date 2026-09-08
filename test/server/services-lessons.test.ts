@@ -26,15 +26,13 @@ vi.mock("@upstash/redis", () => {
   };
 });
 
-describe("StoriesService", () => {
+describe("LessonsService", () => {
   let service: any;
-  let calculateTrendScore: any;
 
   beforeEach(async () => {
     vi.clearAllMocks();
-    const module = await import("~/server/services/stories");
-    service = module.storiesService;
-    calculateTrendScore = module.calculateTrendScore;
+    const module = await import("~/server/services/lessons");
+    service = module.lessonsService;
   });
 
   it("uses in-memory fallback if Redis is not configured", async () => {
@@ -50,18 +48,14 @@ describe("StoriesService", () => {
     (global as any).useRuntimeConfig = mockUseRuntimeConfig;
 
     try {
-      const mockStory = {
-        id: "mem-story",
-        headline: "Mem Story Headline",
-        sources: [],
-      };
+      const mockLesson = { id: "mem-lesson", title: "Mem Lesson" };
 
-      await service.saveStory(mockStory as any);
-      const retrieved = await service.getStory("mem-story");
-      expect(retrieved).toEqual(mockStory);
+      await service.saveLesson(mockLesson as any);
+      const retrieved = await service.getLesson("mem-lesson");
+      expect(retrieved).toEqual(mockLesson);
 
-      const ids = await service.getStoryIds();
-      expect(ids).toContain("mem-story");
+      const ids = await service.getLessonIds();
+      expect(ids).toContain("mem-lesson");
 
       expect(await service.isArticleProcessed("http://test-url.com")).toBe(
         false,
@@ -91,32 +85,28 @@ describe("StoriesService", () => {
     }));
     (global as any).useRuntimeConfig = mockUseRuntimeConfig;
 
-    const mockStory = {
-      id: "redis-story-1",
-      headline: "Redis Headline",
-      sources: [],
-    };
+    const mockLesson = { id: "redis-lesson-1", title: "Redis Lesson" };
 
     // Redis success path
     mockRedisGet
-      .mockResolvedValueOnce(mockStory)
+      .mockResolvedValueOnce(mockLesson)
       .mockResolvedValueOnce("12345");
     mockRedisSet.mockResolvedValue("OK");
     mockRedisSadd.mockResolvedValue(1);
-    mockRedisSmembers.mockResolvedValue(["redis-story-1"]);
+    mockRedisSmembers.mockResolvedValue(["redis-lesson-1"]);
     mockRedisSismember.mockResolvedValue(1);
     mockRedisSrem.mockResolvedValue(1);
     mockRedisDel.mockResolvedValue(1);
 
-    await service.saveStory(mockStory as any);
-    expect(await service.getStory("redis-story-1")).toEqual(mockStory);
-    expect(await service.getStoryIds()).toEqual(["redis-story-1"]);
+    await service.saveLesson(mockLesson as any);
+    expect(await service.getLesson("redis-lesson-1")).toEqual(mockLesson);
+    expect(await service.getLessonIds()).toEqual(["redis-lesson-1"]);
     expect(await service.isArticleProcessed("http://url.com")).toBe(true);
     await service.markArticleProcessed("http://url.com");
     await service.removeProcessedArticle("http://url.com");
     expect(await service.getLastIngestTime()).toBe(12345);
     await service.setLastIngestTime(99999);
-    await service.deleteStory("redis-story-1");
+    await service.deleteLesson("redis-lesson-1");
 
     // Redis error path (falls back to memory)
     mockRedisGet.mockRejectedValue(new Error("Redis get failed"));
@@ -127,15 +117,15 @@ describe("StoriesService", () => {
     mockRedisSrem.mockRejectedValue(new Error("Redis srem failed"));
     mockRedisDel.mockRejectedValue(new Error("Redis del failed"));
 
-    await service.saveStory(mockStory as any);
-    expect(await service.getStory("redis-story-1")).toEqual(mockStory);
-    expect(await service.getStoryIds()).toContain("redis-story-1");
+    await service.saveLesson(mockLesson as any);
+    expect(await service.getLesson("redis-lesson-1")).toEqual(mockLesson);
+    expect(await service.getLessonIds()).toContain("redis-lesson-1");
     expect(await service.isArticleProcessed("http://url.com")).toBe(false);
     await service.markArticleProcessed("http://url.com");
     await service.removeProcessedArticle("http://url.com");
     expect(typeof (await service.getLastIngestTime())).toBe("number");
     await service.setLastIngestTime(111);
-    await service.deleteStory("redis-story-1");
+    await service.deleteLesson("redis-lesson-1");
   });
 
   it("falls back to memory when the Redis client constructor throws", async () => {
@@ -154,9 +144,9 @@ describe("StoriesService", () => {
     });
 
     try {
-      const mockStory = { id: "ctor-fail-story", headline: "H", sources: [] };
-      await service.saveStory(mockStory as any);
-      expect(await service.getStory("ctor-fail-story")).toEqual(mockStory);
+      const mockLesson = { id: "ctor-fail-lesson", title: "H" };
+      await service.saveLesson(mockLesson as any);
+      expect(await service.getLesson("ctor-fail-lesson")).toEqual(mockLesson);
     } finally {
       // @ts-expect-error - restoring the mocked class
       RedisModule.Redis = originalRedis;
@@ -220,7 +210,7 @@ describe("StoriesService", () => {
     (service as any).client = null;
   });
 
-  it("deletes a story from the in-memory store when Redis is not configured", async () => {
+  it("deletes a lesson from the in-memory store when Redis is not configured", async () => {
     (service as any).client = null;
     const originalUrl = process.env.UPSTASH_REDIS_REST_URL;
     const originalToken = process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -232,18 +222,18 @@ describe("StoriesService", () => {
     }));
 
     try {
-      const mockStory = { id: "mem-delete-story", headline: "H", sources: [] };
-      await service.saveStory(mockStory as any);
-      expect(await service.getStory("mem-delete-story")).toEqual(mockStory);
-      await service.deleteStory("mem-delete-story");
-      expect(await service.getStory("mem-delete-story")).toBeNull();
+      const mockLesson = { id: "mem-delete-lesson", title: "H" };
+      await service.saveLesson(mockLesson as any);
+      expect(await service.getLesson("mem-delete-lesson")).toEqual(mockLesson);
+      await service.deleteLesson("mem-delete-lesson");
+      expect(await service.getLesson("mem-delete-lesson")).toBeNull();
     } finally {
       process.env.UPSTASH_REDIS_REST_URL = originalUrl;
       process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
     }
   });
 
-  it("skips story ids whose record is missing when listing all stories", async () => {
+  it("skips lesson ids whose record is missing when listing all lessons", async () => {
     (service as any).client = null;
     const originalUrl = process.env.UPSTASH_REDIS_REST_URL;
     const originalToken = process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -255,31 +245,24 @@ describe("StoriesService", () => {
     }));
 
     try {
-      await service.saveStory({
-        id: "present",
-        headline: "H",
-        sources: [],
-      } as any);
-      // Simulate a story id that's tracked but whose record was never saved / was removed.
-      (service as any).memoryStories = new Map(
-        Object.entries({
-          present: { id: "present", headline: "H", sources: [] },
-        }),
+      await service.saveLesson({ id: "present", title: "H" } as any);
+      (service as any).memoryLessons = new Map(
+        Object.entries({ present: { id: "present", title: "H" } }),
       );
-      const originalGetStoryIds = service.getStoryIds.bind(service);
-      service.getStoryIds = async () => ["present", "missing"];
+      const originalGetLessonIds = service.getLessonIds.bind(service);
+      service.getLessonIds = async () => ["present", "missing"];
 
-      const stories = await service.getStories();
+      const lessons = await service.getLessons();
 
-      expect(stories.map((s: any) => s.id)).toEqual(["present"]);
-      service.getStoryIds = originalGetStoryIds;
+      expect(lessons.map((l: any) => l.id)).toEqual(["present"]);
+      service.getLessonIds = originalGetLessonIds;
     } finally {
       process.env.UPSTASH_REDIS_REST_URL = originalUrl;
       process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
     }
   });
 
-  it("fetches all stories in a single mget round-trip instead of one get per id", async () => {
+  it("fetches all lessons in a single mget round-trip instead of one get per id", async () => {
     (service as any).client = null;
     const mockUseRuntimeConfig = vi.fn(() => ({
       upstashRedisRestUrl: "https://mock-redis.upstash.io",
@@ -287,25 +270,25 @@ describe("StoriesService", () => {
     }));
     (global as any).useRuntimeConfig = mockUseRuntimeConfig;
 
-    const storyA = { id: "a", headline: "A", sources: [] };
-    const storyB = { id: "b", headline: "B", sources: [] };
+    const lessonA = { id: "a", title: "A" };
+    const lessonB = { id: "b", title: "B" };
     mockRedisSmembers.mockResolvedValueOnce(["a", "b", "missing"]);
-    mockRedisMget.mockResolvedValueOnce([storyA, storyB, null]);
+    mockRedisMget.mockResolvedValueOnce([lessonA, lessonB, null]);
 
-    const stories = await service.getStories();
+    const lessons = await service.getLessons();
 
     expect(mockRedisMget).toHaveBeenCalledWith(
-      "story:a",
-      "story:b",
-      "story:missing",
+      "lesson:a",
+      "lesson:b",
+      "lesson:missing",
     );
     expect(mockRedisGet).not.toHaveBeenCalled();
-    expect(stories).toEqual([storyA, storyB]);
+    expect(lessons).toEqual([lessonA, lessonB]);
 
     (service as any).client = null;
   });
 
-  it("returns an empty array without calling Redis when there are no story ids", async () => {
+  it("returns an empty array without calling Redis when there are no lesson ids", async () => {
     (service as any).client = null;
     const mockUseRuntimeConfig = vi.fn(() => ({
       upstashRedisRestUrl: "https://mock-redis.upstash.io",
@@ -314,9 +297,9 @@ describe("StoriesService", () => {
     (global as any).useRuntimeConfig = mockUseRuntimeConfig;
     mockRedisSmembers.mockResolvedValueOnce([]);
 
-    const stories = await service.getStories();
+    const lessons = await service.getLessons();
 
-    expect(stories).toEqual([]);
+    expect(lessons).toEqual([]);
     expect(mockRedisMget).not.toHaveBeenCalled();
 
     (service as any).client = null;
@@ -331,39 +314,15 @@ describe("StoriesService", () => {
     (global as any).useRuntimeConfig = mockUseRuntimeConfig;
     mockRedisSmembers.mockResolvedValueOnce(["fallback-id"]);
     mockRedisMget.mockRejectedValueOnce(new Error("mget failed"));
-    (service as any).memoryStories.set("fallback-id", {
+    (service as any).memoryLessons.set("fallback-id", {
       id: "fallback-id",
-      headline: "Fallback",
-      sources: [],
+      title: "Fallback",
     });
 
-    const stories = await service.getStories();
+    const lessons = await service.getLessons();
 
-    expect(stories.map((s: any) => s.id)).toEqual(["fallback-id"]);
+    expect(lessons.map((l: any) => l.id)).toEqual(["fallback-id"]);
 
     (service as any).client = null;
-  });
-
-  it("calculates trend score using publishedAt when addedAt is missing, and excludes unparseable/old sources", async () => {
-    const now = Date.now();
-    const story = {
-      id: "fallback-story",
-      headline: "H",
-      sources: [
-        // No addedAt, recent publishedAt -> counts as recent
-        {
-          title: "A",
-          source: "A",
-          url: "a",
-          publishedAt: new Date(now - 1000).toISOString(),
-        },
-        // No addedAt, unparseable publishedAt -> falls back to 0, treated as old
-        { title: "B", source: "B", url: "b", publishedAt: "not-a-date" },
-      ],
-    };
-
-    const score = calculateTrendScore(story as any, now);
-
-    expect(score).toBe(1);
   });
 });
