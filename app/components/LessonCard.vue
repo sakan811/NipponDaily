@@ -135,6 +135,12 @@
                 >
                   {{ vocab.romaji }}
                 </span>
+                <span
+                  v-if="vocab.partOfSpeech"
+                  class="text-xs text-secondary-500 dark:text-secondary-400"
+                >
+                  {{ vocab.partOfSpeech }}
+                </span>
                 <UBadge color="secondary" variant="soft" size="xs">
                   {{ vocab.jlptLevel }}
                 </UBadge>
@@ -170,11 +176,25 @@
           </h4>
           <ul class="space-y-3">
             <li v-for="(note, i) in lesson.grammarNotes" :key="i">
-              <p
-                class="font-serif font-bold text-sm text-gray-900 dark:text-gray-100"
-              >
-                {{ note.pattern }}
-              </p>
+              <div class="flex items-baseline gap-2 flex-wrap">
+                <span
+                  v-if="note.patternFurigana"
+                  class="furigana-text font-serif font-bold text-sm text-gray-900 dark:text-gray-100"
+                  v-html="safeFurigana(note.patternFurigana)"
+                />
+                <span
+                  v-else
+                  class="font-serif font-bold text-sm text-gray-900 dark:text-gray-100"
+                >
+                  {{ note.pattern }}
+                </span>
+                <span
+                  v-if="note.partOfSpeech"
+                  class="text-xs text-secondary-500 dark:text-secondary-400"
+                >
+                  {{ note.partOfSpeech }}
+                </span>
+              </div>
               <p class="text-sm text-gray-700 dark:text-gray-300">
                 {{ note.explanation }}
               </p>
@@ -231,6 +251,12 @@
             class="text-xs italic text-gray-400 dark:text-gray-500"
           >
             {{ selectedVocab.romaji }}
+          </span>
+          <span
+            v-if="selectedVocab.partOfSpeech"
+            class="text-xs text-secondary-500 dark:text-secondary-400"
+          >
+            {{ selectedVocab.partOfSpeech }}
           </span>
           <UBadge color="secondary" variant="soft" size="xs">
             {{ selectedVocab.jlptLevel }}
