@@ -323,6 +323,7 @@ describe("server/api/mcp.ts", () => {
               reading: "にほんご",
               romaji: "nihongo",
               meaning: "Japanese language",
+              partOfSpeech: "noun",
               jlptLevel: "N5",
               exampleSentence: "日本語。",
               exampleFurigana: "<ruby>日本語<rt>にほんご</rt></ruby>。",
@@ -332,6 +333,8 @@ describe("server/api/mcp.ts", () => {
           grammarNotes: [
             {
               pattern: "〜。",
+              patternFurigana: "〜。",
+              partOfSpeech: "punctuation",
               explanation: "sentence end",
               exampleSentence: "日本語。",
               romaji: "Nihongo.",
@@ -346,9 +349,12 @@ describe("server/api/mcp.ts", () => {
         "<ruby>日本語<rt>にほんご</rt></ruby>。",
       );
       expect(parsed.data.vocabList[0].exampleRomaji).toBe("Nihongo.");
+      expect(parsed.data.vocabList[0].partOfSpeech).toBe("noun");
       expect(parsed.data.grammarNotes[0].exampleFurigana).toBe(
         "<ruby>日本語<rt>にほんご</rt></ruby>。",
       );
+      expect(parsed.data.grammarNotes[0].patternFurigana).toBe("〜。");
+      expect(parsed.data.grammarNotes[0].partOfSpeech).toBe("punctuation");
     });
 
     it("rejects an invalid difficultyLevel", () => {
