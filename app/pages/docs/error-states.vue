@@ -300,6 +300,8 @@ const mockLesson: Lesson = {
   difficultyLevel: "N3",
   originalText:
     "政府はきょう、東京で自動運転による移動サービスを広げるための新しい方針を発表しました。",
+  englishText:
+    "The government today unveiled a new policy to expand autonomous-driving mobility services in Tokyo.",
   furiganaText:
     "<ruby>政府<rt>せいふ</rt></ruby>はきょう、<ruby>東京<rt>とうきょう</rt></ruby>で<ruby>自動運転<rt>じどううんてん</rt></ruby>による<ruby>移動<rt>いどう</rt></ruby>サービスを<ruby>広<rt>ひろ</rt></ruby>げるための<ruby>新<rt>あたら</rt></ruby>しい<ruby>方針<rt>ほうしん</rt></ruby>を<ruby>発表<rt>はっぴょう</rt></ruby>しました。",
   romajiText:
