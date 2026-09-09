@@ -313,6 +313,44 @@ describe("server/api/mcp.ts", () => {
       expect(saved.addedAt).toBe(existing.addedAt);
     });
 
+    it("keeps optional furigana/rōmaji on vocab items and grammar notes through the schema", () => {
+      const schema = registeredTools.upsert_lesson!.config.inputSchema ?? null;
+      const parsed = schema.safeParse(
+        validLessonInput({
+          vocabList: [
+            {
+              term: "日本語",
+              reading: "にほんご",
+              romaji: "nihongo",
+              meaning: "Japanese language",
+              jlptLevel: "N5",
+              exampleSentence: "日本語。",
+              exampleFurigana: "<ruby>日本語<rt>にほんご</rt></ruby>。",
+              exampleRomaji: "Nihongo.",
+            },
+          ],
+          grammarNotes: [
+            {
+              pattern: "〜。",
+              explanation: "sentence end",
+              exampleSentence: "日本語。",
+              romaji: "Nihongo.",
+              exampleFurigana: "<ruby>日本語<rt>にほんご</rt></ruby>。",
+            },
+          ],
+        }),
+      );
+
+      expect(parsed.success).toBe(true);
+      expect(parsed.data.vocabList[0].exampleFurigana).toBe(
+        "<ruby>日本語<rt>にほんご</rt></ruby>。",
+      );
+      expect(parsed.data.vocabList[0].exampleRomaji).toBe("Nihongo.");
+      expect(parsed.data.grammarNotes[0].exampleFurigana).toBe(
+        "<ruby>日本語<rt>にほんご</rt></ruby>。",
+      );
+    });
+
     it("rejects an invalid difficultyLevel", () => {
       const schema = registeredTools.upsert_lesson!.config.inputSchema ?? null;
       // config may be the raw zod object; guard for both shapes.
