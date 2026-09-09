@@ -60,6 +60,16 @@ const vocabItemSchema = z.object({
   meaning: z.string(),
   jlptLevel: jlptLevelSchema,
   exampleSentence: z.string(),
+  exampleFurigana: z
+    .string()
+    .optional()
+    .describe(
+      "exampleSentence with furigana as inline <ruby> HTML markup, e.g. <ruby>漢字<rt>かんじ</rt></ruby>. Only <ruby>/<rt>/<rp> tags are kept on render.",
+    ),
+  exampleRomaji: z
+    .string()
+    .optional()
+    .describe("Rōmaji (Hepburn) transliteration of exampleSentence."),
 });
 
 const grammarNoteSchema = z.object({
@@ -69,6 +79,12 @@ const grammarNoteSchema = z.object({
   romaji: z
     .string()
     .describe("Rōmaji (Hepburn) transliteration of exampleSentence."),
+  exampleFurigana: z
+    .string()
+    .optional()
+    .describe(
+      "exampleSentence with furigana as inline <ruby> HTML markup, e.g. <ruby>漢字<rt>かんじ</rt></ruby>. Only <ruby>/<rt>/<rp> tags are kept on render.",
+    ),
 });
 
 /**
