@@ -171,6 +171,7 @@ describe("LessonCard", () => {
         {
           pattern: "表明する",
           patternFurigana: "<ruby>表明<rt>ひょうめい</rt></ruby>する",
+          patternRomaji: "hyōmei suru",
           partOfSpeech: "suru verb",
           explanation: "to declare",
           exampleSentence: "首相は表明した。",
@@ -180,6 +181,7 @@ describe("LessonCard", () => {
     });
     expect(wrapper.text()).toContain("suru verb");
     expect(wrapper.html()).toContain("<rt>ひょうめい</rt>");
+    expect(wrapper.text()).toContain("hyōmei suru");
   });
 
   it("marks passage occurrences of vocab terms as clickable tokens", () => {

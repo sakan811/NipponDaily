@@ -189,6 +189,12 @@
                   {{ note.pattern }}
                 </span>
                 <span
+                  v-if="note.patternRomaji"
+                  class="text-xs italic text-gray-400 dark:text-gray-500"
+                >
+                  {{ note.patternRomaji }}
+                </span>
+                <span
                   v-if="note.partOfSpeech"
                   class="text-xs text-secondary-500 dark:text-secondary-400"
                 >
