@@ -5,10 +5,8 @@
         class="h-8 flex items-center justify-between text-stone-500 dark:text-stone-400"
       >
         <span class="kicker">{{ dateline }}</span>
-        <NuxtLink
-          to="/docs/features"
-          class="kicker hidden sm:inline no-underline hover:text-primary-500 transition-colors"
-          >Japan News &amp; Analysis</NuxtLink
+        <span class="kicker hidden sm:inline"
+          >Learn Japanese Through the News</span
         >
       </div>
     </template>
@@ -19,12 +17,12 @@
           src="/favicon-light.ico"
           alt="NipponDaily"
           class="w-[1em] h-[1em] dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm opacity-70"
-        />
+        >
         <img
           src="/favicon-dark.ico"
           alt="NipponDaily"
           class="w-[1em] h-[1em] hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm opacity-70"
-        />
+        >
         <span
           class="font-serif font-bold text-[1em] tracking-tight leading-none text-stone-900 dark:text-white"
           >NipponDaily</span
