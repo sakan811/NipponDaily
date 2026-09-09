@@ -10,7 +10,7 @@
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
-- **Japanese Lessons from Real News**: Each lesson is one Japanese-language article turned into teaching material authored from its own Japanese text — a representative passage with inline furigana (`<ruby>`) markup, its Hepburn rōmaji, an 8–15 term vocabulary list (readings, rōmaji, meanings, JLPT levels, example sentences), and 1–3 grammar notes.
+- **Japanese Lessons from Real News**: Each lesson is one Japanese-language article turned into teaching material authored from its own Japanese text — a representative passage with inline furigana (`<ruby>`) markup, its Hepburn rōmaji, an English translation, an 8–15 term vocabulary list (readings, rōmaji, meanings, part of speech, JLPT levels, example sentences), and 1–3 grammar notes. In the reader, tapping a highlighted vocab term in the passage opens a popover with its reading, rōmaji, meaning, JLPT level and example.
 - **One Article, One Lesson**: No clustering, no cross-article synthesis, no summary/analysis prose, and no topic taxonomy — every lesson stands on its own, so the reading view stays simple.
 - **Browse by JLPT Difficulty**: Filter lessons by level (N5–N1); each lesson carries one overall difficulty estimate shown as a badge, and the list is always ordered newest article first.
 - **Visual Trust Scoring**: A per-article credibility score (0.0–1.0) the Claude agent assigns on first sight of a publisher, cached per-domain in Redis and reused automatically afterwards, rendered with an HSL color gradient (red → green).
@@ -119,13 +119,13 @@ pnpm test:coverage # coverage report
 
 Registered tools:
 
-| Tool                   | Purpose                                                                                                                                                                                                                                                                                                                                      |
-| :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `get_recent_lessons`   | List existing lessons, newest article first (`id`, `title`, `url`, `source`, `publishedAt`, `difficultyLevel`).                                                                                                                                                                                                                              |
-| `check_processed_urls` | Given candidate article URLs, return which are already ingested.                                                                                                                                                                                                                                                                             |
-| `upsert_lesson`        | Create/update one lesson. Required: `title`, `url`, `publishedAt`, `difficultyLevel`. `favicon`/`source` are derived server-side; `credibilityScore` is cached per-domain; omitted mergeable fields (`titleJa`, `originalText`, `furiganaText`, `romajiText`, `vocabList`, `grammarNotes`) keep their stored value. Marks the URL processed. |
-| `cleanup_old_data`     | Delete lessons whose article is older than 30 days; `{ dryRun: true }` previews without committing.                                                                                                                                                                                                                                          |
-| `mark_ingest_complete` | Record the current time as the last-ingest timestamp shown to readers as "Updated N ago".                                                                                                                                                                                                                                                    |
+| Tool                   | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| :--------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `get_recent_lessons`   | List existing lessons, newest article first (`id`, `title`, `url`, `source`, `publishedAt`, `difficultyLevel`).                                                                                                                                                                                                                                                                                                                                |
+| `check_processed_urls` | Given candidate article URLs, return which are already ingested.                                                                                                                                                                                                                                                                                                                                                                               |
+| `upsert_lesson`        | Create/update one lesson. Required: `title`, `url`, `publishedAt`, `difficultyLevel`. `favicon`/`source` are derived server-side; `credibilityScore` is optional once the domain has been scored (cached per-domain in Redis and reused); omitted mergeable fields (`titleJa`, `credibilityScore`, `originalText`, `englishText`, `furiganaText`, `romajiText`, `vocabList`, `grammarNotes`) keep their stored value. Marks the URL processed. |
+| `cleanup_old_data`     | Delete lessons whose article is older than 30 days; `{ dryRun: true }` previews without committing.                                                                                                                                                                                                                                                                                                                                            |
+| `mark_ingest_complete` | Record the current time as the last-ingest timestamp shown to readers as "Updated N ago".                                                                                                                                                                                                                                                                                                                                                      |
 
 See [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for full tool schemas and diagrams, and [docs/news-pipeline-agent-prompt.md](docs/news-pipeline-agent-prompt.md) for the agent's operating prompt.
 
@@ -148,7 +148,7 @@ Repo-only docs:
 | Parameter    | Type                      | Description                                                                                           |
 | :----------- | :------------------------ | :---------------------------------------------------------------------------------------------------- |
 | `difficulty` | enum (`N5`–`N1`)          | JLPT difficulty filter — matches `difficultyLevel` exactly, case-insensitive; invalid values ignored. |
-| `query`      | string (max 100)          | Free-text search across `title`, `titleJa`, and `originalText`.                                       |
+| `query`      | string (max 100)          | Free-text search across `title`, `titleJa`, `originalText`, and `englishText`.                        |
 | `limit`      | number (1–20, default 20) | Max lessons to return.                                                                                |
 
 Lessons are always returned newest-article-first (`publishedAt` desc). Malformed query parameters are rejected with a `400` (see the Zod schema in `server/api/news.get.ts`).
@@ -161,8 +161,8 @@ Lessons are always returned newest-article-first (`publishedAt` desc). Malformed
   "data": {
     "lessons": [
       /* full Lesson[] — id, title, titleJa?, source, url, favicon, publishedAt,
-         addedAt, credibilityScore, difficultyLevel, originalText, furiganaText,
-         romajiText, vocabList, grammarNotes */
+         addedAt, credibilityScore, difficultyLevel, originalText, englishText,
+         furiganaText, romajiText, vocabList, grammarNotes */
     ],
     "lastIngestTime": 1718000000000
   },
