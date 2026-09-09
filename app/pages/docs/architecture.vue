@@ -39,14 +39,15 @@
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
         NipponDaily is a Japanese-learning app built on real Japan news — each
         record is one Japanese-language article turned into a self-contained
-        lesson (a Japanese passage with furigana and rōmaji, a vocabulary list,
-        and grammar notes). In simple terms, the website itself only reads
-        pre-computed lessons out of a database — all the "intelligence" (finding
-        Japanese-language articles, scoring credibility, and authoring each
-        lesson) is produced by a Claude web agent that runs weekly, entirely
-        outside this codebase, and writes its finished work in through a small
-        remote MCP server this project exposes. There is no clustering, no
-        cross-article synthesis, and no topic taxonomy.
+        lesson (a Japanese passage with furigana and rōmaji, an English
+        translation, a vocabulary list, and grammar notes). In simple terms, the
+        website itself only reads pre-computed lessons out of a database — all
+        the "intelligence" (finding Japanese-language articles, scoring
+        credibility, and authoring each lesson) is produced by a Claude web
+        agent that runs weekly, entirely outside this codebase, and writes its
+        finished work in through a small remote MCP server this project exposes.
+        There is no clustering, no cross-article synthesis, and no topic
+        taxonomy.
       </p>
 
       <!-- Diagram 1: System Overview -->
@@ -91,8 +92,10 @@
             <strong>Technical Details:</strong> Built with Nuxt 4 and Vue 3,
             utilizing custom UI components and Tailwind CSS v4. The UI is a
             newspaper-inspired reader that presents one lesson at a time — a
-            Japanese passage with furigana and rōmaji, a vocabulary list, and
-            grammar notes — with a JLPT difficulty filter.
+            Japanese passage with furigana and rōmaji, an English translation, a
+            vocabulary list, and grammar notes — with a JLPT difficulty filter.
+            Tapping a highlighted vocab term in the passage opens a popover with
+            its reading, rōmaji, meaning, JLPT level and example.
           </p>
         </UCard>
 
@@ -136,7 +139,8 @@
             <strong>Technical Details:</strong> Powered by Upstash Redis,
             storing <code>Lesson</code> records and ingestion metadata — all
             written by the MCP agent, never generated synchronously on a page
-            request.
+            request. When the Redis env vars are absent, the services fall back
+            to an in-process in-memory store so the app still runs locally.
           </p>
         </UCard>
 
@@ -243,7 +247,7 @@
                   >
                     <div
                       class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
-                      style="background-color: #ffbfc8"
+                      style="background-color: #ffc7ce"
                     />
                     <span
                       class="text-[10px] font-serif font-bold text-stone-900 dark:text-white text-center leading-tight"
@@ -251,7 +255,7 @@
                     >
                     <span
                       class="text-[9px] font-mono text-stone-500 dark:text-stone-400 mt-0.5"
-                      >#FFBFC8</span
+                      >#FFC7CE</span
                     >
                   </div>
                   <div
@@ -513,8 +517,8 @@
                 </div>
               </td>
               <td class="py-3 px-4 text-sm">
-                Neutral (<code>stone</code> / <code>zinc</code> /
-                <code>gray</code> / <code>neutral</code>)
+                Neutral (<code>neutral</code>, with <code>stone</code> /
+                <code>gray</code> aliased to it)
               </td>
               <td class="py-3 px-4 text-sm leading-relaxed">
                 Canvas backgrounds, text colors, gridlines, and borders
@@ -710,8 +714,11 @@
           <p class="text-sm text-gray-600 dark:text-gray-400">
             <strong>Technical Details:</strong> Reads all lessons from Redis and
             deletes any where <code>publishedAt</code> falls before the 30-day
-            cutoff, removing both the <code>lesson:&#123;id&#125;</code> key and
-            its entry in the <code>news:lessons</code> set.
+            cutoff (falling back to <code>addedAt</code> when the date is
+            unparseable), removing both the
+            <code>lesson:&#123;id&#125;</code> key and its entry in the
+            <code>news:lessons</code> set. With <code>dryRun: true</code> it
+            counts the matches but skips the deletes.
           </p>
         </div>
       </div>
@@ -1043,7 +1050,7 @@ Skip candidate URLs already ingested"]
 
     S4 --> S5["Step 4 · Author lesson + upsert_lesson
 For each article: pull a passage,
-add furigana + romaji + vocab + grammar,
+add furigana + romaji + translation + vocab + grammar,
 estimate difficulty, then write one lesson"]
     S5 -- "WRITE lesson +
 mark URL processed" --> Redis
@@ -1062,15 +1069,17 @@ flowchart TD
 (scheduled Claude web agent,
 or manual ad-hoc request)"])
 
-    Start --> S1["Prune Stale Lessons
-Read all lessons, delete where
+    Start --> S1["Scan for stale lessons
+Read all lessons, flag where
 publishedAt < 30 days ago"]
-    S1 -- "DELETE stale lessons" --> Redis[("Redis
-Lesson Database")]
-
     S1 --> Cond{"dryRun == true?"}
-    Cond -- "Yes" --> DryRunEnd(["✅ Return Preview Counts"])
-    Cond -- "No" --> Done(["✅ Done"])
+    Cond -- "Yes" --> DryRunEnd(["✅ Return count of lessons
+that would be deleted"])
+    Cond -- "No" --> S2["Delete each stale lesson
+(lesson:{id} key + news:lessons entry)"]
+    S2 -- "DELETE" --> Redis[("Redis
+Lesson Database")]
+    S2 --> Done(["✅ Return count deleted"])
 `;
 </script>
 
