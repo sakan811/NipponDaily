@@ -47,6 +47,7 @@ describe("Types", () => {
           romaji: "shushō",
           meaning: "prime minister",
           jlptLevel: "N3",
+          partOfSpeech: "noun",
           exampleSentence: "首相は表明した。",
           exampleFurigana: "<ruby>首相<rt>しゅしょう</rt></ruby>は表明した。",
           exampleRomaji: "Shushō wa hyōmei shita.",
@@ -55,6 +56,8 @@ describe("Types", () => {
       grammarNotes: [
         {
           pattern: "〜は",
+          patternFurigana: "〜は",
+          partOfSpeech: "particle",
           explanation: "topic marker",
           exampleSentence: "首相は表明した。",
           romaji: "shushō wa hyōmei shita.",
@@ -64,7 +67,9 @@ describe("Types", () => {
     };
 
     expect(lesson.vocabList[0]?.exampleRomaji).toBe("Shushō wa hyōmei shita.");
+    expect(lesson.vocabList[0]?.partOfSpeech).toBe("noun");
     expect(lesson.grammarNotes[0]?.exampleFurigana).toContain("<ruby>");
+    expect(lesson.grammarNotes[0]?.partOfSpeech).toBe("particle");
   });
 
   it("validates ApiResponse generic type", () => {

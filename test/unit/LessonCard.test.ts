@@ -154,6 +154,34 @@ describe("LessonCard", () => {
     expect(wrapper.text()).toContain("Shushō wa hyōmei shita.");
   });
 
+  it("renders part of speech for vocab and grammar, and furigana on the grammar pattern", () => {
+    const wrapper = mountCard({
+      vocabList: [
+        {
+          term: "表明",
+          reading: "ひょうめい",
+          romaji: "hyōmei",
+          meaning: "declaration",
+          partOfSpeech: "suru verb",
+          jlptLevel: "N2",
+          exampleSentence: "首相は表明した。",
+        },
+      ],
+      grammarNotes: [
+        {
+          pattern: "表明する",
+          patternFurigana: "<ruby>表明<rt>ひょうめい</rt></ruby>する",
+          partOfSpeech: "suru verb",
+          explanation: "to declare",
+          exampleSentence: "首相は表明した。",
+          romaji: "shushō wa hyōmei shita.",
+        },
+      ],
+    });
+    expect(wrapper.text()).toContain("suru verb");
+    expect(wrapper.html()).toContain("<rt>ひょうめい</rt>");
+  });
+
   it("marks passage occurrences of vocab terms as clickable tokens", () => {
     const wrapper = mountCard();
     const token = wrapper.find(".jp-token");
