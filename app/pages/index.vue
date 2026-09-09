@@ -14,31 +14,33 @@
     <main class="relative z-10 container mx-auto px-4 max-w-6xl py-16 sm:py-24">
       <div class="text-center max-w-3xl mx-auto space-y-6">
         <p class="kicker text-primary-600 dark:text-primary-400">
-          AI-Powered Japan News Aggregator & Briefings
+          Learn Japanese Through Real Japan News
         </p>
 
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Real-Time AI Briefings.<br class="hidden sm:inline" />
+          Read the news.<br class="hidden sm:inline" >
           <span class="text-primary-500 italic font-normal"
-            >Cross-Source Synthesis &</span
+            >Learn the language.</span
           >
-          Credibility Intelligence.
         </h1>
 
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-body-serif"
         >
-          NipponDaily clusters multi-source Japanese coverage using AI-driven
-          analysis—delivering executive briefings, cross-perspective synthesis,
-          and automated credibility scoring across 6 channels.
+          NipponDaily turns each week's Japanese-language news into
+          self-contained lessons — one article at a time. Every lesson pairs a
+          real passage with furigana and rōmaji, an English translation, a
+          JLPT-tagged vocabulary list, and grammar notes. No accounts, no
+          clutter: just this week's Japan, in Japanese you can actually work
+          through.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-4">
           <UButton
             data-testid="hero-cta"
-            label="Enter Intelligence Hub"
+            label="Start Reading"
             to="/news"
             color="primary"
             size="lg"
@@ -51,30 +53,30 @@
 
       <div class="rule-double my-16 sm:my-24" />
 
-      <!-- Specialty Channels: Contents Index -->
+      <!-- What's inside every lesson -->
       <section class="space-y-10">
         <div class="text-center max-w-lg mx-auto space-y-3">
           <h2
             class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
           >
-            Six Specialty Channels
+            Inside Every Lesson
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
           <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
-            Curated streams capturing the true multi-faceted heart and pulse of
-            modern Japan.
+            One Japanese-language article, turned into everything you need to
+            read and understand it.
           </p>
         </div>
 
         <p class="kicker text-stone-400 dark:text-stone-500">
-          Inside This Edition
+          What You Get Per Article
         </p>
 
         <div
           class="grid grid-cols-1 md:grid-cols-2 border-t border-stone-300 dark:border-stone-800"
         >
           <div
-            v-for="(channel, idx) in channels"
+            v-for="(part, idx) in lessonParts"
             :key="idx"
             class="group flex items-start gap-4 py-5 px-1 border-b border-stone-300 dark:border-stone-800 md:odd:border-r md:odd:pr-6 md:even:pl-6"
           >
@@ -86,15 +88,61 @@
               <h3
                 class="text-lg font-serif font-bold text-stone-900 dark:text-white group-hover:text-primary-500 transition-colors duration-200"
               >
-                {{ channel.title }}
+                {{ part.title }}
               </h3>
               <p
                 class="text-xs leading-relaxed text-stone-500 dark:text-stone-400 font-sans"
               >
-                {{ channel.description }}
+                {{ part.description }}
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <div class="rule-double my-16 sm:my-24" />
+
+      <!-- How lessons get here -->
+      <section class="space-y-6 max-w-2xl mx-auto text-center">
+        <h2
+          class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
+        >
+          Where Lessons Come From
+        </h2>
+        <div class="rule-double max-w-[120px] mx-auto" />
+        <p
+          class="text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
+        >
+          Once a week, a Claude web agent — running entirely outside this site —
+          researches Japanese-language Japan news, authors a lesson from each
+          article's own text, scores the publisher's credibility, and writes the
+          finished records straight into the database through a private MCP
+          server. The site itself only ever reads and displays them; lessons
+          rotate on a rolling 30-day window.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center pt-2">
+          <UButton
+            label="How it works"
+            to="/docs/architecture"
+            color="primary"
+            variant="outline"
+            size="md"
+            icon="i-heroicons-building-office-2"
+          />
+          <UButton
+            label="All features"
+            to="/docs/features"
+            color="gray"
+            variant="ghost"
+            size="md"
+          />
+          <UButton
+            label="Error &amp; fallback states"
+            to="/docs/error-states"
+            color="gray"
+            variant="ghost"
+            size="md"
+          />
         </div>
       </section>
     </main>
@@ -117,42 +165,36 @@
 import { ref } from "vue";
 import AppHeader from "../components/AppHeader.vue";
 
-const channels = ref([
+const lessonParts = ref([
   {
-    title: "Society & Prefectures",
+    title: "Furigana Passage",
     description:
-      "Deep insights into demographic shifts, rural revitalization efforts, prefectural policies, and local Japanese daily life.",
-    icon: "i-heroicons-user-group",
+      "A representative passage pulled from the article's Japanese text, with inline ruby readings over every kanji.",
   },
   {
-    title: "Tech & Mobility",
+    title: "Hepburn Rōmaji",
     description:
-      "The cutting edge: Japanese robotics, microchip foundries, Shinkansen expansions, aerospace development, and automotive giants.",
-    icon: "i-heroicons-cpu-chip",
+      "The same passage transliterated in Hepburn rōmaji, so you can check your reading against it line by line.",
   },
   {
-    title: "Pop Culture & Gaming",
+    title: "English Translation",
     description:
-      "Global releases and movements in anime, manga publishing houses, iconic gaming studios (Nintendo, Sony), J-Pop, and Tokyo youth trends.",
-    icon: "i-heroicons-play-circle",
+      "A faithful English rendering of the passage to confirm you have the meaning right.",
   },
   {
-    title: "Travel & Heritage",
+    title: "Vocabulary List",
     description:
-      "Curated guides to hidden hot spring (onsen) villages, regional festivals (matsuri), historical preservation, and structural tourism.",
-    icon: "i-heroicons-map",
+      "8–15 notable terms with readings, rōmaji, meanings, part of speech, JLPT level, and an example sentence each.",
   },
   {
-    title: "Food & Gastronomy",
+    title: "Grammar Notes",
     description:
-      "Washoku culinary arts, Michelin guides, traditional sake/whisky craft distilleries, agricultural techniques, and regional delicacies.",
-    icon: "i-heroicons-cake",
+      "1–3 grammar patterns worth flagging from the passage, each with a plain explanation and a worked example.",
   },
   {
-    title: "Nature & Resilience",
+    title: "Trust Score & JLPT Level",
     description:
-      "Seismic and meteorological developments, structural disaster preparation, environmental stewardship, and geographical surveys.",
-    icon: "i-heroicons-shield-exclamation",
+      "A per-publisher credibility score shown as a colour gradient, plus an overall difficulty badge — filter the feed by level (N5–N1).",
   },
 ]);
 </script>
