@@ -57,6 +57,7 @@ describe("Types", () => {
         {
           pattern: "〜は",
           patternFurigana: "〜は",
+          patternRomaji: "wa",
           partOfSpeech: "particle",
           explanation: "topic marker",
           exampleSentence: "首相は表明した。",
@@ -70,6 +71,7 @@ describe("Types", () => {
     expect(lesson.vocabList[0]?.partOfSpeech).toBe("noun");
     expect(lesson.grammarNotes[0]?.exampleFurigana).toContain("<ruby>");
     expect(lesson.grammarNotes[0]?.partOfSpeech).toBe("particle");
+    expect(lesson.grammarNotes[0]?.patternRomaji).toBe("wa");
   });
 
   it("validates ApiResponse generic type", () => {

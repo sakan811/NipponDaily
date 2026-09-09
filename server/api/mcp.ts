@@ -86,6 +86,10 @@ const grammarNoteSchema = z.object({
     .describe(
       "pattern with furigana as inline <ruby> HTML markup, e.g. <ruby>漢字<rt>かんじ</rt></ruby>. Only <ruby>/<rt>/<rp> tags are kept on render.",
     ),
+  patternRomaji: z
+    .string()
+    .optional()
+    .describe("Rōmaji (Hepburn) transliteration of pattern."),
   partOfSpeech: z
     .string()
     .optional()

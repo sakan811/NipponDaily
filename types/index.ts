@@ -29,6 +29,8 @@ export interface GrammarNote {
   pattern: string;
   /** pattern with furigana as inline <ruby> HTML markup. */
   patternFurigana?: string;
+  /** Hepburn rōmaji transliteration of pattern. */
+  patternRomaji?: string;
   /** Part of speech the pattern acts as, e.g. "conjunction", "auxiliary verb", "sentence-ending particle". */
   partOfSpeech?: string;
   explanation: string;

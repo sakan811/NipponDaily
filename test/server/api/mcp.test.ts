@@ -334,6 +334,7 @@ describe("server/api/mcp.ts", () => {
             {
               pattern: "〜。",
               patternFurigana: "〜。",
+              patternRomaji: "",
               partOfSpeech: "punctuation",
               explanation: "sentence end",
               exampleSentence: "日本語。",
@@ -354,6 +355,7 @@ describe("server/api/mcp.ts", () => {
         "<ruby>日本語<rt>にほんご</rt></ruby>。",
       );
       expect(parsed.data.grammarNotes[0].patternFurigana).toBe("〜。");
+      expect(parsed.data.grammarNotes[0].patternRomaji).toBe("");
       expect(parsed.data.grammarNotes[0].partOfSpeech).toBe("punctuation");
     });
 
