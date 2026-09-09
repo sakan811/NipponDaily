@@ -15,6 +15,8 @@ export interface VocabItem {
   reading: string;
   romaji: string;
   meaning: string;
+  /** Part of speech, e.g. "noun", "godan verb", "i-adjective", "particle". */
+  partOfSpeech?: string;
   jlptLevel: JlptLevel;
   exampleSentence: string;
   /** exampleSentence with furigana as inline <ruby> HTML markup. */
@@ -25,6 +27,10 @@ export interface VocabItem {
 
 export interface GrammarNote {
   pattern: string;
+  /** pattern with furigana as inline <ruby> HTML markup. */
+  patternFurigana?: string;
+  /** Part of speech the pattern acts as, e.g. "conjunction", "auxiliary verb", "sentence-ending particle". */
+  partOfSpeech?: string;
   explanation: string;
   exampleSentence: string;
   /** Rōmaji transliteration of exampleSentence. */

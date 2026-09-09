@@ -58,6 +58,12 @@ const vocabItemSchema = z.object({
   reading: z.string().describe("Kana reading of the term."),
   romaji: z.string().describe("Rōmaji (Hepburn) transliteration of the term."),
   meaning: z.string(),
+  partOfSpeech: z
+    .string()
+    .optional()
+    .describe(
+      'Part of speech, e.g. "noun", "godan verb", "i-adjective", "na-adjective", "adverb", "particle", "expression".',
+    ),
   jlptLevel: jlptLevelSchema,
   exampleSentence: z.string(),
   exampleFurigana: z
@@ -74,6 +80,18 @@ const vocabItemSchema = z.object({
 
 const grammarNoteSchema = z.object({
   pattern: z.string(),
+  patternFurigana: z
+    .string()
+    .optional()
+    .describe(
+      "pattern with furigana as inline <ruby> HTML markup, e.g. <ruby>漢字<rt>かんじ</rt></ruby>. Only <ruby>/<rt>/<rp> tags are kept on render.",
+    ),
+  partOfSpeech: z
+    .string()
+    .optional()
+    .describe(
+      'What the pattern grammatically acts as, e.g. "conjunction", "auxiliary verb", "sentence-ending particle", "conjunctive particle", "expression".',
+    ),
   explanation: z.string(),
   exampleSentence: z.string(),
   romaji: z
