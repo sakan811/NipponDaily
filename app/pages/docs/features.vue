@@ -60,7 +60,7 @@ const features = [
   {
     title: "Japanese Lessons from the News",
     description:
-      "Every record is one Japanese-language article turned into a lesson by the Claude web agent: a representative passage with inline furigana (ruby) markup, its Hepburn rōmaji, an 8–15 term vocabulary list with readings and JLPT levels, and 1–3 grammar notes — every section carries furigana over kanji and rōmaji, and tapping a highlighted word in the passage shows its reading, rōmaji and meaning.",
+      "Every record is one Japanese-language article turned into a lesson by the Claude web agent: a representative passage with inline furigana (ruby) markup, its Hepburn rōmaji, an English translation, an 8–15 term vocabulary list with readings, part of speech and JLPT levels, and 1–3 grammar notes — every section carries furigana over kanji and rōmaji, and tapping a highlighted word in the passage shows its reading, rōmaji and meaning.",
     icon: "i-heroicons-academic-cap",
   },
   {
@@ -78,7 +78,7 @@ const features = [
   {
     title: "AI Trust Scoring",
     description:
-      "A credibility score (0.0-1.0) assigned by the Claude web agent when it writes a lesson, cached per publisher domain and rendered with an HSL color gradient.",
+      "A credibility score (0.0-1.0) the Claude web agent assigns the first time it cites a publisher, then cached per-domain in Redis and reused automatically — rendered on each lesson with an HSL color gradient (red → green).",
     icon: "i-heroicons-shield-check",
   },
   {
@@ -114,7 +114,7 @@ const features = [
   {
     title: "Custom Editorial UI Library",
     description:
-      "Lightweight, custom components (UButton, UCard, UHeader, etc.) built natively on Tailwind CSS v4 in a newspaper-inspired style — masthead header with dateline, kicker labels, double-rule dividers, and a drop-cap lede — optimized for reader engagement and content clarity.",
+      "Lightweight, locally-maintained components (UButton, UCard, UHeader, etc.) that mimic the Nuxt UI API but carry no @nuxt/ui dependency, built on Tailwind CSS v4 in a newspaper-inspired style — a masthead header with a live dateline, kicker labels, and double-rule dividers.",
     icon: "i-heroicons-paint-brush",
   },
   {
