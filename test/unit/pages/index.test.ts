@@ -36,9 +36,9 @@ describe("Index Page (Landing)", () => {
   it("renders hero section with title and description", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Real-Time AI Briefings.");
+    expect(wrapper.text()).toContain("Learn the language.");
     expect(wrapper.text()).toContain(
-      "NipponDaily clusters multi-source Japanese coverage using AI-driven analysis",
+      "NipponDaily turns each week's Japanese-language news into self-contained lessons",
     );
   });
 
@@ -47,27 +47,34 @@ describe("Index Page (Landing)", () => {
 
     const ctaLink = wrapper.find('[data-testid="hero-cta"]');
     expect(ctaLink.exists()).toBe(true);
-    expect(ctaLink.text()).toContain("Enter Intelligence Hub");
+    expect(ctaLink.text()).toContain("Start Reading");
   });
 
-  it("renders six specialty channels section", () => {
+  it("renders the 'Inside Every Lesson' section", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Six Specialty Channels");
+    expect(wrapper.text()).toContain("Inside Every Lesson");
     expect(wrapper.text()).toContain(
-      "Curated streams capturing the true multi-faceted heart and pulse of modern Japan.",
+      "One Japanese-language article, turned into everything you need to read and understand it.",
     );
   });
 
-  it("renders all six custom Japanese channels", () => {
+  it("renders all six lesson components", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Society & Prefectures");
-    expect(wrapper.text()).toContain("Tech & Mobility");
-    expect(wrapper.text()).toContain("Pop Culture & Gaming");
-    expect(wrapper.text()).toContain("Travel & Heritage");
-    expect(wrapper.text()).toContain("Food & Gastronomy");
-    expect(wrapper.text()).toContain("Nature & Resilience");
+    expect(wrapper.text()).toContain("Furigana Passage");
+    expect(wrapper.text()).toContain("Hepburn Rōmaji");
+    expect(wrapper.text()).toContain("English Translation");
+    expect(wrapper.text()).toContain("Vocabulary List");
+    expect(wrapper.text()).toContain("Grammar Notes");
+    expect(wrapper.text()).toContain("Trust Score & JLPT Level");
+  });
+
+  it("explains where lessons come from and links to the docs", () => {
+    const wrapper = mount(IndexPage);
+
+    expect(wrapper.text()).toContain("Where Lessons Come From");
+    expect(wrapper.text()).toContain("a Claude web agent");
   });
 
   it("renders footer with copyright and license", () => {
