@@ -85,7 +85,8 @@ passage produce:
   kanji and rōmaji for the example too — `exampleFurigana` (that sentence with inline
   `<ruby>` tags) and `exampleRomaji` (its Hepburn rōmaji).
 - **`grammarNotes`** — 1–3 grammar patterns from the passage, each with `pattern`,
-  `patternFurigana` (the pattern with inline `<ruby>` tags), `partOfSpeech` (what the
+  `patternFurigana` (the pattern with inline `<ruby>` tags), `patternRomaji` (Hepburn
+  rōmaji of the pattern), `partOfSpeech` (what the
   pattern acts as, e.g. "conjunction", "auxiliary verb", "sentence-ending particle"),
   `explanation` (plain language), `exampleSentence`, `romaji` (Hepburn of that sentence),
   and `exampleFurigana` (that sentence with inline `<ruby>` tags).
