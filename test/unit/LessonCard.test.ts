@@ -117,4 +117,70 @@ describe("LessonCard", () => {
     const wrapper = mountCard({ furiganaText: "" });
     expect(wrapper.text()).toContain("首相は表明した。");
   });
+
+  it("renders vocab terms with furigana over the kanji", () => {
+    const wrapper = mountCard();
+    const vocabRuby = wrapper.findAll("li ruby");
+    expect(vocabRuby.length).toBeGreaterThan(0);
+    expect(wrapper.html()).toContain("<rt>しゅしょう</rt>");
+  });
+
+  it("renders furigana and rōmaji for vocab and grammar examples", () => {
+    const wrapper = mountCard({
+      vocabList: [
+        {
+          term: "首相",
+          reading: "しゅしょう",
+          romaji: "shushō",
+          meaning: "prime minister",
+          jlptLevel: "N3",
+          exampleSentence: "首相は表明した。",
+          exampleFurigana:
+            "<ruby>首相<rt>しゅしょう</rt></ruby>は<ruby>表明<rt>ひょうめい</rt></ruby>した。",
+          exampleRomaji: "Shushō wa hyōmei shita.",
+        },
+      ],
+      grammarNotes: [
+        {
+          pattern: "〜は",
+          explanation: "topic marker",
+          exampleSentence: "首相は表明した。",
+          romaji: "shushō wa hyōmei shita.",
+          exampleFurigana: "首相は<ruby>表明<rt>ひょうめい</rt></ruby>した。",
+        },
+      ],
+    });
+    expect(wrapper.html()).toContain("<rt>ひょうめい</rt>");
+    expect(wrapper.text()).toContain("Shushō wa hyōmei shita.");
+  });
+
+  it("marks passage occurrences of vocab terms as clickable tokens", () => {
+    const wrapper = mountCard();
+    const token = wrapper.find(".jp-token");
+    expect(token.exists()).toBe(true);
+    expect(token.attributes("data-vi")).toBe("0");
+  });
+
+  it("opens a word popover with reading, rōmaji and meaning on token click", async () => {
+    const wrapper = mountCard({
+      vocabList: [
+        {
+          term: "首相",
+          reading: "しゅしょう",
+          romaji: "shushō",
+          meaning: "cabinet chief minister",
+          jlptLevel: "N3",
+          exampleSentence: "首相は表明した。",
+        },
+      ],
+    });
+    await wrapper.find(".jp-token").trigger("click");
+    await wrapper.vm.$nextTick();
+    const popover = document.querySelector(".jp-popover");
+    expect(popover).not.toBeNull();
+    expect(popover?.textContent).toContain("cabinet chief minister");
+    expect(popover?.textContent).toContain("shushō");
+    expect(popover?.textContent).toContain("しゅしょう");
+    wrapper.unmount();
+  });
 });
