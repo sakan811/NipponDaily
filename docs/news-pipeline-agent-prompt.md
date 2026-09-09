@@ -79,11 +79,13 @@ passage produce:
   tags.
 - **`romajiText`** — Hepburn rōmaji transliteration of the whole passage.
 - **`vocabList`** — 8–15 notable terms from the passage, each with `term`, `reading`
-  (kana), `romaji` (Hepburn), `meaning`, `jlptLevel` (`N5`–`N1`), and `exampleSentence`
-  (the sentence from the passage it appears in).
+  (kana), `romaji` (Hepburn), `meaning`, `jlptLevel` (`N5`–`N1`), `exampleSentence`
+  (the sentence from the passage it appears in), and — so the UI can show furigana over
+  kanji and rōmaji for the example too — `exampleFurigana` (that sentence with inline
+  `<ruby>` tags) and `exampleRomaji` (its Hepburn rōmaji).
 - **`grammarNotes`** — 1–3 grammar patterns from the passage, each with `pattern`,
-  `explanation` (plain language), `exampleSentence`, and `romaji` (Hepburn of that
-  sentence).
+  `explanation` (plain language), `exampleSentence`, `romaji` (Hepburn of that sentence),
+  and `exampleFurigana` (that sentence with inline `<ruby>` tags).
 
 Then call `upsert_lesson` once per article. To revise a lesson you published before,
 pass its `id` (from `get_recent_lessons`) or just re-use its `url`; any mergeable field
