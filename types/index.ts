@@ -17,6 +17,10 @@ export interface VocabItem {
   meaning: string;
   jlptLevel: JlptLevel;
   exampleSentence: string;
+  /** exampleSentence with furigana as inline <ruby> HTML markup. */
+  exampleFurigana?: string;
+  /** Hepburn rōmaji transliteration of exampleSentence. */
+  exampleRomaji?: string;
 }
 
 export interface GrammarNote {
@@ -25,6 +29,8 @@ export interface GrammarNote {
   exampleSentence: string;
   /** Rōmaji transliteration of exampleSentence. */
   romaji: string;
+  /** exampleSentence with furigana as inline <ruby> HTML markup. */
+  exampleFurigana?: string;
 }
 
 /**
