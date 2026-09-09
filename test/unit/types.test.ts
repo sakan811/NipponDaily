@@ -26,6 +26,47 @@ describe("Types", () => {
     expect(lesson.difficultyLevel).toBe("N3");
   });
 
+  it("allows optional furigana/rōmaji on vocab items and grammar notes", () => {
+    const lesson: Lesson = {
+      id: "l2",
+      title: "T",
+      source: "https://www3.nhk.or.jp",
+      url: "https://www3.nhk.or.jp/news/2",
+      publishedAt: "2026-01-15T10:00:00Z",
+      addedAt: 1736935200000,
+      credibilityScore: 0.9,
+      difficultyLevel: "N4",
+      originalText: "首相は表明した。",
+      englishText: "The PM stated.",
+      furiganaText: "<ruby>首相<rt>しゅしょう</rt></ruby>は",
+      romajiText: "Shushō wa",
+      vocabList: [
+        {
+          term: "首相",
+          reading: "しゅしょう",
+          romaji: "shushō",
+          meaning: "prime minister",
+          jlptLevel: "N3",
+          exampleSentence: "首相は表明した。",
+          exampleFurigana: "<ruby>首相<rt>しゅしょう</rt></ruby>は表明した。",
+          exampleRomaji: "Shushō wa hyōmei shita.",
+        },
+      ],
+      grammarNotes: [
+        {
+          pattern: "〜は",
+          explanation: "topic marker",
+          exampleSentence: "首相は表明した。",
+          romaji: "shushō wa hyōmei shita.",
+          exampleFurigana: "<ruby>首相<rt>しゅしょう</rt></ruby>は表明した。",
+        },
+      ],
+    };
+
+    expect(lesson.vocabList[0]?.exampleRomaji).toBe("Shushō wa hyōmei shita.");
+    expect(lesson.grammarNotes[0]?.exampleFurigana).toContain("<ruby>");
+  });
+
   it("validates ApiResponse generic type", () => {
     const response: ApiResponse<Lesson[]> = {
       success: true,
