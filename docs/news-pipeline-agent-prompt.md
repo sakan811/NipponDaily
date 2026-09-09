@@ -79,11 +79,14 @@ passage produce:
   tags.
 - **`romajiText`** — Hepburn rōmaji transliteration of the whole passage.
 - **`vocabList`** — 8–15 notable terms from the passage, each with `term`, `reading`
-  (kana), `romaji` (Hepburn), `meaning`, `jlptLevel` (`N5`–`N1`), `exampleSentence`
+  (kana), `romaji` (Hepburn), `meaning`, `partOfSpeech` (e.g. "noun", "godan verb",
+  "i-adjective", "particle"), `jlptLevel` (`N5`–`N1`), `exampleSentence`
   (the sentence from the passage it appears in), and — so the UI can show furigana over
   kanji and rōmaji for the example too — `exampleFurigana` (that sentence with inline
   `<ruby>` tags) and `exampleRomaji` (its Hepburn rōmaji).
 - **`grammarNotes`** — 1–3 grammar patterns from the passage, each with `pattern`,
+  `patternFurigana` (the pattern with inline `<ruby>` tags), `partOfSpeech` (what the
+  pattern acts as, e.g. "conjunction", "auxiliary verb", "sentence-ending particle"),
   `explanation` (plain language), `exampleSentence`, `romaji` (Hepburn of that sentence),
   and `exampleFurigana` (that sentence with inline `<ruby>` tags).
 
