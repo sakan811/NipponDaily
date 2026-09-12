@@ -1,7 +1,9 @@
 import path from "node:path";
-import { createRequire } from "node:module";
+import os from "node:os";
+import fs from "node:fs/promises";
 import kuromoji from "kuromoji";
 import * as wanakana from "wanakana";
+import { loadDictionary, lookupMeaning } from "./dictionary";
 import type { JpToken } from "~~/types/index";
 
 /** The kuromoji morpheme fields the merge/classify logic reads. */
@@ -15,6 +17,55 @@ export type Morph = Pick<
   | "reading"
 >;
 
+/** Nitro server asset name for kuromoji's dictionary (see nuxt.config.ts `nitro.serverAssets`). */
+const KUROMOJI_DICT_ASSET = "assets:kuromoji-dict";
+
+const KUROMOJI_DICT_FILES = [
+  "base.dat.gz",
+  "check.dat.gz",
+  "tid.dat.gz",
+  "tid_pos.dat.gz",
+  "tid_map.dat.gz",
+  "cc.dat.gz",
+  "unk.dat.gz",
+  "unk_pos.dat.gz",
+  "unk_map.dat.gz",
+  "unk_char.dat.gz",
+  "unk_compat.dat.gz",
+  "unk_invoke.dat.gz",
+];
+
+/**
+ * Writes kuromoji's dictionary files to a tmp dir so kuromoji's own fs-based
+ * loader can read them by path. Serverless builds (e.g. Vercel) only deploy
+ * files reachable from the require/import graph — they never see kuromoji's
+ * runtime `fs.readFile(dicPath)` calls, so the dict/*.dat.gz files bundled in
+ * node_modules would otherwise be silently dropped from the deployment.
+ * Sourcing them from the Nitro server asset (embedded into the server build
+ * itself) instead sidesteps that gap.
+ */
+const materializeDictDir = async (): Promise<string> => {
+  const dicPath = path.join(os.tmpdir(), "nippondaily-kuromoji-dict");
+  await fs.mkdir(dicPath, { recursive: true });
+  const storage = useStorage(KUROMOJI_DICT_ASSET);
+  await Promise.all(
+    KUROMOJI_DICT_FILES.map(async (filename) => {
+      const dest = path.join(dicPath, filename);
+      const alreadyWritten = await fs
+        .access(dest)
+        .then(() => true)
+        .catch(() => false);
+      if (alreadyWritten) return;
+      const bytes = await storage.getItemRaw(filename);
+      if (!bytes) {
+        throw new Error(`Missing kuromoji dictionary asset: ${filename}`);
+      }
+      await fs.writeFile(dest, Buffer.from(bytes as Uint8Array));
+    }),
+  );
+  return dicPath;
+};
+
 let tokenizerPromise: Promise<
   kuromoji.Tokenizer<kuromoji.IpadicFeatures>
 > | null = null;
@@ -24,17 +75,15 @@ const getTokenizer = (): Promise<
   kuromoji.Tokenizer<kuromoji.IpadicFeatures>
 > => {
   if (!tokenizerPromise) {
-    const require = createRequire(import.meta.url);
-    const dicPath = path.join(
-      path.dirname(require.resolve("kuromoji/package.json")),
-      "dict",
+    tokenizerPromise = materializeDictDir().then(
+      (dicPath) =>
+        new Promise((resolve, reject) => {
+          kuromoji.builder({ dicPath }).build((err, tokenizer) => {
+            if (err) reject(err);
+            else resolve(tokenizer);
+          });
+        }),
     );
-    tokenizerPromise = new Promise((resolve, reject) => {
-      kuromoji.builder({ dicPath }).build((err, tokenizer) => {
-        if (err) reject(err);
-        else resolve(tokenizer);
-      });
-    });
   }
   return tokenizerPromise;
 };
@@ -108,6 +157,28 @@ export const classifyPartOfSpeech = (group: Morph[]): string => {
   return JAPANESE_POS_LABELS[group[group.length - 1]?.pos ?? ""] ?? "other";
 };
 
+/**
+ * The word's dictionary-citation form, for JMdict lookup — JMdict only has
+ * base forms (e.g. 食べる, 表明する), not conjugations, so a merged group like
+ * 食べた or 表明した must be looked up under its lemma, not its surface text.
+ */
+const dictionaryFormFor = (group: Morph[], partOfSpeech: string): string => {
+  const verb = group.find((m) => m.pos === "動詞");
+  if (verb) {
+    if (partOfSpeech === "suru verb") {
+      const stem = group
+        .slice(0, group.indexOf(verb))
+        .map((m) => m.surface_form)
+        .join("");
+      return `${stem}する`;
+    }
+    return verb.basic_form || verb.surface_form;
+  }
+  const adjective = group.find((m) => m.pos === "形容詞");
+  if (adjective) return adjective.basic_form || adjective.surface_form;
+  return group.map((m) => m.surface_form).join("");
+};
+
 /** Katakana (kuromoji's reading field) to hiragana, matching this app's existing reading style. */
 const toHiraganaReading = (katakana: string): string =>
   wanakana.toHiragana(katakana);
@@ -146,9 +217,13 @@ const romajiForGroup = (group: Morph[], reading: string): string => {
 
 /**
  * Turns raw kuromoji morphemes into deduplicated, merged word-level tokens.
- * Pure and dictionary-free so it can be unit tested against fixture morphemes.
+ * Pure and dictionary-free (aside from the optional JMdict lookup callback)
+ * so it can be unit tested against fixture morphemes.
  */
-export const buildJpTokens = (morphemes: Morph[]): JpToken[] => {
+export const buildJpTokens = (
+  morphemes: Morph[],
+  lookupMeaning?: (dictionaryForm: string, reading: string) => string | undefined,
+): JpToken[] => {
   const groups = groupMorphemes(morphemes.filter((m) => !isSkippable(m)));
   const seen = new Set<string>();
   const tokens: JpToken[] = [];
@@ -160,11 +235,17 @@ export const buildJpTokens = (morphemes: Morph[]): JpToken[] => {
       .map((m) => m.reading ?? m.surface_form)
       .join("");
     const reading = toHiraganaReading(katakanaReading);
+    const partOfSpeech = classifyPartOfSpeech(group);
+    const meaning = lookupMeaning?.(
+      dictionaryFormFor(group, partOfSpeech),
+      reading,
+    );
     tokens.push({
       surface,
       reading,
       romaji: romajiForGroup(group, reading),
-      partOfSpeech: classifyPartOfSpeech(group),
+      partOfSpeech,
+      ...(meaning ? { meaning } : {}),
     });
   }
   return tokens;
@@ -172,15 +253,25 @@ export const buildJpTokens = (morphemes: Morph[]): JpToken[] => {
 
 /**
  * Tokenizes a Japanese passage into merged, deduplicated words with readings,
- * rōmaji and part of speech. Never throws — returns [] if the dictionary
- * can't be loaded so a tokenization failure never breaks GET /api/news.
+ * rōmaji, part of speech and (when JMdict has an entry for the word's
+ * dictionary form) a meaning. Never throws — returns [] if the tokenizer
+ * dictionary can't be loaded so a tokenization failure never breaks
+ * GET /api/news. A JMdict load failure only drops meanings, not tokenization.
  */
 export const analyzeJapanese = async (text: string): Promise<JpToken[]> => {
   if (!text || !text.trim()) return [];
   try {
     const tokenizer = await getTokenizer();
     const morphemes = tokenizer.tokenize(text) as Morph[];
-    return buildJpTokens(morphemes);
+    const dictionary = await loadDictionary().catch((error) => {
+      console.error("JMdict dictionary load failed:", error);
+      return undefined;
+    });
+    const lookupMeaningFn = dictionary
+      ? (dictionaryForm: string, reading: string) =>
+          lookupMeaning(dictionary, dictionaryForm, reading)
+      : undefined;
+    return buildJpTokens(morphemes, lookupMeaningFn);
   } catch (error) {
     console.error("Japanese tokenization failed:", error);
     return [];

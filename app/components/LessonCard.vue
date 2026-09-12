@@ -384,6 +384,7 @@ const displayWords = computed<DisplayWord[]>(() => {
       reading: tok.reading,
       romaji: tok.romaji,
       partOfSpeech: tok.partOfSpeech,
+      meaning: tok.meaning,
     }));
   return [...vocabWords, ...tokenWords];
 });

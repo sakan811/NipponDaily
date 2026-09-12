@@ -1,4 +1,12 @@
+import { createRequire } from "node:module";
+import { dirname, join } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
+
+const require = createRequire(import.meta.url);
+const kuromojiDictDir = join(
+  dirname(require.resolve("kuromoji/package.json")),
+  "dict",
+);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -94,5 +102,16 @@ export default defineNuxtConfig({
     features: {
       lazyLoad: false,
     },
+  },
+  nitro: {
+    // Embeds kuromoji's dictionary and the JMdict lookup table (see
+    // server/utils/tokenizer.ts and server/utils/dictionary.ts) into the
+    // server build itself instead of relying on them being traced and
+    // copied as loose files — serverless builds (e.g. Vercel) only deploy
+    // files reachable from the require/import graph.
+    serverAssets: [
+      { baseName: "kuromoji-dict", dir: kuromojiDictDir },
+      { baseName: "jmdict", dir: "server/data" },
+    ],
   },
 });

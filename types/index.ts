@@ -35,6 +35,8 @@ export interface JpToken {
   romaji: string;
   /** e.g. "noun", "godan verb", "particle" — derived from morphological analysis, not authored. */
   partOfSpeech: string;
+  /** Best-effort English meaning from JMdict, when the word's dictionary form has an entry. */
+  meaning?: string;
 }
 
 export interface GrammarNote {

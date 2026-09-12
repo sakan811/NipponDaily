@@ -195,6 +195,39 @@ describe("groupMorphemes / buildJpTokens", () => {
   });
 });
 
+describe("buildJpTokens meaning lookup", () => {
+  it("passes the dictionary-citation form (not the surface form) to lookupMeaning", () => {
+    const calls: Array<[string, string]> = [];
+    buildJpTokens(shushoMorphemes, (dictionaryForm, reading) => {
+      calls.push([dictionaryForm, reading]);
+      return undefined;
+    });
+    const forms = calls.map(([dictionaryForm]) => dictionaryForm);
+    expect(forms).toContain("表明する"); // suru verb: noun stem + する
+    expect(forms).toContain("話し合う"); // godan verb: basic_form, not surface
+    expect(forms).toContain("首相"); // plain noun: surface === dictionary form
+  });
+
+  it("attaches a meaning when lookupMeaning returns one", () => {
+    const tokens = buildJpTokens(shushoMorphemes, (dictionaryForm) =>
+      dictionaryForm === "首相" ? "prime minister" : undefined,
+    );
+    expect(tokens.find((t) => t.surface === "首相")?.meaning).toBe(
+      "prime minister",
+    );
+  });
+
+  it("omits meaning when lookupMeaning returns undefined", () => {
+    const tokens = buildJpTokens(shushoMorphemes, () => undefined);
+    expect(tokens.find((t) => t.surface === "首相")?.meaning).toBeUndefined();
+  });
+
+  it("omits meaning entirely when no lookupMeaning callback is given", () => {
+    const tokens = buildJpTokens(shushoMorphemes);
+    expect(tokens.every((t) => t.meaning === undefined)).toBe(true);
+  });
+});
+
 describe("classifyPartOfSpeech", () => {
   it("labels a godan verb", () => {
     expect(
