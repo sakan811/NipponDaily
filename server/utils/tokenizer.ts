@@ -3,6 +3,8 @@ import os from "node:os";
 import fs from "node:fs/promises";
 import kuromoji from "kuromoji";
 import * as wanakana from "wanakana";
+// TEMP: unused while JMdict load is disabled below, see analyzeJapanese
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { loadDictionary, lookupMeaning } from "./dictionary";
 import type { JpToken } from "~~/types/index";
 
@@ -263,14 +265,16 @@ export const analyzeJapanese = async (text: string): Promise<JpToken[]> => {
   try {
     const tokenizer = await getTokenizer();
     const morphemes = tokenizer.tokenize(text) as Morph[];
-    const dictionary = await loadDictionary().catch((error) => {
-      console.error("JMdict dictionary load failed:", error);
-      return undefined;
-    });
-    const lookupMeaningFn = dictionary
-      ? (dictionaryForm: string, reading: string) =>
-          lookupMeaning(dictionary, dictionaryForm, reading)
-      : undefined;
+    // TEMP: JMdict load disabled to check its impact on server load time.
+    // const dictionary = await loadDictionary().catch((error) => {
+    //   console.error("JMdict dictionary load failed:", error);
+    //   return undefined;
+    // });
+    // const lookupMeaningFn = dictionary
+    //   ? (dictionaryForm: string, reading: string) =>
+    //       lookupMeaning(dictionary, dictionaryForm, reading)
+    //   : undefined;
+    const lookupMeaningFn = undefined;
     return buildJpTokens(morphemes, lookupMeaningFn);
   } catch (error) {
     console.error("Japanese tokenization failed:", error);
