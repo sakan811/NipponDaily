@@ -137,7 +137,8 @@
                 </span>
                 <span
                   v-if="vocab.partOfSpeech"
-                  class="text-xs text-secondary-500 dark:text-secondary-400"
+                  class="text-xs"
+                  :style="{ color: posColor(vocab.partOfSpeech) }"
                 >
                   {{ vocab.partOfSpeech }}
                 </span>
@@ -196,7 +197,8 @@
                 </span>
                 <span
                   v-if="note.partOfSpeech"
-                  class="text-xs text-secondary-500 dark:text-secondary-400"
+                  class="text-xs"
+                  :style="{ color: posColor(note.partOfSpeech) }"
                 >
                   {{ note.partOfSpeech }}
                 </span>
@@ -260,7 +262,8 @@
           </span>
           <span
             v-if="selectedVocab.partOfSpeech"
-            class="text-xs text-secondary-500 dark:text-secondary-400"
+            class="text-xs"
+            :style="{ color: posColor(selectedVocab.partOfSpeech) }"
           >
             {{ selectedVocab.partOfSpeech }}
           </span>
@@ -408,8 +411,43 @@ const rubyBase = (rubyHtml: string): string =>
 const isAutoWordIdx = (idx: number): boolean =>
   idx >= (props.lesson.vocabList?.length ?? 0);
 
-const jpTokenTag = (term: string, idx: number, inner: string): string =>
-  `<button type="button" class="jp-token${isAutoWordIdx(idx) ? " jp-token--auto" : ""}" data-vi="${idx}">${inner}</button>`;
+/**
+ * Fixed hue per part-of-speech category, checked in this order so more
+ * specific labels ("adverb", "pronoun") aren't misclassified by a broader
+ * substring match ("adverb" contains "verb", "pronoun" contains "noun").
+ */
+const POS_CATEGORY_HUES: [string, number][] = [
+  ["adverb", 155],
+  ["pronoun", 340],
+  ["noun", 210],
+  ["adjective", 275],
+  ["verb", 10],
+  ["particle", 45],
+  ["conjunction", 325],
+  ["interjection", 190],
+  ["adnominal", 100],
+  ["prefix", 260],
+  ["counter", 30],
+];
+
+const posCategoryHue = (pos: string | undefined): number | undefined => {
+  if (!pos) return undefined;
+  const lower = pos.toLowerCase();
+  return POS_CATEGORY_HUES.find(([key]) => lower.includes(key))?.[1];
+};
+
+/** Deterministic color per part-of-speech category; falls back to the neutral secondary tone. */
+const posColor = (pos: string | undefined): string => {
+  const hue = posCategoryHue(pos);
+  return hue === undefined
+    ? "var(--color-secondary-500)"
+    : `hsl(${hue}, 65%, 45%)`;
+};
+
+const jpTokenTag = (term: string, idx: number, inner: string): string => {
+  const color = posColor(displayWords.value[idx]?.partOfSpeech);
+  return `<button type="button" class="jp-token${isAutoWordIdx(idx) ? " jp-token--auto" : ""}" data-vi="${idx}" style="--pos-color:${color}">${inner}</button>`;
+};
 
 /** Wrap occurrences of display words in an already-HTML-escaped text run. */
 const wrapVocabInText = (
@@ -583,21 +621,37 @@ const getCredibilityColor = (score: number | undefined): string => {
 .furigana-text :deep(.jp-token) {
   font: inherit;
   color: inherit;
-  background: color-mix(in srgb, var(--color-primary-500) 14%, transparent);
-  border-bottom: 1px solid var(--color-primary-500);
+  background: color-mix(
+    in srgb,
+    var(--pos-color, var(--color-primary-500)) 14%,
+    transparent
+  );
+  border-bottom: 1px solid var(--pos-color, var(--color-primary-500));
   border-radius: 2px;
   padding: 0 1px;
   cursor: pointer;
 }
 .furigana-text :deep(.jp-token:hover) {
-  background: color-mix(in srgb, var(--color-primary-500) 26%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--pos-color, var(--color-primary-500)) 26%,
+    transparent
+  );
 }
 .furigana-text :deep(.jp-token--auto) {
-  background: color-mix(in srgb, var(--color-secondary-500) 8%, transparent);
-  border-bottom: 1px dashed var(--color-secondary-500);
+  background: color-mix(
+    in srgb,
+    var(--pos-color, var(--color-secondary-500)) 8%,
+    transparent
+  );
+  border-bottom: 1px dashed var(--pos-color, var(--color-secondary-500));
 }
 .furigana-text :deep(.jp-token--auto:hover) {
-  background: color-mix(in srgb, var(--color-secondary-500) 18%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--pos-color, var(--color-secondary-500)) 18%,
+    transparent
+  );
 }
 .jp-popover :deep(rt) {
   font-size: 0.6em;
