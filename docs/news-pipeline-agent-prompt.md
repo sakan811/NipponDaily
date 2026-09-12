@@ -2,9 +2,10 @@
 
 This is the operating prompt for the external Claude web agent that runs NipponDaily's
 weekly news ingestion. It is not executed by this repo — the app only reads whatever the
-agent writes into Redis, via `GET /api/news` (see `server/api/mcp.ts` and the "Lesson
-Model & MCP-Driven Pipeline" section of `CLAUDE.md`). Update this file whenever the
-agent's instructions or the MCP tool set change, so the two stay in sync.
+agent writes into Redis, via `GET /api/news` (see `server/api/mcp.ts` and the
+"MCP-Driven Lesson Pipeline" section of [`app/pages/docs/architecture.vue`](../app/pages/docs/architecture.vue)).
+Update this file whenever the agent's instructions or the MCP tool set change, so the
+two stay in sync.
 
 There is no Tavily/Gemini pipeline and no vector store in this codebase. All discovery
 happens via the agent's own web search; all persistence happens through the Redis-backed
