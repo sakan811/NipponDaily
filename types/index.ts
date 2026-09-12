@@ -25,6 +25,18 @@ export interface VocabItem {
   exampleRomaji?: string;
 }
 
+/** One word from a passage, produced by morphological tokenization (see server/utils/tokenizer.ts). */
+export interface JpToken {
+  /** Surface form as it appears in the passage; may merge multiple dictionary morphemes into one word. */
+  surface: string;
+  /** Hiragana reading. */
+  reading: string;
+  /** Hepburn rōmaji transliteration of reading. */
+  romaji: string;
+  /** e.g. "noun", "godan verb", "particle" — derived from morphological analysis, not authored. */
+  partOfSpeech: string;
+}
+
 export interface GrammarNote {
   pattern: string;
   /** pattern with furigana as inline <ruby> HTML markup. */
@@ -78,4 +90,6 @@ export interface Lesson {
   vocabList: VocabItem[];
   /** 1–3 grammar patterns worth flagging from the passage. */
   grammarNotes: GrammarNote[];
+  /** Every word in originalText, tokenized server-side; not persisted, computed fresh per request. */
+  tokens?: JpToken[];
 }

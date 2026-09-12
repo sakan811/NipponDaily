@@ -1,4 +1,5 @@
 import { lessonsService } from "../services/lessons";
+import { analyzeJapanese } from "../utils/tokenizer";
 import { z } from "zod";
 
 /**
@@ -81,6 +82,15 @@ export default defineEventHandler(async (event) => {
         new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
     );
     lessons = lessons.slice(0, validatedQuery.limit);
+
+    // 5. Tokenize each passage server-side so the reader can highlight every
+    // word, not just the agent-authored vocabList (see server/utils/tokenizer.ts).
+    lessons = await Promise.all(
+      lessons.map(async (lesson) => ({
+        ...lesson,
+        tokens: await analyzeJapanese(lesson.originalText),
+      })),
+    );
 
     return {
       success: true,

@@ -32,6 +32,19 @@ vi.mock("~/server/services/lessons", async (importOriginal) => {
   };
 });
 
+// Mock the tokenizer — news.get.ts tests shouldn't pay for loading the real
+// kuromoji dictionary; the merge/POS logic itself is covered by tokenizer.test.ts.
+export const mockAnalyzeJapanese = vi.fn().mockResolvedValue([]);
+
+vi.mock("~/server/utils/tokenizer", async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import("~/server/utils/tokenizer")>();
+  return {
+    ...actual,
+    analyzeJapanese: mockAnalyzeJapanese,
+  };
+});
+
 // Helper to create a mock lesson. Defaults to "now" for publishedAt so
 // difficulty/limit/search tests aren't affected by sort order unless they set
 // explicit dates.
@@ -72,4 +85,5 @@ export const setupDefaults = () => {
   (global as any).getQuery.mockReturnValue({});
   mockGetLastIngestTime.mockResolvedValue(Date.now());
   mockGetLessons.mockResolvedValue([]);
+  mockAnalyzeJapanese.mockResolvedValue([]);
 };
