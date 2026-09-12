@@ -90,7 +90,7 @@
             {{ lesson.romajiText }}
           </p>
           <p
-            v-if="hasClickableVocab"
+            v-if="hasClickableWords"
             class="mt-1 text-xs text-gray-400 dark:text-gray-500"
           >
             {{ t.tapHint }}
@@ -264,11 +264,19 @@
           >
             {{ selectedVocab.partOfSpeech }}
           </span>
-          <UBadge color="secondary" variant="soft" size="xs">
+          <UBadge
+            v-if="selectedVocab.jlptLevel"
+            color="secondary"
+            variant="soft"
+            size="xs"
+          >
             {{ selectedVocab.jlptLevel }}
           </UBadge>
         </div>
-        <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">
+        <p
+          v-if="selectedVocab.meaning"
+          class="text-sm text-gray-700 dark:text-gray-300 mt-1"
+        >
           {{ selectedVocab.meaning }}
         </p>
         <p
@@ -304,6 +312,14 @@
 <script setup lang="ts">
 import type { Lesson, VocabItem } from "~~/types/index";
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+
+/**
+ * A clickable passage word: either an agent-authored VocabItem (full meaning,
+ * JLPT level, examples) or a tokenizer-only word (reading/rōmaji/part of
+ * speech, no meaning — see server/utils/tokenizer.ts).
+ */
+type DisplayWord = Partial<VocabItem> &
+  Pick<VocabItem, "term" | "reading" | "romaji">;
 
 const props = defineProps<{
   lesson: Lesson;
@@ -344,11 +360,37 @@ const safeFurigana = (html: string | undefined): string => {
 const showRuby = (term: string, reading: string | undefined): boolean =>
   !!reading && reading !== term;
 
-// --- Clickable vocab terms in the passage --------------------------------
+// --- Clickable words in the passage --------------------------------------
 
-/** Vocab terms, longest first so nested matches wrap the bigger term. */
+/**
+ * Every clickable word in the passage: agent-authored vocabList entries
+ * first (full meaning/JLPT/examples), then any tokenizer-only word not
+ * already covered by vocabList (reading/rōmaji/part of speech only). Vocab
+ * entries keep their original vocabList index so data-vi stays stable.
+ */
+const displayWords = computed<DisplayWord[]>(() => {
+  const vocabWords: DisplayWord[] = props.lesson.vocabList ?? [];
+  const vocabTerms = new Set(vocabWords.map((v) => v.term));
+  const seenTokens = new Set<string>();
+  const tokenWords: DisplayWord[] = (props.lesson.tokens ?? [])
+    .filter((tok) => {
+      if (!tok.surface || vocabTerms.has(tok.surface)) return false;
+      if (seenTokens.has(tok.surface)) return false;
+      seenTokens.add(tok.surface);
+      return true;
+    })
+    .map((tok) => ({
+      term: tok.surface,
+      reading: tok.reading,
+      romaji: tok.romaji,
+      partOfSpeech: tok.partOfSpeech,
+    }));
+  return [...vocabWords, ...tokenWords];
+});
+
+/** Display words, longest first so nested matches wrap the bigger word. */
 const vocabHits = computed(() =>
-  (props.lesson.vocabList ?? [])
+  displayWords.value
     .map((v, idx) => ({ term: v.term, idx }))
     .filter((v) => v.term && v.term.length > 0)
     .sort((a, b) => b.term.length - a.term.length),
@@ -361,7 +403,14 @@ const rubyBase = (rubyHtml: string): string =>
     .replace(/<rp>[\s\S]*?<\/rp>/gi, "")
     .replace(/<\/?(ruby|rt|rp)>/gi, "");
 
-/** Wrap occurrences of vocab terms in an already-HTML-escaped text run. */
+/** Words sourced from the tokenizer rather than vocabList render with a subtler style. */
+const isAutoWordIdx = (idx: number): boolean =>
+  idx >= (props.lesson.vocabList?.length ?? 0);
+
+const jpTokenTag = (term: string, idx: number, inner: string): string =>
+  `<button type="button" class="jp-token${isAutoWordIdx(idx) ? " jp-token--auto" : ""}" data-vi="${idx}">${inner}</button>`;
+
+/** Wrap occurrences of display words in an already-HTML-escaped text run. */
 const wrapVocabInText = (
   text: string,
   hits: { term: string; idx: number }[],
@@ -378,10 +427,10 @@ const wrapVocabInText = (
       }
     }
     const hit = hits.find(
-      (h) => h.term.length >= 2 && text.startsWith(h.term, i),
+      (h) => h.term.length >= 1 && text.startsWith(h.term, i),
     );
     if (hit) {
-      out += `<button type="button" class="jp-token" data-vi="${hit.idx}">${escapeHtml(hit.term)}</button>`;
+      out += jpTokenTag(hit.term, hit.idx, escapeHtml(hit.term));
       i += hit.term.length;
       continue;
     }
@@ -413,9 +462,7 @@ const passageHtml = computed<string>(() => {
                 (base.length >= 2 && h.term.includes(base)) ||
                 (h.term.length >= 2 && base.includes(h.term))),
           );
-          return hit
-            ? `<button type="button" class="jp-token" data-vi="${hit.idx}">${part}</button>`
-            : part;
+          return hit ? jpTokenTag(hit.term, hit.idx, part) : part;
         }
         return wrapVocabInText(part, hits);
       })
@@ -427,7 +474,7 @@ const passageHtml = computed<string>(() => {
   return "";
 });
 
-const hasClickableVocab = computed(
+const hasClickableWords = computed(
   () => vocabHits.value.length > 0 && passageHtml.value.includes("jp-token"),
 );
 
@@ -435,7 +482,7 @@ const hasClickableVocab = computed(
 
 const passageEl = ref<HTMLElement | null>(null);
 const popoverEl = ref<HTMLElement | null>(null);
-const selectedVocab = ref<VocabItem | null>(null);
+const selectedVocab = ref<DisplayWord | null>(null);
 const popoverStyle = ref<Record<string, string>>({});
 
 const positionPopover = (anchor: DOMRect): void => {
@@ -462,7 +509,7 @@ const onPassageClick = (event: MouseEvent): void => {
     ".jp-token",
   ) as HTMLElement | null;
   if (!target || target.dataset.vi === undefined) return;
-  const item = props.lesson.vocabList?.[Number(target.dataset.vi)];
+  const item = displayWords.value[Number(target.dataset.vi)];
   if (!item) return;
   const anchor = target.getBoundingClientRect();
   selectedVocab.value = item;
@@ -505,7 +552,8 @@ const translations = {
     translation: "English translation",
     vocabulary: "Vocabulary",
     grammarNotes: "Grammar notes",
-    tapHint: "Tap a highlighted word for its reading, rōmaji and meaning.",
+    tapHint:
+      "Tap any highlighted word for its reading, rōmaji, part of speech and meaning (when available).",
     close: "Close",
   },
 } as const;
@@ -542,6 +590,13 @@ const getCredibilityColor = (score: number | undefined): string => {
 }
 .furigana-text :deep(.jp-token:hover) {
   background: color-mix(in srgb, var(--color-primary-500) 26%, transparent);
+}
+.furigana-text :deep(.jp-token--auto) {
+  background: color-mix(in srgb, var(--color-secondary-500) 8%, transparent);
+  border-bottom: 1px dashed var(--color-secondary-500);
+}
+.furigana-text :deep(.jp-token--auto:hover) {
+  background: color-mix(in srgb, var(--color-secondary-500) 18%, transparent);
 }
 .jp-popover :deep(rt) {
   font-size: 0.6em;

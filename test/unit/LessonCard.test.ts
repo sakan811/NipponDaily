@@ -213,4 +213,60 @@ describe("LessonCard", () => {
     expect(popover?.textContent).toContain("しゅしょう");
     wrapper.unmount();
   });
+
+  it("highlights tokenizer-only words not present in vocabList", () => {
+    const wrapper = mountCard({
+      furiganaText: "<ruby>首相<rt>しゅしょう</rt></ruby>は",
+      tokens: [
+        {
+          surface: "は",
+          reading: "は",
+          romaji: "ha",
+          partOfSpeech: "particle",
+        },
+      ],
+    });
+    const tokens = wrapper.findAll(".jp-token");
+    expect(tokens.length).toBeGreaterThanOrEqual(2);
+    const autoToken = wrapper.find(".jp-token--auto");
+    expect(autoToken.exists()).toBe(true);
+    expect(autoToken.text()).toBe("は");
+  });
+
+  it("does not duplicate a highlight for a token already covered by vocabList", () => {
+    const wrapper = mountCard({
+      tokens: [
+        {
+          surface: "首相",
+          reading: "しゅしょう",
+          romaji: "shushō",
+          partOfSpeech: "noun",
+        },
+      ],
+    });
+    expect(wrapper.findAll(".jp-token")).toHaveLength(1);
+    expect(wrapper.find(".jp-token--auto").exists()).toBe(false);
+  });
+
+  it("opens a popover with reading/rōmaji/part of speech but no meaning for a tokenizer-only word", async () => {
+    const wrapper = mountCard({
+      furiganaText: "<ruby>首相<rt>しゅしょう</rt></ruby>は",
+      tokens: [
+        {
+          surface: "は",
+          reading: "は",
+          romaji: "ha",
+          partOfSpeech: "particle",
+        },
+      ],
+    });
+    await wrapper.find(".jp-token--auto").trigger("click");
+    await wrapper.vm.$nextTick();
+    const popover = document.querySelector(".jp-popover");
+    expect(popover).not.toBeNull();
+    expect(popover?.textContent).toContain("particle");
+    expect(popover?.textContent).toContain("ha");
+    expect(popover?.querySelector(".u-badge")).toBeNull();
+    wrapper.unmount();
+  });
 });
