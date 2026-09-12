@@ -25,6 +25,20 @@ export interface VocabItem {
   exampleRomaji?: string;
 }
 
+/** One word from a passage, authored by the external MCP agent (see server/api/mcp.ts). */
+export interface JpToken {
+  /** Surface form as it appears in the passage. */
+  surface: string;
+  /** Hiragana reading. */
+  reading: string;
+  /** Hepburn rōmaji transliteration of reading. */
+  romaji: string;
+  /** e.g. "noun", "godan verb", "particle". */
+  partOfSpeech: string;
+  /** Best-effort English meaning of the word. */
+  meaning?: string;
+}
+
 export interface GrammarNote {
   pattern: string;
   /** pattern with furigana as inline <ruby> HTML markup. */
@@ -78,4 +92,6 @@ export interface Lesson {
   vocabList: VocabItem[];
   /** 1–3 grammar patterns worth flagging from the passage. */
   grammarNotes: GrammarNote[];
+  /** Words from originalText worth highlighting beyond vocabList, authored by the MCP agent. */
+  tokens?: JpToken[];
 }
