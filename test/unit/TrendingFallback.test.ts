@@ -8,7 +8,6 @@ describe("TrendingFallback Component", () => {
       props: {
         error: null,
         loading: false,
-        isDebug: false,
       },
     });
 
@@ -23,7 +22,6 @@ describe("TrendingFallback Component", () => {
       props: {
         error: "Database Connection Timeout",
         loading: false,
-        isDebug: false,
       },
     });
 
@@ -35,7 +33,6 @@ describe("TrendingFallback Component", () => {
       props: {
         error: "Network Error",
         loading: false,
-        isDebug: false,
       },
     });
 
@@ -44,19 +41,5 @@ describe("TrendingFallback Component", () => {
     await button.trigger("click");
 
     expect(wrapper.emitted("retry")).toBeTruthy();
-  });
-
-  it("shows debug preview when isDebug is true", () => {
-    const wrapper = mount(TrendingFallback, {
-      props: {
-        error: "API Error",
-        loading: false,
-        isDebug: true,
-      },
-    });
-
-    expect(wrapper.text()).toContain(
-      "DEBUG_ERROR_UI: Mock Lesson Fallback Preview",
-    );
   });
 });

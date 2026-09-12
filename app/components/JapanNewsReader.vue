@@ -48,56 +48,11 @@
             </div>
           </div>
 
-          <!-- DEBUG_ERROR_UI Testing & Design Panel -->
-          <div
-            v-if="isDebugErrorUi"
-            class="mb-6 p-4 rounded-sm border border-dashed border-amber-500/40 bg-amber-500/10 dark:bg-amber-950/30 space-y-3"
-          >
-            <div class="flex items-center justify-between flex-wrap gap-2">
-              <div
-                class="flex items-center gap-2 text-xs font-mono font-bold text-amber-700 dark:text-amber-300"
-              >
-                <UIcon name="i-heroicons-bug-ant" class="w-4 h-4" />
-                <span>DEBUG_ERROR_UI Testing & Design Toolbar</span>
-              </div>
-              <UBadge color="warning" variant="soft" size="xs"
-                >DEBUG Mode Active</UBadge
-              >
-            </div>
-            <div class="flex flex-wrap gap-2">
-              <UButton
-                size="xs"
-                :color="
-                  debugSimulationMode === 'none' ? 'primary' : 'secondary'
-                "
-                label="Standard / Live Mode"
-                @click="debugSimulationMode = 'none'"
-              />
-              <UButton
-                size="xs"
-                :color="
-                  debugSimulationMode === 'fetch_error' ? 'error' : 'secondary'
-                "
-                icon="i-heroicons-cloud-arrow-down"
-                label="Failed News Fetching"
-                @click="debugSimulationMode = 'fetch_error'"
-              />
-            </div>
-          </div>
-
           <!-- Failed fetch fallback -->
           <TrendingFallback
-            v-if="
-              error || (isDebugErrorUi && debugSimulationMode === 'fetch_error')
-            "
-            :error="
-              error ||
-              (isDebugErrorUi
-                ? 'Debug Test: Failed to fetch lessons from server.'
-                : null)
-            "
+            v-if="error"
+            :error="error"
             :loading="loading"
-            :is-debug="isDebugErrorUi"
             class="mb-8"
             @retry="refreshNews"
           />
@@ -192,7 +147,7 @@
 
           <!-- Empty state -->
           <div
-            v-else-if="!loading && !isDebugErrorUi && lessons.length === 0"
+            v-else-if="!loading && lessons.length === 0"
             class="bg-white dark:bg-neutral-900 rounded-sm text-center p-8 border border-stone-300 dark:border-stone-800"
           >
             <div class="mb-4">
@@ -236,7 +191,6 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
 import type { Lesson } from "~~/types/index";
 
 import AppHeader from "./AppHeader.vue";
@@ -276,25 +230,6 @@ const difficultyLevels = [
   { id: "N2", name: "N2" },
   { id: "N1", name: "N1" },
 ] as const;
-
-const isDebugErrorUi = computed(() => {
-  try {
-    const route = useRoute();
-    if (route && route.query) {
-      return (
-        route.query.debug_error_ui === "true" ||
-        route.query.debug_error_ui === "1" ||
-        route.query.debug === "error"
-      );
-    }
-  } catch {
-    return false;
-  }
-  return false;
-});
-const debugSimulationMode = ref<"none" | "fetch_error">(
-  isDebugErrorUi.value ? "fetch_error" : "none",
-);
 
 const selectedLesson = computed<Lesson | null>(() => {
   if (!selectedLessonId.value) return null;
@@ -340,25 +275,9 @@ watch(selectedDifficulty, async () => {
   await fetchNews();
 });
 
-watch(debugSimulationMode, () => {
-  if (isDebugErrorUi.value) {
-    error.value =
-      debugSimulationMode.value === "fetch_error"
-        ? "DEBUG_ERROR_UI: Service temporarily unavailable. Failed to fetch lessons from Redis database."
-        : null;
-  }
-});
-
 const fetchNews = async () => {
   loading.value = true;
   error.value = null;
-
-  if (isDebugErrorUi.value && debugSimulationMode.value === "fetch_error") {
-    error.value =
-      "DEBUG_ERROR_UI: Service temporarily unavailable. Failed to fetch lessons from Redis database.";
-    loading.value = false;
-    return;
-  }
 
   try {
     const query: Record<string, string | number | undefined> = {
