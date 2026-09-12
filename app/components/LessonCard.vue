@@ -559,7 +559,7 @@ const closePopover = (): void => {
   selectedVocab.value = null;
 };
 
-const onDocPointerDown = (event: Event): void => {
+const onDocClick = (event: Event): void => {
   if (!selectedVocab.value) return;
   const target = event.target as HTMLElement | null;
   if (target?.closest(".jp-token") || target?.closest(".jp-popover")) return;
@@ -571,14 +571,14 @@ const onKeydown = (event: KeyboardEvent): void => {
 };
 
 onMounted(() => {
-  document.addEventListener("pointerdown", onDocPointerDown);
+  document.addEventListener("click", onDocClick);
   document.addEventListener("keydown", onKeydown);
   window.addEventListener("resize", closePopover);
   window.addEventListener("scroll", closePopover, true);
 });
 
 onBeforeUnmount(() => {
-  document.removeEventListener("pointerdown", onDocPointerDown);
+  document.removeEventListener("click", onDocClick);
   document.removeEventListener("keydown", onKeydown);
   window.removeEventListener("resize", closePopover);
   window.removeEventListener("scroll", closePopover, true);
