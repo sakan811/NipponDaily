@@ -22,7 +22,7 @@
           <h3
             class="text-xl font-serif font-bold text-stone-900 dark:text-white"
           >
-            Unable to Retrieve Trending Topics
+            Unable to Load Lessons
           </h3>
           <p
             class="text-xs text-rose-600 dark:text-rose-400 font-medium bg-rose-500/10 dark:bg-rose-500/20 px-3 py-1.5 rounded-lg inline-block break-words max-w-full"
@@ -34,8 +34,8 @@
         <p
           class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed font-sans"
         >
-          The Japan news aggregation pipeline could not fetch trending topic
-          clusters from Tavily or Upstash database.
+          The lesson reader could not fetch the latest Japanese lessons from
+          the Redis database.
         </p>
 
         <!-- Retry Action -->
@@ -64,7 +64,7 @@
           class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1.5"
         >
           <UIcon name="i-heroicons-bug-ant" class="w-4 h-4" />
-          DEBUG_ERROR_UI: Mock Trending Fallback Preview
+          DEBUG_ERROR_UI: Mock Lesson Fallback Preview
         </span>
         <UBadge color="warning" variant="soft" size="xs"
           >Testing & Design Mode</UBadge
@@ -88,7 +88,7 @@
           <h4
             class="text-xs font-bold font-serif text-stone-700 dark:text-stone-300"
           >
-            [Fallback Preview] Sample Trending Topic #{{ i }}
+            [Fallback Preview] Sample Lesson #{{ i }}
           </h4>
           <p class="text-[10px] text-stone-400 mt-2">
             Cached snapshot unavailable

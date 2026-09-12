@@ -12,7 +12,7 @@ describe("TrendingFallback Component", () => {
       },
     });
 
-    expect(wrapper.text()).toContain("Unable to Retrieve Trending Topics");
+    expect(wrapper.text()).toContain("Unable to Load Lessons");
     expect(wrapper.text()).toContain(
       "Service temporarily unavailable. Please try again.",
     );
@@ -56,7 +56,7 @@ describe("TrendingFallback Component", () => {
     });
 
     expect(wrapper.text()).toContain(
-      "DEBUG_ERROR_UI: Mock Trending Fallback Preview",
+      "DEBUG_ERROR_UI: Mock Lesson Fallback Preview",
     );
   });
 });
