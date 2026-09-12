@@ -28,15 +28,6 @@
           outage. Each block below is the actual component with representative
           mock data.
         </p>
-        <p class="text-sm text-gray-500 dark:text-gray-400">
-          To exercise these interactively on the real reader, append
-          <code>?debug_error_ui=true</code> to
-          <NuxtLink to="/news?debug_error_ui=true" class="text-primary-500"
-            >/news</NuxtLink
-          >
-          — that reveals an in-page toolbar for simulating a failed
-          <code>/api/news</code> fetch.
-        </p>
       </div>
 
       <nav
@@ -64,7 +55,6 @@
           <TrendingFallback
             :error="'Service temporarily unavailable. Please try again.'"
             :loading="false"
-            :is-debug="false"
             @retry="noop"
           />
         </section>

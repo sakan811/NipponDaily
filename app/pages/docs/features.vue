@@ -102,7 +102,7 @@ const features = [
   {
     title: "Resilient Fallback Component",
     description:
-      "A graceful UI fallback state (TrendingFallback) shown when the /api/news fetch fails, with an interactive testing toolbar via ?debug_error_ui=true.",
+      "A graceful UI fallback state (TrendingFallback) shown when the /api/news fetch fails.",
     icon: "i-heroicons-exclamation-triangle",
   },
   {
