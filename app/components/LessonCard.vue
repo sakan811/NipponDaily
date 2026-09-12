@@ -318,8 +318,8 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
 /**
  * A clickable passage word: either an agent-authored VocabItem (full meaning,
- * JLPT level, examples) or a tokenizer-only word (reading/rōmaji/part of
- * speech, no meaning — see server/utils/tokenizer.ts).
+ * JLPT level, examples) or a plain agent-authored JpToken (reading/rōmaji/
+ * part of speech, optional meaning, no JLPT level or example).
  */
 type DisplayWord = Partial<VocabItem> &
   Pick<VocabItem, "term" | "reading" | "romaji">;
@@ -367,9 +367,10 @@ const showRuby = (term: string, reading: string | undefined): boolean =>
 
 /**
  * Every clickable word in the passage: agent-authored vocabList entries
- * first (full meaning/JLPT/examples), then any tokenizer-only word not
- * already covered by vocabList (reading/rōmaji/part of speech only). Vocab
- * entries keep their original vocabList index so data-vi stays stable.
+ * first (full meaning/JLPT/examples), then any agent-authored token not
+ * already covered by vocabList (reading/rōmaji/part of speech, optional
+ * meaning). Vocab entries keep their original vocabList index so data-vi
+ * stays stable.
  */
 const displayWords = computed<DisplayWord[]>(() => {
   const vocabWords: DisplayWord[] = props.lesson.vocabList ?? [];
@@ -407,7 +408,7 @@ const rubyBase = (rubyHtml: string): string =>
     .replace(/<rp>[\s\S]*?<\/rp>/gi, "")
     .replace(/<\/?(ruby|rt|rp)>/gi, "");
 
-/** Words sourced from the tokenizer rather than vocabList render with a subtler style. */
+/** Words sourced from lesson.tokens rather than vocabList render with a subtler style. */
 const isAutoWordIdx = (idx: number): boolean =>
   idx >= (props.lesson.vocabList?.length ?? 0);
 

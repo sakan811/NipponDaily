@@ -25,17 +25,17 @@ export interface VocabItem {
   exampleRomaji?: string;
 }
 
-/** One word from a passage, produced by morphological tokenization (see server/utils/tokenizer.ts). */
+/** One word from a passage, authored by the external MCP agent (see server/api/mcp.ts). */
 export interface JpToken {
-  /** Surface form as it appears in the passage; may merge multiple dictionary morphemes into one word. */
+  /** Surface form as it appears in the passage. */
   surface: string;
   /** Hiragana reading. */
   reading: string;
   /** Hepburn rōmaji transliteration of reading. */
   romaji: string;
-  /** e.g. "noun", "godan verb", "particle" — derived from morphological analysis, not authored. */
+  /** e.g. "noun", "godan verb", "particle". */
   partOfSpeech: string;
-  /** Best-effort English meaning from JMdict, when the word's dictionary form has an entry. */
+  /** Best-effort English meaning of the word. */
   meaning?: string;
 }
 
@@ -92,6 +92,6 @@ export interface Lesson {
   vocabList: VocabItem[];
   /** 1–3 grammar patterns worth flagging from the passage. */
   grammarNotes: GrammarNote[];
-  /** Every word in originalText, tokenized server-side; not persisted, computed fresh per request. */
+  /** Words from originalText worth highlighting beyond vocabList, authored by the MCP agent. */
   tokens?: JpToken[];
 }

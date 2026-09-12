@@ -15,11 +15,11 @@ tools on `/api/mcp` listed below.
 article turned into a self-contained lesson** — a passage of the article's own Japanese
 (`originalText`), its English translation (`englishText`), the same passage with furigana
 (`furiganaText`), its rōmaji
-(`romajiText`), a vocab list (`vocabList`), grammar notes (`grammarNotes`) and one
-overall difficulty estimate (`difficultyLevel`). There is **no clustering**, **no
-cross-article synthesis**, **no summary/analysis prose**, and **no topic taxonomy**. Your
-job each week: find that week's teachable Japan news in Japanese and write a solid lesson
-for each article.
+(`romajiText`), a vocab list (`vocabList`), grammar notes (`grammarNotes`), every other
+passage word worth making clickable (`tokens`) and one overall difficulty estimate
+(`difficultyLevel`). There is **no clustering**, **no cross-article synthesis**, **no
+summary/analysis prose**, and **no topic taxonomy**. Your job each week: find that week's
+teachable Japan news in Japanese and write a solid lesson for each article.
 
 Cadence never outranks quality. A run that adds only a couple of lessons, or nothing at
 all because there was no genuinely teachable Japan story in the window, is a valid,
@@ -91,6 +91,24 @@ passage produce:
   pattern acts as, e.g. "conjunction", "auxiliary verb", "sentence-ending particle"),
   `explanation` (plain language), `exampleSentence`, `romaji` (Hepburn of that sentence),
   and `exampleFurigana` (that sentence with inline `<ruby>` tags).
+- **`tokens`** — every other word in the passage worth making clickable, beyond the
+  terms you already put in `vocabList` (which win on overlap — don't duplicate a
+  vocabList term here). For each: `surface` (as it appears in the passage), `reading`
+  (hiragana), `romaji` (Hepburn), `partOfSpeech`, and `meaning` (optional, a short
+  English gloss when you have one — skip it for words like plain particles where a
+  gloss wouldn't help). Segment the passage into words the way a dictionary would:
+  - Merge what a learner would recognize as one word: a name plus a following title
+    suffix (東京+都 → 東京都), a サ変接続 noun plus する/できる (表明+し+た →
+    表明した), a verb plus its trailing auxiliary-verb chain (話し合っ+た →
+    話し合った).
+  - Don't merge across genuinely separate words just because they're adjacent nouns —
+    this is the main failure mode to avoid. An address or count run like
+    陽東６丁目 is **three** words (陽東 / ６ / 丁目), not one; a run of unrelated
+    nouns stays split rather than collapsing into a single unclickable blob.
+  - は/へ/を get their pronunciation as `romaji` ("wa"/"e"/"o") when used as
+    grammatical particles, not their literal kana reading.
+  - It's fine to leave a word out of `tokens` if you're unsure how to segment it —
+    `vocabList` is where the terms that matter most for the lesson live regardless.
 
 Then call `upsert_lesson` once per article. To revise a lesson you published before,
 pass its `id` (from `get_recent_lessons`) or just re-use its `url`; any mergeable field
@@ -107,13 +125,13 @@ forward.
 
 `ALL /api/mcp` (bearer-token protected) registers five tools:
 
-| Tool                   | Purpose                                                                                                                                          |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `get_recent_lessons`   | List existing lessons, newest article first (`id`, `title`, `url`, `source`, `publishedAt`, `difficultyLevel`).                                  |
-| `check_processed_urls` | Given candidate URLs, return which are already ingested.                                                                                         |
-| `upsert_lesson`        | Create/update one lesson. `favicon` derived server-side; `credibilityScore` cached per-domain; omitted mergeable fields keep their stored value. |
-| `cleanup_old_data`     | Delete lessons whose article is older than 30 days; `{ dryRun: true }` previews.                                                                 |
-| `mark_ingest_complete` | Record the last-ingest timestamp shown in the UI.                                                                                                |
+| Tool                   | Purpose                                                                                                                                                              |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `get_recent_lessons`   | List existing lessons, newest article first (`id`, `title`, `url`, `source`, `publishedAt`, `difficultyLevel`).                                                      |
+| `check_processed_urls` | Given candidate URLs, return which are already ingested.                                                                                                             |
+| `upsert_lesson`        | Create/update one lesson, including `tokens`. `favicon` derived server-side; `credibilityScore` cached per-domain; omitted mergeable fields keep their stored value. |
+| `cleanup_old_data`     | Delete lessons whose article is older than 30 days; `{ dryRun: true }` previews.                                                                                     |
+| `mark_ingest_complete` | Record the last-ingest timestamp shown in the UI.                                                                                                                    |
 
 ## Token discipline
 

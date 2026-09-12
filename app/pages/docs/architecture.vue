@@ -582,9 +582,10 @@
           <p class="text-sm">
             Creates or updates one lesson — a single article plus its
             originalText, englishText, furiganaText, romajiText, vocabList,
-            grammarNotes and difficultyLevel — visible on the site immediately.
-            To update, pass the lesson's id or re-use its url; any mergeable
-            field left out keeps its stored value. <code>favicon</code> and
+            grammarNotes, tokens and difficultyLevel — visible on the site
+            immediately. To update, pass the lesson's id or re-use its url; any
+            mergeable field left out keeps its stored value.
+            <code>favicon</code> and
             <code>source</code>
             are derived server-side; the submitted URL is marked processed.
           </p>

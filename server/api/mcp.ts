@@ -109,6 +109,14 @@ const grammarNoteSchema = z.object({
     ),
 });
 
+const jpTokenSchema = z.object({
+  surface: z.string().describe("Surface form as it appears in the passage."),
+  reading: z.string().describe("Hiragana reading."),
+  romaji: z.string().describe("Rōmaji (Hepburn) transliteration of reading."),
+  partOfSpeech: z.string().describe('e.g. "noun", "godan verb", "particle".'),
+  meaning: z.string().optional().describe("Best-effort English meaning."),
+});
+
 /**
  * Lesson fields that may be omitted on an update (by `id` or matching `url`) to
  * keep the stored value. `title`/`url`/`publishedAt`/`difficultyLevel` are
@@ -123,6 +131,7 @@ const MERGEABLE_LESSON_FIELDS = [
   "romajiText",
   "vocabList",
   "grammarNotes",
+  "tokens",
 ] as const;
 
 const upsertLessonInputSchema = z.object({
@@ -191,6 +200,12 @@ const upsertLessonInputSchema = z.object({
     .describe(
       "1-3 grammar patterns worth flagging from the passage, each with a plain explanation plus an example sentence and its rōmaji.",
     ),
+  tokens: z
+    .array(jpTokenSchema)
+    .optional()
+    .describe(
+      "Every other word in originalText worth making clickable, beyond the terms already in vocabList (which take precedence on overlap). Break the passage into learner-facing words the way a dictionary would — e.g. merge a name with a following title suffix (東京+都 -> 東京都) or a verb with its trailing auxiliary (話し合っ+た -> 話し合った) — but keep genuinely separate words apart, e.g. don't merge an address/count run into one token (陽東 / ６ / 丁目 stay three words, not 陽東６丁目).",
+    ),
 });
 
 const mcpHandler = createMcpHandler(
@@ -258,7 +273,7 @@ const mcpHandler = createMcpHandler(
       {
         title: "Upsert lesson",
         description:
-          "Create or update one NipponDaily lesson in Redis — a single Japanese news article plus the lesson authored from its own Japanese text (originalText, englishText, furiganaText, romajiText, vocabList, grammarNotes, difficultyLevel). Visible in the app immediately. There is no clustering, no cross-article synthesis and no topic taxonomy. To update, pass the lesson's `id` (from get_recent_lessons) or just re-use its `url`; any mergeable field you omit keeps its stored value. Marks the source URL as processed. `favicon` is always derived server-side from the domain; `credibilityScore` is cached per-domain and may be omitted once a domain has been scored.",
+          "Create or update one NipponDaily lesson in Redis — a single Japanese news article plus the lesson authored from its own Japanese text (originalText, englishText, furiganaText, romajiText, vocabList, grammarNotes, tokens, difficultyLevel). Visible in the app immediately. There is no clustering, no cross-article synthesis and no topic taxonomy. To update, pass the lesson's `id` (from get_recent_lessons) or just re-use its `url`; any mergeable field you omit keeps its stored value. Marks the source URL as processed. `favicon` is always derived server-side from the domain; `credibilityScore` is cached per-domain and may be omitted once a domain has been scored.",
         inputSchema: upsertLessonInputSchema,
       },
       async (input) => {
@@ -321,6 +336,7 @@ const mcpHandler = createMcpHandler(
           romajiText: (merged.romajiText as string) ?? "",
           vocabList: (merged.vocabList as Lesson["vocabList"]) ?? [],
           grammarNotes: (merged.grammarNotes as Lesson["grammarNotes"]) ?? [],
+          tokens: merged.tokens as Lesson["tokens"],
         };
 
         await lessonsService.saveLesson(lesson);

@@ -214,7 +214,7 @@ describe("LessonCard", () => {
     wrapper.unmount();
   });
 
-  it("highlights tokenizer-only words not present in vocabList", () => {
+  it("highlights token-only words not present in vocabList", () => {
     const wrapper = mountCard({
       furiganaText: "<ruby>首相<rt>しゅしょう</rt></ruby>は",
       tokens: [
@@ -248,7 +248,7 @@ describe("LessonCard", () => {
     expect(wrapper.find(".jp-token--auto").exists()).toBe(false);
   });
 
-  it("opens a popover with reading/rōmaji/part of speech but no meaning for a tokenizer-only word", async () => {
+  it("opens a popover with reading/rōmaji/part of speech but no meaning for a token-only word", async () => {
     const wrapper = mountCard({
       furiganaText: "<ruby>首相<rt>しゅしょう</rt></ruby>は",
       tokens: [
