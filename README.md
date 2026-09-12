@@ -79,10 +79,6 @@ See `.env.example` for reference. Configure these in your `.env` file:
 
 Server-side config is resolved through `server/utils/config.ts`'s `getEnvOrConfig()`, which prefers Nuxt `runtimeConfig` and falls back to `process.env`. There is currently no request rate limiting and no integration-test suite — all tests run against mocks.
 
-### 🐞 UI Debugging & Testing
-
-Append `?debug_error_ui=true` to any browser URL (e.g. `http://localhost:3000/news?debug_error_ui=true`) to display an interactive toolbar for simulating a failed `/api/news` fetch, so `TrendingFallback` can be exercised without a live failure. The `/docs/error-states` page renders the same degraded, empty, and failure states as a static catalogue.
-
 ## 📜 Available Commands
 
 | Command              | Description                                               |

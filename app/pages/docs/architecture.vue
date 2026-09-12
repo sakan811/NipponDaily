@@ -195,25 +195,7 @@
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        2. Developer Debug Mode
-      </h2>
-
-      <p class="mb-4">
-        We included a special tool for developers to test how the app handles
-        errors without actually breaking anything.
-      </p>
-      <p class="mb-4">
-        <strong>Technical Details:</strong> Appending
-        <code>?debug_error_ui=true</code> to any page URL enables an interactive
-        UI testing toolbar to simulate a failed <code>/api/news</code> fetch,
-        allowing for layout testing without needing a live failure or touching
-        the database.
-      </p>
-
-      <h2
-        class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
-      >
-        3. Color Palette & System
+        2. Color Palette & System
       </h2>
 
       <p>
@@ -535,7 +517,7 @@
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        4. MCP-Driven Lesson Pipeline
+        3. MCP-Driven Lesson Pipeline
       </h2>
 
       <p class="text-lg mb-6">
@@ -669,7 +651,7 @@
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        5. Automated Data Retention (Cleanup Pipeline)
+        4. Automated Data Retention (Cleanup Pipeline)
       </h2>
 
       <p class="text-lg mb-6">
@@ -749,7 +731,7 @@
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        6. API Reference
+        5. API Reference
       </h2>
       <p class="mb-8">Technical details on how our backend endpoints work.</p>
 
@@ -898,7 +880,7 @@ curl "http://localhost:3000/api/news?difficulty=N4&amp;limit=5"</code></pre>
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        7. Trust & Credibility
+        6. Trust & Credibility
       </h2>
       <p class="mb-4">
         Every lesson includes a <strong>Trust Score</strong> the Claude agent
