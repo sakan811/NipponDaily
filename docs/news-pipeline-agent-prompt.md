@@ -8,8 +8,9 @@ Update this file whenever the agent's instructions or the MCP tool set change, s
 two stay in sync.
 
 There is no Tavily/Gemini pipeline and no vector store in this codebase. All discovery
-happens via the agent's own web search; all persistence happens through the Redis-backed
-tools on `/api/mcp` listed below.
+happens via the **Tavily MCP server** (a separate MCP connection the agent has, not part
+of this repo) rather than the agent's own built-in web search — see step 2 below; all
+persistence happens through the Redis-backed tools on `/api/mcp` listed below.
 
 **The site is a Japanese-learning app.** Each record is **one Japanese-language news
 article turned into a self-contained lesson** — a passage of the article's own Japanese
@@ -40,9 +41,9 @@ URLs so you don't re-teach the same article.
 
 ## 2. Find this week's teachable news, in Japanese
 
-Search for recent (last 7–14 days) Japan-related news from **Japanese-language
-publishers** — NHK (`www3.nhk.or.jp`), 朝日, 毎日, 読売, 日経, 共同, regional papers, etc.
-Pick articles that:
+Use the **Tavily MCP search tool** (not your own built-in web search) to find recent
+(last 7–14 days) Japan-related news from **Japanese-language publishers** — NHK
+(`www3.nhk.or.jp`), 朝日, 毎日, 読売, 日経, 共同, regional papers, etc. Pick articles that:
 
 - are genuinely about Japan and genuinely newsworthy,
 - have a substantive passage of natural Japanese prose you can teach from, and
@@ -142,10 +143,10 @@ forward.
 ## Token discipline
 
 - **`get_recent_lessons`**: `days: 30`, not the full history.
-- **One search per slot, not several rephrasings.** If the first query turns up nothing
-  new, move on.
-- **Read search snippets, not full article pages** — except that you _do_ open each
-  Japanese article you'll teach from, to pull an accurate passage.
+- **One Tavily search per slot, not several rephrasings.** If the first query turns up
+  nothing new, move on.
+- **Read Tavily's search snippets, not full article pages** — except that you _do_ open
+  each Japanese article you'll teach from, to pull an accurate passage.
 - **Batch `check_processed_urls`** into one call with every candidate URL.
 - **Don't re-fetch a URL `check_processed_urls` already marked processed.**
 - **Author the lesson from the passage you already pulled** — no separate fetch pass.
