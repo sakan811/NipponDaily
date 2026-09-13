@@ -645,7 +645,7 @@ const getCredibilityColor = (score: number | undefined): string => {
     var(--pos-color, var(--color-secondary-500)) 8%,
     transparent
   );
-  border-bottom: 1px dashed var(--pos-color, var(--color-secondary-500));
+  border-bottom: 1px solid var(--pos-color, var(--color-secondary-500));
 }
 .furigana-text :deep(.jp-token--auto:hover) {
   background: color-mix(

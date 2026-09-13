@@ -204,7 +204,7 @@ const upsertLessonInputSchema = z.object({
     .array(jpTokenSchema)
     .optional()
     .describe(
-      "Every other word in originalText worth making clickable, beyond the terms already in vocabList (which take precedence on overlap). Break the passage into learner-facing words the way a dictionary would — e.g. merge a name with a following title suffix (東京+都 -> 東京都) or a verb with its trailing auxiliary (話し合っ+た -> 話し合った) — but keep genuinely separate words apart, e.g. don't merge an address/count run into one token (陽東 / ６ / 丁目 stay three words, not 陽東６丁目).",
+      "Additional passage words worth a learner tapping, beyond vocabList (which wins on overlap — don't duplicate a vocabList term here). Be selective, not exhaustive: skip common particles (は/が/を/に/で/と/の/etc.), copula (だ/です/である), and other function words that teach nothing new — only include content words (nouns, verbs, adjectives, adverbs, set expressions) a learner would plausibly look up. Fewer well-chosen tokens beats exhaustive coverage. When you do include a word, segment it the way a dictionary would — e.g. merge a name with a following title suffix (東京+都 -> 東京都) or a verb with its trailing auxiliary (話し合っ+た -> 話し合った) — but keep genuinely separate words apart, e.g. don't merge an address/count run into one token (陽東 / ６ / 丁目 stay three words, not 陽東６丁目).",
     ),
 });
 
