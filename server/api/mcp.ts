@@ -278,8 +278,8 @@ const mcpHandler = createMcpHandler(
         const byId = input.id ? await lessonsService.getLesson(input.id) : null;
         let existing = byId;
         if (!existing) {
-          const all = await lessonsService.getLessons();
-          existing = all.find((l) => l.url === input.url) ?? null;
+          const existingId = await lessonsService.getLessonIdByUrl(input.url);
+          existing = existingId ? await lessonsService.getLesson(existingId) : null;
         }
 
         const now = Date.now();

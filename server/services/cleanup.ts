@@ -31,7 +31,7 @@ export async function cleanupOldDataTask(options?: {
       `[Cleanup] Removing stale lesson "${lesson.title}" (ID: ${lesson.id})`,
     );
     if (!dryRun) {
-      await lessonsService.deleteLesson(lesson.id);
+      await lessonsService.deleteLesson(lesson.id, lesson.url);
     }
   }
 

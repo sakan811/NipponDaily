@@ -24,6 +24,7 @@ vi.mock("mcp-handler", () => ({
 const mockGetLessons = vi.fn();
 const mockAreUrlsProcessed = vi.fn();
 const mockGetLesson = vi.fn();
+const mockGetLessonIdByUrl = vi.fn();
 const mockSaveLesson = vi.fn();
 const mockMarkArticleProcessed = vi.fn();
 const mockDeleteLesson = vi.fn();
@@ -36,6 +37,7 @@ vi.mock("~/server/services/lessons", () => ({
     getLessons: mockGetLessons,
     areUrlsProcessed: mockAreUrlsProcessed,
     getLesson: mockGetLesson,
+    getLessonIdByUrl: mockGetLessonIdByUrl,
     saveLesson: mockSaveLesson,
     markArticleProcessed: mockMarkArticleProcessed,
     deleteLesson: mockDeleteLesson,
@@ -219,7 +221,7 @@ describe("server/api/mcp.ts", () => {
   describe("upsert_lesson tool", () => {
     it("creates a new lesson, caching the provided credibility score per domain", async () => {
       mockGetLesson.mockResolvedValue(null);
-      mockGetLessons.mockResolvedValue([]);
+      mockGetLessonIdByUrl.mockResolvedValue(null);
 
       const result =
         await registeredTools.upsert_lesson!.handler(validLessonInput());
@@ -241,7 +243,7 @@ describe("server/api/mcp.ts", () => {
 
     it("reuses a cached domain credibility score when credibilityScore is omitted", async () => {
       mockGetLesson.mockResolvedValue(null);
-      mockGetLessons.mockResolvedValue([]);
+      mockGetLessonIdByUrl.mockResolvedValue(null);
       mockGetDomainCredibility.mockResolvedValue(0.55);
 
       const result = await registeredTools.upsert_lesson!.handler(
@@ -260,7 +262,7 @@ describe("server/api/mcp.ts", () => {
 
     it("errors without saving when no cached score exists and none was provided", async () => {
       mockGetLesson.mockResolvedValue(null);
-      mockGetLessons.mockResolvedValue([]);
+      mockGetLessonIdByUrl.mockResolvedValue(null);
       mockGetDomainCredibility.mockResolvedValue(null);
 
       const result = await registeredTools.upsert_lesson!.handler(
@@ -293,8 +295,8 @@ describe("server/api/mcp.ts", () => {
           },
         ],
       });
-      mockGetLesson.mockResolvedValue(null);
-      mockGetLessons.mockResolvedValue([existing]);
+      mockGetLesson.mockResolvedValue(existing);
+      mockGetLessonIdByUrl.mockResolvedValue("lesson-1");
 
       await registeredTools.upsert_lesson!.handler({
         title: "Old Article (updated title)",
@@ -388,7 +390,10 @@ describe("server/api/mcp.ts", () => {
       const parsed = parseResult(result);
 
       expect(parsed.lessonsDeleted).toBe(1);
-      expect(mockDeleteLesson).toHaveBeenCalledWith("stale");
+      expect(mockDeleteLesson).toHaveBeenCalledWith(
+        "stale",
+        "https://old.example.com/a",
+      );
     });
 
     it("does not delete anything when dryRun is true", async () => {

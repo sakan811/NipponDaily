@@ -10,6 +10,9 @@ const mockRedisSmembers = vi.fn();
 const mockRedisSismember = vi.fn();
 const mockRedisSmismember = vi.fn();
 const mockRedisMget = vi.fn();
+const mockRedisHset = vi.fn();
+const mockRedisHget = vi.fn();
+const mockRedisHdel = vi.fn();
 
 vi.mock("@upstash/redis", () => {
   class Redis {
@@ -22,6 +25,9 @@ vi.mock("@upstash/redis", () => {
     sismember = mockRedisSismember;
     smismember = mockRedisSmismember;
     mget = mockRedisMget;
+    hset = mockRedisHset;
+    hget = mockRedisHget;
+    hdel = mockRedisHdel;
   }
   return {
     Redis,
@@ -99,6 +105,9 @@ describe("LessonsService", () => {
     mockRedisSismember.mockResolvedValue(1);
     mockRedisSrem.mockResolvedValue(1);
     mockRedisDel.mockResolvedValue(1);
+    mockRedisHset.mockResolvedValue(1);
+    mockRedisHget.mockResolvedValue(null);
+    mockRedisHdel.mockResolvedValue(1);
 
     await service.saveLesson(mockLesson as any);
     expect(await service.getLesson("redis-lesson-1")).toEqual(mockLesson);
@@ -118,6 +127,9 @@ describe("LessonsService", () => {
     mockRedisSismember.mockRejectedValue(new Error("Redis sismember failed"));
     mockRedisSrem.mockRejectedValue(new Error("Redis srem failed"));
     mockRedisDel.mockRejectedValue(new Error("Redis del failed"));
+    mockRedisHset.mockRejectedValue(new Error("Redis hset failed"));
+    mockRedisHget.mockRejectedValue(new Error("Redis hget failed"));
+    mockRedisHdel.mockRejectedValue(new Error("Redis hdel failed"));
 
     await service.saveLesson(mockLesson as any);
     expect(await service.getLesson("redis-lesson-1")).toEqual(mockLesson);
@@ -364,5 +376,90 @@ describe("LessonsService", () => {
     expect(await service.areUrlsProcessed(["http://c.com"])).toEqual([false]);
 
     (service as any).client = null;
+  });
+
+  it("looks up a lesson id by url via the url index, backfilling it once from existing lessons", async () => {
+    (service as any).client = null;
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "https://mock-redis.upstash.io",
+      upstashRedisRestToken: "mock-token",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+
+    // Not migrated yet: backfill scans existing lessons and hsets the index.
+    mockRedisGet.mockResolvedValueOnce(null);
+    mockRedisSmembers.mockResolvedValueOnce(["legacy-id"]);
+    mockRedisMget.mockResolvedValueOnce([
+      { id: "legacy-id", url: "http://legacy.com/a" },
+    ]);
+    mockRedisSet.mockResolvedValue("OK");
+    mockRedisHset.mockResolvedValue(1);
+    mockRedisHget.mockResolvedValueOnce("legacy-id");
+
+    const id = await service.getLessonIdByUrl("http://legacy.com/a");
+
+    expect(mockRedisHset).toHaveBeenCalledWith("news:url_index", {
+      "http://legacy.com/a": "legacy-id",
+    });
+    expect(mockRedisSet).toHaveBeenCalledWith(
+      "news:url_index_backfilled",
+      "1",
+    );
+    expect(id).toBe("legacy-id");
+
+    // Already migrated: skips the backfill scan entirely.
+    mockRedisGet.mockResolvedValueOnce("1");
+    mockRedisHget.mockResolvedValueOnce("some-id");
+    mockRedisSmembers.mockClear();
+
+    expect(await service.getLessonIdByUrl("http://new.com/a")).toBe(
+      "some-id",
+    );
+    expect(mockRedisSmembers).not.toHaveBeenCalled();
+
+    (service as any).client = null;
+  });
+
+  it("returns null and falls back to memory when the url index lookup errors", async () => {
+    (service as any).client = null;
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "https://mock-redis.upstash.io",
+      upstashRedisRestToken: "mock-token",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+    mockRedisGet.mockRejectedValueOnce(new Error("get failed"));
+    mockRedisHget.mockRejectedValueOnce(new Error("hget failed"));
+
+    expect(await service.getLessonIdByUrl("http://err.com")).toBeNull();
+
+    (service as any).client = null;
+  });
+
+  it("uses the in-memory url index when Redis is not configured", async () => {
+    (service as any).client = null;
+    const originalUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const originalToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+    process.env.UPSTASH_REDIS_REST_URL = "";
+    process.env.UPSTASH_REDIS_REST_TOKEN = "";
+    (global as any).useRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "",
+      upstashRedisRestToken: "",
+    }));
+
+    try {
+      expect(await service.getLessonIdByUrl("http://mem.com/a")).toBeNull();
+      await service.saveLesson({
+        id: "mem-url-lesson",
+        url: "http://mem.com/a",
+      } as any);
+      expect(await service.getLessonIdByUrl("http://mem.com/a")).toBe(
+        "mem-url-lesson",
+      );
+      await service.deleteLesson("mem-url-lesson", "http://mem.com/a");
+      expect(await service.getLessonIdByUrl("http://mem.com/a")).toBeNull();
+    } finally {
+      process.env.UPSTASH_REDIS_REST_URL = originalUrl;
+      process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
+    }
   });
 });

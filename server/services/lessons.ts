@@ -6,12 +6,16 @@ import { getEnvOrConfig } from "../utils/config";
  * Redis CRUD for standalone {@link Lesson} records. Each lesson is one Japanese
  * news article plus the lesson authored from it — there is no clustering.
  */
+const URL_INDEX_KEY = "news:url_index";
+const URL_INDEX_BACKFILLED_KEY = "news:url_index_backfilled";
+
 class LessonsService {
   private client: Redis | null = null;
   private memoryLessons = new Map<string, Lesson>();
   private memoryProcessedArticles = new Set<string>();
   private memoryLastIngestTime: number = 0;
   private memoryDomainCredibility = new Map<string, number>();
+  private memoryUrlIndex = new Map<string, string>();
 
   private getRedisClient(): Redis | null {
     if (this.client) return this.client;
@@ -56,15 +60,20 @@ class LessonsService {
     const redis = this.getRedisClient();
     if (!redis) {
       this.memoryLessons.set(lesson.id, lesson);
+      this.memoryUrlIndex.set(lesson.url, lesson.id);
       return;
     }
 
     try {
       await redis.set(`lesson:${lesson.id}`, JSON.stringify(lesson));
       await redis.sadd("news:lessons", lesson.id);
+      // Kept in sync so getLessonIdByUrl can look up a lesson by url in a
+      // single hget instead of scanning every stored lesson.
+      await redis.hset(URL_INDEX_KEY, { [lesson.url]: lesson.id });
     } catch (e) {
       console.error(`Error saving lesson ${lesson.id} to Redis:`, e);
       this.memoryLessons.set(lesson.id, lesson);
+      this.memoryUrlIndex.set(lesson.url, lesson.id);
     }
   }
 
@@ -105,19 +114,26 @@ class LessonsService {
     }
   }
 
-  async deleteLesson(lessonId: string): Promise<void> {
+  /**
+   * `url` is optional but should be passed whenever the caller already has
+   * it (e.g. cleanup) so the url index doesn't accumulate stale entries.
+   */
+  async deleteLesson(lessonId: string, url?: string): Promise<void> {
     const redis = this.getRedisClient();
     if (!redis) {
       this.memoryLessons.delete(lessonId);
+      if (url) this.memoryUrlIndex.delete(url);
       return;
     }
 
     try {
       await redis.del(`lesson:${lessonId}`);
       await redis.srem("news:lessons", lessonId);
+      if (url) await redis.hdel(URL_INDEX_KEY, url);
     } catch (e) {
       console.error(`Error deleting lesson ${lessonId} from Redis:`, e);
       this.memoryLessons.delete(lessonId);
+      if (url) this.memoryUrlIndex.delete(url);
     }
   }
 
@@ -169,6 +185,45 @@ class LessonsService {
     } catch (e) {
       console.error("Error checking processed urls in Redis:", e);
       return urls.map((url) => this.memoryProcessedArticles.has(url));
+    }
+  }
+
+  /**
+   * O(1) lookup of a lesson's id by its url via a Redis hash kept in sync by
+   * {@link saveLesson}/{@link deleteLesson}, instead of scanning every stored
+   * lesson. Lessons written before this index existed are backfilled into it
+   * once, the first time this (or any url lookup) runs against Redis.
+   */
+  async getLessonIdByUrl(url: string): Promise<string | null> {
+    const redis = this.getRedisClient();
+    if (!redis) {
+      return this.memoryUrlIndex.get(url) ?? null;
+    }
+
+    try {
+      await this.ensureUrlIndexBackfilled(redis);
+      const id = await redis.hget<string>(URL_INDEX_KEY, url);
+      return id ?? null;
+    } catch (e) {
+      console.error(`Error looking up lesson id for url ${url}:`, e);
+      return this.memoryUrlIndex.get(url) ?? null;
+    }
+  }
+
+  private async ensureUrlIndexBackfilled(redis: Redis): Promise<void> {
+    try {
+      const migrated = await redis.get<string>(URL_INDEX_BACKFILLED_KEY);
+      if (migrated) return;
+
+      const all = await this.getLessons();
+      if (all.length > 0) {
+        const mapping: Record<string, string> = {};
+        for (const lesson of all) mapping[lesson.url] = lesson.id;
+        await redis.hset(URL_INDEX_KEY, mapping);
+      }
+      await redis.set(URL_INDEX_BACKFILLED_KEY, "1");
+    } catch (e) {
+      console.error("Error backfilling lesson url index:", e);
     }
   }
 
