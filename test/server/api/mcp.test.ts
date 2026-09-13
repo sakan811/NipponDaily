@@ -22,7 +22,7 @@ vi.mock("mcp-handler", () => ({
 }));
 
 const mockGetLessons = vi.fn();
-const mockIsArticleProcessed = vi.fn();
+const mockAreUrlsProcessed = vi.fn();
 const mockGetLesson = vi.fn();
 const mockSaveLesson = vi.fn();
 const mockMarkArticleProcessed = vi.fn();
@@ -34,7 +34,7 @@ const mockSetLastIngestTime = vi.fn();
 vi.mock("~/server/services/lessons", () => ({
   lessonsService: {
     getLessons: mockGetLessons,
-    isArticleProcessed: mockIsArticleProcessed,
+    areUrlsProcessed: mockAreUrlsProcessed,
     getLesson: mockGetLesson,
     saveLesson: mockSaveLesson,
     markArticleProcessed: mockMarkArticleProcessed,
@@ -201,15 +201,17 @@ describe("server/api/mcp.ts", () => {
 
   describe("check_processed_urls tool", () => {
     it("returns only the URLs that are already processed", async () => {
-      mockIsArticleProcessed.mockImplementation(
-        async (url: string) => url === "https://a.com/1",
-      );
+      mockAreUrlsProcessed.mockResolvedValue([true, false]);
 
       const result = await registeredTools.check_processed_urls!.handler({
         urls: ["https://a.com/1", "https://a.com/2"],
       });
       const parsed = parseResult(result);
 
+      expect(mockAreUrlsProcessed).toHaveBeenCalledWith([
+        "https://a.com/1",
+        "https://a.com/2",
+      ]);
       expect(parsed.processed).toEqual(["https://a.com/1"]);
     });
   });

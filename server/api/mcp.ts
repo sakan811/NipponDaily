@@ -258,9 +258,7 @@ const mcpHandler = createMcpHandler(
         }),
       },
       async ({ urls }) => {
-        const flags = await Promise.all(
-          urls.map((url) => lessonsService.isArticleProcessed(url)),
-        );
+        const flags = await lessonsService.areUrlsProcessed(urls);
         const processed = urls.filter((_, i) => flags[i]);
         return {
           content: [{ type: "text", text: JSON.stringify({ processed }) }],
