@@ -151,6 +151,27 @@ class LessonsService {
     }
   }
 
+  /**
+   * Batched equivalent of calling {@link isArticleProcessed} once per url —
+   * a single Redis round-trip instead of one per url.
+   */
+  async areUrlsProcessed(urls: string[]): Promise<boolean[]> {
+    if (urls.length === 0) return [];
+
+    const redis = this.getRedisClient();
+    if (!redis) {
+      return urls.map((url) => this.memoryProcessedArticles.has(url));
+    }
+
+    try {
+      const flags = await redis.smismember("news:processed_articles", urls);
+      return flags.map((flag) => flag === 1);
+    } catch (e) {
+      console.error("Error checking processed urls in Redis:", e);
+      return urls.map((url) => this.memoryProcessedArticles.has(url));
+    }
+  }
+
   async removeProcessedArticle(url: string): Promise<void> {
     const redis = this.getRedisClient();
     if (!redis) {

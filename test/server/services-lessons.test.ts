@@ -8,6 +8,7 @@ const mockRedisSadd = vi.fn();
 const mockRedisSrem = vi.fn();
 const mockRedisSmembers = vi.fn();
 const mockRedisSismember = vi.fn();
+const mockRedisSmismember = vi.fn();
 const mockRedisMget = vi.fn();
 
 vi.mock("@upstash/redis", () => {
@@ -19,6 +20,7 @@ vi.mock("@upstash/redis", () => {
     srem = mockRedisSrem;
     smembers = mockRedisSmembers;
     sismember = mockRedisSismember;
+    smismember = mockRedisSmismember;
     mget = mockRedisMget;
   }
   return {
@@ -322,6 +324,44 @@ describe("LessonsService", () => {
     const lessons = await service.getLessons();
 
     expect(lessons.map((l: any) => l.id)).toEqual(["fallback-id"]);
+
+    (service as any).client = null;
+  });
+
+  it("checks processed urls in a single smismember call via Redis", async () => {
+    (service as any).client = null;
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "https://mock-redis.upstash.io",
+      upstashRedisRestToken: "mock-token",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+    mockRedisSmismember.mockResolvedValueOnce([1, 0]);
+
+    const flags = await service.areUrlsProcessed([
+      "http://a.com",
+      "http://b.com",
+    ]);
+
+    expect(mockRedisSmismember).toHaveBeenCalledWith(
+      "news:processed_articles",
+      ["http://a.com", "http://b.com"],
+    );
+    expect(flags).toEqual([true, false]);
+
+    (service as any).client = null;
+  });
+
+  it("falls back to memory when smismember fails, and short-circuits on an empty url list", async () => {
+    (service as any).client = null;
+    const mockUseRuntimeConfig = vi.fn(() => ({
+      upstashRedisRestUrl: "https://mock-redis.upstash.io",
+      upstashRedisRestToken: "mock-token",
+    }));
+    (global as any).useRuntimeConfig = mockUseRuntimeConfig;
+    mockRedisSmismember.mockRejectedValueOnce(new Error("smismember failed"));
+
+    expect(await service.areUrlsProcessed([])).toEqual([]);
+    expect(await service.areUrlsProcessed(["http://c.com"])).toEqual([false]);
 
     (service as any).client = null;
   });
