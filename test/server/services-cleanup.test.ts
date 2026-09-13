@@ -27,16 +27,25 @@ describe("cleanupOldDataTask", () => {
       {
         id: "stale",
         title: "Old",
+        url: "https://example.com/stale",
         publishedAt: new Date(now - ONE_MONTH_MS - 1000).toISOString(),
       },
-      { id: "fresh", title: "New", publishedAt: new Date(now).toISOString() },
+      {
+        id: "fresh",
+        title: "New",
+        url: "https://example.com/fresh",
+        publishedAt: new Date(now).toISOString(),
+      },
     ]);
 
     const result = await cleanupOldDataTask();
 
     expect(result).toEqual({ success: true, lessonsDeleted: 1 });
     expect(mockDeleteLesson).toHaveBeenCalledTimes(1);
-    expect(mockDeleteLesson).toHaveBeenCalledWith("stale");
+    expect(mockDeleteLesson).toHaveBeenCalledWith(
+      "stale",
+      "https://example.com/stale",
+    );
   });
 
   it("does not delete anything in dryRun mode, but still reports the count", async () => {
