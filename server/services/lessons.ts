@@ -1,6 +1,7 @@
 import { Redis } from "@upstash/redis";
 import type { Lesson } from "~~/types/index";
 import { getEnvOrConfig } from "../utils/config";
+import { analyzeJapanese } from "../utils/tokenizer";
 
 /**
  * Redis CRUD for standalone {@link Lesson} records. Each lesson is one Japanese
@@ -56,7 +57,18 @@ class LessonsService {
     }
   }
 
+  /**
+   * Auto-tokenizes `originalText` into a draft `tokens` the moment it's
+   * stored without any tokens of its own — the MCP agent reviews/corrects
+   * this draft against the article and supplies its own final `tokens` on a
+   * later `upsert_lesson` call, which replaces the draft outright (so this
+   * never re-runs once real tokens exist).
+   */
   async saveLesson(lesson: Lesson): Promise<void> {
+    if (lesson.originalText && !lesson.tokens?.length) {
+      lesson.tokens = await analyzeJapanese(lesson.originalText);
+    }
+
     const redis = this.getRedisClient();
     if (!redis) {
       this.memoryLessons.set(lesson.id, lesson);

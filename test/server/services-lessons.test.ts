@@ -1,5 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
+const mockAnalyzeJapanese = vi.fn();
+vi.mock("~/server/utils/tokenizer", () => ({
+  analyzeJapanese: mockAnalyzeJapanese,
+}));
+
 // Mock @upstash/redis
 const mockRedisGet = vi.fn();
 const mockRedisSet = vi.fn();
@@ -401,10 +406,7 @@ describe("LessonsService", () => {
     expect(mockRedisHset).toHaveBeenCalledWith("news:url_index", {
       "http://legacy.com/a": "legacy-id",
     });
-    expect(mockRedisSet).toHaveBeenCalledWith(
-      "news:url_index_backfilled",
-      "1",
-    );
+    expect(mockRedisSet).toHaveBeenCalledWith("news:url_index_backfilled", "1");
     expect(id).toBe("legacy-id");
 
     // Already migrated: skips the backfill scan entirely.
@@ -412,9 +414,7 @@ describe("LessonsService", () => {
     mockRedisHget.mockResolvedValueOnce("some-id");
     mockRedisSmembers.mockClear();
 
-    expect(await service.getLessonIdByUrl("http://new.com/a")).toBe(
-      "some-id",
-    );
+    expect(await service.getLessonIdByUrl("http://new.com/a")).toBe("some-id");
     expect(mockRedisSmembers).not.toHaveBeenCalled();
 
     (service as any).client = null;
@@ -461,5 +461,65 @@ describe("LessonsService", () => {
       process.env.UPSTASH_REDIS_REST_URL = originalUrl;
       process.env.UPSTASH_REDIS_REST_TOKEN = originalToken;
     }
+  });
+
+  describe("auto-tokenization on save", () => {
+    it("tokenizes originalText into a draft when the lesson has no tokens of its own", async () => {
+      const draft = [
+        {
+          surface: "首相",
+          reading: "しゅしょう",
+          romaji: "shushō",
+          partOfSpeech: "noun",
+        },
+      ];
+      mockAnalyzeJapanese.mockResolvedValue(draft);
+
+      const lesson = { id: "a", originalText: "首相は表明した。" } as any;
+      await service.saveLesson(lesson);
+
+      expect(mockAnalyzeJapanese).toHaveBeenCalledWith("首相は表明した。");
+      expect(lesson.tokens).toEqual(draft);
+    });
+
+    it("does not tokenize when originalText is missing", async () => {
+      await service.saveLesson({ id: "b" } as any);
+      expect(mockAnalyzeJapanese).not.toHaveBeenCalled();
+    });
+
+    it("does not overwrite tokens the agent already authored", async () => {
+      const authored = [
+        {
+          surface: "経済対策",
+          reading: "けいざいたいさく",
+          romaji: "keizaitaisaku",
+          partOfSpeech: "noun",
+          meaning: "economic policy",
+        },
+      ];
+      const lesson = {
+        id: "c",
+        originalText: "経済対策を表明した。",
+        tokens: authored,
+      } as any;
+
+      await service.saveLesson(lesson);
+
+      expect(mockAnalyzeJapanese).not.toHaveBeenCalled();
+      expect(lesson.tokens).toBe(authored);
+    });
+
+    it("re-tokenizes when the stored tokens array is empty", async () => {
+      mockAnalyzeJapanese.mockResolvedValue([]);
+      const lesson = {
+        id: "d",
+        originalText: "日本語。",
+        tokens: [],
+      } as any;
+
+      await service.saveLesson(lesson);
+
+      expect(mockAnalyzeJapanese).toHaveBeenCalledWith("日本語。");
+    });
   });
 });
