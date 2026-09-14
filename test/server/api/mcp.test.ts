@@ -162,14 +162,67 @@ describe("server/api/mcp.ts", () => {
     });
   });
 
-  it("registers exactly five tools and no merge tool", () => {
+  it("registers exactly six tools and no merge tool", () => {
     expect(Object.keys(registeredTools).sort()).toEqual([
       "check_processed_urls",
       "cleanup_old_data",
+      "get_lesson",
       "get_recent_lessons",
       "mark_ingest_complete",
       "upsert_lesson",
     ]);
+  });
+
+  describe("get_lesson tool", () => {
+    it("returns the full lesson by id", async () => {
+      const lesson = makeLesson({ id: "lesson-1", tokens: [] });
+      mockGetLesson.mockResolvedValue(lesson);
+
+      const result = await registeredTools.get_lesson!.handler({
+        id: "lesson-1",
+      });
+      const parsed = parseResult(result);
+
+      expect(mockGetLesson).toHaveBeenCalledWith("lesson-1");
+      expect(parsed.found).toBe(true);
+      expect(parsed.lesson).toEqual(lesson);
+    });
+
+    it("falls back to url lookup when no id is given", async () => {
+      const lesson = makeLesson({ id: "lesson-2" });
+      mockGetLessonIdByUrl.mockResolvedValue("lesson-2");
+      mockGetLesson.mockResolvedValue(lesson);
+
+      const result = await registeredTools.get_lesson!.handler({
+        url: "https://old.example.com/a",
+      });
+      const parsed = parseResult(result);
+
+      expect(mockGetLessonIdByUrl).toHaveBeenCalledWith(
+        "https://old.example.com/a",
+      );
+      expect(parsed.found).toBe(true);
+      expect(parsed.lesson.id).toBe("lesson-2");
+    });
+
+    it("returns found: false when neither id nor url is provided", async () => {
+      const result = await registeredTools.get_lesson!.handler({});
+      const parsed = parseResult(result);
+
+      expect(parsed.found).toBe(false);
+      expect(mockGetLesson).not.toHaveBeenCalled();
+    });
+
+    it("returns found: false when the lesson doesn't exist", async () => {
+      mockGetLesson.mockResolvedValue(null);
+
+      const result = await registeredTools.get_lesson!.handler({
+        id: "missing",
+      });
+      const parsed = parseResult(result);
+
+      expect(parsed.found).toBe(false);
+    });
   });
 
   describe("get_recent_lessons tool", () => {
@@ -361,6 +414,29 @@ describe("server/api/mcp.ts", () => {
       expect(parsed.data.grammarNotes[0].patternFurigana).toBe("〜。");
       expect(parsed.data.grammarNotes[0].patternRomaji).toBe("");
       expect(parsed.data.grammarNotes[0].partOfSpeech).toBe("punctuation");
+    });
+
+    it("includes the saved lesson's tokens in the response, e.g. the auto-tokenized draft LessonsService.saveLesson attaches", async () => {
+      mockGetLesson.mockResolvedValue(null);
+      mockGetLessonIdByUrl.mockResolvedValue(null);
+      const draftTokens = [
+        {
+          surface: "首相",
+          reading: "しゅしょう",
+          romaji: "shushō",
+          partOfSpeech: "noun",
+        },
+      ];
+      mockSaveLesson.mockImplementation(async (lesson: any) => {
+        lesson.tokens = draftTokens;
+      });
+
+      const result = await registeredTools.upsert_lesson!.handler(
+        validLessonInput({ url: "https://news.example.com/draft" }),
+      );
+      const parsed = parseResult(result);
+
+      expect(parsed.tokens).toEqual(draftTokens);
     });
 
     it("rejects an invalid difficultyLevel", () => {
