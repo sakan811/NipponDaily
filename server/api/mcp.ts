@@ -162,7 +162,7 @@ const upsertLessonInputSchema = z.object({
       "Your assessment (0-1) of this publisher's reliability. Only required the FIRST time a given domain is cited — cached per-domain and reused automatically afterwards. Omitting it for an unscored domain returns an error asking you to supply one.",
     ),
   difficultyLevel: jlptLevelSchema.describe(
-    "One overall JLPT (N5-N1) difficulty estimate for this lesson.",
+    "One overall JLPT (N5-N1) difficulty estimate for this lesson. Required on every call, including the initial one that only sets originalText — a rough estimate is fine there; send your finalized level on the follow-up call that completes the lesson.",
   ),
   originalText: z
     .string()
@@ -248,6 +248,58 @@ const mcpHandler = createMcpHandler(
     );
 
     server.registerTool(
+      "get_lesson",
+      {
+        title: "Get lesson",
+        description:
+          "Fetch one lesson's full stored record — including originalText and tokens — by id or url. Unlike get_recent_lessons (trimmed for token efficiency), this returns everything, including the draft `tokens` NipponDaily auto-tokenizes as soon as originalText is stored with no tokens of its own. Call this right after your first upsert_lesson for an article (the one that only sets originalText) to fetch that draft, then review/correct it against the article, look up meanings from context, and submit your final tokens/vocabList/grammarNotes/difficultyLevel in a second upsert_lesson call.",
+        inputSchema: z.object({
+          id: z
+            .string()
+            .optional()
+            .describe("Lesson id from get_recent_lessons."),
+          url: z
+            .string()
+            .url()
+            .optional()
+            .describe("The article's canonical URL."),
+        }),
+      },
+      async ({ id, url }) => {
+        if (!id && !url) {
+          return {
+            content: [
+              {
+                type: "text",
+                text: JSON.stringify({
+                  found: false,
+                  error: "Provide id or url.",
+                }),
+              },
+            ],
+          };
+        }
+
+        let lesson = id ? await lessonsService.getLesson(id) : null;
+        if (!lesson && url) {
+          const foundId = await lessonsService.getLessonIdByUrl(url);
+          lesson = foundId ? await lessonsService.getLesson(foundId) : null;
+        }
+
+        if (!lesson) {
+          return {
+            content: [{ type: "text", text: JSON.stringify({ found: false }) }],
+          };
+        }
+        return {
+          content: [
+            { type: "text", text: JSON.stringify({ found: true, lesson }) },
+          ],
+        };
+      },
+    );
+
+    server.registerTool(
       "check_processed_urls",
       {
         title: "Check processed URLs",
@@ -271,7 +323,7 @@ const mcpHandler = createMcpHandler(
       {
         title: "Upsert lesson",
         description:
-          "Create or update one NipponDaily lesson in Redis — a single Japanese news article plus the lesson authored from its own Japanese text (originalText, englishText, furiganaText, romajiText, vocabList, grammarNotes, tokens, difficultyLevel). Visible in the app immediately. There is no clustering, no cross-article synthesis and no topic taxonomy. To update, pass the lesson's `id` (from get_recent_lessons) or just re-use its `url`; any mergeable field you omit keeps its stored value. Marks the source URL as processed. `favicon` is always derived server-side from the domain; `credibilityScore` is cached per-domain and may be omitted once a domain has been scored.",
+          "Create or update one NipponDaily lesson in Redis — a single Japanese news article plus the lesson authored from its own Japanese text (originalText, englishText, furiganaText, romajiText, vocabList, grammarNotes, tokens, difficultyLevel). Visible in the app immediately. There is no clustering, no cross-article synthesis and no topic taxonomy. To update, pass the lesson's `id` (from get_recent_lessons) or just re-use its `url`; any mergeable field you omit keeps its stored value. Marks the source URL as processed. `favicon` is always derived server-side from the domain; `credibilityScore` is cached per-domain and may be omitted once a domain has been scored. Two-call workflow for a new article: call once with just the identifying fields plus `originalText` (server auto-tokenizes it into a draft `tokens`, returned in this call's response); review that draft against the article, look up meanings, author vocabList/grammarNotes/englishText/furiganaText/romajiText, and finalize difficultyLevel; then call again with the same id/url and your finished fields — your `tokens` replaces the draft outright.",
         inputSchema: upsertLessonInputSchema,
       },
       async (input) => {
@@ -279,7 +331,9 @@ const mcpHandler = createMcpHandler(
         let existing = byId;
         if (!existing) {
           const existingId = await lessonsService.getLessonIdByUrl(input.url);
-          existing = existingId ? await lessonsService.getLesson(existingId) : null;
+          existing = existingId
+            ? await lessonsService.getLesson(existingId)
+            : null;
         }
 
         const now = Date.now();
@@ -348,6 +402,10 @@ const mcpHandler = createMcpHandler(
                 saved: true,
                 id: lesson.id,
                 isNew: !existing,
+                // Auto-tokenized draft (see LessonsService.saveLesson) the first
+                // time originalText is stored with no tokens of your own; your
+                // own tokens on a later call are echoed back unchanged.
+                tokens: lesson.tokens,
               }),
             },
           ],
