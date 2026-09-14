@@ -57,11 +57,23 @@ anchor a lesson — skip it.
 Call `check_processed_urls` with your full candidate URL list in **one batched call** →
 drop any URL already processed.
 
-## 4. Author the lesson for each article, then write it
+## 4. Store the passage, then author the lesson from its auto-tokenized draft
 
-Open each Japanese article you're keeping and pull one representative passage (a few
-sentences to a short paragraph — enough to teach from, not the whole article). From that
-passage produce:
+For each article you're keeping, this is a **two-call** step:
+
+**4a. Store the passage first.** Open the article and pull one representative passage (a
+few sentences to a short paragraph — enough to teach from, not the whole article). Call
+`upsert_lesson` with just `title`, `url`, `publishedAt`, a rough `difficultyLevel`
+estimate, and `originalText` set to that passage — leave `tokens` out entirely. The
+server tokenizes `originalText` synchronously and returns the draft in that same call's
+response as `tokens`: a plain morphological segmentation (`surface`, `reading`, `romaji`,
+`partOfSpeech`, no `meaning`) with no article context, so it will occasionally over-merge
+or under-merge a word (its known failure mode: gluing an address/count run like 陽東６丁目
+into one token instead of three).
+
+**4b. Author the lesson against that draft, then finish it.** Using the draft `tokens`
+from 4a's response (or from `get_lesson` if you need to re-fetch it) plus the article
+itself, produce the rest of the lesson:
 
 - **`title`** — the article's headline translated to English, meaning faithful.
 - **`titleJa`** — the original Japanese headline (optional but preferred).
@@ -93,33 +105,33 @@ passage produce:
   pattern acts as, e.g. "conjunction", "auxiliary verb", "sentence-ending particle"),
   `explanation` (plain language), `exampleSentence`, `romaji` (Hepburn of that sentence),
   and `exampleFurigana` (that sentence with inline `<ruby>` tags).
-- **`tokens`** — additional passage words worth a learner tapping, beyond the terms
-  you already put in `vocabList` (which win on overlap — don't duplicate a vocabList
-  term here). **Be selective, not exhaustive**: this is not a full segmentation of the
-  passage. Skip common particles (は/が/を/に/で/と/の, etc.), copula (だ/です/である),
-  and other function words that teach nothing new. Only include content words (nouns,
-  verbs, adjectives, adverbs, set expressions) a learner would plausibly want to look
-  up — fewer, well-chosen tokens beat exhaustive coverage, and every word you skip is
-  one less thing to author, review, and pay tokens for. For each token you do include:
-  `surface` (as it appears in the passage), `reading` (hiragana), `romaji` (Hepburn),
-  `partOfSpeech`, and `meaning` (optional, a short English gloss when you have one).
-  When segmenting a word, do it the way a dictionary would:
-  - Merge what a learner would recognize as one word: a name plus a following title
-    suffix (東京+都 → 東京都), a サ変接続 noun plus する/できる (表明+し+た →
-    表明した), a verb plus its trailing auxiliary-verb chain (話し合っ+た →
-    話し合った).
-  - Don't merge across genuinely separate words just because they're adjacent nouns —
-    this is the main failure mode to avoid. An address or count run like
-    陽東６丁目 is **three** words (陽東 / ６ / 丁目), not one; a run of unrelated
-    nouns stays split rather than collapsing into a single unclickable blob.
-  - は/へ/を get their pronunciation as `romaji` ("wa"/"e"/"o") when used as
-    grammatical particles, not their literal kana reading.
-  - When in doubt, leave the word out — `vocabList` is where the terms that matter
-    most for the lesson live regardless.
+- **`tokens`** — start from 4a's auto-tokenized draft, then edit it into the same
+  selective set you'd author by hand: additional passage words worth a learner tapping,
+  beyond the terms you already put in `vocabList` (which win on overlap — don't duplicate
+  a vocabList term here). **Be selective, not exhaustive**: this is not a full
+  segmentation of the passage. Drop any draft entry that's a common particle
+  (は/が/を/に/で/と/の, etc.), copula (だ/です/である), or other function word that
+  teaches nothing new — keep only content words (nouns, verbs, adjectives, adverbs, set
+  expressions) a learner would plausibly want to look up. Fix any bad merge you spot
+  using the actual article context — the draft has no context, so this is the main
+  correction you're checking for: an address or count run like 陽東６丁目 must be
+  **three** entries (陽東 / ６ / 丁目), not one glued token; conversely, merge back
+  together anything the draft split that a learner would recognize as one word (a name
+  plus a following title suffix 東京+都 → 東京都, a サ変接続 noun plus する/できる
+  表明+し+た → 表明した, a verb plus its trailing auxiliary-verb chain 話し合っ+た →
+  話し合った). For each token you keep: `surface` (as it appears in the passage; fix if
+  the draft mis-segmented it), `reading` (hiragana; the draft's is usually right, but
+  recheck it), `romaji` (Hepburn — the draft already romanizes は/へ/を as "wa"/"e"/"o"
+  when used as grammatical particles), `partOfSpeech`, and `meaning` — the draft never
+  sets this, so look it up from the article's actual context and add it yourself. When in
+  doubt, leave the word out — `vocabList` is where the terms that matter most for the
+  lesson live regardless.
 
-Then call `upsert_lesson` once per article. To revise a lesson you published before,
-pass its `id` (from `get_recent_lessons`) or just re-use its `url`; any mergeable field
-you omit keeps its stored value.
+Then call `upsert_lesson` again with the same `id`/`url` and everything above, including
+your finalized `tokens` and `difficultyLevel` — this replaces 4a's draft outright and
+finishes the lesson. (To revise a lesson you published in an earlier run, do the same:
+pass its `id` from `get_recent_lessons` or just re-use its `url`; any mergeable field you
+omit keeps its stored value.)
 
 ## 5. Mark ingest complete
 
@@ -130,15 +142,16 @@ forward.
 
 ## MCP tool set
 
-`ALL /api/mcp` (bearer-token protected) registers five tools:
+`ALL /api/mcp` (bearer-token protected) registers six tools:
 
-| Tool                   | Purpose                                                                                                                                                              |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `get_recent_lessons`   | List existing lessons, newest article first (`id`, `title`, `url`, `source`, `publishedAt`, `difficultyLevel`).                                                      |
-| `check_processed_urls` | Given candidate URLs, return which are already ingested.                                                                                                             |
-| `upsert_lesson`        | Create/update one lesson, including `tokens`. `favicon` derived server-side; `credibilityScore` cached per-domain; omitted mergeable fields keep their stored value. |
-| `cleanup_old_data`     | Delete lessons whose article is older than 30 days; `{ dryRun: true }` previews.                                                                                     |
-| `mark_ingest_complete` | Record the last-ingest timestamp shown in the UI.                                                                                                                    |
+| Tool                   | Purpose                                                                                                                                                                                                                                                        |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `get_recent_lessons`   | List existing lessons, newest article first (`id`, `title`, `url`, `source`, `publishedAt`, `difficultyLevel`).                                                                                                                                                |
+| `get_lesson`           | Fetch one lesson's full record — including `originalText` and `tokens` — by `id` or `url`. Use it to re-fetch a lesson's auto-tokenized draft (step 4).                                                                                                        |
+| `check_processed_urls` | Given candidate URLs, return which are already ingested.                                                                                                                                                                                                       |
+| `upsert_lesson`        | Create/update one lesson, including `tokens`. `favicon` derived server-side; `credibilityScore` cached per-domain; omitted mergeable fields keep their stored value. Storing `originalText` with no `tokens` auto-tokenizes a draft, returned in the response. |
+| `cleanup_old_data`     | Delete lessons whose article is older than 30 days; `{ dryRun: true }` previews.                                                                                                                                                                               |
+| `mark_ingest_complete` | Record the last-ingest timestamp shown in the UI.                                                                                                                                                                                                              |
 
 ## Token discipline
 
@@ -149,7 +162,10 @@ forward.
   each Japanese article you'll teach from, to pull an accurate passage.
 - **Batch `check_processed_urls`** into one call with every candidate URL.
 - **Don't re-fetch a URL `check_processed_urls` already marked processed.**
-- **Author the lesson from the passage you already pulled** — no separate fetch pass.
-- **`tokens` is selective, not a full segmentation.** Only add content words worth a
-  learner tapping; skip particles, copula, and other function words. Every word you
-  skip is authoring you don't have to do and tokens you don't have to spend.
+- **Author the lesson from the passage you already pulled and 4a's response** — the
+  auto-tokenized draft comes back in the same `upsert_lesson` call that stores
+  `originalText`, so don't call `get_lesson` unless you're resuming a lesson from an
+  earlier run.
+- **`tokens` is selective, not a full segmentation.** Only keep content words worth a
+  learner tapping; drop particles, copula, and other function words from the draft. Every
+  word you drop is authoring you don't have to do and tokens you don't have to spend.

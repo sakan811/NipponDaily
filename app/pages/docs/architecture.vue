@@ -547,7 +547,7 @@
       </div>
 
       <p class="font-semibold text-xl mt-10 mb-4">
-        <code>ALL /api/mcp</code> registers five tools:
+        <code>ALL /api/mcp</code> registers six tools:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -560,6 +560,18 @@
             url, source, publishedAt, difficultyLevel). Called before searching
             each run so the agent doesn't re-teach an article it already
             covered.
+          </p>
+        </UCard>
+
+        <UCard>
+          <template #header>
+            <h4 class="font-mono text-sm font-bold m-0">get_lesson</h4>
+          </template>
+          <p class="text-sm">
+            Fetches one lesson's full stored record, including originalText and
+            tokens, by id or url — unlike get_recent_lessons, which is trimmed
+            for token efficiency. Mainly used to re-fetch a lesson's
+            auto-tokenized draft when resuming work from an earlier run.
           </p>
         </UCard>
 
@@ -588,6 +600,11 @@
             <code>favicon</code> and
             <code>source</code>
             are derived server-side; the submitted URL is marked processed.
+            Storing <code>originalText</code> with no <code>tokens</code> of its
+            own auto-tokenizes a draft segmentation server-side, returned in
+            that same call's response — the agent reviews it against the article
+            and submits its own final tokens on a follow-up call, which replaces
+            the draft.
           </p>
         </UCard>
 
@@ -1031,14 +1048,22 @@ across a spread of JLPT levels"]
 Skip candidate URLs already ingested"]
     S4 -. "READ processed URLs" .-> Redis
 
-    S4 --> S5["Step 4 · Author lesson + upsert_lesson
+    S4 --> S5a["Step 4a · upsert_lesson (store passage)
 For each article: pull a passage,
-add furigana + romaji + translation + vocab + grammar,
-estimate difficulty, then write one lesson"]
-    S5 -- "WRITE lesson +
+store title/url/originalText + rough difficulty"]
+    S5a -- "WRITE lesson +
 mark URL processed" --> Redis
+    Redis -. "auto-tokenize originalText,
+return draft tokens" .-> S5a
 
-    S5 --> S7["Step 5 · mark_ingest_complete
+    S5a --> S5b["Step 4b · Author lesson + upsert_lesson
+Review draft tokens against the article,
+add furigana + romaji + translation + vocab + grammar,
+finalize difficulty, write final lesson"]
+    S5b -- "WRITE lesson
+(tokens replace draft)" --> Redis
+
+    S5b --> S7["Step 5 · mark_ingest_complete
 Record last-ingest timestamp"]
     S7 -- "WRITE" --> Redis
 
