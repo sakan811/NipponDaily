@@ -1,5 +1,4 @@
 import { describe, it, expect, vi, beforeEach, beforeAll } from "vitest";
-import type { Lesson } from "~~/types/index";
 
 type ToolHandler = (
   args: any,
@@ -21,85 +20,31 @@ vi.mock("mcp-handler", () => ({
   }),
 }));
 
-const mockGetLessons = vi.fn();
-const mockAreUrlsProcessed = vi.fn();
-const mockGetLesson = vi.fn();
-const mockGetLessonIdByUrl = vi.fn();
-const mockSaveLesson = vi.fn();
-const mockMarkArticleProcessed = vi.fn();
-const mockDeleteLesson = vi.fn();
-const mockGetDomainCredibility = vi.fn();
-const mockSetDomainCredibility = vi.fn();
-const mockSetLastIngestTime = vi.fn();
+const mockSampleKind = vi.fn();
+const mockGetRecentDailyGameDates = vi.fn();
+const mockGetDailyGame = vi.fn();
+const mockSaveDailyGame = vi.fn();
 
-vi.mock("~/server/services/lessons", () => ({
-  lessonsService: {
-    getLessons: mockGetLessons,
-    areUrlsProcessed: mockAreUrlsProcessed,
-    getLesson: mockGetLesson,
-    getLessonIdByUrl: mockGetLessonIdByUrl,
-    saveLesson: mockSaveLesson,
-    markArticleProcessed: mockMarkArticleProcessed,
-    deleteLesson: mockDeleteLesson,
-    getDomainCredibility: mockGetDomainCredibility,
-    setDomainCredibility: mockSetDomainCredibility,
-    setLastIngestTime: mockSetLastIngestTime,
+vi.mock("~/server/services/n5-data", () => ({
+  n5DataService: {
+    sampleKind: mockSampleKind,
+    getRecentDailyGameDates: mockGetRecentDailyGameDates,
+    getDailyGame: mockGetDailyGame,
+    saveDailyGame: mockSaveDailyGame,
   },
 }));
 
 const AUTH_TOKEN = "test-mcp-secret-token";
 
-const makeLesson = (overrides: Partial<Lesson> = {}): Lesson => ({
-  id: "lesson-1",
-  title: "Existing Lesson",
-  titleJa: "既存のレッスン",
-  source: "https://old.example.com",
-  url: "https://old.example.com/a",
-  favicon: "https://old.example.com/favicon.ico",
-  publishedAt: "2026-01-01T00:00:00Z",
-  addedAt: 1000,
-  credibilityScore: 0.7,
-  difficultyLevel: "N3",
-  originalText: "元の日本語テキスト。",
-  englishText: "The original Japanese text.",
-  furiganaText: "<ruby>元<rt>もと</rt></ruby>の",
-  romajiText: "Moto no",
-  vocabList: [],
-  grammarNotes: [],
-  ...overrides,
-});
-
 const parseResult = (result: { content: { type: string; text: string }[] }) =>
   JSON.parse(result.content[0]!.text);
 
-const validLessonInput = (overrides: Record<string, unknown> = {}) => ({
-  title: "Article",
-  url: "https://news.example.com/1",
-  publishedAt: "2026-02-01T00:00:00Z",
-  credibilityScore: 0.9,
-  difficultyLevel: "N3",
-  originalText: "日本語。",
-  englishText: "Japanese.",
-  furiganaText: "<ruby>日本語<rt>にほんご</rt></ruby>。",
-  romajiText: "Nihongo.",
-  vocabList: [
-    {
-      term: "日本語",
-      reading: "にほんご",
-      romaji: "nihongo",
-      meaning: "Japanese language",
-      jlptLevel: "N5",
-      exampleSentence: "日本語。",
-    },
-  ],
-  grammarNotes: [
-    {
-      pattern: "〜。",
-      explanation: "sentence end",
-      exampleSentence: "日本語。",
-      romaji: "Nihongo.",
-    },
-  ],
+const makeQuestion = (overrides: Record<string, unknown> = {}) => ({
+  id: "語0",
+  kind: "vocab",
+  prompt: "語0",
+  correctAnswer: "word0",
+  choices: ["word0", "word1", "word2", "word3"],
   ...overrides,
 });
 
@@ -162,353 +107,104 @@ describe("server/api/mcp.ts", () => {
     });
   });
 
-  it("registers exactly six tools and no merge tool", () => {
+  it("registers exactly three tools", () => {
     expect(Object.keys(registeredTools).sort()).toEqual([
-      "check_processed_urls",
-      "cleanup_old_data",
-      "get_lesson",
-      "get_recent_lessons",
-      "mark_ingest_complete",
-      "upsert_lesson",
+      "get_n5_pool",
+      "get_recent_daily_games",
+      "save_daily_game",
     ]);
   });
 
-  describe("get_lesson tool", () => {
-    it("returns the full lesson by id", async () => {
-      const lesson = makeLesson({ id: "lesson-1", tokens: [] });
-      mockGetLesson.mockResolvedValue(lesson);
+  describe("get_n5_pool tool", () => {
+    it("samples the requested kind, forwarding sampleSize and excludeIds", async () => {
+      mockSampleKind.mockResolvedValue([{ id: "水", character: "水" }]);
 
-      const result = await registeredTools.get_lesson!.handler({
-        id: "lesson-1",
+      const result = await registeredTools.get_n5_pool!.handler({
+        kind: "kanji",
+        sampleSize: 10,
+        excludeIds: ["火"],
       });
       const parsed = parseResult(result);
 
-      expect(mockGetLesson).toHaveBeenCalledWith("lesson-1");
-      expect(parsed.found).toBe(true);
-      expect(parsed.lesson).toEqual(lesson);
-    });
-
-    it("falls back to url lookup when no id is given", async () => {
-      const lesson = makeLesson({ id: "lesson-2" });
-      mockGetLessonIdByUrl.mockResolvedValue("lesson-2");
-      mockGetLesson.mockResolvedValue(lesson);
-
-      const result = await registeredTools.get_lesson!.handler({
-        url: "https://old.example.com/a",
-      });
-      const parsed = parseResult(result);
-
-      expect(mockGetLessonIdByUrl).toHaveBeenCalledWith(
-        "https://old.example.com/a",
-      );
-      expect(parsed.found).toBe(true);
-      expect(parsed.lesson.id).toBe("lesson-2");
-    });
-
-    it("returns found: false when neither id nor url is provided", async () => {
-      const result = await registeredTools.get_lesson!.handler({});
-      const parsed = parseResult(result);
-
-      expect(parsed.found).toBe(false);
-      expect(mockGetLesson).not.toHaveBeenCalled();
-    });
-
-    it("returns found: false when the lesson doesn't exist", async () => {
-      mockGetLesson.mockResolvedValue(null);
-
-      const result = await registeredTools.get_lesson!.handler({
-        id: "missing",
-      });
-      const parsed = parseResult(result);
-
-      expect(parsed.found).toBe(false);
+      expect(mockSampleKind).toHaveBeenCalledWith("kanji", 10, ["火"]);
+      expect(parsed).toEqual([{ id: "水", character: "水" }]);
     });
   });
 
-  describe("get_recent_lessons tool", () => {
-    it("filters by cutoff days, sorts by publishedAt desc, and respects limit", async () => {
-      const now = Date.now();
-      mockGetLessons.mockResolvedValue([
-        makeLesson({
-          id: "old",
-          publishedAt: new Date(now - 200 * 24 * 60 * 60 * 1000).toISOString(),
-        }),
-        makeLesson({
-          id: "recentA",
-          publishedAt: new Date(now - 2000).toISOString(),
-        }),
-        makeLesson({
-          id: "recentB",
-          publishedAt: new Date(now - 500).toISOString(),
-        }),
-      ]);
+  describe("get_recent_daily_games tool", () => {
+    it("returns item ids for each recent date", async () => {
+      mockGetRecentDailyGameDates.mockResolvedValue(["2026-09-17"]);
+      mockGetDailyGame.mockResolvedValue({
+        date: "2026-09-17",
+        questions: [makeQuestion({ id: "語0" }), makeQuestion({ id: "語1" })],
+        generatedAt: Date.now(),
+        source: "agent",
+      });
 
-      const result = await registeredTools.get_recent_lessons!.handler({
-        days: 30,
-        limit: 30,
+      const result = await registeredTools.get_recent_daily_games!.handler({
+        days: 7,
       });
       const parsed = parseResult(result);
 
-      expect(parsed.map((l: any) => l.id)).toEqual(["recentB", "recentA"]);
-      expect(parsed[0]).toHaveProperty("difficultyLevel");
+      expect(mockGetRecentDailyGameDates).toHaveBeenCalledWith(7);
+      expect(parsed).toEqual([{ date: "2026-09-17", itemIds: ["語0", "語1"] }]);
     });
-  });
 
-  describe("check_processed_urls tool", () => {
-    it("returns only the URLs that are already processed", async () => {
-      mockAreUrlsProcessed.mockResolvedValue([true, false]);
+    it("skips dates whose game record is missing", async () => {
+      mockGetRecentDailyGameDates.mockResolvedValue(["2026-09-16"]);
+      mockGetDailyGame.mockResolvedValue(null);
 
-      const result = await registeredTools.check_processed_urls!.handler({
-        urls: ["https://a.com/1", "https://a.com/2"],
+      const result = await registeredTools.get_recent_daily_games!.handler({
+        days: 7,
       });
       const parsed = parseResult(result);
 
-      expect(mockAreUrlsProcessed).toHaveBeenCalledWith([
-        "https://a.com/1",
-        "https://a.com/2",
-      ]);
-      expect(parsed.processed).toEqual(["https://a.com/1"]);
+      expect(parsed).toEqual([]);
     });
   });
 
-  describe("upsert_lesson tool", () => {
-    it("creates a new lesson, caching the provided credibility score per domain", async () => {
-      mockGetLesson.mockResolvedValue(null);
-      mockGetLessonIdByUrl.mockResolvedValue(null);
+  describe("save_daily_game tool", () => {
+    it("saves the given questions under today's date when date is omitted", async () => {
+      const questions = [makeQuestion()];
 
-      const result =
-        await registeredTools.upsert_lesson!.handler(validLessonInput());
+      const result = await registeredTools.save_daily_game!.handler({
+        questions,
+      });
       const parsed = parseResult(result);
 
       expect(parsed.saved).toBe(true);
-      expect(parsed.isNew).toBe(true);
-      expect(mockSetDomainCredibility).toHaveBeenCalledWith(
-        "https://news.example.com",
-        0.9,
-      );
-      const saved = mockSaveLesson.mock.calls[0][0];
-      expect(saved.source).toBe("https://news.example.com");
-      expect(saved.favicon).toBe("https://news.example.com/favicon.ico");
-      expect(mockMarkArticleProcessed).toHaveBeenCalledWith(
-        "https://news.example.com/1",
-      );
+      const saved = mockSaveDailyGame.mock.calls[0][0];
+      expect(saved.questions).toEqual(questions);
+      expect(saved.source).toBe("agent");
+      expect(saved.date).toBe(parsed.date);
+      expect(saved.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     });
 
-    it("reuses a cached domain credibility score when credibilityScore is omitted", async () => {
-      mockGetLesson.mockResolvedValue(null);
-      mockGetLessonIdByUrl.mockResolvedValue(null);
-      mockGetDomainCredibility.mockResolvedValue(0.55);
-
-      const result = await registeredTools.upsert_lesson!.handler(
-        validLessonInput({
-          url: "https://cached.example.com/1",
-          credibilityScore: undefined,
-        }),
-      );
+    it("saves under an explicit date when given", async () => {
+      const result = await registeredTools.save_daily_game!.handler({
+        date: "2026-01-01",
+        questions: [makeQuestion()],
+      });
       const parsed = parseResult(result);
 
-      expect(parsed.saved).toBe(true);
-      const saved = mockSaveLesson.mock.calls[0][0];
-      expect(saved.credibilityScore).toBe(0.55);
-      expect(mockSetDomainCredibility).not.toHaveBeenCalled();
+      expect(parsed.date).toBe("2026-01-01");
+      expect(mockSaveDailyGame.mock.calls[0][0].date).toBe("2026-01-01");
     });
 
-    it("errors without saving when no cached score exists and none was provided", async () => {
-      mockGetLesson.mockResolvedValue(null);
-      mockGetLessonIdByUrl.mockResolvedValue(null);
-      mockGetDomainCredibility.mockResolvedValue(null);
-
-      const result = await registeredTools.upsert_lesson!.handler(
-        validLessonInput({
-          url: "https://unscored.example.com/1",
-          credibilityScore: undefined,
-        }),
-      );
-      const parsed = parseResult(result);
-
-      expect(parsed.saved).toBe(false);
-      expect(parsed.error).toMatch(/No cached credibility score/);
-      expect(mockSaveLesson).not.toHaveBeenCalled();
-    });
-
-    it("updates the existing lesson when the url already exists, keeping omitted mergeable fields", async () => {
-      const existing = makeLesson({
-        id: "lesson-1",
-        url: "https://old.example.com/a",
-        originalText: "元の日本語テキスト。",
-        difficultyLevel: "N4",
-        vocabList: [
-          {
-            term: "元",
-            reading: "もと",
-            romaji: "moto",
-            meaning: "origin",
-            jlptLevel: "N4",
-            exampleSentence: "元の。",
-          },
-        ],
+    it("rejects a question without exactly 4 choices via the schema", () => {
+      const schema = registeredTools.save_daily_game!.config.inputSchema;
+      const parsed = schema.safeParse({
+        questions: [makeQuestion({ choices: ["a", "b"] })],
       });
-      mockGetLesson.mockResolvedValue(existing);
-      mockGetLessonIdByUrl.mockResolvedValue("lesson-1");
-
-      await registeredTools.upsert_lesson!.handler({
-        title: "Old Article (updated title)",
-        url: "https://old.example.com/a",
-        publishedAt: "2026-01-01T00:00:00Z",
-        credibilityScore: 0.7,
-        difficultyLevel: "N2",
-      });
-
-      const saved = mockSaveLesson.mock.calls[0][0];
-      expect(saved.id).toBe("lesson-1");
-      expect(saved.title).toBe("Old Article (updated title)");
-      expect(saved.difficultyLevel).toBe("N2");
-      // Mergeable fields not resent are preserved.
-      expect(saved.originalText).toBe("元の日本語テキスト。");
-      expect(saved.englishText).toBe("The original Japanese text.");
-      expect(saved.vocabList).toHaveLength(1);
-      expect(saved.addedAt).toBe(existing.addedAt);
-    });
-
-    it("keeps optional furigana/rōmaji on vocab items and grammar notes through the schema", () => {
-      const schema = registeredTools.upsert_lesson!.config.inputSchema ?? null;
-      const parsed = schema.safeParse(
-        validLessonInput({
-          vocabList: [
-            {
-              term: "日本語",
-              reading: "にほんご",
-              romaji: "nihongo",
-              meaning: "Japanese language",
-              partOfSpeech: "noun",
-              jlptLevel: "N5",
-              exampleSentence: "日本語。",
-              exampleFurigana: "<ruby>日本語<rt>にほんご</rt></ruby>。",
-              exampleRomaji: "Nihongo.",
-            },
-          ],
-          grammarNotes: [
-            {
-              pattern: "〜。",
-              patternFurigana: "〜。",
-              patternRomaji: "",
-              partOfSpeech: "punctuation",
-              explanation: "sentence end",
-              exampleSentence: "日本語。",
-              romaji: "Nihongo.",
-              exampleFurigana: "<ruby>日本語<rt>にほんご</rt></ruby>。",
-            },
-          ],
-        }),
-      );
-
-      expect(parsed.success).toBe(true);
-      expect(parsed.data.vocabList[0].exampleFurigana).toBe(
-        "<ruby>日本語<rt>にほんご</rt></ruby>。",
-      );
-      expect(parsed.data.vocabList[0].exampleRomaji).toBe("Nihongo.");
-      expect(parsed.data.vocabList[0].partOfSpeech).toBe("noun");
-      expect(parsed.data.grammarNotes[0].exampleFurigana).toBe(
-        "<ruby>日本語<rt>にほんご</rt></ruby>。",
-      );
-      expect(parsed.data.grammarNotes[0].patternFurigana).toBe("〜。");
-      expect(parsed.data.grammarNotes[0].patternRomaji).toBe("");
-      expect(parsed.data.grammarNotes[0].partOfSpeech).toBe("punctuation");
-    });
-
-    it("includes the saved lesson's tokens in the response, e.g. the auto-tokenized draft LessonsService.saveLesson attaches", async () => {
-      mockGetLesson.mockResolvedValue(null);
-      mockGetLessonIdByUrl.mockResolvedValue(null);
-      const draftTokens = [
-        {
-          surface: "首相",
-          reading: "しゅしょう",
-          romaji: "shushō",
-          partOfSpeech: "noun",
-        },
-      ];
-      mockSaveLesson.mockImplementation(async (lesson: any) => {
-        lesson.tokens = draftTokens;
-      });
-
-      const result = await registeredTools.upsert_lesson!.handler(
-        validLessonInput({ url: "https://news.example.com/draft" }),
-      );
-      const parsed = parseResult(result);
-
-      expect(parsed.tokens).toEqual(draftTokens);
-    });
-
-    it("rejects an invalid difficultyLevel", () => {
-      const schema = registeredTools.upsert_lesson!.config.inputSchema ?? null;
-      // config may be the raw zod object; guard for both shapes.
-      const parsed = schema.safeParse(
-        validLessonInput({ difficultyLevel: "N7" }),
-      );
       expect(parsed.success).toBe(false);
     });
-  });
 
-  describe("cleanup_old_data tool", () => {
-    it("deletes stale lessons and reports the count", async () => {
-      const now = Date.now();
-      mockGetLessons.mockResolvedValue([
-        makeLesson({
-          id: "stale",
-          publishedAt: new Date(now - 40 * 24 * 60 * 60 * 1000).toISOString(),
-        }),
-        makeLesson({ id: "fresh", publishedAt: new Date(now).toISOString() }),
-      ]);
-
-      const result = await registeredTools.cleanup_old_data!.handler({
-        dryRun: false,
+    it("rejects fewer than 4 questions via the schema", () => {
+      const schema = registeredTools.save_daily_game!.config.inputSchema;
+      const parsed = schema.safeParse({
+        questions: [makeQuestion()],
       });
-      const parsed = parseResult(result);
-
-      expect(parsed.lessonsDeleted).toBe(1);
-      expect(mockDeleteLesson).toHaveBeenCalledWith(
-        "stale",
-        "https://old.example.com/a",
-      );
-    });
-
-    it("does not delete anything when dryRun is true", async () => {
-      const now = Date.now();
-      mockGetLessons.mockResolvedValue([
-        makeLesson({
-          id: "stale",
-          publishedAt: new Date(now - 40 * 24 * 60 * 60 * 1000).toISOString(),
-        }),
-      ]);
-
-      const result = await registeredTools.cleanup_old_data!.handler({
-        dryRun: true,
-      });
-      const parsed = parseResult(result);
-
-      expect(parsed.lessonsDeleted).toBe(1);
-      expect(parsed.dryRun).toBe(true);
-      expect(mockDeleteLesson).not.toHaveBeenCalled();
-    });
-  });
-
-  describe("mark_ingest_complete tool", () => {
-    it("records the current time when no explicit timestamp is given", async () => {
-      const result = await registeredTools.mark_ingest_complete!.handler({});
-      const parsed = parseResult(result);
-
-      expect(parsed.success).toBe(true);
-      expect(mockSetLastIngestTime).toHaveBeenCalledWith(parsed.timestamp);
-    });
-
-    it("records an explicit timestamp when provided", async () => {
-      const result = await registeredTools.mark_ingest_complete!.handler({
-        timestamp: 123456,
-      });
-      const parsed = parseResult(result);
-
-      expect(parsed.timestamp).toBe(123456);
-      expect(mockSetLastIngestTime).toHaveBeenCalledWith(123456);
+      expect(parsed.success).toBe(false);
     });
   });
 });
