@@ -40,11 +40,14 @@ ship it — there is always another day.
      readings; the 3 distractors should be romaji of _other same-script_
      characters, so a katakana question never mixes in a hiragana-style
      distractor.
-   - **kanji** — prompt is the character; choices are English meanings;
-     distractors are the first meaning of 3 other random N5 kanji.
+   - **kanji** — prompt is the character, `promptSub` is its furigana: the
+     one reading that stands on its own without okurigana (kun'yomi's part
+     before any "." if it has one, else the on'yomi in hiragana); choices are
+     English meanings; distractors are the first meaning of 3 other random N5
+     kanji.
    - **vocab** — prompt is the term (kanji/kana surface), `promptSub` is its
-     kana reading; choices are English meanings; distractors are 3 other
-     random N5 vocab meanings.
+     full kana reading (furigana for the whole term); choices are English
+     meanings; distractors are 3 other random N5 vocab meanings.
      Keep distractors plausible but unambiguous — there should be exactly one
      defensible correct answer per question.
 

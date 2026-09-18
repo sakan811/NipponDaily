@@ -1,3 +1,4 @@
+import { toHiragana } from "wanakana";
 import type {
   DailyGame,
   GameQuestion,
@@ -88,13 +89,27 @@ function correctAnswerFor(
   }
 }
 
+/** KANJIDIC2 kun'yomi separates the kanji-reading part from okurigana with
+ *  a "." (e.g. "た.べる" for 食); on'yomi is katakana and may carry a "-"
+ *  for rendaku variants. Neither belongs in a standalone character's
+ *  furigana, so this returns just the reading for the character itself. */
+function kanjiFurigana(item: N5Kanji): string | undefined {
+  const kun = item.kunyomi[0];
+  if (kun) return kun.split(".")[0];
+  const on = item.onyomi[0];
+  if (on) return toHiragana(on.replace(/-/g, ""));
+  return undefined;
+}
+
 function promptFor(
   kind: N5PoolKind,
   item: N5Kanji | N5Vocab | KanaCharacter,
 ): { prompt: string; promptSub?: string } {
   switch (kind) {
-    case "kanji":
-      return { prompt: (item as N5Kanji).character };
+    case "kanji": {
+      const k = item as N5Kanji;
+      return { prompt: k.character, promptSub: kanjiFurigana(k) };
+    }
     case "vocab": {
       const v = item as N5Vocab;
       return { prompt: v.term, promptSub: v.kana };
