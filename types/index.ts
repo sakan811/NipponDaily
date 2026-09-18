@@ -5,93 +5,79 @@ export interface ApiResponse<T = unknown> {
   timestamp: string;
 }
 
-// --- JAPANESE-LEARNING LESSONS ---
+// --- N5 LEARNING POOL ---
 
-/** JLPT proficiency bands, easiest (N5) to hardest (N1). */
-export type JlptLevel = "N5" | "N4" | "N3" | "N2" | "N1";
+/** Only one level is in scope today; kept as a named alias (not inlined
+ *  "N5" everywhere) purely for self-documentation and cheap forward-compat
+ *  if a later level is ever added. */
+export type JlptLevel = "N5";
 
-export interface VocabItem {
+export type N5Script = "hiragana" | "katakana";
+
+/** One hiragana or katakana character (base gojūon or a dakuten/digraph
+ *  variant). Hardcoded seed data — see scripts/seed-n5-data.mjs. */
+export interface KanaCharacter {
+  id: string;
+  char: string;
+  script: N5Script;
+  /** Hepburn rōmaji, derived via wanakana at seed time. */
+  romaji: string;
+}
+
+/** One N5 kanji, enriched from KANJIDIC2. */
+export interface N5Kanji {
+  id: string;
+  character: string;
+  /** English meanings from KANJIDIC2. */
+  meanings: string[];
+  onyomi: string[];
+  kunyomi: string[];
+  strokeCount: number;
+  jlptLevel: JlptLevel;
+}
+
+/** One N5 vocabulary word, cross-referenced against JMdict. */
+export interface N5Vocab {
+  id: string;
+  /** Kanji/kana surface form, e.g. "食べる". */
   term: string;
-  reading: string;
+  /** Kana reading. */
+  kana: string;
+  /** Hepburn rōmaji, derived via wanakana at seed time. */
   romaji: string;
   meaning: string;
-  /** Part of speech, e.g. "noun", "godan verb", "i-adjective", "particle". */
   partOfSpeech?: string;
   jlptLevel: JlptLevel;
-  exampleSentence: string;
-  /** exampleSentence with furigana as inline <ruby> HTML markup. */
-  exampleFurigana?: string;
-  /** Hepburn rōmaji transliteration of exampleSentence. */
-  exampleRomaji?: string;
 }
 
-/** One word from a passage, authored by the external MCP agent (see server/api/mcp.ts). */
-export interface JpToken {
-  /** Surface form as it appears in the passage. */
-  surface: string;
-  /** Hiragana reading. */
-  reading: string;
-  /** Hepburn rōmaji transliteration of reading. */
-  romaji: string;
-  /** e.g. "noun", "godan verb", "particle". */
-  partOfSpeech: string;
-  /** Best-effort English meaning of the word. */
-  meaning?: string;
-}
+// --- DAILY GAME ---
 
-export interface GrammarNote {
-  pattern: string;
-  /** pattern with furigana as inline <ruby> HTML markup. */
-  patternFurigana?: string;
-  /** Hepburn rōmaji transliteration of pattern. */
-  patternRomaji?: string;
-  /** Part of speech the pattern acts as, e.g. "conjunction", "auxiliary verb", "sentence-ending particle". */
-  partOfSpeech?: string;
-  explanation: string;
-  exampleSentence: string;
-  /** Rōmaji transliteration of exampleSentence. */
-  romaji: string;
-  /** exampleSentence with furigana as inline <ruby> HTML markup. */
-  exampleFurigana?: string;
+export type N5PoolKind = "hiragana" | "katakana" | "kanji" | "vocab";
+
+/** One multiple-choice question in a DailyGame round. */
+export interface GameQuestion {
+  /** The source item's id (kanji/vocab/kana id). */
+  id: string;
+  kind: N5PoolKind;
+  /** The Japanese character/word shown to the player. */
+  prompt: string;
+  /** Optional small helper text, e.g. a vocab term's kana reading. */
+  promptSub?: string;
+  correctAnswer: string;
+  /** Length 4, includes correctAnswer, shuffled. */
+  choices: string[];
 }
 
 /**
- * A single Japanese-language news article turned into a self-contained lesson by
- * the external MCP agent. There is no clustering, no cross-article synthesis and
- * no topic taxonomy — one record is one article plus the lesson authored from
- * its own Japanese text.
+ * The whole daily payload — persisted at n5:daily_game:<date> and served by
+ * GET /api/daily-game. Entirely self-contained; the client never needs to
+ * fetch anything else to play, and never persists anything back.
  */
-export interface Lesson {
-  id: string;
-  /** English translation of the article headline. */
-  title: string;
-  /** Original Japanese headline. */
-  titleJa?: string;
-  /** Publisher domain, e.g. "https://www3.nhk.or.jp". */
-  source: string;
-  url: string;
-  /** Derived server-side from the source domain. */
-  favicon?: string;
-  /** ISO 8601 timestamp of the original publish date. */
-  publishedAt: string;
-  /** ms epoch when the lesson was written to Redis; set server-side. */
-  addedAt: number;
-  /** 0–1 publisher reliability; cached per-domain and reused. */
-  credibilityScore: number;
-  /** Overall JLPT difficulty estimate for this lesson. */
-  difficultyLevel: JlptLevel;
-  /** A representative passage from the article's Japanese text. */
-  originalText: string;
-  /** English translation of originalText. */
-  englishText: string;
-  /** The same passage with furigana as inline <ruby> HTML markup. */
-  furiganaText: string;
-  /** Hepburn rōmaji transliteration of originalText. */
-  romajiText: string;
-  /** 8–15 notable terms from the passage. */
-  vocabList: VocabItem[];
-  /** 1–3 grammar patterns worth flagging from the passage. */
-  grammarNotes: GrammarNote[];
-  /** Words from originalText worth highlighting beyond vocabList, authored by the MCP agent. */
-  tokens?: JpToken[];
+export interface DailyGame {
+  /** YYYY-MM-DD */
+  date: string;
+  questions: GameQuestion[];
+  generatedAt: number;
+  /** Which path produced it — see server/api/daily-game.get.ts. */
+  source: "agent" | "fallback";
 }
