@@ -1,5 +1,5 @@
 import { vi } from "vitest";
-import type { Lesson } from "~~/types/index";
+import type { DailyGame } from "~~/types/index";
 
 // Mock useRuntimeConfig with hoisted mock
 const { mockUseRuntimeConfig } = vi.hoisted(() => {
@@ -16,52 +16,82 @@ vi.mock("#app", () => ({
   useRuntimeConfig: mockUseRuntimeConfig,
 }));
 
-// Mock the lessons service — news.get.ts reads exclusively from Redis via this service
-export const mockGetLastIngestTime = vi.fn();
-export const mockGetLessons = vi.fn();
+// Mock the N5 data service — daily-game.get.ts reads exclusively from Redis
+// via this service (falling back to a generated game when none exists yet).
+export const mockGetDailyGame = vi.fn();
+export const mockSaveDailyGame = vi.fn();
+export const mockGetFullPool = vi.fn();
+export const mockGetRecentDailyGameDates = vi.fn();
 
-vi.mock("~/server/services/lessons", async (importOriginal) => {
+vi.mock("~/server/services/n5-data", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("~/server/services/lessons")>();
+    await importOriginal<typeof import("~/server/services/n5-data")>();
   return {
     ...actual,
-    lessonsService: {
-      getLastIngestTime: mockGetLastIngestTime,
-      getLessons: mockGetLessons,
+    n5DataService: {
+      getDailyGame: mockGetDailyGame,
+      saveDailyGame: mockSaveDailyGame,
+      getFullPool: mockGetFullPool,
+      getRecentDailyGameDates: mockGetRecentDailyGameDates,
     },
   };
 });
 
-// Helper to create a mock lesson. Defaults to "now" for publishedAt so
-// difficulty/limit/search tests aren't affected by sort order unless they set
-// explicit dates.
-export const createMockLesson = (overrides: Partial<Lesson> = {}): Lesson => {
-  const now = Date.now();
-  return {
-    id: "lesson-1",
-    title: "Tech News",
-    titleJa: "テックニュース",
-    source: "https://example.com",
-    url: "https://example.com/article",
-    favicon: "https://example.com/favicon.ico",
-    publishedAt: new Date(now).toISOString(),
-    addedAt: now,
-    credibilityScore: 0.9,
-    difficultyLevel: "N3",
-    originalText: "日本語の本文です。",
-    englishText: "This is the Japanese body text.",
-    furiganaText:
-      "<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>本文<rt>ほんぶん</rt></ruby>です。",
-    romajiText: "Nihongo no honbun desu.",
-    vocabList: [],
-    grammarNotes: [],
-    ...overrides,
-  };
-};
+/** A pool with exactly enough items per kind for buildDailyGame to succeed. */
+export const createMockPool = () => ({
+  kanji: Array.from({ length: 6 }, (_, i) => ({
+    id: `漢${i}`,
+    character: `漢${i}`,
+    meanings: [`meaning${i}`],
+    onyomi: [],
+    kunyomi: [],
+    strokeCount: 5,
+    jlptLevel: "N5" as const,
+  })),
+  vocab: Array.from({ length: 6 }, (_, i) => ({
+    id: `vocab-${i}`,
+    term: `語${i}`,
+    kana: `ご${i}`,
+    romaji: `go${i}`,
+    meaning: `word${i}`,
+    jlptLevel: "N5" as const,
+  })),
+  hiragana: Array.from({ length: 6 }, (_, i) => ({
+    id: `ひ${i}`,
+    char: `ひ${i}`,
+    script: "hiragana" as const,
+    romaji: `hi${i}`,
+  })),
+  katakana: Array.from({ length: 6 }, (_, i) => ({
+    id: `ヒ${i}`,
+    char: `ヒ${i}`,
+    script: "katakana" as const,
+    romaji: `hi${i}`,
+  })),
+});
+
+export const createMockDailyGame = (
+  overrides: Partial<DailyGame> = {},
+): DailyGame => ({
+  date: "2026-09-18",
+  questions: [
+    {
+      id: "語0",
+      kind: "vocab",
+      prompt: "語0",
+      promptSub: "ご0",
+      correctAnswer: "word0",
+      choices: ["word0", "word1", "word2", "word3"],
+    },
+  ],
+  generatedAt: Date.now(),
+  source: "agent",
+  ...overrides,
+});
 
 // Helper function to get the handler
 export const getHandler = async () => {
-  const handlerModule = await import("~/server/api/news.get");
+  const handlerModule = await import("~/server/api/daily-game.get");
   return handlerModule.default;
 };
 
@@ -70,6 +100,8 @@ export const setupDefaults = () => {
   vi.clearAllMocks();
   delete process.env.NODE_ENV;
   (global as any).getQuery.mockReturnValue({});
-  mockGetLastIngestTime.mockResolvedValue(Date.now());
-  mockGetLessons.mockResolvedValue([]);
+  mockGetDailyGame.mockResolvedValue(null);
+  mockSaveDailyGame.mockResolvedValue(undefined);
+  mockGetFullPool.mockResolvedValue(createMockPool());
+  mockGetRecentDailyGameDates.mockResolvedValue([]);
 };
