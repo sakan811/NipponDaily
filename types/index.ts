@@ -61,7 +61,8 @@ export interface GameQuestion {
   kind: N5PoolKind;
   /** The Japanese character/word shown to the player. */
   prompt: string;
-  /** Optional small helper text, e.g. a vocab term's kana reading. */
+  /** Furigana reading rendered above the prompt when it contains kanji —
+   *  a kanji character's own reading, or a vocab term's full kana reading. */
   promptSub?: string;
   correctAnswer: string;
   /** Length 4, includes correctAnswer, shuffled. */

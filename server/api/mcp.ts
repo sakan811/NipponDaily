@@ -48,7 +48,9 @@ const gameQuestionSchema = z.object({
   promptSub: z
     .string()
     .optional()
-    .describe("Optional small helper text, e.g. a vocab term's kana reading."),
+    .describe(
+      "Furigana reading shown above the prompt whenever it contains kanji: the character's own reading for a kanji question, or the full kana reading for a vocab question. Omit for hiragana/katakana prompts, which are never kanji.",
+    ),
   correctAnswer: z.string(),
   choices: z
     .array(z.string())

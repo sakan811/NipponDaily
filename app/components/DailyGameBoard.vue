@@ -71,17 +71,22 @@
                   {{ kindLabel(currentQuestion.kind) }}
                 </UBadge>
 
-                <div class="space-y-2">
-                  <p
+                <div class="pt-4">
+                  <ruby
+                    v-if="currentQuestion.promptSub"
                     class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
                   >
                     {{ currentQuestion.prompt }}
-                  </p>
+                    <rt
+                      class="font-sans font-normal text-base sm:text-lg text-stone-500 dark:text-stone-400"
+                      >{{ currentQuestion.promptSub }}</rt
+                    >
+                  </ruby>
                   <p
-                    v-if="currentQuestion.promptSub"
-                    class="text-sm text-stone-500 dark:text-stone-400"
+                    v-else
+                    class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
                   >
-                    {{ currentQuestion.promptSub }}
+                    {{ currentQuestion.prompt }}
                   </p>
                 </div>
 
