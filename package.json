@@ -16,7 +16,7 @@
     "format": "pnpm exec prettier . --write",
     "type-check": "tsc --noEmit",
     "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run",
-    "seed:n5": "doppler run -- node scripts/seed-n5-data.mjs"
+    "seed:n5": "node scripts/seed-n5-data.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
