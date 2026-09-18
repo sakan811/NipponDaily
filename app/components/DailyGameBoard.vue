@@ -1,17 +1,23 @@
 <template>
-  <div class="min-h-screen">
+  <div
+    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20"
+  >
+    <!-- Fine grid decoration to resemble shoji paper screens -->
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-60"
+    />
+
     <AppHeader v-model:open="mobileMenuOpen" />
 
-    <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-3xl">
+    <main
+      class="relative z-10 container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-3xl"
+    >
       <div class="space-y-6">
-        <div
-          class="flex items-center gap-1.5 text-xs text-stone-400 dark:text-stone-500"
-        >
-          <UIcon
-            name="i-heroicons-calendar-days-20-solid"
-            class="w-3.5 h-3.5"
-          />
-          <span>{{ dateText }}</span>
+        <div class="space-y-2">
+          <p class="kicker text-primary-600 dark:text-primary-400">
+            Today's Round
+          </p>
+          <div class="rule-double max-w-[120px]" />
         </div>
 
         <!-- Failed fetch fallback -->
@@ -171,9 +177,9 @@
                   </div>
                 </div>
 
-                <div
-                  class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 border-t border-stone-200 dark:border-stone-800"
-                >
+                <div class="rule-double max-w-[120px] mx-auto" />
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
                   <div
                     v-for="kind in kinds"
                     :key="kind"
@@ -282,17 +288,6 @@ const accuracyPercent = computed(() =>
     ? 0
     : Math.round((totalCorrect.value / totalAnswered.value) * 100),
 );
-
-const dateText = computed(() => {
-  if (!dailyGame.value) return "";
-  const d = new Date(`${dailyGame.value.date}T00:00:00Z`);
-  return d.toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-});
 
 function choiceColor(choice: string): string {
   if (!isAnswered.value) return "secondary";
