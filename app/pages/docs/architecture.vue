@@ -37,17 +37,16 @@
       </div>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily is a Japanese-learning app built on real Japan news — each
-        record is one Japanese-language article turned into a self-contained
-        lesson (a Japanese passage with furigana and rōmaji, an English
-        translation, a vocabulary list, and grammar notes). In simple terms, the
-        website itself only reads pre-computed lessons out of a database — all
-        the "intelligence" (finding Japanese-language articles, scoring
-        credibility, and authoring each lesson) is produced by a Claude web
-        agent that runs weekly, entirely outside this codebase, and writes its
-        finished work in through a small remote MCP server this project exposes.
-        There is no clustering, no cross-article synthesis, and no topic
-        taxonomy.
+        NipponDaily is a Japanese-learning game — a persisted pool of N5
+        hiragana, katakana, kanji, and vocabulary, and one 20-question
+        multiple-choice round generated per day. In simple terms, the website
+        itself only reads a pre-computed daily game out of a database — all the
+        "intelligence" (picking that day's items and authoring plausible
+        distractor choices) is produced by a Claude web agent that runs daily,
+        entirely outside this codebase, and writes its finished work in through
+        a small remote MCP server this project exposes. If the agent hasn't run
+        yet for a given day, the site generates a deterministic fallback itself
+        from the same pool, so there's always a game to play.
       </p>
 
       <!-- Diagram 1: System Overview -->
@@ -90,12 +89,11 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Built with Nuxt 4 and Vue 3,
-            utilizing custom UI components and Tailwind CSS v4. The UI is a
-            newspaper-inspired reader that presents one lesson at a time — a
-            Japanese passage with furigana and rōmaji, an English translation, a
-            vocabulary list, and grammar notes — with a JLPT difficulty filter.
-            Tapping a highlighted vocab term in the passage opens a popover with
-            its reading, rōmaji, meaning, JLPT level and example.
+            utilizing custom UI components and Tailwind CSS v4.
+            <code>DailyGameBoard.vue</code> fetches one day's game, then runs
+            the entire round — question index, score, streak, and the
+            end-of-round summary — as local component state. Nothing about a
+            play-through is ever sent back to the server.
           </p>
         </UCard>
 
@@ -114,10 +112,10 @@
             frontend to our database.
           </p>
           <p class="text-sm">
-            <strong>Technical Details:</strong> The Nitro-powered backend
-            handles request validation, filtering/sorting of lessons, and secure
-            communication with Redis. It never calls any external search or AI
-            provider itself.
+            <strong>Technical Details:</strong> The Nitro-powered backend reads
+            today's game from Redis, or — if the agent hasn't written one yet —
+            builds a deterministic fallback on the spot from the persisted pool.
+            It never calls any external search or AI provider itself.
           </p>
         </UCard>
 
@@ -132,15 +130,16 @@
             </h4>
           </template>
           <p class="text-sm mb-2">
-            <strong>What it does:</strong> Where we store the news so the
-            website loads instantly.
+            <strong>What it does:</strong> Where we store the learning pool and
+            each day's game so the website loads instantly.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Powered by Upstash Redis,
-            storing <code>Lesson</code> records and ingestion metadata — all
-            written by the MCP agent, never generated synchronously on a page
-            request. When the Redis env vars are absent, the services fall back
-            to an in-process in-memory store so the app still runs locally.
+            storing the static N5 kanji/vocab/kana pool (seeded offline, see
+            Section 4) plus one small <code>DailyGame</code> record per date —
+            never generated synchronously on a page request unless the fallback
+            path kicks in. When the Redis env vars are absent, the service falls
+            back to an in-process in-memory store so the app still runs locally.
           </p>
         </UCard>
 
@@ -156,14 +155,14 @@
           </template>
           <p class="text-sm mb-2">
             <strong>What it does:</strong> The bridge that lets an external
-            agent write finished lessons directly into our database.
+            agent write each day's game directly into our database.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> A remote MCP (Model Context
             Protocol) server at <code>ALL /api/mcp</code>, built with
             <code>mcp-handler</code> and protected by a constant-time bearer
-            token check. Exposes tools to list, upsert, and clean up lessons —
-            see Section 4.
+            token check. Exposes tools to sample the pool, check recent days,
+            and save a day's game — see Section 3.
           </p>
         </UCard>
 
@@ -178,13 +177,13 @@
             </h4>
           </template>
           <p class="text-sm mb-2">
-            <strong>What it does:</strong> The "brain" that finds
-            Japanese-language Japan news and authors a self-contained Japanese
-            lesson from each article.
+            <strong>What it does:</strong> The "brain" that picks each day's
+            featured hiragana, katakana, kanji, and vocabulary, and writes
+            plausible multiple-choice questions from them.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Runs entirely outside this
-            repository, once a week, on a schedule set up in Claude's own web
+            repository, once a day, on a schedule set up in Claude's own web
             scheduling feature (not a cron job hosted by this project). It calls
             this project's MCP server to persist its work — no search or AI
             provider credentials live in this codebase at all.
@@ -296,7 +295,7 @@
               </td>
               <td class="py-3 px-4 text-sm">Primary (<code>primary</code>)</td>
               <td class="py-3 px-4 text-sm leading-relaxed">
-                Main actions, primary buttons, lesson card headers, active
+                Main actions, primary buttons, game card headers, active
                 highlights
               </td>
             </tr>
@@ -341,7 +340,7 @@
                 Secondary (<code>secondary</code>)
               </td>
               <td class="py-3 px-4 text-sm leading-relaxed">
-                Muted UI elements, subheadings, captions, secondary filters
+                Muted UI elements, subheadings, captions, kind badges
               </td>
             </tr>
             <tr>
@@ -422,7 +421,7 @@
                 <code>warning</code>)
               </td>
               <td class="py-3 px-4 text-sm leading-relaxed">
-                Trust scores, positive indicators, warnings, alerts
+                Correct answers, streak indicators, warnings, alerts
               </td>
             </tr>
             <tr>
@@ -511,25 +510,25 @@
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- MCP-DRIVEN LESSON PIPELINE                                         -->
+      <!-- MCP-DRIVEN DAILY GAME PIPELINE                                     -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        3. MCP-Driven Lesson Pipeline
+        3. MCP-Driven Daily Game Pipeline
       </h2>
 
       <p class="text-lg mb-6">
-        There is no in-repo ingestion pipeline. Instead of this codebase calling
-        a search API and an AI provider on a schedule, a
-        <strong>Claude web agent</strong> — scheduled weekly via Claude's own
-        web scheduling feature, entirely outside this repository — checks what's
-        already published, then searches that week's Japanese-language Japan
-        news, authors one self-contained lesson per article, and calls the tools
-        below to write finished <code>Lesson</code> records directly into Redis.
-        The agent's full operating prompt lives at
-        <code>docs/news-pipeline-agent-prompt.md</code>.
+        There is no in-repo game-authoring logic. Instead of this codebase
+        calling a search API and an AI provider on a schedule, a
+        <strong>Claude web agent</strong> — scheduled daily via Claude's own web
+        scheduling feature, entirely outside this repository — samples the
+        persisted N5 pool, avoids repeating recent days, authors plausible
+        multiple-choice questions, and calls the tools below to write that day's
+        finished <code>DailyGame</code> record directly into Redis. The agent's
+        full operating prompt lives at
+        <code>docs/daily-game-agent-prompt.md</code>.
       </p>
 
       <!-- Diagram: MCP Pipeline -->
@@ -547,88 +546,44 @@
       </div>
 
       <p class="font-semibold text-xl mt-10 mb-4">
-        <code>ALL /api/mcp</code> registers six tools:
+        <code>ALL /api/mcp</code> registers three tools:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <UCard>
           <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">get_recent_lessons</h4>
+            <h4 class="font-mono text-sm font-bold m-0">get_n5_pool</h4>
           </template>
           <p class="text-sm">
-            Lists existing lessons from Redis, newest article first (id, title,
-            url, source, publishedAt, difficultyLevel). Called before searching
-            each run so the agent doesn't re-teach an article it already
-            covered.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">get_lesson</h4>
-          </template>
-          <p class="text-sm">
-            Fetches one lesson's full stored record, including originalText and
-            tokens, by id or url — unlike get_recent_lessons, which is trimmed
-            for token efficiency. Mainly used to re-fetch a lesson's
-            auto-tokenized draft when resuming work from an earlier run.
+            Returns a bounded random sample (default 20, max 50) of one pool
+            kind — hiragana, katakana, kanji, or vocab — never the whole
+            ~1,000-item pool. Accepts <code>excludeIds</code> so the agent can
+            skip items featured in recent days.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
             <h4 class="font-mono text-sm font-bold m-0">
-              check_processed_urls
+              get_recent_daily_games
             </h4>
           </template>
           <p class="text-sm">
-            Given candidate article URLs, returns which ones are already
-            ingested so the agent doesn't create duplicate lessons.
+            Lists the item ids featured over the last N days (default 7), so the
+            agent can pass them to <code>get_n5_pool</code>'s
+            <code>excludeIds</code> and avoid repeating recent games.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">upsert_lesson</h4>
+            <h4 class="font-mono text-sm font-bold m-0">save_daily_game</h4>
           </template>
           <p class="text-sm">
-            Creates or updates one lesson — a single article plus its
-            originalText, englishText, furiganaText, romajiText, vocabList,
-            grammarNotes, tokens and difficultyLevel — visible on the site
-            immediately. To update, pass the lesson's id or re-use its url; any
-            mergeable field left out keeps its stored value.
-            <code>favicon</code> and
-            <code>source</code>
-            are derived server-side; the submitted URL is marked processed.
-            Storing <code>originalText</code> with no <code>tokens</code> of its
-            own auto-tokenizes a draft segmentation server-side, returned in
-            that same call's response — the agent reviews it against the article
-            and submits its own final tokens on a follow-up call, which replaces
-            the draft.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">cleanup_old_data</h4>
-          </template>
-          <p class="text-sm">
-            Deletes lessons whose article is older than 30 days from Redis
-            (Section 5). The agent is expected to call this before writing new
-            lessons each run; the site operator can also trigger it ad hoc by
-            asking the agent to run it manually.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">
-              mark_ingest_complete
-            </h4>
-          </template>
-          <p class="text-sm">
-            Records the current time as the last-ingest timestamp, which the UI
-            surfaces to readers as "updated X ago."
+            Persists one day's game — 4 to 40 authored questions, each with
+            exactly 4 choices including the correct answer — visible at
+            <code>GET /api/daily-game</code> immediately.
+            <code>date</code> defaults to today (UTC) if omitted.
           </p>
         </UCard>
       </div>
@@ -642,12 +597,13 @@
         />
         <div>
           <p class="m-0 text-blue-900 dark:text-blue-100 font-semibold mb-1">
-            No auto-triggered ingestion
+            Never "no game today"
           </p>
           <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
-            <code>GET /api/news</code> only ever reads from Redis — it never
-            fetches or generates content itself, even if the store is empty or
-            stale. If no lessons show up, the MCP agent hasn't run yet.
+            <code>GET /api/daily-game</code> only ever reads from Redis first —
+            but if no agent-authored game exists yet for today, it builds a
+            deterministic fallback itself from the pool (Section 5) rather than
+            returning nothing.
           </p>
         </div>
       </div>
@@ -663,83 +619,114 @@
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- CLEANUP PIPELINE                                                   -->
+      <!-- DATA & ATTRIBUTION                                                 -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        4. Automated Data Retention (Cleanup Pipeline)
+        4. N5 Data & Attribution
       </h2>
 
       <p class="text-lg mb-6">
-        The MCP tool <code>cleanup_old_data</code> permanently deletes lessons
-        whose article is older than 30 days from Redis so the store doesn't grow
-        unbounded. The Claude web agent — running on a schedule configured in
-        Claude's own web scheduling, not QStash — calls it before writing new
-        lessons each run. There's no separate HTTP endpoint for this; the site
-        operator can also trigger cleanup ad hoc by asking the agent (or any
-        other MCP-speaking client with the bearer token) to call the same tool
-        manually.
+        Hiragana, katakana, N5 kanji, and N5 vocabulary are static reference
+        data — they don't change day to day, so they're seeded once (or
+        re-seeded occasionally, e.g. to pick up a newer JMdict release) by a
+        standalone script rather than by any agent or request:
+        <code>pnpm seed:n5</code> (<code>scripts/seed-n5-data.mjs</code>).
       </p>
 
-      <!-- Diagram: Cleanup Pipeline -->
-      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 rounded-xl">
-        <h3
-          class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
-        >
-          Cleanup Pipeline — Redis Pruning (Zoomable)
-        </h3>
-        <MermaidDiagram id="cleanup-diag" :code="cleanupDiagram" />
-        <p class="text-center text-xs text-gray-500 mt-4 italic">
-          This chart shows how stale records are identified and permanently
-          removed from Redis.
+      <div class="overflow-x-auto mb-6">
+        <table class="min-w-full border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-gray-300 dark:border-gray-700">
+              <th class="py-2 px-2 text-left font-bold">Data</th>
+              <th class="py-2 px-2 text-left font-bold">Source</th>
+              <th class="py-2 px-2 text-left font-bold">Redis keys</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+            <tr>
+              <td class="py-2 px-2">Hiragana / Katakana</td>
+              <td class="py-2 px-2">
+                Hardcoded (fixed, unchanging syllabaries — not dictionary
+                content)
+              </td>
+              <td class="py-2 px-2 font-mono text-xs">
+                n5:hiragana:*, n5:katakana:*
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2">N5 vocabulary</td>
+              <td class="py-2 px-2">
+                <a
+                  href="https://github.com/elzup/jlpt-word-list"
+                  target="_blank"
+                  rel="noopener"
+                  >elzup/jlpt-word-list</a
+                >
+                (N5-tagged words), cross-referenced against
+                <a
+                  href="https://github.com/scriptin/jmdict-simplified"
+                  target="_blank"
+                  rel="noopener"
+                  >JMdict</a
+                >
+                for part of speech
+              </td>
+              <td class="py-2 px-2 font-mono text-xs">n5:vocab:*</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2">N5 kanji</td>
+              <td class="py-2 px-2">
+                Derived from the unique kanji in the N5 vocab list, enriched
+                from KANJIDIC2 (on'yomi, kun'yomi, stroke count, meanings)
+              </td>
+              <td class="py-2 px-2 font-mono text-xs">n5:kanji:*</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2">Daily games</td>
+              <td class="py-2 px-2">
+                Agent-authored via <code>save_daily_game</code>, or generated on
+                the fly by <code>GET /api/daily-game</code>
+              </td>
+              <td class="py-2 px-2 font-mono text-xs">
+                n5:daily_game:*, n5:daily_game_index
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        class="p-4 rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-sm"
+      >
+        <p class="font-semibold mb-2">Attribution</p>
+        <p class="mb-2">
+          JMdict and KANJIDIC2 are property of the
+          <a href="https://www.edrdg.org/" target="_blank" rel="noopener"
+            >Electronic Dictionary Research and Development Group</a
+          >, used in conformance with the Group's licence (CC BY-SA 4.0).
+          Accessed via the
+          <a
+            href="https://github.com/scriptin/jmdict-simplified"
+            target="_blank"
+            rel="noopener"
+            >jmdict-simplified</a
+          >
+          project's pre-parsed JSON releases.
         </p>
-      </div>
-
-      <p class="font-semibold text-xl mt-10 mb-4">The cleanup process:</p>
-
-      <div
-        class="space-y-8 pl-4 border-l-4 border-primary-200 dark:border-primary-800"
-      >
-        <div>
-          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
-            <span class="text-primary-500 mr-2">Step 1</span> Prune Stale
-            Lessons (Redis)
-          </h3>
-          <p class="mb-2">
-            <strong>The Concept:</strong> Any lesson whose article was published
-            over a month ago is considered stale and removed.
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            <strong>Technical Details:</strong> Reads all lessons from Redis and
-            deletes any where <code>publishedAt</code> falls before the 30-day
-            cutoff (falling back to <code>addedAt</code> when the date is
-            unparseable), removing both the
-            <code>lesson:&#123;id&#125;</code> key and its entry in the
-            <code>news:lessons</code> set. With <code>dryRun: true</code> it
-            counts the matches but skips the deletes.
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="my-8 p-4 rounded-xl border border-sky-300 dark:border-sky-700 bg-sky-50 dark:bg-sky-950/30 flex items-start gap-3"
-      >
-        <UIcon
-          name="i-heroicons-shield-check"
-          class="text-sky-500 w-6 h-6 shrink-0 mt-0.5"
-        />
-        <div>
-          <p class="m-0 text-sky-900 dark:text-sky-100 font-semibold mb-1">
-            Safe Testing (Dry Run)
-          </p>
-          <p class="m-0 text-sky-800 dark:text-sky-200 text-sm">
-            <code>cleanup_old_data</code> supports a <code>dryRun: true</code>
-            mode that reports how many lessons would be deleted without actually
-            committing the deletion.
-          </p>
-        </div>
+        <p class="m-0">
+          The N5-level word list is digitized from the community-standard list
+          originally compiled at tanos.co.uk, via
+          <a
+            href="https://github.com/elzup/jlpt-word-list"
+            target="_blank"
+            rel="noopener"
+            >elzup/jlpt-word-list</a
+          >
+          (MIT licence).
+        </p>
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -753,18 +740,19 @@
       </h2>
       <p class="mb-8">Technical details on how our backend endpoints work.</p>
 
-      <!-- /api/news -->
+      <!-- /api/daily-game -->
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
             <UBadge color="green" variant="soft">GET</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/news</h3>
+            <h3 class="font-mono text-lg font-bold m-0">/api/daily-game</h3>
           </div>
         </template>
         <p class="text-sm mb-4">
-          Returns lessons straight from Redis — filtered, sorted
-          newest-article-first, and paginated. Does not call any external search
-          or AI provider, and never triggers ingestion of any kind.
+          Returns one day's game — from Redis if the agent has already written
+          it, or a deterministic fallback built from the pool otherwise (and
+          persisted, so it isn't rebuilt on every request). Does not call any
+          external search or AI provider.
         </p>
 
         <div class="overflow-x-auto mb-4">
@@ -778,30 +766,14 @@
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
               <tr>
-                <td class="py-2 px-2"><code>difficulty</code></td>
+                <td class="py-2 px-2"><code>date</code></td>
                 <td class="py-2 px-2 text-gray-500">
-                  enum (<code>N5</code>–<code>N1</code>)
+                  string (<code>YYYY-MM-DD</code>)
                 </td>
                 <td class="py-2 px-2">
-                  JLPT difficulty filter (matches <code>difficultyLevel</code>
-                  exactly, case-insensitive; invalid values ignored)
+                  Defaults to today (UTC). Since daily games are never deleted,
+                  any past date can be replayed.
                 </td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2"><code>query</code></td>
-                <td class="py-2 px-2 text-gray-500">string (max 100)</td>
-                <td class="py-2 px-2">
-                  Full-text search across <code>title</code>,
-                  <code>titleJa</code>, <code>originalText</code> &amp;
-                  <code>englishText</code>
-                </td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2"><code>limit</code></td>
-                <td class="py-2 px-2 text-gray-500">
-                  number (default: <code>20</code>)
-                </td>
-                <td class="py-2 px-2">Max lessons to return (1-20)</td>
               </tr>
             </tbody>
           </table>
@@ -812,8 +784,8 @@
             <p class="text-xs font-bold text-gray-500 mb-1">Request Examples</p>
             <pre
               class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
-            ><code># Filter by JLPT level
-curl "http://localhost:3000/api/news?difficulty=N4&amp;limit=5"</code></pre>
+            ><code># Today's game
+curl "http://localhost:3000/api/daily-game"</code></pre>
           </div>
           <div>
             <p class="text-xs font-bold text-gray-500 mb-1">
@@ -823,12 +795,13 @@ curl "http://localhost:3000/api/news?difficulty=N4&amp;limit=5"</code></pre>
               class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
             ><code>{
   "success": true,
-  "count": 10,
   "data": {
-    "lessons": [ ... ],
-    "lastIngestTime": 1718000000000
+    "date": "2026-09-18",
+    "questions": [ ... 20 items ... ],
+    "generatedAt": 1758182400000,
+    "source": "agent"
   },
-  "timestamp": "2026-07-14T15:00:00.000Z"
+  "timestamp": "2026-09-18T00:00:00.000Z"
 }</code></pre>
           </div>
         </div>
@@ -843,10 +816,10 @@ curl "http://localhost:3000/api/news?difficulty=N4&amp;limit=5"</code></pre>
           </div>
         </template>
         <p class="text-sm mb-4">
-          The remote MCP server described in Section 4 — this is how the Claude
-          web agent (or any other MCP-speaking client) writes lessons into
-          Redis. Not a plain REST endpoint; speaks the MCP protocol over HTTP
-          via <code>mcp-handler</code>.
+          The remote MCP server described in Section 3 — this is how the Claude
+          web agent (or any other MCP-speaking client) writes each day's game
+          into Redis. Not a plain REST endpoint; speaks the MCP protocol over
+          HTTP via <code>mcp-handler</code>.
         </p>
 
         <div
@@ -869,113 +842,21 @@ curl "http://localhost:3000/api/news?difficulty=N4&amp;limit=5"</code></pre>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
               <tr>
-                <td class="py-2 px-2"><code>get_recent_lessons</code></td>
-                <td class="py-2 px-2">List recent lessons</td>
+                <td class="py-2 px-2"><code>get_n5_pool</code></td>
+                <td class="py-2 px-2">Sample one pool kind</td>
               </tr>
               <tr>
-                <td class="py-2 px-2"><code>check_processed_urls</code></td>
-                <td class="py-2 px-2">Detect already-ingested URLs</td>
+                <td class="py-2 px-2"><code>get_recent_daily_games</code></td>
+                <td class="py-2 px-2">List recently-featured item ids</td>
               </tr>
               <tr>
-                <td class="py-2 px-2"><code>upsert_lesson</code></td>
-                <td class="py-2 px-2">Create/update one lesson</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2"><code>cleanup_old_data</code></td>
-                <td class="py-2 px-2">
-                  Delete lessons whose article is older than 30 days
-                </td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2"><code>mark_ingest_complete</code></td>
-                <td class="py-2 px-2">Record the last-ingest timestamp</td>
+                <td class="py-2 px-2"><code>save_daily_game</code></td>
+                <td class="py-2 px-2">Persist one day's authored game</td>
               </tr>
             </tbody>
           </table>
         </div>
       </UCard>
-
-      <h2
-        class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
-      >
-        6. Trust & Credibility
-      </h2>
-      <p class="mb-4">
-        Every lesson includes a <strong>Trust Score</strong> the Claude agent
-        assigns when it calls <code>upsert_lesson</code>, based on its own
-        assessment of publisher reputation, editorial standards, and
-        trustworthiness — so readers can tell how reliable the underlying
-        article is at a glance. The agent only needs to judge a given publisher
-        once: NipponDaily caches each domain's score in Redis and reuses it
-        automatically for every later article from that domain.
-      </p>
-
-      <div
-        class="p-6 rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800"
-      >
-        <h3 class="text-xl font-bold mb-4 m-0 text-gray-800 dark:text-gray-200">
-          Trust Gradient Indicator
-        </h3>
-        <p class="text-sm mb-6">
-          The trust score badge uses a dynamic color scale that smoothly
-          transitions from green to red based on the score (Formula:
-          <code>hsl(score × 120, 70%, 45%)</code>).
-        </p>
-
-        <div
-          class="flex flex-col sm:flex-row gap-4 items-center justify-between not-prose"
-        >
-          <div class="flex items-center gap-3">
-            <div
-              class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold shadow-md"
-            >
-              100%
-            </div>
-            <div>
-              <p class="font-bold text-sm text-stone-900 dark:text-white m-0">
-                High Trust
-              </p>
-              <p class="text-xs text-stone-500 m-0">Verified sources</p>
-            </div>
-          </div>
-
-          <div
-            class="hidden sm:block w-16 h-1 bg-gradient-to-r from-green-600 via-yellow-600 to-red-600 rounded-full"
-          />
-
-          <div class="flex items-center gap-3">
-            <div
-              class="w-12 h-12 rounded-full bg-yellow-600 flex items-center justify-center text-white font-bold shadow-md"
-            >
-              50%
-            </div>
-            <div>
-              <p class="font-bold text-sm text-stone-900 dark:text-white m-0">
-                Moderate
-              </p>
-              <p class="text-xs text-stone-500 m-0">Mixed signals</p>
-            </div>
-          </div>
-
-          <div
-            class="hidden sm:block w-16 h-1 bg-gradient-to-r from-green-600 via-yellow-600 to-red-600 rounded-full"
-          />
-
-          <div class="flex items-center gap-3">
-            <div
-              class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white font-bold shadow-md"
-            >
-              0%
-            </div>
-            <div>
-              <p class="font-bold text-sm text-stone-900 dark:text-white m-0">
-                Low Trust
-              </p>
-              <p class="text-xs text-stone-500 m-0">Unreliable</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </main>
 
     <UFooter
@@ -1000,94 +881,51 @@ flowchart TD
 (scheduled via Claude web,
 not by this codebase)"])
     User(["👤 User"])
-    Operator(["🧑‍💻 Site Operator
-(manual/ad-hoc)"])
 
-    Claude -- "researches Japan news
-on its own" --> MCP["ALL /api/mcp
+    Claude -- "samples N5 pool,
+authors questions" --> MCP["ALL /api/mcp
 (Nitro, bearer-token protected)"]
 
-    Operator -. "asks agent to run
-cleanup_old_data manually" .-> MCP
+    MCP -- "get_n5_pool /
+get_recent_daily_games /
+save_daily_game" --> Redis[("Redis
+N5 Pool + Daily Games")]
 
-    MCP -- "get_recent_lessons /
-check_processed_urls /
-upsert_lesson /
-cleanup_old_data /
-mark_ingest_complete" --> Redis[("Redis
-Lesson Database")]
-
-    User -- "GET /api/news" --> NewsAPI["GET /api/news
+    User -- "GET /api/daily-game" --> GameAPI["GET /api/daily-game
 (Nitro)"]
-    NewsAPI -- "read lessons" --> Redis
-    NewsAPI -- "lessons" --> User
+    GameAPI -- "read today's game" --> Redis
+    GameAPI -. "if missing: build
+deterministic fallback,
+then persist it" .-> Redis
+    GameAPI -- "today's game" --> User
 `;
 
 const mcpDiagram = `
 flowchart TD
     Start(["Claude web agent
-runs weekly on its own schedule"])
+runs daily on its own schedule"])
 
-    Start --> S1["Step 0 · cleanup_old_data
-Preview/delete lessons whose
-article is >30 days old"]
-    S1 -. "DELETE stale lessons" .-> Redis[("Redis
-Lesson Database")]
+    Start --> S1["Step 1 · get_recent_daily_games
+List item ids featured over the
+last N days, to avoid repeats"]
+    S1 -. "READ" .-> Redis[("Redis
+N5 Pool + Daily Games")]
 
-    S1 --> S2["Step 1 · get_recent_lessons
-List published lessons to avoid
-re-teaching the same article"]
-    S2 -. "READ" .-> Redis
+    S1 --> S2["Step 2 · get_n5_pool
+Sample hiragana / katakana / kanji / vocab,
+excluding recent item ids"]
+    S2 -. "READ pool" .-> Redis
 
-    S2 --> S3["Step 2 · Research
-Search the week's Japanese-language
-Japan news, pick teachable articles
-across a spread of JLPT levels"]
+    S2 --> S3["Step 3 · Author questions
+Build ~20 multiple-choice questions
+with plausible same-kind distractors"]
 
-    S3 --> S4["Step 3 · check_processed_urls
-Skip candidate URLs already ingested"]
-    S4 -. "READ processed URLs" .-> Redis
+    S3 --> S4["Step 4 · save_daily_game
+Persist today's DailyGame record"]
+    S4 -- "WRITE" --> Redis
 
-    S4 --> S5a["Step 4a · upsert_lesson (store passage)
-For each article: pull a passage,
-store title/url/originalText + rough difficulty"]
-    S5a -- "WRITE lesson +
-mark URL processed" --> Redis
-    Redis -. "auto-tokenize originalText,
-return draft tokens" .-> S5a
-
-    S5a --> S5b["Step 4b · Author lesson + upsert_lesson
-Review draft tokens against the article,
-add furigana + romaji + translation + vocab + grammar,
-finalize difficulty, write final lesson"]
-    S5b -- "WRITE lesson
-(tokens replace draft)" --> Redis
-
-    S5b --> S7["Step 5 · mark_ingest_complete
-Record last-ingest timestamp"]
-    S7 -- "WRITE" --> Redis
-
-    S7 --> Done(["✅ Done — visible on
-GET /api/news immediately"])
-`;
-
-const cleanupDiagram = `
-flowchart TD
-    Start(["cleanup_old_data MCP tool
-(scheduled Claude web agent,
-or manual ad-hoc request)"])
-
-    Start --> S1["Scan for stale lessons
-Read all lessons, flag where
-publishedAt < 30 days ago"]
-    S1 --> Cond{"dryRun == true?"}
-    Cond -- "Yes" --> DryRunEnd(["✅ Return count of lessons
-that would be deleted"])
-    Cond -- "No" --> S2["Delete each stale lesson
-(lesson:{id} key + news:lessons entry)"]
-    S2 -- "DELETE" --> Redis[("Redis
-Lesson Database")]
-    S2 --> Done(["✅ Return count deleted"])
+    S4 --> Done(["✅ Done — visible on
+GET /api/daily-game immediately"])
 `;
 </script>
 

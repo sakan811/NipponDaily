@@ -11,7 +11,7 @@ describe("TrendingFallback Component", () => {
       },
     });
 
-    expect(wrapper.text()).toContain("Unable to Load Lessons");
+    expect(wrapper.text()).toContain("Unable to Load Today's Game");
     expect(wrapper.text()).toContain(
       "Service temporarily unavailable. Please try again.",
     );
