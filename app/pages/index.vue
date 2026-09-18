@@ -47,6 +47,15 @@
             trailing
             class="px-6 py-3 font-medium tracking-wide"
           />
+          <UButton
+            data-testid="hero-kana-cta"
+            label="Learn the Kana"
+            to="/kana"
+            color="gray"
+            variant="outline"
+            size="lg"
+            class="px-6 py-3 font-medium tracking-wide"
+          />
         </div>
       </div>
 
