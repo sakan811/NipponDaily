@@ -14,13 +14,13 @@
     <main class="relative z-10 container mx-auto px-4 max-w-6xl py-16 sm:py-24">
       <div class="text-center max-w-3xl mx-auto space-y-6">
         <p class="kicker text-primary-600 dark:text-primary-400">
-          Learn Japanese Through Real Japan News
+          One New Game Every Day
         </p>
 
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Read the news.<br class="hidden sm:inline" >
+          Play a round.<br class="hidden sm:inline" />
           <span class="text-primary-500 italic font-normal"
             >Learn the language.</span
           >
@@ -29,19 +29,18 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-body-serif"
         >
-          NipponDaily turns each week's Japanese-language news into
-          self-contained lessons — one article at a time. Every lesson pairs a
-          real passage with furigana and rōmaji, an English translation, a
-          JLPT-tagged vocabulary list, and grammar notes. No accounts, no
-          clutter: just this week's Japan, in Japanese you can actually work
-          through.
+          NipponDaily turns hiragana, katakana, and N5 kanji &amp; vocabulary
+          into one bite-sized daily quiz. Everyone sees the same 20 questions
+          each day — tap through them for quick, active recall, no accounts and
+          nothing ever saved: close the tab and tomorrow brings a brand new
+          round.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-4">
           <UButton
             data-testid="hero-cta"
-            label="Start Reading"
-            to="/news"
+            label="Play Today's Game"
+            to="/game"
             color="primary"
             size="lg"
             icon="i-heroicons-arrow-right"
@@ -53,30 +52,30 @@
 
       <div class="rule-double my-16 sm:my-24" />
 
-      <!-- What's inside every lesson -->
+      <!-- What's inside every round -->
       <section class="space-y-10">
         <div class="text-center max-w-lg mx-auto space-y-3">
           <h2
             class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
           >
-            Inside Every Lesson
+            Inside Every Round
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
           <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
-            One Japanese-language article, turned into everything you need to
-            read and understand it.
+            Twenty multiple-choice questions, drawn fresh from the N5 learning
+            pool every day.
           </p>
         </div>
 
         <p class="kicker text-stone-400 dark:text-stone-500">
-          What You Get Per Article
+          What You Get Per Round
         </p>
 
         <div
           class="grid grid-cols-1 md:grid-cols-2 border-t border-stone-300 dark:border-stone-800"
         >
           <div
-            v-for="(part, idx) in lessonParts"
+            v-for="(part, idx) in gameParts"
             :key="idx"
             class="group flex items-start gap-4 py-5 px-1 border-b border-stone-300 dark:border-stone-800 md:odd:border-r md:odd:pr-6 md:even:pl-6"
           >
@@ -102,23 +101,24 @@
 
       <div class="rule-double my-16 sm:my-24" />
 
-      <!-- How lessons get here -->
+      <!-- How the game gets here -->
       <section class="space-y-6 max-w-2xl mx-auto text-center">
         <h2
           class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
         >
-          Where Lessons Come From
+          Where the Game Comes From
         </h2>
         <div class="rule-double max-w-[120px] mx-auto" />
         <p
           class="text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          Once a week, a Claude web agent — running entirely outside this site —
-          researches Japanese-language Japan news, authors a lesson from each
-          article's own text, scores the publisher's credibility, and writes the
-          finished records straight into the database through a private MCP
-          server. The site itself only ever reads and displays them; lessons
-          rotate on a rolling 30-day window.
+          Once a day, a Claude web agent — running entirely outside this site —
+          samples from NipponDaily's persisted N5 kanji, kana, and vocabulary
+          pool and writes that day's 20 questions straight into the database
+          through a private MCP server. If a day's game is ever missing, the
+          site generates one itself on the spot so there's always something to
+          play. Nothing about your play-through — score, streak, answers — is
+          ever sent back or saved anywhere.
         </p>
         <div class="flex flex-wrap gap-3 justify-center pt-2">
           <UButton
@@ -165,36 +165,36 @@
 import { ref } from "vue";
 import AppHeader from "../components/AppHeader.vue";
 
-const lessonParts = ref([
+const gameParts = ref([
   {
-    title: "Furigana Passage",
+    title: "Hiragana & Katakana",
     description:
-      "A representative passage pulled from the article's Japanese text, with inline ruby readings over every kanji.",
+      "Five questions per script: tap the kana, pick its romaji reading from four choices.",
   },
   {
-    title: "Hepburn Rōmaji",
+    title: "N5 Kanji",
     description:
-      "The same passage transliterated in Hepburn rōmaji, so you can check your reading against it line by line.",
+      "Five kanji characters, each with 4 English-meaning choices drawn from KANJIDIC2.",
   },
   {
-    title: "English Translation",
+    title: "N5 Vocabulary",
     description:
-      "A faithful English rendering of the passage to confirm you have the meaning right.",
+      "Five vocabulary words with their kana reading shown as a hint, choosing the correct English meaning.",
   },
   {
-    title: "Vocabulary List",
+    title: "Instant Feedback",
     description:
-      "8–15 notable terms with readings, rōmaji, meanings, part of speech, JLPT level, and an example sentence each.",
+      "Every answer is graded immediately — right or wrong, you see it before moving on.",
   },
   {
-    title: "Grammar Notes",
+    title: "Streak Scoring",
     description:
-      "1–3 grammar patterns worth flagging from the passage, each with a plain explanation and a worked example.",
+      "Consecutive correct answers multiply your points, up to a ×3 combo — no accounts needed to keep score for one round.",
   },
   {
-    title: "Trust Score & JLPT Level",
+    title: "Replay Anytime",
     description:
-      "A per-publisher credibility score shown as a colour gradient, plus an overall difficulty badge — filter the feed by level (N5–N1).",
+      "Play Again reshuffles the same day's questions for another round; a new set arrives automatically tomorrow.",
   },
 ]);
 </script>

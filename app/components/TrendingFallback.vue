@@ -22,7 +22,7 @@
           <h3
             class="text-xl font-serif font-bold text-stone-900 dark:text-white"
           >
-            Unable to Load Lessons
+            Unable to Load Today's Game
           </h3>
           <p
             class="text-xs text-rose-600 dark:text-rose-400 font-medium bg-rose-500/10 dark:bg-rose-500/20 px-3 py-1.5 rounded-lg inline-block break-words max-w-full"
@@ -34,8 +34,8 @@
         <p
           class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed font-sans"
         >
-          The lesson reader could not fetch the latest Japanese lessons from
-          the Redis database.
+          The game board could not fetch today's Japanese learning game from the
+          Redis database.
         </p>
 
         <!-- Retry Action -->

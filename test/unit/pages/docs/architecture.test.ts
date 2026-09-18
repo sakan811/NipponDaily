@@ -38,6 +38,7 @@ describe("Architecture Page", () => {
 
     expect(wrapper.text()).toContain("System Architecture");
     expect(wrapper.text()).toContain("Frontend (Nuxt 4)");
+    expect(wrapper.text()).toContain("N5 Data & Attribution");
     expect(wrapper.text()).toContain("Color Palette & System");
     expect(wrapper.text()).toContain("Sakura Blossom");
     expect(wrapper.text()).toContain("Sage Leaf");

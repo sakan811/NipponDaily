@@ -38,42 +38,42 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.text()).toContain("Learn the language.");
     expect(wrapper.text()).toContain(
-      "NipponDaily turns each week's Japanese-language news into self-contained lessons",
+      "NipponDaily turns hiragana, katakana, and N5 kanji",
     );
   });
 
-  it("renders hero section with CTA link to /news", () => {
+  it("renders hero section with CTA link to /game", () => {
     const wrapper = mount(IndexPage);
 
     const ctaLink = wrapper.find('[data-testid="hero-cta"]');
     expect(ctaLink.exists()).toBe(true);
-    expect(ctaLink.text()).toContain("Start Reading");
+    expect(ctaLink.text()).toContain("Play Today's Game");
   });
 
-  it("renders the 'Inside Every Lesson' section", () => {
+  it("renders the 'Inside Every Round' section", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Inside Every Lesson");
+    expect(wrapper.text()).toContain("Inside Every Round");
     expect(wrapper.text()).toContain(
-      "One Japanese-language article, turned into everything you need to read and understand it.",
+      "Twenty multiple-choice questions, drawn fresh from the N5 learning pool every day.",
     );
   });
 
-  it("renders all six lesson components", () => {
+  it("renders all six game-part components", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Furigana Passage");
-    expect(wrapper.text()).toContain("Hepburn Rōmaji");
-    expect(wrapper.text()).toContain("English Translation");
-    expect(wrapper.text()).toContain("Vocabulary List");
-    expect(wrapper.text()).toContain("Grammar Notes");
-    expect(wrapper.text()).toContain("Trust Score & JLPT Level");
+    expect(wrapper.text()).toContain("Hiragana & Katakana");
+    expect(wrapper.text()).toContain("N5 Kanji");
+    expect(wrapper.text()).toContain("N5 Vocabulary");
+    expect(wrapper.text()).toContain("Instant Feedback");
+    expect(wrapper.text()).toContain("Streak Scoring");
+    expect(wrapper.text()).toContain("Replay Anytime");
   });
 
-  it("explains where lessons come from and links to the docs", () => {
+  it("explains where the game comes from and links to the docs", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Where Lessons Come From");
+    expect(wrapper.text()).toContain("Where the Game Comes From");
     expect(wrapper.text()).toContain("a Claude web agent");
   });
 

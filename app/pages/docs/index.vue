@@ -71,14 +71,14 @@ const pages = [
     to: "/docs/architecture",
     title: "System Architecture",
     description:
-      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis lesson store it reads from, and the remote MCP server a Claude web agent uses to write finished lessons straight into the database.",
+      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis N5 pool + daily-game store it reads from, and the remote MCP server a Claude web agent uses to write each day's game straight into the database.",
     icon: "i-heroicons-building-office-2",
   },
   {
     to: "/docs/features",
     title: "Core Features",
     description:
-      "The reader-facing capabilities: one article per lesson with furigana, rōmaji, vocab and grammar; per-publisher credibility scoring; and a JLPT difficulty filter.",
+      "The player-facing capabilities: one 20-question daily round across hiragana, katakana, N5 kanji and vocabulary; instant feedback and streak scoring; and zero server-side gameplay persistence.",
     icon: "i-heroicons-star",
   },
   {

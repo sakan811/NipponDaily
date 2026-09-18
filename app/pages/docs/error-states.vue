@@ -44,13 +44,13 @@
       </nav>
 
       <div class="space-y-14">
-        <!-- 1. News fetch failure -->
+        <!-- 1. Daily game fetch failure -->
         <section id="trending-fallback" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="01"
-            title="News fetch failure"
+            title="Daily game fetch failure"
             component="components/TrendingFallback.vue"
-            trigger="GET /api/news throws (Redis unreachable, 500 response, or network error). Bound to the reader's error ref."
+            trigger="GET /api/daily-game throws (Redis unreachable, empty pool, or network error). Bound to DailyGameBoard's error ref."
           />
           <TrendingFallback
             :error="'Service temporarily unavailable. Please try again.'"
@@ -59,122 +59,171 @@
           />
         </section>
 
-        <!-- 2. Lesson card -->
-        <section id="lesson-card" class="scroll-mt-24 space-y-3">
+        <!-- 2. Answered question card -->
+        <section id="question-card" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="02"
-            title="Lesson detail card"
-            component="components/LessonCard.vue"
-            trigger="Not an error state — the normal detail view for one lesson, shown here so its layout can be reviewed alongside the fallbacks."
+            title="Answered question card"
+            component="components/DailyGameBoard.vue"
+            trigger="Not an error state — the normal in-round view right after answering, shown here so its layout can be reviewed alongside the fallbacks."
           />
-          <LessonCard :lesson="mockLesson" />
+          <UCard class="w-full border-t-2 border-t-primary-500">
+            <div class="p-4 sm:p-8 space-y-6 text-center">
+              <UBadge color="secondary" variant="soft" size="xs">
+                Vocabulary
+              </UBadge>
+              <div class="space-y-2">
+                <p
+                  class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
+                >
+                  食べる
+                </p>
+                <p class="text-sm text-stone-500 dark:text-stone-400">たべる</p>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <UButton
+                  label="to drink"
+                  color="secondary"
+                  variant="outline"
+                  size="lg"
+                  block
+                  class="justify-center"
+                  disabled
+                />
+                <UButton
+                  label="to eat"
+                  color="success"
+                  size="lg"
+                  block
+                  class="justify-center"
+                  disabled
+                />
+                <UButton
+                  label="to see"
+                  color="secondary"
+                  variant="outline"
+                  size="lg"
+                  block
+                  class="justify-center"
+                  disabled
+                />
+                <UButton
+                  label="to go"
+                  color="secondary"
+                  variant="outline"
+                  size="lg"
+                  block
+                  class="justify-center"
+                  disabled
+                />
+              </div>
+              <p
+                class="text-sm font-medium flex items-center justify-center gap-1.5 text-success-600 dark:text-success-400"
+              >
+                <UIcon name="i-heroicons-check-circle" class="w-4 h-4" />
+                Correct!
+              </p>
+            </div>
+          </UCard>
         </section>
 
         <!-- 3. Loading skeleton -->
         <section id="loading" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="03"
-            title="Loading / refreshing skeleton"
-            component="components/JapanNewsReader.vue (loading)"
-            trigger="Shown while GET /api/news is in flight (initial load, filter change, or manual refresh)."
+            title="Loading skeleton"
+            component="components/DailyGameBoard.vue (loading)"
+            trigger="Shown while GET /api/daily-game is in flight (initial mount, or a manual retry)."
           />
           <div class="space-y-6">
             <UCard class="w-full border-t-2 border-t-primary-500">
               <div class="p-4 sm:p-6 space-y-6">
-                <div class="pb-4">
-                  <USkeleton class="h-6 w-32 mb-3 rounded-sm" />
-                  <USkeleton class="h-10 w-3/4 rounded-sm" />
-                </div>
-                <div class="space-y-2">
-                  <USkeleton class="h-4 w-24 mb-2" />
-                  <USkeleton class="h-4 w-full" />
-                  <USkeleton class="h-4 w-full" />
-                  <USkeleton class="h-4 w-5/6" />
+                <USkeleton class="h-6 w-32 mb-3 rounded-sm" />
+                <USkeleton class="h-16 w-3/4 mx-auto rounded-sm" />
+                <div class="grid grid-cols-2 gap-3">
+                  <USkeleton class="h-12 rounded-sm" />
+                  <USkeleton class="h-12 rounded-sm" />
+                  <USkeleton class="h-12 rounded-sm" />
+                  <USkeleton class="h-12 rounded-sm" />
                 </div>
               </div>
             </UCard>
-            <p
-              class="text-center text-secondary-500 text-sm mt-4 animate-pulse flex items-center justify-center gap-2"
-            >
-              <UIcon name="i-heroicons-cpu-chip" class="w-5 h-5" />
-              Loading the latest lessons from Japan...
-            </p>
           </div>
         </section>
 
-        <!-- 4. Empty state -->
-        <section id="empty" class="scroll-mt-24 space-y-3">
+        <!-- 4. Round summary -->
+        <section id="summary" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="04"
-            title="Empty result set"
-            component="components/JapanNewsReader.vue (lessons.length === 0)"
-            trigger="The request succeeded but no lesson matches the selected JLPT level. Offers a 'Show all levels' reset when a level is active."
+            title="Round summary"
+            component="components/DailyGameBoard.vue (isFinished)"
+            trigger="Shown after the 20th question is answered. Offers a 'Play Again' reset that reshuffles the same day's questions client-side — no refetch."
           />
-          <div
-            class="bg-white dark:bg-neutral-900 rounded-sm text-center p-8 border border-stone-300 dark:border-stone-800"
-          >
-            <div class="mb-4">
-              <svg
-                class="w-16 h-16 mx-auto text-primary-500 opacity-20"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
+          <UCard class="w-full border-t-2 border-t-primary-500">
+            <div class="p-4 sm:p-8 space-y-6 text-center">
+              <UIcon
+                name="i-heroicons-star"
+                class="w-10 h-10 mx-auto text-warning-500"
+              />
+              <h2
+                class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
+                Round Complete!
+              </h2>
+              <div class="flex justify-center gap-8 text-center">
+                <div>
+                  <p
+                    class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
+                  >
+                    160
+                  </p>
+                  <p class="kicker text-stone-400">Score</p>
+                </div>
+                <div>
+                  <p
+                    class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
+                  >
+                    85%
+                  </p>
+                  <p class="kicker text-stone-400">Accuracy</p>
+                </div>
+                <div>
+                  <p
+                    class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
+                  >
+                    6
+                  </p>
+                  <p class="kicker text-stone-400">Best Streak</p>
+                </div>
+              </div>
+              <UButton
+                label="Play Again"
+                color="primary"
+                size="lg"
+                icon="i-heroicons-arrow-path"
+                @click="noop"
+              />
             </div>
-            <h3 class="text-xl font-serif font-semibold mb-2">
-              No lessons at this level
-            </h3>
-            <p
-              class="mb-4 text-secondary-500 dark:text-secondary-400 max-w-lg mx-auto"
-            >
-              Nothing matches the selected JLPT level yet. Try a different level
-              or check back after the next weekly update.
-            </p>
-            <UButton
-              color="primary"
-              variant="solid"
-              size="sm"
-              label="Show all levels"
-              @click="noop"
-            />
-          </div>
+          </UCard>
         </section>
 
-        <!-- 5. JLPT difficulty badge -->
-        <section id="summarizing-badge" class="scroll-mt-24 space-y-3">
+        <!-- 5. Question-kind badge -->
+        <section id="kind-badge" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="05"
-            title="JLPT difficulty badge"
-            component="components/JapanNewsReader.vue (lesson.difficultyLevel)"
-            trigger="Every lesson in the list shows its JLPT level as a badge next to the source name."
+            title="Question-kind badge"
+            component="components/DailyGameBoard.vue (question.kind)"
+            trigger="Every question shows which of the four pool kinds it's drawn from."
           />
           <div
-            class="border border-stone-300 dark:border-stone-800 rounded-sm p-5 bg-white dark:bg-stone-900"
+            class="border border-stone-300 dark:border-stone-800 rounded-sm p-5 bg-white dark:bg-stone-900 flex flex-wrap gap-2"
           >
-            <div class="flex items-center gap-2 mb-2 flex-wrap">
-              <span class="kicker text-primary-600 dark:text-primary-400">
-                nhk.or.jp
-              </span>
-              <UBadge color="secondary" variant="soft" size="xs"> N3 </UBadge>
-            </div>
-            <h4
-              class="font-serif font-bold text-2xl leading-tight text-stone-900 dark:text-white"
+            <UBadge color="secondary" variant="soft" size="xs">Hiragana</UBadge>
+            <UBadge color="secondary" variant="soft" size="xs">Katakana</UBadge>
+            <UBadge color="secondary" variant="soft" size="xs">Kanji</UBadge>
+            <UBadge color="secondary" variant="soft" size="xs"
+              >Vocabulary</UBadge
             >
-              Government unveils new autonomous-mobility roadmap for Tokyo
-            </h4>
-            <div
-              class="flex items-center gap-2 mt-3 text-xs text-stone-400 dark:text-stone-500"
-            >
-              <span>just now</span>
-            </div>
           </div>
         </section>
 
@@ -184,7 +233,7 @@
             index="06"
             title="404 — page not found"
             component="pages/[...slug].vue"
-            trigger="Any unmatched route. Full-page layout with the shared header/footer and a single 'Return to Home' action."
+            trigger="Any unmatched route (including the retired /news). Full-page layout with the shared header/footer and a single 'Return to Home' action."
           />
           <div
             class="border border-stone-300 dark:border-stone-800 rounded-sm bg-[#FDFBF7] dark:bg-[#0B0E14] px-4 py-12 text-center"
@@ -211,8 +260,8 @@
           <ErrorStateHeading
             index="07"
             title="API error responses"
-            component="server/api/news.get.ts"
-            trigger="Not a rendered UI — the JSON GET /api/news returns on failure. The reader maps these onto the News fetch failure state above."
+            component="server/api/daily-game.get.ts"
+            trigger="Not a rendered UI — the JSON GET /api/daily-game returns on failure. DailyGameBoard maps these onto the fetch failure state above."
           />
           <div class="grid gap-3 sm:grid-cols-2">
             <div
@@ -222,8 +271,8 @@
                 400 Bad Request
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                Query params failed Zod validation (limit out of bounds, query
-                &gt; 100 chars).
+                The optional ?date= query param failed validation (not
+                YYYY-MM-DD).
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -233,11 +282,11 @@
               class="rounded-sm border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
             >
               <p class="text-xs font-mono font-bold text-rose-500 mb-2">
-                500 Failed to fetch news
+                500 Failed to fetch daily game
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                Redis read threw, or an unexpected server error. Stack is
-                included only in development.
+                Redis read threw, or the N5 pool is empty (seed script never
+                run). Stack is included only in development.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -262,67 +311,19 @@
 </template>
 
 <script setup lang="ts">
-import type { Lesson } from "../../../types";
 import AppHeader from "../../components/AppHeader.vue";
 
 const noop = () => {};
 
 const sections = [
-  { id: "trending-fallback", label: "01 News fetch failure" },
-  { id: "lesson-card", label: "02 Lesson card" },
+  { id: "trending-fallback", label: "01 Fetch failure" },
+  { id: "question-card", label: "02 Question card" },
   { id: "loading", label: "03 Loading skeleton" },
-  { id: "empty", label: "04 Empty result" },
-  { id: "summarizing-badge", label: "05 Difficulty badge" },
+  { id: "summary", label: "04 Round summary" },
+  { id: "kind-badge", label: "05 Kind badge" },
   { id: "not-found", label: "06 404" },
   { id: "api-errors", label: "07 API errors" },
 ];
-
-const mockLesson: Lesson = {
-  id: "sample",
-  title: "Government unveils new autonomous-mobility roadmap for Tokyo",
-  titleJa: "政府、東京の自動運転移動サービスの新方針を発表",
-  source: "https://www3.nhk.or.jp",
-  url: "https://www3.nhk.or.jp/news/example",
-  favicon: "https://www3.nhk.or.jp/favicon.ico",
-  publishedAt: new Date().toISOString(),
-  addedAt: Date.now(),
-  credibilityScore: 0.95,
-  difficultyLevel: "N3",
-  originalText:
-    "政府はきょう、東京で自動運転による移動サービスを広げるための新しい方針を発表しました。",
-  englishText:
-    "The government today unveiled a new policy to expand autonomous-driving mobility services in Tokyo.",
-  furiganaText:
-    "<ruby>政府<rt>せいふ</rt></ruby>はきょう、<ruby>東京<rt>とうきょう</rt></ruby>で<ruby>自動運転<rt>じどううんてん</rt></ruby>による<ruby>移動<rt>いどう</rt></ruby>サービスを<ruby>広<rt>ひろ</rt></ruby>げるための<ruby>新<rt>あたら</rt></ruby>しい<ruby>方針<rt>ほうしん</rt></ruby>を<ruby>発表<rt>はっぴょう</rt></ruby>しました。",
-  romajiText:
-    "Seifu wa kyō, Tōkyō de jidō unten ni yoru idō sābisu o hirogeru tame no atarashii hōshin o happyō shimashita.",
-  vocabList: [
-    {
-      term: "政府",
-      reading: "せいふ",
-      romaji: "seifu",
-      meaning: "government",
-      jlptLevel: "N3",
-      exampleSentence: "政府は新しい方針を発表しました。",
-    },
-    {
-      term: "自動運転",
-      reading: "じどううんてん",
-      romaji: "jidō unten",
-      meaning: "autonomous / self-driving",
-      jlptLevel: "N2",
-      exampleSentence: "自動運転による移動サービスを広げます。",
-    },
-  ],
-  grammarNotes: [
-    {
-      pattern: "〜による",
-      explanation: '"by means of" / "caused by" — marks the agent or method.',
-      exampleSentence: "自動運転による移動サービス。",
-      romaji: "jidō unten ni yoru idō sābisu.",
-    },
-  ],
-};
 
 const badRequestSample = JSON.stringify(
   {
@@ -330,9 +331,7 @@ const badRequestSample = JSON.stringify(
     statusMessage: "Bad Request",
     data: {
       error: "Invalid query parameters",
-      details: [
-        { path: "query", message: "Query cannot exceed 100 characters" },
-      ],
+      details: [{ path: "date", message: "Invalid" }],
     },
   },
   null,
@@ -342,8 +341,11 @@ const badRequestSample = JSON.stringify(
 const serverErrorSample = JSON.stringify(
   {
     statusCode: 500,
-    statusMessage: "Failed to fetch news",
-    data: { error: "Redis connection timed out" },
+    statusMessage: "Failed to fetch daily game",
+    data: {
+      error:
+        "N5 pool is empty — run `pnpm seed:n5` to seed kanji/vocab/kana data before requesting a daily game.",
+    },
   },
   null,
   2,
