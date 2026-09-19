@@ -174,7 +174,17 @@ function firstPartOfSpeech(senses, tagsMap) {
   return undefined;
 }
 
-/** surface form -> { kana, meaning, partOfSpeech } */
+function allEnglishGlosses(senses) {
+  const out = [];
+  for (const sense of senses ?? []) {
+    for (const gloss of sense.gloss ?? []) {
+      if (gloss.lang === "eng" && gloss.text) out.push(gloss.text);
+    }
+  }
+  return out;
+}
+
+/** surface form -> { kana, meaning, allGlosses, partOfSpeech } */
 function buildJmdictIndex(jmdictData) {
   const index = new Map();
   const tagsMap = jmdictData.tags ?? {};
@@ -189,17 +199,126 @@ function buildJmdictIndex(jmdictData) {
     if (!primaryKana) continue;
 
     const partOfSpeech = firstPartOfSpeech(word.sense, tagsMap);
-    const surfaces = kanjiList.length
-      ? kanjiList.map((k) => k.text)
-      : kanaList.map((k) => k.text);
+    const allGlosses = allEnglishGlosses(word.sense);
+    // Union of kanji AND kana surfaces (not kanji-only-if-present): several
+    // N5 words are always written in kana (あちら, そちら, …) but JMdict
+    // still records a formal kanji form (彼方, etc.), which meant these
+    // never matched anything under the old kanji-preferred lookup.
+    const surfaces = [
+      ...kanjiList.map((k) => k.text),
+      ...kanaList.map((k) => k.text),
+    ];
 
     for (const surface of new Set(surfaces)) {
       if (!index.has(surface)) {
-        index.set(surface, { kana: primaryKana, meaning, partOfSpeech });
+        index.set(surface, { kana: primaryKana, meaning, allGlosses, partOfSpeech });
       }
     }
   }
   return index;
+}
+
+// --- Meaning cross-check (elzup CSV gloss vs. JMdict's own gloss) ---
+
+const MEANING_STOPWORDS = new Set([
+  "a", "an", "the", "of", "to", "in", "on", "at", "is", "are", "be", "was",
+  "were", "and", "or", "for", "as", "by", "with", "from", "one", "ones",
+  "also", "etc", "used", "use", "something", "someone", "thing", "things",
+  "polite", "casual", "formal", "informal", "especially", "particle",
+  "suffix", "prefix", "noun", "verb", "adjective", "adverb",
+]);
+
+function significantWords(text) {
+  return new Set(
+    (text ?? "")
+      .toLowerCase()
+      .replace(/[()~,;./]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length >= 3 && !MEANING_STOPWORDS.has(w)),
+  );
+}
+
+// Common English word-pairs that a mistranslation is prone to swap —
+// this is what actually caught あちら's "this way" vs. the correct "that
+// way" (see VOCAB_MEANING_OVERRIDES above). Deliberately narrow: a plain
+// "these two glosses don't share any words" check is far noisier (~11% of
+// the pool, mostly harmless synonyms like "shoe" vs "shoes"), so it isn't
+// worth running as a default warning — see SEED_VERBOSE_MEANING_CHECK below.
+const MEANING_CONTRAST_PAIRS = [
+  ["this", "that"], ["here", "there"], ["near", "far"],
+  ["before", "after"], ["inside", "outside"], ["come", "go"],
+  ["give", "receive"], ["buy", "sell"], ["arrive", "leave"],
+  ["open", "close"], ["big", "small"], ["yes", "no"],
+  ["left", "right"], ["above", "below"], ["early", "late"],
+  ["first", "last"], ["push", "pull"], ["borrow", "lend"],
+  ["up", "down"], ["hot", "cold"], ["male", "female"],
+];
+
+/** Returns e.g. "this <-> that" if the two glosses look like a swapped antonym pair, else null. */
+function findReversedMeaning(csvMeaning, jmdictMeaning) {
+  const csvWords = significantWords(csvMeaning);
+  const jmdictWords = significantWords(jmdictMeaning);
+  for (const [a, b] of MEANING_CONTRAST_PAIRS) {
+    if (csvWords.has(a) && jmdictWords.has(b) && !csvWords.has(b) && !jmdictWords.has(a)) {
+      return `${a} <-> ${b}`;
+    }
+    if (csvWords.has(b) && jmdictWords.has(a) && !csvWords.has(a) && !jmdictWords.has(b)) {
+      return `${b} <-> ${a}`;
+    }
+  }
+  return null;
+}
+
+/**
+ * Cross-checks one assembled vocab entry's CSV-sourced meaning against
+ * JMdict's own gloss for the same term+reading (skipped if JMdict has no
+ * entry, or its entry is for a different reading — see the 外/そと vs
+ * 外/ほか homograph collision this guards against). Returns a warning
+ * object or null.
+ */
+function checkMeaning(entry, jmdictEntry) {
+  if (!jmdictEntry || jmdictEntry.kana !== entry.kana) return null;
+  const jmdictMeaning = jmdictEntry.allGlosses?.join("; ") || jmdictEntry.meaning;
+  const pair = findReversedMeaning(entry.meaning, jmdictMeaning);
+  if (!pair) return null;
+  return {
+    term: entry.term,
+    kana: entry.kana,
+    pair,
+    csvMeaning: entry.meaning,
+    jmdictMeaning,
+  };
+}
+
+/**
+ * Opt-in (SEED_VERBOSE_MEANING_CHECK=1), much noisier companion to
+ * checkMeaning(): every entry whose CSV gloss shares *no* significant word
+ * at all with JMdict's gloss. About 1 in 9 of the pool trips this (mostly
+ * harmless synonym drift, e.g. "shoe" vs. "shoes", "car" vs. "automobile"),
+ * so it's for an occasional manual audit, not something to read every
+ * reseed.
+ */
+function logLowConfidenceMeaningDrift(n5Entries, jmdictIndex) {
+  const drifted = [];
+  for (const entry of n5Entries) {
+    const jmdict = jmdictIndex.get(entry.term);
+    if (!jmdict || jmdict.kana !== entry.kana) continue;
+    const jmdictMeaning = jmdict.allGlosses?.join("; ") || jmdict.meaning;
+    const csvWords = significantWords(entry.meaning);
+    const jmdictWords = significantWords(jmdictMeaning);
+    if (csvWords.size === 0 || jmdictWords.size === 0) continue;
+    const overlaps = [...csvWords].some((w) => jmdictWords.has(w));
+    if (!overlaps) {
+      drifted.push({ term: entry.term, kana: entry.kana, csvMeaning: entry.meaning, jmdictMeaning });
+    }
+  }
+  if (drifted.length === 0) return;
+  console.warn(
+    `\n(verbose) ${drifted.length} gloss(es) share no word with JMdict's — mostly synonyms, spot-check only:`,
+  );
+  for (const d of drifted) {
+    console.warn(`  ${d.term} (${d.kana})  CSV: "${d.csvMeaning}"  |  JMdict: "${d.jmdictMeaning}"`);
+  }
 }
 
 /** kanji character -> { onyomi, kunyomi, meanings, strokeCount } */
@@ -235,6 +354,24 @@ function buildKanjidicIndex(kanjidicData) {
 
 // --- N5 word list ---
 
+/**
+ * Corrections for glosses in elzup/jlpt-word-list that are simply wrong,
+ * verified against JMdict's own entry for the same headword+reading. Kept
+ * here (rather than patched upstream) so every re-seed applies them
+ * automatically instead of silently reintroducing the bad gloss.
+ *
+ * Key is `term kana`, not just `term`, since a few N5-tagged rows
+ * share a term but not a reading (e.g. 外/そと "outside" vs 外/ほか
+ * "other") — keying on the pair avoids a correction meant for one leaking
+ * onto the other.
+ */
+const VOCAB_MEANING_OVERRIDES = {
+  // Source list has this backwards as "this way (polite)". あちら is the
+  // あ-series (far from both speaker and listener) direction word, i.e.
+  // the polite counterpart of あっち — it means "that way over there".
+  "あちら あちら": "that way, over there (polite)",
+};
+
 async function fetchN5List() {
   console.log(`Fetching N5 word list from elzup/jlpt-word-list...`);
   const text = await fetch(N5_CSV_URL).then((r) => r.text());
@@ -254,7 +391,9 @@ async function fetchN5List() {
 
     const expression = (row[idx.expression] ?? "").split(";")[0].trim();
     const reading = (row[idx.reading] ?? "").split(";")[0].trim();
-    const meaning = (row[idx.meaning] ?? "").trim();
+    const rawMeaning = (row[idx.meaning] ?? "").trim();
+    const meaning =
+      VOCAB_MEANING_OVERRIDES[`${expression} ${reading}`] ?? rawMeaning;
     if (!expression || !reading || !meaning) continue;
 
     entries.push({ term: expression, kana: reading, meaning });
@@ -278,9 +417,12 @@ function slugify(term, seen) {
 
 function assembleVocab(n5Entries, jmdictIndex) {
   const seenIds = new Set();
-  return n5Entries.map((entry) => {
+  const meaningWarnings = [];
+  const vocab = n5Entries.map((entry) => {
     const jmdict = jmdictIndex.get(entry.term);
     const kana = entry.kana;
+    const warning = checkMeaning(entry, jmdict);
+    if (warning) meaningWarnings.push(warning);
     return {
       id: slugify(entry.term, seenIds),
       term: entry.term,
@@ -291,6 +433,7 @@ function assembleVocab(n5Entries, jmdictIndex) {
       jlptLevel: "N5",
     };
   });
+  return { vocab, meaningWarnings };
 }
 
 function deriveKanjiChars(vocab) {
@@ -370,7 +513,24 @@ async function main() {
   const jmdictIndex = buildJmdictIndex(jmdictData);
   const kanjidicIndex = buildKanjidicIndex(kanjidicData);
 
-  const vocab = assembleVocab(n5Entries, jmdictIndex);
+  const { vocab, meaningWarnings } = assembleVocab(n5Entries, jmdictIndex);
+  if (meaningWarnings.length > 0) {
+    console.warn(
+      `\n⚠ ${meaningWarnings.length} vocab gloss(es) look like a reversed/swapped meaning vs. JMdict — verify before shipping:`,
+    );
+    for (const w of meaningWarnings) {
+      console.warn(
+        `  ${w.term} (${w.kana}) [${w.pair}]\n    CSV list: "${w.csvMeaning}"\n    JMdict:   "${w.jmdictMeaning}"`,
+      );
+    }
+    console.warn(
+      "  If genuinely wrong, add a correction to VOCAB_MEANING_OVERRIDES above.\n",
+    );
+  }
+  if (process.env.SEED_VERBOSE_MEANING_CHECK === "1") {
+    logLowConfidenceMeaningDrift(n5Entries, jmdictIndex);
+  }
+
   const kanjiChars = deriveKanjiChars(vocab);
   const [lo, hi] = KANJI_COUNT_SANITY_RANGE;
   if (kanjiChars.length < lo || kanjiChars.length > hi) {
@@ -395,7 +555,11 @@ async function main() {
   console.log("Done.");
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
+
+export { VOCAB_MEANING_OVERRIDES, findReversedMeaning, checkMeaning };
