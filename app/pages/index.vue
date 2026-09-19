@@ -56,6 +56,15 @@
             size="lg"
             class="px-6 py-3 font-medium tracking-wide"
           />
+          <UButton
+            data-testid="hero-vocab-cta"
+            label="Explore Vocabulary"
+            to="/vocab"
+            color="gray"
+            variant="outline"
+            size="lg"
+            class="px-6 py-3 font-medium tracking-wide"
+          />
         </div>
       </div>
 
