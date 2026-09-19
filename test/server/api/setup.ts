@@ -22,6 +22,7 @@ export const mockGetDailyGame = vi.fn();
 export const mockSaveDailyGame = vi.fn();
 export const mockGetFullPool = vi.fn();
 export const mockGetRecentDailyGameDates = vi.fn();
+export const mockGetVocabPool = vi.fn();
 
 vi.mock("~/server/services/n5-data", async (importOriginal) => {
   const actual =
@@ -33,6 +34,7 @@ vi.mock("~/server/services/n5-data", async (importOriginal) => {
       saveDailyGame: mockSaveDailyGame,
       getFullPool: mockGetFullPool,
       getRecentDailyGameDates: mockGetRecentDailyGameDates,
+      getVocabPool: mockGetVocabPool,
     },
   };
 });
@@ -95,6 +97,12 @@ export const getHandler = async () => {
   return handlerModule.default;
 };
 
+// Helper function to get the n5-vocab handler
+export const getVocabHandler = async () => {
+  const handlerModule = await import("~/server/api/n5-vocab.get");
+  return handlerModule.default;
+};
+
 // Helper function to setup default mocks
 export const setupDefaults = () => {
   vi.clearAllMocks();
@@ -104,4 +112,5 @@ export const setupDefaults = () => {
   mockSaveDailyGame.mockResolvedValue(undefined);
   mockGetFullPool.mockResolvedValue(createMockPool());
   mockGetRecentDailyGameDates.mockResolvedValue([]);
+  mockGetVocabPool.mockResolvedValue(createMockPool().vocab);
 };
