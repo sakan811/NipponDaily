@@ -127,7 +127,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
       "Every demonstrative is built from the same four prefixes — こ (near me), そ (near you), あ (far from both), ど (question) — combined with a fixed set of endings for 'thing' (れ/の), 'place' (こ), and 'direction' (ちら/っち). Learn the pattern once and all four rows fall into place.",
     rows: [
       { label: "thing", terms: ["これ", "それ", "あれ", "どれ"] },
-      { label: "which kind of", terms: ["この", "その", "あの", "どの"] },
+      { label: "this/that (+ noun)", terms: ["この", "その", "あの", "どの"] },
       { label: "place", terms: ["ここ", "そこ", "あそこ", "どこ"] },
       {
         label: "direction (polite)",
@@ -175,7 +175,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
     title: "Numbers, Two Ways",
     subtitle: "Counting",
     insight:
-      "Japanese runs two number systems side by side: Sino-Japanese (いち, に, さん…) for math, phone numbers, dates, and prices, and a native counting set (ひとつ, ふたつ, みっつ…) for counting objects generically when there's no specific counter word — but the native set stops at ten.",
+      "Japanese runs two number systems side by side: Sino-Japanese (いち, に, さん…) for math, phone numbers, dates, and prices, and a native counting set (ひとつ, ふたつ, みっつ…) for counting objects generically when there's no specific counter word. The native set caps at とお (ten) — not shown in the row below since 十 in the pool resolves to the Sino-Japanese じゅう reading, not とお.",
     rows: [
       {
         label: "Sino-Japanese",
@@ -270,7 +270,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
     title: "Colors — Adjective or Noun?",
     subtitle: "Colors",
     insight:
-      "赤, 青, 黒, 白, and 黄色 can all take い and inflect directly as adjectives (赤い家, 'a red house'), but 茶色 and 緑 behave as nouns and need の instead (緑の木, 'a green tree') — a small irregularity worth knowing before you build a sentence.",
+      "赤, 青, 黒, 白, and 黄色 can all take い and inflect directly as adjectives (赤い家, 'a red house'). 緑 is grammatically a noun and needs の instead (緑の木, 'a green tree') — and while 茶色い exists as a word too, this list only carries the noun 茶色, so treat it the same way as 緑 (茶色の靴, 'brown shoes') until you learn 茶色い separately.",
     rows: [
       {
         terms: [
