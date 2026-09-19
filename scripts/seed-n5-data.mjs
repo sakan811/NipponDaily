@@ -184,7 +184,7 @@ function allEnglishGlosses(senses) {
   return out;
 }
 
-/** surface form -> { kana, meaning, allGlosses, partOfSpeech } */
+/** surface form -> { kana, meaning, allGlosses, partOfSpeech, common } */
 function buildJmdictIndex(jmdictData) {
   const index = new Map();
   const tagsMap = jmdictData.tags ?? {};
@@ -203,15 +203,26 @@ function buildJmdictIndex(jmdictData) {
     // Union of kanji AND kana surfaces (not kanji-only-if-present): several
     // N5 words are always written in kana (あちら, そちら, …) but JMdict
     // still records a formal kanji form (彼方, etc.), which meant these
-    // never matched anything under the old kanji-preferred lookup.
-    const surfaces = [
-      ...kanjiList.map((k) => k.text),
-      ...kanaList.map((k) => k.text),
+    // never matched anything under the old kanji-preferred lookup. Each
+    // surface carries whether ITS OWN kanji/kana element is JMdict-flagged
+    // "common", so a common N5 word isn't shadowed by an unrelated, far
+    // rarer word that happens to share the same surface (e.g. この is the
+    // standard reading of 此の "this", but also an obscure reading of 九
+    // "nine" — a plain first-match-wins index would pick whichever of the
+    // two happens to appear first in JMdict's entry order).
+    const surfaceEntries = [
+      ...kanjiList.map((k) => ({ text: k.text, common: !!k.common })),
+      ...kanaList.map((k) => ({ text: k.text, common: !!k.common })),
     ];
 
-    for (const surface of new Set(surfaces)) {
-      if (!index.has(surface)) {
-        index.set(surface, { kana: primaryKana, meaning, allGlosses, partOfSpeech });
+    const seenOnThisWord = new Set();
+    for (const { text: surface, common } of surfaceEntries) {
+      if (seenOnThisWord.has(surface)) continue;
+      seenOnThisWord.add(surface);
+
+      const existing = index.get(surface);
+      if (!existing || (common && !existing.common)) {
+        index.set(surface, { kana: primaryKana, meaning, allGlosses, partOfSpeech, common });
       }
     }
   }
@@ -360,7 +371,7 @@ function buildKanjidicIndex(kanjidicData) {
  * here (rather than patched upstream) so every re-seed applies them
  * automatically instead of silently reintroducing the bad gloss.
  *
- * Key is `term kana`, not just `term`, since a few N5-tagged rows
+ * Key is `term kana`, not just `term`, since a few N5-tagged rows
  * share a term but not a reading (e.g. 外/そと "outside" vs 外/ほか
  * "other") — keying on the pair avoids a correction meant for one leaking
  * onto the other.
@@ -369,7 +380,24 @@ const VOCAB_MEANING_OVERRIDES = {
   // Source list has this backwards as "this way (polite)". あちら is the
   // あ-series (far from both speaker and listener) direction word, i.e.
   // the polite counterpart of あっち — it means "that way over there".
-  "あちら あちら": "that way, over there (polite)",
+  "あちら あちら": "that way, over there (polite)",
+};
+
+/**
+ * Same idea as VOCAB_MEANING_OVERRIDES, but for partOfSpeech: these three
+ * N5 terms share their surface with a far rarer, unrelated JMdict entry
+ * (この is also an obscure reading of 九 "nine"; どの of 殿, an honorific
+ * suffix; 頭 of the counter for large animals). buildJmdictIndex()'s
+ * common-flag preference should already resolve these, but they're pinned
+ * explicitly too since a wrong grammar tag here mis-sorts the word into the
+ * wrong lesson category on the vocab page (verified individually against
+ * JMdict — see app/data/vocab-guide.ts's POS_TERM_OVERRIDES for the
+ * matching client-side safety net).
+ */
+const VOCAB_POS_OVERRIDES = {
+  "この この": "pre-noun adjectival (rentaishi)",
+  "どの どの": "pre-noun adjectival (rentaishi)",
+  "頭 あたま": "noun (common) (futsuumeishi)",
 };
 
 async function fetchN5List() {
@@ -393,7 +421,7 @@ async function fetchN5List() {
     const reading = (row[idx.reading] ?? "").split(";")[0].trim();
     const rawMeaning = (row[idx.meaning] ?? "").trim();
     const meaning =
-      VOCAB_MEANING_OVERRIDES[`${expression} ${reading}`] ?? rawMeaning;
+      VOCAB_MEANING_OVERRIDES[`${expression} ${reading}`] ?? rawMeaning;
     if (!expression || !reading || !meaning) continue;
 
     entries.push({ term: expression, kana: reading, meaning });
@@ -423,13 +451,15 @@ function assembleVocab(n5Entries, jmdictIndex) {
     const kana = entry.kana;
     const warning = checkMeaning(entry, jmdict);
     if (warning) meaningWarnings.push(warning);
+    const partOfSpeech =
+      VOCAB_POS_OVERRIDES[`${entry.term} ${kana}`] ?? jmdict?.partOfSpeech;
     return {
       id: slugify(entry.term, seenIds),
       term: entry.term,
       kana,
       romaji: toRomaji(kana),
       meaning: entry.meaning,
-      partOfSpeech: jmdict?.partOfSpeech,
+      partOfSpeech,
       jlptLevel: "N5",
     };
   });
