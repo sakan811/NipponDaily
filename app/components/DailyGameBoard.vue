@@ -51,18 +51,6 @@
               <p class="kicker text-secondary-500">
                 Question {{ currentIndex + 1 }} / {{ questions.length }}
               </p>
-              <div class="flex items-center gap-3 text-sm">
-                <span class="font-mono font-bold text-stone-900 dark:text-white"
-                  >{{ score }} pts</span
-                >
-                <span
-                  v-if="streak >= 2"
-                  class="flex items-center gap-1 text-warning-600 dark:text-warning-400 font-medium"
-                >
-                  <UIcon name="i-heroicons-fire" class="w-4 h-4" />
-                  {{ streak }}
-                </span>
-              </div>
             </div>
 
             <UCard class="w-full border-t-2 border-t-primary-500">
@@ -160,9 +148,9 @@
                     <p
                       class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
                     >
-                      {{ score }}
+                      {{ totalCorrect }}/{{ totalAnswered }}
                     </p>
-                    <p class="kicker text-stone-400">Score</p>
+                    <p class="kicker text-stone-400">Correct</p>
                   </div>
                   <div>
                     <p
@@ -171,14 +159,6 @@
                       {{ accuracyPercent }}%
                     </p>
                     <p class="kicker text-stone-400">Accuracy</p>
-                  </div>
-                  <div>
-                    <p
-                      class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
-                    >
-                      {{ longestStreak }}
-                    </p>
-                    <p class="kicker text-stone-400">Best Streak</p>
                   </div>
                 </div>
 
@@ -242,9 +222,6 @@ const mobileMenuOpen = ref(false);
 const playIndex = ref(0);
 
 const currentIndex = ref(0);
-const score = ref(0);
-const streak = ref(0);
-const longestStreak = ref(0);
 const selectedChoice = ref<string | null>(null);
 const isAnswered = ref(false);
 const perKindStats =
@@ -319,12 +296,7 @@ function selectChoice(choice: string): void {
   perKindStats.value[kind].total++;
 
   if (correct) {
-    streak.value++;
-    score.value += 10 * Math.min(streak.value, 3);
-    longestStreak.value = Math.max(longestStreak.value, streak.value);
     perKindStats.value[kind].correct++;
-  } else {
-    streak.value = 0;
   }
 }
 
@@ -338,9 +310,6 @@ function advance(): void {
 function restart(): void {
   playIndex.value++;
   currentIndex.value = 0;
-  score.value = 0;
-  streak.value = 0;
-  longestStreak.value = 0;
   selectedChoice.value = null;
   isAnswered.value = false;
   perKindStats.value = emptyStats();
@@ -398,11 +367,11 @@ defineExpose({
   fetchGame,
   questions,
   currentQuestion,
+  currentIndex,
   isFinished,
   selectChoice,
   advance,
   restart,
-  score,
-  streak,
+  perKindStats,
 });
 </script>

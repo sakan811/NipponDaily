@@ -135,8 +135,8 @@
           pool and writes that day's 20 questions straight into the database
           through a private MCP server. If a day's game is ever missing, the
           site generates one itself on the spot so there's always something to
-          play. Nothing about your play-through — score, streak, answers — is
-          ever sent back or saved anywhere.
+          play. Nothing about your play-through — answers, progress, results —
+          is ever sent back or saved anywhere.
         </p>
         <div class="flex flex-wrap gap-3 justify-center pt-2">
           <UButton
@@ -223,9 +223,9 @@ const gameParts = ref([
       "Every answer is graded immediately — right or wrong, you see it before moving on.",
   },
   {
-    title: "Streak Scoring",
+    title: "Per-Kind Accuracy",
     description:
-      "Consecutive correct answers multiply your points, up to a ×3 combo — no accounts needed to keep score for one round.",
+      "The end-of-round summary breaks down your accuracy across hiragana, katakana, kanji, and vocabulary — no accounts needed.",
   },
   {
     title: "Replay Anytime",

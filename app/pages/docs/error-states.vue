@@ -175,9 +175,9 @@
                   <p
                     class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
                   >
-                    160
+                    17/20
                   </p>
-                  <p class="kicker text-stone-400">Score</p>
+                  <p class="kicker text-stone-400">Correct</p>
                 </div>
                 <div>
                   <p
@@ -186,14 +186,6 @@
                     85%
                   </p>
                   <p class="kicker text-stone-400">Accuracy</p>
-                </div>
-                <div>
-                  <p
-                    class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
-                  >
-                    6
-                  </p>
-                  <p class="kicker text-stone-400">Best Streak</p>
                 </div>
               </div>
               <UButton
