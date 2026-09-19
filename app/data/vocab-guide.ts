@@ -85,20 +85,63 @@ export const WORD_TYPE_GROUPS: WordTypeGroup[] = [
   },
 ];
 
-/** Classifies a raw JMdict partOfSpeech string into one of WORD_TYPE_GROUPS' keys. */
-export function classifyPartOfSpeech(pos: string | undefined): string {
+/**
+ * The N5 word list stores counter/prefix/suffix entries with a literal "～"
+ * placeholder (～枚, ～歳, …) that never appears in JMdict's own surface
+ * forms, so scripts/seed-n5-data.mjs's JMdict lookup always misses for these
+ * and leaves partOfSpeech undefined. Recognize the placeholder directly
+ * rather than relying on a dictionary match.
+ */
+const COUNTER_PLACEHOLDER_PREFIX = "～";
+
+/**
+ * A handful of N5 terms collide, by exact kana, with a much rarer JMdict
+ * entry for a different word (e.g. この also happens to be a valid but
+ * obscure reading of 九 "nine") — since scripts/seed-n5-data.mjs's JMdict
+ * index keeps whichever entry it meets first per surface, these can end up
+ * tagged with that unrelated entry's part of speech. Verified individually
+ * against JMdict; keyed by term since the mistagged partOfSpeech string
+ * alone isn't a reliable-enough signal to special-case generically.
+ */
+const POS_TERM_OVERRIDES: Record<string, string> = {
+  この: "pronoun", // collided with 九's rare "この" reading (numeric), should be rentaishi
+  どの: "pronoun", // collided with 殿's "どの" reading (suffix), should be rentaishi
+  頭: "noun", // collided with 頭 as a counter for large animals, should be plain noun ("head")
+};
+
+/** Classifies a raw JMdict partOfSpeech string (for a given term) into one of WORD_TYPE_GROUPS' keys. */
+export function classifyPartOfSpeech(
+  pos: string | undefined,
+  term?: string,
+): string {
+  if (term && POS_TERM_OVERRIDES[term]) return POS_TERM_OVERRIDES[term];
+  if (term?.startsWith(COUNTER_PLACEHOLDER_PREFIX)) return "counter";
+
   const p = (pos ?? "").toLowerCase();
   if (!p) return "other";
   if (/adjectival noun|keiy[oō]d[oō]shi/.test(p)) return "na-adjective";
-  if (/adjective \(keiy[oō]shi\)/.test(p)) return "i-adjective";
+  // JMdict's actual tag text is "adjective (keiyoushi)" — the "ou" digraph,
+  // not the single-o/macron spelling this regex originally assumed — so
+  // every plain い-adjective in the pool (大きい, 新しい, …) was silently
+  // falling through every rule below to "other" until this was fixed.
+  if (/adjective \(keiy(?:ou|ō)shi\)/.test(p)) return "i-adjective";
   if (/aux\.?\s*verb suru|takes suru/.test(p)) return "noun";
+  // JMdict's tag for adj-no words (同じ, いろいろ, …) reads "noun or verb
+  // acting prenominally" — check this before the generic /verb/ rule below,
+  // since these don't conjugate like verbs at all (同じ is invariable).
+  if (/noun or (?:verb|participle) acting prenominally/.test(p)) return "noun";
+  // These two must run before the generic /verb/ and /noun/ checks below:
+  // "adverb" contains "verb" as a substring, and "pronoun"/"pre-noun" both
+  // contain "noun" — so every adverb and pronoun in the pool was silently
+  // swallowed by the broader verb/noun buckets until this was reordered.
+  if (/adverb/.test(p)) return "adverb";
+  if (/pronoun|rentaishi|pre-noun/.test(p)) return "pronoun";
   if (/verb/.test(p)) return "verb";
   if (/noun/.test(p)) return "noun";
-  if (/adverb/.test(p)) return "adverb";
   if (/particle/.test(p)) return "particle";
-  if (/pronoun|rentaishi|pre-noun/.test(p)) return "pronoun";
   if (/counter|prefix|suffix/.test(p)) return "counter";
   if (/conjunction|interjection|expression/.test(p)) return "expression";
+  if (/numeric/.test(p)) return "noun";
   return "other";
 }
 
