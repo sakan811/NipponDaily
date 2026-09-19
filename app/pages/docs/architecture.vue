@@ -91,7 +91,7 @@
             <strong>Technical Details:</strong> Built with Nuxt 4 and Vue 3,
             utilizing custom UI components and Tailwind CSS v4.
             <code>DailyGameBoard.vue</code> fetches one day's game, then runs
-            the entire round — question index, score, streak, and the
+            the entire round — question index, per-kind accuracy, and the
             end-of-round summary — as local component state. Nothing about a
             play-through is ever sent back to the server.
           </p>
@@ -421,7 +421,7 @@
                 <code>warning</code>)
               </td>
               <td class="py-3 px-4 text-sm leading-relaxed">
-                Correct answers, streak indicators, warnings, alerts
+                Correct answers, warnings, alerts
               </td>
             </tr>
             <tr>
@@ -745,9 +745,9 @@
           (MIT licence). Since that community word list occasionally carries a
           wrong English gloss, <code>scripts/seed-n5-data.mjs</code>
           cross-checks each entry's meaning against JMdict's own gloss for the
-          same word and reading, and flags any that look like a swapped
-          antonym (e.g. "this way" vs. "that way") for manual review at seed
-          time — confirmed errors are corrected in that script's
+          same word and reading, and flags any that look like a swapped antonym
+          (e.g. "this way" vs. "that way") for manual review at seed time —
+          confirmed errors are corrected in that script's
           <code>VOCAB_MEANING_OVERRIDES</code>.
         </p>
       </div>

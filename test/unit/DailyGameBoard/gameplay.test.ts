@@ -13,7 +13,7 @@ function findButtonByText(wrapper: ReturnType<typeof mount>, text: string) {
 }
 
 describe("DailyGameBoard gameplay", () => {
-  it("answering correctly increases score and streak", async () => {
+  it("answering correctly marks the question correct", async () => {
     mockFetchGame(makeDailyGame());
     const wrapper = mount(DailyGameBoard);
     await loadGame(wrapper);
@@ -21,12 +21,10 @@ describe("DailyGameBoard gameplay", () => {
     const correct = wrapper.vm.currentQuestion.correctAnswer;
     await findButtonByText(wrapper, correct)!.trigger("click");
 
-    expect(wrapper.vm.score).toBe(10);
-    expect(wrapper.vm.streak).toBe(1);
     expect(wrapper.text()).toContain("Correct!");
   });
 
-  it("answering incorrectly resets streak and reveals the correct answer", async () => {
+  it("answering incorrectly reveals the correct answer", async () => {
     mockFetchGame(makeDailyGame());
     const wrapper = mount(DailyGameBoard);
     await loadGame(wrapper);
@@ -37,8 +35,6 @@ describe("DailyGameBoard gameplay", () => {
     );
     await findButtonByText(wrapper, wrong!)!.trigger("click");
 
-    expect(wrapper.vm.score).toBe(0);
-    expect(wrapper.vm.streak).toBe(0);
     expect(wrapper.text()).toContain(question.correctAnswer);
   });
 
@@ -56,7 +52,7 @@ describe("DailyGameBoard gameplay", () => {
     expect(wrapper.text()).toContain("Round Complete!");
   });
 
-  it("Play Again resets score and index back to the first question", async () => {
+  it("Play Again resets progress back to the first question", async () => {
     mockFetchGame(makeDailyGame([makeQuestion()]));
     const wrapper = mount(DailyGameBoard);
     await loadGame(wrapper);
@@ -70,11 +66,11 @@ describe("DailyGameBoard gameplay", () => {
     wrapper.vm.restart();
     await wrapper.vm.$nextTick();
 
-    expect(wrapper.vm.score).toBe(0);
+    expect(wrapper.vm.currentIndex).toBe(0);
     expect(wrapper.vm.isFinished).toBe(false);
   });
 
-  it("disables choice buttons after answering, so a second click can't double-score", async () => {
+  it("disables choice buttons after answering, so a second click can't double-count", async () => {
     mockFetchGame(makeDailyGame());
     const wrapper = mount(DailyGameBoard);
     await loadGame(wrapper);
@@ -84,6 +80,8 @@ describe("DailyGameBoard gameplay", () => {
     await button.trigger("click");
     await button.trigger("click");
 
-    expect(wrapper.vm.score).toBe(10);
+    expect(wrapper.vm.perKindStats[wrapper.vm.currentQuestion.kind].total).toBe(
+      1,
+    );
   });
 });

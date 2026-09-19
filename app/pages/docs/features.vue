@@ -76,10 +76,10 @@ const features = [
     icon: "i-heroicons-document-text",
   },
   {
-    title: "Instant Feedback & Streak Scoring",
+    title: "Instant Feedback & Accuracy Summary",
     description:
-      "Every answer is graded immediately; consecutive correct answers multiply points up to a ×3 combo — no accounts needed to track a single round's score.",
-    icon: "i-heroicons-fire",
+      "Every answer is graded immediately; the end-of-round summary breaks down accuracy per kind — no accounts needed to track a single round.",
+    icon: "i-heroicons-check-circle",
   },
   {
     title: "Agent-Driven Daily Generation",
@@ -102,7 +102,7 @@ const features = [
   {
     title: "Zero Gameplay Persistence",
     description:
-      "Score, streak, current question, and the end-of-round summary all live in the browser's own component state — nothing about a play-through is ever sent back to the server or saved anywhere.",
+      "Current question, per-kind accuracy, and the end-of-round summary all live in the browser's own component state — nothing about a play-through is ever sent back to the server or saved anywhere.",
     icon: "i-heroicons-shield-check",
   },
   {

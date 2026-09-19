@@ -78,7 +78,7 @@ const pages = [
     to: "/docs/features",
     title: "Core Features",
     description:
-      "The player-facing capabilities: one 20-question daily round across hiragana, katakana, N5 kanji and vocabulary; instant feedback and streak scoring; and zero server-side gameplay persistence.",
+      "The player-facing capabilities: one 20-question daily round across hiragana, katakana, N5 kanji and vocabulary; instant feedback and a per-kind accuracy summary; and zero server-side gameplay persistence.",
     icon: "i-heroicons-star",
   },
   {

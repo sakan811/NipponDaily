@@ -66,7 +66,7 @@ describe("Index Page (Landing)", () => {
     expect(wrapper.text()).toContain("N5 Kanji");
     expect(wrapper.text()).toContain("N5 Vocabulary");
     expect(wrapper.text()).toContain("Instant Feedback");
-    expect(wrapper.text()).toContain("Streak Scoring");
+    expect(wrapper.text()).toContain("Per-Kind Accuracy");
     expect(wrapper.text()).toContain("Replay Anytime");
   });
 
