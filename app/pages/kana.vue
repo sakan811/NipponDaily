@@ -247,6 +247,24 @@
           under the Apache-2.0 License.
         </p>
       </template>
+      <template #right>
+        <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
+          Romaji via
+          <a
+            href="https://github.com/WaniKani/WanaKana"
+            target="_blank"
+            rel="noopener"
+            class="underline hover:text-primary-500"
+            >wanakana</a
+          >
+          (MIT) —
+          <NuxtLink
+            to="/docs/architecture#data-attribution"
+            class="underline hover:text-primary-500"
+            >full attribution</NuxtLink
+          >
+        </p>
+      </template>
     </UFooter>
   </div>
 </template>

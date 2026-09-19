@@ -298,6 +298,24 @@
           under the Apache-2.0 License.
         </p>
       </template>
+      <template #right>
+        <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
+          Vocabulary from
+          <a
+            href="https://github.com/elzup/jlpt-word-list"
+            target="_blank"
+            rel="noopener"
+            class="underline hover:text-primary-500"
+            >elzup/jlpt-word-list</a
+          >
+          (MIT), cross-referenced against JMdict (EDRDG, CC BY-SA 4.0) —
+          <NuxtLink
+            to="/docs/architecture#data-attribution"
+            class="underline hover:text-primary-500"
+            >full attribution</NuxtLink
+          >
+        </p>
+      </template>
     </UFooter>
   </div>
 </template>
