@@ -623,6 +623,7 @@
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
+        id="data-attribution"
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
         4. N5 Data & Attribution
@@ -650,7 +651,13 @@
               <td class="py-2 px-2">Hiragana / Katakana</td>
               <td class="py-2 px-2">
                 Hardcoded (fixed, unchanging syllabaries — not dictionary
-                content)
+                content); <code>romaji</code> derived via
+                <a
+                  href="https://github.com/WaniKani/WanaKana"
+                  target="_blank"
+                  rel="noopener"
+                  >wanakana</a
+                >
               </td>
               <td class="py-2 px-2 font-mono text-xs">
                 n5:hiragana:*, n5:katakana:*
@@ -716,7 +723,7 @@
           >
           project's pre-parsed JSON releases.
         </p>
-        <p class="m-0">
+        <p class="m-0 mb-2">
           The N5-level word list is digitized from the community-standard list
           originally compiled at tanos.co.uk, via
           <a
@@ -726,6 +733,22 @@
             >elzup/jlpt-word-list</a
           >
           (MIT licence).
+        </p>
+        <p class="m-0">
+          <code>romaji</code> for the hiragana/katakana pool is derived via
+          <a
+            href="https://github.com/WaniKani/WanaKana"
+            target="_blank"
+            rel="noopener"
+            >wanakana</a
+          >
+          (MIT licence). Since that community word list occasionally carries a
+          wrong English gloss, <code>scripts/seed-n5-data.mjs</code>
+          cross-checks each entry's meaning against JMdict's own gloss for the
+          same word and reading, and flags any that look like a swapped
+          antonym (e.g. "this way" vs. "that way") for manual review at seed
+          time — confirmed errors are corrected in that script's
+          <code>VOCAB_MEANING_OVERRIDES</code>.
         </p>
       </div>
 
