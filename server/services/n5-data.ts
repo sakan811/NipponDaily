@@ -57,7 +57,10 @@ class N5DataService {
     try {
       const ids = await redis.smembers(idsKey);
       if (ids.length === 0) return [];
-      const keys = ids.map((id) => `${keyPrefix}${id}`);
+      // Redis set order is unspecified — sort so pool order (and therefore
+      // "first match wins" lookups like vocab.vue's term index) is stable
+      // across reads instead of depending on smembers' incidental ordering.
+      const keys = [...ids].sort().map((id) => `${keyPrefix}${id}`);
       const results = await redis.mget<T[]>(...keys);
       return results.filter((item): item is T => item !== null);
     } catch (e) {
