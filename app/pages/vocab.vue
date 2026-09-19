@@ -358,7 +358,7 @@ function findVocab(term: string): N5Vocab | undefined {
 const groupCounts = computed(() => {
   const counts: Record<string, number> = {};
   for (const item of vocabPool.value) {
-    const key = classifyPartOfSpeech(item.partOfSpeech);
+    const key = classifyPartOfSpeech(item.partOfSpeech, item.term);
     counts[key] = (counts[key] || 0) + 1;
   }
   return counts;
@@ -376,7 +376,7 @@ const filteredVocab = computed(() => {
   return vocabPool.value.filter((item) => {
     if (
       selectedGroup.value !== "all" &&
-      classifyPartOfSpeech(item.partOfSpeech) !== selectedGroup.value
+      classifyPartOfSpeech(item.partOfSpeech, item.term) !== selectedGroup.value
     ) {
       return false;
     }
