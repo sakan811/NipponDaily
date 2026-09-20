@@ -82,22 +82,22 @@ const features = [
     icon: "i-heroicons-check-circle",
   },
   {
-    title: "Agent-Driven Daily Generation",
+    title: "Deterministic Daily Generation",
     description:
-      "A Claude web agent samples the N5 pool and authors that day's questions on a daily schedule, entirely outside this codebase.",
+      'GET /api/daily-game generates each day\'s game itself from the N5 pool using a date-seeded PRNG the first time that date is requested, then persists it — the site never shows "no game today", and no agent or AI provider is involved in game content.',
+    icon: "i-heroicons-arrow-path",
+  },
+  {
+    title: "Agent-Driven Seasonal Theme",
+    description:
+      "A Claude web agent checks and, when it should change, switches NipponDaily's active seasonal color palette on its own schedule, entirely outside this codebase.",
     icon: "i-heroicons-cpu-chip",
   },
   {
-    title: "MCP-Driven Game Pipeline",
+    title: "MCP-Driven Theme Pipeline",
     description:
-      "The daily agent writes the day's game through a bearer-token-protected remote MCP server (get_n5_pool, get_recent_daily_games, save_daily_game).",
+      "The theme agent reads and writes the active season through a bearer-token-protected remote MCP server (get_active_theme, save_site_theme), restricted to a closed set of implemented presets.",
     icon: "i-heroicons-command-line",
-  },
-  {
-    title: "Deterministic Fallback Generation",
-    description:
-      'If a day\'s agent-authored game is missing, GET /api/daily-game generates one itself from the pool using a date-seeded PRNG — the site never shows "no game today", and repeated calls before the agent catches up return the same fallback.',
-    icon: "i-heroicons-arrow-path",
   },
   {
     title: "Zero Gameplay Persistence",
