@@ -84,7 +84,7 @@ const features = [
   {
     title: "Deterministic Daily Generation",
     description:
-      'GET /api/daily-game generates each day\'s game itself from the N5 pool using a date-seeded PRNG the first time that date is requested, then persists it — the site never shows "no game today", and no agent or AI provider is involved in game content.',
+      'GET /api/daily-game generates each day\'s game itself from the N5 pool using a date-seeded PRNG the first time that date is requested, then persists it — the site never shows "no game today", and no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day\'s game at 00:00 UTC, and generation avoids repeating any item used in the past 7 days.',
     icon: "i-heroicons-arrow-path",
   },
   {

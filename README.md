@@ -13,7 +13,7 @@
 - **Daily 20-Question Round**: 5 multiple-choice questions each for hiragana, katakana, kanji, and vocabulary — every question has exactly 4 choices including the correct answer.
 - **One Game, One Day**: No accounts, no server-side gameplay state — score, streak, longest streak, and per-kind accuracy live only in the browser for the current round. "Play Again" reshuffles and restarts from the already-fetched payload with no refetch.
 - **Replay Any Past Day**: Daily games are never deleted, so `GET /api/daily-game?date=YYYY-MM-DD` can replay any past date.
-- **Deterministic Daily Generation**: `GET /api/daily-game` builds each day's game itself from the pool (seeded PRNG) the first time it's requested and persists it, so the site never shows "no game today" — no agent or AI provider is involved in game content.
+- **Deterministic Daily Generation**: `GET /api/daily-game` builds each day's game itself from the pool (seeded PRNG) the first time it's requested and persists it, so the site never shows "no game today" — no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day's game at `00:00 UTC`, and generation avoids repeating any item used in the past 7 days.
 - **MCP-Driven Seasonal Theme**: A Claude web agent checks and, when it should change, switches NipponDaily's active color palette through this project's remote MCP server (`get_active_theme`, `save_site_theme`), restricted to a closed set of implemented presets. The agent's full operating prompt lives at [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md).
 - **Sakura-Inspired UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 using locally maintained custom UI components (no `@nuxt/ui` dependency). Two themes: a soft "Classic Sakura" day theme (deep rose against cream washi, grounded by sage and warm bark brown) and a midnight-inverted "Midnight Leaves & Evening Plum" dark theme (luminous teal and evening orchid against a midnight slate canvas).
 - **Resilient Fallback UI**: A graceful UI fallback (`TrendingFallback`) when the `/api/daily-game` fetch fails.
@@ -55,6 +55,12 @@ This project uses **pnpm** as its package manager.
    # Remote MCP server (server/api/mcp.ts) — bearer token required to call it.
    # Generate with: openssl rand -hex 32
    MCP_AUTH_TOKEN="your_long_random_mcp_secret_here"
+
+   # Vercel Cron target (server/api/cron/generate-daily-game.get.ts) —
+   # bearer token required to call it. Only needed for a Vercel deployment;
+   # Vercel sends it automatically as `Authorization: Bearer $CRON_SECRET`.
+   # Generate with: openssl rand -hex 32
+   CRON_SECRET="your_long_random_cron_secret_here"
    ```
 
    > [!TIP]
@@ -78,11 +84,12 @@ This project uses **pnpm** as its package manager.
 
 See `.env.example` for reference. Configure these in your `.env` file:
 
-| Variable                   | Required | Description                                                                                                                                                                   |
-| :------------------------- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `UPSTASH_REDIS_REST_URL`   | **Yes**  | Upstash Redis REST URL — the N5 pool, daily-game, and site-theme data that `GET /api/daily-game`/`GET /api/site-theme` read from, and `pnpm seed:n5`/the MCP server write to. |
-| `UPSTASH_REDIS_REST_TOKEN` | **Yes**  | Upstash Redis REST token.                                                                                                                                                     |
-| `MCP_AUTH_TOKEN`           | **Yes**  | Bearer token required to call the remote MCP server at `/api/mcp` (`Authorization: Bearer <token>` or `?token=`).                                                             |
+| Variable                   | Required | Description                                                                                                                                                                     |
+| :------------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `UPSTASH_REDIS_REST_URL`   | **Yes**  | Upstash Redis REST URL — the N5 pool, daily-game, and site-theme data that `GET /api/daily-game`/`GET /api/site-theme` read from, and `pnpm seed:n5`/the MCP server write to.   |
+| `UPSTASH_REDIS_REST_TOKEN` | **Yes**  | Upstash Redis REST token.                                                                                                                                                       |
+| `MCP_AUTH_TOKEN`           | **Yes**  | Bearer token required to call the remote MCP server at `/api/mcp` (`Authorization: Bearer <token>` or `?token=`).                                                               |
+| `CRON_SECRET`              | No       | Bearer token required to call the Vercel Cron target at `/api/cron/generate-daily-game`; only needed for a Vercel deployment — Vercel sends it automatically.                   |
 
 Server-side config is resolved through `server/utils/config.ts`'s `getEnvOrConfig()`, which prefers Nuxt `runtimeConfig` and falls back to `process.env` (`scripts/seed-n5-data.mjs` is the one exception — it runs as a bare `node` process outside any Nuxt context, so it reads `process.env` directly). There is currently no request rate limiting and no integration-test suite — all tests run against mocks.
 
@@ -181,6 +188,8 @@ Repo-only docs:
 }
 ```
 
+`GET /api/cron/generate-daily-game` — the Vercel Cron target (`vercel.json`, scheduled for `00:00 UTC` daily) that pre-generates the day's game via the same build path as `GET /api/daily-game`; idempotent, and bearer-token protected via `CRON_SECRET`.
+
 `ALL /api/mcp` is the only other in-repo endpoint — the MCP server described above; see [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for its full tool schemas.
 
 ## 📖 Data & Attribution
@@ -200,7 +209,7 @@ Since the community word list occasionally carries a wrong English gloss (see [`
 
 ## ⚠️ Limitations
 
-- **Dependencies**: A persistent deployment needs an Upstash Redis instance and an `MCP_AUTH_TOKEN` for the agent-facing theme pipeline, plus a seeded N5 pool (`pnpm seed:n5`).
+- **Dependencies**: A persistent deployment needs an Upstash Redis instance and an `MCP_AUTH_TOKEN` for the agent-facing theme pipeline, plus a seeded N5 pool (`pnpm seed:n5`). A Vercel deployment should also set `CRON_SECRET` so the daily pre-generation cron job is authenticated.
 - **No rate limiting**: there is currently no request rate limiting on any endpoint.
 - **No integration tests**: all tests run against mocks (`test/unit`, `test/server`); there is no SRH/Redis-proxy or `test:integration` setup.
 
