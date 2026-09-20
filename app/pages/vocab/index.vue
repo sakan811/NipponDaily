@@ -76,82 +76,28 @@
             </p>
           </div>
 
-          <div
-            v-for="cluster in visibleClusters"
-            :key="cluster.key"
-            class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 sm:p-6 space-y-4"
-          >
-            <div class="flex flex-wrap items-baseline gap-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <NuxtLink
+              v-for="cluster in visibleClusters"
+              :key="cluster.key"
+              :to="`/vocab/families/${cluster.key}`"
+              class="group rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 sm:p-6 space-y-2 hover:border-primary-400 dark:hover:border-primary-500 hover:bg-stone-50 dark:hover:bg-stone-900 transition-colors"
+            >
               <UBadge color="secondary" variant="soft" size="sm">{{
                 cluster.subtitle
               }}</UBadge>
-              <h3
-                class="font-serif text-xl font-bold text-stone-900 dark:text-white"
-              >
-                {{ cluster.title }}
-              </h3>
-            </div>
-            <p
-              class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
-            >
-              {{ cluster.insight }}
-            </p>
-
-            <NuxtLink
-              :to="`/vocab/families/${cluster.key}`"
-              class="inline-flex items-center gap-1 text-xs font-medium text-primary-600 dark:text-primary-400 hover:underline"
-            >
-              Explore this topic
-              <UIcon name="i-heroicons-arrow-right" class="w-3 h-3" />
-            </NuxtLink>
-
-            <div class="space-y-3 pt-1">
-              <div
-                v-for="(row, rowIndex) in cluster.rows"
-                :key="rowIndex"
-                class="space-y-1.5"
-              >
-                <p
-                  v-if="row.label"
-                  class="text-[11px] uppercase tracking-wide text-stone-400 dark:text-stone-500 font-sans"
+              <div class="flex items-center justify-between gap-2">
+                <h3
+                  class="font-serif text-xl font-bold text-stone-900 dark:text-white"
                 >
-                  {{ row.label }}
-                </p>
-
-                <div class="flex flex-wrap items-center gap-2">
-                  <template v-for="(term, termIndex) in row.terms" :key="term">
-                    <div
-                      v-if="findVocab(term)"
-                      class="rounded-sm border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 px-2.5 py-1.5 text-center"
-                    >
-                      <p
-                        class="font-serif text-base text-stone-900 dark:text-white leading-tight"
-                      >
-                        {{ findVocab(term)!.term }}
-                      </p>
-                      <p class="text-[10px] text-stone-500 dark:text-stone-400">
-                        {{ findVocab(term)!.kana }}
-                      </p>
-                      <p
-                        class="text-[10px] text-stone-600 dark:text-stone-300 max-w-[7rem]"
-                      >
-                        {{ findVocab(term)!.meaning }}
-                      </p>
-                    </div>
-                    <UIcon
-                      v-if="
-                        cluster.pairwise &&
-                        row.terms.length === 2 &&
-                        termIndex === 0 &&
-                        findVocab(term)
-                      "
-                      name="i-heroicons-arrows-right-left"
-                      class="w-4 h-4 text-stone-300 dark:text-stone-600 shrink-0"
-                    />
-                  </template>
-                </div>
+                  {{ cluster.title }}
+                </h3>
+                <UIcon
+                  name="i-heroicons-arrow-right"
+                  class="w-4 h-4 text-stone-300 dark:text-stone-600 shrink-0 group-hover:text-primary-500 group-hover:translate-x-0.5 transition-all"
+                />
               </div>
-            </div>
+            </NuxtLink>
           </div>
         </section>
 
@@ -371,7 +317,6 @@ import {
   WORD_TYPE_GROUPS,
   classifyPartOfSpeech,
 } from "../../data/vocab-guide";
-import type { N5Vocab } from "~~/types/index";
 
 const PAGE_SIZE = 60;
 
@@ -383,18 +328,6 @@ const { vocabPool, loading, error, fetchVocab } = useN5VocabPool();
 const searchQuery = ref("");
 const selectedGroup = ref<string>("all");
 const visibleCount = ref(PAGE_SIZE);
-
-const vocabByTerm = computed(() => {
-  const map = new Map<string, N5Vocab>();
-  for (const item of vocabPool.value) {
-    if (!map.has(item.term)) map.set(item.term, item);
-  }
-  return map;
-});
-
-function findVocab(term: string): N5Vocab | undefined {
-  return vocabByTerm.value.get(term);
-}
 
 const groupCounts = computed(() => {
   const counts: Record<string, number> = {};

@@ -243,16 +243,16 @@ const nextCluster = computed(() =>
 
 const { vocabPool, loading, fetchVocab } = useN5VocabPool();
 
-const vocabByTerm = computed(() => {
+const vocabById = computed(() => {
   const map = new Map<string, N5Vocab>();
   for (const item of vocabPool.value) {
-    if (!map.has(item.term)) map.set(item.term, item);
+    map.set(item.id, item);
   }
   return map;
 });
 
-function findVocab(term: string): N5Vocab | undefined {
-  return vocabByTerm.value.get(term);
+function findVocab(id: string): N5Vocab | undefined {
+  return vocabById.value.get(id);
 }
 
 onMounted(async () => {
