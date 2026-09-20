@@ -82,3 +82,26 @@ export interface DailyGame {
   /** Which path produced it — see server/api/daily-game.get.ts. */
   source: "agent" | "fallback";
 }
+
+// --- SITE THEME ---
+
+/**
+ * Closed set of seasonal design presets an agent may select via the MCP
+ * server's save_site_theme tool. Deliberately kept in lockstep with the
+ * [data-season="..."] blocks actually defined in
+ * app/assets/css/tailwind.css (see server/utils/site-theme.ts SEASON_IDS) —
+ * a season only belongs in this union once it has a matching CSS preset.
+ */
+export type SeasonId = "autumn";
+
+/**
+ * NipponDaily's active seasonal palette — persisted at n5:site_theme and
+ * served by GET /api/site-theme. Applied as a data-season attribute on
+ * <html>, which the [data-season] blocks in tailwind.css key off of.
+ */
+export interface SiteTheme {
+  season: SeasonId;
+  updatedAt: number;
+  /** Which path produced it — see server/api/site-theme.get.ts. */
+  source: "agent" | "fallback";
+}
