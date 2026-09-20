@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { mount, flushPromises } from "@vue/test-utils";
-import VocabPage from "~/app/pages/vocab.vue";
+import VocabPage from "~/app/pages/vocab/index.vue";
 import { WORD_CLUSTERS, WORD_TYPE_GROUPS } from "~/app/data/vocab-guide";
 import type { N5Vocab } from "~~/types/index";
 
@@ -44,6 +44,25 @@ describe("Vocab Page", () => {
         wrapper.find(`[data-testid="vocab-filter-${group.key}"]`).exists(),
       ).toBe(true);
     }
+  });
+
+  it("links each word cluster to its dedicated /vocab/families page", () => {
+    const wrapper = mount(VocabPage);
+
+    for (const cluster of WORD_CLUSTERS) {
+      expect(
+        wrapper.find(`a[href="/vocab/families/${cluster.key}"]`).exists(),
+      ).toBe(true);
+    }
+  });
+
+  it("links the active word-type group to its dedicated /vocab/types page", async () => {
+    const wrapper = mount(VocabPage);
+
+    await wrapper.find('[data-testid="vocab-filter-verb"]').trigger("click");
+    await flushPromises();
+
+    expect(wrapper.find('a[href="/vocab/types/verb"]').exists()).toBe(true);
   });
 
   it("links to the daily game and kana page as CTAs", () => {

@@ -51,7 +51,10 @@
       </div>
 
       <!-- Loading skeleton -->
-      <div v-else-if="loading" class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div
+        v-else-if="loading"
+        class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3"
+      >
         <USkeleton v-for="i in 8" :key="i" class="h-20 rounded-sm" />
       </div>
 
@@ -88,9 +91,19 @@
                 {{ cluster.title }}
               </h3>
             </div>
-            <p class="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+            <p
+              class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
+            >
               {{ cluster.insight }}
             </p>
+
+            <NuxtLink
+              :to="`/vocab/families/${cluster.key}`"
+              class="inline-flex items-center gap-1 text-xs font-medium text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              Explore this topic
+              <UIcon name="i-heroicons-arrow-right" class="w-3 h-3" />
+            </NuxtLink>
 
             <div class="space-y-3 pt-1">
               <div
@@ -168,7 +181,7 @@
               data-testid="vocab-search"
               placeholder="Search by kanji, kana, romaji, or meaning…"
               class="w-full rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 px-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40"
-            >
+            />
           </div>
 
           <!-- Category pills -->
@@ -204,15 +217,28 @@
           </div>
 
           <!-- Active group insight -->
-          <p
+          <div
             v-if="activeGroupInsight"
-            class="max-w-2xl mx-auto text-sm text-center leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
+            class="max-w-2xl mx-auto text-center space-y-2"
           >
-            {{ activeGroupInsight }}
-          </p>
+            <p
+              class="text-sm leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
+            >
+              {{ activeGroupInsight }}
+            </p>
+            <NuxtLink
+              :to="`/vocab/types/${selectedGroup}`"
+              class="inline-flex items-center gap-1 text-xs font-medium text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              Read the full grammar guide
+              <UIcon name="i-heroicons-arrow-right" class="w-3 h-3" />
+            </NuxtLink>
+          </div>
 
           <!-- Results -->
-          <p class="text-xs text-center text-stone-400 dark:text-stone-500 font-sans">
+          <p
+            class="text-xs text-center text-stone-400 dark:text-stone-500 font-sans"
+          >
             Showing {{ Math.min(visibleCount, filteredVocab.length) }} of
             {{ filteredVocab.length }} words
           </p>
@@ -224,13 +250,18 @@
             No words match "{{ searchQuery }}".
           </div>
 
-          <div v-else class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div
+            v-else
+            class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"
+          >
             <div
               v-for="item in displayedVocab"
               :key="item.id"
               class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-3 space-y-1"
             >
-              <p class="font-serif text-lg text-stone-900 dark:text-white leading-tight">
+              <p
+                class="font-serif text-lg text-stone-900 dark:text-white leading-tight"
+              >
                 {{ item.term }}
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400">
@@ -239,13 +270,18 @@
                   >· {{ item.romaji }}</span
                 >
               </p>
-              <p class="text-xs text-stone-600 dark:text-stone-300 leading-snug">
+              <p
+                class="text-xs text-stone-600 dark:text-stone-300 leading-snug"
+              >
                 {{ item.meaning }}
               </p>
             </div>
           </div>
 
-          <div v-if="visibleCount < filteredVocab.length" class="flex justify-center pt-2">
+          <div
+            v-if="visibleCount < filteredVocab.length"
+            class="flex justify-center pt-2"
+          >
             <UButton
               label="Show More"
               color="gray"
@@ -284,7 +320,13 @@
             icon="i-heroicons-arrow-right"
             trailing
           />
-          <UButton label="Learn the Kana" to="/kana" color="gray" variant="ghost" size="md" />
+          <UButton
+            label="Learn the Kana"
+            to="/kana"
+            color="gray"
+            variant="ghost"
+            size="md"
+          />
         </div>
       </section>
     </main>
@@ -322,12 +364,13 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from "vue";
-import AppHeader from "../components/AppHeader.vue";
+import AppHeader from "../../components/AppHeader.vue";
+import { useN5VocabPool } from "../../composables/useN5VocabPool";
 import {
   WORD_CLUSTERS,
   WORD_TYPE_GROUPS,
   classifyPartOfSpeech,
-} from "../data/vocab-guide";
+} from "../../data/vocab-guide";
 import type { N5Vocab } from "~~/types/index";
 
 const PAGE_SIZE = 60;
@@ -335,9 +378,7 @@ const PAGE_SIZE = 60;
 const wordTypeGroups = WORD_TYPE_GROUPS;
 const visibleClusters = WORD_CLUSTERS;
 
-const vocabPool = ref<N5Vocab[]>([]);
-const loading = ref(false);
-const error = ref<string | null>(null);
+const { vocabPool, loading, error, fetchVocab } = useN5VocabPool();
 
 const searchQuery = ref("");
 const selectedGroup = ref<string>("all");
@@ -397,28 +438,6 @@ const displayedVocab = computed(() =>
 watch([searchQuery, selectedGroup], () => {
   visibleCount.value = PAGE_SIZE;
 });
-
-const fetchVocab = async (): Promise<void> => {
-  loading.value = true;
-  error.value = null;
-
-  try {
-    const response = await $fetch<{
-      success: boolean;
-      data: N5Vocab[];
-      timestamp: string;
-    }>("/api/n5-vocab");
-
-    if (response?.data) {
-      vocabPool.value = response.data;
-    }
-  } catch (err: unknown) {
-    console.error("Error fetching N5 vocab:", err);
-    error.value = "Failed to load the vocabulary pool. Please try again.";
-  } finally {
-    loading.value = false;
-  }
-};
 
 onMounted(async () => {
   const isTest =

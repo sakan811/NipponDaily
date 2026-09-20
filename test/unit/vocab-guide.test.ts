@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { classifyPartOfSpeech } from "~/app/data/vocab-guide";
+import {
+  classifyPartOfSpeech,
+  WORD_CLUSTERS,
+  WORD_TYPE_GROUPS,
+} from "~/app/data/vocab-guide";
 
 describe("classifyPartOfSpeech", () => {
   it("buckets ordinary JMdict tags as expected", () => {
@@ -54,5 +58,43 @@ describe("classifyPartOfSpeech", () => {
     expect(
       classifyPartOfSpeech("noun or verb acting prenominally", "同じ"),
     ).toBe("noun");
+  });
+});
+
+// Every cluster/group gets its own dedicated page at /vocab/families/[key]
+// and /vocab/types/[key] (see app/pages/vocab/families/[key].vue and
+// app/pages/vocab/types/[key].vue) — these guard against silently adding a
+// new topic without the deep-dive content those pages are built around.
+describe("Word Families and Word Types deep-dive content", () => {
+  it("gives every word cluster an extended insight, at least one example, and a common mistake", () => {
+    for (const cluster of WORD_CLUSTERS) {
+      expect(
+        cluster.extendedInsight,
+        `${cluster.key} extendedInsight`,
+      ).toBeTruthy();
+      expect(
+        cluster.examples?.length ?? 0,
+        `${cluster.key} examples`,
+      ).toBeGreaterThan(0);
+      expect(
+        cluster.commonMistake,
+        `${cluster.key} commonMistake`,
+      ).toBeTruthy();
+    }
+  });
+
+  it("gives every word-type group except 'other' an extended insight, at least one example, and a common mistake", () => {
+    for (const group of WORD_TYPE_GROUPS) {
+      if (group.key === "other") continue;
+      expect(
+        group.extendedInsight,
+        `${group.key} extendedInsight`,
+      ).toBeTruthy();
+      expect(
+        group.examples?.length ?? 0,
+        `${group.key} examples`,
+      ).toBeGreaterThan(0);
+      expect(group.commonMistake, `${group.key} commonMistake`).toBeTruthy();
+    }
   });
 });
