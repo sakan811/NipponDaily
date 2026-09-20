@@ -3,7 +3,6 @@ import type {
   DailyGame,
   KanaCharacter,
   N5Kanji,
-  N5PoolKind,
   N5Vocab,
 } from "~~/types/index";
 import { getEnvOrConfig } from "../utils/config";
@@ -13,14 +12,11 @@ import { getEnvOrConfig } from "../utils/config";
  * offline scripts/seed-n5-data.mjs script, not by this service) plus
  * read/write for the per-date DailyGame record it persists.
  */
-const DAILY_GAME_INDEX_KEY = "n5:daily_game_index";
-
 type PoolItem = N5Kanji | N5Vocab | KanaCharacter;
 
 class N5DataService {
   private client: Redis | null = null;
   private memoryDailyGames = new Map<string, DailyGame>();
-  private memoryDailyGameDates: string[] = [];
 
   private getRedisClient(): Redis | null {
     if (this.client) return this.client;
@@ -100,30 +96,6 @@ class N5DataService {
     return { kanji, vocab, hiragana, katakana };
   }
 
-  /**
-   * A random subset of one pool kind, excluding any given ids — backs the
-   * get_n5_pool MCP tool so the daily agent never has to read the full
-   * ~1,000-item pool just to pick ~20 items for one day's game.
-   */
-  async sampleKind(
-    kind: N5PoolKind,
-    count: number,
-    excludeIds: string[] = [],
-  ): Promise<PoolItem[]> {
-    const pool = await (kind === "kanji"
-      ? this.getKanjiPool()
-      : kind === "vocab"
-        ? this.getVocabPool()
-        : kind === "hiragana"
-          ? this.getHiragana()
-          : this.getKatakana());
-
-    const excluded = new Set(excludeIds);
-    const candidates = pool.filter((item) => !excluded.has(item.id));
-    const shuffled = [...candidates].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, count);
-  }
-
   async getDailyGame(date: string): Promise<DailyGame | null> {
     const redis = this.getRedisClient();
     if (!redis) {
@@ -142,40 +114,14 @@ class N5DataService {
     const redis = this.getRedisClient();
     if (!redis) {
       this.memoryDailyGames.set(game.date, game);
-      if (!this.memoryDailyGameDates.includes(game.date)) {
-        this.memoryDailyGameDates.push(game.date);
-      }
       return;
     }
 
     try {
       await redis.set(`n5:daily_game:${game.date}`, JSON.stringify(game));
-      await redis.zadd(DAILY_GAME_INDEX_KEY, {
-        score: game.generatedAt,
-        member: game.date,
-      });
     } catch (e) {
       console.error(`Error saving daily game ${game.date} to Redis:`, e);
       this.memoryDailyGames.set(game.date, game);
-      if (!this.memoryDailyGameDates.includes(game.date)) {
-        this.memoryDailyGameDates.push(game.date);
-      }
-    }
-  }
-
-  async getRecentDailyGameDates(limit: number): Promise<string[]> {
-    const redis = this.getRedisClient();
-    if (!redis) {
-      return [...this.memoryDailyGameDates].reverse().slice(0, limit);
-    }
-
-    try {
-      return await redis.zrange<string[]>(DAILY_GAME_INDEX_KEY, 0, limit - 1, {
-        rev: true,
-      });
-    } catch (e) {
-      console.error("Error getting recent daily game dates from Redis:", e);
-      return [...this.memoryDailyGameDates].reverse().slice(0, limit);
     }
   }
 }

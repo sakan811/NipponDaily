@@ -31,8 +31,8 @@ export default defineEventHandler(async (event) => {
     if (!game) {
       const pool = await n5DataService.getFullPool();
       game = buildDailyGame(pool, date);
-      // Only persist the fallback when nothing exists yet, so a later
-      // agent-authored save_daily_game call is never clobbered by this.
+      // Only persist when nothing exists yet, so a concurrent request for
+      // the same not-yet-generated date doesn't overwrite this one.
       await n5DataService.saveDailyGame(game);
     }
 
