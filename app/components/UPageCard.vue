@@ -4,7 +4,7 @@
   >
     <div
       v-if="icon"
-      class="flex items-center justify-center w-8 h-8 rounded-lg bg-stone-100 dark:bg-stone-800 text-primary-500 group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300"
+      class="flex items-center justify-center w-8 h-8 rounded-lg bg-stone-100 dark:bg-stone-800 text-primary-500 group-hover:bg-primary-500 group-hover:text-on-primary transition-colors duration-300"
     >
       <UIcon :name="icon" class="w-4 h-4" />
     </div>

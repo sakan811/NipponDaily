@@ -64,6 +64,16 @@
   --color-error-900: var(--error-900);
   --color-error-950: var(--error-950);
 
+  /* Text color to use ON TOP of a solid *-500 fill (button/badge/calendar-day
+     backgrounds). Picked per light/dark scope — and per season, since a
+     season only overrides primary/secondary — for WCAG-safe contrast
+     against that scope's actual *-500 value, instead of assuming light
+     bg → dark fill (needs light text) always holds. */
+  --color-on-primary: var(--on-primary);
+  --color-on-secondary: var(--on-secondary);
+  --color-on-success: var(--on-success);
+  --color-on-error: var(--on-error);
+
   --color-neutral-50: var(--neutral-50);
   --color-neutral-100: var(--neutral-100);
   --color-neutral-200: var(--neutral-200);
@@ -179,6 +189,12 @@
   --neutral-800: #3d3028;
   --neutral-900: #2e231c;
   --neutral-950: #1f1712;
+
+  /* WCAG-picked per *-500 above (see contrast note on --color-on-primary) */
+  --on-primary: #ffffff;
+  --on-secondary: #2e231c;
+  --on-success: #2e231c;
+  --on-error: #2e231c;
 }
 
 .dark {
@@ -254,6 +270,12 @@
   --neutral-800: #202733;
   --neutral-900: #151a24;
   --neutral-950: #0b0e14;
+
+  /* WCAG-picked per *-500 above (see contrast note on --color-on-primary) */
+  --on-primary: #0b0e14;
+  --on-secondary: #0b0e14;
+  --on-success: #0b0e14;
+  --on-error: #0b0e14;
 }
 
 /* Seasonal design preset, set by the external theme agent via the MCP
@@ -288,6 +310,9 @@
   --secondary-800: #464137;
   --secondary-900: #302d26;
   --secondary-950: #1b1915;
+
+  /* Momiji red-orange is lighter than the default rose — flips to dark text */
+  --on-primary: #2e231c;
 }
 
 [data-season="autumn"].dark {
@@ -316,6 +341,9 @@
   --secondary-800: #52431f;
   --secondary-900: #392e13;
   --secondary-950: #221a07;
+
+  /* Ember orange is lighter than the default dark-mode teal — flips back to light text */
+  --on-primary: #ffffff;
 }
 
 body {
