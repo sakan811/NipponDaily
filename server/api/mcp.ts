@@ -2,17 +2,18 @@ import { createMcpHandler } from "mcp-handler";
 import { fromWebHandler } from "h3";
 import { timingSafeEqual } from "node:crypto";
 import { z } from "zod";
-import { n5DataService } from "../services/n5-data";
+import { siteThemeService } from "../services/site-theme";
 import { getEnvOrConfig } from "../utils/config";
-import { todayUtc } from "../utils/daily-game";
-import type { DailyGame, GameQuestion } from "~~/types/index";
+import { SEASON_IDS } from "../utils/site-theme";
+import type { SiteTheme } from "~~/types/index";
 
 /**
  * Remote MCP server letting an external agent (e.g. a scheduled Claude web
- * task) generate NipponDaily's one game per day from the persisted N5
- * kanji/vocab/kana pool — see docs/daily-game-agent-prompt.md. The pool
- * itself is static reference data seeded offline (scripts/seed-n5-data.mjs),
- * not managed through this server.
+ * task) control NipponDaily's seasonal design — see
+ * docs/site-theme-agent-prompt.md. The N5 pool and daily game are not
+ * agent-managed here: GET /api/daily-game always serves its own
+ * deterministic fallback (server/utils/daily-game.ts), and the pool is
+ * static reference data seeded offline (scripts/seed-n5-data.mjs).
  */
 
 function isAuthorized(request: Request): boolean {
@@ -33,116 +34,50 @@ function isAuthorized(request: Request): boolean {
   return timingSafeEqual(a, b);
 }
 
-const n5PoolKindSchema = z.enum(["hiragana", "katakana", "kanji", "vocab"]);
-
-const gameQuestionSchema = z.object({
-  id: z
-    .string()
-    .describe(
-      "The source item's id, from get_n5_pool (e.g. the kanji/kana character itself, or a vocab id).",
-    ),
-  kind: n5PoolKindSchema,
-  prompt: z
-    .string()
-    .describe("The Japanese character/word shown to the player."),
-  promptSub: z
-    .string()
-    .optional()
-    .describe(
-      "Furigana reading shown above the prompt whenever it contains kanji: the character's own reading for a kanji question, or the full kana reading for a vocab question. Omit for hiragana/katakana prompts, which are never kanji.",
-    ),
-  correctAnswer: z.string(),
-  choices: z
-    .array(z.string())
-    .length(4)
-    .describe("Exactly 4 choices, including correctAnswer, in any order."),
-});
+const seasonIdSchema = z.enum(SEASON_IDS);
 
 const mcpHandler = createMcpHandler(
   (server) => {
     server.registerTool(
-      "get_n5_pool",
+      "get_active_theme",
       {
-        title: "Get N5 pool sample",
+        title: "Get active site theme",
         description:
-          "Get a random sample of one kind (hiragana/katakana/kanji/vocab) from NipponDaily's persisted N5 pool, to pick today's featured items from. Pass excludeIds (item ids from get_recent_daily_games) to avoid repeating recent days. Returns a bounded sample, not the whole pool.",
-        inputSchema: z.object({
-          kind: n5PoolKindSchema,
-          sampleSize: z.number().int().min(1).max(50).optional().default(20),
-          excludeIds: z.array(z.string()).optional(),
-        }),
+          "Get NipponDaily's currently active seasonal palette (and how it was set), so you can check the current state before deciding whether to change it.",
+        inputSchema: z.object({}),
       },
-      async ({ kind, sampleSize, excludeIds }) => {
-        const items = await n5DataService.sampleKind(
-          kind,
-          sampleSize,
-          excludeIds,
-        );
-        return { content: [{ type: "text", text: JSON.stringify(items) }] };
+      async () => {
+        const theme = await siteThemeService.getActiveTheme();
+        return { content: [{ type: "text", text: JSON.stringify(theme) }] };
       },
     );
 
     server.registerTool(
-      "get_recent_daily_games",
+      "save_site_theme",
       {
-        title: "Get recent daily games",
-        description:
-          "List the item ids featured in NipponDaily's last N days of daily games, so you can pass them as excludeIds to get_n5_pool and avoid repeating recent days.",
+        title: "Save active site theme",
+        description: `Set NipponDaily's active seasonal design palette, applied immediately site-wide. Only implemented presets are accepted — currently: ${SEASON_IDS.join(", ")}. Anything else is rejected by the schema; this list only grows once a new preset has actually been designed into app/assets/css/tailwind.css.`,
         inputSchema: z.object({
-          days: z.number().int().min(1).max(30).optional().default(7),
+          season: seasonIdSchema,
         }),
       },
-      async ({ days }) => {
-        const dates = await n5DataService.getRecentDailyGameDates(days);
-        const games = await Promise.all(
-          dates.map((date) => n5DataService.getDailyGame(date)),
-        );
-        const recent = games
-          .filter((g): g is DailyGame => g !== null)
-          .map((g) => ({
-            date: g.date,
-            itemIds: g.questions.map((q) => q.id),
-          }));
-        return { content: [{ type: "text", text: JSON.stringify(recent) }] };
-      },
-    );
-
-    server.registerTool(
-      "save_daily_game",
-      {
-        title: "Save daily game",
-        description:
-          "Persist one day's NipponDaily game — 4-40 authored multiple-choice questions (kanji/vocab meanings, kana romaji), each with exactly 4 choices including the correct answer. Visible at GET /api/daily-game immediately. Defaults to today (UTC) if date is omitted. Aim for ~20 questions (5 each of hiragana/katakana/kanji/vocab) with plausible same-kind distractors.",
-        inputSchema: z.object({
-          date: z
-            .string()
-            .regex(/^\d{4}-\d{2}-\d{2}$/)
-            .optional()
-            .describe("YYYY-MM-DD. Defaults to today (UTC) if omitted."),
-          questions: z.array(gameQuestionSchema).min(4).max(40),
-        }),
-      },
-      async ({ date, questions }) => {
-        const game: DailyGame = {
-          date: date ?? todayUtc(),
-          questions: questions as GameQuestion[],
-          generatedAt: Date.now(),
+      async ({ season }) => {
+        const theme: SiteTheme = {
+          season,
+          updatedAt: Date.now(),
           source: "agent",
         };
-        await n5DataService.saveDailyGame(game);
+        await siteThemeService.saveActiveTheme(theme);
         return {
           content: [
-            {
-              type: "text",
-              text: JSON.stringify({ saved: true, date: game.date }),
-            },
+            { type: "text", text: JSON.stringify({ saved: true, season }) },
           ],
         };
       },
     );
   },
   {
-    serverInfo: { name: "nippondaily-daily-game", version: "1.0.0" },
+    serverInfo: { name: "nippondaily-site-theme", version: "1.0.0" },
   },
 );
 

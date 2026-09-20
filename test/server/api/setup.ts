@@ -1,5 +1,5 @@
 import { vi } from "vitest";
-import type { DailyGame } from "~~/types/index";
+import type { DailyGame, SiteTheme } from "~~/types/index";
 
 // Mock useRuntimeConfig with hoisted mock
 const { mockUseRuntimeConfig } = vi.hoisted(() => {
@@ -21,7 +21,6 @@ vi.mock("#app", () => ({
 export const mockGetDailyGame = vi.fn();
 export const mockSaveDailyGame = vi.fn();
 export const mockGetFullPool = vi.fn();
-export const mockGetRecentDailyGameDates = vi.fn();
 export const mockGetVocabPool = vi.fn();
 
 vi.mock("~/server/services/n5-data", async (importOriginal) => {
@@ -33,11 +32,42 @@ vi.mock("~/server/services/n5-data", async (importOriginal) => {
       getDailyGame: mockGetDailyGame,
       saveDailyGame: mockSaveDailyGame,
       getFullPool: mockGetFullPool,
-      getRecentDailyGameDates: mockGetRecentDailyGameDates,
       getVocabPool: mockGetVocabPool,
     },
   };
 });
+
+// Mock the site theme service — site-theme.get.ts and the MCP server's
+// theme tools read/write exclusively through this.
+export const mockGetActiveTheme = vi.fn();
+export const mockSaveActiveTheme = vi.fn();
+
+vi.mock("~/server/services/site-theme", async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import("~/server/services/site-theme")>();
+  return {
+    ...actual,
+    siteThemeService: {
+      getActiveTheme: mockGetActiveTheme,
+      saveActiveTheme: mockSaveActiveTheme,
+    },
+  };
+});
+
+export const createMockSiteTheme = (
+  overrides: Partial<SiteTheme> = {},
+): SiteTheme => ({
+  season: "autumn",
+  updatedAt: Date.now(),
+  source: "agent",
+  ...overrides,
+});
+
+// Helper function to get the site-theme handler
+export const getSiteThemeHandler = async () => {
+  const handlerModule = await import("~/server/api/site-theme.get");
+  return handlerModule.default;
+};
 
 /** A pool with exactly enough items per kind for buildDailyGame to succeed. */
 export const createMockPool = () => ({
@@ -111,6 +141,7 @@ export const setupDefaults = () => {
   mockGetDailyGame.mockResolvedValue(null);
   mockSaveDailyGame.mockResolvedValue(undefined);
   mockGetFullPool.mockResolvedValue(createMockPool());
-  mockGetRecentDailyGameDates.mockResolvedValue([]);
   mockGetVocabPool.mockResolvedValue(createMockPool().vocab);
+  mockGetActiveTheme.mockResolvedValue(null);
+  mockSaveActiveTheme.mockResolvedValue(undefined);
 };
