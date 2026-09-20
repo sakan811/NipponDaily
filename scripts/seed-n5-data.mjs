@@ -381,6 +381,25 @@ const VOCAB_MEANING_OVERRIDES = {
   // あ-series (far from both speaker and listener) direction word, i.e.
   // the polite counterpart of あっち — it means "that way over there".
   "あちら あちら": "that way, over there (polite)",
+  // See VOCAB_READING_OVERRIDES below for why this row exists at all —
+  // matches the "N thing(s)" phrasing the source list already uses for
+  // the rest of the native-counting set (一つ "one thing", 二つ "two
+  // things", …).
+  "十 (〜を) とお": "ten things",
+};
+
+/**
+ * Same idea as VOCAB_MEANING_OVERRIDES, but for the reading itself: the
+ * source list stores this row's reading as "(〜を) とお", bundling in a
+ * usage note (object-marking を) that belongs in a grammar note, not the
+ * reading field — every other reading in the list is a bare reading with
+ * no such annotation. とお is 十's native ("kun'yomi") reading, used only
+ * for the native-counting sense (see app/data/vocab-guide.ts's "numbers"
+ * cluster) — じゅう is the separate, far more common Sino-Japanese
+ * reading and gets its own N5-tagged row already.
+ */
+const VOCAB_READING_OVERRIDES = {
+  "十 (〜を) とお": "とお",
 };
 
 /**
@@ -418,10 +437,11 @@ async function fetchN5List() {
     if (!/\bJLPT_N5\b/.test(tags)) continue;
 
     const expression = (row[idx.expression] ?? "").split(";")[0].trim();
-    const reading = (row[idx.reading] ?? "").split(";")[0].trim();
+    const rawReading = (row[idx.reading] ?? "").split(";")[0].trim();
     const rawMeaning = (row[idx.meaning] ?? "").trim();
-    const meaning =
-      VOCAB_MEANING_OVERRIDES[`${expression} ${reading}`] ?? rawMeaning;
+    const overrideKey = `${expression} ${rawReading}`;
+    const reading = VOCAB_READING_OVERRIDES[overrideKey] ?? rawReading;
+    const meaning = VOCAB_MEANING_OVERRIDES[overrideKey] ?? rawMeaning;
     if (!expression || !reading || !meaning) continue;
 
     entries.push({ term: expression, kana: reading, meaning });
@@ -592,4 +612,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   });
 }
 
-export { VOCAB_MEANING_OVERRIDES, findReversedMeaning, checkMeaning };
+export {
+  VOCAB_MEANING_OVERRIDES,
+  VOCAB_READING_OVERRIDES,
+  findReversedMeaning,
+  checkMeaning,
+};
