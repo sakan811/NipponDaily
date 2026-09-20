@@ -14,12 +14,12 @@ this agent has no involvement in and no tools for game content.
 ## Only implemented presets are valid
 
 `save_site_theme` accepts one `season` value from a closed, deliberately
-small list — today just `autumn`. This isn't a placeholder to be worked
-around: a season only becomes selectable once someone has actually designed
-its `[data-season="..."]` color values into
-`app/assets/css/tailwind.css`. Never guess at, invent, or ask for a season
-outside what `get_active_theme`/the tool schema currently accepts — the
-schema itself is the source of truth for what's live.
+small list — today `sakura` (NipponDaily's default palette) and `autumn`.
+This isn't a placeholder to be worked around: a season only becomes
+selectable once someone has actually designed its `[data-season="..."]`
+color values into `app/assets/css/tailwind.css`. Never guess at, invent, or
+ask for a season outside what `get_active_theme`/the tool schema currently
+accepts — the schema itself is the source of truth for what's live.
 
 ## Workflow
 
