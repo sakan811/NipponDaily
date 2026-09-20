@@ -117,8 +117,11 @@
             <strong>Technical Details:</strong> The Nitro-powered backend reads
             today's game from Redis, or — if nothing's been persisted for that
             date yet — builds it deterministically on the spot from the
-            persisted pool. It never calls any external search or AI provider
-            itself.
+            persisted pool, avoiding any kanji/vocab/kana used in the past 7
+            days. It never calls any external search or AI provider itself. A
+            Vercel Cron job hits this same build path at 00:00 UTC daily so
+            the game is usually already there by the first visitor (Section
+            5).
           </p>
         </UCard>
 
@@ -859,6 +862,36 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
         </div>
       </UCard>
 
+      <!-- /api/cron/generate-daily-game -->
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="green" variant="soft">GET</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">
+              /api/cron/generate-daily-game
+            </h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          A Vercel Cron target (<code>vercel.json</code>) that hits the same
+          build path as <code>GET /api/daily-game</code> at
+          <code>00:00 UTC</code> every day, pre-generating that day's game
+          instead of waiting for the first visitor's request to trigger it.
+          Idempotent — skips generation if a game for the date already exists,
+          so a manual re-trigger never overwrites a game a player may have
+          already started.
+        </p>
+
+        <div
+          class="mb-2 p-3 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
+        >
+          <strong>🔒 Auth required:</strong>
+          <code>Authorization: Bearer &lt;CRON_SECRET&gt;</code> header, which
+          Vercel sends automatically on requests it triggers from this
+          schedule. Missing or wrong tokens get a <code>401</code>.
+        </div>
+      </UCard>
+
       <!-- /api/mcp -->
       <UCard class="mb-8">
         <template #header>
@@ -939,6 +972,14 @@ the active season" --> MCP["ALL /api/mcp
     MCP -- "get_active_theme /
 save_site_theme" --> Redis[("Redis
 N5 Pool + Daily Games + Site Theme")]
+
+    Cron(["⏰ Vercel Cron
+00:00 UTC daily"])
+    Cron -- "GET /api/cron/generate-daily-game
+(bearer: CRON_SECRET)" --> CronAPI["Cron target (Nitro)"]
+    CronAPI -. "if missing: build
+deterministically,
+then persist it" .-> Redis
 
     User -- "GET /api/daily-game" --> GameAPI["GET /api/daily-game
 (Nitro)"]
