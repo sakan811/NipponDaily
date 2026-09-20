@@ -60,7 +60,7 @@ describe("Vocab Family Page", () => {
 
   it("renders matched cluster words once the pool loads", async () => {
     const vocab = [
-      createVocab({ id: "1", term: "これ", kana: "これ", meaning: "this" }),
+      createVocab({ id: "これ", term: "これ", kana: "これ", meaning: "this" }),
     ];
     (global.$fetch as any).mockResolvedValue({
       success: true,

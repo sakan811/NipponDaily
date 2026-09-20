@@ -26,13 +26,12 @@ describe("Vocab Page", () => {
     expect(wrapper.text()).toContain("N5 Vocabulary");
   });
 
-  it("renders every word cluster's title and insight", () => {
+  it("renders every word cluster's title as a collapsed topic box", () => {
     const wrapper = mount(VocabPage);
     const text = wrapper.text();
 
     for (const cluster of WORD_CLUSTERS) {
       expect(text).toContain(cluster.title);
-      expect(text).toContain(cluster.insight);
     }
   });
 

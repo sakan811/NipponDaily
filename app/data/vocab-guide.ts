@@ -7,10 +7,10 @@
  * on top of the real N5Vocab pool fetched from GET /api/n5-vocab at
  * runtime.
  *
- * WORD_CLUSTERS reference terms by their exact `term` surface form from
- * the N5 word list (elzup/jlpt-word-list's n5.csv, the same source
- * scripts/seed-n5-data.mjs reads) so the page can look each one up in the
- * fetched pool and simply skip any that aren't found, rather than
+ * WORD_CLUSTERS reference words by their N5Vocab `id` (see WordClusterRow
+ * below) from the N5 word list (elzup/jlpt-word-list's n5.csv, the same
+ * source scripts/seed-n5-data.mjs reads) so the page can look each one up
+ * in the fetched pool and simply skip any that aren't found, rather than
  * hardcoding word data that could drift from what's actually seeded.
  */
 
@@ -312,7 +312,14 @@ export function classifyPartOfSpeech(
 
 export interface WordClusterRow {
   label?: string;
-  /** Exact `term` values to look up in the fetched N5Vocab pool. */
+  /**
+   * N5Vocab `id` values to look up in the fetched pool. Usually identical
+   * to the term's own surface form (e.g. "これ"), since slugify() in
+   * scripts/seed-n5-data.mjs only touches punctuation — but a handful of
+   * terms appear twice in the pool under the same surface form with
+   * different readings (e.g. 十 as both じゅう and とお), and those get a
+   * disambiguating "-2" suffix that must be referenced explicitly here.
+   */
   terms: string[];
 }
 
@@ -439,9 +446,9 @@ export const WORD_CLUSTERS: WordCluster[] = [
     title: "Numbers, Two Ways",
     subtitle: "Counting",
     insight:
-      "Japanese runs two number systems side by side: Sino-Japanese (いち, に, さん…) for math, phone numbers, dates, and prices, and a native counting set (ひとつ, ふたつ, みっつ…) for counting objects generically when there's no specific counter word. The native set caps at とお (ten) — not shown in the row below since 十 in the pool resolves to the Sino-Japanese じゅう reading, not とお.",
+      "Japanese runs two number systems side by side: Sino-Japanese (いち, に, さん…) for math, phone numbers, dates, and prices, and a native counting set (ひとつ, ふたつ, みっつ…) for counting objects generically when there's no specific counter word. The native set stops at とお (ten) — 十 covers both readings, じゅう for the Sino-Japanese set and とお for the native one.",
     extendedInsight:
-      "Beyond とお, the native set simply stops — from eleven onward, and for anything you'd count with a specific counter word like 枚 or 匹, Japanese always switches back to the Sino-Japanese set.",
+      "Beyond ten, the native set simply stops — from eleven onward, and for anything you'd count with a specific counter word like 枚 or 匹, Japanese always switches back to the Sino-Japanese set. Numbers 11–99 aren't separate vocabulary at all — they're just Sino-Japanese digits stacked together (十一 'ten-one' = 11, 二十 'two-ten' = 20, 二十三 'two-ten-three' = 23), the same way 百 (hundred), 千 (thousand), and 万 (ten thousand) combine with the digits below to build any larger number.",
     examples: [
       {
         jp: "りんごを三つください。",
@@ -455,7 +462,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
       },
     ],
     commonMistake:
-      "Native counting words (ひとつ, ふたつ…) can't be used for phone numbers, dates, or math — those always take the Sino-Japanese set.",
+      "Native counting words (ひとつ, ふたつ…) can't be used for phone numbers, dates, or math — those always take the Sino-Japanese set. And native counting doesn't extend past とお (ten) — from eleven on, always switch to Sino-Japanese (十一 juuichi, not a native word).",
     rows: [
       {
         label: "Sino-Japanese",
@@ -473,8 +480,10 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "七つ",
           "八つ",
           "九つ",
+          "十-2",
         ],
       },
+      { label: "beyond ten", terms: ["百", "千", "万"] },
     ],
   },
   {
