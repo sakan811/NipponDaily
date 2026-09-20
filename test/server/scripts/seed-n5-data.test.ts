@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   VOCAB_MEANING_OVERRIDES,
+  VOCAB_READING_OVERRIDES,
   checkMeaning,
   findReversedMeaning,
 } from "../../../scripts/seed-n5-data.mjs";
@@ -14,6 +15,21 @@ describe("VOCAB_MEANING_OVERRIDES", () => {
     expect(VOCAB_MEANING_OVERRIDES["あちら あちら"]).toBe(
       "that way, over there (polite)",
     );
+  });
+});
+
+// Source list stores this reading as "(〜を) とお", bundling in a
+// grammar usage note (object-marking を) rather than a bare reading —
+// this override strips it down to the actual native reading, とお, so it
+// can be surfaced as its own entry in the Numbers cluster's native
+// counting row (see app/data/vocab-guide.ts).
+describe("VOCAB_READING_OVERRIDES", () => {
+  it("strips the usage-note annotation from 十's native とお reading", () => {
+    expect(VOCAB_READING_OVERRIDES["十 (〜を) とお"]).toBe("とお");
+  });
+
+  it("gives 十's native reading a 'thing(s)' gloss matching the rest of the native counting set", () => {
+    expect(VOCAB_MEANING_OVERRIDES["十 (〜を) とお"]).toBe("ten things");
   });
 });
 
