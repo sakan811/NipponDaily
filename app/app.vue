@@ -1,6 +1,7 @@
 <template>
   <UApp>
     <NuxtRouteAnnouncer />
+    <SeasonalEffects />
     <NuxtPage />
   </UApp>
 </template>

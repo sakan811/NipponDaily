@@ -380,6 +380,59 @@
   --on-primary: #ffffff;
 }
 
+/* Seasonal ambient graphic (falling sakura petals / autumn leaves), rendered
+   by app/components/SeasonalEffects.vue. That component mounts one particle
+   group per implemented season unconditionally; visibility here is driven
+   entirely by which [data-season="..."] value is on <html>, so the visual
+   effect stays in lockstep with the color palette above without any JS
+   season-branching. */
+.seasonal-effects {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.seasonal-effects .seasonal-particle {
+  display: none;
+  position: absolute;
+  top: -10%;
+  opacity: 0;
+  animation-name: seasonal-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+[data-season="sakura"] .seasonal-effects .seasonal-particle--sakura,
+[data-season="autumn"] .seasonal-effects .seasonal-particle--autumn {
+  display: block;
+}
+
+@keyframes seasonal-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(110vh) translateX(var(--seasonal-drift, 40px))
+      rotate(360deg);
+    opacity: 0.6;
+  }
+}
+
+/* Falling particles are a decorative flourish, not content — respect users
+   who've asked for less motion instead of forcing it on them. */
+@media (prefers-reduced-motion: reduce) {
+  .seasonal-effects {
+    display: none;
+  }
+}
+
 body {
   font-family: var(--font-sans);
   background-color: #fdfbf7;
