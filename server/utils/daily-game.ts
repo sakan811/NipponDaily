@@ -147,9 +147,9 @@ function toQuestion(
 }
 
 /**
- * Builds a full DailyGame deterministically from a date string — used as the
- * fallback path in GET /api/daily-game when the daily agent hasn't (yet)
- * called save_daily_game for today. Same date always yields the same game.
+ * Builds a full DailyGame deterministically from a date string — the sole
+ * path GET /api/daily-game uses to generate a day's game the first time
+ * it's requested. Same date always yields the same game.
  */
 export function buildDailyGame(pool: N5Pool, date: string): DailyGame {
   if (

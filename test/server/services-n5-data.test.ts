@@ -68,21 +68,6 @@ describe("N5DataService", () => {
     expect(pool).toEqual({ kanji: [], vocab: [], hiragana: [], katakana: [] });
   });
 
-  it("sampleKind excludes given ids and caps at count", async () => {
-    redisState.smembers.mockResolvedValue(["水", "火", "木"]);
-    redisState.mget.mockResolvedValue([
-      { id: "水", character: "水" },
-      { id: "火", character: "火" },
-      { id: "木", character: "木" },
-    ]);
-    const service = new N5DataService();
-
-    const result = await service.sampleKind("kanji", 1, ["水"]);
-
-    expect(result).toHaveLength(1);
-    expect(result[0].id).not.toBe("水");
-  });
-
   it("getDailyGame reads the per-date key", async () => {
     const game = {
       date: "2026-09-18",
@@ -97,12 +82,12 @@ describe("N5DataService", () => {
     expect(redisState.get).toHaveBeenCalledWith("n5:daily_game:2026-09-18");
   });
 
-  it("saveDailyGame writes the record and indexes it by date", async () => {
+  it("saveDailyGame writes the record under its per-date key", async () => {
     const game = {
       date: "2026-09-18",
       questions: [],
       generatedAt: 42,
-      source: "agent" as const,
+      source: "fallback" as const,
     };
     const service = new N5DataService();
 
@@ -112,10 +97,6 @@ describe("N5DataService", () => {
       "n5:daily_game:2026-09-18",
       JSON.stringify(game),
     );
-    expect(redisState.zadd).toHaveBeenCalledWith("n5:daily_game_index", {
-      score: 42,
-      member: "2026-09-18",
-    });
   });
 
   it("falls back to in-memory storage when Redis is unconfigured", async () => {
@@ -145,20 +126,5 @@ describe("N5DataService", () => {
         return "";
       }),
     }));
-  });
-
-  it("getRecentDailyGameDates reads the sorted index newest first", async () => {
-    redisState.zrange.mockResolvedValue(["2026-09-18", "2026-09-17"]);
-    const service = new N5DataService();
-
-    const result = await service.getRecentDailyGameDates(5);
-
-    expect(redisState.zrange).toHaveBeenCalledWith(
-      "n5:daily_game_index",
-      0,
-      4,
-      { rev: true },
-    );
-    expect(result).toEqual(["2026-09-18", "2026-09-17"]);
   });
 });
