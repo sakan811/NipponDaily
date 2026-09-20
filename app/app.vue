@@ -7,8 +7,13 @@
 
 <script setup lang="ts">
 import { onMounted } from "vue";
+import { useSiteTheme } from "./composables/useSiteTheme";
+
+const { fetchTheme } = useSiteTheme();
 
 onMounted(() => {
+  fetchTheme();
+
   const updateFavicons = (isDark: boolean) => {
     const folder = isDark ? "dark" : "light";
     const links = document.querySelectorAll(
