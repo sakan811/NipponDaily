@@ -284,6 +284,40 @@
    Only overrides primary/secondary, the two tokens that carry the site's
    visual identity (see CLAUDE.md's Color System section); success/warning/
    error/neutral stay constant across seasons. */
+[data-season="sakura"] {
+  /* Sakura is NipponDaily's base palette — these values are identical to
+     :root above. The block exists anyway so "sakura" is an explicit,
+     addressable season (matching SEASON_IDS/defaultSeason() in
+     server/utils/site-theme.ts) rather than an implicit "no season" state,
+     and so it has somewhere to diverge from :root later (e.g. a dedicated
+     night variant) without disturbing the true no-season fallback. */
+  --primary-50: #fff5f6;
+  --primary-100: #ffe3e6;
+  --primary-200: #ffc7ce;
+  --primary-300: #ffa8b5;
+  --primary-400: #f27a91;
+  --primary-500: #d2385a;
+  --primary-600: #b82a48;
+  --primary-700: #9c1f3b;
+  --primary-800: #7e162d;
+  --primary-900: #610f20;
+  --primary-950: #420712;
+
+  --secondary-50: #f5f7f4;
+  --secondary-100: #ecefea;
+  --secondary-200: #dbe2d8;
+  --secondary-300: #c3cdc0;
+  --secondary-400: #a1b29e;
+  --secondary-500: #7e957a;
+  --secondary-600: #61775e;
+  --secondary-700: #4b5c49;
+  --secondary-800: #394637;
+  --secondary-900: #273026;
+  --secondary-950: #161b15;
+
+  --on-primary: #ffffff;
+}
+
 [data-season="autumn"] {
   /* Momiji (Japanese maple) red-orange */
   --primary-50: #fff8f5;
