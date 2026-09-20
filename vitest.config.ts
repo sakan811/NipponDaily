@@ -57,6 +57,7 @@ export default defineConfig({
       "@": resolve(__dirname, "."),
       "~~": resolve(__dirname, "."),
       "@@": resolve(__dirname, "."),
+      "#app": resolve(__dirname, "./test/mocks/app.ts"),
     },
   },
 });
