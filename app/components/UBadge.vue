@@ -81,13 +81,13 @@ const badgeClasses = computed(() => {
   } else {
     // solid
     if (color === "primary") {
-      colorVariantStyle = "bg-primary-500 text-white";
+      colorVariantStyle = "bg-primary-500 text-on-primary";
     } else if (color === "secondary") {
-      colorVariantStyle = "bg-secondary-500 text-white";
+      colorVariantStyle = "bg-secondary-500 text-on-secondary";
     } else if (color === "success") {
-      colorVariantStyle = "bg-success-500 text-white";
+      colorVariantStyle = "bg-success-500 text-on-success";
     } else if (color === "error") {
-      colorVariantStyle = "bg-error-500 text-white";
+      colorVariantStyle = "bg-error-500 text-on-error";
     } else {
       colorVariantStyle =
         "bg-stone-850 dark:bg-stone-150 text-white dark:text-stone-950";

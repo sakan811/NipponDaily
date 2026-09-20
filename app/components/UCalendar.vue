@@ -255,16 +255,16 @@ const getDateClass = (y: number, m: number, d: number) => {
         const endMs = toMs(endVal.year, endVal.month, endVal.day);
 
         if (currentMs === startMs) {
-          return "bg-primary-500 text-white rounded-l-lg rounded-r-none";
+          return "bg-primary-500 text-on-primary rounded-l-lg rounded-r-none";
         }
         if (currentMs === endMs) {
-          return "bg-primary-500 text-white rounded-r-lg rounded-l-none";
+          return "bg-primary-500 text-on-primary rounded-r-lg rounded-l-none";
         }
         if (currentMs > startMs && currentMs < endMs) {
           return "bg-primary-500/10 text-primary-600 dark:text-primary-400 rounded-none hover:bg-primary-500/20";
         }
       } else if (currentMs === startMs) {
-        return "bg-primary-500 text-white";
+        return "bg-primary-500 text-on-primary";
       }
     }
   } else if (props.modelValue instanceof CalendarDate) {
@@ -274,7 +274,7 @@ const getDateClass = (y: number, m: number, d: number) => {
       props.modelValue.day,
     );
     if (currentMs === activeMs) {
-      return "bg-primary-500 text-white";
+      return "bg-primary-500 text-on-primary";
     }
   }
 

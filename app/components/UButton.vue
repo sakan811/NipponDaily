@@ -83,13 +83,14 @@ const computedClasses = computed(() => {
 
   if (variant === "solid") {
     if (color === "primary") {
-      colorVariantStyle = "bg-primary-500 hover:bg-primary-600 text-white";
+      colorVariantStyle = "bg-primary-500 hover:bg-primary-600 text-on-primary";
     } else if (color === "secondary") {
-      colorVariantStyle = "bg-secondary-500 hover:bg-secondary-600 text-white";
+      colorVariantStyle =
+        "bg-secondary-500 hover:bg-secondary-600 text-on-secondary";
     } else if (color === "success") {
-      colorVariantStyle = "bg-success-500 hover:bg-success-600 text-white";
+      colorVariantStyle = "bg-success-500 hover:bg-success-600 text-on-success";
     } else if (color === "error") {
-      colorVariantStyle = "bg-error-500 hover:bg-error-600 text-white";
+      colorVariantStyle = "bg-error-500 hover:bg-error-600 text-on-error";
     } else {
       // gray/default
       colorVariantStyle =
