@@ -373,6 +373,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
         label: "direction (casual)",
         terms: ["こっち", "そっち", "あっち", "どっち"],
       },
+      { label: "such / what kind of", terms: ["こんな", "どんな"] },
     ],
   },
   {
@@ -401,7 +402,10 @@ export const WORD_CLUSTERS: WordCluster[] = [
       { label: "day", terms: ["今日", "明日", "明後日", "昨日", "一昨日"] },
       { label: "week", terms: ["今週", "来週", "先週"] },
       { label: "month", terms: ["今月", "来月", "先月"] },
-      { label: "year", terms: ["今年", "来年", "去年"] },
+      {
+        label: "year",
+        terms: ["今年", "来年", "去年", "おととし", "さ来年"],
+      },
       {
         label: "every…",
         terms: ["毎日", "毎週", "毎月", "毎年", "毎朝", "毎晩"],
@@ -469,7 +473,19 @@ export const WORD_CLUSTERS: WordCluster[] = [
     rows: [
       {
         label: "Sino-Japanese",
-        terms: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"],
+        terms: [
+          "一",
+          "二",
+          "三",
+          "四",
+          "五",
+          "六",
+          "七",
+          "八",
+          "九",
+          "九-2",
+          "十",
+        ],
       },
       {
         label: "native counting",
@@ -488,6 +504,10 @@ export const WORD_CLUSTERS: WordCluster[] = [
       },
       { label: "beyond ten", terms: ["百", "千", "万"] },
       { label: "zero", terms: ["ゼロ", "零"] },
+      {
+        label: "ranking & age",
+        terms: ["一番", "番", "番号", "歳", "二十歳", "半分"],
+      },
     ],
   },
   {
@@ -520,11 +540,11 @@ export const WORD_CLUSTERS: WordCluster[] = [
       { label: "older sister", terms: ["姉", "お姉さん"] },
       {
         label: "also useful",
-        terms: ["弟", "妹", "家族", "兄弟", "両親", "子供"],
+        terms: ["弟", "妹", "家族", "家庭", "兄弟", "両親", "子供"],
       },
       {
         label: "extended family",
-        terms: ["おじいさん", "おばあさん", "伯父叔父さん", "伯母さん叔母さん"],
+        terms: ["おじいさん", "おばあさん", "伯父", "伯母さん"],
       },
     ],
   },
@@ -569,6 +589,8 @@ export const WORD_CLUSTERS: WordCluster[] = [
       { terms: ["早い", "遅い"] },
       { terms: ["速い", "遅い"] },
       { terms: ["太い", "細い"] },
+      { terms: ["いい", "悪い"] },
+      { terms: ["大きな", "小さな"] },
     ],
   },
   {
@@ -599,9 +621,12 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "上",
           "下",
           "前",
+          "前-2",
           "後ろ",
           "中",
+          "中-3",
           "外",
+          "角",
           "右",
           "左",
           "隣",
@@ -653,6 +678,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "黄色い",
           "茶色",
           "緑",
+          "色",
         ],
       },
     ],
@@ -690,10 +716,13 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "来る",
           "帰る",
           "働く",
+          "勤める",
+          "仕事",
           "勉強",
           "休む",
           "洗う",
           "着る",
+          "散歩",
         ],
       },
     ],
@@ -721,7 +750,18 @@ export const WORD_CLUSTERS: WordCluster[] = [
     commonMistake:
       "いくつ can also just mean 'how old' in casual contexts (おいくつですか) — context, not the word alone, tells you whether it's age or count.",
     rows: [
-      { terms: ["何", "誰", "いつ", "いくつ", "いくら", "どうして", "なぜ"] },
+      {
+        terms: [
+          "何",
+          "何-2",
+          "誰",
+          "いつ",
+          "いくつ",
+          "いくら",
+          "どうして",
+          "なぜ",
+        ],
+      },
     ],
   },
   {
@@ -761,6 +801,14 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "風",
         ],
       },
+      {
+        label: "temperature",
+        terms: ["暖かい", "涼しい"],
+      },
+      {
+        label: "weather actions",
+        terms: ["晴れる", "曇る", "降る", "吹く"],
+      },
     ],
   },
   {
@@ -787,7 +835,20 @@ export const WORD_CLUSTERS: WordCluster[] = [
       "痛い attaches after the body part with が, not は — 頭が痛い is the neutral, default way to state a symptom.",
     rows: [
       {
-        terms: ["頭", "顔", "目", "耳", "口", "歯", "手", "足脚", "お腹", "背"],
+        terms: [
+          "頭",
+          "顔",
+          "目",
+          "耳",
+          "口",
+          "鼻",
+          "歯",
+          "手",
+          "足",
+          "お腹",
+          "背",
+          "体",
+        ],
       },
       { label: "health", terms: ["病気", "風邪", "薬"] },
     ],
@@ -815,11 +876,24 @@ export const WORD_CLUSTERS: WordCluster[] = [
     commonMistake:
       "晩ご飯 and 夕飯 both simply mean 'dinner/evening meal' — they're interchangeable everyday words, not a formal/casual pair, so don't overthink which one to use.",
     rows: [
-      { label: "meals", terms: ["朝御飯", "昼御飯", "晩御飯", "夕飯", "御飯"] },
+      {
+        label: "meals",
+        terms: ["朝御飯", "昼御飯", "晩御飯", "夕飯", "御飯", "お弁当"],
+      },
       { label: "general", terms: ["食べ物", "飲み物", "料理"] },
       {
         label: "meats & staples",
-        terms: ["魚", "牛肉", "豚肉", "鶏肉", "卵", "野菜", "果物", "パン"],
+        terms: [
+          "魚",
+          "肉",
+          "牛肉",
+          "豚肉",
+          "鶏肉",
+          "卵",
+          "野菜",
+          "果物",
+          "パン",
+        ],
       },
       {
         label: "drinks & seasonings",
@@ -833,13 +907,18 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "塩",
           "醤油",
           "お菓子",
+          "飴",
           "カレー",
           "バター",
         ],
       },
       {
         label: "tableware & places",
-        terms: ["食堂", "茶碗", "カップ", "コップ"],
+        terms: ["食堂", "茶碗", "お皿", "箸", "カップ", "コップ"],
+      },
+      {
+        label: "taste",
+        terms: ["美味しい", "まずい", "辛い", "甘い", "温い"],
       },
     ],
   },
@@ -897,7 +976,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
       },
       {
         label: "the wearing verbs",
-        terms: ["はく", "かぶる", "かける", "する"],
+        terms: [
+          "はく",
+          "かぶる",
+          "かける",
+          "掛ける",
+          "する",
+          "着る",
+          "脱ぐ",
+          "差す",
+        ],
       },
     ],
   },
@@ -951,6 +1039,8 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "辞書",
           "字引",
           "本棚",
+          "雑誌",
+          "新聞",
         ],
       },
       {
@@ -960,6 +1050,8 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "平仮名",
           "片仮名",
           "言葉",
+          "英語",
+          "語",
           "文章",
           "作文",
           "質問",
@@ -992,7 +1084,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
     commonMistake:
       "洗濯 ('laundry') and 掃除 ('cleaning') both pair with する rather than having a dedicated verb of their own — 洗濯する and 掃除する are the whole pattern, just like 勉強する.",
     rows: [
-      { label: "home", terms: ["家", "うち", "アパート", "部屋"] },
+      { label: "home", terms: ["家", "うち", "アパート", "部屋", "住む"] },
       {
         label: "rooms & fixtures",
         terms: [
@@ -1038,7 +1130,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
     commonMistake:
       "音楽 needs 聞く ('to listen') to describe listening to it, not 見る — 音楽を見る is wrong, even though watching a music video would use 見る for the video part.",
     rows: [
-      { label: "furniture", terms: ["椅子", "机", "テーブル", "ベッド"] },
+      { label: "furniture", terms: ["椅子", "机", "テーブル", "ベッド", "箱"] },
       {
         label: "electronics",
         terms: [
@@ -1062,7 +1154,20 @@ export const WORD_CLUSTERS: WordCluster[] = [
       },
       {
         label: "hobbies",
-        terms: ["音楽", "スポーツ", "ギター", "ニュース", "レコード"],
+        terms: [
+          "音楽",
+          "スポーツ",
+          "ギター",
+          "弾く",
+          "ニュース",
+          "レコード",
+          "歌",
+          "歌う",
+          "絵",
+          "映画",
+          "映画館",
+          "遊ぶ",
+        ],
       },
     ],
   },
@@ -1103,15 +1208,31 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "ホテル",
           "大使館",
           "交番",
+          "会社",
           "店",
           "八百屋",
         ],
       },
       {
         label: "places & geography",
-        terms: ["町", "村", "国", "外国", "建物", "入口", "出口", "所"],
+        terms: [
+          "町",
+          "村",
+          "国",
+          "外国",
+          "建物",
+          "入口",
+          "出口",
+          "所",
+          "地図",
+          "橋",
+          "門",
+        ],
       },
-      { label: "mail", terms: ["切手", "葉書", "封筒", "ポスト"] },
+      {
+        label: "mail",
+        terms: ["切手", "葉書", "封筒", "ポスト", "手紙", "貼る"],
+      },
     ],
   },
   {
@@ -1235,6 +1356,12 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "借りる",
           "返す",
           "上げる",
+          "やる",
+          "使う",
+          "作る",
+          "並べる",
+          "切る",
+          "物",
         ],
       },
     ],
@@ -1312,6 +1439,10 @@ export const WORD_CLUSTERS: WordCluster[] = [
       {
         label: "general",
         terms: [
+          "私",
+          "私-2",
+          "あなた",
+          "人-3",
           "大人",
           "男",
           "女",
@@ -1324,12 +1455,18 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "方",
         ],
       },
-      { label: "who?", terms: ["誰か", "どなた", "皆さん", "みんな", "大勢"] },
+      {
+        label: "who?",
+        terms: ["誰か", "どなた", "皆さん", "みんな", "大勢", "外-2"],
+      },
       {
         label: "occupations",
         terms: ["警官", "おまわりさん", "医者", "外国人", "奥さん"],
       },
-      { label: "life events", terms: ["名前", "生まれる", "死ぬ", "結婚"] },
+      {
+        label: "life events",
+        terms: ["名前", "会う", "生まれる", "死ぬ", "結婚"],
+      },
     ],
   },
   {
@@ -1361,10 +1498,13 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "疲れる",
           "元気",
           "大丈夫",
+          "結構",
           "大変",
           "暇",
+          "楽しい",
           "好き",
           "嫌い",
+          "嫌",
           "大好き",
           "欲しい",
           "痛い",
@@ -1420,6 +1560,9 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "若い",
           "悪い",
           "うるさい",
+          "色々",
+          "丸い",
+          "たて",
         ],
       },
     ],
@@ -1473,23 +1616,23 @@ export const WORD_CLUSTERS: WordCluster[] = [
     rows: [
       {
         label: "yes / agreement",
-        terms: ["はい", "いいえ", "ええ", "そうそうです"],
+        terms: ["はい", "いいえ", "ええ", "そう", "本当"],
       },
       {
         label: "transitions",
         terms: [
           "では",
-          "じゃじゃあ",
+          "じゃ",
           "それでは",
           "それから",
-          "そうしてそして",
+          "そうして",
           "でも",
           "しかし",
         ],
       },
       {
         label: "phone & attention",
-        terms: ["もしもし", "さあ", "どうぞ", "どうも"],
+        terms: ["もしもし", "さあ", "どうぞ", "どうも", "ああ", "下さい"],
       },
       { label: "asking politely", terms: ["いかが", "どう"] },
     ],
@@ -1516,7 +1659,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
     ],
     commonMistake:
       "先 can mean both 'ahead/previous' and 'the future/what's next' depending on context — 先に行きます ('I'll go ahead') and 先のことは分かりません ('I don't know about the future') use the same word for near-opposite time directions.",
-    rows: [{ terms: ["先", "次", "後", "初め始め", "終る", "始まる"] }],
+    rows: [{ terms: ["先", "次", "後", "初め", "終る", "始まる", "初めて"] }],
   },
   {
     key: "time-of-day",
@@ -1543,6 +1686,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
     rows: [
       {
         terms: [
+          "今",
           "朝",
           "昼",
           "晩",
@@ -1585,11 +1729,11 @@ export const WORD_CLUSTERS: WordCluster[] = [
         label: "amount",
         terms: ["とても", "余り", "少し", "ちょっと", "沢山", "もっと"],
       },
-      { label: "frequency", terms: ["いつも", "よく", "全部"] },
+      { label: "frequency", terms: ["いつも", "よく", "時々", "全部"] },
       { label: "already / still / again", terms: ["まだ", "もう", "また"] },
       {
         label: "manner",
-        terms: ["すぐに", "丁度", "段々", "一緒", "ゆっくりと"],
+        terms: ["すぐに", "丁度", "段々", "一緒", "ゆっくりと", "多分"],
       },
     ],
   },
@@ -1633,6 +1777,240 @@ export const WORD_CLUSTERS: WordCluster[] = [
       },
       { label: "20th (irregular)", terms: ["二十日"] },
       { label: "calendar words", terms: ["誕生日", "休み", "夏休み"] },
+    ],
+  },
+  {
+    key: "nature-animals",
+    title: "Nature, Animals & the Outdoors",
+    subtitle: "Nature & Animals",
+    insight:
+      "These are the basic nouns for the natural world and the small set of verbs that go with them — flowers 咲く (bloom), animals 鳴く (cry out), climbers 登る (climb a mountain). None of these conjugate in unusual ways; they're worth learning together simply because any nature scene in Japanese reliably calls on the same dozen or so words.",
+    extendedInsight:
+      "犬 and 猫 are also the two animals every textbook reaches for first when teaching が for existence (公園に犬がいます, 'there's a dog in the park') — see Existing, Becoming & Being Able To below for how ある/いる split along the same animate/inanimate line these two words sit on either side of.",
+    examples: [
+      {
+        jp: "公園に犬と猫がいます。",
+        romaji: "Kouen ni inu to neko ga imasu.",
+        en: "There's a dog and a cat in the park.",
+      },
+      {
+        jp: "夏に花が咲きます。",
+        romaji: "Natsu ni hana ga sakimasu.",
+        en: "Flowers bloom in summer.",
+      },
+    ],
+    commonMistake:
+      "動物 ('animal', the general category) isn't reached for the way English says 'the dog is an animal' in casual speech — Japanese usually just names the specific animal (犬, 猫, 鳥) unless the sentence is actually about animals as a category.",
+    rows: [
+      {
+        label: "sky, land & water",
+        terms: ["空", "海", "山", "川", "池", "木", "花", "水"],
+      },
+      { label: "animals", terms: ["犬", "猫", "鳥", "動物"] },
+      { label: "nature verbs", terms: ["咲く", "鳴く", "登る"] },
+    ],
+  },
+  {
+    key: "state-change-verbs",
+    title: "Opening, Closing & Switching",
+    subtitle: "State-Change Verbs",
+    insight:
+      "Japanese frequently pairs an intransitive verb (something happens on its own) with a transitive twin (someone makes it happen) — 開く/開ける ('open by itself' / 'open it') and 閉まる/閉める ('close by itself' / 'close it') are the clearest examples. Learn them as pairs, not as isolated vocabulary, since knowing one tells you the other exists.",
+    extendedInsight:
+      "締める looks like a third member of the 閉める family but actually means something different — 'to tie/fasten/tighten' (ネクタイを締める, 'to tie a necktie'), not 'to close'. The shared める ending is a conjugation coincidence, not a shared meaning.",
+    examples: [
+      {
+        jp: "ドアが自動的に開きます。",
+        romaji: "Doa ga jidouteki ni hirakimasu.",
+        en: "The door opens automatically.",
+      },
+      {
+        jp: "窓を閉めてください。",
+        romaji: "Mado o shimete kudasai.",
+        en: "Please close the window.",
+      },
+    ],
+    commonMistake:
+      "ドアが開けます is backwards — a door opening by itself takes the intransitive 開く (ドアが開きます); 開ける needs a person doing the opening (私がドアを開けます).",
+    rows: [
+      {
+        label: "open ⇄ close",
+        terms: ["開く", "開ける", "閉まる", "閉める", "締める"],
+      },
+      { label: "on/off & appear/vanish", terms: ["つける", "消える", "消す"] },
+    ],
+  },
+  {
+    key: "existence-state-verbs",
+    title: "Existing, Becoming & Being Able To",
+    subtitle: "State Verbs",
+    insight:
+      "ある and いる both mean 'there is/exists', but Japanese splits them by whether the subject is alive — いる (居る) for people and animals, ある (有る/在る, two kanji for the same word) for objects, places, and abstract things. 要る is a same-sounding but unrelated word meaning 'to need', told apart only by its own kanji and by context.",
+    extendedInsight:
+      "Most everyday writing leaves ある/いる/要る in plain kana rather than their kanji forms (有る, 在る, 居る, 要る) shown here — the kanji are valid, but you'll meet the kana spelling far more often outside of formal writing.",
+    examples: [
+      {
+        jp: "机の上に本があります。",
+        romaji: "Tsukue no ue ni hon ga arimasu.",
+        en: "There's a book on the desk.",
+      },
+      {
+        jp: "教室に学生がいます。",
+        romaji: "Kyoushitsu ni gakusei ga imasu.",
+        en: "There are students in the classroom.",
+      },
+    ],
+    commonMistake:
+      "猫がある is wrong — animate things (people, animals) always take いる, never ある, no matter how the sentence is phrased.",
+    rows: [
+      {
+        label: "existence (ある/いる)",
+        terms: ["在る", "有る", "居る", "要る", "ない"],
+      },
+      {
+        label: "becoming, costing, able to",
+        terms: ["なる", "かかる", "できる"],
+      },
+    ],
+  },
+  {
+    key: "counters",
+    title: "Counters — One Suffix, Any Number",
+    subtitle: "Counting Objects, People & Occurrences",
+    insight:
+      "Counters attach directly onto a number to say how many of something there are, and which counter you use depends on the shape or category of what's being counted — ～枚 for flat things, ～匹 for small animals, ～本 for long cylindrical things, ～人 for people. This is the same idea the Counters, Prefixes & Suffixes word type covers grammatically; here they're grouped by what they actually count.",
+    extendedInsight:
+      "～人 shows up twice in the pool with two different readings — じん (as in 日本人, 'a Japanese person', a nationality suffix) and にん (as in 三人, 'three people', the actual counter) — same kanji, two unrelated jobs.",
+    examples: [
+      {
+        jp: "りんごを二個ください。",
+        romaji: "Ringo o ni-ko kudasai.",
+        en: "Two apples, please.",
+      },
+      {
+        jp: "この本は三冊あります。",
+        romaji: "Kono hon wa san-satsu arimasu.",
+        en: "There are three copies of this book.",
+      },
+    ],
+    commonMistake:
+      "Swapping counters for the wrong shape category is one of the most common learner slips — 猫が一枚 sounds as odd in Japanese as 'one sheet of cat' does in English; 匹 is the counter for small animals, not 枚.",
+    rows: [
+      {
+        label: "objects",
+        terms: ["個", "枚", "本-2", "杯", "匹", "冊", "台"],
+      },
+      { label: "occurrences & measures", terms: ["回", "度", "階", "円"] },
+      { label: "people & titles", terms: ["人", "人-2", "さん", "たち"] },
+      {
+        label: "attaching to anything",
+        terms: ["お", "など", "だけ", "ずつ", "がる", "側", "中-2", "屋"],
+      },
+    ],
+  },
+  {
+    key: "counting-time",
+    title: "Counting Time — Hours, Days & Duration",
+    subtitle: "Time & Duration",
+    insight:
+      "A second, separate set of counters exists just for time: ～時 (o'clock), ～分 (minutes), ～日 (days), ～週間 (weeks), ～か月 (months), ～年 (years) — each stacks onto a number the same way object counters do, just for measuring duration instead of counting items.",
+    extendedInsight:
+      "～時 is genuinely two different words that happen to share a kanji — ～時 read じ means 'o'clock' (三時, '3 o'clock'), while ～時 read とき means 'at the time of ~' (子供の時, 'when I was a child') — context, not the kanji, tells them apart.",
+    examples: [
+      {
+        jp: "会議は一時間かかります。",
+        romaji: "Kaigi wa ichi-jikan kakarimasu.",
+        en: "The meeting takes one hour.",
+      },
+      {
+        jp: "日本に三か月住んでいます。",
+        romaji: "Nihon ni san-kagetsu sunde imasu.",
+        en: "I've lived in Japan for three months.",
+      },
+    ],
+    commonMistake:
+      "時間 alone (no number attached) just means 'time' as a noun (時間がありません, 'I don't have time') — it only becomes the duration counter '~ hours' once a number is attached in front of it (三時間, 'three hours').",
+    rows: [
+      {
+        label: "clock & duration",
+        terms: ["時", "時間", "時間-2", "分", "時-2"],
+      },
+      {
+        label: "days, weeks, months, years",
+        terms: ["日", "週間", "か月", "月", "年", "年-2", "一日", "一月"],
+      },
+      { label: "approximate time", terms: ["ころ", "すぎ", "くらい"] },
+    ],
+  },
+  {
+    key: "loanwords",
+    title: "More Katakana Loanwords",
+    subtitle: "Borrowed Words",
+    insight:
+      "Katakana loanwords are often faster to learn than native vocabulary of the same size, since many sound close to their English source once you know the katakana syllabary — スプーン (spoon), フォーク (fork), トイレ (toilet), プール (pool). Reading them aloud is usually the fastest way to recognize the English word hiding inside.",
+    extendedInsight:
+      "キロ appears twice in the pool with the exact same katakana and reading, because it's short for two different metric units depending on context — キログラム ('kilogram') or キロメートル ('kilometer') — only the surrounding sentence tells you which one is meant.",
+    examples: [
+      {
+        jp: "スプーンとフォークをください。",
+        romaji: "Supuun to fooku o kudasai.",
+        en: "A spoon and fork, please.",
+      },
+      {
+        jp: "エレベーターで五階に行きます。",
+        romaji: "Erebeetaa de go-kai ni ikimasu.",
+        en: "I'll go to the 5th floor by elevator.",
+      },
+    ],
+    commonMistake:
+      "コピーする is a suru-verb like 勉強する, not a plain verb on its own — コピーします, never a conjugated コピーる form, since that doesn't exist.",
+    rows: [
+      {
+        label: "measurements",
+        terms: ["キロ", "キロ-2", "グラム", "メートル"],
+      },
+      {
+        label: "everyday objects",
+        terms: [
+          "スプーン",
+          "フォーク",
+          "ナイフ",
+          "マッチ",
+          "ポケット",
+          "ページ",
+          "トイレ",
+          "エレベーター",
+          "プール",
+        ],
+      },
+      { label: "activities", terms: ["パーティー", "ペット", "コピーする"] },
+    ],
+  },
+  {
+    key: "everyday-essentials",
+    title: "A Few More Essentials",
+    subtitle: "Odds & Ends",
+    insight:
+      "Not every N5 word fits neatly into a bigger pattern — these are genuinely useful, high-frequency words that simply don't share a common thread with each other beyond both being essential and easy to mix up with a similar-sounding neighbor.",
+    extendedInsight:
+      "引く and 押す are worth learning as a pair even though they landed here rather than in the Common Opposites topic above — most doors and drawers in Japan are labelled with exactly these two characters, 押す (push) and 引く (pull).",
+    examples: [
+      {
+        jp: "このドアを引いてください。",
+        romaji: "Kono doa o hiite kudasai.",
+        en: "Please pull this door.",
+      },
+      {
+        jp: "バス停で友達を待ちます。",
+        romaji: "Basutei de tomodachi o machimasu.",
+        en: "I'll wait for my friend at the bus stop.",
+      },
+    ],
+    commonMistake:
+      "無くす ('to lose something', an action you did) and ない ('there isn't/doesn't exist', a state) share the same 無 root but aren't interchangeable — 財布を無くした ('I lost my wallet') describes an event, not the current state of not having one.",
+    rows: [
+      { label: "actions", terms: ["押す", "引く", "待つ", "無くす", "吸う"] },
+      { label: "objects", terms: ["たばこ", "灰皿"] },
     ],
   },
 ];
