@@ -39,14 +39,16 @@
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
         NipponDaily is a Japanese-learning game — a persisted pool of N5
         hiragana, katakana, kanji, and vocabulary, and one 20-question
-        multiple-choice round generated per day. In simple terms, the website
-        itself only reads a pre-computed daily game out of a database — all the
-        "intelligence" (picking that day's items and authoring plausible
-        distractor choices) is produced by a Claude web agent that runs daily,
-        entirely outside this codebase, and writes its finished work in through
-        a small remote MCP server this project exposes. If the agent hasn't run
-        yet for a given day, the site generates a deterministic fallback itself
-        from the same pool, so there's always a game to play.
+        multiple-choice round generated per day. Game generation is entirely
+        in-repo: the backend deterministically builds each day's round from the
+        pool the first time it's requested, then persists it so later requests
+        read the same game back — no agent or AI provider is involved in game
+        content. What <em>is</em> agent-controlled is the site's seasonal
+        design: a Claude web agent that runs on its own schedule, entirely
+        outside this codebase, switches NipponDaily's active color palette by
+        writing through a small remote MCP server this project exposes. If the
+        agent hasn't set a season yet, the site falls back to a deterministic
+        default itself, so the page is never left unstyled.
       </p>
 
       <!-- Diagram 1: System Overview -->
@@ -113,9 +115,10 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> The Nitro-powered backend reads
-            today's game from Redis, or — if the agent hasn't written one yet —
-            builds a deterministic fallback on the spot from the persisted pool.
-            It never calls any external search or AI provider itself.
+            today's game from Redis, or — if nothing's been persisted for that
+            date yet — builds it deterministically on the spot from the
+            persisted pool. It never calls any external search or AI provider
+            itself.
           </p>
         </UCard>
 
@@ -136,10 +139,11 @@
           <p class="text-sm">
             <strong>Technical Details:</strong> Powered by Upstash Redis,
             storing the static N5 kanji/vocab/kana pool (seeded offline, see
-            Section 4) plus one small <code>DailyGame</code> record per date —
-            never generated synchronously on a page request unless the fallback
-            path kicks in. When the Redis env vars are absent, the service falls
-            back to an in-process in-memory store so the app still runs locally.
+            Section 4), one small <code>DailyGame</code> record per date, and
+            the single active <code>SiteTheme</code> record the theme agent
+            controls (Section 3). When the Redis env vars are absent, the
+            service falls back to an in-process in-memory store so the app still
+            runs locally.
           </p>
         </UCard>
 
@@ -155,14 +159,15 @@
           </template>
           <p class="text-sm mb-2">
             <strong>What it does:</strong> The bridge that lets an external
-            agent write each day's game directly into our database.
+            agent switch the site's active seasonal palette.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> A remote MCP (Model Context
             Protocol) server at <code>ALL /api/mcp</code>, built with
             <code>mcp-handler</code> and protected by a constant-time bearer
-            token check. Exposes tools to sample the pool, check recent days,
-            and save a day's game — see Section 3.
+            token check. Exposes tools to read and set the active
+            <code>SiteTheme</code> — see Section 3. It has no tools for game
+            content; the daily game is generated entirely in-repo.
           </p>
         </UCard>
 
@@ -177,16 +182,15 @@
             </h4>
           </template>
           <p class="text-sm mb-2">
-            <strong>What it does:</strong> The "brain" that picks each day's
-            featured hiragana, katakana, kanji, and vocabulary, and writes
-            plausible multiple-choice questions from them.
+            <strong>What it does:</strong> Decides which of NipponDaily's
+            implemented seasonal presets should be active right now.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Runs entirely outside this
-            repository, once a day, on a schedule set up in Claude's own web
-            scheduling feature (not a cron job hosted by this project). It calls
-            this project's MCP server to persist its work — no search or AI
-            provider credentials live in this codebase at all.
+            repository, on a schedule set up in Claude's own web scheduling
+            feature (not a cron job hosted by this project). It calls this
+            project's MCP server to read and set the active season — no search
+            or AI provider credentials live in this codebase at all.
           </p>
         </UCard>
       </div>
@@ -510,25 +514,24 @@
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- MCP-DRIVEN DAILY GAME PIPELINE                                     -->
+      <!-- MCP-DRIVEN SEASONAL THEME PIPELINE                                 -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        3. MCP-Driven Daily Game Pipeline
+        3. MCP-Driven Seasonal Theme
       </h2>
 
       <p class="text-lg mb-6">
-        There is no in-repo game-authoring logic. Instead of this codebase
-        calling a search API and an AI provider on a schedule, a
-        <strong>Claude web agent</strong> — scheduled daily via Claude's own web
-        scheduling feature, entirely outside this repository — samples the
-        persisted N5 pool, avoids repeating recent days, authors plausible
-        multiple-choice questions, and calls the tools below to write that day's
-        finished <code>DailyGame</code> record directly into Redis. The agent's
-        full operating prompt lives at
-        <code>docs/daily-game-agent-prompt.md</code>.
+        The daily game is generated entirely in-repo (Section 5) — no agent
+        involved. What an external agent <em>does</em> control is design: a
+        <strong>Claude web agent</strong> — scheduled via Claude's own web
+        scheduling feature, entirely outside this repository — checks
+        NipponDaily's currently active season and, when it should change, calls
+        the tools below to write a new <code>SiteTheme</code> record directly
+        into Redis. The agent's full operating prompt lives at
+        <code>docs/site-theme-agent-prompt.md</code>.
       </p>
 
       <!-- Diagram: MCP Pipeline -->
@@ -546,44 +549,31 @@
       </div>
 
       <p class="font-semibold text-xl mt-10 mb-4">
-        <code>ALL /api/mcp</code> registers three tools:
+        <code>ALL /api/mcp</code> registers two tools:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <UCard>
           <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">get_n5_pool</h4>
+            <h4 class="font-mono text-sm font-bold m-0">get_active_theme</h4>
           </template>
           <p class="text-sm">
-            Returns a bounded random sample (default 20, max 50) of one pool
-            kind — hiragana, katakana, kanji, or vocab — never the whole
-            ~1,000-item pool. Accepts <code>excludeIds</code> so the agent can
-            skip items featured in recent days.
+            Returns the currently active <code>SiteTheme</code> —
+            <code>season</code>, <code>updatedAt</code>, and
+            <code>source</code> — so the agent can check state before deciding
+            whether a change is needed.
           </p>
         </UCard>
 
         <UCard>
           <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">
-              get_recent_daily_games
-            </h4>
+            <h4 class="font-mono text-sm font-bold m-0">save_site_theme</h4>
           </template>
           <p class="text-sm">
-            Lists the item ids featured over the last N days (default 7), so the
-            agent can pass them to <code>get_n5_pool</code>'s
-            <code>excludeIds</code> and avoid repeating recent games.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">save_daily_game</h4>
-          </template>
-          <p class="text-sm">
-            Persists one day's game — 4 to 40 authored questions, each with
-            exactly 4 choices including the correct answer — visible at
-            <code>GET /api/daily-game</code> immediately.
-            <code>date</code> defaults to today (UTC) if omitted.
+            Sets the active season, applied site-wide immediately. Only accepts
+            one of the <em>implemented</em> presets (currently just
+            <code>autumn</code>) — anything else is rejected by the schema
+            itself, not just by convention.
           </p>
         </UCard>
       </div>
@@ -597,13 +587,12 @@
         />
         <div>
           <p class="m-0 text-blue-900 dark:text-blue-100 font-semibold mb-1">
-            Never "no game today"
+            Never unstyled
           </p>
           <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
-            <code>GET /api/daily-game</code> only ever reads from Redis first —
-            but if no agent-authored game exists yet for today, it builds a
-            deterministic fallback itself from the pool (Section 5) rather than
-            returning nothing.
+            <code>GET /api/site-theme</code> only ever reads from Redis first —
+            but if no agent has set a season yet, it falls back to a
+            deterministic default (Section 5) rather than returning nothing.
           </p>
         </div>
       </div>
@@ -694,12 +683,11 @@
             <tr>
               <td class="py-2 px-2">Daily games</td>
               <td class="py-2 px-2">
-                Agent-authored via <code>save_daily_game</code>, or generated on
-                the fly by <code>GET /api/daily-game</code>
+                Generated deterministically from the pool by
+                <code>GET /api/daily-game</code> the first time each date is
+                requested
               </td>
-              <td class="py-2 px-2 font-mono text-xs">
-                n5:daily_game:*, n5:daily_game_index
-              </td>
+              <td class="py-2 px-2 font-mono text-xs">n5:daily_game:*</td>
             </tr>
           </tbody>
         </table>
@@ -772,10 +760,10 @@
           </div>
         </template>
         <p class="text-sm mb-4">
-          Returns one day's game — from Redis if the agent has already written
-          it, or a deterministic fallback built from the pool otherwise (and
-          persisted, so it isn't rebuilt on every request). Does not call any
-          external search or AI provider.
+          Returns one day's game — from Redis if it's already been generated, or
+          built deterministically from the pool otherwise (and persisted, so it
+          isn't rebuilt on every request). Does not call any external search or
+          AI provider.
         </p>
 
         <div class="overflow-x-auto mb-4">
@@ -822,6 +810,47 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
     "date": "2026-09-18",
     "questions": [ ... 20 items ... ],
     "generatedAt": 1758182400000,
+    "source": "fallback"
+  },
+  "timestamp": "2026-09-18T00:00:00.000Z"
+}</code></pre>
+          </div>
+        </div>
+      </UCard>
+
+      <!-- /api/site-theme -->
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="green" variant="soft">GET</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/site-theme</h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          Returns the single active <code>SiteTheme</code> — from Redis if the
+          agent has set one, or a deterministic default otherwise (and
+          persisted, so it isn't recomputed on every request). No query
+          parameters.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">Request Example</p>
+            <pre
+              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+            ><code>curl "http://localhost:3000/api/site-theme"</code></pre>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-1">
+              Response (200 OK)
+            </p>
+            <pre
+              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+            ><code>{
+  "success": true,
+  "data": {
+    "season": "autumn",
+    "updatedAt": 1758182400000,
     "source": "agent"
   },
   "timestamp": "2026-09-18T00:00:00.000Z"
@@ -840,9 +869,9 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
         </template>
         <p class="text-sm mb-4">
           The remote MCP server described in Section 3 — this is how the Claude
-          web agent (or any other MCP-speaking client) writes each day's game
-          into Redis. Not a plain REST endpoint; speaks the MCP protocol over
-          HTTP via <code>mcp-handler</code>.
+          web agent (or any other MCP-speaking client) switches the site's
+          active season in Redis. Not a plain REST endpoint; speaks the MCP
+          protocol over HTTP via <code>mcp-handler</code>.
         </p>
 
         <div
@@ -865,16 +894,14 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
               <tr>
-                <td class="py-2 px-2"><code>get_n5_pool</code></td>
-                <td class="py-2 px-2">Sample one pool kind</td>
+                <td class="py-2 px-2"><code>get_active_theme</code></td>
+                <td class="py-2 px-2">Read the currently active season</td>
               </tr>
               <tr>
-                <td class="py-2 px-2"><code>get_recent_daily_games</code></td>
-                <td class="py-2 px-2">List recently-featured item ids</td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2"><code>save_daily_game</code></td>
-                <td class="py-2 px-2">Persist one day's authored game</td>
+                <td class="py-2 px-2"><code>save_site_theme</code></td>
+                <td class="py-2 px-2">
+                  Set the active season to an implemented preset
+                </td>
               </tr>
             </tbody>
           </table>
@@ -905,50 +932,52 @@ flowchart TD
 not by this codebase)"])
     User(["👤 User"])
 
-    Claude -- "samples N5 pool,
-authors questions" --> MCP["ALL /api/mcp
+    Claude -- "checks / sets
+the active season" --> MCP["ALL /api/mcp
 (Nitro, bearer-token protected)"]
 
-    MCP -- "get_n5_pool /
-get_recent_daily_games /
-save_daily_game" --> Redis[("Redis
-N5 Pool + Daily Games")]
+    MCP -- "get_active_theme /
+save_site_theme" --> Redis[("Redis
+N5 Pool + Daily Games + Site Theme")]
 
     User -- "GET /api/daily-game" --> GameAPI["GET /api/daily-game
 (Nitro)"]
     GameAPI -- "read today's game" --> Redis
     GameAPI -. "if missing: build
-deterministic fallback,
+deterministically,
 then persist it" .-> Redis
     GameAPI -- "today's game" --> User
+
+    User -- "GET /api/site-theme" --> ThemeAPI["GET /api/site-theme
+(Nitro)"]
+    ThemeAPI -- "read active season" --> Redis
+    ThemeAPI -. "if missing: use
+default season,
+then persist it" .-> Redis
+    ThemeAPI -- "active season" --> User
 `;
 
 const mcpDiagram = `
 flowchart TD
     Start(["Claude web agent
-runs daily on its own schedule"])
+runs on its own schedule"])
 
-    Start --> S1["Step 1 · get_recent_daily_games
-List item ids featured over the
-last N days, to avoid repeats"]
+    Start --> S1["Step 1 · get_active_theme
+Read the currently active season"]
     S1 -. "READ" .-> Redis[("Redis
-N5 Pool + Daily Games")]
+Site Theme")]
 
-    S1 --> S2["Step 2 · get_n5_pool
-Sample hiragana / katakana / kanji / vocab,
-excluding recent item ids"]
-    S2 -. "READ pool" .-> Redis
+    S1 --> S2{"Should the
+season change?"}
+    S2 -- "no" --> Done1(["✅ Done — nothing to write"])
 
-    S2 --> S3["Step 3 · Author questions
-Build ~20 multiple-choice questions
-with plausible same-kind distractors"]
+    S2 -- "yes" --> S3["Step 2 · save_site_theme
+Set season to one of the
+implemented presets"]
+    S3 -- "WRITE" --> Redis
 
-    S3 --> S4["Step 4 · save_daily_game
-Persist today's DailyGame record"]
-    S4 -- "WRITE" --> Redis
-
-    S4 --> Done(["✅ Done — visible on
-GET /api/daily-game immediately"])
+    S3 --> Done2(["✅ Done — visible on
+GET /api/site-theme immediately"])
 `;
 </script>
 

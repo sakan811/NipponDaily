@@ -6,15 +6,15 @@
   <img src="./public/dark/android-chrome-512x512.png" width="256" height="256" alt="logo dark" />
 </p>
 
-**A daily Japanese-learning game.** NipponDaily turns a persisted N5 hiragana/katakana/kanji/vocabulary pool into one fresh 20-question multiple-choice round per day, built with Nuxt 4, Vue 3, and TypeScript. There are no user accounts and no auth on the play side. The site itself only reads a pre-computed `DailyGame` record out of Upstash Redis and serves it via `GET /api/daily-game` — it never generates a game synchronously on request (unless no agent-authored game exists yet for today, in which case it builds a deterministic fallback from the pool and persists that instead). Game generation happens externally: a Claude web agent samples the persisted pool on a **daily** schedule and writes one finished `DailyGame` straight into Redis through this project's remote MCP server. Gameplay itself (score, streak, current question) lives entirely in the browser's own component state and is never sent back to the server or saved anywhere.
+**A daily Japanese-learning game.** NipponDaily turns a persisted N5 hiragana/katakana/kanji/vocabulary pool into one fresh 20-question multiple-choice round per day, built with Nuxt 4, Vue 3, and TypeScript. There are no user accounts and no auth on the play side. The site itself only reads a pre-computed `DailyGame` record out of Upstash Redis and serves it via `GET /api/daily-game` — every game is generated deterministically from the pool the first time it's requested for a date, then persisted; no agent is involved in game content. What an external agent does control is design: a Claude web agent switches NipponDaily's active seasonal color palette through this project's remote MCP server, and `GET /api/site-theme` serves whatever it last set (or a deterministic default). Gameplay itself (score, streak, current question) lives entirely in the browser's own component state and is never sent back to the server or saved anywhere.
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
 - **Daily 20-Question Round**: 5 multiple-choice questions each for hiragana, katakana, kanji, and vocabulary — every question has exactly 4 choices including the correct answer.
 - **One Game, One Day**: No accounts, no server-side gameplay state — score, streak, longest streak, and per-kind accuracy live only in the browser for the current round. "Play Again" reshuffles and restarts from the already-fetched payload with no refetch.
 - **Replay Any Past Day**: Daily games are never deleted, so `GET /api/daily-game?date=YYYY-MM-DD` can replay any past date.
-- **MCP-Driven Game Pipeline**: A Claude web agent samples the static N5 pool on a daily schedule and calls tools on this project's remote MCP server (`get_n5_pool`, `get_recent_daily_games`, `save_daily_game`) to author and persist each day's game directly in Redis. The agent's full operating prompt lives at [`docs/daily-game-agent-prompt.md`](docs/daily-game-agent-prompt.md).
-- **Never-Empty Fallback**: If no agent-authored game exists yet for today, `GET /api/daily-game` builds a deterministic fallback game from the pool (seeded PRNG) and persists it, so the site never shows "no game today."
+- **Deterministic Daily Generation**: `GET /api/daily-game` builds each day's game itself from the pool (seeded PRNG) the first time it's requested and persists it, so the site never shows "no game today" — no agent or AI provider is involved in game content.
+- **MCP-Driven Seasonal Theme**: A Claude web agent checks and, when it should change, switches NipponDaily's active color palette through this project's remote MCP server (`get_active_theme`, `save_site_theme`), restricted to a closed set of implemented presets. The agent's full operating prompt lives at [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md).
 - **Sakura-Inspired UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 using locally maintained custom UI components (no `@nuxt/ui` dependency). Two themes: a soft "Classic Sakura" day theme (deep rose against cream washi, grounded by sage and warm bark brown) and a midnight-inverted "Midnight Leaves & Evening Plum" dark theme (luminous teal and evening orchid against a midnight slate canvas).
 - **Resilient Fallback UI**: A graceful UI fallback (`TrendingFallback`) when the `/api/daily-game` fetch fails.
 
@@ -22,8 +22,8 @@
 
 - **Framework**: [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) with custom design tokens defined in `app/assets/css/tailwind.css`
-- **Storage**: [Upstash Redis](https://upstash.com/) — the only datastore; the N5 pool is seeded by `pnpm seed:n5`, and `DailyGame` records are written by the external agent (or the in-process fallback) and read by `GET /api/daily-game`
-- **Agent Integration**: Remote [MCP](https://modelcontextprotocol.io/) server (`mcp-handler`) at `/api/mcp`, called by an external Claude web agent
+- **Storage**: [Upstash Redis](https://upstash.com/) — the only datastore; the N5 pool is seeded by `pnpm seed:n5`, `DailyGame` records are generated and persisted in-process by `GET /api/daily-game`, and the active `SiteTheme` record is written by the external agent (or an in-process default) and read by `GET /api/site-theme`
+- **Agent Integration**: Remote [MCP](https://modelcontextprotocol.io/) server (`mcp-handler`) at `/api/mcp`, called by an external Claude web agent to control the site's seasonal design
 - **Kana Romanization**: [wanakana](https://github.com/WaniKani/WanaKana) — derives `romaji` for the hiragana/katakana pool at seed time
 - **Testing**: [Vitest](https://vitest.dev/)
 
@@ -46,8 +46,9 @@ This project uses **pnpm** as its package manager.
    Configure the following in `.env`:
 
    ```bash
-   # Upstash Redis (the N5 pool + daily-game database GET /api/daily-game reads from,
-   # and both `pnpm seed:n5` and the MCP server write to)
+   # Upstash Redis (the N5 pool, daily-game, and site-theme data that GET
+   # /api/daily-game and GET /api/site-theme read from, and both `pnpm seed:n5`
+   # and the MCP server write to)
    UPSTASH_REDIS_REST_URL="your_upstash_redis_rest_url_here"
    UPSTASH_REDIS_REST_TOKEN="your_upstash_redis_rest_token_here"
 
@@ -77,11 +78,11 @@ This project uses **pnpm** as its package manager.
 
 See `.env.example` for reference. Configure these in your `.env` file:
 
-| Variable                   | Required | Description                                                                                                                              |
-| :------------------------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| `UPSTASH_REDIS_REST_URL`   | **Yes**  | Upstash Redis REST URL — the N5 pool + daily-game database `GET /api/daily-game` reads from, and `pnpm seed:n5`/the MCP server write to. |
-| `UPSTASH_REDIS_REST_TOKEN` | **Yes**  | Upstash Redis REST token.                                                                                                                |
-| `MCP_AUTH_TOKEN`           | **Yes**  | Bearer token required to call the remote MCP server at `/api/mcp` (`Authorization: Bearer <token>` or `?token=`).                        |
+| Variable                   | Required | Description                                                                                                                                                                   |
+| :------------------------- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `UPSTASH_REDIS_REST_URL`   | **Yes**  | Upstash Redis REST URL — the N5 pool, daily-game, and site-theme data that `GET /api/daily-game`/`GET /api/site-theme` read from, and `pnpm seed:n5`/the MCP server write to. |
+| `UPSTASH_REDIS_REST_TOKEN` | **Yes**  | Upstash Redis REST token.                                                                                                                                                     |
+| `MCP_AUTH_TOKEN`           | **Yes**  | Bearer token required to call the remote MCP server at `/api/mcp` (`Authorization: Bearer <token>` or `?token=`).                                                             |
 
 Server-side config is resolved through `server/utils/config.ts`'s `getEnvOrConfig()`, which prefers Nuxt `runtimeConfig` and falls back to `process.env` (`scripts/seed-n5-data.mjs` is the one exception — it runs as a bare `node` process outside any Nuxt context, so it reads `process.env` directly). There is currently no request rate limiting and no integration-test suite — all tests run against mocks.
 
@@ -108,7 +109,7 @@ Server-side config is resolved through `server/utils/config.ts`'s `getEnvOrConfi
 NipponDaily uses two Vitest projects configured in `vitest.config.ts`:
 
 - **Unit Tests**: Component/UI tests in a `happy-dom` environment (`test/unit`).
-- **Server/API Tests**: API endpoint and service tests in a `node` environment (`test/server`), with `n5DataService` mocked directly since `GET /api/daily-game` only ever reads from Redis (with an in-process fallback generator).
+- **Server/API Tests**: API endpoint and service tests in a `node` environment (`test/server`), with `n5DataService` and `siteThemeService` mocked directly since both `GET /api/daily-game` and `GET /api/site-theme` only ever read from Redis (each with an in-process fallback).
 
 ```bash
 pnpm test          # watch mode
@@ -118,17 +119,16 @@ pnpm test:coverage # coverage report
 
 ## 🤖 MCP Server
 
-`server/api/mcp.ts` exposes a remote MCP server at `/api/mcp` (mounted via `mcp-handler`), protected by a constant-time bearer-token check against `MCP_AUTH_TOKEN` (`Authorization: Bearer <token>` header or `?token=` query param; a missing or wrong token gets a `401`). It's how an external Claude web agent — sampling the N5 pool and authoring each day's game entirely outside this repo — writes finished `DailyGame` records into the same Redis keys `GET /api/daily-game` reads from.
+`server/api/mcp.ts` exposes a remote MCP server at `/api/mcp` (mounted via `mcp-handler`), protected by a constant-time bearer-token check against `MCP_AUTH_TOKEN` (`Authorization: Bearer <token>` header or `?token=` query param; a missing or wrong token gets a `401`). It's how an external Claude web agent — controlling NipponDaily's seasonal design entirely outside this repo — writes the active `SiteTheme` record into the same Redis key `GET /api/site-theme` reads from. It has no tools for game content; daily games are generated entirely in-repo.
 
 Registered tools:
 
-| Tool                     | Purpose                                                                                                                                                          |
-| :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `get_n5_pool`            | Bounded random sample (default 20, max 50) of one pool kind (`hiragana`/`katakana`/`kanji`/`vocab`), with optional `excludeIds` to skip recently-featured items. |
-| `get_recent_daily_games` | Item ids featured over the last N days (default 7), so the agent can avoid repeating them.                                                                       |
-| `save_daily_game`        | Persist one day's 4–40 authored questions (each with exactly 4 choices including the correct answer); `date` defaults to today (UTC).                            |
+| Tool               | Purpose                                                                                           |
+| :----------------- | :------------------------------------------------------------------------------------------------ |
+| `get_active_theme` | Read the currently active `SiteTheme` (`season`/`updatedAt`/`source`).                            |
+| `save_site_theme`  | Set the active season to one of the implemented presets; anything else is rejected by the schema. |
 
-See [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for full tool schemas and diagrams, and [docs/daily-game-agent-prompt.md](docs/daily-game-agent-prompt.md) for the agent's operating prompt.
+See [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for full tool schemas and diagrams, and [docs/site-theme-agent-prompt.md](docs/site-theme-agent-prompt.md) for the agent's operating prompt.
 
 ## 📚 Documentation
 
@@ -140,11 +140,11 @@ The running site ships in-app documentation at `/docs`:
 
 Repo-only docs:
 
-- [`docs/daily-game-agent-prompt.md`](docs/daily-game-agent-prompt.md) — the operating prompt for the external daily game-authoring agent. Keep it in sync with the MCP tool set.
+- [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md) — the operating prompt for the external theme agent. Keep it in sync with the MCP tool set.
 
-## 🔌 API Endpoint
+## 🔌 API Endpoints
 
-`GET /api/daily-game` — the only endpoint the frontend calls directly. It reads (or, if missing, builds and persists a fallback for) one day's game; it never fetches dictionary data or runs generation synchronously beyond that fallback.
+`GET /api/daily-game` — reads (or, if missing, builds and persists) one day's game; it never fetches dictionary data or calls any external provider.
 
 | Parameter | Type                  | Description                                                                               |
 | :-------- | :-------------------- | :---------------------------------------------------------------------------------------- |
@@ -161,6 +161,20 @@ Repo-only docs:
       /* 20 GameQuestion — id, kind, prompt, promptSub?, correctAnswer, choices (4) */
     ],
     "generatedAt": 1758182400000,
+    "source": "fallback"
+  },
+  "timestamp": "2026-09-18T00:00:00Z"
+}
+```
+
+`GET /api/site-theme` — no query params; reads (or, if missing, builds and persists a default for) the single active `SiteTheme`:
+
+```json
+{
+  "success": true,
+  "data": {
+    "season": "autumn",
+    "updatedAt": 1758182400000,
     "source": "agent"
   },
   "timestamp": "2026-09-18T00:00:00Z"
@@ -178,7 +192,7 @@ Hiragana, katakana, N5 kanji, and N5 vocabulary are static reference data seeded
 | Hiragana / Katakana | Hardcoded (fixed, unchanging syllabaries — not dictionary content); `romaji` derived via [wanakana](https://github.com/WaniKani/WanaKana)                                                                                  |
 | N5 vocabulary       | [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (N5-tagged words), cross-referenced against [JMdict](https://github.com/scriptin/jmdict-simplified) for part of speech                                     |
 | N5 kanji            | Derived from the unique kanji appearing in the N5 vocab list, enriched from KANJIDIC2 (on'yomi, kun'yomi, stroke count, meanings), via the same [jmdict-simplified](https://github.com/scriptin/jmdict-simplified) release |
-| Daily games         | Agent-authored via `save_daily_game`, or generated on the fly by `GET /api/daily-game`                                                                                                                                     |
+| Daily games         | Generated deterministically from the pool by `GET /api/daily-game` the first time each date is requested                                                                                                                   |
 
 **Attribution**: JMdict and KANJIDIC2 are property of the [Electronic Dictionary Research and Development Group](https://www.edrdg.org/), used in conformance with the Group's licence ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)). Accessed via the [jmdict-simplified](https://github.com/scriptin/jmdict-simplified) project's pre-parsed English JSON releases. The N5-level word list is digitized from the community-standard list originally compiled at tanos.co.uk, via [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT licence). `romaji` for the hiragana/katakana pool is derived via [wanakana](https://github.com/WaniKani/WanaKana) (MIT licence). See the "N5 Data & Attribution" section of [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for the same information as rendered in-app.
 
@@ -186,7 +200,7 @@ Since the community word list occasionally carries a wrong English gloss (see [`
 
 ## ⚠️ Limitations
 
-- **Dependencies**: A persistent deployment needs an Upstash Redis instance and an `MCP_AUTH_TOKEN` for the agent-facing pipeline, plus a seeded N5 pool (`pnpm seed:n5`).
+- **Dependencies**: A persistent deployment needs an Upstash Redis instance and an `MCP_AUTH_TOKEN` for the agent-facing theme pipeline, plus a seeded N5 pool (`pnpm seed:n5`).
 - **No rate limiting**: there is currently no request rate limiting on any endpoint.
 - **No integration tests**: all tests run against mocks (`test/unit`, `test/server`); there is no SRH/Redis-proxy or `test:integration` setup.
 
