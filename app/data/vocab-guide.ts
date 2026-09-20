@@ -402,7 +402,10 @@ export const WORD_CLUSTERS: WordCluster[] = [
       { label: "week", terms: ["今週", "来週", "先週"] },
       { label: "month", terms: ["今月", "来月", "先月"] },
       { label: "year", terms: ["今年", "来年", "去年"] },
-      { label: "every…", terms: ["毎日", "毎週", "毎月", "毎年"] },
+      {
+        label: "every…",
+        terms: ["毎日", "毎週", "毎月", "毎年", "毎朝", "毎晩"],
+      },
     ],
   },
   {
@@ -484,6 +487,7 @@ export const WORD_CLUSTERS: WordCluster[] = [
         ],
       },
       { label: "beyond ten", terms: ["百", "千", "万"] },
+      { label: "zero", terms: ["ゼロ", "零"] },
     ],
   },
   {
@@ -517,6 +521,10 @@ export const WORD_CLUSTERS: WordCluster[] = [
       {
         label: "also useful",
         terms: ["弟", "妹", "家族", "兄弟", "両親", "子供"],
+      },
+      {
+        label: "extended family",
+        terms: ["おじいさん", "おばあさん", "伯父叔父さん", "伯母さん叔母さん"],
       },
     ],
   },
@@ -558,6 +566,9 @@ export const WORD_CLUSTERS: WordCluster[] = [
       { terms: ["近い", "遠い"] },
       { terms: ["多い", "少ない"] },
       { terms: ["面白い", "つまらない"] },
+      { terms: ["早い", "遅い"] },
+      { terms: ["速い", "遅い"] },
+      { terms: ["太い", "細い"] },
     ],
   },
   {
@@ -597,6 +608,9 @@ export const WORD_CLUSTERS: WordCluster[] = [
           "近く",
           "そば",
           "向こう",
+          "まっすぐ",
+          "横",
+          "辺",
         ],
       },
       { label: "compass", terms: ["東", "西", "南", "北"] },
@@ -772,7 +786,853 @@ export const WORD_CLUSTERS: WordCluster[] = [
     commonMistake:
       "痛い attaches after the body part with が, not は — 頭が痛い is the neutral, default way to state a symptom.",
     rows: [
-      { terms: ["頭", "顔", "目", "耳", "口", "歯", "手", "足", "お腹", "背"] },
+      {
+        terms: ["頭", "顔", "目", "耳", "口", "歯", "手", "足脚", "お腹", "背"],
+      },
+      { label: "health", terms: ["病気", "風邪", "薬"] },
+    ],
+  },
+  {
+    key: "food-drink",
+    title: "Food, Drink & Mealtimes",
+    subtitle: "Food & Drink",
+    insight:
+      "Japanese builds each daily meal's name by fusing a time-of-day word with 御飯 ('cooked rice', also the generic word for 'meal') — 朝ご飯, 昼ご飯, 晩ご飯/夕飯 — because a meal is thought of around its rice, the way English centers a meal around bread or a main dish.",
+    extendedInsight:
+      "食べ物 ('food') and 飲み物 ('drink') are the general umbrella nouns, while 料理 specifically means a prepared dish or style of cooking (日本料理, 'Japanese cuisine') — reach for 料理 when praising what was cooked, not 食べ物.",
+    examples: [
+      {
+        jp: "朝ご飯にパンと卵を食べます。",
+        romaji: "Asagohan ni pan to tamago o tabemasu.",
+        en: "I eat bread and eggs for breakfast.",
+      },
+      {
+        jp: "この料理はとても美味しいです。",
+        romaji: "Kono ryouri wa totemo oishii desu.",
+        en: "This dish is very delicious.",
+      },
+    ],
+    commonMistake:
+      "晩ご飯 and 夕飯 both simply mean 'dinner/evening meal' — they're interchangeable everyday words, not a formal/casual pair, so don't overthink which one to use.",
+    rows: [
+      { label: "meals", terms: ["朝御飯", "昼御飯", "晩御飯", "夕飯", "御飯"] },
+      { label: "general", terms: ["食べ物", "飲み物", "料理"] },
+      {
+        label: "meats & staples",
+        terms: ["魚", "牛肉", "豚肉", "鶏肉", "卵", "野菜", "果物", "パン"],
+      },
+      {
+        label: "drinks & seasonings",
+        terms: [
+          "お茶",
+          "紅茶",
+          "コーヒー",
+          "お酒",
+          "牛乳",
+          "砂糖",
+          "塩",
+          "醤油",
+          "お菓子",
+          "カレー",
+          "バター",
+        ],
+      },
+      {
+        label: "tableware & places",
+        terms: ["食堂", "茶碗", "カップ", "コップ"],
+      },
+    ],
+  },
+  {
+    key: "clothing",
+    title: "Getting Dressed — Clothes & the Right Verb",
+    subtitle: "Clothing",
+    insight:
+      "Japanese doesn't have one all-purpose verb for 'to wear' — which one you use depends on where the item goes: 着る for anything on the torso (シャツ, セーター), はく for anything on your legs or feet (ズボン, 靴), かぶる for anything on your head (帽子), and かける or する for small accessories (眼鏡, ネクタイ).",
+    extendedInsight:
+      "Once something is on, all four verbs describe the resulting state the same way with ～ている (帽子をかぶっている, 'is wearing a hat') — the verb choice only depends on the item, never on the grammar around it.",
+    examples: [
+      {
+        jp: "今日は青いセーターを着ています。",
+        romaji: "Kyou wa aoi seetaa o kite imasu.",
+        en: "Today I'm wearing a blue sweater.",
+      },
+      {
+        jp: "外は寒いから帽子をかぶってください。",
+        romaji: "Soto wa samui kara boushi o kabutte kudasai.",
+        en: "It's cold outside, so please wear a hat.",
+      },
+    ],
+    commonMistake:
+      "靴をはく is correct, but 靴を着る is not — 着る is reserved for the torso, so shoes, pants, and socks always take はく instead.",
+    rows: [
+      {
+        label: "tops & outerwear",
+        terms: [
+          "服",
+          "洋服",
+          "上着",
+          "シャツ",
+          "ワイシャツ",
+          "セーター",
+          "コート",
+          "背広",
+        ],
+      },
+      {
+        label: "bottoms & footwear",
+        terms: ["スカート", "ズボン", "靴", "靴下"],
+      },
+      {
+        label: "accessories",
+        terms: [
+          "帽子",
+          "ネクタイ",
+          "眼鏡",
+          "ボタン",
+          "ハンカチ",
+          "かばん",
+          "傘",
+        ],
+      },
+      {
+        label: "the wearing verbs",
+        terms: ["はく", "かぶる", "かける", "する"],
+      },
+    ],
+  },
+  {
+    key: "school-supplies",
+    title: "At School — People, Supplies & Language",
+    subtitle: "School",
+    insight:
+      "This is the one topic where the vocabulary is entirely about the classroom itself — the people in it (先生, 学生), the supplies on the desk (本, ノート, 辞書), and the words for language and writing (漢字, 平仮名, 片仮名) that everything else in this pool is written in.",
+    extendedInsight:
+      "辞書 and 字引 both mean 'dictionary' — 辞書 is the standard modern word, while 字引 is an older, more literary synonym you'll mostly meet in reading rather than conversation.",
+    examples: [
+      {
+        jp: "先生は毎日漢字を教えます。",
+        romaji: "Sensei wa mainichi kanji o oshiemasu.",
+        en: "The teacher teaches kanji every day.",
+      },
+      {
+        jp: "辞書で言葉の意味を調べます。",
+        romaji: "Jisho de kotoba no imi o shirabemasu.",
+        en: "I look up the meaning of a word in the dictionary.",
+      },
+    ],
+    commonMistake:
+      "宿題 ('homework') and 質問 ('a question you ask') aren't interchangeable with 問題 ('a problem/question written down to solve') — 質問 goes to a person, 問題 sits on a page.",
+    rows: [
+      { label: "people", terms: ["先生", "学生", "生徒", "留学生"] },
+      {
+        label: "places & classes",
+        terms: [
+          "学校",
+          "教室",
+          "大学",
+          "クラス",
+          "授業",
+          "宿題",
+          "テスト",
+          "練習",
+        ],
+      },
+      {
+        label: "supplies",
+        terms: [
+          "本",
+          "ノート",
+          "鉛筆",
+          "ペン",
+          "ボールペン",
+          "万年筆",
+          "紙",
+          "辞書",
+          "字引",
+          "本棚",
+        ],
+      },
+      {
+        label: "language & questions",
+        terms: [
+          "漢字",
+          "平仮名",
+          "片仮名",
+          "言葉",
+          "文章",
+          "作文",
+          "質問",
+          "問題",
+          "答える",
+        ],
+      },
+    ],
+  },
+  {
+    key: "house-rooms",
+    title: "Around the House",
+    subtitle: "Home & Housework",
+    insight:
+      "家 and うち both mean 'house/home', but うち carries a warmer 'my place' feeling and can even stand in for 'my family' — 家 is the more neutral, literal word for the building itself.",
+    extendedInsight:
+      "The rooms below combine with の the same way the Direction & Position words do (台所の窓, 'the kitchen window') — once you know a handful of rooms, you can locate anything in the house with spatial vocabulary you already have.",
+    examples: [
+      {
+        jp: "毎朝お風呂に入ります。",
+        romaji: "Maiasa ofuro ni hairimasu.",
+        en: "I take a bath every morning.",
+      },
+      {
+        jp: "週末に洗濯と掃除をします。",
+        romaji: "Shuumatsu ni sentaku to souji o shimasu.",
+        en: "I do the laundry and cleaning on the weekend.",
+      },
+    ],
+    commonMistake:
+      "洗濯 ('laundry') and 掃除 ('cleaning') both pair with する rather than having a dedicated verb of their own — 洗濯する and 掃除する are the whole pattern, just like 勉強する.",
+    rows: [
+      { label: "home", terms: ["家", "うち", "アパート", "部屋"] },
+      {
+        label: "rooms & fixtures",
+        terms: [
+          "台所",
+          "お手洗い",
+          "お風呂",
+          "玄関",
+          "階段",
+          "窓",
+          "戸",
+          "ドア",
+          "庭",
+          "廊下",
+          "鍵",
+        ],
+      },
+      {
+        label: "housework & routine",
+        terms: ["石鹸", "浴びる", "磨く", "掃除", "洗濯"],
+      },
+    ],
+  },
+  {
+    key: "gadgets-entertainment",
+    title: "Furniture, Gadgets & Entertainment",
+    subtitle: "Household Items",
+    insight:
+      "Many of these are borrowed words that sound close to their English original once you know katakana — テレビ (television), ラジオ (radio), カメラ (camera), ギター (guitar) — so this group is often faster to learn than native vocabulary of the same size.",
+    extendedInsight:
+      "写真, フィルム, and カメラ form a natural trio around picture-taking (撮る from Giving, Taking & Handling Things is the verb that ties them together: 写真を撮る, 'to take a photo').",
+    examples: [
+      {
+        jp: "居間にテレビと冷蔵庫があります。",
+        romaji: "Ima ni terebi to reizouko ga arimasu.",
+        en: "There's a TV and a refrigerator in the living room.",
+      },
+      {
+        jp: "暇な時、音楽を聞きます。",
+        romaji: "Hima na toki, ongaku o kikimasu.",
+        en: "In my free time, I listen to music.",
+      },
+    ],
+    commonMistake:
+      "音楽 needs 聞く ('to listen') to describe listening to it, not 見る — 音楽を見る is wrong, even though watching a music video would use 見る for the video part.",
+    rows: [
+      { label: "furniture", terms: ["椅子", "机", "テーブル", "ベッド"] },
+      {
+        label: "electronics",
+        terms: [
+          "テレビ",
+          "ラジオ",
+          "ラジオカセ",
+          "テープ",
+          "テープレコーダー",
+          "カメラ",
+          "フィルム",
+          "電話",
+          "電気",
+          "時計",
+          "カレンダー",
+          "写真",
+          "花瓶",
+          "冷蔵庫",
+          "ストーブ",
+          "シャワー",
+        ],
+      },
+      {
+        label: "hobbies",
+        terms: ["音楽", "スポーツ", "ギター", "ニュース", "レコード"],
+      },
+    ],
+  },
+  {
+    key: "places-town",
+    title: "Places Around Town",
+    subtitle: "Town & Errands",
+    insight:
+      "This is the everyday-errands map of a town — bank, hospital, post office, library, department store — each one a destination you'd name after に行きます ('I'm going to...'), so learning them as a set makes it easy to describe your whole day out.",
+    extendedInsight:
+      "The mail-related items (切手, 葉書, 封筒, ポスト) all cluster naturally around 郵便局 ('post office') — remembering the building pulls the smaller vocabulary in with it.",
+    examples: [
+      {
+        jp: "銀行の隣に郵便局があります。",
+        romaji: "Ginkou no tonari ni yuubinkyoku ga arimasu.",
+        en: "There's a post office next to the bank.",
+      },
+      {
+        jp: "はがきに切手を貼ります。",
+        romaji: "Hagaki ni kitte o harimasu.",
+        en: "I put a stamp on the postcard.",
+      },
+    ],
+    commonMistake:
+      "外国 ('a foreign country') and 外国人 ('a foreigner') are easy to mix up since they share the same first two characters — the second one always refers to a person, never a place.",
+    rows: [
+      {
+        label: "errands & buildings",
+        terms: [
+          "銀行",
+          "病院",
+          "郵便局",
+          "公園",
+          "図書館",
+          "デパート",
+          "喫茶店",
+          "レストラン",
+          "ホテル",
+          "大使館",
+          "交番",
+          "店",
+          "八百屋",
+        ],
+      },
+      {
+        label: "places & geography",
+        terms: ["町", "村", "国", "外国", "建物", "入口", "出口", "所"],
+      },
+      { label: "mail", terms: ["切手", "葉書", "封筒", "ポスト"] },
+    ],
+  },
+  {
+    key: "transportation",
+    title: "Getting Around Town",
+    subtitle: "Transportation",
+    insight:
+      "駅 ('station') is the hub this whole group orbits around — 電車, 地下鉄, バス, and タクシー are all things you catch there, while 車, 自動車, and 自転車 are the ones you don't need a station for at all.",
+    extendedInsight:
+      "自動車 and 車 both mean 'car' — 車 is the everyday word, while 自動車 is the more formal/technical term you'll see in writing (signs, news) more than in casual speech.",
+    examples: [
+      {
+        jp: "毎日電車で学校に行きます。",
+        romaji: "Mainichi densha de gakkou ni ikimasu.",
+        en: "I go to school by train every day.",
+      },
+      {
+        jp: "旅行のかばんは重いです。",
+        romaji: "Ryokou no kaban wa omoi desu.",
+        en: "The travel bag is heavy.",
+      },
+    ],
+    commonMistake:
+      "The vehicle you travel by takes で ('by means of'), not に or を — 電車で行きます is correct, 電車を行きます is not.",
+    rows: [
+      {
+        label: "vehicles",
+        terms: [
+          "電車",
+          "地下鉄",
+          "バス",
+          "車",
+          "自動車",
+          "自転車",
+          "タクシー",
+          "飛行機",
+        ],
+      },
+      { label: "getting there", terms: ["駅", "切符", "交差点", "道"] },
+      { label: "travel", terms: ["荷物", "旅行"] },
+    ],
+  },
+  {
+    key: "motion-verbs",
+    title: "Motion Verbs — Getting From A to B",
+    subtitle: "Movement",
+    insight:
+      "行く/来る/帰る (from A Day in Verbs) cover the big three directions; these fill in everything in between — how you get there (歩く, 走る, 泳ぐ, 飛ぶ) and what happens at each end (乗る/降りる to board/get off, 出る/入る to leave/enter).",
+    extendedInsight:
+      "乗る and 降りる are a matched pair for any vehicle — 電車に乗る ('get on the train'), 電車を降りる ('get off the train') — notice the particle itself flips from に to を between the two.",
+    examples: [
+      {
+        jp: "駅まで歩いて、電車に乗ります。",
+        romaji: "Eki made aruite, densha ni norimasu.",
+        en: "I walk to the station and get on the train.",
+      },
+      {
+        jp: "次の駅で降ります。",
+        romaji: "Tsugi no eki de orimasu.",
+        en: "I'll get off at the next station.",
+      },
+    ],
+    commonMistake:
+      "着く ('to arrive') is not the same as 行く ('to go') — 着く describes reaching the destination, so it pairs with に (駅に着く), where 行く describes the trip itself.",
+    rows: [
+      {
+        terms: [
+          "歩く",
+          "走る",
+          "飛ぶ",
+          "泳ぐ",
+          "乗る",
+          "降りる",
+          "渡る",
+          "曲る",
+          "止まる",
+          "着く",
+          "出かける",
+          "出る",
+          "入る",
+          "立つ",
+          "座る",
+          "並ぶ",
+        ],
+      },
+    ],
+  },
+  {
+    key: "handling-verbs",
+    title: "Giving, Taking & Handling Things",
+    subtitle: "Handling Objects",
+    insight:
+      "These are the verbs behind almost any transaction involving an object: 持つ (hold/carry it), 取る (take it), 置く (put it down), 貸す/借りる (lend/borrow it), and 渡す (hand it over) — learn them as a set and you can narrate handing anything to anyone.",
+    extendedInsight:
+      "貸す and 借りる are a mirror pair like 教える/習う — 貸す is what the lender does, 借りる is what the borrower does, and mixing up which side you're on is the single most common slip with this pair.",
+    examples: [
+      {
+        jp: "友達に本を貸しました。",
+        romaji: "Tomodachi ni hon o kashimashita.",
+        en: "I lent my friend a book.",
+      },
+      {
+        jp: "図書館で本を借ります。",
+        romaji: "Toshokan de hon o karimasu.",
+        en: "I borrow books at the library.",
+      },
+    ],
+    commonMistake:
+      "貸す ('to lend') and 借りる ('to borrow') describe opposite roles in the same exchange — 本を貸します means you're giving it away temporarily, not receiving it.",
+    rows: [
+      {
+        terms: [
+          "持つ",
+          "取る",
+          "撮る",
+          "置く",
+          "入れる",
+          "出す",
+          "渡す",
+          "貸す",
+          "借りる",
+          "返す",
+          "上げる",
+        ],
+      },
+    ],
+  },
+  {
+    key: "learning-communication",
+    title: "Learning & Communicating",
+    subtitle: "Speaking & Understanding",
+    insight:
+      "話す ('to speak') and 言う ('to say') both translate as 'say/speak' in English but aren't interchangeable — 話す is about the act of conversing (日本語を話す, 'to speak Japanese'), while 言う introduces specific words someone said.",
+    extendedInsight:
+      "分かる ('to understand') describes a state, not an action you do on purpose — you can't 分かる something on command the way you can 見る or 聞く, which is why it's almost always used with が rather than を (日本語が分かります).",
+    examples: [
+      {
+        jp: "彼はゆっくり日本語を話します。",
+        romaji: "Kare wa yukkuri nihongo o hanashimasu.",
+        en: "He speaks Japanese slowly.",
+      },
+      {
+        jp: "先生の言葉の意味が分かりません。",
+        romaji: "Sensei no kotoba no imi ga wakarimasen.",
+        en: "I don't understand the meaning of the teacher's words.",
+      },
+    ],
+    commonMistake:
+      "覚える means 'to learn/commit to memory' (an ongoing effort), while 分かる means 'to understand' (a state achieved) — you 覚える vocabulary over time, but you either 分かる a sentence or you don't.",
+    rows: [
+      {
+        terms: [
+          "言う",
+          "話す",
+          "聞く",
+          "読む",
+          "書く",
+          "呼ぶ",
+          "見る",
+          "見せる",
+          "知る",
+          "分かる",
+          "覚える",
+          "教える",
+          "習う",
+          "頼む",
+          "忘れる",
+          "話",
+          "声",
+          "意味",
+        ],
+      },
+    ],
+  },
+  {
+    key: "people",
+    title: "Talking About People",
+    subtitle: "People",
+    insight:
+      "誰か ('someone') and どなた (the polite form of 'who') work like the question words from Asking Questions — swap in a name or a specific person once you know who you're asking about.",
+    extendedInsight:
+      "生まれる, 結婚, and 死ぬ are the three big life-event verbs — 結婚 pairs with する (結婚する, 'to get married') the same way any suru-noun does, while 生まれる and 死ぬ are plain verbs on their own.",
+    examples: [
+      {
+        jp: "あの女の子は友達です。",
+        romaji: "Ano onna no ko wa tomodachi desu.",
+        en: "That girl is my friend.",
+      },
+      {
+        jp: "田中さんは去年結婚しました。",
+        romaji: "Tanaka-san wa kyonen kekkon shimashita.",
+        en: "Mr./Ms. Tanaka got married last year.",
+      },
+    ],
+    commonMistake:
+      "皆さん (addressing a group directly, 'everyone') and みんな (talking about a group, 'everybody') overlap in meaning, but みんな is more casual — use 皆さん when speaking politely to the group itself.",
+    rows: [
+      {
+        label: "general",
+        terms: [
+          "大人",
+          "男",
+          "女",
+          "男の子",
+          "女の子",
+          "友達",
+          "自分",
+          "一人",
+          "二人",
+          "方",
+        ],
+      },
+      { label: "who?", terms: ["誰か", "どなた", "皆さん", "みんな", "大勢"] },
+      {
+        label: "occupations",
+        terms: ["警官", "おまわりさん", "医者", "外国人", "奥さん"],
+      },
+      { label: "life events", terms: ["名前", "生まれる", "死ぬ", "結婚"] },
+    ],
+  },
+  {
+    key: "feelings-states",
+    title: "How You're Feeling",
+    subtitle: "Feelings & Conditions",
+    insight:
+      "好き and 嫌い ('like' and 'dislike') are grammatically な-adjectives, not verbs — so 'I like sushi' is 寿司が好きです (literally 'sushi is likeable to me'), with が marking what's liked, not を.",
+    extendedInsight:
+      "大丈夫 covers a wide range of English — 'okay', 'fine', 'no need to worry', even 'no thank you' when politely declining something — context does most of the work in picking the right translation.",
+    examples: [
+      {
+        jp: "今日はとても忙しいです。",
+        romaji: "Kyou wa totemo isogashii desu.",
+        en: "Today I'm very busy.",
+      },
+      {
+        jp: "大丈夫です、心配しないでください。",
+        romaji: "Daijoubu desu, shinpai shinaide kudasai.",
+        en: "It's okay, please don't worry.",
+      },
+    ],
+    commonMistake:
+      "好き and 嫌い take が for the thing liked or disliked, not を — 猫が好きです is correct, 猫を好きです is not, even though 'like' feels like it should take a direct object in English.",
+    rows: [
+      {
+        terms: [
+          "忙しい",
+          "疲れる",
+          "元気",
+          "大丈夫",
+          "大変",
+          "暇",
+          "好き",
+          "嫌い",
+          "大好き",
+          "欲しい",
+          "痛い",
+          "危ない",
+          "困る",
+        ],
+      },
+    ],
+  },
+  {
+    key: "descriptive-adjectives",
+    title: "Describing People, Places & Things",
+    subtitle: "Descriptions",
+    insight:
+      "Most of these are な-adjectives (静か, 便利, 有名, 大切) rather than い-adjectives — insert な before a noun (静かな部屋) and だ/です at the end of a sentence (静かです), the same rule the Word Types section covers for な-adjectives generally.",
+    extendedInsight:
+      "上手 and 下手 describe someone else's skill politely — describing your own skill as 上手 sounds boastful in Japanese, so speakers downplay their own ability instead, often with 下手 or a modest disclaimer.",
+    examples: [
+      {
+        jp: "この部屋はとても静かです。",
+        romaji: "Kono heya wa totemo shizuka desu.",
+        en: "This room is very quiet.",
+      },
+      {
+        jp: "田中さんは料理が上手です。",
+        romaji: "Tanaka-san wa ryouri ga jouzu desu.",
+        en: "Tanaka is good at cooking.",
+      },
+    ],
+    commonMistake:
+      "きれい and りっぱ both end in い but conjugate as な-adjectives, not い-adjectives — きれいい and りっぱい are never correct forms.",
+    rows: [
+      {
+        terms: [
+          "綺麗",
+          "汚い",
+          "静か",
+          "にぎやか",
+          "便利",
+          "大切",
+          "有名",
+          "可愛い",
+          "上手",
+          "下手",
+          "丈夫",
+          "りっぱ",
+          "同じ",
+          "違う",
+          "明るい",
+          "暗い",
+          "厚い",
+          "薄い",
+          "若い",
+          "悪い",
+          "うるさい",
+        ],
+      },
+    ],
+  },
+  {
+    key: "shopping-money",
+    title: "Money & Shopping",
+    subtitle: "Shopping",
+    insight:
+      "買う and 売る are a mirror pair — one side of every purchase is 買う ('to buy'), the other is 売る ('to sell') — and 買い物 is the general activity noun for 'shopping', usually paired with する (買い物する) or に行く (買い物に行く, 'to go shopping').",
+    extendedInsight:
+      "財布 ('wallet') and お金 ('money') are often confused by beginners because both come up in the same sentences about paying — 財布 is the physical object, お金 is what's inside it.",
+    examples: [
+      {
+        jp: "デパートで靴を買いました。",
+        romaji: "Depaato de kutsu o kaimashita.",
+        en: "I bought shoes at the department store.",
+      },
+      {
+        jp: "財布にお金がありません。",
+        romaji: "Saifu ni okane ga arimasen.",
+        en: "There's no money in my wallet.",
+      },
+    ],
+    commonMistake:
+      "買い物 is the noun for the activity of shopping, not a verb by itself — it always needs する or another verb attached (買い物します, 買い物に行きます).",
+    rows: [{ terms: ["お金", "財布", "買い物", "買う", "売る"] }],
+  },
+  {
+    key: "greetings-fillers",
+    title: "Conversation Fillers & Connectors",
+    subtitle: "Everyday Expressions",
+    insight:
+      "These don't carry dictionary meaning the way nouns and verbs do — they're the connective tissue that makes spoken Japanese sound natural, signaling agreement, a change of topic, or a transition to what's next.",
+    extendedInsight:
+      "では, じゃ/じゃあ, and それでは all work as 'well then...' to close one topic and open the next — じゃ/じゃあ is the casual version, では and それでは are more polite/formal, and all three are common ways to end a phone call or wrap up a conversation.",
+    examples: [
+      {
+        jp: "もしもし、田中です。",
+        romaji: "Moshi moshi, Tanaka desu.",
+        en: "Hello, this is Tanaka (on the phone).",
+      },
+      {
+        jp: "じゃあ、また明日。",
+        romaji: "Jaa, mata ashita.",
+        en: "Well then, see you tomorrow.",
+      },
+    ],
+    commonMistake:
+      "もしもし is only used to answer or start a phone call — using it to get someone's attention in person sounds strange; すみません is the word for that instead.",
+    rows: [
+      {
+        label: "yes / agreement",
+        terms: ["はい", "いいえ", "ええ", "そうそうです"],
+      },
+      {
+        label: "transitions",
+        terms: [
+          "では",
+          "じゃじゃあ",
+          "それでは",
+          "それから",
+          "そうしてそして",
+          "でも",
+          "しかし",
+        ],
+      },
+      {
+        label: "phone & attention",
+        terms: ["もしもし", "さあ", "どうぞ", "どうも"],
+      },
+      { label: "asking politely", terms: ["いかが", "どう"] },
+    ],
+  },
+  {
+    key: "sequence-words",
+    title: "Before, Next & After — Sequencing Words",
+    subtitle: "Sequence & Order",
+    insight:
+      "These narrate the order of events without needing a specific time — 先 (earlier/ahead), 次 (next), 後 (after/later) — the same way English uses 'first', 'then', 'after that' to string a story together.",
+    extendedInsight:
+      "初め(始め) marks the beginning of something and 終わる marks its end, while 始まる is what a thing does when it begins on its own (授業が始まる, 'class begins') — the pool doesn't include 始める, the version where someone begins it, but it's worth knowing the pair exists.",
+    examples: [
+      {
+        jp: "授業は九時に始まります。",
+        romaji: "Jugyou wa ku-ji ni hajimarimasu.",
+        en: "Class begins at 9 o'clock.",
+      },
+      {
+        jp: "先にご飯を食べて、後でシャワーを浴びます。",
+        romaji: "Saki ni gohan o tabete, ato de shawaa o abimasu.",
+        en: "I'll eat first, and take a shower afterward.",
+      },
+    ],
+    commonMistake:
+      "先 can mean both 'ahead/previous' and 'the future/what's next' depending on context — 先に行きます ('I'll go ahead') and 先のことは分かりません ('I don't know about the future') use the same word for near-opposite time directions.",
+    rows: [{ terms: ["先", "次", "後", "初め始め", "終る", "始まる"] }],
+  },
+  {
+    key: "time-of-day",
+    title: "Parts of the Day",
+    subtitle: "Time of Day",
+    insight:
+      "朝/昼/晩/夜 divide the day into morning/midday/evening/night, and prefixing 今 or 昨 gives you 'this morning' (今朝) or 'last night' (昨夜) — the same irregular-root pattern as 今日/昨日 from the Time-Word Grid, so these are worth learning alongside it.",
+    extendedInsight:
+      "午前 and 午後 (literally 'before noon' and 'after noon') are what make a 12-hour clock time unambiguous — 午後三時 ('3 PM') versus plain 三時, which could mean 3 AM or 3 PM without them.",
+    examples: [
+      {
+        jp: "今晩、映画を見ます。",
+        romaji: "Konban, eiga o mimasu.",
+        en: "Tonight, I'll watch a movie.",
+      },
+      {
+        jp: "会議は午後二時半からです。",
+        romaji: "Kaigi wa gogo ni-ji han kara desu.",
+        en: "The meeting is from 2:30 PM.",
+      },
+    ],
+    commonMistake:
+      "今朝 ('this morning') and 毎朝 ('every morning') look similar but aren't interchangeable — 今朝 is one specific morning that already happened or is happening, 毎朝 is a repeated habit.",
+    rows: [
+      {
+        terms: [
+          "朝",
+          "昼",
+          "晩",
+          "夜",
+          "今朝",
+          "今晩",
+          "午前",
+          "午後",
+          "半",
+          "夕方",
+          "昨夜",
+        ],
+      },
+    ],
+  },
+  {
+    key: "degree-frequency",
+    title: "How Much & How Often",
+    subtitle: "Degree & Frequency Adverbs",
+    insight:
+      "とても (very), 少し/ちょっと (a little), and 沢山 (a lot) sit on a single scale of amount — swap one in front of any adjective or verb to dial its intensity up or down, no conjugation required.",
+    extendedInsight:
+      "余り works almost only with a negative verb to mean 'not very' (余り好きじゃない, 'not very fond of it') — used with a positive verb it instead means 'leftover/excess', a very different word.",
+    examples: [
+      {
+        jp: "この本は少し難しいです。",
+        romaji: "Kono hon wa sukoshi muzukashii desu.",
+        en: "This book is a little difficult.",
+      },
+      {
+        jp: "彼はまだ来ていません。",
+        romaji: "Kare wa mada kite imasen.",
+        en: "He hasn't come yet.",
+      },
+    ],
+    commonMistake:
+      "もう ('already') and まだ ('still/not yet') are opposites easy to swap under pressure — もう食べました ('I already ate') versus まだ食べていません ('I haven't eaten yet') describe opposite situations with the same verb.",
+    rows: [
+      {
+        label: "amount",
+        terms: ["とても", "余り", "少し", "ちょっと", "沢山", "もっと"],
+      },
+      { label: "frequency", terms: ["いつも", "よく", "全部"] },
+      { label: "already / still / again", terms: ["まだ", "もう", "また"] },
+      {
+        label: "manner",
+        terms: ["すぐに", "丁度", "段々", "一緒", "ゆっくりと"],
+      },
+    ],
+  },
+  {
+    key: "days-of-month",
+    title: "Counting the Days of the Month",
+    subtitle: "Calendar Dates",
+    insight:
+      "The first ten days of the month use old, irregular readings that don't follow number+日 at all — ついたち (1st), ふつか (2nd), みっか (3rd)... とおか (10th) — and the 20th keeps its own irregular reading too, はつか, even though 21st onward goes back to being regular.",
+    extendedInsight:
+      "一日 is written identically whether it means 'one day' (duration, read いちにち) or 'the 1st of the month' (read ついたち) — only the reading tells them apart, and only context tells you which reading is meant.",
+    examples: [
+      {
+        jp: "誕生日は五月三日です。",
+        romaji: "Tanjoubi wa gogatsu mikka desu.",
+        en: "My birthday is May 3rd.",
+      },
+      {
+        jp: "夏休みは七月二十日から始まります。",
+        romaji: "Natsuyasumi wa shichigatsu hatsuka kara hajimarimasu.",
+        en: "Summer vacation starts from July 20th.",
+      },
+    ],
+    commonMistake:
+      "二十日 is read はつか, not にじゅうにち — like 二十歳 (はたち) from the Numbers group, this is one of the calendar's own irregular exceptions, not a typo.",
+    rows: [
+      {
+        label: "1st–10th",
+        terms: [
+          "一日-2",
+          "二日",
+          "三日",
+          "四日",
+          "五日",
+          "六日",
+          "七日",
+          "八日",
+          "九日",
+          "十日",
+        ],
+      },
+      { label: "20th (irregular)", terms: ["二十日"] },
+      { label: "calendar words", terms: ["誕生日", "休み", "夏休み"] },
     ],
   },
 ];
