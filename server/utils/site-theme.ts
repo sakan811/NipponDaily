@@ -7,10 +7,14 @@ import type { SeasonId } from "~~/types/index";
  * app/assets/css/tailwind.css) to add a new season; deliberately starts
  * with just the current one rather than shipping unstyled presets.
  */
-export const SEASON_IDS = ["autumn"] as const satisfies readonly SeasonId[];
+export const SEASON_IDS = [
+  "sakura",
+  "autumn",
+] as const satisfies readonly SeasonId[];
 
 /** Deterministic default used by GET /api/site-theme when no agent has set
- *  a theme yet — today there's only one implemented preset, so this is it. */
+ *  a theme yet — sakura is NipponDaily's base palette (see :root in
+ *  tailwind.css), so it's also the default season. */
 export function defaultSeason(): SeasonId {
-  return SEASON_IDS[0];
+  return "sakura";
 }

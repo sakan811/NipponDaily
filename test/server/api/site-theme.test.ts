@@ -31,7 +31,7 @@ describe("GET /api/site-theme", () => {
     const result = await handler({} as any);
 
     expect(result.success).toBe(true);
-    expect(result.data.season).toBe("autumn");
+    expect(result.data.season).toBe("sakura");
     expect(result.data.source).toBe("fallback");
     expect(mockSaveActiveTheme).toHaveBeenCalledTimes(1);
   });
