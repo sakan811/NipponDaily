@@ -71,7 +71,7 @@ const pages = [
     to: "/docs/architecture",
     title: "System Architecture",
     description:
-      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis N5 pool + daily-game store it reads from, and the remote MCP server a Claude web agent uses to write each day's game straight into the database.",
+      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis N5 pool + daily-game store it reads from, and the remote MCP server a Claude web agent uses to switch the site's seasonal color palette (game content is generated entirely in-repo, no agent involved).",
     icon: "i-heroicons-building-office-2",
   },
   {
