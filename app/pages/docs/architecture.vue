@@ -119,9 +119,8 @@
             date yet — builds it deterministically on the spot from the
             persisted pool, avoiding any kanji/vocab/kana used in the past 7
             days. It never calls any external search or AI provider itself. A
-            Vercel Cron job hits this same build path at 00:00 UTC daily so
-            the game is usually already there by the first visitor (Section
-            5).
+            Vercel Cron job hits this same build path at 00:00 UTC daily so the
+            game is usually already there by the first visitor (Section 5).
           </p>
         </UCard>
 
@@ -574,9 +573,10 @@
           </template>
           <p class="text-sm">
             Sets the active season, applied site-wide immediately. Only accepts
-            one of the <em>implemented</em> presets (currently just
-            <code>autumn</code>) — anything else is rejected by the schema
-            itself, not just by convention.
+            one of the <em>implemented</em> presets (currently
+            <code>sakura</code> — the site's default — and <code>autumn</code>)
+            — anything else is rejected by the schema itself, not just by
+            convention.
           </p>
         </UCard>
       </div>
@@ -595,7 +595,11 @@
           <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
             <code>GET /api/site-theme</code> only ever reads from Redis first —
             but if no agent has set a season yet, it falls back to a
-            deterministic default (Section 5) rather than returning nothing.
+            deterministic default (Section 5) rather than returning nothing. The
+            same <code>data-season</code> attribute that switches the color
+            palette also drives
+            <code>app/components/SeasonalEffects.vue</code>'s ambient falling
+            petals/leaves graphic — one CSS attribute, no separate agent call.
           </p>
         </div>
       </div>
@@ -852,9 +856,9 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
             ><code>{
   "success": true,
   "data": {
-    "season": "autumn",
+    "season": "sakura",
     "updatedAt": 1758182400000,
-    "source": "agent"
+    "source": "fallback"
   },
   "timestamp": "2026-09-18T00:00:00.000Z"
 }</code></pre>
@@ -887,8 +891,8 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
         >
           <strong>🔒 Auth required:</strong>
           <code>Authorization: Bearer &lt;CRON_SECRET&gt;</code> header, which
-          Vercel sends automatically on requests it triggers from this
-          schedule. Missing or wrong tokens get a <code>401</code>.
+          Vercel sends automatically on requests it triggers from this schedule.
+          Missing or wrong tokens get a <code>401</code>.
         </div>
       </UCard>
 

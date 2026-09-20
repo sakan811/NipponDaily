@@ -84,13 +84,13 @@ const features = [
   {
     title: "Deterministic Daily Generation",
     description:
-      'GET /api/daily-game generates each day\'s game itself from the N5 pool using a date-seeded PRNG the first time that date is requested, then persists it — the site never shows "no game today", and no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day\'s game at 00:00 UTC, and generation avoids repeating any item used in the past 7 days.',
+      "GET /api/daily-game generates each day's game itself from the N5 pool using a date-seeded PRNG the first time that date is requested, then persists it — the site never shows \"no game today\", and no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day's game at 00:00 UTC, and generation avoids repeating any item used in the past 7 days.",
     icon: "i-heroicons-arrow-path",
   },
   {
     title: "Agent-Driven Seasonal Theme",
     description:
-      "A Claude web agent checks and, when it should change, switches NipponDaily's active seasonal color palette on its own schedule, entirely outside this codebase.",
+      "A Claude web agent checks and, when it should change, switches NipponDaily's active seasonal color palette on its own schedule, entirely outside this codebase. Sakura is the site's default season; autumn is the other implemented preset.",
     icon: "i-heroicons-cpu-chip",
   },
   {
@@ -98,6 +98,12 @@ const features = [
     description:
       "The theme agent reads and writes the active season through a bearer-token-protected remote MCP server (get_active_theme, save_site_theme), restricted to a closed set of implemented presets.",
     icon: "i-heroicons-command-line",
+  },
+  {
+    title: "Ambient Seasonal Graphic",
+    description:
+      "Falling sakura petals or autumn leaves drift across every page, matching whichever season is active — a pure CSS animation keyed off the same data-season attribute as the color palette, with no extra agent involvement and full prefers-reduced-motion support.",
+    icon: "i-heroicons-sparkles",
   },
   {
     title: "Zero Gameplay Persistence",
