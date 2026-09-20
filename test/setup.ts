@@ -62,6 +62,7 @@ vi.mock("#app", () => ({
 // Mock H3 utilities for server tests
 vi.mock("h3", () => ({
   getQuery: vi.fn(() => ({})),
+  getHeader: vi.fn(() => undefined),
   getRouterParam: vi.fn(() => null),
   getCookie: vi.fn(() => null),
   setCookie: vi.fn(),
@@ -82,6 +83,7 @@ vi.mock("h3", () => ({
 // Make H3 functions globally available for server tests
 (global as any).defineEventHandler = vi.fn((handler) => handler);
 (global as any).getQuery = vi.fn(() => ({}));
+(global as any).getHeader = vi.fn(() => undefined);
 (global as any).createError = vi.fn((error) => ({
   statusCode: error.statusCode || 500,
   statusMessage: error.statusMessage || "Internal Server Error",

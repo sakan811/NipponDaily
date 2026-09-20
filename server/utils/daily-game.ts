@@ -21,6 +21,11 @@ export interface N5Pool {
 const QUESTIONS_PER_KIND = 5;
 const DISTRACTOR_COUNT = 3;
 
+/** How many previous days' DailyGame records buildDailyGame avoids repeating
+ *  items from (see recentIdsByKind below). 7 days keeps a full week fresh
+ *  without starving the smaller kana pools (~55 items each) of candidates. */
+export const REPEAT_AVOIDANCE_DAYS = 7;
+
 /** Deterministic PRNG (mulberry32) — same seed always produces the same
  *  sequence, so a given date's fallback game is stable across repeated
  *  requests before the daily agent's own game overwrites it. */
@@ -56,6 +61,24 @@ function shuffle<T>(items: T[], rng: () => number): T[] {
 
 function pick<T>(items: T[], count: number, rng: () => number): T[] {
   return shuffle(items, rng).slice(0, count);
+}
+
+/** Per-kind set of item ids used across a batch of past DailyGames, so
+ *  buildDailyGame can steer new picks away from what was already shown
+ *  recently. */
+function recentIdsByKind(games: DailyGame[]): Record<N5PoolKind, Set<string>> {
+  const ids: Record<N5PoolKind, Set<string>> = {
+    hiragana: new Set(),
+    katakana: new Set(),
+    kanji: new Set(),
+    vocab: new Set(),
+  };
+  for (const game of games) {
+    for (const question of game.questions) {
+      ids[question.kind].add(question.id);
+    }
+  }
+  return ids;
 }
 
 function poolForKind(
@@ -148,10 +171,22 @@ function toQuestion(
 
 /**
  * Builds a full DailyGame deterministically from a date string — the sole
- * path GET /api/daily-game uses to generate a day's game the first time
- * it's requested. Same date always yields the same game.
+ * path GET /api/daily-game (and the generate-daily-game cron) uses to
+ * generate a day's game the first time it's requested. Same date + same
+ * recentGames always yields the same game.
+ *
+ * `recentGames` (typically the last REPEAT_AVOIDANCE_DAYS days, see
+ * recentDates) lets each kind's pick avoid items shown on those days, so
+ * the same kanji/vocab/kana doesn't turn up again the very next day. If
+ * excluding them would leave fewer than QUESTIONS_PER_KIND candidates for
+ * a kind — e.g. the ~55-item kana pools under a wide enough window — that
+ * kind falls back to picking from its full pool rather than failing.
  */
-export function buildDailyGame(pool: N5Pool, date: string): DailyGame {
+export function buildDailyGame(
+  pool: N5Pool,
+  date: string,
+  recentGames: DailyGame[] = [],
+): DailyGame {
   if (
     pool.kanji.length === 0 ||
     pool.vocab.length === 0 ||
@@ -165,13 +200,17 @@ export function buildDailyGame(pool: N5Pool, date: string): DailyGame {
 
   const rng = mulberry32(seedFromDate(date));
   const kinds: N5PoolKind[] = ["hiragana", "katakana", "kanji", "vocab"];
+  const recentIds = recentIdsByKind(recentGames);
 
   const questions = shuffle(
-    kinds.flatMap((kind) =>
-      pick(poolForKind(pool, kind), QUESTIONS_PER_KIND, rng).map((item) =>
+    kinds.flatMap((kind) => {
+      const fullPool = poolForKind(pool, kind);
+      const fresh = fullPool.filter((item) => !recentIds[kind].has(item.id));
+      const candidates = fresh.length >= QUESTIONS_PER_KIND ? fresh : fullPool;
+      return pick(candidates, QUESTIONS_PER_KIND, rng).map((item) =>
         toQuestion(kind, item, pool, rng),
-      ),
-    ),
+      );
+    }),
     rng,
   );
 
@@ -185,4 +224,17 @@ export function buildDailyGame(pool: N5Pool, date: string): DailyGame {
 
 export function todayUtc(): string {
   return new Date().toISOString().slice(0, 10);
+}
+
+/** The `days` dates immediately before `date` (UTC), most recent first —
+ *  e.g. recentDates("2026-09-20", 3) => ["2026-09-19", "2026-09-18",
+ *  "2026-09-17"]. Used to fetch the recent DailyGames buildDailyGame's
+ *  repeat-avoidance draws on. */
+export function recentDates(date: string, days: number): string[] {
+  const base = new Date(`${date}T00:00:00Z`);
+  return Array.from({ length: days }, (_, i) => {
+    const d = new Date(base);
+    d.setUTCDate(d.getUTCDate() - (i + 1));
+    return d.toISOString().slice(0, 10);
+  });
 }
