@@ -40,6 +40,7 @@ vi.mock("#app", () => ({
     error: ref(null),
     refresh: vi.fn(),
   })),
+  useRoute: vi.fn(() => ({ path: "/", query: {}, params: {} })),
   $fetch: globalMockFetch,
   ref,
   computed,
