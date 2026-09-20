@@ -19,6 +19,7 @@ vi.mock("#app", () => ({
 // Mock the N5 data service — daily-game.get.ts reads exclusively from Redis
 // via this service (falling back to a generated game when none exists yet).
 export const mockGetDailyGame = vi.fn();
+export const mockGetDailyGames = vi.fn();
 export const mockSaveDailyGame = vi.fn();
 export const mockGetFullPool = vi.fn();
 export const mockGetVocabPool = vi.fn();
@@ -30,6 +31,7 @@ vi.mock("~/server/services/n5-data", async (importOriginal) => {
     ...actual,
     n5DataService: {
       getDailyGame: mockGetDailyGame,
+      getDailyGames: mockGetDailyGames,
       saveDailyGame: mockSaveDailyGame,
       getFullPool: mockGetFullPool,
       getVocabPool: mockGetVocabPool,
@@ -133,12 +135,20 @@ export const getVocabHandler = async () => {
   return handlerModule.default;
 };
 
+// Helper function to get the generate-daily-game cron handler
+export const getCronGenerateDailyGameHandler = async () => {
+  const handlerModule =
+    await import("~/server/api/cron/generate-daily-game.get");
+  return handlerModule.default;
+};
+
 // Helper function to setup default mocks
 export const setupDefaults = () => {
   vi.clearAllMocks();
   delete process.env.NODE_ENV;
   (global as any).getQuery.mockReturnValue({});
   mockGetDailyGame.mockResolvedValue(null);
+  mockGetDailyGames.mockResolvedValue([]);
   mockSaveDailyGame.mockResolvedValue(undefined);
   mockGetFullPool.mockResolvedValue(createMockPool());
   mockGetVocabPool.mockResolvedValue(createMockPool().vocab);

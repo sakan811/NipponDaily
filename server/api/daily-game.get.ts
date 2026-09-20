@@ -1,6 +1,11 @@
 import { z } from "zod";
 import { n5DataService } from "../services/n5-data";
-import { buildDailyGame, todayUtc } from "../utils/daily-game";
+import {
+  REPEAT_AVOIDANCE_DAYS,
+  buildDailyGame,
+  recentDates,
+  todayUtc,
+} from "../utils/daily-game";
 import type { DailyGame } from "~~/types/index";
 
 const dailyGameQuerySchema = z.object({
@@ -30,7 +35,10 @@ export default defineEventHandler(async (event) => {
     let game: DailyGame | null = await n5DataService.getDailyGame(date);
     if (!game) {
       const pool = await n5DataService.getFullPool();
-      game = buildDailyGame(pool, date);
+      const recentGames = await n5DataService.getDailyGames(
+        recentDates(date, REPEAT_AVOIDANCE_DAYS),
+      );
+      game = buildDailyGame(pool, date, recentGames);
       // Only persist when nothing exists yet, so a concurrent request for
       // the same not-yet-generated date doesn't overwrite this one.
       await n5DataService.saveDailyGame(game);

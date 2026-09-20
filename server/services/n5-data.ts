@@ -110,6 +110,31 @@ class N5DataService {
     }
   }
 
+  /** Batch-reads DailyGame records by date, skipping any that don't exist —
+   *  used by buildDailyGame's repeat-avoidance to look back over recent days
+   *  (see recentDates in server/utils/daily-game.ts) in one round trip. */
+  async getDailyGames(dates: string[]): Promise<DailyGame[]> {
+    if (dates.length === 0) return [];
+
+    const redis = this.getRedisClient();
+    if (!redis) {
+      return dates
+        .map((date) => this.memoryDailyGames.get(date))
+        .filter((game): game is DailyGame => game != null);
+    }
+
+    try {
+      const keys = dates.map((date) => `n5:daily_game:${date}`);
+      const results = await redis.mget<DailyGame[]>(...keys);
+      return results.filter((game): game is DailyGame => game !== null);
+    } catch (e) {
+      console.error("Error getting recent daily games from Redis:", e);
+      return dates
+        .map((date) => this.memoryDailyGames.get(date))
+        .filter((game): game is DailyGame => game != null);
+    }
+  }
+
   async saveDailyGame(game: DailyGame): Promise<void> {
     const redis = this.getRedisClient();
     if (!redis) {

@@ -81,6 +81,7 @@ export default defineNuxtConfig({
     upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
     upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
     mcpAuthToken: process.env.MCP_AUTH_TOKEN,
+    cronSecret: process.env.CRON_SECRET,
     public: {
       apiBase: "/api",
     },
