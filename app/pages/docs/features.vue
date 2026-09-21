@@ -12,7 +12,7 @@
     <main class="relative z-10 container mx-auto px-4 max-w-4xl py-16 flex-1">
       <div class="max-w-2xl space-y-4">
         <NuxtLink
-          to="/docs"
+          to="/#docs"
           class="kicker text-stone-400 dark:text-stone-500 no-underline hover:text-primary-500 transition-colors"
         >
           &larr; Documentation

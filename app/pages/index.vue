@@ -138,29 +138,41 @@
           play. Nothing about your play-through — answers, progress, results —
           is ever sent back or saved anywhere.
         </p>
-        <div class="flex flex-wrap gap-3 justify-center pt-2">
-          <UButton
-            label="How it works"
-            to="/docs/architecture"
-            color="primary"
-            variant="outline"
-            size="md"
-            icon="i-heroicons-building-office-2"
-          />
-          <UButton
-            label="All features"
-            to="/docs/features"
-            color="gray"
-            variant="ghost"
-            size="md"
-          />
-          <UButton
-            label="Error &amp; fallback states"
-            to="/docs/error-states"
-            color="gray"
-            variant="ghost"
-            size="md"
-          />
+      </section>
+
+      <div class="rule-double my-16 sm:my-24" />
+
+      <!-- Documentation -->
+      <section id="docs" class="space-y-10">
+        <div class="text-center max-w-lg mx-auto space-y-3">
+          <p class="kicker text-stone-400 dark:text-stone-500">Documentation</p>
+          <h2
+            class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            How NipponDaily Works
+          </h2>
+          <div class="rule-double max-w-[120px] mx-auto" />
+          <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
+            Everything behind the front page — the system architecture, the
+            color system, the reader-facing features, and a live catalogue of
+            every error and fallback state the site can render.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <NuxtLink
+            v-for="page in docsPages"
+            :key="page.to"
+            :to="page.to"
+            class="no-underline"
+          >
+            <UPageCard
+              :title="page.title"
+              :description="page.description"
+              :icon="page.icon"
+              class="h-full"
+            />
+          </NuxtLink>
         </div>
       </section>
     </main>
@@ -233,4 +245,35 @@ const gameParts = ref([
       "Play Again reshuffles the same day's questions for another round; a new set arrives automatically tomorrow.",
   },
 ]);
+
+const docsPages = [
+  {
+    to: "/docs/architecture",
+    title: "System Architecture",
+    description:
+      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis N5 pool + daily-game store it reads from, and the remote MCP server a Claude web agent uses to switch the site's seasonal color palette and ambient graphic (game content is generated entirely in-repo, no agent involved).",
+    icon: "i-heroicons-building-office-2",
+  },
+  {
+    to: "/docs/color-palette",
+    title: "Color Palette & System",
+    description:
+      "The light/dark color tokens behind NipponDaily's Classic Sakura palette — Japanese pigments and their high-contrast opposites, plus where each one is applied across the UI.",
+    icon: "i-heroicons-swatch",
+  },
+  {
+    to: "/docs/features",
+    title: "Core Features",
+    description:
+      "The player-facing capabilities: one 20-question daily round across hiragana, katakana, N5 kanji and vocabulary; instant feedback and a per-kind accuracy summary; and zero server-side gameplay persistence.",
+    icon: "i-heroicons-star",
+  },
+  {
+    to: "/docs/error-states",
+    title: "Error & Fallback States",
+    description:
+      "A live catalogue of every degraded, empty, or failure state the UI can render — shown with the real components and mock data so their look can be reviewed without triggering an outage.",
+    icon: "i-heroicons-exclamation-triangle",
+  },
+];
 </script>

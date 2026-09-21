@@ -70,11 +70,34 @@ describe("Index Page (Landing)", () => {
     expect(wrapper.text()).toContain("Replay Anytime");
   });
 
-  it("explains where the game comes from and links to the docs", () => {
+  it("explains where the game comes from", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.text()).toContain("Where the Game Comes From");
     expect(wrapper.text()).toContain("a Claude web agent");
+  });
+
+  it("renders the Documentation section with links to every docs page", () => {
+    const wrapper = mount(IndexPage);
+
+    expect(wrapper.text()).toContain("How NipponDaily Works");
+    expect(wrapper.text()).toContain("System Architecture");
+    expect(wrapper.text()).toContain("Color Palette & System");
+    expect(wrapper.text()).toContain("Core Features");
+    expect(wrapper.text()).toContain("Error & Fallback States");
+
+    const docsLinks = wrapper
+      .findAll("a")
+      .map((a) => a.attributes("href"))
+      .filter((href): href is string => !!href?.startsWith("/docs/"));
+    expect(docsLinks).toEqual(
+      expect.arrayContaining([
+        "/docs/architecture",
+        "/docs/color-palette",
+        "/docs/features",
+        "/docs/error-states",
+      ]),
+    );
   });
 
   it("renders footer with copyright and license", () => {
