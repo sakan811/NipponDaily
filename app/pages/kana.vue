@@ -43,27 +43,25 @@
             >
           </div>
           <p class="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-            Used for native Japanese words, grammar particles (は, を, が),
-            and verb/adjective endings. It's the first script Japanese
-            children learn, and every kanji can be spelled out in it if you
-            don't know the character.
+            Used for native Japanese words, grammar particles (は, を, が), and
+            verb/adjective endings. It's the first script Japanese children
+            learn, and every kanji can be spelled out in it if you don't know
+            the character.
           </p>
         </div>
         <div
           class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 space-y-2"
         >
           <div class="flex items-center gap-2">
-            <UBadge color="secondary" variant="soft" size="sm"
-              >Katakana</UBadge
-            >
+            <UBadge color="secondary" variant="soft" size="sm">Katakana</UBadge>
             <span class="font-serif text-xl text-stone-800 dark:text-stone-100"
               >カタカナ — angular, foreign</span
             >
           </div>
           <p class="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-            Used for loanwords borrowed from other languages
-            (コンピューター, computer), foreign names, onomatopoeia, and for
-            emphasis — the rough equivalent of italics in English.
+            Used for loanwords borrowed from other languages (コンピューター,
+            computer), foreign names, onomatopoeia, and for emphasis — the rough
+            equivalent of italics in English.
           </p>
         </div>
       </section>
@@ -89,9 +87,7 @@
           <p class="kicker text-stone-400 dark:text-stone-500">
             {{ group.row }}-row
           </p>
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3"
-          >
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
             <div
               v-for="entry in group.entries"
               :key="entry.romaji"
@@ -108,7 +104,9 @@
                   class="font-serif text-3xl leading-none text-stone-900 dark:text-white shrink-0"
                   >{{ entry.hiragana }}</span
                 >
-                <p class="text-xs leading-relaxed text-stone-500 dark:text-stone-400">
+                <p
+                  class="text-xs leading-relaxed text-stone-500 dark:text-stone-400"
+                >
                   {{ entry.hiraganaMnemonic }}
                 </p>
               </div>
@@ -120,7 +118,9 @@
                   class="font-serif text-3xl leading-none text-stone-900 dark:text-white shrink-0"
                   >{{ entry.katakana }}</span
                 >
-                <p class="text-xs leading-relaxed text-stone-500 dark:text-stone-400">
+                <p
+                  class="text-xs leading-relaxed text-stone-500 dark:text-stone-400"
+                >
                   {{ entry.katakanaMnemonic }}
                 </p>
               </div>
@@ -155,7 +155,9 @@
             <h3 class="font-serif font-bold text-stone-900 dark:text-white">
               {{ group.title }}
             </h3>
-            <p class="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+            <p
+              class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
+            >
               {{ group.description }}
             </p>
             <p class="text-xs text-stone-400 dark:text-stone-500 italic">
@@ -191,7 +193,9 @@
             <h3 class="font-serif font-bold text-stone-900 dark:text-white">
               {{ group.title }}
             </h3>
-            <p class="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+            <p
+              class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
+            >
               {{ group.description }}
             </p>
             <p class="text-xs text-stone-400 dark:text-stone-500 italic">

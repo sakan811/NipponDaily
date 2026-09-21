@@ -222,7 +222,13 @@ function buildJmdictIndex(jmdictData) {
 
       const existing = index.get(surface);
       if (!existing || (common && !existing.common)) {
-        index.set(surface, { kana: primaryKana, meaning, allGlosses, partOfSpeech, common });
+        index.set(surface, {
+          kana: primaryKana,
+          meaning,
+          allGlosses,
+          partOfSpeech,
+          common,
+        });
       }
     }
   }
@@ -232,11 +238,48 @@ function buildJmdictIndex(jmdictData) {
 // --- Meaning cross-check (elzup CSV gloss vs. JMdict's own gloss) ---
 
 const MEANING_STOPWORDS = new Set([
-  "a", "an", "the", "of", "to", "in", "on", "at", "is", "are", "be", "was",
-  "were", "and", "or", "for", "as", "by", "with", "from", "one", "ones",
-  "also", "etc", "used", "use", "something", "someone", "thing", "things",
-  "polite", "casual", "formal", "informal", "especially", "particle",
-  "suffix", "prefix", "noun", "verb", "adjective", "adverb",
+  "a",
+  "an",
+  "the",
+  "of",
+  "to",
+  "in",
+  "on",
+  "at",
+  "is",
+  "are",
+  "be",
+  "was",
+  "were",
+  "and",
+  "or",
+  "for",
+  "as",
+  "by",
+  "with",
+  "from",
+  "one",
+  "ones",
+  "also",
+  "etc",
+  "used",
+  "use",
+  "something",
+  "someone",
+  "thing",
+  "things",
+  "polite",
+  "casual",
+  "formal",
+  "informal",
+  "especially",
+  "particle",
+  "suffix",
+  "prefix",
+  "noun",
+  "verb",
+  "adjective",
+  "adverb",
 ]);
 
 function significantWords(text) {
@@ -256,13 +299,27 @@ function significantWords(text) {
 // the pool, mostly harmless synonyms like "shoe" vs "shoes"), so it isn't
 // worth running as a default warning — see SEED_VERBOSE_MEANING_CHECK below.
 const MEANING_CONTRAST_PAIRS = [
-  ["this", "that"], ["here", "there"], ["near", "far"],
-  ["before", "after"], ["inside", "outside"], ["come", "go"],
-  ["give", "receive"], ["buy", "sell"], ["arrive", "leave"],
-  ["open", "close"], ["big", "small"], ["yes", "no"],
-  ["left", "right"], ["above", "below"], ["early", "late"],
-  ["first", "last"], ["push", "pull"], ["borrow", "lend"],
-  ["up", "down"], ["hot", "cold"], ["male", "female"],
+  ["this", "that"],
+  ["here", "there"],
+  ["near", "far"],
+  ["before", "after"],
+  ["inside", "outside"],
+  ["come", "go"],
+  ["give", "receive"],
+  ["buy", "sell"],
+  ["arrive", "leave"],
+  ["open", "close"],
+  ["big", "small"],
+  ["yes", "no"],
+  ["left", "right"],
+  ["above", "below"],
+  ["early", "late"],
+  ["first", "last"],
+  ["push", "pull"],
+  ["borrow", "lend"],
+  ["up", "down"],
+  ["hot", "cold"],
+  ["male", "female"],
 ];
 
 /** Returns e.g. "this <-> that" if the two glosses look like a swapped antonym pair, else null. */
@@ -270,10 +327,20 @@ function findReversedMeaning(csvMeaning, jmdictMeaning) {
   const csvWords = significantWords(csvMeaning);
   const jmdictWords = significantWords(jmdictMeaning);
   for (const [a, b] of MEANING_CONTRAST_PAIRS) {
-    if (csvWords.has(a) && jmdictWords.has(b) && !csvWords.has(b) && !jmdictWords.has(a)) {
+    if (
+      csvWords.has(a) &&
+      jmdictWords.has(b) &&
+      !csvWords.has(b) &&
+      !jmdictWords.has(a)
+    ) {
       return `${a} <-> ${b}`;
     }
-    if (csvWords.has(b) && jmdictWords.has(a) && !csvWords.has(a) && !jmdictWords.has(b)) {
+    if (
+      csvWords.has(b) &&
+      jmdictWords.has(a) &&
+      !csvWords.has(a) &&
+      !jmdictWords.has(b)
+    ) {
       return `${b} <-> ${a}`;
     }
   }
@@ -289,7 +356,8 @@ function findReversedMeaning(csvMeaning, jmdictMeaning) {
  */
 function checkMeaning(entry, jmdictEntry) {
   if (!jmdictEntry || jmdictEntry.kana !== entry.kana) return null;
-  const jmdictMeaning = jmdictEntry.allGlosses?.join("; ") || jmdictEntry.meaning;
+  const jmdictMeaning =
+    jmdictEntry.allGlosses?.join("; ") || jmdictEntry.meaning;
   const pair = findReversedMeaning(entry.meaning, jmdictMeaning);
   if (!pair) return null;
   return {
@@ -320,7 +388,12 @@ function logLowConfidenceMeaningDrift(n5Entries, jmdictIndex) {
     if (csvWords.size === 0 || jmdictWords.size === 0) continue;
     const overlaps = [...csvWords].some((w) => jmdictWords.has(w));
     if (!overlaps) {
-      drifted.push({ term: entry.term, kana: entry.kana, csvMeaning: entry.meaning, jmdictMeaning });
+      drifted.push({
+        term: entry.term,
+        kana: entry.kana,
+        csvMeaning: entry.meaning,
+        jmdictMeaning,
+      });
     }
   }
   if (drifted.length === 0) return;
@@ -328,7 +401,9 @@ function logLowConfidenceMeaningDrift(n5Entries, jmdictIndex) {
     `\n(verbose) ${drifted.length} gloss(es) share no word with JMdict's — mostly synonyms, spot-check only:`,
   );
   for (const d of drifted) {
-    console.warn(`  ${d.term} (${d.kana})  CSV: "${d.csvMeaning}"  |  JMdict: "${d.jmdictMeaning}"`);
+    console.warn(
+      `  ${d.term} (${d.kana})  CSV: "${d.csvMeaning}"  |  JMdict: "${d.jmdictMeaning}"`,
+    );
   }
 }
 
