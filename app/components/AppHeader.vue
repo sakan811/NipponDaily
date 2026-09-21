@@ -4,7 +4,9 @@
       <div
         class="h-8 flex items-center justify-between text-stone-500 dark:text-stone-400"
       >
-        <span class="kicker">{{ dateline }}</span>
+        <span class="kicker"
+          ><span class="season-glyph" aria-hidden="true" /> {{ dateline }}</span
+        >
         <span class="kicker hidden sm:inline"
           >A New Japanese Game Every Day</span
         >
@@ -13,18 +15,22 @@
 
     <template #left>
       <NuxtLink to="/" class="flex items-center gap-2.5 text-2xl sm:text-3xl">
-        <img
-          src="/favicon-light.ico"
-          alt="NipponDaily"
-          class="w-[1em] h-[1em] dark:hidden border-[0.5px] border-neutral-900/60 rounded-sm opacity-70"
-        />
-        <img
-          src="/favicon-dark.ico"
-          alt="NipponDaily"
-          class="w-[1em] h-[1em] hidden dark:block border-[0.5px] border-neutral-50/60 rounded-sm opacity-70"
-        />
         <span
-          class="font-serif font-bold text-[1em] tracking-tight leading-none text-stone-900 dark:text-white"
+          class="relative flex items-center justify-center w-[1.35em] h-[1.35em] rounded-full bg-primary-500/10 ring-1 ring-primary-500/30 shrink-0"
+        >
+          <img
+            src="/favicon-light.ico"
+            alt="NipponDaily"
+            class="w-[0.8em] h-[0.8em] dark:hidden rounded-full"
+          />
+          <img
+            src="/favicon-dark.ico"
+            alt="NipponDaily"
+            class="w-[0.8em] h-[0.8em] hidden dark:block rounded-full"
+          />
+        </span>
+        <span
+          class="font-serif font-bold text-[1em] leading-none text-stone-900 dark:text-white"
           >NipponDaily</span
         >
       </NuxtLink>
