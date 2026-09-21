@@ -37,7 +37,7 @@ const rootClass = computed(() => {
   if (props.ui?.root !== undefined) {
     return props.ui.root;
   }
-  return "u-card w-full rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 shadow-none";
+  return "u-card w-full rounded-2xl border border-stone-200/70 dark:border-stone-800 bg-white dark:bg-stone-900/50 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_10px_28px_-14px_rgba(0,0,0,0.14)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.25),0_10px_28px_-14px_rgba(0,0,0,0.5)]";
 });
 
 const headerClass = computed(() => {

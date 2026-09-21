@@ -3,7 +3,7 @@
     <!-- Failed Trending Fetching Card -->
     <UCard
       data-testid="error-state"
-      class="w-full shadow-none text-center bg-white dark:bg-stone-900/80 border border-stone-300 dark:border-stone-800 rounded-sm"
+      class="w-full text-center bg-white dark:bg-stone-900/80"
       :ui="{ body: 'p-6 sm:p-8' }"
     >
       <div class="max-w-md mx-auto space-y-4">

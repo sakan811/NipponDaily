@@ -61,7 +61,7 @@ const handleClick = (event: MouseEvent) => {
 
 const computedClasses = computed(() => {
   const base =
-    "u-button inline-flex items-center justify-center font-medium transition-all duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500";
+    "u-button inline-flex items-center justify-center font-medium transition-all duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 hover:-translate-y-px active:translate-y-0";
   const disabledStyles = props.disabled
     ? "opacity-50 cursor-not-allowed pointer-events-none"
     : "";
@@ -69,10 +69,10 @@ const computedClasses = computed(() => {
 
   // Size styles
   const sizes = {
-    xs: "px-2 py-1 text-xs rounded-sm gap-1",
-    sm: "px-3 py-1.5 text-xs sm:text-sm rounded-sm gap-1.5",
-    md: "px-4 py-2 text-sm rounded-sm gap-2",
-    lg: "px-5 py-2.5 text-base rounded-sm gap-2",
+    xs: "px-2 py-1 text-xs rounded-lg gap-1",
+    sm: "px-3 py-1.5 text-xs sm:text-sm rounded-lg gap-1.5",
+    md: "px-4 py-2 text-sm rounded-lg gap-2",
+    lg: "px-5 py-2.5 text-base rounded-xl gap-2",
   };
   const sizeStyle = sizes[props.size] || sizes.sm;
 
@@ -82,19 +82,18 @@ const computedClasses = computed(() => {
   const color = props.color;
 
   if (variant === "solid") {
+    const shadow = "shadow-sm hover:shadow-md";
     if (color === "primary") {
-      colorVariantStyle = "bg-primary-500 hover:bg-primary-600 text-on-primary";
+      colorVariantStyle = `bg-primary-500 hover:bg-primary-600 text-on-primary ${shadow}`;
     } else if (color === "secondary") {
-      colorVariantStyle =
-        "bg-secondary-500 hover:bg-secondary-600 text-on-secondary";
+      colorVariantStyle = `bg-secondary-500 hover:bg-secondary-600 text-on-secondary ${shadow}`;
     } else if (color === "success") {
-      colorVariantStyle = "bg-success-500 hover:bg-success-600 text-on-success";
+      colorVariantStyle = `bg-success-500 hover:bg-success-600 text-on-success ${shadow}`;
     } else if (color === "error") {
-      colorVariantStyle = "bg-error-500 hover:bg-error-600 text-on-error";
+      colorVariantStyle = `bg-error-500 hover:bg-error-600 text-on-error ${shadow}`;
     } else {
       // gray/default
-      colorVariantStyle =
-        "bg-stone-800 dark:bg-stone-200 hover:bg-stone-900 dark:hover:bg-white text-white dark:text-stone-950";
+      colorVariantStyle = `bg-stone-800 dark:bg-stone-200 hover:bg-stone-900 dark:hover:bg-white text-white dark:text-stone-950 ${shadow}`;
     }
   } else if (variant === "outline") {
     if (color === "primary") {
