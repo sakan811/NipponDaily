@@ -480,24 +480,64 @@ body {
   font-family: var(--font-body-serif);
 }
 
+/* Small tag/label style used for eyebrows, stat labels, etc. — a leading
+   dot (evoking a hanko stamp mark) instead of the old bold uppercase
+   newspaper-eyebrow treatment. */
 .kicker {
   font-family: var(--font-sans);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.rule-double {
-  height: 4px;
-  border: 0;
-  border-top: 2px solid var(--neutral-900);
-  border-bottom: 1px solid var(--neutral-900);
+.kicker::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.6;
+  flex-shrink: 0;
 }
 
-.dark .rule-double {
-  border-top-color: var(--neutral-100);
-  border-bottom-color: var(--neutral-100);
+/* A kicker that already leads with a season-glyph doesn't need the dot too. */
+.kicker:has(.season-glyph)::before {
+  display: none;
+}
+
+/* Soft brush-stroke divider — a single fading rule instead of the old
+   double-ruled newspaper masthead line. Kept the historical class name
+   (rule-double) so every existing call site picks this up automatically. */
+.rule-double {
+  height: 3px;
+  border: 0;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--primary-500) 15%,
+    var(--primary-500) 85%,
+    transparent
+  );
+  opacity: 0.55;
+}
+
+/* Small season-matched glyph, CSS-driven off [data-season] the same way
+   SeasonalEffects.vue's particle layer is — no JS season-branching needed. */
+.season-glyph::before {
+  content: "";
+}
+
+[data-season="sakura"] .season-glyph::before {
+  content: "🌸";
+}
+
+[data-season="autumn"] .season-glyph::before {
+  content: "🍁";
 }
 
 .drop-cap > p:first-of-type::first-letter {
