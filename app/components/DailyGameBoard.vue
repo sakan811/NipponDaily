@@ -30,7 +30,7 @@
         />
 
         <div v-else-if="loading" class="space-y-6">
-          <UCard class="w-full border-t-2 border-t-primary-500">
+          <UCard class="w-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-transparent before:via-primary-500 before:to-transparent">
             <div class="p-4 sm:p-6 space-y-6">
               <USkeleton class="h-6 w-32 mb-3 rounded-sm" />
               <USkeleton class="h-16 w-3/4 mx-auto rounded-sm" />
@@ -53,7 +53,9 @@
               </p>
             </div>
 
-            <UCard class="w-full border-t-2 border-t-primary-500">
+            <UCard
+              class="w-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-transparent before:via-primary-500 before:to-transparent"
+            >
               <div class="p-4 sm:p-8 space-y-6 text-center">
                 <UBadge color="secondary" variant="soft" size="xs">
                   {{ kindLabel(currentQuestion.kind) }}
@@ -132,7 +134,9 @@
 
           <!-- Round summary -->
           <div v-else class="space-y-6">
-            <UCard class="w-full border-t-2 border-t-primary-500">
+            <UCard
+              class="w-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-transparent before:via-primary-500 before:to-transparent"
+            >
               <div class="p-4 sm:p-8 space-y-6 text-center">
                 <UIcon
                   name="i-heroicons-star"
