@@ -399,8 +399,9 @@
   position: absolute;
   top: -10%;
   opacity: 0;
+  filter: blur(var(--seasonal-blur, 0px));
   animation-name: seasonal-fall;
-  animation-timing-function: linear;
+  animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   will-change: transform, opacity;
 }
@@ -410,18 +411,35 @@
   display: block;
 }
 
+/* Wobbling, multi-stop path (rather than a straight diagonal) so particles
+   sway side to side as they fall, like a real petal/leaf drifting on air
+   currents. --seasonal-drift is the full-path horizontal travel; each stop
+   uses a fraction of it, in alternating directions, for the sway. */
 @keyframes seasonal-fall {
   0% {
-    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    transform: translateY(-10vh) translateX(0) rotate(0deg)
+      scale(var(--seasonal-scale, 1));
     opacity: 0;
   }
   8% {
-    opacity: 0.85;
+    opacity: var(--seasonal-opacity, 0.85);
+  }
+  25% {
+    transform: translateY(15vh) translateX(calc(var(--seasonal-drift, 40px) * 0.35))
+      rotate(80deg) scale(var(--seasonal-scale, 1));
+  }
+  50% {
+    transform: translateY(50vh) translateX(calc(var(--seasonal-drift, 40px) * -0.45))
+      rotate(190deg) scale(var(--seasonal-scale, 1));
+  }
+  75% {
+    transform: translateY(82vh) translateX(calc(var(--seasonal-drift, 40px) * 0.65))
+      rotate(275deg) scale(var(--seasonal-scale, 1));
   }
   100% {
     transform: translateY(110vh) translateX(var(--seasonal-drift, 40px))
-      rotate(360deg);
-    opacity: 0.6;
+      rotate(360deg) scale(var(--seasonal-scale, 1));
+    opacity: var(--seasonal-opacity-end, 0.6);
   }
 }
 

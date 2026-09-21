@@ -29,12 +29,24 @@
  * Math.random(), so server and client render byte-identical inline styles.
  */
 
-const PARTICLE_COUNT = 12;
+const PARTICLE_COUNT = 18;
 
 interface Particle {
   id: number;
   style: Record<string, string>;
 }
+
+/**
+ * Three fixed "depth" layers (far/mid/near) give the effect parallax-like
+ * variety — smaller, dimmer, blurrier, slower particles read as further
+ * away, so the layer doesn't look like one repeating sprite. Layer is a
+ * pure function of index, so server/client output stays byte-identical.
+ */
+const DEPTH_LAYERS = [
+  { scale: 0.7, opacity: 0.45, opacityEnd: 0.3, blur: 1.2, durationBoost: 6 },
+  { scale: 0.9, opacity: 0.65, opacityEnd: 0.45, blur: 0.4, durationBoost: 2 },
+  { scale: 1.15, opacity: 0.9, opacityEnd: 0.65, blur: 0, durationBoost: 0 },
+];
 
 function buildParticles(count: number): Particle[] {
   return Array.from({ length: count }, (_, i) => {
@@ -42,8 +54,9 @@ function buildParticles(count: number): Particle[] {
     const delay = ((i * 1.7) % 12).toFixed(1);
     const duration = (9 + ((i * 2.3) % 7)).toFixed(1);
     const driftSign = i % 2 === 0 ? 1 : -1;
-    const drift = driftSign * (40 + ((i * 13) % 60));
+    const drift = driftSign * (50 + ((i * 13) % 70));
     const size = 14 + ((i * 5) % 10);
+    const layer = DEPTH_LAYERS[i % DEPTH_LAYERS.length];
 
     return {
       id: i,
@@ -51,8 +64,12 @@ function buildParticles(count: number): Particle[] {
         left: `${left}%`,
         fontSize: `${size}px`,
         animationDelay: `${delay}s`,
-        animationDuration: `${duration}s`,
+        animationDuration: `${(Number(duration) + layer.durationBoost).toFixed(1)}s`,
         "--seasonal-drift": `${drift}px`,
+        "--seasonal-scale": `${layer.scale}`,
+        "--seasonal-opacity": `${layer.opacity}`,
+        "--seasonal-opacity-end": `${layer.opacityEnd}`,
+        "--seasonal-blur": `${layer.blur}px`,
       },
     };
   });
