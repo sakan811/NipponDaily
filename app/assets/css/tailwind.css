@@ -281,9 +281,13 @@
 /* Seasonal design preset, set by the external theme agent via the MCP
    server's save_site_theme tool (server/api/mcp.ts) and applied as a
    data-season attribute on <html> — see app/composables/useSiteTheme.ts.
-   Only overrides primary/secondary, the two tokens that carry the site's
-   visual identity (see CLAUDE.md's Color System section); success/warning/
-   error/neutral stay constant across seasons. */
+   This block overrides primary/secondary, the two tokens that carry the
+   site's visual identity (see CLAUDE.md's Color System section);
+   success/warning/error/neutral stay constant across seasons. A season can
+   also carry its own chrome (card/button/badge shape, shadow tone, divider
+   style) further down this file — see "Seasonal chrome overrides" below —
+   but sakura deliberately doesn't, since it IS the site's un-seasoned
+   default look. */
 [data-season="sakura"] {
   /* Sakura is NipponDaily's base palette — these values are identical to
      :root above. The block exists anyway so "sakura" is an explicit,
@@ -332,18 +336,18 @@
   --primary-900: #612a0f;
   --primary-950: #421b07;
 
-  /* Ginkgo gold */
-  --secondary-50: #f7f6f4;
-  --secondary-100: #efedea;
-  --secondary-200: #e2dfd8;
-  --secondary-300: #cdc9c0;
-  --secondary-400: #b2ab9e;
-  --secondary-500: #958c7a;
-  --secondary-600: #776f5e;
-  --secondary-700: #5c5649;
-  --secondary-800: #464137;
-  --secondary-900: #302d26;
-  --secondary-950: #1b1915;
+  /* Icho (ginkgo) gold — the classic koyo pairing with momiji red above */
+  --secondary-50: #fefaf0;
+  --secondary-100: #fcefce;
+  --secondary-200: #f8de9c;
+  --secondary-300: #f2c467;
+  --secondary-400: #e9aa3d;
+  --secondary-500: #d1911f;
+  --secondary-600: #ac7517;
+  --secondary-700: #895c14;
+  --secondary-800: #684611;
+  --secondary-900: #4a330d;
+  --secondary-950: #2b1c07;
 
   /* Momiji red-orange is lighter than the default rose — flips to dark text */
   --on-primary: #2e231c;
@@ -363,21 +367,68 @@
   --primary-900: #371905;
   --primary-950: #1d0d02;
 
-  /* Burnished gold */
-  --secondary-50: #faf9f5;
-  --secondary-100: #f3efe6;
-  --secondary-200: #e6dfcd;
-  --secondary-300: #d4c8ab;
-  --secondary-400: #bfac80;
-  --secondary-500: #a99057;
-  --secondary-600: #8e763e;
-  --secondary-700: #6f5b2d;
-  --secondary-800: #52431f;
-  --secondary-900: #392e13;
-  --secondary-950: #221a07;
+  /* Burnished ginkgo gold — deeper and warmer than the light-mode icho gold,
+     to sit right against the midnight neutral background */
+  --secondary-50: #f9f4e6;
+  --secondary-100: #f0e2bc;
+  --secondary-200: #e4c884;
+  --secondary-300: #d6ac54;
+  --secondary-400: #c4922f;
+  --secondary-500: #a8781f;
+  --secondary-600: #866017;
+  --secondary-700: #664912;
+  --secondary-800: #48340d;
+  --secondary-900: #302209;
+  --secondary-950: #1a1204;
 
   /* Ember orange is lighter than the default dark-mode teal — flips back to light text */
   --on-primary: #ffffff;
+}
+
+/* Seasonal chrome overrides — beyond primary/secondary hue, autumn also
+   trades the site's default soft/rounded "sakura petal" chrome (see
+   UCard/UButton/UBadge's own rounded-2xl/xl/full base classes) for a
+   crisper, more angular language: asymmetric corners like a folded leaf
+   or dog-eared washi, warm ember-tinted shadows instead of neutral ones,
+   and tag-like badges instead of pills. Targets the .u-card/.u-button/
+   .u-badge marker classes those components always render (regardless of
+   color/variant props), plus the literal Tailwind utility classes already
+   in their templates — this file sits outside any @layer, so it wins over
+   Tailwind's own @layer utilities without needing !important. sakura gets
+   no equivalent block here since it already matches the site's un-seasoned
+   default chrome (see the sakura color block's own comment above). */
+[data-season="autumn"] .u-card {
+  border-radius: 0.25rem 1.125rem 0.25rem 1.125rem;
+  box-shadow:
+    0 1px 3px rgba(120, 55, 10, 0.1),
+    0 14px 30px -16px rgba(178, 82, 20, 0.35);
+}
+
+[data-season="autumn"].dark .u-card {
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.35),
+    0 14px 32px -16px rgba(179, 90, 25, 0.45);
+}
+
+[data-season="autumn"] .border-t-primary-500 {
+  border-image: linear-gradient(to right, var(--primary-500), var(--secondary-500)) 1;
+}
+
+[data-season="autumn"] .u-button {
+  border-radius: 0.375rem;
+}
+
+[data-season="autumn"] .u-button.shadow-sm {
+  box-shadow: 0 2px 4px rgba(120, 55, 10, 0.2);
+}
+
+[data-season="autumn"] .u-button.shadow-sm:hover {
+  box-shadow: 0 6px 16px -4px rgba(178, 82, 20, 0.45);
+}
+
+[data-season="autumn"] .u-badge {
+  border-radius: 0.25rem;
+  letter-spacing: 0.07em;
 }
 
 /* Seasonal ambient graphic (falling sakura petals / autumn leaves), rendered
@@ -509,6 +560,13 @@ body {
   display: none;
 }
 
+/* Autumn trades the kicker's round dot (a bud/petal dot, fitting sakura)
+   for a small diamond — a falling leaf-fleck instead. */
+[data-season="autumn"] .kicker::before {
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
 /* Soft brush-stroke divider — a single fading rule instead of the old
    double-ruled newspaper masthead line. Kept the historical class name
    (rule-double) so every existing call site picks this up automatically. */
@@ -524,6 +582,21 @@ body {
     transparent
   );
   opacity: 0.55;
+}
+
+/* Autumn's divider runs momiji red into ginkgo gold instead of holding one
+   flat hue — the same red/gold pairing koyo (autumn foliage viewing) is
+   known for, rather than just a season-tinted copy of the default rule. */
+[data-season="autumn"] .rule-double {
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--primary-500) 12%,
+    var(--secondary-500) 50%,
+    var(--primary-500) 88%,
+    transparent
+  );
+  opacity: 0.7;
 }
 
 /* Small season-matched glyph, CSS-driven off [data-season] the same way
