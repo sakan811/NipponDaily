@@ -12,18 +12,20 @@
       :key="`autumn-${particle.id}`"
       class="seasonal-particle seasonal-particle--autumn"
       :style="particle.style"
-      >🍁</span
-    >
+    />
+    <span class="seasonal-corner-glyph" />
   </div>
 </template>
 
 <script setup lang="ts">
 /**
- * Purely decorative, season-matched falling graphic (sakura petals / autumn
- * leaves) layered over every page. Both particle groups always render —
- * which one is actually visible is decided in CSS by the [data-season] on
- * <html> (see app/assets/css/tailwind.css) — so this component needs no
- * knowledge of the active season and never causes a hydration mismatch.
+ * Purely decorative, season-matched ambient graphic layered over every
+ * page: falling sakura petals, or falling momiji (day) / susuki (night)
+ * plus a static corner glyph — a leaf by day, a glowing tsukimi moon by
+ * night — for autumn. Autumn particles/glyph render empty spans; their
+ * actual glyph is set via CSS `content` (see app/assets/css/tailwind.css),
+ * keyed off [data-season] and .dark, so light/dark mode can swap the emoji
+ * without any JS theme-branching or hydration mismatch.
  *
  * Per-particle placement is a fixed function of its index rather than
  * Math.random(), so server and client render byte-identical inline styles.

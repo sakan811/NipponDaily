@@ -467,6 +467,21 @@
   display: block;
 }
 
+/* Autumn's falling glyph itself swaps with light/dark mode: momiji leaves
+   drifting down in daylight, susuki (pampas grass) ears drifting down at
+   night — driven by CSS `content` off .dark so no JS theme-branching is
+   needed (the sakura particle group doesn't vary, so it keeps its emoji as
+   plain element text instead of a ::before rule). */
+[data-season="autumn"] .seasonal-effects .seasonal-particle--autumn::before {
+  content: "🍁";
+}
+
+[data-season="autumn"].dark
+  .seasonal-effects
+  .seasonal-particle--autumn::before {
+  content: "🌾";
+}
+
 /* Wobbling, multi-stop path (rather than a straight diagonal) so particles
    sway side to side as they fall, like a real petal/leaf drifting on air
    currents. --seasonal-drift is the full-path horizontal travel; each stop
@@ -502,8 +517,54 @@
   }
 }
 
-/* Falling particles are a decorative flourish, not content — respect users
-   who've asked for less motion instead of forcing it on them. */
+/* Fixed back-corner accent, autumn-only — a leaf by day, the tsukimi
+   (moon-viewing) moon by night, swapped via CSS `content` off .dark like
+   the falling particles above. Unlike those particles it doesn't fall —
+   it just hangs and softly glows, like the real ritual of sitting still
+   and watching the moon — so it gets its own breathing animation rather
+   than reusing seasonal-fall. */
+.seasonal-corner-glyph {
+  display: none;
+  position: absolute;
+  top: 6%;
+  right: 7%;
+  font-size: 3.75rem;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 28px rgba(209, 145, 31, 0.5));
+  animation: seasonal-corner-glow 7s ease-in-out infinite;
+}
+
+[data-season="autumn"] .seasonal-corner-glyph {
+  display: block;
+}
+
+[data-season="autumn"] .seasonal-corner-glyph::before {
+  content: "🍁";
+}
+
+[data-season="autumn"].dark .seasonal-corner-glyph::before {
+  content: "🌕";
+}
+
+[data-season="autumn"].dark .seasonal-corner-glyph {
+  filter: drop-shadow(0 0 32px rgba(196, 146, 47, 0.6));
+}
+
+@keyframes seasonal-corner-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.68;
+    transform: scale(1.04);
+  }
+}
+
+/* Falling particles and the moon glow above are a decorative flourish, not
+   content — respect users who've asked for less motion instead of forcing
+   it on them. */
 @media (prefers-reduced-motion: reduce) {
   .seasonal-effects {
     display: none;
@@ -540,6 +601,45 @@ body {
       circle at 46% 92%,
       rgba(255, 255, 255, 0.014) 0,
       transparent 38%
+    );
+}
+
+/* Autumn layers a warm moonlight glow (top-right, behind the .seasonal-moon
+   accent above) on top of the base washi mottling — a quiet, cozy dusk cast
+   rather than a flat daytime backdrop, matching tsukimi's evening mood. */
+[data-season="autumn"] body {
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(0, 0, 0, 0.018) 0, transparent 42%),
+    radial-gradient(circle at 82% 58%, rgba(0, 0, 0, 0.014) 0, transparent 48%),
+    radial-gradient(circle at 46% 92%, rgba(0, 0, 0, 0.012) 0, transparent 38%),
+    radial-gradient(
+      circle at 86% 10%,
+      rgba(209, 145, 31, 0.09) 0,
+      transparent 34%
+    );
+}
+
+[data-season="autumn"].dark body {
+  background-image:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(255, 255, 255, 0.022) 0,
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 82% 58%,
+      rgba(255, 255, 255, 0.016) 0,
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 46% 92%,
+      rgba(255, 255, 255, 0.014) 0,
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 86% 10%,
+      rgba(196, 146, 47, 0.16) 0,
+      transparent 34%
     );
 }
 
@@ -629,8 +729,17 @@ body {
   content: "🌸";
 }
 
+/* Autumn's kicker glyph follows the same day/night split as the falling
+   particles and corner accent above: a momiji leaf by day; by night, 🎑 —
+   the tsukimi (moon-viewing) glyph itself, dango/susuki/moon in one
+   pictograph — leading with the ritual once the sky (and the corner moon)
+   is actually out. */
 [data-season="autumn"] .season-glyph::before {
   content: "🍁";
+}
+
+[data-season="autumn"].dark .season-glyph::before {
+  content: "🎑";
 }
 
 .drop-cap > p:first-of-type::first-letter {
