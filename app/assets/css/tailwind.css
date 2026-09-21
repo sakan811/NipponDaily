@@ -451,13 +451,25 @@
   }
 }
 
+/* Faint washi-paper mottling — a few soft, irregularly placed tints rather
+   than a flat fill, so the background reads as textured paper instead of a
+   solid color. Cheap (no image asset) and works in both themes. */
 body {
   font-family: var(--font-sans);
   background-color: #fdfbf7;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(0, 0, 0, 0.018) 0, transparent 42%),
+    radial-gradient(circle at 82% 58%, rgba(0, 0, 0, 0.014) 0, transparent 48%),
+    radial-gradient(circle at 46% 92%, rgba(0, 0, 0, 0.012) 0, transparent 38%);
+  background-attachment: fixed;
 }
 
 .dark body {
   background-color: #0b0e14;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.022) 0, transparent 42%),
+    radial-gradient(circle at 82% 58%, rgba(255, 255, 255, 0.016) 0, transparent 48%),
+    radial-gradient(circle at 46% 92%, rgba(255, 255, 255, 0.014) 0, transparent 38%);
 }
 
 .font-serif {
