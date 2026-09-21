@@ -26,7 +26,7 @@ export const KANA_ROWS: KanaRow[] = [
         romaji: "a",
         hiragana: "あ",
         hiraganaMnemonic:
-          "The loop looks like an open mouth saying \"ah\" — the same shape as the sound.",
+          'The loop looks like an open mouth saying "ah" — the same shape as the sound.',
         katakana: "ア",
         katakanaMnemonic:
           "A sharp roof-and-post shape — think of the letter A stripped down to two strokes.",
@@ -35,7 +35,7 @@ export const KANA_ROWS: KanaRow[] = [
         romaji: "i",
         hiragana: "い",
         hiraganaMnemonic:
-          "Two curved strokes standing side by side, like a pair of \"ii\" (good) friends leaning together.",
+          'Two curved strokes standing side by side, like a pair of "ii" (good) friends leaning together.',
         katakana: "イ",
         katakanaMnemonic:
           "A stick figure standing at attention — one straight leg, one kicked back.",
@@ -44,7 +44,7 @@ export const KANA_ROWS: KanaRow[] = [
         romaji: "u",
         hiragana: "う",
         hiraganaMnemonic:
-          "A head ducking under something, brim first — \"u\" for \"under\".",
+          'A head ducking under something, brim first — "u" for "under".',
         katakana: "ウ",
         katakanaMnemonic:
           "A satellite dish or roof with an antenna poking up through it.",
@@ -53,10 +53,10 @@ export const KANA_ROWS: KanaRow[] = [
         romaji: "e",
         hiragana: "え",
         hiraganaMnemonic:
-          "Looks like a little easel on legs — \"e\" for \"easel\".",
+          'Looks like a little easel on legs — "e" for "easel".',
         katakana: "エ",
         katakanaMnemonic:
-          "A capital \"H\" tipped on its side, like a steel girder.",
+          'A capital "H" tipped on its side, like a steel girder.',
       },
       {
         romaji: "o",
@@ -64,8 +64,7 @@ export const KANA_ROWS: KanaRow[] = [
         hiraganaMnemonic:
           "A spinning top with a loop of string trailing off it, mid-spin.",
         katakana: "オ",
-        katakanaMnemonic:
-          "A person mid karate-chop, arm slicing down and out.",
+        katakanaMnemonic: "A person mid karate-chop, arm slicing down and out.",
       },
     ],
   },
@@ -84,8 +83,7 @@ export const KANA_ROWS: KanaRow[] = [
       {
         romaji: "ki",
         hiragana: "き",
-        hiraganaMnemonic:
-          "A key, with two little teeth cut into the shaft.",
+        hiraganaMnemonic: "A key, with two little teeth cut into the shaft.",
         katakana: "キ",
         katakanaMnemonic:
           "The same key shape, drawn with sharp corners instead of curves.",
@@ -103,13 +101,14 @@ export const KANA_ROWS: KanaRow[] = [
         hiragana: "け",
         hiraganaMnemonic: "A leg mid-kick, knee raised, foot flicking out.",
         katakana: "ケ",
-        katakanaMnemonic: "The same kicking leg, stiffened into straight lines.",
+        katakanaMnemonic:
+          "The same kicking leg, stiffened into straight lines.",
       },
       {
         romaji: "ko",
         hiragana: "こ",
         hiraganaMnemonic:
-          "Two curved rail segments laid one above the other, clacking \"ko-ko\".",
+          'Two curved rail segments laid one above the other, clacking "ko-ko".',
         katakana: "コ",
         katakanaMnemonic: "An open box, missing its right-hand wall.",
       },
@@ -129,7 +128,7 @@ export const KANA_ROWS: KanaRow[] = [
         romaji: "shi",
         hiragana: "し",
         hiraganaMnemonic:
-          "One calm, curved stroke — like a finger held up for \"shh\".",
+          'One calm, curved stroke — like a finger held up for "shh".',
         katakana: "シ",
         katakanaMnemonic:
           "Three short sparks flying off in the same direction — sharper than its hiragana twin.",
@@ -152,7 +151,7 @@ export const KANA_ROWS: KanaRow[] = [
         romaji: "so",
         hiragana: "そ",
         hiraganaMnemonic:
-          "A thread zigzagging through cloth — \"so\" as in \"sewn\".",
+          'A thread zigzagging through cloth — "so" as in "sewn".',
         katakana: "ソ",
         katakanaMnemonic: "A single raindrop caught falling at an angle.",
       },
@@ -164,7 +163,7 @@ export const KANA_ROWS: KanaRow[] = [
       {
         romaji: "ta",
         hiragana: "た",
-        hiraganaMnemonic: "A person taking a bow, arms crossed — \"ta-da\".",
+        hiraganaMnemonic: 'A person taking a bow, arms crossed — "ta-da".',
         katakana: "タ",
         katakanaMnemonic: "A table, seen from the side with one leg forward.",
       },
@@ -178,15 +177,17 @@ export const KANA_ROWS: KanaRow[] = [
       {
         romaji: "tsu",
         hiragana: "つ",
-        hiraganaMnemonic: "One wave, cresting and about to break — a tsunami in miniature.",
+        hiraganaMnemonic:
+          "One wave, cresting and about to break — a tsunami in miniature.",
         katakana: "ツ",
-        katakanaMnemonic: "Three sharp wave-crests in a row, breaking together.",
+        katakanaMnemonic:
+          "Three sharp wave-crests in a row, breaking together.",
       },
       {
         romaji: "te",
         hiragana: "て",
         hiraganaMnemonic:
-          "A hand reaching out and bending at the wrist — fittingly, 手 (te) means \"hand\".",
+          'A hand reaching out and bending at the wrist — fittingly, 手 (te) means "hand".',
         katakana: "テ",
         katakanaMnemonic: "A television antenna crossed by a signal bar.",
       },
@@ -195,7 +196,8 @@ export const KANA_ROWS: KanaRow[] = [
         hiragana: "と",
         hiraganaMnemonic: "A toe kicking a door open at the hinge.",
         katakana: "ト",
-        katakanaMnemonic: "A single post with one branch — a signpost by the road.",
+        katakanaMnemonic:
+          "A single post with one branch — a signpost by the road.",
       },
     ],
   },
@@ -205,38 +207,44 @@ export const KANA_ROWS: KanaRow[] = [
       {
         romaji: "na",
         hiragana: "な",
-        hiraganaMnemonic: "A knot, tied and pulled tight — \"na\" as in \"knot\".",
+        hiraganaMnemonic: 'A knot, tied and pulled tight — "na" as in "knot".',
         katakana: "ナ",
         katakanaMnemonic: "A plus sign crossed by one extra diagonal stroke.",
       },
       {
         romaji: "ni",
         hiragana: "に",
-        hiraganaMnemonic: "Two horizontal strokes with a hook — close to the kanji 二 (two).",
+        hiraganaMnemonic:
+          "Two horizontal strokes with a hook — close to the kanji 二 (two).",
         katakana: "ニ",
-        katakanaMnemonic: "Two flat strokes stacked, exactly like the kanji for \"two\".",
+        katakanaMnemonic:
+          'Two flat strokes stacked, exactly like the kanji for "two".',
       },
       {
         romaji: "nu",
         hiragana: "ぬ",
-        hiraganaMnemonic: "Noodles twisted around a fork, looping back on themselves.",
+        hiraganaMnemonic:
+          "Noodles twisted around a fork, looping back on themselves.",
         katakana: "ヌ",
-        katakanaMnemonic: "The same noodle twist, pulled taut into a sharper loop.",
+        katakanaMnemonic:
+          "The same noodle twist, pulled taut into a sharper loop.",
       },
       {
         romaji: "ne",
         hiragana: "ね",
         hiraganaMnemonic:
-          "A cat curling its tail around its paws — ねこ (neko, \"cat\") starts with ne.",
+          'A cat curling its tail around its paws — ねこ (neko, "cat") starts with ne.',
         katakana: "ネ",
         katakanaMnemonic: "A knitting needle threading through a loop of yarn.",
       },
       {
         romaji: "no",
         hiragana: "の",
-        hiraganaMnemonic: "One continuous swirl, like tracing a \"no-entry\" circle.",
+        hiraganaMnemonic:
+          'One continuous swirl, like tracing a "no-entry" circle.',
         katakana: "ノ",
-        katakanaMnemonic: "A single downward slash — the simplest stroke in either script.",
+        katakanaMnemonic:
+          "A single downward slash — the simplest stroke in either script.",
       },
     ],
   },
@@ -246,14 +254,16 @@ export const KANA_ROWS: KanaRow[] = [
       {
         romaji: "ha",
         hiragana: "は",
-        hiraganaMnemonic: "A stick figure laughing, legs kicked open — \"ha ha\".",
+        hiraganaMnemonic:
+          'A stick figure laughing, legs kicked open — "ha ha".',
         katakana: "ハ",
-        katakanaMnemonic: "The same open legs, straightened into two sharp strokes.",
+        katakanaMnemonic:
+          "The same open legs, straightened into two sharp strokes.",
       },
       {
         romaji: "hi",
         hiragana: "ひ",
-        hiraganaMnemonic: "A single curved smile, mid \"hee\" laugh.",
+        hiraganaMnemonic: 'A single curved smile, mid "hee" laugh.',
         katakana: "ヒ",
         katakanaMnemonic: "A can opener's hooked blade.",
       },
@@ -270,14 +280,17 @@ export const KANA_ROWS: KanaRow[] = [
         hiragana: "へ",
         hiraganaMnemonic: "A small mountain peak, one clean upward stroke.",
         katakana: "ヘ",
-        katakanaMnemonic: "The identical peak shape — hiragana and katakana share this one.",
+        katakanaMnemonic:
+          "The identical peak shape — hiragana and katakana share this one.",
       },
       {
         romaji: "ho",
         hiragana: "ほ",
-        hiraganaMnemonic: "A signpost with a little flag flying off the crossbar.",
+        hiraganaMnemonic:
+          "A signpost with a little flag flying off the crossbar.",
         katakana: "ホ",
-        katakanaMnemonic: "The same signpost, drawn as a bare pole with two side struts.",
+        katakanaMnemonic:
+          "The same signpost, drawn as a bare pole with two side struts.",
       },
     ],
   },
@@ -294,14 +307,16 @@ export const KANA_ROWS: KanaRow[] = [
       {
         romaji: "mi",
         hiragana: "み",
-        hiraganaMnemonic: "A fishhook curling into a spiral, like a mirrored \"3\".",
+        hiraganaMnemonic:
+          'A fishhook curling into a spiral, like a mirrored "3".',
         katakana: "ミ",
         katakanaMnemonic: "Three short parallel waves, side by side.",
       },
       {
         romaji: "mu",
         hiragana: "む",
-        hiraganaMnemonic: "A cow's face, mid \"moo\", with a curled tail at the end.",
+        hiraganaMnemonic:
+          'A cow\'s face, mid "moo", with a curled tail at the end.',
         katakana: "ム",
         katakanaMnemonic: "A cow's horns, seen head-on as an upside-down V.",
       },
@@ -309,14 +324,14 @@ export const KANA_ROWS: KanaRow[] = [
         romaji: "me",
         hiragana: "め",
         hiraganaMnemonic:
-          "A slanted eye mid-blink — fittingly, 目 (me) means \"eye\".",
+          'A slanted eye mid-blink — fittingly, 目 (me) means "eye".',
         katakana: "メ",
-        katakanaMnemonic: "An eye squeezed shut into a sharp \"X\".",
+        katakanaMnemonic: 'An eye squeezed shut into a sharp "X".',
       },
       {
         romaji: "mo",
         hiragana: "も",
-        hiraganaMnemonic: "Seaweed swaying on a line — 藻 (mo) means \"algae\".",
+        hiraganaMnemonic: 'Seaweed swaying on a line — 藻 (mo) means "algae".',
         katakana: "モ",
         katakanaMnemonic: "A sprout pushing up through two crossbars of soil.",
       },
@@ -330,20 +345,21 @@ export const KANA_ROWS: KanaRow[] = [
         hiragana: "や",
         hiraganaMnemonic: "A slingshot, pulled back and loaded.",
         katakana: "ヤ",
-        katakanaMnemonic: "The same slingshot, straightened into a sharp \"Y\".",
+        katakanaMnemonic: 'The same slingshot, straightened into a sharp "Y".',
       },
       {
         romaji: "yu",
         hiragana: "ゆ",
         hiraganaMnemonic:
-          "Steam curling off a hot spring — 湯 (yu) means \"hot water\".",
+          'Steam curling off a hot spring — 湯 (yu) means "hot water".',
         katakana: "ユ",
-        katakanaMnemonic: "The same hot-spring curl, drawn with two straight strokes.",
+        katakanaMnemonic:
+          "The same hot-spring curl, drawn with two straight strokes.",
       },
       {
         romaji: "yo",
         hiragana: "よ",
-        hiraganaMnemonic: "A person waving one arm high — \"yo!\".",
+        hiraganaMnemonic: 'A person waving one arm high — "yo!".',
         katakana: "ヨ",
         katakanaMnemonic: "A ladder with three even rungs.",
       },
@@ -364,7 +380,8 @@ export const KANA_ROWS: KanaRow[] = [
         hiragana: "り",
         hiraganaMnemonic: "Two chopsticks leaning together, about to fall.",
         katakana: "リ",
-        katakanaMnemonic: "The same two chopsticks, standing straight and separate.",
+        katakanaMnemonic:
+          "The same two chopsticks, standing straight and separate.",
       },
       {
         romaji: "ru",
@@ -383,9 +400,11 @@ export const KANA_ROWS: KanaRow[] = [
       {
         romaji: "ro",
         hiragana: "ろ",
-        hiraganaMnemonic: "A winding corridor, folding back on itself like a maze.",
+        hiraganaMnemonic:
+          "A winding corridor, folding back on itself like a maze.",
         katakana: "ロ",
-        katakanaMnemonic: "A square box — the same shape as the kanji 口 (\"mouth\").",
+        katakanaMnemonic:
+          'A square box — the same shape as the kanji 口 ("mouth").',
       },
     ],
   },
@@ -395,7 +414,7 @@ export const KANA_ROWS: KanaRow[] = [
       {
         romaji: "wa",
         hiragana: "わ",
-        hiraganaMnemonic: "A person waving both arms overhead — \"wa!\".",
+        hiraganaMnemonic: 'A person waving both arms overhead — "wa!".',
         katakana: "ワ",
         katakanaMnemonic: "A head with a curl of hair flopping over one eye.",
       },
@@ -432,7 +451,8 @@ export const DAKUTEN_GROUPS: KanaVariantGroup[] = [
     title: "Dakuten ( ゙ → か゛ = が )",
     description:
       "Two small strokes in the upper-right corner voice an unvoiced consonant: k→g, s→z, t→d, h→b. か (ka) becomes が (ga), さ (sa) becomes ざ (za), は (ha) becomes ば (ba).",
-    example: "かぎ (kagi, \"key\") — か stays unvoiced, ぎ (gi) is き (ki) voiced.",
+    example:
+      'かぎ (kagi, "key") — か stays unvoiced, ぎ (gi) is き (ki) voiced.',
   },
   {
     title: "Handakuten ( ゚ → ほ゜ = ぽ )",
@@ -447,18 +467,20 @@ export const DIGRAPH_GROUPS: KanaVariantGroup[] = [
     title: "Small ゃ/ゅ/ょ (ya/yu/yo) — palatalized sounds",
     description:
       "A full-size i-row kana followed by a small ゃ, ゅ, or ょ glides the two together into one syllable: き + small ゃ = きゃ (kya), し + small ゅ = しゅ (shu).",
-    example: "きょう (kyou, \"today\") — き + small ょ, not \"ki-yo-u\".",
+    example: 'きょう (kyou, "today") — き + small ょ, not "ki-yo-u".',
   },
   {
     title: "Small っ/ッ (sokuon) — doubled consonants",
     description:
       "A small tsu inserts a brief pause that doubles the next consonant. It never has its own sound — it's a beat of silence written into the word.",
-    example: "きっぷ (kippu, \"ticket\") vs きぷ — the small っ is what makes the \"pp\" stop.",
+    example:
+      'きっぷ (kippu, "ticket") vs きぷ — the small っ is what makes the "pp" stop.',
   },
   {
     title: "Long vowel mark ー (katakana only)",
     description:
       "Katakana stretches a vowel with a dash instead of repeating a kana, which is how English loanwords keep their long vowels legible.",
-    example: "コーヒー (koohii, \"coffee\") — each ー holds the vowel before it for an extra beat.",
+    example:
+      'コーヒー (koohii, "coffee") — each ー holds the vowel before it for an extra beat.',
   },
 ];

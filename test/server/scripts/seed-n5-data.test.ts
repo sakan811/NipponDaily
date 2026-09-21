@@ -40,9 +40,9 @@ describe("VOCAB_READING_OVERRIDES", () => {
 // words" diff, which is far too noisy (~11% of the pool is synonym drift).
 describe("findReversedMeaning", () => {
   it("flags a this/that swap, e.g. the original あちら bug", () => {
-    expect(findReversedMeaning("this way (polite)", "that way; over there")).toBe(
-      "this <-> that",
-    );
+    expect(
+      findReversedMeaning("this way (polite)", "that way; over there"),
+    ).toBe("this <-> that");
   });
 
   it("does not flag ordinary synonym drift", () => {
@@ -62,12 +62,20 @@ describe("checkMeaning", () => {
     // 外/そと ("outside") vs 外/ほか ("other") share a kanji but are
     // different words — checkMeaning must not compare across them.
     const entry = { term: "外", kana: "そと", meaning: "outside, exterior" };
-    const jmdict = { kana: "ほか", meaning: "other, the rest", allGlosses: ["other", "the rest"] };
+    const jmdict = {
+      kana: "ほか",
+      meaning: "other, the rest",
+      allGlosses: ["other", "the rest"],
+    };
     expect(checkMeaning(entry, jmdict)).toBeNull();
   });
 
   it("flags a same-reading reversed gloss", () => {
-    const entry = { term: "あちら", kana: "あちら", meaning: "this way (polite)" };
+    const entry = {
+      term: "あちら",
+      kana: "あちら",
+      meaning: "this way (polite)",
+    };
     const jmdict = {
       kana: "あちら",
       meaning: "that way",
