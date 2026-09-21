@@ -598,8 +598,10 @@
             deterministic default (Section 5) rather than returning nothing. The
             same <code>data-season</code> attribute that switches the color
             palette also drives
-            <code>app/components/SeasonalEffects.vue</code>'s ambient falling
-            petals/leaves graphic — one CSS attribute, no separate agent call.
+            <code>app/components/SeasonalEffects.vue</code>'s ambient graphic —
+            falling petals for sakura; for autumn, falling momiji leaves and a
+            leaf accent in daylight, falling susuki and a glowing tsukimi moon
+            accent at night — one CSS attribute, no separate agent call.
           </p>
         </div>
       </div>
