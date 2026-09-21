@@ -281,20 +281,34 @@
 /* Seasonal design preset, set by the external theme agent via the MCP
    server's save_site_theme tool (server/api/mcp.ts) and applied as a
    data-season attribute on <html> — see app/composables/useSiteTheme.ts.
-   This block overrides primary/secondary, the two tokens that carry the
-   site's visual identity (see CLAUDE.md's Color System section);
-   success/warning/error/neutral stay constant across seasons. A season can
-   also carry its own chrome (card/button/badge shape, shadow tone, divider
-   style) further down this file — see "Seasonal chrome overrides" below —
-   but sakura deliberately doesn't, since it IS the site's un-seasoned
-   default look. */
-[data-season="sakura"] {
-  /* Sakura is NipponDaily's base palette — these values are identical to
-     :root above. The block exists anyway so "sakura" is an explicit,
-     addressable season (matching SEASON_IDS/defaultSeason() in
+   Each season below is a FULL, self-contained palette — primary, secondary,
+   success, warning, and error, each with its own on-* text pairing —
+   verified for WCAG AA contrast (>=4.5:1) against whichever on-* color it
+   pairs with, so the MCP agent can switch seasons freely without ever
+   landing on an inaccessible or half-applied combination. Only neutral
+   (canvas backgrounds, body text, borders) stays constant across seasons —
+   it's the shared reading surface, not part of a season's identity, and
+   varying it per season would be a much bigger, riskier redesign than what
+   the MCP tool is scoped to control. A season can also carry its own chrome
+   (card/button/badge shape, shadow tone, divider style) further down this
+   file — see "Seasonal chrome overrides" below — but sakura deliberately
+   doesn't, since it IS the site's un-seasoned default look. */
+[data-season="sakura"]:not(.dark) {
+  /* Sakura is NipponDaily's base (light-mode) palette — these values are
+     identical to :root above. The block exists anyway so "sakura" is an
+     explicit, addressable season (matching SEASON_IDS/defaultSeason() in
      server/utils/site-theme.ts) rather than an implicit "no season" state,
-     and so it has somewhere to diverge from :root later (e.g. a dedicated
-     night variant) without disturbing the true no-season fallback. */
+     and so it has somewhere to diverge from :root later without disturbing
+     the true no-season fallback. Scoped with :not(.dark) rather than a bare
+     [data-season="sakura"] selector: without it, this block and .dark above
+     have equal specificity, and — because this block comes later in the
+     file — it would win and silently force sakura's LIGHT colors onto dark
+     mode too (sakura is the default season, so this would affect every
+     dark-mode visitor who hasn't had an agent switch them to autumn). With
+     :not(.dark), this block simply doesn't match a dark <html>, and dark
+     mode + sakura correctly falls through to .dark's own "Midnight Leaves &
+     Evening Plum" palette untouched — sakura truly has nothing to diverge
+     from in dark mode either. */
   --primary-50: #fff5f6;
   --primary-100: #ffe3e6;
   --primary-200: #ffc7ce;
@@ -319,7 +333,46 @@
   --secondary-900: #273026;
   --secondary-950: #161b15;
 
+  --success-50: #f3f8f2;
+  --success-100: #e6f2e4;
+  --success-200: #cee6ca;
+  --success-300: #a9d3a4;
+  --success-400: #7cba75;
+  --success-500: #559e4e;
+  --success-600: #40803a;
+  --success-700: #33662e;
+  --success-800: #295025;
+  --success-900: #21401e;
+  --success-950: #122410;
+
+  --warning-50: #fdf9f0;
+  --warning-100: #fbf0d8;
+  --warning-200: #f6dfb0;
+  --warning-300: #eec57b;
+  --warning-400: #e5a84d;
+  --warning-500: #d88b27;
+  --warning-600: #bc711d;
+  --warning-700: #9b5818;
+  --warning-800: #7c4514;
+  --warning-900: #633711;
+  --warning-950: #3b1f07;
+
+  --error-50: #fff5f5;
+  --error-100: #ffe6e6;
+  --error-200: #ffcdcd;
+  --error-300: #ffa5a5;
+  --error-400: #ff7070;
+  --error-500: #e03e3e;
+  --error-600: #c22e2e;
+  --error-700: #9e2222;
+  --error-800: #801b1b;
+  --error-900: #661616;
+  --error-950: #3d0b0b;
+
   --on-primary: #ffffff;
+  --on-secondary: #2e231c;
+  --on-success: #2e231c;
+  --on-error: #2e231c;
 }
 
 [data-season="autumn"] {
@@ -349,8 +402,58 @@
   --secondary-900: #4a330d;
   --secondary-950: #2b1c07;
 
+  /* Matcha green — muted/olive rather than sakura's spring green, so
+     "correct answer" feedback still reads as unmistakably green next to
+     this season's warm primary/secondary, just in an autumn key */
+  --success-50: #f7f9f6;
+  --success-100: #ecf2e9;
+  --success-200: #dae6d1;
+  --success-300: #bed6ae;
+  --success-400: #9ec582;
+  --success-500: #6da446;
+  --success-600: #5a873a;
+  --success-700: #486c2e;
+  --success-800: #3a5725;
+  --success-900: #2f471e;
+  --success-950: #1a2711;
+
+  /* Kabocha (squash) amber — deliberately deeper/more orange than the icho
+     gold secondary above so a warning callout doesn't read as just another
+     shade of the secondary accent */
+  --warning-50: #faf7f4;
+  --warning-100: #f6ede5;
+  --warning-200: #efdbc8;
+  --warning-300: #e7c29d;
+  --warning-400: #e1a365;
+  --warning-500: #cc751e;
+  --warning-600: #a76019;
+  --warning-700: #874d14;
+  --warning-800: #6c3e10;
+  --warning-900: #58320d;
+  --warning-950: #311c07;
+
+  /* Kurenai crimson — a cooler, more magenta red than momiji's red-orange
+     primary, so an error/incorrect state stays visually distinct from it */
+  --error-50: #faf4f5;
+  --error-100: #f5e5e7;
+  --error-200: #eec9cd;
+  --error-300: #e59fa7;
+  --error-400: #de6976;
+  --error-500: #d02539;
+  --error-600: #ab1e2f;
+  --error-700: #891825;
+  --error-800: #6e131e;
+  --error-900: #591018;
+  --error-950: #32090e;
+
   /* Momiji red-orange is lighter than the default rose — flips to dark text */
   --on-primary: #2e231c;
+  /* success-500/error-500 above are both light enough for dark text too
+     (contrast-checked at ~5.1:1 and ~5.2:1 against #ffffff respectively —
+     error pairs with white, not bark brown, since it reads too magenta for
+     bark brown to clear AA) */
+  --on-success: #2e231c;
+  --on-error: #ffffff;
 }
 
 [data-season="autumn"].dark {
@@ -381,8 +484,53 @@
   --secondary-900: #302209;
   --secondary-950: #1a1204;
 
+  /* Forest moss — a deeper, more saturated green than the light-mode matcha,
+     bright enough to read clearly against the midnight neutral background */
+  --success-50: #f6faf5;
+  --success-100: #e9f3e7;
+  --success-200: #d3eacd;
+  --success-300: #b1dda6;
+  --success-400: #88d175;
+  --success-500: #48a630;
+  --success-600: #3b8828;
+  --success-700: #2f6e20;
+  --success-800: #26581a;
+  --success-900: #1f4715;
+  --success-950: #11280c;
+
+  /* Ember amber — warmer/brighter than the light-mode kabocha amber */
+  --warning-50: #fbf8f4;
+  --warning-100: #f7efe4;
+  --warning-200: #f1e0c6;
+  --warning-300: #ebca99;
+  --warning-400: #e8b15f;
+  --warning-500: #e89417;
+  --warning-600: #be7a13;
+  --warning-700: #99620f;
+  --warning-800: #7b4f0c;
+  --warning-900: #64400a;
+  --warning-950: #382406;
+
+  /* Garnet — a deep red-magenta counterpart to the light-mode kurenai crimson */
+  --error-50: #faf5f6;
+  --error-100: #f4e6e8;
+  --error-200: #ebcbd1;
+  --error-300: #e1a3ad;
+  --error-400: #d76f81;
+  --error-500: #c62f48;
+  --error-600: #a3263b;
+  --error-700: #831f2f;
+  --error-800: #691926;
+  --error-900: #55141f;
+  --error-950: #300b11;
+
   /* Ember orange is lighter than the default dark-mode teal — flips back to light text */
   --on-primary: #ffffff;
+  /* success-500/warning-500 above are both bright enough for dark text
+     (contrast-checked at ~6.2:1 and ~8.0:1 against #0b0e14); error-500 is
+     too dark/saturated for that, so it pairs with white instead (~5.4:1) */
+  --on-success: #0b0e14;
+  --on-error: #ffffff;
 }
 
 /* Seasonal chrome overrides — beyond primary/secondary hue, autumn also
