@@ -128,13 +128,14 @@
         <p
           class="text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          Once a day, a Claude web agent — running entirely outside this site —
-          samples from NipponDaily's persisted N5 kanji, kana, and vocabulary
-          pool and writes that day's 20 questions straight into the database
-          through a private MCP server. If a day's game is ever missing, the
-          site generates one itself on the spot so there's always something to
-          play. Nothing about your play-through — answers, progress, results —
-          is ever sent back or saved anywhere.
+          Each day's 20 questions are drawn from NipponDaily's persisted N5
+          kanji, kana, and vocabulary pool by the site itself — pre-generated at
+          midnight UTC, or built on the spot the first time the day is
+          requested, and skipping anything used in the past week. No AI writes
+          the questions. What a Claude web agent does control, through a private
+          MCP server, is the season: the colors and shapes you see change with
+          spring, summer, autumn, and winter. Nothing about your play-through —
+          answers, progress, results — is ever sent back or saved anywhere.
         </p>
       </section>
 
@@ -249,14 +250,14 @@ const docsPages = [
     to: "/docs/architecture",
     title: "System Architecture",
     description:
-      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis N5 pool + daily-game store it reads from, and the remote MCP server a Claude web agent uses to switch the site's seasonal color palette and ambient graphic (game content is generated entirely in-repo, no agent involved).",
+      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis N5 pool + daily-game store it reads from, and the remote MCP server a Claude web agent uses to switch the site's season (palette, shapes, and ambient graphic) (game content is generated entirely in-repo, no agent involved).",
     icon: "i-heroicons-building-office-2",
   },
   {
     to: "/docs/color-palette",
     title: "Color Palette & System",
     description:
-      "The light/dark color tokens behind NipponDaily's Classic Sakura palette — Japanese pigments and their high-contrast opposites, plus where each one is applied across the UI.",
+      "The light/dark color tokens behind NipponDaily's Classic Sakura palette, the four seasonal palettes, and the shape language each season applies to cards, buttons, and badges.",
     icon: "i-heroicons-swatch",
   },
   {

@@ -14,7 +14,7 @@
 - **One Game, One Day**: No accounts, no server-side gameplay state — score, streak, longest streak, and per-kind accuracy live only in the browser for the current round. "Play Again" reshuffles and restarts from the already-fetched payload with no refetch.
 - **Replay Any Past Day**: Daily games are never deleted, so `GET /api/daily-game?date=YYYY-MM-DD` can replay any past date.
 - **Deterministic Daily Generation**: `GET /api/daily-game` builds each day's game itself from the pool (seeded PRNG) the first time it's requested and persists it, so the site never shows "no game today" — no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day's game at `00:00 UTC`, and generation avoids repeating any item used in the past 7 days.
-- **MCP-Driven Seasonal Theme**: A Claude web agent checks and, when it should change, switches NipponDaily's active color palette through this project's remote MCP server (`get_active_theme`, `save_site_theme`), restricted to a closed set of implemented presets — one per Japanese season: `sakura` (spring, the default), `summer`, `autumn`, and `winter`. `get_active_theme` also returns the season matching today's date in Japan, so the agent never has to work out the month mapping itself. The agent's full operating prompt lives at [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md).
+- **MCP-Driven Seasonal Theme**: A Claude web agent checks and, when it should change, switches NipponDaily's active season (color palette and shape language) through this project's remote MCP server (`get_active_theme`, `save_site_theme`), restricted to a closed set of implemented presets — one per Japanese season: `sakura` (spring, the default), `summer`, `autumn`, and `winter`. `get_active_theme` also returns the season matching today's date in Japan, so the agent never has to work out the month mapping itself. The agent's full operating prompt lives at [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md).
 - **Seasonal Shape Language**: A season changes more than colour. Cards, buttons, badges, dividers and the page backdrop change shape with it: petal-cut cards and pill buttons in spring, wave-edged cards and fan badges in summer, leaf-cut corners in autumn, and frosted panels with hexagonal snow-crystal badges in winter. All of it comes from `--shape-*` / `--motif-*` CSS tokens keyed off `data-season`, so the one MCP call reshapes the whole UI.
 - **Ambient Seasonal Graphic**: Falling sakura petals, rising summer fireflies, autumn leaves, or winter snow drift across every page, matching whichever season is active — pure CSS animation driven by the same `data-season` attribute as the color palette, with no extra agent involvement and full `prefers-reduced-motion` support.
 - **Sakura-Inspired UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 using locally maintained custom UI components (no `@nuxt/ui` dependency). Two themes: a soft "Classic Sakura" day theme (deep rose against cream washi, grounded by sage and warm bark brown) and a midnight-inverted "Midnight Leaves & Evening Plum" dark theme (luminous teal and evening orchid against a midnight slate canvas).
@@ -132,10 +132,10 @@ pnpm test:coverage # coverage report
 
 Registered tools:
 
-| Tool               | Purpose                                                                                           |
-| :----------------- | :------------------------------------------------------------------------------------------------ |
-| `get_active_theme` | Read the currently active `SiteTheme` (`season`/`updatedAt`/`source`).                            |
-| `save_site_theme`  | Set the active season to one of the implemented presets; anything else is rejected by the schema. |
+| Tool               | Purpose                                                                                                                                                                   |
+| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `get_active_theme` | Returns `{ active, suggestedSeason, seasons }`: the stored `SiteTheme` (or `null`), the season matching today's date in Japan, and every accepted preset with its months. |
+| `save_site_theme`  | Set the active season to one of the implemented presets (`sakura`, `summer`, `autumn`, `winter`); anything else is rejected by the schema.                                |
 
 See [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for full tool schemas and diagrams, and [docs/site-theme-agent-prompt.md](docs/site-theme-agent-prompt.md) for the agent's operating prompt.
 

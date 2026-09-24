@@ -88,13 +88,13 @@ const features = [
   {
     title: "Agent-Driven Seasonal Theme",
     description:
-      "A Claude web agent checks and, when it should change, switches NipponDaily's active seasonal color palette on its own schedule, entirely outside this codebase. There is one preset per Japanese season (sakura, summer, autumn, winter), and each one swaps the palette and the UI's shapes together.",
+      "A Claude web agent checks and, when it should change, switches NipponDaily's active season on its own schedule, entirely outside this codebase. There is one preset per Japanese season (sakura, summer, autumn, winter), and each one swaps the palette and the UI's shapes together.",
     icon: "i-heroicons-cpu-chip",
   },
   {
     title: "MCP-Driven Theme Pipeline",
     description:
-      "The theme agent reads and writes the active season through a bearer-token-protected remote MCP server (get_active_theme, save_site_theme), restricted to a closed set of implemented presets.",
+      "The theme agent reads and writes the active season through a bearer-token-protected remote MCP server (get_active_theme, save_site_theme), restricted to a closed set of implemented presets. get_active_theme also returns the season matching today's date in Japan, so the agent only has to compare and, if needed, save.",
     icon: "i-heroicons-command-line",
   },
   {
@@ -118,7 +118,7 @@ const features = [
   {
     title: "Custom Editorial UI Library",
     description:
-      "Lightweight, locally-maintained components (UButton, UCard, UHeader, etc.) that mimic the Nuxt UI API but carry no @nuxt/ui dependency, built on Tailwind CSS v4 in a newspaper-inspired style — a masthead header with a live dateline, kicker labels, and double-rule dividers.",
+      "Lightweight, locally-maintained components (UButton, UCard, UHeader, etc.) that mimic the Nuxt UI API but carry no @nuxt/ui dependency, built on Tailwind CSS v4 with a masthead header and live dateline, kicker labels, and dividers. Their corners, motifs, and divider styles come from per-season shape tokens, so the same components look different in each season.",
     icon: "i-heroicons-sparkles",
   },
   {
