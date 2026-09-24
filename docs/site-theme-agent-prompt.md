@@ -33,15 +33,18 @@ the `seasons` list `get_active_theme` returns) is the source of truth.
 ## Workflow
 
 1. **`get_active_theme`** — returns
-   `{ active, suggestedSeason, seasons }`: `active` is the stored theme
-   (`season`, `source`, `updatedAt`, or `null` if nothing is saved yet),
-   `suggestedSeason` is the preset whose months cover today's date in Japan,
-   and `seasons` lists every accepted preset with its months. If
-   `active.season` already equals `suggestedSeason`, stop — don't write a
-   no-op update.
-2. **`save_site_theme`** with `suggestedSeason`, only when it differs from
-   `active.season`. This is the completion signal for the run — there is
-   nothing else to mark done afterward.
+   `{ active, suggestedSeason, needsUpdate, seasons }`: `active` is the
+   stored theme (`season`, `source`, `updatedAt`, or `null` if nothing is
+   saved yet), `suggestedSeason` is the preset whose months cover today's
+   date in Japan, `needsUpdate` is `true` when those two differ, and
+   `seasons` lists every accepted preset with its months. If `needsUpdate` is
+   `false`, stop.
+2. **`save_site_theme`** with `suggestedSeason`, only when `needsUpdate` is
+   `true`. It returns `{ saved, changed, season, previousSeason }` (saving
+   the season that is already active is a harmless no-op, `changed: false`).
+   The site picks the new season up within about a minute. This is the
+   completion signal for the run — there is nothing else to mark done
+   afterward.
 
 ## MCP tool set
 

@@ -1,5 +1,6 @@
 import { ref } from "vue";
-import type { SiteTheme } from "~~/types/index";
+import type { SeasonId, SiteTheme } from "~~/types/index";
+import { isSeasonId } from "~~/shared/seasons";
 
 const SEASON_STORAGE_KEY = "site-theme-season";
 
@@ -15,8 +16,11 @@ export function useSiteTheme() {
   const loading = ref(false);
   const error = ref<string | null>(null);
 
-  const applySeason = (season: string): void => {
-    document.documentElement.setAttribute("data-season", season);
+  const applySeason = (season: SeasonId): void => {
+    const root = document.documentElement;
+    // Usually already applied pre-paint from the localStorage cache.
+    if (root.getAttribute("data-season") === season) return;
+    root.setAttribute("data-season", season);
     try {
       localStorage.setItem(SEASON_STORAGE_KEY, season);
     } catch {
@@ -36,7 +40,9 @@ export function useSiteTheme() {
         timestamp: string;
       }>("/api/site-theme");
 
-      if (response?.data) {
+      // Ignore a season this build has no CSS for (e.g. a stale CDN copy
+      // from a newer deploy) rather than leaving the site unstyled.
+      if (response?.data && isSeasonId(response.data.season)) {
         theme.value = response.data;
         applySeason(response.data.season);
       }

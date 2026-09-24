@@ -25,7 +25,7 @@ describe("Color Palette Page", () => {
     vi.useRealTimers();
   });
 
-  it("renders correctly and contains the palette tokens", () => {
+  it("renders every seasonal palette as named color badges", () => {
     const wrapper = mount(ColorPalettePage, {
       global: {
         stubs: NuxtUIComponents,
@@ -33,10 +33,18 @@ describe("Color Palette Page", () => {
     });
 
     expect(wrapper.text()).toContain("Color Palette & System");
-    expect(wrapper.text()).toContain("Sakura Blossom");
-    expect(wrapper.text()).toContain("Sage Leaf");
-    expect(wrapper.text()).toContain("Herbal Green");
-    expect(wrapper.text()).toContain("Cream Washi");
+    const text = wrapper.text();
+    // One row per season × mode, each color shown as a named badge + hex.
+    for (const label of ["Spring", "Summer", "Autumn", "Winter"]) {
+      expect(text).toContain(label);
+    }
+    expect(text).toContain("Deep Rose");
+    expect(text).toContain("#D2385A");
+    expect(text).toContain("Asagi Sea-Teal");
+    expect(text).toContain("Ai Indigo");
+    expect(text).toContain("Cream Washi");
+    // The old standalone base-palette table is gone.
+    expect(text).not.toContain("Opposite Color");
   });
 
   it("handles mobile menu toggle click", async () => {

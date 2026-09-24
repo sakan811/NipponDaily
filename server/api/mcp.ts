@@ -24,8 +24,9 @@ function isAuthorized(request: Request): boolean {
   const headerToken = authHeader.toLowerCase().startsWith("bearer ")
     ? authHeader.slice(7).trim()
     : "";
-  const queryToken = new URL(request.url).searchParams.get("token") || "";
-  const provided = headerToken || queryToken;
+  // Only parse the URL when the header didn't carry a token.
+  const provided =
+    headerToken || new URL(request.url).searchParams.get("token") || "";
   if (!provided) return false;
 
   const a = Buffer.from(provided);
@@ -34,14 +35,25 @@ function isAuthorized(request: Request): boolean {
   return timingSafeEqual(a, b);
 }
 
+// Static per-deploy data, built once rather than on every tool call. The
+// catalogue is deliberately lean (no palette hex values) — it's what an
+// agent needs to pick a season, nothing more.
+const SEASON_CATALOGUE = SEASON_IDS.map((id) => {
+  const { label, months, motif } = SEASONS[id];
+  return { id, label, months, motif };
+});
+
 const seasonIdSchema = z
   .enum(SEASON_IDS)
   .describe(
-    SEASON_IDS.map(
-      (id) =>
-        `${id} = ${SEASONS[id].label}, months ${SEASONS[id].months.join("/")}`,
+    SEASON_CATALOGUE.map(
+      ({ id, label, months }) => `${id} = ${label}, months ${months.join("/")}`,
     ).join("; "),
   );
+
+const textResult = (payload: unknown) => ({
+  content: [{ type: "text" as const, text: JSON.stringify(payload) }],
+});
 
 const mcpHandler = createMcpHandler(
   (server) => {
@@ -50,18 +62,19 @@ const mcpHandler = createMcpHandler(
       {
         title: "Get active site theme",
         description:
-          "Get NipponDaily's currently active seasonal theme (palette + shape language), plus the season that matches today's date in Japan (suggestedSeason) and every preset save_site_theme accepts. Call this first: if active.season already equals suggestedSeason, there is nothing to do.",
+          "Get NipponDaily's currently active seasonal theme (palette + shape language), the season that matches today's date in Japan (suggestedSeason), whether a save is needed (needsUpdate), and every preset save_site_theme accepts. Call this first; if needsUpdate is false there is nothing to do.",
         inputSchema: z.object({}),
         annotations: { readOnlyHint: true, idempotentHint: true },
       },
       async () => {
         const active = await siteThemeService.getActiveTheme();
-        const payload = {
+        const suggestedSeason = seasonForDate();
+        return textResult({
           active,
-          suggestedSeason: seasonForDate(),
-          seasons: SEASON_IDS.map((id) => SEASONS[id]),
-        };
-        return { content: [{ type: "text", text: JSON.stringify(payload) }] };
+          suggestedSeason,
+          needsUpdate: active?.season !== suggestedSeason,
+          seasons: SEASON_CATALOGUE,
+        });
       },
     );
 
@@ -69,29 +82,34 @@ const mcpHandler = createMcpHandler(
       "save_site_theme",
       {
         title: "Save active site theme",
-        description: `Set NipponDaily's active seasonal theme, applied immediately site-wide — it swaps the full color palette AND the UI's shape language (card/button/badge silhouettes, dividers, backdrop pattern, ambient particles). Only implemented presets are accepted — currently: ${SEASON_IDS.join(", ")}. Pick the one whose months cover today's date in Japan (get_active_theme returns it as suggestedSeason). Anything else is rejected by the schema.`,
+        description: `Set NipponDaily's active seasonal theme, applied site-wide within about a minute — it swaps the full color palette AND the UI's shape language (card/button/badge silhouettes, dividers, backdrop pattern, ambient particles). Only implemented presets are accepted — currently: ${SEASON_IDS.join(", ")}. Pick the one whose months cover today's date in Japan (get_active_theme returns it as suggestedSeason). Saving the season that is already active is a no-op.`,
         inputSchema: z.object({
           season: seasonIdSchema,
         }),
         annotations: { idempotentHint: true, destructiveHint: false },
       },
       async ({ season }) => {
-        const theme: SiteTheme = {
+        const previous = await siteThemeService.getActiveTheme();
+        const changed = previous?.season !== season;
+        if (changed) {
+          const theme: SiteTheme = {
+            season,
+            updatedAt: Date.now(),
+            source: "agent",
+          };
+          await siteThemeService.saveActiveTheme(theme);
+        }
+        return textResult({
+          saved: true,
+          changed,
           season,
-          updatedAt: Date.now(),
-          source: "agent",
-        };
-        await siteThemeService.saveActiveTheme(theme);
-        return {
-          content: [
-            { type: "text", text: JSON.stringify({ saved: true, season }) },
-          ],
-        };
+          previousSeason: previous?.season ?? null,
+        });
       },
     );
   },
   {
-    serverInfo: { name: "nippondaily-site-theme", version: "1.0.0" },
+    serverInfo: { name: "nippondaily-site-theme", version: "1.1.0" },
   },
 );
 

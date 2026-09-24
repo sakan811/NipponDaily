@@ -241,12 +241,12 @@
             <h4 class="font-mono text-sm font-bold m-0">get_active_theme</h4>
           </template>
           <p class="text-sm">
-            Returns <code>{ active, suggestedSeason, seasons }</code>: the
+            Returns
+            <code>{ active, suggestedSeason, needsUpdate, seasons }</code>: the
             stored <code>SiteTheme</code> (or <code>null</code>), the preset
-            whose months cover today's date in Japan, and every accepted preset
-            with its months. The agent only writes when
-            <code>active.season</code> differs from
-            <code>suggestedSeason</code>. Annotated read-only.
+            whose months cover today's date in Japan, whether those differ, and
+            every accepted preset with its months. The agent only writes when
+            <code>needsUpdate</code> is true. Annotated read-only.
           </p>
         </UCard>
 
@@ -255,12 +255,15 @@
             <h4 class="font-mono text-sm font-bold m-0">save_site_theme</h4>
           </template>
           <p class="text-sm">
-            Sets the active season, applied site-wide immediately. Only accepts
-            one of the <em>implemented</em> presets — one per Japanese season:
+            Sets the active season and returns
+            <code>{ saved, changed, season, previousSeason }</code>; saving the
+            season that's already active skips the write. Only accepts one of
+            the <em>implemented</em> presets — one per Japanese season:
             <code>sakura</code> (spring, the site's default),
-            <code>summer</code>, <code>autumn</code>, and <code>winter</code>
-            — anything else is rejected by the schema itself, not just by
-            convention.
+            <code>summer</code>, <code>autumn</code>, and <code>winter</code> —
+            anything else is rejected by the schema itself, not just by
+            convention. The site picks the change up within about a minute
+            (<code>GET /api/site-theme</code> is CDN-cached for 60 seconds).
           </p>
         </UCard>
       </div>
@@ -452,7 +455,7 @@
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
-            <UBadge color="green" variant="soft">GET</UBadge>
+            <UBadge color="success" variant="soft">GET</UBadge>
             <h3 class="font-mono text-lg font-bold m-0">/api/daily-game</h3>
           </div>
         </template>
@@ -519,7 +522,7 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
-            <UBadge color="green" variant="soft">GET</UBadge>
+            <UBadge color="success" variant="soft">GET</UBadge>
             <h3 class="font-mono text-lg font-bold m-0">/api/site-theme</h3>
           </div>
         </template>
@@ -527,7 +530,9 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
           Returns the single active <code>SiteTheme</code> — from Redis if the
           agent has set one, or a deterministic default otherwise (and
           persisted, so it isn't recomputed on every request). No query
-          parameters.
+          parameters. Served with
+          <code>Cache-Control: s-maxage=60, stale-while-revalidate=600</code>
+          so the CDN absorbs the per-page-load fetch.
         </p>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -560,7 +565,7 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
-            <UBadge color="green" variant="soft">GET</UBadge>
+            <UBadge color="success" variant="soft">GET</UBadge>
             <h3 class="font-mono text-lg font-bold m-0">
               /api/cron/generate-daily-game
             </h3>
@@ -706,17 +711,17 @@ suggestedSeason for today (JST)"]
     S1 -. "READ" .-> Redis[("Redis
 Site Theme")]
 
-    S1 --> S2{"active.season ==
-suggestedSeason?"}
-    S2 -- "yes" --> Done1(["✅ Done — nothing to write"])
+    S1 --> S2{"needsUpdate?"}
+    S2 -- "no" --> Done1(["✅ Done — nothing to write"])
 
-    S2 -- "no" --> S3["Step 2 · save_site_theme
+    S2 -- "yes" --> S3["Step 2 · save_site_theme
 Set season to
 suggestedSeason"]
     S3 -- "WRITE" --> Redis
 
     S3 --> Done2(["✅ Done — visible on
-GET /api/site-theme immediately"])
+GET /api/site-theme
+within ~1 minute"])
 `;
 </script>
 

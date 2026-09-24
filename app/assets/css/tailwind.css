@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Zen+Old+Mincho:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@400;700&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -223,41 +222,41 @@
   --secondary-900: #391339;
   --secondary-950: #220722;
 
-  --success-50: var(--color-emerald-50);
-  --success-100: var(--color-emerald-100);
-  --success-200: var(--color-emerald-200);
-  --success-300: var(--color-emerald-300);
-  --success-400: var(--color-emerald-400);
-  --success-500: var(--color-emerald-500);
-  --success-600: var(--color-emerald-600);
-  --success-700: var(--color-emerald-700);
-  --success-800: var(--color-emerald-800);
-  --success-900: var(--color-emerald-900);
-  --success-950: var(--color-emerald-950);
+  --success-50: #ecfdf5;
+  --success-100: #d1fae5;
+  --success-200: #a7f3d0;
+  --success-300: #6ee7b7;
+  --success-400: #34d399;
+  --success-500: #10b981;
+  --success-600: #059669;
+  --success-700: #047857;
+  --success-800: #065f46;
+  --success-900: #064e3b;
+  --success-950: #022c22;
 
-  --warning-50: var(--color-yellow-50);
-  --warning-100: var(--color-yellow-100);
-  --warning-200: var(--color-yellow-200);
-  --warning-300: var(--color-yellow-300);
-  --warning-400: var(--color-yellow-400);
-  --warning-500: var(--color-yellow-500);
-  --warning-600: var(--color-yellow-600);
-  --warning-700: var(--color-yellow-700);
-  --warning-800: var(--color-yellow-800);
-  --warning-900: var(--color-yellow-900);
-  --warning-950: var(--color-yellow-950);
+  --warning-50: #fefce8;
+  --warning-100: #fef9c3;
+  --warning-200: #fef08a;
+  --warning-300: #fde047;
+  --warning-400: #facc15;
+  --warning-500: #eab308;
+  --warning-600: #ca8a04;
+  --warning-700: #a16207;
+  --warning-800: #854d0e;
+  --warning-900: #713f12;
+  --warning-950: #422006;
 
-  --error-50: var(--color-rose-50);
-  --error-100: var(--color-rose-100);
-  --error-200: var(--color-rose-200);
-  --error-300: var(--color-rose-300);
-  --error-400: var(--color-rose-400);
-  --error-500: var(--color-rose-500);
-  --error-600: var(--color-rose-600);
-  --error-700: var(--color-rose-700);
-  --error-800: var(--color-rose-800);
-  --error-900: var(--color-rose-900);
-  --error-950: var(--color-rose-950);
+  --error-50: #fff1f2;
+  --error-100: #ffe4e6;
+  --error-200: #fecdd3;
+  --error-300: #fda4af;
+  --error-400: #fb7185;
+  --error-500: #f43f5e;
+  --error-600: #e11d48;
+  --error-700: #be123c;
+  --error-800: #9f1239;
+  --error-900: #881337;
+  --error-950: #4c0519;
 
   --neutral-50: #ffffff;
   --neutral-100: #f3f5fa;
@@ -289,93 +288,14 @@
    (canvas backgrounds, body text, borders) stays constant across seasons —
    it's the shared reading surface, not part of a season's identity, and
    varying it per season would be a much bigger, riskier redesign than what
-   the MCP tool is scoped to control. summer/winter define only
+   the MCP tool is scoped to control. sakura IS the base palette (:root /
+   .dark above), so it needs no block of its own; summer/winter define only
    primary/secondary (+ on-colors) and inherit the base success/warning/error,
-   which stay distinct from their cool hues. Every season also carries its
+   which stay distinct from their cool hues. The names + 500 values of every
+   season are mirrored in shared/seasons.ts (docs page + MCP) and checked
+   against this file by test/unit/seasons-css-sync.test.ts. Every season also carries its
    own SHAPE language (card/button/badge silhouettes, motifs, dividers,
    backdrop) — see "Seasonal shape language" further down this file. */
-[data-season="sakura"]:not(.dark) {
-  /* Sakura is NipponDaily's base (light-mode) palette — these values are
-     identical to :root above. The block exists anyway so "sakura" is an
-     explicit, addressable season (matching SEASON_IDS/defaultSeason() in
-     server/utils/site-theme.ts) rather than an implicit "no season" state,
-     and so it has somewhere to diverge from :root later without disturbing
-     the true no-season fallback. Scoped with :not(.dark) rather than a bare
-     [data-season="sakura"] selector: without it, this block and .dark above
-     have equal specificity, and — because this block comes later in the
-     file — it would win and silently force sakura's LIGHT colors onto dark
-     mode too (sakura is the default season, so this would affect every
-     dark-mode visitor who hasn't had an agent switch them to autumn). With
-     :not(.dark), this block simply doesn't match a dark <html>, and dark
-     mode + sakura correctly falls through to .dark's own "Midnight Leaves &
-     Evening Plum" palette untouched — sakura truly has nothing to diverge
-     from in dark mode either. */
-  --primary-50: #fff5f6;
-  --primary-100: #ffe3e6;
-  --primary-200: #ffc7ce;
-  --primary-300: #ffa8b5;
-  --primary-400: #f27a91;
-  --primary-500: #d2385a;
-  --primary-600: #b82a48;
-  --primary-700: #9c1f3b;
-  --primary-800: #7e162d;
-  --primary-900: #610f20;
-  --primary-950: #420712;
-
-  --secondary-50: #f5f7f4;
-  --secondary-100: #ecefea;
-  --secondary-200: #dbe2d8;
-  --secondary-300: #c3cdc0;
-  --secondary-400: #a1b29e;
-  --secondary-500: #7e957a;
-  --secondary-600: #61775e;
-  --secondary-700: #4b5c49;
-  --secondary-800: #394637;
-  --secondary-900: #273026;
-  --secondary-950: #161b15;
-
-  --success-50: #f3f8f2;
-  --success-100: #e6f2e4;
-  --success-200: #cee6ca;
-  --success-300: #a9d3a4;
-  --success-400: #7cba75;
-  --success-500: #559e4e;
-  --success-600: #40803a;
-  --success-700: #33662e;
-  --success-800: #295025;
-  --success-900: #21401e;
-  --success-950: #122410;
-
-  --warning-50: #fdf9f0;
-  --warning-100: #fbf0d8;
-  --warning-200: #f6dfb0;
-  --warning-300: #eec57b;
-  --warning-400: #e5a84d;
-  --warning-500: #d88b27;
-  --warning-600: #bc711d;
-  --warning-700: #9b5818;
-  --warning-800: #7c4514;
-  --warning-900: #633711;
-  --warning-950: #3b1f07;
-
-  --error-50: #fff5f5;
-  --error-100: #ffe6e6;
-  --error-200: #ffcdcd;
-  --error-300: #ffa5a5;
-  --error-400: #ff7070;
-  --error-500: #e03e3e;
-  --error-600: #c22e2e;
-  --error-700: #9e2222;
-  --error-800: #801b1b;
-  --error-900: #661616;
-  --error-950: #3d0b0b;
-
-  --on-primary: #ffffff;
-  --on-secondary: #2e231c;
-  --on-success: #2e231c;
-  --on-error: #2e231c;
-}
-
 [data-season="autumn"] {
   /* Momiji (Japanese maple) red-orange */
   --primary-50: #fff8f5;
@@ -956,11 +876,10 @@
 }
 
 /* Seasonal ambient graphic, rendered by app/components/SeasonalEffects.vue.
-   That component mounts one particle group per implemented season
-   unconditionally; visibility here is driven entirely by which
-   [data-season="..."] value is on <html>, so the visual effect stays in
-   lockstep with the palette and shapes above without any JS
-   season-branching. */
+   That component mounts a single season-agnostic particle set; how it looks
+   and moves is driven entirely by which [data-season="..."] value is on
+   <html>, so the effect stays in lockstep with the palette and shapes above
+   without any JS season-branching. */
 .seasonal-effects {
   position: fixed;
   inset: 0;
@@ -981,31 +900,28 @@
   will-change: transform, opacity;
 }
 
-[data-season="sakura"] .seasonal-effects .seasonal-particle--sakura,
-[data-season="summer"] .seasonal-effects .seasonal-particle--summer,
-[data-season="autumn"] .seasonal-effects .seasonal-particle--autumn,
-[data-season="winter"] .seasonal-effects .seasonal-particle--winter {
+/* One shared set of particles; each season restyles it (emoji via
+   `content`, or pure CSS dots). Autumn's glyph also swaps with light/dark
+   mode: momiji leaves by day, susuki (pampas grass) ears at night. */
+[data-season] .seasonal-effects .seasonal-particle {
   display: block;
 }
 
-/* Autumn's falling glyph itself swaps with light/dark mode: momiji leaves
-   drifting down in daylight, susuki (pampas grass) ears drifting down at
-   night — driven by CSS `content` off .dark so no JS theme-branching is
-   needed (the sakura particle group doesn't vary, so it keeps its emoji as
-   plain element text instead of a ::before rule). */
-[data-season="autumn"] .seasonal-effects .seasonal-particle--autumn::before {
+[data-season="sakura"] .seasonal-effects .seasonal-particle::before {
+  content: "🌸";
+}
+
+[data-season="autumn"] .seasonal-effects .seasonal-particle::before {
   content: "🍁";
 }
 
-[data-season="autumn"].dark
-  .seasonal-effects
-  .seasonal-particle--autumn::before {
+[data-season="autumn"].dark .seasonal-effects .seasonal-particle::before {
   content: "🌾";
 }
 
 /* Summer particles RISE instead of fall: sunlit bubbles by day, blinking
    hotaru (fireflies) by night. Pure CSS dots, no emoji. */
-[data-season="summer"] .seasonal-effects .seasonal-particle--summer {
+[data-season="summer"] .seasonal-effects .seasonal-particle {
   top: auto;
   bottom: -5%;
   width: 0.55em;
@@ -1016,20 +932,30 @@
   animation-name: seasonal-rise;
 }
 
-[data-season="summer"].dark .seasonal-effects .seasonal-particle--summer {
+/* Fireflies: the particle's inline animation-duration would override a
+   second (blink) animation on the element itself, so the glowing dot and
+   its blink live on ::before instead. */
+[data-season="summer"].dark .seasonal-effects .seasonal-particle {
   width: 0.35em;
   height: 0.35em;
   border: 0;
+  background: none;
+}
+
+[data-season="summer"].dark .seasonal-effects .seasonal-particle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
   background: #e8f58a;
   box-shadow:
     0 0 6px 2px rgba(214, 240, 110, 0.75),
     0 0 18px 6px rgba(190, 230, 90, 0.3);
-  animation-name: seasonal-rise, seasonal-blink;
-  animation-duration: inherit, 2.6s;
+  animation: seasonal-blink 2.6s ease-in-out infinite;
 }
 
 /* Winter: soft, slow, barely-rotating snow. */
-[data-season="winter"] .seasonal-effects .seasonal-particle--winter {
+[data-season="winter"] .seasonal-effects .seasonal-particle {
   width: 0.45em;
   height: 0.45em;
   border-radius: 9999px;
@@ -1038,7 +964,7 @@
   animation-timing-function: linear;
 }
 
-[data-season="winter"].dark .seasonal-effects .seasonal-particle--winter {
+[data-season="winter"].dark .seasonal-effects .seasonal-particle {
   background: #ffffff;
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
@@ -1101,10 +1027,10 @@
 @keyframes seasonal-blink {
   0%,
   100% {
-    filter: brightness(1);
+    opacity: 1;
   }
   50% {
-    filter: brightness(0.35);
+    opacity: 0.25;
   }
 }
 

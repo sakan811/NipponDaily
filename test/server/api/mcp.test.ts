@@ -121,6 +121,14 @@ describe("server/api/mcp.ts", () => {
       expect(["sakura", "summer", "autumn", "winter"]).toContain(
         parsed.suggestedSeason,
       );
+      expect(parsed.needsUpdate).toBe(parsed.suggestedSeason !== "autumn");
+      // Lean catalogue: no palette data sent to the agent.
+      expect(Object.keys(parsed.seasons[0]).sort()).toEqual([
+        "id",
+        "label",
+        "months",
+        "motif",
+      ]);
       expect(parsed.seasons.map((s: { id: string }) => s.id)).toEqual([
         "sakura",
         "summer",
@@ -142,6 +150,7 @@ describe("server/api/mcp.ts", () => {
         await registeredTools.get_active_theme!.handler({}),
       );
       expect(parsed.active).toBeNull();
+      expect(parsed.needsUpdate).toBe(true);
     });
 
     it("is annotated read-only", () => {
@@ -153,16 +162,39 @@ describe("server/api/mcp.ts", () => {
 
   describe("save_site_theme tool", () => {
     it("saves the given season with source 'agent'", async () => {
+      mockGetActiveTheme.mockResolvedValue({
+        season: "sakura",
+        updatedAt: 1,
+        source: "fallback",
+      });
       const result = await registeredTools.save_site_theme!.handler({
         season: "autumn",
       });
       const parsed = parseResult(result);
 
-      expect(parsed).toEqual({ saved: true, season: "autumn" });
+      expect(parsed).toEqual({
+        saved: true,
+        changed: true,
+        season: "autumn",
+        previousSeason: "sakura",
+      });
       const saved = mockSaveActiveTheme.mock.calls[0][0];
       expect(saved.season).toBe("autumn");
       expect(saved.source).toBe("agent");
       expect(typeof saved.updatedAt).toBe("number");
+    });
+
+    it("skips the write when the season is already active", async () => {
+      mockGetActiveTheme.mockResolvedValue({
+        season: "autumn",
+        updatedAt: 1,
+        source: "agent",
+      });
+      const parsed = parseResult(
+        await registeredTools.save_site_theme!.handler({ season: "autumn" }),
+      );
+      expect(parsed.changed).toBe(false);
+      expect(mockSaveActiveTheme).not.toHaveBeenCalled();
     });
 
     it("rejects a season outside the implemented preset list via the schema", () => {
