@@ -31,37 +31,45 @@
 
       <!-- Why two scripts -->
       <section class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
-        <div
-          class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 space-y-2"
-        >
-          <div class="flex items-center gap-2">
-            <UBadge color="primary" variant="soft" size="sm">Hiragana</UBadge>
-            <span class="font-serif text-xl text-stone-800 dark:text-stone-100"
-              >ひらがな — rounded, native</span
+        <EmaPlaque>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <UBadge color="primary" variant="soft" size="sm">Hiragana</UBadge>
+              <span
+                class="font-serif text-xl text-stone-800 dark:text-stone-100"
+                >ひらがな — rounded, native</span
+              >
+            </div>
+            <p
+              class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
             >
+              Used for native Japanese words, grammar particles (は, を, が),
+              and verb/adjective endings. It's the first script Japanese
+              children learn, and every kanji can be spelled out in it if you
+              don't know the character.
+            </p>
           </div>
-          <p class="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-            Used for native Japanese words, grammar particles (は, を, が), and
-            verb/adjective endings. It's the first script Japanese children
-            learn, and every kanji can be spelled out in it if you don't know
-            the character.
-          </p>
-        </div>
-        <div
-          class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 space-y-2"
-        >
-          <div class="flex items-center gap-2">
-            <UBadge color="secondary" variant="soft" size="sm">Katakana</UBadge>
-            <span class="font-serif text-xl text-stone-800 dark:text-stone-100"
-              >カタカナ — angular, foreign</span
+        </EmaPlaque>
+        <EmaPlaque>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <UBadge color="secondary" variant="soft" size="sm"
+                >Katakana</UBadge
+              >
+              <span
+                class="font-serif text-xl text-stone-800 dark:text-stone-100"
+                >カタカナ — angular, foreign</span
+              >
+            </div>
+            <p
+              class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
             >
+              Used for loanwords borrowed from other languages (コンピューター,
+              computer), foreign names, onomatopoeia, and for emphasis — the
+              rough equivalent of italics in English.
+            </p>
           </div>
-          <p class="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-            Used for loanwords borrowed from other languages (コンピューター,
-            computer), foreign names, onomatopoeia, and for emphasis — the rough
-            equivalent of italics in English.
-          </p>
-        </div>
+        </EmaPlaque>
       </section>
 
       <div class="rule-double my-16" />
@@ -85,44 +93,51 @@
           <p class="kicker text-stone-400 dark:text-stone-500">
             {{ group.row }}-row
           </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-            <div
-              v-for="entry in group.entries"
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-3 gap-y-4"
+          >
+            <OmamoriCharm
+              v-for="(entry, entryIndex) in group.entries"
               :key="entry.romaji"
-              class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-4 space-y-3"
+              :index="entryIndex"
+              mark="学"
             >
-              <p
-                class="font-serif text-sm font-bold text-primary-600 dark:text-primary-400 tracking-wide uppercase"
-              >
-                {{ entry.romaji }}
-              </p>
-
-              <div class="flex items-start gap-2">
-                <span
-                  class="font-serif text-3xl leading-none text-stone-900 dark:text-white shrink-0"
-                  >{{ entry.hiragana }}</span
-                >
+              <div class="space-y-3">
                 <p
-                  class="text-xs leading-relaxed text-stone-500 dark:text-stone-400"
+                  class="font-serif text-sm font-bold text-primary-600 dark:text-primary-400 tracking-wide uppercase"
                 >
-                  {{ entry.hiraganaMnemonic }}
+                  {{ entry.romaji }}
                 </p>
-              </div>
 
-              <div class="border-t border-stone-100 dark:border-stone-800/80" />
+                <div class="flex items-start gap-2">
+                  <span
+                    class="font-serif text-3xl leading-none text-stone-900 dark:text-white shrink-0"
+                    >{{ entry.hiragana }}</span
+                  >
+                  <p
+                    class="text-xs leading-relaxed text-stone-500 dark:text-stone-400"
+                  >
+                    {{ entry.hiraganaMnemonic }}
+                  </p>
+                </div>
 
-              <div class="flex items-start gap-2">
-                <span
-                  class="font-serif text-3xl leading-none text-stone-900 dark:text-white shrink-0"
-                  >{{ entry.katakana }}</span
-                >
-                <p
-                  class="text-xs leading-relaxed text-stone-500 dark:text-stone-400"
-                >
-                  {{ entry.katakanaMnemonic }}
-                </p>
+                <div
+                  class="border-t border-stone-100 dark:border-stone-800/80"
+                />
+
+                <div class="flex items-start gap-2">
+                  <span
+                    class="font-serif text-3xl leading-none text-stone-900 dark:text-white shrink-0"
+                    >{{ entry.katakana }}</span
+                  >
+                  <p
+                    class="text-xs leading-relaxed text-stone-500 dark:text-stone-400"
+                  >
+                    {{ entry.katakanaMnemonic }}
+                  </p>
+                </div>
               </div>
-            </div>
+            </OmamoriCharm>
           </div>
         </div>
       </section>
@@ -145,23 +160,25 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div
-            v-for="group in dakutenGroups"
+          <EmaPlaque
+            v-for="(group, groupIndex) in dakutenGroups"
             :key="group.title"
-            class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 space-y-2"
+            :index="groupIndex"
           >
-            <h3 class="font-serif font-bold text-stone-900 dark:text-white">
-              {{ group.title }}
-            </h3>
-            <p
-              class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
-            >
-              {{ group.description }}
-            </p>
-            <p class="text-xs text-stone-400 dark:text-stone-500 italic">
-              {{ group.example }}
-            </p>
-          </div>
+            <div class="space-y-2">
+              <h3 class="font-serif font-bold text-stone-900 dark:text-white">
+                {{ group.title }}
+              </h3>
+              <p
+                class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
+              >
+                {{ group.description }}
+              </p>
+              <p class="text-xs text-stone-600 dark:text-stone-400 italic">
+                {{ group.example }}
+              </p>
+            </div>
+          </EmaPlaque>
         </div>
       </section>
 
@@ -183,23 +200,25 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div
-            v-for="group in digraphGroups"
+          <EmaPlaque
+            v-for="(group, groupIndex) in digraphGroups"
             :key="group.title"
-            class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 space-y-2"
+            :index="groupIndex"
           >
-            <h3 class="font-serif font-bold text-stone-900 dark:text-white">
-              {{ group.title }}
-            </h3>
-            <p
-              class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
-            >
-              {{ group.description }}
-            </p>
-            <p class="text-xs text-stone-400 dark:text-stone-500 italic">
-              {{ group.example }}
-            </p>
-          </div>
+            <div class="space-y-2">
+              <h3 class="font-serif font-bold text-stone-900 dark:text-white">
+                {{ group.title }}
+              </h3>
+              <p
+                class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
+              >
+                {{ group.description }}
+              </p>
+              <p class="text-xs text-stone-600 dark:text-stone-400 italic">
+                {{ group.example }}
+              </p>
+            </div>
+          </EmaPlaque>
         </div>
       </section>
 
@@ -273,6 +292,8 @@
 
 <script setup lang="ts">
 import AppHeader from "../components/AppHeader.vue";
+import EmaPlaque from "../components/EmaPlaque.vue";
+import OmamoriCharm from "../components/OmamoriCharm.vue";
 import { KANA_ROWS, DAKUTEN_GROUPS, DIGRAPH_GROUPS } from "../data/kana-guide";
 
 const kanaRows = KANA_ROWS;

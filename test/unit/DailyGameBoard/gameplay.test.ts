@@ -85,3 +85,51 @@ describe("DailyGameBoard gameplay", () => {
     );
   });
 });
+
+describe("DailyGameBoard charms", () => {
+  it("stamps the ema with a 合格 seal on a correct answer", async () => {
+    mockFetchGame(makeDailyGame());
+    const wrapper = mount(DailyGameBoard);
+    await loadGame(wrapper);
+
+    expect(wrapper.find(".ema .hanko").exists()).toBe(false);
+    const correct = wrapper.vm.currentQuestion.correctAnswer;
+    await findButtonByText(wrapper, correct)!.trigger("click");
+
+    expect(wrapper.find(".ema .hanko").exists()).toBe(true);
+    expect(wrapper.find(".ema").classes()).not.toContain("ema--shake");
+  });
+
+  it("shakes the ema without a seal on a wrong answer", async () => {
+    mockFetchGame(makeDailyGame());
+    const wrapper = mount(DailyGameBoard);
+    await loadGame(wrapper);
+
+    const question = wrapper.vm.currentQuestion;
+    const wrong = question.choices.find(
+      (c: string) => c !== question.correctAnswer,
+    );
+    await findButtonByText(wrapper, wrong!)!.trigger("click");
+
+    expect(wrapper.find(".ema").classes()).toContain("ema--shake");
+    expect(wrapper.find(".ema .hanko").exists()).toBe(false);
+  });
+
+  it("seals the round-complete charm 合格 or 努力 by accuracy", async () => {
+    mockFetchGame(makeDailyGame([makeQuestion()]));
+    const passed = mount(DailyGameBoard);
+    await loadGame(passed);
+    await findButtonByText(passed, "water")!.trigger("click");
+    await findButtonByText(passed, "Next")!.trigger("click");
+    expect(passed.find(".hanko").attributes("aria-label")).toBe("Passed");
+
+    mockFetchGame(makeDailyGame([makeQuestion()]));
+    const missed = mount(DailyGameBoard);
+    await loadGame(missed);
+    await findButtonByText(missed, "fire")!.trigger("click");
+    await findButtonByText(missed, "Next")!.trigger("click");
+    expect(missed.find(".hanko").attributes("aria-label")).toBe(
+      "Keep practising",
+    );
+  });
+});

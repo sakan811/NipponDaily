@@ -115,28 +115,31 @@
             data-testid="vocab-type-results"
             class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"
           >
-            <div
-              v-for="item in displayedWords"
+            <OmamoriCharm
+              v-for="(item, itemIndex) in displayedWords"
               :key="item.id"
-              class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-3 space-y-1"
+              :index="itemIndex % PAGE_SIZE"
+              size="sm"
             >
-              <p
-                class="font-serif text-lg text-stone-900 dark:text-white leading-tight"
-              >
-                {{ item.term }}
-              </p>
-              <p class="text-xs text-stone-500 dark:text-stone-400">
-                {{ item.kana }}
-                <span class="text-stone-400 dark:text-stone-500"
-                  >· {{ item.romaji }}</span
+              <div class="space-y-1">
+                <p
+                  class="font-serif text-lg text-stone-900 dark:text-white leading-tight"
                 >
-              </p>
-              <p
-                class="text-xs text-stone-600 dark:text-stone-300 leading-snug"
-              >
-                {{ item.meaning }}
-              </p>
-            </div>
+                  {{ item.term }}
+                </p>
+                <p class="text-xs text-stone-500 dark:text-stone-400">
+                  {{ item.kana }}
+                  <span class="text-stone-400 dark:text-stone-500"
+                    >· {{ item.romaji }}</span
+                  >
+                </p>
+                <p
+                  class="text-xs text-stone-600 dark:text-stone-300 leading-snug"
+                >
+                  {{ item.meaning }}
+                </p>
+              </div>
+            </OmamoriCharm>
           </div>
 
           <div
@@ -241,6 +244,7 @@
 import { computed, ref, watch, onMounted } from "vue";
 import { useRoute } from "#app";
 import AppHeader from "../../../components/AppHeader.vue";
+import OmamoriCharm from "../../../components/OmamoriCharm.vue";
 import { useN5VocabPool } from "../../../composables/useN5VocabPool";
 import {
   WORD_TYPE_GROUPS,

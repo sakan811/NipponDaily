@@ -61,9 +61,11 @@
 
             <div class="flex flex-wrap items-center gap-2">
               <template v-for="(term, termIndex) in row.terms" :key="term">
-                <div
+                <OmamoriCharm
                   v-if="findVocab(term)"
-                  class="rounded-sm border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 px-2.5 py-1.5 text-center"
+                  :index="rowIndex + termIndex"
+                  size="sm"
+                  class="text-center"
                 >
                   <p
                     class="font-serif text-base text-stone-900 dark:text-white leading-tight"
@@ -78,7 +80,7 @@
                   >
                     {{ findVocab(term)!.meaning }}
                   </p>
-                </div>
+                </OmamoriCharm>
                 <UIcon
                   v-if="
                     cluster.pairwise &&
@@ -220,6 +222,7 @@
 import { computed, onMounted } from "vue";
 import { useRoute } from "#app";
 import AppHeader from "../../../components/AppHeader.vue";
+import OmamoriCharm from "../../../components/OmamoriCharm.vue";
 import { useN5VocabPool } from "../../../composables/useN5VocabPool";
 import { WORD_CLUSTERS } from "../../../data/vocab-guide";
 import type { N5Vocab } from "~~/types/index";
