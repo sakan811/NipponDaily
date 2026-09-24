@@ -725,7 +725,7 @@ within ~1 minute"])
 `;
 </script>
 
-<style>
+<style scoped>
 @reference "../../assets/css/tailwind.css";
 
 /* Basic styling rules for markdown elements are retained but simplified for UCard compatibility */

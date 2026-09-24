@@ -342,7 +342,7 @@ const serverErrorSample = JSON.stringify(
 );
 </script>
 
-<style>
+<style scoped>
 @reference "../../assets/css/tailwind.css";
 
 h1 {
