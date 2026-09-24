@@ -1,4 +1,8 @@
 import tailwindcss from "@tailwindcss/vite";
+import { SEASON_IDS } from "./shared/seasons";
+
+const FONTS_URL =
+  "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Zen+Old+Mincho:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@400;700&display=swap";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -21,7 +25,7 @@ export default defineNuxtConfig({
                 document.documentElement.classList.remove('dark');
               }
               const cachedSeason = localStorage.getItem('site-theme-season');
-              if (cachedSeason) {
+              if (${JSON.stringify(SEASON_IDS)}.indexOf(cachedSeason) !== -1) {
                 document.documentElement.setAttribute('data-season', cachedSeason);
               }
               const updateLinkPaths = function() {
@@ -48,6 +52,16 @@ export default defineNuxtConfig({
         },
       ],
       link: [
+        // Fonts were an @import inside tailwind.css, which serialised
+        // CSS -> fonts CSS -> font files; a preconnect + <link> in <head>
+        // lets the browser fetch them in parallel with the app CSS.
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "",
+        },
+        { rel: "stylesheet", href: FONTS_URL },
         {
           rel: "icon",
           type: "image/x-icon",
@@ -75,6 +89,17 @@ export default defineNuxtConfig({
           href: "/light/site.webmanifest",
         },
       ],
+    },
+  },
+  routeRules: {
+    // The active season changes a few times a year, and every page load
+    // fetches it — let the CDN absorb that. An MCP save_site_theme shows up
+    // within a minute.
+    "/api/site-theme": {
+      headers: {
+        "cache-control":
+          "public, max-age=0, s-maxage=60, stale-while-revalidate=600",
+      },
     },
   },
   runtimeConfig: {

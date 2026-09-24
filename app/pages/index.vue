@@ -257,7 +257,7 @@ const docsPages = [
     to: "/docs/color-palette",
     title: "Color Palette & System",
     description:
-      "The light/dark color tokens behind NipponDaily's Classic Sakura palette, the four seasonal palettes, and the shape language each season applies to cards, buttons, and badges.",
+      "Every color in NipponDaily's four seasonal palettes, named and shown as badges for light and dark mode, plus the shape language each season applies to cards, buttons, and badges.",
     icon: "i-heroicons-swatch",
   },
   {

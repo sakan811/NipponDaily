@@ -1,6 +1,7 @@
 import { Redis } from "@upstash/redis";
 import type { SiteTheme } from "~~/types/index";
 import { getEnvOrConfig } from "../utils/config";
+import { isSeasonId } from "~~/shared/seasons";
 
 /**
  * Redis read/write for NipponDaily's single active SiteTheme record —
@@ -38,16 +39,21 @@ class SiteThemeService {
     }
   }
 
+  /** The stored theme, or null if none is stored OR it names a season
+   *  this build no longer implements (callers then fall back cleanly). */
   async getActiveTheme(): Promise<SiteTheme | null> {
     const redis = this.getRedisClient();
-    if (!redis) return this.memoryTheme;
+    let theme: SiteTheme | null = this.memoryTheme;
 
-    try {
-      return await redis.get<SiteTheme>(SITE_THEME_KEY);
-    } catch (e) {
-      console.error("Error getting site theme from Redis:", e);
-      return this.memoryTheme;
+    if (redis) {
+      try {
+        theme = await redis.get<SiteTheme>(SITE_THEME_KEY);
+      } catch (e) {
+        console.error("Error getting site theme from Redis:", e);
+      }
     }
+
+    return theme && isSeasonId(theme.season) ? theme : null;
   }
 
   async saveActiveTheme(theme: SiteTheme): Promise<void> {

@@ -17,7 +17,7 @@
 - **MCP-Driven Seasonal Theme**: A Claude web agent checks and, when it should change, switches NipponDaily's active season (color palette and shape language) through this project's remote MCP server (`get_active_theme`, `save_site_theme`), restricted to a closed set of implemented presets — one per Japanese season: `sakura` (spring, the default), `summer`, `autumn`, and `winter`. `get_active_theme` also returns the season matching today's date in Japan, so the agent never has to work out the month mapping itself. The agent's full operating prompt lives at [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md).
 - **Seasonal Shape Language**: A season changes more than colour. Cards, buttons, badges, dividers and the page backdrop change shape with it: petal-cut cards and pill buttons in spring, wave-edged cards and fan badges in summer, leaf-cut corners in autumn, and frosted panels with hexagonal snow-crystal badges in winter. All of it comes from `--shape-*` / `--motif-*` CSS tokens keyed off `data-season`, so the one MCP call reshapes the whole UI.
 - **Ambient Seasonal Graphic**: Falling sakura petals, rising summer fireflies, autumn leaves, or winter snow drift across every page, matching whichever season is active — pure CSS animation driven by the same `data-season` attribute as the color palette, with no extra agent involvement and full `prefers-reduced-motion` support.
-- **Sakura-Inspired UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 using locally maintained custom UI components (no `@nuxt/ui` dependency). Two themes: a soft "Classic Sakura" day theme (deep rose against cream washi, grounded by sage and warm bark brown) and a midnight-inverted "Midnight Leaves & Evening Plum" dark theme (luminous teal and evening orchid against a midnight slate canvas).
+- **Seasonal UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 using locally maintained custom UI components (no `@nuxt/ui` dependency). Every color comes from one of four seasonal presets (sakura, summer, autumn, winter), each with a light and dark palette. The presets are defined once in `shared/seasons.ts` (used by the docs page and the MCP server) and in `app/assets/css/tailwind.css`, and a test keeps the two in sync.
 - **Resilient Fallback UI**: A graceful UI fallback (`TrendingFallback`) when the `/api/daily-game` fetch fails.
 
 ## 🛠 Tech Stack
@@ -132,10 +132,10 @@ pnpm test:coverage # coverage report
 
 Registered tools:
 
-| Tool               | Purpose                                                                                                                                                                   |
-| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `get_active_theme` | Returns `{ active, suggestedSeason, seasons }`: the stored `SiteTheme` (or `null`), the season matching today's date in Japan, and every accepted preset with its months. |
-| `save_site_theme`  | Set the active season to one of the implemented presets (`sakura`, `summer`, `autumn`, `winter`); anything else is rejected by the schema.                                |
+| Tool               | Purpose                                                                                                                                                                                                     |
+| :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `get_active_theme` | Returns `{ active, suggestedSeason, needsUpdate, seasons }`: the stored `SiteTheme` (or `null`), the season matching today's date in Japan, whether they differ, and every accepted preset with its months. |
+| `save_site_theme`  | Set the active season to one of the implemented presets (`sakura`, `summer`, `autumn`, `winter`); anything else is rejected by the schema. Saving the already-active season is a no-op (`changed: false`).  |
 
 See [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for full tool schemas and diagrams, and [docs/site-theme-agent-prompt.md](docs/site-theme-agent-prompt.md) for the agent's operating prompt.
 
