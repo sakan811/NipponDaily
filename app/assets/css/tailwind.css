@@ -281,7 +281,7 @@
 /* Seasonal design preset, set by the external theme agent via the MCP
    server's save_site_theme tool (server/api/mcp.ts) and applied as a
    data-season attribute on <html> — see app/composables/useSiteTheme.ts.
-   Each season below is a FULL, self-contained palette — primary, secondary,
+   Each season below resolves to a complete palette — primary, secondary,
    success, warning, and error, each with its own on-* text pairing —
    verified for WCAG AA contrast (>=4.5:1) against whichever on-* color it
    pairs with, so the MCP agent can switch seasons freely without ever
@@ -289,10 +289,11 @@
    (canvas backgrounds, body text, borders) stays constant across seasons —
    it's the shared reading surface, not part of a season's identity, and
    varying it per season would be a much bigger, riskier redesign than what
-   the MCP tool is scoped to control. A season can also carry its own chrome
-   (card/button/badge shape, shadow tone, divider style) further down this
-   file — see "Seasonal chrome overrides" below — but sakura deliberately
-   doesn't, since it IS the site's un-seasoned default look. */
+   the MCP tool is scoped to control. summer/winter define only
+   primary/secondary (+ on-colors) and inherit the base success/warning/error,
+   which stay distinct from their cool hues. Every season also carries its
+   own SHAPE language (card/button/badge silhouettes, motifs, dividers,
+   backdrop) — see "Seasonal shape language" further down this file. */
 [data-season="sakura"]:not(.dark) {
   /* Sakura is NipponDaily's base (light-mode) palette — these values are
      identical to :root above. The block exists anyway so "sakura" is an
@@ -533,62 +534,432 @@
   --on-error: #ffffff;
 }
 
-/* Seasonal chrome overrides — beyond primary/secondary hue, autumn also
-   trades the site's default soft/rounded "sakura petal" chrome (see
-   UCard/UButton/UBadge's own rounded-2xl/xl/full base classes) for a
-   crisper, more angular language: asymmetric corners like a folded leaf
-   or dog-eared washi, warm ember-tinted shadows instead of neutral ones,
-   and tag-like badges instead of pills. Targets the .u-card/.u-button/
-   .u-badge marker classes those components always render (regardless of
-   color/variant props), plus the literal Tailwind utility classes already
-   in their templates — this file sits outside any @layer, so it wins over
-   Tailwind's own @layer utilities without needing !important. sakura gets
-   no equivalent block here since it already matches the site's un-seasoned
-   default chrome (see the sakura color block's own comment above). */
+[data-season="summer"] {
+  /* Asagi (pale indigo sea-teal) — the colour of shallow summer water and
+     of the seigaiha wave pattern this season's shapes borrow from */
+  --primary-50: #eff9fc;
+  --primary-100: #ddf1f7;
+  --primary-200: #bfe4ee;
+  --primary-300: #97d2e3;
+  --primary-400: #5dacc0;
+  --primary-500: #1a7f95;
+  --primary-600: #006a7e;
+  --primary-700: #005567;
+  --primary-800: #004150;
+  --primary-900: #002d3a;
+  --primary-950: #001b25;
+
+  /* Asagao (morning glory) violet — Japan's signature summer flower */
+  --secondary-50: #f7f5ff;
+  --secondary-100: #eee8ff;
+  --secondary-200: #dfd4ff;
+  --secondary-300: #ccbaff;
+  --secondary-400: #a58cea;
+  --secondary-500: #7a5cc0;
+  --secondary-600: #6649a5;
+  --secondary-700: #52378a;
+  --secondary-800: #3e266d;
+  --secondary-900: #2c1752;
+  --secondary-950: #1a0937;
+
+  /* success/warning/error inherit the base :root set — the sea-teal primary
+     and violet secondary sit far enough from its green/amber/red that
+     feedback states stay unambiguous. Contrast-checked: white on asagi
+     ~4.7:1, white on asagao ~5.1:1. */
+  --on-primary: #ffffff;
+  --on-secondary: #ffffff;
+}
+
+[data-season="summer"].dark {
+  /* Summer-night lagoon aqua — lit water under hanabi (fireworks) */
+  --primary-50: #edf9fc;
+  --primary-100: #d9f2f8;
+  --primary-200: #b7e6f0;
+  --primary-300: #89d5e5;
+  --primary-400: #59c3d7;
+  --primary-500: #1fa9bf;
+  --primary-600: #008b9f;
+  --primary-700: #006d7f;
+  --primary-800: #005160;
+  --primary-900: #003642;
+  --primary-950: #001c26;
+
+  /* Twilight asagao violet */
+  --secondary-50: #f7f5ff;
+  --secondary-100: #eee9ff;
+  --secondary-200: #dfd5ff;
+  --secondary-300: #ccbaff;
+  --secondary-400: #b69ef9;
+  --secondary-500: #9a7ee0;
+  --secondary-600: #7e64be;
+  --secondary-700: #634b9b;
+  --secondary-800: #493478;
+  --secondary-900: #311e56;
+  --secondary-950: #1a0a35;
+
+  /* Inherits .dark's success/warning/error. Midnight Slate on both 500s
+     (~6.9:1 and ~5.9:1). */
+  --on-primary: #0b0e14;
+  --on-secondary: #0b0e14;
+}
+
+[data-season="winter"] {
+  /* Ai (Japanese indigo) — deep, cold, and quiet like a snowy dusk */
+  --primary-50: #f2f7ff;
+  --primary-100: #e3eefe;
+  --primary-200: #cbdefb;
+  --primary-300: #adc9f6;
+  --primary-400: #6f91c8;
+  --primary-500: #34568f;
+  --primary-600: #28487d;
+  --primary-700: #1e3a6a;
+  --primary-800: #152d56;
+  --primary-900: #0d2142;
+  --primary-950: #06152f;
+
+  /* Fuji-nezumi (wisteria silver-grey) — frost on bare branches. Kept
+     deliberately desaturated so it never competes with error red. */
+  --secondary-50: #f6f6fc;
+  --secondary-100: #ecebf7;
+  --secondary-200: #dbdaef;
+  --secondary-300: #c6c3e3;
+  --secondary-400: #afacd4;
+  --secondary-500: #938fba;
+  --secondary-600: #77739b;
+  --secondary-700: #5d597c;
+  --secondary-800: #43405d;
+  --secondary-900: #2b2940;
+  --secondary-950: #151325;
+
+  /* Inherits :root's success/warning/error. White on ai ~7.3:1, Bark Brown
+     on fuji-nezumi ~5.0:1. */
+  --on-primary: #ffffff;
+  --on-secondary: #2e231c;
+}
+
+[data-season="winter"].dark {
+  /* Moonlit ice blue */
+  --primary-50: #f1f7ff;
+  --primary-100: #e0eeff;
+  --primary-200: #c6dfff;
+  --primary-300: #a4cafe;
+  --primary-400: #7faff1;
+  --primary-500: #5b8fd6;
+  --primary-600: #4474b5;
+  --primary-700: #2f5a94;
+  --primary-800: #1d4273;
+  --primary-900: #0b2a53;
+  --primary-950: #011533;
+
+  /* Silver wisteria */
+  --secondary-50: #f6f6fc;
+  --secondary-100: #ecebf7;
+  --secondary-200: #dbdaee;
+  --secondary-300: #c6c3e2;
+  --secondary-400: #b7b4db;
+  --secondary-500: #a39fc9;
+  --secondary-600: #8480a6;
+  --secondary-700: #656284;
+  --secondary-800: #494662;
+  --secondary-900: #2e2b42;
+  --secondary-950: #161324;
+
+  /* Inherits .dark's success/warning/error. Midnight Slate on both 500s
+     (~5.8:1 and ~7.7:1). */
+  --on-primary: #0b0e14;
+  --on-secondary: #0b0e14;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Seasonal shape language
+   ─────────────────────────────────────────────────────────────────────────
+   A season is more than a palette: the same save_site_theme MCP call that
+   swaps colours also swaps the SHAPE of the UI. Every silhouette the shared
+   components draw — card/panel/button/badge corners, card shadow, the card's
+   corner motif, dividers, the page backdrop pattern and the kicker bullet —
+   reads from the --shape-* / --motif-* tokens below, and each
+   [data-season] block re-points those tokens. Components never branch on
+   season themselves (UCard/UPageCard/UButton/UBadge use
+   rounded-(--shape-*) etc.), so adding a season means adding one token block
+   here plus its palette above — nothing in Vue changes.
+
+     spring (sakura) — petals: generous round corners with one tight "stem"
+                       corner, pill buttons, blossom motif
+     summer          — water: wave-edged cards, fan-shaped badges, droplet
+                       bullets, rippled backdrop
+     autumn          — leaves: leaf-cut asymmetric corners, tag badges,
+                       diamond bullets, maple-leaf motif
+     winter          — ice: crisp, frosted, double-ruled panels, hexagonal
+                       snow-crystal badges and bullets, snowflake motif
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --motif-blossom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'%3E%3Cpath transform='rotate(0)' d='M0 -9 C-13 -17 -17 -36 -7 -46 L0 -39 L7 -46 C17 -36 13 -17 0 -9Z'/%3E%3Cpath transform='rotate(72)' d='M0 -9 C-13 -17 -17 -36 -7 -46 L0 -39 L7 -46 C17 -36 13 -17 0 -9Z'/%3E%3Cpath transform='rotate(144)' d='M0 -9 C-13 -17 -17 -36 -7 -46 L0 -39 L7 -46 C17 -36 13 -17 0 -9Z'/%3E%3Cpath transform='rotate(216)' d='M0 -9 C-13 -17 -17 -36 -7 -46 L0 -39 L7 -46 C17 -36 13 -17 0 -9Z'/%3E%3Cpath transform='rotate(288)' d='M0 -9 C-13 -17 -17 -36 -7 -46 L0 -39 L7 -46 C17 -36 13 -17 0 -9Z'/%3E%3Ccircle r='7'/%3E%3C/svg%3E");
+  --motif-leaf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'%3E%3Cpolygon points='20.9,-3.3 25.5,-1.8 31.9,2.8 24.8,6.2 20.0,6.9 13.6,6.3 10.2,6.1 11.6,8.5 12.7,12.7 8.5,11.6 6.1,10.2 0.0,8.0 -6.1,10.2 -8.5,11.6 -12.7,12.7 -11.6,8.5 -10.2,6.1 -13.6,6.3 -20.0,6.9 -24.8,6.2 -31.9,2.8 -25.5,-1.8 -20.9,-3.3 -14.3,-4.5 -24.9,-12.2 -28.8,-17.3 -32.2,-27.0 -22.0,-25.4 -16.3,-22.4 -6.3,-13.6 -7.3,-29.5 -5.8,-36.3 -0.0,-46.0 5.8,-36.3 7.3,-29.5 6.3,-13.6 16.3,-22.4 22.0,-25.4 32.2,-27.0 28.8,-17.3 24.9,-12.2 14.3,-4.5'/%3E%3Cpath d='M0 0 L4 44' stroke='black' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  --motif-snow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100' fill='none' stroke='black' stroke-width='5' stroke-linecap='round'%3E%3Cg transform='rotate(0)'%3E%3Cpath d='M0 0V-44M0 -28L-10 -38M0 -28L10 -38M0 -14L-8 -22M0 -14L8 -22'/%3E%3C/g%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0 0V-44M0 -28L-10 -38M0 -28L10 -38M0 -14L-8 -22M0 -14L8 -22'/%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0 0V-44M0 -28L-10 -38M0 -28L10 -38M0 -14L-8 -22M0 -14L8 -22'/%3E%3C/g%3E%3Cg transform='rotate(180)'%3E%3Cpath d='M0 0V-44M0 -28L-10 -38M0 -28L10 -38M0 -14L-8 -22M0 -14L8 -22'/%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M0 0V-44M0 -28L-10 -38M0 -28L10 -38M0 -14L-8 -22M0 -14L8 -22'/%3E%3C/g%3E%3Cg transform='rotate(300)'%3E%3Cpath d='M0 0V-44M0 -28L-10 -38M0 -28L10 -38M0 -14L-8 -22M0 -14L8 -22'/%3E%3C/g%3E%3C/svg%3E");
+  --motif-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 8'%3E%3Cpath d='M0 4 Q6 0.5 12 4 T24 4' fill='none' stroke='black' stroke-width='1.8'/%3E%3C/svg%3E");
+  --motif-ripple: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 24' fill='none' stroke='black' stroke-width='1.2'%3E%3Cpath d='M0 6 Q6 2 12 6 T24 6 T36 6 T48 6M-12 18 Q-6 14 0 18 T12 18 T24 18 T36 18 T48 18'/%3E%3C/svg%3E");
+
+  /* Spring / sakura — also the un-seasoned default */
+  --shape-card: 1.75rem 1.75rem 1.75rem 0.5rem;
+  --shape-panel: 1.25rem 1.25rem 1.25rem 0.375rem;
+  --shape-button: 9999px;
+  --shape-badge: 9999px;
+  --shape-bullet: 9999px;
+  --shape-bullet-rotate: 0deg;
+  --shape-badge-clip: none;
+  --shape-card-shadow:
+    0 1px 3px color-mix(in srgb, var(--primary-500) 8%, transparent),
+    0 14px 32px -18px color-mix(in srgb, var(--primary-500) 40%, transparent);
+  --shape-card-ring: 0 0 #0000;
+  --motif-card: var(--motif-blossom);
+  --motif-card-size: 3.5rem;
+  --motif-card-rotate: -12deg;
+  --motif-divider: var(--motif-blossom);
+}
+
+[data-season="summer"] {
+  --shape-card: 1.25rem 1.25rem 0.625rem 0.625rem;
+  --shape-panel: 1rem 1rem 0.5rem 0.5rem;
+  --shape-button: 0.875rem;
+  --shape-badge: 1em 1em 0.3em 0.3em;
+  /* rotated half-rounded square = a water droplet */
+  --shape-bullet: 50% 0 50% 50%;
+  --shape-bullet-rotate: -45deg;
+  --motif-card: none;
+  --motif-divider: none;
+}
+
+[data-season="autumn"] {
+  --shape-card: 0.25rem 1.75rem 0.25rem 1.75rem;
+  --shape-panel: 0.25rem 1.25rem 0.25rem 1.25rem;
+  --shape-button: 0.25rem 0.875rem 0.25rem 0.875rem;
+  --shape-badge: 0.25rem;
+  --shape-bullet: 2px;
+  --shape-bullet-rotate: 45deg;
+  --motif-card: var(--motif-leaf);
+  --motif-card-size: 3.75rem;
+  --motif-card-rotate: 18deg;
+  --motif-divider: var(--motif-leaf);
+}
+
+[data-season="winter"] {
+  --shape-card: 0.5rem;
+  --shape-panel: 0.375rem;
+  --shape-button: 0.3rem;
+  --shape-badge: 0;
+  --shape-bullet: 0;
+  --shape-bullet-rotate: 0deg;
+  /* flat-topped hexagon — a snow crystal / kikkō tortoiseshell cell */
+  --shape-badge-clip: polygon(
+    0.55em 0,
+    calc(100% - 0.55em) 0,
+    100% 50%,
+    calc(100% - 0.55em) 100%,
+    0.55em 100%,
+    0 50%
+  );
+  --motif-card: var(--motif-snow);
+  --motif-card-size: 3.25rem;
+  --motif-card-rotate: 0deg;
+  --motif-divider: var(--motif-snow);
+}
+
+/* ── Cards ─────────────────────────────────────────────────────────────── */
+.u-card {
+  position: relative;
+  box-shadow: var(--shape-card-ring), var(--shape-card-shadow);
+}
+
+/* Keep card content above the corner motif. */
+.u-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Corner motif: blossom / leaf / snowflake, ghosted in the season's primary.
+   Sits inside the card's padding box so no overflow clipping is needed. */
+.u-card::after {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: var(--motif-card-size, 3.5rem);
+  height: var(--motif-card-size, 3.5rem);
+  background-color: var(--primary-500);
+  opacity: 0.1;
+  pointer-events: none;
+  transform: rotate(var(--motif-card-rotate, 0deg));
+  mask: var(--motif-card) center / contain no-repeat;
+}
+
+/* Summer swaps the corner motif for a wave-line "waterline" along the
+   card's bottom edge. */
+[data-season="summer"] .u-card::after {
+  top: auto;
+  bottom: 0.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  width: auto;
+  height: 8px;
+  transform: none;
+  opacity: 0.35;
+  background-image: linear-gradient(
+    to right,
+    var(--primary-500),
+    var(--secondary-500)
+  );
+  mask: var(--motif-wave) 0 0 / 24px 8px repeat-x;
+}
+
+.dark .u-card {
+  --shape-card-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 14px 32px -16px color-mix(in srgb, var(--primary-500) 30%, #000);
+}
+
+/* Winter cards are frosted glass over the snowy backdrop, with an inner
+   frost line like a double-ruled yukimi shoji frame. */
+[data-season="winter"] .u-card {
+  --card-surface: rgb(255 255 255 / 0.78);
+  --shape-card-ring:
+    inset 0 0 0 4px var(--card-surface),
+    inset 0 0 0 5px color-mix(in srgb, var(--primary-500) 22%, transparent);
+  background-color: var(--card-surface);
+  backdrop-filter: blur(10px) saturate(1.2);
+}
+
+[data-season="winter"].dark .u-card {
+  --card-surface: rgb(21 26 36 / 0.72);
+}
+
+/* Autumn's leaf-cut shadow leans warm, like light through maple. */
 [data-season="autumn"] .u-card {
-  border-radius: 0.25rem 1.125rem 0.25rem 1.125rem;
-  box-shadow:
-    0 1px 3px rgba(120, 55, 10, 0.1),
-    0 14px 30px -16px rgba(178, 82, 20, 0.35);
+  --shape-card-shadow:
+    0 1px 3px rgba(120, 55, 10, 0.1), 0 14px 30px -16px rgba(178, 82, 20, 0.35);
 }
 
 [data-season="autumn"].dark .u-card {
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.35),
-    0 14px 32px -16px rgba(179, 90, 25, 0.45);
+  --shape-card-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.35), 0 14px 32px -16px rgba(179, 90, 25, 0.45);
 }
 
-[data-season="autumn"] .border-t-primary-500 {
-  border-image: linear-gradient(
-      to right,
-      var(--primary-500),
-      var(--secondary-500)
-    )
-    1;
+/* ── Buttons & badges ─────────────────────────────────────────────────── */
+.u-button.shadow-sm {
+  box-shadow: 0 2px 5px -1px
+    color-mix(in srgb, var(--primary-500) 30%, transparent);
 }
 
-[data-season="autumn"] .u-button {
-  border-radius: 0.375rem;
+.u-button.shadow-sm:hover {
+  box-shadow: 0 8px 18px -6px
+    color-mix(in srgb, var(--primary-500) 55%, transparent);
 }
 
-[data-season="autumn"] .u-button.shadow-sm {
-  box-shadow: 0 2px 4px rgba(120, 55, 10, 0.2);
-}
-
-[data-season="autumn"] .u-button.shadow-sm:hover {
-  box-shadow: 0 6px 16px -4px rgba(178, 82, 20, 0.45);
+.u-badge {
+  clip-path: var(--shape-badge-clip);
 }
 
 [data-season="autumn"] .u-badge {
-  border-radius: 0.25rem;
   letter-spacing: 0.07em;
 }
 
-/* Seasonal ambient graphic (falling sakura petals / autumn leaves), rendered
-   by app/components/SeasonalEffects.vue. That component mounts one particle
-   group per implemented season unconditionally; visibility here is driven
-   entirely by which [data-season="..."] value is on <html>, so the visual
-   effect stays in lockstep with the color palette above without any JS
+/* Hexagon clipping cuts the side borders, so winter badges get extra side
+   padding to keep the text clear of the angled edges. */
+[data-season="winter"] .u-badge {
+  padding-inline: 0.85em;
+  border-color: transparent;
+}
+
+/* ── Page backdrop ────────────────────────────────────────────────────── */
+/* Fixed pattern layer behind every page's <main> (each page renders one
+   .season-backdrop). Spring keeps the shoji-screen grid; summer ripples,
+   autumn a hishi (diamond) lattice with a moonlit glow, winter falling-snow
+   dots. */
+.season-backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, #8080800a 1px, transparent 1px),
+    linear-gradient(to bottom, #8080800a 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+}
+
+[data-season="summer"] .season-backdrop {
+  background-image: none;
+  background-color: var(--primary-500);
+  opacity: 0.035;
+  mask: var(--motif-ripple) 0 0 / 120px 60px repeat;
+}
+
+[data-season="autumn"] .season-backdrop {
+  background-image:
+    radial-gradient(
+      circle at 86% 10%,
+      rgba(209, 145, 31, 0.14) 0,
+      transparent 34%
+    ),
+    repeating-linear-gradient(45deg, #8080800d 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(-45deg, #8080800d 0 1px, transparent 1px 28px);
+  background-size: auto;
+  opacity: 0.8;
+}
+
+[data-season="autumn"].dark .season-backdrop {
+  background-image:
+    radial-gradient(
+      circle at 86% 10%,
+      rgba(196, 146, 47, 0.2) 0,
+      transparent 34%
+    ),
+    repeating-linear-gradient(45deg, #ffffff08 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(-45deg, #ffffff08 0 1px, transparent 1px 28px);
+}
+
+[data-season="winter"] .season-backdrop {
+  background-image:
+    radial-gradient(
+      circle,
+      color-mix(in srgb, var(--primary-500) 14%, transparent) 1.5px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle,
+      color-mix(in srgb, var(--primary-500) 9%, transparent) 1px,
+      transparent 1.5px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--primary-500) 6%, transparent),
+      transparent 40%
+    );
+  background-size:
+    46px 46px,
+    23px 23px,
+    auto;
+  background-position:
+    0 0,
+    11px 13px,
+    0 0;
+  opacity: 1;
+}
+
+[data-season="winter"].dark .season-backdrop {
+  background-image:
+    radial-gradient(circle, rgb(255 255 255 / 0.12) 1.5px, transparent 2px),
+    radial-gradient(circle, rgb(255 255 255 / 0.07) 1px, transparent 1.5px),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--primary-500) 10%, transparent),
+      transparent 45%
+    );
+}
+
+/* Seasonal ambient graphic, rendered by app/components/SeasonalEffects.vue.
+   That component mounts one particle group per implemented season
+   unconditionally; visibility here is driven entirely by which
+   [data-season="..."] value is on <html>, so the visual effect stays in
+   lockstep with the palette and shapes above without any JS
    season-branching. */
 .seasonal-effects {
   position: fixed;
@@ -611,7 +982,9 @@
 }
 
 [data-season="sakura"] .seasonal-effects .seasonal-particle--sakura,
-[data-season="autumn"] .seasonal-effects .seasonal-particle--autumn {
+[data-season="summer"] .seasonal-effects .seasonal-particle--summer,
+[data-season="autumn"] .seasonal-effects .seasonal-particle--autumn,
+[data-season="winter"] .seasonal-effects .seasonal-particle--winter {
   display: block;
 }
 
@@ -628,6 +1001,46 @@
   .seasonal-effects
   .seasonal-particle--autumn::before {
   content: "🌾";
+}
+
+/* Summer particles RISE instead of fall: sunlit bubbles by day, blinking
+   hotaru (fireflies) by night. Pure CSS dots, no emoji. */
+[data-season="summer"] .seasonal-effects .seasonal-particle--summer {
+  top: auto;
+  bottom: -5%;
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 9999px;
+  border: 1.5px solid color-mix(in srgb, var(--primary-400) 70%, transparent);
+  background: color-mix(in srgb, var(--primary-100) 40%, transparent);
+  animation-name: seasonal-rise;
+}
+
+[data-season="summer"].dark .seasonal-effects .seasonal-particle--summer {
+  width: 0.35em;
+  height: 0.35em;
+  border: 0;
+  background: #e8f58a;
+  box-shadow:
+    0 0 6px 2px rgba(214, 240, 110, 0.75),
+    0 0 18px 6px rgba(190, 230, 90, 0.3);
+  animation-name: seasonal-rise, seasonal-blink;
+  animation-duration: inherit, 2.6s;
+}
+
+/* Winter: soft, slow, barely-rotating snow. */
+[data-season="winter"] .seasonal-effects .seasonal-particle--winter {
+  width: 0.45em;
+  height: 0.45em;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--primary-300) 80%, white);
+  box-shadow: 0 0 4px color-mix(in srgb, var(--primary-300) 60%, transparent);
+  animation-timing-function: linear;
+}
+
+[data-season="winter"].dark .seasonal-effects .seasonal-particle--winter {
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
 /* Wobbling, multi-stop path (rather than a straight diagonal) so particles
@@ -665,12 +1078,41 @@
   }
 }
 
-/* Fixed back-corner accent, autumn-only — a leaf by day, the tsukimi
-   (moon-viewing) moon by night, swapped via CSS `content` off .dark like
-   the falling particles above. Unlike those particles it doesn't fall —
-   it just hangs and softly glows, like the real ritual of sitting still
-   and watching the moon — so it gets its own breathing animation rather
-   than reusing seasonal-fall. */
+@keyframes seasonal-rise {
+  0% {
+    transform: translateY(0) translateX(0) scale(var(--seasonal-scale, 1));
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--seasonal-opacity, 0.85);
+  }
+  50% {
+    transform: translateY(-55vh)
+      translateX(calc(var(--seasonal-drift, 40px) * -0.5))
+      scale(var(--seasonal-scale, 1));
+  }
+  100% {
+    transform: translateY(-110vh) translateX(var(--seasonal-drift, 40px))
+      scale(var(--seasonal-scale, 1));
+    opacity: 0;
+  }
+}
+
+@keyframes seasonal-blink {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(0.35);
+  }
+}
+
+/* Fixed back-corner accent — autumn: a leaf by day, the tsukimi
+   (moon-viewing) moon by night; summer: a furin (wind chime) by day,
+   hanabi (fireworks) by night. Swapped via CSS `content` off .dark like the
+   falling particles above. It doesn't fall — it just hangs and softly
+   glows — so it gets its own breathing animation. */
 .seasonal-corner-glyph {
   display: none;
   position: absolute;
@@ -682,7 +1124,8 @@
   animation: seasonal-corner-glow 7s ease-in-out infinite;
 }
 
-[data-season="autumn"] .seasonal-corner-glyph {
+[data-season="autumn"] .seasonal-corner-glyph,
+[data-season="summer"] .seasonal-corner-glyph {
   display: block;
 }
 
@@ -698,6 +1141,25 @@
   filter: drop-shadow(0 0 32px rgba(196, 146, 47, 0.6));
 }
 
+[data-season="summer"] .seasonal-corner-glyph {
+  filter: drop-shadow(0 0 24px rgba(26, 127, 149, 0.35));
+  transform-origin: 50% 0;
+  animation: seasonal-corner-sway 4s ease-in-out infinite;
+}
+
+[data-season="summer"] .seasonal-corner-glyph::before {
+  content: "🎐";
+}
+
+[data-season="summer"].dark .seasonal-corner-glyph::before {
+  content: "🎆";
+}
+
+[data-season="summer"].dark .seasonal-corner-glyph {
+  transform-origin: 50% 50%;
+  animation: seasonal-corner-glow 5s ease-in-out infinite;
+}
+
 @keyframes seasonal-corner-glow {
   0%,
   100% {
@@ -710,7 +1172,19 @@
   }
 }
 
-/* Falling particles and the moon glow above are a decorative flourish, not
+@keyframes seasonal-corner-sway {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: rotate(-6deg);
+  }
+  50% {
+    opacity: 0.65;
+    transform: rotate(6deg);
+  }
+}
+
+/* Falling particles and the corner glyph are a decorative flourish, not
    content — respect users who've asked for less motion instead of forcing
    it on them. */
 @media (prefers-reduced-motion: reduce) {
@@ -752,45 +1226,6 @@ body {
     );
 }
 
-/* Autumn layers a warm moonlight glow (top-right, behind the .seasonal-moon
-   accent above) on top of the base washi mottling — a quiet, cozy dusk cast
-   rather than a flat daytime backdrop, matching tsukimi's evening mood. */
-[data-season="autumn"] body {
-  background-image:
-    radial-gradient(circle at 18% 22%, rgba(0, 0, 0, 0.018) 0, transparent 42%),
-    radial-gradient(circle at 82% 58%, rgba(0, 0, 0, 0.014) 0, transparent 48%),
-    radial-gradient(circle at 46% 92%, rgba(0, 0, 0, 0.012) 0, transparent 38%),
-    radial-gradient(
-      circle at 86% 10%,
-      rgba(209, 145, 31, 0.09) 0,
-      transparent 34%
-    );
-}
-
-[data-season="autumn"].dark body {
-  background-image:
-    radial-gradient(
-      circle at 18% 22%,
-      rgba(255, 255, 255, 0.022) 0,
-      transparent 42%
-    ),
-    radial-gradient(
-      circle at 82% 58%,
-      rgba(255, 255, 255, 0.016) 0,
-      transparent 48%
-    ),
-    radial-gradient(
-      circle at 46% 92%,
-      rgba(255, 255, 255, 0.014) 0,
-      transparent 38%
-    ),
-    radial-gradient(
-      circle at 86% 10%,
-      rgba(196, 146, 47, 0.16) 0,
-      transparent 34%
-    );
-}
-
 .font-serif {
   font-family: var(--font-serif);
 }
@@ -800,8 +1235,9 @@ body {
 }
 
 /* Small tag/label style used for eyebrows, stat labels, etc. — a leading
-   dot (evoking a hanko stamp mark) instead of the old bold uppercase
-   newspaper-eyebrow treatment. */
+   bullet whose shape follows the season (--shape-bullet): a round bud for
+   spring, a droplet for summer, a diamond leaf-fleck for autumn, a square
+   ice crystal for winter. */
 .kicker {
   font-family: var(--font-sans);
   display: inline-flex;
@@ -817,7 +1253,8 @@ body {
   content: "";
   width: 5px;
   height: 5px;
-  border-radius: 9999px;
+  border-radius: var(--shape-bullet);
+  transform: rotate(var(--shape-bullet-rotate));
   background: currentColor;
   opacity: 0.6;
   flex-shrink: 0;
@@ -828,43 +1265,109 @@ body {
   display: none;
 }
 
-/* Autumn trades the kicker's round dot (a bud/petal dot, fitting sakura)
-   for a small diamond — a falling leaf-fleck instead. */
-[data-season="autumn"] .kicker::before {
-  border-radius: 2px;
-  transform: rotate(45deg);
-}
-
-/* Soft brush-stroke divider — a single fading rule instead of the old
-   double-ruled newspaper masthead line. Kept the historical class name
-   (rule-double) so every existing call site picks this up automatically. */
+/* Divider — a soft brush-stroke rule with the season's motif knotted into
+   its centre (blossom / leaf / snowflake). Summer replaces the stroke with
+   a wave line; winter with a dotted line of falling snow. Kept the
+   historical class name (rule-double) so every call site picks this up. */
 .rule-double {
+  position: relative;
   height: 3px;
   border: 0;
   border-radius: 9999px;
+  /* transparent gap in the middle leaves room for the motif */
   background: linear-gradient(
     to right,
     transparent,
     var(--primary-500) 15%,
+    var(--primary-500) calc(50% - 13px),
+    transparent calc(50% - 12px),
+    transparent calc(50% + 12px),
+    var(--primary-500) calc(50% + 13px),
     var(--primary-500) 85%,
     transparent
   );
   opacity: 0.55;
 }
 
+.rule-double::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  translate: -50% -50%;
+  background-color: var(--primary-500);
+  mask: var(--motif-divider) center / contain no-repeat;
+}
+
+[data-season="summer"] .rule-double::after {
+  display: none;
+}
+
 /* Autumn's divider runs momiji red into ginkgo gold instead of holding one
    flat hue — the same red/gold pairing koyo (autumn foliage viewing) is
-   known for, rather than just a season-tinted copy of the default rule. */
+   known for. */
 [data-season="autumn"] .rule-double {
   background: linear-gradient(
     to right,
     transparent,
     var(--primary-500) 12%,
-    var(--secondary-500) 50%,
+    var(--secondary-500) calc(50% - 13px),
+    transparent calc(50% - 12px),
+    transparent calc(50% + 12px),
+    var(--secondary-500) calc(50% + 13px),
     var(--primary-500) 88%,
     transparent
   );
   opacity: 0.7;
+}
+
+[data-season="autumn"] .rule-double::after {
+  background-color: var(--secondary-500);
+}
+
+[data-season="summer"] .rule-double {
+  height: 8px;
+  border-radius: 0;
+  background: linear-gradient(
+    to right,
+    var(--primary-500),
+    var(--secondary-500)
+  );
+  mask:
+    var(--motif-wave) 0 0 / 24px 8px repeat-x,
+    linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-composite: intersect;
+  opacity: 0.6;
+}
+
+/* Winter's dotted snow line lives on ::before (with its own fade/gap mask)
+   so the snowflake on ::after isn't clipped to the 4px-tall rule. */
+[data-season="winter"] .rule-double {
+  height: 4px;
+  border-radius: 0;
+  background: none;
+  opacity: 0.6;
+}
+
+[data-season="winter"] .rule-double::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, var(--primary-500) 1.5px, transparent 2px)
+    0 0 / 10px 4px repeat-x;
+  mask: linear-gradient(
+    to right,
+    transparent,
+    #000 15%,
+    #000 calc(50% - 13px),
+    transparent calc(50% - 12px),
+    transparent calc(50% + 12px),
+    #000 calc(50% + 13px),
+    #000 85%,
+    transparent
+  );
 }
 
 /* Small season-matched glyph, CSS-driven off [data-season] the same way
@@ -877,17 +1380,27 @@ body {
   content: "🌸";
 }
 
+[data-season="summer"] .season-glyph::before {
+  content: "🎐";
+}
+
+[data-season="summer"].dark .season-glyph::before {
+  content: "🎆";
+}
+
 /* Autumn's kicker glyph follows the same day/night split as the falling
    particles and corner accent above: a momiji leaf by day; by night, 🎑 —
-   the tsukimi (moon-viewing) glyph itself, dango/susuki/moon in one
-   pictograph — leading with the ritual once the sky (and the corner moon)
-   is actually out. */
+   the tsukimi (moon-viewing) glyph itself. */
 [data-season="autumn"] .season-glyph::before {
   content: "🍁";
 }
 
 [data-season="autumn"].dark .season-glyph::before {
   content: "🎑";
+}
+
+[data-season="winter"] .season-glyph::before {
+  content: "❄️";
 }
 
 .drop-cap > p:first-of-type::first-letter {

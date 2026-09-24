@@ -13,11 +13,11 @@ describe("Index Page (Landing)", () => {
     vi.useRealTimers();
   });
 
-  it("renders main wrapper and shoji grid", () => {
+  it("renders main wrapper and season backdrop", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.find(".min-h-screen").exists()).toBe(true);
-    expect(wrapper.find(".absolute.inset-0").exists()).toBe(true);
+    expect(wrapper.find(".season-backdrop").exists()).toBe(true);
   });
 
   it("renders header with logo and navigation", () => {

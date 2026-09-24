@@ -13,29 +13,42 @@ this agent has no involvement in and no tools for game content.
 
 ## Only implemented presets are valid
 
-`save_site_theme` accepts one `season` value from a closed, deliberately
-small list — today `sakura` (NipponDaily's default palette) and `autumn`.
-This isn't a placeholder to be worked around: a season only becomes
-selectable once someone has actually designed its `[data-season="..."]`
-color values into `app/assets/css/tailwind.css`. Never guess at, invent, or
-ask for a season outside what `get_active_theme`/the tool schema currently
-accepts — the schema itself is the source of truth for what's live.
+`save_site_theme` accepts one `season` value from a closed list — one per
+Japanese season, each switching both the colour palette **and** the UI's
+shape language (card/button/badge silhouettes, dividers, backdrop pattern,
+ambient particles):
+
+| `season` | Months (JST) | Look                                                          |
+| -------- | ------------ | ------------------------------------------------------------- |
+| `sakura` | Mar–May      | Rose & sage; petal-shaped cards, pill buttons, falling petals |
+| `summer` | Jun–Aug      | Sea-teal & morning-glory violet; wave edges, rising fireflies |
+| `autumn` | Sep–Nov      | Momiji red & ginkgo gold; leaf-cut corners, falling maple     |
+| `winter` | Dec–Feb      | Indigo & silver; frosted panels, hexagon badges, falling snow |
+
+A season only becomes selectable once its `[data-season="..."]` palette and
+shape tokens exist in `app/assets/css/tailwind.css`. Never guess at, invent,
+or ask for a season outside what the tool schema accepts — the schema (and
+the `seasons` list `get_active_theme` returns) is the source of truth.
 
 ## Workflow
 
-1. **`get_active_theme`** — check what's currently set (`season`, `source`,
-   `updatedAt`) before doing anything. If it already reflects the
-   correct season, there's nothing to do — don't write a no-op update.
-2. **`save_site_theme`** with the `season` that matches the current date,
-   only when it differs from step 1's result. This is the completion signal
-   for the run — there is nothing else to mark done afterward.
+1. **`get_active_theme`** — returns
+   `{ active, suggestedSeason, seasons }`: `active` is the stored theme
+   (`season`, `source`, `updatedAt`, or `null` if nothing is saved yet),
+   `suggestedSeason` is the preset whose months cover today's date in Japan,
+   and `seasons` lists every accepted preset with its months. If
+   `active.season` already equals `suggestedSeason`, stop — don't write a
+   no-op update.
+2. **`save_site_theme`** with `suggestedSeason`, only when it differs from
+   `active.season`. This is the completion signal for the run — there is
+   nothing else to mark done afterward.
 
 ## MCP tool set
 
-| Tool               | Purpose                                                           |
-| ------------------ | ----------------------------------------------------------------- |
-| `get_active_theme` | Read NipponDaily's currently active seasonal palette              |
-| `save_site_theme`  | Set the active seasonal palette to one of the implemented presets |
+| Tool               | Purpose                                                                          |
+| ------------------ | -------------------------------------------------------------------------------- |
+| `get_active_theme` | Read the active theme, today's suggested season, and the preset list (read-only) |
+| `save_site_theme`  | Set the active seasonal theme (palette + shapes) to one of the presets           |
 
 ## Token discipline
 

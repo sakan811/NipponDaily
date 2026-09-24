@@ -2,10 +2,8 @@
   <div
     class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
   >
-    <!-- Fine grid decoration to resemble shoji paper screens -->
-    <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-60"
-    />
+    <!-- Season-patterned backdrop (shoji grid / ripples / hishi lattice / snow) -->
+    <div class="season-backdrop" />
 
     <AppHeader />
 
@@ -90,7 +88,7 @@ const features = [
   {
     title: "Agent-Driven Seasonal Theme",
     description:
-      "A Claude web agent checks and, when it should change, switches NipponDaily's active seasonal color palette on its own schedule, entirely outside this codebase. Sakura is the site's default season; autumn is the other implemented preset.",
+      "A Claude web agent checks and, when it should change, switches NipponDaily's active seasonal color palette on its own schedule, entirely outside this codebase. There is one preset per Japanese season (sakura, summer, autumn, winter), and each one swaps the palette and the UI's shapes together.",
     icon: "i-heroicons-cpu-chip",
   },
   {
@@ -102,7 +100,7 @@ const features = [
   {
     title: "Ambient Seasonal Graphic",
     description:
-      "Falling sakura petals or autumn leaves drift across every page, matching whichever season is active — a pure CSS animation keyed off the same data-season attribute as the color palette, with no extra agent involvement and full prefers-reduced-motion support.",
+      "Falling sakura petals, rising summer fireflies, autumn leaves, or winter snow drift across every page, matching whichever season is active — a pure CSS animation keyed off the same data-season attribute as the color palette, with no extra agent involvement and full prefers-reduced-motion support.",
     icon: "i-heroicons-sparkles",
   },
   {

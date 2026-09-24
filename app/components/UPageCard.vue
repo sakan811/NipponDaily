@@ -1,10 +1,10 @@
 <template>
   <div
-    class="u-page-card border border-stone-200/60 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 backdrop-blur-sm rounded-xl p-5 hover:shadow-md hover:border-primary-500/30 transition-all duration-350 flex flex-col gap-3 group"
+    class="u-page-card border border-stone-200/60 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 backdrop-blur-sm rounded-(--shape-panel) p-5 hover:shadow-md hover:border-primary-500/30 transition-all duration-350 flex flex-col gap-3 group"
   >
     <div
       v-if="icon"
-      class="flex items-center justify-center w-8 h-8 rounded-lg bg-stone-100 dark:bg-stone-800 text-primary-500 group-hover:bg-primary-500 group-hover:text-on-primary transition-colors duration-300"
+      class="flex items-center justify-center w-8 h-8 rounded-(--shape-button) bg-stone-100 dark:bg-stone-800 text-primary-500 group-hover:bg-primary-500 group-hover:text-on-primary transition-colors duration-300"
     >
       <UIcon :name="icon" class="w-4 h-4" />
     </div>

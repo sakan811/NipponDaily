@@ -2,10 +2,8 @@
   <div
     class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
   >
-    <!-- Fine grid decoration to resemble shoji paper screens -->
-    <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-60"
-    />
+    <!-- Season-patterned backdrop (shoji grid / ripples / hishi lattice / snow) -->
+    <div class="season-backdrop" />
 
     <AppHeader />
 
@@ -242,10 +240,12 @@
             <h4 class="font-mono text-sm font-bold m-0">get_active_theme</h4>
           </template>
           <p class="text-sm">
-            Returns the currently active <code>SiteTheme</code> —
-            <code>season</code>, <code>updatedAt</code>, and
-            <code>source</code> — so the agent can check state before deciding
-            whether a change is needed.
+            Returns <code>{ active, suggestedSeason, seasons }</code>: the
+            stored <code>SiteTheme</code> (or <code>null</code>), the preset
+            whose months cover today's date in Japan, and every accepted preset
+            with its months. The agent only writes when
+            <code>active.season</code> differs from
+            <code>suggestedSeason</code>. Annotated read-only.
           </p>
         </UCard>
 
@@ -255,8 +255,9 @@
           </template>
           <p class="text-sm">
             Sets the active season, applied site-wide immediately. Only accepts
-            one of the <em>implemented</em> presets (currently
-            <code>sakura</code> — the site's default — and <code>autumn</code>)
+            one of the <em>implemented</em> presets — one per Japanese season:
+            <code>sakura</code> (spring, the site's default),
+            <code>summer</code>, <code>autumn</code>, and <code>winter</code>
             — anything else is rejected by the schema itself, not just by
             convention.
           </p>
@@ -281,9 +282,13 @@
             same <code>data-season</code> attribute that switches the color
             palette also drives
             <code>app/components/SeasonalEffects.vue</code>'s ambient graphic —
-            falling petals for sakura; for autumn, falling momiji leaves and a
-            leaf accent in daylight, falling susuki and a glowing tsukimi moon
-            accent at night — one CSS attribute, no separate agent call.
+            falling petals for sakura; rising bubbles by day and fireflies by
+            night for summer; for autumn, falling momiji leaves by day and
+            susuki with a glowing tsukimi moon at night; falling snow for
+            winter. It also re-points the <code>--shape-*</code> /
+            <code>--motif-*</code> tokens that set the silhouettes of every
+            card, button, badge, divider, and page backdrop. One CSS attribute,
+            no separate agent call.
           </p>
         </div>
       </div>

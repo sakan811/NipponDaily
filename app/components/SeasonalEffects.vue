@@ -8,9 +8,21 @@
       >🌸</span
     >
     <span
+      v-for="particle in summerParticles"
+      :key="`summer-${particle.id}`"
+      class="seasonal-particle seasonal-particle--summer"
+      :style="particle.style"
+    />
+    <span
       v-for="particle in autumnParticles"
       :key="`autumn-${particle.id}`"
       class="seasonal-particle seasonal-particle--autumn"
+      :style="particle.style"
+    />
+    <span
+      v-for="particle in winterParticles"
+      :key="`winter-${particle.id}`"
+      class="seasonal-particle seasonal-particle--winter"
       :style="particle.style"
     />
     <span class="seasonal-corner-glyph" />
@@ -20,11 +32,13 @@
 <script setup lang="ts">
 /**
  * Purely decorative, season-matched ambient graphic layered over every
- * page: falling sakura petals, or falling momiji (day) / susuki (night)
- * plus a static corner glyph — a leaf by day, a glowing tsukimi moon by
- * night — for autumn. Autumn particles/glyph render empty spans; their
- * actual glyph is set via CSS `content` (see app/assets/css/tailwind.css),
- * keyed off [data-season] and .dark, so light/dark mode can swap the emoji
+ * page: falling sakura petals (spring); rising bubbles by day / blinking
+ * fireflies by night plus a furin/hanabi corner glyph (summer); falling
+ * momiji (day) / susuki (night) plus a leaf/tsukimi-moon corner glyph
+ * (autumn); falling snow (winter). Only sakura's particles carry text —
+ * every other group renders empty spans whose look (emoji via CSS
+ * `content`, or pure CSS dots) is set in app/assets/css/tailwind.css,
+ * keyed off [data-season] and .dark, so light/dark mode can swap them
  * without any JS theme-branching or hydration mismatch.
  *
  * Per-particle placement is a fixed function of its index rather than
@@ -78,5 +92,7 @@ function buildParticles(count: number): Particle[] {
 }
 
 const sakuraParticles = buildParticles(PARTICLE_COUNT);
+const summerParticles = buildParticles(PARTICLE_COUNT);
 const autumnParticles = buildParticles(PARTICLE_COUNT);
+const winterParticles = buildParticles(PARTICLE_COUNT);
 </script>

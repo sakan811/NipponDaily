@@ -2,10 +2,8 @@
   <div
     class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20"
   >
-    <!-- Fine grid decoration to resemble shoji paper screens -->
-    <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-60"
-    />
+    <!-- Season-patterned backdrop (shoji grid / ripples / hishi lattice / snow) -->
+    <div class="season-backdrop" />
 
     <AppHeader v-model:open="mobileMenuOpen" />
 

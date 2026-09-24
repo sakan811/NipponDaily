@@ -102,7 +102,7 @@ describe("server/api/mcp.ts", () => {
   });
 
   describe("get_active_theme tool", () => {
-    it("returns the currently active theme", async () => {
+    it("returns the active theme, today's suggested season, and every preset", async () => {
       mockGetActiveTheme.mockResolvedValue({
         season: "autumn",
         updatedAt: 1234,
@@ -113,11 +113,41 @@ describe("server/api/mcp.ts", () => {
       const parsed = parseResult(result);
 
       expect(mockGetActiveTheme).toHaveBeenCalled();
-      expect(parsed).toEqual({
+      expect(parsed.active).toEqual({
         season: "autumn",
         updatedAt: 1234,
         source: "agent",
       });
+      expect(["sakura", "summer", "autumn", "winter"]).toContain(
+        parsed.suggestedSeason,
+      );
+      expect(parsed.seasons.map((s: { id: string }) => s.id)).toEqual([
+        "sakura",
+        "summer",
+        "autumn",
+        "winter",
+      ]);
+      // Every month of the year is covered by exactly one preset.
+      const months = parsed.seasons.flatMap(
+        (s: { months: number[] }) => s.months,
+      );
+      expect([...months].sort((a, b) => a - b)).toEqual([
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+      ]);
+    });
+
+    it("reports active as null when no theme has been saved yet", async () => {
+      mockGetActiveTheme.mockResolvedValue(null);
+      const parsed = parseResult(
+        await registeredTools.get_active_theme!.handler({}),
+      );
+      expect(parsed.active).toBeNull();
+    });
+
+    it("is annotated read-only", () => {
+      expect(
+        registeredTools.get_active_theme!.config.annotations.readOnlyHint,
+      ).toBe(true);
     });
   });
 
@@ -137,8 +167,15 @@ describe("server/api/mcp.ts", () => {
 
     it("rejects a season outside the implemented preset list via the schema", () => {
       const schema = registeredTools.save_site_theme!.config.inputSchema;
-      const parsed = schema.safeParse({ season: "winter" });
+      const parsed = schema.safeParse({ season: "monsoon" });
       expect(parsed.success).toBe(false);
+    });
+
+    it("accepts all four seasonal presets", () => {
+      const schema = registeredTools.save_site_theme!.config.inputSchema;
+      for (const season of ["sakura", "summer", "autumn", "winter"]) {
+        expect(schema.safeParse({ season }).success).toBe(true);
+      }
     });
   });
 });

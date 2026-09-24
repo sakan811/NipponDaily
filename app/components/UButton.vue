@@ -61,18 +61,18 @@ const handleClick = (event: MouseEvent) => {
 
 const computedClasses = computed(() => {
   const base =
-    "u-button inline-flex items-center justify-center font-medium transition-all duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 hover:-translate-y-px active:translate-y-0";
+    "u-button rounded-(--shape-button) inline-flex items-center justify-center font-medium transition-all duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 hover:-translate-y-px active:translate-y-0";
   const disabledStyles = props.disabled
     ? "opacity-50 cursor-not-allowed pointer-events-none"
     : "";
   const width = props.block ? "w-full" : "";
 
-  // Size styles
+  // Size styles (corner shape comes from the season's --shape-button token)
   const sizes = {
-    xs: "px-2 py-1 text-xs rounded-lg gap-1",
-    sm: "px-3 py-1.5 text-xs sm:text-sm rounded-lg gap-1.5",
-    md: "px-4 py-2 text-sm rounded-lg gap-2",
-    lg: "px-5 py-2.5 text-base rounded-xl gap-2",
+    xs: "px-2 py-1 text-xs gap-1",
+    sm: "px-3 py-1.5 text-xs sm:text-sm gap-1.5",
+    md: "px-4 py-2 text-sm gap-2",
+    lg: "px-5 py-2.5 text-base gap-2",
   };
   const sizeStyle = sizes[props.size] || sizes.sm;
 
