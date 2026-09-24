@@ -29,7 +29,8 @@
         functional high-contrast opposites for Dark mode to maximize
         readability. See
         <NuxtLink to="/docs/architecture">System Architecture</NuxtLink>
-        for how this palette is layered with an agent-controlled seasonal theme.
+        for how an agent picks the active season; the seasonal palettes and
+        shapes are listed further down this page.
       </p>
 
       <div class="overflow-x-auto my-6">
@@ -998,8 +999,8 @@
         hexagonal snow-crystal badges, and a snowflake motif.
         <code>SeasonalEffects.vue</code> adds the matching ambient layer
         (petals, bubbles/fireflies, leaves, or snow). See
-        <NuxtLink to="/docs/architecture">System Architecture</NuxtLink>
-        for the full CSS.
+        <code>app/assets/css/tailwind.css</code> ("Seasonal shape language") for
+        the full CSS.
       </p>
 
       <div
@@ -1008,10 +1009,11 @@
         <p class="m-0 text-blue-900 dark:text-blue-100">
           <strong>🍂 Seasonal overrides:</strong> This base palette can be
           overridden site-wide by an agent-controlled seasonal theme — see the
-          "Color System" and "MCP-Driven Seasonal Theme" sections of
+          "MCP-Driven Seasonal Theme" section of
           <NuxtLink to="/docs/architecture">System Architecture</NuxtLink>
-          for how <code>data-season</code> swaps <code>--primary-*</code> /
-          <code>--secondary-*</code> and restyles cards, buttons, and badges.
+          for how the agent sets <code>data-season</code>, which swaps the
+          palette and the <code>--shape-*</code> / <code>--motif-*</code>
+          tokens that shape cards, buttons, badges, and dividers.
         </p>
       </div>
     </main>

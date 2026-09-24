@@ -43,10 +43,11 @@
         read the same game back — no agent or AI provider is involved in game
         content. What <em>is</em> agent-controlled is the site's seasonal
         design: a Claude web agent that runs on its own schedule, entirely
-        outside this codebase, switches NipponDaily's active color palette by
-        writing through a small remote MCP server this project exposes. If the
-        agent hasn't set a season yet, the site falls back to a deterministic
-        default itself, so the page is never left unstyled.
+        outside this codebase, switches NipponDaily's active season (its color
+        palette and the shapes of its cards, buttons, and badges) by writing
+        through a small remote MCP server this project exposes. If the agent
+        hasn't set a season yet, the site falls back to a deterministic default
+        itself, so the page is never left unstyled.
       </p>
 
       <!-- Diagram 1: System Overview -->
@@ -159,7 +160,7 @@
           </template>
           <p class="text-sm mb-2">
             <strong>What it does:</strong> The bridge that lets an external
-            agent switch the site's active seasonal palette.
+            agent switch the site's active season (palette and shapes).
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> A remote MCP (Model Context
@@ -621,7 +622,10 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
               <tr>
                 <td class="py-2 px-2"><code>get_active_theme</code></td>
-                <td class="py-2 px-2">Read the currently active season</td>
+                <td class="py-2 px-2">
+                  Read the active season, today's suggested season (Japan time),
+                  and every accepted preset
+                </td>
               </tr>
               <tr>
                 <td class="py-2 px-2"><code>save_site_theme</code></td>
@@ -697,17 +701,18 @@ flowchart TD
 runs on its own schedule"])
 
     Start --> S1["Step 1 · get_active_theme
-Read the currently active season"]
+Read active season +
+suggestedSeason for today (JST)"]
     S1 -. "READ" .-> Redis[("Redis
 Site Theme")]
 
-    S1 --> S2{"Should the
-season change?"}
-    S2 -- "no" --> Done1(["✅ Done — nothing to write"])
+    S1 --> S2{"active.season ==
+suggestedSeason?"}
+    S2 -- "yes" --> Done1(["✅ Done — nothing to write"])
 
-    S2 -- "yes" --> S3["Step 2 · save_site_theme
-Set season to one of the
-implemented presets"]
+    S2 -- "no" --> S3["Step 2 · save_site_theme
+Set season to
+suggestedSeason"]
     S3 -- "WRITE" --> Redis
 
     S3 --> Done2(["✅ Done — visible on

@@ -54,5 +54,4 @@ the `seasons` list `get_active_theme` returns) is the source of truth.
 
 - Both tools return tiny payloads — no pagination or size concerns.
 - One `get_active_theme` + at most one `save_site_theme` call per run is
-  the whole job; there's no per-kind or per-item looping like the old
-  daily-game pipeline had.
+  the whole job; there is nothing to loop over.
