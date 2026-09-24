@@ -4,7 +4,7 @@ import { timingSafeEqual } from "node:crypto";
 import { z } from "zod";
 import { siteThemeService } from "../services/site-theme";
 import { getEnvOrConfig } from "../utils/config";
-import { SEASON_IDS } from "../utils/site-theme";
+import { SEASON_IDS, SEASONS, seasonForDate } from "../utils/site-theme";
 import type { SiteTheme } from "~~/types/index";
 
 /**
@@ -34,7 +34,14 @@ function isAuthorized(request: Request): boolean {
   return timingSafeEqual(a, b);
 }
 
-const seasonIdSchema = z.enum(SEASON_IDS);
+const seasonIdSchema = z
+  .enum(SEASON_IDS)
+  .describe(
+    SEASON_IDS.map(
+      (id) =>
+        `${id} = ${SEASONS[id].label}, months ${SEASONS[id].months.join("/")}`,
+    ).join("; "),
+  );
 
 const mcpHandler = createMcpHandler(
   (server) => {
@@ -43,12 +50,18 @@ const mcpHandler = createMcpHandler(
       {
         title: "Get active site theme",
         description:
-          "Get NipponDaily's currently active seasonal palette (and how it was set), so you can check the current state before deciding whether to change it.",
+          "Get NipponDaily's currently active seasonal theme (palette + shape language), plus the season that matches today's date in Japan (suggestedSeason) and every preset save_site_theme accepts. Call this first: if active.season already equals suggestedSeason, there is nothing to do.",
         inputSchema: z.object({}),
+        annotations: { readOnlyHint: true, idempotentHint: true },
       },
       async () => {
-        const theme = await siteThemeService.getActiveTheme();
-        return { content: [{ type: "text", text: JSON.stringify(theme) }] };
+        const active = await siteThemeService.getActiveTheme();
+        const payload = {
+          active,
+          suggestedSeason: seasonForDate(),
+          seasons: SEASON_IDS.map((id) => SEASONS[id]),
+        };
+        return { content: [{ type: "text", text: JSON.stringify(payload) }] };
       },
     );
 
@@ -56,10 +69,11 @@ const mcpHandler = createMcpHandler(
       "save_site_theme",
       {
         title: "Save active site theme",
-        description: `Set NipponDaily's active seasonal design palette, applied immediately site-wide. Only implemented presets are accepted — currently: ${SEASON_IDS.join(", ")}. Anything else is rejected by the schema; this list only grows once a new preset has actually been designed into app/assets/css/tailwind.css.`,
+        description: `Set NipponDaily's active seasonal theme, applied immediately site-wide — it swaps the full color palette AND the UI's shape language (card/button/badge silhouettes, dividers, backdrop pattern, ambient particles). Only implemented presets are accepted — currently: ${SEASON_IDS.join(", ")}. Pick the one whose months cover today's date in Japan (get_active_theme returns it as suggestedSeason). Anything else is rejected by the schema.`,
         inputSchema: z.object({
           season: seasonIdSchema,
         }),
+        annotations: { idempotentHint: true, destructiveHint: false },
       },
       async ({ season }) => {
         const theme: SiteTheme = {

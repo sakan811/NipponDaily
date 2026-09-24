@@ -2,10 +2,8 @@
   <div
     class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
   >
-    <!-- Fine grid decoration to resemble shoji paper screens -->
-    <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-60"
-    />
+    <!-- Season-patterned backdrop (shoji grid / ripples / hishi lattice / snow) -->
+    <div class="season-backdrop" />
 
     <AppHeader />
 
@@ -344,14 +342,15 @@
         primary, secondary, success, warning, and error, each with its own
         contrast-matched on-color — site-wide via <code>data-season</code> on
         <code>&lt;html&gt;</code>, set through the
-        <code>save_site_theme</code> MCP tool. Only two seasons are implemented
-        (<code>SEASON_IDS</code> in <code>server/utils/site-theme.ts</code>),
-        and the schema rejects anything else, so an agent can never land the
-        site on an undefined or half-applied palette.
-        <code>neutral</code> (backgrounds, body text, borders) is the one family
-        that stays constant across seasons — it's the shared canvas, not part of
-        a season's identity. The values below are taken directly from each
-        <code>[data-season="..."]</code> block in
+        <code>save_site_theme</code> MCP tool. There is one preset per Japanese
+        season (<code>sakura</code>, <code>summer</code>, <code>autumn</code>,
+        <code>winter</code> — <code>SEASON_IDS</code> in
+        <code>server/utils/site-theme.ts</code>), and the schema rejects
+        anything else, so an agent can never land the site on an undefined or
+        half-applied palette. <code>neutral</code> (backgrounds, body text,
+        borders) is the one family that stays constant across seasons — it's the
+        shared canvas, not part of a season's identity. The values below are
+        taken directly from each <code>[data-season="..."]</code> block in
         <code>app/assets/css/tailwind.css</code>.
       </p>
 
@@ -371,7 +370,7 @@
           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
             <tr>
               <td class="py-3 px-3 text-sm font-semibold align-top">
-                🌸 Sakura<br />
+                🌸 Sakura<br >
                 <span class="font-normal text-stone-500 dark:text-stone-400"
                   >(default, light)</span
                 >
@@ -447,7 +446,7 @@
             </tr>
             <tr>
               <td class="py-3 px-3 text-sm font-semibold align-top">
-                🌸 Sakura<br />
+                🌸 Sakura<br >
                 <span class="font-normal text-stone-500 dark:text-stone-400"
                   >(default, dark)</span
                 >
@@ -525,7 +524,7 @@
             </tr>
             <tr>
               <td class="py-3 px-3 text-sm font-semibold align-top">
-                🍁 Autumn<br />
+                🍁 Autumn<br >
                 <span class="font-normal text-stone-500 dark:text-stone-400"
                   >(light)</span
                 >
@@ -603,7 +602,7 @@
             </tr>
             <tr>
               <td class="py-3 px-3 text-sm font-semibold align-top">
-                🌾 Autumn<br />
+                🌾 Autumn<br >
                 <span class="font-normal text-stone-500 dark:text-stone-400"
                   >(dark)</span
                 >
@@ -678,6 +677,298 @@
                 Midnight Slate to clear WCAG AA).
               </td>
             </tr>
+            <tr>
+              <td class="py-3 px-3 text-sm font-semibold align-top">
+                🎐 Summer<br >
+                <span class="font-normal text-stone-500 dark:text-stone-400"
+                  >(light)</span
+                >
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #1a7f95"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#1A7F95</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #7a5cc0"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#7A5CC0</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #559e4e"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#559E4E</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #d88b27"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#D88B27</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #e03e3e"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#E03E3E</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 text-sm leading-relaxed">
+                Asagi sea-teal and asagao (morning-glory) violet;
+                success/warning/error inherit the base palette. On-color text:
+                white on primary (≈4.7:1) and secondary (≈5.1:1).
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 text-sm font-semibold align-top">
+                🎆 Summer<br >
+                <span class="font-normal text-stone-500 dark:text-stone-400"
+                  >(dark)</span
+                >
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #1fa9bf"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#1FA9BF</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #9a7ee0"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#9A7EE0</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #10b981"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#10B981</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #eab308"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#EAB308</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #f43f5e"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#F43F5E</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 text-sm leading-relaxed">
+                Lagoon aqua and twilight violet over the
+                <code>.dark</code> success/warning/error. On-color text:
+                Midnight Slate (<code>#0B0E14</code>) on both (≈6.9:1 / ≈5.9:1).
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 text-sm font-semibold align-top">
+                ❄️ Winter<br >
+                <span class="font-normal text-stone-500 dark:text-stone-400"
+                  >(light)</span
+                >
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #34568f"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#34568F</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #938fba"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#938FBA</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #559e4e"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#559E4E</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #d88b27"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#D88B27</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #e03e3e"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#E03E3E</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 text-sm leading-relaxed">
+                Ai (indigo) and fuji-nezumi (wisteria silver);
+                success/warning/error inherit the base palette. On-color text:
+                white on primary (≈7.3:1), Bark Brown on secondary (≈5.0:1).
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 text-sm font-semibold align-top">
+                ❄️ Winter<br >
+                <span class="font-normal text-stone-500 dark:text-stone-400"
+                  >(dark)</span
+                >
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #5b8fd6"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#5B8FD6</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #a39fc9"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#A39FC9</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #10b981"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#10B981</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #eab308"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#EAB308</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 align-top">
+                <div class="flex flex-col items-center not-prose">
+                  <div
+                    class="w-6 h-6 rounded-full mb-1 border border-stone-200/50"
+                    style="background-color: #f43f5e"
+                  />
+                  <span
+                    class="text-[9px] font-mono text-stone-500 dark:text-stone-400"
+                    >#F43F5E</span
+                  >
+                </div>
+              </td>
+              <td class="py-3 px-3 text-sm leading-relaxed">
+                Moonlit ice blue and silver wisteria over the
+                <code>.dark</code> success/warning/error. On-color text:
+                Midnight Slate on both (≈5.8:1 / ≈7.7:1).
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -687,15 +978,26 @@
         base palette) — <code>warning</code> is never used as a solid fill
         needing contrast-matched text, only as a translucent
         <code>bg-warning-500/10</code> pill with
-        <code>text-warning-700</code>/<code>text-warning-400</code>. Autumn also
-        swaps the site's chrome and ambient graphic to match: its
-        <code>[data-season="autumn"]</code> rules restyle
-        <code>.u-card</code>/<code>.u-button</code>/<code>.u-badge</code> with
-        asymmetric corners and warm ember-tinted shadows instead of the
-        default's uniform rounded corners and neutral shadows, and
-        <code>SeasonalEffects.vue</code>'s falling-particle layer swaps sakura's
-        🌸 for 🍁 by day and 🌾 (susuki/pampas grass) by night, with a fixed
-        🍁/🌕 (moon) corner glyph — see
+        <code>text-warning-700</code>/<code>text-warning-400</code>.
+      </p>
+
+      <h3>Seasonal shape language</h3>
+      <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
+        A season also changes the <em>shape</em> of the UI. Cards, panels,
+        buttons, and badges take their corners from
+        <code>--shape-*</code> tokens (<code>rounded-(--shape-card)</code> and
+        so on), and the card's corner motif, the divider, the kicker bullet, and
+        the page backdrop come from <code>--motif-*</code> tokens. Each
+        <code>[data-season]</code> block re-points those tokens:
+        <strong>spring</strong> uses petal-shaped cards with one tight "stem"
+        corner, pill buttons, and a blossom motif; <strong>summer</strong> uses
+        wave-edged cards, fan-shaped badges, droplet bullets, and a rippled
+        backdrop; <strong>autumn</strong> uses leaf-cut asymmetric corners, tag
+        badges, diamond bullets, and a maple-leaf motif;
+        <strong>winter</strong> uses crisp, frosted, double-ruled panels,
+        hexagonal snow-crystal badges, and a snowflake motif.
+        <code>SeasonalEffects.vue</code> adds the matching ambient layer
+        (petals, bubbles/fireflies, leaves, or snow). See
         <NuxtLink to="/docs/architecture">System Architecture</NuxtLink>
         for the full CSS.
       </p>

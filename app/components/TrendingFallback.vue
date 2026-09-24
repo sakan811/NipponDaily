@@ -9,7 +9,7 @@
       <div class="max-w-md mx-auto space-y-4">
         <!-- Error Icon -->
         <div
-          class="w-14 h-14 mx-auto rounded-full bg-rose-500/10 dark:bg-rose-500/20 text-rose-500 flex items-center justify-center"
+          class="w-14 h-14 mx-auto rounded-full bg-error-500/10 dark:bg-error-500/20 text-error-500 flex items-center justify-center"
         >
           <UIcon
             name="i-heroicons-cloud-arrow-down"
@@ -25,7 +25,7 @@
             Unable to Load Today's Game
           </h3>
           <p
-            class="text-xs text-rose-600 dark:text-rose-400 font-medium bg-rose-500/10 dark:bg-rose-500/20 px-3 py-1.5 rounded-lg inline-block break-words max-w-full"
+            class="text-xs text-error-600 dark:text-error-400 font-medium bg-error-500/10 dark:bg-error-500/20 px-3 py-1.5 rounded-lg inline-block break-words max-w-full"
           >
             {{ error || "Service temporarily unavailable. Please try again." }}
           </p>

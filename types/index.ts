@@ -92,7 +92,7 @@ export interface DailyGame {
  * app/assets/css/tailwind.css (see server/utils/site-theme.ts SEASON_IDS) —
  * a season only belongs in this union once it has a matching CSS preset.
  */
-export type SeasonId = "sakura" | "autumn";
+export type SeasonId = "sakura" | "summer" | "autumn" | "winter";
 
 /**
  * NipponDaily's active seasonal palette — persisted at n5:site_theme and

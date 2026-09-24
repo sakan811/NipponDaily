@@ -2,10 +2,8 @@
   <div
     class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-[#1F2022] dark:text-[#E2E4E9] selection:bg-primary-500/20"
   >
-    <!-- Fine grid decoration to resemble shoji paper screens -->
-    <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none opacity-60"
-    />
+    <!-- Season-patterned backdrop (shoji grid / ripples / hishi lattice / snow) -->
+    <div class="season-backdrop" />
 
     <!-- Header -->
     <AppHeader />
@@ -20,7 +18,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Play a round.<br class="hidden sm:inline" />
+          Play a round.<br class="hidden sm:inline" >
           <span class="text-primary-500 italic font-normal"
             >Learn the language.</span
           >
