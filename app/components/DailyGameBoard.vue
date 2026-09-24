@@ -53,22 +53,27 @@
               </p>
             </div>
 
-            <UCard
-              class="w-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-transparent before:via-primary-500 before:to-transparent"
+            <!-- The prompt is written on an ema; it re-hangs for every
+                 question, takes a 合格 seal when answered correctly and
+                 rattles on its cord when not. -->
+            <EmaPlaque
+              :key="currentIndex"
+              :shake="isAnswered && !isCorrect"
+              class="max-w-md mx-auto"
             >
-              <div class="p-4 sm:p-8 space-y-6 text-center">
+              <div class="space-y-4 text-center pb-2">
                 <UBadge color="secondary" variant="soft" size="xs">
                   {{ kindLabel(currentQuestion.kind) }}
                 </UBadge>
 
-                <div class="pt-4">
+                <div class="pt-2">
                   <ruby
                     v-if="currentQuestion.promptSub"
                     class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
                   >
                     {{ currentQuestion.prompt }}
                     <rt
-                      class="font-sans font-normal text-base sm:text-lg text-stone-500 dark:text-stone-400"
+                      class="font-sans font-normal text-base sm:text-lg text-stone-600 dark:text-stone-400"
                       >{{ currentQuestion.promptSub }}</rt
                     >
                   </ruby>
@@ -79,57 +84,62 @@
                     {{ currentQuestion.prompt }}
                   </p>
                 </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <UButton
-                    v-for="choice in currentQuestion.choices"
-                    :key="choice"
-                    :label="choice"
-                    :color="choiceColor(choice)"
-                    :variant="choiceVariant(choice)"
-                    size="lg"
-                    block
-                    class="justify-center"
-                    :disabled="isAnswered"
-                    @click="selectChoice(choice)"
-                  />
-                </div>
-
-                <div v-if="isAnswered" class="pt-2">
-                  <p
-                    class="text-sm font-medium flex items-center justify-center gap-1.5"
-                    :class="
-                      isCorrect
-                        ? 'text-success-600 dark:text-success-400'
-                        : 'text-error-600 dark:text-error-400'
-                    "
-                  >
-                    <UIcon
-                      :name="
-                        isCorrect
-                          ? 'i-heroicons-check-circle'
-                          : 'i-heroicons-x-circle'
-                      "
-                      class="w-4 h-4"
-                    />
-                    {{
-                      isCorrect
-                        ? "Correct!"
-                        : `Not quite — it's "${currentQuestion.correctAnswer}"`
-                    }}
-                  </p>
-                  <UButton
-                    label="Next"
-                    color="primary"
-                    size="md"
-                    icon="i-heroicons-arrow-right"
-                    trailing
-                    class="mt-3"
-                    @click="advance"
-                  />
-                </div>
               </div>
-            </UCard>
+              <template #stamp>
+                <HankoSeal v-if="isAnswered && isCorrect" />
+              </template>
+            </EmaPlaque>
+
+            <div class="space-y-6 text-center">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <UButton
+                  v-for="choice in currentQuestion.choices"
+                  :key="choice"
+                  :label="choice"
+                  :color="choiceColor(choice)"
+                  :variant="choiceVariant(choice)"
+                  size="lg"
+                  block
+                  class="justify-center"
+                  :disabled="isAnswered"
+                  @click="selectChoice(choice)"
+                />
+              </div>
+
+              <div v-if="isAnswered" class="pt-2">
+                <p
+                  class="text-sm font-medium flex items-center justify-center gap-1.5"
+                  :class="
+                    isCorrect
+                      ? 'text-success-600 dark:text-success-400'
+                      : 'text-error-600 dark:text-error-400'
+                  "
+                >
+                  <UIcon
+                    :name="
+                      isCorrect
+                        ? 'i-heroicons-check-circle'
+                        : 'i-heroicons-x-circle'
+                    "
+                    class="w-4 h-4"
+                  />
+                  {{
+                    isCorrect
+                      ? "Correct!"
+                      : `Not quite — it's "${currentQuestion.correctAnswer}"`
+                  }}
+                </p>
+                <UButton
+                  label="Next"
+                  color="primary"
+                  size="md"
+                  icon="i-heroicons-arrow-right"
+                  trailing
+                  class="mt-3"
+                  @click="advance"
+                />
+              </div>
+            </div>
           </div>
 
           <!-- Round summary -->
@@ -138,10 +148,22 @@
               class="w-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-transparent before:via-primary-500 before:to-transparent"
             >
               <div class="p-4 sm:p-8 space-y-6 text-center">
-                <UIcon
-                  name="i-heroicons-star"
-                  class="w-10 h-10 mx-auto text-warning-500"
-                />
+                <!-- A 学業守 (academic-success) omamori sways on its cord;
+                     the seal says 合格 (passed) or 努力 (keep at it). -->
+                <div class="relative w-28 mx-auto">
+                  <OmamoriCharm size="lg" idle>
+                    <p
+                      class="flex flex-col items-center gap-1.5 font-serif font-bold text-2xl leading-none text-primary-600 dark:text-primary-400"
+                    >
+                      <span>学</span><span>業</span><span>守</span>
+                    </p>
+                  </OmamoriCharm>
+                  <HankoSeal
+                    :text="passedRound ? '合格' : '努力'"
+                    :label="passedRound ? 'Passed' : 'Keep practising'"
+                    class="absolute -right-10 bottom-0 [animation-delay:0.7s]"
+                  />
+                </div>
                 <h2
                   class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
                 >
@@ -169,18 +191,25 @@
                 <div class="rule-double max-w-[120px] mx-auto" />
 
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                  <div
-                    v-for="kind in kinds"
+                  <OmamoriCharm
+                    v-for="(kind, kindIndex) in kinds"
                     :key="kind"
-                    class="pt-3 space-y-0.5"
+                    :index="kindIndex + 2"
+                    size="sm"
                   >
-                    <p class="text-sm font-bold text-stone-900 dark:text-white">
-                      {{ perKindStats[kind].correct }}/{{
-                        perKindStats[kind].total
-                      }}
-                    </p>
-                    <p class="kicker text-stone-400">{{ kindLabel(kind) }}</p>
-                  </div>
+                    <div class="space-y-0.5">
+                      <p
+                        class="text-sm font-bold text-stone-900 dark:text-white"
+                      >
+                        {{ perKindStats[kind].correct }}/{{
+                          perKindStats[kind].total
+                        }}
+                      </p>
+                      <p class="kicker text-stone-500 dark:text-stone-400">
+                        {{ kindLabel(kind) }}
+                      </p>
+                    </div>
+                  </OmamoriCharm>
                 </div>
 
                 <UButton
@@ -209,6 +238,9 @@ import type { DailyGame, GameQuestion, N5PoolKind } from "~~/types/index";
 
 import AppHeader from "./AppHeader.vue";
 import TrendingFallback from "./TrendingFallback.vue";
+import EmaPlaque from "./EmaPlaque.vue";
+import HankoSeal from "./HankoSeal.vue";
+import OmamoriCharm from "./OmamoriCharm.vue";
 
 const KIND_LABELS: Record<N5PoolKind, string> = {
   hiragana: "Hiragana",
@@ -274,6 +306,8 @@ const accuracyPercent = computed(() =>
     ? 0
     : Math.round((totalCorrect.value / totalAnswered.value) * 100),
 );
+// Which seal the round-complete charm gets: 合格 (passed) or 努力 (effort).
+const passedRound = computed(() => accuracyPercent.value >= 60);
 
 function choiceColor(choice: string): string {
   if (!isAnswered.value) return "secondary";

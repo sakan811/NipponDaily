@@ -76,25 +76,29 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <NuxtLink
-              v-for="cluster in visibleClusters"
+              v-for="(cluster, clusterIndex) in visibleClusters"
               :key="cluster.key"
               :to="`/vocab/families/${cluster.key}`"
-              class="group rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 sm:p-6 space-y-2 hover:border-primary-400 dark:hover:border-primary-500 hover:bg-stone-50 dark:hover:bg-stone-900 transition-colors"
+              class="group block"
             >
-              <UBadge color="secondary" variant="soft" size="sm">{{
-                cluster.subtitle
-              }}</UBadge>
-              <div class="flex items-center justify-between gap-2">
-                <h3
-                  class="font-serif text-xl font-bold text-stone-900 dark:text-white"
-                >
-                  {{ cluster.title }}
-                </h3>
-                <UIcon
-                  name="i-heroicons-arrow-right"
-                  class="w-4 h-4 text-stone-300 dark:text-stone-600 shrink-0 group-hover:text-primary-500 group-hover:translate-x-0.5 transition-all"
-                />
-              </div>
+              <EmaPlaque :index="clusterIndex">
+                <div class="space-y-2">
+                  <UBadge color="secondary" variant="soft" size="sm">{{
+                    cluster.subtitle
+                  }}</UBadge>
+                  <div class="flex items-center justify-between gap-2">
+                    <h3
+                      class="font-serif text-xl font-bold text-stone-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+                    >
+                      {{ cluster.title }}
+                    </h3>
+                    <UIcon
+                      name="i-heroicons-arrow-right"
+                      class="w-4 h-4 text-stone-500 dark:text-stone-400 shrink-0 group-hover:text-primary-500 group-hover:translate-x-0.5 transition-all"
+                    />
+                  </div>
+                </div>
+              </EmaPlaque>
             </NuxtLink>
           </div>
         </section>
@@ -198,28 +202,31 @@
             v-else
             class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"
           >
-            <div
-              v-for="item in displayedVocab"
+            <OmamoriCharm
+              v-for="(item, itemIndex) in displayedVocab"
               :key="item.id"
-              class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-3 space-y-1"
+              :index="itemIndex % PAGE_SIZE"
+              size="sm"
             >
-              <p
-                class="font-serif text-lg text-stone-900 dark:text-white leading-tight"
-              >
-                {{ item.term }}
-              </p>
-              <p class="text-xs text-stone-500 dark:text-stone-400">
-                {{ item.kana }}
-                <span class="text-stone-400 dark:text-stone-500"
-                  >· {{ item.romaji }}</span
+              <div class="space-y-1">
+                <p
+                  class="font-serif text-lg text-stone-900 dark:text-white leading-tight"
                 >
-              </p>
-              <p
-                class="text-xs text-stone-600 dark:text-stone-300 leading-snug"
-              >
-                {{ item.meaning }}
-              </p>
-            </div>
+                  {{ item.term }}
+                </p>
+                <p class="text-xs text-stone-500 dark:text-stone-400">
+                  {{ item.kana }}
+                  <span class="text-stone-400 dark:text-stone-500"
+                    >· {{ item.romaji }}</span
+                  >
+                </p>
+                <p
+                  class="text-xs text-stone-600 dark:text-stone-300 leading-snug"
+                >
+                  {{ item.meaning }}
+                </p>
+              </div>
+            </OmamoriCharm>
           </div>
 
           <div
@@ -309,6 +316,8 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from "vue";
 import AppHeader from "../../components/AppHeader.vue";
+import EmaPlaque from "../../components/EmaPlaque.vue";
+import OmamoriCharm from "../../components/OmamoriCharm.vue";
 import { useN5VocabPool } from "../../composables/useN5VocabPool";
 import {
   WORD_CLUSTERS,

@@ -1339,3 +1339,465 @@ body {
   padding-top: 0.05em;
   color: var(--primary-500);
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Education charms
+   ─────────────────────────────────────────────────────────────────────────
+   Every learning surface (kana, kanji, vocabulary) is dressed as one of the
+   charms Japanese students collect for their studies:
+
+     omamori (OmamoriCharm.vue) — the 学業守 academic-success charm: a
+                 brocade pouch hung from a knotted cord. Used for single
+                 study items — a kana pair, a vocab word, a score.
+     ema     (EmaPlaque.vue)    — the wooden plaque students hang at
+                 Tenmangu shrines (Tenjin, kami of learning) wishing to pass
+                 their exams. Used for explanations and the game's prompt.
+     hanko   (HankoSeal.vue)    — the vermilion 合格 ("passed") seal that
+                 thumps onto the ema when an answer is right.
+
+   Like the shape tokens above, the charms never branch on season in Vue:
+   brocade, weave, cord and roof paint are --charm-* and --ema-* tokens that each
+   [data-season] block re-points — kinran gold dots for spring, seigaiha
+   waves for summer, a hishi lattice for autumn, snow for winter.
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --charm-gold: #d9b24c;
+  --charm-cord: var(--charm-gold);
+  --charm-brocade: linear-gradient(
+    135deg,
+    var(--primary-400),
+    var(--primary-600)
+  );
+  /* kinran — gold-thread dots woven through the brocade */
+  --charm-weave:
+    radial-gradient(circle, rgb(255 236 170 / 0.6) 1px, transparent 1.5px) 0 0 /
+      7px 7px,
+    radial-gradient(circle, rgb(255 236 170 / 0.35) 1px, transparent 1.5px)
+      3.5px 3.5px / 7px 7px;
+  --charm-face: #fffdf9;
+  --ema-wood: #f4e7cf;
+  --ema-grain: rgb(140 95 45 / 0.055);
+  --ema-roof: var(--primary-500);
+  --hanko-ink: #c8322b;
+}
+
+.dark {
+  --charm-face: #161b24;
+  --ema-wood: #33271d;
+  --ema-grain: rgb(0 0 0 / 0.14);
+  --hanko-ink: #ef5b4c;
+}
+
+[data-season="summer"] {
+  --charm-cord: var(--secondary-400);
+  /* seigaiha — overlapping wave arcs */
+  --charm-weave:
+    radial-gradient(
+        circle at 50% 100%,
+        transparent 3px,
+        rgb(255 255 255 / 0.4) 3px 4px,
+        transparent 4px 6px,
+        rgb(255 255 255 / 0.4) 6px 7px,
+        transparent 7px
+      )
+      0 0 / 14px 7px,
+    radial-gradient(
+        circle at 50% 100%,
+        transparent 3px,
+        rgb(255 255 255 / 0.25) 3px 4px,
+        transparent 4px 6px,
+        rgb(255 255 255 / 0.25) 6px 7px,
+        transparent 7px
+      )
+      7px 3.5px / 14px 7px;
+}
+
+[data-season="autumn"] {
+  --charm-cord: var(--secondary-400);
+  --charm-brocade: linear-gradient(
+    135deg,
+    var(--primary-500),
+    var(--primary-700)
+  );
+  /* hishi — gold diamond lattice */
+  --charm-weave:
+    repeating-linear-gradient(
+      45deg,
+      rgb(255 220 140 / 0.4) 0 1px,
+      transparent 1px 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgb(255 220 140 / 0.4) 0 1px,
+      transparent 1px 6px
+    );
+}
+
+[data-season="winter"] {
+  --charm-cord: var(--secondary-300);
+  --ema-roof: var(--primary-600);
+  /* snow scattered on indigo */
+  --charm-weave:
+    radial-gradient(circle, rgb(255 255 255 / 0.65) 1px, transparent 1.6px) 0
+      0 / 9px 9px,
+    radial-gradient(circle, rgb(255 255 255 / 0.35) 0.8px, transparent 1.3px)
+      4px 5px / 9px 9px;
+}
+
+/* ── Omamori ──────────────────────────────────────────────────────────── */
+.omamori {
+  --chamfer: 14px;
+  --brocade-width: 5px;
+  --cord-w: 26px;
+  --cord-h: 33px;
+  --face-pad: 1.2rem 1rem 1rem;
+  position: relative;
+  transform-origin: 50% 0;
+  animation: charm-hang-in 0.85s cubic-bezier(0.34, 1.4, 0.5, 1) both;
+  animation-delay: calc(min(var(--charm-i, 0), 12) * 55ms);
+}
+
+.omamori--sm {
+  --chamfer: 10px;
+  --brocade-width: 3px;
+  --cord-w: 16px;
+  --cord-h: 21px;
+  --face-pad: 0.8rem 0.7rem 0.7rem;
+}
+
+.omamori--lg {
+  --chamfer: 22px;
+  --brocade-width: 7px;
+  --cord-w: 30px;
+  --cord-h: 38px;
+  --face-pad: 1.75rem 1.5rem 1.5rem;
+}
+
+.omamori__swing {
+  position: relative;
+  height: 100%;
+  padding-top: calc(var(--cord-h) / 2);
+  transform-origin: 50% 3px;
+  filter: drop-shadow(
+    0 6px 8px color-mix(in srgb, var(--primary-500) 22%, transparent)
+  );
+}
+
+.dark .omamori__swing {
+  filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.45));
+}
+
+.omamori__swing.is-swinging {
+  animation: charm-swing 1.6s ease-in-out;
+}
+
+.omamori--idle .omamori__swing {
+  animation: charm-idle 4.5s ease-in-out infinite;
+}
+
+.omamori__cord {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  width: var(--cord-w);
+  height: var(--cord-h);
+  translate: -50% 0;
+  color: var(--charm-cord);
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.25));
+}
+
+/* Brocade shell with the omamori's cut-cornered top */
+.omamori__pouch {
+  height: 100%;
+  padding: var(--brocade-width);
+  clip-path: polygon(
+    var(--chamfer) 0,
+    calc(100% - var(--chamfer)) 0,
+    100% var(--chamfer),
+    100% 100%,
+    0 100%,
+    0 var(--chamfer)
+  );
+  background: var(--charm-weave), var(--charm-brocade);
+}
+
+/* Plain-silk front panel the content sits on, with a stitched inner edge */
+.omamori__face {
+  --chamfer-in: calc(var(--chamfer) - var(--brocade-width) * 0.6);
+  position: relative;
+  height: 100%;
+  padding: var(--face-pad);
+  clip-path: polygon(
+    var(--chamfer-in) 0,
+    calc(100% - var(--chamfer-in)) 0,
+    100% var(--chamfer-in),
+    100% 100%,
+    0 100%,
+    0 var(--chamfer-in)
+  );
+  background: var(--charm-face);
+}
+
+.omamori__face::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed color-mix(in srgb, var(--primary-500) 28%, transparent);
+  pointer-events: none;
+}
+
+.omamori__face > :not(.omamori__mark) {
+  position: relative;
+  z-index: 1;
+}
+
+.omamori__mark {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.25rem;
+  font-family: var(--font-serif);
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary-500);
+  opacity: 0.09;
+  pointer-events: none;
+}
+
+.omamori--sm .omamori__mark {
+  font-size: 1.75rem;
+}
+
+/* ── Ema ──────────────────────────────────────────────────────────────── */
+.ema {
+  position: relative;
+  transform-origin: 50% 0;
+  animation: charm-hang-in 0.9s cubic-bezier(0.34, 1.3, 0.5, 1) both;
+  animation-delay: calc(min(var(--charm-i, 0), 12) * 70ms);
+}
+
+.ema__swing {
+  position: relative;
+  height: 100%;
+  padding-top: 18px;
+  transform-origin: 50% 2px;
+  filter: drop-shadow(0 8px 12px rgb(80 50 20 / 0.18));
+}
+
+.dark .ema__swing {
+  filter: drop-shadow(0 8px 14px rgb(0 0 0 / 0.45));
+}
+
+.ema__swing.is-swinging {
+  animation: ema-swing 1.8s ease-in-out;
+}
+
+.ema--shake .ema__swing {
+  animation: ema-shake 0.55s ease-in-out;
+}
+
+.ema__cord {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  width: 40px;
+  height: 22px;
+  translate: -50% 0;
+  color: var(--charm-cord);
+}
+
+/* Pentagon "roof" board, painted ridge in the season's primary, over
+   horizontal wood grain */
+.ema__board {
+  --roof: 1.5rem;
+  height: 100%;
+  clip-path: polygon(
+    0 var(--roof),
+    var(--roof) 0,
+    calc(100% - var(--roof)) 0,
+    100% var(--roof),
+    100% 100%,
+    0 100%
+  );
+  background:
+    linear-gradient(
+      to bottom,
+      var(--ema-roof) 0 0.6rem,
+      color-mix(in srgb, var(--ema-roof) 45%, transparent) 0.6rem 0.72rem,
+      transparent 0.72rem
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--ema-grain) 0 1px,
+      transparent 1px 6px,
+      var(--ema-grain) 6px 8px,
+      transparent 8px 13px
+    ),
+    radial-gradient(
+      ellipse 35% 10% at 72% 62%,
+      var(--ema-grain),
+      transparent 70%
+    ),
+    var(--ema-wood);
+  box-shadow: inset 0 -3px 0 rgb(0 0 0 / 0.06);
+}
+
+.ema__content {
+  height: 100%;
+  padding: 1.75rem 1.25rem 1.15rem;
+}
+
+.ema__swing > .hanko {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.9rem;
+  z-index: 3;
+}
+
+/* ── Hanko ────────────────────────────────────────────────────────────── */
+.hanko {
+  display: inline-grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border: 2.5px solid var(--hanko-ink);
+  border-radius: 0.55rem;
+  box-shadow:
+    inset 0 0 0 2.5px transparent,
+    inset 0 0 0 3.5px color-mix(in srgb, var(--hanko-ink) 55%, transparent);
+  color: var(--hanko-ink);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1;
+  rotate: -10deg;
+  pointer-events: none;
+  animation: hanko-stamp 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
+}
+
+/* Seal characters read top-to-bottom, stacked (not writing-mode, which
+   collapses inside the seal's small grid box). */
+.hanko__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.12em;
+}
+
+/* ── Charm motion ─────────────────────────────────────────────────────── */
+@keyframes charm-hang-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) rotate(-7deg);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(2px) rotate(4deg);
+  }
+  80% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A damped pendulum — a nudged charm swinging back to rest on its cord */
+@keyframes charm-swing {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(7deg);
+  }
+  35% {
+    transform: rotate(-5deg);
+  }
+  55% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-1.5deg);
+  }
+}
+
+@keyframes charm-idle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* Heavier wood, smaller arc */
+@keyframes ema-swing {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(3deg);
+  }
+  35% {
+    transform: rotate(-2.2deg);
+  }
+  55% {
+    transform: rotate(1.2deg);
+  }
+  75% {
+    transform: rotate(-0.5deg);
+  }
+}
+
+@keyframes ema-shake {
+  0%,
+  100% {
+    transform: none;
+  }
+  15% {
+    transform: translateX(-6px) rotate(-2deg);
+  }
+  35% {
+    transform: translateX(5px) rotate(1.5deg);
+  }
+  55% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(2px) rotate(0.5deg);
+  }
+}
+
+@keyframes hanko-stamp {
+  0% {
+    opacity: 0;
+    scale: 2.4;
+    rotate: -24deg;
+  }
+  60% {
+    opacity: 1;
+    scale: 0.9;
+    rotate: -8deg;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+    rotate: -10deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .omamori,
+  .omamori__swing,
+  .ema,
+  .ema__swing,
+  .hanko {
+    animation: none !important;
+  }
+}
