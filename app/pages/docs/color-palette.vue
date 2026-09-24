@@ -164,7 +164,7 @@ const monthRange = (months: readonly number[]) =>
   `${MONTH_NAMES[months[0]! - 1]}–${MONTH_NAMES[months[months.length - 1]! - 1]}`;
 </script>
 
-<style>
+<style scoped>
 @reference "../../assets/css/tailwind.css";
 
 /* Basic styling rules for markdown elements are retained but simplified for UCard compatibility */
