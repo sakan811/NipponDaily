@@ -35,7 +35,7 @@
           v-for="item in sections"
           :key="item.id"
           :href="`#${item.id}`"
-          class="text-xs font-mono px-2.5 py-1 rounded-sm bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-primary-500 no-underline"
+          class="text-xs font-mono px-2.5 py-1 season-chip bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-primary-500 no-underline"
         >
           {{ item.label }}
         </a>
@@ -221,7 +221,7 @@
             trigger="Every question shows which of the four pool kinds it's drawn from."
           />
           <div
-            class="border border-stone-300 dark:border-stone-800 rounded-sm p-5 bg-white dark:bg-stone-900 flex flex-wrap gap-2"
+            class="border border-stone-300 dark:border-stone-800 season-box p-5 bg-white dark:bg-stone-900 flex flex-wrap gap-2"
           >
             <UBadge color="secondary" variant="soft" size="xs">Hiragana</UBadge>
             <UBadge color="secondary" variant="soft" size="xs">Katakana</UBadge>
@@ -241,7 +241,7 @@
             trigger="Any unmatched route (including the retired /news). Full-page layout with the shared header/footer and a single 'Return to Home' action."
           />
           <div
-            class="border border-stone-300 dark:border-stone-800 rounded-sm bg-[#FDFBF7] dark:bg-[#0B0E14] px-4 py-12 text-center"
+            class="border border-stone-300 dark:border-stone-800 season-box bg-[#FDFBF7] dark:bg-[#0B0E14] px-4 py-12 text-center"
           >
             <h1 class="text-6xl font-serif font-bold text-primary-500 mb-4">
               404
@@ -270,7 +270,7 @@
           />
           <div class="grid gap-3 sm:grid-cols-2">
             <div
-              class="rounded-sm border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
+              class="season-box border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
             >
               <p class="text-xs font-mono font-bold text-error-500 mb-2">
                 400 Bad Request
@@ -284,7 +284,7 @@
                 >{{ badRequestSample }}</pre>
             </div>
             <div
-              class="rounded-sm border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
+              class="season-box border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
             >
               <p class="text-xs font-mono font-bold text-error-500 mb-2">
                 500 Failed to fetch daily game

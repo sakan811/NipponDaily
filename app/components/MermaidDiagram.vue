@@ -156,7 +156,7 @@ defineExpose({ render: renderDiagram });
 <template>
   <div class="mermaid-container mx-auto max-w-3xl">
     <div
-      class="relative group rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50 backdrop-blur-sm overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary-500/30"
+      class="relative group season-box border border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50 backdrop-blur-sm overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary-500/30"
     >
       <!-- Diagram Area -->
       <div
@@ -181,7 +181,7 @@ defineExpose({ render: renderDiagram });
         class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       >
         <div
-          class="flex items-center shadow-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-lg p-0.5"
+          class="flex items-center shadow-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 season-chip p-0.5"
         >
           <UButton
             icon="i-heroicons-minus"

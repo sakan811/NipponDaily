@@ -99,19 +99,24 @@
 
       <h3>Seasonal shape language</h3>
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        A season also changes the <em>shape</em> of the UI. Cards, panels,
-        buttons, and badges take their corners from
-        <code>--shape-*</code> tokens (<code>rounded-(--shape-card)</code> and
-        so on), and the card's corner motif, the divider, the kicker bullet, and
-        the page backdrop come from <code>--motif-*</code> tokens. Each
-        <code>[data-season]</code> block re-points those tokens:
-        <strong>spring</strong> uses petal-shaped cards with one tight "stem"
-        corner, pill buttons, and a blossom motif; <strong>summer</strong> uses
-        wave-edged cards, fan-shaped badges, droplet bullets, and a rippled
-        backdrop; <strong>autumn</strong> uses leaf-cut asymmetric corners, tag
-        badges, diamond bullets, and a maple-leaf motif;
-        <strong>winter</strong> uses crisp, frosted, double-ruled panels,
-        hexagonal snow-crystal badges, and a snowflake motif.
+        A season also changes the <em>silhouette</em> of the UI, not just its
+        corner roundness. Cards, panels, buttons, badges and other boxes take
+        their outline from <code>--shape-*</code> (radius) plus
+        <code>--corner-*</code> (CSS <code>corner-shape</code>) tokens, and
+        borders, shadows and focus rings follow that outline. The card's corner
+        motif, the divider, the kicker bullet, and the page backdrop come from
+        <code>--motif-*</code> tokens. Each <code>[data-season]</code> block
+        re-points those tokens: <strong>spring</strong> gives petals — round
+        cards with one scooped notch tip, and pill buttons;
+        <strong>summer</strong> gives sea glass and water — squircle pebble
+        panels, droplet buttons, fan badges and wave-edged cards;
+        <strong>autumn</strong> gives cut leaves and tags — two bevel-cut
+        corners on cards and buttons, and pointed tag badges;
+        <strong>winter</strong> gives ice crystals — frosted octagonal panels
+        and hexagonal buttons and badges. Browsers without
+        <code>corner-shape</code> fall back to rounded corners. Plain boxes opt
+        in with the <code>.season-box</code> (panel) and
+        <code>.season-chip</code> (button-sized) classes.
         <code>SeasonalEffects.vue</code> adds the matching ambient layer
         (petals, bubbles/fireflies, leaves, or snow). See
         <code>app/assets/css/tailwind.css</code> ("Seasonal shape language") for

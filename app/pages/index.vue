@@ -87,13 +87,13 @@
           What You Get Per Round
         </p>
 
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 border-t border-stone-300 dark:border-stone-800"
-        >
+        <!-- Season-shaped tiles (petal / pebble / cut-leaf / ice) rather
+             than a ruled table — see .season-box in tailwind.css. -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div
             v-for="(part, idx) in gameParts"
             :key="idx"
-            class="group flex items-start gap-4 py-5 px-1 border-b border-stone-300 dark:border-stone-800 md:odd:border-r md:odd:pr-6 md:even:pl-6"
+            class="group season-box flex items-start gap-4 p-5 border border-stone-200 dark:border-stone-800 bg-white/70 dark:bg-stone-900/50 hover:border-primary-500/40 transition-colors duration-200"
           >
             <span
               class="font-serif text-2xl text-stone-300 dark:text-stone-700 group-hover:text-primary-500 transition-colors duration-200 leading-none pt-0.5"

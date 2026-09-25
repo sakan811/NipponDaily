@@ -45,7 +45,7 @@
         </div>
         <div
           v-else
-          class="mt-10 rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 sm:p-6 space-y-3"
+          class="mt-10 season-box border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 sm:p-6 space-y-3"
         >
           <div
             v-for="(row, rowIndex) in cluster.rows"
@@ -106,7 +106,7 @@
           <div
             v-for="(example, i) in cluster.examples"
             :key="i"
-            class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-4 space-y-1"
+            class="season-box border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-4 space-y-1"
           >
             <p class="font-serif text-lg text-stone-900 dark:text-white">
               {{ example.jp }}
@@ -123,7 +123,7 @@
         <!-- Common mistake -->
         <div
           v-if="cluster.commonMistake"
-          class="mt-10 rounded-sm border border-warning-500/20 bg-warning-500/10 p-4 space-y-1.5"
+          class="mt-10 season-box border border-warning-500/20 bg-warning-500/10 p-4 space-y-1.5"
         >
           <p
             class="text-[11px] uppercase tracking-wide text-warning-700 dark:text-warning-400 font-sans font-medium"

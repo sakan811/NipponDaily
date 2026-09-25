@@ -100,7 +100,7 @@ const features = [
   {
     title: "Seasonal Shape Language",
     description:
-      "Each season reshapes the UI as well as recoloring it — petal-cut cards and pill buttons in spring, wave edges in summer, leaf-cut corners in autumn, frosted panels and hexagonal badges in winter — through --shape-* / --motif-* CSS tokens.",
+      "Each season reshapes the UI as well as recoloring it — notched petals and pill buttons in spring, squircle pebbles and droplet buttons in summer, bevel-cut leaves and tags in autumn, frosted octagons with hexagonal buttons and badges in winter — using CSS corner-shape via --shape-* / --corner-* / --motif-* tokens, with rounded corners as the fallback.",
     icon: "i-heroicons-swatch",
   },
   {

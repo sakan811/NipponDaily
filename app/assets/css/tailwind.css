@@ -684,9 +684,102 @@
   --motif-divider: var(--motif-snow);
 }
 
+/* ── True silhouettes (corner-shape) ──────────────────────────────────────
+   Border radius alone only softens a rectangle. Where the browser supports
+   CSS corner-shape, each season swaps in a real silhouette — and borders,
+   shadows, focus rings and overflow clipping all follow it:
+
+     spring  — petals: soft round corners with one scooped "notch" tip
+     summer  — sea glass & water: squircle pebble panels, droplet buttons
+     autumn  — cut leaves / tags: two diagonally cut (bevel) corners
+     winter  — ice crystals: bevelled octagon panels, hexagon buttons/badges
+
+   Browsers without corner-shape keep the rounded --shape-* radii above, so
+   nothing breaks — it just looks like the pre-silhouette design. */
+:root {
+  --corner-card: round;
+  --corner-panel: round;
+  --corner-button: round;
+  --corner-badge: round;
+}
+
+@supports (corner-shape: bevel) {
+  :root {
+    --shape-card: 2rem 1.25rem 2rem 2rem;
+    --corner-card: round scoop round round;
+    --shape-panel: 1.4rem 0.9rem 1.4rem 1.4rem;
+    --corner-panel: round scoop round round;
+  }
+
+  [data-season="summer"] {
+    --shape-card: 2.5rem;
+    --corner-card: squircle;
+    --shape-panel: 1.75rem;
+    --corner-panel: squircle;
+    /* a water droplet: three full curves and one tight tip */
+    --shape-button: 9999px 9999px 9999px 0.35rem;
+    --corner-button: round;
+  }
+
+  [data-season="autumn"] {
+    --shape-card: 0 1.75rem 0 1.75rem;
+    --corner-card: bevel;
+    --shape-panel: 0 1.1rem 0 1.1rem;
+    --corner-panel: bevel;
+    --shape-button: 0 0.8rem 0 0.8rem;
+    --corner-button: bevel;
+    /* a luggage / tanzaku tag pointing left */
+    --shape-badge: 9999px 0.2em 0.2em 9999px;
+    --corner-badge: bevel;
+  }
+
+  [data-season="winter"] {
+    --shape-card: 1.1rem;
+    --corner-card: bevel;
+    --shape-panel: 0.75rem;
+    --corner-panel: bevel;
+    --shape-button: 9999px;
+    --corner-button: bevel;
+    --shape-badge: 9999px;
+    --corner-badge: bevel;
+    --shape-badge-clip: none;
+  }
+
+  /* Hexagon buttons need room for the angled ends (icon-only buttons,
+     which have no label <span>, keep their compact padding). */
+  [data-season="winter"] .u-button:has(> span) {
+    padding-inline: 1.6em;
+  }
+
+  [data-season="autumn"] .u-badge {
+    padding-left: 0.95em;
+  }
+
+  [data-season="winter"] .u-badge {
+    padding-inline: 0.95em;
+  }
+}
+
+/* Reusable season-shaped surfaces for boxes that aren't UCard/UButton:
+   docs callouts, notes, inputs, sample panels. */
+.season-box {
+  border-radius: var(--shape-panel);
+  corner-shape: var(--corner-panel);
+}
+
+.season-chip {
+  border-radius: var(--shape-button);
+  corner-shape: var(--corner-button);
+}
+
+.u-page-card {
+  corner-shape: var(--corner-panel);
+}
+
 /* ── Cards ─────────────────────────────────────────────────────────────── */
 .u-card {
   position: relative;
+  corner-shape: var(--corner-card);
   box-shadow: var(--shape-card-ring), var(--shape-card-shadow);
 }
 
@@ -774,7 +867,12 @@
     color-mix(in srgb, var(--primary-500) 55%, transparent);
 }
 
+.u-button {
+  corner-shape: var(--corner-button);
+}
+
 .u-badge {
+  corner-shape: var(--corner-badge);
   clip-path: var(--shape-badge-clip);
 }
 
@@ -782,11 +880,14 @@
   letter-spacing: 0.07em;
 }
 
-/* Hexagon clipping cuts the side borders, so winter badges get extra side
-   padding to keep the text clear of the angled edges. */
-[data-season="winter"] .u-badge {
-  padding-inline: 0.85em;
-  border-color: transparent;
+/* Fallback for browsers without corner-shape: the hexagon is a clip-path,
+   which cuts the side borders, so winter badges get extra side padding and
+   drop the (clipped) border. */
+@supports not (corner-shape: bevel) {
+  [data-season="winter"] .u-badge {
+    padding-inline: 0.85em;
+    border-color: transparent;
+  }
 }
 
 /* ── Page backdrop ────────────────────────────────────────────────────── */

@@ -25,7 +25,7 @@
             Unable to Load Today's Game
           </h3>
           <p
-            class="text-xs text-error-600 dark:text-error-400 font-medium bg-error-500/10 dark:bg-error-500/20 px-3 py-1.5 rounded-lg inline-block break-words max-w-full"
+            class="text-xs text-error-600 dark:text-error-400 font-medium bg-error-500/10 dark:bg-error-500/20 px-3 py-1.5 season-chip inline-block break-words max-w-full"
           >
             {{ error || "Service temporarily unavailable. Please try again." }}
           </p>

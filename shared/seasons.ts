@@ -63,7 +63,7 @@ export const SEASONS: Record<SeasonId, SeasonPreset> = {
     glyph: { light: "🌸", dark: "🌸" },
     months: [3, 4, 5],
     motif:
-      "Cherry-blossom rose and sage; soft petal-shaped cards, pill buttons, falling petals.",
+      "Cherry-blossom rose and sage; petal cards with a scooped notch tip, pill buttons, falling petals.",
     palette: {
       light: {
         primary: { name: "Deep Rose", hex: "#d2385a" },
@@ -83,7 +83,7 @@ export const SEASONS: Record<SeasonId, SeasonPreset> = {
     glyph: { light: "🎐", dark: "🎆" },
     months: [6, 7, 8],
     motif:
-      "Asagi sea-teal and asagao violet; seigaiha wave edges, droplet accents, rising fireflies.",
+      "Asagi sea-teal and asagao violet; squircle pebble panels, droplet buttons, wave-edged cards, rising fireflies.",
     palette: {
       light: {
         primary: { name: "Asagi Sea-Teal", hex: "#1a7f95" },
@@ -103,7 +103,7 @@ export const SEASONS: Record<SeasonId, SeasonPreset> = {
     glyph: { light: "🍁", dark: "🎑" },
     months: [9, 10, 11],
     motif:
-      "Momiji red-orange and ginkgo gold; leaf-cut asymmetric corners, falling maple leaves, tsukimi moon at night.",
+      "Momiji red-orange and ginkgo gold; bevel-cut leaf cards and tag buttons/badges, falling maple leaves, tsukimi moon at night.",
     palette: {
       light: {
         primary: { name: "Momiji", hex: "#d26b38" },
@@ -127,7 +127,7 @@ export const SEASONS: Record<SeasonId, SeasonPreset> = {
     glyph: { light: "❄️", dark: "❄️" },
     months: [12, 1, 2],
     motif:
-      "Ai indigo and silver wisteria; crisp frosted panels, hexagonal snow-crystal badges, falling snow.",
+      "Ai indigo and silver wisteria; frosted octagonal panels, hexagonal buttons and badges, falling snow.",
     palette: {
       light: {
         primary: { name: "Ai Indigo", hex: "#34568f" },
