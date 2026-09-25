@@ -41,7 +41,7 @@ describe("useSiteTheme", () => {
 
   it("skips the storage write when the season is already applied", async () => {
     document.documentElement.setAttribute("data-season", "autumn");
-    const setItem = vi.spyOn(Storage.prototype, "setItem");
+    const setItem = vi.spyOn(localStorage, "setItem");
     fetchMock.mockResolvedValue({
       success: true,
       data: { season: "autumn", updatedAt: 1, source: "agent" },
@@ -54,11 +54,9 @@ describe("useSiteTheme", () => {
   });
 
   it("still applies the season when storage is blocked", async () => {
-    const setItem = vi
-      .spyOn(Storage.prototype, "setItem")
-      .mockImplementation(() => {
-        throw new Error("blocked");
-      });
+    const setItem = vi.spyOn(localStorage, "setItem").mockImplementation(() => {
+      throw new Error("blocked");
+    });
     fetchMock.mockResolvedValue({
       success: true,
       data: { season: "summer", updatedAt: 1, source: "agent" },
