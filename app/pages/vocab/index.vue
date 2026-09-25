@@ -57,6 +57,35 @@
       </div>
 
       <template v-else>
+        <!-- Lesson path CTA -->
+        <NuxtLink
+          to="/learn"
+          class="group mt-10 block season-box border border-primary-500/30 bg-primary-500/5 p-5 sm:p-6 hover:border-primary-500/60 transition-colors"
+          data-testid="vocab-learn-cta"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="space-y-1 max-w-xl">
+              <p class="kicker text-primary-600 dark:text-primary-400">
+                New to N5? Start here
+              </p>
+              <p
+                class="font-serif text-xl font-bold text-stone-900 dark:text-white"
+              >
+                Follow the lesson path — {{ lessonCount }} short lessons, every
+                N5 word
+              </p>
+              <p class="text-sm text-stone-600 dark:text-stone-400">
+                Words in a sensible order, each broken into its kanji, with a
+                practice round at the end of every lesson.
+              </p>
+            </div>
+            <UIcon
+              name="i-heroicons-arrow-right"
+              class="w-6 h-6 text-primary-500 group-hover:translate-x-1 transition-transform"
+            />
+          </div>
+        </NuxtLink>
+
         <div class="rule-double my-16" />
 
         <!-- Word Families -->
@@ -129,7 +158,7 @@
               data-testid="vocab-search"
               placeholder="Search by kanji, kana, romaji, or meaning…"
               class="w-full season-chip border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 px-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40"
-            >
+            />
           </div>
 
           <!-- Category pills -->
@@ -324,8 +353,10 @@ import {
   WORD_TYPE_GROUPS,
   classifyPartOfSpeech,
 } from "../../data/vocab-guide";
+import { LESSONS } from "../../data/lessons";
 
 const PAGE_SIZE = 60;
+const lessonCount = LESSONS.length;
 
 const wordTypeGroups = WORD_TYPE_GROUPS;
 const visibleClusters = WORD_CLUSTERS;

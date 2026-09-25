@@ -86,6 +86,12 @@ const features = [
     icon: "i-heroicons-arrow-path",
   },
   {
+    title: "N5 Lesson Path",
+    description:
+      "All 718 N5 words laid out as 82 short lessons at /learn. Each lesson explains its pattern, breaks every word into its kanji, shows where else each kanji appears, and ends with a two-way practice quiz. Progress stays in the browser.",
+    icon: "i-heroicons-academic-cap",
+  },
+  {
     title: "Kana & Vocabulary Guides",
     description:
       "Study references alongside the game: a hiragana/katakana chart with romaji at /kana, and the full N5 vocabulary pool at /vocab, grouped by word family and word type.",

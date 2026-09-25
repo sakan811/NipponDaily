@@ -121,3 +121,49 @@ describe("recentDates", () => {
     expect(recentDates("2026-01-01", 2)).toEqual(["2025-12-31", "2025-12-30"]);
   });
 });
+
+describe("buildDailyGame answers", () => {
+  it("shows several meanings for a multi-meaning kanji, not just the first", () => {
+    const pool = makePool(10);
+    pool.kanji = pool.kanji.map((k) => ({
+      ...k,
+      meanings: [
+        `sense${k.id}a`,
+        `sense${k.id}b`,
+        `sense${k.id}c`,
+        `extra${k.id}`,
+      ],
+    }));
+    const game = buildDailyGame(pool, "2026-09-20");
+    for (const q of game.questions.filter((q) => q.kind === "kanji")) {
+      expect(q.correctAnswer).toBe(
+        `sense${q.id}a, sense${q.id}b, sense${q.id}c`,
+      );
+    }
+  });
+
+  it("never offers a distractor that overlaps the correct meaning", () => {
+    const pool = makePool(10);
+    pool.vocab = [
+      { ...pool.vocab[0]!, id: "atsui1", meaning: "hot (weather), warm" },
+      { ...pool.vocab[1]!, id: "atsui2", meaning: "hot (objects)" },
+      { ...pool.vocab[2]!, id: "aru1", meaning: "to be, to have" },
+      { ...pool.vocab[3]!, id: "aru2", meaning: "to be, to have" },
+      ...pool.vocab.slice(4),
+    ];
+    for (const date of [
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04",
+    ]) {
+      const game = buildDailyGame(pool, date);
+      for (const q of game.questions) {
+        expect(new Set(q.choices).size).toBe(4);
+        if (q.id === "atsui1") expect(q.choices).not.toContain("hot (objects)");
+        if (q.id === "atsui2")
+          expect(q.choices).not.toContain("hot (weather), warm");
+      }
+    }
+  });
+});

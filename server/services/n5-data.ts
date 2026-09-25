@@ -5,6 +5,7 @@ import type {
   N5Kanji,
   N5Vocab,
 } from "~~/types/index";
+import { enrichedVocabMeaning } from "~~/shared/meanings";
 import { getEnvOrConfig } from "../utils/config";
 
 /**
@@ -69,8 +70,15 @@ class N5DataService {
     return this.getPool<N5Kanji>("n5:kanji_ids", "n5:kanji:");
   }
 
+  /** Vocab with shared/meanings.ts's fuller glosses applied, so the game,
+   *  the lessons, and the vocab guide all show every everyday sense of a
+   *  word the source list under-glossed — without needing a re-seed. */
   async getVocabPool(): Promise<N5Vocab[]> {
-    return this.getPool<N5Vocab>("n5:vocab_ids", "n5:vocab:");
+    const vocab = await this.getPool<N5Vocab>("n5:vocab_ids", "n5:vocab:");
+    return vocab.map((item) => ({
+      ...item,
+      meaning: enrichedVocabMeaning(item),
+    }));
   }
 
   async getHiragana(): Promise<KanaCharacter[]> {
