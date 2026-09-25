@@ -93,9 +93,11 @@ describe("N5DataService", () => {
 
     await service.saveDailyGame(game);
 
+    // NX: never overwrite a game that already exists for the date.
     expect(redisState.set).toHaveBeenCalledWith(
       "n5:daily_game:2026-09-18",
       JSON.stringify(game),
+      { nx: true },
     );
   });
 

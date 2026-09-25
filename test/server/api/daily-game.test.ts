@@ -63,6 +63,30 @@ describe("GET /api/daily-game", () => {
     });
   });
 
+  it.each([
+    ["an impossible calendar date", "2026-02-30"],
+    ["an out-of-range month", "2026-13-01"],
+    ["a future date", "2999-01-01"],
+  ])("returns 400 for %s", async (_label, date) => {
+    (global as any).getQuery.mockReturnValue({ date });
+
+    const handler = await getHandler();
+    await expect(handler({} as any)).rejects.toMatchObject({
+      statusCode: 400,
+    });
+    expect(mockSaveDailyGame).not.toHaveBeenCalled();
+  });
+
+  it("does not leak internal error details on a 500", async () => {
+    mockGetDailyGame.mockRejectedValue(new Error("redis: WRONGPASS secret"));
+
+    const handler = await getHandler();
+    const err = await handler({} as any).catch((e: unknown) => e);
+    expect(err).toMatchObject({ statusCode: 500 });
+    expect(JSON.stringify(err)).not.toContain("WRONGPASS");
+    expect(JSON.stringify(err)).not.toContain("stack");
+  });
+
   it("returns 500 when the pool is empty and no game is stored", async () => {
     mockGetDailyGame.mockResolvedValue(null);
     mockGetFullPool.mockResolvedValue({

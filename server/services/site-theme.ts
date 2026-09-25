@@ -56,18 +56,28 @@ class SiteThemeService {
     return theme && isSeasonId(theme.season) ? theme : null;
   }
 
-  async saveActiveTheme(theme: SiteTheme): Promise<void> {
+  /** Stores the active theme. With `onlyIfAbsent`, writes only when no
+   *  theme is stored yet (Redis NX) — used by the default fallback so it can
+   *  never clobber an agent's concurrent save_site_theme. */
+  async saveActiveTheme(
+    theme: SiteTheme,
+    { onlyIfAbsent = false }: { onlyIfAbsent?: boolean } = {},
+  ): Promise<void> {
     const redis = this.getRedisClient();
     if (!redis) {
-      this.memoryTheme = theme;
+      if (!onlyIfAbsent || !this.memoryTheme) this.memoryTheme = theme;
       return;
     }
 
     try {
-      await redis.set(SITE_THEME_KEY, JSON.stringify(theme));
+      await redis.set(
+        SITE_THEME_KEY,
+        JSON.stringify(theme),
+        onlyIfAbsent ? { nx: true } : undefined,
+      );
     } catch (e) {
       console.error("Error saving site theme to Redis:", e);
-      this.memoryTheme = theme;
+      if (!onlyIfAbsent || !this.memoryTheme) this.memoryTheme = theme;
     }
   }
 }

@@ -24,6 +24,32 @@ describe("SiteThemeService (in-memory)", () => {
     expect(await new SiteThemeService().getActiveTheme()).toBeNull();
   });
 
+  it("onlyIfAbsent never overwrites an existing theme", async () => {
+    const service = new SiteThemeService();
+    const agent: SiteTheme = {
+      season: "summer",
+      updatedAt: 1,
+      source: "agent",
+    };
+    await service.saveActiveTheme(agent);
+    await service.saveActiveTheme(
+      { season: "sakura", updatedAt: 2, source: "fallback" },
+      { onlyIfAbsent: true },
+    );
+    expect(await service.getActiveTheme()).toEqual(agent);
+  });
+
+  it("onlyIfAbsent writes when nothing is stored yet", async () => {
+    const service = new SiteThemeService();
+    const fallback: SiteTheme = {
+      season: "sakura",
+      updatedAt: 2,
+      source: "fallback",
+    };
+    await service.saveActiveTheme(fallback, { onlyIfAbsent: true });
+    expect(await service.getActiveTheme()).toEqual(fallback);
+  });
+
   it("treats a stored season this build doesn't implement as unset", async () => {
     const service = new SiteThemeService();
     await service.saveActiveTheme({

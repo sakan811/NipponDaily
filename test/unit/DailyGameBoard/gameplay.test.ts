@@ -15,7 +15,7 @@ function findButtonByText(wrapper: ReturnType<typeof mount>, text: string) {
 describe("DailyGameBoard gameplay", () => {
   it("answering correctly marks the question correct", async () => {
     mockFetchGame(makeDailyGame());
-    const wrapper = mount(DailyGameBoard);
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
     await loadGame(wrapper);
 
     const correct = wrapper.vm.currentQuestion.correctAnswer;
@@ -26,7 +26,7 @@ describe("DailyGameBoard gameplay", () => {
 
   it("answering incorrectly reveals the correct answer", async () => {
     mockFetchGame(makeDailyGame());
-    const wrapper = mount(DailyGameBoard);
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
     await loadGame(wrapper);
 
     const question = wrapper.vm.currentQuestion;
@@ -40,7 +40,7 @@ describe("DailyGameBoard gameplay", () => {
 
   it("advancing after the last question shows the round summary", async () => {
     mockFetchGame(makeDailyGame([makeQuestion()]));
-    const wrapper = mount(DailyGameBoard);
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
     await loadGame(wrapper);
 
     const correct = wrapper.vm.currentQuestion.correctAnswer;
@@ -54,7 +54,7 @@ describe("DailyGameBoard gameplay", () => {
 
   it("Play Again resets progress back to the first question", async () => {
     mockFetchGame(makeDailyGame([makeQuestion()]));
-    const wrapper = mount(DailyGameBoard);
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
     await loadGame(wrapper);
 
     const correct = wrapper.vm.currentQuestion.correctAnswer;
@@ -72,7 +72,7 @@ describe("DailyGameBoard gameplay", () => {
 
   it("disables choice buttons after answering, so a second click can't double-count", async () => {
     mockFetchGame(makeDailyGame());
-    const wrapper = mount(DailyGameBoard);
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
     await loadGame(wrapper);
 
     const correct = wrapper.vm.currentQuestion.correctAnswer;
@@ -89,7 +89,7 @@ describe("DailyGameBoard gameplay", () => {
 describe("DailyGameBoard charms", () => {
   it("stamps the ema with a 合格 seal on a correct answer", async () => {
     mockFetchGame(makeDailyGame());
-    const wrapper = mount(DailyGameBoard);
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
     await loadGame(wrapper);
 
     expect(wrapper.find(".ema .hanko").exists()).toBe(false);
@@ -102,7 +102,7 @@ describe("DailyGameBoard charms", () => {
 
   it("shakes the ema without a seal on a wrong answer", async () => {
     mockFetchGame(makeDailyGame());
-    const wrapper = mount(DailyGameBoard);
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
     await loadGame(wrapper);
 
     const question = wrapper.vm.currentQuestion;
@@ -117,14 +117,14 @@ describe("DailyGameBoard charms", () => {
 
   it("seals the round-complete charm 合格 or 努力 by accuracy", async () => {
     mockFetchGame(makeDailyGame([makeQuestion()]));
-    const passed = mount(DailyGameBoard);
+    const passed = mount(DailyGameBoard, { props: { autoFetch: false } });
     await loadGame(passed);
     await findButtonByText(passed, "water")!.trigger("click");
     await findButtonByText(passed, "Next")!.trigger("click");
     expect(passed.find(".hanko").attributes("aria-label")).toBe("Passed");
 
     mockFetchGame(makeDailyGame([makeQuestion()]));
-    const missed = mount(DailyGameBoard);
+    const missed = mount(DailyGameBoard, { props: { autoFetch: false } });
     await loadGame(missed);
     await findButtonByText(missed, "fire")!.trigger("click");
     await findButtonByText(missed, "Next")!.trigger("click");

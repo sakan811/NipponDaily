@@ -258,14 +258,7 @@ function findVocab(id: string): N5Vocab | undefined {
   return vocabById.value.get(id);
 }
 
-onMounted(async () => {
-  const isTest =
-    typeof process !== "undefined" &&
-    (process.env?.NODE_ENV === "test" || process.env?.VITEST);
-  if (!isTest) {
-    await fetchVocab();
-  }
-});
+onMounted(fetchVocab);
 
 defineOptions({
   name: "VocabFamilyPage",

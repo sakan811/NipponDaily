@@ -379,14 +379,7 @@ watch([searchQuery, selectedGroup], () => {
   visibleCount.value = PAGE_SIZE;
 });
 
-onMounted(async () => {
-  const isTest =
-    typeof process !== "undefined" &&
-    (process.env?.NODE_ENV === "test" || process.env?.VITEST);
-  if (!isTest) {
-    await fetchVocab();
-  }
-});
+onMounted(fetchVocab);
 
 defineOptions({
   name: "VocabPage",

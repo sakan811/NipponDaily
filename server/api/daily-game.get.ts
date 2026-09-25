@@ -3,15 +3,21 @@ import { n5DataService } from "../services/n5-data";
 import {
   REPEAT_AVOIDANCE_DAYS,
   buildDailyGame,
+  isValidIsoDate,
   recentDates,
   todayUtc,
 } from "../utils/daily-game";
 import type { DailyGame } from "~~/types/index";
 
 const dailyGameQuerySchema = z.object({
+  // A real calendar date, today or earlier (UTC). Future dates are
+  // rejected: generating one early would persist a game built without the
+  // days before it, breaking the 7-day repeat avoidance, and would let
+  // anyone write arbitrary keys into Redis.
   date: z
     .string()
-    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .refine(isValidIsoDate, "Must be a real YYYY-MM-DD date")
+    .refine((d) => d <= todayUtc(), "Date cannot be in the future")
     .nullable()
     .optional()
     .transform((val) => val || undefined),
@@ -39,8 +45,8 @@ export default defineEventHandler(async (event) => {
         recentDates(date, REPEAT_AVOIDANCE_DAYS),
       );
       game = buildDailyGame(pool, date, recentGames);
-      // Only persist when nothing exists yet, so a concurrent request for
-      // the same not-yet-generated date doesn't overwrite this one.
+      // saveDailyGame only writes when nothing exists yet (Redis NX), so a
+      // concurrent request for the same date never overwrites this one.
       await n5DataService.saveDailyGame(game);
     }
 
@@ -64,17 +70,18 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    if (process.env.NODE_ENV === "development") {
-      console.error("Daily game API error:", error);
-    }
+    console.error("Daily game API error:", error);
 
+    // Internal details (Redis errors, stack traces) stay in the server log;
+    // only development builds echo the message back to the client.
     throw createError({
       statusCode: 500,
       statusMessage: "Failed to fetch daily game",
       data: {
         error:
-          error instanceof Error ? error.message : "Unknown error occurred",
-        stack: error instanceof Error ? error.stack : undefined,
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : "Service temporarily unavailable. Please try again.",
       },
     });
   }

@@ -36,6 +36,18 @@ describe("OmamoriCharm", () => {
 });
 
 describe("EmaPlaque", () => {
+  it("swings on focus and settles after the animation ends", async () => {
+    const wrapper = mount(EmaPlaque, { props: { shake: true } });
+    const swing = wrapper.find(".ema__swing");
+
+    expect(wrapper.classes()).toContain("ema--shake");
+    await wrapper.trigger("focusin");
+    expect(swing.classes()).toContain("is-swinging");
+
+    await swing.trigger("animationend");
+    expect(swing.classes()).not.toContain("is-swinging");
+  });
+
   it("renders content on the board and a stamp slot", () => {
     const wrapper = mount(EmaPlaque, {
       slots: { default: "<p>水</p>", stamp: "<span class='stamp'>印</span>" },

@@ -53,11 +53,11 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
     alias: {
-      "~": resolve(__dirname, "."),
-      "@": resolve(__dirname, "."),
-      "~~": resolve(__dirname, "."),
-      "@@": resolve(__dirname, "."),
-      "#app": resolve(__dirname, "./test/mocks/app.ts"),
+      "~": resolve(import.meta.dirname, "."),
+      "@": resolve(import.meta.dirname, "."),
+      "~~": resolve(import.meta.dirname, "."),
+      "@@": resolve(import.meta.dirname, "."),
+      "#app": resolve(import.meta.dirname, "./test/mocks/app.ts"),
     },
   },
 });
