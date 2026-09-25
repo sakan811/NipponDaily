@@ -65,50 +65,38 @@
             component="components/DailyGameBoard.vue"
             trigger="Not an error state — the normal in-round view right after answering, shown here so its layout can be reviewed alongside the fallbacks."
           />
-          <UCard class="w-full border-t-2 border-t-primary-500">
-            <div class="p-4 sm:p-8 space-y-6 text-center">
-              <UBadge color="secondary" variant="soft" size="xs">
-                Vocabulary
-              </UBadge>
-              <div class="space-y-2">
-                <p
-                  class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
-                >
-                  食べる
-                </p>
-                <p class="text-sm text-stone-500 dark:text-stone-400">たべる</p>
+          <!-- Mirrors DailyGameBoard: the prompt on an ema plaque, stamped
+               合格 by a correct answer, with the choices underneath. -->
+          <div class="space-y-4">
+            <EmaPlaque class="max-w-md mx-auto">
+              <div class="space-y-4 text-center pb-2">
+                <UBadge color="secondary" variant="soft" size="xs">
+                  Vocabulary
+                </UBadge>
+                <div class="pt-2">
+                  <ruby
+                    class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
+                  >
+                    食べる
+                    <rt
+                      class="font-sans font-normal text-base sm:text-lg text-stone-600 dark:text-stone-400"
+                      >たべる</rt
+                    >
+                  </ruby>
+                </div>
               </div>
+              <template #stamp>
+                <HankoSeal />
+              </template>
+            </EmaPlaque>
+            <div class="space-y-6 text-center">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <UButton
-                  label="to drink"
-                  color="secondary"
-                  variant="outline"
-                  size="lg"
-                  block
-                  class="justify-center"
-                  disabled
-                />
-                <UButton
-                  label="to eat"
-                  color="success"
-                  size="lg"
-                  block
-                  class="justify-center"
-                  disabled
-                />
-                <UButton
-                  label="to see"
-                  color="secondary"
-                  variant="outline"
-                  size="lg"
-                  block
-                  class="justify-center"
-                  disabled
-                />
-                <UButton
-                  label="to go"
-                  color="secondary"
-                  variant="outline"
+                  v-for="choice in sampleChoices"
+                  :key="choice.label"
+                  :label="choice.label"
+                  :color="choice.correct ? 'success' : 'secondary'"
+                  :variant="choice.correct ? 'solid' : 'outline'"
                   size="lg"
                   block
                   class="justify-center"
@@ -122,7 +110,7 @@
                 Correct!
               </p>
             </div>
-          </UCard>
+          </div>
         </section>
 
         <!-- 3. Loading skeleton -->
@@ -134,7 +122,9 @@
             trigger="Shown while GET /api/daily-game is in flight (initial mount, or a manual retry)."
           />
           <div class="space-y-6">
-            <UCard class="w-full border-t-2 border-t-primary-500">
+            <UCard
+              class="w-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-transparent before:via-primary-500 before:to-transparent"
+            >
               <div class="p-4 sm:p-6 space-y-6">
                 <USkeleton class="h-6 w-32 mb-3 rounded-sm" />
                 <USkeleton class="h-16 w-3/4 mx-auto rounded-sm" />
@@ -155,14 +145,21 @@
             index="04"
             title="Round summary"
             component="components/DailyGameBoard.vue (isFinished)"
-            trigger="Shown after the 20th question is answered. Offers a 'Play Again' reset that reshuffles the same day's questions client-side — no refetch."
+            trigger="Shown after the 20th question is answered: a 学業守 charm sealed 合格 (≥60% accuracy) or 努力, plus a charm per question kind. 'Play Again' reshuffles the same day's questions client-side — no refetch."
           />
-          <UCard class="w-full border-t-2 border-t-primary-500">
+          <UCard class="w-full">
             <div class="p-4 sm:p-8 space-y-6 text-center">
-              <UIcon
-                name="i-heroicons-star"
-                class="w-10 h-10 mx-auto text-warning-500"
-              />
+              <!-- 学業守 charm sealed 合格 (≥60% accuracy) or 努力 -->
+              <div class="relative w-28 mx-auto">
+                <OmamoriCharm size="lg" idle>
+                  <p
+                    class="flex flex-col items-center gap-1.5 font-serif font-bold text-2xl leading-none text-primary-600 dark:text-primary-400"
+                  >
+                    <span>学</span><span>業</span><span>守</span>
+                  </p>
+                </OmamoriCharm>
+                <HankoSeal class="absolute -right-10 bottom-0" />
+              </div>
               <h2
                 class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
               >
@@ -185,6 +182,24 @@
                   </p>
                   <p class="kicker text-stone-400">Accuracy</p>
                 </div>
+              </div>
+              <div class="rule-double max-w-[120px] mx-auto" />
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                <OmamoriCharm
+                  v-for="(kind, i) in sampleKinds"
+                  :key="kind.label"
+                  :index="i + 2"
+                  size="sm"
+                >
+                  <div class="space-y-0.5">
+                    <p class="text-sm font-bold text-stone-900 dark:text-white">
+                      {{ kind.score }}
+                    </p>
+                    <p class="kicker text-stone-500 dark:text-stone-400">
+                      {{ kind.label }}
+                    </p>
+                  </div>
+                </OmamoriCharm>
               </div>
               <UButton
                 label="Play Again"
@@ -257,12 +272,12 @@
             <div
               class="rounded-sm border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
             >
-              <p class="text-xs font-mono font-bold text-rose-500 mb-2">
+              <p class="text-xs font-mono font-bold text-error-500 mb-2">
                 400 Bad Request
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                The optional ?date= query param failed validation (not
-                YYYY-MM-DD).
+                The optional ?date= query param failed validation: not a real
+                YYYY-MM-DD calendar date, or a date in the future.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -271,12 +286,13 @@
             <div
               class="rounded-sm border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
             >
-              <p class="text-xs font-mono font-bold text-rose-500 mb-2">
+              <p class="text-xs font-mono font-bold text-error-500 mb-2">
                 500 Failed to fetch daily game
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
                 Redis read threw, or the N5 pool is empty (seed script never
-                run). Stack is included only in development.
+                run). Production returns a generic message; the real error is
+                logged server-side and echoed only in development.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -302,8 +318,25 @@
 
 <script setup lang="ts">
 import AppHeader from "../../components/AppHeader.vue";
+import EmaPlaque from "../../components/EmaPlaque.vue";
+import HankoSeal from "../../components/HankoSeal.vue";
+import OmamoriCharm from "../../components/OmamoriCharm.vue";
 
 const noop = () => {};
+
+const sampleChoices = [
+  { label: "to drink", correct: false },
+  { label: "to eat", correct: true },
+  { label: "to see", correct: false },
+  { label: "to go", correct: false },
+];
+
+const sampleKinds = [
+  { label: "Hiragana", score: "5/5" },
+  { label: "Katakana", score: "4/5" },
+  { label: "Kanji", score: "4/5" },
+  { label: "Vocabulary", score: "4/5" },
+];
 
 const sections = [
   { id: "trending-fallback", label: "01 Fetch failure" },
@@ -321,7 +354,7 @@ const badRequestSample = JSON.stringify(
     statusMessage: "Bad Request",
     data: {
       error: "Invalid query parameters",
-      details: [{ path: "date", message: "Invalid" }],
+      details: [{ path: "date", message: "Date cannot be in the future" }],
     },
   },
   null,
@@ -333,8 +366,7 @@ const serverErrorSample = JSON.stringify(
     statusCode: 500,
     statusMessage: "Failed to fetch daily game",
     data: {
-      error:
-        "N5 pool is empty — run `pnpm seed:n5` to seed kanji/vocab/kana data before requesting a daily game.",
+      error: "Service temporarily unavailable. Please try again.",
     },
   },
   null,

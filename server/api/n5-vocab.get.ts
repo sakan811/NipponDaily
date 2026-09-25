@@ -18,16 +18,16 @@ export default defineEventHandler(async () => {
       timestamp: new Date().toISOString(),
     };
   } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("N5 vocab API error:", error);
-    }
+    console.error("N5 vocab API error:", error);
 
     throw createError({
       statusCode: 500,
       statusMessage: "Failed to fetch N5 vocabulary",
       data: {
         error:
-          error instanceof Error ? error.message : "Unknown error occurred",
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : "Failed to fetch N5 vocabulary",
       },
     });
   }

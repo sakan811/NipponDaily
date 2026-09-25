@@ -86,6 +86,24 @@ const features = [
     icon: "i-heroicons-arrow-path",
   },
   {
+    title: "Kana & Vocabulary Guides",
+    description:
+      "Study references alongside the game: a hiragana/katakana chart with romaji at /kana, and the full N5 vocabulary pool at /vocab, grouped by word family and word type.",
+    icon: "i-heroicons-book-open",
+  },
+  {
+    title: "Education Charms",
+    description:
+      "Kana pairs, vocabulary words and score tiles hang as 学業守 omamori (academic-success charms); explanations and the daily question are written on ema plaques. A correct answer stamps a 合格 hanko seal, and the round summary seals a charm 合格 or 努力. All motion respects prefers-reduced-motion.",
+    icon: "i-heroicons-academic-cap",
+  },
+  {
+    title: "Seasonal Shape Language",
+    description:
+      "Each season reshapes the UI as well as recoloring it — petal-cut cards and pill buttons in spring, wave edges in summer, leaf-cut corners in autumn, frosted panels and hexagonal badges in winter — through --shape-* / --motif-* CSS tokens.",
+    icon: "i-heroicons-swatch",
+  },
+  {
     title: "Agent-Driven Seasonal Theme",
     description:
       "A Claude web agent checks and, when it should change, switches NipponDaily's active season on its own schedule, entirely outside this codebase. There is one preset per Japanese season (sakura, summer, autumn, winter), and each one swaps the palette and the UI's shapes together.",

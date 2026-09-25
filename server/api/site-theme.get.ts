@@ -11,9 +11,9 @@ export default defineEventHandler(async () => {
         updatedAt: Date.now(),
         source: "fallback",
       };
-      // Only persist the fallback when nothing exists yet, so a later
-      // agent-authored save_site_theme call is never clobbered by this.
-      await siteThemeService.saveActiveTheme(theme);
+      // NX write: persists the fallback only when nothing exists yet, so a
+      // concurrent agent-authored save_site_theme is never clobbered.
+      await siteThemeService.saveActiveTheme(theme, { onlyIfAbsent: true });
     }
 
     return {
@@ -22,17 +22,16 @@ export default defineEventHandler(async () => {
       timestamp: new Date().toISOString(),
     };
   } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("Site theme API error:", error);
-    }
+    console.error("Site theme API error:", error);
 
     throw createError({
       statusCode: 500,
       statusMessage: "Failed to fetch site theme",
       data: {
         error:
-          error instanceof Error ? error.message : "Unknown error occurred",
-        stack: error instanceof Error ? error.stack : undefined,
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : "Failed to fetch site theme",
       },
     });
   }

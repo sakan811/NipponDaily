@@ -94,7 +94,10 @@
             <code>DailyGameBoard.vue</code> fetches one day's game, then runs
             the entire round — question index, per-kind accuracy, and the
             end-of-round summary — as local component state. Nothing about a
-            play-through is ever sent back to the server.
+            play-through is ever sent back to the server. The Kana and N5
+            Vocabulary guide pages (<code>/kana</code>, <code>/vocab</code>) are
+            static study references; the vocab pages read the whole pool from
+            <code>GET /api/n5-vocab</code>.
           </p>
         </UCard>
 
@@ -483,7 +486,8 @@
                 </td>
                 <td class="py-2 px-2">
                   Defaults to today (UTC). Since daily games are never deleted,
-                  any past date can be replayed.
+                  any past date can be replayed. Must be a real calendar date,
+                  today or earlier — anything else is a <code>400</code>.
                 </td>
               </tr>
             </tbody>
@@ -516,6 +520,22 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
 }</code></pre>
           </div>
         </div>
+      </UCard>
+
+      <!-- /api/n5-vocab -->
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="success" variant="soft">GET</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/n5-vocab</h3>
+          </div>
+        </template>
+        <p class="text-sm m-0">
+          Returns the whole seeded N5 vocabulary pool as-is (<code
+            >{ success, data: N5Vocab[], count, timestamp }</code
+          >) for the vocabulary guide pages. No query parameters; nothing is
+          generated or persisted.
+        </p>
       </UCard>
 
       <!-- /api/site-theme -->

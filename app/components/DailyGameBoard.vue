@@ -242,6 +242,15 @@ import EmaPlaque from "./EmaPlaque.vue";
 import HankoSeal from "./HankoSeal.vue";
 import OmamoriCharm from "./OmamoriCharm.vue";
 
+const props = withDefaults(
+  defineProps<{
+    /** Fetch today's game on mount. Tests turn this off and call the
+     *  exposed fetchGame() themselves with a mocked $fetch. */
+    autoFetch?: boolean;
+  }>(),
+  { autoFetch: true },
+);
+
 const KIND_LABELS: Record<N5PoolKind, string> = {
   hiragana: "Hiragana",
   katakana: "Katakana",
@@ -389,12 +398,7 @@ const fetchGame = async (): Promise<void> => {
 };
 
 onMounted(async () => {
-  const isTest =
-    typeof process !== "undefined" &&
-    (process.env?.NODE_ENV === "test" || process.env?.VITEST);
-  if (!isTest) {
-    await fetchGame();
-  }
+  if (props.autoFetch) await fetchGame();
 });
 
 defineOptions({

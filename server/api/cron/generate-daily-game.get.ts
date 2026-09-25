@@ -18,9 +18,9 @@ import {
  * (https://vercel.com/docs/cron-jobs/manage-cron-jobs#securing-cron-jobs)
  * — the same bearer-token pattern server/api/mcp.ts uses.
  *
- * Idempotent: mirrors GET /api/daily-game's "only persist when nothing
- * exists yet" guard, so a re-run (manual trigger, retry) never overwrites
- * a game a player may have already started.
+ * Idempotent: skips generation when the day's game already exists, and
+ * saveDailyGame writes with Redis NX anyway, so a re-run (manual trigger,
+ * retry) never overwrites a game a player may have already started.
  */
 function isAuthorized(event: H3Event): boolean {
   const expected = getEnvOrConfig("cronSecret", "CRON_SECRET");

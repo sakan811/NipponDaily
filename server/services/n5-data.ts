@@ -135,18 +135,27 @@ class N5DataService {
     }
   }
 
+  /** Persists a day's game only if none exists for that date yet (Redis
+   *  NX), so concurrent first requests / cron retries never overwrite a
+   *  game a player may already be playing. */
   async saveDailyGame(game: DailyGame): Promise<void> {
     const redis = this.getRedisClient();
     if (!redis) {
-      this.memoryDailyGames.set(game.date, game);
+      if (!this.memoryDailyGames.has(game.date)) {
+        this.memoryDailyGames.set(game.date, game);
+      }
       return;
     }
 
     try {
-      await redis.set(`n5:daily_game:${game.date}`, JSON.stringify(game));
+      await redis.set(`n5:daily_game:${game.date}`, JSON.stringify(game), {
+        nx: true,
+      });
     } catch (e) {
       console.error(`Error saving daily game ${game.date} to Redis:`, e);
-      this.memoryDailyGames.set(game.date, game);
+      if (!this.memoryDailyGames.has(game.date)) {
+        this.memoryDailyGames.set(game.date, game);
+      }
     }
   }
 }

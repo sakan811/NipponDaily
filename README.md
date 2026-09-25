@@ -6,20 +6,21 @@
   <img src="./public/dark/android-chrome-512x512.png" width="256" height="256" alt="logo dark" />
 </p>
 
-**A daily Japanese-learning game.** NipponDaily turns a persisted N5 hiragana/katakana/kanji/vocabulary pool into one fresh 20-question multiple-choice round per day, built with Nuxt 4, Vue 3, and TypeScript. There are no user accounts and no auth on the play side. The site itself only reads a pre-computed `DailyGame` record out of Upstash Redis and serves it via `GET /api/daily-game` — every game is generated deterministically from the pool the first time it's requested for a date, then persisted; no agent is involved in game content. What an external agent does control is design: a Claude web agent switches NipponDaily's active seasonal color palette through this project's remote MCP server, and `GET /api/site-theme` serves whatever it last set (or a deterministic default). Gameplay itself (score, streak, current question) lives entirely in the browser's own component state and is never sent back to the server or saved anywhere.
+**A daily Japanese-learning game.** NipponDaily turns a persisted N5 hiragana/katakana/kanji/vocabulary pool into one fresh 20-question multiple-choice round per day, built with Nuxt 4, Vue 3, and TypeScript. There are no user accounts and no auth on the play side. `GET /api/daily-game` serves each day's `DailyGame` from Upstash Redis, generating it deterministically from the pool the first time a date is requested and then persisting it; no agent or AI provider is involved in game content. What an external agent does control is design: a Claude web agent switches NipponDaily's active season (color palette and shape language) through this project's remote MCP server, and `GET /api/site-theme` serves whatever it last set (or a deterministic default). Gameplay itself (current question, score, per-kind accuracy) lives entirely in the browser's own component state and is never sent back to the server or saved anywhere.
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
 - **Daily 20-Question Round**: 5 multiple-choice questions each for hiragana, katakana, kanji, and vocabulary — every question has exactly 4 choices including the correct answer.
-- **One Game, One Day**: No accounts, no server-side gameplay state — score, streak, longest streak, and per-kind accuracy live only in the browser for the current round. "Play Again" reshuffles and restarts from the already-fetched payload with no refetch.
-- **Replay Any Past Day**: Daily games are never deleted, so `GET /api/daily-game?date=YYYY-MM-DD` can replay any past date.
+- **One Game, One Day**: No accounts, no server-side gameplay state — score and per-kind accuracy live only in the browser for the current round. "Play Again" reshuffles and restarts from the already-fetched payload with no refetch.
+- **Replay Any Past Day**: Daily games are never deleted, so `GET /api/daily-game?date=YYYY-MM-DD` can replay any past date. Future or impossible dates are rejected with a `400`, so nobody can pre-generate games or write arbitrary keys.
 - **Deterministic Daily Generation**: `GET /api/daily-game` builds each day's game itself from the pool (seeded PRNG) the first time it's requested and persists it, so the site never shows "no game today" — no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day's game at `00:00 UTC`, and generation avoids repeating any item used in the past 7 days.
 - **MCP-Driven Seasonal Theme**: A Claude web agent checks and, when it should change, switches NipponDaily's active season (color palette and shape language) through this project's remote MCP server (`get_active_theme`, `save_site_theme`), restricted to a closed set of implemented presets — one per Japanese season: `sakura` (spring, the default), `summer`, `autumn`, and `winter`. `get_active_theme` also returns the season matching today's date in Japan, so the agent never has to work out the month mapping itself. The agent's full operating prompt lives at [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md).
 - **Seasonal Shape Language**: A season changes more than colour. Cards, buttons, badges, dividers and the page backdrop change shape with it: petal-cut cards and pill buttons in spring, wave-edged cards and fan badges in summer, leaf-cut corners in autumn, and frosted panels with hexagonal snow-crystal badges in winter. All of it comes from `--shape-*` / `--motif-*` CSS tokens keyed off `data-season`, so the one MCP call reshapes the whole UI.
+- **Kana & Vocabulary Guides**: Study references alongside the game — a hiragana/katakana chart with romaji at `/kana`, and the full N5 vocabulary pool at `/vocab`, grouped by word family and word type (served by `GET /api/n5-vocab`).
 - **Education Charms**: Learning surfaces are dressed as the charms Japanese students keep for their studies. Kana pairs, vocabulary words and score tiles hang as 学業守 omamori (academic-success charms) that swing when hovered. Explanations and the daily game's prompt are written on ema, the wooden plaques students hang at Tenjin shrines. A correct answer stamps a vermilion 合格 ("passed") hanko onto the ema, and a wrong one rattles it on its cord. Brocade, weave and cord colours follow the active season through `--charm-*` / `--ema-*` tokens, and all motion is switched off under `prefers-reduced-motion`.
 - **Ambient Seasonal Graphic**: Falling sakura petals, rising summer fireflies, autumn leaves, or winter snow drift across every page, matching whichever season is active — pure CSS animation driven by the same `data-season` attribute as the color palette, with no extra agent involvement and full `prefers-reduced-motion` support.
 - **Seasonal UI**: Built with Nuxt 4, Vue 3, and Tailwind CSS 4 using locally maintained custom UI components (no `@nuxt/ui` dependency). Every color comes from one of four seasonal presets (sakura, summer, autumn, winter), each with a light and dark palette. The presets are defined once in `shared/seasons.ts` (used by the docs page and the MCP server) and in `app/assets/css/tailwind.css`, and a test keeps the two in sync.
-- **Resilient Fallback UI**: A graceful UI fallback (`TrendingFallback`) when the `/api/daily-game` fetch fails.
+- **Resilient Fallback UI**: A graceful UI fallback (`TrendingFallback`) when the `/api/daily-game` fetch fails. Server errors are logged server-side; clients get a generic message (the real error is echoed only in development).
 
 ## 🛠 Tech Stack
 
@@ -119,7 +120,9 @@ Server-side config is resolved through `server/utils/config.ts`'s `getEnvOrConfi
 NipponDaily uses two Vitest projects configured in `vitest.config.ts`:
 
 - **Unit Tests**: Component/UI tests in a `happy-dom` environment (`test/unit`).
-- **Server/API Tests**: API endpoint and service tests in a `node` environment (`test/server`), with `n5DataService` and `siteThemeService` mocked directly since both `GET /api/daily-game` and `GET /api/site-theme` only ever read from Redis (each with an in-process fallback).
+- **Server/API Tests**: API endpoint and service tests in a `node` environment (`test/server`). Endpoint tests mock `n5DataService` / `siteThemeService`; service tests mock the Upstash client.
+
+A few tests guard against drift rather than behaviour: `test/unit/seasons-css-sync.test.ts` checks `shared/seasons.ts` against the real CSS cascade in `tailwind.css`, and `test/unit/icons.test.ts` fails if the app references an icon that `app/data/icons.ts` doesn't define.
 
 ```bash
 pnpm test          # watch mode
@@ -145,6 +148,7 @@ See [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for full 
 The running site ships in-app documentation at `/docs`:
 
 - **System Architecture** (`/docs/architecture`) — a tour of the stack, the N5 data model, MCP server tool schemas, and data attribution, with diagrams
+- **Color Palette & System** (`/docs/color-palette`) — every season's light/dark palette as named color badges, plus the seasonal shape language
 - **Core Features** (`/docs/features`) — the player-facing capabilities
 - **Error & Fallback States** (`/docs/error-states`) — a live catalogue of every degraded, empty, or failure state the UI can render, shown with the real components and mock data
 
@@ -156,9 +160,9 @@ Repo-only docs:
 
 `GET /api/daily-game` — reads (or, if missing, builds and persists) one day's game; it never fetches dictionary data or calls any external provider.
 
-| Parameter | Type                  | Description                                                                               |
-| :-------- | :-------------------- | :---------------------------------------------------------------------------------------- |
-| `date`    | string (`YYYY-MM-DD`) | Defaults to today (UTC). Daily games are never deleted, so any past date can be replayed. |
+| Parameter | Type                  | Description                                                                                                                                                 |
+| :-------- | :-------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `date`    | string (`YYYY-MM-DD`) | Defaults to today (UTC). Daily games are never deleted, so any past date can be replayed. Must be a real calendar date, today or earlier — otherwise `400`. |
 
 **Response format:**
 
@@ -177,7 +181,7 @@ Repo-only docs:
 }
 ```
 
-`GET /api/site-theme` — no query params; reads (or, if missing, builds and persists a default for) the single active `SiteTheme`:
+`GET /api/site-theme` — no query params; reads (or, if missing, builds and persists a default for) the single active `SiteTheme`. The default is written with Redis `NX`, so it can never overwrite an agent's concurrent save, and responses are CDN-cached for 60 seconds (`s-maxage=60, stale-while-revalidate=600`), so a season change shows up within about a minute:
 
 ```json
 {
@@ -191,9 +195,11 @@ Repo-only docs:
 }
 ```
 
-`GET /api/cron/generate-daily-game` — the Vercel Cron target (`vercel.json`, scheduled for `00:00 UTC` daily) that pre-generates the day's game via the same build path as `GET /api/daily-game`; idempotent, and bearer-token protected via `CRON_SECRET`.
+`GET /api/cron/generate-daily-game` — the Vercel Cron target (`vercel.json`, scheduled for `00:00 UTC` daily) that pre-generates the day's game via the same build path as `GET /api/daily-game`; idempotent (games are written with Redis `NX`, so a retry never overwrites one), and bearer-token protected via `CRON_SECRET`.
 
-`ALL /api/mcp` is the only other in-repo endpoint — the MCP server described above; see [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for its full tool schemas.
+`GET /api/n5-vocab` — no query params; returns the whole seeded N5 vocabulary pool (`{ success, data: N5Vocab[], count, timestamp }`) for the `/vocab` guide pages.
+
+`ALL /api/mcp` — the MCP server described above; see [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for its full tool schemas.
 
 ## 📖 Data & Attribution
 
