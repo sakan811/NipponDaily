@@ -12,6 +12,31 @@ import type { MatcherFunction } from "vitest";
 (global as any).onMounted = onMounted;
 (global as any).onUnmounted = onUnmounted;
 
+// Node >= 25 ships its own global `localStorage`, which (without
+// --localstorage-file) is a stub lacking clear()/key() and shadows
+// happy-dom's. Give DOM tests a real in-memory Storage so they behave the
+// same on every Node version (CI runs Node 25).
+if (
+  typeof document !== "undefined" &&
+  typeof globalThis.localStorage?.clear !== "function"
+) {
+  const store = new Map<string, string>();
+  const memoryStorage: Storage = {
+    get length() {
+      return store.size;
+    },
+    key: (i) => [...store.keys()][i] ?? null,
+    getItem: (k) => store.get(k) ?? null,
+    setItem: (k, v) => void store.set(k, String(v)),
+    removeItem: (k) => void store.delete(k),
+    clear: () => store.clear(),
+  };
+  Object.defineProperty(globalThis, "localStorage", {
+    configurable: true,
+    value: memoryStorage,
+  });
+}
+
 // Enhanced mock $fetch for all tests with better default responses
 const globalMockFetch = vi.fn();
 globalMockFetch.mockResolvedValue({
