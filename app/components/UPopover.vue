@@ -16,7 +16,7 @@
     >
       <div
         v-if="isOpen"
-        class="absolute left-0 mt-2 z-50 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-xl overflow-hidden p-2"
+        class="absolute left-0 mt-2 z-50 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 season-box shadow-xl overflow-hidden p-2"
       >
         <slot name="content" :close="closePopover" />
       </div>

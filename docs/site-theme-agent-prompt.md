@@ -18,12 +18,12 @@ Japanese season, each switching both the colour palette **and** the UI's
 shape language (card/button/badge silhouettes, dividers, backdrop pattern,
 ambient particles):
 
-| `season` | Months (JST) | Look                                                          |
-| -------- | ------------ | ------------------------------------------------------------- |
-| `sakura` | Mar–May      | Rose & sage; petal-shaped cards, pill buttons, falling petals |
-| `summer` | Jun–Aug      | Sea-teal & morning-glory violet; wave edges, rising fireflies |
-| `autumn` | Sep–Nov      | Momiji red & ginkgo gold; leaf-cut corners, falling maple     |
-| `winter` | Dec–Feb      | Indigo & silver; frosted panels, hexagon badges, falling snow |
+| `season` | Months (JST) | Look                                                                              |
+| -------- | ------------ | --------------------------------------------------------------------------------- |
+| `sakura` | Mar–May      | Rose & sage; notched-petal cards, pill buttons, falling petals                    |
+| `summer` | Jun–Aug      | Sea-teal & morning-glory violet; pebble panels, droplet buttons, rising fireflies |
+| `autumn` | Sep–Nov      | Momiji red & ginkgo gold; bevel-cut leaves and tags, falling maple                |
+| `winter` | Dec–Feb      | Indigo & silver; frosted octagons, hexagon buttons/badges, falling snow           |
 
 A season only becomes selectable once its `[data-season="..."]` palette and
 shape tokens exist in `app/assets/css/tailwind.css`. Never guess at, invent,

@@ -23,7 +23,7 @@
       </h1>
 
       <div
-        class="p-4 mb-8 rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800"
+        class="p-4 mb-8 season-box bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800"
       >
         <p class="m-0 text-blue-900 dark:text-blue-100">
           <strong>👋 Welcome!</strong> Whether you are an experienced developer
@@ -221,7 +221,7 @@
       </p>
 
       <!-- Diagram: MCP Pipeline -->
-      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 rounded-xl">
+      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 season-box">
         <h3
           class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
         >
@@ -272,7 +272,7 @@
       </div>
 
       <div
-        class="my-8 p-4 rounded-xl border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/30 flex items-start gap-3"
+        class="my-8 p-4 season-box border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/30 flex items-start gap-3"
       >
         <UIcon
           name="i-heroicons-information-circle"
@@ -301,7 +301,7 @@
       </div>
 
       <div
-        class="mb-8 p-3 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
+        class="mb-8 p-3 season-box border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
       >
         <strong>🔒 Authentication:</strong> Every call to
         <code>/api/mcp</code> requires an
@@ -397,7 +397,7 @@
       </div>
 
       <div
-        class="p-4 rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-sm"
+        class="p-4 season-box bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-sm"
       >
         <p class="font-semibold mb-2">Attribution</p>
         <p class="mb-2">
@@ -498,7 +498,7 @@
           <div>
             <p class="text-xs font-bold text-gray-500 mb-1">Request Examples</p>
             <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+              class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
             ><code># Today's game
 curl "http://localhost:3000/api/daily-game"</code></pre>
           </div>
@@ -507,7 +507,7 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
               Response (200 OK)
             </p>
             <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+              class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
             ><code>{
   "success": true,
   "data": {
@@ -559,7 +559,7 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
           <div>
             <p class="text-xs font-bold text-gray-500 mb-1">Request Example</p>
             <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+              class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
             ><code>curl "http://localhost:3000/api/site-theme"</code></pre>
           </div>
           <div>
@@ -567,7 +567,7 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
               Response (200 OK)
             </p>
             <pre
-              class="bg-stone-100 dark:bg-stone-900 rounded-xl p-3 overflow-x-auto text-xs m-0"
+              class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
             ><code>{
   "success": true,
   "data": {
@@ -602,7 +602,7 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
         </p>
 
         <div
-          class="mb-2 p-3 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
+          class="mb-2 p-3 season-box border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
         >
           <strong>🔒 Auth required:</strong>
           <code>Authorization: Bearer &lt;CRON_SECRET&gt;</code> header, which
@@ -627,7 +627,7 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
         </p>
 
         <div
-          class="mb-4 p-3 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
+          class="mb-4 p-3 season-box border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
         >
           <strong>🔒 Auth required:</strong>
           <code>Authorization: Bearer &lt;MCP_AUTH_TOKEN&gt;</code> header or

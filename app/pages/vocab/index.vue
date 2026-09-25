@@ -33,7 +33,7 @@
       <!-- Error state -->
       <div
         v-if="error"
-        class="mt-10 rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-6 text-center space-y-3"
+        class="mt-10 season-box border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-6 text-center space-y-3"
       >
         <p class="text-sm text-error-600 dark:text-error-400 font-medium">
           {{ error }}
@@ -128,7 +128,7 @@
               type="text"
               data-testid="vocab-search"
               placeholder="Search by kanji, kana, romaji, or meaning…"
-              class="w-full rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 px-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40"
+              class="w-full season-chip border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 px-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40"
             >
           </div>
 

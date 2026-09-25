@@ -48,7 +48,7 @@
           <div
             v-for="(example, i) in group.examples"
             :key="i"
-            class="rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-4 space-y-1"
+            class="season-box border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-4 space-y-1"
           >
             <p class="font-serif text-lg text-stone-900 dark:text-white">
               {{ example.jp }}
@@ -65,7 +65,7 @@
         <!-- Common mistake -->
         <div
           v-if="group.commonMistake"
-          class="mt-10 max-w-2xl rounded-sm border border-warning-500/20 bg-warning-500/10 p-4 space-y-1.5"
+          class="mt-10 max-w-2xl season-box border border-warning-500/20 bg-warning-500/10 p-4 space-y-1.5"
         >
           <p
             class="text-[11px] uppercase tracking-wide text-warning-700 dark:text-warning-400 font-sans font-medium"
@@ -95,7 +95,7 @@
               type="text"
               data-testid="vocab-type-search"
               placeholder="Search by kanji, kana, romaji, or meaning…"
-              class="w-full rounded-sm border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 px-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40"
+              class="w-full season-chip border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 px-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40"
             >
           </div>
 
