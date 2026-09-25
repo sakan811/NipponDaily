@@ -1,8 +1,8 @@
 /**
- * Curated companion content for the N5 Vocabulary section: the index at
- * app/pages/vocab/index.vue and its per-topic dedicated pages,
- * app/pages/vocab/families/[key].vue (one per WORD_CLUSTERS entry) and
- * app/pages/vocab/types/[key].vue (one per WORD_TYPE_GROUPS entry). None
+ * Curated companion content for the N5 study pages: WORD_CLUSTERS are the
+ * word families the lesson path (app/data/lessons.ts, /learn) is built
+ * from, and WORD_TYPE_GROUPS drive the vocabulary guide at
+ * app/pages/vocab/index.vue and app/pages/vocab/types/[key].vue. None
  * of this is dictionary data — it's editorial grouping/insight text laid
  * on top of the real N5Vocab pool fetched from GET /api/n5-vocab at
  * runtime.
@@ -178,7 +178,7 @@ export const WORD_TYPE_GROUPS: WordTypeGroup[] = [
     key: "pronoun",
     label: "Pronouns & Demonstratives",
     insight:
-      "Personal pronouns (私, あなた) plus the こそあど demonstrative series — see the Word Families section above for how the whole この/その/あの/どの pattern fits together.",
+      "Personal pronouns (私, あなた) plus the こそあど demonstrative series — see the こそあど lessons for how the whole この/その/あの/どの pattern fits together.",
     extendedInsight:
       "Japanese drops pronouns constantly once the subject is clear from context — overusing 私 or あなた the way English requires 'I'/'you' in every sentence is one of the clearest markers of a non-native speaker.",
     examples: [
@@ -328,10 +328,10 @@ export interface WordCluster {
   title: string;
   subtitle: string;
   insight: string;
-  /** A second paragraph of depth shown only on this cluster's dedicated /vocab/families/[key] page. */
+  /** A second paragraph of depth, shown on the first lesson of this cluster. */
   extendedInsight?: string;
   examples?: TopicExample[];
-  /** A single common learner pitfall specific to this cluster, shown on its dedicated page. */
+  /** A single common learner pitfall specific to this cluster, shown on its last lesson. */
   commonMistake?: string;
   /** When true, a row of exactly 2 terms renders as an opposing pair. */
   pairwise?: boolean;

@@ -2,8 +2,8 @@ import { n5DataService } from "../services/n5-data";
 
 /**
  * GET /api/n5-vocab — the full N5 vocabulary pool, for the client-side
- * vocab guide pages (app/pages/vocab/index.vue and its per-topic
- * sub-pages under app/pages/vocab/families/ and app/pages/vocab/types/).
+ * vocab guide pages (app/pages/vocab/index.vue and
+ * app/pages/vocab/types/[key].vue) and the lesson pages (app/pages/learn/).
  * Unlike /api/daily-game this returns the whole static pool as-is;
  * there's nothing per-date to compute or persist here.
  */

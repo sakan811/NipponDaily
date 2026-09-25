@@ -1,7 +1,8 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { mount, flushPromises } from "@vue/test-utils";
 import VocabPage from "~/app/pages/vocab/index.vue";
-import { WORD_CLUSTERS, WORD_TYPE_GROUPS } from "~/app/data/vocab-guide";
+import { WORD_TYPE_GROUPS } from "~/app/data/vocab-guide";
+import { LESSON_NUMBER_BY_WORD } from "~/app/data/lessons";
 import type { N5Vocab } from "~~/types/index";
 
 const createVocab = (overrides: Partial<N5Vocab> = {}): N5Vocab => ({
@@ -26,13 +27,13 @@ describe("Vocab Page", () => {
     expect(wrapper.text()).toContain("N5 Vocabulary");
   });
 
-  it("renders every word cluster's title as a collapsed topic box", () => {
+  it("points learners to the lesson path instead of repeating the word families", () => {
     const wrapper = mount(VocabPage);
-    const text = wrapper.text();
 
-    for (const cluster of WORD_CLUSTERS) {
-      expect(text).toContain(cluster.title);
-    }
+    expect(
+      wrapper.find('[data-testid="vocab-learn-cta"]').attributes("href"),
+    ).toBe("/learn");
+    expect(wrapper.find('a[href^="/vocab/families/"]').exists()).toBe(false);
   });
 
   it("renders a filter pill for every word-type group", () => {
@@ -45,14 +46,21 @@ describe("Vocab Page", () => {
     }
   });
 
-  it("links each word cluster to its dedicated /vocab/families page", () => {
-    const wrapper = mount(VocabPage);
+  it("links each word to the lesson that teaches it", async () => {
+    (global.$fetch as any).mockResolvedValue({
+      success: true,
+      data: [createVocab({ id: "これ", term: "これ", kana: "これ" })],
+      timestamp: new Date().toISOString(),
+    });
 
-    for (const cluster of WORD_CLUSTERS) {
-      expect(
-        wrapper.find(`a[href="/vocab/families/${cluster.key}"]`).exists(),
-      ).toBe(true);
-    }
+    const wrapper = mount(VocabPage);
+    await (wrapper.vm as any).fetchVocab();
+    await flushPromises();
+
+    const link = wrapper.find('[data-testid="vocab-word-lesson"]');
+    expect(link.attributes("href")).toBe(
+      `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}`,
+    );
   });
 
   it("links the active word-type group to its dedicated /vocab/types page", async () => {

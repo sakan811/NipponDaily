@@ -59,3 +59,15 @@ describe("the N5 lesson path", () => {
     }
   });
 });
+
+describe("FAMILY_LESSON_REDIRECTS", () => {
+  it("sends every old /vocab/families page to its topic's first lesson", async () => {
+    const { FAMILY_LESSON_REDIRECTS } = await import("~/app/data/lessons");
+    for (const cluster of WORD_CLUSTERS) {
+      const to = FAMILY_LESSON_REDIRECTS[`/vocab/families/${cluster.key}`];
+      const lesson = getLesson(Number(to?.replace("/learn/", "")));
+      expect(lesson?.clusterKey).toBe(cluster.key);
+      expect(lesson?.part).toBe(1);
+    }
+  });
+});

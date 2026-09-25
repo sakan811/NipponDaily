@@ -2,9 +2,9 @@ import { ref } from "vue";
 import type { N5Vocab } from "~~/types/index";
 
 /**
- * Shared fetch logic for GET /api/n5-vocab, used by the N5 Vocabulary page
- * and its per-topic sub-pages (app/pages/vocab/families/[key].vue,
- * app/pages/vocab/types/[key].vue) so each doesn't duplicate the same
+ * Shared fetch logic for GET /api/n5-vocab, used by the N5 Vocabulary page,
+ * its word-type sub-pages (app/pages/vocab/types/[key].vue) and the lesson
+ * pages (app/pages/learn/[lesson].vue) so each doesn't duplicate the same
  * fetch/loading/error handling.
  */
 export function useN5VocabPool() {

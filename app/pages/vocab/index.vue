@@ -22,11 +22,9 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          Every N5 word in the daily game's pool, plus the context that a raw
-          flashcard list leaves out — how words are actually used, which ones
-          pair up as opposites or polite/plain counterparts, and which small
-          grammar patterns let you learn several at once instead of one at a
-          time.
+          The reference shelf: search any of the N5 words in the daily game's
+          pool, filter by word type, and read how each type behaves in a
+          sentence. Every word links to the lesson that teaches it.
         </p>
       </div>
 
@@ -66,7 +64,7 @@
           <div class="flex flex-wrap items-center justify-between gap-4">
             <div class="space-y-1 max-w-xl">
               <p class="kicker text-primary-600 dark:text-primary-400">
-                New to N5? Start here
+                Learning rather than looking up?
               </p>
               <p
                 class="font-serif text-xl font-bold text-stone-900 dark:text-white"
@@ -75,8 +73,8 @@
                 N5 word
               </p>
               <p class="text-sm text-stone-600 dark:text-stone-400">
-                Words in a sensible order, each broken into its kanji, with a
-                practice round at the end of every lesson.
+                Words in a sensible order, each broken into its kanji, with flip
+                cards to review them before you move on.
               </p>
             </div>
             <UIcon
@@ -85,52 +83,6 @@
             />
           </div>
         </NuxtLink>
-
-        <div class="rule-double my-16" />
-
-        <!-- Word Families -->
-        <section class="space-y-10">
-          <div class="text-center max-w-lg mx-auto space-y-3">
-            <h2
-              class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
-            >
-              Word Families
-            </h2>
-            <div class="rule-double max-w-[120px] mx-auto" />
-            <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
-              N5 words rarely stand alone — these are the clusters, patterns,
-              and pairs that make several of them click at once.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <NuxtLink
-              v-for="(cluster, clusterIndex) in visibleClusters"
-              :key="cluster.key"
-              :to="`/vocab/families/${cluster.key}`"
-              class="group block"
-            >
-              <EmaPlaque :index="clusterIndex">
-                <div class="space-y-2">
-                  <UBadge color="secondary" variant="soft" size="sm">{{
-                    cluster.subtitle
-                  }}</UBadge>
-                  <div class="flex items-center justify-between gap-2">
-                    <h3
-                      class="font-serif text-xl font-bold text-stone-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
-                    >
-                      {{ cluster.title }}
-                    </h3>
-                    <UIcon
-                      name="i-heroicons-arrow-right"
-                      class="w-4 h-4 text-stone-500 dark:text-stone-400 shrink-0 group-hover:text-primary-500 group-hover:translate-x-0.5 transition-all"
-                    />
-                  </div>
-                </div>
-              </EmaPlaque>
-            </NuxtLink>
-          </div>
-        </section>
 
         <div class="rule-double my-16" />
 
@@ -158,7 +110,7 @@
               data-testid="vocab-search"
               placeholder="Search by kanji, kana, romaji, or meaning…"
               class="w-full season-chip border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 px-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40"
-            />
+            >
           </div>
 
           <!-- Category pills -->
@@ -254,6 +206,13 @@
                 >
                   {{ item.meaning }}
                 </p>
+                <NuxtLink
+                  v-if="lessonFor(item.id)"
+                  :to="`/learn/${lessonFor(item.id)}`"
+                  class="inline-block text-[10px] font-medium text-primary-600 dark:text-primary-400 hover:underline"
+                  data-testid="vocab-word-lesson"
+                  >Lesson {{ lessonFor(item.id) }} →</NuxtLink
+                >
               </div>
             </OmamoriCharm>
           </div>
@@ -345,21 +304,16 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from "vue";
 import AppHeader from "../../components/AppHeader.vue";
-import EmaPlaque from "../../components/EmaPlaque.vue";
 import OmamoriCharm from "../../components/OmamoriCharm.vue";
 import { useN5VocabPool } from "../../composables/useN5VocabPool";
-import {
-  WORD_CLUSTERS,
-  WORD_TYPE_GROUPS,
-  classifyPartOfSpeech,
-} from "../../data/vocab-guide";
-import { LESSONS } from "../../data/lessons";
+import { WORD_TYPE_GROUPS, classifyPartOfSpeech } from "../../data/vocab-guide";
+import { LESSONS, LESSON_NUMBER_BY_WORD } from "../../data/lessons";
 
 const PAGE_SIZE = 60;
 const lessonCount = LESSONS.length;
+const lessonFor = (id: string) => LESSON_NUMBER_BY_WORD.get(id);
 
 const wordTypeGroups = WORD_TYPE_GROUPS;
-const visibleClusters = WORD_CLUSTERS;
 
 const { vocabPool, loading, error, fetchVocab } = useN5VocabPool();
 
