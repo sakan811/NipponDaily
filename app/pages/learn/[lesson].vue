@@ -20,14 +20,6 @@
             <UBadge color="secondary" variant="soft" size="sm"
               >Stage {{ stageNumber }} · {{ stage?.title }}</UBadge
             >
-            <UBadge
-              v-if="done"
-              color="success"
-              variant="soft"
-              size="sm"
-              data-testid="lesson-done-badge"
-              >Completed</UBadge
-            >
           </div>
           <p class="kicker text-primary-600 dark:text-primary-400">
             Lesson {{ lesson.number }} of {{ totalLessons }}
@@ -253,11 +245,9 @@
           </div>
         </section>
 
-        <!-- Step 4: in context -->
-        <section
-          v-if="lesson.examples?.length || lesson.commonMistake"
-          class="mt-10 space-y-4"
-        >
+        <!-- Step 4: in context — once per topic, on its last part, so a
+             topic split over several lessons doesn't repeat it each time -->
+        <section v-if="showTopicNotes" class="mt-10 space-y-4">
           <h2 class="step-heading">
             <span class="step-num">{{ lessonKanji.length ? 4 : 3 }}</span> In a
             Sentence
@@ -294,35 +284,25 @@
           </div>
         </section>
 
-        <!-- Practice -->
-        <section class="mt-12 space-y-4" data-testid="lesson-practice">
-          <h2 class="step-heading"><span class="step-num">✓</span> Practice</h2>
+        <!-- Review -->
+        <section class="mt-12 space-y-4" data-testid="lesson-review">
+          <h2 class="step-heading"><span class="step-num">↻</span> Review</h2>
+          <p class="text-sm text-stone-500 dark:text-stone-400">
+            Flip through this lesson's words until each one comes to mind on its
+            own. Nothing is scored or saved — when you want a real test, today's
+            game mixes in words from every lesson.
+          </p>
           <div
             class="season-box border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-4 sm:p-6"
           >
-            <LessonQuiz
+            <LessonReview
               v-if="lessonWords.length"
               :words="lessonWords"
-              :pool="vocabPool"
-              @finished="onQuizFinished"
+              :kanji-hint="kanjiHintFor"
             />
             <p v-else class="text-sm text-center text-stone-500">
-              The practice round appears once the words have loaded.
+              The review cards appear once the words have loaded.
             </p>
-          </div>
-          <div class="flex justify-center">
-            <button
-              type="button"
-              class="text-xs text-stone-400 hover:text-primary-500 underline cursor-pointer"
-              data-testid="lesson-toggle-complete"
-              @click="toggleDone"
-            >
-              {{
-                done
-                  ? "Mark as not complete"
-                  : "Mark as complete without practising"
-              }}
-            </button>
           </div>
         </section>
 
@@ -405,10 +385,9 @@
 import { computed, onMounted } from "vue";
 import { useRoute } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
-import LessonQuiz from "../../components/LessonQuiz.vue";
+import LessonReview from "../../components/LessonReview.vue";
 import { useN5VocabPool } from "../../composables/useN5VocabPool";
 import { useN5KanjiPool } from "../../composables/useN5KanjiPool";
-import { useLessonProgress } from "../../composables/useLessonProgress";
 import {
   FIRST_LESSON_BY_KANJI,
   LESSONS,
@@ -442,11 +421,11 @@ const nextLesson = computed(() =>
 
 const { vocabPool, loading, error, fetchVocab } = useN5VocabPool();
 const { kanjiPool, fetchKanji } = useN5KanjiPool();
-const { load, isCompleted, markCompleted, markIncomplete } =
-  useLessonProgress();
-
-const done = computed(() =>
-  lesson.value ? isCompleted(lesson.value.number) : false,
+const showTopicNotes = computed(
+  () =>
+    !!lesson.value &&
+    lesson.value.part === lesson.value.partCount &&
+    !!(lesson.value.examples?.length || lesson.value.commonMistake),
 );
 
 const vocabById = computed(() => {
@@ -524,18 +503,14 @@ function otherWordsWith(char: string): N5Vocab[] {
     .slice(0, ALSO_IN_LIMIT);
 }
 
-function onQuizFinished(result: { passed: boolean }): void {
-  if (result.passed && lesson.value) markCompleted(lesson.value.number);
-}
-
-function toggleDone(): void {
-  if (!lesson.value) return;
-  if (done.value) markIncomplete(lesson.value.number);
-  else markCompleted(lesson.value.number);
+/** "月 month, moon · 曜 weekday" — the review card's kanji reminder. */
+function kanjiHintFor(term: string): string {
+  return kanjiInTerm(term)
+    .map((char) => `${char} ${shortKanjiMeaning(char)}`.trim())
+    .join(" · ");
 }
 
 onMounted(() => {
-  load();
   fetchVocab();
   fetchKanji();
 });

@@ -88,13 +88,13 @@ const features = [
   {
     title: "N5 Lesson Path",
     description:
-      "All 718 N5 words laid out as 82 short lessons at /learn. Each lesson explains its pattern, breaks every word into its kanji, shows where else each kanji appears, and ends with a two-way practice quiz. Progress stays in the browser.",
+      "All 718 N5 words laid out as 82 short lessons at /learn. Each lesson explains its pattern, breaks every word into its kanji, shows where else each kanji appears, and ends with unscored flip-card review. Nothing about the learner is saved.",
     icon: "i-heroicons-academic-cap",
   },
   {
     title: "Kana & Vocabulary Guides",
     description:
-      "Study references alongside the game: a hiragana/katakana chart with romaji at /kana, and the full N5 vocabulary pool at /vocab, grouped by word family and word type.",
+      "Study references alongside the game: a hiragana/katakana chart with romaji at /kana, and the full N5 vocabulary pool at /vocab to search and filter by word type, with each word linked to its lesson.",
     icon: "i-heroicons-book-open",
   },
   {

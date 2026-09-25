@@ -24,53 +24,58 @@
           {{ lessons.length }} lessons cover all {{ totalWords }} N5 words, in
           an order where each one builds on the last. Every lesson is under a
           dozen words, breaks each word into the kanji it's written with, and
-          ends with a quick practice round.
+          ends with flip cards to review them.
         </p>
       </div>
 
-      <!-- Progress + continue -->
-      <div
-        class="mt-10 season-box border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 sm:p-6 space-y-4"
-        data-testid="learn-progress"
-      >
-        <div class="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <p class="kicker text-stone-400 dark:text-stone-500">
-              Your progress
-            </p>
-            <p
-              class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
-            >
-              {{ completedCount }} / {{ lessons.length }} lessons ·
-              {{ learnedWords }} / {{ totalWords }} words
-            </p>
-          </div>
-          <UButton
-            data-testid="learn-continue"
-            :label="continueLabel"
-            :to="`/learn/${continueNumber}`"
-            color="primary"
-            size="lg"
-            icon="i-heroicons-arrow-right"
-            trailing
-          />
-        </div>
-        <div
-          class="h-2 w-full bg-stone-200 dark:bg-stone-800 rounded-full overflow-hidden"
-          role="progressbar"
-          :aria-valuenow="completedCount"
-          aria-valuemin="0"
-          :aria-valuemax="lessons.length"
-        >
-          <div
-            class="h-full bg-primary-500 transition-all"
-            :style="{ width: `${progressPercent}%` }"
-          />
-        </div>
-        <p class="text-xs text-stone-500 dark:text-stone-400">
-          Progress is saved in this browser only — finish a lesson's practice
-          round with {{ passPercent }}% or more to tick it off.
+      <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <UButton
+          data-testid="learn-start"
+          label="Start with Lesson 1"
+          to="/learn/1"
+          color="primary"
+          size="lg"
+          icon="i-heroicons-arrow-right"
+          trailing
+        />
+        <p class="text-sm text-stone-500 dark:text-stone-400">
+          Already know some? Jump to any stage below.
         </p>
+      </div>
+
+      <!-- How the three study pages fit together -->
+      <div
+        class="mt-10 season-box border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 p-5 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm"
+        data-testid="learn-roles"
+      >
+        <div class="space-y-1">
+          <p class="kicker text-primary-600 dark:text-primary-400">
+            Lessons · learn
+          </p>
+          <p class="text-stone-600 dark:text-stone-400">
+            New words in order, a few at a time, with their kanji.
+          </p>
+        </div>
+        <NuxtLink to="/vocab" class="group space-y-1">
+          <p
+            class="kicker text-stone-500 dark:text-stone-400 group-hover:text-primary-500"
+          >
+            Vocabulary · look up
+          </p>
+          <p class="text-stone-600 dark:text-stone-400">
+            Search any word or read the grammar guide for each word type.
+          </p>
+        </NuxtLink>
+        <NuxtLink to="/game" class="group space-y-1">
+          <p
+            class="kicker text-stone-500 dark:text-stone-400 group-hover:text-primary-500"
+          >
+            Daily game · test
+          </p>
+          <p class="text-stone-600 dark:text-stone-400">
+            20 mixed questions a day, drawn from the whole N5 pool.
+          </p>
+        </NuxtLink>
       </div>
 
       <!-- How a lesson works -->
@@ -112,8 +117,9 @@
               {{ stage.title }}
             </h2>
             <span class="text-xs text-stone-400 dark:text-stone-500">
-              {{ stageDone(stage.key) }} / {{ stageLessons(stage.key).length }}
-              done
+              Lessons {{ stageLessons(stage.key)[0]?.number }}–{{
+                stageLessons(stage.key).at(-1)?.number
+              }}
             </span>
           </div>
           <p
@@ -127,30 +133,13 @@
               v-for="lesson in stageLessons(stage.key)"
               :key="lesson.number"
               :to="`/learn/${lesson.number}`"
-              class="group season-box border bg-white dark:bg-stone-900/50 p-4 flex items-start gap-3 transition-colors"
-              :class="
-                isCompleted(lesson.number)
-                  ? 'border-success-500/40'
-                  : lesson.number === continueNumber
-                    ? 'border-primary-500/60'
-                    : 'border-stone-300 dark:border-stone-800 hover:border-primary-500/40'
-              "
+              class="group season-box border border-stone-300 dark:border-stone-800 hover:border-primary-500/40 bg-white dark:bg-stone-900/50 p-4 flex items-start gap-3 transition-colors"
               :data-testid="`learn-lesson-${lesson.number}`"
             >
               <span
-                class="shrink-0 w-9 h-9 flex items-center justify-center rounded-full text-sm font-mono font-bold"
-                :class="
-                  isCompleted(lesson.number)
-                    ? 'bg-success-500/15 text-success-600 dark:text-success-400'
-                    : 'bg-primary-500/10 text-primary-600 dark:text-primary-400'
-                "
+                class="shrink-0 w-9 h-9 flex items-center justify-center rounded-full text-sm font-mono font-bold bg-primary-500/10 text-primary-600 dark:text-primary-400"
               >
-                <UIcon
-                  v-if="isCompleted(lesson.number)"
-                  name="i-heroicons-check-circle"
-                  class="w-5 h-5"
-                />
-                <template v-else>{{ lesson.number }}</template>
+                {{ lesson.number }}
               </span>
               <span class="min-w-0 space-y-0.5">
                 <span
@@ -269,7 +258,6 @@
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 import AppHeader from "../../components/AppHeader.vue";
-import { useLessonProgress } from "../../composables/useLessonProgress";
 import { useN5KanjiPool } from "../../composables/useN5KanjiPool";
 import {
   FIRST_LESSON_BY_KANJI,
@@ -282,7 +270,6 @@ import type { N5Kanji } from "~~/types/index";
 const lessons = LESSONS;
 const stages = LESSON_STAGES;
 const totalWords = LESSONS.reduce((sum, l) => sum + l.wordIds.length, 0);
-const passPercent = 80;
 const kanjiOrder = [...FIRST_LESSON_BY_KANJI.entries()];
 
 const steps = [
@@ -295,13 +282,11 @@ const steps = [
     body: "Each word shows its reading, every meaning, and the kanji inside it — so 日 learnt once pays off in 日曜日, 毎日 and 明日.",
   },
   {
-    title: "Practise",
-    body: "A quick quiz both ways (word → meaning, meaning → word). Pass it and the lesson is ticked off; then press Next.",
+    title: "Review, then move on",
+    body: "Flip through the lesson's words as cards until each one comes to mind, then press Next. The daily game is where you test it all.",
   },
 ];
 
-const { completedCount, completed, load, isCompleted, nextLessonNumber } =
-  useLessonProgress();
 const { kanjiPool, fetchKanji } = useN5KanjiPool();
 
 const kanjiByChar = computed(() => {
@@ -310,30 +295,8 @@ const kanjiByChar = computed(() => {
   return map;
 });
 
-const continueNumber = computed(
-  () => nextLessonNumber(lessons.length) ?? lessons.length,
-);
-const continueLabel = computed(() => {
-  if (completedCount.value === 0) return "Start Lesson 1";
-  if (nextLessonNumber(lessons.length) === null)
-    return "Review the Last Lesson";
-  return `Continue with Lesson ${continueNumber.value}`;
-});
-const learnedWords = computed(() =>
-  lessons
-    .filter((l) => completed.value.has(l.number))
-    .reduce((sum, l) => sum + l.wordIds.length, 0),
-);
-const progressPercent = computed(() =>
-  Math.round((completedCount.value / lessons.length) * 100),
-);
-
 function stageLessons(stageKey: string): Lesson[] {
   return lessons.filter((l) => l.stageKey === stageKey);
-}
-
-function stageDone(stageKey: string): number {
-  return stageLessons(stageKey).filter((l) => isCompleted(l.number)).length;
 }
 
 function lessonTitle(lesson: Lesson): string {
@@ -357,7 +320,6 @@ function kanjiTitle(char: string, lessonNumber: number): string {
 }
 
 onMounted(() => {
-  load();
   fetchKanji();
 });
 

@@ -304,3 +304,18 @@ export const FIRST_LESSON_BY_KANJI: ReadonlyMap<string, number> = (() => {
   }
   return first;
 })();
+
+/**
+ * The old /vocab/families/<key> topic pages were folded into the lesson
+ * path; nuxt.config.ts turns this into permanent redirects so existing
+ * links land on each topic's first lesson.
+ */
+export const FAMILY_LESSON_REDIRECTS: Record<string, string> =
+  Object.fromEntries(
+    WORD_CLUSTERS.flatMap((cluster) => {
+      const first = LESSONS.find((l) => l.clusterKey === cluster.key);
+      return first
+        ? [[`/vocab/families/${cluster.key}`, `/learn/${first.number}`]]
+        : [];
+    }),
+  );

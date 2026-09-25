@@ -2,6 +2,10 @@ import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import DailyGameBoard from "~/app/components/DailyGameBoard.vue";
 import { makeDailyGame, makeQuestion, mockFetchGame } from "./setup";
+import {
+  FIRST_LESSON_BY_KANJI,
+  LESSON_NUMBER_BY_WORD,
+} from "~/app/data/lessons";
 
 async function loadGame(wrapper: ReturnType<typeof mount>) {
   await wrapper.vm.fetchGame();
@@ -50,6 +54,43 @@ describe("DailyGameBoard gameplay", () => {
 
     expect(wrapper.vm.isFinished).toBe(true);
     expect(wrapper.text()).toContain("Round Complete!");
+  });
+
+  it("links missed kanji and vocab to the lesson that teaches them", async () => {
+    mockFetchGame(
+      makeDailyGame([
+        makeQuestion({ id: "水", kind: "kanji", prompt: "水" }),
+        makeQuestion({
+          id: "これ",
+          kind: "vocab",
+          prompt: "これ",
+          correctAnswer: "this one",
+          choices: ["this one", "fire", "tree", "person"],
+        }),
+      ]),
+    );
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
+    await loadGame(wrapper);
+
+    for (let i = 0; i < 2; i++) {
+      const q = wrapper.vm.currentQuestion;
+      wrapper.vm.selectChoice(
+        q.choices.find((c: string) => c !== q.correctAnswer)!,
+      );
+      wrapper.vm.advance();
+    }
+    await wrapper.vm.$nextTick();
+
+    const links = wrapper
+      .find('[data-testid="game-missed-lessons"]')
+      .findAll("a")
+      .map((a) => a.attributes("href"));
+    expect(links).toEqual(
+      expect.arrayContaining([
+        `/learn/${FIRST_LESSON_BY_KANJI.get("水")}`,
+        `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}`,
+      ]),
+    );
   });
 
   it("Play Again resets progress back to the first question", async () => {

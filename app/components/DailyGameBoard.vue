@@ -212,6 +212,27 @@
                   </OmamoriCharm>
                 </div>
 
+                <div
+                  v-if="missedToStudy.length"
+                  class="space-y-2 pt-2"
+                  data-testid="game-missed-lessons"
+                >
+                  <p class="kicker text-stone-400 dark:text-stone-500">
+                    Brush up in the lessons
+                  </p>
+                  <div class="flex flex-wrap justify-center gap-2">
+                    <NuxtLink
+                      v-for="item in missedToStudy"
+                      :key="`${item.kind}-${item.id}`"
+                      :to="`/learn/${item.lesson}`"
+                      class="season-chip border border-stone-300 dark:border-stone-700 px-3 py-1 text-xs text-stone-700 dark:text-stone-300 hover:border-primary-500/50 transition-colors"
+                    >
+                      <span class="font-serif text-sm">{{ item.prompt }}</span>
+                      · Lesson {{ item.lesson }}
+                    </NuxtLink>
+                  </div>
+                </div>
+
                 <UButton
                   label="Play Again"
                   color="primary"
@@ -241,6 +262,7 @@ import TrendingFallback from "./TrendingFallback.vue";
 import EmaPlaque from "./EmaPlaque.vue";
 import HankoSeal from "./HankoSeal.vue";
 import OmamoriCharm from "./OmamoriCharm.vue";
+import { FIRST_LESSON_BY_KANJI, LESSON_NUMBER_BY_WORD } from "../data/lessons";
 
 const props = withDefaults(
   defineProps<{
@@ -268,6 +290,9 @@ const playIndex = ref(0);
 
 const currentIndex = ref(0);
 const selectedChoice = ref<string | null>(null);
+/** Kanji/vocab questions answered wrong this round — kept in component
+ *  state only, to point at the lesson that teaches each one. */
+const missed = ref<GameQuestion[]>([]);
 const isAnswered = ref(false);
 const perKindStats =
   ref<Record<N5PoolKind, { correct: number; total: number }>>(emptyStats());
@@ -344,6 +369,8 @@ function selectChoice(choice: string): void {
 
   if (correct) {
     perKindStats.value[kind].correct++;
+  } else {
+    missed.value = [...missed.value, currentQuestion.value];
   }
 }
 
@@ -360,7 +387,20 @@ function restart(): void {
   selectedChoice.value = null;
   isAnswered.value = false;
   perKindStats.value = emptyStats();
+  missed.value = [];
 }
+
+const missedToStudy = computed(() =>
+  missed.value.flatMap((q) => {
+    const lesson =
+      q.kind === "vocab"
+        ? LESSON_NUMBER_BY_WORD.get(q.id)
+        : q.kind === "kanji"
+          ? FIRST_LESSON_BY_KANJI.get(q.prompt)
+          : undefined;
+    return lesson ? [{ id: q.id, kind: q.kind, prompt: q.prompt, lesson }] : [];
+  }),
+);
 
 const fetchGame = async (): Promise<void> => {
   loading.value = true;
@@ -415,5 +455,6 @@ defineExpose({
   advance,
   restart,
   perKindStats,
+  missedToStudy,
 });
 </script>
