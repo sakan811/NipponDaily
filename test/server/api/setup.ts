@@ -23,6 +23,7 @@ export const mockGetDailyGames = vi.fn();
 export const mockSaveDailyGame = vi.fn();
 export const mockGetFullPool = vi.fn();
 export const mockGetVocabPool = vi.fn();
+export const mockGetKanjiPool = vi.fn();
 
 vi.mock("~/server/services/n5-data", async (importOriginal) => {
   const actual =
@@ -35,6 +36,7 @@ vi.mock("~/server/services/n5-data", async (importOriginal) => {
       saveDailyGame: mockSaveDailyGame,
       getFullPool: mockGetFullPool,
       getVocabPool: mockGetVocabPool,
+      getKanjiPool: mockGetKanjiPool,
     },
   };
 });
@@ -135,6 +137,12 @@ export const getVocabHandler = async () => {
   return handlerModule.default;
 };
 
+// Helper function to get the n5-kanji handler
+export const getKanjiHandler = async () => {
+  const handlerModule = await import("~/server/api/n5-kanji.get");
+  return handlerModule.default;
+};
+
 // Helper function to get the generate-daily-game cron handler
 export const getCronGenerateDailyGameHandler = async () => {
   const handlerModule =
@@ -152,6 +160,7 @@ export const setupDefaults = () => {
   mockSaveDailyGame.mockResolvedValue(undefined);
   mockGetFullPool.mockResolvedValue(createMockPool());
   mockGetVocabPool.mockResolvedValue(createMockPool().vocab);
+  mockGetKanjiPool.mockResolvedValue(createMockPool().kanji);
   mockGetActiveTheme.mockResolvedValue(null);
   mockSaveActiveTheme.mockResolvedValue(undefined);
 };

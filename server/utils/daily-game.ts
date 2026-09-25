@@ -7,6 +7,7 @@ import type {
   N5PoolKind,
   N5Vocab,
 } from "~~/types/index";
+import { kanjiMeaningLabel, pickDistractors } from "~~/shared/meanings";
 
 /**
  * Everything needed to build a DailyGame, mirroring N5DataService.getFullPool().
@@ -103,7 +104,8 @@ function correctAnswerFor(
 ): string {
   switch (kind) {
     case "kanji":
-      return (item as N5Kanji).meanings[0]!;
+      // Several meanings, not just the first — see kanjiMeaningLabel.
+      return kanjiMeaningLabel((item as N5Kanji).meanings);
     case "vocab":
       return (item as N5Vocab).meaning;
     case "hiragana":
@@ -153,8 +155,13 @@ function toQuestion(
   const candidates = poolForKind(pool, kind).filter(
     (other) => other.id !== item.id,
   );
-  const distractors = pick(candidates, DISTRACTOR_COUNT, rng).map((other) =>
-    correctAnswerFor(kind, other),
+  // Distractors must not overlap the correct answer (or each other), so
+  // e.g. 暑い "hot (weather)" never sits beside 熱い "hot (objects)" and
+  // 在る/有る's identical "to be, to have" never appear together.
+  const distractors = pickDistractors(
+    correctAnswer,
+    shuffle(candidates, rng).map((other) => correctAnswerFor(kind, other)),
+    DISTRACTOR_COUNT,
   );
   const choices = shuffle([correctAnswer, ...distractors], rng);
   const { prompt, promptSub } = promptFor(kind, item);

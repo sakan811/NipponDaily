@@ -59,6 +59,20 @@ describe("N5DataService", () => {
     expect(await service.getVocabPool()).toEqual([]);
   });
 
+  it("getVocabPool fills in under-glossed meanings from shared/meanings.ts", async () => {
+    redisState.smembers.mockResolvedValue(["早い", "速い"]);
+    redisState.mget.mockResolvedValue([
+      { id: "早い", term: "早い", kana: "はやい", meaning: "early" },
+      { id: "速い", term: "速い", kana: "はやい", meaning: "fast, quick" },
+    ]);
+    const service = new N5DataService();
+
+    const vocab = await service.getVocabPool();
+
+    expect(vocab[0]!.meaning).toBe("early; quick, soon");
+    expect(vocab[1]!.meaning).toBe("fast, quick");
+  });
+
   it("getFullPool reads all four pools in parallel", async () => {
     redisState.smembers.mockResolvedValue([]);
     const service = new N5DataService();
