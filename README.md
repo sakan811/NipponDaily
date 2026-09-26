@@ -125,7 +125,7 @@ NipponDaily uses three Vitest projects configured in `vitest.config.ts`:
 - **Unit Tests**: Component/UI tests in a `happy-dom` environment (`test/unit`).
 - **Server/API Tests**: API endpoint and service tests in a `node` environment (`test/server`). Endpoint tests mock `n5DataService` / `siteThemeService`; service tests mock the Upstash client.
 
-- **Content-Truth Tests**: `test/content` checks lesson content (example rōmaji, N5 word forms and readings, hand-written meanings, prose, the kana guide) against `data/reference/n5-reference.json`. See [`docs/content-accuracy.md`](docs/content-accuracy.md).
+- **Content-Truth Tests**: `test/content` checks lesson content (example rōmaji, N5 word forms and readings, hand-written meanings, prose, the kana guide) against `data/reference/n5-reference.json`. See [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
 
 A few tests guard against drift rather than behaviour: `test/unit/seasons-css-sync.test.ts` checks `shared/seasons.ts` against the real CSS cascade in `tailwind.css`, and `test/unit/icons.test.ts` fails if the app references an icon that `app/data/icons.ts` doesn't define.
 
@@ -152,14 +152,14 @@ See [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for full 
 
 The running site ships in-app documentation at `/docs`:
 
-- **System Architecture** (`/docs/architecture`) — a tour of the stack, the N5 data model, MCP server tool schemas, and data attribution, with diagrams
+- **System Architecture** (`/docs/architecture`) — a tour of the stack and MCP server tool schemas, with diagrams
 - **Color Palette & System** (`/docs/color-palette`) — every season's light/dark palette as named color badges, plus the seasonal shape language
 - **Core Features** (`/docs/features`) — the player-facing capabilities
 - **Error & Fallback States** (`/docs/error-states`) — a live catalogue of every degraded, empty, or failure state the UI can render, shown with the real components and mock data
+- **Data Integrity & Attribution** (`/docs/data-integrity`) — the N5 data model and its licensing, how lesson content is kept true, what CI checks, and what to do when a check fails
 
 Repo-only docs:
 
-- [`docs/content-accuracy.md`](docs/content-accuracy.md) — how lesson content is kept true, what CI checks, and what to do when a check fails.
 - [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md) — the operating prompt for the external theme agent. Keep it in sync with the MCP tool set.
 
 ## 🔌 API Endpoints

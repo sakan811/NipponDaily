@@ -162,8 +162,9 @@
           <div class="rule-double max-w-[120px] mx-auto" />
           <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
             Everything behind the front page — the system architecture, the
-            color system, the reader-facing features, and a live catalogue of
-            every error and fallback state the site can render.
+            color system, the reader-facing features, the data sources and CI
+            checks that keep every lesson true, and a live catalogue of every
+            error and fallback state the site can render.
           </p>
         </div>
 
@@ -207,7 +208,7 @@
           >
           (MIT) —
           <NuxtLink
-            to="/docs/architecture#data-attribution"
+            to="/docs/data-integrity#data-attribution"
             class="underline hover:text-primary-500"
             >full attribution</NuxtLink
           >
@@ -282,6 +283,13 @@ const docsPages = [
     description:
       "A live catalogue of every degraded, empty, or failure state the UI can render — shown with the real components and mock data so their look can be reviewed without triggering an outage.",
     icon: "i-heroicons-exclamation-triangle",
+  },
+  {
+    to: "/docs/data-integrity",
+    title: "Data Integrity & Attribution",
+    description:
+      "Where the N5 kanji, kana, and vocabulary pool comes from and how it's licensed, plus the CI checks that verify every hand-written fact against committed JMdict and KANJIDIC2 evidence before a PR can merge.",
+    icon: "i-heroicons-shield-check",
   },
 ];
 </script>
