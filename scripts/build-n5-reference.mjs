@@ -14,9 +14,10 @@
  * Sources (pinned — bump deliberately, then re-run and review the diff):
  *   - JMdict + KANJIDIC2 via the jamdict-data package (PyPI), a checksum-
  *     verified SQLite build of the EDRDG files. © EDRDG, CC BY-SA 4.0.
- *   - The N5 word list (elzup/jlpt-word-list, MIT) at a fixed commit — the
- *     same list scripts/seed-n5-data.mjs seeds from, parsed with the same
- *     code so ids match the live pool exactly.
+ *   - The N5 word list (elzup/jlpt-word-list, MIT), pinned in
+ *     scripts/n5-word-list-source.mjs — the same pin
+ *     scripts/seed-n5-data.mjs seeds from, parsed with the same code so ids
+ *     match the live pool exactly.
  *
  * Requires Node >= 22 (node:sqlite), plus `tar` and `xz` on PATH.
  * Usage: pnpm data:reference
@@ -35,6 +36,7 @@ import { fileURLToPath } from "node:url";
 import { DatabaseSync } from "node:sqlite";
 import kuromoji from "kuromoji";
 import { parseN5Csv, slugify } from "./seed-n5-data.mjs";
+import { WORD_LIST_SOURCE } from "./n5-word-list-source.mjs";
 import { servedVocab } from "../shared/meanings.ts";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -49,11 +51,7 @@ export const JAMDICT_SOURCE = {
   sha256: "a4247dd9bb3148ab17c1b32fc56d7a7f1c35293b0d6ff2838c811f896d13f415",
 };
 
-export const WORD_LIST_SOURCE = {
-  repo: "elzup/jlpt-word-list",
-  commit: "13aa3c54b27115be72d8a62cd4071077c68d2171",
-  path: "src/n5.csv",
-};
+export { WORD_LIST_SOURCE };
 
 /** Max adjacent tokens joined when looking up multi-token words (三日,
  *  二十日, 日曜日 …) that the tokenizer splits into pieces. */

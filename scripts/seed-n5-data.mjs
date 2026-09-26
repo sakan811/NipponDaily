@@ -8,7 +8,11 @@
  *
  * Sources:
  *  - N5 word list: elzup/jlpt-word-list (MIT), src/n5.csv — digitizes the
- *    community-standard N5 list originally compiled at tanos.co.uk.
+ *    community-standard N5 list originally compiled at tanos.co.uk. Pinned to
+ *    the same commit scripts/build-n5-reference.mjs reads (see
+ *    scripts/n5-word-list-source.mjs), so this seed and the committed
+ *    dictionary evidence the content-truth tests check it against can never
+ *    silently diverge.
  *  - Full dictionary entries + part of speech: JMdict, via the
  *    jmdict-simplified project's pre-parsed English release,
  *    https://github.com/scriptin/jmdict-simplified
@@ -27,7 +31,7 @@
  * files don't import each other since this runs as a bare `node` process
  * outside the Nuxt context.
  *
- * Usage: pnpm seed:n5   (wraps: doppler run -- node scripts/seed-n5-data.mjs)
+ * Usage: pnpm seed:n5   (runs: node scripts/seed-n5-data.mjs)
  */
 import { pipeline } from "node:stream/promises";
 import { createWriteStream } from "node:fs";
@@ -38,13 +42,12 @@ import path from "node:path";
 import { promisify } from "node:util";
 import { Redis } from "@upstash/redis";
 import { toRomaji } from "wanakana";
+import { N5_CSV_URL } from "./n5-word-list-source.mjs";
 
 const execFileAsync = promisify(execFile);
 
 const RELEASES_API =
   "https://api.github.com/repos/scriptin/jmdict-simplified/releases/latest";
-const N5_CSV_URL =
-  "https://raw.githubusercontent.com/elzup/jlpt-word-list/master/src/n5.csv";
 const KANJI_COUNT_SANITY_RANGE = [80, 150];
 
 // --- Static kana seed data (46-symbol gojūon + dakuten/handakuten/small kana per script) ---
@@ -629,7 +632,7 @@ function getRedisClient() {
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !token) {
     throw new Error(
-      "UPSTASH_REDIS_REST_URL/UPSTASH_REDIS_REST_TOKEN not set — run via `pnpm seed:n5` (doppler) or export them yourself.",
+      "UPSTASH_REDIS_REST_URL/UPSTASH_REDIS_REST_TOKEN not set — export them (e.g. from .env) before running `pnpm seed:n5`.",
     );
   }
   return new Redis({ url, token });
