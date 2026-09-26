@@ -35,6 +35,13 @@ fails. Use wāpuro rōmaji (`ou`, `ei`, no macrons).
 - has no meaning that reverses JMdict's (this ↔ that, come ↔ go…);
 - is taught by exactly one lesson, and every lesson word is a real pool word.
 
+**Word-card rōmaji** (`romaji.test.ts`) — the seed converts kana to
+rōmaji letter by letter, which is wrong wherever は/へ/を are particles
+(では is `dewa`, not `deha`). Each word's written form is tokenized so
+particle は (pronounced わ) is told apart from the letter は (歯 `ha`), and
+every served rōmaji must match the spoken form. Fix a failure with a
+`romaji` entry in `VOCAB_FORM_CORRECTIONS`.
+
 **Every hand-written meaning** — enrichments, seed-time overrides, and
 corrections — must be backed by JMdict: each `;`-separated sense has to share
 a content word with one of the word's JMdict glosses. Seed reading overrides
@@ -57,6 +64,8 @@ silently pass everything.
   `VOCAB_FORM_CORRECTIONS` entry in `shared/meanings.ts` with the correct
   form and a `reason` citing the JMdict entry id, then run
   `pnpm data:reference`.
+- **A word's rōmaji is wrong** → add a `romaji` correction in
+  `VOCAB_FORM_CORRECTIONS` (ids stay the same; no re-seed).
 - **A meaning isn't backed** → reword it to match what JMdict says, or drop
   the sense. Don't widen the checker to let it through.
 - **An example's rōmaji doesn't match** → fix the rōmaji (or the Japanese).
