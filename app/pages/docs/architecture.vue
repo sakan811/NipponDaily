@@ -122,7 +122,7 @@
             persisted pool, avoiding any kanji/vocab/kana used in the past 7
             days. It never calls any external search or AI provider itself. A
             Vercel Cron job hits this same build path at 00:00 UTC daily so the
-            game is usually already there by the first visitor (Section 4).
+            game is usually already there by the first visitor (Section 3).
           </p>
         </UCard>
 
@@ -143,8 +143,12 @@
           <p class="text-sm">
             <strong>Technical Details:</strong> Powered by Upstash Redis,
             storing the static N5 kanji/vocab/kana pool (seeded offline, see
-            Section 3), one small <code>DailyGame</code> record per date, and
-            the single active <code>SiteTheme</code> record the theme agent
+            the
+            <NuxtLink to="/docs/data-integrity" class="underline"
+              >Data Integrity &amp; Attribution</NuxtLink
+            >
+            docs), one small <code>DailyGame</code> record per date, and the
+            single active <code>SiteTheme</code> record the theme agent
             controls (Section 2). When the Redis env vars are absent, the
             service falls back to an in-process in-memory store so the app still
             runs locally.
@@ -210,7 +214,7 @@
       </h2>
 
       <p class="text-lg mb-6">
-        The daily game is generated entirely in-repo (Section 4) — no agent
+        The daily game is generated entirely in-repo (Section 3) — no agent
         involved. What an external agent <em>does</em> control is design: a
         <strong>Claude web agent</strong> — scheduled via Claude's own web
         scheduling feature, entirely outside this repository — checks
@@ -285,7 +289,7 @@
           <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
             <code>GET /api/site-theme</code> only ever reads from Redis first —
             but if no agent has set a season yet, it falls back to a
-            deterministic default (Section 4) rather than returning nothing. The
+            deterministic default (Section 3) rather than returning nothing. The
             same <code>data-season</code> attribute that switches the color
             palette also drives
             <code>app/components/SeasonalEffects.vue</code>'s ambient graphic —
@@ -311,240 +315,13 @@
       </div>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- DATA & ATTRIBUTION                                                 -->
-      <!-- ══════════════════════════════════════════════════════════════════ -->
-
-      <h2
-        id="data-attribution"
-        class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
-      >
-        3. N5 Data & Attribution
-      </h2>
-
-      <p class="text-lg mb-6">
-        Hiragana, katakana, N5 kanji, and N5 vocabulary are static reference
-        data — they don't change day to day, so they're seeded once (or
-        re-seeded occasionally, e.g. to pick up a newer JMdict release) by a
-        standalone script rather than by any agent or request:
-        <code>pnpm seed:n5</code> (<code>scripts/seed-n5-data.mjs</code>).
-      </p>
-
-      <!-- Diagram: N5 Data Pipeline -->
-      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 season-box">
-        <h3
-          class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
-        >
-          The N5 Data Pipeline, End to End (Zoomable)
-        </h3>
-        <MermaidDiagram id="n5-pipeline-diag" :code="n5PipelineDiagram" />
-        <p class="text-center text-xs text-gray-500 mt-4 italic">
-          Left: what the site actually serves. Right: an independent, offline
-          snapshot the left side is checked against in CI.
-        </p>
-      </div>
-
-      <p class="mb-4">
-        There are really two pipelines here, built from the same sources but run
-        completely separately, so a mistake in one can't hide the same mistake
-        in the other:
-      </p>
-
-      <ol
-        class="list-decimal pl-6 space-y-3 mb-8 text-gray-700 dark:text-gray-300"
-      >
-        <li>
-          <strong>Seed the pool.</strong> <code>pnpm seed:n5</code> fetches the
-          N5 word list (a pinned commit of <code>elzup/jlpt-word-list</code>,
-          via <code>scripts/n5-word-list-source.mjs</code>) plus the latest
-          JMdict + KANJIDIC2 release, cross-references every word for its
-          reading and part of speech, derives every kana/word's
-          <code>romaji</code> with <code>wanakana</code>, and writes the whole
-          pool into Redis (<code>n5:vocab:*</code>, <code>n5:kanji:*</code>,
-          <code>n5:hiragana:*</code>, <code>n5:katakana:*</code>). This runs
-          once, offline — never at request time.
-        </li>
-        <li>
-          <strong>Serve it, with corrections.</strong>
-          <code>N5DataService</code> (<code>server/services/n5-data.ts</code>)
-          reads the pool straight from Redis, then applies
-          <code>shared/meanings.ts</code>'s <code>servedVocab()</code> — form
-          corrections for the rare word the source list simply gets wrong (e.g.
-          ラジオカセ → the real word, ラジカセ), and fuller meaning enrichments
-          (早い as "early; quick, soon", not just "early"). This runs on every
-          read, so a fix ships instantly with no re-seed.
-          <code>GET /api/n5-vocab</code>, <code>GET /api/n5-kanji</code>, and
-          the daily game's <code>buildDailyGame()</code> all read through this
-          same corrected layer, so the game, the <code>/vocab</code> guide, and
-          the <code>/learn</code> lesson path never disagree about what a word
-          means.
-        </li>
-        <li>
-          <strong>Check it, independently.</strong> Because the pool only exists
-          inside Redis at runtime, no test could otherwise see it — so a second,
-          completely offline pipeline exists purely to keep the first one
-          honest.
-          <code>pnpm data:reference</code>
-          (<code>scripts/build-n5-reference.mjs</code>) reads the
-          <em>same</em> pinned word-list commit plus a checksum-verified
-          <code>jamdict-data</code> release, and writes a committed snapshot,
-          <code>data/reference/n5-reference.json</code>. On every CI run,
-          <code>test/content/</code> checks every word the site actually serves
-          — reading, rōmaji, meaning, part of speech — against that snapshot: a
-          wrong reading, a reversed meaning ("this" vs. "that"), or a rōmaji
-          that doesn't match how the word is really pronounced all fail the
-          build before they can merge. See
-          <code>docs/content-accuracy.md</code> for the full story.
-        </li>
-      </ol>
-
-      <div
-        class="my-8 p-4 season-box border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/30 flex items-start gap-3"
-      >
-        <UIcon
-          name="i-heroicons-information-circle"
-          class="text-blue-500 w-6 h-6 shrink-0 mt-0.5"
-        />
-        <div>
-          <p class="m-0 text-blue-900 dark:text-blue-100 font-semibold mb-1">
-            Why the same pin appears twice
-          </p>
-          <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
-            <code>scripts/seed-n5-data.mjs</code> and
-            <code>scripts/build-n5-reference.mjs</code> both import their N5
-            word-list commit from one shared file,
-            <code>scripts/n5-word-list-source.mjs</code>, instead of each
-            hardcoding their own. If they ever read different commits, a change
-            upstream could land in a freshly-seeded pool before the ground-truth
-            snapshot had any evidence for it — a wrong word could ship and CI
-            would have nothing to catch it with. Importing the same pin from
-            both makes that impossible: the live seed and the committed evidence
-            always read the exact same bytes.
-          </p>
-        </div>
-      </div>
-
-      <div class="overflow-x-auto mb-6">
-        <table class="min-w-full border-collapse text-sm">
-          <thead>
-            <tr class="border-b border-gray-300 dark:border-gray-700">
-              <th class="py-2 px-2 text-left font-bold">Data</th>
-              <th class="py-2 px-2 text-left font-bold">Source</th>
-              <th class="py-2 px-2 text-left font-bold">Redis keys</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-            <tr>
-              <td class="py-2 px-2">Hiragana / Katakana</td>
-              <td class="py-2 px-2">
-                Hardcoded (fixed, unchanging syllabaries — not dictionary
-                content); <code>romaji</code> derived via
-                <a
-                  href="https://github.com/WaniKani/WanaKana"
-                  target="_blank"
-                  rel="noopener"
-                  >wanakana</a
-                >
-              </td>
-              <td class="py-2 px-2 font-mono text-xs">
-                n5:hiragana:*, n5:katakana:*
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2">N5 vocabulary</td>
-              <td class="py-2 px-2">
-                <a
-                  href="https://github.com/elzup/jlpt-word-list"
-                  target="_blank"
-                  rel="noopener"
-                  >elzup/jlpt-word-list</a
-                >
-                (N5-tagged words), cross-referenced against
-                <a
-                  href="https://github.com/scriptin/jmdict-simplified"
-                  target="_blank"
-                  rel="noopener"
-                  >JMdict</a
-                >
-                for part of speech
-              </td>
-              <td class="py-2 px-2 font-mono text-xs">n5:vocab:*</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2">N5 kanji</td>
-              <td class="py-2 px-2">
-                Derived from the unique kanji in the N5 vocab list, enriched
-                from KANJIDIC2 (on'yomi, kun'yomi, stroke count, meanings)
-              </td>
-              <td class="py-2 px-2 font-mono text-xs">n5:kanji:*</td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2">Daily games</td>
-              <td class="py-2 px-2">
-                Generated deterministically from the pool by
-                <code>GET /api/daily-game</code> the first time each date is
-                requested
-              </td>
-              <td class="py-2 px-2 font-mono text-xs">n5:daily_game:*</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div
-        class="p-4 season-box bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-sm"
-      >
-        <p class="font-semibold mb-2">Attribution</p>
-        <p class="mb-2">
-          JMdict and KANJIDIC2 are property of the
-          <a href="https://www.edrdg.org/" target="_blank" rel="noopener"
-            >Electronic Dictionary Research and Development Group</a
-          >, used in conformance with the Group's licence (CC BY-SA 4.0).
-          Accessed via the
-          <a
-            href="https://github.com/scriptin/jmdict-simplified"
-            target="_blank"
-            rel="noopener"
-            >jmdict-simplified</a
-          >
-          project's pre-parsed JSON releases.
-        </p>
-        <p class="m-0 mb-2">
-          The N5-level word list is digitized from the community-standard list
-          originally compiled at tanos.co.uk, via
-          <a
-            href="https://github.com/elzup/jlpt-word-list"
-            target="_blank"
-            rel="noopener"
-            >elzup/jlpt-word-list</a
-          >
-          (MIT licence).
-        </p>
-        <p class="m-0">
-          <code>romaji</code> for the hiragana/katakana pool is derived via
-          <a
-            href="https://github.com/WaniKani/WanaKana"
-            target="_blank"
-            rel="noopener"
-            >wanakana</a
-          >
-          (MIT licence). Since that community word list occasionally carries a
-          wrong English gloss, <code>scripts/seed-n5-data.mjs</code>
-          cross-checks each entry's meaning against JMdict's own gloss for the
-          same word and reading, and flags any that look like a swapped antonym
-          (e.g. "this way" vs. "that way") for manual review at seed time —
-          confirmed errors are corrected in that script's
-          <code>VOCAB_MEANING_OVERRIDES</code>.
-        </p>
-      </div>
-
-      <!-- ══════════════════════════════════════════════════════════════════ -->
       <!-- API REFERENCE                                                     -->
       <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        4. API Reference
+        3. API Reference
       </h2>
       <p class="mb-8">Technical details on how our backend endpoints work.</p>
 
@@ -836,68 +613,6 @@ suggestedSeason"]
     S3 --> Done2(["✅ Done — visible on
 GET /api/site-theme
 within ~1 minute"])
-`;
-
-const n5PipelineDiagram = `
-flowchart TD
-    subgraph LIVE["Live pool — what the site serves"]
-        direction TB
-        WordList["elzup/jlpt-word-list
-n5.csv @ pinned commit"]
-        JMdictLatest["JMdict + KANJIDIC2
-(jmdict-simplified, latest release)"]
-        Seed["pnpm seed:n5
-scripts/seed-n5-data.mjs"]
-        Pool[("Redis N5 Pool
-n5:vocab:* · n5:kanji:*
-n5:hiragana:* · n5:katakana:*")]
-        Served["N5DataService + servedVocab()
-server/services/n5-data.ts
-shared/meanings.ts"]
-        VocabAPI["GET /api/n5-vocab"]
-        KanjiAPI["GET /api/n5-kanji"]
-        Game["buildDailyGame()"]
-
-        WordList --> Seed
-        JMdictLatest --> Seed
-        Seed -- "romaji via wanakana,
-cross-referenced readings + POS" --> Pool
-        Pool --> Served
-        Served --> VocabAPI
-        Served --> KanjiAPI
-        Served --> Game
-    end
-
-    subgraph TRUTH["Ground truth — checked independently in CI"]
-        direction TB
-        SamePin["scripts/n5-word-list-source.mjs
-(same pinned commit as Seed)"]
-        Jamdict["jamdict-data
-checksum-verified JMdict/KANJIDIC2"]
-        RefBuild["pnpm data:reference
-scripts/build-n5-reference.mjs"]
-        RefJSON["data/reference/n5-reference.json
-(committed snapshot)"]
-        ContentTests["test/content/*
-vocabulary · romaji · examples · prose"]
-
-        SamePin --> RefBuild
-        Jamdict --> RefBuild
-        RefBuild --> RefJSON
-        RefJSON --> ContentTests
-    end
-
-    WordList -. "same pinned commit" .-> SamePin
-    Served -. "same servedVocab()
-corrections, verified" .-> ContentTests
-    ContentTests --> CI{"pnpm test:run (CI)"}
-    CI -- "wrong reading, meaning,
-or romaji found" --> Fail(["❌ PR blocked"])
-    CI -- "every word checks out" --> Pass(["✅ Safe to merge"])
-
-    VocabAPI --> VocabPage["/vocab guide"]
-    KanjiAPI --> LearnPage["/learn kanji breakdown"]
-    Game --> GamePage["/game daily round"]
 `;
 </script>
 
