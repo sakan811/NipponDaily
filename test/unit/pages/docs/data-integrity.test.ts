@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
 import { mount } from "@vue/test-utils";
-import ArchitecturePage from "~/app/pages/docs/architecture.vue";
+import DataIntegrityPage from "~/app/pages/docs/data-integrity.vue";
 
 const NuxtUIComponents = {
   UPage: { template: '<div class="u-page"><slot /></div>' },
@@ -10,16 +10,12 @@ const NuxtUIComponents = {
   },
   UButton: { template: '<button class="u-button"><slot /></button>' },
   UColorModeButton: { template: '<button class="u-color-mode-button" />' },
-  UCard: {
-    template: '<div class="u-card"><slot name="header" /><slot /></div>',
-  },
   UFooter: {
     template: '<div class="u-footer"><slot name="left" /><slot /></div>',
   },
-  MermaidDiagram: { template: '<div class="mermaid-diagram" />' },
 };
 
-describe("Architecture Page", () => {
+describe("Data Integrity Page", () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2025-01-01"));
@@ -29,29 +25,31 @@ describe("Architecture Page", () => {
     vi.useRealTimers();
   });
 
-  it("renders correctly and contains architecture information", () => {
-    const wrapper = mount(ArchitecturePage, {
+  it("renders the N5 data sources and attribution", () => {
+    const wrapper = mount(DataIntegrityPage, {
       global: {
         stubs: NuxtUIComponents,
       },
     });
 
-    expect(wrapper.text()).toContain("System Architecture");
-    expect(wrapper.text()).toContain("Frontend (Nuxt 4)");
-    expect(wrapper.text()).toContain("API Reference");
+    expect(wrapper.text()).toContain("Data Integrity & Attribution");
+    expect(wrapper.text()).toContain("N5 Data & Sources");
+    expect(wrapper.text()).toContain("Attribution");
+    expect(wrapper.text()).toContain("JMdict");
+    expect(wrapper.find("#data-attribution").exists()).toBe(true);
   });
 
-  it("handles mobile menu toggle click", async () => {
-    const wrapper = mount(ArchitecturePage, {
+  it("renders the content-accuracy CI checks", () => {
+    const wrapper = mount(DataIntegrityPage, {
       global: {
         stubs: NuxtUIComponents,
       },
     });
 
-    const buttons = wrapper.findAll("button");
-    for (const btn of buttons) {
-      await btn.trigger("click");
-    }
-    expect(wrapper.vm).toBeDefined();
+    const text = wrapper.text();
+    expect(text).toContain("Content-Accuracy CI Checks");
+    expect(text).toContain("data/reference/n5-reference.json");
+    expect(text).toContain("pnpm data:reference");
+    expect(text).toContain("VOCAB_FORM_CORRECTIONS");
   });
 });

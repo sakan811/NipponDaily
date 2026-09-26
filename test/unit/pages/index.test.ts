@@ -85,6 +85,7 @@ describe("Index Page (Landing)", () => {
     expect(wrapper.text()).toContain("Color Palette & System");
     expect(wrapper.text()).toContain("Core Features");
     expect(wrapper.text()).toContain("Error & Fallback States");
+    expect(wrapper.text()).toContain("Data Integrity & Attribution");
 
     const docsLinks = wrapper
       .findAll("a")
@@ -96,6 +97,7 @@ describe("Index Page (Landing)", () => {
         "/docs/color-palette",
         "/docs/features",
         "/docs/error-states",
+        "/docs/data-integrity",
       ]),
     );
   });

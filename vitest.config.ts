@@ -21,8 +21,8 @@ export default defineConfig({
         },
       },
       // Content-truth tests: hand-written lesson content checked against
-      // the committed dictionary evidence (data/reference/). See
-      // docs/content-accuracy.md.
+      // the committed dictionary evidence (data/reference/). See the
+      // "Data Integrity & Attribution" docs page (app/pages/docs/data-integrity.vue).
       {
         extends: true,
         test: {
