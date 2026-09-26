@@ -94,6 +94,16 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
     reason:
       "The list pairs 伯父 (read おじ) with the reading おじさん; the おじさん word ('uncle; middle-aged man') is written 伯父さん (JMdict 2261490).",
   },
+  // Rōmaji: the seed converts kana letter by letter, but は used as a
+  // particle is pronounced わ — では is "dewa", not "deha".
+  "では では": {
+    romaji: "dewa",
+    reason: "The は in では is the topic particle, pronounced わ.",
+  },
+  "それでは それでは": {
+    romaji: "soredewa",
+    reason: "The は in それでは is the topic particle, pronounced わ.",
+  },
   "ラジオカセ ラジオカセ": {
     term: "ラジカセ",
     kana: "ラジカセ",
