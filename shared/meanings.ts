@@ -1,8 +1,8 @@
 /**
  * Meaning helpers shared by the daily game (server/utils/daily-game.ts),
  * the vocab pool service (server/services/n5-data.ts), and the lesson
- * practice quiz (app/components/LessonQuiz.vue), so every place a word's
- * meaning is shown or quizzed agrees on what that meaning is.
+ * path's flip-card review (app/pages/learn/[lesson].vue), so every place a
+ * word's meaning is shown or quizzed agrees on what that meaning is.
  */
 
 /** How many KANJIDIC2 meanings a kanji answer shows — enough to cover a
