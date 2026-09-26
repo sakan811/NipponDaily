@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
-    "@upstash/redis": "^1.38.4",
+    "@upstash/redis": "^1.39.0",
     "marked": "^18.0.14",
     "mcp-handler": "^2.2.0",
     "nuxt": "^4.5.2",
