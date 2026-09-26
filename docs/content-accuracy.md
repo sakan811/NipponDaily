@@ -80,9 +80,13 @@ meanings) where they are checked, and review prose in PRs.
 
 ## Updating the evidence
 
-The sources are pinned in `scripts/build-n5-reference.mjs`
-(`JAMDICT_SOURCE`, `WORD_LIST_SOURCE`). To move to newer data, bump the
-pin, run `pnpm data:reference`, and review the JSON diff in the PR — every
-changed reading or gloss is visible, and the content tests show whether any
-lesson now disagrees with it. Requires Node ≥ 22 (`node:sqlite`) and
-`tar`/`xz` on PATH.
+The sources are pinned in two places: `JAMDICT_SOURCE` in
+`scripts/build-n5-reference.mjs`, and `WORD_LIST_SOURCE` in
+`scripts/n5-word-list-source.mjs` — the latter is imported by both
+`build-n5-reference.mjs` and `seed-n5-data.mjs`, so the live seed and the
+committed evidence always read the exact same N5 word list commit; they
+can't silently diverge. To move to newer data, bump the pin(s), run
+`pnpm seed:n5` and `pnpm data:reference` together, and review both diffs in
+the PR — every changed reading or gloss is visible, and the content tests
+show whether any lesson now disagrees with it. Requires Node ≥ 22
+(`node:sqlite`) and `tar`/`xz` on PATH.
