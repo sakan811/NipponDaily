@@ -494,9 +494,13 @@ const VOCAB_POS_OVERRIDES = {
   "頭 あたま": "noun (common) (futsuumeishi)",
 };
 
-async function fetchN5List() {
-  console.log(`Fetching N5 word list from elzup/jlpt-word-list...`);
-  const text = await fetch(N5_CSV_URL).then((r) => r.text());
+/**
+ * Parses the elzup/jlpt-word-list CSV into N5 entries, applying the
+ * reading/meaning overrides above. `listReading`/`listMeaning` keep the
+ * source list's own values so the reference snapshot
+ * (scripts/build-n5-reference.mjs) can show what each override corrected.
+ */
+function parseN5Csv(text) {
   const rows = parseCsv(text);
   const [header, ...dataRows] = rows;
   const idx = {
@@ -519,9 +523,21 @@ async function fetchN5List() {
     const meaning = VOCAB_MEANING_OVERRIDES[overrideKey] ?? rawMeaning;
     if (!expression || !reading || !meaning) continue;
 
-    entries.push({ term: expression, kana: reading, meaning });
+    entries.push({
+      term: expression,
+      kana: reading,
+      meaning,
+      listReading: rawReading,
+      listMeaning: rawMeaning,
+    });
   }
   return entries;
+}
+
+async function fetchN5List(url = N5_CSV_URL) {
+  console.log(`Fetching N5 word list from elzup/jlpt-word-list...`);
+  const text = await fetch(url).then((r) => r.text());
+  return parseN5Csv(text);
 }
 
 function slugify(term, seen) {
@@ -690,6 +706,12 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 export {
   VOCAB_MEANING_OVERRIDES,
   VOCAB_READING_OVERRIDES,
+  VOCAB_POS_OVERRIDES,
+  N5_CSV_URL,
   findReversedMeaning,
   checkMeaning,
+  parseCsv,
+  parseN5Csv,
+  fetchN5List,
+  slugify,
 };

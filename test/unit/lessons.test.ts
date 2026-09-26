@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import ids from "../fixtures/n5-vocab-ids.json";
+import reference from "../../data/reference/n5-reference.json";
 import {
   FIRST_LESSON_BY_KANJI,
   LESSONS,
@@ -11,15 +11,14 @@ import {
 } from "~/app/data/lessons";
 import { WORD_CLUSTERS } from "~/app/data/vocab-guide";
 
-// test/fixtures/n5-vocab-ids.json is every N5Vocab id scripts/seed-n5-data.mjs
-// produces from elzup/jlpt-word-list's n5.csv (same parsing + slugify).
+// data/reference/n5-reference.json lists every N5Vocab id
+// scripts/seed-n5-data.mjs produces (same parsing + slugify).
+const ids = reference.vocab.map((v) => v.id);
 describe("the N5 lesson path", () => {
   it("teaches every N5 word exactly once", () => {
     const taught = LESSONS.flatMap((l) => l.wordIds);
     expect(new Set(taught).size).toBe(taught.length);
-    const missing = (ids as string[]).filter(
-      (id) => !LESSON_NUMBER_BY_WORD.has(id),
-    );
+    const missing = ids.filter((id) => !LESSON_NUMBER_BY_WORD.has(id));
     expect(missing).toEqual([]);
   });
 

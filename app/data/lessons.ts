@@ -9,7 +9,7 @@
  * cluster's rows together where they fit). A word that appears in more than
  * one cluster is taught once, in the first lesson that reaches it. The
  * test in test/unit/lessons.test.ts checks every N5 vocab id against
- * test/fixtures/n5-vocab-ids.json, so no word is left out of the path.
+ * data/reference/n5-reference.json, so no word is left out of the path.
  */
 import {
   WORD_CLUSTERS,

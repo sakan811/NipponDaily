@@ -16,7 +16,8 @@
 - **Deterministic Daily Generation**: `GET /api/daily-game` builds each day's game itself from the pool (seeded PRNG) the first time it's requested and persists it, so the site never shows "no game today" — no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day's game at `00:00 UTC`, and generation avoids repeating any item used in the past 7 days.
 - **MCP-Driven Seasonal Theme**: A Claude web agent checks and, when it should change, switches NipponDaily's active season (color palette and shape language) through this project's remote MCP server (`get_active_theme`, `save_site_theme`), restricted to a closed set of implemented presets — one per Japanese season: `sakura` (spring, the default), `summer`, `autumn`, and `winter`. `get_active_theme` also returns the season matching today's date in Japan, so the agent never has to work out the month mapping itself. The agent's full operating prompt lives at [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md).
 - **Seasonal Shape Language**: A season changes the silhouette of the UI, not just its colours. Using CSS `corner-shape`, cards, panels, buttons and badges become petals with a scooped notch tip and pill buttons in spring, squircle pebbles and droplet buttons in summer, cut leaves and pointed tags (bevel-cut corners) in autumn, and frosted octagons with hexagonal buttons and badges in winter; borders, shadows and focus rings follow the outline. Dividers, bullets, card motifs and the page backdrop change too. Everything comes from `--shape-*` / `--corner-*` / `--motif-*` tokens keyed off `data-season` (plain boxes opt in with `.season-box` / `.season-chip`), so the one MCP call reshapes the whole UI. Browsers without `corner-shape` fall back to rounded corners.
-- **N5 Lesson Path**: `/learn` walks through all 718 N5 words in 82 short lessons (at most 12 words each) across six stages, from greetings and numbers to getting around town. Each lesson explains the pattern tying its words together, breaks every word into its kanji with their meanings, and has a Kanji Spotlight showing where else each character turns up. A topic's example sentences and common mistake appear once, on its last lesson. Each lesson ends with flip-card review ("Got it" / "Again"), which is deliberately not scored: the daily game is the test. Like the game, lessons store nothing, since there are no user accounts; nothing about the learner is saved on the server or in the browser. The lessons are built from the curated word families in `app/data/vocab-guide.ts` (`app/data/lessons.ts`), and a test checks every N5 word id against `test/fixtures/n5-vocab-ids.json`, so no word is left out. The old `/vocab/families/<key>` topic pages now permanently redirect to each topic's first lesson.
+- **N5 Lesson Path**: `/learn` walks through all 718 N5 words in 82 short lessons (at most 12 words each) across six stages, from greetings and numbers to getting around town. Each lesson explains the pattern tying its words together, breaks every word into its kanji with their meanings, and has a Kanji Spotlight showing where else each character turns up. A topic's example sentences and common mistake appear once, on its last lesson. Each lesson ends with flip-card review ("Got it" / "Again"), which is deliberately not scored: the daily game is the test. Like the game, lessons store nothing, since there are no user accounts; nothing about the learner is saved on the server or in the browser. The lessons are built from the curated word families in `app/data/vocab-guide.ts` (`app/data/lessons.ts`), and a test checks every N5 word id against the committed dictionary reference (`data/reference/n5-reference.json`), so no word is left out. The old `/vocab/families/<key>` topic pages now permanently redirect to each topic's first lesson.
+- **Verified Lesson Content**: Every hand-written fact is checked in CI against committed dictionary evidence (`data/reference/n5-reference.json`, built from pinned JMdict/KANJIDIC2 data by `pnpm data:reference`). Every example sentence's rōmaji must be a valid reading of its Japanese, and every N5 word must be a real JMdict word with that reading. Every hand-written meaning must be backed by JMdict, and lesson prose may only mention real words. A wrong lesson fails CI before it can merge. Word-list errors are corrected in `shared/meanings.ts` at read time, with ids unchanged. See [`docs/content-accuracy.md`](docs/content-accuracy.md).
 - **Kana & Vocabulary Guides**: Study references alongside the game — a hiragana/katakana chart with romaji at `/kana`, and the full N5 vocabulary pool at `/vocab` to search, filter and read a grammar guide for each word type (served by `GET /api/n5-vocab`). Each word links to the lesson that teaches it, and the game's end screen links missed kanji and vocab to their lessons.
 - **Education Charms**: Learning surfaces are dressed as the charms Japanese students keep for their studies. Kana pairs, vocabulary words and score tiles hang as 学業守 omamori (academic-success charms) that swing when hovered. Explanations and the daily game's prompt are written on ema, the wooden plaques students hang at Tenjin shrines. A correct answer stamps a vermilion 合格 ("passed") hanko onto the ema, and a wrong one rattles it on its cord. Brocade, weave and cord colours follow the active season through `--charm-*` / `--ema-*` tokens, and all motion is switched off under `prefers-reduced-motion`.
 - **Ambient Seasonal Graphic**: Falling sakura petals, rising summer fireflies, autumn leaves, or winter snow drift across every page, matching whichever season is active — pure CSS animation driven by the same `data-season` attribute as the color palette, with no extra agent involvement and full `prefers-reduced-motion` support.
@@ -100,28 +101,31 @@ Server-side config is resolved through `server/utils/config.ts`'s `getEnvOrConfi
 
 ## 📜 Available Commands
 
-| Command              | Description                                                     |
-| :------------------- | :-------------------------------------------------------------- |
-| `pnpm dev`           | Start development server on localhost:3000                      |
-| `pnpm build`         | Create a production-ready build                                 |
-| `pnpm start`         | Run the production server locally                               |
-| `pnpm generate`      | Static site generation (SSG)                                    |
-| `pnpm preview`       | Preview production build                                        |
-| `pnpm seed:n5`       | Seed/refresh the N5 kanji/hiragana/katakana/vocab pool in Redis |
-| `pnpm test`          | Run tests in watch mode                                         |
-| `pnpm test:run`      | Run tests once                                                  |
-| `pnpm test:coverage` | Run tests with coverage report                                  |
-| `pnpm lint`          | Lint and auto-fix code                                          |
-| `pnpm format`        | Format code with Prettier                                       |
-| `pnpm type-check`    | Perform TypeScript type checking                                |
-| `pnpm check-qa`      | Run all QA checks (lint, format, type-check, build, test)       |
+| Command               | Description                                                               |
+| :-------------------- | :------------------------------------------------------------------------ |
+| `pnpm dev`            | Start development server on localhost:3000                                |
+| `pnpm build`          | Create a production-ready build                                           |
+| `pnpm start`          | Run the production server locally                                         |
+| `pnpm generate`       | Static site generation (SSG)                                              |
+| `pnpm preview`        | Preview production build                                                  |
+| `pnpm seed:n5`        | Seed/refresh the N5 kanji/hiragana/katakana/vocab pool in Redis           |
+| `pnpm data:reference` | Rebuild the committed dictionary evidence the content tests check against |
+| `pnpm test`           | Run tests in watch mode                                                   |
+| `pnpm test:run`       | Run tests once                                                            |
+| `pnpm test:coverage`  | Run tests with coverage report                                            |
+| `pnpm lint`           | Lint and auto-fix code                                                    |
+| `pnpm format`         | Format code with Prettier                                                 |
+| `pnpm type-check`     | Perform TypeScript type checking                                          |
+| `pnpm check-qa`       | Run all QA checks (lint, format, type-check, build, test)                 |
 
 ## 🧪 Testing
 
-NipponDaily uses two Vitest projects configured in `vitest.config.ts`:
+NipponDaily uses three Vitest projects configured in `vitest.config.ts`:
 
 - **Unit Tests**: Component/UI tests in a `happy-dom` environment (`test/unit`).
 - **Server/API Tests**: API endpoint and service tests in a `node` environment (`test/server`). Endpoint tests mock `n5DataService` / `siteThemeService`; service tests mock the Upstash client.
+
+- **Content-Truth Tests**: `test/content` checks lesson content (example rōmaji, N5 word forms and readings, hand-written meanings, prose, the kana guide) against `data/reference/n5-reference.json`. See [`docs/content-accuracy.md`](docs/content-accuracy.md).
 
 A few tests guard against drift rather than behaviour: `test/unit/seasons-css-sync.test.ts` checks `shared/seasons.ts` against the real CSS cascade in `tailwind.css`, and `test/unit/icons.test.ts` fails if the app references an icon that `app/data/icons.ts` doesn't define.
 
@@ -155,6 +159,7 @@ The running site ships in-app documentation at `/docs`:
 
 Repo-only docs:
 
+- [`docs/content-accuracy.md`](docs/content-accuracy.md) — how lesson content is kept true, what CI checks, and what to do when a check fails.
 - [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md) — the operating prompt for the external theme agent. Keep it in sync with the MCP tool set.
 
 ## 🔌 API Endpoints

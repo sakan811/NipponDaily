@@ -5,7 +5,7 @@ import type {
   N5Kanji,
   N5Vocab,
 } from "~~/types/index";
-import { enrichedVocabMeaning } from "~~/shared/meanings";
+import { servedVocab } from "~~/shared/meanings";
 import { getEnvOrConfig } from "../utils/config";
 
 /**
@@ -75,10 +75,7 @@ class N5DataService {
    *  word the source list under-glossed — without needing a re-seed. */
   async getVocabPool(): Promise<N5Vocab[]> {
     const vocab = await this.getPool<N5Vocab>("n5:vocab_ids", "n5:vocab:");
-    return vocab.map((item) => ({
-      ...item,
-      meaning: enrichedVocabMeaning(item),
-    }));
+    return vocab.map(servedVocab);
   }
 
   async getHiragana(): Promise<KanaCharacter[]> {

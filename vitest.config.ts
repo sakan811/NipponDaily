@@ -20,6 +20,18 @@ export default defineConfig({
           exclude: ["node_modules", "dist", ".idea", ".git", ".cache"],
         },
       },
+      // Content-truth tests: hand-written lesson content checked against
+      // the committed dictionary evidence (data/reference/). See
+      // docs/content-accuracy.md.
+      {
+        extends: true,
+        test: {
+          name: "content",
+          environment: "node",
+          include: ["test/content/**/*.test.ts"],
+          testTimeout: 30000,
+        },
+      },
       // Server-side unit tests (Node environment)
       {
         extends: true,
