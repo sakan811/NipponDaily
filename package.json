@@ -16,7 +16,8 @@
     "format": "pnpm exec prettier . --write",
     "type-check": "tsc --noEmit",
     "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run",
-    "seed:n5": "node scripts/seed-n5-data.mjs"
+    "seed:n5": "node scripts/seed-n5-data.mjs",
+    "data:reference": "node --experimental-strip-types --no-warnings scripts/build-n5-reference.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
@@ -37,6 +38,7 @@
     "@nuxt/hints": "1.1.4",
     "@nuxt/test-utils": "^4.3.2",
     "@tailwindcss/vite": "^4.3.3",
+    "@types/kuromoji": "^0.1.3",
     "@types/node": "^26.6.1",
     "@vitejs/plugin-vue": "^6.0.9",
     "@vitest/coverage-v8": "^4.1.11",
@@ -44,6 +46,7 @@
     "eslint": "^10.10.0",
     "h3": "^1.15.11",
     "happy-dom": "^20.14.5",
+    "kuromoji": "0.1.2",
     "prettier": "3.9.7",
     "typescript": "^6.0.3",
     "vite": "^8.3.0",

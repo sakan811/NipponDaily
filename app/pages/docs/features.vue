@@ -92,6 +92,12 @@ const features = [
     icon: "i-heroicons-academic-cap",
   },
   {
+    title: "Verified Lesson Content",
+    description:
+      "Every hand-written fact is checked in CI against committed JMdict/KANJIDIC2 evidence: example sentences' rōmaji must be a valid reading of the Japanese, every N5 word must be a real dictionary word with that reading, hand-written meanings must be backed by JMdict, and prose may only mention real words — so a wrong lesson can't merge.",
+    icon: "i-heroicons-check-circle",
+  },
+  {
     title: "Kana & Vocabulary Guides",
     description:
       "Study references alongside the game: a hiragana/katakana chart with romaji at /kana, and the full N5 vocabulary pool at /vocab to search and filter by word type, with each word linked to its lesson.",

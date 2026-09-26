@@ -72,6 +72,50 @@ export const VOCAB_MEANING_ENRICHMENTS: Record<string, string> = {
   "かかる かかる": "to take (time, money); to hang",
 };
 
+/**
+ * Corrections to a word's written form or reading where the source word list
+ * is simply wrong, verified against JMdict (each `reason` cites the entry).
+ * Applied at read time with the word's id unchanged, so lessons and game
+ * references keep working with no re-seed. test/content/ checks every
+ * served word — corrected or not — against data/reference/n5-reference.json,
+ * so a wrong form in the list fails CI until it's corrected here.
+ */
+export interface VocabFormCorrection {
+  term?: string;
+  kana?: string;
+  romaji?: string;
+  meaning?: string;
+  reason: string;
+}
+
+export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
+  "伯父 おじさん": {
+    term: "伯父さん",
+    reason:
+      "The list pairs 伯父 (read おじ) with the reading おじさん; the おじさん word ('uncle; middle-aged man') is written 伯父さん (JMdict 2261490).",
+  },
+  "ラジオカセ ラジオカセ": {
+    term: "ラジカセ",
+    kana: "ラジカセ",
+    romaji: "rajikase",
+    meaning: "radio-cassette player",
+    reason:
+      "ラジオカセ is not a word; the radio-cassette player is ラジカセ (JMdict 1138960).",
+  },
+};
+
+/** A pool vocab entry as the site serves it: form corrections and meaning
+ *  enrichments applied, id untouched. */
+export function servedVocab<
+  T extends { term: string; kana: string; romaji: string; meaning: string },
+>(vocab: T): T {
+  const key = `${vocab.term} ${vocab.kana}`;
+  const { reason: _reason, ...fix } = VOCAB_FORM_CORRECTIONS[key] ?? {
+    reason: "",
+  };
+  return { ...vocab, meaning: enrichedVocabMeaning(vocab), ...fix };
+}
+
 /** A vocab entry's meaning with VOCAB_MEANING_ENRICHMENTS applied. */
 export function enrichedVocabMeaning(vocab: {
   term: string;
