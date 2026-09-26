@@ -329,6 +329,100 @@
         <code>pnpm seed:n5</code> (<code>scripts/seed-n5-data.mjs</code>).
       </p>
 
+      <!-- Diagram: N5 Data Pipeline -->
+      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 season-box">
+        <h3
+          class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
+        >
+          The N5 Data Pipeline, End to End (Zoomable)
+        </h3>
+        <MermaidDiagram id="n5-pipeline-diag" :code="n5PipelineDiagram" />
+        <p class="text-center text-xs text-gray-500 mt-4 italic">
+          Left: what the site actually serves. Right: an independent, offline
+          snapshot the left side is checked against in CI.
+        </p>
+      </div>
+
+      <p class="mb-4">
+        There are really two pipelines here, built from the same sources but run
+        completely separately, so a mistake in one can't hide the same mistake
+        in the other:
+      </p>
+
+      <ol
+        class="list-decimal pl-6 space-y-3 mb-8 text-gray-700 dark:text-gray-300"
+      >
+        <li>
+          <strong>Seed the pool.</strong> <code>pnpm seed:n5</code> fetches the
+          N5 word list (a pinned commit of <code>elzup/jlpt-word-list</code>,
+          via <code>scripts/n5-word-list-source.mjs</code>) plus the latest
+          JMdict + KANJIDIC2 release, cross-references every word for its
+          reading and part of speech, derives every kana/word's
+          <code>romaji</code> with <code>wanakana</code>, and writes the whole
+          pool into Redis (<code>n5:vocab:*</code>, <code>n5:kanji:*</code>,
+          <code>n5:hiragana:*</code>, <code>n5:katakana:*</code>). This runs
+          once, offline — never at request time.
+        </li>
+        <li>
+          <strong>Serve it, with corrections.</strong>
+          <code>N5DataService</code> (<code>server/services/n5-data.ts</code>)
+          reads the pool straight from Redis, then applies
+          <code>shared/meanings.ts</code>'s <code>servedVocab()</code> — form
+          corrections for the rare word the source list simply gets wrong (e.g.
+          ラジオカセ → the real word, ラジカセ), and fuller meaning enrichments
+          (早い as "early; quick, soon", not just "early"). This runs on every
+          read, so a fix ships instantly with no re-seed.
+          <code>GET /api/n5-vocab</code>, <code>GET /api/n5-kanji</code>, and
+          the daily game's <code>buildDailyGame()</code> all read through this
+          same corrected layer, so the game, the <code>/vocab</code> guide, and
+          the <code>/learn</code> lesson path never disagree about what a word
+          means.
+        </li>
+        <li>
+          <strong>Check it, independently.</strong> Because the pool only exists
+          inside Redis at runtime, no test could otherwise see it — so a second,
+          completely offline pipeline exists purely to keep the first one
+          honest.
+          <code>pnpm data:reference</code>
+          (<code>scripts/build-n5-reference.mjs</code>) reads the
+          <em>same</em> pinned word-list commit plus a checksum-verified
+          <code>jamdict-data</code> release, and writes a committed snapshot,
+          <code>data/reference/n5-reference.json</code>. On every CI run,
+          <code>test/content/</code> checks every word the site actually serves
+          — reading, rōmaji, meaning, part of speech — against that snapshot: a
+          wrong reading, a reversed meaning ("this" vs. "that"), or a rōmaji
+          that doesn't match how the word is really pronounced all fail the
+          build before they can merge. See
+          <code>docs/content-accuracy.md</code> for the full story.
+        </li>
+      </ol>
+
+      <div
+        class="my-8 p-4 season-box border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/30 flex items-start gap-3"
+      >
+        <UIcon
+          name="i-heroicons-information-circle"
+          class="text-blue-500 w-6 h-6 shrink-0 mt-0.5"
+        />
+        <div>
+          <p class="m-0 text-blue-900 dark:text-blue-100 font-semibold mb-1">
+            Why the same pin appears twice
+          </p>
+          <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
+            <code>scripts/seed-n5-data.mjs</code> and
+            <code>scripts/build-n5-reference.mjs</code> both import their N5
+            word-list commit from one shared file,
+            <code>scripts/n5-word-list-source.mjs</code>, instead of each
+            hardcoding their own. If they ever read different commits, a change
+            upstream could land in a freshly-seeded pool before the ground-truth
+            snapshot had any evidence for it — a wrong word could ship and CI
+            would have nothing to catch it with. Importing the same pin from
+            both makes that impossible: the live seed and the committed evidence
+            always read the exact same bytes.
+          </p>
+        </div>
+      </div>
+
       <div class="overflow-x-auto mb-6">
         <table class="min-w-full border-collapse text-sm">
           <thead>
@@ -742,6 +836,68 @@ suggestedSeason"]
     S3 --> Done2(["✅ Done — visible on
 GET /api/site-theme
 within ~1 minute"])
+`;
+
+const n5PipelineDiagram = `
+flowchart TD
+    subgraph LIVE["Live pool — what the site serves"]
+        direction TB
+        WordList["elzup/jlpt-word-list
+n5.csv @ pinned commit"]
+        JMdictLatest["JMdict + KANJIDIC2
+(jmdict-simplified, latest release)"]
+        Seed["pnpm seed:n5
+scripts/seed-n5-data.mjs"]
+        Pool[("Redis N5 Pool
+n5:vocab:* · n5:kanji:*
+n5:hiragana:* · n5:katakana:*")]
+        Served["N5DataService + servedVocab()
+server/services/n5-data.ts
+shared/meanings.ts"]
+        VocabAPI["GET /api/n5-vocab"]
+        KanjiAPI["GET /api/n5-kanji"]
+        Game["buildDailyGame()"]
+
+        WordList --> Seed
+        JMdictLatest --> Seed
+        Seed -- "romaji via wanakana,
+cross-referenced readings + POS" --> Pool
+        Pool --> Served
+        Served --> VocabAPI
+        Served --> KanjiAPI
+        Served --> Game
+    end
+
+    subgraph TRUTH["Ground truth — checked independently in CI"]
+        direction TB
+        SamePin["scripts/n5-word-list-source.mjs
+(same pinned commit as Seed)"]
+        Jamdict["jamdict-data
+checksum-verified JMdict/KANJIDIC2"]
+        RefBuild["pnpm data:reference
+scripts/build-n5-reference.mjs"]
+        RefJSON["data/reference/n5-reference.json
+(committed snapshot)"]
+        ContentTests["test/content/*
+vocabulary · romaji · examples · prose"]
+
+        SamePin --> RefBuild
+        Jamdict --> RefBuild
+        RefBuild --> RefJSON
+        RefJSON --> ContentTests
+    end
+
+    WordList -. "same pinned commit" .-> SamePin
+    Served -. "same servedVocab()
+corrections, verified" .-> ContentTests
+    ContentTests --> CI{"pnpm test:run (CI)"}
+    CI -- "wrong reading, meaning,
+or romaji found" --> Fail(["❌ PR blocked"])
+    CI -- "every word checks out" --> Pass(["✅ Safe to merge"])
+
+    VocabAPI --> VocabPage["/vocab guide"]
+    KanjiAPI --> LearnPage["/learn kanji breakdown"]
+    Game --> GamePage["/game daily round"]
 `;
 </script>
 
