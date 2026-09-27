@@ -10,6 +10,8 @@ import {
 async function loadGame(wrapper: ReturnType<typeof mount>) {
   await wrapper.vm.fetchGame();
   await wrapper.vm.$nextTick();
+  wrapper.vm.startRound();
+  await wrapper.vm.$nextTick();
 }
 
 function findButtonByText(wrapper: ReturnType<typeof mount>, text: string) {
@@ -91,6 +93,49 @@ describe("DailyGameBoard gameplay", () => {
         `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}`,
       ]),
     );
+  });
+
+  it("shows a vocab preview with lesson links before the round starts, and again on the summary", async () => {
+    mockFetchGame(
+      makeDailyGame([
+        makeQuestion({
+          id: "これ",
+          kind: "vocab",
+          prompt: "これ",
+          promptSub: "これ",
+          correctAnswer: "this one",
+          choices: ["this one", "fire", "tree", "person"],
+        }),
+      ]),
+    );
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
+    await wrapper.vm.fetchGame();
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.vm.started).toBe(false);
+    const previewLinks = wrapper
+      .find('[data-testid="game-vocab-preview"]')
+      .findAll("a")
+      .map((a) => a.attributes("href"));
+    expect(previewLinks).toEqual([
+      `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}`,
+    ]);
+
+    wrapper.vm.startRound();
+    await wrapper.vm.$nextTick();
+    expect(wrapper.text()).toContain("Question 1 / 1");
+
+    wrapper.vm.selectChoice("this one");
+    wrapper.vm.advance();
+    await wrapper.vm.$nextTick();
+
+    const summaryLinks = wrapper
+      .find('[data-testid="game-vocab-review"]')
+      .findAll("a")
+      .map((a) => a.attributes("href"));
+    expect(summaryLinks).toEqual([
+      `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}`,
+    ]);
   });
 
   it("Play Again resets progress back to the first question", async () => {

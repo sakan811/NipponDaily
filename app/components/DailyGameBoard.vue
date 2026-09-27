@@ -45,208 +45,285 @@
         </div>
 
         <template v-else-if="questions.length > 0">
-          <!-- In-progress round -->
-          <div v-if="!isFinished" class="space-y-4">
-            <div class="flex items-center justify-between">
-              <p class="kicker text-secondary-500">
-                Question {{ currentIndex + 1 }} / {{ questions.length }}
-              </p>
-            </div>
-
-            <!-- The prompt is written on an ema; it re-hangs for every
-                 question, takes a 合格 seal when answered correctly and
-                 rattles on its cord when not. -->
-            <EmaPlaque
-              :key="currentIndex"
-              :shake="isAnswered && !isCorrect"
-              class="max-w-md mx-auto"
-            >
-              <div class="space-y-4 text-center pb-2">
-                <UBadge color="secondary" variant="soft" size="xs">
-                  {{ kindLabel(currentQuestion.kind) }}
-                </UBadge>
-
-                <div class="pt-2">
-                  <ruby
-                    v-if="currentQuestion.promptSub"
-                    class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
-                  >
-                    {{ currentQuestion.prompt }}
-                    <rt
-                      class="font-sans font-normal text-base sm:text-lg text-stone-600 dark:text-stone-400"
-                      >{{ currentQuestion.promptSub }}</rt
-                    >
-                  </ruby>
-                  <p
-                    v-else
-                    class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
-                  >
-                    {{ currentQuestion.prompt }}
-                  </p>
-                </div>
-              </div>
-              <template #stamp>
-                <HankoSeal v-if="isAnswered && isCorrect" />
-              </template>
-            </EmaPlaque>
-
-            <div class="space-y-6 text-center">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <UButton
-                  v-for="choice in currentQuestion.choices"
-                  :key="choice"
-                  :label="choice"
-                  :color="choiceColor(choice)"
-                  :variant="choiceVariant(choice)"
-                  size="lg"
-                  block
-                  class="justify-center"
-                  :disabled="isAnswered"
-                  @click="selectChoice(choice)"
-                />
-              </div>
-
-              <div v-if="isAnswered" class="pt-2">
-                <p
-                  class="text-sm font-medium flex items-center justify-center gap-1.5"
-                  :class="
-                    isCorrect
-                      ? 'text-success-600 dark:text-success-400'
-                      : 'text-error-600 dark:text-error-400'
-                  "
-                >
-                  <UIcon
-                    :name="
-                      isCorrect
-                        ? 'i-heroicons-check-circle'
-                        : 'i-heroicons-x-circle'
-                    "
-                    class="w-4 h-4"
-                  />
-                  {{
-                    isCorrect
-                      ? "Correct!"
-                      : `Not quite — it's "${currentQuestion.correctAnswer}"`
-                  }}
+          <!-- Vocabulary preview, shown before the round starts -->
+          <div v-if="!started" class="space-y-6">
+            <UCard class="w-full">
+              <div class="p-4 sm:p-6 space-y-4">
+                <p class="kicker text-secondary-500">Today's Vocabulary</p>
+                <p class="text-sm text-stone-500 dark:text-stone-400">
+                  These {{ vocabToStudy.length }} words appear in today's round
+                  — review them first, or dive straight in.
                 </p>
-                <UButton
-                  label="Next"
-                  color="primary"
-                  size="md"
-                  icon="i-heroicons-arrow-right"
-                  trailing
-                  class="mt-3"
-                  @click="advance"
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- Round summary -->
-          <div v-else class="space-y-6">
-            <UCard
-              class="w-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-transparent before:via-primary-500 before:to-transparent"
-            >
-              <div class="p-4 sm:p-8 space-y-6 text-center">
-                <!-- A 学業守 (academic-success) omamori sways on its cord;
-                     the seal says 合格 (passed) or 努力 (keep at it). -->
-                <div class="relative w-28 mx-auto">
-                  <OmamoriCharm size="lg" idle>
-                    <p
-                      class="flex flex-col items-center gap-1.5 font-serif font-bold text-2xl leading-none text-primary-600 dark:text-primary-400"
-                    >
-                      <span>学</span><span>業</span><span>守</span>
-                    </p>
-                  </OmamoriCharm>
-                  <HankoSeal
-                    :text="passedRound ? '合格' : '努力'"
-                    :label="passedRound ? 'Passed' : 'Keep practising'"
-                    class="absolute -right-10 bottom-0 [animation-delay:0.7s]"
-                  />
-                </div>
-                <h2
-                  class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
-                >
-                  Round Complete!
-                </h2>
-                <div class="flex justify-center gap-8 text-center">
-                  <div>
-                    <p
-                      class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
-                    >
-                      {{ totalCorrect }}/{{ totalAnswered }}
-                    </p>
-                    <p class="kicker text-stone-400">Correct</p>
-                  </div>
-                  <div>
-                    <p
-                      class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
-                    >
-                      {{ accuracyPercent }}%
-                    </p>
-                    <p class="kicker text-stone-400">Accuracy</p>
-                  </div>
-                </div>
-
-                <div class="rule-double max-w-[120px] mx-auto" />
-
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                  <OmamoriCharm
-                    v-for="(kind, kindIndex) in kinds"
-                    :key="kind"
-                    :index="kindIndex + 2"
-                    size="sm"
-                  >
-                    <div class="space-y-0.5">
-                      <p
-                        class="text-sm font-bold text-stone-900 dark:text-white"
-                      >
-                        {{ perKindStats[kind].correct }}/{{
-                          perKindStats[kind].total
-                        }}
-                      </p>
-                      <p class="kicker text-stone-500 dark:text-stone-400">
-                        {{ kindLabel(kind) }}
-                      </p>
-                    </div>
-                  </OmamoriCharm>
-                </div>
-
                 <div
-                  v-if="missedToStudy.length"
-                  class="space-y-2 pt-2"
-                  data-testid="game-missed-lessons"
+                  class="grid gap-2 sm:grid-cols-2"
+                  data-testid="game-vocab-preview"
                 >
-                  <p class="kicker text-stone-400 dark:text-stone-500">
-                    Brush up in the lessons
-                  </p>
-                  <div class="flex flex-wrap justify-center gap-2">
-                    <NuxtLink
-                      v-for="item in missedToStudy"
-                      :key="`${item.kind}-${item.id}`"
-                      :to="`/learn/${item.lesson}`"
-                      class="season-chip border border-stone-300 dark:border-stone-700 px-3 py-1 text-xs text-stone-700 dark:text-stone-300 hover:border-primary-500/50 transition-colors"
+                  <NuxtLink
+                    v-for="item in vocabToStudy"
+                    :key="item.id"
+                    :to="`/learn/${item.lesson}`"
+                    class="season-chip border border-stone-300 dark:border-stone-700 px-3 py-2 flex items-center justify-between gap-2 hover:border-primary-500/50 transition-colors"
+                  >
+                    <span>
+                      <span
+                        class="font-serif text-lg text-stone-900 dark:text-white"
+                        >{{ item.term }}</span
+                      >
+                      <span
+                        v-if="item.kana"
+                        class="text-xs text-stone-500 dark:text-stone-400 ml-1"
+                        >{{ item.kana }}</span
+                      >
+                      <span
+                        class="block text-xs text-stone-500 dark:text-stone-400"
+                        >{{ item.meaning }}</span
+                      >
+                    </span>
+                    <span class="kicker text-primary-500 whitespace-nowrap"
+                      >Lesson {{ item.lesson }}</span
                     >
-                      <span class="font-serif text-sm">{{ item.prompt }}</span>
-                      · Lesson {{ item.lesson }}
-                    </NuxtLink>
-                  </div>
+                  </NuxtLink>
                 </div>
-
-                <UButton
-                  label="Play Again"
-                  color="primary"
-                  size="lg"
-                  icon="i-heroicons-arrow-path"
-                  class="mt-2"
-                  @click="restart"
-                />
-                <p class="text-xs text-stone-400 dark:text-stone-500">
-                  Tomorrow brings a brand new set of questions.
-                </p>
               </div>
             </UCard>
+            <div class="text-center">
+              <UButton
+                label="Start Round"
+                color="primary"
+                size="lg"
+                icon="i-heroicons-play-circle"
+                @click="startRound"
+              />
+            </div>
           </div>
+
+          <template v-else>
+            <!-- In-progress round -->
+            <div v-if="!isFinished" class="space-y-4">
+              <div class="flex items-center justify-between">
+                <p class="kicker text-secondary-500">
+                  Question {{ currentIndex + 1 }} / {{ questions.length }}
+                </p>
+              </div>
+
+              <!-- The prompt is written on an ema; it re-hangs for every
+                 question, takes a 合格 seal when answered correctly and
+                 rattles on its cord when not. -->
+              <EmaPlaque
+                :key="currentIndex"
+                :shake="isAnswered && !isCorrect"
+                class="max-w-md mx-auto"
+              >
+                <div class="space-y-4 text-center pb-2">
+                  <UBadge color="secondary" variant="soft" size="xs">
+                    {{ kindLabel(currentQuestion.kind) }}
+                  </UBadge>
+
+                  <div class="pt-2">
+                    <ruby
+                      v-if="currentQuestion.promptSub"
+                      class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
+                    >
+                      {{ currentQuestion.prompt }}
+                      <rt
+                        class="font-sans font-normal text-base sm:text-lg text-stone-600 dark:text-stone-400"
+                        >{{ currentQuestion.promptSub }}</rt
+                      >
+                    </ruby>
+                    <p
+                      v-else
+                      class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
+                    >
+                      {{ currentQuestion.prompt }}
+                    </p>
+                  </div>
+                </div>
+                <template #stamp>
+                  <HankoSeal v-if="isAnswered && isCorrect" />
+                </template>
+              </EmaPlaque>
+
+              <div class="space-y-6 text-center">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <UButton
+                    v-for="choice in currentQuestion.choices"
+                    :key="choice"
+                    :label="choice"
+                    :color="choiceColor(choice)"
+                    :variant="choiceVariant(choice)"
+                    size="lg"
+                    block
+                    class="justify-center"
+                    :disabled="isAnswered"
+                    @click="selectChoice(choice)"
+                  />
+                </div>
+
+                <div v-if="isAnswered" class="pt-2">
+                  <p
+                    class="text-sm font-medium flex items-center justify-center gap-1.5"
+                    :class="
+                      isCorrect
+                        ? 'text-success-600 dark:text-success-400'
+                        : 'text-error-600 dark:text-error-400'
+                    "
+                  >
+                    <UIcon
+                      :name="
+                        isCorrect
+                          ? 'i-heroicons-check-circle'
+                          : 'i-heroicons-x-circle'
+                      "
+                      class="w-4 h-4"
+                    />
+                    {{
+                      isCorrect
+                        ? "Correct!"
+                        : `Not quite — it's "${currentQuestion.correctAnswer}"`
+                    }}
+                  </p>
+                  <UButton
+                    label="Next"
+                    color="primary"
+                    size="md"
+                    icon="i-heroicons-arrow-right"
+                    trailing
+                    class="mt-3"
+                    @click="advance"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Round summary -->
+            <div v-else class="space-y-6">
+              <UCard
+                class="w-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-transparent before:via-primary-500 before:to-transparent"
+              >
+                <div class="p-4 sm:p-8 space-y-6 text-center">
+                  <!-- A 学業守 (academic-success) omamori sways on its cord;
+                     the seal says 合格 (passed) or 努力 (keep at it). -->
+                  <div class="relative w-28 mx-auto">
+                    <OmamoriCharm size="lg" idle>
+                      <p
+                        class="flex flex-col items-center gap-1.5 font-serif font-bold text-2xl leading-none text-primary-600 dark:text-primary-400"
+                      >
+                        <span>学</span><span>業</span><span>守</span>
+                      </p>
+                    </OmamoriCharm>
+                    <HankoSeal
+                      :text="passedRound ? '合格' : '努力'"
+                      :label="passedRound ? 'Passed' : 'Keep practising'"
+                      class="absolute -right-10 bottom-0 [animation-delay:0.7s]"
+                    />
+                  </div>
+                  <h2
+                    class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+                  >
+                    Round Complete!
+                  </h2>
+                  <div class="flex justify-center gap-8 text-center">
+                    <div>
+                      <p
+                        class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
+                      >
+                        {{ totalCorrect }}/{{ totalAnswered }}
+                      </p>
+                      <p class="kicker text-stone-400">Correct</p>
+                    </div>
+                    <div>
+                      <p
+                        class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
+                      >
+                        {{ accuracyPercent }}%
+                      </p>
+                      <p class="kicker text-stone-400">Accuracy</p>
+                    </div>
+                  </div>
+
+                  <div class="rule-double max-w-[120px] mx-auto" />
+
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                    <OmamoriCharm
+                      v-for="(kind, kindIndex) in kinds"
+                      :key="kind"
+                      :index="kindIndex + 2"
+                      size="sm"
+                    >
+                      <div class="space-y-0.5">
+                        <p
+                          class="text-sm font-bold text-stone-900 dark:text-white"
+                        >
+                          {{ perKindStats[kind].correct }}/{{
+                            perKindStats[kind].total
+                          }}
+                        </p>
+                        <p class="kicker text-stone-500 dark:text-stone-400">
+                          {{ kindLabel(kind) }}
+                        </p>
+                      </div>
+                    </OmamoriCharm>
+                  </div>
+
+                  <div
+                    v-if="vocabToStudy.length"
+                    class="space-y-2 pt-2"
+                    data-testid="game-vocab-review"
+                  >
+                    <p class="kicker text-stone-400 dark:text-stone-500">
+                      Today's vocabulary
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                      <NuxtLink
+                        v-for="item in vocabToStudy"
+                        :key="item.id"
+                        :to="`/learn/${item.lesson}`"
+                        class="season-chip border border-stone-300 dark:border-stone-700 px-3 py-1 text-xs text-stone-700 dark:text-stone-300 hover:border-primary-500/50 transition-colors"
+                      >
+                        <span class="font-serif text-sm">{{ item.term }}</span>
+                        · Lesson {{ item.lesson }}
+                      </NuxtLink>
+                    </div>
+                  </div>
+
+                  <div
+                    v-if="missedToStudy.length"
+                    class="space-y-2 pt-2"
+                    data-testid="game-missed-lessons"
+                  >
+                    <p class="kicker text-stone-400 dark:text-stone-500">
+                      Brush up in the lessons
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                      <NuxtLink
+                        v-for="item in missedToStudy"
+                        :key="`${item.kind}-${item.id}`"
+                        :to="`/learn/${item.lesson}`"
+                        class="season-chip border border-stone-300 dark:border-stone-700 px-3 py-1 text-xs text-stone-700 dark:text-stone-300 hover:border-primary-500/50 transition-colors"
+                      >
+                        <span class="font-serif text-sm">{{
+                          item.prompt
+                        }}</span>
+                        · Lesson {{ item.lesson }}
+                      </NuxtLink>
+                    </div>
+                  </div>
+
+                  <UButton
+                    label="Play Again"
+                    color="primary"
+                    size="lg"
+                    icon="i-heroicons-arrow-path"
+                    class="mt-2"
+                    @click="restart"
+                  />
+                  <p class="text-xs text-stone-400 dark:text-stone-500">
+                    Tomorrow brings a brand new set of questions.
+                  </p>
+                </div>
+              </UCard>
+            </div>
+          </template>
         </template>
       </div>
     </main>
@@ -287,6 +364,10 @@ const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 const playIndex = ref(0);
+/** Gates the vocab preview screen — true once the player presses
+ *  "Start Round". Reset to false only on a fresh fetch (a new day's game),
+ *  not by restart(), so "Play Again" jumps straight back into play. */
+const started = ref(false);
 
 const currentIndex = ref(0);
 const selectedChoice = ref<string | null>(null);
@@ -390,6 +471,10 @@ function restart(): void {
   missed.value = [];
 }
 
+function startRound(): void {
+  started.value = true;
+}
+
 const missedToStudy = computed(() =>
   missed.value.flatMap((q) => {
     const lesson =
@@ -400,6 +485,28 @@ const missedToStudy = computed(() =>
           : undefined;
     return lesson ? [{ id: q.id, kind: q.kind, prompt: q.prompt, lesson }] : [];
   }),
+);
+
+/** Every vocab word in today's game, linked to the lesson that teaches it —
+ *  shown both before the round starts and again in the round summary, so a
+ *  player can study the words either side of playing. */
+const vocabToStudy = computed(() =>
+  (dailyGame.value?.questions ?? [])
+    .filter((q) => q.kind === "vocab")
+    .flatMap((q) => {
+      const lesson = LESSON_NUMBER_BY_WORD.get(q.id);
+      return lesson
+        ? [
+            {
+              id: q.id,
+              term: q.prompt,
+              kana: q.promptSub,
+              meaning: q.correctAnswer,
+              lesson,
+            },
+          ]
+        : [];
+    }),
 );
 
 const fetchGame = async (): Promise<void> => {
@@ -416,6 +523,7 @@ const fetchGame = async (): Promise<void> => {
     if (response?.data) {
       dailyGame.value = response.data;
       restart();
+      started.value = false;
     }
   } catch (err: unknown) {
     console.error("Error fetching daily game:", err);
@@ -456,5 +564,8 @@ defineExpose({
   restart,
   perKindStats,
   missedToStudy,
+  started,
+  startRound,
+  vocabToStudy,
 });
 </script>
