@@ -695,10 +695,26 @@ function getRedisClient() {
   return new Redis({ url, token });
 }
 
+// Upstash's REST API is one HTTP round trip per command, so writing each
+// record with its own awaited `redis.set()` serializes thousands of
+// network round trips (the actual bottleneck — not command count, which
+// pipelining doesn't change: every SET is still billed as its own
+// command against the free tier's daily/monthly command quota). Batching
+// them into a `redis.pipeline()` sends each batch as a single HTTP
+// request instead, cutting wall-clock time by roughly the batch size
+// with no extra commands spent. Kept well under Upstash's ~1MB per-request
+// body limit even for the largest record batches.
+const PIPELINE_BATCH_SIZE = 250;
+
 async function writePool(redis, keyPrefix, idsKey, records) {
   if (records.length === 0) return;
-  for (const record of records) {
-    await redis.set(`${keyPrefix}${record.id}`, JSON.stringify(record));
+  for (let i = 0; i < records.length; i += PIPELINE_BATCH_SIZE) {
+    const batch = records.slice(i, i + PIPELINE_BATCH_SIZE);
+    const pipeline = redis.pipeline();
+    for (const record of batch) {
+      pipeline.set(`${keyPrefix}${record.id}`, JSON.stringify(record));
+    }
+    await pipeline.exec();
   }
   await redis.sadd(idsKey, ...records.map((r) => r.id));
 }
