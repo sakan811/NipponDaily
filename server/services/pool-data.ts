@@ -3,8 +3,8 @@ import type {
   DailyGame,
   JlptLevel,
   KanaCharacter,
-  N5Kanji,
-  N5Vocab,
+  PoolKanji,
+  PoolVocab,
 } from "~~/types/index";
 import { DEFAULT_JLPT_LEVEL } from "~~/shared/jlpt";
 import { servedVocab } from "~~/shared/meanings";
@@ -12,18 +12,19 @@ import { getEnvOrConfig } from "../utils/config";
 
 /**
  * Redis reads for the static kanji/vocab/kana pool (written by the offline
- * scripts/seed-n5-data.mjs script, not by this service) plus read/write for
+ * scripts/seed-pool-data.mjs script, not by this service) plus read/write for
  * the per-date-per-level DailyGame record it persists.
  *
- * Every pool/game read defaults to "N5" — the only level with hand-authored
- * lesson content and the only one any current API caller actually requests
- * — but every method takes an explicit `level` so N4/N3/N2 are already
- * fully readable once seeded (see scripts/seed-n5-data.mjs).
+ * Every pool/game read defaults to "N5", still the only level with
+ * hand-authored lesson content — but every method takes an explicit `level`,
+ * and the daily game's level selector (app/components/DailyGameBoard.vue)
+ * already requests N4/N3/N2 pools/games directly once seeded (see
+ * scripts/seed-pool-data.mjs).
  */
-type PoolItem = N5Kanji | N5Vocab | KanaCharacter;
+type PoolItem = PoolKanji | PoolVocab | KanaCharacter;
 
 /**
- * Level-namespaced Redis keys — mirrors scripts/seed-n5-data.mjs's
+ * Level-namespaced Redis keys — mirrors scripts/seed-pool-data.mjs's
  * poolIdsKey/poolItemPrefix exactly (the two files can't share code: one
  * runs as a bare `node` process, the other inside the Nuxt server). N5
  * keeps its original, un-namespaced keys so existing production data needs
@@ -41,7 +42,7 @@ function dailyGameKey(date: string, level: JlptLevel): string {
     : `n5:daily_game:${date}:${level}`;
 }
 
-class N5DataService {
+class PoolDataService {
   private client: Redis | null = null;
   private memoryDailyGames = new Map<string, DailyGame>();
 
@@ -94,8 +95,8 @@ class N5DataService {
 
   async getKanjiPool(
     level: JlptLevel = DEFAULT_JLPT_LEVEL,
-  ): Promise<N5Kanji[]> {
-    return this.getPool<N5Kanji>(
+  ): Promise<PoolKanji[]> {
+    return this.getPool<PoolKanji>(
       poolIdsKey("kanji", level),
       poolItemPrefix("kanji", level),
     );
@@ -108,8 +109,8 @@ class N5DataService {
    *  other levels' entries (see docs/content-accuracy.md). */
   async getVocabPool(
     level: JlptLevel = DEFAULT_JLPT_LEVEL,
-  ): Promise<N5Vocab[]> {
-    const vocab = await this.getPool<N5Vocab>(
+  ): Promise<PoolVocab[]> {
+    const vocab = await this.getPool<PoolVocab>(
       poolIdsKey("vocab", level),
       poolItemPrefix("vocab", level),
     );
@@ -126,8 +127,8 @@ class N5DataService {
   }
 
   async getFullPool(level: JlptLevel = DEFAULT_JLPT_LEVEL): Promise<{
-    kanji: N5Kanji[];
-    vocab: N5Vocab[];
+    kanji: PoolKanji[];
+    vocab: PoolVocab[];
     hiragana: KanaCharacter[];
     katakana: KanaCharacter[];
   }> {
@@ -223,5 +224,5 @@ class N5DataService {
   }
 }
 
-export const n5DataService = new N5DataService();
-export { N5DataService };
+export const poolDataService = new PoolDataService();
+export { PoolDataService };

@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 /**
- * Seeds NipponDaily's Redis store with the full N5 learning pool: hiragana,
- * katakana, N5 kanji, and N5 vocabulary. This is static reference data — run
- * this once to bootstrap a new environment, or re-run any time. Idempotent
- * (safe to re-run: every record gets a deterministic id and is written with
- * SET/SADD, never appended).
+ * Seeds NipponDaily's Redis store with the full N5-N2 learning pool: the
+ * shared hiragana/katakana syllabary, plus each level's own kanji and
+ * vocabulary. This is static reference data — run this once to bootstrap a
+ * new environment, or re-run any time. Idempotent (safe to re-run: every
+ * record gets a deterministic id and is written with SET/SADD, never
+ * appended).
  *
  * Sources (pinned — bump JMDICT_SIMPLIFIED_RELEASE_TAG deliberately, then
- * re-run and diff the seeded data against data/reference/n5-reference.json):
- *  - N5 word list: elzup/jlpt-word-list (MIT), src/n5.csv — digitizes the
- *    community-standard N5 list originally compiled at tanos.co.uk. Pinned to
- *    the same commit scripts/build-n5-reference.mjs reads (see
- *    scripts/n5-word-list-source.mjs), so this seed and the committed
- *    dictionary evidence the content-truth tests check it against can never
+ * re-run and diff the seeded N5 data against data/reference/n5-reference.json):
+ *  - Word lists: elzup/jlpt-word-list (MIT), src/{n5,n4,n3,n2}.csv — digitizes
+ *    the community-standard JLPT lists originally compiled at tanos.co.uk.
+ *    Pinned per level to the same commits scripts/build-n5-reference.mjs
+ *    (N5) and scripts/build-jlpt-reference.mjs (N4-N2) read (see
+ *    scripts/word-list-source.mjs), so this seed and the committed
+ *    dictionary evidence the content-truth tests check N5 against can never
  *    silently diverge.
  *  - Full dictionary entries + part of speech: JMdict, via the
  *    jmdict-simplified project's pre-parsed English release,
@@ -30,12 +32,12 @@
  * (CC BY-SA 4.0) — see the "Data & Attribution" section of
  * app/pages/docs/architecture.vue.
  *
- * Writes the same key schema server/services/n5-data.ts reads (n5:kanji:*,
+ * Writes the same key schema server/services/pool-data.ts reads (n5:kanji:*,
  * n5:vocab:*, n5:hiragana:*, n5:katakana:* + their *_ids sets) — the two
  * files don't import each other since this runs as a bare `node` process
  * outside the Nuxt context.
  *
- * Usage: pnpm seed:n5   (runs: node scripts/seed-n5-data.mjs)
+ * Usage: pnpm seed   (runs: node scripts/seed-pool-data.mjs)
  */
 import { pipeline } from "node:stream/promises";
 import { createWriteStream } from "node:fs";
@@ -46,7 +48,7 @@ import path from "node:path";
 import { promisify } from "node:util";
 import { Redis } from "@upstash/redis";
 import { toRomaji } from "wanakana";
-import { N5_CSV_URL, wordListUrl } from "./n5-word-list-source.mjs";
+import { N5_CSV_URL, wordListUrl } from "./word-list-source.mjs";
 
 /** Every level this script seeds, easiest first — see shared/jlpt.ts (the
  *  TS-side single source of truth; duplicated here as a plain array since
@@ -535,7 +537,7 @@ const VOCAB_POS_OVERRIDES = {
  * can show what each override corrected.
  *
  * Every row in the file belongs to `level` — n3.csv/n2.csv don't carry a
- * reliable per-row "JLPT_N3"/"JLPT_N2" tag (see n5-word-list-source.mjs), so
+ * reliable per-row "JLPT_N3"/"JLPT_N2" tag (see word-list-source.mjs), so
  * this trusts the file itself rather than filtering by tag. n5.csv's own
  * 718 rows are already 100% JLPT_N5-tagged (verified against the pinned
  * commit), so dropping the old per-row tag filter doesn't change N5's
@@ -683,7 +685,7 @@ function getRedisClient() {
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !token) {
     throw new Error(
-      "UPSTASH_REDIS_REST_URL/UPSTASH_REDIS_REST_TOKEN not set — export them (e.g. from .env) before running `pnpm seed:n5`.",
+      "UPSTASH_REDIS_REST_URL/UPSTASH_REDIS_REST_TOKEN not set — export them (e.g. from .env) before running `pnpm seed`.",
     );
   }
   return new Redis({ url, token });
@@ -699,7 +701,7 @@ async function writePool(redis, keyPrefix, idsKey, records) {
 
 /**
  * Level-namespaced Redis keys for the kanji/vocab pools — mirrors
- * server/services/n5-data.ts's poolIdsKey/poolItemKeyPrefix exactly (the two
+ * server/services/pool-data.ts's poolIdsKey/poolItemKeyPrefix exactly (the two
  * files can't import each other; this one runs as a bare `node` process
  * outside the Nuxt context). N5 keeps its original, un-namespaced keys
  * (n5:vocab_ids, n5:vocab:*, …) so existing production data needs no

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { n5DataService } from "../services/n5-data";
+import { poolDataService } from "../services/pool-data";
 import { safeGetQuery } from "../utils/http-query";
 import { DEFAULT_JLPT_LEVEL, JLPT_LEVELS } from "~~/shared/jlpt";
 
@@ -7,7 +7,7 @@ const vocabQuerySchema = z.object({
   // The client-side vocab guide/lesson pages never pass this yet — they
   // only ever want N5, same as before this param existed. Exposed for
   // programmatic/future use now that N4-N2 pools are seedable (see
-  // scripts/seed-n5-data.mjs).
+  // scripts/seed-pool-data.mjs).
   level: z
     .enum(JLPT_LEVELS)
     .nullable()
@@ -16,7 +16,7 @@ const vocabQuerySchema = z.object({
 });
 
 /**
- * GET /api/n5-vocab — the full vocabulary pool for one JLPT level (N5 by
+ * GET /api/pool-vocab — the full vocabulary pool for one JLPT level (N5 by
  * default), for the client-side vocab guide pages (app/pages/vocab/index.vue
  * and app/pages/vocab/types/[key].vue) and the lesson pages
  * (app/pages/learn/). Unlike /api/daily-game this returns the whole static
@@ -25,7 +25,7 @@ const vocabQuerySchema = z.object({
 export default defineEventHandler(async (event) => {
   try {
     const { level } = vocabQuerySchema.parse(safeGetQuery(event));
-    const vocab = await n5DataService.getVocabPool(level);
+    const vocab = await poolDataService.getVocabPool(level);
 
     return {
       success: true,
@@ -48,16 +48,16 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    console.error("N5 vocab API error:", error);
+    console.error("Pool vocab API error:", error);
 
     throw createError({
       statusCode: 500,
-      statusMessage: "Failed to fetch N5 vocabulary",
+      statusMessage: "Failed to fetch vocabulary",
       data: {
         error:
           process.env.NODE_ENV === "development" && error instanceof Error
             ? error.message
-            : "Failed to fetch N5 vocabulary",
+            : "Failed to fetch vocabulary",
       },
     });
   }
