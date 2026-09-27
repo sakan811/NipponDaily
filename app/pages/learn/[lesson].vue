@@ -145,6 +145,23 @@
                       }}</span>
                     </span>
                   </div>
+                  <p
+                    v-if="kanjiBreakdownByWord.get(word.id)"
+                    class="text-xs text-stone-500 dark:text-stone-400 pt-1"
+                    data-testid="lesson-word-breakdown"
+                  >
+                    <template
+                      v-for="(part, i) in kanjiBreakdownByWord.get(word.id)!
+                        .parts"
+                      :key="part.char"
+                      >{{ i > 0 ? " + " : ""
+                      }}<span
+                        class="font-serif text-primary-600 dark:text-primary-400"
+                        >{{ part.char }}</span
+                      >
+                      ({{ part.meaning }})</template
+                    >
+                  </p>
                 </div>
               </div>
             </div>
@@ -397,6 +414,7 @@ import {
   kanjiInTerm,
 } from "../../data/lessons";
 import { kanjiMeaningLabel } from "~~/shared/meanings";
+import type { KanjiBreakdown } from "../../data/vocab-guide";
 import type { N5Kanji, N5Vocab } from "~~/types/index";
 
 /** How many other words a kanji's "Also in" row lists. */
@@ -461,6 +479,14 @@ function rowWords(ids: string[]): N5Vocab[] {
     .map((id) => vocabById.value.get(id))
     .filter((w): w is N5Vocab => w !== undefined);
 }
+
+/** word id -> its kanji breakdown, for words this lesson explains
+ *  kanji-by-kanji (see KanjiBreakdown in vocab-guide.ts). */
+const kanjiBreakdownByWord = computed(() => {
+  const map = new Map<string, KanjiBreakdown>();
+  for (const b of lesson.value?.kanjiBreakdowns ?? []) map.set(b.word, b);
+  return map;
+});
 
 const lessonWords = computed(() =>
   lesson.value ? rowWords(lesson.value.wordIds) : [],

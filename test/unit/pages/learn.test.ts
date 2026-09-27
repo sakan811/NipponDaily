@@ -108,6 +108,36 @@ describe("Lesson page (/learn/[lesson])", () => {
     expect(localStorage.length).toBe(0);
   });
 
+  it("shows a kanji-by-kanji breakdown for a word that has one", async () => {
+    const lesson = LESSONS.find((l) => l.wordIds.includes("天気"))!;
+    mockRoute(String(lesson.number));
+    (global.$fetch as any).mockImplementation(async (url: string) =>
+      url === "/api/n5-kanji"
+        ? { success: true, data: [] }
+        : {
+            success: true,
+            data: [
+              {
+                id: "天気",
+                term: "天気",
+                kana: "てんき",
+                romaji: "tenki",
+                meaning: "weather",
+                jlptLevel: "N5",
+              },
+            ],
+          },
+    );
+
+    const wrapper = mount(LessonPage);
+    await flushPromises();
+
+    const breakdown = wrapper.find('[data-testid="lesson-word-breakdown"]');
+    expect(breakdown.text()).toContain("天");
+    expect(breakdown.text()).toContain("気");
+    expect(breakdown.text()).toContain("heavens, sky");
+  });
+
   it("shows a topic's examples and common mistake once, on its last part", () => {
     const first = LESSONS.find((l) => l.partCount > 1 && l.part === 1)!;
     const last = LESSONS.find(

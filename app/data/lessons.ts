@@ -13,6 +13,7 @@
  */
 import {
   WORD_CLUSTERS,
+  type KanjiBreakdown,
   type TopicExample,
   type WordCluster,
   type WordClusterRow,
@@ -145,6 +146,10 @@ export interface Lesson {
   extendedInsight?: string;
   examples?: TopicExample[];
   commonMistake?: string;
+  /** This cluster's kanjiBreakdowns narrowed to the words actually taught in
+   *  this lesson (a breakdown's word may land in any part of a
+   *  multi-lesson cluster, not just the first/last). */
+  kanjiBreakdowns: KanjiBreakdown[];
 }
 
 /** Splits `items` into the fewest chunks of at most `max`, as evenly sized
@@ -237,6 +242,8 @@ export function buildLessons(
 
       const parts = packRows(freshRows, max);
       parts.forEach((rows, i) => {
+        const wordIds = rows.flatMap((row) => row.terms);
+        const wordIdSet = new Set(wordIds);
         lessons.push({
           number: lessons.length + 1,
           stageKey: stage.key,
@@ -245,11 +252,14 @@ export function buildLessons(
           part: i + 1,
           partCount: parts.length,
           rows,
-          wordIds: rows.flatMap((row) => row.terms),
+          wordIds,
           insight: cluster.insight,
           extendedInsight: cluster.extendedInsight,
           examples: cluster.examples,
           commonMistake: cluster.commonMistake,
+          kanjiBreakdowns: (cluster.kanjiBreakdowns ?? []).filter((b) =>
+            wordIdSet.has(b.word),
+          ),
         });
       });
     }

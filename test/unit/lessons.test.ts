@@ -50,6 +50,16 @@ describe("the N5 lesson path", () => {
     expect(kanjiInTerm("これ")).toEqual([]);
   });
 
+  it("attaches every cluster's kanjiBreakdowns to exactly one lesson", () => {
+    const attached = LESSONS.flatMap((l) =>
+      l.kanjiBreakdowns.map((b) => b.word),
+    );
+    const declared = WORD_CLUSTERS.flatMap(
+      (c) => c.kanjiBreakdowns?.map((b) => b.word) ?? [],
+    );
+    expect(attached.sort()).toEqual(declared.sort());
+  });
+
   it("records the first lesson each kanji appears in", () => {
     const weekdays = LESSONS.find((l) => l.clusterKey === "weekdays")!;
     expect(FIRST_LESSON_BY_KANJI.get("曜")).toBe(weekdays.number);
