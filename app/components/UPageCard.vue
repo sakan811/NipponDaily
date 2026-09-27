@@ -14,11 +14,12 @@
       >
         {{ title }}
       </h3>
+      <!-- eslint-disable vue/no-v-html -->
       <p
         class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed font-sans"
-      >
-        {{ description }}
-      </p>
+        v-html="description"
+      />
+      <!-- eslint-enable vue/no-v-html -->
     </div>
   </div>
 </template>
