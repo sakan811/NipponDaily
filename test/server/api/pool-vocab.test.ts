@@ -6,7 +6,7 @@ import {
   createMockPool,
 } from "./setup";
 
-describe("GET /api/n5-vocab", () => {
+describe("GET /api/pool-vocab", () => {
   beforeEach(() => {
     setupDefaults();
   });

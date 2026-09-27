@@ -10,10 +10,10 @@ import {
   deriveKanjiChars,
   poolIdsKey,
   poolItemPrefix,
-} from "../../../scripts/seed-n5-data.mjs";
+} from "../../../scripts/seed-pool-data.mjs";
 
 // Guards against a known-bad gloss in the upstream elzup/jlpt-word-list N5
-// CSV silently reappearing (see scripts/seed-n5-data.mjs for the story):
+// CSV silently reappearing (see scripts/seed-pool-data.mjs for the story):
 // あちら is the far-from-both-parties direction word ("that way over
 // there"), but the source list has it backwards as "this way (polite)".
 describe("VOCAB_MEANING_OVERRIDES", () => {
@@ -65,7 +65,7 @@ describe("findReversedMeaning", () => {
 
 // parseJlptCsv generalizes N5-only parseN5Csv to any level — n3.csv/n2.csv
 // don't carry a reliable per-row level tag the way n5.csv/n4.csv do (see
-// scripts/n5-word-list-source.mjs), so it trusts the file itself rather
+// scripts/word-list-source.mjs), so it trusts the file itself rather
 // than filtering by tag. This guards that generalization didn't change
 // N5's own output, and that every parsed entry is tagged with the level
 // its own file represents.
@@ -127,7 +127,7 @@ describe("assembleVocab / deriveKanjiChars", () => {
 
 // poolIdsKey/poolItemPrefix are duplicated (not shared, see the comment at
 // their definition) between this script and
-// server/services/n5-data.ts — this pins their exact shape so the two
+// server/services/pool-data.ts — this pins their exact shape so the two
 // can't silently drift out of sync with each other.
 describe("poolIdsKey / poolItemPrefix", () => {
   it("keeps N5's original, un-namespaced keys", () => {

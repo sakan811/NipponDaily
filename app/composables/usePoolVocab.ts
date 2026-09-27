@@ -1,14 +1,14 @@
 import { ref } from "vue";
-import type { N5Vocab } from "~~/types/index";
+import type { PoolVocab } from "~~/types/index";
 
 /**
- * Shared fetch logic for GET /api/n5-vocab, used by the N5 Vocabulary page,
+ * Shared fetch logic for GET /api/pool-vocab, used by the N5 Vocabulary page,
  * its word-type sub-pages (app/pages/vocab/types/[key].vue) and the lesson
  * pages (app/pages/learn/[lesson].vue) so each doesn't duplicate the same
  * fetch/loading/error handling.
  */
-export function useN5VocabPool() {
-  const vocabPool = ref<N5Vocab[]>([]);
+export function usePoolVocab() {
+  const vocabPool = ref<PoolVocab[]>([]);
   const loading = ref(false);
   const error = ref<string | null>(null);
 
@@ -19,15 +19,15 @@ export function useN5VocabPool() {
     try {
       const response = await $fetch<{
         success: boolean;
-        data: N5Vocab[];
+        data: PoolVocab[];
         timestamp: string;
-      }>("/api/n5-vocab");
+      }>("/api/pool-vocab");
 
       if (response?.data) {
         vocabPool.value = response.data;
       }
     } catch (err: unknown) {
-      console.error("Error fetching N5 vocab:", err);
+      console.error("Error fetching vocab pool:", err);
       error.value = "Failed to load the vocabulary pool. Please try again.";
     } finally {
       loading.value = false;

@@ -6,7 +6,7 @@ import {
   createMockPool,
 } from "./setup";
 
-describe("GET /api/n5-kanji", () => {
+describe("GET /api/pool-kanji", () => {
   beforeEach(() => {
     setupDefaults();
   });

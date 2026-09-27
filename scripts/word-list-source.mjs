@@ -1,6 +1,6 @@
 /**
  * The single pin for elzup/jlpt-word-list's per-level CSVs, shared by
- * scripts/seed-n5-data.mjs (the live seed), scripts/build-n5-reference.mjs
+ * scripts/seed-pool-data.mjs (the live seed), scripts/build-n5-reference.mjs
  * (N5's committed dictionary-evidence snapshot, checked in test/content/),
  * and scripts/build-jlpt-reference.mjs (N4-N2's evidence snapshots). All
  * three used to fetch independently — an upstream edit could land in a
@@ -12,9 +12,9 @@
  * reliable per-row "JLPT_N3"/"JLPT_N2" tag the way n5.csv/n4.csv do (they
  * use old pre-2010 level tags instead, inconsistently), so every level here
  * is identified by which file it came from, not by a tag inside it — see
- * parseJlptCsv in scripts/seed-n5-data.mjs.
+ * parseJlptCsv in scripts/seed-pool-data.mjs.
  *
- * Bump a commit deliberately, then re-run `pnpm seed:n5` and
+ * Bump a commit deliberately, then re-run `pnpm seed` and
  * `pnpm data:reference`/`pnpm data:reference:jlpt` together and review the
  * diffs.
  */
