@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
 import LessonReview from "~/app/components/LessonReview.vue";
-import type { N5Vocab } from "~~/types/index";
+import type { PoolVocab } from "~~/types/index";
 
-const word = (id: string, term: string, meaning: string): N5Vocab => ({
+const word = (id: string, term: string, meaning: string): PoolVocab => ({
   id,
   term,
   kana: term,

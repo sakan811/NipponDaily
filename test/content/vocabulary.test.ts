@@ -13,7 +13,7 @@ import {
   VOCAB_READING_OVERRIDES,
   checkMeaning,
   // @ts-expect-error — untyped .mjs seed script
-} from "~/scripts/seed-n5-data.mjs";
+} from "~/scripts/seed-pool-data.mjs";
 import {
   glossesOf,
   kanjiReadings,

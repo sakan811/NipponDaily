@@ -1,9 +1,9 @@
 /**
  * Single source of truth for which JLPT levels NipponDaily has a seeded
  * pool for — mirrors shared/seasons.ts's SEASON_IDS pattern. Consumed by the
- * level-aware API endpoints (server/api/n5-vocab.get.ts, n5-kanji.get.ts,
+ * level-aware API endpoints (server/api/pool-vocab.get.ts, pool-kanji.get.ts,
  * daily-game.get.ts) to validate a `?level=` query param, and by
- * server/services/n5-data.ts to build per-level Redis keys.
+ * server/services/pool-data.ts to build per-level Redis keys.
  */
 import type { JlptLevel } from "~~/types/index";
 

@@ -4,12 +4,12 @@
  * from, and WORD_TYPE_GROUPS drive the vocabulary guide at
  * app/pages/vocab/index.vue and app/pages/vocab/types/[key].vue. None
  * of this is dictionary data — it's editorial grouping/insight text laid
- * on top of the real N5Vocab pool fetched from GET /api/n5-vocab at
+ * on top of the real PoolVocab pool fetched from GET /api/pool-vocab at
  * runtime.
  *
- * WORD_CLUSTERS reference words by their N5Vocab `id` (see WordClusterRow
+ * WORD_CLUSTERS reference words by their PoolVocab `id` (see WordClusterRow
  * below) from the N5 word list (elzup/jlpt-word-list's n5.csv, the same
- * source scripts/seed-n5-data.mjs reads) so the page can look each one up
+ * source scripts/seed-pool-data.mjs reads) so the page can look each one up
  * in the fetched pool and simply skip any that aren't found, rather than
  * hardcoding word data that could drift from what's actually seeded.
  */
@@ -253,7 +253,7 @@ export const WORD_TYPE_GROUPS: WordTypeGroup[] = [
 /**
  * The N5 word list stores counter/prefix/suffix entries with a literal "～"
  * placeholder (～枚, ～歳, …) that never appears in JMdict's own surface
- * forms, so scripts/seed-n5-data.mjs's JMdict lookup always misses for these
+ * forms, so scripts/seed-pool-data.mjs's JMdict lookup always misses for these
  * and leaves partOfSpeech undefined. Recognize the placeholder directly
  * rather than relying on a dictionary match.
  */
@@ -262,7 +262,7 @@ const COUNTER_PLACEHOLDER_PREFIX = "～";
 /**
  * A handful of N5 terms collide, by exact kana, with a much rarer JMdict
  * entry for a different word (e.g. この also happens to be a valid but
- * obscure reading of 九 "nine") — since scripts/seed-n5-data.mjs's JMdict
+ * obscure reading of 九 "nine") — since scripts/seed-pool-data.mjs's JMdict
  * index keeps whichever entry it meets first per surface, these can end up
  * tagged with that unrelated entry's part of speech. Verified individually
  * against JMdict; keyed by term since the mistagged partOfSpeech string
@@ -313,9 +313,9 @@ export function classifyPartOfSpeech(
 export interface WordClusterRow {
   label?: string;
   /**
-   * N5Vocab `id` values to look up in the fetched pool. Usually identical
+   * PoolVocab `id` values to look up in the fetched pool. Usually identical
    * to the term's own surface form (e.g. "これ"), since slugify() in
-   * scripts/seed-n5-data.mjs only touches punctuation — but a handful of
+   * scripts/seed-pool-data.mjs only touches punctuation — but a handful of
    * terms appear twice in the pool under the same surface form with
    * different readings (e.g. 十 as both じゅう and とお), and those get a
    * disambiguating "-2" suffix that must be referenced explicitly here.

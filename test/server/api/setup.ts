@@ -25,12 +25,12 @@ export const mockGetFullPool = vi.fn();
 export const mockGetVocabPool = vi.fn();
 export const mockGetKanjiPool = vi.fn();
 
-vi.mock("~/server/services/n5-data", async (importOriginal) => {
+vi.mock("~/server/services/pool-data", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("~/server/services/n5-data")>();
+    await importOriginal<typeof import("~/server/services/pool-data")>();
   return {
     ...actual,
-    n5DataService: {
+    poolDataService: {
       getDailyGame: mockGetDailyGame,
       getDailyGames: mockGetDailyGames,
       saveDailyGame: mockSaveDailyGame,
@@ -132,15 +132,15 @@ export const getHandler = async () => {
   return handlerModule.default;
 };
 
-// Helper function to get the n5-vocab handler
+// Helper function to get the pool-vocab handler
 export const getVocabHandler = async () => {
-  const handlerModule = await import("~/server/api/n5-vocab.get");
+  const handlerModule = await import("~/server/api/pool-vocab.get");
   return handlerModule.default;
 };
 
-// Helper function to get the n5-kanji handler
+// Helper function to get the pool-kanji handler
 export const getKanjiHandler = async () => {
-  const handlerModule = await import("~/server/api/n5-kanji.get");
+  const handlerModule = await import("~/server/api/pool-kanji.get");
   return handlerModule.default;
 };
 

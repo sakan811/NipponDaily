@@ -140,7 +140,7 @@ export interface Lesson {
   partCount: number;
   /** The cluster's rows, narrowed to the words taught in this lesson. */
   rows: WordClusterRow[];
-  /** Every N5Vocab id taught in this lesson, in display order. */
+  /** Every PoolVocab id taught in this lesson, in display order. */
   wordIds: string[];
   insight: string;
   extendedInsight?: string;

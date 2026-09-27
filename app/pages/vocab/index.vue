@@ -305,7 +305,7 @@
 import { ref, computed, watch, onMounted } from "vue";
 import AppHeader from "../../components/AppHeader.vue";
 import OmamoriCharm from "../../components/OmamoriCharm.vue";
-import { useN5VocabPool } from "../../composables/useN5VocabPool";
+import { usePoolVocab } from "../../composables/usePoolVocab";
 import { WORD_TYPE_GROUPS, classifyPartOfSpeech } from "../../data/vocab-guide";
 import { LESSONS, LESSON_NUMBER_BY_WORD } from "../../data/lessons";
 
@@ -315,7 +315,7 @@ const lessonFor = (id: string) => LESSON_NUMBER_BY_WORD.get(id);
 
 const wordTypeGroups = WORD_TYPE_GROUPS;
 
-const { vocabPool, loading, error, fetchVocab } = useN5VocabPool();
+const { vocabPool, loading, error, fetchVocab } = usePoolVocab();
 
 const searchQuery = ref("");
 const selectedGroup = ref<string>("all");

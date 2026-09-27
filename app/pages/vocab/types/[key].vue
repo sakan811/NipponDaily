@@ -245,7 +245,7 @@ import { computed, ref, watch, onMounted } from "vue";
 import { useRoute } from "#app";
 import AppHeader from "../../../components/AppHeader.vue";
 import OmamoriCharm from "../../../components/OmamoriCharm.vue";
-import { useN5VocabPool } from "../../../composables/useN5VocabPool";
+import { usePoolVocab } from "../../../composables/usePoolVocab";
 import {
   WORD_TYPE_GROUPS,
   classifyPartOfSpeech,
@@ -270,7 +270,7 @@ const nextGroup = computed(() =>
     : undefined,
 );
 
-const { vocabPool, loading, fetchVocab } = useN5VocabPool();
+const { vocabPool, loading, fetchVocab } = usePoolVocab();
 
 const searchQuery = ref("");
 const visibleCount = ref(PAGE_SIZE);

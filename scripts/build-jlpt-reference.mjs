@@ -32,8 +32,8 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseJlptCsv, slugify } from "./seed-n5-data.mjs";
-import { WORD_LIST_SOURCES, wordListUrl } from "./n5-word-list-source.mjs";
+import { parseJlptCsv, slugify } from "./seed-pool-data.mjs";
+import { WORD_LIST_SOURCES, wordListUrl } from "./word-list-source.mjs";
 import {
   JAMDICT_SOURCE,
   ensureJamdictDb,
@@ -59,7 +59,7 @@ function buildLevelReference(level, entries, dict) {
 
   // Same shape as N5's reference.vocab (id/seedKey/term/kana/meaning/
   // listTerm/listReading/listMeaning/jmdict) — servedVocab() is applied so
-  // this reflects what GET /api/n5-vocab?level=<level> would actually
+  // this reflects what GET /api/pool-vocab?level=<level> would actually
   // serve today, even though no corrections exist yet for these levels.
   const vocab = entries.map((e) => {
     const id = slugify(e.term, seen);

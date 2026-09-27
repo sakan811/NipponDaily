@@ -10,10 +10,10 @@ import type { SiteTheme } from "~~/types/index";
 /**
  * Remote MCP server letting an external agent (e.g. a scheduled Claude web
  * task) control NipponDaily's seasonal design — see
- * docs/site-theme-agent-prompt.md. The N5 pool and daily game are not
+ * docs/site-theme-agent-prompt.md. The learning pool and daily game are not
  * agent-managed here: GET /api/daily-game always serves its own
  * deterministic fallback (server/utils/daily-game.ts), and the pool is
- * static reference data seeded offline (scripts/seed-n5-data.mjs).
+ * static reference data seeded offline (scripts/seed-pool-data.mjs).
  */
 
 function isAuthorized(request: Request): boolean {

@@ -11,8 +11,8 @@ import {
 } from "~/app/data/lessons";
 import { WORD_CLUSTERS } from "~/app/data/vocab-guide";
 
-// data/reference/n5-reference.json lists every N5Vocab id
-// scripts/seed-n5-data.mjs produces (same parsing + slugify).
+// data/reference/n5-reference.json lists every PoolVocab id
+// scripts/seed-pool-data.mjs produces (same parsing + slugify).
 const ids = reference.vocab.map((v) => v.id);
 describe("the N5 lesson path", () => {
   it("teaches every N5 word exactly once", () => {

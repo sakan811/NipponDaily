@@ -137,7 +137,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from "vue";
-import type { N5Vocab } from "~~/types/index";
+import type { PoolVocab } from "~~/types/index";
 
 type Front = "jp" | "en";
 
@@ -153,7 +153,7 @@ const FRONT_OPTIONS: { value: Front; label: string }[] = [
  * here is saved anywhere: the deck lives in component state only.
  */
 const props = defineProps<{
-  words: N5Vocab[];
+  words: PoolVocab[];
   /** Optional per-word kanji gloss, e.g. "月 month · 曜 weekday". */
   kanjiHint?: (term: string) => string;
 }>();
@@ -168,7 +168,7 @@ function shuffle<T>(items: readonly T[]): T[] {
 }
 
 const front = ref<Front>("jp");
-const deck = ref<N5Vocab[]>(shuffle(props.words));
+const deck = ref<PoolVocab[]>(shuffle(props.words));
 const revealed = ref(false);
 const reviewedCount = ref(0);
 const againCount = ref(0);

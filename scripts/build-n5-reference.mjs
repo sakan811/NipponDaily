@@ -15,8 +15,8 @@
  *   - JMdict + KANJIDIC2 via the jamdict-data package (PyPI), a checksum-
  *     verified SQLite build of the EDRDG files. © EDRDG, CC BY-SA 4.0.
  *   - The N5 word list (elzup/jlpt-word-list, MIT), pinned in
- *     scripts/n5-word-list-source.mjs — the same pin
- *     scripts/seed-n5-data.mjs seeds from, parsed with the same code so ids
+ *     scripts/word-list-source.mjs — the same pin
+ *     scripts/seed-pool-data.mjs seeds from, parsed with the same code so ids
  *     match the live pool exactly.
  *
  * Requires Node >= 22 (node:sqlite), plus `tar` and `xz` on PATH.
@@ -32,8 +32,8 @@ import {
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import kuromoji from "kuromoji";
-import { parseN5Csv, slugify } from "./seed-n5-data.mjs";
-import { WORD_LIST_SOURCE } from "./n5-word-list-source.mjs";
+import { parseN5Csv, slugify } from "./seed-pool-data.mjs";
+import { WORD_LIST_SOURCE } from "./word-list-source.mjs";
 import {
   JAMDICT_SOURCE,
   ensureJamdictDb,

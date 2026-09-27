@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { n5DataService } from "../services/n5-data";
+import { poolDataService } from "../services/pool-data";
 import {
   REPEAT_AVOIDANCE_DAYS,
   buildDailyGame,
@@ -23,10 +23,9 @@ const dailyGameQuerySchema = z.object({
     .nullable()
     .optional()
     .transform((val) => val || undefined),
-  // No UI lets a player choose a level yet — /game only ever calls this
-  // with no `level`, which resolves to N5 exactly as before this param
-  // existed. Exposed for programmatic/future use now that N4-N2 pools are
-  // seedable (see scripts/seed-n5-data.mjs).
+  // /game's level selector passes this explicitly once a player switches
+  // away from N5; omitting it (as every caller did before the selector
+  // existed) still resolves to DEFAULT_JLPT_LEVEL below.
   level: z
     .enum(JLPT_LEVELS)
     .nullable()
@@ -40,17 +39,20 @@ export default defineEventHandler(async (event) => {
       dailyGameQuerySchema.parse(safeGetQuery(event));
     const date = requestedDate ?? todayUtc();
 
-    let game: DailyGame | null = await n5DataService.getDailyGame(date, level);
+    let game: DailyGame | null = await poolDataService.getDailyGame(
+      date,
+      level,
+    );
     if (!game) {
-      const pool = await n5DataService.getFullPool(level);
-      const recentGames = await n5DataService.getDailyGames(
+      const pool = await poolDataService.getFullPool(level);
+      const recentGames = await poolDataService.getDailyGames(
         recentDates(date, REPEAT_AVOIDANCE_DAYS),
         level,
       );
       game = buildDailyGame(pool, date, recentGames, level);
       // saveDailyGame only writes when nothing exists yet (Redis NX), so a
       // concurrent request for the same date+level never overwrites this one.
-      await n5DataService.saveDailyGame(game);
+      await poolDataService.saveDailyGame(game);
     }
 
     return {
