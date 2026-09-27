@@ -7,6 +7,8 @@ import {
   recentDates,
   todayUtc,
 } from "../utils/daily-game";
+import { safeGetQuery } from "../utils/http-query";
+import { DEFAULT_JLPT_LEVEL, JLPT_LEVELS } from "~~/shared/jlpt";
 import type { DailyGame } from "~~/types/index";
 
 const dailyGameQuerySchema = z.object({
@@ -21,32 +23,33 @@ const dailyGameQuerySchema = z.object({
     .nullable()
     .optional()
     .transform((val) => val || undefined),
+  // No UI lets a player choose a level yet — /game only ever calls this
+  // with no `level`, which resolves to N5 exactly as before this param
+  // existed. Exposed for programmatic/future use now that N4-N2 pools are
+  // seedable (see scripts/seed-n5-data.mjs).
+  level: z
+    .enum(JLPT_LEVELS)
+    .nullable()
+    .optional()
+    .transform((val) => val ?? undefined),
 });
 
 export default defineEventHandler(async (event) => {
   try {
-    let query: Record<string, unknown>;
-    try {
-      query = getQuery(event);
-    } catch {
-      const urlObj = new URL(
-        event.path || event.node?.req?.url || "",
-        "http://localhost",
-      );
-      query = Object.fromEntries(urlObj.searchParams.entries());
-    }
-    const { date: requestedDate } = dailyGameQuerySchema.parse(query);
+    const { date: requestedDate, level = DEFAULT_JLPT_LEVEL } =
+      dailyGameQuerySchema.parse(safeGetQuery(event));
     const date = requestedDate ?? todayUtc();
 
-    let game: DailyGame | null = await n5DataService.getDailyGame(date);
+    let game: DailyGame | null = await n5DataService.getDailyGame(date, level);
     if (!game) {
-      const pool = await n5DataService.getFullPool();
+      const pool = await n5DataService.getFullPool(level);
       const recentGames = await n5DataService.getDailyGames(
         recentDates(date, REPEAT_AVOIDANCE_DAYS),
+        level,
       );
-      game = buildDailyGame(pool, date, recentGames);
+      game = buildDailyGame(pool, date, recentGames, level);
       // saveDailyGame only writes when nothing exists yet (Redis NX), so a
-      // concurrent request for the same date never overwrites this one.
+      // concurrent request for the same date+level never overwrites this one.
       await n5DataService.saveDailyGame(game);
     }
 

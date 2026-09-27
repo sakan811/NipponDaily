@@ -85,6 +85,7 @@ describe("N5DataService", () => {
   it("getDailyGame reads the per-date key", async () => {
     const game = {
       date: "2026-09-18",
+      level: "N5" as const,
       questions: [],
       generatedAt: 1,
       source: "agent",
@@ -96,9 +97,19 @@ describe("N5DataService", () => {
     expect(redisState.get).toHaveBeenCalledWith("n5:daily_game:2026-09-18");
   });
 
+  it("getDailyGame reads a level-namespaced key for a non-N5 level", async () => {
+    redisState.get.mockResolvedValue(null);
+    const service = new N5DataService();
+
+    await service.getDailyGame("2026-09-18", "N4");
+
+    expect(redisState.get).toHaveBeenCalledWith("n5:daily_game:2026-09-18:N4");
+  });
+
   it("saveDailyGame writes the record under its per-date key", async () => {
     const game = {
       date: "2026-09-18",
+      level: "N5" as const,
       questions: [],
       generatedAt: 42,
       source: "fallback" as const,
@@ -115,6 +126,25 @@ describe("N5DataService", () => {
     );
   });
 
+  it("saveDailyGame writes a level-namespaced key for a non-N5 level", async () => {
+    const game = {
+      date: "2026-09-18",
+      level: "N3" as const,
+      questions: [],
+      generatedAt: 42,
+      source: "fallback" as const,
+    };
+    const service = new N5DataService();
+
+    await service.saveDailyGame(game);
+
+    expect(redisState.set).toHaveBeenCalledWith(
+      "n5:daily_game:2026-09-18:N3",
+      JSON.stringify(game),
+      { nx: true },
+    );
+  });
+
   it("falls back to in-memory storage when Redis is unconfigured", async () => {
     vi.doMock("~/server/utils/config", () => ({
       getEnvOrConfig: vi.fn(() => ""),
@@ -125,6 +155,7 @@ describe("N5DataService", () => {
     const service = new UnconfiguredService();
     const game = {
       date: "2026-09-18",
+      level: "N5" as const,
       questions: [],
       generatedAt: 1,
       source: "fallback" as const,

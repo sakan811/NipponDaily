@@ -43,4 +43,29 @@ describe("GET /api/n5-vocab", () => {
       statusCode: 500,
     });
   });
+
+  it("defaults to N5 when no ?level= is given", async () => {
+    const handler = await getVocabHandler();
+    await handler({} as any);
+
+    expect(mockGetVocabPool).toHaveBeenCalledWith("N5");
+  });
+
+  it("passes an explicit ?level= through to the pool read", async () => {
+    (global as any).getQuery.mockReturnValue({ level: "N3" });
+
+    const handler = await getVocabHandler();
+    await handler({} as any);
+
+    expect(mockGetVocabPool).toHaveBeenCalledWith("N3");
+  });
+
+  it("returns 400 for an unsupported level", async () => {
+    (global as any).getQuery.mockReturnValue({ level: "N1" });
+
+    const handler = await getVocabHandler();
+    await expect(handler({} as any)).rejects.toMatchObject({
+      statusCode: 400,
+    });
+  });
 });

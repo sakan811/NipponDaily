@@ -50,7 +50,7 @@ describe("GET /api/daily-game", () => {
     const handler = await getHandler();
     const result = await handler({} as any);
 
-    expect(mockGetDailyGame).toHaveBeenCalledWith("2026-01-01");
+    expect(mockGetDailyGame).toHaveBeenCalledWith("2026-01-01", "N5");
     expect(result.data.date).toBe("2026-01-01");
   });
 
@@ -99,6 +99,36 @@ describe("GET /api/daily-game", () => {
     const handler = await getHandler();
     await expect(handler({} as any)).rejects.toMatchObject({
       statusCode: 500,
+    });
+  });
+
+  it("defaults to N5 when no ?level= is given", async () => {
+    mockGetDailyGame.mockResolvedValue(null);
+
+    const handler = await getHandler();
+    await handler({} as any);
+
+    expect(mockGetDailyGame).toHaveBeenCalledWith(expect.any(String), "N5");
+  });
+
+  it("passes an explicit ?level= through to the data service and builder", async () => {
+    (global as any).getQuery.mockReturnValue({ level: "N4" });
+    mockGetDailyGame.mockResolvedValue(null);
+
+    const handler = await getHandler();
+    const result = await handler({} as any);
+
+    expect(mockGetDailyGame).toHaveBeenCalledWith(expect.any(String), "N4");
+    expect(mockGetFullPool).toHaveBeenCalledWith("N4");
+    expect(result.data.level).toBe("N4");
+  });
+
+  it("returns 400 for an unsupported level", async () => {
+    (global as any).getQuery.mockReturnValue({ level: "N1" });
+
+    const handler = await getHandler();
+    await expect(handler({} as any)).rejects.toMatchObject({
+      statusCode: 400,
     });
   });
 });

@@ -43,6 +43,7 @@ function makePool(size: number): N5Pool {
 function gameUsing(date: string, ids: string[]): DailyGame {
   return {
     date,
+    level: "N5",
     questions: ids.map((id) => ({
       id,
       kind: "hiragana" as const,
@@ -105,6 +106,16 @@ describe("buildDailyGame", () => {
         "2026-09-20",
       ),
     ).toThrow();
+  });
+
+  it("defaults to N5 when no level is given", () => {
+    const game = buildDailyGame(makePool(10), "2026-09-20");
+    expect(game.level).toBe("N5");
+  });
+
+  it("stamps the given level onto the built game", () => {
+    const game = buildDailyGame(makePool(10), "2026-09-20", [], "N4");
+    expect(game.level).toBe("N4");
   });
 });
 

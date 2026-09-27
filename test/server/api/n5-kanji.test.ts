@@ -43,4 +43,29 @@ describe("GET /api/n5-kanji", () => {
       statusCode: 500,
     });
   });
+
+  it("defaults to N5 when no ?level= is given", async () => {
+    const handler = await getKanjiHandler();
+    await handler({} as any);
+
+    expect(mockGetKanjiPool).toHaveBeenCalledWith("N5");
+  });
+
+  it("passes an explicit ?level= through to the pool read", async () => {
+    (global as any).getQuery.mockReturnValue({ level: "N2" });
+
+    const handler = await getKanjiHandler();
+    await handler({} as any);
+
+    expect(mockGetKanjiPool).toHaveBeenCalledWith("N2");
+  });
+
+  it("returns 400 for an unsupported level", async () => {
+    (global as any).getQuery.mockReturnValue({ level: "N1" });
+
+    const handler = await getKanjiHandler();
+    await expect(handler({} as any)).rejects.toMatchObject({
+      statusCode: 400,
+    });
+  });
 });
