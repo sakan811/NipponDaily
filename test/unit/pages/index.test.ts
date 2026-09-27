@@ -38,7 +38,7 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.text()).toContain("Learn the language.");
     expect(wrapper.text()).toContain(
-      "NipponDaily turns hiragana, katakana, and N5 kanji",
+      "NipponDaily turns hiragana, katakana, and JLPT kanji",
     );
   });
 
@@ -55,7 +55,7 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.text()).toContain("Inside Every Round");
     expect(wrapper.text()).toContain(
-      "Twenty multiple-choice questions, drawn fresh from the N5 learning pool every day.",
+      "Twenty multiple-choice questions, drawn fresh from the JLPT learning pool every day",
     );
   });
 
@@ -63,8 +63,8 @@ describe("Index Page (Landing)", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.text()).toContain("Hiragana & Katakana");
-    expect(wrapper.text()).toContain("N5 Kanji");
-    expect(wrapper.text()).toContain("N5 Vocabulary");
+    expect(wrapper.text()).toContain("Kanji");
+    expect(wrapper.text()).toContain("Vocabulary");
     expect(wrapper.text()).toContain("Instant Feedback");
     expect(wrapper.text()).toContain("Per-Kind Accuracy");
     expect(wrapper.text()).toContain("Replay Anytime");

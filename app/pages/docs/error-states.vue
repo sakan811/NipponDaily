@@ -290,9 +290,9 @@
                 500 Failed to fetch daily game
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                Redis read threw, or the N5 pool is empty (seed script never
-                run). Production returns a generic message; the real error is
-                logged server-side and echoed only in development.
+                Redis read threw, or the requested level's pool is empty (seed
+                script never run). Production returns a generic message; the
+                real error is logged server-side and echoed only in development.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"

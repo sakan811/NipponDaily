@@ -27,11 +27,11 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-body-serif"
         >
-          NipponDaily turns hiragana, katakana, and N5 kanji &amp; vocabulary
-          into one bite-sized daily quiz. Everyone sees the same 20 questions
-          each day — tap through them for quick, active recall, no accounts and
-          nothing ever saved: close the tab and tomorrow brings a brand new
-          round.
+          NipponDaily turns hiragana, katakana, and JLPT kanji &amp; vocabulary
+          — N5 by default, or pick N4 through N2 — into one bite-sized daily
+          quiz. Everyone sees the same 20 questions each day — tap through them
+          for quick, active recall, no accounts and nothing ever saved: close
+          the tab and tomorrow brings a brand new round.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-4">
@@ -87,8 +87,8 @@
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
           <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
-            Twenty multiple-choice questions, drawn fresh from the N5 learning
-            pool every day.
+            Twenty multiple-choice questions, drawn fresh from the JLPT learning
+            pool every day — N5 by default, or pick another level.
           </p>
         </div>
 
@@ -137,14 +137,15 @@
         <p
           class="text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          Each day's 20 questions are drawn from NipponDaily's persisted N5
-          kanji, kana, and vocabulary pool by the site itself — pre-generated at
-          midnight UTC, or built on the spot the first time the day is
-          requested, and skipping anything used in the past week. No AI writes
-          the questions. What a Claude web agent does control, through a private
-          MCP server, is the season: the colors and shapes you see change with
-          spring, summer, autumn, and winter. Nothing about your play-through —
-          answers, progress, results — is ever sent back or saved anywhere.
+          Each day's 20 questions are drawn from NipponDaily's persisted JLPT
+          kanji, kana, and vocabulary pool by the site itself — N5 by default,
+          or N4 through N2 — pre-generated at midnight UTC, or built on the spot
+          the first time the day is requested, and skipping anything used in the
+          past week. No AI writes the questions. What a Claude web agent does
+          control, through a private MCP server, is the season: the colors and
+          shapes you see change with spring, summer, autumn, and winter. Nothing
+          about your play-through — answers, progress, results — is ever sent
+          back or saved anywhere.
         </p>
       </section>
 
@@ -229,12 +230,12 @@ const gameParts = ref([
       "Five questions per script: tap the kana, pick its romaji reading from four choices.",
   },
   {
-    title: "N5 Kanji",
+    title: "Kanji",
     description:
       "Five kanji characters, each with 4 English-meaning choices drawn from KANJIDIC2.",
   },
   {
-    title: "N5 Vocabulary",
+    title: "Vocabulary",
     description:
       "Five vocabulary words with their kana reading shown as a hint, choosing the correct English meaning.",
   },
@@ -260,7 +261,7 @@ const docsPages = [
     to: "/docs/architecture",
     title: "System Architecture",
     description:
-      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis N5 pool + daily-game store it reads from, and the remote MCP server a Claude web agent uses to switch the site's season (palette, shapes, and ambient graphic) (game content is generated entirely in-repo, no agent involved).",
+      "A guided tour of the stack — the Nuxt 4 frontend, the Upstash Redis JLPT pool + daily-game store it reads from, and the remote MCP server a Claude web agent uses to switch the site's season (palette, shapes, and ambient graphic) (game content is generated entirely in-repo, no agent involved).",
     icon: "i-heroicons-building-office-2",
   },
   {
@@ -274,7 +275,7 @@ const docsPages = [
     to: "/docs/features",
     title: "Core Features",
     description:
-      "The player-facing capabilities: one 20-question daily round across hiragana, katakana, N5 kanji and vocabulary; instant feedback and a per-kind accuracy summary; and zero server-side gameplay persistence.",
+      "The player-facing capabilities: one 20-question daily round across hiragana, katakana, kanji and vocabulary — N5 by default, or N4 through N2; instant feedback and a per-kind accuracy summary; and zero server-side gameplay persistence.",
     icon: "i-heroicons-star",
   },
   {
