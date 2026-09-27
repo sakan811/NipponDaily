@@ -45,8 +45,8 @@
       <p class="text-lg mb-6">
         Hiragana, katakana, N5 kanji, and N5 vocabulary are static reference
         data — they don't change day to day, so they're seeded once (or
-        re-seeded occasionally, e.g. to pick up a newer JMdict release) by a
-        standalone script rather than by any agent or request:
+        re-seeded occasionally, e.g. to deliberately bump the pinned JMdict
+        release) by a standalone script rather than by any agent or request:
         <code>pnpm seed:n5</code> (<code>scripts/seed-n5-data.mjs</code>).
       </p>
 
@@ -76,8 +76,10 @@
         <li>
           <strong>Seed the pool.</strong> <code>pnpm seed:n5</code> fetches the
           N5 word list (a pinned commit of <code>elzup/jlpt-word-list</code>,
-          via <code>scripts/n5-word-list-source.mjs</code>) plus the latest
-          JMdict + KANJIDIC2 release, cross-references every word for its
+          via <code>scripts/n5-word-list-source.mjs</code>) plus a pinned
+          JMdict + KANJIDIC2 release (<code>JMDICT_SIMPLIFIED_RELEASE_TAG</code>
+          in <code>scripts/seed-n5-data.mjs</code>), cross-references every
+          word for its
           reading and part of speech, derives every kana/word's
           <code>romaji</code> with <code>wanakana</code>, and writes the whole
           pool into Redis (<code>n5:vocab:*</code>, <code>n5:kanji:*</code>,
@@ -139,6 +141,17 @@
             would have nothing to catch it with. Importing the same pin from
             both makes that impossible: the live seed and the committed evidence
             always read the exact same bytes.
+          </p>
+          <p class="m-0 mt-2 text-blue-800 dark:text-blue-200 text-sm">
+            The JMdict + KANJIDIC2 pin is deliberately <em>not</em> shared the
+            same way: <code>seed-n5-data.mjs</code> pins a
+            <code>jmdict-simplified</code> release tag
+            (<code>JMDICT_SIMPLIFIED_RELEASE_TAG</code>) and
+            <code>build-n5-reference.mjs</code> pins a checksum-verified
+            <code>jamdict-data</code> release (<code>JAMDICT_SOURCE</code>) —
+            two independent builds of the same EDRDG data. Bump either one on
+            its own schedule; just re-run both scripts and review the diffs
+            after moving either pin.
           </p>
         </div>
       </div>
@@ -292,7 +305,7 @@
           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
             <tr>
               <td class="py-2 px-2 font-mono text-xs align-top">
-                data/reference/n5-reference.json
+                <code>data/reference/n5-reference.json</code>
               </td>
               <td class="py-2 px-2">
                 Committed, versioned dictionary evidence: JMdict entries
@@ -304,7 +317,7 @@
             </tr>
             <tr>
               <td class="py-2 px-2 font-mono text-xs align-top">
-                pnpm data:reference
+                <code>pnpm data:reference</code>
               </td>
               <td class="py-2 px-2">
                 Rebuilds that file from <strong>pinned</strong> sources
@@ -315,7 +328,7 @@
             </tr>
             <tr>
               <td class="py-2 px-2 font-mono text-xs align-top">
-                test/content/
+                <code>test/content/</code>
               </td>
               <td class="py-2 px-2">
                 The content-truth tests (their own Vitest project, run by
@@ -324,7 +337,7 @@
             </tr>
             <tr>
               <td class="py-2 px-2 font-mono text-xs align-top">
-                shared/meanings.ts
+                <code>shared/meanings.ts</code>
               </td>
               <td class="py-2 px-2">
                 The only place to correct or enrich what a word says:
@@ -453,10 +466,13 @@
       </h3>
 
       <p class="mb-6">
-        The sources are pinned in two places: <code>JAMDICT_SOURCE</code> in
+        The sources are pinned in three places:
+        <code>JMDICT_SIMPLIFIED_RELEASE_TAG</code> in
+        <code>scripts/seed-n5-data.mjs</code>,
+        <code>JAMDICT_SOURCE</code> in
         <code>scripts/build-n5-reference.mjs</code>, and
         <code>WORD_LIST_SOURCE</code> in
-        <code>scripts/n5-word-list-source.mjs</code> — the latter is imported
+        <code>scripts/n5-word-list-source.mjs</code> — the last is imported
         by both <code>build-n5-reference.mjs</code> and
         <code>seed-n5-data.mjs</code>, so the live seed and the committed
         evidence always read the exact same N5 word list commit; they can't
@@ -492,7 +508,7 @@ flowchart TD
         WordList["elzup/jlpt-word-list
 n5.csv @ pinned commit"]
         JMdictLatest["JMdict + KANJIDIC2
-(jmdict-simplified, latest release)"]
+(jmdict-simplified, pinned release tag)"]
         Seed["pnpm seed:n5
 scripts/seed-n5-data.mjs"]
         Pool[("Redis N5 Pool
