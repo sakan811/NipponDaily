@@ -258,14 +258,14 @@
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 import AppHeader from "../../components/AppHeader.vue";
-import { useN5KanjiPool } from "../../composables/useN5KanjiPool";
+import { usePoolKanji } from "../../composables/usePoolKanji";
 import {
   FIRST_LESSON_BY_KANJI,
   LESSONS,
   LESSON_STAGES,
   type Lesson,
 } from "../../data/lessons";
-import type { N5Kanji } from "~~/types/index";
+import type { PoolKanji } from "~~/types/index";
 
 const lessons = LESSONS;
 const stages = LESSON_STAGES;
@@ -287,10 +287,10 @@ const steps = [
   },
 ];
 
-const { kanjiPool, fetchKanji } = useN5KanjiPool();
+const { kanjiPool, fetchKanji } = usePoolKanji();
 
 const kanjiByChar = computed(() => {
-  const map = new Map<string, N5Kanji>();
+  const map = new Map<string, PoolKanji>();
   for (const k of kanjiPool.value) map.set(k.character, k);
   return map;
 });

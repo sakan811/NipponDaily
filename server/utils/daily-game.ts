@@ -4,19 +4,19 @@ import type {
   GameQuestion,
   JlptLevel,
   KanaCharacter,
-  N5Kanji,
-  N5PoolKind,
-  N5Vocab,
+  PoolKanji,
+  PoolKind,
+  PoolVocab,
 } from "~~/types/index";
 import { DEFAULT_JLPT_LEVEL } from "~~/shared/jlpt";
 import { kanjiMeaningLabel, pickDistractors } from "~~/shared/meanings";
 
 /**
- * Everything needed to build a DailyGame, mirroring N5DataService.getFullPool().
+ * Everything needed to build a DailyGame, mirroring PoolDataService.getFullPool().
  */
-export interface N5Pool {
-  kanji: N5Kanji[];
-  vocab: N5Vocab[];
+export interface PoolBundle {
+  kanji: PoolKanji[];
+  vocab: PoolVocab[];
   hiragana: KanaCharacter[];
   katakana: KanaCharacter[];
 }
@@ -69,8 +69,8 @@ function pick<T>(items: T[], count: number, rng: () => number): T[] {
 /** Per-kind set of item ids used across a batch of past DailyGames, so
  *  buildDailyGame can steer new picks away from what was already shown
  *  recently. */
-function recentIdsByKind(games: DailyGame[]): Record<N5PoolKind, Set<string>> {
-  const ids: Record<N5PoolKind, Set<string>> = {
+function recentIdsByKind(games: DailyGame[]): Record<PoolKind, Set<string>> {
+  const ids: Record<PoolKind, Set<string>> = {
     hiragana: new Set(),
     katakana: new Set(),
     kanji: new Set(),
@@ -85,9 +85,9 @@ function recentIdsByKind(games: DailyGame[]): Record<N5PoolKind, Set<string>> {
 }
 
 function poolForKind(
-  pool: N5Pool,
-  kind: N5PoolKind,
-): (N5Kanji | N5Vocab | KanaCharacter)[] {
+  pool: PoolBundle,
+  kind: PoolKind,
+): (PoolKanji | PoolVocab | KanaCharacter)[] {
   switch (kind) {
     case "kanji":
       return pool.kanji;
@@ -101,15 +101,15 @@ function poolForKind(
 }
 
 function correctAnswerFor(
-  kind: N5PoolKind,
-  item: N5Kanji | N5Vocab | KanaCharacter,
+  kind: PoolKind,
+  item: PoolKanji | PoolVocab | KanaCharacter,
 ): string {
   switch (kind) {
     case "kanji":
       // Several meanings, not just the first — see kanjiMeaningLabel.
-      return kanjiMeaningLabel((item as N5Kanji).meanings);
+      return kanjiMeaningLabel((item as PoolKanji).meanings);
     case "vocab":
-      return (item as N5Vocab).meaning;
+      return (item as PoolVocab).meaning;
     case "hiragana":
     case "katakana":
       return (item as KanaCharacter).romaji;
@@ -120,7 +120,7 @@ function correctAnswerFor(
  *  a "." (e.g. "た.べる" for 食); on'yomi is katakana and may carry a "-"
  *  for rendaku variants. Neither belongs in a standalone character's
  *  furigana, so this returns just the reading for the character itself. */
-function kanjiFurigana(item: N5Kanji): string | undefined {
+function kanjiFurigana(item: PoolKanji): string | undefined {
   const kun = item.kunyomi[0];
   if (kun) return kun.split(".")[0];
   const on = item.onyomi[0];
@@ -129,16 +129,16 @@ function kanjiFurigana(item: N5Kanji): string | undefined {
 }
 
 function promptFor(
-  kind: N5PoolKind,
-  item: N5Kanji | N5Vocab | KanaCharacter,
+  kind: PoolKind,
+  item: PoolKanji | PoolVocab | KanaCharacter,
 ): { prompt: string; promptSub?: string } {
   switch (kind) {
     case "kanji": {
-      const k = item as N5Kanji;
+      const k = item as PoolKanji;
       return { prompt: k.character, promptSub: kanjiFurigana(k) };
     }
     case "vocab": {
-      const v = item as N5Vocab;
+      const v = item as PoolVocab;
       return { prompt: v.term, promptSub: v.kana };
     }
     case "hiragana":
@@ -148,9 +148,9 @@ function promptFor(
 }
 
 function toQuestion(
-  kind: N5PoolKind,
-  item: N5Kanji | N5Vocab | KanaCharacter,
-  pool: N5Pool,
+  kind: PoolKind,
+  item: PoolKanji | PoolVocab | KanaCharacter,
+  pool: PoolBundle,
   rng: () => number,
 ): GameQuestion {
   const correctAnswer = correctAnswerFor(kind, item);
@@ -193,10 +193,10 @@ function toQuestion(
  *
  * `level` is stamped onto the returned game as-is — the caller is
  * responsible for passing a `pool` that actually matches it (see
- * server/api/daily-game.get.ts, which fetches N5DataService.getFullPool(level)).
+ * server/api/daily-game.get.ts, which fetches PoolDataService.getFullPool(level)).
  */
 export function buildDailyGame(
-  pool: N5Pool,
+  pool: PoolBundle,
   date: string,
   recentGames: DailyGame[] = [],
   level: JlptLevel = DEFAULT_JLPT_LEVEL,
@@ -208,12 +208,12 @@ export function buildDailyGame(
     pool.katakana.length === 0
   ) {
     throw new Error(
-      `${level} pool is empty — run \`pnpm seed:n5\` to seed kanji/vocab/kana data before requesting a daily game.`,
+      `${level} pool is empty — run \`pnpm seed\` to seed kanji/vocab/kana data before requesting a daily game.`,
     );
   }
 
   const rng = mulberry32(seedFromDate(date));
-  const kinds: N5PoolKind[] = ["hiragana", "katakana", "kanji", "vocab"];
+  const kinds: PoolKind[] = ["hiragana", "katakana", "kanji", "vocab"];
   const recentIds = recentIdsByKind(recentGames);
 
   const questions = shuffle(

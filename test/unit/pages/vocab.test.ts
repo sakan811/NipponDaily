@@ -3,9 +3,9 @@ import { mount, flushPromises } from "@vue/test-utils";
 import VocabPage from "~/app/pages/vocab/index.vue";
 import { WORD_TYPE_GROUPS } from "~/app/data/vocab-guide";
 import { LESSON_NUMBER_BY_WORD } from "~/app/data/lessons";
-import type { N5Vocab } from "~~/types/index";
+import type { PoolVocab } from "~~/types/index";
 
-const createVocab = (overrides: Partial<N5Vocab> = {}): N5Vocab => ({
+const createVocab = (overrides: Partial<PoolVocab> = {}): PoolVocab => ({
   id: "word",
   term: "言葉",
   kana: "ことば",

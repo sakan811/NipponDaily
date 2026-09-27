@@ -4,8 +4,8 @@ import type {
   DailyGame,
   GameQuestion,
   KanaCharacter,
-  N5Kanji,
-  N5Vocab,
+  PoolKanji,
+  PoolVocab,
 } from "~~/types/index";
 
 describe("Types", () => {
@@ -20,8 +20,8 @@ describe("Types", () => {
     expect(kana.script).toBe("hiragana");
   });
 
-  it("validates the N5Kanji interface", () => {
-    const kanji: N5Kanji = {
+  it("validates the PoolKanji interface", () => {
+    const kanji: PoolKanji = {
       id: "水",
       character: "水",
       meanings: ["water"],
@@ -34,8 +34,8 @@ describe("Types", () => {
     expect(kanji.meanings).toContain("water");
   });
 
-  it("validates the N5Vocab interface with optional partOfSpeech", () => {
-    const vocab: N5Vocab = {
+  it("validates the PoolVocab interface with optional partOfSpeech", () => {
+    const vocab: PoolVocab = {
       id: "taberu",
       term: "食べる",
       kana: "たべる",

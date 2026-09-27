@@ -36,7 +36,7 @@ describe("classifyPartOfSpeech", () => {
   // これ/おれ etc. are fine, but a handful of N5 terms collide by exact kana
   // with a far rarer, unrelated JMdict entry (この with 九's rare "この"
   // reading; どの with 殿's suffix reading; 頭 with the counter for large
-  // animals) — see scripts/seed-n5-data.mjs's VOCAB_POS_OVERRIDES for the
+  // animals) — see scripts/seed-pool-data.mjs's VOCAB_POS_OVERRIDES for the
   // seed-time fix this mirrors on the client.
   it("overrides known JMdict homograph collisions by term", () => {
     expect(classifyPartOfSpeech("numeric", "この")).toBe("pronoun");

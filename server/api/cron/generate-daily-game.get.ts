@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import type { H3Event } from "h3";
-import { n5DataService } from "../../services/n5-data";
+import { poolDataService } from "../../services/pool-data";
 import { getEnvOrConfig } from "../../utils/config";
 import {
   REPEAT_AVOIDANCE_DAYS,
@@ -44,16 +44,16 @@ export default defineEventHandler(async (event) => {
   }
 
   const date = todayUtc();
-  let game = await n5DataService.getDailyGame(date);
+  let game = await poolDataService.getDailyGame(date);
   let created = false;
 
   if (!game) {
-    const pool = await n5DataService.getFullPool();
-    const recentGames = await n5DataService.getDailyGames(
+    const pool = await poolDataService.getFullPool();
+    const recentGames = await poolDataService.getDailyGames(
       recentDates(date, REPEAT_AVOIDANCE_DAYS),
     );
     game = buildDailyGame(pool, date, recentGames);
-    await n5DataService.saveDailyGame(game);
+    await poolDataService.saveDailyGame(game);
     created = true;
   }
 

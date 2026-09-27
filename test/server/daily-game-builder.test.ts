@@ -2,11 +2,11 @@ import { describe, it, expect } from "vitest";
 import {
   buildDailyGame,
   recentDates,
-  type N5Pool,
+  type PoolBundle,
 } from "~/server/utils/daily-game";
 import type { DailyGame } from "~~/types/index";
 
-function makePool(size: number): N5Pool {
+function makePool(size: number): PoolBundle {
   return {
     kanji: Array.from({ length: size }, (_, i) => ({
       id: `k${i}`,

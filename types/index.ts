@@ -5,7 +5,7 @@ export interface ApiResponse<T = unknown> {
   timestamp: string;
 }
 
-// --- N5 LEARNING POOL ---
+// --- JLPT LEARNING POOL ---
 
 /** The JLPT levels NipponDaily has a seeded pool for — see shared/jlpt.ts's
  *  JLPT_LEVELS for the runtime-checkable version of this same set. N5 is the
@@ -14,20 +14,20 @@ export interface ApiResponse<T = unknown> {
  *  only — see docs/content-accuracy.md. */
 export type JlptLevel = "N5" | "N4" | "N3" | "N2";
 
-export type N5Script = "hiragana" | "katakana";
+export type KanaScript = "hiragana" | "katakana";
 
 /** One hiragana or katakana character (base gojūon or a dakuten/digraph
- *  variant). Hardcoded seed data — see scripts/seed-n5-data.mjs. */
+ *  variant). Hardcoded seed data — see scripts/seed-pool-data.mjs. */
 export interface KanaCharacter {
   id: string;
   char: string;
-  script: N5Script;
+  script: KanaScript;
   /** Hepburn rōmaji, derived via wanakana at seed time. */
   romaji: string;
 }
 
-/** One N5 kanji, enriched from KANJIDIC2. */
-export interface N5Kanji {
+/** One kanji from a level's pool, enriched from KANJIDIC2. */
+export interface PoolKanji {
   id: string;
   character: string;
   /** English meanings from KANJIDIC2. */
@@ -38,8 +38,8 @@ export interface N5Kanji {
   jlptLevel: JlptLevel;
 }
 
-/** One N5 vocabulary word, cross-referenced against JMdict. */
-export interface N5Vocab {
+/** One vocabulary word from a level's pool, cross-referenced against JMdict. */
+export interface PoolVocab {
   id: string;
   /** Kanji/kana surface form, e.g. "食べる". */
   term: string;
@@ -54,13 +54,13 @@ export interface N5Vocab {
 
 // --- DAILY GAME ---
 
-export type N5PoolKind = "hiragana" | "katakana" | "kanji" | "vocab";
+export type PoolKind = "hiragana" | "katakana" | "kanji" | "vocab";
 
 /** One multiple-choice question in a DailyGame round. */
 export interface GameQuestion {
   /** The source item's id (kanji/vocab/kana id). */
   id: string;
-  kind: N5PoolKind;
+  kind: PoolKind;
   /** The Japanese character/word shown to the player. */
   prompt: string;
   /** Furigana reading rendered above the prompt when it contains kanji —
@@ -80,9 +80,10 @@ export interface DailyGame {
   /** YYYY-MM-DD */
   date: string;
   /** Which level's kanji/vocab pool the questions were drawn from. Defaults
-   *  to "N5" at every call site today — no UI lets a player pick another
-   *  level yet — but the field is real (not inferred) so a level's repeat-
-   *  avoidance history and persisted key never mix with another level's. */
+   *  to "N5"; the game's level selector (app/components/DailyGameBoard.vue)
+   *  can request another. The field is real (not inferred) so a level's
+   *  repeat-avoidance history and persisted key never mix with another
+   *  level's. */
   level: JlptLevel;
   questions: GameQuestion[];
   generatedAt: number;

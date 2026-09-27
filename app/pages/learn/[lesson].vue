@@ -403,8 +403,8 @@ import { computed, onMounted } from "vue";
 import { useRoute } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
 import LessonReview from "../../components/LessonReview.vue";
-import { useN5VocabPool } from "../../composables/useN5VocabPool";
-import { useN5KanjiPool } from "../../composables/useN5KanjiPool";
+import { usePoolVocab } from "../../composables/usePoolVocab";
+import { usePoolKanji } from "../../composables/usePoolKanji";
 import {
   FIRST_LESSON_BY_KANJI,
   LESSONS,
@@ -415,7 +415,7 @@ import {
 } from "../../data/lessons";
 import { kanjiMeaningLabel } from "~~/shared/meanings";
 import type { KanjiBreakdown } from "../../data/vocab-guide";
-import type { N5Kanji, N5Vocab } from "~~/types/index";
+import type { PoolKanji, PoolVocab } from "~~/types/index";
 
 /** How many other words a kanji's "Also in" row lists. */
 const ALSO_IN_LIMIT = 6;
@@ -437,8 +437,8 @@ const nextLesson = computed(() =>
   lesson.value ? getLesson(lesson.value.number + 1) : undefined,
 );
 
-const { vocabPool, loading, error, fetchVocab } = useN5VocabPool();
-const { kanjiPool, fetchKanji } = useN5KanjiPool();
+const { vocabPool, loading, error, fetchVocab } = usePoolVocab();
+const { kanjiPool, fetchKanji } = usePoolKanji();
 const showTopicNotes = computed(
   () =>
     !!lesson.value &&
@@ -447,20 +447,20 @@ const showTopicNotes = computed(
 );
 
 const vocabById = computed(() => {
-  const map = new Map<string, N5Vocab>();
+  const map = new Map<string, PoolVocab>();
   for (const item of vocabPool.value) map.set(item.id, item);
   return map;
 });
 
 const kanjiByChar = computed(() => {
-  const map = new Map<string, N5Kanji>();
+  const map = new Map<string, PoolKanji>();
   for (const k of kanjiPool.value) map.set(k.character, k);
   return map;
 });
 
 /** kanji -> every pool word containing it, in lesson-path order. */
 const wordsByKanji = computed(() => {
-  const map = new Map<string, N5Vocab[]>();
+  const map = new Map<string, PoolVocab[]>();
   const ordered = [...vocabPool.value].sort(
     (a, b) => lessonOf(a.id) - lessonOf(b.id),
   );
@@ -474,10 +474,10 @@ const wordsByKanji = computed(() => {
   return map;
 });
 
-function rowWords(ids: string[]): N5Vocab[] {
+function rowWords(ids: string[]): PoolVocab[] {
   return ids
     .map((id) => vocabById.value.get(id))
-    .filter((w): w is N5Vocab => w !== undefined);
+    .filter((w): w is PoolVocab => w !== undefined);
 }
 
 /** word id -> its kanji breakdown, for words this lesson explains
@@ -522,7 +522,7 @@ function shortMeaning(meaning: string): string {
   return meaning.split(/[;,]/)[0]!.trim();
 }
 
-function otherWordsWith(char: string): N5Vocab[] {
+function otherWordsWith(char: string): PoolVocab[] {
   const inLesson = new Set(lesson.value?.wordIds ?? []);
   return (wordsByKanji.value.get(char) ?? [])
     .filter((w) => !inLesson.has(w.id))

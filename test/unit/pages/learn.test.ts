@@ -52,7 +52,7 @@ describe("Lesson page (/learn/[lesson])", () => {
 
   const mockPools = () =>
     (global.$fetch as any).mockImplementation(async (url: string) =>
-      url === "/api/n5-kanji"
+      url === "/api/pool-kanji"
         ? {
             success: true,
             data: [
@@ -112,7 +112,7 @@ describe("Lesson page (/learn/[lesson])", () => {
     const lesson = LESSONS.find((l) => l.wordIds.includes("天気"))!;
     mockRoute(String(lesson.number));
     (global.$fetch as any).mockImplementation(async (url: string) =>
-      url === "/api/n5-kanji"
+      url === "/api/pool-kanji"
         ? { success: true, data: [] }
         : {
             success: true,

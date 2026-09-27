@@ -1,6 +1,6 @@
 /**
  * Meaning helpers shared by the daily game (server/utils/daily-game.ts),
- * the vocab pool service (server/services/n5-data.ts), and the lesson
+ * the vocab pool service (server/services/pool-data.ts), and the lesson
  * path's flip-card review (app/pages/learn/[lesson].vue), so every place a
  * word's meaning is shown or quizzed agrees on what that meaning is.
  */
@@ -37,9 +37,9 @@ export function kanjiMeaningLabel(
  * Fuller glosses for N5 words whose source-list meaning (elzup/jlpt-word-list)
  * names only one of several everyday senses — e.g. 早い was only "early",
  * though it's just as often "quick", and 取る only covered "take (a class)".
- * Keyed by `term kana` (like scripts/seed-n5-data.mjs's overrides) so a
+ * Keyed by `term kana` (like scripts/seed-pool-data.mjs's overrides) so a
  * homograph with a different reading is never touched. Applied at read time
- * by server/services/n5-data.ts, so no re-seed is needed.
+ * by server/services/pool-data.ts, so no re-seed is needed.
  */
 export const VOCAB_MEANING_ENRICHMENTS: Record<string, string> = {
   "取る とる": "to take, to pick up; to get (a grade); to take (a class)",
