@@ -48,7 +48,7 @@
             index="01"
             title="Daily game fetch failure"
             component="components/TrendingFallback.vue"
-            trigger="GET /api/daily-game throws (Redis unreachable, empty pool, or network error). Bound to DailyGameBoard's error ref."
+            trigger="<code>GET /api/daily-game</code> throws (Redis unreachable, empty pool, or network error). Bound to <code>DailyGameBoard</code>'s error ref."
           />
           <TrendingFallback
             :error="'Service temporarily unavailable. Please try again.'"
@@ -119,7 +119,7 @@
             index="03"
             title="Loading skeleton"
             component="components/DailyGameBoard.vue (loading)"
-            trigger="Shown while GET /api/daily-game is in flight (initial mount, or a manual retry)."
+            trigger="Shown while <code>GET /api/daily-game</code> is in flight (initial mount, or a manual retry)."
           />
           <div class="space-y-6">
             <UCard
@@ -238,7 +238,7 @@
             index="06"
             title="404 — page not found"
             component="pages/[...slug].vue"
-            trigger="Any unmatched route (including the retired /news). Full-page layout with the shared header/footer and a single 'Return to Home' action."
+            trigger="Any unmatched route (including the retired <code>/news</code>). Full-page layout with the shared header/footer and a single 'Return to Home' action."
           />
           <div
             class="border border-stone-300 dark:border-stone-800 season-box bg-[#FDFBF7] dark:bg-[#0B0E14] px-4 py-12 text-center"
@@ -266,7 +266,7 @@
             index="07"
             title="API error responses"
             component="server/api/daily-game.get.ts"
-            trigger="Not a rendered UI — the JSON GET /api/daily-game returns on failure. DailyGameBoard maps these onto the fetch failure state above."
+            trigger="Not a rendered UI — the JSON <code>GET /api/daily-game</code> returns on failure. <code>DailyGameBoard</code> maps these onto the fetch failure state above."
           />
           <div class="grid gap-3 sm:grid-cols-2">
             <div

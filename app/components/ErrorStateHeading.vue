@@ -14,7 +14,9 @@
       {{ component }}
     </p>
     <p class="text-xs text-stone-500 dark:text-stone-400 m-0 max-w-2xl">
-      <span class="font-semibold">Trigger:</span> {{ trigger }}
+      <span class="font-semibold">Trigger:</span>
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <span v-html="trigger" />
     </p>
   </div>
 </template>
