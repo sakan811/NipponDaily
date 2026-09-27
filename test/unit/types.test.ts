@@ -64,6 +64,7 @@ describe("Types", () => {
   it("validates the DailyGame interface", () => {
     const game: DailyGame = {
       date: "2026-09-18",
+      level: "N5",
       questions: [],
       generatedAt: Date.now(),
       source: "fallback",
@@ -77,6 +78,7 @@ describe("Types", () => {
       success: true,
       data: {
         date: "2026-09-18",
+        level: "N5",
         questions: [],
         generatedAt: Date.now(),
         source: "agent",

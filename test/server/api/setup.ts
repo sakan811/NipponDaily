@@ -110,6 +110,7 @@ export const createMockDailyGame = (
   overrides: Partial<DailyGame> = {},
 ): DailyGame => ({
   date: "2026-09-18",
+  level: "N5",
   questions: [
     {
       id: "語0",

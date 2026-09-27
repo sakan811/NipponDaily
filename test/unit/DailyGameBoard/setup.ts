@@ -14,6 +14,7 @@ export const makeQuestion = (
 
 export const makeDailyGame = (questions?: GameQuestion[]): DailyGame => ({
   date: "2026-09-18",
+  level: "N5",
   questions: questions ?? [
     makeQuestion({ id: "水", correctAnswer: "water" }),
     makeQuestion({

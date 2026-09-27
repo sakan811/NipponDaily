@@ -2,11 +2,13 @@ import { toHiragana } from "wanakana";
 import type {
   DailyGame,
   GameQuestion,
+  JlptLevel,
   KanaCharacter,
   N5Kanji,
   N5PoolKind,
   N5Vocab,
 } from "~~/types/index";
+import { DEFAULT_JLPT_LEVEL } from "~~/shared/jlpt";
 import { kanjiMeaningLabel, pickDistractors } from "~~/shared/meanings";
 
 /**
@@ -188,11 +190,16 @@ function toQuestion(
  * excluding them would leave fewer than QUESTIONS_PER_KIND candidates for
  * a kind — e.g. the ~55-item kana pools under a wide enough window — that
  * kind falls back to picking from its full pool rather than failing.
+ *
+ * `level` is stamped onto the returned game as-is — the caller is
+ * responsible for passing a `pool` that actually matches it (see
+ * server/api/daily-game.get.ts, which fetches N5DataService.getFullPool(level)).
  */
 export function buildDailyGame(
   pool: N5Pool,
   date: string,
   recentGames: DailyGame[] = [],
+  level: JlptLevel = DEFAULT_JLPT_LEVEL,
 ): DailyGame {
   if (
     pool.kanji.length === 0 ||
@@ -201,7 +208,7 @@ export function buildDailyGame(
     pool.katakana.length === 0
   ) {
     throw new Error(
-      "N5 pool is empty — run `pnpm seed:n5` to seed kanji/vocab/kana data before requesting a daily game.",
+      `${level} pool is empty — run \`pnpm seed:n5\` to seed kanji/vocab/kana data before requesting a daily game.`,
     );
   }
 
@@ -223,6 +230,7 @@ export function buildDailyGame(
 
   return {
     date,
+    level,
     questions,
     generatedAt: Date.now(),
     source: "fallback",
