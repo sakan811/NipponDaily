@@ -496,6 +496,10 @@ const VOCAB_MEANING_OVERRIDES = {
   // the rest of the native-counting set (一つ "one thing", 二つ "two
   // things", …).
   "十 (〜を) とお": "ten things",
+  // Source list has this backwards as "this is all". 以上 has no
+  // demonstrative "this" sense at all — its sentence-final usage (closing
+  // a statement/report) is "that's all; that is the end", per JMdict.
+  "以上 いじょう": "more than; that's all",
 };
 
 /**
