@@ -323,6 +323,25 @@ export interface WordClusterRow {
   terms: string[];
 }
 
+/** One kanji's contribution to a compound word's meaning. `meaning` is
+ *  checked in test/content/kanji-breakdown.test.ts against that character's
+ *  actual KANJIDIC2 senses (data/reference/n5-reference.json), so an
+ *  etymology claim in a lesson can't silently drift from the dictionary. */
+export interface KanjiBreakdownPart {
+  char: string;
+  meaning: string;
+}
+
+/** A compound word decomposed into its component kanji, for a cluster whose
+ *  insight/extendedInsight explains how the word's meaning derives from its
+ *  parts (e.g. 写真 = 写 "copy" + 真 "true/reality"). `word` must be one of
+ *  the cluster's own row terms, and `parts` must cover exactly that word's
+ *  kanji, in order — both checked by test/content/kanji-breakdown.test.ts. */
+export interface KanjiBreakdown {
+  word: string;
+  parts: KanjiBreakdownPart[];
+}
+
 export interface WordCluster {
   key: string;
   title: string;
@@ -335,6 +354,10 @@ export interface WordCluster {
   commonMistake?: string;
   /** When true, a row of exactly 2 terms renders as an opposing pair. */
   pairwise?: boolean;
+  /** Compound words whose meaning is explained kanji-by-kanji — see
+   *  KanjiBreakdown. Optional: most clusters' words don't decompose this
+   *  cleanly, and a shaky/folk etymology is worse than none. */
+  kanjiBreakdowns?: KanjiBreakdown[];
   rows: WordClusterRow[];
 }
 
@@ -771,7 +794,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "Seasonal words pair naturally with temperature adjectives — 夏 goes with 暑い (hot), 冬 with 寒い (cold), and 春/秋 usually get 涼しい or 暖かい (mild/cool/warm).",
     extendedInsight:
-      "天気 refers to the weather as a general condition ('the weather is nice' — 天気がいい), not a specific temperature reading — don't reach for 天気 when you mean an exact degree count.",
+      "天気 itself is built from 天 ('heavens, sky') + 気 ('spirit, air, mood') — literally the sky's mood — and refers to the weather as a general condition ('the weather is nice' — 天気がいい), not a specific temperature reading, so don't reach for 天気 when you mean an exact degree count.",
+    kanjiBreakdowns: [
+      {
+        word: "天気",
+        parts: [
+          { char: "天", meaning: "heavens, sky" },
+          { char: "気", meaning: "spirit, mind, air, mood" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "今日はいい天気ですね。",
@@ -818,7 +850,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "These combine with が to describe symptoms in real life — 頭が痛い ('my head hurts'), お腹が痛い ('my stomach hurts'). Swap in any body part before 痛い to say where it hurts.",
     extendedInsight:
-      "頭 doubles as both 'head' (this everyday sense) and, in a far rarer JMdict entry, a counter for large animals — an unrelated leftover use that has nothing to do with the body-part sense you'll actually use daily.",
+      "頭 doubles as both 'head' (this everyday sense) and, in a far rarer JMdict entry, a counter for large animals — an unrelated leftover use that has nothing to do with the body-part sense you'll actually use daily. Under 'health', 病気 ('illness') is built from 病 ('ill, sick') + 気 ('spirit, mind') — the same 気 that appears in 天気 (Weather & Seasons) and 元気, always carrying that 'condition/mood' sense.",
+    kanjiBreakdowns: [
+      {
+        word: "病気",
+        parts: [
+          { char: "病", meaning: "ill, sick" },
+          { char: "気", meaning: "spirit, mind" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "頭が痛いです。",
@@ -996,7 +1037,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "This is the one topic where the vocabulary is entirely about the classroom itself — the people in it (先生, 学生), the supplies on the desk (本, ノート, 辞書), and the words for language and writing (漢字, 平仮名, 片仮名) that everything else in this pool is written in.",
     extendedInsight:
-      "辞書 and 字引 both mean 'dictionary' — 辞書 is the standard modern word, while 字引 is an older, more literary synonym you'll mostly meet in reading rather than conversation.",
+      "辞書 and 字引 both mean 'dictionary' — 辞書 is the standard modern word, while 字引 is an older, more literary synonym you'll mostly meet in reading rather than conversation. Among the 'places & classes' below, 教室 ('classroom') is exactly what it looks like — 教 ('teach') + 室 ('room') — a teaching room.",
+    kanjiBreakdowns: [
+      {
+        word: "教室",
+        parts: [
+          { char: "教", meaning: "teach" },
+          { char: "室", meaning: "room, chamber" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "先生は毎日漢字を教えます。",
@@ -1068,7 +1118,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "家 and うち both mean 'house/home', but うち carries a warmer 'my place' feeling and can even stand in for 'my family' — 家 is the more neutral, literal word for the building itself.",
     extendedInsight:
-      "The rooms below combine with の the same way the Direction & Position words do (台所の窓, 'the kitchen window') — once you know a handful of rooms, you can locate anything in the house with spatial vocabulary you already have.",
+      "The rooms below combine with の the same way the Direction & Position words do (台所の窓, 'the kitchen window') — once you know a handful of rooms, you can locate anything in the house with spatial vocabulary you already have. 掃除 ('cleaning') is built the same transparent way: 掃く ('to sweep') + 除く ('to remove') — sweeping something away.",
+    kanjiBreakdowns: [
+      {
+        word: "掃除",
+        parts: [
+          { char: "掃", meaning: "sweep, brush" },
+          { char: "除", meaning: "remove, exclude" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "毎朝お風呂に入ります。",
@@ -1114,7 +1173,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "Many of these are borrowed words that sound close to their English original once you know katakana — テレビ (television), ラジオ (radio), カメラ (camera), ギター (guitar) — so this group is often faster to learn than native vocabulary of the same size.",
     extendedInsight:
-      "写真, フィルム, and カメラ form a natural trio around picture-taking (撮る from Giving, Taking & Handling Things is the verb that ties them together: 写真を撮る, 'to take a photo').",
+      "写真, フィルム, and カメラ form a natural trio around picture-taking (撮る from Giving, Taking & Handling Things is the verb that ties them together: 写真を撮る, 'to take a photo'). 写真 itself is built from 写 ('copy, be photographed') + 真 ('true, reality') — literally a true copy.",
+    kanjiBreakdowns: [
+      {
+        word: "写真",
+        parts: [
+          { char: "写", meaning: "copy, be photographed" },
+          { char: "真", meaning: "true, reality" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "居間にテレビと冷蔵庫があります。",
@@ -1242,7 +1310,17 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "駅 ('station') is the hub this whole group orbits around — 電車, 地下鉄, バス, and タクシー are all things you catch there, while 車, 自動車, and 自転車 are the ones you don't need a station for at all.",
     extendedInsight:
-      "自動車 and 車 both mean 'car' — 車 is the everyday word, while 自動車 is the more formal/technical term you'll see in writing (signs, news) more than in casual speech.",
+      "自動車 and 車 both mean 'car' — 車 is the everyday word, while 自動車 is the more formal/technical term you'll see in writing (signs, news) more than in casual speech. Its three kanji spell out exactly what it is: 自 ('oneself') + 動 ('move') + 車 ('vehicle') — a self-moving vehicle.",
+    kanjiBreakdowns: [
+      {
+        word: "自動車",
+        parts: [
+          { char: "自", meaning: "oneself" },
+          { char: "動", meaning: "move, motion" },
+          { char: "車", meaning: "car" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "毎日電車で学校に行きます。",
@@ -1420,7 +1498,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "誰か ('someone') and どなた (the polite form of 'who') work like the question words from Asking Questions — swap in a name or a specific person once you know who you're asking about.",
     extendedInsight:
-      "生まれる, 結婚, and 死ぬ are the three big life-event verbs — 結婚 pairs with する (結婚する, 'to get married') the same way any suru-noun does, while 生まれる and 死ぬ are plain verbs on their own.",
+      "生まれる, 結婚, and 死ぬ are the three big life-event verbs — 結婚 pairs with する (結婚する, 'to get married') the same way any suru-noun does, while 生まれる and 死ぬ are plain verbs on their own. 結婚 breaks down as 結 ('tie, bind') + 婚 ('marriage') — tying the marriage knot.",
+    kanjiBreakdowns: [
+      {
+        word: "結婚",
+        parts: [
+          { char: "結", meaning: "tie, bind" },
+          { char: "婚", meaning: "marriage" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "あの女の子は友達です。",
@@ -1574,7 +1661,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "買う and 売る are a mirror pair — one side of every purchase is 買う ('to buy'), the other is 売る ('to sell') — and 買い物 is the general activity noun for 'shopping', usually paired with する (買い物する) or に行く (買い物に行く, 'to go shopping').",
     extendedInsight:
-      "財布 ('wallet') and お金 ('money') are often confused by beginners because both come up in the same sentences about paying — 財布 is the physical object, お金 is what's inside it.",
+      "財布 ('wallet') and お金 ('money') are often confused by beginners because both come up in the same sentences about paying — 財布 is the physical object, お金 is what's inside it. 買い物 itself is 買い (from 買う, 'to buy') + 物 ('thing') — literally 'bought things', the activity noun for shopping.",
+    kanjiBreakdowns: [
+      {
+        word: "買い物",
+        parts: [
+          { char: "買", meaning: "buy" },
+          { char: "物", meaning: "thing, object" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "デパートで靴を買いました。",
@@ -1598,7 +1694,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "These don't carry dictionary meaning the way nouns and verbs do — they're the connective tissue that makes spoken Japanese sound natural, signaling agreement, a change of topic, or a transition to what's next.",
     extendedInsight:
-      "では, じゃ/じゃあ, and それでは all work as 'well then...' to close one topic and open the next — じゃ/じゃあ is the casual version, では and それでは are more polite/formal, and all three are common ways to end a phone call or wrap up a conversation.",
+      "では, じゃ/じゃあ, and それでは all work as 'well then...' to close one topic and open the next — じゃ/じゃあ is the casual version, では and それでは are more polite/formal, and all three are common ways to end a phone call or wrap up a conversation. Under 'yes / agreement', 本当 ('true, real') combines 本 ('true, real') + 当 ('right, appropriate') — both halves already point the same way, which is why the word feels so emphatic.",
+    kanjiBreakdowns: [
+      {
+        word: "本当",
+        parts: [
+          { char: "本", meaning: "true, real" },
+          { char: "当", meaning: "right, appropriate" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "もしもし、田中です。",
@@ -1709,7 +1814,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "とても (very), 少し/ちょっと (a little), and 沢山 (a lot) sit on a single scale of amount — swap one in front of any adjective or verb to dial its intensity up or down, no conjugation required.",
     extendedInsight:
-      "余り works almost only with a negative verb to mean 'not very' (余り好きじゃない, 'not very fond of it') — used with a positive verb it instead means 'leftover/excess', a very different word.",
+      "余り works almost only with a negative verb to mean 'not very' (余り好きじゃない, 'not very fond of it') — used with a positive verb it instead means 'leftover/excess', a very different word. Under 'manner', 一緒 ('together') is 一 ('one') + 緒 ('cord, strap') — one shared cord, i.e. doing something as one.",
+    kanjiBreakdowns: [
+      {
+        word: "一緒",
+        parts: [
+          { char: "一", meaning: "one (radical no. 1)" },
+          { char: "緒", meaning: "cord, strap" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "この本は少し難しいです。",
@@ -1800,7 +1914,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
       },
     ],
     commonMistake:
-      "動物 ('animal', the general category) isn't reached for the way English says 'the dog is an animal' in casual speech — Japanese usually just names the specific animal (犬, 猫, 鳥) unless the sentence is actually about animals as a category.",
+      "動物 ('animal', the general category) isn't reached for the way English says 'the dog is an animal' in casual speech — Japanese usually just names the specific animal (犬, 猫, 鳥) unless the sentence is actually about animals as a category. The word itself is transparent, though: 動 ('move') + 物 ('thing') — a moving thing.",
+    kanjiBreakdowns: [
+      {
+        word: "動物",
+        parts: [
+          { char: "動", meaning: "move, motion" },
+          { char: "物", meaning: "thing, object" },
+        ],
+      },
+    ],
     rows: [
       {
         label: "sky, land & water",
@@ -1993,7 +2116,16 @@ export const WORD_CLUSTERS: WordCluster[] = [
     insight:
       "Not every N5 word fits neatly into a bigger pattern — these are genuinely useful, high-frequency words that simply don't share a common thread with each other beyond both being essential and easy to mix up with a similar-sounding neighbor.",
     extendedInsight:
-      "引く and 押す are worth learning as a pair even though they landed here rather than in the Common Opposites topic above — most doors and drawers in Japan are labelled with exactly these two characters, 押す (push) and 引く (pull).",
+      "引く and 押す are worth learning as a pair even though they landed here rather than in the Common Opposites topic above — most doors and drawers in Japan are labelled with exactly these two characters, 押す (push) and 引く (pull). Under 'objects', 灰皿 ('ashtray') is just as literal: 灰 ('ashes') + 皿 ('dish, plate') — an ash dish.",
+    kanjiBreakdowns: [
+      {
+        word: "灰皿",
+        parts: [
+          { char: "灰", meaning: "ashes" },
+          { char: "皿", meaning: "dish, plate" },
+        ],
+      },
+    ],
     examples: [
       {
         jp: "このドアを引いてください。",
