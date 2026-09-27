@@ -42,12 +42,29 @@
       </h2>
 
       <p class="text-lg mb-6">
-        Hiragana, katakana, N5 kanji, and N5 vocabulary are static reference
-        data — they don't change day to day, so they're seeded once (or
-        re-seeded occasionally, e.g. to deliberately bump the pinned JMdict
-        release) by a standalone script rather than by any agent or request:
-        <code>pnpm seed:n5</code> (<code>scripts/seed-n5-data.mjs</code>).
+        Hiragana, katakana, and every JLPT level's own kanji and vocabulary (N5
+        through N2) are static reference data — they don't change day to day, so
+        they're seeded once (or re-seeded occasionally, e.g. to deliberately
+        bump the pinned JMdict release) by a standalone script rather than by
+        any agent or request:
+        <code>pnpm seed</code> (<code>scripts/seed-pool-data.mjs</code>).
       </p>
+
+      <div
+        class="p-4 mb-8 season-box bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800"
+      >
+        <p class="m-0 text-blue-900 dark:text-blue-100 text-sm">
+          <strong>N5 only, for now:</strong> everything below — the ground-truth
+          reference, the CI content checks, and the hand-written lesson content
+          — covers <strong>N5</strong>, the only level with a hand-authored
+          lesson path today. N4-N2 are seeded, dictionary- verified pools the
+          game and its new level selector can already serve, but their own
+          evidence snapshots
+          (<code>data/reference/{n4,n3,n2}-reference.json</code>, built by
+          <code>pnpm data:reference:jlpt</code>) are not yet gated by any test —
+          there's no hand-written content for them yet to check.
+        </p>
+      </div>
 
       <!-- Diagram: N5 Data Pipeline -->
       <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 season-box">
@@ -73,11 +90,11 @@
         class="list-decimal pl-6 space-y-3 mb-8 text-gray-700 dark:text-gray-300"
       >
         <li>
-          <strong>Seed the pool.</strong> <code>pnpm seed:n5</code> fetches the
-          N5 word list (a pinned commit of <code>elzup/jlpt-word-list</code>,
-          via <code>scripts/n5-word-list-source.mjs</code>) plus a pinned JMdict
-          + KANJIDIC2 release (<code>JMDICT_SIMPLIFIED_RELEASE_TAG</code> in
-          <code>scripts/seed-n5-data.mjs</code>), cross-references every word
+          <strong>Seed the pool.</strong> <code>pnpm seed</code> fetches the N5
+          word list (a pinned commit of <code>elzup/jlpt-word-list</code>, via
+          <code>scripts/word-list-source.mjs</code>) plus a pinned JMdict +
+          KANJIDIC2 release (<code>JMDICT_SIMPLIFIED_RELEASE_TAG</code> in
+          <code>scripts/seed-pool-data.mjs</code>), cross-references every word
           for its reading and part of speech, derives every kana/word's
           <code>romaji</code> with <code>wanakana</code>, and writes the whole
           pool into Redis (<code>n5:vocab:*</code>, <code>n5:kanji:*</code>,
@@ -86,17 +103,18 @@
         </li>
         <li>
           <strong>Serve it, with corrections.</strong>
-          <code>N5DataService</code> (<code>server/services/n5-data.ts</code>)
-          reads the pool straight from Redis, then applies
-          <code>shared/meanings.ts</code>'s <code>servedVocab()</code> — form
-          corrections for the rare word the source list simply gets wrong (e.g.
-          ラジオカセ → the real word, ラジカセ), and fuller meaning enrichments
-          (早い as "early; quick, soon", not just "early"). This runs on every
-          read, so a fix ships instantly with no re-seed.
-          <code>GET /api/n5-vocab</code>, <code>GET /api/n5-kanji</code>, and
-          the daily game's <code>buildDailyGame()</code> all read through this
-          same corrected layer, so the game, the <code>/vocab</code> guide, and
-          the <code>/learn</code> lesson path never disagree about what a word
+          <code>PoolDataService</code>
+          (<code>server/services/pool-data.ts</code>) reads the pool straight
+          from Redis, then applies <code>shared/meanings.ts</code>'s
+          <code>servedVocab()</code> — form corrections for the rare word the
+          source list simply gets wrong (e.g. ラジオカセ → the real word,
+          ラジカセ), and fuller meaning enrichments (早い as "early; quick,
+          soon", not just "early"). This runs on every read, so a fix ships
+          instantly with no re-seed. <code>GET /api/pool-vocab</code>,
+          <code>GET /api/pool-kanji</code>, and the daily game's
+          <code>buildDailyGame()</code> all read through this same corrected
+          layer, so the game, the <code>/vocab</code> guide, and the
+          <code>/learn</code> lesson path never disagree about what a word
           means.
         </li>
         <li>
@@ -129,10 +147,10 @@
             Why the same pin appears twice
           </p>
           <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
-            <code>scripts/seed-n5-data.mjs</code> and
+            <code>scripts/seed-pool-data.mjs</code> and
             <code>scripts/build-n5-reference.mjs</code> both import their N5
             word-list commit from one shared file,
-            <code>scripts/n5-word-list-source.mjs</code>, instead of each
+            <code>scripts/word-list-source.mjs</code>, instead of each
             hardcoding their own. If they ever read different commits, a change
             upstream could land in a freshly-seeded pool before the ground-truth
             snapshot had any evidence for it — a wrong word could ship and CI
@@ -142,7 +160,7 @@
           </p>
           <p class="m-0 mt-2 text-blue-800 dark:text-blue-200 text-sm">
             The JMdict + KANJIDIC2 pin is deliberately <em>not</em> shared the
-            same way: <code>seed-n5-data.mjs</code> pins a
+            same way: <code>seed-pool-data.mjs</code> pins a
             <code>jmdict-simplified</code> release tag
             (<code>JMDICT_SIMPLIFIED_RELEASE_TAG</code>) and
             <code>build-n5-reference.mjs</code> pins a checksum-verified
@@ -259,7 +277,7 @@
             >wanakana</a
           >
           (MIT licence). Since that community word list occasionally carries a
-          wrong English gloss, <code>scripts/seed-n5-data.mjs</code>
+          wrong English gloss, <code>scripts/seed-pool-data.mjs</code>
           cross-checks each entry's meaning against JMdict's own gloss for the
           same word and reading, and flags any that look like a swapped antonym
           (e.g. "this way" vs. "that way") for manual review at seed time —
@@ -471,15 +489,15 @@
       <p class="mb-6">
         The sources are pinned in three places:
         <code>JMDICT_SIMPLIFIED_RELEASE_TAG</code> in
-        <code>scripts/seed-n5-data.mjs</code>, <code>JAMDICT_SOURCE</code> in
+        <code>scripts/seed-pool-data.mjs</code>, <code>JAMDICT_SOURCE</code> in
         <code>scripts/build-n5-reference.mjs</code>, and
         <code>WORD_LIST_SOURCE</code> in
-        <code>scripts/n5-word-list-source.mjs</code> — the last is imported by
-        both <code>build-n5-reference.mjs</code> and
-        <code>seed-n5-data.mjs</code>, so the live seed and the committed
-        evidence always read the exact same N5 word list commit; they can't
-        silently diverge. To move to newer data, bump the pin(s), run
-        <code>pnpm seed:n5</code> and <code>pnpm data:reference</code>
+        <code>scripts/word-list-source.mjs</code> — the last is imported by both
+        <code>build-n5-reference.mjs</code> and <code>seed-pool-data.mjs</code>,
+        so the live seed and the committed evidence always read the exact same
+        N5 word list commit; they can't silently diverge. To move to newer data,
+        bump the pin(s), run <code>pnpm seed</code> and
+        <code>pnpm data:reference</code>
         together, and review both diffs in the PR — every changed reading or
         gloss is visible, and the content tests show whether any lesson now
         disagrees with it. Requires Node ≥ 22 (<code>node:sqlite</code>) and
@@ -511,16 +529,16 @@ flowchart TD
 n5.csv @ pinned commit"]
         JMdictLatest["JMdict + KANJIDIC2
 (jmdict-simplified, pinned release tag)"]
-        Seed["pnpm seed:n5
-scripts/seed-n5-data.mjs"]
+        Seed["pnpm seed
+scripts/seed-pool-data.mjs"]
         Pool[("Redis N5 Pool
 n5:vocab:* · n5:kanji:*
 n5:hiragana:* · n5:katakana:*")]
-        Served["N5DataService + servedVocab()
-server/services/n5-data.ts
+        Served["PoolDataService + servedVocab()
+server/services/pool-data.ts
 shared/meanings.ts"]
-        VocabAPI["GET /api/n5-vocab"]
-        KanjiAPI["GET /api/n5-kanji"]
+        VocabAPI["GET /api/pool-vocab"]
+        KanjiAPI["GET /api/pool-kanji"]
         Game["buildDailyGame()"]
 
         WordList --> Seed
@@ -535,7 +553,7 @@ cross-referenced readings + POS" --> Pool
 
     subgraph TRUTH["Ground truth — checked independently in CI"]
         direction TB
-        SamePin["scripts/n5-word-list-source.mjs
+        SamePin["scripts/word-list-source.mjs
 (same pinned commit as Seed)"]
         Jamdict["jamdict-data
 checksum-verified JMdict/KANJIDIC2"]

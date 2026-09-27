@@ -35,19 +35,21 @@
       </div>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily is a Japanese-learning game — a persisted pool of N5
-        hiragana, katakana, kanji, and vocabulary, and one 20-question
-        multiple-choice round generated per day. Game generation is entirely
-        in-repo: the backend deterministically builds each day's round from the
+        NipponDaily is a Japanese-learning game — a persisted pool of hiragana,
+        katakana, kanji, and vocabulary across JLPT levels N5-N2, and one
+        20-question multiple-choice round generated per day for whichever level
+        the player picks (N5 by default). Game generation is entirely in-repo:
+        the backend deterministically builds each day's round from that level's
         pool the first time it's requested, then persists it so later requests
         read the same game back — no agent or AI provider is involved in game
-        content. What <em>is</em> agent-controlled is the site's seasonal
-        design: a Claude web agent that runs on its own schedule, entirely
-        outside this codebase, switches NipponDaily's active season (its color
-        palette and the shapes of its cards, buttons, and badges) by writing
-        through a small remote MCP server this project exposes. If the agent
-        hasn't set a season yet, the site falls back to a deterministic default
-        itself, so the page is never left unstyled.
+        content. What <em>is</em>
+        agent-controlled is the site's seasonal design: a Claude web agent that
+        runs on its own schedule, entirely outside this codebase, switches
+        NipponDaily's active season (its color palette and the shapes of its
+        cards, buttons, and badges) by writing through a small remote MCP server
+        this project exposes. If the agent hasn't set a season yet, the site
+        falls back to a deterministic default itself, so the page is never left
+        unstyled.
       </p>
 
       <!-- Diagram 1: System Overview -->
@@ -91,13 +93,14 @@
           <p class="text-sm">
             <strong>Technical Details:</strong> Built with Nuxt 4 and Vue 3,
             utilizing custom UI components and Tailwind CSS v4.
-            <code>DailyGameBoard.vue</code> fetches one day's game, then runs
-            the entire round — question index, per-kind accuracy, and the
-            end-of-round summary — as local component state. Nothing about a
-            play-through is ever sent back to the server. The Kana and N5
-            Vocabulary guide pages (<code>/kana</code>, <code>/vocab</code>) are
-            static study references; the vocab pages read the whole pool from
-            <code>GET /api/n5-vocab</code>.
+            <code>DailyGameBoard.vue</code> fetches one day's game for the
+            selected JLPT level (a level switcher defaults to N5 and refetches
+            on change), then runs the entire round — question index, per-kind
+            accuracy, and the end-of-round summary — as local component state.
+            Nothing about a play-through is ever sent back to the server. The
+            Kana and Vocabulary guide pages (<code>/kana</code>,
+            <code>/vocab</code>) are static N5-only study references; the vocab
+            pages read the whole pool from <code>GET /api/pool-vocab</code>.
           </p>
         </UCard>
 
@@ -142,7 +145,8 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Powered by Upstash Redis,
-            storing the static N5 kanji/vocab/kana pool (seeded offline, see the
+            storing the static kanji/vocab/kana pool for every JLPT level N5-N2
+            (seeded offline, see the
             <NuxtLink to="/docs/data-integrity" class="underline"
               >Data Integrity &amp; Attribution</NuxtLink
             >
@@ -359,6 +363,19 @@
                   today or earlier — anything else is a <code>400</code>.
                 </td>
               </tr>
+              <tr>
+                <td class="py-2 px-2"><code>level</code></td>
+                <td class="py-2 px-2 text-gray-500">
+                  <code>N5</code> | <code>N4</code> | <code>N3</code> |
+                  <code>N2</code>
+                </td>
+                <td class="py-2 px-2">
+                  Defaults to <code>N5</code>. The game's level selector passes
+                  this once a player switches levels; each level has its own
+                  repeat-avoidance history and persisted daily record. An
+                  unrecognized value is a <code>400</code>.
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -368,8 +385,11 @@
             <p class="text-xs font-bold text-gray-500 mb-1">Request Examples</p>
             <pre
               class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
-            ><code># Today's game
-curl "http://localhost:3000/api/daily-game"</code></pre>
+            ><code># Today's N5 game
+curl "http://localhost:3000/api/daily-game"
+
+# Today's N4 game
+curl "http://localhost:3000/api/daily-game?level=N4"</code></pre>
           </div>
           <div>
             <p class="text-xs font-bold text-gray-500 mb-1">
@@ -381,6 +401,7 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
   "success": true,
   "data": {
     "date": "2026-09-18",
+    "level": "N5",
     "questions": [ ... 20 items ... ],
     "generatedAt": 1758182400000,
     "source": "fallback"
@@ -391,19 +412,37 @@ curl "http://localhost:3000/api/daily-game"</code></pre>
         </div>
       </UCard>
 
-      <!-- /api/n5-vocab -->
+      <!-- /api/pool-vocab -->
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
             <UBadge color="success" variant="soft">GET</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/n5-vocab</h3>
+            <h3 class="font-mono text-lg font-bold m-0">/api/pool-vocab</h3>
           </div>
         </template>
         <p class="text-sm m-0">
-          Returns the whole seeded N5 vocabulary pool as-is (<code
-            >{ success, data: N5Vocab[], count, timestamp }</code
-          >) for the vocabulary guide pages. No query parameters; nothing is
-          generated or persisted.
+          Returns one level's whole seeded vocabulary pool as-is (<code
+            >{ success, data: PoolVocab[], count, timestamp }</code
+          >), via an optional <code>?level=</code> (defaults to <code>N5</code>,
+          the only level the vocabulary guide pages actually request). Nothing
+          is generated or persisted.
+        </p>
+      </UCard>
+
+      <!-- /api/pool-kanji -->
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="success" variant="soft">GET</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/pool-kanji</h3>
+          </div>
+        </template>
+        <p class="text-sm m-0">
+          Returns one level's whole seeded kanji pool as-is (<code
+            >{ success, data: PoolKanji[], count, timestamp }</code
+          >), via an optional <code>?level=</code> (defaults to <code>N5</code>,
+          the only level the lesson pages' kanji breakdowns actually request).
+          Nothing is generated or persisted.
         </p>
       </UCard>
 
@@ -562,7 +601,7 @@ the active season" --> MCP["ALL /api/mcp
 
     MCP -- "get_active_theme /
 save_site_theme" --> Redis[("Redis
-N5 Pool + Daily Games + Site Theme")]
+JLPT Pool + Daily Games + Site Theme")]
 
     Cron(["⏰ Vercel Cron
 00:00 UTC daily"])

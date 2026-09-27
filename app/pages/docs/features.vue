@@ -24,8 +24,9 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          NipponDaily turns a persisted N5 kanji, kana, and vocabulary pool into
-          one bite-sized daily learning game.
+          NipponDaily turns a persisted JLPT kanji, kana, and vocabulary pool —
+          N5 by default, or N4 through N2 — into one bite-sized daily learning
+          game.
         </p>
       </div>
 
@@ -58,13 +59,19 @@ const features = [
   {
     title: "One Daily Game for Everyone",
     description:
-      "Every visitor on a given day plays the same 20-question round — 5 each of hiragana, katakana, N5 kanji, and N5 vocabulary — generated once and served to all readers that day.",
+      "Every visitor on a given day plays the same 20-question round for that level — 5 each of hiragana, katakana, kanji, and vocabulary — generated once and served to all readers that day.",
     icon: "i-heroicons-academic-cap",
   },
   {
-    title: "Persisted N5 Learning Pool",
+    title: "Choose Your JLPT Level",
     description:
-      "Hiragana, katakana, N5 kanji (via KANJIDIC2), and N5 vocabulary (cross-referenced against JMdict) are seeded once into Redis and reused every day — see <code>scripts/seed-n5-data.mjs</code>.",
+      "A level selector on the game switches which pool the round is drawn from — N5 by default, or N4 through N2 — with its own repeat-avoidance history and persisted daily record per level.",
+    icon: "i-heroicons-adjustments-horizontal",
+  },
+  {
+    title: "Persisted JLPT Learning Pool",
+    description:
+      "The shared hiragana/katakana syllabary, plus each level's own kanji (via KANJIDIC2) and vocabulary (cross-referenced against JMdict), are seeded once into Redis and reused every day — see <code>scripts/seed-pool-data.mjs</code>.",
     icon: "i-heroicons-circle-stack",
   },
   {
@@ -82,7 +89,7 @@ const features = [
   {
     title: "Deterministic Daily Generation",
     description:
-      "<code>GET /api/daily-game</code> generates each day's game itself from the N5 pool using a date-seeded PRNG the first time that date is requested, then persists it — the site never shows \"no game today\", and no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day's game at 00:00 UTC, and generation avoids repeating any item used in the past 7 days.",
+      "<code>GET /api/daily-game</code> generates each day's game itself from the requested level's pool using a date-seeded PRNG the first time that date is requested, then persists it — the site never shows \"no game today\", and no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day's N5 game at 00:00 UTC, and generation avoids repeating any item used in the past 7 days.",
     icon: "i-heroicons-arrow-path",
   },
   {
