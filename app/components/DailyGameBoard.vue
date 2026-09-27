@@ -11,11 +11,27 @@
       class="relative z-10 container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-3xl"
     >
       <div class="space-y-6">
-        <div class="space-y-2">
+        <div class="space-y-3">
           <p class="kicker text-primary-600 dark:text-primary-400">
             Today's Round
           </p>
           <div class="rule-double max-w-[120px]" />
+          <div class="flex items-center gap-2" data-testid="game-level-select">
+            <span class="kicker text-stone-400 dark:text-stone-500"
+              >JLPT Level</span
+            >
+            <UButton
+              v-for="lvl in JLPT_LEVELS"
+              :key="lvl"
+              :label="lvl"
+              :data-testid="`level-option-${lvl}`"
+              size="xs"
+              :color="lvl === level ? 'primary' : 'secondary'"
+              :variant="lvl === level ? 'solid' : 'outline'"
+              :disabled="loading"
+              @click="selectLevel(lvl)"
+            />
+          </div>
         </div>
 
         <!-- Failed fetch fallback -->
@@ -332,7 +348,13 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
-import type { DailyGame, GameQuestion, N5PoolKind } from "~~/types/index";
+import type {
+  DailyGame,
+  GameQuestion,
+  JlptLevel,
+  PoolKind,
+} from "~~/types/index";
+import { DEFAULT_JLPT_LEVEL, JLPT_LEVELS } from "~~/shared/jlpt";
 
 import AppHeader from "./AppHeader.vue";
 import TrendingFallback from "./TrendingFallback.vue";
@@ -350,20 +372,23 @@ const props = withDefaults(
   { autoFetch: true },
 );
 
-const KIND_LABELS: Record<N5PoolKind, string> = {
+const KIND_LABELS: Record<PoolKind, string> = {
   hiragana: "Hiragana",
   katakana: "Katakana",
   kanji: "Kanji",
   vocab: "Vocabulary",
 };
-const kinds = Object.keys(KIND_LABELS) as N5PoolKind[];
-const kindLabel = (kind: N5PoolKind) => KIND_LABELS[kind];
+const kinds = Object.keys(KIND_LABELS) as PoolKind[];
+const kindLabel = (kind: PoolKind) => KIND_LABELS[kind];
 
 const dailyGame = ref<DailyGame | null>(null);
 const loading = ref(false);
 const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 const playIndex = ref(0);
+/** Which JLPT level's pool today's round is drawn from — N5 by default.
+ *  Switching it refetches the game for that level and resets the round. */
+const level = ref<JlptLevel>(DEFAULT_JLPT_LEVEL);
 /** Gates the vocab preview screen — true once the player presses
  *  "Start Round". Reset to false only on a fresh fetch (a new day's game),
  *  not by restart(), so "Play Again" jumps straight back into play. */
@@ -376,9 +401,9 @@ const selectedChoice = ref<string | null>(null);
 const missed = ref<GameQuestion[]>([]);
 const isAnswered = ref(false);
 const perKindStats =
-  ref<Record<N5PoolKind, { correct: number; total: number }>>(emptyStats());
+  ref<Record<PoolKind, { correct: number; total: number }>>(emptyStats());
 
-function emptyStats(): Record<N5PoolKind, { correct: number; total: number }> {
+function emptyStats(): Record<PoolKind, { correct: number; total: number }> {
   return {
     hiragana: { correct: 0, total: 0 },
     katakana: { correct: 0, total: 0 },
@@ -475,6 +500,12 @@ function startRound(): void {
   started.value = true;
 }
 
+function selectLevel(newLevel: JlptLevel): void {
+  if (newLevel === level.value || loading.value) return;
+  level.value = newLevel;
+  void fetchGame();
+}
+
 const missedToStudy = computed(() =>
   missed.value.flatMap((q) => {
     const lesson =
@@ -518,7 +549,7 @@ const fetchGame = async (): Promise<void> => {
       success: boolean;
       data: DailyGame;
       timestamp: string;
-    }>("/api/daily-game");
+    }>("/api/daily-game", { query: { level: level.value } });
 
     if (response?.data) {
       dailyGame.value = response.data;
@@ -567,5 +598,7 @@ defineExpose({
   started,
   startRound,
   vocabToStudy,
+  level,
+  selectLevel,
 });
 </script>
