@@ -7,10 +7,12 @@ export interface ApiResponse<T = unknown> {
 
 // --- N5 LEARNING POOL ---
 
-/** Only one level is in scope today; kept as a named alias (not inlined
- *  "N5" everywhere) purely for self-documentation and cheap forward-compat
- *  if a later level is ever added. */
-export type JlptLevel = "N5";
+/** The JLPT levels NipponDaily has a seeded pool for — see shared/jlpt.ts's
+ *  JLPT_LEVELS for the runtime-checkable version of this same set. N5 is the
+ *  only level with hand-authored lesson content (WORD_CLUSTERS) so far;
+ *  N4-N2 exist as seeded, dictionary-verified pools and API/game surfaces
+ *  only — see docs/content-accuracy.md. */
+export type JlptLevel = "N5" | "N4" | "N3" | "N2";
 
 export type N5Script = "hiragana" | "katakana";
 
@@ -77,6 +79,11 @@ export interface GameQuestion {
 export interface DailyGame {
   /** YYYY-MM-DD */
   date: string;
+  /** Which level's kanji/vocab pool the questions were drawn from. Defaults
+   *  to "N5" at every call site today — no UI lets a player pick another
+   *  level yet — but the field is real (not inferred) so a level's repeat-
+   *  avoidance history and persisted key never mix with another level's. */
+  level: JlptLevel;
   questions: GameQuestion[];
   generatedAt: number;
   /** Which path produced it — see server/api/daily-game.get.ts. */
