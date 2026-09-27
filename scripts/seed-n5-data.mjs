@@ -2,11 +2,12 @@
 /**
  * Seeds NipponDaily's Redis store with the full N5 learning pool: hiragana,
  * katakana, N5 kanji, and N5 vocabulary. This is static reference data — run
- * this once to bootstrap a new environment, or re-run any time to pick up a
- * newer JMdict/KANJIDIC2 release. Idempotent (safe to re-run: every record
- * gets a deterministic id and is written with SET/SADD, never appended).
+ * this once to bootstrap a new environment, or re-run any time. Idempotent
+ * (safe to re-run: every record gets a deterministic id and is written with
+ * SET/SADD, never appended).
  *
- * Sources:
+ * Sources (pinned — bump JMDICT_SIMPLIFIED_RELEASE_TAG deliberately, then
+ * re-run and diff the seeded data against data/reference/n5-reference.json):
  *  - N5 word list: elzup/jlpt-word-list (MIT), src/n5.csv — digitizes the
  *    community-standard N5 list originally compiled at tanos.co.uk. Pinned to
  *    the same commit scripts/build-n5-reference.mjs reads (see
@@ -15,7 +16,10 @@
  *    silently diverge.
  *  - Full dictionary entries + part of speech: JMdict, via the
  *    jmdict-simplified project's pre-parsed English release,
- *    https://github.com/scriptin/jmdict-simplified
+ *    https://github.com/scriptin/jmdict-simplified — pinned to a specific
+ *    release tag (see JMDICT_SIMPLIFIED_RELEASE_TAG below) rather than
+ *    "latest", so the live Redis data only moves when someone deliberately
+ *    bumps the pin, same as the committed test-fixture snapshot.
  *  - Kanji data (on'yomi/kun'yomi/strokes/meanings): KANJIDIC2, via the same
  *    jmdict-simplified release's kanjidic2-en asset.
  *  - Hiragana/katakana: hardcoded below (fixed, unchanging syllabaries — not
@@ -46,8 +50,9 @@ import { N5_CSV_URL } from "./n5-word-list-source.mjs";
 
 const execFileAsync = promisify(execFile);
 
-const RELEASES_API =
-  "https://api.github.com/repos/scriptin/jmdict-simplified/releases/latest";
+// Pinned jmdict-simplified release — bump deliberately (see the file header).
+const JMDICT_SIMPLIFIED_RELEASE_TAG = "3.6.2+20260921173324";
+const RELEASE_API = `https://api.github.com/repos/scriptin/jmdict-simplified/releases/tags/${JMDICT_SIMPLIFIED_RELEASE_TAG}`;
 const KANJI_COUNT_SANITY_RANGE = [80, 150];
 
 // --- Static kana seed data (46-symbol gojūon + dakuten/handakuten/small kana per script) ---
@@ -130,12 +135,14 @@ function parseCsv(text) {
 // --- JMdict-simplified / KANJIDIC2 fetch + extract ---
 
 async function downloadReleaseAsset(assetNamePattern) {
-  console.log(`Fetching latest jmdict-simplified release metadata...`);
-  const release = await fetch(RELEASES_API).then((r) => r.json());
+  console.log(
+    `Fetching jmdict-simplified release metadata for ${JMDICT_SIMPLIFIED_RELEASE_TAG}...`,
+  );
+  const release = await fetch(RELEASE_API).then((r) => r.json());
   const asset = release.assets?.find((a) => assetNamePattern.test(a.name));
   if (!asset) {
     throw new Error(
-      `Could not find an asset matching ${assetNamePattern} in the latest jmdict-simplified release`,
+      `Could not find an asset matching ${assetNamePattern} in jmdict-simplified release ${JMDICT_SIMPLIFIED_RELEASE_TAG}`,
     );
   }
   console.log(
