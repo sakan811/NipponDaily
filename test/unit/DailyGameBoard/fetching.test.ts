@@ -9,7 +9,13 @@ describe("DailyGameBoard fetching", () => {
     mockFetchGame(game);
 
     const wrapper = mount(DailyGameBoard);
-    await vi.waitFor(() => expect(wrapper.text()).toContain("Question 1 / 2"));
+    await vi.waitFor(() =>
+      expect(wrapper.text()).toContain("Today's Vocabulary"),
+    );
+
+    wrapper.vm.startRound();
+    await wrapper.vm.$nextTick();
+    expect(wrapper.text()).toContain("Question 1 / 2");
   });
 
   it("loads and renders the first question after a successful fetch", async () => {
@@ -18,6 +24,8 @@ describe("DailyGameBoard fetching", () => {
 
     const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
     await wrapper.vm.fetchGame();
+    await wrapper.vm.$nextTick();
+    wrapper.vm.startRound();
     await wrapper.vm.$nextTick();
 
     expect(wrapper.text()).toContain("Question 1 / 2");
@@ -62,7 +70,11 @@ describe("DailyGameBoard fetching", () => {
     const retryButton = wrapper.find('[data-testid="error-state"] button');
     await retryButton.trigger("click");
     await vi.waitFor(() => {
-      expect(wrapper.text()).toContain("Question 1 / 2");
+      expect(wrapper.text()).toContain("Today's Vocabulary");
     });
+
+    wrapper.vm.startRound();
+    await wrapper.vm.$nextTick();
+    expect(wrapper.text()).toContain("Question 1 / 2");
   });
 });
