@@ -46,14 +46,37 @@ import path from "node:path";
 import { promisify } from "node:util";
 import { Redis } from "@upstash/redis";
 import { toRomaji } from "wanakana";
-import { N5_CSV_URL } from "./n5-word-list-source.mjs";
+import { N5_CSV_URL, wordListUrl } from "./n5-word-list-source.mjs";
+
+/** Every level this script seeds, easiest first — see shared/jlpt.ts (the
+ *  TS-side single source of truth; duplicated here as a plain array since
+ *  this file runs as a bare `node` process with no TS stripping and doesn't
+ *  import shared/*.ts, matching this file's existing convention of not
+ *  depending on types/index.ts either). */
+const JLPT_LEVELS = ["N5", "N4", "N3", "N2"];
 
 const execFileAsync = promisify(execFile);
 
 // Pinned jmdict-simplified release — bump deliberately (see the file header).
 const JMDICT_SIMPLIFIED_RELEASE_TAG = "3.6.2+20260921173324";
 const RELEASE_API = `https://api.github.com/repos/scriptin/jmdict-simplified/releases/tags/${JMDICT_SIMPLIFIED_RELEASE_TAG}`;
-const KANJI_COUNT_SANITY_RANGE = [80, 150];
+
+/** Expected range of unique kanji characters derived from each level's own
+ *  word list (see deriveKanjiChars) — a sanity warning, not a hard failure,
+ *  in case an upstream word-list change silently changes scope. Each
+ *  level's kanji are derived independently from its own vocab, so a
+ *  character can legitimately appear in more than one level's set. */
+const KANJI_COUNT_SANITY_RANGE = {
+  // Was [80, 150] — that range assumed "unique kanji in the N5 vocab list"
+  // tracks the ~103-character "official" N5 kanji set, but the word list's
+  // vocab actually derives 447 distinct characters (many N5 compound words
+  // use kanji outside that narrower canonical set); verified directly
+  // against the pinned n5.csv, not a regression from this pass's changes.
+  N5: [400, 500],
+  N4: [400, 700],
+  N3: [900, 1500],
+  N2: [700, 1300],
+};
 
 // --- Static kana seed data (46-symbol gojūon + dakuten/handakuten/small kana per script) ---
 
@@ -505,26 +528,30 @@ const VOCAB_POS_OVERRIDES = {
 };
 
 /**
- * Parses the elzup/jlpt-word-list CSV into N5 entries, applying the
- * reading/meaning overrides above. `listReading`/`listMeaning` keep the
- * source list's own values so the reference snapshot
- * (scripts/build-n5-reference.mjs) can show what each override corrected.
+ * Parses one level's elzup/jlpt-word-list CSV into entries tagged with that
+ * level, applying the reading/meaning overrides above. `listReading`/
+ * `listMeaning` keep the source list's own values so the reference
+ * snapshots (scripts/build-n5-reference.mjs, scripts/build-jlpt-reference.mjs)
+ * can show what each override corrected.
+ *
+ * Every row in the file belongs to `level` — n3.csv/n2.csv don't carry a
+ * reliable per-row "JLPT_N3"/"JLPT_N2" tag (see n5-word-list-source.mjs), so
+ * this trusts the file itself rather than filtering by tag. n5.csv's own
+ * 718 rows are already 100% JLPT_N5-tagged (verified against the pinned
+ * commit), so dropping the old per-row tag filter doesn't change N5's
+ * output at all.
  */
-function parseN5Csv(text) {
+function parseJlptCsv(text, level) {
   const rows = parseCsv(text);
   const [header, ...dataRows] = rows;
   const idx = {
     expression: header.indexOf("expression"),
     reading: header.indexOf("reading"),
     meaning: header.indexOf("meaning"),
-    tags: header.indexOf("tags"),
   };
 
   const entries = [];
   for (const row of dataRows) {
-    const tags = row[idx.tags] ?? "";
-    if (!/\bJLPT_N5\b/.test(tags)) continue;
-
     const expression = (row[idx.expression] ?? "").split(";")[0].trim();
     const rawReading = (row[idx.reading] ?? "").split(";")[0].trim();
     const rawMeaning = (row[idx.meaning] ?? "").trim();
@@ -539,9 +566,22 @@ function parseN5Csv(text) {
       meaning,
       listReading: rawReading,
       listMeaning: rawMeaning,
+      jlptLevel: level,
     });
   }
   return entries;
+}
+
+/** Kept for existing call sites (scripts/build-n5-reference.mjs, tests) —
+ *  identical to parseJlptCsv(text, "N5"). */
+function parseN5Csv(text) {
+  return parseJlptCsv(text, "N5");
+}
+
+async function fetchJlptList(level) {
+  console.log(`Fetching ${level} word list from elzup/jlpt-word-list...`);
+  const text = await fetch(wordListUrl(level)).then((r) => r.text());
+  return parseJlptCsv(text, level);
 }
 
 async function fetchN5List(url = N5_CSV_URL) {
@@ -564,10 +604,14 @@ function slugify(term, seen) {
 
 // --- Assembly ---
 
-function assembleVocab(n5Entries, jmdictIndex) {
+function assembleVocab(entries, jmdictIndex, level) {
+  // A fresh id namespace per level: each level's pool lives under its own
+  // Redis keys (see poolIdsKey/poolItemKey), so a "-2"-style disambiguating
+  // suffix should only ever be triggered by a collision within that same
+  // level's own list, not by an unrelated word at another level.
   const seenIds = new Set();
   const meaningWarnings = [];
-  const vocab = n5Entries.map((entry) => {
+  const vocab = entries.map((entry) => {
     const jmdict = jmdictIndex.get(entry.term);
     const kana = entry.kana;
     const warning = checkMeaning(entry, jmdict);
@@ -581,7 +625,7 @@ function assembleVocab(n5Entries, jmdictIndex) {
       romaji: toRomaji(kana),
       meaning: entry.meaning,
       partOfSpeech,
-      jlptLevel: "N5",
+      jlptLevel: level,
     };
   });
   return { vocab, meaningWarnings };
@@ -596,7 +640,7 @@ function deriveKanjiChars(vocab) {
   return [...chars];
 }
 
-function assembleKanji(kanjiChars, kanjidicIndex) {
+function assembleKanji(kanjiChars, kanjidicIndex, level) {
   const kanji = [];
   const missing = [];
   for (const char of kanjiChars) {
@@ -612,7 +656,7 @@ function assembleKanji(kanjiChars, kanjidicIndex) {
       onyomi: info.onyomi,
       kunyomi: info.kunyomi,
       strokeCount: info.strokeCount,
-      jlptLevel: "N5",
+      jlptLevel: level,
     });
   }
   if (missing.length > 0) {
@@ -653,21 +697,29 @@ async function writePool(redis, keyPrefix, idsKey, records) {
   await redis.sadd(idsKey, ...records.map((r) => r.id));
 }
 
-async function main() {
-  const [jmdictData, kanjidicData, n5Entries] = await Promise.all([
-    downloadReleaseAsset(/^jmdict-eng-\d.*\.json\.tgz$/),
-    downloadReleaseAsset(/^kanjidic2-en-\d.*\.json\.tgz$/),
-    fetchN5List(),
-  ]);
+/**
+ * Level-namespaced Redis keys for the kanji/vocab pools — mirrors
+ * server/services/n5-data.ts's poolIdsKey/poolItemKeyPrefix exactly (the two
+ * files can't import each other; this one runs as a bare `node` process
+ * outside the Nuxt context). N5 keeps its original, un-namespaced keys
+ * (n5:vocab_ids, n5:vocab:*, …) so existing production data needs no
+ * migration; N4/N3/N2 get their own `:N4`/`:N3`/`:N2`-suffixed keys.
+ */
+function poolIdsKey(kind, level) {
+  return level === "N5" ? `n5:${kind}_ids` : `n5:${kind}_ids:${level}`;
+}
+function poolItemPrefix(kind, level) {
+  return level === "N5" ? `n5:${kind}:` : `n5:${kind}:${level}:`;
+}
 
-  console.log(`Loaded ${n5Entries.length} N5-tagged word-list entries`);
-  const jmdictIndex = buildJmdictIndex(jmdictData);
-  const kanjidicIndex = buildKanjidicIndex(kanjidicData);
+async function seedLevel(redis, level, jmdictIndex, kanjidicIndex) {
+  const entries = await fetchJlptList(level);
+  console.log(`Loaded ${entries.length} ${level} word-list entries`);
 
-  const { vocab, meaningWarnings } = assembleVocab(n5Entries, jmdictIndex);
+  const { vocab, meaningWarnings } = assembleVocab(entries, jmdictIndex, level);
   if (meaningWarnings.length > 0) {
     console.warn(
-      `\n⚠ ${meaningWarnings.length} vocab gloss(es) look like a reversed/swapped meaning vs. JMdict — verify before shipping:`,
+      `\n⚠ ${meaningWarnings.length} ${level} gloss(es) look like a reversed/swapped meaning vs. JMdict — verify before shipping:`,
     );
     for (const w of meaningWarnings) {
       console.warn(
@@ -679,29 +731,57 @@ async function main() {
     );
   }
   if (process.env.SEED_VERBOSE_MEANING_CHECK === "1") {
-    logLowConfidenceMeaningDrift(n5Entries, jmdictIndex);
+    logLowConfidenceMeaningDrift(entries, jmdictIndex);
   }
 
   const kanjiChars = deriveKanjiChars(vocab);
-  const [lo, hi] = KANJI_COUNT_SANITY_RANGE;
+  const [lo, hi] = KANJI_COUNT_SANITY_RANGE[level] ?? [0, Infinity];
   if (kanjiChars.length < lo || kanjiChars.length > hi) {
     console.warn(
-      `Warning: derived ${kanjiChars.length} unique N5 kanji, outside the expected ~${lo}-${hi} range — check the N5 word list source.`,
+      `Warning: derived ${kanjiChars.length} unique ${level} kanji, outside the expected ~${lo}-${hi} range — check the ${level} word list source.`,
     );
   }
-  const kanji = assembleKanji(kanjiChars, kanjidicIndex);
-  const hiragana = assembleKana(HIRAGANA_CHARS, "hiragana");
-  const katakana = assembleKana(KATAKANA_CHARS, "katakana");
+  const kanji = assembleKanji(kanjiChars, kanjidicIndex, level);
 
   console.log(
-    `Assembled ${vocab.length} vocab, ${kanji.length} kanji, ${hiragana.length} hiragana, ${katakana.length} katakana`,
+    `Assembled ${level}: ${vocab.length} vocab, ${kanji.length} kanji`,
   );
 
+  await writePool(
+    redis,
+    poolItemPrefix("vocab", level),
+    poolIdsKey("vocab", level),
+    vocab,
+  );
+  await writePool(
+    redis,
+    poolItemPrefix("kanji", level),
+    poolIdsKey("kanji", level),
+    kanji,
+  );
+}
+
+async function main() {
+  const [jmdictData, kanjidicData] = await Promise.all([
+    downloadReleaseAsset(/^jmdict-eng-\d.*\.json\.tgz$/),
+    downloadReleaseAsset(/^kanjidic2-en-\d.*\.json\.tgz$/),
+  ]);
+  const jmdictIndex = buildJmdictIndex(jmdictData);
+  const kanjidicIndex = buildKanjidicIndex(kanjidicData);
+
   const redis = getRedisClient();
-  await writePool(redis, "n5:vocab:", "n5:vocab_ids", vocab);
-  await writePool(redis, "n5:kanji:", "n5:kanji_ids", kanji);
+  for (const level of JLPT_LEVELS) {
+    await seedLevel(redis, level, jmdictIndex, kanjidicIndex);
+  }
+
+  // Hiragana/katakana are shared across every level — one script, not per-level.
+  const hiragana = assembleKana(HIRAGANA_CHARS, "hiragana");
+  const katakana = assembleKana(KATAKANA_CHARS, "katakana");
   await writePool(redis, "n5:hiragana:", "n5:hiragana_ids", hiragana);
   await writePool(redis, "n5:katakana:", "n5:katakana_ids", katakana);
+  console.log(
+    `Assembled ${hiragana.length} hiragana, ${katakana.length} katakana`,
+  );
 
   console.log("Done.");
 }
@@ -718,10 +798,18 @@ export {
   VOCAB_READING_OVERRIDES,
   VOCAB_POS_OVERRIDES,
   N5_CSV_URL,
+  JLPT_LEVELS,
   findReversedMeaning,
   checkMeaning,
   parseCsv,
   parseN5Csv,
+  parseJlptCsv,
   fetchN5List,
+  fetchJlptList,
   slugify,
+  assembleVocab,
+  deriveKanjiChars,
+  assembleKanji,
+  poolIdsKey,
+  poolItemPrefix,
 };
