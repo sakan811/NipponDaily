@@ -17,7 +17,8 @@
     "type-check": "tsc --noEmit",
     "check-qa": "pnpm lint && pnpm format && pnpm type-check && pnpm build && pnpm test:run",
     "seed:n5": "node scripts/seed-n5-data.mjs",
-    "data:reference": "node --experimental-strip-types --no-warnings scripts/build-n5-reference.mjs"
+    "data:reference": "node --experimental-strip-types --no-warnings scripts/build-n5-reference.mjs",
+    "data:reference:jlpt": "node --experimental-strip-types --no-warnings scripts/build-jlpt-reference.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
