@@ -142,16 +142,14 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Powered by Upstash Redis,
-            storing the static N5 kanji/vocab/kana pool (seeded offline, see
-            the
+            storing the static N5 kanji/vocab/kana pool (seeded offline, see the
             <NuxtLink to="/docs/data-integrity" class="underline"
               >Data Integrity &amp; Attribution</NuxtLink
             >
             docs), one small <code>DailyGame</code> record per date, and the
-            single active <code>SiteTheme</code> record the theme agent
-            controls (Section 2). When the Redis env vars are absent, the
-            service falls back to an in-process in-memory store so the app still
-            runs locally.
+            single active <code>SiteTheme</code> record the theme agent controls
+            (Section 2). When the Redis env vars are absent, the service falls
+            back to an in-process in-memory store so the app still runs locally.
           </p>
         </UCard>
 

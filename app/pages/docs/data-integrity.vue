@@ -24,11 +24,10 @@
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
         NipponDaily teaches Japanese, so a wrong reading or meaning is a bug
-        that teaches people something false. Every kanji, kana, and
-        vocabulary word served by the game traces back to a licensed
-        dictionary source, and every hand-written fact about that content is
-        checked by CI against committed dictionary evidence before it can
-        merge.
+        that teaches people something false. Every kanji, kana, and vocabulary
+        word served by the game traces back to a licensed dictionary source, and
+        every hand-written fact about that content is checked by CI against
+        committed dictionary evidence before it can merge.
       </p>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -76,11 +75,10 @@
         <li>
           <strong>Seed the pool.</strong> <code>pnpm seed:n5</code> fetches the
           N5 word list (a pinned commit of <code>elzup/jlpt-word-list</code>,
-          via <code>scripts/n5-word-list-source.mjs</code>) plus a pinned
-          JMdict + KANJIDIC2 release (<code>JMDICT_SIMPLIFIED_RELEASE_TAG</code>
-          in <code>scripts/seed-n5-data.mjs</code>), cross-references every
-          word for its
-          reading and part of speech, derives every kana/word's
+          via <code>scripts/n5-word-list-source.mjs</code>) plus a pinned JMdict
+          + KANJIDIC2 release (<code>JMDICT_SIMPLIFIED_RELEASE_TAG</code> in
+          <code>scripts/seed-n5-data.mjs</code>), cross-references every word
+          for its reading and part of speech, derives every kana/word's
           <code>romaji</code> with <code>wanakana</code>, and writes the whole
           pool into Redis (<code>n5:vocab:*</code>, <code>n5:kanji:*</code>,
           <code>n5:hiragana:*</code>, <code>n5:katakana:*</code>). This runs
@@ -282,15 +280,17 @@
 
       <p class="text-lg mb-6">
         Every accuracy bug so far had the same cause: a fact was
-        <strong>written by hand</strong> (or copied from a community word
-        list) and <strong>nothing checked it</strong>, because the dictionary
-        data it depended on only existed inside Redis, where no test could see
-        it. The fix is structural: the dictionary evidence above is committed
-        to the repo, and CI checks every hand-written fact against it on every
-        PR. A wrong lesson fails CI before it can merge.
+        <strong>written by hand</strong> (or copied from a community word list)
+        and <strong>nothing checked it</strong>, because the dictionary data it
+        depended on only existed inside Redis, where no test could see it. The
+        fix is structural: the dictionary evidence above is committed to the
+        repo, and CI checks every hand-written fact against it on every PR. A
+        wrong lesson fails CI before it can merge.
       </p>
 
-      <h3 class="text-xl font-semibold mt-8 mb-4 text-stone-800 dark:text-stone-200">
+      <h3
+        class="text-xl font-semibold mt-8 mb-4 text-stone-800 dark:text-stone-200"
+      >
         The pieces
       </h3>
 
@@ -309,8 +309,8 @@
               </td>
               <td class="py-2 px-2">
                 Committed, versioned dictionary evidence: JMdict entries
-                (readings, senses, glosses, part of speech) for every N5 word
-                as the site serves it, JMdict readings for every word in the
+                (readings, senses, glosses, part of speech) for every N5 word as
+                the site serves it, JMdict readings for every word in the
                 example sentences, and KANJIDIC2 readings/meanings for every
                 kanji the content uses. Generated — never edit by hand.
               </td>
@@ -322,8 +322,8 @@
               <td class="py-2 px-2">
                 Rebuilds that file from <strong>pinned</strong> sources
                 (checksum-verified <code>jamdict-data</code> for
-                JMdict/KANJIDIC2, and the N5 word list at a fixed commit).
-                Same input → same output.
+                JMdict/KANJIDIC2, and the N5 word list at a fixed commit). Same
+                input → same output.
               </td>
             </tr>
             <tr>
@@ -341,8 +341,8 @@
               </td>
               <td class="py-2 px-2">
                 The only place to correct or enrich what a word says:
-                <code>VOCAB_FORM_CORRECTIONS</code> (wrong written
-                form/reading in the source list) and
+                <code>VOCAB_FORM_CORRECTIONS</code> (wrong written form/reading
+                in the source list) and
                 <code>VOCAB_MEANING_ENRICHMENTS</code> (fuller meanings).
                 Applied at read time with ids unchanged — no re-seed needed.
               </td>
@@ -351,21 +351,22 @@
         </table>
       </div>
 
-      <h3 class="text-xl font-semibold mt-8 mb-4 text-stone-800 dark:text-stone-200">
+      <h3
+        class="text-xl font-semibold mt-8 mb-4 text-stone-800 dark:text-stone-200"
+      >
         What CI checks
       </h3>
 
       <ul class="list-disc pl-6 mb-6 space-y-3">
         <li>
-          <strong>Example sentences</strong> (<code>examples.test.ts</code>)
-          — every example's rōmaji must be a valid reading of its Japanese.
-          The sentence is tokenized (kuromoji), and the rōmaji must be spelled
-          by one reading per word, where each word may use the tokenizer's
-          reading <em>or any reading JMdict lists for it</em>. So 七時 can be
+          <strong>Example sentences</strong> (<code>examples.test.ts</code>) —
+          every example's rōmaji must be a valid reading of its Japanese. The
+          sentence is tokenized (kuromoji), and the rōmaji must be spelled by
+          one reading per word, where each word may use the tokenizer's reading
+          <em>or any reading JMdict lists for it</em>. So 七時 can be
           <code>shichi-ji</code> or <code>nana-ji</code>, but a wrong reading,
-          the wrong word, or a typo fails. Use wāpuro rōmaji (<code
-            >ou</code
-          >, <code>ei</code>, no macrons).
+          the wrong word, or a typo fails. Use wāpuro rōmaji (<code>ou</code>,
+          <code>ei</code>, no macrons).
         </li>
         <li>
           <strong>Every N5 word</strong> (<code>vocabulary.test.ts</code>):
@@ -375,8 +376,7 @@
               affixes like ～月 may use a KANJIDIC2 reading instead);
             </li>
             <li>
-              has no meaning that reverses JMdict's (this ↔ that, come ↔
-              go…);
+              has no meaning that reverses JMdict's (this ↔ that, come ↔ go…);
             </li>
             <li>
               is taught by exactly one lesson, and every lesson word is a real
@@ -385,21 +385,21 @@
           </ul>
         </li>
         <li>
-          <strong>Word-card rōmaji</strong> (<code>romaji.test.ts</code>) —
-          the seed converts kana to rōmaji letter by letter, which is wrong
-          wherever は/へ/を are particles (では is <code>dewa</code>, not
-          <code>deha</code>). Each word's written form is tokenized so
-          particle は (pronounced わ) is told apart from the letter は (歯
-          <code>ha</code>), and every served rōmaji must match the spoken
-          form. Fix a failure with a <code>romaji</code> entry in
+          <strong>Word-card rōmaji</strong> (<code>romaji.test.ts</code>) — the
+          seed converts kana to rōmaji letter by letter, which is wrong wherever
+          は/へ/を are particles (では is <code>dewa</code>, not
+          <code>deha</code>). Each word's written form is tokenized so particle
+          は (pronounced わ) is told apart from the letter は (歯
+          <code>ha</code>), and every served rōmaji must match the spoken form.
+          Fix a failure with a <code>romaji</code> entry in
           <code>VOCAB_FORM_CORRECTIONS</code>.
         </li>
         <li>
-          <strong>Every hand-written meaning</strong> — enrichments,
-          seed-time overrides, and corrections — must be backed by JMdict:
-          each <code>;</code>-separated sense has to share a content word with
-          one of the word's JMdict glosses. Seed reading overrides must be
-          JMdict readings; part-of-speech overrides must be JMdict tags.
+          <strong>Every hand-written meaning</strong> — enrichments, seed-time
+          overrides, and corrections — must be backed by JMdict: each
+          <code>;</code>-separated sense has to share a content word with one of
+          the word's JMdict glosses. Seed reading overrides must be JMdict
+          readings; part-of-speech overrides must be JMdict tags.
         </li>
         <li>
           <strong>Lesson prose</strong> (<code>prose.test.ts</code>) — every
@@ -415,13 +415,14 @@
       </ul>
 
       <p class="mb-6">
-        The checkers test themselves too: they must <em>reject</em>
-        known-wrong readings (三日 as <code>yokka</code>, 七時 as
-        <code>hachi-ji</code>, 来週 as <code>senshuu</code>), so they can't
-        silently pass everything.
+        The checkers test themselves too: they must <em>reject</em> known-wrong
+        readings (三日 as <code>yokka</code>, 七時 as <code>hachi-ji</code>,
+        来週 as <code>senshuu</code>), so they can't silently pass everything.
       </p>
 
-      <h3 class="text-xl font-semibold mt-8 mb-4 text-stone-800 dark:text-stone-200">
+      <h3
+        class="text-xl font-semibold mt-8 mb-4 text-stone-800 dark:text-stone-200"
+      >
         When a check fails
       </h3>
 
@@ -434,9 +435,9 @@
           <code>pnpm data:reference</code>.
         </li>
         <li>
-          <strong>A word's rōmaji is wrong</strong> → add a <code>romaji</code>
-          correction in <code>VOCAB_FORM_CORRECTIONS</code> (ids stay the
-          same; no re-seed).
+          <strong>A word's rōmaji is wrong</strong> → add a
+          <code>romaji</code> correction in
+          <code>VOCAB_FORM_CORRECTIONS</code> (ids stay the same; no re-seed).
         </li>
         <li>
           <strong>A meaning isn't backed</strong> → reword it to match what
@@ -449,8 +450,8 @@
           rethink the example rather than special-casing it.
         </li>
         <li>
-          <strong>A prose word is unknown</strong> → it's probably misspelt.
-          If it's a real word new to the content, run
+          <strong>A prose word is unknown</strong> → it's probably misspelt. If
+          it's a real word new to the content, run
           <code>pnpm data:reference</code> so the reference records it.
         </li>
       </ul>
@@ -461,19 +462,20 @@
         rows, meanings) where they are checked, and review prose in PRs.
       </p>
 
-      <h3 class="text-xl font-semibold mt-8 mb-4 text-stone-800 dark:text-stone-200">
+      <h3
+        class="text-xl font-semibold mt-8 mb-4 text-stone-800 dark:text-stone-200"
+      >
         Updating the evidence
       </h3>
 
       <p class="mb-6">
         The sources are pinned in three places:
         <code>JMDICT_SIMPLIFIED_RELEASE_TAG</code> in
-        <code>scripts/seed-n5-data.mjs</code>,
-        <code>JAMDICT_SOURCE</code> in
+        <code>scripts/seed-n5-data.mjs</code>, <code>JAMDICT_SOURCE</code> in
         <code>scripts/build-n5-reference.mjs</code>, and
         <code>WORD_LIST_SOURCE</code> in
-        <code>scripts/n5-word-list-source.mjs</code> — the last is imported
-        by both <code>build-n5-reference.mjs</code> and
+        <code>scripts/n5-word-list-source.mjs</code> — the last is imported by
+        both <code>build-n5-reference.mjs</code> and
         <code>seed-n5-data.mjs</code>, so the live seed and the committed
         evidence always read the exact same N5 word list commit; they can't
         silently diverge. To move to newer data, bump the pin(s), run
