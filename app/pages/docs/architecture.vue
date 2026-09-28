@@ -98,9 +98,11 @@
             on change), then runs the entire round — question index, per-kind
             accuracy, and the end-of-round summary — as local component state.
             Nothing about a play-through is ever sent back to the server. The
-            Kana and Vocabulary guide pages (<code>/kana</code>,
-            <code>/vocab</code>) are static N5-only study references; the vocab
-            pages read the whole pool from <code>GET /api/pool-vocab</code>.
+            Kana guide (<code>/kana</code>) is a static reference; the
+            Vocabulary guide (<code>/vocab</code>) has its own level selector
+            (N5-N2) and reads that level's whole pool from
+            <code>GET /api/pool-vocab</code> — only N5 and N4 words link to a
+            lesson, since only those two levels have one.
           </p>
         </UCard>
 
@@ -423,9 +425,9 @@ curl "http://localhost:3000/api/daily-game?level=N4"</code></pre>
         <p class="text-sm m-0">
           Returns one level's whole seeded vocabulary pool as-is (<code
             >{ success, data: PoolVocab[], count, timestamp }</code
-          >), via an optional <code>?level=</code> (defaults to <code>N5</code>,
-          the only level the vocabulary guide pages actually request). Nothing
-          is generated or persisted.
+          >), via an optional <code>?level=</code> (defaults to <code>N5</code>
+          — the vocabulary guide pages' level selector passes it once a player
+          switches level). Nothing is generated or persisted.
         </p>
       </UCard>
 
@@ -440,9 +442,9 @@ curl "http://localhost:3000/api/daily-game?level=N4"</code></pre>
         <p class="text-sm m-0">
           Returns one level's whole seeded kanji pool as-is (<code
             >{ success, data: PoolKanji[], count, timestamp }</code
-          >), via an optional <code>?level=</code> (defaults to <code>N5</code>,
-          the only level the lesson pages' kanji breakdowns actually request).
-          Nothing is generated or persisted.
+          >), via an optional <code>?level=</code> (defaults to <code>N5</code>
+          — the lesson pages' kanji breakdowns request N5 or N4, whichever
+          level's lesson path is active). Nothing is generated or persisted.
         </p>
       </UCard>
 

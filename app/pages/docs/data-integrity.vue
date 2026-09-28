@@ -54,13 +54,17 @@
         class="p-4 mb-8 season-box bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800"
       >
         <p class="m-0 text-blue-900 dark:text-blue-100 text-sm">
-          <strong>N5 only, for now:</strong> everything below — the ground-truth
-          reference, the CI content checks, and the hand-written lesson content
-          — covers <strong>N5</strong>, the only level with a hand-authored
-          lesson path today. N4-N2 are seeded, dictionary- verified pools the
-          game and its new level selector can already serve, but their own
-          evidence snapshots
-          (<code>data/reference/{n4,n3,n2}-reference.json</code>, built by
+          <strong>N5 and N4, for now:</strong> everything below — the
+          ground-truth reference, the CI content checks, and the hand-written
+          lesson content — covers <strong>N5</strong> and <strong>N4</strong>,
+          the two levels with a hand-authored lesson path today (<code
+            >test/content/</code
+          >
+          for N5, <code>test/content/n4/</code> for N4 — same checks, same idea,
+          each against its own committed reference snapshot). N3/N2 are seeded,
+          dictionary-verified pools the game and its level selector can already
+          serve, but their own evidence snapshots
+          (<code>data/reference/{n3,n2}-reference.json</code>, built by
           <code>pnpm data:reference:jlpt</code>) are not yet gated by any test —
           there's no hand-written content for them yet to check.
         </p>

@@ -93,21 +93,21 @@ const features = [
     icon: "i-heroicons-arrow-path",
   },
   {
-    title: "N5 Lesson Path",
+    title: "N5 & N4 Lesson Paths",
     description:
-      "All 718 N5 words laid out as 82 short lessons at /learn. Each lesson explains its pattern, breaks every word into its kanji, shows where else each kanji appears, and ends with unscored flip-card review. Nothing about the learner is saved.",
+      "All 718 N5 words (82 short lessons) and all 666 N4 words (78 short lessons) laid out at /learn, with a level selector to switch between them. Each lesson explains its pattern, breaks every word into its kanji, shows where else each kanji appears, and ends with unscored flip-card review. Nothing about the learner is saved. N3/N2 are seeded pools without a lesson path yet.",
     icon: "i-heroicons-academic-cap",
   },
   {
     title: "Verified Lesson Content",
     description:
-      "Every hand-written fact is checked in CI against committed JMdict/KANJIDIC2 evidence: example sentences' rōmaji must be a valid reading of the Japanese, every N5 word must be a real dictionary word with that reading, hand-written meanings must be backed by JMdict, and prose may only mention real words — so a wrong lesson can't merge.",
+      "Every hand-written fact — for N5 and N4 alike — is checked in CI against committed JMdict/KANJIDIC2 evidence: example sentences' rōmaji must be a valid reading of the Japanese, every word must be a real dictionary word with that reading, hand-written meanings must be backed by JMdict, and prose may only mention real words — so a wrong lesson can't merge.",
     icon: "i-heroicons-check-circle",
   },
   {
     title: "Kana & Vocabulary Guides",
     description:
-      "Study references alongside the game: a hiragana/katakana chart with romaji at /kana, and the full N5 vocabulary pool at /vocab to search and filter by word type, with each word linked to its lesson.",
+      "Study references alongside the game: a hiragana/katakana chart with romaji at /kana, and the vocabulary pool at /vocab — with a level selector across N5-N2 — to search and filter by word type; N5 and N4 words link to the lesson that teaches them.",
     icon: "i-heroicons-book-open",
   },
   {
