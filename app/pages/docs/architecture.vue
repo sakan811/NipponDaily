@@ -369,13 +369,14 @@
                 <td class="py-2 px-2"><code>level</code></td>
                 <td class="py-2 px-2 text-gray-500">
                   <code>N5</code> | <code>N4</code> | <code>N3</code> |
-                  <code>N2</code>
+                  <code>N2</code> | <code>ALL</code>
                 </td>
                 <td class="py-2 px-2">
                   Defaults to <code>N5</code>. The game's level selector passes
                   this once a player switches levels; each level has its own
-                  repeat-avoidance history and persisted daily record. An
-                  unrecognized value is a <code>400</code>.
+                  repeat-avoidance history and persisted daily record.
+                  <code>ALL</code> merges every level's kanji/vocab pool into
+                  one round. An unrecognized value is a <code>400</code>.
                 </td>
               </tr>
             </tbody>
@@ -391,7 +392,10 @@
 curl "http://localhost:3000/api/daily-game"
 
 # Today's N4 game
-curl "http://localhost:3000/api/daily-game?level=N4"</code></pre>
+curl "http://localhost:3000/api/daily-game?level=N4"
+
+# Today's round drawn from every level combined
+curl "http://localhost:3000/api/daily-game?level=ALL"</code></pre>
           </div>
           <div>
             <p class="text-xs font-bold text-gray-500 mb-1">
@@ -504,11 +508,14 @@ curl "http://localhost:3000/api/daily-game?level=N4"</code></pre>
         <p class="text-sm mb-4">
           A Vercel Cron target (<code>vercel.json</code>) that hits the same
           build path as <code>GET /api/daily-game</code> at
-          <code>00:00 UTC</code> every day, pre-generating that day's game
-          instead of waiting for the first visitor's request to trigger it.
-          Idempotent — skips generation if a game for the date already exists,
-          so a manual re-trigger never overwrites a game a player may have
-          already started.
+          <code>00:00 UTC</code> every day, pre-generating that day's game for
+          every JLPT level plus the merged <code>ALL</code> round, instead of
+          waiting for each level's first visitor of the day to trigger it.
+          Each level is generated independently, so one level failing (e.g. an
+          unseeded pool) never blocks the others. Idempotent per level — skips
+          a level whose game for the date already exists, so a manual
+          re-trigger never overwrites a game a player may have already
+          started.
         </p>
 
         <div

@@ -1,8 +1,8 @@
 import { toHiragana } from "wanakana";
 import type {
   DailyGame,
+  DailyGameLevel,
   GameQuestion,
-  JlptLevel,
   KanaCharacter,
   PoolKanji,
   PoolKind,
@@ -199,7 +199,7 @@ export function buildDailyGame(
   pool: PoolBundle,
   date: string,
   recentGames: DailyGame[] = [],
-  level: JlptLevel = DEFAULT_JLPT_LEVEL,
+  level: DailyGameLevel = DEFAULT_JLPT_LEVEL,
 ): DailyGame {
   if (
     pool.kanji.length === 0 ||

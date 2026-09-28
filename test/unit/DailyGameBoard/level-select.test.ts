@@ -15,15 +15,34 @@ describe("DailyGameBoard level select", () => {
     });
   });
 
-  it("shows a button for every JLPT level, N5 active by default", () => {
+  it("shows a button for every JLPT level plus ALL, N5 active by default", () => {
     const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
     const select = wrapper.find('[data-testid="game-level-select"]');
 
-    for (const lvl of ["N5", "N4", "N3", "N2"]) {
+    for (const lvl of ["N5", "N4", "N3", "N2", "ALL"]) {
       expect(select.find(`[data-testid="level-option-${lvl}"]`).exists()).toBe(
         true,
       );
     }
+  });
+
+  it("switching to ALL refetches the game for the merged round", async () => {
+    mockFetchGame(makeDailyGame());
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
+    await wrapper.vm.fetchGame();
+
+    const allGame = makeDailyGame();
+    allGame.level = "ALL";
+    mockFetchGame(allGame);
+
+    await wrapper.find('[data-testid="level-option-ALL"]').trigger("click");
+
+    expect(wrapper.vm.level).toBe("ALL");
+    await vi.waitFor(() =>
+      expect(global.$fetch).toHaveBeenCalledWith("/api/daily-game", {
+        query: { level: "ALL" },
+      }),
+    );
   });
 
   it("switching level refetches the game for that level and resets the round", async () => {

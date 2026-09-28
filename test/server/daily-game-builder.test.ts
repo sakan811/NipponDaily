@@ -117,6 +117,11 @@ describe("buildDailyGame", () => {
     const game = buildDailyGame(makePool(10), "2026-09-20", [], "N4");
     expect(game.level).toBe("N4");
   });
+
+  it("accepts 'ALL' as a level (a caller-merged pool, stamped as-is)", () => {
+    const game = buildDailyGame(makePool(10), "2026-09-20", [], "ALL");
+    expect(game.level).toBe("ALL");
+  });
 });
 
 describe("recentDates", () => {

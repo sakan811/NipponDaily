@@ -5,7 +5,7 @@
  * daily-game.get.ts) to validate a `?level=` query param, and by
  * server/services/pool-data.ts to build per-level Redis keys.
  */
-import type { JlptLevel } from "~~/types/index";
+import type { DailyGameLevel, JlptLevel } from "~~/types/index";
 
 /** Ordered easiest-to-hardest, matching how the site presents them. N5 is
  *  the default level for every call site that doesn't specify one. */
@@ -17,5 +17,20 @@ export function isJlptLevel(value: unknown): value is JlptLevel {
   return (
     typeof value === "string" &&
     (JLPT_LEVELS as readonly string[]).includes(value)
+  );
+}
+
+/** Every value GET /api/daily-game's `?level=` accepts — the four real
+ *  pools plus "ALL", which merges them into one combined round (see
+ *  PoolDataService.getFullPool). Kept separate from JLPT_LEVELS since the
+ *  pool-browsing endpoints/pages (pool-vocab, pool-kanji, /vocab, /learn)
+ *  have no "ALL" option — there's no such pool to browse, only a
+ *  build-on-demand merge for a single game round. */
+export const GAME_LEVELS = [...JLPT_LEVELS, "ALL"] as const;
+
+export function isGameLevel(value: unknown): value is DailyGameLevel {
+  return (
+    typeof value === "string" &&
+    (GAME_LEVELS as readonly string[]).includes(value)
   );
 }

@@ -82,6 +82,54 @@ describe("PoolDataService", () => {
     expect(pool).toEqual({ kanji: [], vocab: [], hiragana: [], katakana: [] });
   });
 
+  it("getFullPool('ALL') merges every level's kanji/vocab, deduplicating repeated ids", async () => {
+    // 食 is derived independently in both N5's and N4's word lists (same
+    // KANJIDIC2 data either way), so it should surface only once in the
+    // merged ALL pool — see dedupeById in server/services/pool-data.ts.
+    redisState.smembers.mockImplementation((key: string) => {
+      if (key === "n5:kanji_ids") return Promise.resolve(["食"]);
+      if (key === "n5:kanji_ids:N4") return Promise.resolve(["食", "国"]);
+      if (key === "n5:vocab_ids") return Promise.resolve(["taberu"]);
+      if (key === "n5:vocab_ids:N4") return Promise.resolve(["kuni"]);
+      return Promise.resolve([]);
+    });
+    redisState.mget.mockImplementation((...keys: string[]) =>
+      Promise.resolve(
+        keys.map((key) => {
+          if (key === "n5:kanji:食")
+            return { id: "食", character: "食", jlptLevel: "N5" };
+          if (key === "n5:kanji:N4:食")
+            return { id: "食", character: "食", jlptLevel: "N4" };
+          if (key === "n5:kanji:N4:国")
+            return { id: "国", character: "国", jlptLevel: "N4" };
+          if (key === "n5:vocab:taberu")
+            return {
+              id: "taberu",
+              term: "食べる",
+              kana: "たべる",
+              meaning: "to eat",
+              jlptLevel: "N5",
+            };
+          if (key === "n5:vocab:N4:kuni")
+            return {
+              id: "kuni",
+              term: "国",
+              kana: "くに",
+              meaning: "country",
+              jlptLevel: "N4",
+            };
+          return null;
+        }),
+      ),
+    );
+    const service = new PoolDataService();
+
+    const pool = await service.getFullPool("ALL");
+
+    expect(pool.kanji.map((k) => k.id).sort()).toEqual(["国", "食"]);
+    expect(pool.vocab.map((v) => v.id).sort()).toEqual(["kuni", "taberu"]);
+  });
+
   it("getDailyGame reads the per-date key", async () => {
     const game = {
       date: "2026-09-18",

@@ -14,6 +14,14 @@ export interface ApiResponse<T = unknown> {
  *  only — see docs/content-accuracy.md. */
 export type JlptLevel = "N5" | "N4" | "N3" | "N2";
 
+/** JlptLevel plus "ALL" — the one extra value GET /api/daily-game's
+ *  `?level=` accepts, drawing a round from every level's kanji/vocab pool
+ *  merged together (see PoolDataService.getFullPool). Only ever a *daily
+ *  game* selector value: pool-browsing endpoints/pages (GET /api/pool-vocab,
+ *  GET /api/pool-kanji, /vocab, /learn) stay JlptLevel-only, since there's
+ *  no persisted "ALL" pool to browse — just a merge built on demand. */
+export type DailyGameLevel = JlptLevel | "ALL";
+
 export type KanaScript = "hiragana" | "katakana";
 
 /** One hiragana or katakana character (base gojūon or a dakuten/digraph
@@ -81,10 +89,11 @@ export interface DailyGame {
   date: string;
   /** Which level's kanji/vocab pool the questions were drawn from. Defaults
    *  to "N5"; the game's level selector (app/components/DailyGameBoard.vue)
-   *  can request another. The field is real (not inferred) so a level's
+   *  can request another, including "ALL" (every level's pool merged into
+   *  one round). The field is real (not inferred) so a level's
    *  repeat-avoidance history and persisted key never mix with another
    *  level's. */
-  level: JlptLevel;
+  level: DailyGameLevel;
   questions: GameQuestion[];
   generatedAt: number;
   /** Which path produced it — see server/api/daily-game.get.ts. */
