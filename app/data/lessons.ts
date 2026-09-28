@@ -269,12 +269,23 @@ export function buildLessons(
 
 export const LESSONS: Lesson[] = buildLessons();
 
+/** vocab id -> the number of the lesson that teaches it. Exported as a
+ *  standalone function (not just applied to the N5 LESSONS below) so a
+ *  parallel lesson path for another level (e.g. app/data/lessons-n4.ts) can
+ *  build its own map from its own lessons without duplicating this logic. */
+export function lessonNumberByWord(
+  lessons: Lesson[],
+): ReadonlyMap<string, number> {
+  return new Map(
+    lessons.flatMap((lesson) =>
+      lesson.wordIds.map((id) => [id, lesson.number] as const),
+    ),
+  );
+}
+
 /** vocab id -> the number of the lesson that teaches it. */
-export const LESSON_NUMBER_BY_WORD: ReadonlyMap<string, number> = new Map(
-  LESSONS.flatMap((lesson) =>
-    lesson.wordIds.map((id) => [id, lesson.number] as const),
-  ),
-);
+export const LESSON_NUMBER_BY_WORD: ReadonlyMap<string, number> =
+  lessonNumberByWord(LESSONS);
 
 export function getLesson(number: number): Lesson | undefined {
   return Number.isInteger(number) ? LESSONS[number - 1] : undefined;
@@ -302,10 +313,15 @@ export function kanjiInTerm(term: string): string[] {
  * lesson can flag which kanji are new and which were met earlier. Built from
  * word ids, which keep a term's kanji intact (slugify only strips
  * punctuation and appends "-2"-style suffixes), so no pool fetch is needed.
+ * Exported as a standalone function for the same reason as
+ * lessonNumberByWord() above — a parallel level's lesson path builds its own
+ * map from its own lessons.
  */
-export const FIRST_LESSON_BY_KANJI: ReadonlyMap<string, number> = (() => {
+export function firstLessonByKanji(
+  lessons: Lesson[],
+): ReadonlyMap<string, number> {
   const first = new Map<string, number>();
-  for (const lesson of LESSONS) {
+  for (const lesson of lessons) {
     for (const id of lesson.wordIds) {
       for (const char of kanjiInTerm(id)) {
         if (!first.has(char)) first.set(char, lesson.number);
@@ -313,7 +329,10 @@ export const FIRST_LESSON_BY_KANJI: ReadonlyMap<string, number> = (() => {
     }
   }
   return first;
-})();
+}
+
+export const FIRST_LESSON_BY_KANJI: ReadonlyMap<string, number> =
+  firstLessonByKanji(LESSONS);
 
 /**
  * The old /vocab/families/<key> topic pages were folded into the lesson

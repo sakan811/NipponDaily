@@ -32,7 +32,7 @@ describe("Vocab Page", () => {
 
     expect(
       wrapper.find('[data-testid="vocab-learn-cta"]').attributes("href"),
-    ).toBe("/learn");
+    ).toBe("/learn?level=N5");
     expect(wrapper.find('a[href^="/vocab/families/"]').exists()).toBe(false);
   });
 
@@ -59,7 +59,7 @@ describe("Vocab Page", () => {
 
     const link = wrapper.find('[data-testid="vocab-word-lesson"]');
     expect(link.attributes("href")).toBe(
-      `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}`,
+      `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}?level=N5`,
     );
   });
 
@@ -69,7 +69,31 @@ describe("Vocab Page", () => {
     await wrapper.find('[data-testid="vocab-filter-verb"]').trigger("click");
     await flushPromises();
 
-    expect(wrapper.find('a[href="/vocab/types/verb"]').exists()).toBe(true);
+    expect(wrapper.find('a[href="/vocab/types/verb?level=N5"]').exists()).toBe(
+      true,
+    );
+  });
+
+  it("switches the vocab pool's level and hides the lesson CTA for N3", async () => {
+    (global.$fetch as any).mockResolvedValue({
+      success: true,
+      data: [],
+      timestamp: new Date().toISOString(),
+    });
+
+    const wrapper = mount(VocabPage);
+    await flushPromises();
+
+    await wrapper
+      .find('[data-testid="vocab-level-option-N3"]')
+      .trigger("click");
+    await flushPromises();
+
+    expect((wrapper.vm as any).level).toBe("N3");
+    expect(wrapper.text()).toContain("N3 Vocabulary");
+    expect(wrapper.find('[data-testid="vocab-learn-cta"]').exists()).toBe(
+      false,
+    );
   });
 
   it("links to the daily game and kana page as CTAs", () => {

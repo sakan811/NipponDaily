@@ -6,11 +6,11 @@
 
     <main class="relative z-10 container mx-auto px-4 max-w-5xl py-16 flex-1">
       <NuxtLink
-        to="/vocab"
+        :to="`/vocab?level=${level}`"
         class="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-primary-500 transition-colors mb-10"
       >
         <UIcon name="i-heroicons-arrow-left" class="w-4 h-4" />
-        Back to N5 Vocabulary
+        Back to {{ level }} Vocabulary
       </NuxtLink>
 
       <template v-if="group">
@@ -161,7 +161,7 @@
         <nav class="mt-12 flex items-center justify-between gap-4 text-sm">
           <NuxtLink
             v-if="prevGroup"
-            :to="`/vocab/types/${prevGroup.key}`"
+            :to="`/vocab/types/${prevGroup.key}?level=${level}`"
             class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 hover:text-primary-500 transition-colors"
           >
             <UIcon name="i-heroicons-arrow-left" class="w-4 h-4" />
@@ -170,7 +170,7 @@
           <span v-else />
           <NuxtLink
             v-if="nextGroup"
-            :to="`/vocab/types/${nextGroup.key}`"
+            :to="`/vocab/types/${nextGroup.key}?level=${level}`"
             class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 hover:text-primary-500 transition-colors text-right"
           >
             {{ nextGroup.label }}
@@ -191,7 +191,7 @@
           />
           <UButton
             label="Back to All Words"
-            to="/vocab"
+            :to="`/vocab?level=${level}`"
             color="gray"
             variant="ghost"
             size="md"
@@ -205,8 +205,8 @@
             That word type doesn't exist.
           </p>
           <UButton
-            label="Back to N5 Vocabulary"
-            to="/vocab"
+            :label="`Back to ${level} Vocabulary`"
+            :to="`/vocab?level=${level}`"
             color="primary"
             icon="i-heroicons-arrow-left"
           />
@@ -241,19 +241,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, onMounted } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRoute } from "#app";
 import AppHeader from "../../../components/AppHeader.vue";
 import OmamoriCharm from "../../../components/OmamoriCharm.vue";
 import { usePoolVocab } from "../../../composables/usePoolVocab";
-import {
-  WORD_TYPE_GROUPS,
-  classifyPartOfSpeech,
-} from "../../../data/vocab-guide";
+import { classifyPartOfSpeech } from "../../../data/vocab-guide";
+import { WORD_TYPE_GROUPS } from "../../../data/lesson-sets";
+import { DEFAULT_JLPT_LEVEL, isJlptLevel } from "~~/shared/jlpt";
 
 const PAGE_SIZE = 60;
 
 const route = useRoute();
+const level = computed(() =>
+  isJlptLevel(route.query.level) ? route.query.level : DEFAULT_JLPT_LEVEL,
+);
 const groupKey = computed(() => String(route.params.key ?? ""));
 const groupIndex = computed(() =>
   WORD_TYPE_GROUPS.findIndex((g) => g.key === groupKey.value),
@@ -302,7 +304,7 @@ watch(searchQuery, () => {
   visibleCount.value = PAGE_SIZE;
 });
 
-onMounted(fetchVocab);
+watch(level, (newLevel) => fetchVocab(newLevel), { immediate: true });
 
 defineOptions({
   name: "VocabTypePage",
@@ -311,5 +313,6 @@ defineOptions({
 defineExpose({
   fetchVocab,
   vocabPool,
+  level,
 });
 </script>

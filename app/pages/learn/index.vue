@@ -10,29 +10,44 @@
       <!-- Intro -->
       <div class="max-w-2xl space-y-4">
         <p class="kicker text-primary-600 dark:text-primary-400">
-          The N5 Lesson Path
+          The {{ level }} Lesson Path
         </p>
         <h1
           class="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Learn Every N5 Word, One Short Lesson at a Time
+          Learn Every {{ level }} Word, One Short Lesson at a Time
         </h1>
         <div class="rule-double max-w-[120px]" />
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          {{ lessons.length }} lessons cover all {{ totalWords }} N5 words, in
-          an order where each one builds on the last. Every lesson is under a
-          dozen words, breaks each word into the kanji it's written with, and
-          ends with flip cards to review them.
+          {{ lessons.length }} lessons cover all {{ totalWords }} {{ level }}
+          words, in an order where each one builds on the last. Every lesson is
+          under a dozen words, breaks each word into the kanji it's written
+          with, and ends with flip cards to review them.
         </p>
+        <div class="flex items-center gap-2" data-testid="learn-level-select">
+          <span class="kicker text-stone-400 dark:text-stone-500"
+            >JLPT Level</span
+          >
+          <UButton
+            v-for="lvl in LEVELS_WITH_LESSONS"
+            :key="lvl"
+            :label="lvl"
+            :data-testid="`learn-level-option-${lvl}`"
+            size="xs"
+            :color="lvl === level ? 'primary' : 'secondary'"
+            :variant="lvl === level ? 'solid' : 'outline'"
+            @click="level = lvl"
+          />
+        </div>
       </div>
 
       <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
         <UButton
           data-testid="learn-start"
           label="Start with Lesson 1"
-          to="/learn/1"
+          :to="`/learn/1?level=${level}`"
           color="primary"
           size="lg"
           icon="i-heroicons-arrow-right"
@@ -56,7 +71,7 @@
             New words in order, a few at a time, with their kanji.
           </p>
         </div>
-        <NuxtLink to="/vocab" class="group space-y-1">
+        <NuxtLink :to="`/vocab?level=${level}`" class="group space-y-1">
           <p
             class="kicker text-stone-500 dark:text-stone-400 group-hover:text-primary-500"
           >
@@ -73,7 +88,7 @@
             Daily game · test
           </p>
           <p class="text-stone-600 dark:text-stone-400">
-            20 mixed questions a day, drawn from the whole N5 pool.
+            20 mixed questions a day, drawn from the whole {{ level }} pool.
           </p>
         </NuxtLink>
       </div>
@@ -132,7 +147,7 @@
             <NuxtLink
               v-for="lesson in stageLessons(stage.key)"
               :key="lesson.number"
-              :to="`/learn/${lesson.number}`"
+              :to="`/learn/${lesson.number}?level=${level}`"
               class="group season-box border border-stone-300 dark:border-stone-800 hover:border-primary-500/40 bg-white dark:bg-stone-900/50 p-4 flex items-start gap-3 transition-colors"
               :data-testid="`learn-lesson-${lesson.number}`"
             >
@@ -169,17 +184,17 @@
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
           <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
-            The {{ kanjiOrder.length }} kanji used across N5 vocabulary, in the
-            order you'll meet them. Learn a character's meaning once and you'll
-            recognise it in every word that reuses it — tap one to jump to the
-            lesson that introduces it.
+            The {{ kanjiOrder.length }} kanji used across {{ level }}
+            vocabulary, in the order you'll meet them. Learn a character's
+            meaning once and you'll recognise it in every word that reuses it —
+            tap one to jump to the lesson that introduces it.
           </p>
         </div>
         <div class="flex flex-wrap justify-center gap-2">
           <NuxtLink
             v-for="[char, lessonNumber] in kanjiOrder"
             :key="char"
-            :to="`/learn/${lessonNumber}`"
+            :to="`/learn/${lessonNumber}?level=${level}`"
             class="season-chip border border-stone-300 dark:border-stone-800 bg-white dark:bg-stone-900/50 px-2.5 py-1.5 text-center hover:border-primary-500/50 transition-colors"
             :title="kanjiTitle(char, lessonNumber)"
           >
@@ -209,7 +224,7 @@
         />
         <UButton
           label="Browse All Words"
-          to="/vocab"
+          :to="`/vocab?level=${level}`"
           color="gray"
           variant="ghost"
           size="md"
@@ -256,21 +271,33 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed, ref, watch } from "vue";
+import { useRoute } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
 import { usePoolKanji } from "../../composables/usePoolKanji";
-import {
-  FIRST_LESSON_BY_KANJI,
-  LESSONS,
-  LESSON_STAGES,
-  type Lesson,
-} from "../../data/lessons";
-import type { PoolKanji } from "~~/types/index";
+import { LESSON_SETS, LEVELS_WITH_LESSONS } from "../../data/lesson-sets";
+import type { Lesson } from "../../data/lessons";
+import { DEFAULT_JLPT_LEVEL, isJlptLevel } from "~~/shared/jlpt";
+import type { JlptLevel, PoolKanji } from "~~/types/index";
 
-const lessons = LESSONS;
-const stages = LESSON_STAGES;
-const totalWords = LESSONS.reduce((sum, l) => sum + l.wordIds.length, 0);
-const kanjiOrder = [...FIRST_LESSON_BY_KANJI.entries()];
+const route = useRoute();
+const initialLevel = route.query.level;
+/** Which JLPT level's lesson path is shown — N5 by default. Only levels
+ *  with a hand-authored lesson path (LEVELS_WITH_LESSONS) are offered. */
+const level = ref<JlptLevel>(
+  isJlptLevel(initialLevel) && LEVELS_WITH_LESSONS.includes(initialLevel)
+    ? initialLevel
+    : DEFAULT_JLPT_LEVEL,
+);
+const lessonSet = computed(() => LESSON_SETS[level.value]!);
+const lessons = computed(() => lessonSet.value.lessons);
+const stages = computed(() => lessonSet.value.stages);
+const totalWords = computed(() =>
+  lessons.value.reduce((sum, l) => sum + l.wordIds.length, 0),
+);
+const kanjiOrder = computed(() => [
+  ...lessonSet.value.firstLessonByKanji.entries(),
+]);
 
 const steps = [
   {
@@ -296,7 +323,7 @@ const kanjiByChar = computed(() => {
 });
 
 function stageLessons(stageKey: string): Lesson[] {
-  return lessons.filter((l) => l.stageKey === stageKey);
+  return lessons.value.filter((l) => l.stageKey === stageKey);
 }
 
 function lessonTitle(lesson: Lesson): string {
@@ -319,11 +346,11 @@ function kanjiTitle(char: string, lessonNumber: number): string {
   return `${char}: ${meaning}introduced in Lesson ${lessonNumber}`;
 }
 
-onMounted(() => {
-  fetchKanji();
-});
+watch(level, (newLevel) => fetchKanji(newLevel), { immediate: true });
 
 defineOptions({
   name: "LearnPage",
 });
+
+defineExpose({ level });
 </script>
