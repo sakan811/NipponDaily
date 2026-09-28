@@ -101,8 +101,15 @@ describe("hand-written meanings are backed by JMdict", () => {
     expect(unsupportedSenses(meaning, glossesOf(v!))).toEqual([]);
   });
 
+  // VOCAB_FORM_CORRECTIONS applies across every seeded level (see
+  // shared/meanings.ts) — a correction keyed to another level's word (e.g.
+  // an N4 entry) has nothing to check against N5's own reference, so it's
+  // skipped here the same way the seed-override check above skips N4-N2
+  // overrides.
   it.each(
-    Object.entries(VOCAB_FORM_CORRECTIONS).filter(([, fix]) => fix.meaning),
+    Object.entries(VOCAB_FORM_CORRECTIONS).filter(
+      ([key, fix]) => fix.meaning && vocabBySeedKey.has(key),
+    ),
   )("form correction %s", (key, fix) => {
     const v = vocabBySeedKey.get(key);
     expect(v).toBeDefined();

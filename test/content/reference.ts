@@ -48,18 +48,42 @@ export interface Reference {
 
 const ROOT = resolve(import.meta.dirname, "../..");
 
-export const reference: Reference = JSON.parse(
-  readFileSync(resolve(ROOT, "data/reference/n5-reference.json"), "utf8"),
-);
+/** Loads a level's committed reference snapshot (data/reference/{level}-reference.json).
+ *  Cached per level since several test files each import it. */
+const referenceCache = new Map<string, Reference>();
+export function loadReference(level: string): Reference {
+  const cached = referenceCache.get(level);
+  if (cached) return cached;
+  const ref: Reference = JSON.parse(
+    readFileSync(
+      resolve(ROOT, `data/reference/${level.toLowerCase()}-reference.json`),
+      "utf8",
+    ),
+  );
+  referenceCache.set(level, ref);
+  return ref;
+}
 
-export const vocabById = new Map(reference.vocab.map((v) => [v.id, v]));
-export const vocabBySeedKey = new Map(
-  reference.vocab.map((v) => [v.seedKey, v]),
-);
+/** Index helpers for one level's reference — id/seedKey/listKey -> vocab
+ *  entry, so per-level test suites (e.g. test/content/n4/) don't need to
+ *  rebuild these Maps themselves. */
+export function vocabIndexes(ref: Reference) {
+  return {
+    vocabById: new Map(ref.vocab.map((v) => [v.id, v])),
+    vocabBySeedKey: new Map(ref.vocab.map((v) => [v.seedKey, v])),
+    vocabByListKey: new Map(
+      ref.vocab.map((v) => [`${v.listTerm} ${v.listReading}`, v]),
+    ),
+  };
+}
+
+export const reference: Reference = loadReference("N5");
+
+const n5Indexes = vocabIndexes(reference);
+export const vocabById = n5Indexes.vocabById;
+export const vocabBySeedKey = n5Indexes.vocabBySeedKey;
 /** The word list's own `term reading` — the key the seed overrides use. */
-export const vocabByListKey = new Map(
-  reference.vocab.map((v) => [`${v.listTerm} ${v.listReading}`, v]),
-);
+export const vocabByListKey = n5Indexes.vocabByListKey;
 
 /** Every English gloss JMdict gives a word, across all matched entries. */
 export function glossesOf(v: RefVocab): string[] {
@@ -85,9 +109,13 @@ export function unsupportedSenses(
 }
 
 /** KANJIDIC2 readings of a kanji as bare katakana (okurigana dots and
- *  affix dashes removed). */
-export function kanjiReadings(char: string): string[] {
-  const k = reference.kanji[char];
+ *  affix dashes removed). Defaults to N5's reference; pass another level's
+ *  Reference (from loadReference()) to check against its own kanji data. */
+export function kanjiReadings(
+  char: string,
+  ref: Reference = reference,
+): string[] {
+  const k = ref.kanji[char];
   if (!k) return [];
   return [...k.on, ...k.kun].map((r) =>
     toKatakana(r.replace(/[.-]/g, "").split(".")[0] ?? ""),

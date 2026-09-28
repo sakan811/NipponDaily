@@ -7,6 +7,7 @@ import {
   normRomaji,
   reference,
   tokenizer,
+  type Reference,
 } from "./reference";
 
 /**
@@ -31,19 +32,25 @@ const PARTICLE_READINGS: Record<string, string[]> = {
 
 type Token = kuromoji.IpadicFeatures;
 
-function tokenReadings(t: Token): string[] {
+function tokenReadings(t: Token, ref: Reference): string[] {
   const out = new Set<string>();
   if (t.pos === "助詞" && PARTICLE_READINGS[t.surface_form]) {
     PARTICLE_READINGS[t.surface_form]!.forEach((r) => out.add(r));
   }
   if (t.reading && t.reading !== "*") out.add(t.reading);
   if (!KANJI_RE.test(t.surface_form)) out.add(t.surface_form);
-  for (const r of reference.readings[t.surface_form] ?? []) out.add(r);
+  for (const r of ref.readings[t.surface_form] ?? []) out.add(r);
   return [...out];
 }
 
-/** Can `target` be spelled by readings of tokens[i..]? */
-export function readingMatches(tokens: Token[], target: string): boolean {
+/** Can `target` be spelled by readings of tokens[i..]? Defaults to N5's
+ *  reference; pass another level's Reference (from loadReference()) to
+ *  check against its own readings. */
+export function readingMatches(
+  tokens: Token[],
+  target: string,
+  ref: Reference = reference,
+): boolean {
   const memo = new Map<string, boolean>();
   const go = (i: number, at: number): boolean => {
     if (i === tokens.length) return at === target.length;
@@ -59,9 +66,9 @@ export function readingMatches(tokens: Token[], target: string): boolean {
       const surface = span.map((t) => t.surface_form).join("");
       const candidates =
         len === 1
-          ? tokenReadings(span[0]!)
+          ? tokenReadings(span[0]!, ref)
           : KANJI_RE.test(surface)
-            ? (reference.readings[surface] ?? [])
+            ? (ref.readings[surface] ?? [])
             : [];
       for (const kana of candidates) {
         // A token ending in small っ (洗っ|て) doubles the next consonant,

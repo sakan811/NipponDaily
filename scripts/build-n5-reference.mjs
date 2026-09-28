@@ -94,7 +94,7 @@ export function contentJapanese() {
 }
 
 /** Every kanji the hand-written content or shared glosses mention. */
-function contentKanji() {
+export function contentKanji() {
   const chars = new Set();
   for (const dir of ["app/data", "shared", "app/pages/learn"]) {
     const abs = join(ROOT, dir);

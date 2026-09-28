@@ -76,9 +76,14 @@ export const VOCAB_MEANING_ENRICHMENTS: Record<string, string> = {
  * Corrections to a word's written form or reading where the source word list
  * is simply wrong, verified against JMdict (each `reason` cites the entry).
  * Applied at read time with the word's id unchanged, so lessons and game
- * references keep working with no re-seed. test/content/ checks every
- * served word — corrected or not — against data/reference/n5-reference.json,
- * so a wrong form in the list fails CI until it's corrected here.
+ * references keep working with no re-seed. Applies across every seeded
+ * level — keyed by `term kana` (the list's own raw columns), which never
+ * collides across levels since each level seeds from its own word list.
+ * test/content/ checks every served word — corrected or not — against that
+ * level's own committed reference snapshot (currently N5's
+ * data/reference/n5-reference.json and N4's data/reference/n4-reference.json
+ * — see CLAUDE.md's Content Accuracy section), so a wrong form in the list
+ * fails CI until it's corrected here.
  */
 export interface VocabFormCorrection {
   term?: string;
@@ -111,6 +116,125 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
     meaning: "radio-cassette player",
     reason:
       "ラジオカセ is not a word; the radio-cassette player is ラジカセ (JMdict 1138960).",
+  },
+  // N4 (elzup/jlpt-word-list's n4.csv): a run of rows have their term/kana
+  // columns swapped (kana holding the kanji form, term holding the kana
+  // spelling), wrapped in parenthetical/tilde grammar notation, or missing
+  // okurigana — found via `pnpm data:reference:jlpt`'s unresolvedInJmdict
+  // list and fixed the same way N5's own corrections were, one discovered
+  // issue at a time (see CLAUDE.md's Content Accuracy section).
+  "うそ 嘘": {
+    term: "嘘",
+    kana: "うそ",
+    romaji: "uso",
+    reason: "The list swaps term/kana; 嘘 read うそ is JMdict 1172400.",
+  },
+  "パート (タイム) パート (タイム)": {
+    term: "パートタイム",
+    kana: "パートタイム",
+    romaji: "paatotaimu",
+    reason:
+      "The list wraps the term/kana in parenthetical notation; the word is パートタイム (JMdict 1100830).",
+  },
+  "いくら～ても いくら～ても": {
+    term: "いくら",
+    kana: "いくら",
+    romaji: "ikura",
+    reason:
+      "～ても is a grammar collocation, not part of the headword — いくら itself already carries the 'however much, no matter how' sense (JMdict 1219980).",
+  },
+  "～(て) しまう ～(て) しまう": {
+    term: "しまう",
+    kana: "しまう",
+    romaji: "shimau",
+    reason:
+      "The list's ～(て) notation marks the auxiliary's て-form attachment; the headword is the auxiliary verb しまう (JMdict 1305380).",
+  },
+  "いただく 頂く": {
+    term: "頂く",
+    kana: "いただく",
+    romaji: "itadaku",
+    reason: "The list swaps term/kana; 頂く read いただく is JMdict 1587290.",
+  },
+  "あいさつする 挨拶": {
+    term: "挨拶する",
+    kana: "あいさつする",
+    romaji: "aisatsusuru",
+    reason:
+      "The list swaps term/kana and drops する from the reading; the suru-verb is 挨拶する read あいさつする (JMdict 1151120).",
+  },
+  "いっぱい 一杯": {
+    term: "一杯",
+    kana: "いっぱい",
+    romaji: "ippai",
+    reason: "The list swaps term/kana; 一杯 read いっぱい is JMdict 1165670.",
+  },
+  "お金持ち かねもち": {
+    kana: "おかねもち",
+    romaji: "okanemochi",
+    reason:
+      "The list's reading drops the leading お; お金持ち is read おかねもち (JMdict 2429350).",
+  },
+  "～(に) よると ～(に) よると": {
+    term: "によると",
+    kana: "によると",
+    romaji: "niyoruto",
+    reason:
+      "によると is itself a JMdict entry ('according to', 1009670); the list's ～(に) notation isn't part of the headword.",
+  },
+  "堅 かたい": {
+    term: "堅い",
+    reason:
+      "The list drops the okurigana; the word is 堅い read かたい (JMdict 1257110).",
+  },
+  "かっこう 格好": {
+    term: "格好",
+    kana: "かっこう",
+    romaji: "kakkou",
+    reason: "The list swaps term/kana; 格好 read かっこう is JMdict 1590480.",
+  },
+  "回る、回す まわる、まわす": {
+    term: "回る",
+    kana: "まわる",
+    romaji: "mawaru",
+    meaning: "to turn, to go around, to revolve",
+    reason:
+      "The list combines two related verbs (回る intransitive, 回す transitive) into one row; kept as 回る, the intransitive base form (JMdict 1604300), since one pool entry can only carry one headword.",
+  },
+  "スーパー (マーケット) スーパー (マーケット)": {
+    term: "スーパーマーケット",
+    kana: "スーパーマーケット",
+    romaji: "suupaamaaketto",
+    reason:
+      "The list wraps the term/kana in parenthetical notation; the word is スーパーマーケット (JMdict 1066930).",
+  },
+  "～(に) ついて ～(に) ついて": {
+    term: "について",
+    kana: "について",
+    romaji: "nitsuite",
+    reason:
+      "について is itself a JMdict entry ('concerning, regarding', 1009780); the list's ～(に) notation isn't part of the headword.",
+  },
+  "真中 まんなか": {
+    term: "真ん中",
+    reason:
+      "The list drops the okurigana ん; the word is 真ん中 read まんなか (JMdict 1604350).",
+  },
+  "おかげ お陰": {
+    term: "お陰",
+    kana: "おかげ",
+    romaji: "okage",
+    reason: "The list swaps term/kana; お陰 read おかげ is JMdict 1001640.",
+  },
+  "うれしい 嬉しい": {
+    term: "嬉しい",
+    kana: "うれしい",
+    romaji: "ureshii",
+    reason: "The list swaps term/kana; 嬉しい read うれしい is JMdict 1219510.",
+  },
+  "または または": {
+    romaji: "matawa",
+    reason: "The は in または is the topic particle, pronounced わ.",
   },
 };
 

@@ -17,8 +17,19 @@ function fakeDict(known: Record<string, unknown[]>) {
       kun: [],
       meanings: [`meaning of ${char}`],
     }),
+    readingsOf: () => [],
   };
 }
+
+/** Stub for buildLevelReference's `shared` param — the hand-written-content
+ *  evidence (readings/words/kanji from app/data) computed once in main() and
+ *  reused per level; empty here since these tests exercise per-level
+ *  assembly, not the shared content scan. */
+const emptyShared = {
+  contentKanjiChars: new Set<string>(),
+  contentSurfaces: new Set<string>(),
+  words: [] as string[],
+};
 
 describe("buildLevelReference", () => {
   const entries = [
@@ -43,6 +54,7 @@ describe("buildLevelReference", () => {
       "N4",
       entries,
       fakeDict({ "食べる たべる": [{ idseq: 1 }] }),
+      emptyShared,
     );
     expect(
       ref.vocab.every((v: { jlptLevel: string }) => v.jlptLevel === "N4"),
@@ -54,6 +66,7 @@ describe("buildLevelReference", () => {
       "N4",
       entries,
       fakeDict({ "食べる たべる": [{ idseq: 1 }] }),
+      emptyShared,
     );
     expect(ref.meta.counts.unresolvedInJmdict).toBe(1);
     expect(ref.meta.unresolvedInJmdict[0]).toContain("運動");
@@ -64,6 +77,7 @@ describe("buildLevelReference", () => {
       "N4",
       entries,
       fakeDict({ "食べる たべる": [{ idseq: 1 }] }),
+      emptyShared,
     );
     expect(Object.keys(ref.kanji).sort()).toEqual(["動", "運", "食"]);
   });
