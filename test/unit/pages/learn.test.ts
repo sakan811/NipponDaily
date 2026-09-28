@@ -4,11 +4,12 @@ import { useRoute } from "#app";
 import LearnPage from "~/app/pages/learn/index.vue";
 import LessonPage from "~/app/pages/learn/[lesson].vue";
 import { LESSONS, LESSON_STAGES } from "~/app/data/lessons";
+import { N4_LESSONS } from "~/app/data/lessons-n4";
 
-const mockRoute = (lesson: string) => {
+const mockRoute = (lesson: string, level?: string) => {
   (useRoute as any).mockReturnValue({
     path: `/learn/${lesson}`,
-    query: {},
+    query: level ? { level } : {},
     params: { lesson },
   });
 };
@@ -25,16 +26,28 @@ describe("Lesson path page (/learn)", () => {
       expect(wrapper.text()).toContain(stage.title);
     }
     for (const lesson of LESSONS) {
-      expect(wrapper.find(`a[href="/learn/${lesson.number}"]`).exists()).toBe(
-        true,
-      );
+      expect(
+        wrapper.find(`a[href="/learn/${lesson.number}?level=N5"]`).exists(),
+      ).toBe(true);
     }
   });
 
   it("explains how lessons, the vocab guide and the game differ", () => {
     const roles = mount(LearnPage).find('[data-testid="learn-roles"]');
-    expect(roles.find('a[href="/vocab"]').exists()).toBe(true);
+    expect(roles.find('a[href="/vocab?level=N5"]').exists()).toBe(true);
     expect(roles.find('a[href="/game"]').exists()).toBe(true);
+  });
+
+  it("switches to the N4 lesson path and back", async () => {
+    const wrapper = mount(LearnPage);
+    await wrapper
+      .find('[data-testid="learn-level-option-N4"]')
+      .trigger("click");
+    await flushPromises();
+
+    expect((wrapper.vm as any).level).toBe("N4");
+    expect(wrapper.text()).toContain("The N4 Lesson Path");
+    expect(wrapper.find('a[href="/learn/1?level=N4"]').exists()).toBe(true);
   });
 
   it("never stores anything about the learner", async () => {
@@ -155,5 +168,17 @@ describe("Lesson page (/learn/[lesson])", () => {
     mockRoute("9999");
     const wrapper = mount(LessonPage);
     expect(wrapper.text()).toContain("That lesson doesn't exist.");
+  });
+
+  it("renders the N4 lesson path when ?level=N4", async () => {
+    const lesson = N4_LESSONS[0]!;
+    mockRoute(String(lesson.number), "N4");
+    (global.$fetch as any).mockResolvedValue({ success: true, data: [] });
+
+    const wrapper = mount(LessonPage);
+    await flushPromises();
+
+    expect(wrapper.text()).toContain(lesson.title);
+    expect(wrapper.find('a[href*="level=N4"]').exists()).toBe(true);
   });
 });

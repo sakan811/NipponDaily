@@ -6,7 +6,7 @@
 
     <main class="relative z-10 container mx-auto px-4 max-w-3xl py-12 flex-1">
       <NuxtLink
-        to="/learn"
+        :to="`/learn?level=${level}`"
         class="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-primary-500 transition-colors mb-8"
       >
         <UIcon name="i-heroicons-arrow-left" class="w-4 h-4" />
@@ -202,7 +202,7 @@
                 >
                 <NuxtLink
                   v-else-if="firstLesson(char)"
-                  :to="`/learn/${firstLesson(char)}`"
+                  :to="`/learn/${firstLesson(char)}?level=${level}`"
                   class="block text-[10px] text-stone-400 hover:text-primary-500"
                   >from L{{ firstLesson(char) }}</NuxtLink
                 >
@@ -247,7 +247,7 @@
                   <NuxtLink
                     v-for="other in otherWordsWith(char)"
                     :key="other.id"
-                    :to="`/learn/${lessonOf(other.id)}`"
+                    :to="`/learn/${lessonOf(other.id)}?level=${level}`"
                     class="season-chip border border-stone-300 dark:border-stone-700 px-2 py-0.5 text-xs hover:border-primary-500/50 transition-colors"
                     :title="`${other.kana} — ${other.meaning} (Lesson ${lessonOf(other.id)})`"
                   >
@@ -328,7 +328,7 @@
           <UButton
             v-if="prevLesson"
             :label="`Lesson ${prevLesson.number}`"
-            :to="`/learn/${prevLesson.number}`"
+            :to="`/learn/${prevLesson.number}?level=${level}`"
             color="gray"
             variant="ghost"
             size="md"
@@ -339,7 +339,7 @@
             v-if="nextLesson"
             data-testid="lesson-next"
             :label="`Next: Lesson ${nextLesson.number}`"
-            :to="`/learn/${nextLesson.number}`"
+            :to="`/learn/${nextLesson.number}?level=${level}`"
             color="primary"
             size="lg"
             icon="i-heroicons-arrow-right"
@@ -364,7 +364,7 @@
           </p>
           <UButton
             label="Back to the Lesson Path"
-            to="/learn"
+            :to="`/learn?level=${level}`"
             color="primary"
             icon="i-heroicons-arrow-left"
           />
@@ -399,42 +399,46 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed, watch } from "vue";
 import { useRoute } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
 import LessonReview from "../../components/LessonReview.vue";
 import { usePoolVocab } from "../../composables/usePoolVocab";
 import { usePoolKanji } from "../../composables/usePoolKanji";
-import {
-  FIRST_LESSON_BY_KANJI,
-  LESSONS,
-  LESSON_NUMBER_BY_WORD,
-  LESSON_STAGES,
-  getLesson,
-  kanjiInTerm,
-} from "../../data/lessons";
+import { kanjiInTerm } from "../../data/lessons";
+import { LESSON_SETS, LEVELS_WITH_LESSONS } from "../../data/lesson-sets";
 import { kanjiMeaningLabel } from "~~/shared/meanings";
 import type { KanjiBreakdown } from "../../data/vocab-guide";
-import type { PoolKanji, PoolVocab } from "~~/types/index";
+import { DEFAULT_JLPT_LEVEL, isJlptLevel } from "~~/shared/jlpt";
+import type { JlptLevel, PoolKanji, PoolVocab } from "~~/types/index";
 
 /** How many other words a kanji's "Also in" row lists. */
 const ALSO_IN_LIMIT = 6;
 
 const route = useRoute();
+const level = computed<JlptLevel>(() => {
+  const q = route.query.level;
+  return isJlptLevel(q) && LEVELS_WITH_LESSONS.includes(q)
+    ? q
+    : DEFAULT_JLPT_LEVEL;
+});
+const lessonSet = computed(() => LESSON_SETS[level.value]!);
 const lessonNumber = computed(() => Number(route.params.lesson ?? NaN));
-const lesson = computed(() => getLesson(lessonNumber.value));
-const totalLessons = LESSONS.length;
+const lesson = computed(() => lessonSet.value.getLesson(lessonNumber.value));
+const totalLessons = computed(() => lessonSet.value.lessons.length);
 const stage = computed(() =>
-  LESSON_STAGES.find((s) => s.key === lesson.value?.stageKey),
+  lessonSet.value.stages.find((s) => s.key === lesson.value?.stageKey),
 );
 const stageNumber = computed(
-  () => LESSON_STAGES.findIndex((s) => s.key === lesson.value?.stageKey) + 1,
+  () =>
+    lessonSet.value.stages.findIndex((s) => s.key === lesson.value?.stageKey) +
+    1,
 );
 const prevLesson = computed(() =>
-  lesson.value ? getLesson(lesson.value.number - 1) : undefined,
+  lesson.value ? lessonSet.value.getLesson(lesson.value.number - 1) : undefined,
 );
 const nextLesson = computed(() =>
-  lesson.value ? getLesson(lesson.value.number + 1) : undefined,
+  lesson.value ? lessonSet.value.getLesson(lesson.value.number + 1) : undefined,
 );
 
 const { vocabPool, loading, error, fetchVocab } = usePoolVocab();
@@ -502,11 +506,11 @@ const lessonKanji = computed(() => {
 });
 
 function lessonOf(id: string): number {
-  return LESSON_NUMBER_BY_WORD.get(id) ?? Number.MAX_SAFE_INTEGER;
+  return lessonSet.value.lessonNumberByWord.get(id) ?? Number.MAX_SAFE_INTEGER;
 }
 
 function firstLesson(char: string): number | undefined {
-  return FIRST_LESSON_BY_KANJI.get(char);
+  return lessonSet.value.firstLessonByKanji.get(char);
 }
 
 function kanjiMeaningList(char: string): string {
@@ -536,10 +540,14 @@ function kanjiHintFor(term: string): string {
     .join(" · ");
 }
 
-onMounted(() => {
-  fetchVocab();
-  fetchKanji();
-});
+watch(
+  level,
+  (newLevel) => {
+    fetchVocab(newLevel);
+    fetchKanji(newLevel);
+  },
+  { immediate: true },
+);
 
 defineOptions({
   name: "LessonPage",
@@ -550,6 +558,7 @@ defineExpose({
   fetchKanji,
   vocabPool,
   kanjiPool,
+  level,
 });
 </script>
 

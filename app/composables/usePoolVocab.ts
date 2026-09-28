@@ -1,18 +1,21 @@
 import { ref } from "vue";
-import type { PoolVocab } from "~~/types/index";
+import type { JlptLevel, PoolVocab } from "~~/types/index";
+import { DEFAULT_JLPT_LEVEL } from "~~/shared/jlpt";
 
 /**
- * Shared fetch logic for GET /api/pool-vocab, used by the N5 Vocabulary page,
- * its word-type sub-pages (app/pages/vocab/types/[key].vue) and the lesson
- * pages (app/pages/learn/[lesson].vue) so each doesn't duplicate the same
- * fetch/loading/error handling.
+ * Shared fetch logic for GET /api/pool-vocab, used by the vocab guide pages
+ * (app/pages/vocab/index.vue, app/pages/vocab/types/[key].vue) and the
+ * lesson pages (app/pages/learn/[lesson].vue) so each doesn't duplicate the
+ * same fetch/loading/error handling. Level defaults to N5, matching the API.
  */
 export function usePoolVocab() {
   const vocabPool = ref<PoolVocab[]>([]);
   const loading = ref(false);
   const error = ref<string | null>(null);
 
-  const fetchVocab = async (): Promise<void> => {
+  const fetchVocab = async (
+    level: JlptLevel = DEFAULT_JLPT_LEVEL,
+  ): Promise<void> => {
     loading.value = true;
     error.value = null;
 
@@ -21,7 +24,7 @@ export function usePoolVocab() {
         success: boolean;
         data: PoolVocab[];
         timestamp: string;
-      }>("/api/pool-vocab");
+      }>("/api/pool-vocab", { query: { level } });
 
       if (response?.data) {
         vocabPool.value = response.data;

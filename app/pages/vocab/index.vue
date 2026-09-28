@@ -16,16 +16,35 @@
         <h1
           class="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          N5 Vocabulary
+          {{ level }} Vocabulary
         </h1>
         <div class="rule-double max-w-[120px]" />
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          The reference shelf: search any of the N5 words in the daily game's
-          pool, filter by word type, and read how each type behaves in a
-          sentence. Every word links to the lesson that teaches it.
+          The reference shelf: search any of the {{ level }} words in the daily
+          game's pool, filter by word type, and read how each type behaves in a
+          sentence.
+          <template v-if="lessonSet"
+            >Every word links to the lesson that teaches it.</template
+          >
         </p>
+        <div class="flex items-center gap-2" data-testid="vocab-level-select">
+          <span class="kicker text-stone-400 dark:text-stone-500"
+            >JLPT Level</span
+          >
+          <UButton
+            v-for="lvl in JLPT_LEVELS"
+            :key="lvl"
+            :label="lvl"
+            :data-testid="`vocab-level-option-${lvl}`"
+            size="xs"
+            :color="lvl === level ? 'primary' : 'secondary'"
+            :variant="lvl === level ? 'solid' : 'outline'"
+            :disabled="loading"
+            @click="selectLevel(lvl)"
+          />
+        </div>
       </div>
 
       <!-- Error state -->
@@ -55,9 +74,10 @@
       </div>
 
       <template v-else>
-        <!-- Lesson path CTA -->
+        <!-- Lesson path CTA (only for levels with a hand-authored lesson path) -->
         <NuxtLink
-          to="/learn"
+          v-if="lessonSet"
+          :to="`/learn?level=${level}`"
           class="group mt-10 block season-box border border-primary-500/30 bg-primary-500/5 p-5 sm:p-6 hover:border-primary-500/60 transition-colors"
           data-testid="vocab-learn-cta"
         >
@@ -69,8 +89,8 @@
               <p
                 class="font-serif text-xl font-bold text-stone-900 dark:text-white"
               >
-                Follow the lesson path — {{ lessonCount }} short lessons, every
-                N5 word
+                Follow the lesson path — {{ lessonSet.lessons.length }} short
+                lessons, every {{ level }} word
               </p>
               <p class="text-sm text-stone-600 dark:text-stone-400">
                 Words in a sensible order, each broken into its kanji, with flip
@@ -83,6 +103,12 @@
             />
           </div>
         </NuxtLink>
+        <p
+          v-else
+          class="mt-10 text-sm text-stone-500 dark:text-stone-400 text-center"
+        >
+          {{ level }} doesn't have a lesson path yet — browse the pool below.
+        </p>
 
         <div class="rule-double my-16" />
 
@@ -156,7 +182,7 @@
               {{ activeGroupInsight }}
             </p>
             <NuxtLink
-              :to="`/vocab/types/${selectedGroup}`"
+              :to="`/vocab/types/${selectedGroup}?level=${level}`"
               class="inline-flex items-center gap-1 text-xs font-medium text-primary-600 dark:text-primary-400 hover:underline"
             >
               Read the full grammar guide
@@ -208,7 +234,7 @@
                 </p>
                 <NuxtLink
                   v-if="lessonFor(item.id)"
-                  :to="`/learn/${lessonFor(item.id)}`"
+                  :to="`/learn/${lessonFor(item.id)}?level=${level}`"
                   class="inline-block text-[10px] font-medium text-primary-600 dark:text-primary-400 hover:underline"
                   data-testid="vocab-word-lesson"
                   >Lesson {{ lessonFor(item.id) }} →</NuxtLink
@@ -303,19 +329,36 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from "vue";
+import { useRoute } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
 import OmamoriCharm from "../../components/OmamoriCharm.vue";
 import { usePoolVocab } from "../../composables/usePoolVocab";
-import { WORD_TYPE_GROUPS, classifyPartOfSpeech } from "../../data/vocab-guide";
-import { LESSONS, LESSON_NUMBER_BY_WORD } from "../../data/lessons";
+import { classifyPartOfSpeech } from "../../data/vocab-guide";
+import { LESSON_SETS, WORD_TYPE_GROUPS } from "../../data/lesson-sets";
+import { DEFAULT_JLPT_LEVEL, JLPT_LEVELS, isJlptLevel } from "~~/shared/jlpt";
+import type { JlptLevel } from "~~/types/index";
 
 const PAGE_SIZE = 60;
-const lessonCount = LESSONS.length;
-const lessonFor = (id: string) => LESSON_NUMBER_BY_WORD.get(id);
 
 const wordTypeGroups = WORD_TYPE_GROUPS;
 
 const { vocabPool, loading, error, fetchVocab } = usePoolVocab();
+
+const route = useRoute();
+const initialLevel = route.query.level;
+/** Which JLPT level's pool is shown — N5 by default. Switching it refetches
+ *  for that level; only N5/N4 currently have a lesson path (lessonSet). */
+const level = ref<JlptLevel>(
+  isJlptLevel(initialLevel) ? initialLevel : DEFAULT_JLPT_LEVEL,
+);
+const lessonSet = computed(() => LESSON_SETS[level.value]);
+const lessonFor = (id: string) => lessonSet.value?.lessonNumberByWord.get(id);
+
+function selectLevel(newLevel: JlptLevel): void {
+  if (newLevel === level.value || loading.value) return;
+  level.value = newLevel;
+  void fetchVocab(newLevel);
+}
 
 const searchQuery = ref("");
 const selectedGroup = ref<string>("all");
@@ -364,7 +407,7 @@ watch([searchQuery, selectedGroup], () => {
   visibleCount.value = PAGE_SIZE;
 });
 
-onMounted(fetchVocab);
+onMounted(() => fetchVocab(level.value));
 
 defineOptions({
   name: "VocabPage",
@@ -373,5 +416,7 @@ defineOptions({
 defineExpose({
   fetchVocab,
   vocabPool,
+  level,
+  selectLevel,
 });
 </script>

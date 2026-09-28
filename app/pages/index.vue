@@ -289,7 +289,7 @@ const docsPages = [
     to: "/docs/data-integrity",
     title: "Data Integrity & Attribution",
     description:
-      "Where the N5 kanji, kana, and vocabulary pool comes from and how it's licensed, plus the CI checks that verify every hand-written fact against committed JMdict and KANJIDIC2 evidence before a PR can merge.",
+      "Where the N5-N2 kanji, kana, and vocabulary pool comes from and how it's licensed, plus the CI checks that verify every hand-written N5 and N4 fact against committed JMdict and KANJIDIC2 evidence before a PR can merge.",
     icon: "i-heroicons-shield-check",
   },
 ];
