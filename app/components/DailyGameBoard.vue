@@ -21,7 +21,7 @@
               >JLPT Level</span
             >
             <UButton
-              v-for="lvl in JLPT_LEVELS"
+              v-for="lvl in GAME_LEVELS"
               :key="lvl"
               :label="lvl"
               :data-testid="`level-option-${lvl}`"
@@ -350,11 +350,11 @@
 import { ref, computed, onMounted } from "vue";
 import type {
   DailyGame,
+  DailyGameLevel,
   GameQuestion,
-  JlptLevel,
   PoolKind,
 } from "~~/types/index";
-import { DEFAULT_JLPT_LEVEL, JLPT_LEVELS } from "~~/shared/jlpt";
+import { DEFAULT_JLPT_LEVEL, GAME_LEVELS } from "~~/shared/jlpt";
 
 import AppHeader from "./AppHeader.vue";
 import TrendingFallback from "./TrendingFallback.vue";
@@ -387,8 +387,9 @@ const error = ref<string | null>(null);
 const mobileMenuOpen = ref(false);
 const playIndex = ref(0);
 /** Which JLPT level's pool today's round is drawn from — N5 by default.
- *  Switching it refetches the game for that level and resets the round. */
-const level = ref<JlptLevel>(DEFAULT_JLPT_LEVEL);
+ *  "ALL" draws from every level's pool merged together. Switching it
+ *  refetches the game for that level and resets the round. */
+const level = ref<DailyGameLevel>(DEFAULT_JLPT_LEVEL);
 /** Gates the vocab preview screen — true once the player presses
  *  "Start Round". Reset to false only on a fresh fetch (a new day's game),
  *  not by restart(), so "Play Again" jumps straight back into play. */
@@ -500,7 +501,7 @@ function startRound(): void {
   started.value = true;
 }
 
-function selectLevel(newLevel: JlptLevel): void {
+function selectLevel(newLevel: DailyGameLevel): void {
   if (newLevel === level.value || loading.value) return;
   level.value = newLevel;
   void fetchGame();

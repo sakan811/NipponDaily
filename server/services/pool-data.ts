@@ -1,12 +1,13 @@
 import { Redis } from "@upstash/redis";
 import type {
   DailyGame,
+  DailyGameLevel,
   JlptLevel,
   KanaCharacter,
   PoolKanji,
   PoolVocab,
 } from "~~/types/index";
-import { DEFAULT_JLPT_LEVEL } from "~~/shared/jlpt";
+import { DEFAULT_JLPT_LEVEL, JLPT_LEVELS } from "~~/shared/jlpt";
 import { servedVocab } from "~~/shared/meanings";
 import { getEnvOrConfig } from "../utils/config";
 
@@ -36,10 +37,27 @@ function poolIdsKey(kind: "kanji" | "vocab", level: JlptLevel): string {
 function poolItemPrefix(kind: "kanji" | "vocab", level: JlptLevel): string {
   return level === "N5" ? `n5:${kind}:` : `n5:${kind}:${level}:`;
 }
-function dailyGameKey(date: string, level: JlptLevel): string {
+function dailyGameKey(date: string, level: DailyGameLevel): string {
   return level === "N5"
     ? `n5:daily_game:${date}`
     : `n5:daily_game:${date}:${level}`;
+}
+
+/** Merges same-shaped pool items from every level into one array, keeping
+ *  only the first occurrence of a given id. Needed for "ALL": a kanji
+ *  character is deliberately allowed to appear in more than one level's own
+ *  pool (see scripts/seed-pool-data.mjs's deriveKanjiChars) with identical
+ *  KANJIDIC2 data either way, so id — not content — is what would otherwise
+ *  let the same character surface twice in a single ALL round. */
+function dedupeById<T extends { id: string }>(items: T[]): T[] {
+  const seen = new Set<string>();
+  const deduped: T[] = [];
+  for (const item of items) {
+    if (seen.has(item.id)) continue;
+    seen.add(item.id);
+    deduped.push(item);
+  }
+  return deduped;
 }
 
 class PoolDataService {
@@ -126,24 +144,44 @@ class PoolDataService {
     return this.getPool<KanaCharacter>("n5:katakana_ids", "n5:katakana:");
   }
 
-  async getFullPool(level: JlptLevel = DEFAULT_JLPT_LEVEL): Promise<{
+  /** "ALL" merges every level's kanji/vocab pool into one (deduplicated —
+   *  see dedupeById) instead of reading a single level's own pool; hiragana
+   *  /katakana are already shared across every level so they're unaffected. */
+  async getFullPool(level: DailyGameLevel = DEFAULT_JLPT_LEVEL): Promise<{
     kanji: PoolKanji[];
     vocab: PoolVocab[];
     hiragana: KanaCharacter[];
     katakana: KanaCharacter[];
   }> {
-    const [kanji, vocab, hiragana, katakana] = await Promise.all([
-      this.getKanjiPool(level),
-      this.getVocabPool(level),
+    const [hiragana, katakana] = await Promise.all([
       this.getHiragana(),
       this.getKatakana(),
+    ]);
+
+    if (level === "ALL") {
+      const perLevel = await Promise.all(
+        JLPT_LEVELS.map((lvl) =>
+          Promise.all([this.getKanjiPool(lvl), this.getVocabPool(lvl)]),
+        ),
+      );
+      return {
+        kanji: dedupeById(perLevel.flatMap(([kanji]) => kanji)),
+        vocab: dedupeById(perLevel.flatMap(([, vocab]) => vocab)),
+        hiragana,
+        katakana,
+      };
+    }
+
+    const [kanji, vocab] = await Promise.all([
+      this.getKanjiPool(level),
+      this.getVocabPool(level),
     ]);
     return { kanji, vocab, hiragana, katakana };
   }
 
   async getDailyGame(
     date: string,
-    level: JlptLevel = DEFAULT_JLPT_LEVEL,
+    level: DailyGameLevel = DEFAULT_JLPT_LEVEL,
   ): Promise<DailyGame | null> {
     const memoryKey = `${date}:${level}`;
     const redis = this.getRedisClient();
@@ -167,7 +205,7 @@ class PoolDataService {
    *  (see recentDates in server/utils/daily-game.ts) in one round trip. */
   async getDailyGames(
     dates: string[],
-    level: JlptLevel = DEFAULT_JLPT_LEVEL,
+    level: DailyGameLevel = DEFAULT_JLPT_LEVEL,
   ): Promise<DailyGame[]> {
     if (dates.length === 0) return [];
 

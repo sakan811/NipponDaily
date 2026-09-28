@@ -131,4 +131,16 @@ describe("GET /api/daily-game", () => {
       statusCode: 400,
     });
   });
+
+  it("accepts ?level=ALL and passes it through to the data service and builder", async () => {
+    (global as any).getQuery.mockReturnValue({ level: "ALL" });
+    mockGetDailyGame.mockResolvedValue(null);
+
+    const handler = await getHandler();
+    const result = await handler({} as any);
+
+    expect(mockGetDailyGame).toHaveBeenCalledWith(expect.any(String), "ALL");
+    expect(mockGetFullPool).toHaveBeenCalledWith("ALL");
+    expect(result.data.level).toBe("ALL");
+  });
 });

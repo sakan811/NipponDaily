@@ -8,7 +8,7 @@ import {
   todayUtc,
 } from "../utils/daily-game";
 import { safeGetQuery } from "../utils/http-query";
-import { DEFAULT_JLPT_LEVEL, JLPT_LEVELS } from "~~/shared/jlpt";
+import { DEFAULT_JLPT_LEVEL, GAME_LEVELS } from "~~/shared/jlpt";
 import type { DailyGame } from "~~/types/index";
 
 const dailyGameQuerySchema = z.object({
@@ -25,9 +25,10 @@ const dailyGameQuerySchema = z.object({
     .transform((val) => val || undefined),
   // /game's level selector passes this explicitly once a player switches
   // away from N5; omitting it (as every caller did before the selector
-  // existed) still resolves to DEFAULT_JLPT_LEVEL below.
+  // existed) still resolves to DEFAULT_JLPT_LEVEL below. "ALL" merges every
+  // level's pool into one round (see PoolDataService.getFullPool).
   level: z
-    .enum(JLPT_LEVELS)
+    .enum(GAME_LEVELS)
     .nullable()
     .optional()
     .transform((val) => val ?? undefined),
