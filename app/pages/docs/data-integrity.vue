@@ -67,6 +67,10 @@
           (<code>data/reference/{n3,n2}-reference.json</code>, built by
           <code>pnpm data:reference:jlpt</code>) are not yet gated by any test —
           there's no hand-written content for them yet to check.
+          <code>pnpm data:draft:clusters &lt;level&gt;</code>
+          (<code>scripts/draft-lesson-clusters.mjs</code>) turns one of those
+          evidence snapshots into a POS-grouped starting point for that
+          authoring pass — see its header for how it fits the pipeline below.
         </p>
       </div>
 
