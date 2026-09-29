@@ -7,6 +7,7 @@ import {
   parseJlptCsv,
   parseN5Csv,
   assembleVocab,
+  dedupeAcrossLevels,
   deriveKanjiChars,
   poolIdsKey,
   poolItemPrefix,
@@ -122,6 +123,74 @@ describe("assembleVocab / deriveKanjiChars", () => {
     expect(new Set(deriveKanjiChars(vocab))).toEqual(
       new Set(["食", "飲", "水"]),
     );
+  });
+});
+
+// Real-world case (see data/reference/{n5,n4,n3}-reference.json): elzup's
+// per-level CSVs are curated independently, so a handful of words end up
+// listed at more than one level with the exact same reading — the lower
+// (easier) level should keep them, per CLAUDE.md's Content Accuracy notes.
+describe("dedupeAcrossLevels", () => {
+  it("drops a later level's entry when an earlier level already claimed the same term+reading", () => {
+    const seenByKey = new Map();
+    dedupeAcrossLevels(
+      [{ term: "在る", kana: "ある", meaning: "to be, to have" }],
+      "N5",
+      seenByKey,
+    );
+    const { kept, dropped } = dedupeAcrossLevels(
+      [{ term: "在る", kana: "ある", meaning: "to live, to be, to exist" }],
+      "N3",
+      seenByKey,
+    );
+    expect(kept).toEqual([]);
+    expect(dropped).toEqual([
+      {
+        term: "在る",
+        kana: "ある",
+        meaning: "to live, to be, to exist",
+        keptAtLevel: "N5",
+      },
+    ]);
+  });
+
+  it("keeps entries whose term matches but reading differs (a different word, same spelling)", () => {
+    const seenByKey = new Map();
+    dedupeAcrossLevels(
+      [{ term: "開く", kana: "あく", meaning: "to open, to become open" }],
+      "N5",
+      seenByKey,
+    );
+    const { kept, dropped } = dedupeAcrossLevels(
+      [
+        {
+          term: "開く",
+          kana: "ひらく",
+          meaning: "to open; to hold (an event)",
+        },
+      ],
+      "N4",
+      seenByKey,
+    );
+    expect(dropped).toEqual([]);
+    expect(kept).toHaveLength(1);
+    expect(kept[0].kana).toBe("ひらく");
+  });
+
+  it("keeps an entry re-seen at its own owning level (idempotent re-run)", () => {
+    const seenByKey = new Map();
+    dedupeAcrossLevels(
+      [{ term: "水", kana: "みず", meaning: "water" }],
+      "N5",
+      seenByKey,
+    );
+    const { kept, dropped } = dedupeAcrossLevels(
+      [{ term: "水", kana: "みず", meaning: "water" }],
+      "N5",
+      seenByKey,
+    );
+    expect(kept).toHaveLength(1);
+    expect(dropped).toEqual([]);
   });
 });
 
