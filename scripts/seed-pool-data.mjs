@@ -5,7 +5,9 @@
  * vocabulary. This is static reference data — run this once to bootstrap a
  * new environment, or re-run any time. Idempotent (safe to re-run: every
  * record gets a deterministic id and is written with SET/SADD, never
- * appended).
+ * appended). A word that's listed at more than one level with the exact
+ * same reading is seeded only at the lowest (easiest) level that has it —
+ * see dedupeAcrossLevels below.
  *
  * Sources (pinned — bump JMDICT_SIMPLIFIED_RELEASE_TAG deliberately, then
  * re-run and diff the seeded N5 data against data/reference/n5-reference.json):
@@ -610,6 +612,36 @@ function slugify(term, seen) {
 
 // --- Assembly ---
 
+/**
+ * elzup/jlpt-word-list's four per-level CSVs are curated independently, so
+ * the exact same word (same written form AND same reading) occasionally
+ * ends up listed at more than one level — e.g. 在る/ある at both N5 and N3,
+ * そう/そう at both N5 and N4. A shared kanji spelling with a *different*
+ * reading (開く read あく at N5 vs ひらく at N4, 上 read うえ at N5 vs
+ * じょう/うわ/かみ at N3) is a different word taught separately on purpose
+ * and must NOT be touched here — only an exact term+reading match counts.
+ *
+ * Call once per level in easiest-to-hardest order (JLPT_LEVELS), threading
+ * the same `seenByKey` Map through every call: a duplicate is dropped from
+ * every level except the first (easiest) one that has it, so "the lower
+ * JLPT level keeps it."
+ */
+function dedupeAcrossLevels(entries, level, seenByKey) {
+  const kept = [];
+  const dropped = [];
+  for (const entry of entries) {
+    const key = `${entry.term} ${entry.kana}`;
+    const ownerLevel = seenByKey.get(key);
+    if (ownerLevel && ownerLevel !== level) {
+      dropped.push({ ...entry, keptAtLevel: ownerLevel });
+      continue;
+    }
+    if (!ownerLevel) seenByKey.set(key, level);
+    kept.push(entry);
+  }
+  return { kept, dropped };
+}
+
 function assembleVocab(entries, jmdictIndex, level) {
   // A fresh id namespace per level: each level's pool lives under its own
   // Redis keys (see poolIdsKey/poolItemKey), so a "-2"-style disambiguating
@@ -734,9 +766,23 @@ function poolItemPrefix(kind, level) {
   return level === "N5" ? `n5:${kind}:` : `n5:${kind}:${level}:`;
 }
 
-async function seedLevel(redis, level, jmdictIndex, kanjidicIndex) {
-  const entries = await fetchJlptList(level);
-  console.log(`Loaded ${entries.length} ${level} word-list entries`);
+async function seedLevel(redis, level, jmdictIndex, kanjidicIndex, seenByKey) {
+  const rawEntries = await fetchJlptList(level);
+  console.log(`Loaded ${rawEntries.length} ${level} word-list entries`);
+
+  const { kept: entries, dropped } = dedupeAcrossLevels(
+    rawEntries,
+    level,
+    seenByKey,
+  );
+  if (dropped.length > 0) {
+    console.warn(
+      `Dropped ${dropped.length} ${level} word(s) already taught at a lower level: ` +
+        dropped
+          .map((d) => `${d.term} (${d.kana}, kept at ${d.keptAtLevel})`)
+          .join(", "),
+    );
+  }
 
   const { vocab, meaningWarnings } = assembleVocab(entries, jmdictIndex, level);
   if (meaningWarnings.length > 0) {
@@ -792,8 +838,9 @@ async function main() {
   const kanjidicIndex = buildKanjidicIndex(kanjidicData);
 
   const redis = getRedisClient();
+  const seenByKey = new Map();
   for (const level of JLPT_LEVELS) {
-    await seedLevel(redis, level, jmdictIndex, kanjidicIndex);
+    await seedLevel(redis, level, jmdictIndex, kanjidicIndex, seenByKey);
   }
 
   // Hiragana/katakana are shared across every level — one script, not per-level.
@@ -830,6 +877,7 @@ export {
   fetchJlptList,
   slugify,
   assembleVocab,
+  dedupeAcrossLevels,
   deriveKanjiChars,
   assembleKanji,
   poolIdsKey,

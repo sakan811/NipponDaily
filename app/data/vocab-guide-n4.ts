@@ -267,7 +267,7 @@ export const N4_WORD_CLUSTERS: WordCluster[] = [
       { label: "but, if & moreover", terms: ["けれど", "もし", "それに"] },
       {
         label: "confirming & concluding",
-        terms: ["やはり", "とうとう", "やっと", "もちろん", "きっと", "そう"],
+        terms: ["やはり", "とうとう", "やっと", "もちろん", "きっと"],
       },
       {
         label: "about, according to & thanks to",

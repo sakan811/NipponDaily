@@ -31,7 +31,11 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseJlptCsv, slugify } from "./seed-pool-data.mjs";
+import {
+  dedupeAcrossLevels,
+  parseJlptCsv,
+  slugify,
+} from "./seed-pool-data.mjs";
 import { WORD_LIST_SOURCES, wordListUrl } from "./word-list-source.mjs";
 import {
   JAMDICT_SOURCE,
@@ -183,9 +187,31 @@ async function main() {
   const dict = openDictionary(dbPath);
   const shared = await buildSharedContentEvidence(dict, tokenizer);
 
+  // A word listed at more than one level with the exact same reading is
+  // only ever seeded at the lowest (easiest) level (see seed-pool-data.mjs's
+  // dedupeAcrossLevels) — mirrored here so this committed evidence always
+  // matches what the live pool actually serves. N5 itself is never gated
+  // by this file (see build-n5-reference.mjs), but its word list still has
+  // to seed the registry first so N4/N3/N2 dedupe against it correctly.
+  const seenByKey = new Map();
+  dedupeAcrossLevels(await fetchWordList("N5"), "N5", seenByKey);
+
   for (const level of LEVELS) {
-    const entries = await fetchWordList(level);
-    console.log(`Loaded ${entries.length} ${level} word-list entries`);
+    const rawEntries = await fetchWordList(level);
+    console.log(`Loaded ${rawEntries.length} ${level} word-list entries`);
+    const { kept: entries, dropped } = dedupeAcrossLevels(
+      rawEntries,
+      level,
+      seenByKey,
+    );
+    if (dropped.length > 0) {
+      console.log(
+        `Dropped ${dropped.length} ${level} word(s) already taught at a lower level: ` +
+          dropped
+            .map((d) => `${d.term} (${d.kana}, kept at ${d.keptAtLevel})`)
+            .join(", "),
+      );
+    }
     const reference = buildLevelReference(level, entries, dict, shared);
 
     const outFile = join(
