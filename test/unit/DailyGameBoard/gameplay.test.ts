@@ -6,6 +6,10 @@ import {
   FIRST_LESSON_BY_KANJI,
   LESSON_NUMBER_BY_WORD,
 } from "~/app/data/lessons";
+import {
+  N4_FIRST_LESSON_BY_KANJI,
+  N4_LESSON_NUMBER_BY_WORD,
+} from "~/app/data/lessons-n4";
 
 async function loadGame(wrapper: ReturnType<typeof mount>) {
   await wrapper.vm.fetchGame();
@@ -58,6 +62,26 @@ describe("DailyGameBoard gameplay", () => {
     expect(wrapper.text()).toContain("Round Complete!");
   });
 
+  it("round summary only shows tiles for kinds actually asked (no kana on an N4 round)", async () => {
+    mockFetchGame(
+      makeDailyGame(
+        [makeQuestion({ id: "水", kind: "kanji", prompt: "水" })],
+        "N4",
+      ),
+    );
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
+    await loadGame(wrapper);
+
+    const correct = wrapper.vm.currentQuestion.correctAnswer;
+    await findButtonByText(wrapper, correct)!.trigger("click");
+    wrapper.vm.advance();
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.text()).toContain("Kanji");
+    expect(wrapper.text()).not.toContain("Hiragana");
+    expect(wrapper.text()).not.toContain("Katakana");
+  });
+
   it("links missed kanji and vocab to the lesson that teaches them", async () => {
     mockFetchGame(
       makeDailyGame([
@@ -89,8 +113,48 @@ describe("DailyGameBoard gameplay", () => {
       .map((a) => a.attributes("href"));
     expect(links).toEqual(
       expect.arrayContaining([
-        `/learn/${FIRST_LESSON_BY_KANJI.get("水")}`,
-        `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}`,
+        `/learn/${FIRST_LESSON_BY_KANJI.get("水")}?level=N5`,
+        `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}?level=N5`,
+      ]),
+    );
+  });
+
+  it("links missed N4 kanji and vocab to the N4 lesson that teaches them", async () => {
+    mockFetchGame(
+      makeDailyGame(
+        [
+          makeQuestion({ id: "会", kind: "kanji", prompt: "会" }),
+          makeQuestion({
+            id: "いらっしゃる",
+            kind: "vocab",
+            prompt: "いらっしゃる",
+            correctAnswer: "to be (honorific)",
+            choices: ["to be (honorific)", "fire", "tree", "person"],
+          }),
+        ],
+        "N4",
+      ),
+    );
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
+    await loadGame(wrapper);
+
+    for (let i = 0; i < 2; i++) {
+      const q = wrapper.vm.currentQuestion;
+      wrapper.vm.selectChoice(
+        q.choices.find((c: string) => c !== q.correctAnswer)!,
+      );
+      wrapper.vm.advance();
+    }
+    await wrapper.vm.$nextTick();
+
+    const links = wrapper
+      .find('[data-testid="game-missed-lessons"]')
+      .findAll("a")
+      .map((a) => a.attributes("href"));
+    expect(links).toEqual(
+      expect.arrayContaining([
+        `/learn/${N4_FIRST_LESSON_BY_KANJI.get("会")}?level=N4`,
+        `/learn/${N4_LESSON_NUMBER_BY_WORD.get("いらっしゃる")}?level=N4`,
       ]),
     );
   });
@@ -118,7 +182,7 @@ describe("DailyGameBoard gameplay", () => {
       .findAll("a")
       .map((a) => a.attributes("href"));
     expect(previewLinks).toEqual([
-      `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}`,
+      `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}?level=N5`,
     ]);
 
     wrapper.vm.startRound();
@@ -134,7 +198,36 @@ describe("DailyGameBoard gameplay", () => {
       .findAll("a")
       .map((a) => a.attributes("href"));
     expect(summaryLinks).toEqual([
-      `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}`,
+      `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}?level=N5`,
+    ]);
+  });
+
+  it("shows a vocab preview with N4 lesson links when playing an N4 round", async () => {
+    mockFetchGame(
+      makeDailyGame(
+        [
+          makeQuestion({
+            id: "いらっしゃる",
+            kind: "vocab",
+            prompt: "いらっしゃる",
+            promptSub: "いらっしゃる",
+            correctAnswer: "to be (honorific)",
+            choices: ["to be (honorific)", "fire", "tree", "person"],
+          }),
+        ],
+        "N4",
+      ),
+    );
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
+    await wrapper.vm.fetchGame();
+    await wrapper.vm.$nextTick();
+
+    const previewLinks = wrapper
+      .find('[data-testid="game-vocab-preview"]')
+      .findAll("a")
+      .map((a) => a.attributes("href"));
+    expect(previewLinks).toEqual([
+      `/learn/${N4_LESSON_NUMBER_BY_WORD.get("いらっしゃる")}?level=N4`,
     ]);
   });
 

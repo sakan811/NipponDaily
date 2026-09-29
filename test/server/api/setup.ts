@@ -73,9 +73,12 @@ export const getSiteThemeHandler = async () => {
   return handlerModule.default;
 };
 
-/** A pool with exactly enough items per kind for buildDailyGame to succeed. */
+/** A pool with exactly enough items per kind for buildDailyGame to succeed.
+ *  Kanji/vocab need at least 10 each (not just 5) since a non-N5 level's
+ *  round draws 10 of each to backfill the kana questions it skips — see
+ *  server/utils/daily-game.ts's kindsForLevel. */
 export const createMockPool = () => ({
-  kanji: Array.from({ length: 6 }, (_, i) => ({
+  kanji: Array.from({ length: 12 }, (_, i) => ({
     id: `漢${i}`,
     character: `漢${i}`,
     meanings: [`meaning${i}`],
@@ -84,7 +87,7 @@ export const createMockPool = () => ({
     strokeCount: 5,
     jlptLevel: "N5" as const,
   })),
-  vocab: Array.from({ length: 6 }, (_, i) => ({
+  vocab: Array.from({ length: 12 }, (_, i) => ({
     id: `vocab-${i}`,
     term: `語${i}`,
     kana: `ご${i}`,

@@ -22,7 +22,30 @@ export interface PoolBundle {
 }
 
 const QUESTIONS_PER_KIND = 5;
+/** N4/N3/N2/ALL rounds skip kana entirely (see KANA_LEVEL below) and split
+ *  its 10 slots between kanji and vocab instead, so every level's round is
+ *  still a consistent 20 questions. */
+const NO_KANA_QUESTIONS_PER_KIND = 10;
+/** Only this level's round quizzes hiragana/katakana — a learner working
+ *  through N4+ content already knows the kana, so those rounds test kanji
+ *  and vocab only (see kindsForLevel). */
+const KANA_LEVEL: DailyGameLevel = "N5";
 const DISTRACTOR_COUNT = 3;
+
+/** Which pool kinds a level's round draws from, and how many questions of
+ *  each — always 20 questions total, either 5 each of all four kinds (N5)
+ *  or 10 each of kanji/vocab (every other level, see NO_KANA_QUESTIONS_PER_KIND). */
+function kindsForLevel(level: DailyGameLevel): [PoolKind, number][] {
+  if (level === KANA_LEVEL) {
+    return (["hiragana", "katakana", "kanji", "vocab"] as PoolKind[]).map(
+      (kind) => [kind, QUESTIONS_PER_KIND],
+    );
+  }
+  return (["kanji", "vocab"] as PoolKind[]).map((kind) => [
+    kind,
+    NO_KANA_QUESTIONS_PER_KIND,
+  ]);
+}
 
 /** How many previous days' DailyGame records buildDailyGame avoids repeating
  *  items from (see recentIdsByKind below). 7 days keeps a full week fresh
@@ -187,9 +210,14 @@ function toQuestion(
  * `recentGames` (typically the last REPEAT_AVOIDANCE_DAYS days, see
  * recentDates) lets each kind's pick avoid items shown on those days, so
  * the same kanji/vocab/kana doesn't turn up again the very next day. If
- * excluding them would leave fewer than QUESTIONS_PER_KIND candidates for
- * a kind — e.g. the ~55-item kana pools under a wide enough window — that
- * kind falls back to picking from its full pool rather than failing.
+ * excluding them would leave fewer than that kind's question count (see
+ * kindsForLevel) as candidates — e.g. the ~55-item kana pools under a wide
+ * enough window — that kind falls back to picking from its full pool
+ * rather than failing.
+ *
+ * Only `KANA_LEVEL` (N5) draws hiragana/katakana questions; every other
+ * level fills those 10 slots with more kanji/vocab instead (see
+ * kindsForLevel) — the round is always 20 questions regardless of level.
  *
  * `level` is stamped onto the returned game as-is — the caller is
  * responsible for passing a `pool` that actually matches it (see
@@ -213,15 +241,14 @@ export function buildDailyGame(
   }
 
   const rng = mulberry32(seedFromDate(date));
-  const kinds: PoolKind[] = ["hiragana", "katakana", "kanji", "vocab"];
   const recentIds = recentIdsByKind(recentGames);
 
   const questions = shuffle(
-    kinds.flatMap((kind) => {
+    kindsForLevel(level).flatMap(([kind, count]) => {
       const fullPool = poolForKind(pool, kind);
       const fresh = fullPool.filter((item) => !recentIds[kind].has(item.id));
-      const candidates = fresh.length >= QUESTIONS_PER_KIND ? fresh : fullPool;
-      return pick(candidates, QUESTIONS_PER_KIND, rng).map((item) =>
+      const candidates = fresh.length >= count ? fresh : fullPool;
+      return pick(candidates, count, rng).map((item) =>
         toQuestion(kind, item, pool, rng),
       );
     }),
