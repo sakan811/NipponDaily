@@ -77,7 +77,7 @@
                   <NuxtLink
                     v-for="item in vocabToStudy"
                     :key="item.id"
-                    :to="`/learn/${item.lesson}`"
+                    :to="`/learn/${item.lesson}?level=${item.level}`"
                     class="season-chip border border-stone-300 dark:border-stone-700 px-3 py-2 flex items-center justify-between gap-2 hover:border-primary-500/50 transition-colors"
                   >
                     <span>
@@ -261,7 +261,7 @@
 
                   <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
                     <OmamoriCharm
-                      v-for="(kind, kindIndex) in kinds"
+                      v-for="(kind, kindIndex) in presentKinds"
                       :key="kind"
                       :index="kindIndex + 2"
                       size="sm"
@@ -293,7 +293,7 @@
                       <NuxtLink
                         v-for="item in vocabToStudy"
                         :key="item.id"
-                        :to="`/learn/${item.lesson}`"
+                        :to="`/learn/${item.lesson}?level=${item.level}`"
                         class="season-chip border border-stone-300 dark:border-stone-700 px-3 py-1 text-xs text-stone-700 dark:text-stone-300 hover:border-primary-500/50 transition-colors"
                       >
                         <span class="font-serif text-sm">{{ item.term }}</span>
@@ -314,7 +314,7 @@
                       <NuxtLink
                         v-for="item in missedToStudy"
                         :key="`${item.kind}-${item.id}`"
-                        :to="`/learn/${item.lesson}`"
+                        :to="`/learn/${item.lesson}?level=${item.level}`"
                         class="season-chip border border-stone-300 dark:border-stone-700 px-3 py-1 text-xs text-stone-700 dark:text-stone-300 hover:border-primary-500/50 transition-colors"
                       >
                         <span class="font-serif text-sm">{{
@@ -354,14 +354,14 @@ import type {
   GameQuestion,
   PoolKind,
 } from "~~/types/index";
-import { DEFAULT_JLPT_LEVEL, GAME_LEVELS } from "~~/shared/jlpt";
+import { DEFAULT_JLPT_LEVEL, GAME_LEVELS, isJlptLevel } from "~~/shared/jlpt";
 
 import AppHeader from "./AppHeader.vue";
 import TrendingFallback from "./TrendingFallback.vue";
 import EmaPlaque from "./EmaPlaque.vue";
 import HankoSeal from "./HankoSeal.vue";
 import OmamoriCharm from "./OmamoriCharm.vue";
-import { FIRST_LESSON_BY_KANJI, LESSON_NUMBER_BY_WORD } from "../data/lessons";
+import { LESSON_SETS } from "../data/lesson-sets";
 
 const props = withDefaults(
   defineProps<{
@@ -412,6 +412,14 @@ function emptyStats(): Record<PoolKind, { correct: number; total: number }> {
     vocab: { correct: 0, total: 0 },
   };
 }
+
+/** Kinds actually present in today's round, in `kinds`' fixed order — N4+
+ *  rounds have no hiragana/katakana questions (see server/utils/daily-game.ts's
+ *  kindsForLevel), so the end-of-round summary shouldn't show empty 0/0
+ *  tiles for kinds that were never asked. */
+const presentKinds = computed(() =>
+  kinds.filter((kind) => perKindStats.value[kind].total > 0),
+);
 
 function shuffle<T>(items: T[]): T[] {
   const arr = [...items];
@@ -507,15 +515,34 @@ function selectLevel(newLevel: DailyGameLevel): void {
   void fetchGame();
 }
 
+/** The lesson set for whichever level today's game was actually drawn from
+ *  (not the level selector, in case they ever diverge). Only N5/N4 have a
+ *  lesson path — N3/N2/ALL rounds simply get no lesson links. */
+const gameLessonSet = computed(() => {
+  const gameLevel = dailyGame.value?.level;
+  return isJlptLevel(gameLevel) ? LESSON_SETS[gameLevel] : undefined;
+});
+
 const missedToStudy = computed(() =>
   missed.value.flatMap((q) => {
+    const lessonSet = gameLessonSet.value;
     const lesson =
       q.kind === "vocab"
-        ? LESSON_NUMBER_BY_WORD.get(q.id)
+        ? lessonSet?.lessonNumberByWord.get(q.id)
         : q.kind === "kanji"
-          ? FIRST_LESSON_BY_KANJI.get(q.prompt)
+          ? lessonSet?.firstLessonByKanji.get(q.prompt)
           : undefined;
-    return lesson ? [{ id: q.id, kind: q.kind, prompt: q.prompt, lesson }] : [];
+    return lesson
+      ? [
+          {
+            id: q.id,
+            kind: q.kind,
+            prompt: q.prompt,
+            lesson,
+            level: lessonSet!.level,
+          },
+        ]
+      : [];
   }),
 );
 
@@ -526,7 +553,8 @@ const vocabToStudy = computed(() =>
   (dailyGame.value?.questions ?? [])
     .filter((q) => q.kind === "vocab")
     .flatMap((q) => {
-      const lesson = LESSON_NUMBER_BY_WORD.get(q.id);
+      const lessonSet = gameLessonSet.value;
+      const lesson = lessonSet?.lessonNumberByWord.get(q.id);
       return lesson
         ? [
             {
@@ -535,6 +563,7 @@ const vocabToStudy = computed(() =>
               kana: q.promptSub,
               meaning: q.correctAnswer,
               lesson,
+              level: lessonSet!.level,
             },
           ]
         : [];

@@ -247,7 +247,7 @@ const gameParts = ref([
   {
     title: "Per-Kind Accuracy",
     description:
-      "The end-of-round summary breaks down your accuracy across hiragana, katakana, kanji, and vocabulary — no accounts needed.",
+      "The end-of-round summary breaks down your accuracy by kind — hiragana, katakana, kanji, and vocabulary on N5, kanji and vocabulary alone above it — no accounts needed.",
   },
   {
     title: "Replay Anytime",
@@ -275,7 +275,7 @@ const docsPages = [
     to: "/docs/features",
     title: "Core Features",
     description:
-      "The player-facing capabilities: one 20-question daily round across hiragana, katakana, kanji and vocabulary — N5 by default, or N4 through N2; instant feedback and a per-kind accuracy summary; and zero server-side gameplay persistence.",
+      "The player-facing capabilities: one 20-question daily round — N5 by default, mixing hiragana, katakana, kanji and vocabulary; N4 through N2 drop kana for 10 kanji and 10 vocabulary instead; instant feedback and a per-kind accuracy summary; and zero server-side gameplay persistence.",
     icon: "i-heroicons-star",
   },
   {

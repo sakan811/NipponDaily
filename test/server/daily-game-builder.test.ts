@@ -124,6 +124,39 @@ describe("buildDailyGame", () => {
   });
 });
 
+describe("buildDailyGame kana handling", () => {
+  it("quizzes hiragana/katakana/kanji/vocab 5 each for N5", () => {
+    const game = buildDailyGame(makePool(30), "2026-09-20", [], "N5");
+    const counts = countByKind(game);
+    expect(counts).toEqual({ hiragana: 5, katakana: 5, kanji: 5, vocab: 5 });
+  });
+
+  it.each(["N4", "N3", "N2", "ALL"] as const)(
+    "skips kana for %s, backfilling 10 kanji + 10 vocab instead",
+    (level) => {
+      const game = buildDailyGame(makePool(30), "2026-09-20", [], level);
+      const counts = countByKind(game);
+      expect(counts).toEqual({
+        hiragana: 0,
+        katakana: 0,
+        kanji: 10,
+        vocab: 10,
+      });
+    },
+  );
+});
+
+function countByKind(game: DailyGame): Record<string, number> {
+  const counts: Record<string, number> = {
+    hiragana: 0,
+    katakana: 0,
+    kanji: 0,
+    vocab: 0,
+  };
+  for (const q of game.questions) counts[q.kind]!++;
+  return counts;
+}
+
 describe("recentDates", () => {
   it("returns the N days before the given date, most recent first", () => {
     expect(recentDates("2026-09-20", 3)).toEqual([

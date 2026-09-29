@@ -1,5 +1,5 @@
 import { vi } from "vitest";
-import type { DailyGame, GameQuestion } from "~~/types/index";
+import type { DailyGame, DailyGameLevel, GameQuestion } from "~~/types/index";
 
 export const makeQuestion = (
   overrides: Partial<GameQuestion> = {},
@@ -12,9 +12,12 @@ export const makeQuestion = (
   ...overrides,
 });
 
-export const makeDailyGame = (questions?: GameQuestion[]): DailyGame => ({
+export const makeDailyGame = (
+  questions?: GameQuestion[],
+  level: DailyGameLevel = "N5",
+): DailyGame => ({
   date: "2026-09-18",
-  level: "N5",
+  level,
   questions: questions ?? [
     makeQuestion({ id: "水", correctAnswer: "water" }),
     makeQuestion({

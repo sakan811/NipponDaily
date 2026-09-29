@@ -59,7 +59,7 @@ const features = [
   {
     title: "One Daily Game for Everyone",
     description:
-      "Every visitor on a given day plays the same 20-question round for that level — 5 each of hiragana, katakana, kanji, and vocabulary — generated once and served to all readers that day.",
+      "Every visitor on a given day plays the same 20-question round for that level — N5 is 5 each of hiragana, katakana, kanji, and vocabulary; N4 and up already know their kana, so those rounds are 10 kanji and 10 vocabulary instead — generated once and served to all readers that day.",
     icon: "i-heroicons-academic-cap",
   },
   {
