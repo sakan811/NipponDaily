@@ -353,6 +353,7 @@ import type {
   DailyGameLevel,
   GameQuestion,
   PoolKind,
+  JlptLevel,
 } from "~~/types/index";
 import { DEFAULT_JLPT_LEVEL, GAME_LEVELS, isJlptLevel } from "~~/shared/jlpt";
 
@@ -361,7 +362,7 @@ import TrendingFallback from "./TrendingFallback.vue";
 import EmaPlaque from "./EmaPlaque.vue";
 import HankoSeal from "./HankoSeal.vue";
 import OmamoriCharm from "./OmamoriCharm.vue";
-import { LESSON_SETS } from "../data/lesson-sets";
+import { LESSON_SETS, LEVELS_WITH_LESSONS } from "../data/lesson-sets";
 
 const props = withDefaults(
   defineProps<{
@@ -515,35 +516,33 @@ function selectLevel(newLevel: DailyGameLevel): void {
   void fetchGame();
 }
 
-/** The lesson set for whichever level today's game was actually drawn from
- *  (not the level selector, in case they ever diverge). Only levels with a
- *  lesson path — every real level has one; ALL rounds simply get no
- *  lesson links. */
-const gameLessonSet = computed(() => {
+/** Which lesson teaches a question's vocab word / kanji, and at what level.
+ *  A single-level round looks in that level's lesson set (the game's own
+ *  level, not the selector, in case they ever diverge). An ALL round mixes
+ *  every level, and its pool is merged N5 -> N2 keeping the first item per
+ *  id (PoolDataService's dedupeById) — so scanning the levels in that same
+ *  order finds the level the question was actually drawn from. */
+function lessonFor(
+  q: GameQuestion,
+): { lesson: number; level: JlptLevel } | undefined {
+  if (q.kind !== "vocab" && q.kind !== "kanji") return undefined;
   const gameLevel = dailyGame.value?.level;
-  return isJlptLevel(gameLevel) ? LESSON_SETS[gameLevel] : undefined;
-});
+  const levels = isJlptLevel(gameLevel) ? [gameLevel] : LEVELS_WITH_LESSONS;
+  for (const level of levels) {
+    const set = LESSON_SETS[level];
+    const lesson =
+      q.kind === "vocab"
+        ? set?.lessonNumberByWord.get(q.id)
+        : set?.firstLessonByKanji.get(q.prompt);
+    if (lesson) return { lesson, level };
+  }
+  return undefined;
+}
 
 const missedToStudy = computed(() =>
   missed.value.flatMap((q) => {
-    const lessonSet = gameLessonSet.value;
-    const lesson =
-      q.kind === "vocab"
-        ? lessonSet?.lessonNumberByWord.get(q.id)
-        : q.kind === "kanji"
-          ? lessonSet?.firstLessonByKanji.get(q.prompt)
-          : undefined;
-    return lesson
-      ? [
-          {
-            id: q.id,
-            kind: q.kind,
-            prompt: q.prompt,
-            lesson,
-            level: lessonSet!.level,
-          },
-        ]
-      : [];
+    const link = lessonFor(q);
+    return link ? [{ id: q.id, kind: q.kind, prompt: q.prompt, ...link }] : [];
   }),
 );
 
@@ -551,24 +550,20 @@ const missedToStudy = computed(() =>
  *  shown both before the round starts and again in the round summary, so a
  *  player can study the words either side of playing. */
 const vocabToStudy = computed(() =>
-  (dailyGame.value?.questions ?? [])
-    .filter((q) => q.kind === "vocab")
-    .flatMap((q) => {
-      const lessonSet = gameLessonSet.value;
-      const lesson = lessonSet?.lessonNumberByWord.get(q.id);
-      return lesson
-        ? [
-            {
-              id: q.id,
-              term: q.prompt,
-              kana: q.promptSub,
-              meaning: q.correctAnswer,
-              lesson,
-              level: lessonSet!.level,
-            },
-          ]
-        : [];
-    }),
+  (dailyGame.value?.questions ?? []).flatMap((q) => {
+    const link = q.kind === "vocab" ? lessonFor(q) : undefined;
+    return link
+      ? [
+          {
+            id: q.id,
+            term: q.prompt,
+            kana: q.promptSub,
+            meaning: q.correctAnswer,
+            ...link,
+          },
+        ]
+      : [];
+  }),
 );
 
 const fetchGame = async (): Promise<void> => {
