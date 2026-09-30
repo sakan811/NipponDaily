@@ -165,6 +165,9 @@ async function buildSharedContentEvidence(dict, tokenizer) {
 
   const words = new Set();
   for (const run of contentJapanese()) {
+    // A run that's itself a dictionary word (じょう, ちゅう) counts as real
+    // even when the tokenizer splits it into fragments it can't place.
+    if (dict.wordExists(run)) words.add(run);
     for (const t of tokenizer.tokenize(run)) {
       if (t.word_type === "UNKNOWN" && dict.wordExists(t.surface_form)) {
         words.add(t.surface_form);
