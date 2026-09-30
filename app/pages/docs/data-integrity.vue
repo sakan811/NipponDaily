@@ -64,12 +64,20 @@
           reference snapshot). N2 is a seeded, dictionary-verified pool the game
           and its level selector can already serve, but its own evidence
           snapshot (<code>data/reference/n2-reference.json</code>, built by
-          <code>pnpm data:reference:jlpt</code>) is not yet gated by any test —
-          there's no hand-written content for it yet to check.
+          <code>pnpm data:reference:jlpt</code>) gates the words themselves
+          (<code>test/content/n2/</code>: every word resolves, no reversed
+          meaning, corrections backed by JMdict) — there's no hand-written
+          lesson content for it yet to check.
           <code>pnpm data:draft:clusters &lt;level&gt;</code>
           (<code>scripts/draft-lesson-clusters.mjs</code>) turns one of those
-          evidence snapshots into a POS-grouped starting point for that
-          authoring pass — see its header for how it fits the pipeline below.
+          evidence snapshots into a small, batched authoring pack — a read-first
+          list of words whose reading or meaning JMdict doesn't back, homophone
+          and transitive/intransitive leads, and the still-untaught words in
+          ~50-word files. Its companion
+          <code>pnpm data:audit</code>
+          (<code>scripts/audit-lesson-content.mjs</code>) applies the same
+          evidence checks, looser than the CI gate, across every level as a
+          review queue — see their headers for how they fit the pipeline below.
         </p>
       </div>
 
