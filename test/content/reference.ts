@@ -31,6 +31,9 @@ export interface RefVocab {
   listReading: string;
   listMeaning: string;
   jmdict: RefEntry[];
+  /** Set only when JMdict has no headword for the word — see
+   *  scripts/build-jlpt-reference.mjs. */
+  evidence?: { kind: "bound-kanji" | "composed-phrase"; tokens?: string[] };
 }
 export interface RefKanji {
   strokeCount: number;
