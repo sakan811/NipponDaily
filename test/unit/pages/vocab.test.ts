@@ -74,7 +74,7 @@ describe("Vocab Page", () => {
     );
   });
 
-  it("switches the vocab pool's level and hides the lesson CTA for N2", async () => {
+  it("switches the vocab pool's level and keeps the lesson CTA for N2", async () => {
     (global.$fetch as any).mockResolvedValue({
       success: true,
       data: [],
@@ -91,9 +91,7 @@ describe("Vocab Page", () => {
 
     expect((wrapper.vm as any).level).toBe("N2");
     expect(wrapper.text()).toContain("N2 Vocabulary");
-    expect(wrapper.find('[data-testid="vocab-learn-cta"]').exists()).toBe(
-      false,
-    );
+    expect(wrapper.find('[data-testid="vocab-learn-cta"]').exists()).toBe(true);
   });
 
   it("links to the daily game and kana page as CTAs", () => {
