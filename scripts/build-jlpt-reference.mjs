@@ -64,6 +64,18 @@ async function fetchWordList(level) {
   return parseJlptCsv(await res.text(), level);
 }
 
+/** Tokens of a kana/kanji phrase when the tokenizer splits it into two or
+ *  more real words with nothing it couldn't place — evidence that a set
+ *  phrase JMdict doesn't list is at least made of real words. Null otherwise. */
+function phraseTokens(tokenizer, term) {
+  if (!tokenizer || !/^[぀-ヿ一-鿿々ー]+$/.test(term)) return null;
+  const tokens = tokenizer.tokenize(term);
+  if (tokens.length < 2 || tokens.some((t) => t.word_type === "UNKNOWN")) {
+    return null;
+  }
+  return tokens.map((t) => t.surface_form);
+}
+
 function buildLevelReference(level, entries, dict, shared) {
   const seen = new Set();
   const unresolvedInJmdict = [];
@@ -76,8 +88,21 @@ function buildLevelReference(level, entries, dict, shared) {
     const id = slugify(e.term, seen);
     const served = servedVocab({ ...e, romaji: "" });
     const jmdict = dict.lookupWord(served.term, served.kana);
+    // A word JMdict has no headword for can still be sound evidence: a bound
+    // affix kanji read as KANJIDIC2 says it can be, or a set phrase whose
+    // every token is a real word (お待ちください). Anything else is on the
+    // punch-list — it needs a VOCAB_FORM_CORRECTIONS entry.
+    let evidence;
     if (jmdict.length === 0) {
-      unresolvedInJmdict.push(`${id}: ${served.term} (${served.kana})`);
+      if (dict.boundKanjiAttested?.(served.term, served.kana)) {
+        evidence = { kind: "bound-kanji" };
+      } else {
+        const tokens = phraseTokens(shared.tokenizer, served.term);
+        if (tokens) evidence = { kind: "composed-phrase", tokens };
+      }
+      if (!evidence) {
+        unresolvedInJmdict.push(`${id}: ${served.term} (${served.kana})`);
+      }
     }
     return {
       id,
@@ -90,6 +115,7 @@ function buildLevelReference(level, entries, dict, shared) {
       listMeaning: e.listMeaning,
       jlptLevel: level,
       jmdict,
+      ...(evidence ? { evidence } : {}),
     };
   });
 
@@ -179,6 +205,7 @@ async function buildSharedContentEvidence(dict, tokenizer) {
     contentKanjiChars,
     contentSurfaces,
     words: [...words].sort(),
+    tokenizer,
   };
 }
 

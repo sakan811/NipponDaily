@@ -20,9 +20,9 @@
   },
   "counts": {
    "vocab": 665,
-   "kanji": 1459,
+   "kanji": 1469,
    "readings": 1306,
-   "words": 3916,
+   "words": 3922,
    "unresolvedInJmdict": 0
   },
   "unresolvedInJmdict": []
@@ -1799,6 +1799,27 @@
    "listMeaning": "if",
    "jlptLevel": "N4",
    "jmdict": [
+    {
+     "idseq": 1012500,
+     "kanji": [
+      "若し"
+     ],
+     "readings": [
+      "もし"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "adverb (fukushi)"
+       ],
+       "glosses": [
+        "if",
+        "in case",
+        "supposing"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2607730,
      "kanji": [],
@@ -12513,7 +12534,7 @@
    "seedKey": "辞典 じてん",
    "term": "辞典",
    "kana": "じてん",
-   "meaning": "encyclopedia, reference book",
+   "meaning": "dictionary, lexicon",
    "listTerm": "辞典",
    "listReading": "じてん",
    "listMeaning": "encyclopedia, reference book",
@@ -28179,6 +28200,70 @@
    "jlptLevel": "N4",
    "jmdict": [
     {
+     "idseq": 1000580,
+     "kanji": [
+      "彼",
+      "彼れ"
+     ],
+     "readings": [
+      "あれ",
+      "あ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "that",
+        "that thing"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "that person"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "then",
+        "that time"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "that place (over there)"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "down there (i.e. one's genitals)"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "period",
+        "menses"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 2394370,
      "kanji": [],
      "readings": [
@@ -33156,7 +33241,7 @@
    "seedKey": "もうすぐ もうすぐ",
    "term": "もうすぐ",
    "kana": "もうすぐ",
-   "meaning": "very soon; in a few moments; days",
+   "meaning": "very soon, shortly",
    "listTerm": "もうすぐ",
    "listReading": "もうすぐ",
    "listMeaning": "very soon; in a few moments; days",
@@ -41065,6 +41150,7 @@
   "ご飯",
   "さ",
   "さあ",
+  "さかり",
   "さく",
   "さす",
   "さっき",
@@ -41175,6 +41261,7 @@
   "そんな",
   "そんなに",
   "た",
+  "たい",
   "たいしょう",
   "たく",
   "たしか",
@@ -41209,6 +41296,7 @@
   "ちょっと",
   "っち",
   "つ",
+  "つい",
   "ついたち",
   "つう",
   "つうか",
@@ -41402,6 +41490,7 @@
   "ものごと",
   "もので",
   "もらう",
+  "もり",
   "もんじ",
   "や",
   "やがて",
@@ -41423,6 +41512,7 @@
   "ようす",
   "よく",
   "より",
+  "より大きい",
   "よろしい",
   "ら",
   "り",
@@ -42723,6 +42813,7 @@
   "島",
   "嵐",
   "川",
+  "川上",
   "州",
   "巣",
   "工場",
@@ -49182,6 +49273,17 @@
     "set"
    ]
   },
+  "噸": {
+   "strokeCount": 16,
+   "on": [
+    "トン"
+   ],
+   "kun": [],
+   "meanings": [
+    "tonnage",
+    "(kokuji)"
+   ]
+  },
   "四": {
    "strokeCount": 5,
    "on": [
@@ -51295,6 +51397,21 @@
     "layer",
     "story",
     "floor"
+   ]
+  },
+  "屯": {
+   "strokeCount": 4,
+   "on": [
+    "トン"
+   ],
+   "kun": [
+    "たむろ"
+   ],
+   "meanings": [
+    "barracks",
+    "police station",
+    "camp",
+    "ton"
    ]
   },
   "山": {
@@ -56821,6 +56938,16 @@
     "down"
    ]
   },
+  "毯": {
+   "strokeCount": 12,
+   "on": [
+    "タン"
+   ],
+   "kun": [],
+   "meanings": [
+    "wool rug"
+   ]
+  },
   "氏": {
    "strokeCount": 4,
    "on": [
@@ -57493,6 +57620,24 @@
     "cancel"
    ]
   },
+  "涌": {
+   "strokeCount": 10,
+   "on": [
+    "ユウ",
+    "ヨウ",
+    "ユ"
+   ],
+   "kun": [
+    "わ.く"
+   ],
+   "meanings": [
+    "boil",
+    "ferment",
+    "seethe",
+    "uproar",
+    "breed"
+   ]
+  },
   "涙": {
    "strokeCount": 10,
    "on": [
@@ -58104,6 +58249,26 @@
     "clean",
     "righteous",
     "gallant"
+   ]
+  },
+  "潜": {
+   "strokeCount": 15,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "ひそ.む",
+    "もぐ.る",
+    "かく.れる",
+    "くぐ.る",
+    "ひそ.める"
+   ],
+   "meanings": [
+    "submerge",
+    "conceal",
+    "hide",
+    "lower (voice)",
+    "hush"
    ]
   },
   "澄": {
@@ -58965,6 +59130,18 @@
     "wheel"
    ]
   },
+  "瓲": {
+   "strokeCount": 9,
+   "on": [],
+   "kun": [
+    "トン"
+   ],
+   "meanings": [
+    "tonne",
+    "thousand kilograms",
+    "(kokuji)"
+   ]
+  },
   "瓶": {
    "strokeCount": 11,
    "on": [
@@ -59531,6 +59708,22 @@
     "hide",
     "leather",
     "skin radical (no. 107)"
+   ]
+  },
+  "皺": {
+   "strokeCount": 15,
+   "on": [
+    "シュウ",
+    "スウ"
+   ],
+   "kun": [
+    "しわ",
+    "しぼ"
+   ],
+   "meanings": [
+    "wrinkles",
+    "creases",
+    "folds"
    ]
   },
   "皿": {
@@ -61411,6 +61604,16 @@
     "bestow on"
    ]
   },
+  "絨": {
+   "strokeCount": 12,
+   "on": [
+    "ジュウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "wool cloth"
+   ]
+  },
   "統": {
    "strokeCount": 12,
    "on": [
@@ -61724,6 +61927,19 @@
    "meanings": [
     "straw rope",
     "cord"
+   ]
+  },
+  "縒": {
+   "strokeCount": 16,
+   "on": [
+    "シ",
+    "サ"
+   ],
+   "kun": [
+    "よ.る"
+   ],
+   "meanings": [
+    "twist"
    ]
   },
   "縦": {
@@ -68282,6 +68498,24 @@
     "become silent",
     "stop speaking",
     "leave as is"
+   ]
+  },
+  "黴": {
+   "strokeCount": 23,
+   "on": [
+    "バイ",
+    "ビ",
+    "マイ",
+    "ミ"
+   ],
+   "kun": [
+    "かび",
+    "かび.る",
+    "か.びる"
+   ],
+   "meanings": [
+    "mold",
+    "mildew"
    ]
   },
   "鼠": {

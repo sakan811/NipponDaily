@@ -20,9 +20,9 @@
   },
   "counts": {
    "vocab": 2138,
-   "kanji": 1459,
+   "kanji": 1469,
    "readings": 2362,
-   "words": 3916,
+   "words": 3922,
    "unresolvedInJmdict": 0
   },
   "unresolvedInJmdict": []
@@ -3166,6 +3166,33 @@
    "jlptLevel": "N3",
    "jmdict": [
     {
+     "idseq": 1005580,
+     "kanji": [
+      "屡々",
+      "屡屡",
+      "屡",
+      "数数",
+      "数々",
+      "数"
+     ],
+     "readings": [
+      "しばしば"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "adverb (fukushi)"
+       ],
+       "glosses": [
+        "often",
+        "again and again",
+        "frequently",
+        "repeatedly"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 2179090,
      "kanji": [],
      "readings": [
@@ -3681,7 +3708,7 @@
    "seedKey": "下 しも",
    "term": "下",
    "kana": "しも",
-   "meaning": "under, below, beneath",
+   "meaning": "lower reaches (of a river); bottom, lower part",
    "listTerm": "下",
    "listReading": "しも",
    "listMeaning": "under, below, beneath",
@@ -4916,7 +4943,7 @@
    "seedKey": "出身 しゅっしん",
    "term": "出身",
    "kana": "しゅっしん",
-   "meaning": "come from",
+   "meaning": "person's origin (birthplace, school)",
    "listTerm": "出身",
    "listReading": "しゅっしん",
    "listMeaning": "come from",
@@ -11141,7 +11168,7 @@
    "seedKey": "生 せい",
    "term": "生",
    "kana": "せい",
-   "meaning": "birth",
+   "meaning": "life, living",
    "listTerm": "生",
    "listReading": "せい",
    "listMeaning": "birth",
@@ -16989,7 +17016,7 @@
    "seedKey": "行き いき",
    "term": "行き",
    "kana": "いき",
-   "meaning": "going",
+   "meaning": "the way there; bound for",
    "listTerm": "行き",
    "listReading": "いき",
    "listMeaning": "going",
@@ -17042,7 +17069,7 @@
    "seedKey": "行き ゆき",
    "term": "行き",
    "kana": "ゆき",
-   "meaning": "going",
+   "meaning": "the way there; bound for",
    "listTerm": "行き",
    "listReading": "ゆき",
    "listMeaning": "going",
@@ -25311,7 +25338,7 @@
    "seedKey": "温暖 おんだん",
    "term": "温暖",
    "kana": "おんだん",
-   "meaning": "warmth",
+   "meaning": "warm, mild, temperate",
    "listTerm": "温暖",
    "listReading": "おんだん",
    "listMeaning": "warmth",
@@ -26493,7 +26520,7 @@
    "seedKey": "反る かえる",
    "term": "反る",
    "kana": "かえる",
-   "meaning": "to warp, to be warped, to curve",
+   "meaning": "to return, to come back; to turn over",
    "listTerm": "反る",
    "listReading": "かえる",
    "listMeaning": "to warp, to be warped, to curve",
@@ -29946,7 +29973,7 @@
    "seedKey": "上 かみ",
    "term": "上",
    "kana": "かみ",
-   "meaning": "first volume; superior quality; governmental",
+   "meaning": "upper reaches (of a river), upper part; first, beginning",
    "listTerm": "上",
    "listReading": "かみ",
    "listMeaning": "first volume; superior quality; governmental",
@@ -38355,7 +38382,7 @@
    "seedKey": "下 げ",
    "term": "下",
    "kana": "げ",
-   "meaning": "under, below, beneath",
+   "meaning": "lowness, inferiority; second volume (of two)",
    "listTerm": "下",
    "listReading": "げ",
    "listMeaning": "under, below, beneath",
@@ -44720,7 +44747,7 @@
    "seedKey": "盛り さかり",
    "term": "盛り",
    "kana": "さかり",
-   "meaning": "helping, serving",
+   "meaning": "peak, height (of a season); prime",
    "listTerm": "盛り",
    "listReading": "さかり",
    "listMeaning": "helping, serving",
@@ -46103,6 +46130,51 @@
        ],
        "glosses": [
         "female proprietress (of a bar, etc.)"
+       ]
+      }
+     ]
+    },
+    {
+     "idseq": 1585410,
+     "kanji": [
+      "儘",
+      "侭"
+     ],
+     "readings": [
+      "まま",
+      "まんま",
+      "ママ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)",
+        "adverb (fukushi)"
+       ],
+       "glosses": [
+        "as it is",
+        "as one likes",
+        "because",
+        "as"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "condition",
+        "state"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "sic",
+        "sic erat scriptum",
+        "the quoted matter has been transcribed exactly as found in the source text"
        ]
       }
      ]
@@ -49942,7 +50014,7 @@
    "seedKey": "素 もと",
    "term": "素",
    "kana": "もと",
-   "meaning": "prime",
+   "meaning": "origin, source; basis, foundation",
    "listTerm": "素",
    "listReading": "もと",
    "listMeaning": "prime",
@@ -51208,6 +51280,35 @@
    "jlptLevel": "N3",
    "jmdict": [
     {
+     "idseq": 1570120,
+     "kanji": [
+      "稍",
+      "漸"
+     ],
+     "readings": [
+      "やや"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "adverb (fukushi)",
+        "noun or verb acting prenominally"
+       ],
+       "glosses": [
+        "a little",
+        "partially",
+        "somewhat",
+        "slightly",
+        "semi-",
+        "-ish",
+        "on the ... side",
+        "a short time",
+        "a while"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 2771700,
      "kanji": [],
      "readings": [
@@ -51243,6 +51344,28 @@
         "oh no",
         "yuck",
         "eew"
+       ]
+      }
+     ]
+    },
+    {
+     "idseq": 2771740,
+     "kanji": [
+      "嫌や"
+     ],
+     "readings": [
+      "いやや",
+      "やや"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "no",
+        "quit it",
+        "no way"
        ]
       }
      ]
@@ -53340,7 +53463,7 @@
    "seedKey": "より より",
    "term": "より",
    "kana": "より",
-   "meaning": "twist, ply",
+   "meaning": "than; from, out of, since",
    "listTerm": "より",
    "listReading": "より",
    "listMeaning": "twist, ply",
@@ -55461,7 +55584,7 @@
    "seedKey": "湧く わく",
    "term": "湧く",
    "kana": "わく",
-   "meaning": "to boil, to grow hot",
+   "meaning": "to well up, to gush forth; to appear suddenly",
    "listTerm": "湧く",
    "listReading": "わく",
    "listMeaning": "to boil, to grow hot",
@@ -56437,7 +56560,7 @@
    "seedKey": "異 い",
    "term": "異",
    "kana": "い",
-   "meaning": "objection",
+   "meaning": "difference (of opinion); strange, unusual",
    "listTerm": "異",
    "listReading": "い",
    "listMeaning": "objection",
@@ -56488,7 +56611,7 @@
    "seedKey": "意 い",
    "term": "意",
    "kana": "い",
-   "meaning": "will",
+   "meaning": "feelings, thoughts; meaning",
    "listTerm": "意",
    "listReading": "い",
    "listMeaning": "will",
@@ -62571,7 +62694,7 @@
    "seedKey": "対 たい",
    "term": "対",
    "kana": "たい",
-   "meaning": "pair, couple, set",
+   "meaning": "versus; opposite, opposition",
    "listTerm": "対",
    "listReading": "たい",
    "listMeaning": "pair, couple, set",
@@ -66566,7 +66689,7 @@
    "seedKey": "偶 たま",
    "term": "偶",
    "kana": "たま",
-   "meaning": "even number, couple, friend",
+   "meaning": "occasional, infrequent, rare",
    "listTerm": "偶",
    "listReading": "たま",
    "listMeaning": "even number, couple, friend",
@@ -74676,7 +74799,7 @@
    "seedKey": "退く どく",
    "term": "退く",
    "kana": "どく",
-   "meaning": "to retreat, to recede, to withdraw",
+   "meaning": "to step aside, to make way; to resign, to retire",
    "listTerm": "退く",
    "listReading": "どく",
    "listMeaning": "to retreat, to recede, to withdraw",
@@ -76289,7 +76412,7 @@
    "seedKey": "共に ともに",
    "term": "共に",
    "kana": "ともに",
-   "meaning": "sharing with, participate in",
+   "meaning": "together, jointly; at the same time",
    "listTerm": "共に",
    "listReading": "ともに",
    "listMeaning": "sharing with, participate in",
@@ -76878,12 +77001,34 @@
    "seedKey": "トン トン",
    "term": "トン",
    "kana": "トン",
-   "meaning": "ton (1000 lbs.)",
+   "meaning": "ton (metric ton, 1,000 kg)",
    "listTerm": "トン",
    "listReading": "トン",
    "listMeaning": "ton (1000 lbs.)",
    "jlptLevel": "N3",
    "jmdict": [
+    {
+     "idseq": 1457320,
+     "kanji": [
+      "屯",
+      "噸",
+      "瓲"
+     ],
+     "readings": [
+      "トン"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "ton (now usu. a metric ton, i.e. 1,000kg)",
+        "tonne"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2832001,
      "kanji": [],
@@ -80646,7 +80791,7 @@
    "seedKey": "能 のう",
    "term": "能",
    "kana": "のう",
-   "meaning": "being skilled in, nicely, properly",
+   "meaning": "talent, ability, function; noh theatre",
    "listTerm": "能",
    "listReading": "のう",
    "listMeaning": "being skilled in, nicely, properly",
@@ -88135,7 +88280,7 @@
    "seedKey": "便 びん",
    "term": "便",
    "kana": "びん",
-   "meaning": "way, means; flight",
+   "meaning": "flight, trip, service; mail",
    "listTerm": "便",
    "listReading": "びん",
    "listMeaning": "way, means; flight",
@@ -88323,7 +88468,7 @@
    "seedKey": "無 ぶ",
    "term": "無",
    "kana": "ぶ",
-   "meaning": "nothing, naught, nil, zero",
+   "meaning": "un-, non- (prefix)",
    "listTerm": "無",
    "listReading": "ぶ",
    "listMeaning": "nothing, naught, nil, zero",
@@ -88366,7 +88511,7 @@
    "seedKey": "分 ぶ",
    "term": "分",
    "kana": "ぶ",
-   "meaning": "dividing, part",
+   "meaning": "one-tenth, one percent",
    "listTerm": "分",
    "listReading": "ぶ",
    "listMeaning": "dividing, part",
@@ -98102,7 +98247,7 @@
    "seedKey": "例え たとえ",
    "term": "例え",
    "kana": "たとえ",
-   "meaning": "example; even though",
+   "meaning": "example; simile, metaphor",
    "listTerm": "例え",
    "listReading": "たとえ",
    "listMeaning": "example; even though",
@@ -109965,6 +110110,7 @@
   "ご飯",
   "さ",
   "さあ",
+  "さかり",
   "さく",
   "さす",
   "さっき",
@@ -110075,6 +110221,7 @@
   "そんな",
   "そんなに",
   "た",
+  "たい",
   "たいしょう",
   "たく",
   "たしか",
@@ -110109,6 +110256,7 @@
   "ちょっと",
   "っち",
   "つ",
+  "つい",
   "ついたち",
   "つう",
   "つうか",
@@ -110302,6 +110450,7 @@
   "ものごと",
   "もので",
   "もらう",
+  "もり",
   "もんじ",
   "や",
   "やがて",
@@ -110323,6 +110472,7 @@
   "ようす",
   "よく",
   "より",
+  "より大きい",
   "よろしい",
   "ら",
   "り",
@@ -111623,6 +111773,7 @@
   "島",
   "嵐",
   "川",
+  "川上",
   "州",
   "巣",
   "工場",
@@ -118082,6 +118233,17 @@
     "set"
    ]
   },
+  "噸": {
+   "strokeCount": 16,
+   "on": [
+    "トン"
+   ],
+   "kun": [],
+   "meanings": [
+    "tonnage",
+    "(kokuji)"
+   ]
+  },
   "四": {
    "strokeCount": 5,
    "on": [
@@ -120195,6 +120357,21 @@
     "layer",
     "story",
     "floor"
+   ]
+  },
+  "屯": {
+   "strokeCount": 4,
+   "on": [
+    "トン"
+   ],
+   "kun": [
+    "たむろ"
+   ],
+   "meanings": [
+    "barracks",
+    "police station",
+    "camp",
+    "ton"
    ]
   },
   "山": {
@@ -125721,6 +125898,16 @@
     "down"
    ]
   },
+  "毯": {
+   "strokeCount": 12,
+   "on": [
+    "タン"
+   ],
+   "kun": [],
+   "meanings": [
+    "wool rug"
+   ]
+  },
   "氏": {
    "strokeCount": 4,
    "on": [
@@ -126393,6 +126580,24 @@
     "cancel"
    ]
   },
+  "涌": {
+   "strokeCount": 10,
+   "on": [
+    "ユウ",
+    "ヨウ",
+    "ユ"
+   ],
+   "kun": [
+    "わ.く"
+   ],
+   "meanings": [
+    "boil",
+    "ferment",
+    "seethe",
+    "uproar",
+    "breed"
+   ]
+  },
   "涙": {
    "strokeCount": 10,
    "on": [
@@ -127004,6 +127209,26 @@
     "clean",
     "righteous",
     "gallant"
+   ]
+  },
+  "潜": {
+   "strokeCount": 15,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "ひそ.む",
+    "もぐ.る",
+    "かく.れる",
+    "くぐ.る",
+    "ひそ.める"
+   ],
+   "meanings": [
+    "submerge",
+    "conceal",
+    "hide",
+    "lower (voice)",
+    "hush"
    ]
   },
   "澄": {
@@ -127865,6 +128090,18 @@
     "wheel"
    ]
   },
+  "瓲": {
+   "strokeCount": 9,
+   "on": [],
+   "kun": [
+    "トン"
+   ],
+   "meanings": [
+    "tonne",
+    "thousand kilograms",
+    "(kokuji)"
+   ]
+  },
   "瓶": {
    "strokeCount": 11,
    "on": [
@@ -128431,6 +128668,22 @@
     "hide",
     "leather",
     "skin radical (no. 107)"
+   ]
+  },
+  "皺": {
+   "strokeCount": 15,
+   "on": [
+    "シュウ",
+    "スウ"
+   ],
+   "kun": [
+    "しわ",
+    "しぼ"
+   ],
+   "meanings": [
+    "wrinkles",
+    "creases",
+    "folds"
    ]
   },
   "皿": {
@@ -130311,6 +130564,16 @@
     "bestow on"
    ]
   },
+  "絨": {
+   "strokeCount": 12,
+   "on": [
+    "ジュウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "wool cloth"
+   ]
+  },
   "統": {
    "strokeCount": 12,
    "on": [
@@ -130624,6 +130887,19 @@
    "meanings": [
     "straw rope",
     "cord"
+   ]
+  },
+  "縒": {
+   "strokeCount": 16,
+   "on": [
+    "シ",
+    "サ"
+   ],
+   "kun": [
+    "よ.る"
+   ],
+   "meanings": [
+    "twist"
    ]
   },
   "縦": {
@@ -137182,6 +137458,24 @@
     "become silent",
     "stop speaking",
     "leave as is"
+   ]
+  },
+  "黴": {
+   "strokeCount": 23,
+   "on": [
+    "バイ",
+    "ビ",
+    "マイ",
+    "ミ"
+   ],
+   "kun": [
+    "かび",
+    "かび.る",
+    "か.びる"
+   ],
+   "meanings": [
+    "mold",
+    "mildew"
    ]
   },
   "鼠": {

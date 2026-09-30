@@ -20,47 +20,12 @@
   },
   "counts": {
    "vocab": 1748,
-   "kanji": 1682,
-   "readings": 2197,
-   "words": 3916,
-   "unresolvedInJmdict": 34
+   "kanji": 1691,
+   "readings": 2201,
+   "words": 3922,
+   "unresolvedInJmdict": 0
   },
-  "unresolvedInJmdict": [
-   "初: 初～ (しょ～)",
-   "所-2: ～所 (～じょ)",
-   "しわかおの: しわ (かおの～) (しわ (かおの～))",
-   "船: ～船 (～せん)",
-   "沿い: ～沿い (～そい)",
-   "それはいけませんねかん: それはいけませんね (かん) (それはいけませんね (かん))",
-   "だいいちとりわけ: だいいち (とりわけ) (だいいち (とりわけ))",
-   "お元気で: お元気で (おげんきで)",
-   "お世話になりました: お世話になりました (おせわになりました)",
-   "お待ちください: お待ちください (おまちください)",
-   "歌: ～歌 (～か)",
-   "かびがはえる: かび (～がはえる) (かび (～がはえる))",
-   "教: ～教 (～きょう)",
-   "国: ～国 (～こく)",
-   "擦る: 擦る (こする)",
-   "まるごと: 〜 (まる) ごと (〜 (まる) ごと)",
-   "かさをさす: (かさを～) さす ((かさを～) さす)",
-   "しいんとする: しいんと (する) (しいんと (する))",
-   "日本式: 〜(日本) 式 (～(にほん) しき)",
-   "日-2: ～日 (～じつ)",
-   "しつれいしましたかん: しつれいしました (かん) (しつれいしました (かん))",
-   "おしまいおわり: ～おしまい (おわり) (～おしまい (おわり))",
-   "しめたかん: しめた (かん) (しめた (かん))",
-   "手: ～手 (～しゅ)",
-   "じゅうたんカーペット: じゅうたん (カーペット) (じゅうたん (カーペット))",
-   "いちにほんいち: ～いち (にほんいち) (～いち (にほんいち))",
-   "行っていらっしゃい: 行っていらっしゃい (いっていらっしゃい)",
-   "どういたしましてかん: どういたしまして (かん) (どういたしまして (かん))",
-   "はいかん: はい (かん) (はい (かん))",
-   "ほうひかく: ～ほう (ひかく) (～ほう (ひかく))",
-   "防: 防～ (ぼう～)",
-   "ミリメートル: ミリ (メートル) (ミリ (メートル))",
-   "やたらに: やたらに (やたらに)",
-   "遣い: ～遣い (～づかい)"
-  ]
+  "unresolvedInJmdict": []
  },
  "vocab": [
   {
@@ -968,7 +933,10 @@
    "listReading": "しょ～",
    "listMeaning": "first ~",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "諸",
@@ -1047,7 +1015,10 @@
    "listReading": "～じょ",
    "listMeaning": "place",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "女",
@@ -3370,14 +3341,45 @@
   {
    "id": "しわかおの",
    "seedKey": "しわ (かおの～) しわ (かおの～)",
-   "term": "しわ (かおの～)",
-   "kana": "しわ (かおの～)",
+   "term": "しわ",
+   "kana": "しわ",
    "meaning": "wrinkles, creases",
    "listTerm": "しわ (かおの～)",
    "listReading": "しわ (かおの～)",
    "listMeaning": "wrinkles, creases",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1569740,
+     "kanji": [
+      "皺",
+      "皴"
+     ],
+     "readings": [
+      "しわ",
+      "シワ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "wrinkle",
+        "crease"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "ripple"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "芯",
@@ -7532,7 +7534,10 @@
    "listReading": "～せん",
    "listMeaning": "counter for ships",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "戦",
@@ -8326,7 +8331,10 @@
    "listReading": "～そい",
    "listMeaning": "along",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "総",
@@ -9653,14 +9661,25 @@
   {
    "id": "それはいけませんねかん",
    "seedKey": "それはいけませんね (かん) それはいけませんね (かん)",
-   "term": "それはいけませんね (かん)",
-   "kana": "それはいけませんね (かん)",
+   "term": "それはいけませんね",
+   "kana": "それはいけませんね",
    "meaning": "that's not good",
    "listTerm": "それはいけませんね (かん)",
    "listReading": "それはいけませんね (かん)",
    "listMeaning": "that's not good",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "composed-phrase",
+    "tokens": [
+     "それ",
+     "は",
+     "いけ",
+     "ませ",
+     "ん",
+     "ね"
+    ]
+   }
   },
   {
    "id": "逸れる",
@@ -9917,14 +9936,69 @@
   {
    "id": "だいいちとりわけ",
    "seedKey": "だいいち (とりわけ) だいいち (とりわけ)",
-   "term": "だいいち (とりわけ)",
-   "kana": "だいいち (とりわけ)",
-   "meaning": "first, foremost,&nbsp;&nbsp;#1",
+   "term": "だいいち",
+   "kana": "だいいち",
+   "meaning": "first, foremost; number one",
    "listTerm": "だいいち (とりわけ)",
    "listReading": "だいいち (とりわけ)",
    "listMeaning": "first, foremost,&nbsp;&nbsp;#1",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1415270,
+     "kanji": [
+      "第一",
+      "第１"
+     ],
+     "readings": [
+      "だいいち"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "nouns which may take the genitive case particle 'no'",
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "first",
+        "foremost",
+        "number one"
+       ]
+      },
+      {
+       "pos": [
+        "nouns which may take the genitive case particle 'no'",
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "most important"
+       ]
+      },
+      {
+       "pos": [
+        "nouns which may take the genitive case particle 'no'",
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "best",
+        "greatest",
+        "most"
+       ]
+      },
+      {
+       "pos": [
+        "adverb (fukushi)"
+       ],
+       "glosses": [
+        "above all",
+        "besides",
+        "in any case",
+        "to begin with"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "大学院",
@@ -12458,7 +12532,15 @@
    "listReading": "おげんきで",
    "listMeaning": "Take care'",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "composed-phrase",
+    "tokens": [
+     "お",
+     "元気",
+     "で"
+    ]
+   }
   },
   {
    "id": "怠る",
@@ -12879,7 +12961,17 @@
    "listReading": "おせわになりました",
    "listMeaning": "I've been in your care",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "composed-phrase",
+    "tokens": [
+     "お世話",
+     "に",
+     "なり",
+     "まし",
+     "た"
+    ]
+   }
   },
   {
    "id": "お大事に",
@@ -13497,7 +13589,14 @@
    "listReading": "おまちください",
    "listMeaning": "Please wait a moment",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "composed-phrase",
+    "tokens": [
+     "お待ち",
+     "ください"
+    ]
+   }
   },
   {
    "id": "おまちどおさま",
@@ -14377,7 +14476,10 @@
    "listReading": "～か",
    "listMeaning": "song of ~",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "画",
@@ -17129,6 +17231,49 @@
    "jlptLevel": "N2",
    "jmdict": [
     {
+     "idseq": 2016470,
+     "kanji": [
+      "勝ち"
+     ],
+     "readings": [
+      "がち"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "suffix"
+       ],
+       "glosses": [
+        "apt to (do)",
+        "liable to",
+        "prone to",
+        "inclined to",
+        "tend to"
+       ]
+      },
+      {
+       "pos": [
+        "suffix"
+       ],
+       "glosses": [
+        "predominantly",
+        "mostly",
+        "having lots of"
+       ]
+      },
+      {
+       "pos": [
+        "suffix"
+       ],
+       "glosses": [
+        "... reaps the rewards",
+        "... takes the prize",
+        "... wins"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 2653620,
      "kanji": [],
      "readings": [
@@ -17750,14 +17895,94 @@
   {
    "id": "かびがはえる",
    "seedKey": "かび (～がはえる) かび (～がはえる)",
-   "term": "かび (～がはえる)",
-   "kana": "かび (～がはえる)",
+   "term": "かび",
+   "kana": "かび",
    "meaning": "mold, mildew",
    "listTerm": "かび (～がはえる)",
    "listReading": "かび (～がはえる)",
    "listMeaning": "mold, mildew",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1195610,
+     "kanji": [
+      "華美",
+      "花美"
+     ],
+     "readings": [
+      "かび"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)",
+        "adjectival nouns or quasi-adjectives (keiyodoshi)"
+       ],
+       "glosses": [
+        "splendor",
+        "splendour",
+        "gorgeousness",
+        "pomp",
+        "magnificence"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)",
+        "adjectival nouns or quasi-adjectives (keiyodoshi)"
+       ],
+       "glosses": [
+        "showiness",
+        "gaudiness",
+        "extravagance",
+        "luxury"
+       ]
+      }
+     ]
+    },
+    {
+     "idseq": 1575380,
+     "kanji": [
+      "黴"
+     ],
+     "readings": [
+      "かび",
+      "カビ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "mold",
+        "mould",
+        "mildew"
+       ]
+      }
+     ]
+    },
+    {
+     "idseq": 2597790,
+     "kanji": [
+      "蚊火"
+     ],
+     "readings": [
+      "かび",
+      "かひ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "smoky fire to repel mosquitoes"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "被せる",
@@ -18010,6 +18235,28 @@
        "glosses": [
         "gum",
         "rubber"
+       ]
+      }
+     ]
+    },
+    {
+     "idseq": 1046160,
+     "kanji": [
+      "瓜姆",
+      "瓦無"
+     ],
+     "readings": [
+      "グアム",
+      "グァム",
+      "ガム"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "Guam"
        ]
       }
      ]
@@ -20876,7 +21123,10 @@
    "listReading": "～きょう",
    "listMeaning": "religion",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "行",
@@ -26246,7 +26496,7 @@
    "seedKey": "交差 こうさ",
    "term": "交差",
    "kana": "こうさ",
-   "meaning": "cross",
+   "meaning": "crossing, intersection",
    "listTerm": "交差",
    "listReading": "こうさ",
    "listMeaning": "cross",
@@ -27593,7 +27843,10 @@
    "listReading": "～こく",
    "listMeaning": "nation of ~",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "国王",
@@ -28020,7 +28273,31 @@
    "listReading": "こする",
    "listMeaning": "to rub, to chafe, to file, to frost (glass), to strike (match)",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1298910,
+     "kanji": [
+      "擦る",
+      "錯る"
+     ],
+     "readings": [
+      "こする"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "Godan verb with 'ru' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to rub",
+        "to scrub",
+        "to scrape"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "個体",
@@ -28329,14 +28606,38 @@
   {
    "id": "まるごと",
    "seedKey": "〜 (まる) ごと 〜 (まる) ごと",
-   "term": "〜 (まる) ごと",
-   "kana": "〜 (まる) ごと",
+   "term": "まるごと",
+   "kana": "まるごと",
    "meaning": "whole ~, all of ~",
    "listTerm": "〜 (まる) ごと",
    "listReading": "〜 (まる) ごと",
    "listMeaning": "whole ~, all of ~",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1216410,
+     "kanji": [
+      "丸ごと",
+      "丸事",
+      "丸毎"
+     ],
+     "readings": [
+      "まるごと"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "adverb (fukushi)"
+       ],
+       "glosses": [
+        "in its entirety",
+        "whole",
+        "wholly"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "言付ける",
@@ -29228,7 +29529,7 @@
    "seedKey": "コンセント コンセント",
    "term": "コンセント",
    "kana": "コンセント",
-   "meaning": "consent; power outlet",
+   "meaning": "power outlet, wall socket",
    "listTerm": "コンセント",
    "listReading": "コンセント",
    "listMeaning": "consent; power outlet",
@@ -30521,14 +30822,187 @@
   {
    "id": "かさをさす",
    "seedKey": "(かさを～) さす (かさを～) さす",
-   "term": "(かさを～) さす",
-   "kana": "(かさを～) さす",
-   "meaning": "to open; hold (an umbrella)",
+   "term": "差す",
+   "kana": "さす",
+   "meaning": "to hold up (an umbrella); to shine; to insert",
    "listTerm": "(かさを～) さす",
    "listReading": "(かさを～) さす",
    "listMeaning": "to open; hold (an umbrella)",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1291330,
+     "kanji": [
+      "差す"
+     ],
+     "readings": [
+      "さす"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to shine"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to be visible"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to be tinged with"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to rise (of water levels)",
+        "to flow in"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to be felt (i.e. as an emotion)",
+        "to come over one"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to hold up (an umbrella, etc.)",
+        "to put up",
+        "to raise"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to extend one's arm straight ahead (in dance)"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to insert",
+        "to put in"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to wear (a sword) in one's belt",
+        "to wear at one's side",
+        "to carry under one's arm"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to insert one's arm under an opponent's arm"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to pole (a boat)"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to pour",
+        "to add (liquid)",
+        "to serve (drinks)"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to put on (lipstick, etc.)",
+        "to apply",
+        "to colour",
+        "to dye"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to light (a fire)",
+        "to burn"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'su' ending",
+        "transitive verb"
+       ],
+       "glosses": [
+        "to shut",
+        "to close",
+        "to lock",
+        "to fasten"
+       ]
+      },
+      {
+       "pos": [
+        "suffix",
+        "Godan verb with 'su' ending"
+       ],
+       "glosses": [
+        "to stop in the midst of",
+        "to leave undone"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "流石",
@@ -31636,14 +32110,37 @@
   {
    "id": "しいんとする",
    "seedKey": "しいんと (する) しいんと (する)",
-   "term": "しいんと (する)",
-   "kana": "しいんと (する)",
+   "term": "しいんと",
+   "kana": "しいんと",
    "meaning": "silent (as the grave), (deathly) quiet",
    "listTerm": "しいんと (する)",
    "listReading": "しいんと (する)",
    "listMeaning": "silent (as the grave), (deathly) quiet",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1631970,
+     "kanji": [],
+     "readings": [
+      "しーん",
+      "しいん",
+      "シーン"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "adverb (fukushi)",
+        "adverb taking the 'to' particle",
+        "noun or participle which takes the aux. verb suru"
+       ],
+       "glosses": [
+        "silently (as the grave)",
+        "quietly (as in death)"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "自衛",
@@ -31951,14 +32448,34 @@
   {
    "id": "日本式",
    "seedKey": "〜(日本) 式 ～(にほん) しき",
-   "term": "〜(日本) 式",
-   "kana": "～(にほん) しき",
-   "meaning": "custom,",
+   "term": "日本式",
+   "kana": "にほんしき",
+   "meaning": "Japanese style",
    "listTerm": "〜(日本) 式",
    "listReading": "～(にほん) しき",
    "listMeaning": "custom,",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1464650,
+     "kanji": [
+      "日本式"
+     ],
+     "readings": [
+      "にほんしき"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "Japanese style"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "敷地",
@@ -32783,7 +33300,10 @@
    "listReading": "～じつ",
    "listMeaning": "day",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "実感",
@@ -33128,14 +33648,35 @@
   {
    "id": "しつれいしましたかん",
    "seedKey": "しつれいしました (かん) しつれいしました (かん)",
-   "term": "しつれいしました (かん)",
-   "kana": "しつれいしました (かん)",
+   "term": "しつれいしました",
+   "kana": "しつれいしました",
    "meaning": "Excuse me., I'm sorry.",
    "listTerm": "しつれいしました (かん)",
    "listReading": "しつれいしました (かん)",
    "listMeaning": "Excuse me., I'm sorry.",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1320240,
+     "kanji": [
+      "失礼しました"
+     ],
+     "readings": [
+      "しつれいしました"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "expressions (phrases, clauses, etc.)"
+       ],
+       "glosses": [
+        "excuse me",
+        "I'm sorry"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "実例",
@@ -33707,14 +34248,51 @@
   {
    "id": "おしまいおわり",
    "seedKey": "～おしまい (おわり) ～おしまい (おわり)",
-   "term": "～おしまい (おわり)",
-   "kana": "～おしまい (おわり)",
-   "meaning": "end up ~",
+   "term": "おしまい",
+   "kana": "おしまい",
+   "meaning": "the end, closing",
    "listTerm": "～おしまい (おわり)",
    "listReading": "～おしまい (おわり)",
    "listMeaning": "end up ~",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1001970,
+     "kanji": [
+      "お仕舞い",
+      "お終い",
+      "御仕舞い",
+      "御終い",
+      "お仕舞",
+      "御仕舞"
+     ],
+     "readings": [
+      "おしまい"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "the end",
+        "closing",
+        "being done for"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "that's it",
+        "that's enough",
+        "that's all"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "しみじみ",
@@ -33921,14 +34499,36 @@
   {
    "id": "しめたかん",
    "seedKey": "しめた (かん) しめた (かん)",
-   "term": "しめた (かん)",
-   "kana": "しめた (かん)",
+   "term": "しめた",
+   "kana": "しめた",
    "meaning": "I've got it, all right, fine",
    "listTerm": "しめた (かん)",
    "listReading": "しめた (かん)",
    "listMeaning": "I've got it, all right, fine",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1389450,
+     "kanji": [
+      "占めた"
+     ],
+     "readings": [
+      "しめた"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "I've got it",
+        "all right",
+        "fine"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "地面",
@@ -34630,7 +35230,10 @@
    "listReading": "～しゅ",
    "listMeaning": "~ player, person who does ~",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "酒",
@@ -34947,14 +35550,60 @@
   {
    "id": "じゅうたんカーペット",
    "seedKey": "じゅうたん (カーペット) じゅうたん (カーペット)",
-   "term": "じゅうたん (カーペット)",
-   "kana": "じゅうたん (カーペット)",
+   "term": "じゅうたん",
+   "kana": "じゅうたん",
    "meaning": "carpet",
    "listTerm": "じゅうたん (カーペット)",
    "listReading": "じゅうたん (カーペット)",
    "listMeaning": "carpet",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1595370,
+     "kanji": [
+      "絨毯",
+      "絨緞",
+      "絨氈"
+     ],
+     "readings": [
+      "じゅうたん",
+      "ジュータン",
+      "ジュウタン"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "carpet",
+        "rug",
+        "runner"
+       ]
+      }
+     ]
+    },
+    {
+     "idseq": 2560420,
+     "kanji": [
+      "獣炭"
+     ],
+     "readings": [
+      "じゅうたん"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "animal charcoal",
+        "carbo animalis"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "終点",
@@ -39423,14 +40072,37 @@
   {
    "id": "いちにほんいち",
    "seedKey": "～いち (にほんいち) ～いち (にほんいち)",
-   "term": "～いち (にほんいち)",
-   "kana": "～いち (にほんいち)",
-   "meaning": "No. 1 ~ (in)",
+   "term": "日本一",
+   "kana": "にほんいち",
+   "meaning": "number one in Japan",
    "listTerm": "～いち (にほんいち)",
    "listReading": "～いち (にほんいち)",
    "listMeaning": "No. 1 ~ (in)",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1730040,
+     "kanji": [
+      "日本一"
+     ],
+     "readings": [
+      "にほんいち",
+      "にっぽんいち"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)",
+        "nouns which may take the genitive case particle 'no'"
+       ],
+       "glosses": [
+        "Japan's best",
+        "number one in Japan"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "いちいち",
@@ -39553,7 +40225,7 @@
    "seedKey": "一段と いちだんと",
    "term": "一段と",
    "kana": "いちだんと",
-   "meaning": "by far, greater",
+   "meaning": "still more, all the more",
    "listTerm": "一段と",
    "listReading": "いちだんと",
    "listMeaning": "by far, greater",
@@ -39882,14 +40554,36 @@
   {
    "id": "行っていらっしゃい",
    "seedKey": "行っていらっしゃい いっていらっしゃい",
-   "term": "行っていらっしゃい",
-   "kana": "いっていらっしゃい",
+   "term": "行ってらっしゃい",
+   "kana": "いってらっしゃい",
    "meaning": "have a nice day, see you",
    "listTerm": "行っていらっしゃい",
    "listReading": "いっていらっしゃい",
    "listMeaning": "have a nice day, see you",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 2088750,
+     "kanji": [
+      "行ってらっしゃい"
+     ],
+     "readings": [
+      "いってらっしゃい"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "have a good day",
+        "take care",
+        "see you"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "行ってらっしゃい",
@@ -43422,14 +44116,38 @@
   {
    "id": "どういたしましてかん",
    "seedKey": "どういたしまして (かん) どういたしまして (かん)",
-   "term": "どういたしまして (かん)",
-   "kana": "どういたしまして (かん)",
+   "term": "どういたしまして",
+   "kana": "どういたしまして",
    "meaning": "you are welcome, don't mention it",
    "listTerm": "どういたしまして (かん)",
    "listReading": "どういたしまして (かん)",
    "listMeaning": "you are welcome, don't mention it",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1009030,
+     "kanji": [
+      "どう致しまして",
+      "如何致しまして"
+     ],
+     "readings": [
+      "どういたしまして"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "you're welcome",
+        "don't mention it",
+        "not at all",
+        "my pleasure"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "統一",
@@ -43563,7 +44281,7 @@
    "seedKey": "統計 とうけい",
    "term": "統計",
    "kana": "とうけい",
-   "meaning": "scattering, a scatter, dispersion",
+   "meaning": "statistics",
    "listTerm": "統計",
    "listReading": "とうけい",
    "listMeaning": "scattering, a scatter, dispersion",
@@ -48882,14 +49600,82 @@
   {
    "id": "はいかん",
    "seedKey": "はい (かん) はい (かん)",
-   "term": "はい (かん)",
-   "kana": "はい (かん)",
+   "term": "はい",
+   "kana": "はい",
    "meaning": "yes",
    "listTerm": "はい (かん)",
    "listReading": "はい (かん)",
    "listMeaning": "yes",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1010080,
+     "kanji": [],
+     "readings": [
+      "はい"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "yes",
+        "that is correct"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "understood",
+        "I see",
+        "OK",
+        "okay"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "present",
+        "here"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "pardon?",
+        "what's that?",
+        "come again?"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "now",
+        "here",
+        "here you go"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "giddy-up",
+        "giddap"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "灰色",
@@ -50011,6 +50797,37 @@
    "listMeaning": "cross",
    "jlptLevel": "N2",
    "jmdict": [
+    {
+     "idseq": 2197150,
+     "kanji": [
+      "ｘ"
+     ],
+     "readings": [
+      "ばつ",
+      "バツ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "x (mark)",
+        "cross"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "MDMA",
+        "ecstasy",
+        "molly"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2233450,
      "kanji": [],
@@ -57309,7 +58126,7 @@
    "seedKey": "隔てる へだてる",
    "term": "隔てる",
    "kana": "へだてる",
-   "meaning": "to be shut out",
+   "meaning": "to separate, to isolate; to interpose",
    "listTerm": "隔てる",
    "listReading": "へだてる",
    "listMeaning": "to be shut out",
@@ -57843,14 +58660,90 @@
   {
    "id": "ほうひかく",
    "seedKey": "～ほう (ひかく) ～ほう (ひかく)",
-   "term": "～ほう (ひかく)",
-   "kana": "～ほう (ひかく)",
-   "meaning": "(in comparison)",
+   "term": "方",
+   "kana": "ほう",
+   "meaning": "the side that ... (in comparison); direction, way",
    "listTerm": "～ほう (ひかく)",
    "listReading": "～ほう (ひかく)",
    "listMeaning": "(in comparison)",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1516930,
+     "kanji": [
+      "方"
+     ],
+     "readings": [
+      "ほう"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "direction",
+        "way",
+        "side",
+        "area (in a particular direction)"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "side (of an argument, etc.)",
+        "one's part"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "type",
+        "category"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "field (of study, etc.)"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "indicates one side of a comparison"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "way",
+        "method",
+        "manner",
+        "means"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "length (of each side of a square)"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "防",
@@ -57862,7 +58755,10 @@
    "listReading": "ぼう～",
    "listMeaning": "~ prevention",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "望遠鏡",
@@ -58475,7 +59371,7 @@
    "seedKey": "放る ほうる",
    "term": "放る",
    "kana": "ほうる",
-   "meaning": "to let go",
+   "meaning": "to throw, to fling; to abandon",
    "listTerm": "放る",
    "listReading": "ほうる",
    "listMeaning": "to let go",
@@ -61737,14 +62633,42 @@
   {
    "id": "ミリメートル",
    "seedKey": "ミリ (メートル) ミリ (メートル)",
-   "term": "ミリ (メートル)",
-   "kana": "ミリ (メートル)",
+   "term": "ミリ",
+   "kana": "ミリ",
    "meaning": "milli-",
    "listTerm": "ミリ (メートル)",
    "listReading": "ミリ (メートル)",
    "listMeaning": "milli-",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1131830,
+     "kanji": [],
+     "readings": [
+      "ミリ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "prefix"
+       ],
+       "glosses": [
+        "milli-",
+        "10^-3"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "millimetre",
+        "millimeter"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "民間",
@@ -62734,7 +63658,7 @@
    "id": "目下",
    "seedKey": "目下 めした",
    "term": "目下",
-   "kana": "めした",
+   "kana": "もっか",
    "meaning": "at present, now",
    "listTerm": "目下",
    "listReading": "めした",
@@ -62742,24 +63666,22 @@
    "jlptLevel": "N2",
    "jmdict": [
     {
-     "idseq": 1535320,
+     "idseq": 1535330,
      "kanji": [
       "目下"
      ],
      "readings": [
-      "めした"
+      "もっか"
      ],
      "senses": [
       {
        "pos": [
-        "noun (common) (futsuumeishi)"
+        "noun (common) (futsuumeishi)",
+        "adverb (fukushi)"
        ],
        "glosses": [
-        "subordinate",
-        "subordinates",
-        "inferior",
-        "inferiors",
-        "junior"
+        "at present",
+        "now"
        ]
       }
      ]
@@ -63484,7 +64406,7 @@
    "seedKey": "潜る もぐる",
    "term": "潜る",
    "kana": "もぐる",
-   "meaning": "to drive, to pass through; to evade, to hide",
+   "meaning": "to dive; to get under, to slip into; to hide oneself",
    "listTerm": "潜る",
    "listReading": "もぐる",
    "listMeaning": "to drive, to pass through; to evade, to hide",
@@ -63703,6 +64625,58 @@
    "listMeaning": "person who has ~",
    "jlptLevel": "N2",
    "jmdict": [
+    {
+     "idseq": 1535790,
+     "kanji": [
+      "餅",
+      "餠"
+     ],
+     "readings": [
+      "もち",
+      "もちい",
+      "かちん",
+      "あも"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "mochi",
+        "(sticky) rice cake"
+       ]
+      }
+     ]
+    },
+    {
+     "idseq": 1575340,
+     "kanji": [
+      "黐"
+     ],
+     "readings": [
+      "もち",
+      "モチ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "birdlime"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "Nepal holly (Ilex integra)"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2577400,
      "kanji": [],
@@ -64881,7 +65855,44 @@
    "listReading": "やたらに",
    "listMeaning": "randomly, recklessly, blindly",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [
+    {
+     "idseq": 1537780,
+     "kanji": [
+      "矢鱈"
+     ],
+     "readings": [
+      "やたら"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "adverb (fukushi)",
+        "adverb taking the 'to' particle"
+       ],
+       "glosses": [
+        "indiscriminately",
+        "blindly",
+        "at random",
+        "recklessly",
+        "thoughtlessly",
+        "excessively",
+        "profusely"
+       ]
+      },
+      {
+       "pos": [
+        "adjectival nouns or quasi-adjectives (keiyodoshi)"
+       ],
+       "glosses": [
+        "indiscriminate",
+        "random",
+        "excessive"
+       ]
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "薬局",
@@ -70318,7 +71329,10 @@
    "listReading": "～づかい",
    "listMeaning": "use of ~",
    "jlptLevel": "N2",
-   "jmdict": []
+   "jmdict": [],
+   "evidence": {
+    "kind": "bound-kanji"
+   }
   },
   {
    "id": "付",
@@ -76271,6 +77285,9 @@
   "差し支え": [
    "さしつかえ"
   ],
+  "差す": [
+   "さす"
+  ],
   "巻き": [
    "まき"
   ],
@@ -77158,6 +78175,15 @@
   "新鮮": [
    "しんせん"
   ],
+  "方": [
+   "かた",
+   "ほう",
+   "さま",
+   "がた",
+   "へ",
+   "べ",
+   "え"
+  ],
   "方法": [
    "ほうほう"
   ],
@@ -77217,6 +78243,13 @@
   "日本": [
    "にほん",
    "にっぽん"
+  ],
+  "日本一": [
+   "にほんいち",
+   "にっぽんいち"
+  ],
+  "日本式": [
+   "にほんしき"
   ],
   "日本語": [
    "にほんご",
@@ -81182,6 +82215,7 @@
   "ご飯",
   "さ",
   "さあ",
+  "さかり",
   "さく",
   "さす",
   "さっき",
@@ -81292,6 +82326,7 @@
   "そんな",
   "そんなに",
   "た",
+  "たい",
   "たいしょう",
   "たく",
   "たしか",
@@ -81326,6 +82361,7 @@
   "ちょっと",
   "っち",
   "つ",
+  "つい",
   "ついたち",
   "つう",
   "つうか",
@@ -81519,6 +82555,7 @@
   "ものごと",
   "もので",
   "もらう",
+  "もり",
   "もんじ",
   "や",
   "やがて",
@@ -81540,6 +82577,7 @@
   "ようす",
   "よく",
   "より",
+  "より大きい",
   "よろしい",
   "ら",
   "り",
@@ -82840,6 +83878,7 @@
   "島",
   "嵐",
   "川",
+  "川上",
   "州",
   "巣",
   "工場",
@@ -89780,6 +90819,17 @@
     "flush out"
    ]
   },
+  "噸": {
+   "strokeCount": 16,
+   "on": [
+    "トン"
+   ],
+   "kun": [],
+   "meanings": [
+    "tonnage",
+    "(kokuji)"
+   ]
+  },
   "囁": {
    "strokeCount": 21,
    "on": [
@@ -92230,6 +93280,21 @@
     "shoes",
     "boots",
     "put on (the feet)"
+   ]
+  },
+  "屯": {
+   "strokeCount": 4,
+   "on": [
+    "トン"
+   ],
+   "kun": [
+    "たむろ"
+   ],
+   "meanings": [
+    "barracks",
+    "police station",
+    "camp",
+    "ton"
    ]
   },
   "山": {
@@ -98705,6 +99770,16 @@
     "down"
    ]
   },
+  "毯": {
+   "strokeCount": 12,
+   "on": [
+    "タン"
+   ],
+   "kun": [],
+   "meanings": [
+    "wool rug"
+   ]
+  },
   "氏": {
    "strokeCount": 4,
    "on": [
@@ -99425,6 +100500,24 @@
     "turn off",
     "neutralize",
     "cancel"
+   ]
+  },
+  "涌": {
+   "strokeCount": 10,
+   "on": [
+    "ユウ",
+    "ヨウ",
+    "ユ"
+   ],
+   "kun": [
+    "わ.く"
+   ],
+   "meanings": [
+    "boil",
+    "ferment",
+    "seethe",
+    "uproar",
+    "breed"
    ]
   },
   "涙": {
@@ -101197,6 +102290,18 @@
     "gram"
    ]
   },
+  "瓲": {
+   "strokeCount": 9,
+   "on": [],
+   "kun": [
+    "トン"
+   ],
+   "meanings": [
+    "tonne",
+    "thousand kilograms",
+    "(kokuji)"
+   ]
+  },
   "瓶": {
    "strokeCount": 11,
    "on": [
@@ -101801,6 +102906,22 @@
     "hide",
     "leather",
     "skin radical (no. 107)"
+   ]
+  },
+  "皺": {
+   "strokeCount": 15,
+   "on": [
+    "シュウ",
+    "スウ"
+   ],
+   "kun": [
+    "しわ",
+    "しぼ"
+   ],
+   "meanings": [
+    "wrinkles",
+    "creases",
+    "folds"
    ]
   },
   "皿": {
@@ -104019,6 +105140,16 @@
     "bestow on"
    ]
   },
+  "絨": {
+   "strokeCount": 12,
+   "on": [
+    "ジュウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "wool cloth"
+   ]
+  },
   "統": {
    "strokeCount": 12,
    "on": [
@@ -104406,6 +105537,19 @@
    "meanings": [
     "straw rope",
     "cord"
+   ]
+  },
+  "縒": {
+   "strokeCount": 16,
+   "on": [
+    "シ",
+    "サ"
+   ],
+   "kun": [
+    "よ.る"
+   ],
+   "meanings": [
+    "twist"
    ]
   },
   "縛": {
@@ -111853,6 +112997,24 @@
     "become silent",
     "stop speaking",
     "leave as is"
+   ]
+  },
+  "黴": {
+   "strokeCount": 23,
+   "on": [
+    "バイ",
+    "ビ",
+    "マイ",
+    "ミ"
+   ],
+   "kun": [
+    "かび",
+    "かび.る",
+    "か.びる"
+   ],
+   "meanings": [
+    "mold",
+    "mildew"
    ]
   },
   "鼓": {
