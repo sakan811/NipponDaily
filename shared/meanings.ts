@@ -599,6 +599,20 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
     reason:
       "The list bundles the verb 'する' into the term and reading; the adverb is しいんと (JMdict しーん/しいん, an adverb taking と).",
   },
+  "留まる とまる": {
+    meaning: "to stop, to come to a halt",
+    reason:
+      "The list gives 留まる read とどまる's 'to be fixed; to abide, to stay'; 留まる read とまる is 'to stop, to come to a halt' (JMdict 止まる/留まる/停まる とまる).",
+  },
+  "留まる とどまる": {
+    meaning: "to remain, to stay; to be limited to",
+    reason:
+      "The list adds 'to be fixed' (a sense of とまる); 留まる read とどまる is 'to remain, to abide, to stay; to be limited to' (JMdict 留まる とどまる).",
+  },
+  "こんばんは こんばんは": {
+    romaji: "konbanwa",
+    reason: "The は in こんばんは is the topic particle, pronounced わ.",
+  },
   "目下 めした": {
     kana: "もっか",
     romaji: "mokka",

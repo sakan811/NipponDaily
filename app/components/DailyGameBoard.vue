@@ -516,8 +516,9 @@ function selectLevel(newLevel: DailyGameLevel): void {
 }
 
 /** The lesson set for whichever level today's game was actually drawn from
- *  (not the level selector, in case they ever diverge). Only N5/N4 have a
- *  lesson path — N3/N2/ALL rounds simply get no lesson links. */
+ *  (not the level selector, in case they ever diverge). Only levels with a
+ *  lesson path — every real level has one; ALL rounds simply get no
+ *  lesson links. */
 const gameLessonSet = computed(() => {
   const gameLevel = dailyGame.value?.level;
   return isJlptLevel(gameLevel) ? LESSON_SETS[gameLevel] : undefined;
