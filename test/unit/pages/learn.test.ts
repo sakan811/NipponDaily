@@ -5,6 +5,7 @@ import LearnPage from "~/app/pages/learn/index.vue";
 import LessonPage from "~/app/pages/learn/[lesson].vue";
 import { LESSONS, LESSON_STAGES } from "~/app/data/lessons";
 import { N4_LESSONS } from "~/app/data/lessons-n4";
+import { N3_LESSONS } from "~/app/data/lessons-n3";
 
 const mockRoute = (lesson: string, level?: string) => {
   (useRoute as any).mockReturnValue({
@@ -48,6 +49,18 @@ describe("Lesson path page (/learn)", () => {
     expect((wrapper.vm as any).level).toBe("N4");
     expect(wrapper.text()).toContain("The N4 Lesson Path");
     expect(wrapper.find('a[href="/learn/1?level=N4"]').exists()).toBe(true);
+  });
+
+  it("switches to the N3 lesson path", async () => {
+    const wrapper = mount(LearnPage);
+    await wrapper
+      .find('[data-testid="learn-level-option-N3"]')
+      .trigger("click");
+    await flushPromises();
+
+    expect((wrapper.vm as any).level).toBe("N3");
+    expect(wrapper.text()).toContain("The N3 Lesson Path");
+    expect(wrapper.find('a[href="/learn/1?level=N3"]').exists()).toBe(true);
   });
 
   it("never stores anything about the learner", async () => {
@@ -180,5 +193,17 @@ describe("Lesson page (/learn/[lesson])", () => {
 
     expect(wrapper.text()).toContain(lesson.title);
     expect(wrapper.find('a[href*="level=N4"]').exists()).toBe(true);
+  });
+
+  it("renders the N3 lesson path when ?level=N3", async () => {
+    const lesson = N3_LESSONS[0]!;
+    mockRoute(String(lesson.number), "N3");
+    (global.$fetch as any).mockResolvedValue({ success: true, data: [] });
+
+    const wrapper = mount(LessonPage);
+    await flushPromises();
+
+    expect(wrapper.text()).toContain(lesson.title);
+    expect(wrapper.find('a[href*="level=N3"]').exists()).toBe(true);
   });
 });

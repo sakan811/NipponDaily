@@ -74,7 +74,7 @@ describe("Vocab Page", () => {
     );
   });
 
-  it("switches the vocab pool's level and hides the lesson CTA for N3", async () => {
+  it("switches the vocab pool's level and hides the lesson CTA for N2", async () => {
     (global.$fetch as any).mockResolvedValue({
       success: true,
       data: [],
@@ -85,12 +85,12 @@ describe("Vocab Page", () => {
     await flushPromises();
 
     await wrapper
-      .find('[data-testid="vocab-level-option-N3"]')
+      .find('[data-testid="vocab-level-option-N2"]')
       .trigger("click");
     await flushPromises();
 
-    expect((wrapper.vm as any).level).toBe("N3");
-    expect(wrapper.text()).toContain("N3 Vocabulary");
+    expect((wrapper.vm as any).level).toBe("N2");
+    expect(wrapper.text()).toContain("N2 Vocabulary");
     expect(wrapper.find('[data-testid="vocab-learn-cta"]').exists()).toBe(
       false,
     );

@@ -2,9 +2,9 @@
  * Registry mapping each JLPT level that has a hand-authored lesson path to
  * its lesson data, so /vocab and /learn's level-aware pages don't need to
  * hardcode which module a given level's LESSONS/LESSON_STAGES/WORD_CLUSTERS
- * come from. Only levels with real editorial content appear here — N3/N2
- * are seeded pools with no lesson path yet (see CLAUDE.md's "Beyond N5"),
- * so they're simply absent rather than pointing at empty data.
+ * come from. Only levels with real editorial content appear here — N2
+ * is a seeded pool with no lesson path yet (see CLAUDE.md's "Beyond N5"),
+ * so it's simply absent rather than pointing at empty data.
  */
 import type { JlptLevel } from "~~/types/index";
 import {
@@ -13,6 +13,7 @@ import {
   type WordCluster,
 } from "./vocab-guide";
 import { N4_WORD_CLUSTERS } from "./vocab-guide-n4";
+import { N3_WORD_CLUSTERS } from "./vocab-guide-n3";
 import {
   FIRST_LESSON_BY_KANJI,
   LESSON_NUMBER_BY_WORD,
@@ -29,6 +30,13 @@ import {
   N4_LESSONS,
   getN4Lesson,
 } from "./lessons-n4";
+import {
+  N3_FIRST_LESSON_BY_KANJI,
+  N3_LESSON_NUMBER_BY_WORD,
+  N3_LESSON_STAGES,
+  N3_LESSONS,
+  getN3Lesson,
+} from "./lessons-n3";
 
 export interface LessonSet {
   level: JlptLevel;
@@ -59,10 +67,19 @@ export const LESSON_SETS: Partial<Record<JlptLevel, LessonSet>> = {
     getLesson: getN4Lesson,
     wordClusters: N4_WORD_CLUSTERS,
   },
+  N3: {
+    level: "N3",
+    lessons: N3_LESSONS,
+    stages: N3_LESSON_STAGES,
+    lessonNumberByWord: N3_LESSON_NUMBER_BY_WORD,
+    firstLessonByKanji: N3_FIRST_LESSON_BY_KANJI,
+    getLesson: getN3Lesson,
+    wordClusters: N3_WORD_CLUSTERS,
+  },
 };
 
 /** Levels with a hand-authored lesson path — what /learn's level selector
- *  offers. N3/N2 are deliberately absent (seeded pools only, no lessons). */
-export const LEVELS_WITH_LESSONS: JlptLevel[] = ["N5", "N4"];
+ *  offers. N2 is deliberately absent (seeded pool only, no lessons). */
+export const LEVELS_WITH_LESSONS: JlptLevel[] = ["N5", "N4", "N3"];
 
 export { WORD_TYPE_GROUPS };
