@@ -54,20 +54,17 @@
         class="p-4 mb-8 season-box bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800"
       >
         <p class="m-0 text-blue-900 dark:text-blue-100 text-sm">
-          <strong>N5, N4 and N3, for now:</strong> everything below — the
+          <strong>Every level has a lesson path:</strong> everything below — the
           ground-truth reference, the CI content checks, and the hand-written
-          lesson content — covers <strong>N5</strong>, <strong>N4</strong> and
-          <strong>N3</strong>, the three levels with a hand-authored lesson path
-          today (<code>test/content/</code> for N5,
-          <code>test/content/n4/</code> for N4, <code>test/content/n3/</code>
-          for N3 — same checks, same idea, each against its own committed
-          reference snapshot). N2 is a seeded, dictionary-verified pool the game
-          and its level selector can already serve, but its own evidence
-          snapshot (<code>data/reference/n2-reference.json</code>, built by
-          <code>pnpm data:reference:jlpt</code>) gates the words themselves
-          (<code>test/content/n2/</code>: every word resolves, no reversed
-          meaning, corrections backed by JMdict) — there's no hand-written
-          lesson content for it yet to check.
+          lesson content — covers <strong>N5</strong>, <strong>N4</strong>,
+          <strong>N3</strong> and <strong>N2</strong> (<code
+            >test/content/</code
+          >
+          for N5, <code>test/content/n4/</code>,
+          <code>test/content/n3/</code> and <code>test/content/n2/</code> for
+          the rest — same checks, same idea, each against its own committed
+          reference snapshot, built by <code>pnpm data:reference</code> and
+          <code>pnpm data:reference:jlpt</code>).
           <code>pnpm data:draft:clusters &lt;level&gt;</code>
           (<code>scripts/draft-lesson-clusters.mjs</code>) turns one of those
           evidence snapshots into a small, batched authoring pack — a read-first
