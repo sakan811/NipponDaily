@@ -125,7 +125,22 @@ export function openDictionary(dbPath) {
      *  a する suffix; those markers are stripped before looking up (see
      *  normalizeListForm). */
     lookupWord(rawTerm, rawKana) {
+      // A する-final word can be a JMdict headword in its own right (達する,
+      // 適する, 罰する are suru-verb entries, not 達/適/罰 + する) — try the
+      // form exactly as listed before stripping する down to the bare noun.
+      const listed = {
+        term: rawTerm.replace(/[～〜~]/g, "").trim(),
+        kana: rawKana.replace(/[～〜~]/g, "").trim(),
+      };
+      if (listed.term.endsWith("する") && listed.kana.endsWith("する")) {
+        const exact = this.lookupNormalized(listed.term, listed.kana);
+        if (exact.length > 0) return exact;
+      }
       const { term, kana } = normalizeListForm(rawTerm, rawKana);
+      return this.lookupNormalized(term, kana);
+    },
+    /** lookupWord's core, on an already-normalized term/kana pair. */
+    lookupNormalized(term, kana) {
       const byKana = new Set(col(q.idsByKana.all(kana), "idseq"));
       const ids = KANJI_RE.test(term)
         ? col(q.idsByKanji.all(term), "idseq").filter((id) => byKana.has(id))
@@ -139,7 +154,10 @@ export function openDictionary(dbPath) {
       if (chosen.length === 0 && term.endsWith("と") && term.length > 2) {
         // Adverbs listed with their optional と (ゆっくりと): JMdict files
         // them under the bare form, tagged as taking と.
-        const bare = this.lookupWord(term.slice(0, -1), kana.slice(0, -1));
+        const bare = this.lookupNormalized(
+          term.slice(0, -1),
+          kana.slice(0, -1),
+        );
         return bare.filter((e) =>
           e.senses.some((s) => s.pos.some((p) => /'to' particle/.test(p))),
         );
