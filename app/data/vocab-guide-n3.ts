@@ -739,7 +739,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     title: "One Sound, Many Kanji — せい",
     subtitle: "同じ読み方「せい」",
     insight:
-      "せい is one of Japanese's busiest sounds: 正 means 'correct, right,' 生 means 'birth, life,' 性 means 'sex, gender, nature,' and 姓 means 'surname.' 所為, unusually, is also read せい and means 'cause, fault' — most often seen in the everyday phrase 〜のせい (kanji rarely written), meaning 'because of 〜' or 'it's 〜's fault.'",
+      "せい is one of Japanese's busiest sounds: 正 means 'correct, right,' 生 means 'life, living,' 性 means 'sex, gender, nature,' and 姓 means 'surname.' 所為, unusually, is also read せい and means 'cause, fault' — most often seen in the everyday phrase 〜のせい (kanji rarely written), meaning 'because of 〜' or 'it's 〜's fault.'",
     extendedInsight:
       "税 (ぜい, 'tax') and 税金 (ぜいきん, 'tax money') aren't quite the same word — 税 names the tax itself as a category (消費税, 'consumption tax'), while 税金 is the actual money paid, the way 金 turns an abstract category into cash in hand.",
     examples: [
@@ -1345,7 +1345,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     title: "One Word, Many Readings — Homophones & Reading Variants",
     subtitle: "同じ言葉、違う読み方",
     insight:
-      "N3 is full of words that share a kanji or a sound with a completely different meaning attached. 行き reads いき in casual Kanto speech but ゆき in more traditionally 'correct' usage (東京行き, 'bound for Tokyo') — same word, same meaning, just two accepted readings. 得る is usually える in plain speech, but appears as うる in set compounds like ありうる ('possible, could happen'). 上 read うわ (rather than うえ or じょう) becomes a prefix meaning 'upper, outer, surface,' as in 上着 ('jacket,' literally the 'upper' garment).",
+      "N3 is full of words that share a kanji or a sound with a completely different meaning attached. 行き can be read either いき or ゆき (東京行き, 'bound for Tokyo') — same word, same meaning, two accepted readings. 得る is usually える in plain speech, but appears as うる in set compounds like ありうる ('possible, could happen'). 上 read うわ (rather than うえ or じょう) becomes a prefix meaning 'upper, outer, surface,' as in 上着 ('jacket,' literally the 'upper' garment).",
     extendedInsight:
       "収める, 納める, and 治める are all read おさめる but are three different verbs: 収める means to store away or achieve a result (成功を収める, 'to achieve success'), 納める means to pay or submit something owed (税金を納める, 'to pay taxes'), and 治める means to govern or bring order to something (国を治める, 'to govern a country'). Likewise 討つ and 撃つ are both うつ but not interchangeable — 討つ is to strike down an enemy, while 撃つ is to shoot with a weapon.",
     examples: [
@@ -1865,7 +1865,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     insight:
       "N3 keeps turning up words that sound identical but share nothing else — 音 ('sound') and 恩 ('a favor, a debt of gratitude') are both read おん, 堅い and 硬い are both かたい ('hard,' with different nuances), and 感覚 ('sense, sensation') and 間隔 ('an interval, a gap') are both かんかく. 感心 ('admiration') and 関心 ('interest, concern') round out the same trap, both read かんしん.",
     extendedInsight:
-      "過程, 課程, and 仮定 are all かてい but name different things — 過程 is the 'process' something goes through, 課程 is a 'course/curriculum' of study, and 仮定 is a 'hypothesis, an assumption.' 上 read かみ (as in 上等, 'top-grade') and 神 ('god') share only their sound too, the same pattern as 音/恩 above.",
+      "過程, 課程, and 仮定 are all かてい but name different things — 過程 is the 'process' something goes through, 課程 is a 'course/curriculum' of study, and 仮定 is a 'hypothesis, an assumption.' 上 read かみ (as in 川上, 'upstream, the upper reaches of a river') and 神 ('god') share only their sound too, the same pattern as 音/恩 above.",
     examples: [
       {
         jp: "彼は意志が堅い人です。",
@@ -2422,7 +2422,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     title: "Verbs of Change — Shape, Drying & Hiding",
     subtitle: "変化を表す動詞",
     insight:
-      "Several verb pairs here split the same event into 'it happens' and 'someone makes it happen' — 重なる ('things pile up on their own') versus 重ねる ('to pile things up' deliberately), and 隠れる ('to become hidden') versus 隠す ('to hide something'). 反る ('to warp') and 囲む ('to surround') describe shape changing or forming a boundary, while 輝く ('to shine') describes light.",
+      "Several verb pairs here split the same event into 'it happens' and 'someone makes it happen' — 重なる ('things pile up on their own') versus 重ねる ('to pile things up' deliberately), and 隠れる ('to become hidden') versus 隠す ('to hide something'). 反る ('to turn over; to return') and 囲む ('to surround') describe a turning motion or forming a boundary, while 輝く ('to shine') describes light.",
     extendedInsight:
       "乾かす ('to dry something') shares a root with 渇く ('to be thirsty') — both read with the same core かわ sound, since thirst is, at heart, your body running dry; 乾燥 ('dryness, aridity') is the more formal, abstract noun version of the same idea.",
     examples: [
@@ -2441,7 +2441,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
       "隠す (transitive, 'to hide something,' takes を) and 隠れる (intransitive, 'to become hidden,' takes が) are easy to swap — 子供が隠れました describes the child's own action of hiding, while 子供を隠しました describes hiding someone else.",
     rows: [
       {
-        label: "warping & piling up",
+        label: "turning over & piling up",
         terms: ["反る", "重なる", "重ねる"],
       },
       {
@@ -3370,9 +3370,9 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     title: "Nature, Crops & the Kitchen",
     subtitle: "自然と食材",
     insight:
-      "氷 (ice) and 凍る (to freeze) describe cold turning water solid, the opposite of 燃える (to burn). 砂漠 (desert) and 桜 (cherry blossom) are two very different faces of nature, while 小麦 (wheat), 穀物 (grain/cereal), 豆 (beans), 胡椒 (pepper), and 酒 (alcohol/sake) are things grown or made from that nature and eaten or drunk. 粉 (flour/powder), 蒸す (to steam), and 剥く (to peel) describe preparing them in the kitchen, and 盛り (a helping/serving, or the peak of something in season) ties food and season together.",
+      "氷 (ice) and 凍る (to freeze) describe cold turning water solid, the opposite of 燃える (to burn). 砂漠 (desert) and 桜 (cherry blossom) are two very different faces of nature, while 小麦 (wheat), 穀物 (grain/cereal), 豆 (beans), 胡椒 (pepper), and 酒 (alcohol/sake) are things grown or made from that nature and eaten or drunk. 粉 (flour/powder), 蒸す (to steam), and 剥く (to peel) describe preparing them in the kitchen, and 盛り (さかり, the peak of something in season) ties food and season together.",
     extendedInsight:
-      "盛り's core meaning is 'a peak' — a full serving on a plate and the height of cherry-blossom season (桜が盛りです, 'the cherry blossoms are at their peak') are the same word applied to two very different kinds of fullness.",
+      "盛り read さかり means 'the peak of something' — the height of cherry-blossom season (桜が盛りです, 'the cherry blossoms are at their peak') or the prime of a person's life. Read もり, the same character is a different word, a helping of food, so the reading decides which meaning you get.",
     examples: [
       {
         jp: "氷が溶ける前に飲んでください。",
@@ -3800,9 +3800,9 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     title: "Homophone Kanji Families — One Reading, Several Kanji",
     subtitle: "同音異字",
     insight:
-      "N3 vocabulary is full of short, single-kanji words that share exactly the same reading but come from different kanji with unrelated meanings — a trap for anyone reading by ear alone. もと covers three separate ideas: 元 ('origin, formerly'), 基 ('a basis, foundation'), and 素 ('a raw, prime element'), and all three combine in 基づく ('to be based on') once a verb ending is attached.",
+      "N3 vocabulary is full of short, single-kanji words that share exactly the same reading but come from different kanji with unrelated meanings — a trap for anyone reading by ear alone. もと covers three separate ideas: 元 ('origin, formerly'), 基 ('a basis, foundation'), and 素 ('a source, a base'), and all three combine in 基づく ('to be based on') once a verb ending is attached.",
     extendedInsight:
-      "The same pattern repeats with かく (欠く 'to lack', 角 'an angle', 核 'a nucleus, core', 格 'status, a grammatical case'), い (異 'a difference, objection', 意 'will, intention', 医院 'a clinic', 粋 'refined style', 一帯 'a whole area', 衣料 'clothing'), and やく (役 'a role', 約 'approximately', 訳 'a translation', with 訳す 'to translate' and 役割 'an assigned role or duty' built from the first two). Reading Japanese fluently means learning to tell these apart by kanji shape, not by sound.",
+      "The same pattern repeats with かく (欠く 'to lack', 角 'an angle', 核 'a nucleus, core', 格 'status, a grammatical case'), い (異 'a difference (of opinion)', 意 'feelings, thoughts', 医院 'a clinic', 粋 'refined style', 一帯 'a whole area', 衣料 'clothing'), and やく (役 'a role', 約 'approximately', 訳 'a translation', with 訳す 'to translate' and 役割 'an assigned role or duty' built from the first two). Reading Japanese fluently means learning to tell these apart by kanji shape, not by sound.",
     examples: [
       {
         jp: "この計画は事実に基づいている。",
@@ -4021,7 +4021,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     insight:
       "N3 rounds out everyday verb vocabulary with words for splitting things apart — 分ける ('to divide'), 分かれる ('to branch off'), 割る ('to break, to divide') — and for moving through space — 駆ける ('to run'), 横切る ('to cross'), 埋まる ('to be buried, to be filled in'). A second group covers taking on risk or responsibility, 負う ('to bear, to owe') and 賭ける ('to bet, to gamble'), alongside more physical acts like 寄せる ('to gather together'), 織る ('to weave'), and 産む ('to give birth to').",
     extendedInsight:
-      "傷める and 炒める are a classic homophone trap: both are read いためる, but 傷める means 'to damage, to hurt', as in 腰を傷める ('to hurt one's back'), while 炒める means 'to stir-fry', as in 野菜を炒める ('to stir-fry vegetables') — completely different kanji and meanings hiding behind an identical sound. 湧く ('to well up, to boil up') and 茹でる ('to boil something in water') both involve boiling, but only 茹でる is transitive and used for cooking.",
+      "傷める and 炒める are a classic homophone trap: both are read いためる, but 傷める means 'to damage, to hurt', as in 腰を傷める ('to hurt one's back'), while 炒める means 'to stir-fry', as in 野菜を炒める ('to stir-fry vegetables') — completely different kanji and meanings hiding behind an identical sound. 湧く ('to well up, to gush forth') and 茹でる ('to boil something in water') both involve water, but only 茹でる is transitive and used for cooking.",
     examples: [
       {
         jp: "野菜を油で炒めた。",
@@ -4307,7 +4307,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     title: "Everyday Life: Adverbs, Household Words & Standalone Kanji",
     subtitle: "副詞・日常",
     insight:
-      "A handful of adverbs shade a sentence's degree or intent: やや ('slightly') and 僅か ('merely, a little') both soften an amount, while わざと ('on purpose') and 因る ('to be due to, to be caused by') describe intent and cause. 尤も works two ways — as 'quite right, reasonable' on its own, and as a formal connective meaning 'however' at the start of a sentence, qualifying what was just said.",
+      "A handful of adverbs shade a sentence's degree or intent: やや ('slightly') and 僅か ('merely, a little') both soften an amount, while わざと ('on purpose') and 因る ('to be due to, to be caused by') describe intent and cause. より ('than; from') is a particle rather than an adverb, but it sits with the degree words because it marks the comparison in 'A is bigger than B' (AはBより大きい). 尤も works two ways — as 'quite right, reasonable' on its own, and as a formal connective meaning 'however' at the start of a sentence, qualifying what was just said.",
     extendedInsight:
       "Several single kanji stand alone as full words carrying an abstract concept many learners already know from compounds: 楽 ('comfort, ease', the base of 音楽 'music' and the adjective for 'fun'), 悪 ('evil, vice', the base of 悪口 'an insult'), and 観 ('a view, an outlook', seen as the suffix ～観 in words like 人生観 'one's outlook on life'). 管 ('a pipe, a tube') and 癌 ('cancer') are more concrete, everyday technical and medical nouns that also stand alone this way.",
     examples: [
@@ -4327,21 +4327,11 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     rows: [
       {
         label: "degree, manner & cause",
-        terms: ["尤も", "やや", "わざと", "僅か", "因る"],
+        terms: ["尤も", "やや", "より", "わざと", "僅か", "因る"],
       },
       {
         label: "household & body",
-        terms: [
-          "片付け",
-          "加味",
-          "綿-2",
-          "模様",
-          "脇",
-          "酔う",
-          "汚す",
-          "嫁",
-          "より",
-        ],
+        terms: ["片付け", "加味", "綿-2", "模様", "脇", "酔う", "汚す", "嫁"],
       },
       {
         label: "standalone kanji nouns",
@@ -4890,7 +4880,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     title: "Groups, Scale & Individuality",
     subtitle: "集団・個",
     insight:
-      "This group covers describing things in bulk versus one at a time. A 群 ('a group, a crowd') of people or animals moving together might make 騒音 ('noise'), while a single 選手 ('an athlete, a player') stands out during 体育 ('physical education, athletics'). 対 ('a pair, a set') describes exactly two things together, and 種 ('a seed; a kind, a cause') can describe either a literal seed or a category of thing. Scale and boundary words round this out: 底 ('the bottom'), 平ら ('flat, level'), 大 ('big, great'), 度 ('a counter for occurrences, a degree'), and 切り ('a limit, a stopping point'), as in a task with no 切り (きりがない, 'no end in sight').",
+      "This group covers describing things in bulk versus one at a time. A 群 ('a group, a crowd') of people or animals moving together might make 騒音 ('noise'), while a single 選手 ('an athlete, a player') stands out during 体育 ('physical education, athletics'). 対 (つい, 'a pair, a set') describes exactly two things together, and 種 ('a seed; a kind, a cause') can describe either a literal seed or a category of thing. Scale and boundary words round this out: 底 ('the bottom'), 平ら ('flat, level'), 大 ('big, great'), 度 ('a counter for occurrences, a degree'), and 切り ('a limit, a stopping point'), as in a task with no 切り (きりがない, 'no end in sight').",
     extendedInsight:
       "それぞれ, 互い, and 個々 all push back against treating a group as one lump: それぞれ means 'each one, respectively' (人それぞれ, 'each person is different'), 互い means 'each other, mutually' (お互いに, 'to one another'), and 個々 means 'individually, one by one' — together they're the vocabulary for insisting on individual difference within 他 ('other people or things') or a 他人 ('an unrelated stranger').",
     examples: [
@@ -4914,7 +4904,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
       },
       {
         label: "people & sports",
-        terms: ["体育", "選手", "対"],
+        terms: ["体育", "選手", "対-2"],
       },
       {
         label: "individuality",
@@ -5336,7 +5326,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     insight:
       "溶く ('to dissolve something,' transitive, used for mixing paint or ingredients) pairs with 溶ける ('to melt, to dissolve,' intransitive — ice or sugar 溶ける on its own). 解く ('to untie; to solve,' transitive — a knot, a problem, or a misunderstanding) pairs the same way with 解ける ('to come untied, to be solved,' intransitive). Despite the identical とける sound, 溶ける and 解ける are unrelated words that just happen to share a reading.",
     extendedInsight:
-      "解く's range is wider than 'untie' alone: 問題を解く ('to solve a problem') and a misunderstanding both use the same verb, treating a puzzle or a bad feeling as something 'knotted' that needs to be loosened. 退く ('to retreat, to step back') is a different family entirely, sharing only its sound with 毒 ('poison') from elsewhere in this batch.",
+      "解く's range is wider than 'untie' alone: 問題を解く ('to solve a problem') and a misunderstanding both use the same verb, treating a puzzle or a bad feeling as something 'knotted' that needs to be loosened. 退く (どく, 'to step aside, to make way') is a different family entirely, sharing only its sound with 毒 ('poison') from elsewhere in this batch.",
     examples: [
       {
         jp: "問題が全部解けました。",
@@ -6874,7 +6864,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     title: "Grammar Terms, Fillers & Everyday Words",
     subtitle: "文法用語・会話の言葉",
     insight:
-      'A grab-bag of small, high-frequency words that don\'t belong to one topic — まあ ("well...") softens a statement the way English "well" does, 全く ("completely, really") adds emphasis, and 前もって ("in advance, beforehand") sets up a plan ahead of time. A few of Japanese grammar\'s own basic terms round out the group: 修飾 ("modification," how one word describes another), 節 ("a clause," a grammatical unit smaller than a sentence), and 例え, which besides meaning "an example" also works as "even if" in the pattern たとえ～ても.',
+      'A grab-bag of small, high-frequency words that don\'t belong to one topic — まあ ("well...") softens a statement the way English "well" does, 全く ("completely, really") adds emphasis, and 前もって ("in advance, beforehand") sets up a plan ahead of time. A few of Japanese grammar\'s own basic terms round out the group: 修飾 ("modification," how one word describes another), 節 ("a clause," a grammatical unit smaller than a sentence), and 例え ("an example, a simile"), which is easy to confuse with the "even if" of the pattern たとえ～ても — that adverb is normally written in kana, not as 例え.',
     extendedInsight:
       '末-2 almost always attaches onto another word rather than standing alone, the way 月末 means "the end of the month" and 年末 means "the end of the year," while this pool\'s 音 is read ね rather than the more common おと — a reading reserved for a musical note or a pleasing tone, distinct from おと\'s more neutral "noise, sound."',
     examples: [
@@ -7121,7 +7111,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
     title: "Adjectives & Competition Outcomes",
     subtitle: "様子・勝敗",
     insight:
-      'A mix of descriptive adjectives — 貧しい ("poor, needy"), 真っ赤 ("deep red, flushed"), まぶしい ("dazzling, too bright to look at directly") — alongside the vocabulary of a contest\'s result: 挑戦 ("a challenge, to take something on"), 負け ("a defeat, a loss," the noun form of losing), and the counter 敗 ("~ losses," as in 三勝二敗 "three wins, two losses").',
+      'A mix of descriptive adjectives — 貧しい ("poor, needy"), 真っ赤 ("deep red, flushed"), まぶしい ("dazzling, too bright to look at directly") — alongside the vocabulary of a contest\'s result: 挑戦 ("a challenge, to take something on"), 負け ("a defeat, a loss," the noun form of losing), the counter 敗 ("~ losses," as in 三勝二敗 "three wins, two losses"), and 対 (たい, "versus; to," as in 三対二 "three to two").',
     extendedInsight:
       '良い is the formal, written reading of the everyday adjective いい ("good") — both are the same word, but 良い appears more often in writing and set phrases (仲が良い, "to get along well"), while いい dominates casual speech.',
     examples: [
@@ -7145,7 +7135,7 @@ export const N3_WORD_CLUSTERS: WordCluster[] = [
       },
       {
         label: "competing, winning & losing",
-        terms: ["挑戦", "負け", "敗", "対-2", "間違い"],
+        terms: ["挑戦", "負け", "敗", "対", "間違い"],
       },
     ],
   },

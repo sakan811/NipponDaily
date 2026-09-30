@@ -21,7 +21,7 @@
    "vocab": 718,
    "readings": 1212,
    "words": 29,
-   "kanji": 1459
+   "kanji": 1469
   }
  },
  "vocab": [
@@ -35,6 +35,74 @@
    "listReading": "ああ",
    "listMeaning": "Ah!, Oh!",
    "jmdict": [
+    {
+     "idseq": 1565440,
+     "kanji": [
+      "嗚呼",
+      "噫",
+      "嗟"
+     ],
+     "readings": [
+      "ああ",
+      "あー",
+      "あぁ",
+      "アー",
+      "アア",
+      "アァ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "ah!",
+        "oh!",
+        "alas!"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "yes",
+        "indeed",
+        "that is correct"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "aah",
+        "gah",
+        "argh"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "hey!",
+        "yo!"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "uh huh",
+        "yeah yeah",
+        "right",
+        "gotcha"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2085080,
      "kanji": [],
@@ -2237,6 +2305,28 @@
    "listMeaning": "that over there; like that, that way; um...",
    "jmdict": [
     {
+     "idseq": 1000420,
+     "kanji": [
+      "彼の"
+     ],
+     "readings": [
+      "あの",
+      "あん"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "pre-noun adjectival (rentaishi)"
+       ],
+       "glosses": [
+        "that",
+        "those",
+        "the"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 1000430,
      "kanji": [],
      "readings": [
@@ -2912,6 +3002,70 @@
    "listMeaning": "that one (over there)",
    "jmdict": [
     {
+     "idseq": 1000580,
+     "kanji": [
+      "彼",
+      "彼れ"
+     ],
+     "readings": [
+      "あれ",
+      "あ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "that",
+        "that thing"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "that person"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "then",
+        "that time"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "that place (over there)"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "down there (i.e. one's genitals)"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "period",
+        "menses"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 2847612,
      "kanji": [],
      "readings": [
@@ -2957,6 +3111,27 @@
    "listReading": "いい",
    "listMeaning": "good",
    "jmdict": [
+    {
+     "idseq": 2672300,
+     "kanji": [
+      "謂"
+     ],
+     "readings": [
+      "いい"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "what was said",
+        "what it means",
+        "origin of a story (or tradition, etc.)"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2820690,
      "kanji": [],
@@ -5959,6 +6134,26 @@
        ],
        "glosses": [
         "oh! (expression of slight surprise)"
+       ]
+      }
+     ]
+    },
+    {
+     "idseq": 2826528,
+     "kanji": [
+      "御"
+     ],
+     "readings": [
+      "お",
+      "おん"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "prefix"
+       ],
+       "glosses": [
+        "honorific/polite/humble prefix"
        ]
       }
      ]
@@ -15156,6 +15351,36 @@
    "listMeaning": "a tumbler; a glass",
    "jmdict": [
     {
+     "idseq": 1050390,
+     "kanji": [
+      "洋杯",
+      "洋盃",
+      "骨杯"
+     ],
+     "readings": [
+      "コップ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "glass (drinking vessel)",
+        "tumbler"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "cups (playing card suit)"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 2846389,
      "kanji": [],
      "readings": [
@@ -15541,6 +15766,75 @@
    "listMeaning": "this one",
    "jmdict": [
     {
+     "idseq": 1628530,
+     "kanji": [
+      "此れ",
+      "是",
+      "是れ",
+      "之",
+      "之れ",
+      "維",
+      "惟",
+      "此"
+     ],
+     "readings": [
+      "これ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "this",
+        "this one"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "this person"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "now",
+        "this point (in time)"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "here"
+       ]
+      },
+      {
+       "pos": [
+        "adverb (fukushi)"
+       ],
+       "glosses": [
+        "used to stress the subject of a sentence"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "I",
+        "me"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 2216120,
      "kanji": [],
      "readings": [
@@ -15573,6 +15867,53 @@
    "listReading": "～ころ",
    "listMeaning": "about, toward, approximately (time)",
    "jmdict": [
+    {
+     "idseq": 1579080,
+     "kanji": [
+      "頃",
+      "比"
+     ],
+     "readings": [
+      "ころ",
+      "ごろ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)",
+        "adverb (fukushi)",
+        "noun, used as a suffix"
+       ],
+       "glosses": [
+        "(approximate) time",
+        "around",
+        "about",
+        "toward"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)",
+        "adverb (fukushi)",
+        "noun, used as a suffix"
+       ],
+       "glosses": [
+        "suitable time (or condition)"
+       ]
+      },
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)",
+        "adverb (fukushi)",
+        "noun, used as a suffix"
+       ],
+       "glosses": [
+        "time of year",
+        "season"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2246810,
      "kanji": [],
@@ -19920,6 +20261,43 @@
        ]
       }
      ]
+    },
+    {
+     "idseq": 2137720,
+     "kanji": [
+      "然う"
+     ],
+     "readings": [
+      "そう"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "adverb (fukushi)"
+       ],
+       "glosses": [
+        "in that way",
+        "thus",
+        "such"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "so"
+       ]
+      },
+      {
+       "pos": [
+        "interjection (kandoushi)"
+       ],
+       "glosses": [
+        "so?"
+       ]
+      }
+     ]
     }
    ]
   },
@@ -20527,6 +20905,53 @@
    "listReading": "それ",
    "listMeaning": "that one",
    "jmdict": [
+    {
+     "idseq": 1006970,
+     "kanji": [
+      "其れ",
+      "其"
+     ],
+     "readings": [
+      "それ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "that",
+        "it"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "then",
+        "that point (in time)",
+        "that time"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "there"
+       ]
+      },
+      {
+       "pos": [
+        "pronoun"
+       ],
+       "glosses": [
+        "you"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2216210,
      "kanji": [],
@@ -23217,7 +23642,7 @@
    "seedKey": "一日 ついたち",
    "term": "一日",
    "kana": "ついたち",
-   "meaning": "one day; first day of the month",
+   "meaning": "first day of the month",
    "listTerm": "一日",
    "listReading": "ついたち",
    "listMeaning": "one day; first day of the month",
@@ -25595,6 +26020,27 @@
    "listMeaning": "how, in what way",
    "jmdict": [
     {
+     "idseq": 1008910,
+     "kanji": [
+      "如何"
+     ],
+     "readings": [
+      "どう"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "adverb (fukushi)"
+       ],
+       "glosses": [
+        "how",
+        "in what way",
+        "how about"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 2252690,
      "kanji": [],
      "readings": [
@@ -27453,6 +27899,71 @@
    "listMeaning": "there isn't, doesn't have",
    "jmdict": [
     {
+     "idseq": 1529520,
+     "kanji": [
+      "無い"
+     ],
+     "readings": [
+      "ない"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "adjective (keiyoushi)"
+       ],
+       "glosses": [
+        "nonexistent",
+        "not being (there)"
+       ]
+      },
+      {
+       "pos": [
+        "adjective (keiyoushi)"
+       ],
+       "glosses": [
+        "unowned",
+        "not had",
+        "unpossessed"
+       ]
+      },
+      {
+       "pos": [
+        "adjective (keiyoushi)"
+       ],
+       "glosses": [
+        "unique"
+       ]
+      },
+      {
+       "pos": [
+        "adjective (keiyoushi)"
+       ],
+       "glosses": [
+        "not",
+        "impossible",
+        "won't happen"
+       ]
+      },
+      {
+       "pos": [
+        "auxiliary adjective"
+       ],
+       "glosses": [
+        "not"
+       ]
+      },
+      {
+       "pos": [
+        "auxiliary adjective"
+       ],
+       "glosses": [
+        "to not be",
+        "to have not"
+       ]
+      }
+     ]
+    },
+    {
      "idseq": 2257550,
      "kanji": [],
      "readings": [
@@ -28251,6 +28762,118 @@
    "listReading": "なる",
    "listMeaning": "to become",
    "jmdict": [
+    {
+     "idseq": 1375610,
+     "kanji": [
+      "成る",
+      "為る"
+     ],
+     "readings": [
+      "なる"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "Godan verb with 'ru' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to become",
+        "to get",
+        "to grow",
+        "to be",
+        "to reach",
+        "to attain"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'ru' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to result in",
+        "to prove to be"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'ru' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to consist of",
+        "to be composed of"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'ru' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to succeed",
+        "to be complete"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'ru' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to change into",
+        "to be exchanged for"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'ru' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to play a role"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'ru' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to be promoted"
+       ]
+      },
+      {
+       "pos": [
+        "Godan verb with 'ru' ending"
+       ],
+       "glosses": [
+        "to do ..."
+       ]
+      }
+     ]
+    },
+    {
+     "idseq": 1611000,
+     "kanji": [
+      "生る"
+     ],
+     "readings": [
+      "なる"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "Godan verb with 'ru' ending",
+        "intransitive verb"
+       ],
+       "glosses": [
+        "to bear fruit"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2138260,
      "kanji": [],
@@ -36152,6 +36775,25 @@
    "listReading": "マッチ",
    "listMeaning": "match",
    "jmdict": [
+    {
+     "idseq": 1128430,
+     "kanji": [
+      "燐寸"
+     ],
+     "readings": [
+      "マッチ"
+     ],
+     "senses": [
+      {
+       "pos": [
+        "noun (common) (futsuumeishi)"
+       ],
+       "glosses": [
+        "match (to light fire with)"
+       ]
+      }
+     ]
+    },
     {
      "idseq": 2784220,
      "kanji": [],
@@ -49736,6 +50378,17 @@
     "set"
    ]
   },
+  "噸": {
+   "strokeCount": 16,
+   "on": [
+    "トン"
+   ],
+   "kun": [],
+   "meanings": [
+    "tonnage",
+    "(kokuji)"
+   ]
+  },
   "四": {
    "strokeCount": 5,
    "on": [
@@ -51849,6 +52502,21 @@
     "layer",
     "story",
     "floor"
+   ]
+  },
+  "屯": {
+   "strokeCount": 4,
+   "on": [
+    "トン"
+   ],
+   "kun": [
+    "たむろ"
+   ],
+   "meanings": [
+    "barracks",
+    "police station",
+    "camp",
+    "ton"
    ]
   },
   "山": {
@@ -57375,6 +58043,16 @@
     "down"
    ]
   },
+  "毯": {
+   "strokeCount": 12,
+   "on": [
+    "タン"
+   ],
+   "kun": [],
+   "meanings": [
+    "wool rug"
+   ]
+  },
   "氏": {
    "strokeCount": 4,
    "on": [
@@ -58047,6 +58725,24 @@
     "cancel"
    ]
   },
+  "涌": {
+   "strokeCount": 10,
+   "on": [
+    "ユウ",
+    "ヨウ",
+    "ユ"
+   ],
+   "kun": [
+    "わ.く"
+   ],
+   "meanings": [
+    "boil",
+    "ferment",
+    "seethe",
+    "uproar",
+    "breed"
+   ]
+  },
   "涙": {
    "strokeCount": 10,
    "on": [
@@ -58658,6 +59354,26 @@
     "clean",
     "righteous",
     "gallant"
+   ]
+  },
+  "潜": {
+   "strokeCount": 15,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "ひそ.む",
+    "もぐ.る",
+    "かく.れる",
+    "くぐ.る",
+    "ひそ.める"
+   ],
+   "meanings": [
+    "submerge",
+    "conceal",
+    "hide",
+    "lower (voice)",
+    "hush"
    ]
   },
   "澄": {
@@ -59519,6 +60235,18 @@
     "wheel"
    ]
   },
+  "瓲": {
+   "strokeCount": 9,
+   "on": [],
+   "kun": [
+    "トン"
+   ],
+   "meanings": [
+    "tonne",
+    "thousand kilograms",
+    "(kokuji)"
+   ]
+  },
   "瓶": {
    "strokeCount": 11,
    "on": [
@@ -60085,6 +60813,22 @@
     "hide",
     "leather",
     "skin radical (no. 107)"
+   ]
+  },
+  "皺": {
+   "strokeCount": 15,
+   "on": [
+    "シュウ",
+    "スウ"
+   ],
+   "kun": [
+    "しわ",
+    "しぼ"
+   ],
+   "meanings": [
+    "wrinkles",
+    "creases",
+    "folds"
    ]
   },
   "皿": {
@@ -61965,6 +62709,16 @@
     "bestow on"
    ]
   },
+  "絨": {
+   "strokeCount": 12,
+   "on": [
+    "ジュウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "wool cloth"
+   ]
+  },
   "統": {
    "strokeCount": 12,
    "on": [
@@ -62278,6 +63032,19 @@
    "meanings": [
     "straw rope",
     "cord"
+   ]
+  },
+  "縒": {
+   "strokeCount": 16,
+   "on": [
+    "シ",
+    "サ"
+   ],
+   "kun": [
+    "よ.る"
+   ],
+   "meanings": [
+    "twist"
    ]
   },
   "縦": {
@@ -68836,6 +69603,24 @@
     "become silent",
     "stop speaking",
     "leave as is"
+   ]
+  },
+  "黴": {
+   "strokeCount": 23,
+   "on": [
+    "バイ",
+    "ビ",
+    "マイ",
+    "ミ"
+   ],
+   "kun": [
+    "かび",
+    "かび.る",
+    "か.びる"
+   ],
+   "meanings": [
+    "mold",
+    "mildew"
    ]
   },
   "鼠": {

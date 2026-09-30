@@ -94,6 +94,7 @@ export function openDictionary(dbPath) {
       "SELECT text FROM SenseGloss WHERE sid = ? AND lang = 'eng' ORDER BY rowid",
     ),
     pos: db.prepare("SELECT text FROM pos WHERE sid = ? ORDER BY rowid"),
+    misc: db.prepare("SELECT text FROM misc WHERE sid = ?"),
     char: db.prepare(
       "SELECT ID, stroke_count FROM character WHERE literal = ?",
     ),
@@ -125,14 +126,16 @@ export function openDictionary(dbPath) {
      *  a する suffix; those markers are stripped before looking up (see
      *  normalizeListForm). */
     lookupWord(rawTerm, rawKana) {
-      // A する-final word can be a JMdict headword in its own right (達する,
-      // 適する, 罰する are suru-verb entries, not 達/適/罰 + する) — try the
-      // form exactly as listed before stripping する down to the bare noun.
+      // The form exactly as listed always gets the first try: a word whose
+      // reading merely ends in する (擦る/こする "to rub") is not a suru-noun,
+      // and a する-final headword can be an entry in its own right (達する,
+      // 適する, 罰する) — stripping する down to a bare noun is the fallback,
+      // for words listed like 運動/うんどうする.
       const listed = {
         term: rawTerm.replace(/[～〜~]/g, "").trim(),
         kana: rawKana.replace(/[～〜~]/g, "").trim(),
       };
-      if (listed.term.endsWith("する") && listed.kana.endsWith("する")) {
+      if (listed.term && listed.kana) {
         const exact = this.lookupNormalized(listed.term, listed.kana);
         if (exact.length > 0) return exact;
       }
@@ -150,19 +153,86 @@ export function openDictionary(dbPath) {
               // falling back to any entry with this reading
               q.kanjiOf.all(id).length === 0,
           );
+      // A kana-only list word is often the kana spelling of a kanji headword
+      // JMdict marks "usually written using kana alone" (トン is 屯/噸/瓲,
+      // これ is 此れ/是, コップ is 洋杯) — the real word — while the kana-only
+      // entries that share the reading are unrelated homographs (トン = a
+      // Morse-code dot, これ = "hey!", コップ = "cop"). Both belong in the
+      // evidence, otherwise a word's own meaning has nothing to be checked
+      // against.
+      if (!KANJI_RE.test(term) && ids.length > 0) {
+        for (const id of byKana) {
+          if (ids.includes(id)) continue;
+          const usuallyKana = q.senses
+            .all(id)
+            .some(({ ID }) =>
+              q.misc
+                .all(ID)
+                .some((m) => /usually written using kana/.test(m.text)),
+            );
+          if (usuallyKana) ids.push(id);
+        }
+      }
       const chosen = ids.length > 0 || KANJI_RE.test(term) ? ids : [...byKana];
-      if (chosen.length === 0 && term.endsWith("と") && term.length > 2) {
-        // Adverbs listed with their optional と (ゆっくりと): JMdict files
-        // them under the bare form, tagged as taking と.
+      const particle = term.endsWith("と")
+        ? "と"
+        : term.endsWith("に")
+          ? "に"
+          : "";
+      if (chosen.length === 0 && particle && term.length > 2) {
+        // Adverbs listed with their optional と/に (ゆっくりと, やたらに):
+        // JMdict files them under the bare form, tagged as adverbs (often
+        // "taking the 'to' particle").
         const bare = this.lookupNormalized(
           term.slice(0, -1),
           kana.slice(0, -1),
         );
         return bare.filter((e) =>
-          e.senses.some((s) => s.pos.some((p) => /'to' particle/.test(p))),
+          e.senses.some((s) =>
+            s.pos.some((p) => /'to' particle|adverb/.test(p)),
+          ),
         );
       }
       return chosen.sort((a, b) => a - b).map(entry);
+    },
+    /**
+     * True when a bound affix kanji (～船 ～せん, 防～ ぼう～, ～遣い ～づかい) is
+     * read the way KANJIDIC2 says that character can be read. JMdict indexes
+     * few of these bound forms as headwords of their own, so the character's
+     * own KANJIDIC2 readings are the evidence — the same rule test/content/
+     * applies to N3's bound kanji. Allows rendaku (しょ → じょ, つか → づか)
+     * and trailing okurigana.
+     */
+    boundKanjiAttested(rawTerm, rawKana) {
+      const term = rawTerm.replace(/[～〜~\s]/g, "");
+      const m = term.match(/^([㐀-䶿一-鿿々])([\u3040-\u309f]*)$/);
+      if (!m) return false;
+      const info = this.kanji(m[1]);
+      if (!info) return false;
+      const okuri = m[2];
+      let reading = rawKana.replace(/[～〜~\s]/g, "");
+      if (okuri) {
+        if (!reading.endsWith(okuri)) return false;
+        reading = reading.slice(0, -okuri.length);
+      }
+      const hira = (str) =>
+        str.replace(/[ァ-ヶ]/g, (c) =>
+          String.fromCharCode(c.charCodeAt(0) - 0x60),
+        );
+      const unvoice = (str) =>
+        [...str]
+          .map((c) => {
+            const i = "がぎぐげござじずぜぞだぢづでどばびぶべぼ".indexOf(c);
+            return i >= 0 ? "かきくけこさしすせそたちつてとはひふへほ"[i] : c;
+          })
+          .join("");
+      const candidates = new Set(
+        [...info.on, ...info.kun].map((r) =>
+          hira(r.replace(/-/g, "").split(".")[0]),
+        ),
+      );
+      const target = hira(reading);
+      return candidates.has(target) || candidates.has(unvoice(target));
     },
     /** True when JMdict has an entry written or read as `word`. */
     wordExists(word) {

@@ -286,6 +286,325 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
     romaji: "konnichiwa",
     reason: "The は in こんにちは is the topic particle, pronounced わ.",
   },
+  // Meaning corrections — the source list pairs these words' kana with a
+  // gloss that belongs to a different word (usually another reading of the
+  // same kanji). Found by `pnpm data:audit` and checked against the JMdict
+  // entry that has the word's own reading.
+  "盛り さかり": {
+    meaning: "peak, height (of a season); prime",
+    reason:
+      "The list gives もり's 'helping, serving'; 盛り read さかり is 'peak, height of the season, prime' (JMdict, さかり entry).",
+  },
+  "偶 たま": {
+    meaning: "occasional, infrequent, rare",
+    reason:
+      "The list gives 偶 read ぐう's 'even number, couple'; 偶 read たま is 'occasional, rare' (JMdict 偶/適 たま).",
+  },
+  "反る かえる": {
+    meaning: "to return, to come back; to turn over",
+    reason:
+      "The list gives 反る read そる's 'to warp'; 反る read かえる is 'to return; to turn over' (JMdict 返る/反る かえる).",
+  },
+  "退く どく": {
+    meaning: "to step aside, to make way; to resign, to retire",
+    reason:
+      "The list gives 退く read しりぞく's 'to retreat'; 退く read どく is 'to step aside, to make way' (JMdict 退く どく/のく).",
+  },
+  "対 たい": {
+    meaning: "versus; opposite, opposition",
+    reason:
+      "The list gives 対 read つい's 'pair, set'; 対 read たい is 'opposite, versus' (JMdict 対 たい). つい keeps its own entry.",
+  },
+  "より より": {
+    meaning: "than; from, out of, since",
+    reason:
+      "The list gives 縒り's 'twist, ply'; より as a word in its own right is the particle 'than; from, since' (JMdict より).",
+  },
+  "湧く わく": {
+    meaning: "to well up, to gush forth; to appear suddenly",
+    reason:
+      "The list gives 沸く's 'to boil'; 湧く is 'to well up, to gush forth' (JMdict 湧く/涌く わく).",
+  },
+  "素 もと": {
+    meaning: "origin, source; basis, foundation",
+    reason:
+      "The list gives 'prime'; 素 read もと is 'origin, source; basis' (JMdict 元/本/素/基 もと).",
+  },
+  "辞典 じてん": {
+    meaning: "dictionary, lexicon",
+    reason:
+      "The list gives 事典's 'encyclopedia'; 辞典 is a dictionary of words (JMdict 辞典).",
+  },
+  "統計 とうけい": {
+    meaning: "statistics",
+    reason:
+      "The list gives 'scattering, dispersion' (a different word); 統計 is 'statistics' (JMdict 統計).",
+  },
+  "トン トン": {
+    meaning: "ton (metric ton, 1,000 kg)",
+    reason:
+      "The list says '1000 lbs.'; JMdict's トン (屯/噸/瓲) is 'a metric ton, i.e. 1,000kg' — a US short ton is 2,000 lb.",
+  },
+  "一日 ついたち": {
+    meaning: "first day of the month",
+    reason:
+      "The list also gives 'one day', which is 一日 read いちにち (its own entry); ついたち is only 'the first day of the month' (JMdict 一日 ついたち).",
+  },
+  "もうすぐ もうすぐ": {
+    meaning: "very soon, shortly",
+    reason:
+      "The list appends 'in a few moments; days'; JMdict gives 'soon, shortly, before long' (もうすぐ).",
+  },
+  "上 かみ": {
+    meaning: "upper reaches (of a river), upper part; first, beginning",
+    reason:
+      "The list gives 'first volume; superior quality; governmental'; JMdict's 上 かみ is 'upper reaches (of a river); top, upper part; beginning, first'.",
+  },
+  "便 びん": {
+    meaning: "flight, trip, service; mail",
+    reason:
+      "The list gives 'way, means' (便 read べん); 便 read びん is 'flight, trip, service; mail' (JMdict).",
+  },
+  "例え たとえ": {
+    meaning: "example; simile, metaphor",
+    reason:
+      "The list adds 'even though', which is たとえ written 仮令 (a different entry); 例え is 'example; simile, metaphor' (JMdict).",
+  },
+  "生 せい": {
+    meaning: "life, living",
+    reason:
+      "The list gives 'birth'; 生 read せい is 'life, living' (JMdict 生 せい/しょう).",
+  },
+  "分 ぶ": {
+    meaning: "one-tenth, one percent",
+    reason:
+      "The list gives 'dividing, part'; 分 read ぶ is 'one-tenth, one percent (of a wari)' (JMdict 分 ぶ).",
+  },
+  "能 のう": {
+    meaning: "talent, ability, function; noh theatre",
+    reason:
+      "The list gives 'being skilled in, nicely, properly'; 能 is 'talent, gift, function; noh theatre' (JMdict 能 のう).",
+  },
+  "無 ぶ": {
+    meaning: "un-, non- (prefix)",
+    reason:
+      "The list gives 無 read む's 'nothing, zero'; 無 read ぶ is the prefix 'un-, non-' (JMdict 無/不 ぶ).",
+  },
+  "共に ともに": {
+    meaning: "together, jointly; at the same time",
+    reason:
+      "The list gives 'sharing with, participate in'; JMdict's 共に is 'together, jointly; at the same time'.",
+  },
+  "下 しも": {
+    meaning: "lower reaches (of a river); bottom, lower part",
+    reason:
+      "The list gives 'under, below, beneath' (the meaning of 下 read した); 下 read しも is 'lower reaches; bottom, lower part' (JMdict).",
+  },
+  "下 げ": {
+    meaning: "lowness, inferiority; second volume (of two)",
+    reason:
+      "The list gives 'under, below, beneath' (下 read した); 下 read げ is 'lowness, inferiority; second volume' (JMdict).",
+  },
+  "異 い": {
+    meaning: "difference (of opinion); strange, unusual",
+    reason:
+      "The list gives 'objection'; JMdict's 異 い is 'difference (of opinion); strange, odd, unusual'.",
+  },
+  "意 い": {
+    meaning: "feelings, thoughts; meaning",
+    reason:
+      "The list gives 'will'; JMdict's 意 い is 'feelings, thoughts; meaning'.",
+  },
+  "行き いき": {
+    meaning: "the way there; bound for",
+    reason:
+      "The list gives 'going'; JMdict's 行き is 'the way there, outbound trip; bound for …' (a destination, as in 東京行き).",
+  },
+  "行き ゆき": {
+    meaning: "the way there; bound for",
+    reason:
+      "The list gives 'going'; JMdict's 行き is 'the way there, outbound trip; bound for …' (a destination, as in 東京行き).",
+  },
+  "出身 しゅっしん": {
+    meaning: "person's origin (birthplace, school)",
+    reason:
+      "The list gives 'come from', a verb phrase; 出身 is a noun, 'person's origin (city, country, parentage, school)' (JMdict).",
+  },
+  "温暖 おんだん": {
+    meaning: "warm, mild, temperate",
+    reason:
+      "The list gives the noun 'warmth'; 温暖 is the adjectival 'warm, mild, temperate' (JMdict).",
+  },
+  "交差 こうさ": {
+    meaning: "crossing, intersection",
+    reason:
+      "The list gives 'cross' (a verb/adjective reading); 交差 is the noun 'crossing, intersection' (JMdict).",
+  },
+  "一段と いちだんと": {
+    meaning: "still more, all the more",
+    reason:
+      "The list gives 'by far, greater'; JMdict's 一段と is 'more, much more, still more, all the more'.",
+  },
+  "放る ほうる": {
+    meaning: "to throw, to fling; to abandon",
+    reason:
+      "The list gives 'to let go'; JMdict's 放る is 'to throw, to fling; to neglect, to abandon'.",
+  },
+  "隔てる へだてる": {
+    meaning: "to separate, to isolate; to interpose",
+    reason:
+      "The list gives the passive 'to be shut out'; 隔てる is transitive, 'to separate, to isolate, to interpose' (JMdict).",
+  },
+  "コンセント コンセント": {
+    meaning: "power outlet, wall socket",
+    reason:
+      "The list adds 'consent', a false friend; コンセント is 'electrical outlet, wall socket' (JMdict) — 'consent' is 同意 / コンセンサス.",
+  },
+  "潜る もぐる": {
+    meaning: "to dive; to get under, to slip into; to hide oneself",
+    reason:
+      "The list gives 'to drive, to pass through; to evade'; JMdict's 潜る is 'to dive; to get under, get into; to hide oneself'.",
+  },
+  // N2 word-list rows that bundle a usage note into the term/reading — the
+  // same shape N4's (かん) rows had — corrected to the JMdict headword.
+  "しわ (かおの～) しわ (かおの～)": {
+    term: "しわ",
+    kana: "しわ",
+    romaji: "shiwa",
+    reason:
+      "The list bundles a usage hint 'かおの～' into the term and reading; the word is しわ (JMdict 皺 しわ).",
+  },
+  "だいいち (とりわけ) だいいち (とりわけ)": {
+    term: "だいいち",
+    kana: "だいいち",
+    romaji: "daiichi",
+    meaning: "first, foremost; number one",
+    reason:
+      "The list glues the unrelated word とりわけ into the term and leaves '&nbsp;' junk in the gloss; the word is だいいち (JMdict 第一 だいいち).",
+  },
+  "かび (～がはえる) かび (～がはえる)": {
+    term: "かび",
+    kana: "かび",
+    romaji: "kabi",
+    reason:
+      "The list bundles a usage hint '～がはえる' into the term and reading; the word is かび (JMdict 黴 かび).",
+  },
+  "(かさを～) さす (かさを～) さす": {
+    term: "差す",
+    kana: "さす",
+    romaji: "sasu",
+    meaning: "to hold up (an umbrella); to shine; to insert",
+    reason:
+      "The list bundles a usage hint 'かさを～' into the term and reading; the word is 差す (JMdict 差す さす, 'to hold up (an umbrella, etc.)').",
+  },
+  "〜(日本) 式 ～(にほん) しき": {
+    term: "日本式",
+    kana: "にほんしき",
+    romaji: "nihonshiki",
+    meaning: "Japanese style",
+    reason:
+      "The list writes the compound as an affix with '(日本)' and truncates the gloss to 'custom,'; the word is 日本式 (JMdict 日本式 にほんしき).",
+  },
+  "しつれいしました (かん) しつれいしました (かん)": {
+    term: "しつれいしました",
+    kana: "しつれいしました",
+    romaji: "shitsureishimashita",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is しつれいしました (JMdict 失礼しました).",
+  },
+  "～おしまい (おわり) ～おしまい (おわり)": {
+    term: "おしまい",
+    kana: "おしまい",
+    romaji: "oshimai",
+    meaning: "the end, closing",
+    reason:
+      "The list glues a note 'おわり' into an affix-shaped term and glosses it 'end up ~'; the word is おしまい, 'the end, closing' (JMdict お仕舞い).",
+  },
+  "しめた (かん) しめた (かん)": {
+    term: "しめた",
+    kana: "しめた",
+    romaji: "shimeta",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is しめた (JMdict 占めた).",
+  },
+  "じゅうたん (カーペット) じゅうたん (カーペット)": {
+    term: "じゅうたん",
+    kana: "じゅうたん",
+    romaji: "juutan",
+    reason:
+      "The list bundles the synonym 'カーペット' into the term and reading; the word is じゅうたん (JMdict 絨毯).",
+  },
+  "～いち (にほんいち) ～いち (にほんいち)": {
+    term: "日本一",
+    kana: "にほんいち",
+    romaji: "nihonichi",
+    meaning: "number one in Japan",
+    reason:
+      "The list bundles the example 'にほんいち' into an affix-shaped term; the word is 日本一 (JMdict 日本一 にほんいち/にっぽんいち).",
+  },
+  "行っていらっしゃい いっていらっしゃい": {
+    term: "行ってらっしゃい",
+    kana: "いってらっしゃい",
+    romaji: "itterasshai",
+    reason:
+      "JMdict has no 行っていらっしゃい; the set phrase is 行ってらっしゃい / いってらっしゃい, 'have a good day, take care'.",
+  },
+  "どういたしまして (かん) どういたしまして (かん)": {
+    term: "どういたしまして",
+    kana: "どういたしまして",
+    romaji: "douitashimashite",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is どういたしまして (JMdict どう致しまして).",
+  },
+  "はい (かん) はい (かん)": {
+    term: "はい",
+    kana: "はい",
+    romaji: "hai",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is はい (JMdict はい).",
+  },
+  "～ほう (ひかく) ～ほう (ひかく)": {
+    term: "方",
+    kana: "ほう",
+    romaji: "hou",
+    meaning: "the side that ... (in comparison); direction, way",
+    reason:
+      "The list bundles the note 'ひかく' into an affix-shaped term; the word is 方 read ほう, 'indicates one side of a comparison; direction, way' (JMdict 方 ほう).",
+  },
+  "ミリ (メートル) ミリ (メートル)": {
+    term: "ミリ",
+    kana: "ミリ",
+    romaji: "miri",
+    reason:
+      "The list bundles 'メートル' into the term and reading; the word is the prefix ミリ, 'milli-' (JMdict ミリ).",
+  },
+  "それはいけませんね (かん) それはいけませんね (かん)": {
+    term: "それはいけませんね",
+    kana: "それはいけませんね",
+    romaji: "sorewaikemasenne",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the phrase is それはいけませんね (は is the topic particle, pronounced わ).",
+  },
+  "〜 (まる) ごと 〜 (まる) ごと": {
+    term: "まるごと",
+    kana: "まるごと",
+    romaji: "marugoto",
+    reason:
+      "The list splits the word around a '(まる)' note in an affix-shaped term; the word is まるごと, 'whole, in its entirety' (JMdict 丸ごと).",
+  },
+  "しいんと (する) しいんと (する)": {
+    term: "しいんと",
+    kana: "しいんと",
+    romaji: "shiinto",
+    reason:
+      "The list bundles the verb 'する' into the term and reading; the adverb is しいんと (JMdict しーん/しいん, an adverb taking と).",
+  },
+  "目下 めした": {
+    kana: "もっか",
+    romaji: "mokka",
+    reason:
+      "The list pairs 目下 read めした ('subordinate, inferior') with the meaning 'at present, now', which belongs to the reading もっか (JMdict 目下 もっか).",
+  },
 };
 
 /** A pool vocab entry as the site serves it: form corrections and meaning
