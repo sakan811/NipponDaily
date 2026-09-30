@@ -236,6 +236,56 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
     romaji: "matawa",
     reason: "The は in または is the topic particle, pronounced わ.",
   },
+  // N3 (elzup/jlpt-word-list's n3.csv): interjections wrapped in a (かん)
+  // part-of-speech tag, a term/kana mismatch, and は-particle rōmaji — found
+  // via `pnpm data:reference:jlpt`'s unresolvedInJmdict list and test/content/n3.
+  "しまった (かん) しまった (かん)": {
+    term: "しまった",
+    kana: "しまった",
+    romaji: "shimatta",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is しまった (JMdict 1005600, written 仕舞った).",
+  },
+  "すみません (かん) すみません (かん)": {
+    term: "すみません",
+    kana: "すみません",
+    romaji: "sumimasen",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is すみません (JMdict 1295060, written 済みません).",
+  },
+  "よろしく (かん) よろしく (かん)": {
+    term: "よろしく",
+    kana: "よろしく",
+    romaji: "yoroshiku",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is よろしく (JMdict 1224890, 2835139).",
+  },
+  "はあ (かん) はあ (かん)": {
+    term: "はあ",
+    kana: "はあ",
+    romaji: "haa",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is はあ (JMdict 2069620).",
+  },
+  "唯 たった": {
+    term: "たった",
+    kana: "たった",
+    romaji: "tatta",
+    reason:
+      "The list pairs 唯 (a written form of ただ) with the reading たった; たった ('only, merely') is its own kana-only entry (JMdict 1007230).",
+  },
+  "実は じつは": {
+    romaji: "jitsuwa",
+    reason: "The は in 実は is the topic particle, pronounced わ.",
+  },
+  "あるいは あるいは": {
+    romaji: "aruiwa",
+    reason: "The は in あるいは is the topic particle, pronounced わ.",
+  },
+  "こんにちは こんにちは": {
+    romaji: "konnichiwa",
+    reason: "The は in こんにちは is the topic particle, pronounced わ.",
+  },
 };
 
 /** A pool vocab entry as the site serves it: form corrections and meaning
