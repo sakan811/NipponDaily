@@ -95,7 +95,7 @@ const features = [
   {
     title: "N5 & N4 Lesson Paths",
     description:
-      "All 718 N5 words (82 short lessons) and all 666 N4 words (78 short lessons) laid out at /learn, with a level selector to switch between them. Each lesson explains its pattern, breaks every word into its kanji, shows where else each kanji appears, and ends with unscored flip-card review. Nothing about the learner is saved. N3/N2 are seeded pools without a lesson path yet.",
+      "All 718 N5 words (82 short lessons), all 665 N4 words (78 short lessons) and all 2,138 N3 words (256 short lessons) laid out at /learn, with a level selector to switch between them. Each lesson explains its pattern, breaks every word into its kanji, shows where else each kanji appears, and ends with unscored flip-card review. Nothing about the learner is saved. N2 is a seeded pool without a lesson path yet.",
     icon: "i-heroicons-academic-cap",
   },
   {
