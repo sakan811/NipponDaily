@@ -116,9 +116,9 @@ describe("GET /api/cron/generate-daily-game", () => {
     const result = await handler({} as any);
 
     expect(result.data.results.every((r: any) => r.created)).toBe(true);
-    // Only N5's round draws hiragana at all (see server/utils/daily-game.ts's
-    // kindsForLevel) — that's the one whose fallback-to-full-pool path this
-    // test exercises.
+    // N5 and ALL are the only rounds that draw hiragana at all (see
+    // server/utils/daily-game.ts's kindsForLevel) — N5 is the one whose
+    // fallback-to-full-pool path this test exercises.
     const n5Call = mockSaveDailyGame.mock.calls.find(
       (call: any) => call[0].level === "N5",
     );

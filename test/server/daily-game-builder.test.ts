@@ -125,13 +125,16 @@ describe("buildDailyGame", () => {
 });
 
 describe("buildDailyGame kana handling", () => {
-  it("quizzes hiragana/katakana/kanji/vocab 5 each for N5", () => {
-    const game = buildDailyGame(makePool(30), "2026-09-20", [], "N5");
-    const counts = countByKind(game);
-    expect(counts).toEqual({ hiragana: 5, katakana: 5, kanji: 5, vocab: 5 });
-  });
+  it.each(["N5", "ALL"] as const)(
+    "quizzes hiragana/katakana/kanji/vocab 5 each for %s",
+    (level) => {
+      const game = buildDailyGame(makePool(30), "2026-09-20", [], level);
+      const counts = countByKind(game);
+      expect(counts).toEqual({ hiragana: 5, katakana: 5, kanji: 5, vocab: 5 });
+    },
+  );
 
-  it.each(["N4", "N3", "N2", "ALL"] as const)(
+  it.each(["N4", "N3", "N2"] as const)(
     "skips kana for %s, backfilling 10 kanji + 10 vocab instead",
     (level) => {
       const game = buildDailyGame(makePool(30), "2026-09-20", [], level);

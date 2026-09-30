@@ -22,21 +22,23 @@ export interface PoolBundle {
 }
 
 const QUESTIONS_PER_KIND = 5;
-/** N4/N3/N2/ALL rounds skip kana entirely (see KANA_LEVEL below) and split
- *  its 10 slots between kanji and vocab instead, so every level's round is
+/** N4/N3/N2 rounds skip kana entirely (see KANA_LEVELS below) and split its
+ *  10 slots between kanji and vocab instead, so every level's round is
  *  still a consistent 20 questions. */
 const NO_KANA_QUESTIONS_PER_KIND = 10;
-/** Only this level's round quizzes hiragana/katakana — a learner working
- *  through N4+ content already knows the kana, so those rounds test kanji
- *  and vocab only (see kindsForLevel). */
-const KANA_LEVEL: DailyGameLevel = "N5";
+/** Only these levels' rounds quiz hiragana/katakana — a learner working
+ *  through N4+ content on its own already knows the kana, so a single-level
+ *  N4/N3/N2 round tests kanji and vocab only (see kindsForLevel). ALL is the
+ *  deliberate exception: it's a mixed round spanning every level (including
+ *  N5), so it keeps kana in the mix rather than dropping it. */
+const KANA_LEVELS: readonly DailyGameLevel[] = ["N5", "ALL"];
 const DISTRACTOR_COUNT = 3;
 
 /** Which pool kinds a level's round draws from, and how many questions of
- *  each — always 20 questions total, either 5 each of all four kinds (N5)
- *  or 10 each of kanji/vocab (every other level, see NO_KANA_QUESTIONS_PER_KIND). */
+ *  each — always 20 questions total, either 5 each of all four kinds (N5,
+ *  ALL) or 10 each of kanji/vocab (N4/N3/N2, see NO_KANA_QUESTIONS_PER_KIND). */
 function kindsForLevel(level: DailyGameLevel): [PoolKind, number][] {
-  if (level === KANA_LEVEL) {
+  if (KANA_LEVELS.includes(level)) {
     return (["hiragana", "katakana", "kanji", "vocab"] as PoolKind[]).map(
       (kind) => [kind, QUESTIONS_PER_KIND],
     );
@@ -215,9 +217,9 @@ function toQuestion(
  * enough window — that kind falls back to picking from its full pool
  * rather than failing.
  *
- * Only `KANA_LEVEL` (N5) draws hiragana/katakana questions; every other
- * level fills those 10 slots with more kanji/vocab instead (see
- * kindsForLevel) — the round is always 20 questions regardless of level.
+ * Only `KANA_LEVELS` (N5, ALL) draw hiragana/katakana questions; N4/N3/N2
+ * fill those 10 slots with more kanji/vocab instead (see kindsForLevel) —
+ * the round is always 20 questions regardless of level.
  *
  * `level` is stamped onto the returned game as-is — the caller is
  * responsible for passing a `pool` that actually matches it (see
