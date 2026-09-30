@@ -11,6 +11,9 @@ import {
   N4_LESSON_NUMBER_BY_WORD,
 } from "~/app/data/lessons-n4";
 
+import { N3_LESSON_NUMBER_BY_WORD } from "~/app/data/lessons-n3";
+import { N2_LESSON_NUMBER_BY_WORD } from "~/app/data/lessons-n2";
+
 async function loadGame(wrapper: ReturnType<typeof mount>) {
   await wrapper.vm.fetchGame();
   await wrapper.vm.$nextTick();
@@ -229,6 +232,70 @@ describe("DailyGameBoard gameplay", () => {
     expect(previewLinks).toEqual([
       `/learn/${N4_LESSON_NUMBER_BY_WORD.get("いらっしゃる")}?level=N4`,
     ]);
+  });
+
+  it("links vocab in N3 and N2 rounds to that level's lessons", async () => {
+    for (const [level, map] of [
+      ["N3", N3_LESSON_NUMBER_BY_WORD],
+      ["N2", N2_LESSON_NUMBER_BY_WORD],
+    ] as const) {
+      const id = [...map.keys()][0];
+      mockFetchGame(
+        makeDailyGame(
+          [makeQuestion({ id, kind: "vocab", prompt: id, promptSub: id })],
+          level,
+        ),
+      );
+      const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
+      await wrapper.vm.fetchGame();
+      await wrapper.vm.$nextTick();
+
+      const links = wrapper
+        .find('[data-testid="game-vocab-preview"]')
+        .findAll("a")
+        .map((a) => a.attributes("href"));
+      expect(links).toEqual([`/learn/${map.get(id)}?level=${level}`]);
+    }
+  });
+
+  it("links every vocab word in an ALL round to the level it was drawn from", async () => {
+    // ids repeat across levels (今日 is N5 and N3); the merged ALL pool
+    // keeps the lowest level's, so that's the lesson to link.
+    const n3Only = [...N3_LESSON_NUMBER_BY_WORD.keys()].find(
+      (id) =>
+        !LESSON_NUMBER_BY_WORD.has(id) && !N4_LESSON_NUMBER_BY_WORD.has(id),
+    )!;
+    const n2Only = [...N2_LESSON_NUMBER_BY_WORD.keys()].find(
+      (id) =>
+        !LESSON_NUMBER_BY_WORD.has(id) &&
+        !N4_LESSON_NUMBER_BY_WORD.has(id) &&
+        !N3_LESSON_NUMBER_BY_WORD.has(id),
+    )!;
+    const vocab = (id: string) =>
+      makeQuestion({ id, kind: "vocab", prompt: id, promptSub: id });
+    mockFetchGame(
+      makeDailyGame(
+        [vocab("これ"), vocab("いらっしゃる"), vocab(n3Only), vocab(n2Only)],
+        "ALL",
+      ),
+    );
+    const wrapper = mount(DailyGameBoard, { props: { autoFetch: false } });
+    await wrapper.vm.fetchGame();
+    await wrapper.vm.$nextTick();
+
+    const links = wrapper
+      .find('[data-testid="game-vocab-preview"]')
+      .findAll("a")
+      .map((a) => a.attributes("href"));
+    expect(links).toEqual(
+      expect.arrayContaining([
+        `/learn/${LESSON_NUMBER_BY_WORD.get("これ")}?level=N5`,
+        `/learn/${N4_LESSON_NUMBER_BY_WORD.get("いらっしゃる")}?level=N4`,
+        `/learn/${N3_LESSON_NUMBER_BY_WORD.get(n3Only)}?level=N3`,
+        `/learn/${N2_LESSON_NUMBER_BY_WORD.get(n2Only)}?level=N2`,
+      ]),
+    );
+    expect(links).toHaveLength(4);
   });
 
   it("Play Again resets progress back to the first question", async () => {
