@@ -19,7 +19,8 @@
     "seed": "node scripts/seed-pool-data.mjs",
     "data:reference": "node --experimental-strip-types --no-warnings scripts/build-n5-reference.mjs",
     "data:reference:jlpt": "node --experimental-strip-types --no-warnings scripts/build-jlpt-reference.mjs",
-    "data:draft:clusters": "node --experimental-strip-types --no-warnings scripts/draft-lesson-clusters.mjs"
+    "data:draft:clusters": "node --experimental-strip-types --no-warnings scripts/draft-lesson-clusters.mjs",
+    "data:audit": "node --experimental-strip-types --no-warnings scripts/audit-lesson-content.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
