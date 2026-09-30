@@ -163,15 +163,17 @@ The running site ships in-app documentation at `/docs`:
 Repo-only docs:
 
 - [`docs/site-theme-agent-prompt.md`](docs/site-theme-agent-prompt.md) — the operating prompt for the external theme agent. Keep it in sync with the MCP tool set.
+- [`docs/authoring-checklist.md`](docs/authoring-checklist.md) — step-by-step checklists for adding/extending lesson clusters, correcting a word, and refreshing the pinned sources.
+- [`docs/content-accuracy.md`](docs/content-accuracy.md) — the ground-truth system in brief: committed JMdict evidence, the `test/content/` gate, and what to do when a check fails.
 
 ## 🔌 API Endpoints
 
 `GET /api/daily-game` — reads (or, if missing, builds and persists) one day's game for one JLPT level; it never fetches dictionary data or calls any external provider.
 
-| Parameter | Type                         | Description                                                                                                                                                 |
-| :-------- | :--------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `date`    | string (`YYYY-MM-DD`)        | Defaults to today (UTC). Daily games are never deleted, so any past date can be replayed. Must be a real calendar date, today or earlier — otherwise `400`. |
-| `level`   | `N5` \| `N4` \| `N3` \| `N2` \| `ALL` | Defaults to `N5`. `/game`'s level selector passes this once a player switches levels. `ALL` merges every level's kanji/vocab pool into one round. An unrecognized value is rejected with `400`.                         |
+| Parameter | Type                                  | Description                                                                                                                                                                                     |
+| :-------- | :------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `date`    | string (`YYYY-MM-DD`)                 | Defaults to today (UTC). Daily games are never deleted, so any past date can be replayed. Must be a real calendar date, today or earlier — otherwise `400`.                                     |
+| `level`   | `N5` \| `N4` \| `N3` \| `N2` \| `ALL` | Defaults to `N5`. `/game`'s level selector passes this once a player switches levels. `ALL` merges every level's kanji/vocab pool into one round. An unrecognized value is rejected with `400`. |
 
 **Response format:**
 
