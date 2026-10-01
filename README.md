@@ -20,7 +20,7 @@
 
 ## Tech Stack
 
-[Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/), [Upstash Redis](https://upstash.com/), [Vitest](https://vitest.dev/), [wanakana](https://github.com/WaniKani/WanaKana). pnpm is the package manager.
+[Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/), [Upstash Redis](https://upstash.com/), [Vitest](https://vitest.dev/), [wanakana](https://github.com/WaniKani/WanaKana) (kana/rōmaji in the data scripts). pnpm is the package manager.
 
 ## Setup
 
@@ -42,17 +42,17 @@ Optional: `pnpm seed` fills Redis with the N5–N2 kanji/vocab pool behind `GET 
 
 ## Commands
 
-| Command                                       | Description                                                             |
-| :-------------------------------------------- | :---------------------------------------------------------------------- |
-| `pnpm dev` / `build` / `start` / `preview`    | Dev server, production build, run the build, preview it                 |
-| `pnpm generate`                               | Static site generation                                                  |
-| `pnpm test` / `test:run` / `test:coverage`    | Vitest in watch mode / once / with coverage                             |
-| `pnpm lint` / `format` / `type-check`         | ESLint (auto-fix), Prettier, `tsc --noEmit`                             |
-| `pnpm check-qa`                               | Lint, format, type-check, build and test                                |
-| `pnpm seed`                                   | Seed the N5–N2 pool (and the hiragana/katakana pool) into Redis         |
-| `pnpm data:reference` / `data:reference:jlpt` | Rebuild the JMdict/KANJIDIC2 snapshots for N5 / N4–N2                   |
-| `pnpm data:etymology`                         | Rebuild the pinned Wiktionary snapshot (`--refresh <term>` re-pins)     |
-| `pnpm data:words`                             | Generate `data/words/` from `data/word-plan/` and the committed sources |
+| Command                                       | Description                                                                                   |
+| :-------------------------------------------- | :-------------------------------------------------------------------------------------------- |
+| `pnpm dev` / `build` / `start` / `preview`    | Dev server, production build, run the build, preview it                                       |
+| `pnpm generate`                               | Static site generation                                                                        |
+| `pnpm test` / `test:run` / `test:coverage`    | Vitest in watch mode / once / with coverage                                                   |
+| `pnpm lint` / `format` / `type-check`         | ESLint (auto-fix), Prettier, `tsc --noEmit`                                                   |
+| `pnpm check-qa`                               | Lint, format, type-check, build and test                                                      |
+| `pnpm seed`                                   | Seed the N5–N2 pool (and the hiragana/katakana pool) into Redis                               |
+| `pnpm data:reference` / `data:reference:jlpt` | Rebuild the JMdict/KANJIDIC2 snapshots for N5 / N4–N2 (Node ≥ 22, `tar`, `xz`, network)       |
+| `pnpm data:etymology`                         | Pin Wiktionary pages (`--terms a,b` adds, `--refresh <term>` re-pins, `--prune` drops unused) |
+| `pnpm data:words`                             | Generate `data/words/` from `data/word-plan/` and the committed sources (`--check` verifies)  |
 
 ## Seasons
 
@@ -99,12 +99,12 @@ In the repo: [`docs/authoring-checklist.md`](docs/authoring-checklist.md) (add a
 
 ## Data & Attribution
 
-Entries quote [English Wiktionary](https://en.wiktionary.org) (CC BY-SA 4.0); each links its exact revision. Readings and meanings are checked against JMdict and KANJIDIC2, property of the [EDRDG](https://www.edrdg.org/) and used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) via [jmdict-simplified](https://github.com/scriptin/jmdict-simplified). The JLPT word lists come from [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT), digitized from the community list at tanos.co.uk. Details: [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
+Entries quote [English Wiktionary](https://en.wiktionary.org) (CC BY-SA 4.0); each links its exact revision. Readings and meanings are checked against JMdict and KANJIDIC2, property of the [EDRDG](https://www.edrdg.org/) and used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) via [jmdict-simplified](https://github.com/scriptin/jmdict-simplified) (the seed) and [jamdict-data](https://pypi.org/project/jamdict-data/) (the committed snapshots). The JLPT word lists come from [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT), digitized from the community list at tanos.co.uk. Details: [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
 
 ## Limitations
 
 - Entries cover January through October 2026. After 2026-10-31 the home page keeps showing the newest word until the next month is written.
-- The tests prove quotes, readings and Japanese forms against evidence, not that an English sentence about a real word is true; that is reviewed in PRs.
+- The tests prove that quotes, readings, meanings and parts of speech match the committed evidence, not that Wiktionary is right. The headline is the one hand-written line; a test only checks the Japanese it mentions.
 - No request rate limiting.
 
 ## License

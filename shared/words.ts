@@ -6,9 +6,9 @@
  * Server and tests only — importing this from app/ would ship every future
  * word to the browser. The data-free labels live in shared/word-labels.ts.
  *
- * To add a month: write data/words/YYYY-MM.json (one WordEntry per day), add
- * its import below, then run `pnpm data:etymology` to pin the Wiktionary
- * evidence the entries quote.
+ * To add a month: write data/word-plan/YYYY-MM.json, pin its pages with
+ * `pnpm data:etymology --terms …`, run `pnpm data:words` to generate
+ * data/words/YYYY-MM.json, then add its import below.
  */
 import type {
   DailyWordPayload,
