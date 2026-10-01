@@ -16,6 +16,7 @@
  * hand or drift from its source.
  */
 import { toHiragana } from "wanakana";
+import { meaningWords } from "../../shared/meanings.ts";
 
 const KANA = "\\p{sc=Hiragana}\\p{sc=Katakana}ー";
 const JP = `\\p{sc=Han}々${KANA}`;
@@ -45,12 +46,39 @@ function covers(declared, hira) {
   );
 }
 
+// Curly quotes Wiktionary wraps glosses in ("“eye”") so a meaning word like
+// bread never matches the literal token "bread”" unless they're stripped first.
+const CURLY_QUOTES = /[‘’“”]/g;
+
+/** True when a meaning word and a word from the Etymology text are plausibly
+ *  the same word — exact, or one contains the other (so "porter" still finds
+ *  "bellboy"'s "boy", and "boy" still finds "bellboy"). Deliberately looser
+ *  than shared/meanings.ts's meaningsOverlap(), which is strict about full
+ *  glosses; this only has to rule out an unrelated homograph ("gram" / "glam",
+ *  "bread" / "pan"), not prove equivalence. */
+function sharesWord(meaning, text) {
+  const metaWords = meaningWords(meaning);
+  const textWords = meaningWords(text.replace(CURLY_QUOTES, ""));
+  for (const w of metaWords)
+    for (const t of textWords)
+      if (
+        w === t ||
+        (w.length >= 3 && t.length >= 3 && (w.includes(t) || t.includes(w)))
+      )
+        return true;
+  return false;
+}
+
 /** The Etymology section(s) that belong to this word's reading. A page with
  *  several readings (大人 → おとな / うし / たいじん / だいにん) has one section
  *  per reading; quoting another reading's section would misattribute it.
- *  Katakana loanword pages usually declare no reading at all — their sections
- *  are alternative etymologies of the one spelling, so all of them apply. */
-export function pickSections(snapshotEntry, kana, term = kana) {
+ *  Katakana loanword pages usually declare no reading at all. Most of the
+ *  time their sections are alternative etymologies of the one spelling
+ *  (ガラス / グラス, "glass"), so all of them apply — but a few are true
+ *  homographs with unrelated senses sharing a spelling (パン "bread" vs. a
+ *  stray "borrowed from English pan" section that isn't about bread at all),
+ *  caught by checking each section against the word's own pool meaning. */
+export function pickSections(snapshotEntry, kana, term = kana, meaning) {
   const sections = snapshotEntry?.etymologies ?? [];
   if (sections.length === 0) throw new Error("no Etymology section pinned");
   const hira = toHiragana(kana);
@@ -65,7 +93,13 @@ export function pickSections(snapshotEntry, kana, term = kana) {
   }
   const matched = sections.filter((x) => covers(x.readings ?? [], hira));
   if (matched.length > 0) return matched;
-  if (katakana && sections.every((x) => !x.readings?.length)) return sections;
+  if (katakana && sections.every((x) => !x.readings?.length)) {
+    if (meaning) {
+      const bySense = sections.filter((x) => sharesWord(meaning, x.text));
+      if (bySense.length > 0) return bySense;
+    }
+    return sections;
+  }
   throw new Error(
     `${sections.length} sections, none for ${kana} (they cover ${sections
       .map((x) => x.readings?.join("/") || "?")
@@ -592,7 +626,7 @@ export function buildEntry(plan, ctx) {
   const word = candidates[0];
   const snap = ctx.snapshot.entries[plan.term];
   if (!snap) throw new Error(`${plan.term}: no pinned Wiktionary page`);
-  const sections = pickSections(snap, word.kana, plan.term);
+  const sections = pickSections(snap, word.kana, plan.term, word.meaning);
   const lines = evidenceLines(sections);
   if (lines.length === 0)
     throw new Error(`${plan.term}: matched section has no text`);
