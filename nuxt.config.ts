@@ -115,15 +115,9 @@ export default defineNuxtConfig({
     upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
     upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
     cronSecret: process.env.CRON_SECRET,
-    public: {
-      apiBase: "/api",
-    },
   },
   vite: {
     plugins: [tailwindcss()],
-    optimizeDeps: {
-      include: ["@internationalized/date", "marked"],
-    },
   },
   hints: {
     features: {
