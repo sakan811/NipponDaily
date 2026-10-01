@@ -277,24 +277,21 @@
   --on-error: #0b0e14;
 }
 
-/* Seasonal design preset, set by the external theme agent via the MCP
-   server's save_site_theme tool (server/api/mcp.ts) and applied as a
-   data-season attribute on <html> — see app/composables/useSiteTheme.ts.
-   Each season below resolves to a complete palette — primary, secondary,
-   success, warning, and error, each with its own on-* text pairing —
-   verified for WCAG AA contrast (>=4.5:1) against whichever on-* color it
-   pairs with, so the MCP agent can switch seasons freely without ever
-   landing on an inaccessible or half-applied combination. Only neutral
-   (canvas backgrounds, body text, borders) stays constant across seasons —
-   it's the shared reading surface, not part of a season's identity, and
-   varying it per season would be a much bigger, riskier redesign than what
-   the MCP tool is scoped to control. sakura IS the base palette (:root /
-   .dark above), so it needs no block of its own; summer/winter define only
-   primary/secondary (+ on-colors) and inherit the base success/warning/error,
-   which stay distinct from their cool hues. The names + 500 values of every
-   season are mirrored in shared/seasons.ts (docs page + MCP) and checked
-   against this file by test/unit/seasons-css-sync.test.ts. Every season also carries its
-   own SHAPE language (card/button/badge silhouettes, motifs, dividers,
+/* Seasonal design presets, applied as a data-season attribute on <html> —
+   see app/composables/useSiteTheme.ts. The site season is set by the daily
+   cron (server/api/cron/update-season.get.ts); a reader can override it with
+   the header's season button. Each season below resolves to a complete
+   palette — primary, secondary, success, warning, and error, each with its
+   own on-* text pairing — so switching seasons never lands on a half-applied
+   combination. Only neutral (canvas backgrounds, body text, borders) stays
+   constant across seasons: it's the shared reading surface, not part of a
+   season's identity. sakura IS the base palette (:root / .dark above), so it
+   needs no block of its own; summer/winter define only primary/secondary
+   (+ on-colors) and inherit the base success/warning/error, which stay
+   distinct from their cool hues. The names + 500 values of every season are
+   mirrored in shared/seasons.ts (docs page) and checked against this file by
+   test/unit/seasons-css-sync.test.ts. Every season also carries its own
+   SHAPE language (card/button/badge silhouettes, motifs, dividers,
    backdrop) — see "Seasonal shape language" further down this file. */
 [data-season="autumn"] {
   /* Momiji (Japanese maple) red-orange */
@@ -593,7 +590,7 @@
 /* ─────────────────────────────────────────────────────────────────────────
    Seasonal shape language
    ─────────────────────────────────────────────────────────────────────────
-   A season is more than a palette: the same save_site_theme MCP call that
+   A season is more than a palette: the same data-season attribute that
    swaps colours also swaps the SHAPE of the UI. Every silhouette the shared
    components draw — card/panel/button/badge corners, card shadow, the card's
    corner motif, dividers, the page backdrop pattern and the kicker bullet —

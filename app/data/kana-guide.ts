@@ -2,7 +2,7 @@
  * Static content for the /kana learning page: the 46-symbol gojūon for both
  * scripts, grouped by row, each paired with a short shape mnemonic. Purely
  * editorial content (not the persisted JLPT pool) — nothing here is read by
- * the daily words or the MCP server.
+ * the daily words.
  */
 
 export interface KanaEntry {

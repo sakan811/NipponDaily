@@ -4,10 +4,7 @@ import { safeGetQuery } from "../utils/http-query";
 import { DEFAULT_JLPT_LEVEL, JLPT_LEVELS } from "~~/shared/jlpt";
 
 const vocabQuerySchema = z.object({
-  // The client-side vocab guide/lesson pages never pass this yet — they
-  // only ever want N5, same as before this param existed. Exposed for
-  // programmatic/future use now that N4-N2 pools are seedable (see
-  // scripts/seed-pool-data.mjs).
+  // Defaults to N5; N4-N2 pools are seedable (see scripts/seed-pool-data.mjs).
   level: z
     .enum(JLPT_LEVELS)
     .nullable()
@@ -17,10 +14,8 @@ const vocabQuerySchema = z.object({
 
 /**
  * GET /api/pool-vocab — the full vocabulary pool for one JLPT level (N5 by
- * default), for the client-side vocab guide pages (app/pages/vocab/index.vue
- * and app/pages/vocab/types/[key].vue) and the lesson pages
- * (app/pages/learn/). Unlike /api/daily-game this returns the whole static
- * pool as-is; there's nothing per-date to compute or persist here.
+ * default), with shared/meanings.ts's corrections applied. Reference data no
+ * page reads today; there's nothing per-date to compute or persist here.
  */
 export default defineEventHandler(async (event) => {
   try {

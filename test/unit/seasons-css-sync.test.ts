@@ -10,7 +10,7 @@ import {
 
 /**
  * shared/seasons.ts mirrors the 500 value of every palette family per
- * season/mode (it feeds the docs page and the MCP tools). This resolves the
+ * season/mode (it feeds the docs page and the season button). This resolves the
  * real cascade in tailwind.css and fails if the two ever drift apart.
  */
 const css = readFileSync(
