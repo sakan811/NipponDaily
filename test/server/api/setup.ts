@@ -1,5 +1,5 @@
 import { vi } from "vitest";
-import type { DailyGame, SiteTheme } from "~~/types/index";
+import type { SiteTheme } from "~~/types/index";
 
 // Mock useRuntimeConfig with hoisted mock
 const { mockUseRuntimeConfig } = vi.hoisted(() => {
@@ -16,12 +16,8 @@ vi.mock("#app", () => ({
   useRuntimeConfig: mockUseRuntimeConfig,
 }));
 
-// Mock the N5 data service — daily-game.get.ts reads exclusively from Redis
-// via this service (falling back to a generated game when none exists yet).
-export const mockGetDailyGame = vi.fn();
-export const mockGetDailyGames = vi.fn();
-export const mockSaveDailyGame = vi.fn();
-export const mockGetFullPool = vi.fn();
+// Mock the pool data service — pool-vocab.get.ts and pool-kanji.get.ts read
+// exclusively from Redis via this service.
 export const mockGetVocabPool = vi.fn();
 export const mockGetKanjiPool = vi.fn();
 
@@ -31,10 +27,6 @@ vi.mock("~/server/services/pool-data", async (importOriginal) => {
   return {
     ...actual,
     poolDataService: {
-      getDailyGame: mockGetDailyGame,
-      getDailyGames: mockGetDailyGames,
-      saveDailyGame: mockSaveDailyGame,
-      getFullPool: mockGetFullPool,
       getVocabPool: mockGetVocabPool,
       getKanjiPool: mockGetKanjiPool,
     },
@@ -73,10 +65,7 @@ export const getSiteThemeHandler = async () => {
   return handlerModule.default;
 };
 
-/** A pool with exactly enough items per kind for buildDailyGame to succeed.
- *  Kanji/vocab need at least 10 each (not just 5) since a non-N5 level's
- *  round draws 10 of each to backfill the kana questions it skips — see
- *  server/utils/daily-game.ts's kindsForLevel. */
+/** A small kanji + vocab pool for the pool endpoints' tests. */
 export const createMockPool = () => ({
   kanji: Array.from({ length: 12 }, (_, i) => ({
     id: `漢${i}`,
@@ -95,45 +84,7 @@ export const createMockPool = () => ({
     meaning: `word${i}`,
     jlptLevel: "N5" as const,
   })),
-  hiragana: Array.from({ length: 6 }, (_, i) => ({
-    id: `ひ${i}`,
-    char: `ひ${i}`,
-    script: "hiragana" as const,
-    romaji: `hi${i}`,
-  })),
-  katakana: Array.from({ length: 6 }, (_, i) => ({
-    id: `ヒ${i}`,
-    char: `ヒ${i}`,
-    script: "katakana" as const,
-    romaji: `hi${i}`,
-  })),
 });
-
-export const createMockDailyGame = (
-  overrides: Partial<DailyGame> = {},
-): DailyGame => ({
-  date: "2026-09-18",
-  level: "N5",
-  questions: [
-    {
-      id: "語0",
-      kind: "vocab",
-      prompt: "語0",
-      promptSub: "ご0",
-      correctAnswer: "word0",
-      choices: ["word0", "word1", "word2", "word3"],
-    },
-  ],
-  generatedAt: Date.now(),
-  source: "agent",
-  ...overrides,
-});
-
-// Helper function to get the handler
-export const getHandler = async () => {
-  const handlerModule = await import("~/server/api/daily-game.get");
-  return handlerModule.default;
-};
 
 // Helper function to get the pool-vocab handler
 export const getVocabHandler = async () => {
@@ -147,22 +98,11 @@ export const getKanjiHandler = async () => {
   return handlerModule.default;
 };
 
-// Helper function to get the generate-daily-game cron handler
-export const getCronGenerateDailyGameHandler = async () => {
-  const handlerModule =
-    await import("~/server/api/cron/generate-daily-game.get");
-  return handlerModule.default;
-};
-
 // Helper function to setup default mocks
 export const setupDefaults = () => {
   vi.clearAllMocks();
   delete process.env.NODE_ENV;
   (global as any).getQuery.mockReturnValue({});
-  mockGetDailyGame.mockResolvedValue(null);
-  mockGetDailyGames.mockResolvedValue([]);
-  mockSaveDailyGame.mockResolvedValue(undefined);
-  mockGetFullPool.mockResolvedValue(createMockPool());
   mockGetVocabPool.mockResolvedValue(createMockPool().vocab);
   mockGetKanjiPool.mockResolvedValue(createMockPool().kanji);
   mockGetActiveTheme.mockResolvedValue(null);

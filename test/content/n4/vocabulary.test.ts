@@ -1,8 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { toKatakana } from "wanakana";
 import { VOCAB_FORM_CORRECTIONS, servedVocab } from "~~/shared/meanings";
-import { N4_WORD_CLUSTERS } from "~/app/data/vocab-guide-n4";
-import { N4_LESSON_NUMBER_BY_WORD } from "~/app/data/lessons-n4";
 import {
   checkMeaning,
   // @ts-expect-error — untyped .mjs seed script
@@ -16,11 +14,10 @@ import {
 } from "../reference";
 
 /**
- * The N4 pool itself — every word the N4 lessons and vocab guide show —
- * checked against JMdict/KANJIDIC2 evidence in
- * data/reference/n4-reference.json. Mirrors test/content/vocabulary.test.ts's
- * N5 checks; see CLAUDE.md's Content Accuracy section for why N4 is gated
- * and N3/N2 (evidence-only, no hand-written content yet) are not.
+ * The N4 pool itself — every word it serves — checked against
+ * JMdict/KANJIDIC2 evidence in data/reference/n4-reference.json. Mirrors
+ * test/content/vocabulary.test.ts's N5 checks; see CLAUDE.md's Content
+ * Accuracy section.
  */
 
 const reference = loadReference("N4");
@@ -54,19 +51,6 @@ describe("every served N4 word", () => {
       )
       .filter(Boolean);
     expect(reversed).toEqual([]);
-  });
-
-  it("is taught by a lesson, and every lesson word is a real pool word", () => {
-    const untaught = reference.vocab
-      .map((v) => v.id)
-      .filter((id) => !N4_LESSON_NUMBER_BY_WORD.has(id));
-    expect(untaught, "N4 words missing from the lesson path").toEqual([]);
-
-    const vocabByIdSet = new Set(reference.vocab.map((v) => v.id));
-    const unknownIds = N4_WORD_CLUSTERS.flatMap((c) =>
-      c.rows.flatMap((r) => r.terms),
-    ).filter((id) => !vocabByIdSet.has(id));
-    expect(unknownIds, "cluster terms that aren't pool ids").toEqual([]);
   });
 });
 

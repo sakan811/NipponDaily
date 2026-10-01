@@ -1,37 +1,9 @@
 /**
- * Meaning helpers shared by the daily game (server/utils/daily-game.ts),
- * the vocab pool service (server/services/pool-data.ts), and the lesson
- * path's flip-card review (app/pages/learn/[lesson].vue), so every place a
- * word's meaning is shown or quizzed agrees on what that meaning is.
+ * Meaning helpers shared by the vocab pool service
+ * (server/services/pool-data.ts) and the content checks under test/content/,
+ * so every place a word's meaning is shown or verified agrees on what that
+ * meaning is.
  */
-
-/** How many KANJIDIC2 meanings a kanji answer shows — enough to cover a
- *  character's main senses (日: "day, sun, Japan") without turning a
- *  multiple-choice option into a paragraph. */
-export const KANJI_MEANING_LIMIT = 3;
-
-/**
- * A kanji's answer text: its first few distinct KANJIDIC2 meanings joined
- * together, instead of only the first one. Many N5 kanji carry several
- * equally common senses (日 day/sun/Japan, 上 above/up, 生 life/birth), and
- * showing just one hid the rest from the player.
- */
-export function kanjiMeaningLabel(
-  meanings: readonly string[],
-  limit = KANJI_MEANING_LIMIT,
-): string {
-  const seen = new Set<string>();
-  const out: string[] = [];
-  for (const raw of meanings) {
-    const meaning = raw.trim();
-    const key = meaning.toLowerCase();
-    if (!meaning || seen.has(key)) continue;
-    seen.add(key);
-    out.push(meaning);
-    if (out.length >= limit) break;
-  }
-  return out.join(", ");
-}
 
 /**
  * Fuller glosses for N5 words whose source-list meaning (elzup/jlpt-word-list)
@@ -707,10 +679,10 @@ export function meaningWords(text: string): Set<string> {
 }
 
 /**
- * True when two answers could both pass as correct — identical text, or a
+ * True when two glosses could describe the same sense — identical text, or a
  * shared content word ("hot (objects)" vs "hot (weather), warm"; "to be,
- * to have" for both 在る and 有る). Used to keep such pairs out of the same
- * multiple-choice question.
+ * to have" for both 在る and 有る). Used to check a hand-written meaning
+ * against JMdict's glosses and to spot reversed meanings.
  */
 export function meaningsOverlap(a: string, b: string): boolean {
   if (a.trim().toLowerCase() === b.trim().toLowerCase()) return true;
@@ -719,36 +691,4 @@ export function meaningsOverlap(a: string, b: string): boolean {
     if (wordsA.has(word)) return true;
   }
   return false;
-}
-
-/**
- * Picks `count` distractor answers from `candidates` (already shuffled by
- * the caller) that can't be confused with `correct` or with each other.
- * If the pool is too small to satisfy that, it tops up with any answer
- * whose text simply differs — a question never ends up with duplicate
- * choices either way.
- */
-export function pickDistractors(
-  correct: string,
-  candidates: readonly string[],
-  count: number,
-): string[] {
-  const picked: string[] = [];
-  for (const candidate of candidates) {
-    if (picked.length >= count) break;
-    if (meaningsOverlap(candidate, correct)) continue;
-    if (picked.some((p) => meaningsOverlap(p, candidate))) continue;
-    picked.push(candidate);
-  }
-  if (picked.length < count) {
-    const used = new Set([correct, ...picked].map((a) => a.toLowerCase()));
-    for (const candidate of candidates) {
-      if (picked.length >= count) break;
-      const key = candidate.toLowerCase();
-      if (used.has(key)) continue;
-      used.add(key);
-      picked.push(candidate);
-    }
-  }
-  return picked;
 }

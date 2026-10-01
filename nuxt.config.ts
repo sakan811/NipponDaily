@@ -1,6 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
 import { SEASON_IDS } from "./shared/seasons";
-import { FAMILY_LESSON_REDIRECTS } from "./app/data/lessons";
 
 const FONTS_URL =
   "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Zen+Old+Mincho:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@400;700&display=swap";
@@ -102,20 +101,17 @@ export default defineNuxtConfig({
           "public, max-age=0, s-maxage=60, stale-while-revalidate=600",
       },
     },
-    // The word-family topic pages became the /learn lesson path.
-    "/vocab/families": { redirect: { to: "/learn", statusCode: 301 } },
-    ...Object.fromEntries(
-      Object.entries(FAMILY_LESSON_REDIRECTS).map(([from, to]) => [
-        from,
-        { redirect: { to, statusCode: 301 } },
-      ]),
-    ),
+    // The daily game and the lesson/vocabulary pages were replaced by the
+    // daily-word calendar. Temporary (not 301) redirects, so old bookmarks and
+    // links land on the front page without a browser caching the move forever.
+    "/game": { redirect: { to: "/", statusCode: 302 } },
+    "/learn/**": { redirect: { to: "/", statusCode: 302 } },
+    "/vocab/**": { redirect: { to: "/", statusCode: 302 } },
   },
   runtimeConfig: {
     upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
     upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
     mcpAuthToken: process.env.MCP_AUTH_TOKEN,
-    cronSecret: process.env.CRON_SECRET,
     public: {
       apiBase: "/api",
     },
