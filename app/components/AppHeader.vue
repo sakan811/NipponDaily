@@ -22,12 +22,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] dark:hidden rounded-full"
-          />
+          >
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] hidden dark:block rounded-full"
-          />
+          >
         </span>
         <span
           class="font-serif font-bold text-[1em] leading-none text-stone-900 dark:text-white"
@@ -48,7 +48,10 @@
             >Kana</NuxtLink
           >
         </nav>
-        <UColorModeButton class="hover:text-primary-500 transition-colors" />
+        <div class="flex items-center gap-1">
+          <SeasonButton />
+          <UColorModeButton class="hover:text-primary-500 transition-colors" />
+        </div>
       </div>
     </template>
   </UHeader>
