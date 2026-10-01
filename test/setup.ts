@@ -1,9 +1,6 @@
-import { vi, expect } from "vitest";
+import { vi } from "vitest";
 import { config } from "@vue/test-utils";
 import { ref, computed, reactive, onMounted, onUnmounted } from "vue";
-
-// Add custom matchers
-import type { MatcherFunction } from "vitest";
 
 // Make Vue composition functions globally available
 (global as any).ref = ref;
@@ -51,11 +48,7 @@ globalMockFetch.mockResolvedValue({
 process.env.NODE_ENV = "test";
 
 // Enhanced Nuxt composables mock with more comprehensive coverage
-const mockRuntimeConfig = vi.fn(() => ({
-  public: {
-    apiBase: "/api",
-  },
-}));
+const mockRuntimeConfig = vi.fn(() => ({ public: {} }));
 
 vi.mock("#app", () => ({
   useRuntimeConfig: mockRuntimeConfig,
@@ -128,28 +121,6 @@ global.fetch = vi.fn(() =>
   }),
 );
 
-// Mock @internationalized/date for calendar components
-class MockCalendarDate {
-  constructor(year: number, month: number, day: number) {
-    this.year = year;
-    this.month = month;
-    this.day = day;
-  }
-  year: number;
-  month: number;
-  day: number;
-  subtract(options: { days: number }) {
-    return new MockCalendarDate(this.year, this.month, this.day - options.days);
-  }
-  add(options: { days: number }) {
-    return new MockCalendarDate(this.year, this.month, this.day + options.days);
-  }
-}
-
-vi.mock("@internationalized/date", () => ({
-  CalendarDate: MockCalendarDate,
-}));
-
 // Configure Vue Test Utils with enhanced mocks
 config.global.stubs = {
   NuxtLink: {
@@ -172,30 +143,10 @@ config.global.stubs = {
     ],
     emits: ["click"],
   },
-  UInput: {
-    template:
-      '<input :id="id" :type="type" :value="modelValue" :placeholder="placeholder" :disabled="disabled" :min="min" :max="max" class="u-input" @input="$emit(\'update:modelValue\', $event.target.value)" />',
-    props: [
-      "id",
-      "modelValue",
-      "type",
-      "placeholder",
-      "disabled",
-      "min",
-      "max",
-      "size",
-    ],
-    emits: ["update:modelValue"],
-  },
   UCard: { template: '<div class="u-card"><slot /></div>' },
   UBadge: {
     template: '<span class="u-badge" :class="`badge-${color}`"><slot /></span>',
     props: ["color", "size", "variant"],
-  },
-  UDropdownMenu: {
-    template:
-      '<div class="u-dropdown"><slot name="content-top" /><slot /></div>',
-    props: ["ui"],
   },
   UHeader: {
     template:
@@ -203,53 +154,16 @@ config.global.stubs = {
     props: ["open"],
     emits: ["update:open"],
   },
-  UMain: { template: '<main class="u-main"><slot /></main>' },
   UApp: { template: '<div class="u-app"><slot /></div>' },
   USkeleton: { template: '<div class="u-skeleton"><slot /></div>' },
-  UPagination: {
-    template:
-      '<div class="u-pagination" @click="$emit(\'update:page\', page + 1)"></div>',
-    props: ["page", "total", "itemsPerPage"],
-    emits: ["update:page"],
-  },
-  UCalendar: {
-    template: '<div class="u-calendar"><slot /></div>',
-    props: ["modelValue", "minValue", "maxValue", "range", "numberOfMonths"],
-    emits: ["update:modelValue"],
-  },
-  UPopover: {
-    template: '<div class="u-popover"><slot /></div>',
-    props: ["ui"],
-  },
   UColorModeButton: {
     template: '<button class="u-color-mode-button u-button"><slot /></button>',
-  },
-  ULocaleSelect: {
-    template:
-      '<select :id="id" class="u-locale-select" :disabled="disabled"><option v-for="locale in locales" :key="locale.code" :value="locale.code">{{ locale.name }}</option></select>',
-    props: ["id", "modelValue", "locales", "disabled", "size", "class"],
-    emits: ["update:modelValue"],
   },
   UIcon: {
     template: '<span class="u-icon" :name="name" />',
     props: ["name", "class", "aria-hidden"],
   },
-  UTooltip: {
-    template: '<div class="u-tooltip"><slot /></div>',
-    props: ["text", "ui"],
-  },
   UPage: { template: '<div class="u-page"><slot /></div>' },
-  UPageHero: {
-    template:
-      '<section class="u-page-hero"><slot name="headline" /><h1>{{ title }}</h1><p>{{ description }}</p><a v-for="(link, i) in links" :key="i" :href="link.to">{{ link.label }}</a></section>',
-    props: ["title", "description", "links", "ui", "class"],
-  },
-  UPageSection: {
-    template:
-      '<section class="u-page-section"><h2>{{ title }}</h2><p>{{ description }}</p><slot /></section>',
-    props: ["title", "description"],
-  },
-  UPageGrid: { template: '<div class="u-page-grid"><slot /></div>' },
   UPageCard: {
     template:
       '<div class="u-page-card"><h3>{{ title }}</h3><p>{{ description }}</p></div>',
@@ -289,89 +203,3 @@ config.global.plugins = [
     },
   },
 ];
-
-// Global test utilities
-export const createMockNews = (overrides: any = {}) => ({
-  title: "Test News Article",
-  summary: "This is a test summary",
-  content: "This is test content",
-  source: "Test Source",
-  publishedAt: "2024-01-15T10:00:00Z",
-  category: "Technology",
-  url: "https://example.com/test",
-  ...overrides,
-});
-
-export const createMockErrorResponse = (message: string, statusCode = 500) => ({
-  data: {
-    error: message,
-    statusCode,
-  },
-});
-
-export const resetAllMocks = () => {
-  vi.clearAllMocks();
-  globalMockFetch.mockResolvedValue({
-    data: [],
-    success: true,
-    count: 0,
-    timestamp: new Date().toISOString(),
-  });
-};
-
-const toBeInTheDocument: MatcherFunction = function (received) {
-  // Use happy-dom's document implementation
-  const pass =
-    received &&
-    typeof document !== "undefined" &&
-    document.documentElement.contains(received);
-  return {
-    message: () =>
-      pass
-        ? `expected element not to be in the document`
-        : `expected element to be in the document`,
-    pass,
-  };
-};
-
-const toHaveBeenCalledWithFetchOptions: MatcherFunction = function (
-  received,
-  expectedOptions,
-) {
-  const pass =
-    received &&
-    expectedOptions &&
-    received.mock.calls.some((call: any) => {
-      const [url, options] = call;
-      return (
-        url === expectedOptions.url &&
-        JSON.stringify(options) === JSON.stringify(expectedOptions.options)
-      );
-    });
-
-  return {
-    message: () =>
-      pass
-        ? `expected $fetch not to have been called with ${JSON.stringify(expectedOptions)}`
-        : `expected $fetch to have been called with ${JSON.stringify(expectedOptions)}`,
-    pass,
-  };
-};
-
-expect.extend({
-  toBeInTheDocument,
-  toHaveBeenCalledWithFetchOptions,
-});
-
-declare module "vitest" {
-  interface Assertion<T = any> {
-    toBeInTheDocument(): T;
-    toHaveBeenCalledWithFetchOptions(options: {
-      url: string;
-      options?: any;
-    }): T;
-  }
-}
-
-// Note: Test cleanup should be handled in individual test files using afterEach
-// export resetAllMocks for use in test files
