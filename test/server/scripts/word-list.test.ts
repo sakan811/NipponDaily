@@ -6,15 +6,11 @@ import {
   findReversedMeaning,
   parseJlptCsv,
   parseN5Csv,
-  assembleVocab,
   dedupeAcrossLevels,
-  deriveKanjiChars,
-  poolIdsKey,
-  poolItemPrefix,
-} from "../../../scripts/seed-pool-data.mjs";
+} from "../../../scripts/lib/word-list.mjs";
 
 // Guards against a known-bad gloss in the upstream elzup/jlpt-word-list N5
-// CSV silently reappearing (see scripts/seed-pool-data.mjs for the story):
+// CSV silently reappearing (see scripts/lib/word-list.mjs for the story):
 // あちら is the far-from-both-parties direction word ("that way over
 // there"), but the source list has it backwards as "this way (polite)".
 describe("VOCAB_MEANING_OVERRIDES", () => {
@@ -28,8 +24,7 @@ describe("VOCAB_MEANING_OVERRIDES", () => {
 // Source list stores this reading as "(〜を) とお", bundling in a
 // grammar usage note (object-marking を) rather than a bare reading —
 // this override strips it down to the actual native reading, とお, so it
-// can be surfaced as its own entry in the Numbers cluster's native
-// counting row (see app/data/vocab-guide.ts).
+// can be treated as its own word.
 describe("VOCAB_READING_OVERRIDES", () => {
   it("strips the usage-note annotation from 十's native とお reading", () => {
     expect(VOCAB_READING_OVERRIDES["十 (〜を) とお"]).toBe("とお");
@@ -41,7 +36,7 @@ describe("VOCAB_READING_OVERRIDES", () => {
 });
 
 // findReversedMeaning/checkMeaning are the auto-check that would have
-// caught the あちら bug at seed time, by comparing the CSV gloss against
+// caught the あちら bug when the reference is built, by comparing the CSV gloss against
 // JMdict's own gloss for the same term+reading and flagging swapped
 // antonym pairs (this/that, near/far, …) rather than a plain "no shared
 // words" diff, which is far too noisy (~11% of the pool is synonym drift).
@@ -92,37 +87,6 @@ describe("parseJlptCsv", () => {
 
   it('parseN5Csv is identical to parseJlptCsv(text, "N5")', () => {
     expect(parseN5Csv(csv)).toEqual(parseJlptCsv(csv, "N5"));
-  });
-});
-
-describe("assembleVocab / deriveKanjiChars", () => {
-  it("stamps the given level onto every assembled vocab entry", () => {
-    const entries = [
-      { term: "食べる", kana: "たべる", meaning: "to eat" },
-      { term: "飲む", kana: "のむ", meaning: "to drink" },
-    ];
-    const { vocab } = assembleVocab(entries, new Map(), "N3");
-    expect(
-      vocab.every((v: { jlptLevel: string }) => v.jlptLevel === "N3"),
-    ).toBe(true);
-  });
-
-  it("gives each level its own id namespace (no cross-level id suffixing)", () => {
-    // Both levels happen to share a term — assembling them separately (as
-    // seedLevel does, one call per level) must not suffix the second one
-    // with "-2" the way a shared id set would.
-    const entries = [{ term: "本", kana: "ほん", meaning: "book" }];
-    const { vocab: n5 } = assembleVocab(entries, new Map(), "N5");
-    const { vocab: n4 } = assembleVocab(entries, new Map(), "N4");
-    expect(n5[0]!.id).toBe("本");
-    expect(n4[0]!.id).toBe("本");
-  });
-
-  it("derives the union of kanji characters across the given vocab", () => {
-    const vocab = [{ term: "食べる" }, { term: "飲む" }, { term: "水" }];
-    expect(new Set(deriveKanjiChars(vocab))).toEqual(
-      new Set(["食", "飲", "水"]),
-    );
   });
 });
 
@@ -191,26 +155,6 @@ describe("dedupeAcrossLevels", () => {
     );
     expect(kept).toHaveLength(1);
     expect(dropped).toEqual([]);
-  });
-});
-
-// poolIdsKey/poolItemPrefix are duplicated (not shared, see the comment at
-// their definition) between this script and
-// server/services/pool-data.ts — this pins their exact shape so the two
-// can't silently drift out of sync with each other.
-describe("poolIdsKey / poolItemPrefix", () => {
-  it("keeps N5's original, un-namespaced keys", () => {
-    expect(poolIdsKey("vocab", "N5")).toBe("n5:vocab_ids");
-    expect(poolItemPrefix("vocab", "N5")).toBe("n5:vocab:");
-    expect(poolIdsKey("kanji", "N5")).toBe("n5:kanji_ids");
-    expect(poolItemPrefix("kanji", "N5")).toBe("n5:kanji:");
-  });
-
-  it("namespaces other levels under their own key", () => {
-    expect(poolIdsKey("vocab", "N4")).toBe("n5:vocab_ids:N4");
-    expect(poolItemPrefix("vocab", "N4")).toBe("n5:vocab:N4:");
-    expect(poolIdsKey("kanji", "N2")).toBe("n5:kanji_ids:N2");
-    expect(poolItemPrefix("kanji", "N2")).toBe("n5:kanji:N2:");
   });
 });
 

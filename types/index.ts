@@ -5,50 +5,11 @@ export interface ApiResponse<T = unknown> {
   timestamp: string;
 }
 
-// --- JLPT LEARNING POOL ---
+// --- JLPT ---
 
-/** The JLPT levels NipponDaily has a seeded pool for — see shared/jlpt.ts's
- *  JLPT_LEVELS for the runtime-checkable version of this same set. The daily
- *  words (data/words/) are drawn from all four; see docs/content-accuracy.md. */
+/** The JLPT levels the daily words are drawn from — see shared/jlpt.ts's
+ *  JLPT_LEVELS for the runtime-checkable version of this same set. */
 export type JlptLevel = "N5" | "N4" | "N3" | "N2";
-
-export type KanaScript = "hiragana" | "katakana";
-
-/** One hiragana or katakana character (base gojūon or a dakuten/digraph
- *  variant). Hardcoded seed data — see scripts/seed-pool-data.mjs. */
-export interface KanaCharacter {
-  id: string;
-  char: string;
-  script: KanaScript;
-  /** Hepburn rōmaji, derived via wanakana at seed time. */
-  romaji: string;
-}
-
-/** One kanji from a level's pool, enriched from KANJIDIC2. */
-export interface PoolKanji {
-  id: string;
-  character: string;
-  /** English meanings from KANJIDIC2. */
-  meanings: string[];
-  onyomi: string[];
-  kunyomi: string[];
-  strokeCount: number;
-  jlptLevel: JlptLevel;
-}
-
-/** One vocabulary word from a level's pool, cross-referenced against JMdict. */
-export interface PoolVocab {
-  id: string;
-  /** Kanji/kana surface form, e.g. "食べる". */
-  term: string;
-  /** Kana reading. */
-  kana: string;
-  /** Hepburn rōmaji, derived via wanakana at seed time. */
-  romaji: string;
-  meaning: string;
-  partOfSpeech?: string;
-  jlptLevel: JlptLevel;
-}
 
 // --- DAILY WORD ---
 

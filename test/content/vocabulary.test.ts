@@ -7,11 +7,10 @@ import {
 } from "~~/shared/meanings";
 import {
   VOCAB_MEANING_OVERRIDES,
-  VOCAB_POS_OVERRIDES,
   VOCAB_READING_OVERRIDES,
   checkMeaning,
-  // @ts-expect-error — untyped .mjs seed script
-} from "~/scripts/seed-pool-data.mjs";
+  // @ts-expect-error — untyped .mjs script
+} from "~/scripts/lib/word-list.mjs";
 import {
   glossesOf,
   kanjiReadings,
@@ -70,7 +69,7 @@ describe("hand-written meanings are backed by JMdict", () => {
     },
   );
 
-  // VOCAB_MEANING_OVERRIDES applies across every seeded level, but this
+  // VOCAB_MEANING_OVERRIDES applies across every level, but this
   // project only has committed dictionary evidence for N5 (see CLAUDE.md's
   // "Content Accuracy" — N4-N2 are evidence-only, not yet gated) — so an
   // override keyed to an N4-N2 word has nothing to check against here and
@@ -79,16 +78,16 @@ describe("hand-written meanings are backed by JMdict", () => {
     Object.entries(VOCAB_MEANING_OVERRIDES as Record<string, string>).filter(
       ([key]) => vocabByListKey.has(key),
     ),
-  )("seed override %s → %s", (key, meaning) => {
+  )("word-list override %s → %s", (key, meaning) => {
     const v = vocabByListKey.get(key);
     expect(v, `${key} is not in the word list`).toBeDefined();
     expect(unsupportedSenses(meaning, glossesOf(v!))).toEqual([]);
   });
 
-  // VOCAB_FORM_CORRECTIONS applies across every seeded level (see
+  // VOCAB_FORM_CORRECTIONS applies across every level (see
   // shared/meanings.ts) — a correction keyed to another level's word (e.g.
   // an N4 entry) has nothing to check against N5's own reference, so it's
-  // skipped here the same way the seed-override check above skips N4-N2
+  // skipped here the same way the word-list-override check above skips N4-N2
   // overrides.
   it.each(
     Object.entries(VOCAB_FORM_CORRECTIONS).filter(
@@ -101,22 +100,11 @@ describe("hand-written meanings are backed by JMdict", () => {
   });
 
   it.each(Object.entries(VOCAB_READING_OVERRIDES as Record<string, string>))(
-    "seed reading override %s → %s is a JMdict reading",
+    "word-list reading override %s → %s is a JMdict reading",
     (key, reading) => {
       const v = vocabByListKey.get(key);
       expect(v).toBeDefined();
       expect(v!.jmdict.flatMap((e) => e.readings)).toContain(reading);
-    },
-  );
-
-  it.each(Object.entries(VOCAB_POS_OVERRIDES as Record<string, string>))(
-    "seed part-of-speech override %s → %s is a JMdict tag",
-    (key, pos) => {
-      const v = vocabBySeedKey.get(key);
-      expect(v).toBeDefined();
-      expect(
-        v!.jmdict.flatMap((e) => e.senses.flatMap((s) => s.pos)),
-      ).toContain(pos);
     },
   );
 });
@@ -128,7 +116,6 @@ describe("data/reference/n5-reference.json", () => {
       const served = servedVocab({
         term: v.listTerm,
         kana: seedKana,
-        romaji: "",
         meaning: v.meaning,
       });
       return served.term !== v.term || served.kana !== v.kana;

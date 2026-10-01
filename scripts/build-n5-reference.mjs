@@ -4,20 +4,18 @@
  * content is checked against in CI (see the "Data Integrity & Attribution"
  * docs page, app/pages/docs/data-integrity.vue, and test/content/).
  *
- * Why a committed snapshot: lesson copy, example sentences, meaning
- * enrichments and seed-time corrections are all written by hand, and the
- * dictionary data they depend on otherwise only exists inside Redis, where
- * no test can see it. Pinning the evidence into the repo means every claim
- * is verified on every PR, offline and deterministically, and any change to
- * the evidence itself shows up as a reviewable diff.
+ * Why a committed snapshot: meaning enrichments and form corrections are
+ * written by hand, and the dictionary data they depend on is otherwise
+ * outside the repo, where no test can see it. Pinning the evidence into the
+ * repo means every claim is verified on every PR, offline and
+ * deterministically, and any change to the evidence itself shows up as a
+ * reviewable diff.
  *
  * Sources (pinned — bump deliberately, then re-run and review the diff):
  *   - JMdict + KANJIDIC2 via the jamdict-data package (PyPI), a checksum-
  *     verified SQLite build of the EDRDG files. © EDRDG, CC BY-SA 4.0.
  *   - The N5 word list (elzup/jlpt-word-list, MIT), pinned in
- *     scripts/word-list-source.mjs — the same pin
- *     scripts/seed-pool-data.mjs seeds from, parsed with the same code so ids
- *     match the live pool exactly.
+ *     scripts/word-list-source.mjs and parsed by scripts/lib/word-list.mjs.
  *
  * Requires Node >= 22 (node:sqlite), plus `tar` and `xz` on PATH.
  * Usage: pnpm data:reference
@@ -32,7 +30,7 @@ import {
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import kuromoji from "kuromoji";
-import { parseN5Csv, slugify } from "./seed-pool-data.mjs";
+import { parseN5Csv, slugify } from "./lib/word-list.mjs";
 import { WORD_LIST_SOURCE } from "./word-list-source.mjs";
 import {
   JAMDICT_SOURCE,
@@ -117,18 +115,18 @@ async function main() {
   ]);
   const dict = openDictionary(dbPath);
 
-  // Vocab — same ids as the live pool (same parser, same slugify order).
+  // Vocab — ids from the shared parser and slugify order.
   const seen = new Set();
   // Words are recorded as the site serves them (shared/meanings.ts form
   // corrections and enrichments applied), with the list's own values kept
   // alongside for review.
   const vocab = entries.map((e) => {
     const id = slugify(e.term, seen);
-    const served = servedVocab({ ...e, romaji: "" });
+    const served = servedVocab(e);
     return {
       id,
-      /** `term kana` as seeded — the key shared/meanings.ts and the seed
-       *  overrides use. */
+      /** `term kana` as listed — the key shared/meanings.ts and the
+       *  word-list overrides use. */
       seedKey: `${e.term} ${e.kana}`,
       term: served.term,
       kana: served.kana,

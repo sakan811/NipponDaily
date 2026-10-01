@@ -31,11 +31,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import {
-  dedupeAcrossLevels,
-  parseJlptCsv,
-  slugify,
-} from "./seed-pool-data.mjs";
+import { dedupeAcrossLevels, parseJlptCsv, slugify } from "./lib/word-list.mjs";
 import { WORD_LIST_SOURCES, wordListUrl } from "./word-list-source.mjs";
 import {
   JAMDICT_SOURCE,
@@ -82,11 +78,10 @@ function buildLevelReference(level, entries, dict, shared) {
 
   // Same shape as N5's reference.vocab (id/seedKey/term/kana/meaning/
   // listTerm/listReading/listMeaning/jmdict) — servedVocab() is applied so
-  // this reflects what GET /api/pool-vocab?level=<level> would actually
-  // serve today, even though no corrections exist yet for these levels.
+  // this reflects the corrections and enrichments in shared/meanings.ts.
   const vocab = entries.map((e) => {
     const id = slugify(e.term, seen);
-    const served = servedVocab({ ...e, romaji: "" });
+    const served = servedVocab(e);
     const jmdict = dict.lookupWord(served.term, served.kana);
     // A word JMdict has no headword for can still be sound evidence: a bound
     // affix kanji read as KANJIDIC2 says it can be, or a set phrase whose
@@ -218,11 +213,10 @@ async function main() {
   const shared = await buildSharedContentEvidence(dict, tokenizer);
 
   // A word listed at more than one level with the exact same reading is
-  // only ever seeded at the lowest (easiest) level (see seed-pool-data.mjs's
-  // dedupeAcrossLevels) — mirrored here so this committed evidence always
-  // matches what the live pool actually serves. N5 itself is never gated
-  // by this file (see build-n5-reference.mjs), but its word list still has
-  // to seed the registry first so N4/N3/N2 dedupe against it correctly.
+  // only ever kept at the lowest (easiest) level (see lib/word-list.mjs's
+  // dedupeAcrossLevels). N5 itself is never gated by this file (see
+  // build-n5-reference.mjs), but its word list still has to fill the
+  // registry first so N4/N3/N2 dedupe against it correctly.
   const seenByKey = new Map();
   dedupeAcrossLevels(await fetchWordList("N5"), "N5", seenByKey);
 

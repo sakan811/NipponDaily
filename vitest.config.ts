@@ -20,7 +20,7 @@ export default defineConfig({
           exclude: ["node_modules", "dist", ".idea", ".git", ".cache"],
         },
       },
-      // Content-truth tests: hand-written lesson content checked against
+      // Content-truth tests: the daily-word entries checked against
       // the committed dictionary evidence (data/reference/). See the
       // "Data Integrity & Attribution" docs page (app/pages/docs/data-integrity.vue).
       {
