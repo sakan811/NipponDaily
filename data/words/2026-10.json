@@ -123,20 +123,19 @@
     ],
     "stratum": "gairaigo",
     "processes": [
-      "borrowing",
-      "unclear"
+      "borrowing"
     ],
     "headline": "Japanese パン is Portuguese pão, and behind that, Latin pānis.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "パン",
+        "reading": "パン",
+        "meaning": "Portuguese pão"
+      }
+    ],
     "sources": [
       {
         "quote": "From Portuguese pão (“bread”), from Latin pānem, accusative singular form of pānis (“bread”). Compare French pain, Italian pane, Romanian pâine, Spanish pan."
-      },
-      {
-        "quote": "Borrowed from English pan."
-      },
-      {
-        "quote": "Ultimately from Ancient Greek Πάν (Pán). (This etymology is missing or incomplete. Please add to it, or discuss it at the Etymology scriptorium.)"
       }
     ],
     "wiktionaryRev": 92776501
