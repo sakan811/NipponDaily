@@ -25,7 +25,7 @@ describe("SiteThemeService (Redis)", () => {
     ({ SiteThemeService } = await import("~/server/services/site-theme"));
   });
 
-  const theme = { season: "winter", updatedAt: 1, source: "agent" } as const;
+  const theme = { season: "winter", updatedAt: 1, source: "cron" } as const;
 
   it("reads the stored theme", async () => {
     redisState.get.mockResolvedValue(theme);

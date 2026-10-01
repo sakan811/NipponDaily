@@ -14,7 +14,7 @@ describe("SiteThemeService (in-memory)", () => {
     const theme: SiteTheme = {
       season: "winter",
       updatedAt: 1,
-      source: "agent",
+      source: "cron",
     };
     await service.saveActiveTheme(theme);
     expect(await service.getActiveTheme()).toEqual(theme);
@@ -26,17 +26,17 @@ describe("SiteThemeService (in-memory)", () => {
 
   it("onlyIfAbsent never overwrites an existing theme", async () => {
     const service = new SiteThemeService();
-    const agent: SiteTheme = {
+    const stored: SiteTheme = {
       season: "summer",
       updatedAt: 1,
-      source: "agent",
+      source: "cron",
     };
-    await service.saveActiveTheme(agent);
+    await service.saveActiveTheme(stored);
     await service.saveActiveTheme(
       { season: "sakura", updatedAt: 2, source: "fallback" },
       { onlyIfAbsent: true },
     );
-    expect(await service.getActiveTheme()).toEqual(agent);
+    expect(await service.getActiveTheme()).toEqual(stored);
   });
 
   it("onlyIfAbsent writes when nothing is stored yet", async () => {
@@ -55,7 +55,7 @@ describe("SiteThemeService (in-memory)", () => {
     await service.saveActiveTheme({
       season: "monsoon",
       updatedAt: 1,
-      source: "agent",
+      source: "cron",
     } as unknown as SiteTheme);
     expect(await service.getActiveTheme()).toBeNull();
   });

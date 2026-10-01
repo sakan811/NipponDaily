@@ -2,9 +2,8 @@ import type { SeasonId } from "../types/index";
 
 /**
  * Single source of truth for NipponDaily's seasonal presets — shared by the
- * MCP server (tool schema + get_active_theme payload), GET /api/site-theme,
- * the pre-hydration script in nuxt.config.ts, and the Color Palette docs
- * page. The actual CSS values live in app/assets/css/tailwind.css;
+ * season cron, GET /api/site-theme, the season button, the pre-hydration
+ * script in nuxt.config.ts, and the Color Palette docs page. The actual CSS values live in app/assets/css/tailwind.css;
  * test/unit/seasons-css-sync.test.ts fails if a swatch below drifts from it.
  *
  * To add a season: add its [data-season="..."] palette + shape blocks to
@@ -38,7 +37,7 @@ export interface SeasonPreset {
   glyph: { light: string; dark: string };
   /** Calendar months (1-12, Japan Standard Time) this preset belongs to. */
   months: readonly number[];
-  /** One-line description of the palette + shape language, for the agent. */
+  /** One-line description of the palette + shape language. */
   motif: string;
   palette: { light: SeasonPalette; dark: SeasonPalette };
 }
@@ -151,7 +150,7 @@ export const SEASON_IDS = [
   "winter",
 ] as const satisfies readonly SeasonId[];
 
-/** Season used when no agent has set one yet (the base :root palette). */
+/** Season used when a date maps to no preset (the base :root palette). */
 export const DEFAULT_SEASON: SeasonId = "sakura";
 
 export function isSeasonId(value: unknown): value is SeasonId {

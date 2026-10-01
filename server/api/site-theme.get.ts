@@ -1,5 +1,5 @@
 import { siteThemeService } from "../services/site-theme";
-import { defaultSeason } from "../utils/site-theme";
+import { seasonForDate } from "~~/shared/seasons";
 import type { SiteTheme } from "~~/types/index";
 
 export default defineEventHandler(async () => {
@@ -7,12 +7,12 @@ export default defineEventHandler(async () => {
     let theme: SiteTheme | null = await siteThemeService.getActiveTheme();
     if (!theme) {
       theme = {
-        season: defaultSeason(),
+        season: seasonForDate(),
         updatedAt: Date.now(),
         source: "fallback",
       };
       // NX write: persists the fallback only when nothing exists yet, so a
-      // concurrent agent-authored save_site_theme is never clobbered.
+      // concurrent cron write is never clobbered.
       await siteThemeService.saveActiveTheme(theme, { onlyIfAbsent: true });
     }
 

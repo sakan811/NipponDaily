@@ -2,11 +2,11 @@ import { describe, it, expect } from "vitest";
 import {
   SEASON_IDS,
   SEASONS,
+  DEFAULT_SEASON,
   seasonForDate,
-  defaultSeason,
-} from "~/server/utils/site-theme";
+} from "~~/shared/seasons";
 
-describe("server/utils/site-theme.ts", () => {
+describe("shared/seasons.ts", () => {
   it("describes every implemented preset", () => {
     for (const id of SEASON_IDS) {
       expect(SEASONS[id].id).toBe(id);
@@ -31,7 +31,7 @@ describe("server/utils/site-theme.ts", () => {
     expect(seasonForDate(new Date("2026-05-31T14:00:00Z"))).toBe("sakura");
   });
 
-  it("keeps sakura as the no-agent default", () => {
-    expect(defaultSeason()).toBe("sakura");
+  it("keeps sakura as the default season", () => {
+    expect(DEFAULT_SEASON).toBe("sakura");
   });
 });
