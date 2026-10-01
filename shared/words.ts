@@ -15,10 +15,14 @@ import type {
   WordCalendarDay,
   WordEntry,
 } from "~~/types/index";
+import september2026 from "~~/data/words/2026-09.json";
 import october2026 from "~~/data/words/2026-10.json";
 
 /** Every month's entries, oldest first. */
-const MONTHS: WordEntry[][] = [october2026 as WordEntry[]];
+const MONTHS: WordEntry[][] = [
+  september2026 as WordEntry[],
+  october2026 as WordEntry[],
+];
 
 export const WORD_ENTRIES: readonly WordEntry[] = MONTHS.flat().sort((a, b) =>
   a.date.localeCompare(b.date),

@@ -1,0 +1,1005 @@
+[
+  {
+    "date": "2026-09-01",
+    "term": "銀行",
+    "kana": "ぎんこう",
+    "meaning": "bank",
+    "level": "N5",
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "A bank is “money” plus “business establishment” — and that 行 is not the one that means “go”.",
+    "morphemes": [
+      {
+        "text": "銀",
+        "reading": "ぎん",
+        "meaning": "medium of exchange; money"
+      },
+      {
+        "text": "行",
+        "reading": "こう",
+        "meaning": "business establishment; firm"
+      }
+    ],
+    "story": [
+      "銀行 is built from 銀 (gin) and 行 (kō). Wiktionary glosses the first as “medium of exchange; money” and the second as “business establishment; firm”, so the word is, in effect, a money firm.",
+      "That second gloss is worth noticing. 行 is best known for the idea of going, but in 銀行 it is the sense of a business establishment that matters, read kō."
+    ],
+    "sources": [
+      {
+        "quote": "銀 (gin, “medium of exchange; money”) + 行 (kō, “business establishment; firm”)"
+      }
+    ],
+    "wiktionaryRev": 92388921
+  },
+  {
+    "date": "2026-09-02",
+    "term": "経済",
+    "kana": "けいざい",
+    "meaning": "economics, finance, economy",
+    "level": "N4",
+    "stratum": "kango",
+    "processes": ["clipping", "borrowing", "meaning-shift"],
+    "headline": "“Economy” is two characters borrowed from a phrase about running a state and relieving the people's suffering.",
+    "morphemes": [
+      {
+        "text": "経",
+        "reading": "けい",
+        "meaning": "administer the state"
+      },
+      {
+        "text": "済",
+        "reading": "ざい",
+        "base": "さい",
+        "meaning": "relieve the suffering of the people"
+      }
+    ],
+    "story": [
+      "経済 comes from Middle Chinese 經濟, which is itself short for 經世濟民, glossed by Wiktionary as “to administer the state to relieve the suffering of the people”. The word keeps one character from each half of that phrase: the administering and the relieving.",
+      "In the Meiji period Japanese scholars used 経済 as the translation of English economics. So an old phrase about governing well was repurposed for the modern study of money and production.",
+      "Note the voicing: the second part is read ざい, not さい."
+    ],
+    "sources": [
+      {
+        "quote": "short for 經世濟民 (“to administer the state to relieve the suffering of the people”), through its use as a translation of English economics by Japanese scholars during the Meiji period"
+      }
+    ],
+    "wiktionaryRev": 92162443
+  },
+  {
+    "date": "2026-09-03",
+    "term": "社会",
+    "kana": "しゃかい",
+    "meaning": "society",
+    "level": "N4",
+    "stratum": "kango",
+    "processes": ["borrowing", "meaning-shift", "compound"],
+    "headline": "“Society” began as a gathering to honor the god of the earth, until a writer repurposed it in 1875.",
+    "morphemes": [
+      {
+        "text": "社",
+        "reading": "しゃ",
+        "meaning": "god of earth"
+      },
+      {
+        "text": "会",
+        "reading": "かい",
+        "meaning": "gathering"
+      }
+    ],
+    "story": [
+      "社会 comes from Middle Chinese 社會, which Wiktionary glosses as a “public gathering for offering to the god of earth”. It is a compound: 社 (“god of earth; ceremony for offering to the god of earth”) + 會 (“gathering”).",
+      "The word was repurposed by Fukuchi Gen'ichirō in 1875 to translate the western concept of society. The shape stayed; the meaning moved from a ritual gathering to the whole community of people."
+    ],
+    "sources": [
+      {
+        "quote": "as a compound composed of 社 (dzyaeX, “god of earth; ceremony for offering to the god of earth”) + 會 (“gathering”). The word was repurposed by Fukuchi Gen'ichirō in 1875 to translate the western concept of society."
+      }
+    ],
+    "wiktionaryRev": 92162293
+  },
+  {
+    "date": "2026-09-04",
+    "term": "科学",
+    "kana": "かがく",
+    "meaning": "science",
+    "level": "N4",
+    "stratum": "kango",
+    "processes": ["wasei", "compound"],
+    "headline": "“Science” was coined in Japan from Chinese parts — and it collided with “chemistry”.",
+    "morphemes": [
+      {
+        "text": "科",
+        "reading": "か",
+        "meaning": "field"
+      },
+      {
+        "text": "学",
+        "reading": "がく",
+        "meaning": "study"
+      }
+    ],
+    "story": [
+      "科学 was coined in Japan from Middle Chinese-derived elements, 科 (ka, “field, imperial examination”) + 学 (-gaku, “school, study”). Wiktionary dates its first attestation to the mid-Meiji period, as a translation of English science. It was made in Japan, not borrowed from China.",
+      "It then ran into a problem: 化学 (chemistry) is also pronounced かがく. To tell them apart, 科学 is sometimes read shinagaku, though Wiktionary notes that reading 化学 as bakegaku is more common."
+    ],
+    "sources": [
+      {
+        "quote": "First attested in the mid-Meiji period as a translation of English science."
+      },
+      {
+        "quote": "Coined in Japan of Middle Chinese-derived elements 科(か) (ka, “field, imperial examination, compounding the radical 斗 (“measuring tool”)”) + 学(がく) (-gaku, “school, study”)."
+      },
+      {
+        "quote": "As 科(か)学(がく) (kagaku) above has become homophonous with 化(か)学(がく) (kagaku, “chemistry”), 科学 is sometimes read as 科(しな)学(がく) (shinagaku) to differentiate."
+      }
+    ],
+    "wiktionaryRev": 92135053
+  },
+  {
+    "date": "2026-09-05",
+    "term": "哲学",
+    "kana": "てつがく",
+    "meaning": "philosophy",
+    "level": "N3",
+    "stratum": "kango",
+    "processes": ["wasei", "compound"],
+    "headline": "Nishi Amane coined “philosophy” in 1874 — after first trying a spelling that copies the Greek.",
+    "morphemes": [
+      {
+        "text": "哲",
+        "reading": "てつ",
+        "meaning": "clear, wise, sage"
+      },
+      {
+        "text": "学",
+        "reading": "がく",
+        "meaning": "study"
+      }
+    ],
+    "story": [
+      "哲学 is, by surface analysis, 哲 (tetsu, “clear, wise, sage”) + 学 (-gaku, “study”). Wiktionary credits it to Nishi Amane, who coined it in his 1874 百一新論 as a translation of English philosophy or Dutch filosofie.",
+      "His first spelling was different: 希哲學 (hirosohi), calqued from Ancient Greek philosophía (“pursuit of wisdom”, literally “love of knowledge”) using the Chinese morphemes 希 (“to long for”) and 哲 (“wisdom”). He later settled on 哲學, the form written 哲学 today."
+    ],
+    "sources": [
+      {
+        "quote": "Coined by Nishi Amane in his 1874 百一新論 as a translation of English philosophy or Dutch filosofie."
+      },
+      {
+        "quote": "Nishi's kanji spelling 希哲學 (hirosohi) is literally calqued from Ancient Greek φιλοσοφία (philosophía, “pursuit of wisdom”, literally “love of knowledge”)"
+      }
+    ],
+    "wiktionaryRev": 92160580
+  },
+  {
+    "date": "2026-09-06",
+    "term": "花火",
+    "kana": "はなび",
+    "meaning": "fireworks",
+    "level": "N2",
+    "stratum": "wago",
+    "processes": ["compound", "rendaku"],
+    "headline": "Fireworks are “flower fire”, and the fire voices to び on the way in.",
+    "morphemes": [
+      {
+        "text": "花",
+        "reading": "はな",
+        "meaning": "flower"
+      },
+      {
+        "text": "火",
+        "reading": "び",
+        "base": "ひ",
+        "meaning": "fire"
+      }
+    ],
+    "story": [
+      "花火 is a compound of 花 (hana, “flower”) + 火 (hi, “fire”): fire that blooms like a flower.",
+      "Wiktionary notes the usual native-compound change: the hi becomes bi as an instance of rendaku, which is why the word is はなび."
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 花(はな) (hana, “flower”) + 火(ひ) (hi, “fire”). The hi changes to bi as an instance of rendaku (連濁)."
+      }
+    ],
+    "wiktionaryRev": 92203062
+  },
+  {
+    "date": "2026-09-07",
+    "term": "恋人",
+    "kana": "こいびと",
+    "meaning": "lover; sweetheart; girlfriend",
+    "level": "N3",
+    "stratum": "wago",
+    "processes": ["compound", "rendaku"],
+    "headline": "A lover is a “love person” — with the person voiced to びと.",
+    "morphemes": [
+      {
+        "text": "恋",
+        "reading": "こい",
+        "meaning": "love"
+      },
+      {
+        "text": "人",
+        "reading": "びと",
+        "base": "ひと",
+        "meaning": "person"
+      }
+    ],
+    "story": [
+      "恋人 is 恋 (koi, “love”) + 人 (-hito, “person”): a person of love.",
+      "As in 花火, the first sound of the second part voices: hito becomes bito, which Wiktionary records as an instance of rendaku."
+    ],
+    "sources": [
+      {
+        "quote": "From 恋(こい) (koi, “love”) + 人(ひと) (-hito, “person”). The hito changes to bito as an instance of rendaku (連濁)."
+      }
+    ],
+    "wiktionaryRev": 92161208
+  },
+  {
+    "date": "2026-09-08",
+    "term": "真っ赤",
+    "kana": "まっか",
+    "meaning": "deep red, flushed (of face)",
+    "level": "N3",
+    "stratum": "wago",
+    "processes": ["compound", "derivation"],
+    "headline": "“Pure red” — a prefix that means “true”, glued to あか.",
+    "morphemes": [
+      {
+        "text": "真っ",
+        "reading": "まっ",
+        "meaning": "true, pure"
+      },
+      {
+        "text": "赤",
+        "reading": "か",
+        "base": "あか",
+        "meaning": "red"
+      }
+    ],
+    "story": [
+      "真っ赤 is a compound of 真っ (ma'-, “true, pure”) + 赤 (aka, “red”). The prefix intensifies what follows: red in the fullest sense.",
+      "Wiktionary dates it to the mid-1400s and explains the extended “outright” sense of such words: something purely red is obvious and clearly visible. Joined, the pieces come out as まっか, with the あ of あか not heard separately."
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 真(ま)っ (ma'-, “true, pure”) + 赤(あか) (aka, “red”)."
+      },
+      {
+        "quote": "First cited to the mid-1400s."
+      },
+      {
+        "quote": "The outright sense arose from the way that something purely red is obvious and clearly visible."
+      }
+    ],
+    "wiktionaryRev": 92278446
+  },
+  {
+    "date": "2026-09-09",
+    "term": "手伝う",
+    "kana": "てつだう",
+    "meaning": "to help",
+    "level": "N4",
+    "stratum": "wago",
+    "processes": ["compound", "sound-change"],
+    "headline": "The voicing landed one syllable late: not てづたう, but てつだう.",
+    "morphemes": [
+      {
+        "text": "手",
+        "reading": "て",
+        "meaning": "hand"
+      },
+      {
+        "text": "伝う",
+        "reading": "つだう",
+        "base": "つたう",
+        "meaning": "go along"
+      }
+    ],
+    "story": [
+      "手伝う is a compound of 手 (te, “hand”) + 伝う (tsutau, “to go along something; to move something along, to transmit something”). To help someone is, loosely, to pass a hand along.",
+      "Wiktionary points out that the expected form would be てつたう, or てづたう with rendaku. The form actually attested is てつだう, which suggests metathesis: the voicing of rendaku shifted from the tsu to the following ta. The word is first attested in the late 1500s in kyōgen, popular plays."
+    ],
+    "sources": [
+      {
+        "quote": "The expected form of such a compound would be either てつたう (tetsutau), or てづたう (tezutau) with rendaku. The actual attested form of てつだう (tetsudau) suggests metathesis, with the voicing of rendaku shifting from the tsu to the following ta."
+      }
+    ],
+    "wiktionaryRev": 92161301
+  },
+  {
+    "date": "2026-09-10",
+    "term": "部屋",
+    "kana": "へや",
+    "meaning": "a room",
+    "level": "N5",
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "A room was once a “separate house” — へ plus や.",
+    "morphemes": [
+      {
+        "text": "部",
+        "reading": "へ",
+        "meaning": "separate",
+        "irregular": true
+      },
+      {
+        "text": "屋",
+        "reading": "や",
+        "meaning": "roof; house"
+      }
+    ],
+    "story": [
+      "Wiktionary says 部屋 was originally a compound of へ (he, “separate”) + 屋 (ya, “roof; house”). The へ is related to the first element in 隔たる (hedataru, “to be apart, to be separated”). A room, then, is a part of a house set apart. It is first attested in the late 900s.",
+      "The character 部 usually reads bu, so he is an unusual reading for it here. The Wiktionary text above does not say more about why 部 was chosen."
+    ],
+    "sources": [
+      {
+        "quote": "Originally a compound of へ (he, “separate”) + 屋(や) (ya, “roof; house”)."
+      },
+      {
+        "quote": "First attested in the late 900s."
+      }
+    ],
+    "wiktionaryRev": 92203262
+  },
+  {
+    "date": "2026-09-11",
+    "term": "今朝",
+    "kana": "けさ",
+    "meaning": "this morning",
+    "level": "N5",
+    "stratum": "wago",
+    "processes": ["compound", "sound-change", "ateji"],
+    "headline": "けさ is “this morning” — but the 今 in it is a stand-in for an older “this”.",
+    "morphemes": [
+      {
+        "text": "今",
+        "reading": "け",
+        "meaning": "this",
+        "irregular": true
+      },
+      {
+        "text": "朝",
+        "reading": "さ",
+        "base": "あさ",
+        "meaning": "morning"
+      }
+    ],
+    "story": [
+      "Wiktionary traces 今朝 to Old Japanese, originally a compound of 此 (ke, “this”) + 朝 (asa, “morning”). The ke is a variant of the ko seen in ここ and これ. Because Old Japanese did not allow vowel clusters, ke.asa contracted to kesa, with the medial a falling out.",
+      "The modern spelling uses 今 (“now”) in place of 此 (“this”), which Wiktionary calls an example of jukujikun: kanji chosen for their meaning, with a reading that is not theirs. The same ke element is found in 今日 (kepu→kyō, “today”)."
+    ],
+    "sources": [
+      {
+        "quote": "Originally a compound of 此 (ke, “this”) + 朝 (asa, “morning”)."
+      },
+      {
+        "quote": "the final /sa/ is a contraction from */ke.asa/ to /kesa/ with the medial -a- falling out, as Old Japanese did not permit vowel clusters."
+      },
+      {
+        "quote": "The use of the kanji 今 (“now”) instead of 此 (“this”) is an example of jukujikun"
+      }
+    ],
+    "wiktionaryRev": 92720857
+  },
+  {
+    "date": "2026-09-12",
+    "term": "切手",
+    "kana": "きって",
+    "meaning": "postal (postage) stamps",
+    "level": "N5",
+    "stratum": "wago",
+    "processes": ["clipping", "compound"],
+    "headline": "A stamp borrows its two characters from “ticket” and “commercial paper”.",
+    "morphemes": [
+      {
+        "text": "切",
+        "reading": "きっ",
+        "meaning": "from 切符 (kippu)",
+        "irregular": true
+      },
+      {
+        "text": "手",
+        "reading": "て",
+        "meaning": "from 手形 (tegata)",
+        "irregular": true
+      }
+    ],
+    "story": [
+      "Wiktionary derives 切手 from two words: 切符 (kippu, “a ticket used for public transport”) + 手形 (tegata, “commercial paper”). Take the first character of each and you have 切手.",
+      "That fits what a postage stamp is: a small slip of paper that works like a ticket for the mail. Wiktionary does not spell out that reasoning, so treat it as an aid to remember the word rather than a documented fact."
+    ],
+    "sources": [
+      {
+        "quote": "From 切(きっ)符(ぷ) (kippu, “a ticket used for public transport”) + 手(て)形(がた) (tegata, “commercial paper”)."
+      }
+    ],
+    "wiktionaryRev": 92294436
+  },
+  {
+    "date": "2026-09-13",
+    "term": "桜",
+    "kana": "さくら",
+    "meaning": "cherry blossom, cherry tree",
+    "level": "N3",
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "Cherry blossoms may be named for what they do: bloom in bursts.",
+    "morphemes": [
+      {
+        "text": "咲く",
+        "reading": "さく",
+        "meaning": "to bloom",
+        "irregular": true
+      },
+      {
+        "text": "等",
+        "reading": "ら",
+        "meaning": "plural suffix",
+        "irregular": true
+      }
+    ],
+    "story": [
+      "桜 is first attested in the Kojiki, the oldest extant historical record of ancient Japan, compiled in 712 CE. Wiktionary says it was originally derived from 咲く (saku, “to bloom, burst open”) + 等 (-ra, a suffix that nominalizes and pluralizes).",
+      "The two parts shown are the source's analysis of the sound さくら. They are not the characters in the spelling 桜 itself, which is a single kanji."
+    ],
+    "sources": [
+      {
+        "quote": "first attested in the Kojiki, the oldest extant historical record of ancient Japan, compiled in 712 CE."
+      },
+      {
+        "quote": "Originally derived from 咲く (saku, “to bloom, burst open”) + 等 (-ra, nominalizing and pluralizing suffix)."
+      }
+    ],
+    "wiktionaryRev": 92448377
+  },
+  {
+    "date": "2026-09-14",
+    "term": "缶",
+    "kana": "かん",
+    "meaning": "can, tin",
+    "level": "N3",
+    "stratum": "gairaigo",
+    "processes": ["borrowing", "ateji"],
+    "headline": "A can is probably a Dutch kan in a borrowed kanji — but Chinese is the other candidate.",
+    "morphemes": [
+      {
+        "text": "缶",
+        "reading": "かん",
+        "meaning": "tin can",
+        "irregular": true
+      }
+    ],
+    "story": [
+      "Wiktionary says 缶 likely comes from Dutch kan (“cylindrical metallic container”), with additional influence from English can. The kanji is an example of ateji, a character chosen to fit the sound.",
+      "It also gives an alternative: that the word is from Middle Chinese 罐 (“can; jar; tin”), with 缶 standing in for it after the 旧字体 (kyūjitai) 罐 was simplified in the 新字体 (shinjitai) forms."
+    ],
+    "uncertainty": "Wiktionary says “likely” Dutch with English influence and “alternatively” Middle Chinese 罐. It does not settle between the two, so even the word's layer (loanword or Chinese-derived) is uncertain.",
+    "sources": [
+      {
+        "quote": "Likely from Dutch kan (“cylindrical metallic container”), with additional influence from English can (“cylindrical metallic container”). The kanji is an example of ateji"
+      },
+      {
+        "quote": "Alternatively, from Middle Chinese 罐 (kuɑnH, “can; jar; tin”)."
+      }
+    ],
+    "wiktionaryRev": 92201388
+  },
+  {
+    "date": "2026-09-15",
+    "term": "風邪",
+    "kana": "かぜ",
+    "meaning": "cold, flu",
+    "level": "N5",
+    "stratum": "wago",
+    "processes": ["ateji"],
+    "headline": "かぜ is just the word for “wind” — the 邪 is along for the spelling.",
+    "morphemes": [
+      {
+        "text": "風邪",
+        "reading": "かぜ",
+        "meaning": "wind",
+        "irregular": true
+      }
+    ],
+    "story": [
+      "Wiktionary derives かぜ (a cold) from 風 (kaze, “wind”): the illness is named with the plain native word for wind. It is first attested in 984.",
+      "The spelling 風邪 is jukujikun, from the Chinese word 風邪 (fēngxié). The two characters are read together as かぜ rather than one at a time: the 風 carries the sound and the 邪 adds no sound of its own."
+    ],
+    "sources": [
+      {
+        "quote": "From 風(かぜ) (kaze, “wind”)."
+      },
+      {
+        "quote": "The kanji is jukujikun (熟(じゅく)字(じ)訓(くん)), from Chinese 風邪 / 风邪 (fēngxié)."
+      },
+      {
+        "quote": "First attested in 984."
+      }
+    ],
+    "wiktionaryRev": 92273007
+  },
+  {
+    "date": "2026-09-16",
+    "term": "ビール",
+    "kana": "ビール",
+    "meaning": "beer",
+    "level": "N3",
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "Beer came in through Dutch, long before English.",
+    "morphemes": [
+      {
+        "text": "ビール",
+        "reading": "ビール",
+        "meaning": "Dutch bier"
+      }
+    ],
+    "story": [
+      "ビール is a borrowing from Dutch bier. Wiktionary gives its first citation as a text from 1724, which spells it with the kanji 麦酒 (literally “barley liquor”).",
+      "So the word was written in kanji, for its meaning, in the 1720s, long before the katakana spelling you see today."
+    ],
+    "sources": [
+      {
+        "quote": "Borrowing from Dutch bier."
+      },
+      {
+        "quote": "First cited to a text from 1724 with the kanji spelling 麦酒 (literally “barley liquor”)."
+      }
+    ],
+    "wiktionaryRev": 92203766
+  },
+  {
+    "date": "2026-09-17",
+    "term": "ボタン",
+    "kana": "ボタン",
+    "meaning": "button",
+    "level": "N5",
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "A button is a Portuguese word, first written down in 1651.",
+    "morphemes": [
+      {
+        "text": "ボタン",
+        "reading": "ぼたん",
+        "meaning": "button"
+      }
+    ],
+    "story": [
+      "ボタン is borrowed from Portuguese botão, and Wiktionary says to compare English button. It is first attested in 1651."
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from Portuguese botão; compare English button."
+      },
+      {
+        "quote": "First attested in 1651."
+      }
+    ],
+    "wiktionaryRev": 92271781
+  },
+  {
+    "date": "2026-09-18",
+    "term": "ガラス",
+    "kana": "ガラス",
+    "meaning": "glass, pane",
+    "level": "N4",
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ガラス is Dutch, and its English cousin has its own katakana word.",
+    "morphemes": [
+      {
+        "text": "ガラス",
+        "reading": "がらす",
+        "meaning": "Dutch glas"
+      }
+    ],
+    "story": [
+      "ガラス is borrowed from Dutch glas. Wiktionary calls it a doublet of グラス: two Japanese words that go back to the same source, one by way of Dutch and the other the form familiar from English."
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from Dutch glas. Doublet of グラス."
+      }
+    ],
+    "wiktionaryRev": 92197810
+  },
+  {
+    "date": "2026-09-19",
+    "term": "コップ",
+    "kana": "コップ",
+    "meaning": "a tumbler; a glass",
+    "level": "N5",
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "A glass tumbler with two possible parents, Dutch and Portuguese.",
+    "morphemes": [
+      {
+        "text": "コップ",
+        "reading": "こっぷ",
+        "meaning": "Dutch kop"
+      }
+    ],
+    "story": [
+      "Wiktionary says コップ comes from Dutch kop and also from Portuguese copo. Both go back to Late Latin cuppa, which makes コップ a doublet of カップ (kappu), the form that came in later from English cup.",
+      "Two borrowings with one ancestor: コップ is the form that came by way of Dutch and Portuguese, カップ the one that came from English."
+    ],
+    "uncertainty": "Wiktionary names both Dutch kop and Portuguese copo as sources, without choosing one.",
+    "sources": [
+      {
+        "quote": "From Dutch kop and also from Portuguese copo. Doublet (via Late Latin cuppa) of カップ (kappu), from English cup."
+      }
+    ],
+    "wiktionaryRev": 92278814
+  },
+  {
+    "date": "2026-09-20",
+    "term": "カレー",
+    "kana": "カレー",
+    "meaning": "curry (abbr. for curry and rice)",
+    "level": "N5",
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "Curry reached Japan from English, but the word starts in Tamil.",
+    "morphemes": [
+      {
+        "text": "カレー",
+        "reading": "カレー",
+        "meaning": "curry"
+      }
+    ],
+    "story": [
+      "カレー is from English curry, which in turn is from Tamil கறி (kaṟi). So the word made a long trip, South India to English to Japan."
+    ],
+    "sources": [
+      {
+        "quote": "From English curry, from Tamil கறி (kaṟi)."
+      }
+    ],
+    "wiktionaryRev": 92227926
+  },
+  {
+    "date": "2026-09-21",
+    "term": "ズボン",
+    "kana": "ズボン",
+    "meaning": "trousers",
+    "level": "N5",
+    "stratum": "gairaigo",
+    "processes": ["borrowing", "meaning-shift"],
+    "headline": "Trousers are an “underskirt”: ズボン comes from French jupon.",
+    "morphemes": [
+      {
+        "text": "ズボン",
+        "reading": "ずぼん",
+        "meaning": "jupon"
+      }
+    ],
+    "story": [
+      "ズボン is borrowed from French jupon (“petticoat, underskirt”), from French jupe (“skirt”), from old Italian jupa, from Arabic jubba (“long garment”). It is a doublet of 襦袢.",
+      "Wiktionary points out two changes. The meaning moved from “underskirt” to “trousers/pants”, and the second consonant changed from /p/ to /b/, possibly influenced by the native Japanese onomatopoeia ずぼん (zubon), the sound of something sliding into place as trousers go on or come off."
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from French jupon (“petticoat, underskirt”), from French jupe (“skirt”)"
+      },
+      {
+        "quote": "Note that the meaning has changed from “underskirt” to “trousers/pants”, and the second consonant has changed from /p/ to /b/, possibly influenced by native Japanese onomatopoeia ずぼん (zubon)"
+      }
+    ],
+    "wiktionaryRev": 93151479
+  },
+  {
+    "date": "2026-09-22",
+    "term": "ワイシャツ",
+    "kana": "ワイシャツ",
+    "meaning": "shirt (lit: white shirt), business shirt",
+    "level": "N5",
+    "stratum": "gairaigo",
+    "processes": ["borrowing", "clipping", "meaning-shift"],
+    "headline": "A “white shirt” lost its colour: ワイシャツ is a clipped ホワイトシャツ.",
+    "morphemes": [
+      {
+        "text": "ワイ",
+        "reading": "わい",
+        "meaning": "white"
+      },
+      {
+        "text": "シャツ",
+        "reading": "しゃつ",
+        "meaning": "shirt"
+      }
+    ],
+    "story": [
+      "ワイシャツ is a clipping of ホワイトシャツ (howaito shatsu), borrowed from English white shirt, after the typical white colour of dress shirts. The ワイ is what is left of ホワイト.",
+      "The meaning then widened: first to any dress shirt, regardless of colour, and then to any long-sleeved button-down shirt in general. Wiktionary's first citation is from 1912, and Natsume Sōseki uses the word in his 1915 book 道草 with the spelling 白襯衣 (literally “white + shirt”), giving ワイシャツ as the pronunciation."
+    ],
+    "sources": [
+      {
+        "quote": "Clipping of ホワイトシャツ (howaito shatsu), borrowed from English white shirt, from the typical white color of dress shirts."
+      },
+      {
+        "quote": "The meaning in Japanese evolved over time to extend first to any dress shirt, regardless of color, and then to any long-sleeved button-down shirt in general."
+      }
+    ],
+    "wiktionaryRev": 92286204
+  },
+  {
+    "date": "2026-09-23",
+    "term": "マンション",
+    "kana": "マンション",
+    "meaning": "multistory apartment house, condominium",
+    "level": "N2",
+    "stratum": "gairaigo",
+    "processes": ["borrowing", "meaning-shift"],
+    "headline": "A mansion that shrank into an apartment: the word was meant to sound luxurious.",
+    "morphemes": [
+      {
+        "text": "マンション",
+        "reading": "まんしょん",
+        "meaning": "mansion"
+      }
+    ],
+    "story": [
+      "マンション is borrowed from English mansion. Wiktionary says the term gained currency in the latter half of the 1950s, used to lend an air of luxury to high-density residential development projects.",
+      "English mansion most commonly means “large house”, but it is also occasionally used for a “luxurious apartment”, and it is this latter usage that was borrowed into Japanese."
+    ],
+    "sources": [
+      {
+        "quote": "The term gained currency in the latter half of the 1950s, used to lend an air of luxury to high-density residential development projects."
+      },
+      {
+        "quote": "it is also occasionally used to mean “luxurious apartment”, and this latter usage was borrowed into Japanese."
+      }
+    ],
+    "wiktionaryRev": 92271235
+  },
+  {
+    "date": "2026-09-24",
+    "term": "サラリーマン",
+    "kana": "サラリーマン",
+    "meaning": "salaryman; company employee",
+    "level": "N2",
+    "stratum": "gairaigo",
+    "processes": ["borrowing", "clipping"],
+    "headline": "Often called “fake English”, サラリーマン may be real English with a letter dropped.",
+    "morphemes": [
+      {
+        "text": "サラリー",
+        "reading": "サラリー",
+        "meaning": "salary"
+      },
+      {
+        "text": "マン",
+        "reading": "まん",
+        "meaning": "man"
+      }
+    ],
+    "story": [
+      "サラリーマン is often described as wasei eigo (和製英語), English made in Japan. Wiktionary argues otherwise: it appears to derive from the English phrase salaried man, which appears in print at least as early as 1828, and the English phrase “salary man” also predates the Japanese term.",
+      "Wiktionary calls the form a regular phonological clipping of the borrowed phrase, dropping the English past-participle suffix to fit Japanese phonotactics: サラリー (sararī) + マン (-man). It is first cited to 1924, in Tanizaki's novel Chijin no Ai."
+    ],
+    "uncertainty": "The word is commonly called wasei eigo. Wiktionary's own analysis is that it derives from English salaried man, and says so with “appears to” rather than as settled fact.",
+    "sources": [
+      {
+        "quote": "Although often described as wasei eigo (和製英語), this appears to derive from the English phrase salaried man, which appears in print at least as early as 1828."
+      },
+      {
+        "quote": "The form is a regular phonological clipping of the borrowed phrase, dropping the English past‐participle suffix to fit Japanese phonotactics, analyzable as サラリー (sararī) + マン (-man)."
+      }
+    ],
+    "wiktionaryRev": 92274434
+  },
+  {
+    "date": "2026-09-25",
+    "term": "眼鏡",
+    "kana": "めがね",
+    "meaning": "eye glasses",
+    "level": "N5",
+    "stratum": "wago",
+    "processes": ["compound", "rendaku"],
+    "headline": "めがね was “eye metal” first; the kanji came from Chinese later.",
+    "morphemes": [
+      {
+        "text": "目",
+        "reading": "め",
+        "meaning": "eye"
+      },
+      {
+        "text": "金",
+        "reading": "がね",
+        "base": "かね",
+        "meaning": "metal"
+      }
+    ],
+    "story": [
+      "Wiktionary says めがね was probably originally a compound of 目 (me, “eye”) + 金 (kane, “metal”), in reference to the metal used in eyeglass frames. The kane changes to gane as an instance of rendaku. It appears in texts from the late 1500s.",
+      "The spelling you see, 眼鏡, is based on an apparent borrowing from Chinese 眼鏡 (yǎnjìng, literally “eye + lens”), and the same characters are also read gankyō. That is why the characters in the word do not line up with the parts め + がね shown here."
+    ],
+    "uncertainty": "The analysis as a compound of “eye” + “metal” is Wiktionary's “probably”, not a settled fact.",
+    "sources": [
+      {
+        "quote": "Probably originally a compound of 目 (me, “eye”) + 金 (kane, “metal”, in reference to the metal used in eyeglass frames). The kane changes to gane as an instance of rendaku (連濁). The spelling is based on an apparent borrowing from Chinese"
+      }
+    ],
+    "wiktionaryRev": 92458260
+  },
+  {
+    "date": "2026-09-26",
+    "term": "土産",
+    "kana": "みやげ",
+    "meaning": "souvenir",
+    "level": "N3",
+    "stratum": "wago",
+    "processes": ["compound", "rendaku", "ateji"],
+    "headline": "The kanji say “soil” and “produce”; the likely origin is a shrine's “small box”.",
+    "morphemes": [
+      {
+        "text": "宮",
+        "reading": "みや",
+        "meaning": "shrine",
+        "irregular": true
+      },
+      {
+        "text": "笥",
+        "reading": "げ",
+        "base": "け",
+        "meaning": "small box",
+        "irregular": true
+      }
+    ],
+    "story": [
+      "Wiktionary says みやげ is probably a compound of 宮 (miya, “shrine”) + 笥 (ke, “small box”), with the ke becoming ge as an instance of rendaku. A shrine's “small box” is the likely root of a gift brought home.",
+      "The spelling 土産 does not follow that. Wiktionary describes it as superficially 土 (do, “land, ground”) + 産 (san, “production, produce”): a spelling that reads like “local produce”, whatever the word started as."
+    ],
+    "uncertainty": "Wiktionary says “probably” for the 宮 + 笥 compound. The 土産 spelling is described only as “superficially” 土 + 産.",
+    "sources": [
+      {
+        "quote": "Probably a compound of 宮 (miya, “shrine”) + 笥 (ke, “small box”)."
+      },
+      {
+        "quote": "Superficially of 土(ど) (do, “land, ground”) + 産(さん) (san, “production, produce”)."
+      }
+    ],
+    "wiktionaryRev": 92160666
+  },
+  {
+    "date": "2026-09-27",
+    "term": "田舎",
+    "kana": "いなか",
+    "meaning": "rural, countryside",
+    "level": "N4",
+    "stratum": "wago",
+    "processes": ["compound", "sound-change"],
+    "headline": "いなか began as “winaka”, and its kanji came from a Chinese word.",
+    "morphemes": [
+      {
+        "text": "居",
+        "reading": "い",
+        "meaning": "to be"
+      },
+      {
+        "text": "中",
+        "reading": "なか",
+        "meaning": "middle"
+      }
+    ],
+    "story": [
+      "Wiktionary shows the sound change /winaka/ → /inaka/ and says the word is possibly a compound of 居 (i, from the verb 居る, “to be, exist”) + 中 (naka, “inside, middle”).",
+      "The spelling 田舎 is from Chinese 田舍 (tiánshè), not from those parts, which is why the written characters and the sounds do not match one for one."
+    ],
+    "uncertainty": "The 居 + 中 compound is Wiktionary's “possibly”; it is not given as settled.",
+    "sources": [
+      {
+        "quote": "/winaka/ → /inaka/"
+      },
+      {
+        "quote": "Possibly a compound of 居 (i, the 未然形 (mizenkei, “incomplete form”) and 連用形 (ren'yōkei, “stem form”) of verb 居る (iru), “to be, exist (of animate objects)”) + 中 (naka, “inside, middle”)."
+      },
+      {
+        "quote": "The spelling is from Chinese 田舍 (tiánshè)."
+      }
+    ],
+    "wiktionaryRev": 92162207
+  },
+  {
+    "date": "2026-09-28",
+    "term": "兄弟",
+    "kana": "きょうだい",
+    "meaning": "siblings (humble), brothers and sisters",
+    "level": "N5",
+    "stratum": "kango",
+    "processes": ["borrowing", "compound"],
+    "headline": "Brothers have two readings, and they come from two waves of Chinese.",
+    "morphemes": [
+      {
+        "text": "兄",
+        "reading": "きょう",
+        "meaning": "elder brother"
+      },
+      {
+        "text": "弟",
+        "reading": "だい",
+        "meaning": "younger brother"
+      }
+    ],
+    "story": [
+      "兄弟 is 兄 (“elder brother”) + 弟 (“younger brother”), from Middle Chinese 兄弟. Read きょうだい, it uses the goon readings of the two characters (kyō and dai).",
+      "Wiktionary lists a second word with the same characters, read with the kan'on readings kei + tei, again from Chinese 兄弟. The same two characters therefore enter Japanese twice, once in each of two layers of Chinese pronunciation."
+    ],
+    "sources": [
+      {
+        "quote": "From 兄 (kyō, “elder brother”, goon) + 弟 (dai, “younger brother”, goon), from Middle Chinese 兄弟."
+      },
+      {
+        "quote": "From 兄 (kei, “elder brother”, kan'on) + 弟 (tei, “younger brother”, kan'on), from Chinese 兄弟."
+      }
+    ],
+    "wiktionaryRev": 92291115
+  },
+  {
+    "date": "2026-09-29",
+    "term": "醤油",
+    "kana": "しょうゆ",
+    "meaning": "soy sauce",
+    "level": "N5",
+    "stratum": "kango",
+    "processes": ["borrowing", "sound-change"],
+    "headline": "Soy sauce is “thick paste + oil”, and its sound has smoothed from /ɕauju/ to /ɕoːju/.",
+    "morphemes": [
+      {
+        "text": "醤",
+        "reading": "しょう",
+        "meaning": "thick paste"
+      },
+      {
+        "text": "油",
+        "reading": "ゆ",
+        "meaning": "oil"
+      }
+    ],
+    "story": [
+      "醤油 is an orthographic borrowing from Chinese 醬油 (literally “thick paste + oil”), first attested in the mid-Muromachi period.",
+      "Wiktionary records the pronunciation moving from /ɕauju/ to /ɕɔːju/ to the modern /ɕoːju/: the vowel sequence at the start smoothed into one long vowel."
+    ],
+    "sources": [
+      {
+        "quote": "/ɕauju/ → /ɕɔːju/ → /ɕoːju/ First attested in the mid-Muromachi period. Orthographic borrowing from Chinese 醬油 / 酱油 (literally “thick paste + oil”)."
+      }
+    ],
+    "wiktionaryRev": 92163052
+  },
+  {
+    "date": "2026-09-30",
+    "term": "蕎麦",
+    "kana": "そば",
+    "meaning": "soba (buckwheat noodles)",
+    "level": "N3",
+    "stratum": "wago",
+    "processes": ["clipping", "unclear"],
+    "headline": "Buckwheat noodles carry a word whose root may be a “corner” — or a “feather”.",
+    "morphemes": [],
+    "story": [
+      "そば is not attested until the middle of the Muromachi period (1336–1573), as a shortening of the older 蕎麦 (soba mugi, literally “soba grain”). Where the soba part itself comes from is where it gets uncertain.",
+      "Wiktionary lists two theories. One, from Samuel Martin, reconstructs soba as Proto-Japonic *sonpa, a compound of *so (unknown) + *pa (“feather”). The other derives it from 稜 (soba, “an edge, a corner”), in reference to the seed of the plant being a triangular oval shape with protruding corners.",
+      "The same text adds that, considering the late appearance of soba on its own to mean buckwheat, and the earlier senses of side, corner and edge, Martin's reconstruction seems unlikely."
+    ],
+    "uncertainty": "Two theories are on offer for the soba element: *so + *pa (“feather”), or 稜 (“edge, corner”). Wiktionary itself judges the first unlikely but does not call the second proven.",
+    "sources": [
+      {
+        "quote": "Not attested until the middle of the Muromachi period (1336–1573), as a shortening of older 蕎麦 (soba mugi, literally “soba grain”)."
+      },
+      {
+        "quote": "Two theories exist regarding the ultimate derivation of the soba element:"
+      },
+      {
+        "quote": "From 稜 (soba, “an edge, a corner”), in reference to the seed of the plant being a triangular oval shape with protruding corners."
+      },
+      {
+        "quote": "Martin's reconstruction seems unlikely."
+      }
+    ],
+    "wiktionaryRev": 92261306
+  }
+]

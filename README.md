@@ -10,7 +10,7 @@
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
-- **A New Word Every Day**: One entry opens each day at midnight in Japan (JST) — the same word for every reader. October 2026 is the first month: thirty-one words chosen for having something real to say about how Japanese words are built.
+- **A New Word Every Day**: One entry opens each day at midnight in Japan (JST) — the same word for every reader. The calendar starts in September 2026 with thirty words, followed by thirty-one in October — all chosen for having something real to say about how Japanese words are built.
 - **A Calendar to Look Back Through**: `/words` is a month grid. A day that has arrived shows its word and links to the full entry at `/words/<date>`; a day that hasn't shows nothing. Future or impossible dates are rejected with a `400`, so an upcoming word can't be read early, even by asking for its exact date. The front page shows today's word, and once the catalogue runs out it falls back to the newest one instead of showing nothing.
 - **Taken Apart**: Each word is split into morphemes with their readings and meanings. Where sound change hides the join (夢 was once いめ; 梅雨 can be read ばいう), the entry shows the reading the parts really spell. A word whose origin is unknown gets no breakdown — any split would be a guess.
 - **Which Layer, Which Process**: Every entry names its layer — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes at work, each defined on the page.
@@ -219,8 +219,6 @@ Repo-only docs:
 
 Vocab meanings the source list under-glosses (e.g. 早い was only "early") are filled in at read time from `VOCAB_MEANING_ENRICHMENTS` in `shared/meanings.ts`, so every consumer shows the fuller meaning without a re-seed.
 
-The old `/game`, `/learn/**` and `/vocab/**` URLs redirect (`302`) to the front page.
-
 `ALL /api/mcp` — the MCP server described above; see [app/pages/docs/architecture.vue](app/pages/docs/architecture.vue) for its full tool schemas.
 
 ## 📖 Data & Attribution
@@ -240,7 +238,7 @@ Since the community word list occasionally carries a wrong English gloss (see [`
 ## ⚠️ Limitations
 
 - **Dependencies**: Reading the daily words needs nothing beyond the app itself. A persistent deployment of the theme pipeline needs an Upstash Redis instance and an `MCP_AUTH_TOKEN`; the JLPT reference pool (`pnpm seed`) is only needed for `GET /api/pool-vocab` / `pool-kanji`.
-- **One month so far**: only October 2026 has entries. After 2026-10-31 the front page keeps showing the newest word until the next month is written (see [`docs/authoring-checklist.md`](docs/authoring-checklist.md)).
+- **Two months so far**: September and October 2026 have entries. After 2026-10-31 the front page keeps showing the newest word until the next month is written (see [`docs/authoring-checklist.md`](docs/authoring-checklist.md)).
 - **Entries are hand-written**: the tests prove quotes, readings and Japanese forms against evidence, but not that an English sentence about a real word is true — that is reviewed in PRs.
 - **No rate limiting**: there is currently no request rate limiting on any endpoint.
 - **No integration tests**: all tests run against mocks (`test/unit`, `test/server`); there is no SRH/Redis-proxy or `test:integration` setup.
