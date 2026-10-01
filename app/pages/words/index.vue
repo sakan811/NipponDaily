@@ -102,11 +102,12 @@
               >
                 {{ cell.dayOfMonth }}
                 <span
+                  v-if="cell.day.stratum"
                   :class="[
                     'inline-block h-2 w-2 rounded-full mt-0.5',
-                    STRATUM_DOT[cell.day.stratum!],
+                    STRATUM_DOT[cell.day.stratum],
                   ]"
-                  :title="WORD_STRATA[cell.day.stratum!].label"
+                  :title="WORD_STRATA[cell.day.stratum].label"
                 />
               </span>
               <span

@@ -1,15 +1,37 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import WordEntryView from "~/app/components/WordEntryView.vue";
-import { WORD_ENTRIES } from "~~/shared/words";
+import type { WordEntry } from "~~/types/index";
 
-const entryOn = (date: string) => WORD_ENTRIES.find((e) => e.date === date)!;
-const render = (date: string) =>
-  mount(WordEntryView, { props: { entry: entryOn(date) } });
+/** A hand-built fixture: this tests the component, not the catalogue. */
+const entry = (over: Partial<WordEntry> = {}): WordEntry => ({
+  date: "2026-10-03",
+  term: "手紙",
+  kana: "てがみ",
+  meaning: "letter",
+  level: "N5",
+  pos: ["noun (common) (futsuumeishi)"],
+  stratum: "wago",
+  processes: ["compound", "rendaku"],
+  headline: "A letter is a “hand paper”.",
+  morphemes: [
+    { text: "手", reading: "て", meaning: "hand" },
+    { text: "紙", reading: "がみ", base: "かみ", meaning: "paper" },
+  ],
+  sources: [
+    { quote: "Compound of 手 (te, “hand”) + 紙 (kami, “paper”)." },
+    { quote: "The kami changes to gami as an instance of rendaku (連濁)." },
+  ],
+  wiktionaryRev: 92203082,
+  ...over,
+});
+
+const render = (over: Partial<WordEntry> = {}) =>
+  mount(WordEntryView, { props: { entry: entry(over) } });
 
 describe("WordEntryView", () => {
   it("shows the word, reading, meaning, level and layer", () => {
-    const wrapper = render("2026-10-03");
+    const wrapper = render();
 
     expect(wrapper.find('[data-testid="word-term"]').text()).toBe("手紙");
     expect(wrapper.find('[data-testid="word-kana"]').text()).toBe("てがみ");
@@ -21,14 +43,28 @@ describe("WordEntryView", () => {
     expect(badges).toContain("Rendaku");
   });
 
-  it("formats the date in a fixed calendar, not the reader's timezone", () => {
-    const wrapper = render("2026-10-03");
+  it("shows JMdict's part-of-speech tags verbatim, one badge each", () => {
+    const wrapper = render({ pos: ["Ichidan verb", "transitive verb"] });
 
-    expect(wrapper.text()).toContain("Saturday, October 3, 2026");
+    const tags = wrapper.findAll('[data-testid="word-pos"]');
+    expect(tags.map((t) => t.text())).toEqual([
+      "Ichidan verb",
+      "transitive verb",
+    ]);
+  });
+
+  it("shows no part-of-speech badge when JMdict gave none", () => {
+    expect(render({ pos: [] }).find('[data-testid="word-pos"]').exists()).toBe(
+      false,
+    );
+  });
+
+  it("formats the date in a fixed calendar, not the reader's timezone", () => {
+    expect(render().text()).toContain("Saturday, October 3, 2026");
   });
 
   it("lays out the morphemes left to right with plus signs between", () => {
-    const wrapper = render("2026-10-03");
+    const wrapper = render();
 
     const parts = wrapper.findAll('[data-testid="word-morpheme"]');
     expect(parts).toHaveLength(2);
@@ -42,73 +78,66 @@ describe("WordEntryView", () => {
     );
   });
 
-  it("explains a gap between the parts' reading and the word's", () => {
-    const wrapper = render("2026-10-23");
+  it("admits when the source gives no breakdown", () => {
+    const wrapper = render({ morphemes: [] });
 
-    const note = wrapper.find('[data-testid="word-parts-reading"]');
-    expect(note.exists()).toBe(true);
-    expect(note.text()).toContain("いめ");
-    expect(note.text()).toContain("ゆめ");
+    expect(wrapper.find('[data-testid="word-morphemes"]').exists()).toBe(false);
+    expect(wrapper.find('[data-testid="word-no-breakdown"]').text()).toContain(
+      "any other split would be a guess",
+    );
   });
 
-  it("omits that note when the parts read as the word does", () => {
-    const wrapper = render("2026-10-03");
+  it("quotes every source line verbatim, with no paraphrase around them", () => {
+    const e = entry();
+    const wrapper = render();
 
-    expect(wrapper.find('[data-testid="word-parts-reading"]').exists()).toBe(
+    const quotes = wrapper.findAll('[data-testid="word-sources"] li');
+    expect(quotes).toHaveLength(e.sources.length);
+    e.sources.forEach((s, i) => expect(quotes[i]!.text()).toContain(s.quote));
+    expect(wrapper.text()).toContain("Nothing below is paraphrased");
+  });
+
+  it("flags a hedged line and shows the 'not settled' callout only then", () => {
+    const hedged = render({
+      sources: [
+        { quote: "From Old Japanese." },
+        { quote: "Probably a compound of 手 (te) + 紙 (kami)." },
+      ],
+    });
+    expect(hedged.find('[data-testid="word-uncertainty"]').text()).toContain(
+      "Not settled",
+    );
+    const lines = hedged.findAll('[data-testid="word-sources"] li');
+    expect(lines[0]!.text()).not.toContain("Hedged");
+    expect(lines[1]!.text()).toContain("Hedged");
+
+    expect(render().find('[data-testid="word-uncertainty"]').exists()).toBe(
       false,
     );
   });
 
-  it("shows every story paragraph", () => {
-    const entry = entryOn("2026-10-13");
-    const wrapper = render("2026-10-13");
+  it("links the pinned Wiktionary revision", () => {
+    const e = entry();
+    const link = render().find(`a[href*="oldid=${e.wiktionaryRev}"]`);
 
-    expect(entry.story.length).toBeGreaterThan(1);
-    for (const para of entry.story) {
-      expect(wrapper.text()).toContain(para);
-    }
-  });
-
-  it("shows a 'not settled' callout only when the entry has an uncertainty", () => {
-    expect(
-      render("2026-10-19").find('[data-testid="word-uncertainty"]').text(),
-    ).toContain("Not settled");
-    expect(
-      render("2026-10-02").find('[data-testid="word-uncertainty"]').exists(),
-    ).toBe(false);
-  });
-
-  it("admits when there is no safe breakdown", () => {
-    const wrapper = render("2026-10-19");
-
-    expect(wrapper.find('[data-testid="word-morphemes"]').exists()).toBe(false);
-    expect(wrapper.find('[data-testid="word-no-breakdown"]').text()).toContain(
-      "any split would be a guess",
-    );
-  });
-
-  it("quotes every source and links the pinned Wiktionary revision", () => {
-    const entry = entryOn("2026-10-01");
-    const wrapper = render("2026-10-01");
-
-    const quotes = wrapper.findAll('[data-testid="word-sources"] li');
-    expect(quotes).toHaveLength(entry.sources.length);
-    expect(quotes[0]!.text()).toContain(entry.sources[0]!.quote);
-
-    const link = wrapper.find(`a[href*="oldid=${entry.wiktionaryRev}"]`);
     expect(link.exists()).toBe(true);
     expect(link.attributes("href")).toContain("en.wiktionary.org");
-    expect(link.attributes("href")).toContain(encodeURIComponent("電話"));
+    expect(link.attributes("href")).toContain(encodeURIComponent("手紙"));
   });
 
-  it("states the source license", () => {
-    const wrapper = render("2026-10-01");
+  it("states the source licenses", () => {
+    const text = render().text();
 
-    expect(wrapper.text()).toContain("CC BY-SA 4.0");
+    expect(text).toContain("CC BY-SA 4.0");
+    expect(text).toContain("JMdict");
+    expect(text).toContain("KANJIDIC2");
   });
 
   it("defines each label it shows", () => {
-    const wrapper = render("2026-10-11");
+    const wrapper = render({
+      stratum: "gairaigo",
+      processes: ["clipping"],
+    });
 
     expect(wrapper.text()).toContain(
       "A longer word or phrase shortened in everyday use.",

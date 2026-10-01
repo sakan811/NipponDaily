@@ -88,3 +88,10 @@ export const WORD_PROCESSES: Record<
     description: "Scholars disagree, or nobody knows.",
   },
 };
+
+/** Words Wiktionary uses when it is not sure. A quoted line containing one is
+ *  shown as "not settled" — detected, never written by hand. */
+const HEDGE =
+  /\b(probably|possibly|perhaps|likely|may be|may have|might|appears? to|seems? to|apparently|uncertain|unknown|unclear|speculat\w*|alternatively|theor(?:y|ies)|missing or incomplete|incomplete|disputed|doubtful)\b/i;
+
+export const isHedged = (quote: string): boolean => HEDGE.test(quote);

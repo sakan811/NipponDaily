@@ -27,7 +27,20 @@
       </p>
       <div class="flex flex-wrap gap-2" data-testid="word-badges">
         <UBadge color="gray" variant="outline">JLPT {{ entry.level }}</UBadge>
-        <UBadge :color="STRATUM_COLOR[entry.stratum]" variant="soft">
+        <UBadge
+          v-for="tag in entry.pos"
+          :key="tag"
+          data-testid="word-pos"
+          color="gray"
+          variant="soft"
+        >
+          {{ tag }}
+        </UBadge>
+        <UBadge
+          v-if="entry.stratum"
+          :color="STRATUM_COLOR[entry.stratum]"
+          variant="soft"
+        >
           {{ WORD_STRATA[entry.stratum].native }} ·
           {{ WORD_STRATA[entry.stratum].label }}
         </UBadge>
@@ -100,90 +113,52 @@
         data-testid="word-no-breakdown"
         class="text-stone-600 dark:text-stone-400 font-body-serif"
       >
-        No breakdown is shown for this word: its origin is unknown, and any
-        split would be a guess.
-      </p>
-      <p
-        v-if="entry.partsReading"
-        data-testid="word-parts-reading"
-        class="text-sm text-stone-600 dark:text-stone-400"
-      >
-        Read together, these parts spell
-        <span class="font-serif font-bold">{{ entry.partsReading }}</span
-        >, not <span class="font-serif font-bold">{{ entry.kana }}</span> — that
-        gap is part of the story.
+        No breakdown is shown for this word: Wiktionary's text for it doesn't
+        give a split that spells the word and joins to its reading, and any
+        other split would be a guess.
       </p>
     </section>
 
-    <!-- Story -->
-    <section class="space-y-4" aria-labelledby="story-heading">
-      <h2
-        id="story-heading"
-        class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
-      >
-        Where it comes from
-      </h2>
-      <div
-        class="space-y-4 text-base sm:text-lg leading-relaxed text-stone-700 dark:text-stone-300 font-body-serif max-w-3xl"
-      >
-        <p v-for="(para, i) in entry.story" :key="i">{{ para }}</p>
-      </div>
-      <div
-        v-if="entry.uncertainty"
-        data-testid="word-uncertainty"
-        class="season-box max-w-3xl border border-warning-500/40 bg-warning-500/10 px-4 py-3 text-sm text-stone-700 dark:text-stone-300"
-      >
-        <p class="kicker text-warning-600 dark:text-warning-400">Not settled</p>
-        <p class="mt-1">{{ entry.uncertainty }}</p>
-      </div>
-    </section>
-
-    <!-- What the labels mean -->
-    <section class="space-y-3" aria-labelledby="labels-heading">
-      <h2
-        id="labels-heading"
-        class="text-sm font-sans font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400"
-      >
-        What the labels mean
-      </h2>
-      <dl
-        class="grid gap-x-6 gap-y-2 sm:grid-cols-2 text-sm text-stone-600 dark:text-stone-400"
-      >
-        <div>
-          <dt class="font-semibold text-stone-800 dark:text-stone-200">
-            {{ WORD_STRATA[entry.stratum].native }}
-            {{ WORD_STRATA[entry.stratum].label }}
-          </dt>
-          <dd>{{ WORD_STRATA[entry.stratum].description }}</dd>
-        </div>
-        <div v-for="p in entry.processes" :key="p">
-          <dt class="font-semibold text-stone-800 dark:text-stone-200">
-            {{ WORD_PROCESSES[p].label }}
-          </dt>
-          <dd>{{ WORD_PROCESSES[p].description }}</dd>
-        </div>
-      </dl>
-    </section>
-
-    <!-- Evidence -->
-    <section class="space-y-3" aria-labelledby="sources-heading">
+    <!-- What Wiktionary says -->
+    <section class="space-y-4" aria-labelledby="sources-heading">
       <h2
         id="sources-heading"
         class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
       >
-        The evidence
+        What Wiktionary says
       </h2>
       <p class="text-sm text-stone-600 dark:text-stone-400 max-w-3xl">
-        Every origin claim above is checked against these lines from Wiktionary,
-        pinned to one revision so they can't change underneath us.
+        Quoted line by line from Wiktionary's Etymology section for this
+        reading, pinned to one revision so it can't change underneath us.
+        Nothing below is paraphrased.
       </p>
-      <ul data-testid="word-sources" class="space-y-2 max-w-3xl">
+      <div
+        v-if="hedged"
+        data-testid="word-uncertainty"
+        class="season-box max-w-3xl border border-warning-500/40 bg-warning-500/10 px-4 py-3 text-sm text-stone-700 dark:text-stone-300"
+      >
+        <p class="kicker text-warning-600 dark:text-warning-400">Not settled</p>
+        <p class="mt-1">
+          Wiktionary itself hedges on part of this word's origin — those lines
+          are marked below.
+        </p>
+      </div>
+      <ul data-testid="word-sources" class="space-y-3 max-w-3xl">
         <li
           v-for="(s, i) in entry.sources"
           :key="i"
-          class="border-l-2 border-primary-500/50 pl-3 text-sm text-stone-700 dark:text-stone-300 font-body-serif"
+          :class="[
+            'border-l-2 pl-3 text-base leading-relaxed text-stone-700 dark:text-stone-300 font-body-serif',
+            isHedged(s.quote)
+              ? 'border-warning-500/70'
+              : 'border-primary-500/50',
+          ]"
         >
-          “{{ s.quote }}”
+          <span
+            v-if="isHedged(s.quote)"
+            class="kicker mr-2 text-warning-600 dark:text-warning-400"
+            >Hedged</span
+          >“{{ s.quote }}”
         </li>
       </ul>
       <p class="text-xs text-stone-500 dark:text-stone-400">
@@ -201,8 +176,40 @@
           rel="noopener"
           class="underline hover:text-primary-500"
           >CC BY-SA 4.0</a
-        >. Meaning from JMdict (EDRDG).
+        >. Reading, meaning and part of speech from JMdict, and kanji readings
+        from KANJIDIC2 (EDRDG).
       </p>
+    </section>
+
+    <!-- What the labels mean -->
+    <section
+      v-if="entry.stratum || entry.processes.length"
+      class="space-y-3"
+      aria-labelledby="labels-heading"
+    >
+      <h2
+        id="labels-heading"
+        class="text-sm font-sans font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400"
+      >
+        What the labels mean
+      </h2>
+      <dl
+        class="grid gap-x-6 gap-y-2 sm:grid-cols-2 text-sm text-stone-600 dark:text-stone-400"
+      >
+        <div v-if="entry.stratum">
+          <dt class="font-semibold text-stone-800 dark:text-stone-200">
+            {{ WORD_STRATA[entry.stratum].native }}
+            {{ WORD_STRATA[entry.stratum].label }}
+          </dt>
+          <dd>{{ WORD_STRATA[entry.stratum].description }}</dd>
+        </div>
+        <div v-for="p in entry.processes" :key="p">
+          <dt class="font-semibold text-stone-800 dark:text-stone-200">
+            {{ WORD_PROCESSES[p].label }}
+          </dt>
+          <dd>{{ WORD_PROCESSES[p].description }}</dd>
+        </div>
+      </dl>
     </section>
   </article>
 </template>
@@ -210,7 +217,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { formatLongDate } from "../utils/date";
-import { WORD_PROCESSES, WORD_STRATA } from "~~/shared/word-labels";
+import { WORD_PROCESSES, WORD_STRATA, isHedged } from "~~/shared/word-labels";
 import type { WordEntry, WordStratum } from "~~/types/index";
 
 const props = defineProps<{ entry: WordEntry }>();
@@ -221,6 +228,10 @@ const STRATUM_COLOR: Record<WordStratum, string> = {
   gairaigo: "warning",
   hybrid: "gray",
 };
+
+const hedged = computed(() =>
+  props.entry.sources.some((s) => isHedged(s.quote)),
+);
 
 const wiktionaryUrl = computed(
   () =>
