@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import OmamoriCharm from "~/app/components/OmamoriCharm.vue";
 import EmaPlaque from "~/app/components/EmaPlaque.vue";
-import HankoSeal from "~/app/components/HankoSeal.vue";
 
 describe("OmamoriCharm", () => {
   it("renders slot content inside the charm face with its cord", () => {
@@ -61,22 +60,5 @@ describe("EmaPlaque", () => {
   it("shakes when asked to", () => {
     const wrapper = mount(EmaPlaque, { props: { shake: true } });
     expect(wrapper.classes()).toContain("ema--shake");
-  });
-});
-
-describe("HankoSeal", () => {
-  it("defaults to a 合格 (passed) seal with an accessible label", () => {
-    const wrapper = mount(HankoSeal);
-    expect(wrapper.text()).toBe("合格");
-    expect(wrapper.attributes("role")).toBe("img");
-    expect(wrapper.attributes("aria-label")).toBe("Passed");
-  });
-
-  it("stacks each character of custom text", () => {
-    const wrapper = mount(HankoSeal, {
-      props: { text: "努力", label: "Keep practising" },
-    });
-    expect(wrapper.findAll(".hanko__text > span")).toHaveLength(2);
-    expect(wrapper.attributes("aria-label")).toBe("Keep practising");
   });
 });

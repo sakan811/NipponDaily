@@ -1,13 +1,14 @@
 /**
- * Pure helpers shared by scripts/draft-lesson-clusters.mjs (the authoring
- * scaffold) and scripts/audit-lesson-content.mjs (the cross-level audit), so
- * both judge a word against the committed JMdict evidence
- * (data/reference/<level>-reference.json) by exactly the same rules.
+ * Pure helpers that judge a pool word against the committed JMdict evidence
+ * (data/reference/<level>-reference.json) by one set of rules — is its reading
+ * attested, is its meaning backed by that reading's glosses, what are its
+ * part-of-speech tags, which words are homophones or transitive/intransitive
+ * pairs. test/content/reading-attested.test.ts gates on readingIsAttested.
  *
- * Everything here is deterministic and offline. None of it *proves* a lesson
- * right — test/content/ is the gate — it finds the words an author (human or
- * LLM) should look at twice BEFORE writing prose around them, which is far
- * cheaper than discovering a wrong reading or gloss in review.
+ * Everything here is deterministic and offline. None of it *proves* a word
+ * right — test/content/ is the gate — it finds the words an author should
+ * look at twice, which is far cheaper than discovering a wrong reading or
+ * gloss in review.
  */
 import { readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -249,11 +250,6 @@ export function transitivityPairs(vocab) {
   return pairs;
 }
 
-/** Word ids already taught by an authored cluster set. */
-export function coveredIds(clusters) {
-  return new Set(clusters.flatMap((c) => c.rows.flatMap((r) => r.terms)));
-}
-
 /** One line of everything an author needs to know about a word. */
 export function describeWord(v) {
   const tags = posTags(v);
@@ -280,27 +276,4 @@ export function describeWord(v) {
   const extraSenses = v.jmdict.reduce((n, e) => n + e.senses.length, 0);
   if (v.jmdict.length > 1) notes.push(`${v.jmdict.length} JMdict entries`);
   return { tags, support, notes, senses: extraSenses };
-}
-
-/** Where each level's hand-authored WordCluster[] lives. N2 has none yet. */
-const CLUSTER_SOURCES = {
-  N5: ["app/data/vocab-guide.ts", "WORD_CLUSTERS"],
-  N4: ["app/data/vocab-guide-n4.ts", "N4_WORD_CLUSTERS"],
-  N3: ["app/data/vocab-guide-n3.ts", "N3_WORD_CLUSTERS"],
-  N2: ["app/data/vocab-guide-n2.ts", "N2_WORD_CLUSTERS"],
-};
-
-/** The level's authored clusters, or null when no vocab-guide file exists yet
- *  (N2 today) — the signal that the level is still to be authored. */
-export async function loadClusters(level) {
-  const [file, exportName] = CLUSTER_SOURCES[level];
-  try {
-    const mod = await import(join(ROOT, file));
-    return mod[exportName] ?? null;
-  } catch (err) {
-    if (err?.code === "ERR_MODULE_NOT_FOUND" || err?.code === "ENOENT") {
-      return null;
-    }
-    throw err;
-  }
 }

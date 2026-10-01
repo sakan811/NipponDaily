@@ -10,10 +10,6 @@ import {
   transitivityPairs,
   // @ts-expect-error — untyped .mjs authoring helper
 } from "../../../scripts/lib/authoring-evidence.mjs";
-import {
-  chunkByFamily,
-  // @ts-expect-error — untyped .mjs authoring script
-} from "../../../scripts/draft-lesson-clusters.mjs";
 
 interface Entry {
   readings: string[];
@@ -158,26 +154,5 @@ describe("posTags / transitivityPairs / homophoneGroups", () => {
     const groups = homophoneGroups([a, b, c]);
     expect(groups).toHaveLength(1);
     expect(groups[0][0]).toBe("さます");
-  });
-});
-
-describe("chunkByFamily", () => {
-  it("never splits a group of words sharing a leading kanji across chunks", () => {
-    const mk = (term: string) => word(term, "あ", "m", []);
-    const words = [
-      ...["会う", "会話", "会議"].map(mk),
-      ...["学校", "学ぶ", "学生"].map(mk),
-      mk("あそこ"),
-    ];
-    const chunks: { term: string }[][] = chunkByFamily(words, 4);
-    for (const chunk of chunks) {
-      const families = new Set(chunk.map((w) => w.term[0]));
-      for (const f of families) {
-        if (f === "会" || f === "学") {
-          expect(chunk.filter((w) => w.term[0] === f)).toHaveLength(3);
-        }
-      }
-    }
-    expect(chunks.flat()).toHaveLength(7);
   });
 });

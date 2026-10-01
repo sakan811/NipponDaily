@@ -1452,9 +1452,7 @@ body {
                  study items — a kana pair, a vocab word, a score.
      ema     (EmaPlaque.vue)    — the wooden plaque students hang at
                  Tenmangu shrines (Tenjin, kami of learning) wishing to pass
-                 their exams. Used for explanations and the game's prompt.
-     hanko   (HankoSeal.vue)    — the vermilion 合格 ("passed") seal that
-                 thumps onto the ema when an answer is right.
+                 their exams. Used for explanations and callouts.
 
    Like the shape tokens above, the charms never branch on season in Vue:
    brocade, weave, cord and roof paint are --charm-* and --ema-* tokens that each
@@ -1479,14 +1477,12 @@ body {
   --ema-wood: #f4e7cf;
   --ema-grain: rgb(140 95 45 / 0.055);
   --ema-roof: var(--primary-500);
-  --hanko-ink: #c8322b;
 }
 
 .dark {
   --charm-face: #161b24;
   --ema-wood: #33271d;
   --ema-grain: rgb(0 0 0 / 0.14);
-  --hanko-ink: #ef5b4c;
 }
 
 [data-season="summer"] {
@@ -1750,43 +1746,6 @@ body {
   padding: 1.75rem 1.25rem 1.15rem;
 }
 
-.ema__swing > .hanko {
-  position: absolute;
-  right: 0.9rem;
-  bottom: 0.9rem;
-  z-index: 3;
-}
-
-/* ── Hanko ────────────────────────────────────────────────────────────── */
-.hanko {
-  display: inline-grid;
-  place-items: center;
-  width: 3.4rem;
-  height: 3.4rem;
-  border: 2.5px solid var(--hanko-ink);
-  border-radius: 0.55rem;
-  box-shadow:
-    inset 0 0 0 2.5px transparent,
-    inset 0 0 0 3.5px color-mix(in srgb, var(--hanko-ink) 55%, transparent);
-  color: var(--hanko-ink);
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1;
-  rotate: -10deg;
-  pointer-events: none;
-  animation: hanko-stamp 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
-}
-
-/* Seal characters read top-to-bottom, stacked (not writing-mode, which
-   collapses inside the seal's small grid box). */
-.hanko__text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.12em;
-}
-
 /* ── Charm motion ─────────────────────────────────────────────────────── */
 @keyframes charm-hang-in {
   0% {
@@ -1875,30 +1834,11 @@ body {
   }
 }
 
-@keyframes hanko-stamp {
-  0% {
-    opacity: 0;
-    scale: 2.4;
-    rotate: -24deg;
-  }
-  60% {
-    opacity: 1;
-    scale: 0.9;
-    rotate: -8deg;
-  }
-  100% {
-    opacity: 1;
-    scale: 1;
-    rotate: -10deg;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .omamori,
   .omamori__swing,
   .ema,
-  .ema__swing,
-  .hanko {
+  .ema__swing {
     animation: none !important;
   }
 }

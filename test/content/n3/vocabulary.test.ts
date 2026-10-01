@@ -1,8 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { toKatakana } from "wanakana";
 import { VOCAB_FORM_CORRECTIONS, servedVocab } from "~~/shared/meanings";
-import { N3_WORD_CLUSTERS } from "~/app/data/vocab-guide-n3";
-import { N3_LESSON_NUMBER_BY_WORD } from "~/app/data/lessons-n3";
 import {
   checkMeaning,
   // @ts-expect-error — untyped .mjs seed script
@@ -16,8 +14,8 @@ import {
 } from "../reference";
 
 /**
- * The N3 pool itself — every word the N3 lessons and vocab guide show —
- * checked against JMdict/KANJIDIC2 evidence in
+ * The N3 pool itself — every word it serves — checked against
+ * JMdict/KANJIDIC2 evidence in
  * data/reference/n3-reference.json. Mirrors test/content/n4/vocabulary.test.ts's
  * N4 checks; see CLAUDE.md's Content Accuracy section.
  */
@@ -53,19 +51,6 @@ describe("every served N3 word", () => {
       )
       .filter(Boolean);
     expect(reversed).toEqual([]);
-  });
-
-  it("is taught by a lesson, and every lesson word is a real pool word", () => {
-    const untaught = reference.vocab
-      .map((v) => v.id)
-      .filter((id) => !N3_LESSON_NUMBER_BY_WORD.has(id));
-    expect(untaught, "N3 words missing from the lesson path").toEqual([]);
-
-    const vocabByIdSet = new Set(reference.vocab.map((v) => v.id));
-    const unknownIds = N3_WORD_CLUSTERS.flatMap((c) =>
-      c.rows.flatMap((r) => r.terms),
-    ).filter((id) => !vocabByIdSet.has(id));
-    expect(unknownIds, "cluster terms that aren't pool ids").toEqual([]);
   });
 });
 

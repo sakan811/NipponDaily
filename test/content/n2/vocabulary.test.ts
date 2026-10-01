@@ -1,7 +1,5 @@
 import { describe, it, expect } from "vitest";
 import { VOCAB_FORM_CORRECTIONS, servedVocab } from "~~/shared/meanings";
-import { N2_WORD_CLUSTERS } from "~/app/data/vocab-guide-n2";
-import { N2_LESSON_NUMBER_BY_WORD } from "~/app/data/lessons-n2";
 import {
   checkMeaning,
   // @ts-expect-error — untyped .mjs seed script
@@ -14,8 +12,8 @@ import {
 } from "../reference";
 
 /**
- * The N2 pool — every word the N2 lessons, /vocab and the daily game serve —
- * checked against JMdict/KANJIDIC2 evidence in data/reference/n2-reference.json.
+ * The N2 pool — every word it serves — checked against JMdict/KANJIDIC2
+ * evidence in data/reference/n2-reference.json.
  * Mirrors test/content/n3/vocabulary.test.ts; see CLAUDE.md's Content Accuracy
  * section.
  */
@@ -36,19 +34,6 @@ describe("every served N2 word", () => {
       "not in JMdict — fix it in shared/meanings.ts VOCAB_FORM_CORRECTIONS",
     ).toEqual([]);
     expect(reference.meta.unresolvedInJmdict).toEqual([]);
-  });
-
-  it("is taught by a lesson, and every lesson word is a real pool word", () => {
-    const untaught = reference.vocab
-      .map((v) => v.id)
-      .filter((id) => !N2_LESSON_NUMBER_BY_WORD.has(id));
-    expect(untaught, "N2 words missing from the lesson path").toEqual([]);
-
-    const vocabByIdSet = new Set(reference.vocab.map((v) => v.id));
-    const unknownIds = N2_WORD_CLUSTERS.flatMap((c) =>
-      c.rows.flatMap((r) => r.terms),
-    ).filter((id) => !vocabByIdSet.has(id));
-    expect(unknownIds, "cluster terms that aren't pool ids").toEqual([]);
   });
 
   it("has no meaning that reverses JMdict's (this ↔ that, …)", () => {

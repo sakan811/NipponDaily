@@ -5,8 +5,6 @@ import {
   VOCAB_MEANING_ENRICHMENTS,
   servedVocab,
 } from "~~/shared/meanings";
-import { WORD_CLUSTERS } from "~/app/data/vocab-guide";
-import { LESSON_NUMBER_BY_WORD } from "~/app/data/lessons";
 import {
   VOCAB_MEANING_OVERRIDES,
   VOCAB_POS_OVERRIDES,
@@ -19,15 +17,13 @@ import {
   kanjiReadings,
   reference,
   unsupportedSenses,
-  vocabById,
   vocabByListKey,
   vocabBySeedKey,
 } from "./reference";
 
 /**
- * The N5 pool itself — every word the lessons, vocab guide and daily game
- * show — checked against JMdict/KANJIDIC2 evidence in
- * data/reference/n5-reference.json. A wrong form or reading in the source
+ * The N5 pool itself — every word it serves — checked against
+ * JMdict/KANJIDIC2 evidence in data/reference/n5-reference.json. A wrong form or reading in the source
  * word list, or a hand-written meaning JMdict doesn't back, fails here.
  */
 
@@ -61,18 +57,6 @@ describe("every served N5 word", () => {
       )
       .filter(Boolean);
     expect(reversed).toEqual([]);
-  });
-
-  it("is taught by a lesson, and every lesson word is a real pool word", () => {
-    const untaught = reference.vocab
-      .map((v) => v.id)
-      .filter((id) => !LESSON_NUMBER_BY_WORD.has(id));
-    expect(untaught, "N5 words missing from the lesson path").toEqual([]);
-
-    const unknownIds = WORD_CLUSTERS.flatMap((c) =>
-      c.rows.flatMap((r) => r.terms),
-    ).filter((id) => !vocabById.has(id));
-    expect(unknownIds, "cluster terms that aren't pool ids").toEqual([]);
   });
 });
 
