@@ -4,9 +4,7 @@ import { safeGetQuery } from "../utils/http-query";
 import { DEFAULT_JLPT_LEVEL, JLPT_LEVELS } from "~~/shared/jlpt";
 
 const kanjiQuerySchema = z.object({
-  // The lesson pages never pass this yet — they only ever want N5, same as
-  // before this param existed. Exposed for programmatic/future use now
-  // that N4-N2 pools are seedable (see scripts/seed-pool-data.mjs).
+  // Defaults to N5; N4-N2 pools are seedable (see scripts/seed-pool-data.mjs).
   level: z
     .enum(JLPT_LEVELS)
     .nullable()
@@ -16,9 +14,8 @@ const kanjiQuerySchema = z.object({
 
 /**
  * GET /api/pool-kanji — the full kanji pool (KANJIDIC2 meanings and readings)
- * for one JLPT level (N5 by default), for the lesson pages
- * (app/pages/learn/) to break every word down into the characters it's
- * written with. Static pool, returned as-is.
+ * for one JLPT level (N5 by default). Reference data no page reads today;
+ * static pool, returned as-is.
  */
 export default defineEventHandler(async (event) => {
   try {
