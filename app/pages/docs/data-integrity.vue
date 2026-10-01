@@ -23,11 +23,11 @@
       </h1>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily teaches Japanese, so a wrong reading or meaning is a bug
-        that teaches people something false. Every kanji, kana, and vocabulary
-        word served by the game traces back to a licensed dictionary source, and
-        every hand-written fact about that content is checked by CI against
-        committed dictionary evidence before it can merge.
+        NipponDaily teaches Japanese, so a wrong reading, meaning or origin is a
+        bug that teaches people something false. Every word's reading, level and
+        meaning traces back to a licensed dictionary source, every origin claim
+        traces to a quoted line of a pinned Wiktionary revision, and CI checks
+        all of it before a change can merge.
       </p>
 
       <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -38,43 +38,36 @@
         id="data-attribution"
         class="text-3xl font-serif font-bold mt-12 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        1. N5 Data & Sources
+        1. Data & Sources
       </h2>
 
       <p class="text-lg mb-6">
-        Hiragana, katakana, and every JLPT level's own kanji and vocabulary (N5
-        through N2) are static reference data — they don't change day to day, so
-        they're seeded once (or re-seeded occasionally, e.g. to deliberately
-        bump the pinned JMdict release) by a standalone script rather than by
-        any agent or request:
-        <code>pnpm seed</code> (<code>scripts/seed-pool-data.mjs</code>).
+        Each JLPT level's kanji and vocabulary (N5 through N2) are static
+        reference data — they don't change day to day, so they're seeded once
+        (or re-seeded occasionally, e.g. to deliberately bump the pinned JMdict
+        release) by a standalone script rather than by any agent or request:
+        <code>pnpm seed</code> (<code>scripts/seed-pool-data.mjs</code>). The
+        daily words themselves are different: they're hand-written in-repo data
+        (<code>data/words/YYYY-MM.json</code>), drawn from that pool, with their
+        origin claims backed by a second, separately pinned source.
       </p>
 
       <div
         class="p-4 mb-8 season-box bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800"
       >
         <p class="m-0 text-blue-900 dark:text-blue-100 text-sm">
-          <strong>Every level has a lesson path:</strong> everything below — the
-          ground-truth reference, the CI content checks, and the hand-written
-          lesson content — covers <strong>N5</strong>, <strong>N4</strong>,
-          <strong>N3</strong> and <strong>N2</strong> (<code
-            >test/content/</code
-          >
-          for N5, <code>test/content/n4/</code>,
-          <code>test/content/n3/</code> and <code>test/content/n2/</code> for
-          the rest — same checks, same idea, each against its own committed
-          reference snapshot, built by <code>pnpm data:reference</code> and
-          <code>pnpm data:reference:jlpt</code>).
-          <code>pnpm data:draft:clusters &lt;level&gt;</code>
-          (<code>scripts/draft-lesson-clusters.mjs</code>) turns one of those
-          evidence snapshots into a small, batched authoring pack — a read-first
-          list of words whose reading or meaning JMdict doesn't back, homophone
-          and transitive/intransitive leads, and the still-untaught words in
-          ~50-word files. Its companion
-          <code>pnpm data:audit</code>
-          (<code>scripts/audit-lesson-content.mjs</code>) applies the same
-          evidence checks, looser than the CI gate, across every level as a
-          review queue — see their headers for how they fit the pipeline below.
+          <strong>All four levels are covered:</strong> the ground-truth
+          reference and the CI content checks cover <strong>N5</strong>,
+          <strong>N4</strong>, <strong>N3</strong> and
+          <strong>N2</strong> (<code>test/content/</code> for N5,
+          <code>test/content/n4/</code>, <code>test/content/n3/</code> and
+          <code>test/content/n2/</code> for the rest — same checks, each against
+          its own committed reference snapshot, built by
+          <code>pnpm data:reference</code> and
+          <code>pnpm data:reference:jlpt</code>). On top of those,
+          <code>test/content/words.test.ts</code> checks every daily-word entry
+          against that same evidence plus the Wiktionary snapshot built by
+          <code>pnpm data:etymology</code> — see Section 2.
         </p>
       </div>
 
@@ -83,9 +76,9 @@
         <h3
           class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
         >
-          The N5 Data Pipeline, End to End (Zoomable)
+          The Data Pipeline, End to End (Zoomable)
         </h3>
-        <MermaidDiagram id="n5-pipeline-diag" :code="n5PipelineDiagram" />
+        <MermaidDiagram id="data-pipeline-diag" :code="dataPipelineDiagram" />
         <p class="text-center text-xs text-gray-500 mt-4 italic">
           Left: what the site actually serves. Right: an independent, offline
           snapshot the left side is checked against in CI.
@@ -95,7 +88,7 @@
       <p class="mb-4">
         There are really two pipelines here, built from the same sources but run
         completely separately, so a mistake in one can't hide the same mistake
-        in the other:
+        in the other — plus a third source, Wiktionary, for the origin claims:
       </p>
 
       <ol
@@ -122,12 +115,10 @@
           source list simply gets wrong (e.g. ラジオカセ → the real word,
           ラジカセ), and fuller meaning enrichments (早い as "early; quick,
           soon", not just "early"). This runs on every read, so a fix ships
-          instantly with no re-seed. <code>GET /api/pool-vocab</code>,
-          <code>GET /api/pool-kanji</code>, and the daily game's
-          <code>buildDailyGame()</code> all read through this same corrected
-          layer, so the game, the <code>/vocab</code> guide, and the
-          <code>/learn</code> lesson path never disagree about what a word
-          means.
+          instantly with no re-seed. <code>GET /api/pool-vocab</code> and
+          <code>GET /api/pool-kanji</code> both read through this corrected
+          layer, and a daily word's <code>meaning</code> must equal what it
+          serves.
         </li>
         <li>
           <strong>Check it, independently.</strong> Because the pool only exists
@@ -144,6 +135,17 @@
           wrong reading, a reversed meaning ("this" vs. "that"), or a rōmaji
           that doesn't match how the word is really pronounced all fail the
           build before they can merge. See Section 2 below for the full story.
+        </li>
+        <li>
+          <strong>Quote the origin, pinned.</strong>
+          <code>pnpm data:etymology</code>
+          (<code>scripts/build-etymology-reference.mjs</code>) fetches the
+          Japanese <em>Etymology</em> sections of English Wiktionary for every
+          daily word and commits their plain text to
+          <code>data/reference/etymology-reference.json</code>, each page pinned
+          to one <strong>revision id</strong> so it can't change underneath us.
+          A word already pinned is re-fetched at that exact revision; moving a
+          pin is a deliberate <code>--refresh</code>.
         </li>
       </ol>
 
@@ -195,23 +197,7 @@
           </thead>
           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
             <tr>
-              <td class="py-2 px-2">Hiragana / Katakana</td>
-              <td class="py-2 px-2">
-                Hardcoded (fixed, unchanging syllabaries — not dictionary
-                content); <code>romaji</code> derived via
-                <a
-                  href="https://github.com/WaniKani/WanaKana"
-                  target="_blank"
-                  rel="noopener"
-                  >wanakana</a
-                >
-              </td>
-              <td class="py-2 px-2 font-mono text-xs">
-                n5:hiragana:*, n5:katakana:*
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2">N5 vocabulary</td>
+              <td class="py-2 px-2">JLPT vocabulary (N5–N2)</td>
               <td class="py-2 px-2">
                 <a
                   href="https://github.com/elzup/jlpt-word-list"
@@ -219,7 +205,7 @@
                   rel="noopener"
                   >elzup/jlpt-word-list</a
                 >
-                (N5-tagged words), cross-referenced against
+                (one CSV per level), cross-referenced against
                 <a
                   href="https://github.com/scriptin/jmdict-simplified"
                   target="_blank"
@@ -228,24 +214,37 @@
                 >
                 for part of speech
               </td>
-              <td class="py-2 px-2 font-mono text-xs">n5:vocab:*</td>
+              <td class="py-2 px-2 font-mono text-xs">
+                n5:vocab:* (N4–N2: n5:vocab:N4:* …)
+              </td>
             </tr>
             <tr>
-              <td class="py-2 px-2">N5 kanji</td>
+              <td class="py-2 px-2">JLPT kanji (N5–N2)</td>
               <td class="py-2 px-2">
-                Derived from the unique kanji in the N5 vocab list, enriched
-                from KANJIDIC2 (on'yomi, kun'yomi, stroke count, meanings)
+                Derived from the unique kanji in each level's vocab list,
+                enriched from KANJIDIC2 (on'yomi, kun'yomi, stroke count,
+                meanings)
               </td>
-              <td class="py-2 px-2 font-mono text-xs">n5:kanji:*</td>
+              <td class="py-2 px-2 font-mono text-xs">
+                n5:kanji:* (N4–N2: n5:kanji:N4:* …)
+              </td>
             </tr>
             <tr>
-              <td class="py-2 px-2">Daily games</td>
+              <td class="py-2 px-2">Daily words</td>
               <td class="py-2 px-2">
-                Generated deterministically from the pool by
-                <code>GET /api/daily-game</code> the first time each date is
-                requested
+                Hand-written entries in <code>data/words/YYYY-MM.json</code>;
+                origin claims quote
+                <a
+                  href="https://en.wiktionary.org"
+                  target="_blank"
+                  rel="noopener"
+                  >Wiktionary</a
+                >
+                via a pinned snapshot
               </td>
-              <td class="py-2 px-2 font-mono text-xs">n5:daily_game:*</td>
+              <td class="py-2 px-2 font-mono text-xs">
+                none — in-repo, not in Redis
+              </td>
             </tr>
           </tbody>
         </table>
@@ -269,8 +268,24 @@
           >
           project's pre-parsed JSON releases.
         </p>
+        <p class="mb-2">
+          Etymology text is quoted from
+          <a href="https://en.wiktionary.org" target="_blank" rel="noopener"
+            >English Wiktionary</a
+          >, available under
+          <a
+            href="https://creativecommons.org/licenses/by-sa/4.0/"
+            target="_blank"
+            rel="noopener"
+            >CC BY-SA 4.0</a
+          >. Each entry links the exact revision it quotes, and the committed
+          snapshot (<code>data/reference/etymology-reference.json</code>) keeps
+          every page's permalink and the license in its metadata. The entries'
+          own prose is NipponDaily's paraphrase of that evidence and is shared
+          under the same license.
+        </p>
         <p class="m-0 mb-2">
-          The N5-level word list is digitized from the community-standard list
+          The JLPT word lists are digitized from the community-standard list
           originally compiled at tanos.co.uk, via
           <a
             href="https://github.com/elzup/jlpt-word-list"
@@ -281,7 +296,7 @@
           (MIT licence).
         </p>
         <p class="m-0">
-          <code>romaji</code> for the hiragana/katakana pool is derived via
+          <code>romaji</code> for the kana is derived via
           <a
             href="https://github.com/WaniKani/WanaKana"
             target="_blank"
@@ -315,7 +330,7 @@
         depended on only existed inside Redis, where no test could see it. The
         fix is structural: the dictionary evidence above is committed to the
         repo, and CI checks every hand-written fact against it on every PR. A
-        wrong lesson fails CI before it can merge.
+        wrong entry fails CI before it can merge.
       </p>
 
       <h3
@@ -340,9 +355,10 @@
               <td class="py-2 px-2">
                 Committed, versioned dictionary evidence: JMdict entries
                 (readings, senses, glosses, part of speech) for every N5 word as
-                the site serves it, JMdict readings for every word in the
-                example sentences, and KANJIDIC2 readings/meanings for every
-                kanji the content uses. Generated — never edit by hand.
+                the site serves it, and KANJIDIC2 readings/meanings for every
+                kanji the content uses. Generated — never edit by hand. N4, N3
+                and N2 have their own files, built by
+                <code>pnpm data:reference:jlpt</code>.
               </td>
             </tr>
             <tr>
@@ -377,6 +393,25 @@
                 Applied at read time with ids unchanged — no re-seed needed.
               </td>
             </tr>
+            <tr>
+              <td class="py-2 px-2 font-mono text-xs align-top">
+                <code>data/words/*.json</code>
+              </td>
+              <td class="py-2 px-2">
+                The daily-word entries, one file per month. Every field is
+                checked by <code>test/content/words.test.ts</code>.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 font-mono text-xs align-top">
+                <code>data/reference/etymology-reference.json</code>
+              </td>
+              <td class="py-2 px-2">
+                The pinned Wiktionary etymology text the entries quote, with
+                each page's revision id, permalink and license. Generated by
+                <code>pnpm data:etymology</code> — never edit by hand.
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -389,17 +424,8 @@
 
       <ul class="list-disc pl-6 mb-6 space-y-3">
         <li>
-          <strong>Example sentences</strong> (<code>examples.test.ts</code>) —
-          every example's rōmaji must be a valid reading of its Japanese. The
-          sentence is tokenized (kuromoji), and the rōmaji must be spelled by
-          one reading per word, where each word may use the tokenizer's reading
-          <em>or any reading JMdict lists for it</em>. So 七時 can be
-          <code>shichi-ji</code> or <code>nana-ji</code>, but a wrong reading,
-          the wrong word, or a typo fails. Use wāpuro rōmaji (<code>ou</code>,
-          <code>ei</code>, no macrons).
-        </li>
-        <li>
-          <strong>Every N5 word</strong> (<code>vocabulary.test.ts</code>):
+          <strong>Every served word, at every level</strong>
+          (<code>vocabulary.test.ts</code>, mirrored for N4/N3/N2):
           <ul class="list-disc pl-6 mt-2 space-y-1">
             <li>
               is a real JMdict word <em>with that reading</em> (single-kanji
@@ -407,10 +433,6 @@
             </li>
             <li>
               has no meaning that reverses JMdict's (this ↔ that, come ↔ go…);
-            </li>
-            <li>
-              is taught by exactly one lesson, and every lesson word is a real
-              pool word.
             </li>
           </ul>
         </li>
@@ -432,10 +454,39 @@
           readings; part-of-speech overrides must be JMdict tags.
         </li>
         <li>
-          <strong>Lesson prose</strong> (<code>prose.test.ts</code>) — every
-          Japanese word in insights, titles and common-mistake notes must be a
-          real word, and every "かな (romaji)" pair in the kana guide must be
-          spelled correctly.
+          <strong>Every daily-word entry</strong>
+          (<code>words.test.ts</code>):
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>
+              is a real pool word, and its term, reading, level and meaning
+              equal what the pool serves;
+            </li>
+            <li>
+              has morphemes whose readings join to the word's reading — or,
+              where sound change hides the join, to a declared
+              <code>partsReading</code> that is either the word's other pool
+              reading or romanized in the cited evidence;
+            </li>
+            <li>
+              gives each single-kanji morpheme a reading KANJIDIC2 lists for
+              that kanji and a gloss that KANJIDIC2 or the cited text backs;
+              anything that breaks the rule (ateji, archaic forms) must say so
+              with <code>irregular</code>;
+            </li>
+            <li>
+              cites at least one source, and every quote is found
+              <strong>verbatim</strong> in that word's pinned Wiktionary text,
+              at the revision the entry names;
+            </li>
+            <li>
+              mentions only Japanese its evidence (or the pool) contains — an
+              invented word or form in the prose fails;
+            </li>
+            <li>
+              carries a “not settled” note whenever it is tagged
+              <em>Origin unclear</em>, and no snapshot pin outlives its entry.
+            </li>
+          </ul>
         </li>
         <li>
           <strong>Staleness</strong> — the reference must match
@@ -445,10 +496,24 @@
       </ul>
 
       <p class="mb-6">
-        The checkers test themselves too: they must <em>reject</em> known-wrong
-        readings (三日 as <code>yokka</code>, 七時 as <code>hachi-ji</code>,
-        来週 as <code>senshuu</code>), so they can't silently pass everything.
+        The checkers test themselves too: the rōmaji checkers must
+        <em>reject</em> known-wrong readings (三日 as <code>yokka</code>, 七時
+        as <code>hachi-ji</code>), and the daily-word suite was verified by
+        deliberately corrupting entries — a wrong kanji reading, a wrong
+        meaning, an invented quote, an unbacked gloss, morphemes that don't join
+        — and confirming each is caught.
       </p>
+
+      <div
+        class="my-8 p-4 season-box border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
+      >
+        <strong>What these checks cannot prove:</strong> that a quote is
+        <em>true</em> (it only proves Wiktionary says it, at that revision), or
+        that a sentence about a real word is correct — the Japanese-in-prose
+        check rejects words that aren't real, not false statements about words
+        that are. Entries are reviewed in PRs, and where the sources disagree
+        the entry says so rather than choosing.
+      </div>
 
       <h3
         class="text-xl font-semibold mt-8 mb-4 text-stone-800 dark:text-stone-200"
@@ -475,21 +540,27 @@
           through.
         </li>
         <li>
-          <strong>An example's rōmaji doesn't match</strong> → fix the rōmaji
-          (or the Japanese). If you're sure it's a valid reading JMdict lacks,
-          rethink the example rather than special-casing it.
+          <strong>A quote isn't found</strong> → copy it again from the
+          snapshot's text
+          (<code>data/reference/etymology-reference.json</code>), or run
+          <code>pnpm data:etymology --refresh &lt;term&gt;</code> if the page
+          was edited and you mean to re-pin it. Never loosen a quote to match.
         </li>
         <li>
-          <strong>A prose word is unknown</strong> → it's probably misspelt. If
-          it's a real word new to the content, run
-          <code>pnpm data:reference</code> so the reference records it.
+          <strong>A morpheme's reading or gloss isn't backed</strong> → correct
+          it, or, if it really is ateji or an archaic form, mark it
+          <code>irregular</code> and say why in the story.
+        </li>
+        <li>
+          <strong>The prose mentions Japanese no evidence contains</strong> →
+          remove it, or add the source line that supports it.
         </li>
       </ul>
 
       <p class="mb-6">
-        Prose explanations themselves ("the こ-series means near me") can't be
-        machine-verified. Keep factual claims in structured fields (examples,
-        rows, meanings) where they are checked, and review prose in PRs.
+        English prose itself can't be machine-verified. Keep factual claims in
+        structured fields (morphemes, sources, meanings) where they are checked,
+        and review prose in PRs.
       </p>
 
       <h3
@@ -511,47 +582,55 @@
         bump the pin(s), run <code>pnpm seed</code> and
         <code>pnpm data:reference</code>
         together, and review both diffs in the PR — every changed reading or
-        gloss is visible, and the content tests show whether any lesson now
+        gloss is visible, and the content tests show whether any entry now
         disagrees with it. Requires Node ≥ 22 (<code>node:sqlite</code>) and
         <code>tar</code>/<code>xz</code> on PATH.
       </p>
+
+      <p class="mb-6">
+        The Wiktionary pins live in the snapshot itself: each term's
+        <code>revid</code>. To add a month, write
+        <code>data/words/YYYY-MM.json</code>, register it in
+        <code>shared/words.ts</code>, and run <code>pnpm data:etymology</code> —
+        new terms are fetched at their current revision and recorded, existing
+        ones are re-fetched at their pin, so the output is deterministic. Re-pin
+        a term deliberately with
+        <code>pnpm data:etymology --refresh &lt;term&gt;</code> and review the
+        diff. Wikimedia rate-limits anonymous requests, so the script paces
+        itself and honors <code>Retry-After</code>.
+      </p>
     </main>
 
-    <UFooter
-      class="relative z-10 border-t border-stone-200 dark:border-stone-800 bg-[#FDFBF7] dark:bg-[#0B0E14]"
-    >
-      <template #left>
-        <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
-          under the Apache-2.0 License.
-        </p>
-      </template>
-    </UFooter>
+    <AppFooter />
   </div>
 </template>
 
 <script setup lang="ts">
 import AppHeader from "../../components/AppHeader.vue";
+import AppFooter from "../../components/AppFooter.vue";
 
-const n5PipelineDiagram = `
+const dataPipelineDiagram = `
 flowchart TD
     subgraph LIVE["Live pool — what the site serves"]
         direction TB
         WordList["elzup/jlpt-word-list
-n5.csv @ pinned commit"]
+n5–n2 CSVs @ pinned commits"]
         JMdictLatest["JMdict + KANJIDIC2
 (jmdict-simplified, pinned release tag)"]
         Seed["pnpm seed
 scripts/seed-pool-data.mjs"]
-        Pool[("Redis N5 Pool
+        Pool[("Redis pool
 n5:vocab:* · n5:kanji:*
-n5:hiragana:* · n5:katakana:*")]
+(N4–N2 namespaced)")]
         Served["PoolDataService + servedVocab()
 server/services/pool-data.ts
 shared/meanings.ts"]
         VocabAPI["GET /api/pool-vocab"]
         KanjiAPI["GET /api/pool-kanji"]
-        Game["buildDailyGame()"]
+        Words["data/words/*.json
+daily-word entries (hand-written)"]
+        WordAPI["GET /api/daily-word
+GET /api/word-calendar"]
 
         WordList --> Seed
         JMdictLatest --> Seed
@@ -560,39 +639,48 @@ cross-referenced readings + POS" --> Pool
         Pool --> Served
         Served --> VocabAPI
         Served --> KanjiAPI
-        Served --> Game
+        Words --> WordAPI
     end
 
     subgraph TRUTH["Ground truth — checked independently in CI"]
         direction TB
         SamePin["scripts/word-list-source.mjs
-(same pinned commit as Seed)"]
+(same pinned commits as Seed)"]
         Jamdict["jamdict-data
 checksum-verified JMdict/KANJIDIC2"]
         RefBuild["pnpm data:reference
-scripts/build-n5-reference.mjs"]
-        RefJSON["data/reference/n5-reference.json
+pnpm data:reference:jlpt"]
+        RefJSON["data/reference/n{5,4,3,2}-reference.json
+(committed snapshots)"]
+        Wikt["English Wiktionary
+Japanese Etymology sections"]
+        EtyBuild["pnpm data:etymology
+pinned per revision id"]
+        EtyJSON["data/reference/etymology-reference.json
 (committed snapshot)"]
         ContentTests["test/content/*
-vocabulary · romaji · examples · prose"]
+vocabulary · romaji · words"]
 
         SamePin --> RefBuild
         Jamdict --> RefBuild
         RefBuild --> RefJSON
+        Wikt --> EtyBuild
+        EtyBuild --> EtyJSON
         RefJSON --> ContentTests
+        EtyJSON --> ContentTests
     end
 
     WordList -. "same pinned commit" .-> SamePin
     Served -. "same servedVocab()
 corrections, verified" .-> ContentTests
+    Words -. "readings, meanings,
+morphemes, quotes, prose" .-> ContentTests
     ContentTests --> CI{"pnpm test:run (CI)"}
     CI -- "wrong reading, meaning,
-or romaji found" --> Fail(["❌ PR blocked"])
-    CI -- "every word checks out" --> Pass(["✅ Safe to merge"])
+quote or invented word found" --> Fail(["❌ PR blocked"])
+    CI -- "every entry checks out" --> Pass(["✅ Safe to merge"])
 
-    VocabAPI --> VocabPage["/vocab guide"]
-    KanjiAPI --> LearnPage["/learn kanji breakdown"]
-    Game --> GamePage["/game daily round"]
+    WordAPI --> Pages["/ · /words · /words/[date]"]
 `;
 </script>
 

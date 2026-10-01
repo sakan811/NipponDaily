@@ -42,74 +42,35 @@
       </nav>
 
       <div class="space-y-14">
-        <!-- 1. Daily game fetch failure -->
+        <!-- 1. Word fetch failure -->
         <section id="trending-fallback" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="01"
-            title="Daily game fetch failure"
+            title="Word fetch failure"
             component="components/TrendingFallback.vue"
-            trigger="<code>GET /api/daily-game</code> throws (Redis unreachable, empty pool, or network error). Bound to <code>DailyGameBoard</code>'s error ref."
+            trigger="<code>GET /api/daily-word</code> or <code>GET /api/word-calendar</code> throws (network error or a 5xx). The home page, <code>/words</code> and <code>/words/[date]</code> each pass their own title; a 400/404 on a single day swaps the message for “That day hasn't arrived yet.” or “There is no word for this day.”"
           />
           <TrendingFallback
-            :error="'Service temporarily unavailable. Please try again.'"
+            :error="'Failed to load the word. Please try again.'"
             :loading="false"
+            title="Unable to Load Today's Word"
+            detail="The page could not fetch its data. This is usually temporary."
             @retry="noop"
           />
         </section>
 
-        <!-- 2. Answered question card -->
-        <section id="question-card" class="scroll-mt-24 space-y-3">
+        <!-- 2. An entry with an unsettled origin -->
+        <section id="unsettled" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="02"
-            title="Answered question card"
-            component="components/DailyGameBoard.vue"
-            trigger="Not an error state — the normal in-round view right after answering, shown here so its layout can be reviewed alongside the fallbacks."
+            title="Entry with an unsettled origin"
+            component="components/WordEntryView.vue (uncertainty, morphemes: [])"
+            trigger="An entry whose origin is unknown or disputed: no morpheme breakdown (any split would be a guess) and a “Not settled” callout. The content test requires the callout whenever an entry is tagged “Origin unclear”. The entry below is a synthetic placeholder, not a real etymology."
           />
-          <!-- Mirrors DailyGameBoard: the prompt on an ema plaque, stamped
-               合格 by a correct answer, with the choices underneath. -->
-          <div class="space-y-4">
-            <EmaPlaque class="max-w-md mx-auto">
-              <div class="space-y-4 text-center pb-2">
-                <UBadge color="secondary" variant="soft" size="xs">
-                  Vocabulary
-                </UBadge>
-                <div class="pt-2">
-                  <ruby
-                    class="font-serif font-bold text-5xl sm:text-6xl text-stone-900 dark:text-white leading-none"
-                  >
-                    食べる
-                    <rt
-                      class="font-sans font-normal text-base sm:text-lg text-stone-600 dark:text-stone-400"
-                      >たべる</rt
-                    >
-                  </ruby>
-                </div>
-              </div>
-              <template #stamp>
-                <HankoSeal />
-              </template>
-            </EmaPlaque>
-            <div class="space-y-6 text-center">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <UButton
-                  v-for="choice in sampleChoices"
-                  :key="choice.label"
-                  :label="choice.label"
-                  :color="choice.correct ? 'success' : 'secondary'"
-                  :variant="choice.correct ? 'solid' : 'outline'"
-                  size="lg"
-                  block
-                  class="justify-center"
-                  disabled
-                />
-              </div>
-              <p
-                class="text-sm font-medium flex items-center justify-center gap-1.5 text-success-600 dark:text-success-400"
-              >
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4" />
-                Correct!
-              </p>
-            </div>
+          <div
+            class="border border-stone-300 dark:border-stone-800 season-box bg-white dark:bg-stone-900/50 p-5 sm:p-8"
+          >
+            <WordEntryView :entry="placeholderEntry" />
           </div>
         </section>
 
@@ -117,118 +78,78 @@
         <section id="loading" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="03"
-            title="Loading skeleton"
-            component="components/DailyGameBoard.vue (loading)"
-            trigger="Shown while <code>GET /api/daily-game</code> is in flight (initial mount, or a manual retry)."
+            title="Loading skeletons"
+            component="pages/index.vue · pages/words/index.vue · pages/words/[date].vue"
+            trigger="Shown while the page's API call is in flight (initial mount, or a manual retry). The page never renders an empty frame."
           />
-          <div class="space-y-6">
-            <UCard
-              class="w-full relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-0.75 before:bg-linear-to-r before:from-transparent before:via-primary-500 before:to-transparent"
-            >
-              <div class="p-4 sm:p-6 space-y-6">
-                <USkeleton class="h-6 w-32 mb-3 rounded-sm" />
-                <USkeleton class="h-16 w-3/4 mx-auto rounded-sm" />
-                <div class="grid grid-cols-2 gap-3">
-                  <USkeleton class="h-12 rounded-sm" />
-                  <USkeleton class="h-12 rounded-sm" />
-                  <USkeleton class="h-12 rounded-sm" />
-                  <USkeleton class="h-12 rounded-sm" />
-                </div>
-              </div>
-            </UCard>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div class="space-y-3" aria-busy="true">
+              <p class="kicker text-stone-400">Word page</p>
+              <USkeleton class="h-6 w-48" />
+              <USkeleton class="h-20 w-72" />
+              <USkeleton class="h-40 w-full" />
+            </div>
+            <div class="space-y-3" aria-busy="true">
+              <p class="kicker text-stone-400">Calendar</p>
+              <USkeleton class="h-10 w-64" />
+              <USkeleton class="h-40 w-full" />
+            </div>
           </div>
         </section>
 
-        <!-- 4. Round summary -->
-        <section id="summary" class="scroll-mt-24 space-y-3">
+        <!-- 4. Calendar day states -->
+        <section id="calendar-days" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="04"
-            title="Round summary"
-            component="components/DailyGameBoard.vue (isFinished)"
-            trigger="Shown after the 20th question is answered: a 学業守 charm sealed 合格 (≥60% accuracy) or 努力, plus a charm per question kind. 'Play Again' reshuffles the same day's questions client-side — no refetch."
+            title="Calendar day states"
+            component="pages/words/index.vue"
+            trigger="A day is “open” once midnight in Japan has passed (it shows its word and links to it), “today” when it is the current day, and “upcoming” before then — an upcoming day reveals nothing, and the API refuses to serve it. The words below are placeholders."
           />
-          <UCard class="w-full">
-            <div class="p-4 sm:p-8 space-y-6 text-center">
-              <!-- 学業守 charm sealed 合格 (≥60% accuracy) or 努力 -->
-              <div class="relative w-28 mx-auto">
-                <OmamoriCharm size="lg" idle>
-                  <p
-                    class="flex flex-col items-center gap-1.5 font-serif font-bold text-2xl leading-none text-primary-600 dark:text-primary-400"
-                  >
-                    <span>学</span><span>業</span><span>守</span>
-                  </p>
-                </OmamoriCharm>
-                <HankoSeal class="absolute -right-10 bottom-0" />
-              </div>
-              <h2
-                class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
-              >
-                Round Complete!
-              </h2>
-              <div class="flex justify-center gap-8 text-center">
-                <div>
-                  <p
-                    class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
-                  >
-                    17/20
-                  </p>
-                  <p class="kicker text-stone-400">Correct</p>
-                </div>
-                <div>
-                  <p
-                    class="text-3xl font-mono font-bold text-stone-900 dark:text-white"
-                  >
-                    85%
-                  </p>
-                  <p class="kicker text-stone-400">Accuracy</p>
-                </div>
-              </div>
-              <div class="rule-double max-w-[120px] mx-auto" />
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                <OmamoriCharm
-                  v-for="(kind, i) in sampleKinds"
-                  :key="kind.label"
-                  :index="i + 2"
-                  size="sm"
-                >
-                  <div class="space-y-0.5">
-                    <p class="text-sm font-bold text-stone-900 dark:text-white">
-                      {{ kind.score }}
-                    </p>
-                    <p class="kicker text-stone-500 dark:text-stone-400">
-                      {{ kind.label }}
-                    </p>
-                  </div>
-                </OmamoriCharm>
-              </div>
-              <UButton
-                label="Play Again"
-                color="primary"
-                size="lg"
-                icon="i-heroicons-arrow-path"
-                @click="noop"
-              />
+          <div class="grid grid-cols-3 gap-2 max-w-md">
+            <div
+              class="season-box min-h-[6rem] border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 p-2.5"
+            >
+              <p class="text-xs text-stone-500">12</p>
+              <p class="mt-1 text-2xl font-serif font-bold">例</p>
+              <p class="text-xs text-stone-500">れい</p>
+              <p class="kicker text-stone-400 mt-1">open</p>
             </div>
-          </UCard>
+            <div
+              class="season-box min-h-[6rem] border border-primary-500 ring-2 ring-primary-500/30 bg-white dark:bg-stone-900/50 p-2.5"
+            >
+              <p class="text-xs text-stone-500">13</p>
+              <p class="mt-1 text-2xl font-serif font-bold">例</p>
+              <p class="text-xs text-stone-500">れい</p>
+              <p class="kicker text-primary-500 mt-1">today</p>
+            </div>
+            <div
+              class="min-h-[6rem] border border-dashed border-stone-300/70 dark:border-stone-800 p-2.5 text-xs text-stone-400 dark:text-stone-600"
+            >
+              14
+              <p class="kicker mt-6">upcoming</p>
+            </div>
+          </div>
         </section>
 
-        <!-- 5. Question-kind badge -->
-        <section id="kind-badge" class="scroll-mt-24 space-y-3">
+        <!-- 5. Layer badges -->
+        <section id="strata" class="scroll-mt-24 space-y-3">
           <ErrorStateHeading
             index="05"
-            title="Question-kind badge"
-            component="components/DailyGameBoard.vue (question.kind)"
-            trigger="Every question shows which of the four pool kinds it's drawn from."
+            title="Vocabulary-layer badges"
+            component="components/WordEntryView.vue (entry.stratum)"
+            trigger="Every entry names the layer of the vocabulary it belongs to; the calendar colors its dot to match."
           />
           <div
             class="border border-stone-300 dark:border-stone-800 season-box p-5 bg-white dark:bg-stone-900 flex flex-wrap gap-2"
           >
-            <UBadge color="secondary" variant="soft" size="xs">Hiragana</UBadge>
-            <UBadge color="secondary" variant="soft" size="xs">Katakana</UBadge>
-            <UBadge color="secondary" variant="soft" size="xs">Kanji</UBadge>
-            <UBadge color="secondary" variant="soft" size="xs"
-              >Vocabulary</UBadge
+            <UBadge color="primary" variant="soft"
+              >和語 · Native Japanese</UBadge
             >
+            <UBadge color="secondary" variant="soft"
+              >漢語 · Sino-Japanese</UBadge
+            >
+            <UBadge color="warning" variant="soft">外来語 · Loanword</UBadge>
+            <UBadge color="gray" variant="soft">混種語 · Hybrid</UBadge>
           </div>
         </section>
 
@@ -238,7 +159,7 @@
             index="06"
             title="404 — page not found"
             component="pages/[...slug].vue"
-            trigger="Any unmatched route (including the retired <code>/news</code>). Full-page layout with the shared header/footer and a single 'Return to Home' action."
+            trigger="Any unmatched route. The retired <code>/game</code>, <code>/learn</code> and <code>/vocab</code> paths don't land here — they redirect to the front page. Full-page layout with the shared header/footer and a single 'Return to Home' action."
           />
           <div
             class="border border-stone-300 dark:border-stone-800 season-box bg-[#FDFBF7] dark:bg-[#0B0E14] px-4 py-12 text-center"
@@ -265,8 +186,8 @@
           <ErrorStateHeading
             index="07"
             title="API error responses"
-            component="server/api/daily-game.get.ts"
-            trigger="Not a rendered UI — the JSON <code>GET /api/daily-game</code> returns on failure. <code>DailyGameBoard</code> maps these onto the fetch failure state above."
+            component="server/api/daily-word.get.ts · server/api/word-calendar.get.ts"
+            trigger="Not a rendered UI — the JSON the word endpoints return on failure. The pages map these onto the fetch-failure state above."
           />
           <div class="grid gap-3 sm:grid-cols-2">
             <div
@@ -276,8 +197,9 @@
                 400 Bad Request
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                The optional ?date= query param failed validation: not a real
-                YYYY-MM-DD calendar date, or a date in the future.
+                The optional ?date= (or ?month=) query param failed validation:
+                not a real calendar date, or a date that hasn't arrived yet in
+                Japan. An upcoming word is never served early.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -287,16 +209,16 @@
               class="season-box border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
             >
               <p class="text-xs font-mono font-bold text-error-500 mb-2">
-                500 Failed to fetch daily game
+                404 Not Found
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                Redis read threw, or the requested level's pool is empty (seed
-                script never run). Production returns a generic message; the
-                real error is logged server-side and echoed only in development.
+                A valid past date (or month) the catalogue doesn't cover, or no
+                word has opened yet. With no ?date=, the endpoint instead falls
+                back to the newest open word, so the front page is never empty.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
-                >{{ serverErrorSample }}</pre>
+                >{{ notFoundSample }}</pre>
             </div>
           </div>
         </section>
@@ -318,32 +240,40 @@
 
 <script setup lang="ts">
 import AppHeader from "../../components/AppHeader.vue";
-import EmaPlaque from "../../components/EmaPlaque.vue";
-import HankoSeal from "../../components/HankoSeal.vue";
-import OmamoriCharm from "../../components/OmamoriCharm.vue";
+import TrendingFallback from "../../components/TrendingFallback.vue";
+import WordEntryView from "../../components/WordEntryView.vue";
+import type { WordEntry } from "~~/types/index";
 
 const noop = () => {};
 
-const sampleChoices = [
-  { label: "to drink", correct: false },
-  { label: "to eat", correct: true },
-  { label: "to see", correct: false },
-  { label: "to go", correct: false },
-];
-
-const sampleKinds = [
-  { label: "Hiragana", score: "5/5" },
-  { label: "Katakana", score: "4/5" },
-  { label: "Kanji", score: "4/5" },
-  { label: "Vocabulary", score: "4/5" },
-];
+/** A synthetic entry, plainly labelled as a placeholder: this page previews
+ *  the layout of an unsettled-origin entry, and inventing an etymology to do
+ *  it would be exactly the kind of error the content tests exist to prevent. */
+const placeholderEntry: WordEntry = {
+  date: "2026-10-13",
+  term: "例",
+  kana: "れい",
+  meaning: "example",
+  level: "N4",
+  stratum: "kango",
+  processes: ["unclear"],
+  headline: "A placeholder entry used to preview this layout.",
+  morphemes: [],
+  story: [
+    "Placeholder text. This is not a real etymology: it only shows how an entry looks when no breakdown is safe to give.",
+  ],
+  uncertainty:
+    "Placeholder text. A real entry lists the competing theories here, and never picks a winner the evidence doesn't.",
+  sources: [{ quote: "Placeholder — a real entry quotes its source here." }],
+  wiktionaryRev: 1,
+};
 
 const sections = [
   { id: "trending-fallback", label: "01 Fetch failure" },
-  { id: "question-card", label: "02 Question card" },
-  { id: "loading", label: "03 Loading skeleton" },
-  { id: "summary", label: "04 Round summary" },
-  { id: "kind-badge", label: "05 Kind badge" },
+  { id: "unsettled", label: "02 Unsettled origin" },
+  { id: "loading", label: "03 Loading skeletons" },
+  { id: "calendar-days", label: "04 Calendar days" },
+  { id: "strata", label: "05 Layer badges" },
   { id: "not-found", label: "06 404" },
   { id: "api-errors", label: "07 API errors" },
 ];
@@ -361,13 +291,11 @@ const badRequestSample = JSON.stringify(
   2,
 );
 
-const serverErrorSample = JSON.stringify(
+const notFoundSample = JSON.stringify(
   {
-    statusCode: 500,
-    statusMessage: "Failed to fetch daily game",
-    data: {
-      error: "Service temporarily unavailable. Please try again.",
-    },
+    statusCode: 404,
+    statusMessage: "Not Found",
+    data: { error: "There is no word for 2026-09-30." },
   },
   null,
   2,

@@ -24,9 +24,10 @@
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          NipponDaily turns a persisted JLPT kanji, kana, and vocabulary pool —
-          N5 by default, or N4 through N2 — into one bite-sized daily learning
-          game.
+          NipponDaily opens one Japanese word a day and takes it apart: its
+          morphemes, its layer of the vocabulary, the processes that shaped it,
+          and the evidence behind every claim — with a calendar to look back
+          through every word so far.
         </p>
       </div>
 
@@ -39,81 +40,67 @@
       </div>
     </main>
 
-    <UFooter
-      class="relative z-10 border-t border-stone-200 dark:border-stone-800 bg-[#FDFBF7] dark:bg-[#0B0E14]"
-    >
-      <template #left>
-        <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
-          under the Apache-2.0 License.
-        </p>
-      </template>
-    </UFooter>
+    <AppFooter />
   </div>
 </template>
 
 <script setup lang="ts">
 import AppHeader from "../../components/AppHeader.vue";
+import AppFooter from "../../components/AppFooter.vue";
 
 const features = [
   {
-    title: "One Daily Game for Everyone",
+    title: "A New Word Every Day",
     description:
-      "Every visitor on a given day plays the same 20-question round for that level — N5 is 5 each of hiragana, katakana, kanji, and vocabulary; N4 and up already know their kana, so those rounds are 10 kanji and 10 vocabulary instead — generated once and served to all readers that day.",
+      "One entry opens each day at midnight in Japan (JST) — the same word for every reader. October 2026 is the first month: thirty-one words, one per day, each chosen from the JLPT N5–N2 vocabulary for having something real to say about how Japanese words are built.",
     icon: "i-heroicons-academic-cap",
   },
   {
-    title: "Choose Your JLPT Level",
+    title: "A Calendar to Look Back Through",
     description:
-      "A level selector on the game switches which pool the round is drawn from — N5 by default, or N4 through N2 — with its own repeat-avoidance history and persisted daily record per level.",
+      "/words is a month grid. A day that has arrived shows its word and links to the full entry; a day that hasn't shows nothing, and the API refuses to serve it — so a future word can't be read early, even by asking for its exact date. Months with no entries don't appear.",
+    icon: "i-heroicons-calendar-days",
+  },
+  {
+    title: "Taken Apart",
+    description:
+      "Each word is split into its morphemes, each with its reading and meaning. Where sound change hides the join (夢 was once いめ, 梅雨 can be read ばいう), the entry shows the reading the parts really spell and says so. A word whose origin is unknown gets no breakdown at all — any split would be a guess.",
     icon: "i-heroicons-adjustments-horizontal",
   },
   {
-    title: "Persisted JLPT Learning Pool",
+    title: "Which Layer, Which Process",
     description:
-      "The shared hiragana/katakana syllabary, plus each level's own kanji (via KANJIDIC2) and vocabulary (cross-referenced against JMdict), are seeded once into Redis and reused every day — see <code>scripts/seed-pool-data.mjs</code>.",
-    icon: "i-heroicons-circle-stack",
+      "Every entry names the layer of the vocabulary it belongs to — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes at work (compounding, rendaku, clipping, ateji, sound change, meaning shift, …), each defined on the page.",
+    icon: "i-heroicons-book-open",
   },
   {
-    title: "One Cohesive Round, Not a Menu",
+    title: "The Story, Honestly",
     description:
-      "No separate mini-games to choose between — every day is a single mixed round of multiple-choice questions across all four kinds.",
+      "A short plain-English account of where the word comes from. When sources disagree or nobody knows, a “Not settled” note lists the competing theories instead of picking a winner.",
     icon: "i-heroicons-document-text",
   },
   {
-    title: "Instant Feedback & Accuracy Summary",
+    title: "Evidence for Every Claim",
     description:
-      "Every answer is graded immediately; the end-of-round summary breaks down accuracy per kind — no accounts needed to track a single round.",
+      "Each entry quotes the exact Wiktionary lines behind its origin claims, pinned to one revision, with a permalink and its CC BY-SA 4.0 license — so a claim can be checked by anyone, and can't change underneath us.",
+    icon: "i-heroicons-shield-check",
+  },
+  {
+    title: "Verified in CI",
+    description:
+      "Every entry is checked on every change: its reading, level and meaning must match the JMdict-checked pool; each morpheme's reading and gloss must be backed by KANJIDIC2 or the cited text; every quoted source line must really be in the pinned Wiktionary snapshot; and the prose may only mention Japanese that its evidence or the pool contains. A wrong entry can't merge.",
     icon: "i-heroicons-check-circle",
   },
   {
-    title: "Deterministic Daily Generation",
+    title: "Kana Reference",
     description:
-      "<code>GET /api/daily-game</code> generates each day's game itself from the requested level's pool using a date-seeded PRNG the first time that date is requested, then persists it — the site never shows \"no game today\", and no agent or AI provider is involved in game content. A Vercel Cron job also pre-generates each day's N5 game at 00:00 UTC, and generation avoids repeating any item used in the past 7 days.",
-    icon: "i-heroicons-arrow-path",
-  },
-  {
-    title: "N5 to N2 Lesson Paths",
-    description:
-      "All 718 N5 words (82 short lessons), all 665 N4 words (78 short lessons), all 2,138 N3 words (256 short lessons) and all 1,748 N2 words (205 short lessons) laid out at /learn, with a level selector to switch between them. Each lesson explains its pattern, breaks every word into its kanji, shows where else each kanji appears, and ends with unscored flip-card review. Nothing about the learner is saved.",
-    icon: "i-heroicons-academic-cap",
-  },
-  {
-    title: "Verified Lesson Content",
-    description:
-      "Every hand-written fact — for N5 and N4 alike — is checked in CI against committed JMdict/KANJIDIC2 evidence: example sentences' rōmaji must be a valid reading of the Japanese, every word must be a real dictionary word with that reading, hand-written meanings must be backed by JMdict, and prose may only mention real words — so a wrong lesson can't merge.",
-    icon: "i-heroicons-check-circle",
-  },
-  {
-    title: "Kana & Vocabulary Guides",
-    description:
-      "Study references alongside the game: a hiragana/katakana chart with romaji at /kana, and the vocabulary pool at /vocab — with a level selector across N5-N2 — to search and filter by word type; N5 and N4 words link to the lesson that teaches them.",
+      "A hiragana/katakana chart with romaji and shape mnemonics at /kana, for readers who need the scripts before the words.",
     icon: "i-heroicons-book-open",
   },
   {
     title: "Education Charms",
     description:
-      "Kana pairs, vocabulary words and score tiles hang as 学業守 omamori (academic-success charms); explanations and the daily question are written on ema plaques. A correct answer stamps a 合格 hanko seal, and the round summary seals a charm 合格 or 努力. All motion respects prefers-reduced-motion.",
+      "Kana pairs hang as 学業守 omamori (academic-success charms) and explanations are written on ema plaques, in brocade and wood that follow the active season. All motion respects prefers-reduced-motion.",
     icon: "i-heroicons-academic-cap",
   },
   {
@@ -141,15 +128,15 @@ const features = [
     icon: "i-heroicons-sparkles",
   },
   {
-    title: "Zero Gameplay Persistence",
+    title: "Nothing Stored About You",
     description:
-      "Current question, per-kind accuracy, and the end-of-round summary all live in the browser's own component state — nothing about a play-through is ever sent back to the server or saved anywhere.",
+      "There are no accounts and no tracking. The words are a read-only, in-repo catalogue; the only things the site ever fetches are a day's entry and the month grid, and nothing about what you read is sent back or saved anywhere.",
     icon: "i-heroicons-shield-check",
   },
   {
     title: "Resilient Fallback Component",
     description:
-      "A graceful UI fallback state (TrendingFallback) shown when the /api/daily-game fetch fails.",
+      "A graceful UI fallback state (TrendingFallback) shown when a word or calendar fetch fails, with a retry. Once the catalogue runs out of days, the home page falls back to the newest word instead of showing nothing.",
     icon: "i-heroicons-exclamation-triangle",
   },
   {
@@ -161,7 +148,7 @@ const features = [
   {
     title: "Dark Mode Native",
     description:
-      "Full system-wide dark mode support for comfortable play in low-light environments.",
+      "Full system-wide dark mode support for comfortable reading in low-light environments.",
     icon: "i-heroicons-moon",
   },
 ];

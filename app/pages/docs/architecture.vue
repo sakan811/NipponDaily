@@ -35,14 +35,15 @@
       </div>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily is a Japanese-learning game — a persisted pool of hiragana,
-        katakana, kanji, and vocabulary across JLPT levels N5-N2, and one
-        20-question multiple-choice round generated per day for whichever level
-        the player picks (N5 by default). Game generation is entirely in-repo:
-        the backend deterministically builds each day's round from that level's
-        pool the first time it's requested, then persists it so later requests
-        read the same game back — no agent or AI provider is involved in game
-        content. What <em>is</em>
+        NipponDaily is a daily Japanese word, taken apart. Each day opens one
+        entry — the word's morphemes, its layer of the vocabulary, the processes
+        that shaped it, and the evidence behind each claim — and a calendar lets
+        readers look back through every word so far. The entries are
+        hand-written, in-repo data (<code>data/words/YYYY-MM.json</code>),
+        checked in CI against committed JMdict, KANJIDIC2 and pinned Wiktionary
+        evidence, and served by date from a small Nitro API that refuses to
+        serve a day that hasn't arrived yet. No agent or AI provider writes
+        entries. What <em>is</em>
         agent-controlled is the site's seasonal design: a Claude web agent that
         runs on its own schedule, entirely outside this codebase, switches
         NipponDaily's active season (its color palette and the shapes of its
@@ -92,17 +93,16 @@
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Built with Nuxt 4 and Vue 3,
-            utilizing custom UI components and Tailwind CSS v4.
-            <code>DailyGameBoard.vue</code> fetches one day's game for the
-            selected JLPT level (a level switcher defaults to N5 and refetches
-            on change), then runs the entire round — question index, per-kind
-            accuracy, and the end-of-round summary — as local component state.
-            Nothing about a play-through is ever sent back to the server. The
-            Kana guide (<code>/kana</code>) is a static reference; the
-            Vocabulary guide (<code>/vocab</code>) has its own level selector
-            (N5-N2) and reads that level's whole pool from
-            <code>GET /api/pool-vocab</code> — only N5 and N4 words link to a
-            lesson, since only those two levels have one.
+            utilizing custom UI components and Tailwind CSS v4. The home page
+            shows today's word from <code>GET /api/daily-word</code>;
+            <code>/words</code> is a month grid fed by
+            <code>GET /api/word-calendar</code>; and
+            <code>/words/[date]</code> renders one entry
+            (<code>WordEntryView.vue</code>) with links to the days either side.
+            Pages never import the entries themselves — only the data-free
+            labels in <code>shared/word-labels.ts</code> — so no future word
+            ever ships in the browser bundle (a unit test enforces this). The
+            Kana guide (<code>/kana</code>) is a static reference.
           </p>
         </UCard>
 
@@ -117,17 +117,16 @@
             </h4>
           </template>
           <p class="text-sm mb-2">
-            <strong>What it does:</strong> The backend server that connects the
-            frontend to our database.
+            <strong>What it does:</strong> The backend server that hands the
+            frontend one day's word at a time.
           </p>
           <p class="text-sm">
-            <strong>Technical Details:</strong> The Nitro-powered backend reads
-            today's game from Redis, or — if nothing's been persisted for that
-            date yet — builds it deterministically on the spot from the
-            persisted pool, avoiding any kanji/vocab/kana used in the past 7
-            days. It never calls any external search or AI provider itself. A
-            Vercel Cron job hits this same build path at 00:00 UTC daily so the
-            game is usually already there by the first visitor (Section 3).
+            <strong>Technical Details:</strong> The Nitro-powered backend serves
+            the daily words straight from the in-repo catalogue
+            (<code>shared/words.ts</code>) — no database read at all. A day
+            counts as open once midnight in Japan (JST) has passed; anything
+            later is a <code>400</code>. It never calls any external search or
+            AI provider.
           </p>
         </UCard>
 
@@ -142,20 +141,21 @@
             </h4>
           </template>
           <p class="text-sm mb-2">
-            <strong>What it does:</strong> Where we store the learning pool and
-            each day's game so the website loads instantly.
+            <strong>What it does:</strong> Where we store the JLPT reference
+            pool and the site's active season.
           </p>
           <p class="text-sm">
             <strong>Technical Details:</strong> Powered by Upstash Redis,
-            storing the static kanji/vocab/kana pool for every JLPT level N5-N2
+            storing the static kanji/vocab pool for every JLPT level N5-N2
             (seeded offline, see the
             <NuxtLink to="/docs/data-integrity" class="underline"
               >Data Integrity &amp; Attribution</NuxtLink
             >
-            docs), one small <code>DailyGame</code> record per date, and the
-            single active <code>SiteTheme</code> record the theme agent controls
-            (Section 2). When the Redis env vars are absent, the service falls
-            back to an in-process in-memory store so the app still runs locally.
+            docs) and the single active <code>SiteTheme</code> record the theme
+            agent controls (Section 2). The daily words don't live here: they
+            are in-repo data, so a Redis outage can't take them down. When the
+            Redis env vars are absent, the services fall back to an in-process
+            in-memory store so the app still runs locally.
           </p>
         </UCard>
 
@@ -178,8 +178,8 @@
             Protocol) server at <code>ALL /api/mcp</code>, built with
             <code>mcp-handler</code> and protected by a constant-time bearer
             token check. Exposes tools to read and set the active
-            <code>SiteTheme</code> — see Section 2. It has no tools for game
-            content; the daily game is generated entirely in-repo.
+            <code>SiteTheme</code> — see Section 2. It has no tools for word
+            content; the daily words are written and reviewed in-repo.
           </p>
         </UCard>
 
@@ -218,7 +218,7 @@
       </h2>
 
       <p class="text-lg mb-6">
-        The daily game is generated entirely in-repo (Section 3) — no agent
+        The daily words are written and reviewed in-repo (Section 3) — no agent
         involved. What an external agent <em>does</em> control is design: a
         <strong>Claude web agent</strong> — scheduled via Claude's own web
         scheduling feature, entirely outside this repository — checks
@@ -329,19 +329,19 @@
       </h2>
       <p class="mb-8">Technical details on how our backend endpoints work.</p>
 
-      <!-- /api/daily-game -->
+      <!-- /api/daily-word -->
       <UCard class="mb-8">
         <template #header>
           <div class="flex items-center gap-2">
             <UBadge color="success" variant="soft">GET</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/daily-game</h3>
+            <h3 class="font-mono text-lg font-bold m-0">/api/daily-word</h3>
           </div>
         </template>
         <p class="text-sm mb-4">
-          Returns one day's game — from Redis if it's already been generated, or
-          built deterministically from the pool otherwise (and persisted, so it
-          isn't rebuilt on every request). Does not call any external search or
-          AI provider.
+          Returns one day's entry, with the previous day's word and — only once
+          that day has itself arrived — the next. Read from the in-repo
+          catalogue; nothing is generated or persisted. Does not call any
+          external search or AI provider.
         </p>
 
         <div class="overflow-x-auto mb-4">
@@ -360,23 +360,11 @@
                   string (<code>YYYY-MM-DD</code>)
                 </td>
                 <td class="py-2 px-2">
-                  Defaults to today (UTC). Since daily games are never deleted,
-                  any past date can be replayed. Must be a real calendar date,
-                  today or earlier — anything else is a <code>400</code>.
-                </td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2"><code>level</code></td>
-                <td class="py-2 px-2 text-gray-500">
-                  <code>N5</code> | <code>N4</code> | <code>N3</code> |
-                  <code>N2</code> | <code>ALL</code>
-                </td>
-                <td class="py-2 px-2">
-                  Defaults to <code>N5</code>. The game's level selector passes
-                  this once a player switches levels; each level has its own
-                  repeat-avoidance history and persisted daily record.
-                  <code>ALL</code> merges every level's kanji/vocab pool into
-                  one round. An unrecognized value is a <code>400</code>.
+                  Defaults to today in Japan (JST) — or, if the catalogue has
+                  run out, the newest word, so the front page is never empty.
+                  Must be a real calendar date, today or earlier; a future or
+                  malformed date is a <code>400</code>. A past date the
+                  catalogue doesn't cover is a <code>404</code>.
                 </td>
               </tr>
             </tbody>
@@ -388,14 +376,11 @@
             <p class="text-xs font-bold text-gray-500 mb-1">Request Examples</p>
             <pre
               class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
-            ><code># Today's N5 game
-curl "http://localhost:3000/api/daily-game"
+            ><code># Today's word
+curl "http://localhost:3000/api/daily-word"
 
-# Today's N4 game
-curl "http://localhost:3000/api/daily-game?level=N4"
-
-# Today's round drawn from every level combined
-curl "http://localhost:3000/api/daily-game?level=ALL"</code></pre>
+# A past day's word
+curl "http://localhost:3000/api/daily-word?date=2026-10-01"</code></pre>
           </div>
           <div>
             <p class="text-xs font-bold text-gray-500 mb-1">
@@ -406,16 +391,83 @@ curl "http://localhost:3000/api/daily-game?level=ALL"</code></pre>
             ><code>{
   "success": true,
   "data": {
-    "date": "2026-09-18",
-    "level": "N5",
-    "questions": [ ... 20 items ... ],
-    "generatedAt": 1758182400000,
-    "source": "fallback"
+    "entry": {
+      "date": "2026-10-01",
+      "term": "電話",
+      "kana": "でんわ",
+      "meaning": "a telephone",
+      "level": "N5",
+      "stratum": "kango",
+      "processes": ["wasei", "compound"],
+      "headline": "...",
+      "morphemes": [ ... ],
+      "story": [ ... ],
+      "sources": [ ... ],
+      "wiktionaryRev": 92203082
+    },
+    "prev": null,
+    "next": { "date": "2026-10-02", "term": "友達" }
   },
-  "timestamp": "2026-09-18T00:00:00.000Z"
+  "timestamp": "2026-10-01T00:00:00.000Z"
 }</code></pre>
           </div>
         </div>
+      </UCard>
+
+      <!-- /api/word-calendar -->
+      <UCard class="mb-8">
+        <template #header>
+          <div class="flex items-center gap-2">
+            <UBadge color="success" variant="soft">GET</UBadge>
+            <h3 class="font-mono text-lg font-bold m-0">/api/word-calendar</h3>
+          </div>
+        </template>
+        <p class="text-sm mb-4">
+          Returns one month as the calendar draws it: every month that has
+          words, today's date in Japan, and each day of the requested month. A
+          day that has arrived carries its word, reading and layer; an upcoming
+          day carries only its date and <code>"upcoming"</code> — it reveals
+          nothing about the word.
+        </p>
+        <div class="overflow-x-auto mb-4">
+          <table class="min-w-full border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-gray-300 dark:border-gray-700">
+                <th class="py-2 px-2 text-left font-bold">Parameter</th>
+                <th class="py-2 px-2 text-left font-bold">Type</th>
+                <th class="py-2 px-2 text-left font-bold">Description</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+              <tr>
+                <td class="py-2 px-2"><code>month</code></td>
+                <td class="py-2 px-2 text-gray-500">
+                  string (<code>YYYY-MM</code>)
+                </td>
+                <td class="py-2 px-2">
+                  Defaults to the current month in Japan if it has words,
+                  otherwise the newest month that does. A malformed month is a
+                  <code>400</code>; a month with no words is a <code>404</code>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <pre
+          class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
+        ><code>{
+  "success": true,
+  "data": {
+    "month": "2026-10",
+    "months": ["2026-10"],
+    "today": "2026-10-03",
+    "days": [
+      { "date": "2026-10-01", "status": "open", "term": "電話", "kana": "でんわ", "stratum": "kango" },
+      { "date": "2026-10-04", "status": "upcoming" }
+    ]
+  },
+  "timestamp": "2026-10-03T00:00:00.000Z"
+}</code></pre>
       </UCard>
 
       <!-- /api/pool-vocab -->
@@ -429,9 +481,9 @@ curl "http://localhost:3000/api/daily-game?level=ALL"</code></pre>
         <p class="text-sm m-0">
           Returns one level's whole seeded vocabulary pool as-is (<code
             >{ success, data: PoolVocab[], count, timestamp }</code
-          >), via an optional <code>?level=</code> (defaults to <code>N5</code>
-          — the vocabulary guide pages' level selector passes it once a player
-          switches level). Nothing is generated or persisted.
+          >), via an optional <code>?level=</code> (defaults to
+          <code>N5</code>). The seeded JLPT reference pool; no page in the app
+          reads it today. Nothing is generated or persisted.
         </p>
       </UCard>
 
@@ -446,9 +498,9 @@ curl "http://localhost:3000/api/daily-game?level=ALL"</code></pre>
         <p class="text-sm m-0">
           Returns one level's whole seeded kanji pool as-is (<code
             >{ success, data: PoolKanji[], count, timestamp }</code
-          >), via an optional <code>?level=</code> (defaults to <code>N5</code>
-          — the lesson pages' kanji breakdowns request N5 or N4, whichever
-          level's lesson path is active). Nothing is generated or persisted.
+          >), via an optional <code>?level=</code> (defaults to
+          <code>N5</code>). The seeded JLPT reference pool; no page in the app
+          reads it today. Nothing is generated or persisted.
         </p>
       </UCard>
 
@@ -492,39 +544,6 @@ curl "http://localhost:3000/api/daily-game?level=ALL"</code></pre>
   "timestamp": "2026-09-18T00:00:00.000Z"
 }</code></pre>
           </div>
-        </div>
-      </UCard>
-
-      <!-- /api/cron/generate-daily-game -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="success" variant="soft">GET</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">
-              /api/cron/generate-daily-game
-            </h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          A Vercel Cron target (<code>vercel.json</code>) that hits the same
-          build path as <code>GET /api/daily-game</code> at
-          <code>00:00 UTC</code> every day, pre-generating that day's game for
-          every JLPT level plus the merged <code>ALL</code> round, instead of
-          waiting for each level's first visitor of the day to trigger it.
-          Each level is generated independently, so one level failing (e.g. an
-          unseeded pool) never blocks the others. Idempotent per level — skips
-          a level whose game for the date already exists, so a manual
-          re-trigger never overwrites a game a player may have already
-          started.
-        </p>
-
-        <div
-          class="mb-2 p-3 season-box border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
-        >
-          <strong>🔒 Auth required:</strong>
-          <code>Authorization: Bearer &lt;CRON_SECRET&gt;</code> header, which
-          Vercel sends automatically on requests it triggers from this schedule.
-          Missing or wrong tokens get a <code>401</code>.
         </div>
       </UCard>
 
@@ -581,21 +600,13 @@ curl "http://localhost:3000/api/daily-game?level=ALL"</code></pre>
       </UCard>
     </main>
 
-    <UFooter
-      class="relative z-10 border-t border-stone-200 dark:border-stone-800 bg-[#FDFBF7] dark:bg-[#0B0E14]"
-    >
-      <template #left>
-        <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
-          under the Apache-2.0 License.
-        </p>
-      </template>
-    </UFooter>
+    <AppFooter />
   </div>
 </template>
 
 <script setup lang="ts">
 import AppHeader from "../../components/AppHeader.vue";
+import AppFooter from "../../components/AppFooter.vue";
 
 const systemDiagram = `
 flowchart TD
@@ -610,23 +621,23 @@ the active season" --> MCP["ALL /api/mcp
 
     MCP -- "get_active_theme /
 save_site_theme" --> Redis[("Redis
-JLPT Pool + Daily Games + Site Theme")]
+JLPT Pool + Site Theme")]
 
-    Cron(["⏰ Vercel Cron
-00:00 UTC daily"])
-    Cron -- "GET /api/cron/generate-daily-game
-(bearer: CRON_SECRET)" --> CronAPI["Cron target (Nitro)"]
-    CronAPI -. "if missing: build
-deterministically,
-then persist it" .-> Redis
+    Words[("data/words/*.json
+in-repo daily entries,
+checked in CI")]
 
-    User -- "GET /api/daily-game" --> GameAPI["GET /api/daily-game
+    User -- "GET /api/daily-word" --> WordAPI["GET /api/daily-word
 (Nitro)"]
-    GameAPI -- "read today's game" --> Redis
-    GameAPI -. "if missing: build
-deterministically,
-then persist it" .-> Redis
-    GameAPI -- "today's game" --> User
+    WordAPI -- "read the day's entry
+(never a future day)" --> Words
+    WordAPI -- "that day's word" --> User
+
+    User -- "GET /api/word-calendar" --> CalAPI["GET /api/word-calendar
+(Nitro)"]
+    CalAPI -- "read the month
+(upcoming days reveal nothing)" --> Words
+    CalAPI -- "the month grid" --> User
 
     User -- "GET /api/site-theme" --> ThemeAPI["GET /api/site-theme
 (Nitro)"]
