@@ -16,7 +16,7 @@ field is **generated from these sources** (`pnpm data:words`) and checked in CI.
 
 | Piece                                            | What it is                                                                                                                                                                                                        |
 | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `data/reference/{n5,n4,n3,n2}-reference.json`    | Generated JMdict + KANJIDIC2 snapshot for every word the site serves (after `shared/meanings.ts` corrections) and every kanji the content uses. **Never edit by hand.**                                           |
+| `data/reference/{n5,n4,n3,n2}-reference.json`    | Generated JMdict + KANJIDIC2 snapshot for every word in the JLPT lists (after `shared/meanings.ts` corrections) and every kanji the content uses. **Never edit by hand.**                                         |
 | `data/reference/etymology-reference.json`        | Generated plain text of English Wiktionary's Japanese _Etymology_ sections for every daily word, each page pinned to a **revision id** (CC BY-SA 4.0). **Never edit by hand.**                                    |
 | `pnpm data:reference`                            | Rebuilds `n5-reference.json` from pinned sources.                                                                                                                                                                 |
 | `pnpm data:reference:jlpt`                       | Rebuilds `n4`/`n3`/`n2` reference files.                                                                                                                                                                          |
@@ -25,14 +25,14 @@ field is **generated from these sources** (`pnpm data:words`) and checked in CI.
 | `pnpm data:words`                                | Generates `data/words/YYYY-MM.json` from the plan and the sources above (`scripts/lib/word-entry.mjs`). Never edit the output by hand.                                                                            |
 | `test/content/word-generation.test.ts`           | Regenerates every month and fails on any difference from the committed entries.                                                                                                                                   |
 | `test/content/words.test.ts`                     | Independent checks of every entry (below).                                                                                                                                                                        |
-| `test/content/` (N5), `test/content/{n4,n3,n2}/` | The pool gate: words resolve in JMdict, no reversed meanings, rōmaji matches speech, readings are attested.                                                                                                       |
-| `shared/meanings.ts`                             | The **only** place to correct or enrich what a pool word says (`VOCAB_FORM_CORRECTIONS`, `VOCAB_MEANING_ENRICHMENTS`), applied at read time with the `id` unchanged — no re-seed needed.                          |
+| `test/content/` (N5), `test/content/{n4,n3,n2}/` | The pool gate: words resolve in JMdict, no reversed meanings, readings are attested.                                                                                                                              |
+| `shared/meanings.ts`                             | The **only** place to correct or enrich what a pool word says (`VOCAB_FORM_CORRECTIONS`, `VOCAB_MEANING_ENRICHMENTS`), applied with `servedVocab()` when a reference snapshot is built.                           |
 
 ## What the entry checks prove — and don't
 
 For every entry `words.test.ts` checks, independently of the generator, that:
 
-- the term, reading, level and meaning equal what the pool serves;
+- the term, reading, level and meaning equal the word list's (after `shared/meanings.ts`);
 - `pos` holds only tags JMdict gives that word;
 - every `sources[].quote` is found verbatim (modulo whitespace and direction
   marks) in a Wiktionary Etymology section **declared for the entry's own
@@ -60,7 +60,6 @@ instead of choosing a winner.
 | Failure                      | Fix                                                                                                                                |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Word not in JMdict           | Source list is wrong. Add a `VOCAB_FORM_CORRECTIONS` entry with a `reason` citing the JMdict entry id, then rebuild the reference. |
-| Wrong rōmaji                 | Add a `romaji` correction in `VOCAB_FORM_CORRECTIONS`.                                                                             |
 | Meaning not backed           | Reword to match JMdict or drop the sense.                                                                                          |
 | Entry differs from generator | Run `pnpm data:words` and review the diff. Never edit generated entries; fix the source or `scripts/lib/word-entry.mjs`.           |
 | Quote not found              | The snapshot changed: `pnpm data:etymology --refresh <term>` if you mean to re-pin, then `pnpm data:words`.                        |

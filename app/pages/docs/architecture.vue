@@ -26,9 +26,8 @@
         NipponDaily is a Nuxt 4 app with a small Nitro API. The daily words are
         JSON in the repo, generated from dictionary and Wiktionary snapshots
         (only each headline is hand-written), served by date and never before
-        their day arrives. Redis holds only the JLPT reference pool and the
-        site's current season, which a daily cron keeps in step with the
-        calendar.
+        their day arrives. Redis holds only the site's current season, which a
+        daily cron keeps in step with the calendar.
       </p>
 
       <div class="my-10">
@@ -98,11 +97,9 @@
             </h4>
           </template>
           <p class="text-sm">
-            Holds the seeded kanji/vocab pool for N5–N2 (see
-            <NuxtLink to="/docs/data-integrity">Data Integrity</NuxtLink>) and
-            the single <code>SiteTheme</code> record. The words don't live here.
-            Without Redis credentials the pool endpoints return empty lists and
-            the season is held in process memory.
+            Holds the single <code>SiteTheme</code> record. The words don't live
+            here. Without Redis credentials the season is held in process
+            memory.
           </p>
         </UCard>
 
@@ -227,21 +224,6 @@
                 <code>{ season, previousSeason, changed }</code>.
               </td>
             </tr>
-            <tr>
-              <td class="py-2 px-2 align-top">
-                <code>GET /api/pool-vocab</code><br ><code
-                  >GET /api/pool-kanji</code
-                ><br ><code>?level=N5</code>
-              </td>
-              <td class="py-2 px-2">
-                One JLPT level's pool as <code>{ data, count }</code> (<code
-                  >N5</code
-                >
-                by default, up to <code>N2</code>). Vocab goes through the
-                corrections in <code>shared/meanings.ts</code>. No page reads
-                these.
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -294,7 +276,7 @@ daily, 15:00 UTC (00:00 JST)"])
     Words[("data/words/*.json
 in-repo daily entries")]
     Redis[("Redis
-JLPT pool + site season")]
+site season")]
     Local["localStorage
 reader's season choice"]
 

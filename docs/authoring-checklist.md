@@ -63,10 +63,10 @@ source or the parser; never edit `data/words/*.json`.
 ## C. Correct a word's form, reading or meaning
 
 1. [ ] Confirm against JMdict evidence in `data/reference/<level>-reference.json`.
-2. [ ] Add to `VOCAB_FORM_CORRECTIONS` (wrong form/reading/rōmaji) or
+2. [ ] Add to `VOCAB_FORM_CORRECTIONS` (wrong form/reading) or
        `VOCAB_MEANING_ENRICHMENTS` (fuller gloss) in `shared/meanings.ts`, keyed
        by `term kana`, with a `reason` citing the JMdict entry id. The word's
-       `id` stays unchanged — no re-seed needed.
+       `id` stays unchanged.
 3. [ ] Rebuild evidence: `pnpm data:reference` (N5) or
        `pnpm data:reference:jlpt` (N4/N3/N2), then `pnpm data:words`, and commit
        the diffs.
@@ -83,7 +83,7 @@ already contains the entries. Nothing under `app/` may import
 
 1. [ ] JMdict/word lists: bump `WORD_LIST_SOURCES` in
        `scripts/word-list-source.mjs` and/or `JAMDICT_SOURCE` in
-       `scripts/lib/jamdict.mjs`, then `pnpm seed`, `pnpm data:reference`,
+       `scripts/lib/jamdict.mjs`, then `pnpm data:reference` and
        `pnpm data:reference:jlpt` — together — and review **every** diff.
 2. [ ] Wiktionary: `pnpm data:etymology --refresh <term>` re-pins one term to
        its current revision. Review the text diff, then `pnpm data:words`: a

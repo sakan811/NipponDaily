@@ -20,7 +20,7 @@
 
 ## Tech Stack
 
-[Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/), [Upstash Redis](https://upstash.com/), [Vitest](https://vitest.dev/), [wanakana](https://github.com/WaniKani/WanaKana) (kana/rōmaji in the data scripts). pnpm is the package manager.
+[Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/), [Upstash Redis](https://upstash.com/), [Vitest](https://vitest.dev/), [wanakana](https://github.com/WaniKani/WanaKana) (kana conversion in the data scripts and checks). pnpm is the package manager.
 
 ## Setup
 
@@ -30,15 +30,13 @@ cp .env.example .env
 pnpm dev          # http://localhost:3000
 ```
 
-The daily words need no configuration. Redis is only used for the JLPT pool and the site's season; fill in `.env` if you want those:
+The daily words need no configuration. Redis is only used for the site's season; fill in `.env` if you want that:
 
 | Variable                   | Used for                                                                                                                 |
 | :------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
-| `UPSTASH_REDIS_REST_URL`   | Upstash Redis REST URL. Without Redis the season is kept in process memory and the pool endpoints return empty lists.    |
+| `UPSTASH_REDIS_REST_URL`   | Upstash Redis REST URL. Without Redis the season is kept in process memory.                                              |
 | `UPSTASH_REDIS_REST_TOKEN` | Upstash Redis REST token.                                                                                                |
 | `CRON_SECRET`              | Bearer token for `GET /api/cron/update-season` (Vercel sends it on cron requests). Generate with `openssl rand -hex 32`. |
-
-Optional: `pnpm seed` fills Redis with the N5–N2 kanji/vocab pool behind `GET /api/pool-vocab` and `GET /api/pool-kanji`.
 
 ## Commands
 
@@ -49,7 +47,6 @@ Optional: `pnpm seed` fills Redis with the N5–N2 kanji/vocab pool behind `GET 
 | `pnpm test` / `test:run` / `test:coverage`    | Vitest in watch mode / once / with coverage                                                   |
 | `pnpm lint` / `format` / `type-check`         | ESLint (auto-fix), Prettier, `tsc --noEmit`                                                   |
 | `pnpm check-qa`                               | Lint, format, type-check, build and test                                                      |
-| `pnpm seed`                                   | Seed the N5–N2 pool (and the hiragana/katakana pool) into Redis                               |
 | `pnpm data:reference` / `data:reference:jlpt` | Rebuild the JMdict/KANJIDIC2 snapshots for N5 / N4–N2 (Node ≥ 22, `tar`, `xz`, network)       |
 | `pnpm data:etymology`                         | Pin Wiktionary pages (`--terms a,b` adds, `--refresh <term>` re-pins, `--prune` drops unused) |
 | `pnpm data:words`                             | Generate `data/words/` from `data/word-plan/` and the committed sources (`--check` verifies)  |
@@ -76,8 +73,6 @@ Optional: `pnpm seed` fills Redis with the N5–N2 kanji/vocab pool behind `GET 
 | `GET /api/word-calendar?month=` | `{ month, months, today, days }` for `YYYY-MM` (default: current month). An upcoming day carries only its date.                                             |
 | `GET /api/site-theme`           | The site's season: `{ season, updatedAt, source }`, cached by the CDN for 60 seconds.                                                                       |
 | `GET /api/cron/update-season`   | Cron target. Requires `Authorization: Bearer <CRON_SECRET>`, else `401`.                                                                                    |
-| `GET /api/pool-vocab?level=`    | One level's seeded vocabulary pool (`N5` default, up to `N2`) with `shared/meanings.ts` corrections applied. No page reads it.                              |
-| `GET /api/pool-kanji?level=`    | One level's seeded kanji pool. No page reads it.                                                                                                            |
 
 Parameters, status codes and an example response are in [`/docs/architecture`](app/pages/docs/architecture.vue).
 
@@ -87,7 +82,7 @@ Three Vitest projects (`vitest.config.ts`):
 
 - `test/unit` — components and pages (happy-dom).
 - `test/server` — API handlers and services (node, mocked Redis).
-- `test/content` — every daily-word entry and every served pool word checked against the committed evidence in `data/reference/`, fully offline. See [`docs/content-accuracy.md`](docs/content-accuracy.md).
+- `test/content` — every daily-word entry and every word in the JLPT lists checked against the committed evidence in `data/reference/`, fully offline. See [`docs/content-accuracy.md`](docs/content-accuracy.md).
 
 There are no integration tests. Several tests guard against drift: `seasons-css-sync` (`shared/seasons.ts` vs the CSS), `icons` (every icon used exists in `app/data/icons.ts`) and `no-future-leak` (nothing under `app/` imports the entries).
 
@@ -99,7 +94,7 @@ In the repo: [`docs/authoring-checklist.md`](docs/authoring-checklist.md) (add a
 
 ## Data & Attribution
 
-Entries quote [English Wiktionary](https://en.wiktionary.org) (CC BY-SA 4.0); each links its exact revision. Readings and meanings are checked against JMdict and KANJIDIC2, property of the [EDRDG](https://www.edrdg.org/) and used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) via [jmdict-simplified](https://github.com/scriptin/jmdict-simplified) (the seed) and [jamdict-data](https://pypi.org/project/jamdict-data/) (the committed snapshots). The JLPT word lists come from [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT), digitized from the community list at tanos.co.uk. Details: [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
+Entries quote [English Wiktionary](https://en.wiktionary.org) (CC BY-SA 4.0); each links its exact revision. Readings and meanings are checked against JMdict and KANJIDIC2, property of the [EDRDG](https://www.edrdg.org/) and used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) via [jamdict-data](https://pypi.org/project/jamdict-data/). The JLPT word lists come from [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT), digitized from the community list at tanos.co.uk. Details: [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
 
 ## Limitations
 
