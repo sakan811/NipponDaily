@@ -19,6 +19,7 @@
     "seed": "node scripts/seed-pool-data.mjs",
     "data:reference": "node --experimental-strip-types --no-warnings scripts/build-n5-reference.mjs",
     "data:reference:jlpt": "node --experimental-strip-types --no-warnings scripts/build-jlpt-reference.mjs",
+    "data:words": "node scripts/generate-word-entries.mjs",
     "data:etymology": "node scripts/build-etymology-reference.mjs"
   },
   "dependencies": {

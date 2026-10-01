@@ -1,0 +1,282 @@
+import { describe, it, expect } from "vitest";
+// @ts-expect-error — plain .mjs module without type declarations
+import * as lib from "../../../scripts/lib/word-entry.mjs";
+// @ts-expect-error — plain .mjs module without type declarations
+import * as wikt from "../../../scripts/lib/wiktionary-readings.mjs";
+
+const {
+  pickSections,
+  evidenceLines,
+  parseMorphemes,
+  parseLoan,
+  processesOf,
+  stratumOf,
+  posOf,
+} = lib as Record<string, (...args: any[]) => any>;
+
+describe("wiktionary-readings", () => {
+  const wikitext = [
+    "==English==",
+    "===Noun===",
+    "==Japanese==",
+    "===Etymology 1===",
+    "{{ja-kanjitab|おとな2}}",
+    "====Pronunciation====",
+    "{{ja-pron|おとな|acc=0}}",
+    "===Etymology 2===",
+    "====Noun====",
+    "{{ja-noun|うし}}",
+    "===Etymology 3===",
+    "{{ja-pron|タイジン}}",
+    "==Korean==",
+    "===Etymology===",
+    "{{ja-pron|ほげ}}",
+  ].join("\n");
+
+  it("splits the Japanese section into Etymology sections and reads each one's reading", () => {
+    const sections = wikt.japaneseEtymologyWikitexts(wikitext);
+    expect(sections).toHaveLength(3);
+    expect(sections.map(wikt.readingsOf)).toEqual([
+      ["おとな"],
+      ["うし"],
+      ["たいじん"],
+    ]);
+  });
+});
+
+describe("pickSections", () => {
+  const snap = {
+    revid: 1,
+    etymologies: [
+      {
+        text: "Appears in sources from the Heian period.",
+        readings: ["おとな"],
+      },
+      { text: "Derivation unknown.", readings: ["うし"] },
+    ],
+  };
+
+  it("takes only the section for this word's reading", () => {
+    expect(pickSections(snap, "おとな")).toEqual([snap.etymologies[0]]);
+  });
+
+  it("refuses when no section is for that reading, rather than guessing", () => {
+    expect(() => pickSections(snap, "たいじん")).toThrow(/none for たいじん/);
+  });
+
+  it("refuses a single section that is for a different reading", () => {
+    expect(() =>
+      pickSections({ revid: 1, etymologies: [snap.etymologies[1]] }, "おとな"),
+    ).toThrow(/only section is for うし/);
+  });
+
+  it("accepts a lone section whose reading the page did not declare", () => {
+    const lone = {
+      revid: 1,
+      etymologies: [{ text: "From English beer.", readings: [] }],
+    };
+    expect(pickSections(lone, "ビール")).toHaveLength(1);
+  });
+});
+
+describe("evidenceLines", () => {
+  it("quotes each line and drops Wikipedia furniture", () => {
+    const lines = evidenceLines([
+      {
+        text: "English Wikipedia has an article on:Kawaii\nWikipedia\n/kawajui/ → /kawaiː/\nShift in pronunciation from kawayui below.",
+      },
+    ]);
+    expect(lines).toEqual([
+      "/kawajui/ → /kawaiː/",
+      "Shift in pronunciation from kawayui below.",
+    ]);
+  });
+
+  it("skips a loanword family-tree dump", () => {
+    const lines = evidenceLines([
+      {
+        text: "Etymology tree\nProto-Indo-European *h₃sleydʰ-\nEnglish slidebor.\nJapanese スライド\nBorrowed from English slide.",
+      },
+    ]);
+    expect(lines).toEqual(["Borrowed from English slide."]);
+  });
+});
+
+describe("parseMorphemes", () => {
+  it("reads the parts, glosses and rendaku from a compound sentence", () => {
+    const lines = [
+      "Compound of 花(はな) (hana, “flower”) + 火(ひ) (hi, “fire”). The hi changes to bi as an instance of rendaku (連濁).",
+    ];
+    expect(parseMorphemes(lines, "花火", "はなび")).toEqual([
+      { text: "花", reading: "はな", meaning: "flower" },
+      { text: "火", reading: "び", base: "ひ", meaning: "fire" },
+    ]);
+  });
+
+  it("handles a three-part compound with okurigana in a part", () => {
+    const lines = [
+      "Compound of 男 (otoko, “man; male”) + の (no, appositional particle) + 子 (ko, “child”).",
+    ];
+    expect(
+      parseMorphemes(lines, "男の子", "おとこのこ").map((m: any) => m.text),
+    ).toEqual(["男", "の", "子"]);
+  });
+
+  it("reads romaji with a macron by trying both long-vowel spellings", () => {
+    const lines = ["Compound of 大 (ō-, “large”) + 通り (tōri, “street”)."];
+    const m = parseMorphemes(lines, "大通り", "おおどおり");
+    expect(m.map((x: any) => x.reading)).toEqual(["おお", "どおり"]);
+    expect(m[1].base).toBe("とおり");
+  });
+
+  it("accepts a plain-text descriptor as the gloss", () => {
+    const lines = ["Compound of 御 (o-, honorific prefix) + 茶 (cha, “tea”)."];
+    expect(parseMorphemes(lines, "お茶", "おちゃ")).toEqual([
+      { text: "お", reading: "お", meaning: "honorific prefix" },
+      { text: "茶", reading: "ちゃ", meaning: "tea" },
+    ]);
+  });
+
+  it("gives no breakdown when the parts do not spell the word", () => {
+    // 火傷: the source analyses 焼け + 処, which is not what the word is written with.
+    const lines = [
+      "From 焼(や)け (yake, “burn, burning”) + 処(と) (to, “place”). The to changes to do as an instance of rendaku.",
+    ];
+    expect(parseMorphemes(lines, "火傷", "やけど")).toEqual([]);
+  });
+
+  it("gives no breakdown when the parts do not join to the reading", () => {
+    const lines = ["Compound of 花 (hana, “flower”) + 火 (hi, “fire”)."];
+    expect(parseMorphemes(lines, "花火", "かび")).toEqual([]);
+  });
+
+  it("gives no breakdown when a part has no gloss", () => {
+    const lines = ["From 一(いち) (ichi) + 番(ばん) (-ban)."];
+    expect(parseMorphemes(lines, "一番", "いちばん")).toEqual([]);
+  });
+});
+
+describe("parseLoan", () => {
+  it("names the one source language and word", () => {
+    expect(parseLoan(["Borrowed from Dutch lens."], "レンズ")).toEqual([
+      { text: "レンズ", reading: "レンズ", meaning: "Dutch lens" },
+    ]);
+  });
+
+  it("stays silent when the source hedges between origins", () => {
+    expect(
+      parseLoan(["Borrowed from Dutch lens or English lens."], "レンズ"),
+    ).toEqual([]);
+    expect(parseLoan(["Probably from Dutch Azië."], "アジア")).toEqual([]);
+  });
+
+  it("stays silent when two etymologies name different words", () => {
+    expect(
+      parseLoan(
+        ["Borrowed from English tip.", "Borrowed from English chip."],
+        "チップ",
+      ),
+    ).toEqual([]);
+  });
+
+  it("does nothing for a word that is not katakana", () => {
+    expect(parseLoan(["Borrowed from Dutch kan."], "缶")).toEqual([]);
+  });
+});
+
+describe("processesOf", () => {
+  it("tags what the text says, and nothing else", () => {
+    const text =
+      "Compound of 花 (hana, “flower”) + 火 (hi, “fire”). The hi changes to bi as an instance of rendaku (連濁).";
+    expect(
+      processesOf(text, [{ text: "花" }, { text: "火", base: "ひ" }]),
+    ).toEqual(["compound", "rendaku"]);
+  });
+
+  it("recognises borrowing, clipping, ateji and an unknown origin", () => {
+    expect(
+      processesOf(
+        "Clipping of アパートメント, borrowed from English apartment.",
+        [],
+      ),
+    ).toEqual(expect.arrayContaining(["clipping", "borrowing"]));
+    expect(processesOf("The kanji are jukujikun.", [])).toContain("ateji");
+    expect(processesOf("Derivation unknown.", [])).toContain("unclear");
+  });
+});
+
+describe("stratumOf", () => {
+  const kanji = {
+    花: { on: ["カ", "ケ"], kun: ["はな"] },
+    火: { on: ["カ"], kun: ["ひ", "-び", "ほ-"] },
+    銀: { on: ["ギン"], kun: [] },
+    行: {
+      on: ["コウ", "ギョウ", "アン"],
+      kun: ["い.く", "ゆ.く", "おこな.う"],
+    },
+    手: { on: ["シュ", "ズ"], kun: ["て", "た-"] },
+    洗: { on: ["セン"], kun: ["あら.う"] },
+  };
+
+  it("is gairaigo for katakana and hybrid for kanji+katakana", () => {
+    expect(stratumOf("ビール", "ビール", [], "", kanji)).toBe("gairaigo");
+    expect(stratumOf("消しゴム", "けしゴム", [], "", kanji)).toBe("hybrid");
+  });
+
+  it("reads the layer from KANJIDIC2 readings: all kun is native, all on is Sino-Japanese", () => {
+    expect(stratumOf("花火", "はなび", [], "", kanji)).toBe("wago");
+    expect(stratumOf("銀行", "ぎんこう", [], "", kanji)).toBe("kango");
+  });
+
+  it("calls a mix of on and kun a hybrid", () => {
+    expect(stratumOf("手洗", "てせん", [], "", kanji)).toBe("hybrid");
+  });
+
+  it("falls back to the evidence only when KANJIDIC2 can't account for the reading", () => {
+    expect(stratumOf("花火", "ほげ", [], "From Old Japanese.", kanji)).toBe(
+      "wago",
+    );
+    expect(stratumOf("花火", "ほげ", [], "", kanji)).toBeNull();
+  });
+});
+
+describe("posOf", () => {
+  const vocab = {
+    term: "食べる",
+    kana: "たべる",
+    meaning: "to eat",
+    jmdict: [
+      {
+        kanji: ["食べる"],
+        readings: ["たべる"],
+        senses: [
+          { pos: ["Ichidan verb", "transitive verb"], glosses: ["to eat"] },
+          { pos: ["Ichidan verb", "transitive verb"], glosses: ["to live on"] },
+        ],
+      },
+    ],
+  };
+
+  it("copies JMdict's tags verbatim for the sense the pool meaning came from", () => {
+    expect(posOf(vocab)).toEqual(["Ichidan verb", "transitive verb"]);
+  });
+
+  it("ignores a homograph with a different reading", () => {
+    const other = {
+      ...vocab,
+      jmdict: [
+        {
+          kanji: ["食べる"],
+          readings: ["くべる"],
+          senses: [{ pos: ["noun"], glosses: ["to eat"] }],
+        },
+        ...vocab.jmdict,
+      ],
+    };
+    expect(posOf(other)).toEqual(["Ichidan verb", "transitive verb"]);
+  });
+
+  it("is empty when JMdict has no entry", () => {
+    expect(posOf({ ...vocab, jmdict: [] })).toEqual([]);
+  });
+});
