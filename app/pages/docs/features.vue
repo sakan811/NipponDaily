@@ -52,7 +52,7 @@ const features = [
   {
     title: "A New Word Every Day",
     description:
-      "One entry opens each day at midnight in Japan (JST), the same word for every reader. September 2026 (30 words) and October 2026 (31) are written so far, all from the JLPT N5–N2 vocabulary.",
+      "One entry opens each day at midnight in Japan (JST), the same word for every reader. January through October 2026 (304 words) are written so far, all from the JLPT N5–N2 vocabulary.",
     icon: "i-heroicons-academic-cap",
   },
   {
@@ -64,31 +64,31 @@ const features = [
   {
     title: "Taken Apart",
     description:
-      "Each word is split into morphemes with their readings and meanings. Where sound change hides the join, the entry shows the reading the parts spell (夢 as 寝 + 目 = いめ, 梅雨 as 梅 + 雨 = ばいう). A word of unknown origin gets no breakdown, since any split would be a guess.",
+      "Where Wiktionary splits a word into parts with glosses, each morpheme is shown with its reading and that gloss, but only if the parts spell the word and join to its reading. Otherwise no breakdown is shown, since any other split would be a guess.",
     icon: "i-heroicons-adjustments-horizontal",
   },
   {
     title: "Which Layer, Which Process",
     description:
-      "Every entry names its layer — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes at work (compounding, rendaku, clipping, ateji, sound change…), each defined on the page.",
+      "Every entry shows JMdict's part-of-speech tags, its layer when KANJIDIC2's readings establish it — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes its Wiktionary text mentions (compounding, rendaku, clipping, ateji, sound change…), each defined on the page.",
     icon: "i-heroicons-book-open",
   },
   {
-    title: "The Story, Honestly",
+    title: "The Story, in Wiktionary's Words",
     description:
-      "A short plain-English account of where the word comes from. When sources disagree or nobody knows, a “Not settled” note says so instead of picking a winner.",
+      "Where the word comes from is quoted line by line from Wiktionary's Etymology section for that reading, never paraphrased. Lines that hedge (“probably”, “unknown”) are flagged “Not settled” instead of being turned into a verdict.",
     icon: "i-heroicons-document-text",
   },
   {
     title: "Evidence for Every Claim",
     description:
-      "Each entry quotes the Wiktionary lines behind its origin claims, pinned to one revision with a permalink and its CC BY-SA 4.0 license.",
+      "Each entry quotes the Wiktionary lines it shows, pinned to one revision with a permalink and its CC BY-SA 4.0 license. Only the one-line headline is hand-written.",
     icon: "i-heroicons-shield-check",
   },
   {
     title: "Verified in CI",
     description:
-      "The tests check each entry's reading, level and meaning against the pool, each morpheme against KANJIDIC2 or the cited text, every quote against the pinned Wiktionary snapshot, and the Japanese in the prose against the evidence.",
+      "Every entry is regenerated from JMdict, KANJIDIC2 and the pinned Wiktionary snapshot and compared, and checked independently: reading, level and meaning against the pool, part of speech against JMdict, morphemes against KANJIDIC2 or the cited text, and every quote against the section for its own reading.",
     icon: "i-heroicons-check-circle",
   },
   {

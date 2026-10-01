@@ -12,7 +12,7 @@
 
 ## Features
 
-- **One word a day** — opens at midnight in Japan (JST). The words are hand-written JSON in `data/words/` (September and October 2026 so far), drawn from the JLPT N5–N2 vocabulary.
+- **One word a day** — opens at midnight in Japan (JST). Only each word's headline is hand-written (`data/word-plan/`); everything else in `data/words/` is generated from JMdict, KANJIDIC2 and pinned Wiktionary text (January through October 2026 so far), drawn from the JLPT N5–N2 vocabulary.
 - **Calendar** — `/words` is a month grid; each day that has arrived links to `/words/<date>`. A future word can't be read early, not even by asking the API for its date.
 - **Evidence** — every origin claim quotes a pinned revision of English Wiktionary. Tests check each entry against committed JMdict/KANJIDIC2 snapshots and that Wiktionary snapshot, and an entry says plainly when an origin is not settled.
 - **Four seasons** — spring (`sakura`), `summer`, `autumn`, `winter` change the palette and the shape of the UI. A daily cron sets the site's season from the date in Japan, and the header's season button lets a reader pick their own.
@@ -42,16 +42,17 @@ Optional: `pnpm seed` fills Redis with the N5–N2 kanji/vocab pool behind `GET 
 
 ## Commands
 
-| Command                                       | Description                                                         |
-| :-------------------------------------------- | :------------------------------------------------------------------ |
-| `pnpm dev` / `build` / `start` / `preview`    | Dev server, production build, run the build, preview it             |
-| `pnpm generate`                               | Static site generation                                              |
-| `pnpm test` / `test:run` / `test:coverage`    | Vitest in watch mode / once / with coverage                         |
-| `pnpm lint` / `format` / `type-check`         | ESLint (auto-fix), Prettier, `tsc --noEmit`                         |
-| `pnpm check-qa`                               | Lint, format, type-check, build and test                            |
-| `pnpm seed`                                   | Seed the N5–N2 pool (and the hiragana/katakana pool) into Redis     |
-| `pnpm data:reference` / `data:reference:jlpt` | Rebuild the JMdict/KANJIDIC2 snapshots for N5 / N4–N2               |
-| `pnpm data:etymology`                         | Rebuild the pinned Wiktionary snapshot (`--refresh <term>` re-pins) |
+| Command                                       | Description                                                             |
+| :-------------------------------------------- | :---------------------------------------------------------------------- |
+| `pnpm dev` / `build` / `start` / `preview`    | Dev server, production build, run the build, preview it                 |
+| `pnpm generate`                               | Static site generation                                                  |
+| `pnpm test` / `test:run` / `test:coverage`    | Vitest in watch mode / once / with coverage                             |
+| `pnpm lint` / `format` / `type-check`         | ESLint (auto-fix), Prettier, `tsc --noEmit`                             |
+| `pnpm check-qa`                               | Lint, format, type-check, build and test                                |
+| `pnpm seed`                                   | Seed the N5–N2 pool (and the hiragana/katakana pool) into Redis         |
+| `pnpm data:reference` / `data:reference:jlpt` | Rebuild the JMdict/KANJIDIC2 snapshots for N5 / N4–N2                   |
+| `pnpm data:etymology`                         | Rebuild the pinned Wiktionary snapshot (`--refresh <term>` re-pins)     |
+| `pnpm data:words`                             | Generate `data/words/` from `data/word-plan/` and the committed sources |
 
 ## Seasons
 
@@ -102,7 +103,7 @@ Entries quote [English Wiktionary](https://en.wiktionary.org) (CC BY-SA 4.0); ea
 
 ## Limitations
 
-- Only September and October 2026 have entries. After 2026-10-31 the home page keeps showing the newest word until the next month is written.
+- Entries cover January through October 2026. After 2026-10-31 the home page keeps showing the newest word until the next month is written.
 - The tests prove quotes, readings and Japanese forms against evidence, not that an English sentence about a real word is true; that is reviewed in PRs.
 - No request rate limiting.
 
