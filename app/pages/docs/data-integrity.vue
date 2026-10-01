@@ -337,6 +337,15 @@
         <code>pnpm data:etymology --refresh &lt;term&gt;</code> and review the
         diff.
       </p>
+
+      <p class="mb-6">
+        Two Markdown files in the repo's <code>docs/</code> folder cover the
+        same ground for people working on the data:
+        <code>docs/content-accuracy.md</code> is the short version of this page,
+        and <code>docs/authoring-checklist.md</code> walks through adding a
+        month, writing an entry, correcting a word and refreshing the sources.
+        They are not served by the site.
+      </p>
     </main>
 
     <AppFooter />
