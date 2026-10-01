@@ -8,19 +8,9 @@ export interface ApiResponse<T = unknown> {
 // --- JLPT LEARNING POOL ---
 
 /** The JLPT levels NipponDaily has a seeded pool for — see shared/jlpt.ts's
- *  JLPT_LEVELS for the runtime-checkable version of this same set. N5 is the
- *  only level with hand-authored lesson content (WORD_CLUSTERS) so far;
- *  N4-N2 exist as seeded, dictionary-verified pools and API/game surfaces
- *  only — see docs/content-accuracy.md. */
+ *  JLPT_LEVELS for the runtime-checkable version of this same set. The daily
+ *  words (data/words/) are drawn from all four; see docs/content-accuracy.md. */
 export type JlptLevel = "N5" | "N4" | "N3" | "N2";
-
-/** JlptLevel plus "ALL" — the one extra value GET /api/daily-game's
- *  `?level=` accepts, drawing a round from every level's kanji/vocab pool
- *  merged together (see PoolDataService.getFullPool). Only ever a *daily
- *  game* selector value: pool-browsing endpoints/pages (GET /api/pool-vocab,
- *  GET /api/pool-kanji, /vocab, /learn) stay JlptLevel-only, since there's
- *  no persisted "ALL" pool to browse — just a merge built on demand. */
-export type DailyGameLevel = JlptLevel | "ALL";
 
 export type KanaScript = "hiragana" | "katakana";
 
@@ -60,44 +50,105 @@ export interface PoolVocab {
   jlptLevel: JlptLevel;
 }
 
-// --- DAILY GAME ---
+// --- DAILY WORD ---
 
-export type PoolKind = "hiragana" | "katakana" | "kanji" | "vocab";
+/** Which layer of the Japanese vocabulary a word belongs to — 和語 native,
+ *  漢語 Sino-Japanese, 外来語 loanword, or a 混種語 hybrid of layers. */
+export type WordStratum = "wago" | "kango" | "gairaigo" | "hybrid";
 
-/** One multiple-choice question in a DailyGame round. */
-export interface GameQuestion {
-  /** The source item's id (kanji/vocab/kana id). */
-  id: string;
-  kind: PoolKind;
-  /** The Japanese character/word shown to the player. */
-  prompt: string;
-  /** Furigana reading rendered above the prompt when it contains kanji —
-   *  a kanji character's own reading, or a vocab term's full kana reading. */
-  promptSub?: string;
-  correctAnswer: string;
-  /** Length 4, includes correctAnswer, shuffled. */
-  choices: string[];
+/** The linguistic processes a daily word can illustrate — the closed set
+ *  shared/words.ts labels and explains (WORD_PROCESSES). */
+export type WordProcess =
+  | "compound"
+  | "derivation"
+  | "rendaku"
+  | "wasei"
+  | "borrowing"
+  | "clipping"
+  | "sound-change"
+  | "meaning-shift"
+  | "ateji"
+  | "reread"
+  | "unclear";
+
+/** One building block of a word, as it is read in that word. */
+export interface Morpheme {
+  /** The morpheme as written in the word (kanji, kana, or both with okurigana). */
+  text: string;
+  /** Its surface reading inside this word, in hiragana (after rendaku etc.). */
+  reading: string;
+  /** The reading before rendaku/sokuon changed it, when it differs. */
+  base?: string;
+  /** A gloss — for a single kanji, one of its KANJIDIC2 meanings. */
+  meaning: string;
+  /** Set when the reading is not one of the kanji's dictionary readings
+   *  (ateji, jukujikun, archaic forms), so the content test skips that check. */
+  irregular?: boolean;
 }
 
-/**
- * The whole daily payload — persisted at n5:daily_game:<date> and served by
- * GET /api/daily-game. Entirely self-contained; the client never needs to
- * fetch anything else to play, and never persists anything back.
- */
-export interface DailyGame {
-  /** YYYY-MM-DD */
+/** One cited line of evidence — a verbatim quote from the pinned Wiktionary
+ *  etymology in data/reference/etymology-reference.json. */
+export interface WordSource {
+  quote: string;
+}
+
+/** One daily word's linguistic write-up — the unit of data/words/YYYY-MM.json,
+ *  served by GET /api/daily-word. Every field is checked in CI (see
+ *  test/content/words.test.ts). */
+export interface WordEntry {
+  /** YYYY-MM-DD — the day this word is revealed (JST). */
   date: string;
-  /** Which level's kanji/vocab pool the questions were drawn from. Defaults
-   *  to "N5"; the game's level selector (app/components/DailyGameBoard.vue)
-   *  can request another, including "ALL" (every level's pool merged into
-   *  one round). The field is real (not inferred) so a level's
-   *  repeat-avoidance history and persisted key never mix with another
-   *  level's. */
-  level: DailyGameLevel;
-  questions: GameQuestion[];
-  generatedAt: number;
-  /** Which path produced it — see server/api/daily-game.get.ts. */
-  source: "agent" | "fallback";
+  term: string;
+  /** The word's full reading. */
+  kana: string;
+  /** Served meaning — identical to the pool's (JMdict-checked) meaning. */
+  meaning: string;
+  level: JlptLevel;
+  stratum: WordStratum;
+  processes: WordProcess[];
+  /** One sentence that earns the reader's click. */
+  headline: string;
+  /** The word's parts, left to right. Empty when the origin is unknown and
+   *  no breakdown can be defended. */
+  morphemes: Morpheme[];
+  /** The reading the morphemes join to when it is not `kana` — an earlier
+   *  form sound change has since altered (夢: いめ → ゆめ), or the word's other
+   *  reading in the pool (梅雨: ばいう vs つゆ). Omitted when they join to `kana`. */
+  partsReading?: string;
+  /** The write-up: short paragraphs of English that may quote Japanese
+   *  forms, but only ones the cited evidence itself contains. */
+  story: string[];
+  /** Set when sources disagree or the origin is unknown — shown prominently. */
+  uncertainty?: string;
+  sources: WordSource[];
+  /** The Wiktionary revision the sources were quoted from. */
+  wiktionaryRev: number;
+}
+
+/** A pointer to a neighbouring open day, for prev/next navigation. */
+export interface WordNeighbor {
+  date: string;
+  term: string;
+}
+
+/** What GET /api/daily-word returns: the entry plus its open neighbours. */
+export interface DailyWordPayload {
+  entry: WordEntry;
+  /** The previous day with a word, if any. */
+  prev: WordNeighbor | null;
+  /** The next day with a word — only once that day has itself arrived. */
+  next: WordNeighbor | null;
+}
+
+/** What GET /api/word-calendar returns for one day of a month. */
+export interface WordCalendarDay {
+  date: string;
+  /** "open" once the day has arrived (today or earlier, JST); "upcoming" before. */
+  status: "open" | "upcoming";
+  /** Only present when open — an upcoming day reveals nothing. */
+  term?: string;
+  kana?: string;
+  stratum?: WordStratum;
 }
 
 // --- SITE THEME ---
