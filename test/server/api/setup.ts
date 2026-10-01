@@ -33,8 +33,8 @@ vi.mock("~/server/services/pool-data", async (importOriginal) => {
   };
 });
 
-// Mock the site theme service — site-theme.get.ts and the MCP server's
-// theme tools read/write exclusively through this.
+// Mock the site theme service — site-theme.get.ts and the season cron
+// read/write exclusively through this.
 export const mockGetActiveTheme = vi.fn();
 export const mockSaveActiveTheme = vi.fn();
 
@@ -55,7 +55,7 @@ export const createMockSiteTheme = (
 ): SiteTheme => ({
   season: "autumn",
   updatedAt: Date.now(),
-  source: "agent",
+  source: "cron",
   ...overrides,
 });
 
@@ -85,6 +85,12 @@ export const createMockPool = () => ({
     jlptLevel: "N5" as const,
   })),
 });
+
+// Helper function to get the season cron handler
+export const getUpdateSeasonHandler = async () => {
+  const handlerModule = await import("~/server/api/cron/update-season.get");
+  return handlerModule.default;
+};
 
 // Helper function to get the pool-vocab handler
 export const getVocabHandler = async () => {

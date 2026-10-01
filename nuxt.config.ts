@@ -24,9 +24,12 @@ export default defineNuxtConfig({
               } else {
                 document.documentElement.classList.remove('dark');
               }
+              const seasons = ${JSON.stringify(SEASON_IDS)};
+              const choice = localStorage.getItem('season-choice');
               const cachedSeason = localStorage.getItem('site-theme-season');
-              if (${JSON.stringify(SEASON_IDS)}.indexOf(cachedSeason) !== -1) {
-                document.documentElement.setAttribute('data-season', cachedSeason);
+              const season = seasons.indexOf(choice) !== -1 ? choice : cachedSeason;
+              if (seasons.indexOf(season) !== -1) {
+                document.documentElement.setAttribute('data-season', season);
               }
               const updateLinkPaths = function() {
                 const links = document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"], link[rel="manifest"]');
@@ -93,8 +96,8 @@ export default defineNuxtConfig({
   },
   routeRules: {
     // The active season changes a few times a year, and every page load
-    // fetches it — let the CDN absorb that. An MCP save_site_theme shows up
-    // within a minute.
+    // fetches it — let the CDN absorb that. A cron write shows up within
+    // about a minute.
     "/api/site-theme": {
       headers: {
         "cache-control":
@@ -111,7 +114,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
     upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
-    mcpAuthToken: process.env.MCP_AUTH_TOKEN,
+    cronSecret: process.env.CRON_SECRET,
     public: {
       apiBase: "/api",
     },
@@ -120,9 +123,6 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
     optimizeDeps: {
       include: ["@internationalized/date", "marked"],
-    },
-    server: {
-      allowedHosts: [".pinggy.net"],
     },
   },
   hints: {
