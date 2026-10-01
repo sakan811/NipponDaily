@@ -12,7 +12,7 @@
 
 ## Features
 
-- **One word a day** — opens at midnight in Japan (JST). Only each word's headline is hand-written (`data/word-plan/`); everything else in `data/words/` is generated from JMdict, KANJIDIC2 and pinned Wiktionary text (January through October 2026 so far), drawn from the JLPT N5–N2 vocabulary.
+- **One word a day** — opens at midnight in Japan (JST). Only each word's headline is hand-written (`data/word-plan/`); everything else in `data/words/` is generated from JMdict, KANJIDIC2 and pinned Wiktionary text (January through December 2026 so far), drawn from the JLPT N5–N2 vocabulary.
 - **Calendar** — `/words` is a month grid; each day that has arrived links to `/words/<date>`. A future word can't be read early, not even by asking the API for its date.
 - **Evidence** — every origin claim quotes a pinned revision of English Wiktionary. Tests check each entry against committed JMdict/KANJIDIC2 snapshots and that Wiktionary snapshot, and an entry says plainly when an origin is not settled.
 - **Four seasons** — spring (`sakura`), `summer`, `autumn`, `winter` change the palette and the shape of the UI. A daily cron sets the site's season from the date in Japan, and the header's season button lets a reader pick their own.
@@ -98,7 +98,7 @@ Entries quote [English Wiktionary](https://en.wiktionary.org) (CC BY-SA 4.0); ea
 
 ## Limitations
 
-- Entries cover January through October 2026. After 2026-10-31 the home page keeps showing the newest word until the next month is written.
+- Entries cover January through December 2026. After 2026-12-31 the home page keeps showing the newest word until the next month is written.
 - The tests prove that quotes, readings, meanings and parts of speech match the committed evidence, not that Wiktionary is right. The headline is the one hand-written line; a test only checks the Japanese it mentions.
 - No request rate limiting.
 
