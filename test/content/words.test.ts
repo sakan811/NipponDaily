@@ -1,24 +1,25 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, it, expect } from "vitest";
-import { toHiragana, toRomaji } from "wanakana";
+import { toHiragana } from "wanakana";
 import { WORD_ENTRIES, isValidIsoDate } from "~~/shared/words";
-import { WORD_PROCESSES, WORD_STRATA } from "~~/shared/word-labels";
+import { WORD_PROCESSES, WORD_STRATA, isHedged } from "~~/shared/word-labels";
 import { JLPT_LEVELS } from "~~/shared/jlpt";
 import type { Morpheme, WordEntry } from "~~/types/index";
 import { loadReference, type RefKanji } from "./reference";
 
 /**
  * The daily-word entries (data/words/*.json) checked against committed
- * evidence, the same way lessons used to be: dictionary facts against
- * JMdict/KANJIDIC2 (data/reference/n{5,4,3,2}-reference.json) and origin
- * claims against pinned Wiktionary text
- * (data/reference/etymology-reference.json, built by `pnpm data:etymology`).
+ * evidence: dictionary facts against JMdict/KANJIDIC2
+ * (data/reference/n{5,4,3,2}-reference.json) and origin claims against pinned
+ * Wiktionary text (data/reference/etymology-reference.json).
  *
- * A wrong etymology is a bug, not a typo, so nothing here is taken on trust:
- * every cited quote must be in the snapshot, every morpheme reading must be a
- * real reading of that kanji, and the prose may only mention Japanese that
- * the evidence (or the pool) itself contains.
+ * Every field except the headline is generated from those sources
+ * (scripts/lib/word-entry.mjs; see word-generation.test.ts, which regenerates
+ * and compares). The checks here are written independently of the generator,
+ * so a bug in it can't vouch for itself: quotes must be verbatim and come from
+ * the section for the word's own reading, morphemes must spell the word and
+ * join to its reading, and part of speech must be JMdict's own tags.
  */
 
 interface EtymologySnapshot {
@@ -27,7 +28,7 @@ interface EtymologySnapshot {
     {
       revid: number;
       url: string;
-      etymologies: { heading: string; text: string }[];
+      etymologies: { heading: string; text: string; readings: string[] }[];
     }
   >;
 }
@@ -64,9 +65,6 @@ const normalize = (s: string): string =>
 const withoutRuby = (s: string): string =>
   s.replace(/\([\p{sc=Hiragana}\p{sc=Katakana}ー]+\)/gu, "");
 
-/** Lower-case a–z only: how romanizations are compared (ime2 → ime). */
-const letters = (s: string): string => s.toLowerCase().replace(/[^a-z]/g, "");
-
 const JAPANESE_RUN = /[\p{sc=Han}\p{sc=Hiragana}\p{sc=Katakana}ー々]+/gu;
 const SINGLE_KANJI_WITH_OKURIGANA = /^\p{sc=Han}\p{sc=Hiragana}*$/u;
 
@@ -85,7 +83,7 @@ function readingFits(char: string, reading: string): boolean {
 }
 
 function entryText(e: WordEntry): string {
-  return [e.headline, ...e.story, e.uncertainty ?? ""].join("\n");
+  return e.headline;
 }
 
 describe("the daily-word catalogue", () => {
@@ -135,8 +133,9 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
     });
 
     it("uses only known strata and processes", () => {
-      expect(Object.keys(WORD_STRATA)).toContain(entry.stratum);
-      expect(entry.processes.length).toBeGreaterThan(0);
+      // The layer is stated only when KANJIDIC2 or the evidence establishes it.
+      if (entry.stratum)
+        expect(Object.keys(WORD_STRATA)).toContain(entry.stratum);
       for (const p of entry.processes)
         expect(Object.keys(WORD_PROCESSES)).toContain(p);
       if (/^[\p{sc=Katakana}ー]+$/u.test(entry.term)) {
@@ -144,31 +143,11 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
       }
     });
 
-    it("has morphemes that join to its reading (or declares the other reading)", () => {
-      if (entry.morphemes.length === 0) {
-        expect(entry.processes).toContain("unclear");
-        return;
-      }
+    it("has morphemes that spell the word and join to its reading", () => {
+      if (entry.morphemes.length === 0) return;
+      expect(entry.morphemes.map((m) => m.text).join("")).toBe(entry.term);
       const joined = toHiragana(entry.morphemes.map((m) => m.reading).join(""));
-      const target = toHiragana(entry.partsReading ?? entry.kana);
-      expect(joined).toBe(target);
-
-      if (entry.partsReading) {
-        // Either the word's other reading in the pool, or an earlier form
-        // that the cited etymology itself romanizes.
-        const otherReading = allVocab.some(
-          (v) =>
-            v.term === entry.term &&
-            toHiragana(v.kana) === toHiragana(entry.partsReading!),
-        );
-        const attested = letters(evidence).includes(
-          letters(toRomaji(entry.partsReading)),
-        );
-        expect(
-          otherReading || attested,
-          `${entry.partsReading} is neither another pool reading of ${entry.term} nor romanized in its evidence`,
-        ).toBe(true);
-      }
+      expect(joined).toBe(toHiragana(entry.kana));
     });
 
     it("has morpheme readings and glosses that KANJIDIC2 or the cited text back", () => {
@@ -206,17 +185,65 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
       expect(problems).toEqual([]);
     });
 
-    it("cites at least one source, each quoted verbatim from the pinned Wiktionary text", () => {
+    it("quotes only Wiktionary lines from the section for its own reading", () => {
+      const snap = snapshot.entries[term];
       expect(
-        snapshot.entries[term],
+        snap,
         `no snapshot for ${term} — run pnpm data:etymology`,
       ).toBeDefined();
       expect(entry.sources.length).toBeGreaterThan(0);
-      const missing = entry.sources
-        .map((s) => normalize(s.quote))
-        .filter((q) => !evidence.includes(q));
-      expect(missing).toEqual([]);
-      expect(entry.wiktionaryRev).toBe(snapshot.entries[term]!.revid);
+      const hira = toHiragana(entry.kana);
+      // Verb/adjective templates declare only a stem (せお for せおう).
+      const covers = (declared: string[]) =>
+        declared.some(
+          (r) =>
+            r === hira ||
+            (r.length >= 2 &&
+              hira.startsWith(r) &&
+              hira.length - r.length <= 2),
+        );
+      const katakana = /^[\p{sc=Katakana}ー]+$/u.test(entry.term);
+      let sections =
+        snap!.etymologies.length === 1
+          ? snap!.etymologies
+          : snap!.etymologies.filter((e) => covers(e.readings));
+      // Loanword pages declare no reading: their sections are alternative
+      // etymologies of the one spelling.
+      if (
+        sections.length === 0 &&
+        katakana &&
+        snap!.etymologies.every((e) => e.readings.length === 0)
+      )
+        sections = snap!.etymologies;
+      expect(
+        sections.length,
+        `${term}: no Etymology section is declared for ${entry.kana}`,
+      ).toBeGreaterThan(0);
+      const own = normalize(sections.map((e) => e.text).join("\n"));
+      const strays = entry.sources
+        .map((x) => normalize(x.quote))
+        .filter((q) => !own.includes(q));
+      expect(strays, "quotes not found in this reading's section").toEqual([]);
+      expect(entry.wiktionaryRev).toBe(snap!.revid);
+    });
+
+    it("carries JMdict's own part-of-speech tags", () => {
+      const vocab = loadReference(entry.level).vocab.find(
+        (v) => v.term === entry.term && v.kana === entry.kana,
+      )!;
+      const hira = toHiragana(entry.kana);
+      const own = vocab.jmdict.filter((j) =>
+        j.readings.some((r) => toHiragana(r) === hira),
+      );
+      const allowed = new Set(
+        own.flatMap((j) => j.senses.flatMap((s) => s.pos)),
+      );
+      expect(
+        entry.pos.filter((t) => !allowed.has(t)),
+        "tags JMdict does not give",
+      ).toEqual([]);
+      if (allowed.size > 0) expect(entry.pos.length).toBeGreaterThan(0);
+      else expect(entry.pos).toEqual([]);
     });
 
     it("only mentions Japanese that its evidence or the pool contains", () => {
@@ -224,9 +251,7 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
         evidencePlain.includes(run) ||
         evidence.includes(run) ||
         poolJapanese.has(run) ||
-        [entry.term, entry.kana, entry.partsReading ?? ""].some((s) =>
-          s.includes(run),
-        ) ||
+        [entry.term, entry.kana].some((s) => s.includes(run)) ||
         entry.morphemes.some((m) =>
           [m.text, m.reading, m.base ?? ""].some((s) => s.includes(run)),
         );
@@ -238,12 +263,12 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
       );
     });
 
-    it("flags an unknown or disputed origin", () => {
+    it("shows a hedge wherever it says the origin is unclear", () => {
       if (entry.processes.includes("unclear")) {
         expect(
-          entry.uncertainty,
-          "an “unclear” origin needs an uncertainty note",
-        ).toBeTruthy();
+          entry.sources.some((x) => isHedged(x.quote)),
+          "an “unclear” origin must quote the hedge that says so",
+        ).toBe(true);
       }
     });
   },

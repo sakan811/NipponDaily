@@ -86,15 +86,20 @@ export interface Morpheme {
   irregular?: boolean;
 }
 
-/** One cited line of evidence — a verbatim quote from the pinned Wiktionary
- *  etymology in data/reference/etymology-reference.json. */
+/** One line of Wiktionary's Etymology section for this word's reading, quoted
+ *  verbatim from the pinned snapshot in data/reference/etymology-reference.json. */
 export interface WordSource {
   quote: string;
 }
 
-/** One daily word's linguistic write-up — the unit of data/words/YYYY-MM.json,
- *  served by GET /api/daily-word. Every field is checked in CI (see
- *  test/content/words.test.ts). */
+/** One daily word — the unit of data/words/YYYY-MM.json, served by
+ *  GET /api/daily-word.
+ *
+ *  Only `date`, `term` and `headline` are hand-written (data/word-plan/).
+ *  Every other field is generated from sources by scripts/lib/word-entry.mjs
+ *  (`pnpm data:words`): the pool/JMdict/KANJIDIC2 snapshots and the pinned
+ *  Wiktionary text. test/content/ regenerates and compares, so a derived
+ *  field can't be edited by hand or drift. */
 export interface WordEntry {
   /** YYYY-MM-DD — the day this word is revealed (JST). */
   date: string;
@@ -104,22 +109,21 @@ export interface WordEntry {
   /** Served meaning — identical to the pool's (JMdict-checked) meaning. */
   meaning: string;
   level: JlptLevel;
-  stratum: WordStratum;
+  /** JMdict's own part-of-speech tags for the sense the meaning came from,
+   *  verbatim (e.g. "Ichidan verb", "transitive verb"). Empty only when JMdict
+   *  has no entry for the word. */
+  pos: string[];
+  /** The layer of the vocabulary — present only when KANJIDIC2's readings
+   *  (or the evidence) establish it; irregular spellings leave it out. */
+  stratum?: WordStratum;
   processes: WordProcess[];
-  /** One sentence that earns the reader's click. */
+  /** The one hand-written line (data/word-plan/): a hook, not a claim. */
   headline: string;
-  /** The word's parts, left to right. Empty when the origin is unknown and
-   *  no breakdown can be defended. */
+  /** The word's parts, left to right — parsed from the Wiktionary lines, and
+   *  present only when they literally spell the word and join to its reading.
+   *  Empty when the source gives no clean breakdown. */
   morphemes: Morpheme[];
-  /** The reading the morphemes join to when it is not `kana` — an earlier
-   *  form sound change has since altered (夢: いめ → ゆめ), or the word's other
-   *  reading in the pool (梅雨: ばいう vs つゆ). Omitted when they join to `kana`. */
-  partsReading?: string;
-  /** The write-up: short paragraphs of English that may quote Japanese
-   *  forms, but only ones the cited evidence itself contains. */
-  story: string[];
-  /** Set when sources disagree or the origin is unknown — shown prominently. */
-  uncertainty?: string;
+  /** What Wiktionary says about the word's origin, line by line, verbatim. */
   sources: WordSource[];
   /** The Wiktionary revision the sources were quoted from. */
   wiktionaryRev: number;
