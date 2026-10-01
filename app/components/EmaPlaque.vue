@@ -42,7 +42,7 @@ withDefaults(
   defineProps<{
     /** Stagger slot for the hang-in entrance animation. */
     index?: number;
-    /** Rattle on its cord — used for a wrong answer in the daily game. */
+    /** Rattle on its cord. */
     shake?: boolean;
   }>(),
   { index: undefined, shake: false },

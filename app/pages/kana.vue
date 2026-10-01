@@ -24,8 +24,8 @@
         >
           Two scripts, one sound system. Every kana below is grouped with its
           same-sounding partner in the other script, plus a shape mnemonic to
-          make it stick — study the pair together, then try the day's game to
-          put them into practice.
+          make it stick — study the pair together, then meet them in a real word
+          each day.
         </p>
       </div>
 
@@ -235,22 +235,23 @@
         <p
           class="text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          Every round of the daily game opens with five hiragana and five
-          katakana questions, drawn straight from this same 46-sound set.
+          Every word on NipponDaily is written out with its kana reading, so the
+          46 sounds above are the key to reading each entry's “Taken apart”
+          breakdown.
         </p>
         <div class="flex flex-wrap gap-3 justify-center pt-2">
           <UButton
-            data-testid="kana-game-cta"
-            label="Play Today's Game"
-            to="/game"
+            data-testid="kana-word-cta"
+            label="Read Today's Word"
+            to="/"
             color="primary"
             size="lg"
             icon="i-heroicons-arrow-right"
             trailing
           />
           <UButton
-            label="How it works"
-            to="/docs/architecture"
+            label="Browse the Calendar"
+            to="/words"
             color="gray"
             variant="ghost"
             size="md"

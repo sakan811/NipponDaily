@@ -128,25 +128,25 @@ export const ICON_PATHS: Record<string, string> = {
   // Chevron down
   "chevron-down": `<polyline points="6 9 12 15 18 9"/>`,
 
-  // Academic cap (lesson / study)
+  // Academic cap (study)
   "academic-cap": `<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/><line x1="22" y1="10" x2="22" y2="16"/>`,
 
-  // Book open (vocabulary)
+  // Book open (words)
   "book-open": `<path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/>`,
 
-  // Language (grammar notes)
+  // Language (language)
   language: `<path d="M4 5h10"/><path d="M9 3v2c0 5-3 9-7 10"/><path d="M6 9c0 3 3.5 6 8 6"/><path d="m14 21 4-9 4 9"/><path d="M15.5 18h5"/>`,
 
   // Adjustments horizontal (filters)
   "adjustments-horizontal": `<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="7" cy="18" r="2"/>`,
 
-  // Cloud download (daily-game fetch failure)
+  // Cloud download (fetch failure)
   "cloud-arrow-down": `<path d="M12 9.75v6.75m0 0-3-3m3 3 3-3m-8.25 6a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"/>`,
 
   // Information (docs callouts)
   "information-circle": `<path d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/>`,
 
-  // Arrows right-left (vocab word pairs)
+  // Arrows right-left (swap / compare)
   "arrows-right-left": `<path d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/>`,
 
   // Swatch (color palette docs)
