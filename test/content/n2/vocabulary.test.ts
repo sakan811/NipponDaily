@@ -2,8 +2,8 @@ import { describe, it, expect } from "vitest";
 import { VOCAB_FORM_CORRECTIONS, servedVocab } from "~~/shared/meanings";
 import {
   checkMeaning,
-  // @ts-expect-error — untyped .mjs seed script
-} from "~/scripts/seed-pool-data.mjs";
+  // @ts-expect-error — untyped .mjs script
+} from "~/scripts/lib/word-list.mjs";
 import {
   glossesOf,
   loadReference,
@@ -70,7 +70,6 @@ describe("data/reference/n2-reference.json", () => {
       const served = servedVocab({
         term: v.listTerm,
         kana: seedKana,
-        romaji: "",
         meaning: v.meaning,
       });
       return served.term !== v.term || served.kana !== v.kana;

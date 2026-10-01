@@ -1,7 +1,7 @@
 /**
- * Meaning helpers shared by the vocab pool service
- * (server/services/pool-data.ts) and the content checks under test/content/,
- * so every place a word's meaning is shown or verified agrees on what that
+ * Meaning helpers shared by the reference builders
+ * (scripts/build-*-reference.mjs) and the content checks under test/content/,
+ * so every place a word's meaning is recorded or verified agrees on what that
  * meaning is.
  */
 
@@ -9,9 +9,9 @@
  * Fuller glosses for N5 words whose source-list meaning (elzup/jlpt-word-list)
  * names only one of several everyday senses — e.g. 早い was only "early",
  * though it's just as often "quick", and 取る only covered "take (a class)".
- * Keyed by `term kana` (like scripts/seed-pool-data.mjs's overrides) so a
- * homograph with a different reading is never touched. Applied at read time
- * by server/services/pool-data.ts, so no re-seed is needed.
+ * Keyed by `term kana` (like scripts/lib/word-list.mjs's overrides) so a
+ * homograph with a different reading is never touched. Applied by
+ * servedVocab() when the reference snapshots are built.
  */
 export const VOCAB_MEANING_ENRICHMENTS: Record<string, string> = {
   "取る とる": "to take, to pick up; to get (a grade); to take (a class)",
@@ -47,11 +47,9 @@ export const VOCAB_MEANING_ENRICHMENTS: Record<string, string> = {
 /**
  * Corrections to a word's written form or reading where the source word list
  * is simply wrong, verified against JMdict (each `reason` cites the entry).
- * Applied at read time with the word's id unchanged, so lessons and game
- * references keep working with no re-seed. Applies across every seeded
- * level — keyed by `term kana` (the list's own raw columns), which never
- * collides across levels since each level seeds from its own word list.
- * test/content/ checks every served word — corrected or not — against that
+ * Applies across every level — keyed by `term kana` (the list's own raw
+ * columns), which never collides across levels since each level has its own
+ * word list. test/content/ checks every word — corrected or not — against that
  * level's own committed reference snapshot (currently N5's
  * data/reference/n5-reference.json and N4's data/reference/n4-reference.json
  * — see CLAUDE.md's Content Accuracy section), so a wrong form in the list
@@ -60,7 +58,6 @@ export const VOCAB_MEANING_ENRICHMENTS: Record<string, string> = {
 export interface VocabFormCorrection {
   term?: string;
   kana?: string;
-  romaji?: string;
   meaning?: string;
   reason: string;
 }
@@ -71,20 +68,15 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
     reason:
       "The list pairs 伯父 (read おじ) with the reading おじさん; the おじさん word ('uncle; middle-aged man') is written 伯父さん (JMdict 2261490).",
   },
-  // Rōmaji: the seed converts kana letter by letter, but は used as a
-  // particle is pronounced わ — では is "dewa", not "deha".
   "では では": {
-    romaji: "dewa",
     reason: "The は in では is the topic particle, pronounced わ.",
   },
   "それでは それでは": {
-    romaji: "soredewa",
     reason: "The は in それでは is the topic particle, pronounced わ.",
   },
   "ラジオカセ ラジオカセ": {
     term: "ラジカセ",
     kana: "ラジカセ",
-    romaji: "rajikase",
     meaning: "radio-cassette player",
     reason:
       "ラジオカセ is not a word; the radio-cassette player is ラジカセ (JMdict 1138960).",
@@ -98,59 +90,50 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "うそ 嘘": {
     term: "嘘",
     kana: "うそ",
-    romaji: "uso",
     reason: "The list swaps term/kana; 嘘 read うそ is JMdict 1172400.",
   },
   "パート (タイム) パート (タイム)": {
     term: "パートタイム",
     kana: "パートタイム",
-    romaji: "paatotaimu",
     reason:
       "The list wraps the term/kana in parenthetical notation; the word is パートタイム (JMdict 1100830).",
   },
   "いくら～ても いくら～ても": {
     term: "いくら",
     kana: "いくら",
-    romaji: "ikura",
     reason:
       "～ても is a grammar collocation, not part of the headword — いくら itself already carries the 'however much, no matter how' sense (JMdict 1219980).",
   },
   "～(て) しまう ～(て) しまう": {
     term: "しまう",
     kana: "しまう",
-    romaji: "shimau",
     reason:
       "The list's ～(て) notation marks the auxiliary's て-form attachment; the headword is the auxiliary verb しまう (JMdict 1305380).",
   },
   "いただく 頂く": {
     term: "頂く",
     kana: "いただく",
-    romaji: "itadaku",
     reason: "The list swaps term/kana; 頂く read いただく is JMdict 1587290.",
   },
   "あいさつする 挨拶": {
     term: "挨拶する",
     kana: "あいさつする",
-    romaji: "aisatsusuru",
     reason:
       "The list swaps term/kana and drops する from the reading; the suru-verb is 挨拶する read あいさつする (JMdict 1151120).",
   },
   "いっぱい 一杯": {
     term: "一杯",
     kana: "いっぱい",
-    romaji: "ippai",
     reason: "The list swaps term/kana; 一杯 read いっぱい is JMdict 1165670.",
   },
   "お金持ち かねもち": {
     kana: "おかねもち",
-    romaji: "okanemochi",
     reason:
       "The list's reading drops the leading お; お金持ち is read おかねもち (JMdict 2429350).",
   },
   "～(に) よると ～(に) よると": {
     term: "によると",
     kana: "によると",
-    romaji: "niyoruto",
     reason:
       "によると is itself a JMdict entry ('according to', 1009670); the list's ～(に) notation isn't part of the headword.",
   },
@@ -162,13 +145,11 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "かっこう 格好": {
     term: "格好",
     kana: "かっこう",
-    romaji: "kakkou",
     reason: "The list swaps term/kana; 格好 read かっこう is JMdict 1590480.",
   },
   "回る、回す まわる、まわす": {
     term: "回る",
     kana: "まわる",
-    romaji: "mawaru",
     meaning: "to turn, to go around, to revolve",
     reason:
       "The list combines two related verbs (回る intransitive, 回す transitive) into one row; kept as 回る, the intransitive base form (JMdict 1604300), since one pool entry can only carry one headword.",
@@ -176,14 +157,12 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "スーパー (マーケット) スーパー (マーケット)": {
     term: "スーパーマーケット",
     kana: "スーパーマーケット",
-    romaji: "suupaamaaketto",
     reason:
       "The list wraps the term/kana in parenthetical notation; the word is スーパーマーケット (JMdict 1066930).",
   },
   "～(に) ついて ～(に) ついて": {
     term: "について",
     kana: "について",
-    romaji: "nitsuite",
     reason:
       "について is itself a JMdict entry ('concerning, regarding', 1009780); the list's ～(に) notation isn't part of the headword.",
   },
@@ -195,17 +174,14 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "おかげ お陰": {
     term: "お陰",
     kana: "おかげ",
-    romaji: "okage",
     reason: "The list swaps term/kana; お陰 read おかげ is JMdict 1001640.",
   },
   "うれしい 嬉しい": {
     term: "嬉しい",
     kana: "うれしい",
-    romaji: "ureshii",
     reason: "The list swaps term/kana; 嬉しい read うれしい is JMdict 1219510.",
   },
   "または または": {
-    romaji: "matawa",
     reason: "The は in または is the topic particle, pronounced わ.",
   },
   // N3 (elzup/jlpt-word-list's n3.csv): interjections wrapped in a (かん)
@@ -214,48 +190,40 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "しまった (かん) しまった (かん)": {
     term: "しまった",
     kana: "しまった",
-    romaji: "shimatta",
     reason:
       "The list appends its (かん) interjection tag to the term and reading; the word is しまった (JMdict 1005600, written 仕舞った).",
   },
   "すみません (かん) すみません (かん)": {
     term: "すみません",
     kana: "すみません",
-    romaji: "sumimasen",
     reason:
       "The list appends its (かん) interjection tag to the term and reading; the word is すみません (JMdict 1295060, written 済みません).",
   },
   "よろしく (かん) よろしく (かん)": {
     term: "よろしく",
     kana: "よろしく",
-    romaji: "yoroshiku",
     reason:
       "The list appends its (かん) interjection tag to the term and reading; the word is よろしく (JMdict 1224890, 2835139).",
   },
   "はあ (かん) はあ (かん)": {
     term: "はあ",
     kana: "はあ",
-    romaji: "haa",
     reason:
       "The list appends its (かん) interjection tag to the term and reading; the word is はあ (JMdict 2069620).",
   },
   "唯 たった": {
     term: "たった",
     kana: "たった",
-    romaji: "tatta",
     reason:
       "The list pairs 唯 (a written form of ただ) with the reading たった; たった ('only, merely') is its own kana-only entry (JMdict 1007230).",
   },
   "実は じつは": {
-    romaji: "jitsuwa",
     reason: "The は in 実は is the topic particle, pronounced わ.",
   },
   "あるいは あるいは": {
-    romaji: "aruiwa",
     reason: "The は in あるいは is the topic particle, pronounced わ.",
   },
   "こんにちは こんにちは": {
-    romaji: "konnichiwa",
     reason: "The は in こんにちは is the topic particle, pronounced わ.",
   },
   // Meaning corrections — the source list pairs these words' kana with a
@@ -442,14 +410,12 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "しわ (かおの～) しわ (かおの～)": {
     term: "しわ",
     kana: "しわ",
-    romaji: "shiwa",
     reason:
       "The list bundles a usage hint 'かおの～' into the term and reading; the word is しわ (JMdict 皺 しわ).",
   },
   "だいいち (とりわけ) だいいち (とりわけ)": {
     term: "だいいち",
     kana: "だいいち",
-    romaji: "daiichi",
     meaning: "first, foremost; number one",
     reason:
       "The list glues the unrelated word とりわけ into the term and leaves '&nbsp;' junk in the gloss; the word is だいいち (JMdict 第一 だいいち).",
@@ -457,14 +423,12 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "かび (～がはえる) かび (～がはえる)": {
     term: "かび",
     kana: "かび",
-    romaji: "kabi",
     reason:
       "The list bundles a usage hint '～がはえる' into the term and reading; the word is かび (JMdict 黴 かび).",
   },
   "(かさを～) さす (かさを～) さす": {
     term: "差す",
     kana: "さす",
-    romaji: "sasu",
     meaning: "to hold up (an umbrella); to shine; to insert",
     reason:
       "The list bundles a usage hint 'かさを～' into the term and reading; the word is 差す (JMdict 差す さす, 'to hold up (an umbrella, etc.)').",
@@ -472,7 +436,6 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "〜(日本) 式 ～(にほん) しき": {
     term: "日本式",
     kana: "にほんしき",
-    romaji: "nihonshiki",
     meaning: "Japanese style",
     reason:
       "The list writes the compound as an affix with '(日本)' and truncates the gloss to 'custom,'; the word is 日本式 (JMdict 日本式 にほんしき).",
@@ -480,14 +443,12 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "しつれいしました (かん) しつれいしました (かん)": {
     term: "しつれいしました",
     kana: "しつれいしました",
-    romaji: "shitsureishimashita",
     reason:
       "The list appends its (かん) interjection tag to the term and reading; the word is しつれいしました (JMdict 失礼しました).",
   },
   "～おしまい (おわり) ～おしまい (おわり)": {
     term: "おしまい",
     kana: "おしまい",
-    romaji: "oshimai",
     meaning: "the end, closing",
     reason:
       "The list glues a note 'おわり' into an affix-shaped term and glosses it 'end up ~'; the word is おしまい, 'the end, closing' (JMdict お仕舞い).",
@@ -495,21 +456,18 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "しめた (かん) しめた (かん)": {
     term: "しめた",
     kana: "しめた",
-    romaji: "shimeta",
     reason:
       "The list appends its (かん) interjection tag to the term and reading; the word is しめた (JMdict 占めた).",
   },
   "じゅうたん (カーペット) じゅうたん (カーペット)": {
     term: "じゅうたん",
     kana: "じゅうたん",
-    romaji: "juutan",
     reason:
       "The list bundles the synonym 'カーペット' into the term and reading; the word is じゅうたん (JMdict 絨毯).",
   },
   "～いち (にほんいち) ～いち (にほんいち)": {
     term: "日本一",
     kana: "にほんいち",
-    romaji: "nihonichi",
     meaning: "number one in Japan",
     reason:
       "The list bundles the example 'にほんいち' into an affix-shaped term; the word is 日本一 (JMdict 日本一 にほんいち/にっぽんいち).",
@@ -517,28 +475,24 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "行っていらっしゃい いっていらっしゃい": {
     term: "行ってらっしゃい",
     kana: "いってらっしゃい",
-    romaji: "itterasshai",
     reason:
       "JMdict has no 行っていらっしゃい; the set phrase is 行ってらっしゃい / いってらっしゃい, 'have a good day, take care'.",
   },
   "どういたしまして (かん) どういたしまして (かん)": {
     term: "どういたしまして",
     kana: "どういたしまして",
-    romaji: "douitashimashite",
     reason:
       "The list appends its (かん) interjection tag to the term and reading; the word is どういたしまして (JMdict どう致しまして).",
   },
   "はい (かん) はい (かん)": {
     term: "はい",
     kana: "はい",
-    romaji: "hai",
     reason:
       "The list appends its (かん) interjection tag to the term and reading; the word is はい (JMdict はい).",
   },
   "～ほう (ひかく) ～ほう (ひかく)": {
     term: "方",
     kana: "ほう",
-    romaji: "hou",
     meaning: "the side that ... (in comparison); direction, way",
     reason:
       "The list bundles the note 'ひかく' into an affix-shaped term; the word is 方 read ほう, 'indicates one side of a comparison; direction, way' (JMdict 方 ほう).",
@@ -546,28 +500,24 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   "ミリ (メートル) ミリ (メートル)": {
     term: "ミリ",
     kana: "ミリ",
-    romaji: "miri",
     reason:
       "The list bundles 'メートル' into the term and reading; the word is the prefix ミリ, 'milli-' (JMdict ミリ).",
   },
   "それはいけませんね (かん) それはいけませんね (かん)": {
     term: "それはいけませんね",
     kana: "それはいけませんね",
-    romaji: "sorewaikemasenne",
     reason:
       "The list appends its (かん) interjection tag to the term and reading; the phrase is それはいけませんね (は is the topic particle, pronounced わ).",
   },
   "〜 (まる) ごと 〜 (まる) ごと": {
     term: "まるごと",
     kana: "まるごと",
-    romaji: "marugoto",
     reason:
       "The list splits the word around a '(まる)' note in an affix-shaped term; the word is まるごと, 'whole, in its entirety' (JMdict 丸ごと).",
   },
   "しいんと (する) しいんと (する)": {
     term: "しいんと",
     kana: "しいんと",
-    romaji: "shiinto",
     reason:
       "The list bundles the verb 'する' into the term and reading; the adverb is しいんと (JMdict しーん/しいん, an adverb taking と).",
   },
@@ -582,21 +532,19 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
       "The list adds 'to be fixed' (a sense of とまる); 留まる read とどまる is 'to remain, to abide, to stay; to be limited to' (JMdict 留まる とどまる).",
   },
   "こんばんは こんばんは": {
-    romaji: "konbanwa",
     reason: "The は in こんばんは is the topic particle, pronounced わ.",
   },
   "目下 めした": {
     kana: "もっか",
-    romaji: "mokka",
     reason:
       "The list pairs 目下 read めした ('subordinate, inferior') with the meaning 'at present, now', which belongs to the reading もっか (JMdict 目下 もっか).",
   },
 };
 
-/** A pool vocab entry as the site serves it: form corrections and meaning
- *  enrichments applied, id untouched. */
+/** A pool vocab entry with form corrections and meaning enrichments applied,
+ *  as the reference snapshots record it. */
 export function servedVocab<
-  T extends { term: string; kana: string; romaji: string; meaning: string },
+  T extends { term: string; kana: string; meaning: string },
 >(vocab: T): T {
   const key = `${vocab.term} ${vocab.kana}`;
   const { reason: _reason, ...fix } = VOCAB_FORM_CORRECTIONS[key] ?? {
