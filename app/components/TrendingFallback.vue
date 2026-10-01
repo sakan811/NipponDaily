@@ -22,7 +22,7 @@
           <h3
             class="text-xl font-serif font-bold text-stone-900 dark:text-white"
           >
-            Unable to Load Today's Game
+            {{ title }}
           </h3>
           <p
             class="text-xs text-error-600 dark:text-error-400 font-medium bg-error-500/10 dark:bg-error-500/20 px-3 py-1.5 season-chip inline-block break-words max-w-full"
@@ -34,8 +34,7 @@
         <p
           class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed font-sans"
         >
-          The game board could not fetch today's Japanese learning game from the
-          Redis database.
+          {{ detail }}
         </p>
 
         <!-- Retry Action -->
@@ -57,10 +56,20 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  error?: string | null;
-  loading?: boolean;
-}>();
+withDefaults(
+  defineProps<{
+    error?: string | null;
+    loading?: boolean;
+    title?: string;
+    detail?: string;
+  }>(),
+  {
+    error: null,
+    loading: false,
+    title: "Unable to Load This Page",
+    detail: "The page could not fetch its data. This is usually temporary.",
+  },
+);
 
 defineEmits<{
   (e: "retry"): void;

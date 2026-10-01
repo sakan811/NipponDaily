@@ -8,7 +8,7 @@
           ><span class="season-glyph" aria-hidden="true" /> {{ dateline }}</span
         >
         <span class="kicker hidden sm:inline"
-          >A New Japanese Game Every Day</span
+          >One Word, Taken Apart, Every Day</span
         >
       </div>
     </template>
@@ -41,14 +41,11 @@
         <nav
           class="hidden sm:flex items-center gap-4 text-sm font-medium text-stone-600 dark:text-stone-300"
         >
-          <NuxtLink to="/learn" class="hover:text-primary-500 transition-colors"
-            >Lessons</NuxtLink
+          <NuxtLink to="/words" class="hover:text-primary-500 transition-colors"
+            >Calendar</NuxtLink
           >
-          <NuxtLink to="/vocab" class="hover:text-primary-500 transition-colors"
-            >Vocabulary</NuxtLink
-          >
-          <NuxtLink to="/game" class="hover:text-primary-500 transition-colors"
-            >Daily Game</NuxtLink
+          <NuxtLink to="/kana" class="hover:text-primary-500 transition-colors"
+            >Kana</NuxtLink
           >
         </nav>
         <UColorModeButton class="hover:text-primary-500 transition-colors" />
