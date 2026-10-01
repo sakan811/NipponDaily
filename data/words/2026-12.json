@@ -1,0 +1,891 @@
+[
+  {
+    "date": "2026-12-01",
+    "term": "冬",
+    "kana": "ふゆ",
+    "meaning": "winter",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adverb (fukushi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "sound-change"
+    ],
+    "headline": "Fuyu began with a p: Old Japanese puyu, from Proto-Japonic *puyu.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨puyu⟩ → /ɸuju/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *puyu."
+      }
+    ],
+    "wiktionaryRev": 92676263
+  },
+  {
+    "date": "2026-12-02",
+    "term": "寒い",
+    "kana": "さむい",
+    "meaning": "cold (in reference to weather)",
+    "level": "N5",
+    "pos": [
+      "adjective (keiyoushi)"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Samui was samushi, and from the Muromachi period it was sometimes pronounced sabushi.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Early Middle Japanese adjective 寒(さむ)し (samushi), with the 終(しゅう)止(し)形(けい) (shūshikei, “predicative form”) ending in し (shi) first replaced with the 連(れん)体(たい)形(けい) (rentaikei, “attributive form”) ending in き (ki), and then with the medial /-k-/ falling out to result in an ending of い (i)."
+      },
+      {
+        "quote": "Starting in at least the Muromachi period, this term became sporadically pronounced with a medial /b/ as 寒(さぶ)し (sabushi) (not to be confused with 寂(さぶ)し (sabushi), original form of 寂(さび)しい (sabishii)). Compare the similar /m/~/b/ alternation seen in 寂しい (sabishii, samishii, “lonely, desolate”), 頭 (tsuburi, tsumuri, “head”), and 煙 (keburi, kemuri, “smoke”). Related to 冷(さ)む (samu, “to cool down”), modern 冷(さ)める (sameru)."
+      }
+    ],
+    "wiktionaryRev": 92160922
+  },
+  {
+    "date": "2026-12-03",
+    "term": "雪",
+    "kana": "ゆき",
+    "meaning": "snow",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "sound-change"
+    ],
+    "headline": "Snow is yuki, but one eastern-dialect song in the Man'yōshū has yoki, and some reconstruct *yoki as the ancestor.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "雪 on Japanese Wikipedia"
+      },
+      {
+        "quote": "⟨yuki1⟩ → */jukʲi/ → /juki/"
+      },
+      {
+        "quote": "From Old Japanese. Found in the Man'yōshū, completed some time after 759 CE."
+      },
+      {
+        "quote": "Also found once in the Man'yōshū in a so-called 東歌 (Azuma uta, literally “eastern song”) in the eastern dialect of Old Japanese, realized as ⟨yo2ki1⟩."
+      },
+      {
+        "quote": "Reconstructed by some as deriving from Proto-Japonic *yoki."
+      }
+    ],
+    "wiktionaryRev": 92672389
+  },
+  {
+    "date": "2026-12-04",
+    "term": "氷",
+    "kana": "こおり",
+    "meaning": "ice, hail",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "sound-change"
+    ],
+    "headline": "Ice is a verb turned noun: kōri is the stem of 凍る (kōru, “to freeze”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "氷 (kōri): a block of ice."
+      },
+      {
+        "quote": "⟨ko2pori⟩ → */kəpori/ → /koɸori/ → /kowori/ → /koːri/"
+      },
+      {
+        "quote": "From Old Japanese."
+      },
+      {
+        "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 凍(こお)る (kōru, “to freeze”)."
+      }
+    ],
+    "wiktionaryRev": 92199511
+  },
+  {
+    "date": "2026-12-05",
+    "term": "煙",
+    "kana": "けむり",
+    "meaning": "smoke, fumes",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "clipping",
+      "sound-change"
+    ],
+    "headline": "Smoke was keburi before it was kemuri, and the shorter kemu is a clipping attested since 1275.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/keburi/ → /kemuri/"
+      },
+      {
+        "quote": "Shift from Old Japanese-derived keburi reading (see below) as a regular /b/ → /m/ change. Appears in the Taiheiki of the late 1300s."
+      },
+      {
+        "quote": "Now the most common reading."
+      },
+      {
+        "quote": "/kemuri/ → /kemu/"
+      },
+      {
+        "quote": "Clipping of earlier kemuri."
+      },
+      {
+        "quote": "Attested since at least 1275."
+      }
+    ],
+    "wiktionaryRev": 92365839
+  },
+  {
+    "date": "2026-12-06",
+    "term": "火",
+    "kana": "ひ",
+    "meaning": "fire",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun, used as a suffix"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "sound-change"
+    ],
+    "headline": "Fire has a hidden twin: hi is an apophonic form of ho, as ki (“tree”) pairs with ko-.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "火 (hi, ho, ka): fire."
+      },
+      {
+        "quote": "⟨pi2⟩ → */pʷɨ/ → /ɸi/ → /hi/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *poy."
+      },
+      {
+        "quote": "Apophonic form of ho (see below). Compare 木 (ki, ko-, “tree”)."
+      }
+    ],
+    "wiktionaryRev": 92722930
+  },
+  {
+    "date": "2026-12-07",
+    "term": "炎",
+    "kana": "ほのお",
+    "meaning": "flame",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "compound",
+      "sound-change"
+    ],
+    "headline": "Flame is “fire's ear of grain”: 火 (ho) + の (no) + 穂 (ho).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨po no2 po⟩ → */ponəpo/ → /ɸonoɸo/ → /ɸonowo/ → /honowo/ → /hono.o/"
+      },
+      {
+        "quote": "From Old Japanese 炎 (pono2po)."
+      },
+      {
+        "quote": "Compound of 火 (ho, combining form of hi, “fire”) + の (no, possessive particle) + 穂 (ho, “ear (of grain)”)."
+      }
+    ],
+    "wiktionaryRev": 92161935
+  },
+  {
+    "date": "2026-12-08",
+    "term": "湯",
+    "kana": "ゆ",
+    "meaning": "hot water",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Yu goes back to Proto-Japonic *yu and appears in both the Kojiki (712 CE) and the Man'yōshū.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *yu."
+      },
+      {
+        "quote": "First attested in the Kojiki of 712 CE. Also used in the Man'yōshū, completed some time after 759 CE."
+      }
+    ],
+    "wiktionaryRev": 92917032
+  },
+  {
+    "date": "2026-12-09",
+    "term": "ストーブ",
+    "kana": "ストーブ",
+    "meaning": "heater (lit: stove)",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "gairaigo",
+    "processes": [
+      "borrowing"
+    ],
+    "headline": "Japanese ストーブ is borrowed straight from English stove.",
+    "morphemes": [
+      {
+        "text": "ストーブ",
+        "reading": "ストーブ",
+        "meaning": "English stove"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English stove."
+      }
+    ],
+    "wiktionaryRev": 92197921
+  },
+  {
+    "date": "2026-12-10",
+    "term": "セーター",
+    "kana": "セーター",
+    "meaning": "sweater",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "gairaigo",
+    "processes": [
+      "borrowing"
+    ],
+    "headline": "Japanese セーター is borrowed straight from English sweater.",
+    "morphemes": [
+      {
+        "text": "セーター",
+        "reading": "セーター",
+        "meaning": "English sweater"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English sweater."
+      }
+    ],
+    "wiktionaryRev": 92248789
+  },
+  {
+    "date": "2026-12-11",
+    "term": "靴",
+    "kana": "くつ",
+    "meaning": "shoes, footwear",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "derivation",
+      "borrowing",
+      "sound-change",
+      "unclear"
+    ],
+    "headline": "Who borrowed from whom? Some Japanese sources say kutsu comes from Korean gudu; some Korean sources say the reverse.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨kutu⟩: */kutu/ → /kut͡su/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *kutu. Cognate with Yaeyama 草鞋 (futsï), Yonaguni 草鞋 (c'i)."
+      },
+      {
+        "quote": "Found in the Man'yōshū poetry compilation, completed circa 759."
+      },
+      {
+        "quote": "Ultimate derivation unclear. Some Japanese sources suggest a borrowing from or cognate with Korean 구두 (gudu, “shoes”), but then some Korean sources suggest that the Korean term was borrowed from Japanese 靴 (kutsu, “shoes”)."
+      }
+    ],
+    "wiktionaryRev": 92202160
+  },
+  {
+    "date": "2026-12-12",
+    "term": "咳",
+    "kana": "せき",
+    "meaning": "cough",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "A cough is a verb stem, and seki is cognate with 堰 (seki, “dam”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb せく (seku, “to cough”). Cognate with 堰 (seki, “dam”)."
+      }
+    ],
+    "wiktionaryRev": 92521861
+  },
+  {
+    "date": "2026-12-13",
+    "term": "家",
+    "kana": "いえ",
+    "meaning": "house, home",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "sound-change"
+    ],
+    "headline": "House took four steps from ipe to ie, and Old Korean may have a cousin.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨ipe1⟩ → /ipʲe/ → /iɸe/ → /iwe/ → /ie/"
+      },
+      {
+        "quote": "From Old Japanese. Possibly cognate with Old Korean 邑勒 (iprʌk, “house”)."
+      },
+      {
+        "quote": "Possibly related to 廬 (iho → io, “temporary hut”)."
+      }
+    ],
+    "wiktionaryRev": 92728268
+  },
+  {
+    "date": "2026-12-14",
+    "term": "壁",
+    "kana": "かべ",
+    "meaning": "wall",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "compound",
+      "rendaku"
+    ],
+    "headline": "A wall is a “place divider”: 処 (ka, “place”) + 重 (he, “division”), with he voiced to be.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Compound of 処(か) (ka, “place”) + 重(へ) (he, “division”), in reference to walls dividing objects apart. The he changes to be as an instance of rendaku (連濁)."
+      }
+    ],
+    "wiktionaryRev": 92200244
+  },
+  {
+    "date": "2026-12-15",
+    "term": "床",
+    "kana": "ゆか",
+    "meaning": "floor",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "derivation"
+    ],
+    "headline": "Yuka meant “bed” in the Nihon Shoki, and a 1668 scholar derived it from “not going”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. Attested in the 日(に)本(ほん)書(しょ)紀(き) (Nihon Shoki), completed in 720 and one of the earliest works written in Japanese, with a meaning of “bed”."
+      },
+      {
+        "quote": "According to the 和(わ)句(く)解(げ) (Wakuge), published in 1668 by early Edo-period scholar 松(まつ)永(なが)貞(てい)徳(とく) (Matsunaga Teitoku), derives from 行(ゆ)か (yuka), the 未(み)然(ぜん)形(けい) (mizenkei, “irrealis form”) stem of the verb 行(ゆ)く (yuku, “to go”), of an original meaning similar to “not going”, in reference to a place where one sits down to rest."
+      }
+    ],
+    "wiktionaryRev": 92917862
+  },
+  {
+    "date": "2026-12-16",
+    "term": "店",
+    "kana": "みせ",
+    "meaning": "store, shop",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Mise is short for misedana: miseru (“to show”) + tana (“shelf”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Short for earlier 見(み)せ棚(だな) (misedana), from 見(み)せる (miseru, “to show”) + 棚(たな) (tana, “shelf”)."
+      }
+    ],
+    "wiktionaryRev": 92200416
+  },
+  {
+    "date": "2026-12-17",
+    "term": "鏡",
+    "kana": "かがみ",
+    "meaning": "mirror",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "compound"
+    ],
+    "headline": "A mirror is “shadow-seeing”: kaga (影, “shadow; image”) + mi (見, “seeing”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *kankami."
+      },
+      {
+        "quote": "Originally a compound of 影 (kaga, ancient combining form of 影 (kage), “shadow; outline; figure; image”) + 見 (mi, “seeing”, the 連用形 (ren'yōkei, “stem or continuative form”) of verb 見る (miru), “to see, to look at”)."
+      }
+    ],
+    "wiktionaryRev": 92743648
+  },
+  {
+    "date": "2026-12-18",
+    "term": "星",
+    "kana": "ほし",
+    "meaning": "star",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "sound-change"
+    ],
+    "headline": "Hoshi began as posi, from Proto-Japonic *pəsi.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/posi/ → /ɸoɕi/ → /hoɕi/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *pəsi."
+      }
+    ],
+    "wiktionaryRev": 92535855
+  },
+  {
+    "date": "2026-12-19",
+    "term": "月",
+    "kana": "つき",
+    "meaning": "moon",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "sound-change"
+    ],
+    "headline": "Tsuki was once tuki, and Wiktionary notes a vowel alternation between its standalone and combining forms.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨tuki2⟩ → */tukɨ/ → */t͡sukɨ/ → /t͡suki/"
+      },
+      {
+        "quote": "From Old Japanese 月 (tuki2), ultimately from Proto-Japonic *tukui."
+      },
+      {
+        "quote": "For the vowel alternation, see WT:AJPX#Standalone forms and combining forms."
+      }
+    ],
+    "wiktionaryRev": 93140255
+  },
+  {
+    "date": "2026-12-20",
+    "term": "猫",
+    "kana": "ねこ",
+    "meaning": "cat",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "compound",
+      "derivation",
+      "clipping",
+      "sound-change",
+      "unclear"
+    ],
+    "headline": "One dictionary says neko is a shortening of nekoma, but neko is attested in 794 and nekoma only in 918.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨neko1⟩ → /neko/"
+      },
+      {
+        "quote": "From Old Japanese. Cognate with Miyako にか (nika, “cat”, Tarama and Minna dialects) via unknown Japonic substratum."
+      },
+      {
+        "quote": "Listed in modern references as a compound of ね (ne, onomatopoeia of the sound a cat makes; compare modern Japanese にゃ (nya), English mew, meow) + こ (ko, diminutive noun-forming suffix). According to the 和(わ)名(みょう)類(るい)聚(じゅ)抄(しょう) (Wamyō Ruijushō) of 931–938, neko is a shortening of 猫(ねこま) (nekoma), but neko appears in texts earlier than nekoma: neko is first attested in the Shin'yaku Kegonkyō Ongi Shiki of 794, while nekoma is not attested until 918 in the 本(ほん)草(ぞう)和(わ)名(みょう) (Honzō Wamyō, the oldest surviving dictionary of medicine in Japan)."
+      },
+      {
+        "quote": "A comparison of accent patterns between the dialects shows some confusion (see dialectal data):"
+      },
+      {
+        "quote": "One group of dialects behaves as if <LF> was the Heian Kyoto accent pattern: many dialects with the Tokyo type accent, including the standard Japanese in Tokyo, pronounce this word with an <HL-L> pitch pattern, and in some non-mainstream Keihan type dialects as well, this word has a corresponding <LF> pitch pattern."
+      },
+      {
+        "quote": "Another group of dialects behaves as if <LL> was the Heian Kyoto accent pattern: the mainstream Keihan type dialects pronounce this word with an <HL> pitch pattern, and in a few of the Tokyo type dialects, this word has a corresponding <LH-L> pitch pattern."
+      },
+      {
+        "quote": "As a result, this term is one example of words that have the same pitch accent pattern between Tokyo and Osaka/Kyoto. The confusion seems to be due to an impression that the term comes from a compound word origin."
+      }
+    ],
+    "wiktionaryRev": 92700004
+  },
+  {
+    "date": "2026-12-21",
+    "term": "犬",
+    "kana": "いぬ",
+    "meaning": "dog",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "compound",
+      "derivation",
+      "borrowing",
+      "unclear"
+    ],
+    "headline": "Derivation uncertain: from “to leave”, from “house” + “sleep”, from 狗 — or borrowed from some unknown language.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "犬 (inu): various kinds of dog."
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *enu. Derivation uncertain. Various theories exist, including derivation from ancient verb 往ぬ (inu, “to leave, to be gone”), from the way a dog will guard the house while the master is away; from a compound of 家 (ie, “house, home”) + 寝 (nu, “to sleep”, ancient monosyllabic form of modern 寝る neru); from ancient Japanese 狗 (enu < wenu, “puppy, dog”), itself of uncertain derivation; or as a borrowing from some other unknown language."
+      }
+    ],
+    "wiktionaryRev": 92731507
+  },
+  {
+    "date": "2026-12-22",
+    "term": "牛",
+    "kana": "うし",
+    "meaning": "cattle, cow",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Cow is Proto-Japonic *‹u,o›si: the reconstruction cannot decide between u and o.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *‹u,o›si."
+      }
+    ],
+    "wiktionaryRev": 92691725
+  },
+  {
+    "date": "2026-12-23",
+    "term": "馬",
+    "kana": "うま",
+    "meaning": "horse; promoted bishop (in Japanese chess known as shogi)",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Was it muma? Wiktionary notes the “ma” horse words across Asia, even English mare, but says no consensus exists.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "馬 (uma, muma): a pair of horses."
+      },
+      {
+        "quote": "From Old Japanese. First attested in the Nihon Shoki of 720 CE."
+      },
+      {
+        "quote": "The initial m sound was apparently emphasized, possibly similar to *mma, becoming then uma or muma, via processes also seen in the word 梅 (ume, mume, “plum”). However, Pellard simply reconstructs Proto-Japonic *uma and treats the mentioned processes as secondary."
+      },
+      {
+        "quote": "The ma sound denoting \"horse\" is common to a number of languages of central Asia, where horses were first domesticated, which has led some to speculate about a possible cognate root (but no consensus on any kind of relation exists). Compare Manchu ᠮᠣᡵᡳᠨ (morin, “horse”), Mongolian морь (morʹ, “horse”), Korean 말 (mal, “horse”), Mandarin 馬 / 马 (mǎ, “horse”), and Proto-Indo-European *márkos (“horse”) and descendants such as Irish marc (“horse”, archaic) or English mare (“female horse”). More at *márkos."
+      }
+    ],
+    "wiktionaryRev": 92638627
+  },
+  {
+    "date": "2026-12-24",
+    "term": "鳥",
+    "kana": "とり",
+    "meaning": "bird; chicken",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "sound-change"
+    ],
+    "headline": "A bird (tori) may be kin to the Korean word for chicken, 닭 (dak).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "鳥 on Japanese Wikipedia"
+      },
+      {
+        "quote": "鳥 (tori): various kinds of birds."
+      },
+      {
+        "quote": "⟨to2ri⟩ → /tori/"
+      },
+      {
+        "quote": "From Old Japanese. Attested in the Kojiki of 712 with the phonetic spelling 登理 (⟨to₂ri⟩, /təri/). In turn, reconstructed as inherited from Proto-Japonic *təri. Possibly cognate with Middle Korean ᄃᆞᆰ (tolk), modern Korean 닭 (dak, “fowl; chicken”)."
+      }
+    ],
+    "wiktionaryRev": 92725343
+  },
+  {
+    "date": "2026-12-25",
+    "term": "母",
+    "kana": "はは",
+    "meaning": "(my) mother",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "derivation",
+      "sound-change"
+    ],
+    "headline": "Mother was papa, drifted to hawa, then a doubled sound pulled it back to haha in the late 16th century.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese papa, in turn traced to Proto-Japonic *papa."
+      },
+      {
+        "quote": "/haha/: */papa/ → /fafa/ → /fawa/ → /fafa/ → /haha/."
+      },
+      {
+        "quote": "First cited to a portion of the Shoku Nihongi dated to 729, with the phonetic spelling 婆婆 (papa)."
+      },
+      {
+        "quote": "Medial /f/ [ɸ] regularly changes to /w/ [ɰᵝ], resulting in /fawa/ → /hawa/, the expected final form; see hawa below. This form first appears in the Heian period. However, likely due to spelling influence or reduplication associations, the earlier /fafa/ resurfaced in the late 16th century towards the end of the Muromachi period, with both forms seen until recent times, when hawa falls into disuse. Initial /f-/ [ɸ] regularly becomes [h], resulting in modern [ha̠ha̠]."
+      }
+    ],
+    "wiktionaryRev": 92679204
+  },
+  {
+    "date": "2026-12-26",
+    "term": "父",
+    "kana": "ちち",
+    "meaning": "(my) father",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Father is a doubled syllable too: Old Japanese titi, Proto-Japonic *titi.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 父 (titi), from Proto-Japonic *titi."
+      },
+      {
+        "quote": "Still in modern usage."
+      }
+    ],
+    "wiktionaryRev": 92201038
+  },
+  {
+    "date": "2026-12-27",
+    "term": "兄",
+    "kana": "あに",
+    "meaning": "(my) older brother (humble)",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "compound",
+      "derivation",
+      "sound-change",
+      "unclear"
+    ],
+    "headline": "Elder brother is perhaps “my” + の + “eldest sibling”: 吾 (a) + の (no) + 兄 (ye), though the source calls it unclear.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese of unclear derivation:"
+      },
+      {
+        "quote": "Probably originally a compound of 吾 (a, Eastern Old Japanese first-person pronoun) + の (no, possessive particle) + 兄 (ye → e, “eldest sibling”, see below):"
+      },
+      {
+        "quote": "⟨a no2 ye⟩ → */anʉʲɨe/ → /ani/"
+      },
+      {
+        "quote": "Alternatively, an apophonic form of 姉 (ane, “elder sister”), itself possibly from the same derivation above."
+      },
+      {
+        "quote": "Several other theories have also been suggested."
+      }
+    ],
+    "wiktionaryRev": 92160252
+  },
+  {
+    "date": "2026-12-28",
+    "term": "姉",
+    "kana": "あね",
+    "meaning": "(my) older sister (humble)",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "compound",
+      "derivation",
+      "sound-change",
+      "unclear"
+    ],
+    "headline": "Elder sister (ane) and elder brother (ani) may be apophonic twins; the source says the derivation is unclear.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese of unclear derivation:"
+      },
+      {
+        "quote": "Probably originally a compound of 吾 (a, Eastern Old Japanese first-person pronoun) + の (no, possessive particle) + 兄 (ye → e, “eldest sibling”):"
+      },
+      {
+        "quote": "⟨a no2 ye⟩ → */anʉʲɨe/ → /ane/"
+      },
+      {
+        "quote": "An apophonic form of 兄 (ani, “elder brother”)."
+      },
+      {
+        "quote": "Several other theories have also been suggested."
+      }
+    ],
+    "wiktionaryRev": 92256644
+  },
+  {
+    "date": "2026-12-29",
+    "term": "妹",
+    "kana": "いもうと",
+    "meaning": "younger sister (humble)",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [
+      "compound",
+      "sound-change"
+    ],
+    "headline": "Imōto was imo + hito: a u-sound shift glued “sister” and “person” together.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨imo1⟩ → */imʷo/ → /imo/"
+      },
+      {
+        "quote": "From Old Japanese 妹 (imo1). First cited in the Kojiki of 712."
+      },
+      {
+        "quote": "Speculatively, may be related to terms such as 女 (me1, womi1na, “woman”), 嫗 (omi1na, “elderly woman”), and 母 (omo, “mother”), wherein the medial /-m-/ appears to signify woman, female. However, the difference in vowel values presents a difficulty."
+      },
+      {
+        "quote": "/imo ɸito/ → /imowito/ → */imowuto/ → /imoːto/"
+      },
+      {
+        "quote": "Originally a compound of 妹 (imo, “sister, close female companion”) + 人 (hito, “person”). First cited in The Tales of Ise of the early 900s."
+      },
+      {
+        "quote": "This is an instance of ウ音便 (u onbin, “u sound shift”), found in terms with bilabial consonants (/m/, /b/, /w/) followed by i; commonly seen in terms such as 玄人 (kurōto, “professional”), 素人 (shirōto, “amateur”), or possibly, 相撲 (sumō, “sumo”)."
+      }
+    ],
+    "wiktionaryRev": 92160831
+  },
+  {
+    "date": "2026-12-30",
+    "term": "昨夜",
+    "kana": "ゆうべ",
+    "meaning": "last night",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adverb (fukushi)"
+    ],
+    "processes": [
+      "sound-change"
+    ],
+    "headline": "Yūbe, “last night”, is a shift from 夕べ (“evening”), and its kanji spelling comes from sakuya.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Shift from 夕べ (yūbe, “evening”), which has an additional 平板型 (heiban-gata) or [0] accent pitch."
+      },
+      {
+        "quote": "The kanji spelling is from sakuya above."
+      },
+      {
+        "quote": "Cognate with Northern Amami Ōshima ゆぶぃ (yubï, “last night”)."
+      }
+    ],
+    "wiktionaryRev": 92288326
+  },
+  {
+    "date": "2026-12-31",
+    "term": "正月",
+    "kana": "しょうがつ",
+    "meaning": "New Year, New Year's Day",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "kango",
+    "processes": [
+      "borrowing"
+    ],
+    "headline": "Shōgatsu is borrowed from Middle Chinese 正月 (tsyeng ngjwot).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 正月 (MC tsyeng ngjwot)"
+      }
+    ],
+    "wiktionaryRev": 92497061
+  }
+]
