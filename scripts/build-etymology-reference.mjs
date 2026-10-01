@@ -1,20 +1,26 @@
 /**
  * Builds data/reference/etymology-reference.json (`pnpm data:etymology`).
  *
- * The daily-word entries under data/words/ make origin claims ("a clipping of
- * 湯帷子", "originally plural"). Nothing in JMdict/KANJIDIC2 backs those, so each
- * claim cites a quote from English Wiktionary's Japanese Etymology section, and
- * this snapshot is the committed evidence test/content/words.test.ts checks the
- * quotes against.
+ * Every daily word quotes its origin from English Wiktionary's Japanese
+ * Etymology section (the entries under data/words/ are generated from this
+ * snapshot — see scripts/lib/word-entry.mjs). Nothing in JMdict/KANJIDIC2
+ * backs those claims, so this snapshot is the committed evidence, and
+ * test/content/words.test.ts checks every quote against it.
  *
  * Deterministic: every page is pinned to a Wiktionary revision id. A term that
- * already has a pin in the snapshot is re-fetched at that exact revision (same
- * input, same output); a term with no pin yet is fetched at its current revision
- * and the id recorded. Bump a pin deliberately with `--refresh <term>`.
+ * already has a pin keeps its stored text untouched (same input, same output);
+ * a term with no pin yet is fetched at its current revision and the id
+ * recorded. Bump a pin deliberately with `--refresh <term>`.
+ *
+ * Each Etymology section also records the reading(s) the page's own `ja-pron`
+ * and headword templates declare for it (`readings`), so an entry can quote
+ * only the section for its own reading — a page like 大人 has one section for
+ * each of おとな, うし, たいじん and だいにん. Pins that predate this get their
+ * readings from the pinned revision's wikitext, fetched in batches.
  *
  * Terms are every entry's `term` in data/words/*.json, every term already
  * pinned in the snapshot, plus an optional `--terms a,b,c` for bootstrapping a
- * new batch before its entries exist.
+ * new batch before its entries exist. `--prune` drops pins nothing uses.
  *
  * Wiktionary text is CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/);
  * the snapshot keeps each page's permalink so the attribution stays traceable.
@@ -22,6 +28,10 @@
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  japaneseEtymologyWikitexts,
+  readingsOf,
+} from "./lib/wiktionary-readings.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = join(ROOT, "data/reference/etymology-reference.json");
@@ -136,18 +146,29 @@ export function japaneseEtymologies(term, html) {
   return result;
 }
 
-/** One request per word: the rendered page (pinned `oldid`, or the current
- *  revision for a new term) plus the revision id it came from. */
-async function fetchPage(term, pinnedRevid) {
+/** One request per word: the rendered page at its current revision, plus the
+ *  revision id it came from. The wikitext
+ *  rides along so each Etymology section can be tied to the reading(s) the
+ *  page's own `ja-pron`/headword templates declare for it. */
+async function fetchPage(term) {
   const { parse } = await api({
     action: "parse",
-    prop: "text|revid",
+    prop: "text|revid|wikitext",
     disablelimitreport: "1",
-    ...(pinnedRevid ? { oldid: String(pinnedRevid) } : { page: term }),
+    page: term,
   });
+  const etymologies = japaneseEtymologies(term, parse.text);
+  const sections = japaneseEtymologyWikitexts(parse.wikitext);
+  if (sections.length !== etymologies.length)
+    throw new Error(
+      `${term}: ${etymologies.length} rendered Etymology sections but ${sections.length} in the wikitext`,
+    );
   return {
     revid: parse.revid,
-    etymologies: japaneseEtymologies(term, parse.text),
+    etymologies: etymologies.map((e, i) => ({
+      ...e,
+      readings: readingsOf(sections[i]),
+    })),
   };
 }
 
@@ -166,19 +187,76 @@ if (terms.length === 0)
     "No terms: add data/words/*.json entries or pass --terms a,b,c",
   );
 
+/** The wikitext of already-pinned revisions, many per request: the pinned
+ *  text is kept as it is, and only each section's reading is read from here. */
+async function fetchWikitexts(revids) {
+  const out = new Map();
+  for (let i = 0; i < revids.length; i += 20) {
+    const json = await api({
+      action: "query",
+      prop: "revisions",
+      rvprop: "ids|content",
+      rvslots: "main",
+      revids: revids.slice(i, i + 20).join("|"),
+    });
+    for (const page of json.query?.pages ?? [])
+      for (const rev of page.revisions ?? [])
+        out.set(rev.revid, rev.slots.main.content);
+  }
+  return out;
+}
+
+const isPinned = (term) =>
+  !refresh.has(term) && Boolean(existing.entries?.[term]?.etymologies);
+const missingReadings = (term) =>
+  existing.entries[term].etymologies.some((e) => !("readings" in e));
+const wikitexts = await fetchWikitexts(
+  terms
+    .filter((t) => isPinned(t) && missingReadings(t))
+    .map((t) => existing.entries[t].revid),
+);
+
+// `--prune` drops pins that no entry and no `--terms` still uses (a word that
+// left the catalogue); without it pins are kept, so a batch can be pinned
+// before its entries exist.
+if (args.includes("--prune")) {
+  const keep = new Set([
+    ...entryTerms(),
+    ...(flagValue("--terms") ?? "").split(",").filter(Boolean),
+  ]);
+  for (let i = terms.length - 1; i >= 0; i--)
+    if (!keep.has(terms[i])) terms.splice(i, 1);
+}
+
 const entries = {};
 for (const term of terms.sort()) {
-  const pinned = refresh.has(term)
-    ? undefined
-    : existing.entries?.[term]?.revid;
-  const { revid, etymologies } = await fetchPage(term, pinned);
+  let revid;
+  let etymologies;
+  if (isPinned(term)) {
+    // Same revision, same text: nothing to re-fetch. Fill in the readings
+    // of the sections if this pin predates them.
+    ({ revid, etymologies } = existing.entries[term]);
+    if (missingReadings(term)) {
+      const sections = japaneseEtymologyWikitexts(wikitexts.get(revid) ?? "");
+      if (sections.length !== etymologies.length)
+        throw new Error(
+          `${term}: ${etymologies.length} pinned Etymology sections but ${sections.length} in revision ${revid}'s wikitext`,
+        );
+      etymologies = etymologies.map((e, i) => ({
+        ...e,
+        readings: readingsOf(sections[i]),
+      }));
+    }
+  } else {
+    ({ revid, etymologies } = await fetchPage(term));
+  }
   entries[term] = {
     revid,
     url: `https://en.wiktionary.org/w/index.php?title=${encodeURIComponent(term)}&oldid=${revid}`,
     etymologies,
   };
   console.log(
-    `${term}: rev ${revid}, ${etymologies.length} etymology section(s)${pinned ? "" : " (new pin)"}`,
+    `${term}: rev ${revid}, ${etymologies.length} etymology section(s)${isPinned(term) ? "" : " (new pin)"}`,
   );
 }
 
