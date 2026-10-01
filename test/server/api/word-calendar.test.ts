@@ -38,6 +38,8 @@ describe("GET /api/word-calendar", () => {
       "2026-08",
       "2026-09",
       "2026-10",
+      "2026-11",
+      "2026-12",
     ]);
     expect(data.today).toBe("2026-10-10");
     expect(data.days).toHaveLength(31);
@@ -80,7 +82,8 @@ describe("GET /api/word-calendar", () => {
     const handler = await getHandler();
     const { data } = handler({} as any);
 
-    expect(data.month).toBe("2026-10");
+    expect(data.month).toBe("2026-12");
+    expect(data.days).toHaveLength(31);
     expect(data.days.every((d: any) => d.status === "open")).toBe(true);
   });
 
