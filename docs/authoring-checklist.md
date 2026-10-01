@@ -25,11 +25,10 @@ source or the parser; never edit `data/words/*.json`.
        are fetched at their current Wiktionary revision; pinned terms are
        untouched. Wikimedia rate-limits anonymous clients; the script paces
        itself and honours `Retry-After`.
-4. [ ] **Generate**: `pnpm data:words`. It prints every entry it could not build
-       and why, and writes nothing until they are all fixed (`--keep-going`
-       writes the rest). Typical refusals and what to do: - _“none for <reading>”_ / _“its only section is for …”_ — the page has
-       no Etymology section for the word's reading. Replace the word; do not
-       borrow another reading's section (see the 大人 / 曲る cases). - _“2 pool words with that spelling”_ — add `kana` to the plan entry. - _“no pinned Wiktionary page”_ — step 3.
+4. [ ] **Generate**: `pnpm data:words`. It fetches nothing; it reads the committed
+       snapshots. It prints every entry it could not build and why, and writes
+       nothing until they are all fixed (`--keep-going` writes the rest). See
+       "If the generator refuses an entry" below.
 5. [ ] **Read the result once.** Entries with no breakdown are normal (the source
        gave no clean split) as are entries with no layer (irregular spellings).
        Skim the headline against the quoted lines: a headline must not claim
@@ -39,6 +38,14 @@ source or the parser; never edit `data/words/*.json`.
 7. [ ] `pnpm test:run` — `word-generation.test.ts` fails if a committed entry
        differs from what the sources produce; `words.test.ts` checks every
        entry independently of the generator.
+
+**If the generator refuses an entry:**
+
+| Message                                            | What to do                                                                                                           |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| "none for <reading>" / "its only section is for …" | The page has no Etymology section for the word's reading. Replace the word; do not borrow another reading's section. |
+| "2 pool words with that spelling"                  | Add `kana` to the plan entry.                                                                                        |
+| "no pinned Wiktionary page"                        | Pin it first (step 3).                                                                                               |
 
 ## B. What each field is derived from
 
@@ -69,8 +76,8 @@ source or the parser; never edit `data/words/*.json`.
 
 The API refuses future dates, but that protects nothing if the browser bundle
 already contains the entries. Nothing under `app/` may import
-`shared/words.ts`, `data/words/*` or `data/word-plan/*` (a unit test enforces
-it); components that need labels import the data-free `shared/word-labels.ts`.
+`shared/words.ts` or `data/words/*` (a unit test enforces it), and
+`data/word-plan/*` has no business there either; components that need labels import the data-free `shared/word-labels.ts`.
 
 ## E. Refresh the sources (JMdict / word lists / Wiktionary)
 
