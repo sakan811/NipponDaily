@@ -46,13 +46,13 @@ describe("GET /api/daily-word", () => {
 
   it("serves a past word by ?date= and links forward to the next open day", async () => {
     at("2026-10-20T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-09-01" });
+    (global as any).getQuery.mockReturnValue({ date: "2026-01-01" });
     const handler = await getHandler();
     const result = handler({} as any);
 
-    expect(result.data.entry.term).toBe("銀行");
+    expect(result.data.entry.term).toBe("今年");
     expect(result.data.prev).toBeNull();
-    expect(result.data.next).toEqual({ date: "2026-09-02", term: "経済" });
+    expect(result.data.next).toEqual({ date: "2026-01-02", term: "チップ" });
   });
 
   it("links across the month boundary in both directions", async () => {
@@ -73,8 +73,11 @@ describe("GET /api/daily-word", () => {
     const { entry } = handler({} as any).data;
 
     expect(entry.term).toBe("ありがとう");
-    expect(entry.morphemes.length).toBeGreaterThan(0);
+    // The generator gives no breakdown when the source offers no clean split.
+    expect(Array.isArray(entry.morphemes)).toBe(true);
+    expect(entry.pos.length).toBeGreaterThan(0);
     expect(entry.sources.length).toBeGreaterThan(0);
+    expect(entry).not.toHaveProperty("story");
     expect(entry.wiktionaryRev).toBeGreaterThan(0);
   });
 
@@ -103,7 +106,7 @@ describe("GET /api/daily-word", () => {
 
   it("returns 404 for a past date the catalogue does not cover", async () => {
     at("2026-10-20T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-08-31" });
+    (global as any).getQuery.mockReturnValue({ date: "2025-12-31" });
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,
@@ -117,7 +120,7 @@ describe("GET /api/daily-word", () => {
   });
 
   it("returns 404 before the first word has opened", async () => {
-    at("2026-08-15T12:00:00Z");
+    at("2025-12-15T12:00:00Z");
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,

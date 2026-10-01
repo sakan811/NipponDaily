@@ -15,11 +15,27 @@ import type {
   WordCalendarDay,
   WordEntry,
 } from "~~/types/index";
+import january2026 from "~~/data/words/2026-01.json";
+import february2026 from "~~/data/words/2026-02.json";
+import march2026 from "~~/data/words/2026-03.json";
+import april2026 from "~~/data/words/2026-04.json";
+import may2026 from "~~/data/words/2026-05.json";
+import june2026 from "~~/data/words/2026-06.json";
+import july2026 from "~~/data/words/2026-07.json";
+import august2026 from "~~/data/words/2026-08.json";
 import september2026 from "~~/data/words/2026-09.json";
 import october2026 from "~~/data/words/2026-10.json";
 
 /** Every month's entries, oldest first. */
 const MONTHS: WordEntry[][] = [
+  january2026 as WordEntry[],
+  february2026 as WordEntry[],
+  march2026 as WordEntry[],
+  april2026 as WordEntry[],
+  may2026 as WordEntry[],
+  june2026 as WordEntry[],
+  july2026 as WordEntry[],
+  august2026 as WordEntry[],
   september2026 as WordEntry[],
   october2026 as WordEntry[],
 ];
