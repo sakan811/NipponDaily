@@ -47,6 +47,17 @@ describe("Color Palette Page", () => {
     expect(text).not.toContain("Opposite Color");
   });
 
+  it("no longer credits an MCP agent or claims a contrast guarantee", () => {
+    const wrapper = mount(ColorPalettePage, {
+      global: { stubs: NuxtUIComponents },
+    });
+
+    const text = wrapper.text();
+    expect(text).not.toContain("MCP");
+    expect(text).not.toContain("save_site_theme");
+    expect(text).not.toContain("WCAG");
+  });
+
   it("handles mobile menu toggle click", async () => {
     const wrapper = mount(ColorPalettePage, {
       global: {

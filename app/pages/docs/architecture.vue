@@ -22,38 +22,13 @@
         System Architecture
       </h1>
 
-      <div
-        class="p-4 mb-8 season-box bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800"
-      >
-        <p class="m-0 text-blue-900 dark:text-blue-100">
-          <strong>👋 Welcome!</strong> Whether you are an experienced developer
-          or a beginner exploring how modern AI apps are built, this guide will
-          walk you through how NipponDaily works behind the scenes. We've broken
-          down complex topics to make them easy to understand, without skipping
-          any of the technical details.
-        </p>
-      </div>
-
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily is a daily Japanese word, taken apart. Each day opens one
-        entry — the word's morphemes, its layer of the vocabulary, the processes
-        that shaped it, and the evidence behind each claim — and a calendar lets
-        readers look back through every word so far. The entries are
-        hand-written, in-repo data (<code>data/words/YYYY-MM.json</code>),
-        checked in CI against committed JMdict, KANJIDIC2 and pinned Wiktionary
-        evidence, and served by date from a small Nitro API that refuses to
-        serve a day that hasn't arrived yet. No agent or AI provider writes
-        entries. What <em>is</em>
-        agent-controlled is the site's seasonal design: a Claude web agent that
-        runs on its own schedule, entirely outside this codebase, switches
-        NipponDaily's active season (its color palette and the shapes of its
-        cards, buttons, and badges) by writing through a small remote MCP server
-        this project exposes. If the agent hasn't set a season yet, the site
-        falls back to a deterministic default itself, so the page is never left
-        unstyled.
+        NipponDaily is a Nuxt 4 app with a small Nitro API. The daily words are
+        hand-written JSON in the repo, served by date and never before their day
+        arrives. Redis holds only the JLPT reference pool and the site's current
+        season, which a daily cron keeps in step with the calendar.
       </p>
 
-      <!-- Diagram 1: System Overview -->
       <div class="my-10">
         <h3
           class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
@@ -69,12 +44,8 @@
       <h2
         class="text-3xl font-serif font-bold mt-12 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        1. Core Components
+        1. Components
       </h2>
-      <p class="mb-6">
-        Here are the main building blocks (technologies) that make NipponDaily
-        work:
-      </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <UCard>
@@ -87,22 +58,12 @@
               Frontend (Nuxt 4)
             </h4>
           </template>
-          <p class="text-sm mb-2">
-            <strong>What it does:</strong> This is the user interface you see
-            and interact with in your browser.
-          </p>
           <p class="text-sm">
-            <strong>Technical Details:</strong> Built with Nuxt 4 and Vue 3,
-            utilizing custom UI components and Tailwind CSS v4. The home page
-            shows today's word from <code>GET /api/daily-word</code>;
-            <code>/words</code> is a month grid fed by
-            <code>GET /api/word-calendar</code>; and
-            <code>/words/[date]</code> renders one entry
-            (<code>WordEntryView.vue</code>) with links to the days either side.
-            Pages never import the entries themselves — only the data-free
-            labels in <code>shared/word-labels.ts</code> — so no future word
-            ever ships in the browser bundle (a unit test enforces this). The
-            Kana guide (<code>/kana</code>) is a static reference.
+            Vue 3 and Tailwind CSS v4 with locally maintained UI components. The
+            home page shows today's word, <code>/words</code> is the month
+            calendar, and <code>/words/[date]</code> is one entry. Pages fetch
+            from the API in the browser and never import the entries, so no
+            future word ships in the bundle (a unit test enforces this).
           </p>
         </UCard>
 
@@ -113,20 +74,14 @@
                 name="i-heroicons-server"
                 class="w-5 h-5 shrink-0 text-primary-500"
               />
-              API Engine (Nitro)
+              API (Nitro)
             </h4>
           </template>
-          <p class="text-sm mb-2">
-            <strong>What it does:</strong> The backend server that hands the
-            frontend one day's word at a time.
-          </p>
           <p class="text-sm">
-            <strong>Technical Details:</strong> The Nitro-powered backend serves
-            the daily words straight from the in-repo catalogue
-            (<code>shared/words.ts</code>) — no database read at all. A day
-            counts as open once midnight in Japan (JST) has passed; anything
-            later is a <code>400</code>. It never calls any external search or
-            AI provider.
+            Serves the words straight from the in-repo catalogue
+            (<code>shared/words.ts</code>), with no database read. A day is open
+            once midnight in Japan (JST) has passed; a later date is a
+            <code>400</code>.
           </p>
         </UCard>
 
@@ -137,25 +92,15 @@
                 name="i-heroicons-circle-stack"
                 class="w-5 h-5 shrink-0 text-primary-500"
               />
-              Database (Upstash Redis)
+              Redis (Upstash)
             </h4>
           </template>
-          <p class="text-sm mb-2">
-            <strong>What it does:</strong> Where we store the JLPT reference
-            pool and the site's active season.
-          </p>
           <p class="text-sm">
-            <strong>Technical Details:</strong> Powered by Upstash Redis,
-            storing the static kanji/vocab pool for every JLPT level N5-N2
-            (seeded offline, see the
-            <NuxtLink to="/docs/data-integrity" class="underline"
-              >Data Integrity &amp; Attribution</NuxtLink
-            >
-            docs) and the single active <code>SiteTheme</code> record the theme
-            agent controls (Section 2). The daily words don't live here: they
-            are in-repo data, so a Redis outage can't take them down. When the
-            Redis env vars are absent, the services fall back to an in-process
-            in-memory store so the app still runs locally.
+            Holds the seeded kanji/vocab pool for N5–N2 (see
+            <NuxtLink to="/docs/data-integrity">Data Integrity</NuxtLink>) and
+            the single <code>SiteTheme</code> record. The words don't live here.
+            Without Redis credentials the pool endpoints return empty lists and
+            the season is held in process memory.
           </p>
         </UCard>
 
@@ -163,232 +108,148 @@
           <template #header>
             <h4 class="font-bold flex items-center gap-2">
               <UIcon
-                name="i-heroicons-command-line"
+                name="i-heroicons-clock"
                 class="w-5 h-5 shrink-0 text-primary-500"
               />
-              MCP Server
+              Season cron
             </h4>
           </template>
-          <p class="text-sm mb-2">
-            <strong>What it does:</strong> The bridge that lets an external
-            agent switch the site's active season (palette and shapes).
-          </p>
           <p class="text-sm">
-            <strong>Technical Details:</strong> A remote MCP (Model Context
-            Protocol) server at <code>ALL /api/mcp</code>, built with
-            <code>mcp-handler</code> and protected by a constant-time bearer
-            token check. Exposes tools to read and set the active
-            <code>SiteTheme</code> — see Section 2. It has no tools for word
-            content; the daily words are written and reviewed in-repo.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-bold flex items-center gap-2">
-              <UIcon
-                name="i-heroicons-sparkles"
-                class="w-5 h-5 shrink-0 text-primary-500"
-              />
-              Claude Web Agent (External)
-            </h4>
-          </template>
-          <p class="text-sm mb-2">
-            <strong>What it does:</strong> Decides which of NipponDaily's
-            implemented seasonal presets should be active right now.
-          </p>
-          <p class="text-sm">
-            <strong>Technical Details:</strong> Runs entirely outside this
-            repository, on a schedule set up in Claude's own web scheduling
-            feature (not a cron job hosted by this project). It calls this
-            project's MCP server to read and set the active season — no search
-            or AI provider credentials live in this codebase at all.
+            A Vercel Cron job (<code>vercel.json</code>) calls
+            <code>GET /api/cron/update-season</code> daily at 15:00 UTC, which
+            is midnight in Japan, and stores the season for that date.
           </p>
         </UCard>
       </div>
-
-      <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- MCP-DRIVEN SEASONAL THEME PIPELINE                                 -->
-      <!-- ══════════════════════════════════════════════════════════════════ -->
 
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
-        2. MCP-Driven Seasonal Theme
+        2. Seasons
       </h2>
 
-      <p class="text-lg mb-6">
-        The daily words are written and reviewed in-repo (Section 3) — no agent
-        involved. What an external agent <em>does</em> control is design: a
-        <strong>Claude web agent</strong> — scheduled via Claude's own web
-        scheduling feature, entirely outside this repository — checks
-        NipponDaily's currently active season and, when it should change, calls
-        the tools below to write a new <code>SiteTheme</code> record directly
-        into Redis. The agent's full operating prompt lives at
-        <code>docs/site-theme-agent-prompt.md</code>.
+      <p class="mb-4">
+        A season sets the color palette and the shape of the UI through a
+        <code>data-season</code> attribute on <code>&lt;html&gt;</code>. There
+        are four, defined once in <code>shared/seasons.ts</code>: spring
+        (<code>sakura</code>, March–May), <code>summer</code> (June–August),
+        <code>autumn</code> (September–November) and <code>winter</code>
+        (December–February), by the date in Japan.
       </p>
-
-      <!-- Diagram: MCP Pipeline -->
-      <div class="my-10 bg-stone-50 dark:bg-stone-900/50 p-4 season-box">
-        <h3
-          class="text-center mb-6 text-xl font-semibold text-gray-800 dark:text-gray-200"
-        >
-          A Typical Agent Run (Zoomable)
-        </h3>
-        <MermaidDiagram id="mcp-diag" :code="mcpDiagram" />
-        <p class="text-center text-xs text-gray-500 mt-4 italic">
-          Everything above the dashed line into Redis happens outside this
-          codebase — the MCP server just exposes the tools that let it in.
-        </p>
-      </div>
-
-      <p class="font-semibold text-xl mt-10 mb-4">
-        <code>ALL /api/mcp</code> registers two tools:
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        <UCard>
-          <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">get_active_theme</h4>
-          </template>
-          <p class="text-sm">
-            Returns
-            <code>{ active, suggestedSeason, needsUpdate, seasons }</code>: the
-            stored <code>SiteTheme</code> (or <code>null</code>), the preset
-            whose months cover today's date in Japan, whether those differ, and
-            every accepted preset with its months. The agent only writes when
-            <code>needsUpdate</code> is true. Annotated read-only.
-          </p>
-        </UCard>
-
-        <UCard>
-          <template #header>
-            <h4 class="font-mono text-sm font-bold m-0">save_site_theme</h4>
-          </template>
-          <p class="text-sm">
-            Sets the active season and returns
-            <code>{ saved, changed, season, previousSeason }</code>; saving the
-            season that's already active skips the write. Only accepts one of
-            the <em>implemented</em> presets — one per Japanese season:
-            <code>sakura</code> (spring, the site's default),
-            <code>summer</code>, <code>autumn</code>, and <code>winter</code> —
-            anything else is rejected by the schema itself, not just by
-            convention. The site picks the change up within about a minute
-            (<code>GET /api/site-theme</code> is CDN-cached for 60 seconds).
-          </p>
-        </UCard>
-      </div>
-
-      <div
-        class="my-8 p-4 season-box border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/30 flex items-start gap-3"
-      >
-        <UIcon
-          name="i-heroicons-information-circle"
-          class="text-blue-500 w-6 h-6 shrink-0 mt-0.5"
-        />
-        <div>
-          <p class="m-0 text-blue-900 dark:text-blue-100 font-semibold mb-1">
-            Never unstyled
-          </p>
-          <p class="m-0 text-blue-800 dark:text-blue-200 text-sm">
-            <code>GET /api/site-theme</code> only ever reads from Redis first —
-            but if no agent has set a season yet, it falls back to a
-            deterministic default (Section 3) rather than returning nothing. The
-            same <code>data-season</code> attribute that switches the color
-            palette also drives
-            <code>app/components/SeasonalEffects.vue</code>'s ambient graphic —
-            falling petals for sakura; rising bubbles by day and fireflies by
-            night for summer; for autumn, falling momiji leaves by day and
-            susuki with a glowing tsukimi moon at night; falling snow for
-            winter. It also re-points the <code>--shape-*</code> /
-            <code>--motif-*</code> tokens that set the silhouettes of every
-            card, button, badge, divider, and page backdrop. One CSS attribute,
-            no separate agent call.
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="mb-8 p-3 season-box border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
-      >
-        <strong>🔒 Authentication:</strong> Every call to
-        <code>/api/mcp</code> requires an
-        <code>Authorization: Bearer &lt;MCP_AUTH_TOKEN&gt;</code> header (or a
-        <code>?token=</code> query param), checked with a constant-time
-        comparison. Requests without a valid token get a <code>401</code>.
-      </div>
-
-      <!-- ══════════════════════════════════════════════════════════════════ -->
-      <!-- API REFERENCE                                                     -->
-      <!-- ══════════════════════════════════════════════════════════════════ -->
+      <ul class="list-disc pl-6 mb-6 space-y-2">
+        <li>
+          <strong>Site season.</strong> The cron writes it to Redis, and only
+          when it changed. <code>GET /api/site-theme</code> serves it. If
+          nothing is stored yet, that endpoint computes today's season itself
+          and saves it, so the site is never unstyled.
+        </li>
+        <li>
+          <strong>Reader's choice.</strong> The season button in the header
+          picks any of the four, or “Follow the calendar”. The pick is kept in
+          this browser's <code>localStorage</code> and never sent anywhere; it
+          wins over the site season until you switch back.
+        </li>
+        <li>
+          <strong>No flash.</strong> An inline script in
+          <code>nuxt.config.ts</code> applies the reader's choice, or the cached
+          site season, before first paint.
+        </li>
+      </ul>
 
       <h2
         class="text-3xl font-serif font-bold mt-16 mb-6 text-primary-500 border-b border-gray-200 dark:border-gray-800 pb-2"
       >
         3. API Reference
       </h2>
-      <p class="mb-8">Technical details on how our backend endpoints work.</p>
 
-      <!-- /api/daily-word -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="success" variant="soft">GET</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/daily-word</h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          Returns one day's entry, with the previous day's word and — only once
-          that day has itself arrived — the next. Read from the in-repo
-          catalogue; nothing is generated or persisted. Does not call any
-          external search or AI provider.
-        </p>
+      <div class="overflow-x-auto mb-8">
+        <table class="min-w-full border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-gray-300 dark:border-gray-700">
+              <th class="py-2 px-2 text-left font-bold">Endpoint</th>
+              <th class="py-2 px-2 text-left font-bold">Returns</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>GET /api/daily-word</code><br ><code
+                  >?date=YYYY-MM-DD</code
+                >
+              </td>
+              <td class="py-2 px-2">
+                One entry plus its <code>prev</code> and <code>next</code> days.
+                With no date: today in Japan, or the newest word once the
+                catalogue runs out. A future or invalid date is a
+                <code>400</code>; a past date with no entry (or no word yet) is
+                a <code>404</code>. <code>next</code> stays
+                <code>null</code> until that day has arrived.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>GET /api/word-calendar</code><br ><code
+                  >?month=YYYY-MM</code
+                >
+              </td>
+              <td class="py-2 px-2">
+                <code>{ month, months, today, days }</code>. An open day carries
+                its <code>term</code>, <code>kana</code> and
+                <code>stratum</code>; an upcoming day carries only its date and
+                <code>"upcoming"</code>. The month defaults to the current one
+                if it has words, else the newest. A malformed month is a
+                <code>400</code>, a month with no words a <code>404</code>.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>GET /api/site-theme</code>
+              </td>
+              <td class="py-2 px-2">
+                The site <code>SiteTheme</code>:
+                <code>{ season, updatedAt, source }</code>, where
+                <code>source</code> is <code>"cron"</code> or
+                <code>"fallback"</code>. CDN-cached for 60 seconds (<code
+                  >s-maxage=60, stale-while-revalidate=600</code
+                >).
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>GET /api/cron/update-season</code>
+              </td>
+              <td class="py-2 px-2">
+                Called by the cron. Needs
+                <code>Authorization: Bearer &lt;CRON_SECRET&gt;</code> (else
+                <code>401</code>). Returns
+                <code>{ season, previousSeason, changed }</code>.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>GET /api/pool-vocab</code><br ><code
+                  >GET /api/pool-kanji</code
+                ><br ><code>?level=N5</code>
+              </td>
+              <td class="py-2 px-2">
+                One JLPT level's pool as <code>{ data, count }</code> (<code
+                  >N5</code
+                >
+                by default, up to <code>N2</code>). Vocab goes through the
+                corrections in <code>shared/meanings.ts</code>. No page reads
+                these.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        <div class="overflow-x-auto mb-4">
-          <table class="min-w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-gray-300 dark:border-gray-700">
-                <th class="py-2 px-2 text-left font-bold">Parameter</th>
-                <th class="py-2 px-2 text-left font-bold">Type</th>
-                <th class="py-2 px-2 text-left font-bold">Description</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-              <tr>
-                <td class="py-2 px-2"><code>date</code></td>
-                <td class="py-2 px-2 text-gray-500">
-                  string (<code>YYYY-MM-DD</code>)
-                </td>
-                <td class="py-2 px-2">
-                  Defaults to today in Japan (JST) — or, if the catalogue has
-                  run out, the newest word, so the front page is never empty.
-                  Must be a real calendar date, today or earlier; a future or
-                  malformed date is a <code>400</code>. A past date the
-                  catalogue doesn't cover is a <code>404</code>.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">Request Examples</p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
-            ><code># Today's word
-curl "http://localhost:3000/api/daily-word"
-
-# A past day's word
-curl "http://localhost:3000/api/daily-word?date=2026-10-01"</code></pre>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">
-              Response (200 OK)
-            </p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
-            ><code>{
+      <p class="text-xs font-bold text-gray-500 mb-1">
+        Example: <code>GET /api/daily-word?date=2026-10-01</code>
+      </p>
+      <pre
+        class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
+      ><code>{
   "success": true,
   "data": {
     "entry": {
@@ -410,194 +271,6 @@ curl "http://localhost:3000/api/daily-word?date=2026-10-01"</code></pre>
   },
   "timestamp": "2026-10-01T00:00:00.000Z"
 }</code></pre>
-          </div>
-        </div>
-      </UCard>
-
-      <!-- /api/word-calendar -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="success" variant="soft">GET</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/word-calendar</h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          Returns one month as the calendar draws it: every month that has
-          words, today's date in Japan, and each day of the requested month. A
-          day that has arrived carries its word, reading and layer; an upcoming
-          day carries only its date and <code>"upcoming"</code> — it reveals
-          nothing about the word.
-        </p>
-        <div class="overflow-x-auto mb-4">
-          <table class="min-w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-gray-300 dark:border-gray-700">
-                <th class="py-2 px-2 text-left font-bold">Parameter</th>
-                <th class="py-2 px-2 text-left font-bold">Type</th>
-                <th class="py-2 px-2 text-left font-bold">Description</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-              <tr>
-                <td class="py-2 px-2"><code>month</code></td>
-                <td class="py-2 px-2 text-gray-500">
-                  string (<code>YYYY-MM</code>)
-                </td>
-                <td class="py-2 px-2">
-                  Defaults to the current month in Japan if it has words,
-                  otherwise the newest month that does. A malformed month is a
-                  <code>400</code>; a month with no words is a <code>404</code>.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <pre
-          class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
-        ><code>{
-  "success": true,
-  "data": {
-    "month": "2026-10",
-    "months": ["2026-10"],
-    "today": "2026-10-03",
-    "days": [
-      { "date": "2026-10-01", "status": "open", "term": "電話", "kana": "でんわ", "stratum": "kango" },
-      { "date": "2026-10-04", "status": "upcoming" }
-    ]
-  },
-  "timestamp": "2026-10-03T00:00:00.000Z"
-}</code></pre>
-      </UCard>
-
-      <!-- /api/pool-vocab -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="success" variant="soft">GET</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/pool-vocab</h3>
-          </div>
-        </template>
-        <p class="text-sm m-0">
-          Returns one level's whole seeded vocabulary pool as-is (<code
-            >{ success, data: PoolVocab[], count, timestamp }</code
-          >), via an optional <code>?level=</code> (defaults to
-          <code>N5</code>). The seeded JLPT reference pool; no page in the app
-          reads it today. Nothing is generated or persisted.
-        </p>
-      </UCard>
-
-      <!-- /api/pool-kanji -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="success" variant="soft">GET</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/pool-kanji</h3>
-          </div>
-        </template>
-        <p class="text-sm m-0">
-          Returns one level's whole seeded kanji pool as-is (<code
-            >{ success, data: PoolKanji[], count, timestamp }</code
-          >), via an optional <code>?level=</code> (defaults to
-          <code>N5</code>). The seeded JLPT reference pool; no page in the app
-          reads it today. Nothing is generated or persisted.
-        </p>
-      </UCard>
-
-      <!-- /api/site-theme -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="success" variant="soft">GET</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/site-theme</h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          Returns the single active <code>SiteTheme</code> — from Redis if the
-          agent has set one, or a deterministic default otherwise (and
-          persisted, so it isn't recomputed on every request). No query
-          parameters. Served with
-          <code>Cache-Control: s-maxage=60, stale-while-revalidate=600</code>
-          so the CDN absorbs the per-page-load fetch.
-        </p>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">Request Example</p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
-            ><code>curl "http://localhost:3000/api/site-theme"</code></pre>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-500 mb-1">
-              Response (200 OK)
-            </p>
-            <pre
-              class="bg-stone-100 dark:bg-stone-900 season-box p-3 overflow-x-auto text-xs m-0"
-            ><code>{
-  "success": true,
-  "data": {
-    "season": "sakura",
-    "updatedAt": 1758182400000,
-    "source": "fallback"
-  },
-  "timestamp": "2026-09-18T00:00:00.000Z"
-}</code></pre>
-          </div>
-        </div>
-      </UCard>
-
-      <!-- /api/mcp -->
-      <UCard class="mb-8">
-        <template #header>
-          <div class="flex items-center gap-2">
-            <UBadge color="secondary" variant="soft">ALL</UBadge>
-            <h3 class="font-mono text-lg font-bold m-0">/api/mcp</h3>
-          </div>
-        </template>
-        <p class="text-sm mb-4">
-          The remote MCP server described in Section 2 — this is how the Claude
-          web agent (or any other MCP-speaking client) switches the site's
-          active season in Redis. Not a plain REST endpoint; speaks the MCP
-          protocol over HTTP via <code>mcp-handler</code>.
-        </p>
-
-        <div
-          class="mb-4 p-3 season-box border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 text-sm"
-        >
-          <strong>🔒 Auth required:</strong>
-          <code>Authorization: Bearer &lt;MCP_AUTH_TOKEN&gt;</code> header or
-          <code>?token=</code> query param on every request, generated with
-          <code>openssl rand -hex 32</code>. Missing or wrong tokens get a
-          <code>401</code>.
-        </div>
-
-        <div class="overflow-x-auto mb-2">
-          <table class="min-w-full border-collapse text-sm">
-            <thead>
-              <tr class="border-b border-gray-300 dark:border-gray-700">
-                <th class="py-2 px-2 text-left font-bold">Tool</th>
-                <th class="py-2 px-2 text-left font-bold">Purpose</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-              <tr>
-                <td class="py-2 px-2"><code>get_active_theme</code></td>
-                <td class="py-2 px-2">
-                  Read the active season, today's suggested season (Japan time),
-                  and every accepted preset
-                </td>
-              </tr>
-              <tr>
-                <td class="py-2 px-2"><code>save_site_theme</code></td>
-                <td class="py-2 px-2">
-                  Set the active season to an implemented preset
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </UCard>
     </main>
 
     <AppFooter />
@@ -610,66 +283,34 @@ import AppFooter from "../../components/AppFooter.vue";
 
 const systemDiagram = `
 flowchart TD
-    Claude(["🤖 Claude Web Agent
-(scheduled via Claude web,
-not by this codebase)"])
-    User(["👤 User"])
-
-    Claude -- "checks / sets
-the active season" --> MCP["ALL /api/mcp
-(Nitro, bearer-token protected)"]
-
-    MCP -- "get_active_theme /
-save_site_theme" --> Redis[("Redis
-JLPT Pool + Site Theme")]
-
+    Cron(["⏰ Vercel Cron
+daily, 15:00 UTC (00:00 JST)"])
+    User(["👤 Reader"])
     Words[("data/words/*.json
-in-repo daily entries,
-checked in CI")]
+in-repo daily entries")]
+    Redis[("Redis
+JLPT pool + site season")]
+    Local["localStorage
+reader's season choice"]
 
-    User -- "GET /api/daily-word" --> WordAPI["GET /api/daily-word
-(Nitro)"]
-    WordAPI -- "read the day's entry
+    Cron -- "Bearer CRON_SECRET" --> CronAPI["GET /api/cron/update-season"]
+    CronAPI -- "write season
+(only if changed)" --> Redis
+
+    User -- "GET /api/daily-word" --> WordAPI["GET /api/daily-word"]
+    WordAPI -- "the day's entry
 (never a future day)" --> Words
-    WordAPI -- "that day's word" --> User
 
-    User -- "GET /api/word-calendar" --> CalAPI["GET /api/word-calendar
-(Nitro)"]
-    CalAPI -- "read the month
+    User -- "GET /api/word-calendar" --> CalAPI["GET /api/word-calendar"]
+    CalAPI -- "the month
 (upcoming days reveal nothing)" --> Words
-    CalAPI -- "the month grid" --> User
 
-    User -- "GET /api/site-theme" --> ThemeAPI["GET /api/site-theme
-(Nitro)"]
-    ThemeAPI -- "read active season" --> Redis
-    ThemeAPI -. "if missing: use
-default season,
-then persist it" .-> Redis
-    ThemeAPI -- "active season" --> User
-`;
+    User -- "GET /api/site-theme" --> ThemeAPI["GET /api/site-theme"]
+    ThemeAPI -- "read season;
+if none, today's season" --> Redis
 
-const mcpDiagram = `
-flowchart TD
-    Start(["Claude web agent
-runs on its own schedule"])
-
-    Start --> S1["Step 1 · get_active_theme
-Read active season +
-suggestedSeason for today (JST)"]
-    S1 -. "READ" .-> Redis[("Redis
-Site Theme")]
-
-    S1 --> S2{"needsUpdate?"}
-    S2 -- "no" --> Done1(["✅ Done — nothing to write"])
-
-    S2 -- "yes" --> S3["Step 2 · save_site_theme
-Set season to
-suggestedSeason"]
-    S3 -- "WRITE" --> Redis
-
-    S3 --> Done2(["✅ Done — visible on
-GET /api/site-theme
-within ~1 minute"])
+    User -. "season button
+(this browser only)" .-> Local
 `;
 </script>
 

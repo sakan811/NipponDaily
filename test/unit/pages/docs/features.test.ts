@@ -40,4 +40,14 @@ describe("Features Page", () => {
     expect(text).not.toContain("hanko");
     expect(text).not.toContain("/api/daily-game");
   });
+
+  it("describes the seasons without the removed MCP agent", () => {
+    const wrapper = mount(FeaturesPage, { global: { stubs } });
+    const text = wrapper.text();
+
+    expect(text).toContain("Four Seasons");
+    expect(text).toContain("Pick Your Season");
+    expect(text).not.toContain("MCP");
+    expect(text).not.toContain("agent");
+  });
 });

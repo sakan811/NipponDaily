@@ -41,7 +41,7 @@ describe("Architecture Page", () => {
     expect(wrapper.text()).toContain("API Reference");
   });
 
-  it("documents the word endpoints, not the removed game", () => {
+  it("documents the word endpoints and the season cron, not the removed game or MCP", () => {
     const wrapper = mount(ArchitecturePage, {
       global: {
         stubs: NuxtUIComponents,
@@ -53,8 +53,11 @@ describe("Architecture Page", () => {
     expect(text).toContain("/api/word-calendar");
     expect(text).toContain("future");
     expect(text).not.toContain("/api/daily-game");
-    expect(text).not.toContain("/api/cron");
-    expect(text).not.toContain("CRON_SECRET");
+    expect(text).toContain("/api/cron/update-season");
+    expect(text).toContain("CRON_SECRET");
+    expect(text).toContain("season button");
+    expect(text).not.toContain("MCP");
+    expect(text).not.toContain("/api/mcp");
   });
 
   it("handles mobile menu toggle click", async () => {
