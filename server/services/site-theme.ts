@@ -4,9 +4,9 @@ import { getEnvOrConfig } from "../utils/config";
 import { isSeasonId } from "~~/shared/seasons";
 
 /**
- * Redis read/write for NipponDaily's single active SiteTheme record —
- * the seasonal palette the external theme agent controls via the MCP
- * server's save_site_theme tool.
+ * Redis read/write for NipponDaily's single active SiteTheme record — the
+ * site-wide season, kept current by the daily cron
+ * (server/api/cron/update-season.get.ts).
  */
 const SITE_THEME_KEY = "n5:site_theme";
 
@@ -58,7 +58,7 @@ class SiteThemeService {
 
   /** Stores the active theme. With `onlyIfAbsent`, writes only when no
    *  theme is stored yet (Redis NX) — used by the default fallback so it can
-   *  never clobber an agent's concurrent save_site_theme. */
+   *  never clobber a concurrent cron write. */
   async saveActiveTheme(
     theme: SiteTheme,
     { onlyIfAbsent = false }: { onlyIfAbsent?: boolean } = {},
