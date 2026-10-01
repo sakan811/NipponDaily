@@ -64,8 +64,8 @@
           <ErrorStateHeading
             index="02"
             title="Entry with an unsettled origin"
-            component="components/WordEntryView.vue (uncertainty, morphemes: [])"
-            trigger="An entry whose origin is unknown or disputed: no morpheme breakdown (any split would be a guess) and a “Not settled” callout. The content test requires the callout whenever an entry is tagged “Origin unclear”. The entry below is a synthetic placeholder, not a real etymology."
+            component="components/WordEntryView.vue (hedged sources, morphemes: [])"
+            trigger="An entry whose source hedges or gives no clean split: no morpheme breakdown (any other split would be a guess) and a “Not settled” callout, which appears whenever a quoted Wiktionary line contains a hedge such as “probably” or “unknown”. The content test requires such a line whenever an entry is tagged “Origin unclear”. The entry below is a synthetic placeholder, not a real etymology."
           />
           <div
             class="border border-stone-300 dark:border-stone-800 season-box bg-white dark:bg-stone-900/50 p-5 sm:p-8"
@@ -255,16 +255,17 @@ const placeholderEntry: WordEntry = {
   kana: "れい",
   meaning: "example",
   level: "N4",
+  pos: ["noun (common) (futsuumeishi)"],
   stratum: "kango",
   processes: ["unclear"],
   headline: "A placeholder entry used to preview this layout.",
   morphemes: [],
-  story: [
-    "Placeholder text. This is not a real etymology: it only shows how an entry looks when no breakdown is safe to give.",
+  sources: [
+    {
+      quote:
+        "Placeholder — this line is hedged (probably) so the callout shows. A real entry quotes Wiktionary here, verbatim.",
+    },
   ],
-  uncertainty:
-    "Placeholder text. A real entry lists the competing theories here, and never picks a winner the evidence doesn't.",
-  sources: [{ quote: "Placeholder — a real entry quotes its source here." }],
   wiktionaryRev: 1,
 };
 

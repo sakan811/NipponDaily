@@ -136,9 +136,9 @@
           JMdict/KANJIDIC2 snapshots
           (<code>data/reference/n5-reference.json</code>, with
           <code>n4</code>–<code>n2</code> alongside) from the same word-list
-          commits and a checksum-verified
-          <code>jamdict-data</code> release. The two builds are independent, so
-          a mistake in one can't hide in the other.
+          commits and a checksum-verified <code>jamdict-data</code> release. The
+          two builds are independent, so a mistake in one can't hide in the
+          other.
         </li>
         <li>
           <strong>Pin the origins.</strong>
@@ -204,8 +204,12 @@
         The dictionary pool lives in Redis, where no test can see it, and
         etymology isn't in a dictionary at all. So the evidence is committed to
         the repo and the content tests (<code>test/content/</code>, their own
-        Vitest project, run by <code>pnpm test</code> in CI) check every
-        hand-written fact against it.
+        Vitest project, run by <code>pnpm test</code> in CI) check every fact
+        against it. Daily-word entries go further: only the one-line headline is
+        hand-written. Everything else is
+        <strong>generated from these sources</strong> by
+        <code>pnpm data:words</code>, so no sentence about a word's origin is
+        ever written by a person or a model.
       </p>
 
       <ul class="list-disc pl-6 mb-6 space-y-3">
@@ -243,25 +247,35 @@
               the pool serves;
             </li>
             <li>
-              has morphemes whose readings join to the word's reading, or to a
-              declared <code>partsReading</code> that is the word's other pool
-              reading or is romanized in the cited text;
+              carries JMdict's own part-of-speech tags for that word, verbatim
+              (no tag JMdict doesn't give for it);
             </li>
             <li>
-              gives each single-kanji morpheme a reading KANJIDIC2 lists and a
-              gloss that KANJIDIC2 or the cited text backs (other morphemes need
-              the cited text); ateji and archaic forms are marked
-              <code>irregular</code>;
+              quotes only lines of Wiktionary's Etymology section for the word's
+              <strong>own reading</strong> (a page with several readings has one
+              section each), every line <strong>verbatim</strong> at the
+              revision the entry names;
             </li>
             <li>
-              cites at least one source, and every quote is found
-              <strong>verbatim</strong> in that word's pinned Wiktionary text at
-              the revision the entry names;
+              shows morphemes only when the parts literally spell the word and
+              their readings join to its reading; a single-kanji part needs a
+              reading KANJIDIC2 lists (else it is marked
+              <code>irregular</code>) and a gloss that KANJIDIC2 or the cited
+              text backs;
             </li>
-            <li>mentions only Japanese its evidence or the pool contains;</li>
             <li>
-              carries an uncertainty note whenever it is tagged
-              <code>unclear</code>, and no snapshot pin outlives its entry.
+              has a headline that mentions only Japanese its evidence or the
+              pool contains;
+            </li>
+            <li>
+              quotes a hedged line whenever it is tagged <code>unclear</code>,
+              and no snapshot pin outlives its entry;
+            </li>
+            <li>
+              equals, field for field, what the generator derives from the plan
+              and the sources (<code>word-generation.test.ts</code>), so a
+              derived field can't be edited by hand or left behind when a source
+              changes.
             </li>
           </ul>
         </li>
@@ -272,8 +286,9 @@
       >
         <strong>What these checks cannot prove:</strong> that a quote is
         <em>true</em> (only that Wiktionary says it, at that revision), or that
-        an English sentence about a real word is correct. Prose is reviewed in
-        PRs, and where sources disagree the entry says so instead of choosing.
+        a headline is a fair hook. The headline is the one hand-written line and
+        makes no claim the page relies on. Where Wiktionary hedges, the entry
+        quotes the hedge and flags it instead of choosing.
       </div>
 
       <h3
@@ -301,12 +316,15 @@
           was edited and you mean to re-pin it. Never loosen a quote.
         </li>
         <li>
-          <strong>A morpheme's reading or gloss isn't backed</strong> → correct
-          it, or mark it <code>irregular</code> and say why in the story.
+          <strong>A morpheme, tag or quote is wrong</strong> → entries are
+          derived, so don't edit them: fix the source (a correction in
+          <code>shared/meanings.ts</code>, a re-pinned page) or the parsing in
+          <code>scripts/lib/word-entry.mjs</code>, then run
+          <code>pnpm data:words</code>.
         </li>
         <li>
-          <strong>The prose mentions Japanese no evidence contains</strong> →
-          remove it, or add the source line that supports it.
+          <strong>The headline mentions Japanese no evidence contains</strong> →
+          reword it in <code>data/word-plan/</code>.
         </li>
       </ul>
 
@@ -333,10 +351,12 @@
 
       <p class="mb-6">
         Wiktionary pins are each term's <code>revid</code> in the snapshot. To
-        add a month, write <code>data/words/YYYY-MM.json</code>, register it in
-        <code>shared/words.ts</code> and run <code>pnpm data:etymology</code>:
-        new terms are fetched at their current revision, existing ones at their
-        pin. Re-pin one deliberately with
+        add a month, write <code>data/word-plan/YYYY-MM.json</code> (date, word
+        and headline per day), register the generated
+        <code>data/words/YYYY-MM.json</code> in <code>shared/words.ts</code>,
+        run <code>pnpm data:etymology --terms …</code> to pin the pages, then
+        <code>pnpm data:words</code>: new terms are fetched at their current
+        revision, existing ones at their pin. Re-pin one deliberately with
         <code>pnpm data:etymology --refresh &lt;term&gt;</code> and review the
         diff.
       </p>
@@ -370,7 +390,7 @@ from shared/meanings.ts)"]
         VocabAPI["GET /api/pool-vocab"]
         KanjiAPI["GET /api/pool-kanji"]
         Words["data/words/*.json
-daily-word entries (hand-written)"]
+daily-word entries (generated)"]
         WordAPI["GET /api/daily-word
 GET /api/word-calendar"]
 

@@ -167,15 +167,16 @@
         <p
           class="text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
-          Etymology is full of tidy stories that turn out to be wrong, so every
-          origin claim here quotes a pinned revision of Wiktionary, and the
-          build fails if a quote isn't really in it. Readings and meanings are
-          checked against JMdict and KANJIDIC2. When the sources disagree — or
-          nobody knows — the entry says so instead of picking a winner. The
-          words are chosen from the JLPT N5–N2 vocabulary. The site's colors and
-          shapes follow the seasons — spring, summer, autumn and winter — and
-          the season button in the header lets you pick your own. Nothing about
-          you is sent or saved on a server.
+          Etymology is full of tidy stories that turn out to be wrong, so
+          nothing about a word's origin here is written by a person or a model:
+          it is quoted from a pinned revision of Wiktionary, and the build fails
+          if a quote isn't really in it. Readings, meanings and parts of speech
+          come from JMdict, and kanji readings from KANJIDIC2. When the sources
+          disagree — or nobody knows — the entry says so instead of picking a
+          winner. The words are chosen from the JLPT N5–N2 vocabulary. The
+          site's colors and shapes follow the seasons — spring, summer, autumn
+          and winter — and the season button in the header lets you pick your
+          own. Nothing about you is sent or saved on a server.
         </p>
       </section>
 
@@ -239,27 +240,27 @@ const entryParts = [
   {
     title: "Taken Apart",
     description:
-      "The word split into its morphemes — each with its reading and meaning, checked against KANJIDIC2 — and where sound change hides the join, the earlier form.",
+      "The word split into its parts, each with its reading and the meaning Wiktionary gives it — shown only when the source's own split spells the word and joins to its reading. If it doesn't, no split is shown.",
   },
   {
     title: "Which Layer",
     description:
-      "Native 和語, Sino-Japanese 漢語, loanword 外来語 or a hybrid: the layer of the vocabulary a word belongs to explains much about how it sounds and is written.",
+      "Native 和語, Sino-Japanese 漢語, loanword 外来語 or a hybrid: the layer of the vocabulary a word belongs to, read from its kanji's KANJIDIC2 readings, alongside the part of speech from JMdict.",
   },
   {
     title: "The Process",
     description:
-      "Compounding, rendaku, clipping, ateji, calques of meaning, sound change: each entry names the processes at work and defines them.",
+      "Compounding, rendaku, clipping, ateji, calques, sound change: each entry names the processes its Wiktionary text mentions and defines them.",
   },
   {
     title: "The Story",
     description:
-      "A short account of where the word comes from, in plain English, quoting Japanese forms only that the evidence itself contains.",
+      "Where the word comes from, in Wiktionary's own words: its Etymology lines for this reading, quoted verbatim and never paraphrased.",
   },
   {
     title: "What's Not Settled",
     description:
-      "Disputed or unknown origins get a plain “not settled” note listing the competing theories, never a confident guess.",
+      "Wherever Wiktionary hedges (“probably”, “unknown”, “alternatively”), the line is quoted as it stands and flagged “Not settled”, never turned into a confident guess.",
   },
   {
     title: "The Evidence",
