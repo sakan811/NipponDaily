@@ -197,9 +197,9 @@
                 400 Bad Request
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                The optional ?date= (or ?month=) query param failed validation:
-                not a real calendar date, or a date that hasn't arrived yet in
-                Japan. An upcoming word is never served early.
+                ?date= is not a real calendar date, or is a day that hasn't
+                arrived yet in Japan (an upcoming word is never served early).
+                On /api/word-calendar, ?month= is not a real YYYY-MM.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -212,9 +212,9 @@
                 404 Not Found
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                A valid past date (or month) the catalogue doesn't cover, or no
-                word has opened yet. With no ?date=, the endpoint instead falls
-                back to the newest open word, so the front page is never empty.
+                A valid past date (or month) the catalogue doesn't cover. With
+                no ?date=, /api/daily-word serves the newest open word instead,
+                and is a 404 only before the first word.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -295,7 +295,7 @@ const notFoundSample = JSON.stringify(
   {
     statusCode: 404,
     statusMessage: "Not Found",
-    data: { error: "There is no word for 2026-09-30." },
+    data: { error: "There is no word for 2026-08-31." },
   },
   null,
   2,

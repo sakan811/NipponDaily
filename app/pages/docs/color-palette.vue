@@ -23,18 +23,16 @@
       </h1>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        NipponDaily's colors are always one of four seasonal presets. The active
-        one is set site-wide by an external agent through the
-        <code>save_site_theme</code> MCP tool (see
-        <NuxtLink to="/docs/architecture">System Architecture</NuxtLink>), which
-        puts <code>data-season</code> on <code>&lt;html&gt;</code>. Each preset
-        defines a full semantic palette — primary, secondary, success, warning,
-        and error — for light and dark mode, and every text-on-color pairing
-        clears WCAG AA (4.5:1 or better). The schema rejects any other season,
-        so the site can never land on an undefined or half-applied palette. The
-        values come from <code>app/assets/css/tailwind.css</code>; the swatches
-        below are generated from <code>shared/seasons.ts</code>, which a test
-        keeps in sync with that CSS.
+        NipponDaily's colors are always one of four seasonal presets, applied
+        through a <code>data-season</code> attribute on
+        <code>&lt;html&gt;</code>. The site's season follows the date in Japan
+        (see <NuxtLink to="/docs/architecture">System Architecture</NuxtLink>),
+        and the season button in the header lets a reader pick another. Each
+        preset defines primary, secondary, success, warning and error colors for
+        light and dark mode. The values live in
+        <code>app/assets/css/tailwind.css</code>; the swatches below come from
+        <code>shared/seasons.ts</code>, which a test keeps in sync with that
+        CSS.
       </p>
 
       <h2>Seasonal Theme Palettes</h2>
@@ -91,36 +89,25 @@
       </div>
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        There is no <code>--on-warning</code> token — <code>warning</code> is
-        never used as a solid fill needing contrast-matched text, only as a
-        translucent <code>bg-warning-500/10</code> pill with
-        <code>text-warning-700</code>/<code>text-warning-400</code>.
+        Text on a solid primary, secondary, success or error fill uses a
+        matching <code>--on-*</code> color picked per season and mode. There is
+        no <code>--on-warning</code>: warning never backs text as a solid fill.
       </p>
 
       <h3>Seasonal shape language</h3>
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
-        A season also changes the <em>silhouette</em> of the UI, not just its
-        corner roundness. Cards, panels, buttons, badges and other boxes take
-        their outline from <code>--shape-*</code> (radius) plus
-        <code>--corner-*</code> (CSS <code>corner-shape</code>) tokens, and
-        borders, shadows and focus rings follow that outline. The card's corner
-        motif, the divider, the kicker bullet, and the page backdrop come from
-        <code>--motif-*</code> tokens. Each <code>[data-season]</code> block
-        re-points those tokens: <strong>spring</strong> gives petals — round
-        cards with one scooped notch tip, and pill buttons;
-        <strong>summer</strong> gives sea glass and water — squircle pebble
-        panels, droplet buttons, fan badges and wave-edged cards;
-        <strong>autumn</strong> gives cut leaves and tags — two bevel-cut
-        corners on cards and buttons, and pointed tag badges;
-        <strong>winter</strong> gives ice crystals — frosted octagonal panels
-        and hexagonal buttons and badges. Browsers without
+        A season also changes the silhouette of the UI. Cards, panels, buttons
+        and badges take their outline from <code>--shape-*</code> and
+        <code>--corner-*</code> (CSS <code>corner-shape</code>) tokens, and the
+        card motif, divider, bullet and page backdrop come from
+        <code>--motif-*</code> tokens. Spring has petal cards with one scooped
+        corner and pill buttons; summer, squircle panels and droplet buttons;
+        autumn, bevel-cut leaf cards and pointed tags; winter, frosted octagons
+        with hexagonal buttons and badges. Browsers without
         <code>corner-shape</code> fall back to rounded corners. Plain boxes opt
-        in with the <code>.season-box</code> (panel) and
-        <code>.season-chip</code> (button-sized) classes.
-        <code>SeasonalEffects.vue</code> adds the matching ambient layer
-        (petals, bubbles/fireflies, leaves, or snow). See
-        <code>app/assets/css/tailwind.css</code> ("Seasonal shape language") for
-        the full CSS.
+        in with <code>.season-box</code> and <code>.season-chip</code>, and
+        <code>SeasonalEffects.vue</code> adds the ambient layer: petals, bubbles
+        by day and fireflies by night, leaves, or snow.
       </p>
     </main>
 

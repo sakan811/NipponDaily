@@ -19,7 +19,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Every word has<br class="hidden sm:inline" />
+          Every word has<br class="hidden sm:inline" >
           <span class="text-primary-500 italic font-normal">a story.</span>
         </h1>
 
@@ -172,10 +172,10 @@
           build fails if a quote isn't really in it. Readings and meanings are
           checked against JMdict and KANJIDIC2. When the sources disagree — or
           nobody knows — the entry says so instead of picking a winner. The
-          words are chosen from the JLPT N5–N2 vocabulary, and a Claude web
-          agent, through a private MCP server, controls only the season: the
-          colors and shapes change with spring, summer, autumn and winter.
-          Nothing about you is ever saved.
+          words are chosen from the JLPT N5–N2 vocabulary. The site's colors and
+          shapes follow the seasons — spring, summer, autumn and winter — and
+          the season button in the header lets you pick your own. Nothing about
+          you is sent or saved on a server.
         </p>
       </section>
 
@@ -273,7 +273,7 @@ const docsPages = [
     to: "/docs/architecture",
     title: "System Architecture",
     description:
-      "A guided tour of the stack — the Nuxt 4 frontend, the in-repo catalogue of daily words served by date, and the remote MCP server a Claude web agent uses to switch the site's season (palette, shapes, and ambient graphic).",
+      "A guided tour of the stack — the Nuxt 4 frontend, the in-repo catalogue of daily words served by date, and the daily cron that keeps the site's season in step with the calendar.",
     icon: "i-heroicons-building-office-2",
   },
   {

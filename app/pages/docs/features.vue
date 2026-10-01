@@ -52,103 +52,73 @@ const features = [
   {
     title: "A New Word Every Day",
     description:
-      "One entry opens each day at midnight in Japan (JST) — the same word for every reader. The calendar starts in September 2026 with thirty words, followed by thirty-one in October — one per day, each chosen from the JLPT N5–N2 vocabulary for having something real to say about how Japanese words are built.",
+      "One entry opens each day at midnight in Japan (JST), the same word for every reader. September 2026 (30 words) and October 2026 (31) are written so far, all from the JLPT N5–N2 vocabulary.",
     icon: "i-heroicons-academic-cap",
   },
   {
     title: "A Calendar to Look Back Through",
     description:
-      "/words is a month grid. A day that has arrived shows its word and links to the full entry; a day that hasn't shows nothing, and the API refuses to serve it — so a future word can't be read early, even by asking for its exact date. Months with no entries don't appear.",
+      "/words is a month grid. A day that has arrived shows its word and links to the full entry; an upcoming day shows only its date, and the API refuses to serve it, so a word can't be read early.",
     icon: "i-heroicons-calendar-days",
   },
   {
     title: "Taken Apart",
     description:
-      "Each word is split into its morphemes, each with its reading and meaning. Where sound change hides the join (夢 was once いめ, 梅雨 can be read ばいう), the entry shows the reading the parts really spell and says so. A word whose origin is unknown gets no breakdown at all — any split would be a guess.",
+      "Each word is split into morphemes with their readings and meanings. Where sound change hides the join, the entry shows the reading the parts spell (夢 as 寝 + 目 = いめ, 梅雨 as 梅 + 雨 = ばいう). A word of unknown origin gets no breakdown, since any split would be a guess.",
     icon: "i-heroicons-adjustments-horizontal",
   },
   {
     title: "Which Layer, Which Process",
     description:
-      "Every entry names the layer of the vocabulary it belongs to — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes at work (compounding, rendaku, clipping, ateji, sound change, meaning shift, …), each defined on the page.",
+      "Every entry names its layer — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes at work (compounding, rendaku, clipping, ateji, sound change…), each defined on the page.",
     icon: "i-heroicons-book-open",
   },
   {
     title: "The Story, Honestly",
     description:
-      "A short plain-English account of where the word comes from. When sources disagree or nobody knows, a “Not settled” note lists the competing theories instead of picking a winner.",
+      "A short plain-English account of where the word comes from. When sources disagree or nobody knows, a “Not settled” note says so instead of picking a winner.",
     icon: "i-heroicons-document-text",
   },
   {
     title: "Evidence for Every Claim",
     description:
-      "Each entry quotes the exact Wiktionary lines behind its origin claims, pinned to one revision, with a permalink and its CC BY-SA 4.0 license — so a claim can be checked by anyone, and can't change underneath us.",
+      "Each entry quotes the Wiktionary lines behind its origin claims, pinned to one revision with a permalink and its CC BY-SA 4.0 license.",
     icon: "i-heroicons-shield-check",
   },
   {
     title: "Verified in CI",
     description:
-      "Every entry is checked on every change: its reading, level and meaning must match the JMdict-checked pool; each morpheme's reading and gloss must be backed by KANJIDIC2 or the cited text; every quoted source line must really be in the pinned Wiktionary snapshot; and the prose may only mention Japanese that its evidence or the pool contains. A wrong entry can't merge.",
+      "The tests check each entry's reading, level and meaning against the pool, each morpheme against KANJIDIC2 or the cited text, every quote against the pinned Wiktionary snapshot, and the Japanese in the prose against the evidence.",
     icon: "i-heroicons-check-circle",
+  },
+  {
+    title: "Four Seasons",
+    description:
+      "The site follows the Japanese calendar: spring (sakura), summer, autumn and winter. A daily cron sets the season for the date in Japan. Each one changes the palette, the shapes of cards, buttons and badges, and the falling petals, bubbles and fireflies, leaves or snow.",
+    icon: "i-heroicons-swatch",
+  },
+  {
+    title: "Pick Your Season",
+    description:
+      "The season button in the header lets you choose any season, or “Follow the calendar”. Your choice is kept in this browser only.",
+    icon: "i-heroicons-sparkles",
   },
   {
     title: "Kana Reference",
     description:
-      "A hiragana/katakana chart with romaji and shape mnemonics at /kana, for readers who need the scripts before the words.",
+      "A hiragana/katakana chart with romaji and shape mnemonics at /kana, laid out as 学業守 omamori charms and ema plaques.",
     icon: "i-heroicons-book-open",
-  },
-  {
-    title: "Education Charms",
-    description:
-      "Kana pairs hang as 学業守 omamori (academic-success charms) and explanations are written on ema plaques, in brocade and wood that follow the active season. All motion respects prefers-reduced-motion.",
-    icon: "i-heroicons-academic-cap",
-  },
-  {
-    title: "Seasonal Shape Language",
-    description:
-      "Each season reshapes the UI as well as recoloring it — notched petals and pill buttons in spring, squircle pebbles and droplet buttons in summer, bevel-cut leaves and tags in autumn, frosted octagons with hexagonal buttons and badges in winter — using CSS corner-shape via --shape-* / --corner-* / --motif-* tokens, with rounded corners as the fallback.",
-    icon: "i-heroicons-swatch",
-  },
-  {
-    title: "Agent-Driven Seasonal Theme",
-    description:
-      "A Claude web agent checks and, when it should change, switches NipponDaily's active season on its own schedule, entirely outside this codebase. There is one preset per Japanese season (sakura, summer, autumn, winter), and each one swaps the palette and the UI's shapes together.",
-    icon: "i-heroicons-cpu-chip",
-  },
-  {
-    title: "MCP-Driven Theme Pipeline",
-    description:
-      "The theme agent reads and writes the active season through a bearer-token-protected remote MCP server (get_active_theme, save_site_theme), restricted to a closed set of implemented presets. get_active_theme also returns the season matching today's date in Japan, so the agent only has to compare and, if needed, save.",
-    icon: "i-heroicons-command-line",
-  },
-  {
-    title: "Ambient Seasonal Graphic",
-    description:
-      "Falling sakura petals, rising summer fireflies, autumn leaves, or winter snow drift across every page, matching whichever season is active — a pure CSS animation keyed off the same data-season attribute as the color palette, with no extra agent involvement and full prefers-reduced-motion support.",
-    icon: "i-heroicons-sparkles",
   },
   {
     title: "Nothing Stored About You",
     description:
-      "There are no accounts and no tracking. The words are a read-only, in-repo catalogue; the only things the site ever fetches are a day's entry and the month grid, and nothing about what you read is sent back or saved anywhere.",
+      "No accounts, no tracking. The site fetches a day's entry, the month grid and the season, and sends nothing about you back. Only your color mode and season choice are remembered, in your own browser.",
     icon: "i-heroicons-shield-check",
   },
   {
-    title: "Resilient Fallback Component",
+    title: "Dark Mode & Fallbacks",
     description:
-      "A graceful UI fallback state (TrendingFallback) shown when a word or calendar fetch fails, with a retry. Once the catalogue runs out of days, the home page falls back to the newest word instead of showing nothing.",
-    icon: "i-heroicons-exclamation-triangle",
-  },
-  {
-    title: "Custom Editorial UI Library",
-    description:
-      "Lightweight, locally-maintained components (UButton, UCard, UHeader, etc.) that mimic the Nuxt UI API but carry no @nuxt/ui dependency, built on Tailwind CSS v4 with a masthead header and live dateline, kicker labels, and dividers. Their corners, motifs, and divider styles come from per-season shape tokens, so the same components look different in each season.",
-    icon: "i-heroicons-sparkles",
-  },
-  {
-    title: "Dark Mode Native",
-    description:
-      "Full system-wide dark mode support for comfortable reading in low-light environments.",
+      "A light and a dark palette for every season. If a fetch fails, a retry card appears instead of an empty page, and once the catalogue runs out the home page shows the newest word.",
     icon: "i-heroicons-moon",
   },
 ];
