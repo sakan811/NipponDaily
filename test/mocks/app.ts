@@ -11,3 +11,7 @@
 export function useRoute() {
   return { path: "/", query: {}, params: {} };
 }
+
+export function useRouter() {
+  return { push: () => {}, replace: () => {} };
+}

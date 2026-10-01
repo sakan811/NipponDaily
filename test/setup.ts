@@ -66,6 +66,7 @@ vi.mock("#app", () => ({
     refresh: vi.fn(),
   })),
   useRoute: vi.fn(() => ({ path: "/", query: {}, params: {} })),
+  useRouter: vi.fn(() => ({ push: vi.fn(), replace: vi.fn() })),
   $fetch: globalMockFetch,
   ref,
   computed,

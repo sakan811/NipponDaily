@@ -11,10 +11,24 @@ describe("TrendingFallback Component", () => {
       },
     });
 
-    expect(wrapper.text()).toContain("Unable to Load Today's Game");
+    expect(wrapper.text()).toContain("Unable to Load This Page");
     expect(wrapper.text()).toContain(
       "Service temporarily unavailable. Please try again.",
     );
+  });
+
+  it("renders a custom title and detail when given", () => {
+    const wrapper = mount(TrendingFallback, {
+      props: {
+        error: null,
+        title: "Unable to Load Today's Word",
+        detail: "The word could not be fetched.",
+      },
+    });
+
+    expect(wrapper.text()).toContain("Unable to Load Today's Word");
+    expect(wrapper.text()).toContain("The word could not be fetched.");
+    expect(wrapper.text()).not.toContain("Unable to Load This Page");
   });
 
   it("renders custom error message when error prop is provided", () => {
