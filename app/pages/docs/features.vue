@@ -52,7 +52,7 @@ const features = [
   {
     title: "A New Word Every Day",
     description:
-      "One entry opens each day at midnight in Japan (JST) — the same word for every reader. October 2026 is the first month: thirty-one words, one per day, each chosen from the JLPT N5–N2 vocabulary for having something real to say about how Japanese words are built.",
+      "One entry opens each day at midnight in Japan (JST) — the same word for every reader. The calendar starts in September 2026 with thirty words, followed by thirty-one in October — one per day, each chosen from the JLPT N5–N2 vocabulary for having something real to say about how Japanese words are built.",
     icon: "i-heroicons-academic-cap",
   },
   {

@@ -46,12 +46,23 @@ describe("GET /api/daily-word", () => {
 
   it("serves a past word by ?date= and links forward to the next open day", async () => {
     at("2026-10-20T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2026-09-01" });
+    const handler = await getHandler();
+    const result = handler({} as any);
+
+    expect(result.data.entry.term).toBe("銀行");
+    expect(result.data.prev).toBeNull();
+    expect(result.data.next).toEqual({ date: "2026-09-02", term: "経済" });
+  });
+
+  it("links across the month boundary in both directions", async () => {
+    at("2026-10-20T12:00:00Z");
     (global as any).getQuery.mockReturnValue({ date: "2026-10-01" });
     const handler = await getHandler();
     const result = handler({} as any);
 
     expect(result.data.entry.term).toBe("電話");
-    expect(result.data.prev).toBeNull();
+    expect(result.data.prev).toEqual({ date: "2026-09-30", term: "蕎麦" });
     expect(result.data.next).toEqual({ date: "2026-10-02", term: "友達" });
   });
 
@@ -92,7 +103,7 @@ describe("GET /api/daily-word", () => {
 
   it("returns 404 for a past date the catalogue does not cover", async () => {
     at("2026-10-20T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-09-30" });
+    (global as any).getQuery.mockReturnValue({ date: "2026-08-31" });
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,
@@ -106,7 +117,7 @@ describe("GET /api/daily-word", () => {
   });
 
   it("returns 404 before the first word has opened", async () => {
-    at("2026-09-15T12:00:00Z");
+    at("2026-08-15T12:00:00Z");
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,
