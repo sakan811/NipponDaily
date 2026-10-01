@@ -64,32 +64,49 @@ async function api(params) {
   }
 }
 
+/** Apply a removal until it stops matching. A single `replace` pass can leave a
+ *  fresh match behind (`<scr<script></script>ipt>` collapses to `<script>`), so
+ *  a multi-character pattern is only safely gone once a pass changes nothing. */
+function removeAll(text, pattern, replacement = "") {
+  let previous;
+  do {
+    previous = text;
+    text = text.replace(pattern, replacement);
+  } while (text !== previous);
+  return text;
+}
+
 /** Rendered Wiktionary HTML → the plain sentence text a reader would see. */
 export function htmlToText(html) {
-  return (
-    html
-      .replace(/<style[\s\S]*?<\/style>/g, "")
-      // The "Kanji in this term" boxes and other layout tables aren't etymology.
-      .replace(/<table[\s\S]*?<\/table>/g, "")
-      .replace(/<img[^>]*>/g, "")
-      .replace(/<sup[^>]*class="[^"]*reference[^"]*"[\s\S]*?<\/sup>/g, "")
-      .replace(/<span class="mw-editsection[\s\S]*?<\/span>\s*<\/span>/g, "")
-      .replace(/<(?:br|\/p|\/li|\/dd|\/dt|\/div)\s*\/?>/g, "\n")
-      .replace(/<[^>]+>/g, "")
-      .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-      .replace(/&#x([0-9a-f]+);/gi, (_, n) =>
-        String.fromCodePoint(parseInt(n, 16)),
-      )
-      .replace(/&nbsp;/g, " ")
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
-      .replace(/&quot;/g, '"')
-      .replace(/&amp;/g, "&")
-      .replace(/[ \t]+/g, " ")
-      .replace(/ *\n */g, "\n")
-      .replace(/\n{2,}/g, "\n")
-      .trim()
-  );
+  let text = html;
+  for (const [pattern, replacement] of [
+    [/<style[\s\S]*?<\/style>/g, ""],
+    // The "Kanji in this term" boxes and other layout tables aren't etymology.
+    [/<table[\s\S]*?<\/table>/g, ""],
+    [/<img[^>]*>/g, ""],
+    [/<sup[^>]*class="[^"]*reference[^"]*"[\s\S]*?<\/sup>/g, ""],
+    [/<span class="mw-editsection[\s\S]*?<\/span>\s*<\/span>/g, ""],
+    [/<(?:br|\/p|\/li|\/dd|\/dt|\/div)\s*\/?>/g, "\n"],
+    [/<[^>]+>/g, ""],
+  ]) {
+    text = removeAll(text, pattern, replacement);
+  }
+  // The output is plain text, never re-parsed as HTML, so entities are decoded
+  // only after every tag is gone.
+  return text
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) =>
+      String.fromCodePoint(parseInt(n, 16)),
+    )
+    .replace(/&nbsp;/g, " ")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, "&")
+    .replace(/[ \t]+/g, " ")
+    .replace(/ *\n */g, "\n")
+    .replace(/\n{2,}/g, "\n")
+    .trim();
 }
 
 /** The Japanese section's Etymology blocks, from one rendered page. Wiktionary
