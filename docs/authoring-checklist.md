@@ -1,78 +1,97 @@
 # Authoring checklist
 
-Working notes for adding or changing lesson content. All four levels (N5–N2)
-are authored, so day-to-day work is: add/extend a cluster, correct a word, or
-refresh the sources. Background: `docs/content-accuracy.md`.
+Working notes for adding or changing daily-word content. Background:
+`docs/content-accuracy.md`.
 
 Accuracy rule that overrides everything below: **if unsure, leave the claim
-out.** An incomplete lesson is fixable; a wrong one misleads learners.
+out.** A thin entry is fixable; a wrong etymology misleads readers. The tests
+reject invented quotes, readings and Japanese, but they cannot tell whether a
+_sentence_ about a real word is true — that part is yours and the reviewer's.
 
-## A. Add or extend a word cluster
+## A. Add a month
 
-Content lives in `app/data/vocab-guide{,-n4,-n3,-n2}.ts` (`WORD_CLUSTERS`,
-`N4_WORD_CLUSTERS`, …). Lessons are derived from them by `app/data/lessons*.ts`.
+Entries live in `data/words/YYYY-MM.json`, one `WordEntry` per day, **every day
+of the month** (a test fails on a gap). The shape is `WordEntry` in
+`types/index.ts`.
 
-1. [ ] `pnpm data:draft:clusters <level>` — already-authored words drop out, so
-       the pack shows only what's left.
-2. [ ] Read `data/drafts/<level>/flags.md` **first**. Settle every flagged word
-       (see section B) before writing about it.
-3. [ ] Skim `patterns.md` — homophones (wrong-kanji trap), vt/vi pairs, affixes
-       and counters are natural cluster seeds.
-4. [ ] Work one `words-*.md` batch (≤ 50 words) at a time; group by teachable idea.
-5. [ ] Write the cluster (`WordCluster`):
-   - [ ] `key` is unique and follows the level's naming (`n2-v01-…`)
-   - [ ] `rows[].terms` are pool **ids**, not surface forms — check the `-2`
-         suffix for same-spelling/different-reading words (十 じゅう/とお)
-   - [ ] `pairwise: true` only on rows of exactly 2 terms
-   - [ ] `insight` (and optional `extendedInsight`) states only what the evidence backs
-   - [ ] 2+ `examples`: natural, use the cluster's words, wāpuro rōmaji
-         (ou/ei, no macrons), English says what the Japanese says
-   - [ ] `commonMistake` is a real pitfall for _this_ cluster; don't reuse example sentences across clusters
-   - [ ] `kanjiBreakdowns` only for genuine etymology (`parts` must cover the word's kanji, in order); skip folk etymology
-   - [ ] Transitivity / conjugation-class claims match the JMdict tags shown in the pack
-6. [ ] Register the cluster's `key` in a stage's `clusters` list in
-       `app/data/lessons*.ts` — an unregistered cluster never becomes a lesson.
-7. [ ] Every pool word is in exactly one cluster (a word in several is taught
-       once, in the first lesson that reaches it).
-8. [ ] `pnpm exec vitest run --project content`, re-run `data:draft:clusters`,
-       repeat.
+1. [ ] Choose the words. They must be real pool words (N5–N2) — the entry's
+       `term`, `kana`, `level` and `meaning` must equal what the pool serves
+       (copy from `data/reference/<level>-reference.json`). Prefer words with
+       something evidenced to say: compounds, rendaku, clippings, loans,
+       sound change, meaning shift, or an honestly disputed origin.
+2. [ ] Pin the evidence: `pnpm data:etymology --terms 電話,友達,…`
+       (new terms fetch at their current revision; existing pins are re-fetched
+       at theirs). Wikimedia rate-limits anonymous clients — the script paces
+       itself and honors `Retry-After`, so a full month takes a few minutes.
+3. [ ] **Read the snapshot** (`data/reference/etymology-reference.json`) for
+       each word before writing anything. Write from what it says, not from
+       memory.
+4. [ ] Write the entries (section B).
+5. [ ] Register the month in `shared/words.ts` (one import line + the `MONTHS`
+       array). Keep `shared/words.ts` out of `app/` — see section E.
+6. [ ] `pnpm exec vitest run --project content test/content/words.test.ts`,
+       fix, repeat.
 
-## B. Correct a word's form, reading or meaning
+## B. Write one entry
 
-1. [ ] Confirm against JMdict evidence (`flags.md`, or `pnpm data:audit <level>`).
+- [ ] `stratum` is the layer of the vocabulary (`wago` / `kango` / `gairaigo` /
+      `hybrid`); `processes` are from `WORD_PROCESSES` in `shared/word-labels.ts`
+- [ ] `headline` — one sentence that earns the click; no unsupported claim
+- [ ] `morphemes` — left to right, each with its surface `reading` (hiragana),
+      a `base` when rendaku/sokuon changed it, and a `meaning`
+  - [ ] a single-kanji morpheme's reading must be a KANJIDIC2 reading and its
+        gloss one of KANJIDIC2's meanings _or_ a phrase in the cited text
+  - [ ] anything that breaks that (ateji, archaic readings) gets
+        `"irregular": true`, and the story says why
+  - [ ] if sound change means the parts don't join to `kana`, set
+        `partsReading` — either the word's other pool reading or an earlier form
+        the evidence romanizes
+  - [ ] an unknown origin gets `morphemes: []` and the `unclear` process
+- [ ] `story` — short English paragraphs. Japanese in them must appear in the
+      entry's evidence or the pool (a kanji run, or a kana word, not in either
+      fails the test). Hedge exactly as the source does
+- [ ] `uncertainty` — required for `unclear`; use it whenever sources disagree
+      or the source says "may be" / "probably". Never pick a winner the evidence
+      doesn't
+- [ ] `sources` — at least one verbatim quote from the snapshot (whitespace and
+      directional marks are normalized). Quote the claim, not the whole section
+- [ ] `wiktionaryRev` equals the snapshot's `revid`
+
+## C. Correct a word's form, reading or meaning
+
+1. [ ] Confirm against JMdict evidence in `data/reference/<level>-reference.json`.
 2. [ ] Add to `VOCAB_FORM_CORRECTIONS` (wrong form/reading/rōmaji) or
-       `VOCAB_MEANING_ENRICHMENTS` (fuller gloss) in `shared/meanings.ts`, keyed by
-       `term kana`, with a `reason` citing the JMdict entry id. The word's `id`
-       stays unchanged — no re-seed needed.
+       `VOCAB_MEANING_ENRICHMENTS` (fuller gloss) in `shared/meanings.ts`, keyed
+       by `term kana`, with a `reason` citing the JMdict entry id. The word's
+       `id` stays unchanged — no re-seed needed.
 3. [ ] Rebuild evidence: `pnpm data:reference` (N5) or
        `pnpm data:reference:jlpt` (N4/N3/N2), and commit the JSON diff.
 4. [ ] Never edit `data/reference/*.json` by hand.
 
-## C. Before you commit content
+## D. Before you commit content
 
-- [ ] `pnpm data:audit <level> --strict` exits 0 (skim the full report in
-      `data/drafts/audit-<level>.md` too — it's looser than CI)
 - [ ] `pnpm test:run` — content, unit and server projects all green
 - [ ] `pnpm type-check` and `pnpm lint`
-- [ ] Reference JSON regenerated and committed if any correction changed
-- [ ] Skim the rendered lesson at `/learn/<n>?level=<level>` — prose can't be
+- [ ] Snapshot regenerated and committed if any pin changed or entry was added
+- [ ] Skim each rendered entry at `/words/<date>` — prose can't be
       machine-checked, so review it like a PR reviewer would
-- [ ] Docs updated if counts/behaviour changed: the `CLAUDE.md` word/lesson
-      counts, `app/pages/docs/features.vue`, `app/pages/docs/data-integrity.vue`
+- [ ] Docs updated if behaviour changed: `CLAUDE.md`,
+      `app/pages/docs/features.vue`, `app/pages/docs/data-integrity.vue`
 
-## D. Refresh the sources (JMdict / word lists)
+## E. Don't leak future words
 
-1. [ ] Bump the pin: `WORD_LIST_SOURCES` in `scripts/word-list-source.mjs`
-       and/or `JAMDICT_SOURCE` in `scripts/lib/jamdict.mjs`
-2. [ ] `pnpm seed`, `pnpm data:reference`, `pnpm data:reference:jlpt` — together
-3. [ ] Review **every** diff (changed readings/glosses, words added/removed
-       from a level)
-4. [ ] `pnpm test:run` — new gaps show up as untaught words or unresolved JMdict entries
-5. [ ] `pnpm data:draft:clusters <level>` for any level with newly untaught
-       words, then follow section A
+The API refuses future dates, but that protects nothing if the browser bundle
+already contains the entries. Nothing under `app/` may import
+`shared/words.ts` or `data/words/*` (a unit test enforces it); components that
+need labels import the data-free `shared/word-labels.ts`.
 
-## E. Daily game / lesson linking
+## F. Refresh the sources (JMdict / word lists / Wiktionary)
 
-Every vocab word in a daily game links to the lesson that teaches it, in every
-round including `ALL`. That relies on each pool id being taught by a lesson
-(section A, step 7) — a word missing from the lesson path silently loses its link.
+1. [ ] JMdict/word lists: bump `WORD_LIST_SOURCES` in
+       `scripts/word-list-source.mjs` and/or `JAMDICT_SOURCE` in
+       `scripts/lib/jamdict.mjs`, then `pnpm seed`, `pnpm data:reference`,
+       `pnpm data:reference:jlpt` — together — and review **every** diff.
+2. [ ] Wiktionary: `pnpm data:etymology --refresh <term>` re-pins one term to
+       its current revision. Review the text diff — a changed etymology can
+       invalidate an entry's quotes or claims.
+3. [ ] `pnpm test:run` — new gaps show up as failing entries.

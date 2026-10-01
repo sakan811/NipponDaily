@@ -25,7 +25,7 @@ describe("Data Integrity Page", () => {
     vi.useRealTimers();
   });
 
-  it("renders the N5 data sources and attribution", () => {
+  it("renders the data sources and attribution", () => {
     const wrapper = mount(DataIntegrityPage, {
       global: {
         stubs: NuxtUIComponents,
@@ -33,10 +33,50 @@ describe("Data Integrity Page", () => {
     });
 
     expect(wrapper.text()).toContain("Data Integrity & Attribution");
-    expect(wrapper.text()).toContain("N5 Data & Sources");
+    expect(wrapper.text()).toContain("Data & Sources");
     expect(wrapper.text()).toContain("Attribution");
     expect(wrapper.text()).toContain("JMdict");
     expect(wrapper.find("#data-attribution").exists()).toBe(true);
+  });
+
+  it("credits Wiktionary and its license for the quoted etymology", () => {
+    const wrapper = mount(DataIntegrityPage, {
+      global: {
+        stubs: NuxtUIComponents,
+      },
+    });
+
+    const text = wrapper.text();
+    expect(text).toContain("English Wiktionary");
+    expect(text).toContain("CC BY-SA 4.0");
+    expect(text).toContain("data/reference/etymology-reference.json");
+  });
+
+  it("documents the daily-word checks and what they cannot prove", () => {
+    const wrapper = mount(DataIntegrityPage, {
+      global: {
+        stubs: NuxtUIComponents,
+      },
+    });
+
+    const text = wrapper.text();
+    expect(text).toContain("words.test.ts");
+    expect(text).toContain("verbatim");
+    expect(text).toContain("pnpm data:etymology");
+    expect(text).toContain("What these checks cannot prove");
+  });
+
+  it("no longer documents the removed lesson and game checks", () => {
+    const wrapper = mount(DataIntegrityPage, {
+      global: {
+        stubs: NuxtUIComponents,
+      },
+    });
+
+    const text = wrapper.text();
+    expect(text).not.toContain("daily game");
+    expect(text).not.toContain("Lesson prose");
+    expect(text).not.toContain("data:draft:clusters");
   });
 
   it("renders the content-accuracy CI checks", () => {
