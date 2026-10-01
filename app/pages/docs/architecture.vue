@@ -24,9 +24,11 @@
 
       <p class="mb-8 text-gray-700 dark:text-gray-300 text-lg">
         NipponDaily is a Nuxt 4 app with a small Nitro API. The daily words are
-        hand-written JSON in the repo, served by date and never before their day
-        arrives. Redis holds only the JLPT reference pool and the site's current
-        season, which a daily cron keeps in step with the calendar.
+        JSON in the repo, generated from dictionary and Wiktionary snapshots
+        (only each headline is hand-written), served by date and never before
+        their day arrives. Redis holds only the JLPT reference pool and the
+        site's current season, which a daily cron keeps in step with the
+        calendar.
       </p>
 
       <div class="my-10">
@@ -258,11 +260,14 @@
       "kana": "でんわ",
       "meaning": "a telephone",
       "level": "N5",
-      "pos": ["noun (common) (futsuumeishi)"],
+      "pos": ["noun (common) (futsuumeishi)", ...],
       "stratum": "kango",
-      "processes": ["compound"],
+      "processes": ["compound", "wasei"],
       "headline": "...",
-      "morphemes": [ ... ],
+      "morphemes": [
+        { "text": "電", "reading": "でん", "meaning": "electric" },
+        ...
+      ],
       "sources": [ { "quote": "..." } ],
       "wiktionaryRev": 92203082
     },
