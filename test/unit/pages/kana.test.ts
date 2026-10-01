@@ -51,11 +51,11 @@ describe("Kana Page", () => {
     expect(wrapper.text()).toContain("Combos & Small Kana");
   });
 
-  it("links to the daily game as a CTA", () => {
+  it("links to today's word as a CTA", () => {
     const wrapper = mount(KanaPage);
 
-    const cta = wrapper.find('[data-testid="kana-game-cta"]');
+    const cta = wrapper.find('[data-testid="kana-word-cta"]');
     expect(cta.exists()).toBe(true);
-    expect(cta.text()).toContain("Play Today's Game");
+    expect(cta.text()).toContain("Read Today's Word");
   });
 });

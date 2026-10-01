@@ -159,7 +159,7 @@
             index="06"
             title="404 — page not found"
             component="pages/[...slug].vue"
-            trigger="Any unmatched route. The retired <code>/game</code>, <code>/learn</code> and <code>/vocab</code> paths don't land here — they redirect to the front page. Full-page layout with the shared header/footer and a single 'Return to Home' action."
+            trigger="Any unmatched route. Full-page layout with the shared header/footer and a single 'Return to Home' action."
           />
           <div
             class="border border-stone-300 dark:border-stone-800 season-box bg-[#FDFBF7] dark:bg-[#0B0E14] px-4 py-12 text-center"
