@@ -114,9 +114,9 @@ describe("GET /api/daily-word", () => {
   });
 
   it("falls back to the newest word once the catalogue has run out", async () => {
-    at("2026-12-25T12:00:00Z");
+    at("2027-03-10T12:00:00Z");
     const handler = await getHandler();
-    expect(handler({} as any).data.entry.date).toBe("2026-10-31");
+    expect(handler({} as any).data.entry.date).toBe("2026-12-31");
   });
 
   it("returns 404 before the first word has opened", async () => {
