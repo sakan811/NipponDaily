@@ -172,16 +172,10 @@ import { useWordCalendar } from "../../composables/useDailyWord";
 import { usePageSeo } from "../../composables/usePageSeo";
 import { formatLongDate, formatMonthYear } from "../../utils/date";
 import { WORD_STRATA } from "~~/shared/word-labels";
-import type { WordCalendarDay, WordStratum } from "~~/types/index";
+import { STRATUM_DOT } from "../../utils/stratum";
+import type { WordCalendarDay } from "~~/types/index";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-const STRATUM_DOT: Record<WordStratum, string> = {
-  wago: "bg-primary-500",
-  kango: "bg-secondary-500",
-  gairaigo: "bg-warning-500",
-  hybrid: "bg-stone-400",
-};
 
 const route = useRoute();
 const router = useRouter();
