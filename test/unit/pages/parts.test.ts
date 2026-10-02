@@ -110,9 +110,10 @@ describe("Part Page (/parts/[text])", () => {
     const groups = wrapper.findAll('[data-testid="part-reading"]');
     expect(groups.map((g) => g.find("h2").text().split(/\s/)[0])).toEqual([
       "び",
-      "ひ",
       "か",
+      "ひ",
       "にち",
+      "じつ",
     ]);
     expect(groups[0]!.findAll('[data-testid="part-use"]')).toHaveLength(7);
   });
