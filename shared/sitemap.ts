@@ -6,7 +6,14 @@
 import { partsIndex } from "./parts";
 import { WORD_ENTRIES, todayJst } from "./words";
 
-const STATIC_PATHS = ["/", "/words", "/parts", "/kana"];
+const STATIC_PATHS = [
+  "/",
+  "/words",
+  "/explore",
+  "/patterns",
+  "/parts",
+  "/kana",
+];
 
 const escapeXml = (s: string): string =>
   s

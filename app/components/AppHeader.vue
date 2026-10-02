@@ -44,6 +44,16 @@
           <NuxtLink to="/words" class="hover:text-primary-500 transition-colors"
             >Calendar</NuxtLink
           >
+          <NuxtLink
+            to="/explore"
+            class="hover:text-primary-500 transition-colors"
+            >Explore</NuxtLink
+          >
+          <NuxtLink
+            to="/patterns"
+            class="hover:text-primary-500 transition-colors"
+            >Patterns</NuxtLink
+          >
           <NuxtLink to="/parts" class="hover:text-primary-500 transition-colors"
             >Parts</NuxtLink
           >

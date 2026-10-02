@@ -8,7 +8,7 @@ import { describe, it, expect } from "vitest";
  * every entry — so nothing under app/ may import the module that holds them.
  * Display labels live in shared/word-labels.ts precisely so the client never
  * needs shared/words.ts. The same goes for the modules built on it
- * (shared/parts.ts, shared/sitemap.ts), which read every entry too.
+ * (shared/parts.ts, shared/explore.ts, shared/patterns.ts, shared/sitemap.ts), which read every entry too.
  */
 
 const APP = resolve(import.meta.dirname, "../../app");
@@ -35,13 +35,15 @@ describe("future words never reach the browser bundle", () => {
     ].map((m) => m[1]!);
     expect(
       found.filter((i) =>
-        /(shared\/(?:words|parts|sitemap)|data\/words)(?:["'/.]|$)/.test(i),
+        /(shared\/(?:words|parts|explore|patterns|sitemap)|data\/words)(?:["'/.]|$)/.test(
+          i,
+        ),
       ),
     ).toHaveLength(1);
   });
 
   it.each(files.map((f) => [f.replace(APP + "/", ""), f] as const))(
-    "%s imports none of shared/words, shared/parts, shared/sitemap or data/words",
+    "%s imports none of shared/words, shared/parts, shared/explore, shared/patterns, shared/sitemap or data/words",
     (_name, path) => {
       // Only real imports count — the docs pages legitimately *mention*
       // data/words/ in prose.
@@ -52,7 +54,9 @@ describe("future words never reach the browser bundle", () => {
       ].map((m) => m[1]!);
       expect(
         imports.filter((i) =>
-          /(shared\/(?:words|parts|sitemap)|data\/words)(?:["'/.]|$)/.test(i),
+          /(shared\/(?:words|parts|explore|patterns|sitemap)|data\/words)(?:["'/.]|$)/.test(
+            i,
+          ),
         ),
       ).toEqual([]);
     },
