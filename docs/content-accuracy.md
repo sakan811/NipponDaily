@@ -28,6 +28,25 @@ field is **generated from these sources** (`pnpm data:words`) and checked in CI.
 | `test/content/` (N5), `test/content/{n4,n3,n2}/` | The pool gate: words resolve in JMdict, no reversed meanings, readings are attested.                                                                                                                              |
 | `shared/meanings.ts`                             | The **only** place to correct or enrich what a pool word says (`VOCAB_FORM_CORRECTIONS`, `VOCAB_MEANING_ENRICHMENTS`), applied with `servedVocab()` when a reference snapshot is built.                           |
 
+## Where AI (or any model) may help — and where it may not
+
+A model's output can be wrong in ways that read as confident, and a wrong
+reading, meaning or origin is a bug here. So **AI is only given tasks whose
+output is allowed to be inaccurate**, because nothing it produces is shown to
+a reader as a fact unless a source backs it:
+
+- **OK:** choosing which words go in a month (a poor pick costs nothing; the
+  generator refuses a word with no usable source), drafting a headline (a hook,
+  not a claim — a test limits its Japanese to what the evidence or pool
+  contains), and writing code or tests, which CI then checks.
+- **Not OK:** supplying a reading, meaning, level, layer, morpheme split,
+  etymology or any other claim about a word. These come only from JMdict,
+  KANJIDIC2 and the pinned Wiktionary text, via `pnpm data:words`.
+
+Before handing a task to a model, ask: _if this came back wrong, would a check
+catch it or would it simply not matter?_ If neither, it must come from a source
+instead. The same goes for any new feature's data.
+
 ## What the entry checks prove — and don't
 
 For every entry `words.test.ts` checks, independently of the generator, that:
