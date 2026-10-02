@@ -116,6 +116,55 @@ export interface WordCalendarDay {
   stratum?: WordStratum;
 }
 
+// --- PARTS (the morpheme index) ---
+
+/** An open word, as the parts pages list it. */
+export interface PartWordRef {
+  date: string;
+  term: string;
+  kana: string;
+  meaning: string;
+  stratum?: WordStratum;
+}
+
+/** One recurring-or-not morpheme in the index: how many open words show it as a part. */
+export interface PartSummary {
+  text: string;
+  /** Open words whose "Taken apart" row contains it. */
+  count: number;
+  /** Its distinct surface readings, most-used first. */
+  readings: string[];
+}
+
+/** What GET /api/parts returns: every morpheme seen in an open word. */
+export interface PartsIndexPayload {
+  parts: PartSummary[];
+}
+
+/** One open word's use of a morpheme. */
+export interface PartUse extends Pick<
+  Morpheme,
+  "meaning" | "base" | "irregular"
+> {
+  /** The reading it has in this word. */
+  reading: string;
+  word: PartWordRef;
+  /** Every part of that word, left to right — so the page can link to the others. */
+  parts: string[];
+}
+
+/** What GET /api/part?text= returns. */
+export interface PartDetail {
+  text: string;
+  /** Open words showing it as a part. */
+  count: number;
+  /** The uses grouped by the reading it has in each word, most-used reading first. */
+  readings: { reading: string; uses: PartUse[] }[];
+  /** Open words whose spelling contains it but that show no breakdown with it —
+   *  listed for orientation only: nothing is claimed about its role there. */
+  alsoIn: PartWordRef[];
+}
+
 // --- SITE THEME ---
 
 /**
