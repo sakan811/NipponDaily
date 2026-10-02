@@ -784,11 +784,25 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing",
       "sound-change"
     ],
     "headline": "Vovin considers miso a borrowing from Koreanic — compare meju — and a 938 source calls it a “Korean sauce”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "味",
+        "reading": "み",
+        "meaning": "flavor",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "噌",
+        "reading": "そ",
+        "meaning": "boisterous",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "⟨mi1so1⟩ → /miso/"

@@ -215,7 +215,18 @@
       "compound"
     ],
     "headline": "“Stuck flesh”: nobody is sure why a verb for sticking names sliced fish.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "刺",
+        "reading": "さし",
+        "meaning": "sticking into, sticking between; slicing"
+      },
+      {
+        "text": "身",
+        "reading": "み",
+        "meaning": "flesh, meat"
+      }
+    ],
     "sources": [
       {
         "quote": "Compound of 刺(さ)し (sashi, “sticking into, sticking between; slicing”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 刺(さ)す (sasu, “to stick into”)) + 身(み) (mi, “flesh, meat”). The use of the verb 刺(さ)す (sasu) here to mean slice is irregular, and may be due to the kill connotations of the verb 切(き)る (kiru, “to cut, to slice”) during the Muromachi period when the word sashimi first appears."
@@ -263,10 +274,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "A teacher is, literally, someone “born earlier”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "先",
+        "reading": "せん",
+        "meaning": "before",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "生",
+        "reading": "せい",
+        "meaning": "life",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 先生 (MC sen sraeng, literally “born earlier”)."
@@ -334,10 +359,23 @@
     ],
     "stratum": "wago",
     "processes": [
+      "compound",
       "rendaku"
     ],
     "headline": "“Go out” + “mouth”: an exit is a door with a voiced mouth.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "出",
+        "reading": "で",
+        "meaning": "to exit"
+      },
+      {
+        "text": "口",
+        "reading": "ぐち",
+        "base": "くち",
+        "meaning": "opening, door"
+      }
+    ],
     "sources": [
       {
         "quote": "出(で)る (deru, “to exit”) + 口(くち) (kuchi, “opening, door”)."
@@ -429,11 +467,25 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing",
       "unclear"
     ],
     "headline": "Typhoon is a borrowing that was later dressed in Chinese-looking kanji.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "台",
+        "reading": "たい",
+        "meaning": "pedestal",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "風",
+        "reading": "ふう",
+        "meaning": "wind",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "First attested in Japanese in 1900 in the katakana form タイフーン (taifūn), itself a borrowing from English typhoon."
@@ -578,7 +630,18 @@
       "meaning-shift"
     ],
     "headline": "A kimono was once just “a wearing-thing”: any clothing at all.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "着",
+        "reading": "き",
+        "meaning": "to wear clothing"
+      },
+      {
+        "text": "物",
+        "reading": "もの",
+        "meaning": "thing"
+      }
+    ],
     "sources": [
       {
         "quote": "Compound of 着(き) (ki, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 着(き)る (kiru, “to wear clothing”)) + 物(もの) (-mono, “thing”). Compare the similar formation of the word 食(た)べ物(もの) (tabemono, “food”, literally “eating thing”)."
@@ -645,10 +708,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "reread"
     ],
     "headline": "A fire was once “the matter of fire”, a native phrase later re-read in Chinese sounds.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "火",
+        "reading": "か",
+        "meaning": "fire",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "事",
+        "reading": "じ",
+        "meaning": "matter",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Old Japanese 火事 (pi2 no2 ko2to2) (now spelled as 火の事 (hi no koto)), later read with 音読み (on'yomi)."
@@ -735,9 +812,24 @@
       "noun (common) (futsuumeishi)"
     ],
     "stratum": "kango",
-    "processes": [],
+    "processes": [
+      "compound"
+    ],
     "headline": "A word with a known inventor and year, and little else on record.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "空",
+        "reading": "くう",
+        "meaning": "empty",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "気",
+        "reading": "き",
+        "meaning": "air",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Coined by Maeno Ryōtaku in 1777."
@@ -756,10 +848,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "A futon began as a Zen meditation cushion made of bulrush, not cloth.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "布",
+        "reading": "ふ",
+        "meaning": "cloth",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "団",
+        "reading": "とん",
+        "meaning": "group",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Borrowed from Literary Chinese, possibly early Mandarin 蒲團／蒲团 (pútuán), likely as part of the importation of Zen Buddhism, for which practice these were originally used. First cited in Japanese to a text from the early-mid 1200s with the \"meditation cushion\" sense."
@@ -786,10 +892,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "“Skin and flesh” became “sarcasm” through a Zen test of understanding.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "皮",
+        "reading": "ひ",
+        "meaning": "skin",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "肉",
+        "reading": "にく",
+        "meaning": "meat",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 皮肉 (MC bje nyuwk), literally “skin and meat”."
@@ -815,11 +935,26 @@
     "stratum": "kango",
     "processes": [
       "compound",
+      "rendaku",
       "borrowing",
       "sound-change"
     ],
     "headline": "One spelling, two unrelated words: a Chinese compound and a lost native one.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "地",
+        "reading": "じ",
+        "base": "ち",
+        "meaning": "ground",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "震",
+        "reading": "しん",
+        "meaning": "quake",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "/di t͡ɕin/ → /d͡ʑiɕiɴ/"
@@ -877,12 +1012,26 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing",
       "sound-change",
       "meaning-shift"
     ],
     "headline": "From “adding it all up” to “is that convenient for you?”",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "都",
+        "reading": "つ",
+        "meaning": "metropolis",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "合",
+        "reading": "ごう",
+        "meaning": "fit",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 都合 (MC tu kòp, “to sum up; altogether”). First attested in Japan in the 正倉院文書 (Shōsōin Monjo) of 734 CE in the literal sense of “totaling” or “summing up.”"

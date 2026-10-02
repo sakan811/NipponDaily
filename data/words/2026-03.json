@@ -347,7 +347,21 @@
       "rendaku"
     ],
     "headline": "A well is a “water-well place” — and the 戸 in it may not be a door at all.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "井",
+        "reading": "い",
+        "meaning": "well",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "戸",
+        "reading": "ど",
+        "base": "と",
+        "meaning": "door",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "First attested in the Saibara."
@@ -789,10 +803,26 @@
     ],
     "stratum": "wago",
     "processes": [
+      "compound",
+      "rendaku",
       "sound-change"
     ],
     "headline": "“Three days” grew out of an earlier “mika”, with a tensed sound added.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "三",
+        "reading": "みっ",
+        "base": "みつ",
+        "meaning": "three",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "日",
+        "reading": "か",
+        "meaning": "counter for days",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Tensening of earlier 三日 (mika); by surface analysis, 三 (mi, “three”) + 日 (-ka, “days”, counter for days)."
@@ -850,10 +880,24 @@
     ],
     "stratum": "hybrid",
     "processes": [
+      "compound",
       "sound-change"
     ],
     "headline": "Kana means “borrowed name” — characters lent for their sounds.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "仮",
+        "reading": "か",
+        "meaning": "sham",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "名",
+        "reading": "な",
+        "meaning": "name",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "/karina/ → /kanna/ → /kana/"
@@ -878,7 +922,18 @@
       "compound"
     ],
     "headline": "A bar is a “drink place”, using an older form of the word for sake.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "酒",
+        "reading": "さか",
+        "meaning": "alcohol"
+      },
+      {
+        "text": "場",
+        "reading": "ば",
+        "meaning": "place"
+      }
+    ],
     "sources": [
       {
         "quote": "Compound of 酒(さか) (saka-, 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 酒(さけ) (sake, “alcohol”)) + 場(ば) (ba, “place”)."
@@ -897,10 +952,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "A study is a “reading room”, first attested in the late 800s.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "書",
+        "reading": "しょ",
+        "meaning": "write",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "斎",
+        "reading": "さい",
+        "meaning": "room",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "First attested in the late 800s. Appears to be a borrowing from Middle Chinese 書齋 (MC syo tsreaj, “a reading room, a study”)."
@@ -920,9 +989,22 @@
       "intransitive verb"
     ],
     "stratum": "wago",
-    "processes": [],
+    "processes": [
+      "compound"
+    ],
     "headline": "To repeat is to “reel” and “return”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "繰り",
+        "reading": "くり",
+        "meaning": "to reel, to wind, to spin"
+      },
+      {
+        "text": "返す",
+        "reading": "かえす",
+        "meaning": "to return"
+      }
+    ],
     "sources": [
       {
         "quote": "繰り (kuri, 連用形 (ren'yōkei, “stem or continuative form”) of the verb 繰る (kuru, “to reel, to wind, to spin”)) + 返す (kaesu, “to return”)"

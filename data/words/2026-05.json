@@ -72,7 +72,20 @@
       "borrowing"
     ],
     "headline": "A weekday is a “plain day”, and the same spelling also hides a native compound.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "平",
+        "reading": "へい",
+        "meaning": "even",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "日",
+        "reading": "じつ",
+        "meaning": "day",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese compound 平日 (MC bjaeng nyit)."
@@ -150,10 +163,26 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
+      "rendaku",
       "borrowing"
     ],
     "headline": "The national border was already in the 706 record — and a native reading, kunizakai, sits behind the same spelling.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "国",
+        "reading": "こっ",
+        "base": "こく",
+        "meaning": "country",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "境",
+        "reading": "きょう",
+        "meaning": "border",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 國境 (MC kwok kjaengX). First attested in a portion of the Shoku Nihongi dated to 706."
@@ -203,7 +232,20 @@
       "compound"
     ],
     "headline": "“She” began as “that woman” — and only became a pronoun around 1888, under Western influence.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "彼",
+        "reading": "かの",
+        "meaning": "that",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "女",
+        "reading": "じょ",
+        "meaning": "woman",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "First appears in writing in the late Edo period as a compound of 彼の (kano, ano, “that”) + 女 (onna, “woman”) with the reading kano onna or ano onna, simply meaning “that woman”. The kanojo reading arose by replacing the kun'yomi reading of onna for the second character with its on'yomi of jo. The first written appearance of the kanojo reading is in 1876, in the 改正画引小学読本 (Kaisei Gakubiki Shōgaku Dokuhon, “Revised Stroke-ordered Elementary-school Reader”). The first clear use of this term as a pronoun is around 1888, arising out of influence from Western works. The kanojo reading became more common and replaced kano onna and ano onna during the Taishō period (1912-1926)."
@@ -255,7 +297,20 @@
       "sound-change"
     ],
     "headline": "“Eight days” is a classical やうか that was probably a やか first — or the other way round.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "八",
+        "reading": "よう",
+        "meaning": "eight",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "日",
+        "reading": "か",
+        "meaning": "counter for days",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Classical Japanese 八日(やうか) (yauka), itself usually considered a shift from 八日(やか) (yaka), ultimately a compound of 八(や) (ya, “eight”) + 日(か) (-ka, counter for days). There is speculation that -uka was the original counter for days (see the etymology at 日(か) (ka)), in which case yauka may have been the older form and yaka a shift from that."
@@ -850,10 +905,25 @@
     "stratum": "kango",
     "processes": [
       "compound",
+      "rendaku",
       "borrowing"
     ],
     "headline": "A human being is, in Chinese, “people” plus “among”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "人",
+        "reading": "にん",
+        "meaning": "person",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "間",
+        "reading": "げん",
+        "base": "けん",
+        "meaning": "space",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 人間 (MC nyin kean|keanH). Analyzable as a compound of \"people\" + \"among; space\"."

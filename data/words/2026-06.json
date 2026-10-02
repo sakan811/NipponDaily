@@ -14,7 +14,20 @@
       "borrowing"
     ],
     "headline": "A doll is a “person shape”, and a native reading, built from hito and kata, says the same thing.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "人",
+        "reading": "にん",
+        "meaning": "person",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "形",
+        "reading": "ぎょう",
+        "meaning": "shape",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese compound 人形 (nyin heng, literally “person shape”)."
@@ -93,10 +106,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "sound-change"
     ],
     "headline": "The usual reading of “disciple”, でし, is a shift from the older Chinese-derived ていし.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "弟",
+        "reading": "で",
+        "meaning": "younger brother",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "子",
+        "reading": "し",
+        "meaning": "child",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Appears to be a shift from teishi above. This is now the most common reading for the disciple, apprentice sense."
@@ -233,12 +260,26 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing",
       "sound-change",
       "meaning-shift"
     ],
     "headline": "“Freedom” is an old Chinese word that Fukuzawa Yukichi repurposed in the 1860s.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "自",
+        "reading": "じ",
+        "meaning": "oneself",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "由",
+        "reading": "ゆう",
+        "meaning": "wherefore",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "/d͡ʑiːu/ → /d͡ʑijuː/"
@@ -266,7 +307,20 @@
       "sound-change"
     ],
     "headline": "“Tonight” was /kʲəm bʉan/ in its Chinese-derived reading, and became /kombaɴ/.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "今",
+        "reading": "こん",
+        "meaning": "now",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "晩",
+        "reading": "ばん",
+        "meaning": "nightfall",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "*/kʲəm bʉan/ → /kombaɴ/"
@@ -480,11 +534,25 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing",
       "sound-change"
     ],
     "headline": "“Grandmother” came from Chinese — but the ぼ in it is a change that happened inside Japanese.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "祖",
+        "reading": "そ",
+        "meaning": "ancestor",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "母",
+        "reading": "ぼ",
+        "meaning": "mother",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 祖母 (MC tsuX muwX). Uses the kan'yōon for the 母 character, indicating a sound change within the Japanese language."
@@ -509,7 +577,18 @@
       "borrowing"
     ],
     "headline": "“English” came from Chinese, or was assembled in Japan from “England” and “language”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "英",
+        "reading": "えい",
+        "meaning": "England"
+      },
+      {
+        "text": "語",
+        "reading": "ご",
+        "meaning": "language"
+      }
+    ],
     "sources": [
       {
         "quote": "Borrowed from Chinese 英語 / 英语 (Yīngyǔ), or a compound coined in Japan of 英(えい) (ei, “England”) + 語(ご) (-go, “language”)."
@@ -568,12 +647,26 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing",
       "clipping",
       "sound-change"
     ],
     "headline": "“Wife” began, in Chinese, as a woman of the “room, chamber”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "女",
+        "reading": "にょう",
+        "meaning": "woman",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "房",
+        "reading": "ぼう",
+        "meaning": "room",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Probably ultimately from Middle Chinese 女房 (MC nrjoX bjang), with an initial meaning in line with the spelling: 女 (woman) + 房 (“room, chamber”). First cited to 985."
@@ -602,10 +695,23 @@
     ],
     "stratum": "hybrid",
     "processes": [
+      "compound",
       "rendaku"
     ],
     "headline": "Canned food is a “can stuffing”, with the つめ voicing to づめ.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "缶",
+        "reading": "かん",
+        "meaning": "can"
+      },
+      {
+        "text": "詰",
+        "reading": "づめ",
+        "base": "つめ",
+        "meaning": "to stuff"
+      }
+    ],
     "sources": [
       {
         "quote": "From 缶(かん) (kan, “can”) + 詰(つ)め (tsume, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 詰(つ)める (tsumeru, “to stuff”).). The tsume changes to zume as an instance of rendaku (連濁)."
@@ -692,7 +798,19 @@
       "rendaku"
     ],
     "headline": "A parcel is a “little package”, with つつみ voiced to づつみ.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "小",
+        "reading": "こ",
+        "meaning": "little"
+      },
+      {
+        "text": "包",
+        "reading": "づつみ",
+        "base": "つつみ",
+        "meaning": "package"
+      }
+    ],
     "sources": [
       {
         "quote": "Compound of 小(こ) (ko, “little”) + 包(つつ)み (tsutsumi, “package”). The tsutsumi changes to zutsumi as an instance of rendaku (連濁)."
@@ -717,7 +835,20 @@
       "borrowing"
     ],
     "headline": "“Peace of mind” is an old Chinese compound, and the same spelling has a twin reading with rendaku.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "安",
+        "reading": "あん",
+        "meaning": "relax",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "心",
+        "reading": "しん",
+        "meaning": "mind",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese compound 安心 (MC 'an sim). Compare modern Chinese 安心 (ānxīn)."

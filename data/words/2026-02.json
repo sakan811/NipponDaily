@@ -220,7 +220,20 @@
       "borrowing"
     ],
     "headline": "In its older native reading, “young girl” was “little” plus “female” — much as the word for “man” began as “young boy”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "少",
+        "reading": "しょう",
+        "meaning": "few",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "女",
+        "reading": "じょ",
+        "meaning": "woman",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "少女 (shōjo): a girl holding a puppy."
@@ -334,10 +347,23 @@
     ],
     "stratum": "wago",
     "processes": [
+      "compound",
       "rendaku"
     ],
     "headline": "A jacket is “upper wear”, using a bound form of “up” and a voiced ぎ.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "上",
+        "reading": "うわ",
+        "meaning": "up; top"
+      },
+      {
+        "text": "着",
+        "reading": "ぎ",
+        "meaning": "clothes; -wear",
+        "irregular": true
+      }
+    ],
     "sources": [
       {
         "quote": "From 上(うわ) (uwa-, 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 上(うえ) (ue, “up; top”)) + 着(ぎ) (-gi, “clothes; -wear”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 着(き)る (kiru, “to wear”)). The ki changes to gi as an instance of rendaku (連濁)."
@@ -435,10 +461,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "“Nutrition” was spelled two ways until a 1920 institute and a 1926 publication settled it.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "栄",
+        "reading": "えい",
+        "meaning": "flourish",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "養",
+        "reading": "よう",
+        "meaning": "foster",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Coined or borrowed from Chinese 營養 (yíngyǎng, “to nourish the body”) in the end of the Edo period. Both spellings 栄養 and 営養 were used until the establishment of 栄養研究所 (“the Institute of Nutrition”) in the Home Ministry in 1920 and the publication of 『栄養』 by Japanese scientist Tadasu Saiki in 1926, and thence 栄養 has been mainly used."
@@ -714,10 +754,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "The merchant's しょうにん is Chinese; the native word looks like “trade-person”, あきびと.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "商",
+        "reading": "しょう",
+        "meaning": "merchant",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "人",
+        "reading": "にん",
+        "meaning": "person",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 商人 (MC syang nyin)."
@@ -781,10 +835,27 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "derivation"
     ],
     "headline": "Politely “your daughter” puts an honorific on both sides of a word for an “unmarried woman”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "お",
+        "reading": "お",
+        "meaning": "honorific prefix"
+      },
+      {
+        "text": "嬢",
+        "reading": "じょう",
+        "meaning": "unmarried woman; daughter"
+      },
+      {
+        "text": "さん",
+        "reading": "さん",
+        "meaning": "honorific suffix"
+      }
+    ],
     "sources": [
       {
         "quote": "Of お (honorific prefix) + 嬢 (jō, “unmarried woman; daughter”) + さん (honorific suffix)"

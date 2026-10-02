@@ -109,9 +109,24 @@
       "noun (common) (futsuumeishi)"
     ],
     "stratum": "hybrid",
-    "processes": [],
+    "processes": [
+      "compound"
+    ],
     "headline": "“A way of doing” is built from the stem of する and “method”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "仕",
+        "reading": "し",
+        "meaning": "doing",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "方",
+        "reading": "かた",
+        "meaning": "direction",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From し (shi, “to do”, continuative form of する) + 方(かた) (kata, “method”)."
@@ -130,10 +145,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "A vase is a “flower jar” in Chinese — and a native reading of the same spelling used an “earthenware pot”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "花",
+        "reading": "か",
+        "meaning": "flower",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "瓶",
+        "reading": "びん",
+        "meaning": "jar",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 花 (MC xwae) and 瓶(びん) (bin, “jar”)."
@@ -626,11 +655,25 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing",
       "clipping"
     ],
     "headline": "The newspaper is a Chinese “new hearing” — and in Japanese it began as a clipping of “newspaper paper”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "新",
+        "reading": "しん",
+        "meaning": "new",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "聞",
+        "reading": "ぶん",
+        "meaning": "hear",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 新聞 (MC sin mjun). Compare Hokkien 新聞 / 新闻 (sin-bûn)."
@@ -780,11 +823,25 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "wasei",
       "borrowing"
     ],
     "headline": "“The future” began as a Buddhist calque of a Sanskrit phrase for “not yet come”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "未",
+        "reading": "み",
+        "meaning": "not yet",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "来",
+        "reading": "らい",
+        "meaning": "come",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 未來 (MC mj+jH loj). Originally a Buddhist calque of Sanskrit अनागत (anāgata, “not yet come; future”, past participle), from अन्- (an-, “not”) + आगत (āgata, “what has come”), from the verb root आगम् (āgam, “to come”)."
@@ -843,7 +900,18 @@
       "compound"
     ],
     "headline": "To recall is to “take out” a thought.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "思い",
+        "reading": "おもい",
+        "meaning": "to think"
+      },
+      {
+        "text": "出す",
+        "reading": "だす",
+        "meaning": "to take out"
+      }
+    ],
     "sources": [
       {
         "quote": "Compound of 思(おも)い (omoi, the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 思(おも)う (omou, “to think”)) + 出(だ)す (dasu, “to take out”)."
@@ -862,11 +930,25 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing",
       "sound-change"
     ],
     "headline": "Electricity was borrowed from Chinese in the 1850s; “electric light” is a 1901 contraction.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "電",
+        "reading": "でん",
+        "meaning": "electricity",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "気",
+        "reading": "き",
+        "meaning": "spirit",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Borrowed from Chinese 電氣 / 电气 (“electricity”), attested since the 1850s."

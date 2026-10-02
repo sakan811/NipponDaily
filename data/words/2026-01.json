@@ -124,10 +124,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "reread"
     ],
     "headline": "Coal is “rock charcoal” — a native word that was later re-read in Chinese sounds.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "石",
+        "reading": "せき",
+        "meaning": "stone",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "炭",
+        "reading": "たん",
+        "meaning": "coal",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Sinicization of 石炭(いしずみ) (ishizumi)."
@@ -239,7 +253,20 @@
       "sound-change"
     ],
     "headline": "“Skilful” is, in Chinese, “top hand” — and this reading mixes two layers of Chinese sounds.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "上",
+        "reading": "じょう",
+        "meaning": "above",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "手",
+        "reading": "ず",
+        "meaning": "hand",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "/d͡ʑauzu/ → /d͡ʑɔːzu/ → /d͡ʑoːzu/"
@@ -381,9 +408,24 @@
       "noun (common) (futsuumeishi)"
     ],
     "stratum": "kango",
-    "processes": [],
+    "processes": [
+      "compound"
+    ],
     "headline": "“Abundance” arrived from written Chinese, and is first attested in Japanese in the 1830s.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "豊",
+        "reading": "ほう",
+        "meaning": "bountiful",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "富",
+        "reading": "ふ",
+        "meaning": "wealth",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Ultimately from written Chinese 豐富 / 丰富 (fēngfù). First attested in Japanese in the 1830s."
@@ -731,10 +773,26 @@
     ],
     "stratum": "hybrid",
     "processes": [
+      "compound",
+      "rendaku",
       "sound-change"
     ],
     "headline": "A crowd got its おお from native Japanese, grafted onto a Chinese word.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "大",
+        "reading": "おお",
+        "meaning": "large",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "勢",
+        "reading": "ぜい",
+        "base": "せい",
+        "meaning": "forces",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Likely a shift in reading of taizei below, adopting the native-Japanese kun'yomi of ō for the first character."
