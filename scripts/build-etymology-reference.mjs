@@ -21,6 +21,8 @@
  * Terms are every entry's `term` in data/words/*.json, every term already
  * pinned in the snapshot, plus an optional `--terms a,b,c` for bootstrapping a
  * new batch before its entries exist. `--prune` drops pins nothing uses.
+ * `--skip-missing` logs and skips a new term whose page can't be fetched
+ * (instead of aborting the run), for bulk candidate batches.
  *
  * Wiktionary text is CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/);
  * the snapshot keeps each page's permalink so the attribution stays traceable.
@@ -248,7 +250,15 @@ for (const term of terms.sort()) {
       }));
     }
   } else {
-    ({ revid, etymologies } = await fetchPage(term));
+    try {
+      ({ revid, etymologies } = await fetchPage(term));
+    } catch (e) {
+      // A bulk batch (`--terms` with hundreds of candidates) shouldn't die on
+      // a page that doesn't exist or has no Japanese section: skip it, say so.
+      if (!args.includes("--skip-missing")) throw e;
+      console.log(`${term}: skipped (${e.message})`);
+      continue;
+    }
   }
   entries[term] = {
     revid,
