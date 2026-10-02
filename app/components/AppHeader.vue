@@ -16,7 +16,7 @@
     <template #left>
       <NuxtLink
         to="/"
-        class="flex items-center gap-2 text-lg min-[320px]:text-xl min-[400px]:gap-2.5 min-[400px]:text-2xl sm:text-3xl"
+        class="flex items-center gap-2 text-lg min-[360px]:text-xl min-[400px]:gap-2.5 min-[400px]:text-2xl sm:text-3xl"
       >
         <span
           class="relative flex items-center justify-center w-[1.35em] h-[1.35em] rounded-full bg-primary-500/10 ring-1 ring-primary-500/30 shrink-0"
@@ -53,6 +53,7 @@
           >
         </nav>
         <div class="flex items-center gap-1">
+          <BgmControl />
           <SeasonButton />
           <UColorModeButton class="hover:text-primary-500 transition-colors" />
         </div>

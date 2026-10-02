@@ -9,11 +9,14 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useSiteTheme } from "./composables/useSiteTheme";
+import { useBgm } from "./composables/useBgm";
 
 const { fetchTheme } = useSiteTheme();
+const { init: initBgm } = useBgm();
 
 onMounted(() => {
   fetchTheme();
+  initBgm();
 
   const updateFavicons = (isDark: boolean) => {
     const folder = isDark ? "dark" : "light";
