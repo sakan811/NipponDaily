@@ -89,7 +89,7 @@ const features = [
   {
     title: "Taken Apart",
     description:
-      "Where Wiktionary splits a word into parts with glosses, each morpheme is shown with its reading and that gloss, but only if the parts spell the word and join to its reading. Otherwise no breakdown is shown, since any other split would be a guess.",
+      "Where Wiktionary splits a word into parts with glosses, each morpheme is shown with its reading and that gloss, but only if the parts spell the word and join to its reading. When the text gives no split of an all-kanji word, each part is one of its kanji with KANJIDIC2's reading and meaning, and the page says so. Otherwise no breakdown is shown, since any other split would be a guess.",
     icon: "i-heroicons-adjustments-horizontal",
   },
   {
@@ -129,6 +129,12 @@ const features = [
     icon: "i-heroicons-sparkles",
   },
   {
+    title: "Season Music",
+    description:
+      "The header's music button plays a looping background track in a season that has one — autumn only, so far. It is off every time the page loads, and the volume you choose is remembered in this browser.",
+    icon: "i-heroicons-musical-note",
+  },
+  {
     title: "Kana Reference",
     description:
       "A hiragana/katakana chart with romaji and shape mnemonics at /kana, laid out as 学業守 omamori charms and ema plaques.",
@@ -137,7 +143,7 @@ const features = [
   {
     title: "Nothing Stored About You",
     description:
-      "No accounts, no tracking. The site fetches a day's entry, the month grid and the season, and sends nothing about you back. Only your color mode and season choice are remembered, in your own browser.",
+      "No accounts, no tracking. The site fetches words, the month grid, the counts and the season, and sends nothing about you back. Only your color mode, season choice and music volume are remembered, in your own browser.",
     icon: "i-heroicons-shield-check",
   },
   {
@@ -151,7 +157,7 @@ const features = [
 usePageSeo({
   title: "Core features",
   description:
-    "What readers get: a new word each day, a calendar, the parts index, origin notes with their evidence, and no tracking.",
+    "What readers get: a new word each day, a calendar, explore and patterns across the words, the parts index, origin notes with their evidence, and no tracking.",
   path: "/docs/features",
 });
 </script>
