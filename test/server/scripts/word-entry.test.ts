@@ -8,6 +8,8 @@ const {
   pickSections,
   evidenceLines,
   parseMorphemes,
+  parseLiteral,
+  parseKanji,
   parseLoan,
   processesOf,
   stratumOf,
@@ -113,6 +115,16 @@ describe("parseMorphemes", () => {
     ]);
   });
 
+  it("glosses a combining form with the gloss of the base it comes from", () => {
+    const lines = [
+      "Compound of 酒(さか) (saka-, 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 酒(さけ) (sake, “alcohol”)) + 場(ば) (ba, “place”).",
+    ];
+    expect(parseMorphemes(lines, "酒場", "さかば")).toEqual([
+      { text: "酒", reading: "さか", meaning: "alcohol" },
+      { text: "場", reading: "ば", meaning: "place" },
+    ]);
+  });
+
   it("handles a three-part compound with okurigana in a part", () => {
     const lines = [
       "Compound of 男 (otoko, “man; male”) + の (no, appositional particle) + 子 (ko, “child”).",
@@ -153,6 +165,142 @@ describe("parseMorphemes", () => {
   it("gives no breakdown when a part has no gloss", () => {
     const lines = ["From 一(いち) (ichi) + 番(ばん) (-ban)."];
     expect(parseMorphemes(lines, "一番", "いちばん")).toEqual([]);
+  });
+});
+
+describe("parseMorphemes: stems, okurigana and honorifics", () => {
+  it("gives a verb stem the gloss of the verb it comes from", () => {
+    const lines = [
+      "From 缶(かん) (kan, “can”) + 詰(つ)め (tsume, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 詰(つ)める (tsumeru, “to stuff”).). The tsume changes to zume as an instance of rendaku (連濁).",
+    ];
+    expect(parseMorphemes(lines, "缶詰", "かんづめ")).toEqual([
+      { text: "缶", reading: "かん", meaning: "can" },
+      { text: "詰", reading: "づめ", base: "つめ", meaning: "to stuff" },
+    ]);
+  });
+
+  it("drops a part's okurigana, and its reading's, when the compound does", () => {
+    const lines = [
+      "Compound of 出る (deru, “to exit”) + 口 (kuchi, “opening, door”).",
+    ];
+    expect(parseMorphemes(lines, "出口", "でぐち")).toEqual([
+      { text: "出", reading: "で", meaning: "to exit" },
+      { text: "口", reading: "ぐち", base: "くち", meaning: "opening, door" },
+    ]);
+  });
+
+  it("reads a bare kana part as its own reading", () => {
+    const lines = [
+      "Of お (honorific prefix) + 嬢 (jō, “unmarried woman; daughter”) + さん (honorific suffix)",
+    ];
+    expect(
+      parseMorphemes(lines, "お嬢さん", "おじょうさん").map((m: any) => [
+        m.text,
+        m.reading,
+      ]),
+    ).toEqual([
+      ["お", "お"],
+      ["嬢", "じょう"],
+      ["さん", "さん"],
+    ]);
+  });
+
+  it("finds the split after a whole-word mention of the same line", () => {
+    const lines = [
+      "Borrowed from Chinese 英語 / 英语 (Yīngyǔ), or a compound coined in Japan of 英(えい) (ei, “England”) + 語(ご) (-go, “language”).",
+    ];
+    expect(
+      parseMorphemes(lines, "英語", "えいご").map((m: any) => m.text),
+    ).toEqual(["英", "語"]);
+  });
+
+  it("picks none when the lines name two different splits that both fit", () => {
+    const lines = [
+      "Analyzed as either a compound of 再来 (sarai, “two next”) + 月 (getsu, “month”), or of 再 (sa, “again”) + 来月 (raigetsu, “next month”).",
+    ];
+    expect(parseMorphemes(lines, "再来月", "さらいげつ")).toEqual([]);
+  });
+});
+
+describe("parseLiteral: glossed kanji parts", () => {
+  const kanji = {
+    方: { on: ["ホウ"], kun: ["かた"], meanings: ["direction"] },
+    針: { on: ["シン"], kun: ["はり"], meanings: ["needle"] },
+  };
+  it("pairs “gloss” parts that spell the word with KANJIDIC2's readings", () => {
+    const lines = [
+      "方 (“direction”) + 針 (“needle”), another name for the 磁針 (jishin, “magnetic needle”).",
+    ];
+    expect(parseLiteral(lines, "方針", "ほうしん", kanji)).toEqual([
+      { text: "方", reading: "ほう", meaning: "direction" },
+      { text: "針", reading: "しん", meaning: "needle" },
+    ]);
+  });
+});
+
+describe("parseKanji", () => {
+  const kanji = {
+    商: {
+      on: ["ショウ"],
+      kun: ["あきな.う"],
+      meanings: ["make a deal", "merchant"],
+    },
+    人: { on: ["ジン", "ニン"], kun: ["ひと"], meanings: ["person"] },
+    無: { on: ["ム", "ブ"], kun: ["な.い"], meanings: ["nothing"] },
+    駄: { on: ["ダ", "タ"], kun: [], meanings: ["pack horse"] },
+  };
+  it("splits an all-kanji word into its characters with KANJIDIC2's own senses", () => {
+    expect(
+      parseKanji(
+        "商人",
+        "しょうにん",
+        kanji,
+        "From Middle Chinese.",
+        "merchant",
+      ),
+    ).toEqual([
+      {
+        text: "商",
+        reading: "しょう",
+        meaning: "merchant",
+        glossSource: "kanjidic2",
+      },
+      {
+        text: "人",
+        reading: "にん",
+        meaning: "person",
+        glossSource: "kanjidic2",
+      },
+    ]);
+  });
+
+  it("prefers a sense the Wiktionary text already uses", () => {
+    const m = parseKanji(
+      "商人",
+      "しょうにん",
+      kanji,
+      "A make a deal kind of word.",
+      "merchant",
+    );
+    expect(m[0].meaning).toBe("make a deal");
+  });
+
+  it("refuses ateji, and a spelling KANJIDIC2 can't read", () => {
+    expect(
+      parseKanji(
+        "無駄",
+        "むだ",
+        kanji,
+        "The kanji are ateji (当て字).",
+        "waste",
+      ),
+    ).toEqual([]);
+    expect(parseKanji("商人", "しょうじん", kanji, "", "x")).not.toEqual([]);
+    expect(parseKanji("商人", "あきびと", kanji, "", "x")).toEqual([]);
+  });
+
+  it("needs two or more kanji", () => {
+    expect(parseKanji("人", "ひと", kanji, "", "person")).toEqual([]);
   });
 });
 
