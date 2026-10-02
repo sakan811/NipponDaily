@@ -97,6 +97,34 @@ describe("WordEntryView", () => {
     );
   });
 
+  it("says where the meanings come from when the parts are KANJIDIC2's", () => {
+    const wrapper = render({
+      morphemes: [
+        {
+          text: "商",
+          reading: "しょう",
+          meaning: "merchant",
+          glossSource: "kanjidic2",
+        },
+        {
+          text: "人",
+          reading: "にん",
+          meaning: "person",
+          glossSource: "kanjidic2",
+        },
+      ],
+    });
+    expect(wrapper.find('[data-testid="word-kanjidic-note"]').text()).toContain(
+      "KANJIDIC2",
+    );
+    expect(wrapper.find('[data-testid="word-no-breakdown"]').exists()).toBe(
+      false,
+    );
+    expect(render().find('[data-testid="word-kanjidic-note"]').exists()).toBe(
+      false,
+    );
+  });
+
   it("quotes every source line verbatim, with no paraphrase around them", () => {
     const e = entry();
     const wrapper = render();
