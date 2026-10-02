@@ -123,8 +123,8 @@
           <strong>Pin the origins.</strong>
           <code>pnpm data:etymology</code> commits the plain text of each daily
           word's Wiktionary <em>Etymology</em> section to
-          <code>data/reference/etymology/</code>, each page pinned to a revision
-          id.
+          <code>data/reference/etymology/</code> (one file per month of the word
+          plan), each page pinned to a revision id.
         </li>
         <li>
           <strong>Generate the entries.</strong>
@@ -168,7 +168,7 @@
         <p class="m-0">
           The word lists come from the community list originally compiled at
           tanos.co.uk, via elzup/jlpt-word-list (MIT licence). Kana conversion
-          in the checks uses
+          in the data scripts and checks uses
           <a
             href="https://github.com/WaniKani/WanaKana"
             target="_blank"
@@ -341,12 +341,13 @@
       </p>
 
       <p class="mb-6">
-        Two Markdown files in the repo's <code>docs/</code> folder cover the
-        same ground for people working on the data:
-        <code>docs/content-accuracy.md</code> is the short version of this page,
-        and <code>docs/authoring-checklist.md</code> walks through adding a
-        month, writing an entry, correcting a word and refreshing the sources.
-        They are not served by the site.
+        Three Markdown files in the repo's <code>docs/</code> folder sit
+        alongside this page: <code>docs/content-accuracy.md</code> is the short
+        version of it, <code>docs/authoring-checklist.md</code> walks through
+        adding a month, writing an entry, correcting a word and refreshing the
+        sources, and <code>docs/core-theme.md</code> says what the app is and
+        which design principles new features are checked against. They are not
+        served by the site.
       </p>
     </main>
 
@@ -368,8 +369,9 @@ flowchart TD
         Gen["pnpm data:words"]
         Words["data/words/*.json
 daily-word entries (generated)"]
-        WordAPI["GET /api/daily-word
-GET /api/word-calendar"]
+        WordAPI["GET /api/daily-word · /api/word-calendar
+/api/parts · /api/part · /api/explore
+/api/patterns · /api/related"]
 
         Plan --> Gen
         Gen --> Words
@@ -415,7 +417,8 @@ morphemes, quotes, headline" .-> ContentTests
 quote or invented word found" --> Fail(["❌ CI fails"])
     CI -- "every entry checks out" --> Pass(["✅ CI passes"])
 
-    WordAPI --> Pages["/ · /words · /words/[date]"]
+    WordAPI --> Pages["/ · /words · /words/[date]
+/explore · /patterns · /parts"]
 `;
 
 usePageSeo({

@@ -26,8 +26,9 @@
         NipponDaily is a Nuxt 4 app with a small Nitro API. The daily words are
         JSON in the repo, generated from dictionary and Wiktionary snapshots
         (only each headline is hand-written), served by date and never before
-        their day arrives. Redis holds only the site's current season, which a
-        daily cron keeps in step with the calendar.
+        their day arrives. The pages are rendered on the server. Redis holds
+        only the site's current season, which a daily cron keeps in step with
+        the calendar.
       </p>
 
       <div class="my-10">
@@ -62,9 +63,13 @@
           <p class="text-sm">
             Vue 3 and Tailwind CSS v4 with locally maintained UI components. The
             home page shows today's word, <code>/words</code> is the month
-            calendar, and <code>/words/[date]</code> is one entry. Pages fetch
-            from the API in the browser and never import the entries, so no
-            future word ships in the bundle (a unit test enforces this).
+            calendar, <code>/words/[date]</code> is one entry,
+            <code>/explore</code> and <code>/patterns</code> read across the
+            words, and <code>/parts</code> indexes their morphemes. Pages are
+            server-rendered: they fetch from the API during rendering, so the
+            HTML already holds the data, and the browser reuses it. They never
+            import the entries, so no future word ships in the bundle (a unit
+            test enforces this).
           </p>
         </UCard>
 
@@ -80,9 +85,10 @@
           </template>
           <p class="text-sm">
             Serves the words straight from the in-repo catalogue
-            (<code>shared/words.ts</code>), with no database read. A day is open
-            once midnight in Japan (JST) has passed; a later date is a
-            <code>400</code>.
+            (<code>shared/words.ts</code>) and the modules built on it, with no
+            database read. A day is open once midnight in Japan (JST) has
+            passed; a later date is a <code>400</code>, and the parts, explore,
+            patterns, related-words and sitemap routes read only open days.
           </p>
         </UCard>
 
@@ -119,6 +125,22 @@
             is midnight in Japan, and stores the season for that date.
           </p>
         </UCard>
+
+        <UCard>
+          <template #header>
+            <h4 class="font-bold flex items-center gap-2">
+              <UIcon
+                name="i-heroicons-shield-check"
+                class="w-5 h-5 shrink-0 text-primary-500"
+              />
+              This browser only
+            </h4>
+          </template>
+          <p class="text-sm">
+            <code>localStorage</code> keeps the color mode, the season pick and
+            the music volume. None of it is sent anywhere.
+          </p>
+        </UCard>
       </div>
 
       <h2
@@ -152,6 +174,12 @@
           <strong>No flash.</strong> An inline script in
           <code>nuxt.config.ts</code> applies the reader's choice, or the cached
           site season, before first paint.
+        </li>
+        <li>
+          <strong>Music.</strong> The header's music button plays a looping
+          background track in a season that has one (autumn only, so far). It is
+          off on every load; only the volume is remembered, in this browser's
+          <code>localStorage</code>.
         </li>
       </ul>
 
@@ -210,7 +238,46 @@
                 shows (<code>{ parts: [{ text, count, readings }] }</code>), and
                 one part with the open words that show it, grouped by the
                 reading it has in each. Only days that have arrived count, so a
-                part seen only in an upcoming word is a <code>404</code>.
+                part seen only in an upcoming word is a <code>404</code>. A
+                missing or over-long <code>text</code> is a <code>400</code>.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>GET /api/explore</code><br /><code
+                  >?q=&amp;level=&amp;stratum=&amp;process=&amp;part=</code
+                >
+              </td>
+              <td class="py-2 px-2">
+                The open words matching every filter, newest first:
+                <code>{ filters, total, count, words, facets }</code>. Every
+                filter is optional and an empty value means “no filter”;
+                anything else invalid is a <code>400</code>. Each facet counts
+                the words the <em>other</em> filters leave.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>GET /api/patterns</code>
+              </td>
+              <td class="py-2 px-2">
+                Counts across the open words:
+                <code
+                  >{ total, withParts, withBase, strata, levels, processes,
+                  pairs, rendaku }</code
+                >.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>GET /api/related</code><br /><code>?date=YYYY-MM-DD</code>
+              </td>
+              <td class="py-2 px-2">
+                Up to six open words that resemble one entry (shared parts,
+                processes or layer), closest first, each with what it shares:
+                <code>{ date, words }</code>. <code>date</code> is required; a
+                future or malformed one is a <code>400</code>, a day with no
+                entry a <code>404</code>.
               </td>
             </tr>
             <tr>
@@ -235,6 +302,19 @@
                 <code>Authorization: Bearer &lt;CRON_SECRET&gt;</code> (else
                 <code>401</code>). Returns
                 <code>{ season, previousSeason, changed }</code>.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>/sitemap.xml</code><br /><code>/robots.txt</code>
+              </td>
+              <td class="py-2 px-2">
+                Server routes, not under <code>/api</code>. The sitemap lists
+                the static pages, every open word and each part seen in more
+                than one open word, never an upcoming day. Robots disallows
+                <code>/api/</code> and names the sitemap. URLs use
+                <code>NUXT_PUBLIC_SITE_URL</code> when set, else the request's
+                own origin.
               </td>
             </tr>
           </tbody>
@@ -292,7 +372,8 @@ in-repo daily entries")]
     Redis[("Redis
 site season")]
     Local["localStorage
-reader's season choice"]
+season pick, color mode,
+music volume"]
 
     Cron -- "Bearer CRON_SECRET" --> CronAPI["GET /api/cron/update-season"]
     CronAPI -- "write season
@@ -306,18 +387,25 @@ reader's season choice"]
     CalAPI -- "the month
 (upcoming days reveal nothing)" --> Words
 
+    User -- "GET /api/explore · /api/patterns
+/api/parts · /api/part · /api/related" --> ReadAPI["cross-word endpoints"]
+    ReadAPI -- "open days only" --> Words
+
+    User -- "/sitemap.xml · /robots.txt" --> MapAPI["sitemap + robots"]
+    MapAPI -- "open days only" --> Words
+
     User -- "GET /api/site-theme" --> ThemeAPI["GET /api/site-theme"]
     ThemeAPI -- "read season;
 if none, today's season" --> Redis
 
-    User -. "season button
-(this browser only)" .-> Local
+    User -. "season button, color mode,
+music volume (this browser only)" .-> Local
 `;
 
 usePageSeo({
   title: "System architecture",
   description:
-    "How NipponDaily is built: the Nuxt frontend, the in-repo word catalogue, and the daily season cron.",
+    "How NipponDaily is built: the server-rendered Nuxt frontend, the in-repo word catalogue and the endpoints that read it, and the daily season cron.",
   path: "/docs/architecture",
 });
 </script>

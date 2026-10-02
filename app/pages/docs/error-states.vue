@@ -48,7 +48,7 @@
             index="01"
             title="Word fetch failure"
             component="components/TrendingFallback.vue"
-            trigger="<code>GET /api/daily-word</code> or <code>GET /api/word-calendar</code> throws (network error or a 5xx). The home page, <code>/words</code> and <code>/words/[date]</code> each pass their own title; a 400/404 on a single day swaps the message for “That day hasn't arrived yet.” or “There is no word for this day.”"
+            trigger="A page's data fetch throws (network error or a 5xx): <code>GET /api/daily-word</code>, <code>/api/word-calendar</code>, <code>/api/parts</code>, <code>/api/part</code>, <code>/api/explore</code> or <code>/api/patterns</code>. The home page, <code>/words</code>, <code>/words/[date]</code>, <code>/parts</code>, <code>/parts/[text]</code>, <code>/explore</code> and <code>/patterns</code> each pass their own title; a 400/404 swaps the message for a specific one, such as “That day hasn't arrived yet.” or “There is no word for this day.” The “More like this” row has no error state: if <code>GET /api/related</code> fails the row is simply left out."
           />
           <TrendingFallback
             :error="'Failed to load the word. Please try again.'"
@@ -79,8 +79,8 @@
           <ErrorStateHeading
             index="03"
             title="Loading skeletons"
-            component="pages/index.vue · pages/words/index.vue · pages/words/[date].vue"
-            trigger="Shown while the page's API call is in flight (initial mount, or a manual retry). The page never renders an empty frame."
+            component="pages/index.vue · pages/words/index.vue · pages/words/[date].vue · pages/parts/index.vue · pages/parts/[text].vue · pages/explore.vue · pages/patterns.vue"
+            trigger="Shown while the page's data is still being fetched in the browser: when a reader moves to another day, month, part or filter, or retries after a failure. A first visit is rendered on the server with its data already in the HTML, so it normally shows no skeleton. The page never renders an empty frame."
           />
           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div class="space-y-3" aria-busy="true">
@@ -159,7 +159,7 @@
             index="06"
             title="404 — page not found"
             component="pages/[...slug].vue"
-            trigger="Any unmatched route. Full-page layout with the shared header/footer and a single 'Return to Home' action."
+            trigger="Any unmatched route. Full-page layout with the shared header/footer and a single 'Return to Home' action. The server answers a real 404 and the page is noindex."
           />
           <div
             class="border border-stone-300 dark:border-stone-800 season-box bg-[#FDFBF7] dark:bg-[#0B0E14] px-4 py-12 text-center"
@@ -186,8 +186,8 @@
           <ErrorStateHeading
             index="07"
             title="API error responses"
-            component="server/api/daily-word.get.ts · server/api/word-calendar.get.ts"
-            trigger="Not a rendered UI — the JSON the word endpoints return on failure. The pages map these onto the fetch-failure state above."
+            component="server/api/daily-word.get.ts · word-calendar · parts · part · explore · related"
+            trigger="Not a rendered UI — the JSON the data endpoints return on failure. The pages map these onto the fetch-failure state above."
           />
           <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div
@@ -199,7 +199,9 @@
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
                 ?date= is not a real calendar date, or is a day that hasn't
                 arrived yet in Japan (an upcoming word is never served early).
-                On /api/word-calendar, ?month= is not a real YYYY-MM.
+                On /api/word-calendar, ?month= is not a real YYYY-MM;
+                /api/explore rejects an unknown level, layer or process, and
+                /api/part a missing or over-long text.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -212,9 +214,10 @@
                 404 Not Found
               </p>
               <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                A valid past date (or month) the catalogue doesn't cover. With
-                no ?date=, /api/daily-word serves the newest open word instead,
-                and is a 404 only before the first word.
+                A valid past date (or month) the catalogue doesn't cover, or a
+                part no open word shows. With no ?date=, /api/daily-word serves
+                the newest open word instead, and is a 404 only before the first
+                word.
               </p>
               <pre
                 class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
