@@ -49,7 +49,7 @@ describe("Data Integrity Page", () => {
     const text = wrapper.text();
     expect(text).toContain("English Wiktionary");
     expect(text).toContain("CC BY-SA 4.0");
-    expect(text).toContain("data/reference/etymology-reference.json");
+    expect(text).toContain("data/reference/etymology/");
   });
 
   it("documents the daily-word checks and what they cannot prove", () => {
