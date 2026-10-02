@@ -172,7 +172,7 @@
           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
             <tr>
               <td class="py-2 px-2 align-top">
-                <code>GET /api/daily-word</code><br ><code
+                <code>GET /api/daily-word</code><br /><code
                   >?date=YYYY-MM-DD</code
                 >
               </td>
@@ -187,7 +187,7 @@
             </tr>
             <tr>
               <td class="py-2 px-2 align-top">
-                <code>GET /api/word-calendar</code><br ><code
+                <code>GET /api/word-calendar</code><br /><code
                   >?month=YYYY-MM</code
                 >
               </td>
@@ -198,6 +198,19 @@
                 <code>"upcoming"</code>. The month defaults to the current one
                 if it has words, else the newest. A malformed month is a
                 <code>400</code>, a month with no words a <code>404</code>.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 px-2 align-top">
+                <code>GET /api/parts</code><br /><code>GET /api/part</code
+                ><br /><code>?text=日</code>
+              </td>
+              <td class="py-2 px-2">
+                The parts index: every morpheme an open word's “Taken apart” row
+                shows (<code>{ parts: [{ text, count, readings }] }</code>), and
+                one part with the open words that show it, grouped by the
+                reading it has in each. Only days that have arrived count, so a
+                part seen only in an upcoming word is a <code>404</code>.
               </td>
             </tr>
             <tr>
@@ -265,6 +278,7 @@
 </template>
 
 <script setup lang="ts">
+import { usePageSeo } from "../../composables/usePageSeo";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
 
@@ -299,6 +313,13 @@ if none, today's season" --> Redis
     User -. "season button
 (this browser only)" .-> Local
 `;
+
+usePageSeo({
+  title: "System architecture",
+  description:
+    "How NipponDaily is built: the Nuxt frontend, the in-repo word catalogue, and the daily season cron.",
+  path: "/docs/architecture",
+});
 </script>
 
 <style scoped>

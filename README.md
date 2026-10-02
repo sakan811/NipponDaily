@@ -71,8 +71,12 @@ The daily words need no configuration. Redis is only used for the site's season;
 | :------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `GET /api/daily-word?date=`     | One entry plus its previous/next day. `date` is `YYYY-MM-DD` (default: today in Japan). A future or invalid date is `400`; a past date with no entry `404`. |
 | `GET /api/word-calendar?month=` | `{ month, months, today, days }` for `YYYY-MM` (default: current month). An upcoming day carries only its date.                                             |
+| `GET /api/parts`                | Every part (morpheme) shown by a word that has opened: `{ parts: [{ text, count, readings }] }`, most-used first.                                           |
+| `GET /api/part?text=`           | One part and the open words that show it, grouped by the reading it has in each, plus words spelled with it that show no breakdown. `404` if none has.      |
 | `GET /api/site-theme`           | The site's season: `{ season, updatedAt, source }`, cached by the CDN for 60 seconds.                                                                       |
 | `GET /api/cron/update-season`   | Cron target. Requires `Authorization: Bearer <CRON_SECRET>`, else `401`.                                                                                    |
+
+Pages are rendered on the server (a word, the calendar and the parts pages arrive with their data, a real `404` for a missing day, plus title/description/canonical/Open Graph tags), and `/sitemap.xml` and `/robots.txt` are generated — the sitemap lists only days that have opened. Set `NUXT_PUBLIC_SITE_URL` to pin the canonical origin; without it each request's own origin is used.
 
 Parameters, status codes and an example response are in [`/docs/architecture`](app/pages/docs/architecture.vue).
 

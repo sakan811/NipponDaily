@@ -45,6 +45,7 @@
 </template>
 
 <script setup lang="ts">
+import { usePageSeo } from "../../composables/usePageSeo";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
 
@@ -60,6 +61,12 @@ const features = [
     description:
       "/words is a month grid. A day that has arrived shows its word and links to the full entry; an upcoming day shows only its date, and the API refuses to serve it, so a word can't be read early.",
     icon: "i-heroicons-calendar-days",
+  },
+  {
+    title: "The Parts, Across Words",
+    description:
+      "/parts gathers every part a “Taken apart” row has shown. Open one — 日, say — to see each word it turns up in, grouped by the reading it takes there (び, ひ, か, にち), with rendaku shown. Words that merely contain the character, with no breakdown naming it, are listed apart and claim nothing.",
+    icon: "i-heroicons-squares-2x2",
   },
   {
     title: "Taken Apart",
@@ -122,4 +129,11 @@ const features = [
     icon: "i-heroicons-moon",
   },
 ];
+
+usePageSeo({
+  title: "Core features",
+  description:
+    "What readers get: a new word each day, a calendar, the parts index, origin notes with their evidence, and no tracking.",
+  path: "/docs/features",
+});
 </script>
