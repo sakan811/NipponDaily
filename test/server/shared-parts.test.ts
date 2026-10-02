@@ -17,13 +17,18 @@ describe("partsIndex", () => {
   });
 
   it("never counts an upcoming word", () => {
-    // 誕生日 (2026-07-12) is the eleventh word with 日 — not yet open.
-    expect(partsIndex("2026-03-08").find((p) => p.text === "日")!.count).toBe(
-      10,
+    const withHi = WORD_ENTRIES.filter((e) =>
+      e.morphemes.some((m) => m.text === "日"),
     );
-    expect(partsIndex("2026-07-12").find((p) => p.text === "日")!.count).toBe(
-      11,
-    );
+    const count = (today: string) =>
+      partsIndex(today).find((p) => p.text === "日")?.count ?? 0;
+    // The word after the first one that shows 日 is not counted until its day.
+    const second = withHi[1]!;
+    expect(count(second.date)).toBe(2);
+    const dayBefore = new Date(Date.parse(`${second.date}T00:00:00Z`) - 864e5)
+      .toISOString()
+      .slice(0, 10);
+    expect(count(dayBefore)).toBe(1);
     // Before the first word, nothing has been shown.
     expect(partsIndex("2025-12-31")).toEqual([]);
   });
@@ -78,13 +83,8 @@ describe("partDetail", () => {
   it("lists words spelled with a kanji but not broken down with it", () => {
     const detail = partDetail("日", "2026-05-10")!;
 
-    // 三日, 三日月, 平日, 八日: spelled with 日, but no breakdown names it.
-    expect(detail.alsoIn.map((w) => w.term)).toEqual([
-      "三日",
-      "三日月",
-      "平日",
-      "八日",
-    ]);
+    // 三日月: spelled with 日, but no breakdown names it.
+    expect(detail.alsoIn.map((w) => w.term)).toEqual(["三日月"]);
     const shown = detail.readings.flatMap((r) =>
       r.uses.map((u) => u.word.date),
     );
@@ -102,7 +102,7 @@ describe("partDetail", () => {
       ...detail.alsoIn.map((w) => w.date),
     ];
     expect(dates.every((d) => d <= "2026-03-08")).toBe(true);
-    // 三日 (2026-03-23) hasn't opened yet.
+    // 三日月 (2026-03-23) hasn't opened yet.
     expect(detail.alsoIn).toEqual([]);
   });
 

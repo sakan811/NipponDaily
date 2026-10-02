@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
+import { WORD_ENTRIES } from "~~/shared/words";
 
 const getParts = async () => (await import("~/server/api/parts.get")).default;
 const getPart = async () => (await import("~/server/api/part.get")).default;
@@ -33,16 +34,20 @@ describe("GET /api/parts", () => {
 
   it("grows only as days arrive", async () => {
     const handler = await getParts();
-    at("2026-03-08T12:00:00Z");
-    const before = handler({} as any).data.parts.find(
-      (p: any) => p.text === "日",
-    );
-    // 15:00 UTC on 2026-07-11 is already 2026-07-12 in Tokyo: 誕生日 opens.
-    at("2026-07-11T15:00:00Z");
-    const after = handler({} as any).data.parts.find(
-      (p: any) => p.text === "日",
-    );
-    expect(after.count).toBe(before.count + 1);
+    const second = WORD_ENTRIES.filter((e) =>
+      e.morphemes.some((m) => m.text === "日"),
+    )[1]!;
+    const countAt = (iso: string) => {
+      at(iso);
+      return handler({} as any).data.parts.find((p: any) => p.text === "日")
+        .count;
+    };
+    // 15:00 UTC the day before is already `second.date` in Tokyo: that word opens.
+    const eve = new Date(Date.parse(`${second.date}T00:00:00Z`) - 864e5)
+      .toISOString()
+      .slice(0, 10);
+    const before = countAt(`${eve}T14:59:00Z`);
+    expect(countAt(`${eve}T15:00:00Z`)).toBe(before + 1);
   });
 });
 
