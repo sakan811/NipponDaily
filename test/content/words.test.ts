@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, it, expect } from "vitest";
 import { toHiragana } from "wanakana";
@@ -7,12 +7,17 @@ import { WORD_PROCESSES, WORD_STRATA, isHedged } from "~~/shared/word-labels";
 import { JLPT_LEVELS } from "~~/shared/jlpt";
 import type { Morpheme, WordEntry } from "~~/types/index";
 import { loadReference, type RefKanji } from "./reference";
+import {
+  loadEtymologySnapshot,
+  planMonths,
+  // @ts-expect-error — untyped .mjs script helper
+} from "../../scripts/lib/etymology-snapshot.mjs";
 
 /**
  * The daily-word entries (data/words/*.json) checked against committed
  * evidence: dictionary facts against JMdict/KANJIDIC2
  * (data/reference/n{5,4,3,2}-reference.json) and origin claims against pinned
- * Wiktionary text (data/reference/etymology-reference.json).
+ * Wiktionary text (data/reference/etymology/).
  *
  * Every field except the headline is generated from those sources
  * (scripts/lib/word-entry.mjs; see word-generation.test.ts, which regenerates
@@ -23,6 +28,7 @@ import { loadReference, type RefKanji } from "./reference";
  */
 
 interface EtymologySnapshot {
+  meta?: { source: string; license: string };
   entries: Record<
     string,
     {
@@ -33,15 +39,9 @@ interface EtymologySnapshot {
   >;
 }
 
-const snapshot: EtymologySnapshot = JSON.parse(
-  readFileSync(
-    resolve(
-      import.meta.dirname,
-      "../../data/reference/etymology-reference.json",
-    ),
-    "utf8",
-  ),
-);
+const snapshot = loadEtymologySnapshot(
+  resolve(import.meta.dirname, "../.."),
+) as EtymologySnapshot;
 
 const references = JLPT_LEVELS.map((level) => loadReference(level));
 const allKanji: Record<string, RefKanji> = Object.assign(
@@ -274,7 +274,7 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
   },
 );
 
-describe("data/reference/etymology-reference.json", () => {
+describe("data/reference/etymology/", () => {
   it("has no pins for words that are not in the catalogue", () => {
     const used = new Set(WORD_ENTRIES.map((e) => e.term));
     const orphans = Object.keys(snapshot.entries).filter((t) => !used.has(t));
@@ -284,11 +284,27 @@ describe("data/reference/etymology-reference.json", () => {
     ).toEqual([]);
   });
 
+  it("keeps each pin in the shard of the month that plans its word", () => {
+    const root = resolve(import.meta.dirname, "../..");
+    const dir = resolve(root, "data/reference/etymology");
+    const months: Record<string, string> = planMonths(root);
+    const misplaced: string[] = [];
+    for (const file of readdirSync(dir)) {
+      if (file === "meta.json") continue;
+      const shard = file.replace(/\.json$/, "");
+      const terms = Object.keys(
+        JSON.parse(readFileSync(resolve(dir, file), "utf8")),
+      );
+      for (const term of terms)
+        if ((months[term] ?? "unplanned") !== shard)
+          misplaced.push(`${term} is in ${file}`);
+    }
+    expect(misplaced, "re-run pnpm data:etymology").toEqual([]);
+  });
+
   it("records its source and license", () => {
-    const meta = (
-      snapshot as unknown as { meta: { source: string; license: string } }
-    ).meta;
-    expect(meta.source).toMatch(/Wiktionary/);
-    expect(meta.license).toMatch(/CC BY-SA/);
+    const meta = snapshot.meta;
+    expect(meta?.source).toMatch(/Wiktionary/);
+    expect(meta?.license).toMatch(/CC BY-SA/);
   });
 });
