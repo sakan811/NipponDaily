@@ -241,7 +241,9 @@
               their readings join to its reading; a single-kanji part needs a
               reading KANJIDIC2 lists (else it is marked
               <code>irregular</code>) and a gloss that KANJIDIC2 or the cited
-              text backs;
+              text backs. When the text gives no split of an all-kanji word,
+              each part is one of its kanji with KANJIDIC2's reading and one of
+              its own meanings, and the page says so;
             </li>
             <li>
               has a headline that mentions only Japanese its evidence or the
