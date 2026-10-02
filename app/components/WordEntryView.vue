@@ -118,7 +118,16 @@
         Select a part to see every word so far that is taken apart with it.
       </p>
       <p
-        v-else
+        v-if="fromKanjidic"
+        data-testid="word-kanjidic-note"
+        class="text-xs text-stone-500 dark:text-stone-400 max-w-3xl"
+      >
+        Wiktionary's text doesn't split this word, so each part is one of its
+        kanji, with the reading and the dictionary meaning KANJIDIC2 gives that
+        character — a word doesn't always use every sense of its kanji.
+      </p>
+      <p
+        v-else-if="!entry.morphemes.length"
         data-testid="word-no-breakdown"
         class="text-stone-600 dark:text-stone-400 font-body-serif"
       >
@@ -238,6 +247,10 @@ const STRATUM_COLOR: Record<WordStratum, string> = {
   gairaigo: "warning",
   hybrid: "gray",
 };
+
+const fromKanjidic = computed(() =>
+  props.entry.morphemes.some((m) => m.glossSource === "kanjidic2"),
+);
 
 const hedged = computed(() =>
   props.entry.sources.some((s) => isHedged(s.quote)),
