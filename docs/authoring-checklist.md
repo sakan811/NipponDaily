@@ -28,7 +28,11 @@ word. See "Where AI (or any model) may help" in `docs/content-accuracy.md`.
 3. [ ] **Pin the evidence**: `pnpm data:etymology --terms 電話,友達,…`. New terms
        are fetched at their current Wiktionary revision; pinned terms are
        untouched. Wikimedia rate-limits anonymous clients; the script paces
-       itself and honours `Retry-After`.
+       itself and honours `Retry-After`. For a bulk batch of candidates pass
+       `--skip-missing` so a page with no Japanese section is skipped instead of
+       aborting the run; roughly 60% of pool words turn out to have a usable
+       Etymology section, so pin about twice as many candidates as you need,
+       then `pnpm data:etymology --prune --terms <the chosen ones>` to drop the rest.
 4. [ ] **Generate**: `pnpm data:words`. It fetches nothing; it reads the committed
        snapshots. It prints every entry it could not build and why, and writes
        nothing until they are all fixed (`--keep-going` writes the rest). See
