@@ -82,7 +82,7 @@
             component="pages/index.vue · pages/words/index.vue · pages/words/[date].vue"
             trigger="Shown while the page's API call is in flight (initial mount, or a manual retry). The page never renders an empty frame."
           />
-          <div class="grid gap-6 sm:grid-cols-2">
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div class="space-y-3" aria-busy="true">
               <p class="kicker text-stone-400">Word page</p>
               <USkeleton class="h-6 w-48" />
@@ -189,7 +189,7 @@
             component="server/api/daily-word.get.ts · server/api/word-calendar.get.ts"
             trigger="Not a rendered UI — the JSON the word endpoints return on failure. The pages map these onto the fetch-failure state above."
           />
-          <div class="grid gap-3 sm:grid-cols-2">
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div
               class="season-box border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
             >

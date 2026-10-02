@@ -14,7 +14,7 @@
 
     <div
       v-if="isOpen"
-      class="season-menu absolute right-0 mt-2 z-50 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 season-box shadow-xl p-1.5"
+      class="season-menu fixed inset-x-4 mt-2 z-50 sm:absolute sm:inset-x-auto sm:right-0 sm:w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 season-box shadow-xl p-1.5"
       role="group"
       aria-label="Season"
       @keydown.esc="isOpen = false"
