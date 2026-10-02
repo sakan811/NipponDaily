@@ -40,7 +40,9 @@ For every entry `words.test.ts` checks, independently of the generator, that:
   per reading);
 - the morphemes literally spell the word and their readings join to its reading;
   each non-`irregular` single-kanji morpheme has a reading KANJIDIC2 lists and a
-  gloss KANJIDIC2 or the cited text backs;
+  gloss KANJIDIC2 or the cited text backs (a part marked `glossSource:
+"kanjidic2"` has one of KANJIDIC2's own meanings, used when the source text
+  gives no split of an all-kanji word);
 - the headline mentions only Japanese that the entry's evidence or the pool
   contains;
 - an `unclear` entry quotes a hedged line, and no snapshot pin is orphaned.
