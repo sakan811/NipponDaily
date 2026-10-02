@@ -1,7 +1,7 @@
 # TODO — make the app do something with its data
 
 The site shows one word a day and a parts index. These items make it _compute_
-over the 365 entries instead of only displaying them.
+over the entries instead of only displaying them.
 
 Ground rules for every item:
 
@@ -42,14 +42,14 @@ Ground rules for every item:
 ## 3. Rendaku explorer (a section of `/patterns`)
 
 - [x] `shared/patterns.ts`: `rendaku` in `patternsFor(today)` — every part whose
-      recorded `base` differs from its `reading` (49 words), classed from the two
+      recorded `base` differs from its `reading`, classed from the two
       spellings as a voiced first kana (`ひ → び`), a reading ending in っ, or
       other; grouped by sound change, then by part, with example words
 - [x] Labelled "what these entries show", not a rule of the language
 - [x] `/patterns` section, linking parts to `/parts/<text>` and words to their entries
 - [x] tests: shared (incl. `classifyChange`), page
 
-## 5. Related words (`/words/<date>`, `GET /api/related?date=`)
+## 4. Related words (`/words/<date>`, `GET /api/related?date=`)
 
 - [x] `shared/related.ts`: `relatedWords(entry, today)` — open words sharing a
       part, a process or a layer, closest first; rarer shared tags count for more
@@ -62,5 +62,5 @@ Ground rules for every item:
 
 - [ ] Multi-select filters and an OR/AND toggle in Explore
 - [ ] Filter by JMdict part-of-speech tag (verbatim tags are long; needs grouping)
-- [ ] "Stratum not stated" option in Explore (33 entries have none)
+- [ ] "Stratum not stated" option in Explore (some entries have no stated layer)
 - [ ] Co-occurrence beyond pairs (e.g. rendaku + compound + native)
