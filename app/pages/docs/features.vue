@@ -71,13 +71,19 @@ const features = [
   {
     title: "Patterns Across the Vocabulary",
     description:
-      "/patterns counts the same entries across words: how the vocabulary splits by layer, how each JLPT level's mix differs, which processes are most common and which turn up together. Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language.",
+      "/patterns counts the same entries across words: how the vocabulary splits by layer, how each JLPT level's mix differs, which processes are most common and which turn up together. Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language. It also lists which sounds voice inside a word (ひ → び, か → が…), with the parts and words that show each change — a small, parser-derived sample, not a rule of the language.",
     icon: "i-heroicons-chart-bar",
   },
   {
     title: "The Parts, Across Words",
     description:
       "/parts gathers every part a “Taken apart” row has shown. Open one — 日, say — to see each word it turns up in, grouped by the reading it takes there (び, ひ, か, にち), with rendaku shown. Words that merely contain the character, with no breakdown naming it, are listed apart and claim nothing.",
+    icon: "i-heroicons-squares-2x2",
+  },
+  {
+    title: "More Like This",
+    description:
+      "Under each entry, a few other words that have opened and share something with it: a part, a process or a layer. Each card says exactly what is shared and links to where you can see more of it. A word that shares only very common tags is not offered, and upcoming words never are.",
     icon: "i-heroicons-squares-2x2",
   },
   {

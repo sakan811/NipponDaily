@@ -8,11 +8,13 @@ Ground rules for every item:
 - Read **open days only**. Every `shared/` function takes `today` (JST); an
   upcoming word is never counted, listed or linked.
 - Nothing under `app/` imports `shared/words`, `shared/parts`, `shared/explore`,
-  `shared/patterns` or `shared/sitemap` (`test/unit/no-future-leak.test.ts`).
+  `shared/patterns`, `shared/related` or `shared/sitemap`
+  (`test/unit/no-future-leak.test.ts`).
 - Derive, don't claim: no new facts about a word, only the entries' existing,
   source-checked fields read across words. Say so on the page where a count is
   only as good as the parsers behind it.
-- Nothing about a reader goes to a server. Reader state lives in `localStorage`.
+- Nothing about a reader is stored or sent anywhere: no accounts, no
+  `localStorage` progress, no per-reader state. The site is the same for everyone.
 
 ## 1. Explore — browse and filter (`/explore`, `GET /api/explore`)
 
@@ -37,26 +39,24 @@ Ground rules for every item:
 - [x] header nav + sitemap + docs/features entry
 - [x] tests: shared, API, page
 
-## 3. Rendaku explorer
+## 3. Rendaku explorer (a section of `/patterns`)
 
-- [ ] Which first-element / second-element readings voice (`ひ → び`, `かみ → がみ`),
-      from the 49 entries that record a morpheme `base`, with examples
-- [ ] Label it "what these entries show", not a rule of the language (small,
-      parser-derived sample)
-- [ ] Probably a section of `/patterns` or `/parts` rather than its own page
+- [x] `shared/patterns.ts`: `rendaku` in `patternsFor(today)` — every part whose
+      recorded `base` differs from its `reading` (49 words), classed from the two
+      spellings as a voiced first kana (`ひ → び`), a reading ending in っ, or
+      other; grouped by sound change, then by part, with example words
+- [x] Labelled "what these entries show", not a rule of the language
+- [x] `/patterns` section, linking parts to `/parts/<text>` and words to their entries
+- [x] tests: shared (incl. `classifyChange`), page
 
-## 4. Reader-side review (`localStorage` only)
+## 5. Related words (`/words/<date>`, `GET /api/related?date=`)
 
-- [ ] "Mark as known" on an entry; a "seen / known" filter in Explore
-- [ ] Quiz drawn from open days only: "which part makes 手紙?", "what is the base
-      reading of the voiced part?" — answers come from committed entry data
-- [ ] Never sent or stored server-side (keeps the no-reader-data rule)
-
-## 5. Related words
-
-- [ ] On an entry: other open words sharing a part, a process or a layer
-- [ ] Mostly covered by `/parts`; only worth it if the entry page needs a
-      "more like this" row
+- [x] `shared/related.ts`: `relatedWords(entry, today)` — open words sharing a
+      part, a process or a layer, closest first; rarer shared tags count for more
+- [x] `GET /api/related?date=` (same date rule as `daily-word`)
+- [x] `useRelatedWords` + `RelatedWords.vue` "More like this" row; each card names
+      what it shares and links on; hidden when nothing is close enough
+- [x] tests: shared, API, component, page
 
 ## Later / maybe
 

@@ -72,6 +72,7 @@ The daily words need no configuration. Redis is only used for the site's season;
 | `GET /api/daily-word?date=`     | One entry plus its previous/next day. `date` is `YYYY-MM-DD` (default: today in Japan). A future or invalid date is `400`; a past date with no entry `404`. |
 | `GET /api/word-calendar?month=` | `{ month, months, today, days }` for `YYYY-MM` (default: current month). An upcoming day carries only its date.                                             |
 | `GET /api/parts`                | Every part (morpheme) shown by a word that has opened: `{ parts: [{ text, count, readings }] }`, most-used first.                                           |
+| `GET /api/related?date=`        | Open words that resemble one entry (shared parts, processes, layer), closest first, each with what it shares. `400` for a future or malformed date.         |
 | `GET /api/part?text=`           | One part and the open words that show it, grouped by the reading it has in each, plus words spelled with it that show no breakdown. `404` if none has.      |
 | `GET /api/site-theme`           | The site's season: `{ season, updatedAt, source }`, cached by the CDN for 60 seconds.                                                                       |
 | `GET /api/cron/update-season`   | Cron target. Requires `Authorization: Bearer <CRON_SECRET>`, else `401`.                                                                                    |
