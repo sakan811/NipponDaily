@@ -1,20 +1,23 @@
 <template>
-  <UHeader :open="open" @update:open="$emit('update:open', $event)">
+  <UHeader v-model:open="menuOpen">
     <template #top>
       <div
-        class="h-8 flex items-center justify-between text-stone-500 dark:text-stone-400"
+        class="min-h-8 flex items-center justify-between text-stone-500 dark:text-stone-400"
       >
         <span class="kicker"
           ><span class="season-glyph" aria-hidden="true" /> {{ dateline }}</span
         >
-        <span class="kicker hidden sm:inline"
-          >One Word, Taken Apart, Every Day</span
+        <span class="hidden sm:inline"
+          ><span class="kicker">One Word, Taken Apart, Every Day</span></span
         >
       </div>
     </template>
 
     <template #left>
-      <NuxtLink to="/" class="flex items-center gap-2.5 text-2xl sm:text-3xl">
+      <NuxtLink
+        to="/"
+        class="flex items-center gap-2 text-lg min-[320px]:text-xl min-[400px]:gap-2.5 min-[400px]:text-2xl sm:text-3xl"
+      >
         <span
           class="relative flex items-center justify-center w-[1.35em] h-[1.35em] rounded-full bg-primary-500/10 ring-1 ring-primary-500/30 shrink-0"
         >
@@ -37,28 +40,16 @@
     </template>
 
     <template #right>
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2 md:gap-4">
         <nav
-          class="hidden sm:flex items-center gap-4 text-sm font-medium text-stone-600 dark:text-stone-300"
+          class="hidden md:flex items-center gap-4 text-sm font-medium text-stone-600 dark:text-stone-300"
         >
-          <NuxtLink to="/words" class="hover:text-primary-500 transition-colors"
-            >Calendar</NuxtLink
-          >
           <NuxtLink
-            to="/explore"
+            v-for="link in NAV_LINKS"
+            :key="link.to"
+            :to="link.to"
             class="hover:text-primary-500 transition-colors"
-            >Explore</NuxtLink
-          >
-          <NuxtLink
-            to="/patterns"
-            class="hover:text-primary-500 transition-colors"
-            >Patterns</NuxtLink
-          >
-          <NuxtLink to="/parts" class="hover:text-primary-500 transition-colors"
-            >Parts</NuxtLink
-          >
-          <NuxtLink to="/kana" class="hover:text-primary-500 transition-colors"
-            >Kana</NuxtLink
+            >{{ link.label }}</NuxtLink
           >
         </nav>
         <div class="flex items-center gap-1">
@@ -67,19 +58,45 @@
         </div>
       </div>
     </template>
+
+    <template #body>
+      <nav
+        class="flex flex-col text-base font-medium text-stone-700 dark:text-stone-200"
+        aria-label="Main"
+      >
+        <NuxtLink
+          v-for="link in NAV_LINKS"
+          :key="link.to"
+          :to="link.to"
+          class="py-2.5 hover:text-primary-500 transition-colors"
+          @click="menuOpen = false"
+          >{{ link.label }}</NuxtLink
+        >
+      </nav>
+    </template>
   </UHeader>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, watch, onMounted } from "vue";
+import { useRoute } from "#app";
 
-defineProps<{
-  open?: boolean;
-}>();
+const NAV_LINKS = [
+  { to: "/words", label: "Calendar" },
+  { to: "/explore", label: "Explore" },
+  { to: "/patterns", label: "Patterns" },
+  { to: "/parts", label: "Parts" },
+  { to: "/kana", label: "Kana" },
+];
 
-defineEmits<{
-  (e: "update:open", value: boolean): void;
-}>();
+const menuOpen = ref(false);
+const route = useRoute();
+watch(
+  () => route.path,
+  () => {
+    menuOpen.value = false;
+  },
+);
 
 const dateline = ref("");
 
