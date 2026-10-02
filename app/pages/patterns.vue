@@ -1,0 +1,366 @@
+<template>
+  <div
+    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
+  >
+    <div class="season-backdrop" />
+
+    <AppHeader />
+
+    <main class="relative z-10 container mx-auto px-4 max-w-5xl py-16 flex-1">
+      <div class="max-w-2xl space-y-4">
+        <p class="kicker text-primary-600 dark:text-primary-400">Patterns</p>
+        <h1
+          class="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
+        >
+          What the vocabulary is made of
+        </h1>
+        <div class="rule-double max-w-[120px]" />
+        <p
+          class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
+        >
+          The same entries, counted across words instead of read one at a time:
+          which layer of the vocabulary they come from, how the JLPT levels
+          differ, and which processes keep turning up together.
+        </p>
+      </div>
+
+      <TrendingFallback
+        v-if="error"
+        class="mt-10"
+        :error="error"
+        :loading="loading"
+        title="Unable to Load the Patterns"
+        @retry="refresh()"
+      />
+
+      <template v-else-if="patterns">
+        <dl
+          data-testid="pattern-totals"
+          class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3"
+        >
+          <div
+            v-for="stat in totals"
+            :key="stat.label"
+            class="season-box border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3"
+          >
+            <dt class="kicker text-stone-500 dark:text-stone-400">
+              {{ stat.label }}
+            </dt>
+            <dd class="text-3xl font-serif font-bold">{{ stat.value }}</dd>
+          </div>
+        </dl>
+
+        <ul
+          class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-500 dark:text-stone-400"
+          aria-label="Word layers"
+        >
+          <li
+            v-for="key in STRATUM_KEYS"
+            :key="key"
+            class="flex items-center gap-1.5"
+          >
+            <span
+              :class="['inline-block h-2.5 w-2.5 rounded-sm', STRATUM_DOT[key]]"
+            />
+            {{ layerName(key) }}
+          </li>
+        </ul>
+
+        <!-- Layers -->
+        <section class="mt-10 space-y-4" aria-labelledby="layers-heading">
+          <h2
+            id="layers-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            Layers
+          </h2>
+          <ul data-testid="pattern-strata" class="space-y-2">
+            <li v-for="s in patterns.strata" :key="s.value">
+              <NuxtLink
+                v-if="s.value !== 'unstated'"
+                :to="explorePath({ stratum: s.value })"
+                class="group block"
+              >
+                <span class="flex items-baseline justify-between gap-3 text-sm">
+                  <span class="group-hover:text-primary-500">{{
+                    layerName(s.value)
+                  }}</span>
+                  <span class="tabular-nums text-stone-500 dark:text-stone-400"
+                    >{{ s.count }} ·
+                    {{ percent(s.count, patterns.total) }}</span
+                  >
+                </span>
+                <span class="mt-1 block h-3 bg-stone-200/70 dark:bg-stone-800">
+                  <span
+                    :class="['block h-full', STRATUM_DOT[s.value]]"
+                    :style="{ width: width(s.count, maxStratum) }"
+                  />
+                </span>
+              </NuxtLink>
+              <div v-else>
+                <span class="flex items-baseline justify-between gap-3 text-sm">
+                  <span>{{ layerName(s.value) }}</span>
+                  <span class="tabular-nums text-stone-500 dark:text-stone-400"
+                    >{{ s.count }} ·
+                    {{ percent(s.count, patterns.total) }}</span
+                  >
+                </span>
+                <span class="mt-1 block h-3 bg-stone-200/70 dark:bg-stone-800">
+                  <span
+                    :class="['block h-full', STRATUM_DOT[s.value]]"
+                    :style="{ width: width(s.count, maxStratum) }"
+                  />
+                </span>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Levels × layers -->
+        <section class="mt-12 space-y-4" aria-labelledby="levels-heading">
+          <h2
+            id="levels-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            Each JLPT level, by layer
+          </h2>
+          <p
+            class="text-stone-600 dark:text-stone-400 font-body-serif max-w-2xl"
+          >
+            Every bar is one level scaled to 100%, so you can compare their mix
+            rather than their size.
+          </p>
+          <ul data-testid="pattern-levels" class="space-y-3">
+            <li v-for="row in patterns.levels" :key="row.value">
+              <NuxtLink
+                :to="explorePath({ level: row.value })"
+                class="group block"
+              >
+                <span class="flex items-baseline justify-between gap-3 text-sm">
+                  <span class="font-semibold group-hover:text-primary-500">{{
+                    row.value
+                  }}</span>
+                  <span class="tabular-nums text-stone-500 dark:text-stone-400"
+                    >{{ row.count }} words</span
+                  >
+                </span>
+                <span
+                  class="mt-1 flex h-4 bg-stone-200/70 dark:bg-stone-800"
+                  role="img"
+                  :aria-label="breakdown(row.value, row.byStratum)"
+                >
+                  <span
+                    v-for="seg in segments(row.byStratum, row.count)"
+                    :key="seg.key"
+                    :class="['h-full', STRATUM_DOT[seg.key]]"
+                    :style="{ width: seg.width }"
+                    :title="`${layerName(seg.key)}: ${seg.count}`"
+                  />
+                </span>
+                <span
+                  class="mt-1 block text-xs text-stone-500 dark:text-stone-400"
+                  >{{ shares(row.byStratum, row.count) }}</span
+                >
+              </NuxtLink>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Processes -->
+        <section class="mt-12 space-y-4" aria-labelledby="processes-heading">
+          <h2
+            id="processes-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            Processes
+          </h2>
+          <p
+            class="text-stone-600 dark:text-stone-400 font-body-serif max-w-2xl"
+          >
+            How many words carry each process tag. A word can carry several, so
+            these add up to more than the number of words. The colours show
+            which layers the process turns up in.
+          </p>
+          <ul data-testid="pattern-processes" class="space-y-3">
+            <li v-for="row in patterns.processes" :key="row.value">
+              <NuxtLink
+                :to="explorePath({ process: row.value })"
+                class="group block"
+              >
+                <span class="flex items-baseline justify-between gap-3 text-sm">
+                  <span class="group-hover:text-primary-500">{{
+                    WORD_PROCESSES[row.value].label
+                  }}</span>
+                  <span
+                    class="tabular-nums text-stone-500 dark:text-stone-400"
+                    >{{ row.count }}</span
+                  >
+                </span>
+                <span
+                  class="mt-1 flex h-3"
+                  role="img"
+                  :aria-label="
+                    breakdown(WORD_PROCESSES[row.value].label, row.byStratum)
+                  "
+                  :style="{ width: width(row.count, maxProcess) }"
+                >
+                  <span
+                    v-for="seg in segments(row.byStratum, row.count)"
+                    :key="seg.key"
+                    :class="['h-full', STRATUM_DOT[seg.key]]"
+                    :style="{ width: seg.width }"
+                    :title="`${layerName(seg.key)}: ${seg.count}`"
+                  />
+                </span>
+                <span
+                  class="mt-0.5 block text-xs text-stone-500 dark:text-stone-400"
+                  >{{ WORD_PROCESSES[row.value].description }}</span
+                >
+              </NuxtLink>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Pairs -->
+        <section
+          v-if="patterns.pairs.length"
+          class="mt-12 space-y-4"
+          aria-labelledby="pairs-heading"
+        >
+          <h2
+            id="pairs-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            Processes that travel together
+          </h2>
+          <ul
+            data-testid="pattern-pairs"
+            class="grid grid-cols-1 md:grid-cols-2 gap-3"
+          >
+            <li
+              v-for="pair in patterns.pairs"
+              :key="`${pair.a}-${pair.b}`"
+              class="season-box border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3"
+            >
+              <p class="flex items-baseline justify-between gap-3">
+                <span class="font-semibold"
+                  >{{ WORD_PROCESSES[pair.a].label }} +
+                  {{ WORD_PROCESSES[pair.b].label }}</span
+                >
+                <span
+                  class="tabular-nums text-sm text-stone-500 dark:text-stone-400"
+                  >{{ pair.count }} words</span
+                >
+              </p>
+              <p class="mt-1 text-sm font-serif">
+                <NuxtLink
+                  v-for="(ex, i) in pair.examples"
+                  :key="ex.date"
+                  :to="`/words/${ex.date}`"
+                  class="text-primary-600 dark:text-primary-400 hover:underline"
+                  >{{ ex.term
+                  }}<span v-if="i < pair.examples.length - 1"
+                    >、</span
+                  ></NuxtLink
+                >
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <p class="mt-12 text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
+          These count the tags on the entries so far — what KANJIDIC2 and the
+          quoted Wiktionary text establish for each word — not the Japanese
+          language as a whole. The words are drawn from the JLPT N5–N2 lists, so
+          the mix reflects that sample. A layer is left unstated where neither
+          source settles it.
+        </p>
+      </template>
+
+      <div v-else class="mt-10 space-y-3" aria-busy="true">
+        <USkeleton class="h-8 w-64" />
+        <USkeleton class="h-48 w-full" />
+      </div>
+    </main>
+
+    <AppFooter />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed } from "vue";
+import AppHeader from "../components/AppHeader.vue";
+import AppFooter from "../components/AppFooter.vue";
+import TrendingFallback from "../components/TrendingFallback.vue";
+import { usePatterns } from "../composables/useExplore";
+import { usePageSeo } from "../composables/usePageSeo";
+import { STRATUM_DOT } from "../utils/stratum";
+import { WORD_PROCESSES, WORD_STRATA } from "~~/shared/word-labels";
+import type { ExploreFilters, StratumKey } from "~~/types/index";
+
+const { patterns, loading, error, refresh } = usePatterns();
+
+usePageSeo({
+  title: "What the vocabulary is made of",
+  description:
+    "NipponDaily's words counted across the whole set: layers of the vocabulary, JLPT levels, the processes that shaped them and which ones turn up together.",
+  path: "/patterns",
+});
+
+const STRATUM_KEYS: StratumKey[] = [
+  "wago",
+  "kango",
+  "gairaigo",
+  "hybrid",
+  "unstated",
+];
+
+const layerName = (key: StratumKey): string =>
+  key === "unstated"
+    ? "Not stated"
+    : `${WORD_STRATA[key].native} ${WORD_STRATA[key].label}`;
+
+const totals = computed(() =>
+  patterns.value
+    ? [
+        { label: "Words open", value: patterns.value.total },
+        { label: "Taken into parts", value: patterns.value.withParts },
+        { label: "With a changed reading", value: patterns.value.withBase },
+      ]
+    : [],
+);
+
+const maxStratum = computed(() =>
+  Math.max(1, ...(patterns.value?.strata.map((s) => s.count) ?? [])),
+);
+const maxProcess = computed(() =>
+  Math.max(1, ...(patterns.value?.processes.map((p) => p.count) ?? [])),
+);
+
+const width = (count: number, max: number): string =>
+  `${Math.max(count > 0 ? 2 : 0, (count / max) * 100)}%`;
+
+const percent = (count: number, total: number): string =>
+  total ? `${Math.round((count / total) * 100)}%` : "0%";
+
+/** The layer segments of one bar, in a fixed order, empty ones dropped. */
+const segments = (by: Record<StratumKey, number>, total: number) =>
+  STRATUM_KEYS.filter((key) => by[key] > 0).map((key) => ({
+    key,
+    count: by[key],
+    width: `${(by[key] / (total || 1)) * 100}%`,
+  }));
+
+const shares = (by: Record<StratumKey, number>, total: number): string =>
+  STRATUM_KEYS.filter((key) => by[key] > 0)
+    .map((key) => `${layerName(key)} ${percent(by[key], total)}`)
+    .join(" · ");
+
+const breakdown = (label: string, by: Record<StratumKey, number>): string =>
+  `${label}: ${STRATUM_KEYS.filter((k) => by[k] > 0)
+    .map((k) => `${layerName(k)} ${by[k]}`)
+    .join(", ")}`;
+
+const explorePath = (filters: ExploreFilters): string =>
+  `/explore?${new URLSearchParams(filters as Record<string, string>).toString()}`;
+</script>
