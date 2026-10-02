@@ -28,8 +28,18 @@ const tabHidden = ref(false);
 let audio: HTMLAudioElement | null = null;
 let ctx: AudioContext | null = null;
 let gain: GainNode | null = null;
+let source: AudioBufferSourceNode | null = null;
+/** Where the buffer source sits in its loop, so a pause can resume in place. */
+let loopStart = 0;
+let loopLength = 0;
+let loopFrom = 0;
+let loopStartedAt = 0;
 let pauseTimer: ReturnType<typeof setTimeout> | undefined;
 let started = false;
+const buffers = new Map<string, Promise<AudioBuffer>>();
+
+/** Anything quieter than this at the ends of the file counts as padding. */
+const SILENCE = 0.002;
 
 /** Perceptual curve: equal slider steps sound like equal loudness steps. */
 const gainFor = (v: number): number => MAX_GAIN * (v / 100) ** 2;
@@ -56,34 +66,67 @@ function writeVolume(v: number): void {
   }
 }
 
+/**
+ * Web Audio where available. A looping <audio> element can't loop MP3 without
+ * a gap (the element re-seeks, and the encoder's padding sits at both ends),
+ * whereas a decoded buffer loops sample-accurately. It also gives volume
+ * control on iOS Safari, which ignores HTMLMediaElement.volume.
+ */
+function ensureContext(): AudioContext | null {
+  if (ctx) return ctx;
+  const Ctor =
+    window.AudioContext ??
+    (window as unknown as { webkitAudioContext?: typeof AudioContext })
+      .webkitAudioContext;
+  if (!Ctor) return null;
+  try {
+    ctx = new Ctor();
+    gain = ctx.createGain();
+    gain.gain.value = 0;
+    gain.connect(ctx.destination);
+  } catch {
+    ctx = null;
+    gain = null;
+  }
+  return ctx;
+}
+
 function ensureAudio(): HTMLAudioElement {
   if (audio) return audio;
   audio = new Audio();
   audio.loop = true;
   audio.preload = "none";
   audio.volume = 0;
-  // Volume goes through a GainNode where possible: iOS Safari ignores
-  // HTMLMediaElement.volume, which would leave the slider doing nothing.
-  const Ctor =
-    window.AudioContext ??
-    (window as unknown as { webkitAudioContext?: typeof AudioContext })
-      .webkitAudioContext;
-  if (Ctor) {
-    try {
-      ctx = new Ctor();
-      gain = ctx.createGain();
-      gain.gain.value = 0;
-      ctx
-        .createMediaElementSource(audio)
-        .connect(gain)
-        .connect(ctx.destination);
-      audio.volume = 1;
-    } catch {
-      ctx = null;
-      gain = null;
-    }
-  }
   return audio;
+}
+
+function loadBuffer(src: string, context: AudioContext): Promise<AudioBuffer> {
+  let pending = buffers.get(src);
+  if (!pending) {
+    pending = fetch(src)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.arrayBuffer();
+      })
+      .then((data) => context.decodeAudioData(data));
+    // A failed load must be retried next time, not cached.
+    pending.catch(() => buffers.delete(src));
+    buffers.set(src, pending);
+  }
+  return pending;
+}
+
+/** The span of the buffer that actually holds sound, minus silent padding. */
+function soundSpan(buf: AudioBuffer): { start: number; end: number } {
+  const channels = Array.from({ length: buf.numberOfChannels }, (_, c) =>
+    buf.getChannelData(c),
+  );
+  const loud = (i: number) => channels.some((ch) => Math.abs(ch[i]!) > SILENCE);
+  let start = 0;
+  while (start < buf.length - 1 && !loud(start)) start++;
+  let end = buf.length;
+  while (end > start + 1 && !loud(end - 1)) end--;
+  return { start: start / buf.sampleRate, end: end / buf.sampleRate };
 }
 
 /** Moves the level to `target` (0-1) over roughly `ms`. */
@@ -97,13 +140,54 @@ function setLevel(target: number, ms: number): void {
   }
 }
 
+const isPlaying = (): boolean =>
+  source !== null || (audio !== null && !audio.paused);
+
+function startSource(buf: AudioBuffer): void {
+  if (!ctx || !gain || source) return;
+  const span = soundSpan(buf);
+  const node = ctx.createBufferSource();
+  node.buffer = buf;
+  node.loop = true;
+  node.loopStart = span.start;
+  node.loopEnd = span.end;
+  node.connect(gain);
+  // Resume where a pause left off (the start of the sound on first play).
+  const resumable = loopFrom >= span.start && loopFrom < span.end;
+  loopStart = span.start;
+  loopLength = span.end - span.start;
+  loopFrom = resumable ? loopFrom : span.start;
+  loopStartedAt = ctx.currentTime;
+  node.start(0, loopFrom);
+  source = node;
+}
+
+function stopSource(): void {
+  if (!source || !ctx) return;
+  const elapsed = ctx.currentTime - loopStartedAt;
+  loopFrom = loopStart + ((loopFrom - loopStart + elapsed) % loopLength);
+  source.stop();
+  source.disconnect();
+  source = null;
+}
+
 async function play(src: string): Promise<void> {
   clearTimeout(pauseTimer);
-  const el = ensureAudio();
-  if (el.getAttribute("src") !== src) el.src = src;
   try {
-    await ctx?.resume();
-    await el.play();
+    const context = ensureContext();
+    if (context) {
+      // Called straight away so it still counts as part of the click.
+      const resumed = context.resume();
+      const buf = await loadBuffer(src, context);
+      // Switched off while the file was still loading.
+      if (!enabled.value) return;
+      startSource(buf);
+      await resumed;
+    } else {
+      const el = ensureAudio();
+      if (el.getAttribute("src") !== src) el.src = src;
+      await el.play();
+    }
   } catch (err) {
     // Blocked or the file failed to load: show the music as off, not stuck on.
     console.error("Background music could not start:", err);
@@ -114,10 +198,13 @@ async function play(src: string): Promise<void> {
 }
 
 function stop(): void {
-  if (!audio || audio.paused) return;
+  if (!isPlaying()) return;
   setLevel(0, FADE_MS);
   clearTimeout(pauseTimer);
-  pauseTimer = setTimeout(() => audio?.pause(), FADE_MS + 100);
+  pauseTimer = setTimeout(() => {
+    stopSource();
+    audio?.pause();
+  }, FADE_MS + 100);
 }
 
 /**
@@ -159,7 +246,7 @@ export function useBgm() {
       );
       watch(volume, (v) => {
         writeVolume(v);
-        if (audio && !audio.paused && enabled.value) setLevel(gainFor(v), 80);
+        if (isPlaying() && enabled.value) setLevel(gainFor(v), 80);
       });
     });
   };
