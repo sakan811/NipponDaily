@@ -17,6 +17,8 @@
         <button
           v-if="$slots.body"
           type="button"
+          :aria-label="open ? 'Close menu' : 'Open menu'"
+          :aria-expanded="open"
           class="md:hidden p-2 rounded-lg text-stone-500 hover:text-stone-900 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors"
           @click="toggleMenu"
         >
