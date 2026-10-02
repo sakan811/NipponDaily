@@ -43,10 +43,26 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
+      "rendaku",
       "borrowing"
     ],
     "headline": "“Economy” is two characters borrowed from a phrase about running a state and relieving the people's suffering.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "経",
+        "reading": "けい",
+        "meaning": "sutra",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "済",
+        "reading": "ざい",
+        "base": "さい",
+        "meaning": "settle (debt, etc.)",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 經濟 (keng tsejH), short for 經世濟民 (“to administer the state to relieve the suffering of the people”), through its use as a translation of English economics by Japanese scholars during the Meiji period."
@@ -70,7 +86,20 @@
       "meaning-shift"
     ],
     "headline": "“Society” began as a gathering to honor the god of the earth, until a writer repurposed it in 1875.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "社",
+        "reading": "しゃ",
+        "meaning": "company",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "会",
+        "reading": "かい",
+        "meaning": "meeting",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 社會 (MC dzyaeX hwajH, “public gathering for offering to the god of earth”), as a compound composed of 社 (dzyaeX, “god of earth; ceremony for offering to the god of earth”) + 會 (“gathering”). The word was repurposed by Fukuchi Gen'ichirō in 1875 to translate the western concept of society."

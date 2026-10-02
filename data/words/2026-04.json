@@ -614,7 +614,20 @@
       "borrowing"
     ],
     "headline": "“Citizen” came from Chinese — but a native “country” and “people” compound hides behind the same spelling.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "国",
+        "reading": "こく",
+        "meaning": "country",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "民",
+        "reading": "みん",
+        "meaning": "people",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese compound 國民 (MC kwok mjin)."
@@ -633,10 +646,23 @@
     ],
     "stratum": "wago",
     "processes": [
-      "compound"
+      "compound",
+      "rendaku"
     ],
     "headline": "A crowd is “people” who are “full”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "人",
+        "reading": "ひと",
+        "meaning": "person"
+      },
+      {
+        "text": "込み",
+        "reading": "ごみ",
+        "base": "こみ",
+        "meaning": "to go into, be full of, have a lot of"
+      }
+    ],
     "sources": [
       {
         "quote": "Compound of 人(ひと) (hito, “person”) + 込(こ)み (komi, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 込(こ)む (komu, “to go into, be full of, have a lot of”).)."
@@ -724,7 +750,27 @@
       "rendaku"
     ],
     "headline": "Hiragana is “smooth kana”, with かな voiced to がな.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "平",
+        "reading": "ひら",
+        "meaning": "flat",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "仮",
+        "reading": "が",
+        "base": "か",
+        "meaning": "sham",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "名",
+        "reading": "な",
+        "meaning": "name",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Compound of 平 (hira, “flat, smooth”) + 仮名 (kana). The kana changes to gana as an instance of rendaku (連濁)."
@@ -742,9 +788,22 @@
       "noun (common) (futsuumeishi)"
     ],
     "stratum": "kango",
-    "processes": [],
+    "processes": [
+      "compound"
+    ],
     "headline": "A policy is literally a “direction needle” — another name for a magnetic needle.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "方",
+        "reading": "ほう",
+        "meaning": "direction"
+      },
+      {
+        "text": "針",
+        "reading": "しん",
+        "meaning": "needle"
+      }
+    ],
     "sources": [
       {
         "quote": "方 (“direction”) + 針 (“needle”), another name for the 磁針 (jishin, “magnetic needle”), with the meaning figuratively extending to \"guidance\" in general."

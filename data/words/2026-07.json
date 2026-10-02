@@ -116,13 +116,27 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "derivation",
       "borrowing",
       "sound-change",
       "meaning-shift"
     ],
     "headline": "The chair began as a seat for court officials and came to mean the wooden seat of a Zen priest.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "椅",
+        "reading": "い",
+        "meaning": "chair",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "子",
+        "reading": "す",
+        "meaning": "child",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "/isi/ → /isɨ/ → /isu/"
@@ -147,7 +161,26 @@
       "compound"
     ],
     "headline": "Katakana is “partial kana” — the same 片 as in 方, “direction”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "片",
+        "reading": "かた",
+        "meaning": "one-sided",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "仮",
+        "reading": "か",
+        "meaning": "sham",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "名",
+        "reading": "な",
+        "meaning": "name",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Compound of 片 (kata, “part”) + 仮名 (kana). 片 is in turn a cognate with 方 (kata)."
@@ -171,7 +204,20 @@
       "sound-change"
     ],
     "headline": "“Up and down” came over from Chinese as a ready-made compound — and じょうげ is likely its first reading.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "上",
+        "reading": "じょう",
+        "meaning": "up",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "下",
+        "reading": "げ",
+        "meaning": "down",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "/d͡ʑauɡe/ → /d͡ʑɔːɡe/ → /d͡ʑoːɡe/"
@@ -302,10 +348,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "“The world” began as a translation of a Sanskrit term for “region or part of the world”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "世",
+        "reading": "せ",
+        "meaning": "world",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "界",
+        "reading": "かい",
+        "meaning": "world",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 世界 (MC syejH keajH), originally a translation of Sanskrit लोकधातु (lokadhātu, “region or part of the world”). Compare Hokkien 世界 (sè-kài)."
@@ -575,7 +635,26 @@
       "compound"
     ],
     "headline": "The month after next can be broken down two ways, and references disagree on which is right.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "再",
+        "reading": "さ",
+        "meaning": "again",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "来",
+        "reading": "らい",
+        "meaning": "next",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "月",
+        "reading": "げつ",
+        "meaning": "month",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Analyzed by references as either a compound of 再来 (sarai, “two next, the one after next”) + 月 (getsu, “month”), or as a compound of 再 (sa, “again, one more”) + 来月 (raigetsu, “next month”)."
@@ -671,10 +750,26 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
+      "rendaku",
       "sound-change"
     ],
     "headline": "Banzai is a mixed reading: the second part kept an older Chinese sound while the first took a newer one.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "万",
+        "reading": "ばん",
+        "meaning": "ten thousand",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "歳",
+        "reading": "ざい",
+        "base": "さい",
+        "meaning": "year-end",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Shift in reading from 万(ばん)歳(ぜい) (banzei) below, keeping the older goon reading for the second character and adopting the relatively newer kan'on reading for the first character. Doublet of マンセー (mansē)."
@@ -751,10 +846,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "“Friendship” is a learned borrowing from Chinese, first attested in 1900.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "友",
+        "reading": "ゆう",
+        "meaning": "friend",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "好",
+        "reading": "こう",
+        "meaning": "fond",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Appears to be a learned borrowing from Chinese 友好 (yǒuhǎo). First attested in 1900."
@@ -907,11 +1016,26 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "rendaku",
       "borrowing"
     ],
     "headline": "East-West came from Chinese — and the 西 voices from さい to ざい.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "東",
+        "reading": "とう",
+        "meaning": "east",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "西",
+        "reading": "ざい",
+        "base": "さい",
+        "meaning": "west",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 東西 (MC tuwng sej). (Can this(+) etymology be sourced?)"

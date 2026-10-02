@@ -877,10 +877,24 @@
     ],
     "stratum": "kango",
     "processes": [
+      "compound",
       "borrowing"
     ],
     "headline": "Shōgatsu is borrowed from Middle Chinese 正月 (tsyeng ngjwot).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "正",
+        "reading": "しょう",
+        "meaning": "correct",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "月",
+        "reading": "がつ",
+        "meaning": "month",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From Middle Chinese 正月 (MC tsyeng ngjwot)"
