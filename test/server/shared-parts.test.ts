@@ -34,7 +34,7 @@ describe("partsIndex", () => {
   });
 
   it("lists exactly the parts the open words show", () => {
-    const today = "2026-12-31";
+    const today = "2027-10-31";
     const expected = new Set(
       WORD_ENTRIES.flatMap((e) => e.morphemes.map((m) => m.text)),
     );

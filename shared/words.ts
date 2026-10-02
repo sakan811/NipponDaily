@@ -27,6 +27,16 @@ import september2026 from "~~/data/words/2026-09.json";
 import october2026 from "~~/data/words/2026-10.json";
 import november2026 from "~~/data/words/2026-11.json";
 import december2026 from "~~/data/words/2026-12.json";
+import january2027 from "~~/data/words/2027-01.json";
+import february2027 from "~~/data/words/2027-02.json";
+import march2027 from "~~/data/words/2027-03.json";
+import april2027 from "~~/data/words/2027-04.json";
+import may2027 from "~~/data/words/2027-05.json";
+import june2027 from "~~/data/words/2027-06.json";
+import july2027 from "~~/data/words/2027-07.json";
+import august2027 from "~~/data/words/2027-08.json";
+import september2027 from "~~/data/words/2027-09.json";
+import october2027 from "~~/data/words/2027-10.json";
 
 /** Every month's entries, oldest first. */
 const MONTHS: WordEntry[][] = [
@@ -42,6 +52,16 @@ const MONTHS: WordEntry[][] = [
   october2026 as WordEntry[],
   november2026 as WordEntry[],
   december2026 as WordEntry[],
+  january2027 as WordEntry[],
+  february2027 as WordEntry[],
+  march2027 as WordEntry[],
+  april2027 as WordEntry[],
+  may2027 as WordEntry[],
+  june2027 as WordEntry[],
+  july2027 as WordEntry[],
+  august2027 as WordEntry[],
+  september2027 as WordEntry[],
+  october2027 as WordEntry[],
 ];
 
 export const WORD_ENTRIES: readonly WordEntry[] = MONTHS.flat().sort((a, b) =>
