@@ -12,6 +12,9 @@ export default defineNuxtConfig({
   modules: ["@nuxt/test-utils/module", "@nuxt/eslint", "@nuxt/hints"],
   app: {
     head: {
+      htmlAttrs: { lang: "en" },
+      // Every page sets its own title (usePageSeo); this wraps it.
+      titleTemplate: "%s · NipponDaily",
       script: [
         {
           innerHTML: `(function() {
@@ -115,6 +118,12 @@ export default defineNuxtConfig({
     upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
     upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
     cronSecret: process.env.CRON_SECRET,
+    public: {
+      // The site's canonical origin, for absolute canonical/Open Graph URLs and
+      // the sitemap. Optional: without it the origin of the request is used.
+      // Overridable at runtime with NUXT_PUBLIC_SITE_URL.
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL ?? "",
+    },
   },
   vite: {
     plugins: [tailwindcss()],
