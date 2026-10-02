@@ -1,4 +1,4 @@
-import type { WordEntry } from "~~/types/index";
+import type { ExploreFilters, WordEntry } from "~~/types/index";
 
 /** Cuts `text` to at most `max` characters at a word boundary, with an ellipsis. */
 export function truncate(text: string, max = 160): string {
@@ -32,4 +32,9 @@ export function wordDescription(
 /** The path of a part's page. */
 export function partPath(text: string): string {
   return `/parts/${encodeURIComponent(text)}`;
+}
+
+/** The Explore page narrowed by `filters`, as a link. */
+export function explorePath(filters: ExploreFilters): string {
+  return `/explore?${new URLSearchParams(filters as Record<string, string>).toString()}`;
 }
