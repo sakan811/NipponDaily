@@ -7,7 +7,14 @@ describe("sitemap", () => {
     const paths = sitemapPaths("2026-01-02");
 
     expect(paths).toEqual(
-      expect.arrayContaining(["/", "/words", "/parts", "/kana"]),
+      expect.arrayContaining([
+        "/",
+        "/words",
+        "/explore",
+        "/patterns",
+        "/parts",
+        "/kana",
+      ]),
     );
     expect(paths).toContain("/words/2026-01-01");
     expect(paths).toContain("/words/2026-01-02");
