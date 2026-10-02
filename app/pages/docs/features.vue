@@ -53,7 +53,7 @@ const features = [
   {
     title: "A New Word Every Day",
     description:
-      "One entry opens each day at midnight in Japan (JST), the same word for every reader. January through December 2026 (365 words) are written so far, all from the JLPT N5–N2 vocabulary.",
+      "One entry opens each day at midnight in Japan (JST), the same word for every reader. January through December 2026 and January through October 2027 (669 words) are written so far, all from the JLPT N5–N2 vocabulary.",
     icon: "i-heroicons-academic-cap",
   },
   {

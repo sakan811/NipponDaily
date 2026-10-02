@@ -40,6 +40,16 @@ describe("GET /api/word-calendar", () => {
       "2026-10",
       "2026-11",
       "2026-12",
+      "2027-01",
+      "2027-02",
+      "2027-03",
+      "2027-04",
+      "2027-05",
+      "2027-06",
+      "2027-07",
+      "2027-08",
+      "2027-09",
+      "2027-10",
     ]);
     expect(data.today).toBe("2026-10-10");
     expect(data.days).toHaveLength(31);
@@ -78,11 +88,11 @@ describe("GET /api/word-calendar", () => {
   });
 
   it("falls back to the newest month when the current one has no words", async () => {
-    at("2027-03-10T12:00:00Z");
+    at("2028-03-10T12:00:00Z");
     const handler = await getHandler();
     const { data } = handler({} as any);
 
-    expect(data.month).toBe("2026-12");
+    expect(data.month).toBe("2027-10");
     expect(data.days).toHaveLength(31);
     expect(data.days.every((d: any) => d.status === "open")).toBe(true);
   });
