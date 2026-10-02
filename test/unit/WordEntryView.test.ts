@@ -97,6 +97,23 @@ describe("WordEntryView", () => {
     );
   });
 
+  it("says why when the only proposed split is hedged", () => {
+    const wrapper = render({
+      morphemes: [],
+      sources: [
+        { quote: "/winaka/ → /inaka/" },
+        {
+          quote:
+            "Possibly a compound of 居 (i, “to be”) + 中 (naka, “inside, middle”).",
+        },
+      ],
+    });
+
+    const text = wrapper.find('[data-testid="word-no-breakdown"]').text();
+    expect(text).toContain("the only split Wiktionary offers is hedged");
+    expect(text).not.toContain("doesn't give a split");
+  });
+
   it("says where the meanings come from when the parts are KANJIDIC2's", () => {
     const wrapper = render({
       morphemes: [

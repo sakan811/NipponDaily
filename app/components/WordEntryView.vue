@@ -131,9 +131,16 @@
         data-testid="word-no-breakdown"
         class="text-stone-600 dark:text-stone-400 font-body-serif"
       >
-        No breakdown is shown for this word: Wiktionary's text for it doesn't
-        give a split that spells the word and joins to its reading, and any
-        other split would be a guess.
+        No breakdown is shown for this word:
+        <template v-if="hedgedSplit">
+          the only split Wiktionary offers is hedged (see the marked line
+          below), and it doesn't spell the word — it describes where the sound
+          may come from — so showing it as the word's parts would be a guess.
+        </template>
+        <template v-else>
+          Wiktionary's text for it doesn't give a split that spells the word and
+          joins to its reading, and any other split would be a guess.
+        </template>
       </p>
     </section>
 
@@ -254,6 +261,12 @@ const fromKanjidic = computed(() =>
 
 const hedged = computed(() =>
   props.entry.sources.some((s) => isHedged(s.quote)),
+);
+
+// A hedged line that proposes a `A + B` split. With no morphemes, that split
+// failed the "spells the word" test, so the empty state can say why.
+const hedgedSplit = computed(() =>
+  props.entry.sources.some((s) => isHedged(s.quote) && s.quote.includes(" + ")),
 );
 
 const wiktionaryUrl = computed(
