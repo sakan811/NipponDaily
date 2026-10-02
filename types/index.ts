@@ -45,6 +45,10 @@ export interface Morpheme {
   /** Set when the reading is not one of the kanji's dictionary readings
    *  (ateji, jukujikun, archaic forms), so the content test skips that check. */
   irregular?: boolean;
+  /** Set when the source text gives no split of the word, so this part is one
+   *  of the word's own kanji and `meaning` is KANJIDIC2's dictionary sense of
+   *  that character (which the word does not always use) — not a Wiktionary gloss. */
+  glossSource?: "kanjidic2";
 }
 
 /** One line of Wiktionary's Etymology section for this word's reading, quoted

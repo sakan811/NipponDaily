@@ -205,9 +205,20 @@ function topLevelSplit(s) {
   return out;
 }
 
+const NESTED_FORM_GLOSS = new RegExp(
+  `“[^”]*\\bform\\b[^”]*”\\)\\s*of\\s+(?:the\\s+(?:verb|adjective|noun)\\s+)?(?:[^\\s(),“”]|\\([${KANA}]+\\))+\\s*\\(([^()]*)\\)`,
+  "u",
+);
+
 /** "(hana, “flower”)" / "(-shii, adjectivizing suffix)" → { romaji, gloss }. */
 function parseGroup(inner) {
   const segs = topLevelSplit(inner);
+  // "お (honorific prefix)": no romaji, just a plain phrase — the kana is its own reading.
+  if (
+    segs.length === 1 &&
+    /^(?!MC )[A-Za-z][A-Za-z' -]*\s[A-Za-z' -]+$/.test(segs[0])
+  )
+    return { romaji: "", gloss: segs[0] };
   const romaji = (segs[0] ?? "").replace(/^[-‑]+|[-‑]+$/g, "");
   let gloss;
   // "(mae, front)": with only two segments a lone plain word is the gloss;
@@ -228,6 +239,20 @@ function parseGroup(inner) {
     ) {
       gloss = seg;
       break;
+    }
+  }
+  // "(saka-, 被覆形 (hifukukei, “bound form”) of 酒 (sake, “alcohol”))" and
+  // "(tsume, 連用形 (ren'yōkei, “stem or continuative form”) of the verb 詰める
+  // (tsumeru, “to stuff”))": a combining form or stem has no gloss of its own —
+  // the source gives its base's.
+  if (!gloss) {
+    for (const seg of segs.slice(1)) {
+      const m = NESTED_FORM_GLOSS.exec(seg);
+      const base = m && /“([^”]+)”/.exec(m[1]);
+      if (base) {
+        gloss = base[1];
+        break;
+      }
     }
   }
   return { romaji, gloss };
@@ -282,8 +307,9 @@ export function chains(line) {
       if (!m || /[.;]/.test(m[0].replace(/\([^)]*\)/g, ""))) break;
       p = g.end + m[0].length;
     }
-    if (parts.length >= 2) out.push(parts);
-    if (parts.length) i = Math.max(i, p);
+    // Every start is tried (a line may name a whole word and then a split of
+    // it) and every prefix of a chain too ("… + 月 + 来月" may stop at 月).
+    for (let n = parts.length; n >= 2; n--) out.push(parts.slice(0, n));
   }
   return out;
 }
@@ -336,48 +362,87 @@ function joinParts(readingSets, kana) {
   return go(0, 0);
 }
 
-/** Morphemes parsed from the evidence — only when the parts literally spell
- *  the word and their readings join to its reading. Otherwise none (the
- *  page then says no clean breakdown could be read from the source). */
-export function parseMorphemes(lines, term, kana) {
+const KANJI_OKURI = /^(\p{sc=Han}+)(\p{sc=Hiragana}+)$/u;
+
+/** The readings a chain part may have: its ruby or romaji (or, for a bare kana
+ *  token like お, itself), and — for a part written with okurigana (出る) — the
+ *  reading without them too, since a compound keeps only the stem (出口). */
+function readingsOf(p) {
+  let base = p.ruby ? [p.ruby] : [...new Set(romajiVariants(p.romaji))];
+  if (base.length === 0 && new RegExp(`^[${KANA}]+$`, "u").test(p.text))
+    base = [toHiragana(p.text)];
+  const okuri = KANJI_OKURI.exec(p.text)?.[2];
+  return okuri
+    ? [
+        ...new Set([
+          ...base,
+          ...base
+            .filter((r) => r.length > okuri.length && r.endsWith(okuri))
+            .map((r) => r.slice(0, -okuri.length)),
+        ]),
+      ]
+    : base;
+}
+
+/** The one split of `term` the evidence names, or [] — the parts must literally
+ *  spell the word and their readings join to its reading. When the lines name
+ *  two different splits that both fit ("either … or …"), none is chosen. */
+function morphemesOf(lines, term, kana) {
   const target = toHiragana(kana);
+  const found = new Map();
   for (const line of lines) {
     for (const parts of chains(line)) {
       if (parts.some((p) => !p.gloss)) continue;
-      const sets = parts.map((p) =>
-        p.ruby ? [p.ruby] : [...new Set(romajiVariants(p.romaji))],
-      );
+      const sets = parts.map(readingsOf);
       if (sets.some((s) => s.length === 0)) continue;
       const joined = joinParts(sets, target);
       if (!joined) continue;
       // The parts must spell the word. Sources write the honorific as 御
-      // (o-), and a word may write a kanji part in kana (基づく for 基 + 付く):
-      // each part matches either its own text or its reading.
+      // (o-), a word may write a kanji part in kana (基づく for 基 + 付く) and
+      // a part's okurigana may drop out of the compound (缶詰 for 缶 + 詰め):
+      // each part matches its own text, or that, or its reading.
       const spelled = [];
       let at = 0;
       for (let i = 0; i < parts.length; i++) {
+        const stem = KANJI_OKURI.exec(parts[i].text)?.[1];
         const options = [
           parts[i].text,
           ...(parts[i].text === "御" ? ["お"] : []),
+          ...(stem ? [stem] : []),
           joined[i].reading,
         ];
         const hit = options.find((o) => term.startsWith(o, at));
         if (!hit) break;
         spelled.push(
-          hit === parts[i].text || hit === "お" ? hit : parts[i].text,
+          hit === parts[i].text || hit === "お" || hit === stem
+            ? hit
+            : parts[i].text,
         );
         at += hit.length;
       }
       if (spelled.length !== parts.length || at !== term.length) continue;
-      return parts.map((p, i) => ({
+      const result = parts.map((p, i) => ({
         text: spelled[i],
         reading: joined[i].reading,
         ...(joined[i].base ? { base: joined[i].base } : {}),
         meaning: p.gloss,
       }));
+      // The same split glossed twice (the stem and the verb it comes from)
+      // is one split: the first, outermost gloss stands.
+      const key = JSON.stringify(
+        result.map((m) => [m.text, m.reading, m.base ?? null]),
+      );
+      if (!found.has(key)) found.set(key, result);
     }
   }
-  return [];
+  return found.size === 1 ? [...found.values()][0] : [];
+}
+
+/** Morphemes parsed from the evidence — only when the parts literally spell
+ *  the word and their readings join to its reading. Otherwise none (the
+ *  page then says no clean breakdown could be read from the source). */
+export function parseMorphemes(lines, term, kana) {
+  return morphemesOf(lines, term, kana);
 }
 
 const LOAN =
@@ -558,15 +623,81 @@ export function parseLiteral(lines, term, kana, kanji) {
         m[2],
       ]),
     ].find((pieces) => pieces.length === chars.length);
-    if (!found) continue;
-    return paths[0].map((v, i) => ({
+    if (found)
+      return paths[0].map((v, i) => ({
+        text: chars[i],
+        reading: v.r,
+        ...(v.base ? { base: v.base } : {}),
+        meaning: found[i].trim(),
+      }));
+    // 方 (“direction”) + 針 (“needle”): glossed parts that spell the word,
+    // each given the reading KANJIDIC2 says its characters have there.
+    const glossed = [
+      ...line.matchAll(
+        /(?:\p{sc=Han}+\s*\(“[^”]+”\)\s*\+\s*)+\p{sc=Han}+\s*\(“[^”]+”\)/gu,
+      ),
+    ].map((m) =>
+      [...m[0].matchAll(/(\p{sc=Han}+)\s*\(“([^”]+)”\)/gu)].map((x) => ({
+        text: x[1],
+        meaning: x[2],
+      })),
+    );
+    for (const parts of glossed) {
+      if (parts.map((x) => x.text).join("") !== term) continue;
+      let at = 0;
+      return parts.map((x) => {
+        const vs = paths[0].slice(at, (at += [...x.text].length));
+        const reading = vs.map((v) => v.r).join("");
+        const base = vs.map((v) => v.base ?? v.r).join("");
+        return {
+          text: x.text,
+          reading,
+          ...(base !== reading ? { base } : {}),
+          meaning: x.meaning,
+        };
+      });
+    }
+  }
+  return [];
+}
+
+const wordIn = (word, text) =>
+  new RegExp(
+    `(?<![A-Za-z])${word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![A-Za-z])`,
+    "i",
+  ).test(text);
+
+/** A Sino-Japanese (or any all-kanji) word the source gives no split of: the
+ *  spelling is still its characters, so each part is one kanji with the
+ *  reading KANJIDIC2 gives it there and one of KANJIDIC2's own meanings — the
+ *  one the Wiktionary text or the word's JMdict meaning already uses, else
+ *  KANJIDIC2's first. Only when the characters' readings split the word's
+ *  reading one way (no ateji, no jukujikun, no ambiguity). */
+export function parseKanji(term, kana, kanji, text, meaning) {
+  const chars = [...term];
+  if (
+    chars.length < 2 ||
+    !chars.every((c) => /\p{sc=Han}/u.test(c) && c !== "々")
+  )
+    return [];
+  if (/\b(?:ateji|jukujikun|jukuji)\b/i.test(text)) return [];
+  const paths = segmentPaths(term, kana, kanji);
+  const distinct = new Set(paths.map((p) => p.map((v) => v.r).join("|")));
+  if (distinct.size !== 1) return [];
+  return paths[0].map((v, i) => {
+    const meanings = kanji[chars[i]].meanings;
+    const pick =
+      meanings.find((m) => wordIn(m, text)) ??
+      meanings.find((m) => wordIn(m, meaning)) ??
+      meanings[0];
+    return {
       text: chars[i],
       reading: v.r,
       ...(v.base ? { base: v.base } : {}),
-      meaning: found[i].trim(),
-    }));
-  }
-  return [];
+      meaning: pick,
+      glossSource: "kanjidic2",
+    };
+  });
 }
 
 export function stratumOf(term, kana, morphemes, text, kanji) {
@@ -636,6 +767,8 @@ export function buildEntry(plan, ctx) {
   if (morphemes.length === 0)
     morphemes = parseLiteral(lines, plan.term, word.kana, ctx.kanji);
   if (morphemes.length === 0) morphemes = parseLoan(lines, plan.term);
+  if (morphemes.length === 0)
+    morphemes = parseKanji(plan.term, word.kana, ctx.kanji, text, word.meaning);
   morphemes = flagIrregular(morphemes, ctx.kanji);
 
   const stratum = stratumOf(plan.term, word.kana, morphemes, text, ctx.kanji);
