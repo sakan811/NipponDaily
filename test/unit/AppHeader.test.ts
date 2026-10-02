@@ -12,6 +12,7 @@ const mountHeader = () =>
         UButton,
         UIcon: { template: "<i />" },
         SeasonButton: { template: "<span />" },
+        BgmControl: { template: "<span />" },
         UColorModeButton: { template: "<span />" },
         NuxtLink: { props: ["to"], template: "<a :href='to'><slot /></a>" },
       },
