@@ -10,6 +10,10 @@ morphemes and the origin text — is generated from JMdict, KANJIDIC2 and the
 pinned Wiktionary text by `pnpm data:words`. If a field looks wrong, fix the
 source or the parser; never edit `data/words/*.json`.
 
+**AI scope:** only give a model work whose output may be inaccurate — picking
+words, drafting a headline, writing code. Never let it supply a fact about a
+word. See "Where AI (or any model) may help" in `docs/content-accuracy.md`.
+
 ## A. Add a month
 
 1. [ ] **Choose the words** (a person or a model may do this — a poor pick costs
