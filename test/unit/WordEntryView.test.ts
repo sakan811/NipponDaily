@@ -43,6 +43,16 @@ describe("WordEntryView", () => {
     expect(badges).toContain("Rendaku");
   });
 
+  it("links each part to the page listing every word it appears in", () => {
+    const wrapper = render();
+
+    const parts = wrapper.findAll('[data-testid="word-morpheme"] a');
+    expect(parts.map((a) => a.attributes("href"))).toEqual([
+      "/parts/%E6%89%8B",
+      "/parts/%E7%B4%99",
+    ]);
+  });
+
   it("shows JMdict's part-of-speech tags verbatim, one badge each", () => {
     const wrapper = render({ pos: ["Ichidan verb", "transitive verb"] });
 
