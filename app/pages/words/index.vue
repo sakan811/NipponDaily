@@ -36,7 +36,7 @@
 
       <section v-else-if="calendar" class="mt-10 space-y-4">
         <!-- Month navigation -->
-        <div class="flex items-center justify-between gap-4">
+        <div class="flex items-center justify-between gap-2 sm:gap-4">
           <UButton
             data-testid="calendar-prev"
             label="Earlier"
@@ -49,7 +49,7 @@
           />
           <h2
             data-testid="calendar-month"
-            class="text-2xl sm:text-3xl font-serif font-bold text-stone-900 dark:text-white"
+            class="text-lg min-[400px]:text-2xl sm:text-3xl font-serif font-bold text-center text-stone-900 dark:text-white"
           >
             {{ formatMonthYear(calendar.month) }}
           </h2>

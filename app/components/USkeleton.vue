@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'u-skeleton animate-pulse bg-stone-200 dark:bg-stone-850',
+      'u-skeleton max-w-full animate-pulse bg-stone-200 dark:bg-stone-850',
       $attrs.class,
     ]"
   />

@@ -11,7 +11,10 @@
       closest first. Each tag says what is shared; nothing here is a claim
       beyond what the entries already show.
     </p>
-    <ul data-testid="related-words" class="grid gap-3 sm:grid-cols-2">
+    <ul
+      data-testid="related-words"
+      class="grid grid-cols-1 gap-3 sm:grid-cols-2"
+    >
       <li
         v-for="w in words"
         :key="w.date"

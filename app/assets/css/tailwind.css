@@ -1221,6 +1221,9 @@
    than a flat fill, so the background reads as textured paper instead of a
    solid color. Cheap (no image asset) and works in both themes. */
 body {
+  /* Swinging charms and the ambient particles may briefly poke past the
+     viewport edge; that must never make the page scroll sideways. */
+  overflow-x: clip;
   font-family: var(--font-sans);
   background-color: #fdfbf7;
   background-image:

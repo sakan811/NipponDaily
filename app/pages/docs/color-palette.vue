@@ -30,9 +30,9 @@
         and the season button in the header lets a reader pick another. Each
         preset defines primary, secondary, success, warning and error colors for
         light and dark mode. The values live in
-        <code>app/assets/css/tailwind.css</code>; the swatches below come from
-        <code>shared/seasons.ts</code>, which a test keeps in sync with that
-        CSS.
+        <code class="break-all">app/assets/css/tailwind.css</code>; the swatches
+        below come from <code>shared/seasons.ts</code>, which a test keeps in
+        sync with that CSS.
       </p>
 
       <h2>Seasonal Theme Palettes</h2>
