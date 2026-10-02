@@ -123,8 +123,8 @@
           <strong>Pin the origins.</strong>
           <code>pnpm data:etymology</code> commits the plain text of each daily
           word's Wiktionary <em>Etymology</em> section to
-          <code>data/reference/etymology-reference.json</code>, each page pinned
-          to a revision id.
+          <code>data/reference/etymology/</code>, each page pinned to a revision
+          id.
         </li>
         <li>
           <strong>Generate the entries.</strong>
@@ -390,7 +390,7 @@ pnpm data:reference:jlpt"]
 Japanese Etymology sections"]
         EtyBuild["pnpm data:etymology
 pinned per revision id"]
-        EtyJSON["data/reference/etymology-reference.json
+        EtyJSON["data/reference/etymology/
 (committed snapshot)"]
         ContentTests["test/content/*
 vocabulary · words"]
