@@ -1,6 +1,14 @@
 import { vi } from "vitest";
 import { config } from "@vue/test-utils";
-import { ref, computed, reactive, onMounted, onUnmounted } from "vue";
+import {
+  ref,
+  computed,
+  reactive,
+  onMounted,
+  onUnmounted,
+  toValue,
+  watch,
+} from "vue";
 
 // Make Vue composition functions globally available
 (global as any).ref = ref;
@@ -50,8 +58,49 @@ process.env.NODE_ENV = "test";
 // Enhanced Nuxt composables mock with more comprehensive coverage
 const mockRuntimeConfig = vi.fn(() => ({ public: {} }));
 
+// A working stand-in for Nuxt's useAsyncData: runs the handler straight away
+// (as the browser would), re-runs it when a reactive key changes, and exposes
+// the same data/error/status/refresh surface. No SSR payload is involved.
+const mockUseAsyncData = vi.fn((key: any, handler: any) => {
+  const data = ref<unknown>(null);
+  const error = ref<unknown>(null);
+  const status = ref<"idle" | "pending" | "success" | "error">("idle");
+  const refresh = async () => {
+    status.value = "pending";
+    error.value = null;
+    try {
+      data.value = await handler({});
+      status.value = "success";
+    } catch (err) {
+      data.value = null;
+      error.value = err;
+      status.value = "error";
+    }
+  };
+  void refresh();
+  if (typeof key !== "string") {
+    watch(
+      () => toValue(key),
+      () => void refresh(),
+    );
+  }
+  return {
+    data,
+    error,
+    status,
+    pending: computed(() => status.value === "pending"),
+    refresh,
+  };
+});
+
 vi.mock("#app", () => ({
   useRuntimeConfig: mockRuntimeConfig,
+  useAsyncData: mockUseAsyncData,
+  useSeoMeta: vi.fn(),
+  useHead: vi.fn(),
+  useRequestURL: vi.fn(() => new URL("https://nippondaily.test/")),
+  useRequestEvent: vi.fn(() => undefined),
+  setResponseStatus: vi.fn(),
   useFetch: vi.fn(() => ({
     data: ref(null),
     pending: ref(false),

@@ -33,9 +33,17 @@
 </template>
 
 <script setup lang="ts">
+import { setResponseStatus, useRequestEvent, useSeoMeta } from "#app";
 import AppHeader from "../components/AppHeader.vue";
 
 definePageMeta({
   layout: false,
 });
+
+// A real 404 for crawlers, not a 200 that happens to say "not found".
+if (import.meta.server) {
+  const event = useRequestEvent();
+  if (event) setResponseStatus(event, 404);
+}
+useSeoMeta({ title: "Page not found", robots: "noindex, nofollow" });
 </script>

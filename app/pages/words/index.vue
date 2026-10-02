@@ -31,7 +31,7 @@
         :error="error"
         :loading="loading"
         title="Unable to Load the Calendar"
-        @retry="fetchMonth(month)"
+        @retry="refresh()"
       />
 
       <section v-else-if="calendar" class="mt-10 space-y-4">
@@ -163,12 +163,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import { useRoute, useRouter } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import { useWordCalendar } from "../../composables/useDailyWord";
+import { usePageSeo } from "../../composables/usePageSeo";
 import { formatLongDate, formatMonthYear } from "../../utils/date";
 import { WORD_STRATA } from "~~/shared/word-labels";
 import type { WordCalendarDay, WordStratum } from "~~/types/index";
@@ -184,12 +185,23 @@ const STRATUM_DOT: Record<WordStratum, string> = {
 
 const route = useRoute();
 const router = useRouter();
-const { calendar, loading, error, fetchMonth } = useWordCalendar();
-
 const requested = route.query.month;
 const month = ref<string | undefined>(
   typeof requested === "string" ? requested : undefined,
 );
+const { calendar, loading, error, refresh } = useWordCalendar(month);
+
+usePageSeo({
+  title: () =>
+    calendar.value
+      ? `Words for ${formatMonthYear(calendar.value.month)}`
+      : "The word calendar",
+  description:
+    "Every Japanese word NipponDaily has taken apart so far, one per day, in a month-by-month calendar.",
+  path: () =>
+    calendar.value ? `/words?month=${calendar.value.month}` : "/words",
+  noindex: () => !calendar.value,
+});
 
 const months = computed(() => calendar.value?.months ?? []);
 const index = computed(() =>
@@ -201,7 +213,6 @@ const nextMonth = computed(() => months.value[index.value + 1]);
 const go = async (target: string): Promise<void> => {
   month.value = target;
   await router.replace({ query: { month: target } });
-  await fetchMonth(target);
 };
 
 /** Sunday-first blanks before the 1st. */
@@ -225,9 +236,5 @@ const cells = computed(() => {
     const date = `${calendar.value!.month}-${String(dayOfMonth).padStart(2, "0")}`;
     return { date, dayOfMonth, day: byDate.get(date) };
   });
-});
-
-onMounted(() => {
-  void fetchMonth(month.value);
 });
 </script>

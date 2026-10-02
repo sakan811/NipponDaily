@@ -353,6 +353,7 @@
 </template>
 
 <script setup lang="ts">
+import { usePageSeo } from "../../composables/usePageSeo";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
 
@@ -414,6 +415,13 @@ quote or invented word found" --> Fail(["❌ CI fails"])
 
     WordAPI --> Pages["/ · /words · /words/[date]"]
 `;
+
+usePageSeo({
+  title: "Data integrity & attribution",
+  description:
+    "How every reading, meaning and origin is checked against pinned sources, and the licences behind them.",
+  path: "/docs/data-integrity",
+});
 </script>
 
 <style scoped>
