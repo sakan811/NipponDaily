@@ -11,10 +11,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "stratum": "kango",
-    "processes": [
-      "compound",
-      "wasei"
-    ],
+    "processes": ["compound", "wasei"],
     "headline": "A Japanese-made word, built from Chinese parts, to name the telephone.",
     "morphemes": [
       {
@@ -44,15 +41,9 @@
     "kana": "ともだち",
     "meaning": "friend",
     "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": [
-      "compound",
-      "derivation",
-      "rendaku"
-    ],
+    "processes": ["compound", "derivation", "rendaku"],
     "headline": "“Friend” is built as “friends”: an old plural that took over the singular.",
     "morphemes": [
       {
@@ -80,14 +71,9 @@
     "kana": "てがみ",
     "meaning": "letter",
     "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": [
-      "compound",
-      "rendaku"
-    ],
+    "processes": ["compound", "rendaku"],
     "headline": "Hand + paper gives “letter” in Japanese, but the identical characters in Chinese are an unrelated false friend.",
     "morphemes": [
       {
@@ -118,13 +104,9 @@
     "kana": "パン",
     "meaning": "bread",
     "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "gairaigo",
-    "processes": [
-      "borrowing"
-    ],
+    "processes": ["borrowing"],
     "headline": "Japanese パン is Portuguese pão, and behind that, Latin pānis.",
     "morphemes": [
       {
@@ -146,14 +128,9 @@
     "kana": "とけい",
     "meaning": "a watch; a clock",
     "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": [
-      "borrowing",
-      "ateji"
-    ],
+    "processes": ["borrowing", "ateji"],
     "headline": "The spelling you know isn't the original, and the sources disagree about why it works.",
     "morphemes": [],
     "sources": [
@@ -172,14 +149,9 @@
     "kana": "あたらしい",
     "meaning": "new",
     "level": "N5",
-    "pos": [
-      "adjective (keiyoushi)"
-    ],
+    "pos": ["adjective (keiyoushi)"],
     "stratum": "wago",
-    "processes": [
-      "derivation",
-      "sound-change"
-    ],
+    "processes": ["derivation", "sound-change"],
     "headline": "新しい was once “aratashi”: two syllables swapped places about a thousand years ago.",
     "morphemes": [],
     "sources": [
@@ -207,13 +179,9 @@
     "kana": "さしみ",
     "meaning": "sliced raw fish",
     "level": "N2",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": [
-      "compound"
-    ],
+    "processes": ["compound"],
     "headline": "“Stuck flesh”: nobody is sure why a verb for sticking names sliced fish.",
     "morphemes": [
       {
@@ -245,9 +213,7 @@
       "noun or participle which takes the aux. verb suru"
     ],
     "stratum": "gairaigo",
-    "processes": [
-      "borrowing"
-    ],
+    "processes": ["borrowing"],
     "headline": "The Japanese word for a part-time job is German.",
     "morphemes": [
       {
@@ -269,14 +235,9 @@
     "kana": "せんせい",
     "meaning": "teacher, professor; master; doctor",
     "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": [
-      "compound",
-      "borrowing"
-    ],
+    "processes": ["compound", "borrowing"],
     "headline": "A teacher is, literally, someone “born earlier”.",
     "morphemes": [
       {
@@ -305,14 +266,8 @@
     "kana": "あした",
     "meaning": "tomorrow",
     "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "adverb (fukushi)"
-    ],
-    "processes": [
-      "borrowing",
-      "sound-change"
-    ],
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "processes": ["borrowing", "sound-change"],
     "headline": "“Tomorrow” was originally “next morning”, and the kanji came afterwards.",
     "morphemes": [],
     "sources": [
@@ -331,14 +286,9 @@
     "kana": "コンセント",
     "meaning": "power outlet, wall socket",
     "level": "N2",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "gairaigo",
-    "processes": [
-      "wasei",
-      "clipping"
-    ],
+    "processes": ["wasei", "clipping"],
     "headline": "It sounds like English “consent” but it is “concentric plug”, shortened.",
     "morphemes": [],
     "sources": [
@@ -354,14 +304,9 @@
     "kana": "でぐち",
     "meaning": "an exit",
     "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": [
-      "compound",
-      "rendaku"
-    ],
+    "processes": ["compound", "rendaku"],
     "headline": "“Go out” + “mouth”: an exit is a door with a voiced mouth.",
     "morphemes": [
       {
@@ -392,14 +337,9 @@
     "kana": "ありがとう",
     "meaning": "Thank you",
     "level": "N3",
-    "pos": [
-      "interjection (kandoushi)"
-    ],
+    "pos": ["interjection (kandoushi)"],
     "stratum": "wago",
-    "processes": [
-      "rendaku",
-      "sound-change"
-    ],
+    "processes": ["rendaku", "sound-change"],
     "headline": "“Thank you” started out meaning “hard to exist”, which is to say, rare.",
     "morphemes": [],
     "sources": [
@@ -430,14 +370,8 @@
     "kana": "くだもの",
     "meaning": "fruit",
     "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
-    "processes": [
-      "compound",
-      "sound-change",
-      "ateji"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
+    "processes": ["compound", "sound-change", "ateji"],
     "headline": "Fruit is literally “tree's thing”, with a lost possessive hiding in the middle.",
     "morphemes": [],
     "sources": [
@@ -462,15 +396,9 @@
     "kana": "たいふう",
     "meaning": "typhoon",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": [
-      "compound",
-      "borrowing",
-      "unclear"
-    ],
+    "processes": ["compound", "borrowing", "unclear"],
     "headline": "Typhoon is a borrowing that was later dressed in Chinese-looking kanji.",
     "morphemes": [
       {
@@ -511,9 +439,7 @@
     "kana": "たたみ",
     "meaning": "tatami mat (Japanese straw mat)",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
     "processes": [],
     "headline": "A tatami is, at heart, something you fold.",
@@ -531,12 +457,8 @@
     "kana": "おいしい",
     "meaning": "delicious, tasty",
     "level": "N5",
-    "pos": [
-      "adjective (keiyoushi)"
-    ],
-    "processes": [
-      "derivation"
-    ],
+    "pos": ["adjective (keiyoushi)"],
+    "processes": ["derivation"],
     "headline": "Delicious began as an honorific: “o-” + “ishii”.",
     "morphemes": [],
     "sources": [
@@ -552,12 +474,8 @@
     "kana": "ゆかた",
     "meaning": "bathrobe, informal summer kimono",
     "level": "N2",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
-    "processes": [
-      "clipping"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
+    "processes": ["clipping"],
     "headline": "ゆかた is the front half of a longer word, and the kanji say “bathing garment”.",
     "morphemes": [],
     "sources": [
@@ -573,9 +491,7 @@
     "kana": "たのしい",
     "meaning": "enjoyable, fun",
     "level": "N5",
-    "pos": [
-      "adjective (keiyoushi)"
-    ],
+    "pos": ["adjective (keiyoushi)"],
     "stratum": "wago",
     "processes": [
       "compound",
@@ -620,15 +536,9 @@
     "kana": "きもの",
     "meaning": "kimono; Japanese traditional dress",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": [
-      "compound",
-      "sound-change",
-      "meaning-shift"
-    ],
+    "processes": ["compound", "sound-change", "meaning-shift"],
     "headline": "A kimono was once just “a wearing-thing”: any clothing at all.",
     "morphemes": [
       {
@@ -661,14 +571,9 @@
     "kana": "じてんしゃ",
     "meaning": "bicycle",
     "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": [
-      "compound",
-      "wasei"
-    ],
+    "processes": ["compound", "wasei"],
     "headline": "A “self-rolling vehicle”, coined in Japan in 1870 for a tricycle.",
     "morphemes": [
       {
@@ -703,14 +608,9 @@
     "kana": "かじ",
     "meaning": "fire",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": [
-      "compound",
-      "reread"
-    ],
+    "processes": ["compound", "reread"],
     "headline": "A fire was once “the matter of fire”, a native phrase later re-read in Chinese sounds.",
     "morphemes": [
       {
@@ -739,14 +639,9 @@
     "kana": "ゆめ",
     "meaning": "a dream",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": [
-      "compound",
-      "sound-change"
-    ],
+    "processes": ["compound", "sound-change"],
     "headline": "“Dream” began as “sleep-eye”: sight seen while asleep.",
     "morphemes": [],
     "sources": [
@@ -768,9 +663,7 @@
     "kana": "けしき",
     "meaning": "scenery, landscape",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "processes": [],
     "headline": "けしき was spelled another way first; 景 was swapped in for the sense.",
     "morphemes": [],
@@ -787,10 +680,7 @@
     "kana": "あける",
     "meaning": "to open (v.t.)",
     "level": "N5",
-    "pos": [
-      "Ichidan verb",
-      "transitive verb"
-    ],
+    "pos": ["Ichidan verb", "transitive verb"],
     "stratum": "wago",
     "processes": [],
     "headline": "Open, dawn and empty are three spellings of one sound: あける.",
@@ -808,13 +698,9 @@
     "kana": "くうき",
     "meaning": "air, atmosphere",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": [
-      "compound"
-    ],
+    "processes": ["compound"],
     "headline": "A word with a known inventor and year, and little else on record.",
     "morphemes": [
       {
@@ -843,14 +729,9 @@
     "kana": "ふとん",
     "meaning": "futon",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": [
-      "compound",
-      "borrowing"
-    ],
+    "processes": ["compound", "borrowing"],
     "headline": "A futon began as a Zen meditation cushion made of bulrush, not cloth.",
     "morphemes": [
       {
@@ -891,10 +772,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "stratum": "kango",
-    "processes": [
-      "compound",
-      "borrowing"
-    ],
+    "processes": ["compound", "borrowing"],
     "headline": "“Skin and flesh” became “sarcasm” through a Zen test of understanding.",
     "morphemes": [
       {
@@ -929,16 +807,9 @@
     "kana": "じしん",
     "meaning": "earthquake",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": [
-      "compound",
-      "rendaku",
-      "borrowing",
-      "sound-change"
-    ],
+    "processes": ["compound", "rendaku", "borrowing", "sound-change"],
     "headline": "One spelling, two unrelated words: a Chinese compound and a lost native one.",
     "morphemes": [
       {
@@ -971,14 +842,8 @@
     "kana": "つゆ",
     "meaning": "rainy season",
     "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)"
-    ],
-    "processes": [
-      "derivation",
-      "borrowing",
-      "unclear"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
+    "processes": ["derivation", "borrowing", "unclear"],
     "headline": "“Plum rain” on paper, つゆ in speech, and no certain origin for the sound.",
     "morphemes": [],
     "sources": [
@@ -1006,17 +871,9 @@
     "kana": "つごう",
     "meaning": "circumstances, convenience",
     "level": "N4",
-    "pos": [
-      "adverb (fukushi)",
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": [
-      "compound",
-      "borrowing",
-      "sound-change",
-      "meaning-shift"
-    ],
+    "processes": ["compound", "borrowing", "sound-change", "meaning-shift"],
     "headline": "From “adding it all up” to “is that convenient for you?”",
     "morphemes": [
       {
