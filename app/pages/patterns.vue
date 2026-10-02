@@ -268,6 +268,121 @@
           </ul>
         </section>
 
+        <!-- Rendaku -->
+        <section
+          v-if="patterns.rendaku.words"
+          class="mt-12 space-y-4"
+          aria-labelledby="rendaku-heading"
+        >
+          <h2
+            id="rendaku-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            Readings that change inside a word
+          </h2>
+          <p
+            class="text-stone-600 dark:text-stone-400 font-body-serif max-w-2xl"
+          >
+            In {{ patterns.rendaku.words }} of the {{ patterns.total }} words,
+            the “Taken apart” row records a part whose reading differs from its
+            own — 日 is ひ alone but び in 日曜日. This is what these entries
+            show, not a rule of the language: it is a small sample, and the
+            parts come from parsing Wiktionary's text.
+            <NuxtLink
+              :to="explorePath({ process: 'rendaku' })"
+              class="text-primary-600 dark:text-primary-400 hover:underline"
+              >Browse the rendaku words</NuxtLink
+            >.
+          </p>
+
+          <ul data-testid="rendaku-voiced" class="space-y-5">
+            <li v-for="sound in patterns.rendaku.voiced" :key="sound.from">
+              <p class="flex items-baseline justify-between gap-3">
+                <span class="font-serif text-xl font-bold"
+                  >{{ sound.from }} → {{ sound.to }}</span
+                >
+                <span
+                  class="tabular-nums text-sm text-stone-500 dark:text-stone-400"
+                  >{{ sound.count }}
+                  {{ sound.count === 1 ? "word" : "words" }}</span
+                >
+              </p>
+              <span class="mt-1 block h-2 bg-stone-200/70 dark:bg-stone-800">
+                <span
+                  class="block h-full bg-primary-500"
+                  :style="{ width: width(sound.count, maxVoiced) }"
+                />
+              </span>
+              <ul class="mt-2 space-y-1 text-sm">
+                <li
+                  v-for="r in sound.readings"
+                  :key="`${r.part}-${r.base}-${r.reading}-${r.position}`"
+                  data-testid="rendaku-reading"
+                >
+                  <NuxtLink
+                    :to="partPath(r.part)"
+                    class="font-serif font-bold text-primary-600 dark:text-primary-400 hover:underline"
+                    >{{ r.part }}</NuxtLink
+                  >
+                  {{ r.base }} → {{ r.reading }}
+                  <span
+                    v-if="r.position === 'first'"
+                    class="text-stone-500 dark:text-stone-400"
+                    >(the first part)</span
+                  >
+                  ·
+                  <template v-for="(ex, i) in r.examples" :key="ex.date"
+                    ><NuxtLink
+                      :to="`/words/${ex.date}`"
+                      class="font-serif hover:underline"
+                      >{{ ex.term }}</NuxtLink
+                    ><span v-if="i < r.examples.length - 1">、</span></template
+                  ><span
+                    v-if="moreCount(r) > 0"
+                    class="text-stone-500 dark:text-stone-400"
+                  >
+                    and {{ moreCount(r) }} more</span
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div
+            v-for="group in otherChanges"
+            :key="group.id"
+            :data-testid="`rendaku-${group.id}`"
+            class="season-box border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3"
+          >
+            <p class="font-semibold">{{ group.title }}</p>
+            <p class="text-sm text-stone-600 dark:text-stone-400">
+              {{ group.note }}
+            </p>
+            <ul class="mt-2 space-y-1 text-sm">
+              <li v-for="r in group.readings" :key="`${r.part}-${r.reading}`">
+                <NuxtLink
+                  :to="partPath(r.part)"
+                  class="font-serif font-bold text-primary-600 dark:text-primary-400 hover:underline"
+                  >{{ r.part }}</NuxtLink
+                >
+                {{ r.base }} → {{ r.reading }} ·
+                <template v-for="(ex, i) in r.examples" :key="ex.date"
+                  ><NuxtLink
+                    :to="`/words/${ex.date}`"
+                    class="font-serif hover:underline"
+                    >{{ ex.term }}</NuxtLink
+                  ><span v-if="i < r.examples.length - 1">、</span></template
+                ><span
+                  v-if="moreCount(r) > 0"
+                  class="text-stone-500 dark:text-stone-400"
+                >
+                  and {{ moreCount(r) }} more</span
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+
         <p class="mt-12 text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
           These count the tags on the entries so far — what KANJIDIC2 and the
           quoted Wiktionary text establish for each word — not the Japanese
@@ -294,9 +409,10 @@ import AppFooter from "../components/AppFooter.vue";
 import TrendingFallback from "../components/TrendingFallback.vue";
 import { usePatterns } from "../composables/useExplore";
 import { usePageSeo } from "../composables/usePageSeo";
+import { explorePath, partPath } from "../utils/seo";
 import { STRATUM_DOT } from "../utils/stratum";
 import { WORD_PROCESSES, WORD_STRATA } from "~~/shared/word-labels";
-import type { ExploreFilters, StratumKey } from "~~/types/index";
+import type { RendakuReading, StratumKey } from "~~/types/index";
 
 const { patterns, loading, error, refresh } = usePatterns();
 
@@ -361,6 +477,30 @@ const breakdown = (label: string, by: Record<StratumKey, number>): string =>
     .map((k) => `${layerName(k)} ${by[k]}`)
     .join(", ")}`;
 
-const explorePath = (filters: ExploreFilters): string =>
-  `/explore?${new URLSearchParams(filters as Record<string, string>).toString()}`;
+const maxVoiced = computed(() =>
+  Math.max(1, ...(patterns.value?.rendaku.voiced.map((s) => s.count) ?? [])),
+);
+
+/** The recorded changes that are not a first kana voicing, each with a plain note. */
+const otherChanges = computed(() => {
+  const r = patterns.value?.rendaku;
+  if (!r) return [];
+  return [
+    {
+      id: "sokuon",
+      title: "Ending in っ",
+      note: "The part's last kana became っ in the word.",
+      readings: r.sokuon,
+    },
+    {
+      id: "other",
+      title: "Other changes",
+      note: "Recorded in the entries, but not a voiced first kana or an ending in っ.",
+      readings: r.other,
+    },
+  ].filter((group) => group.readings.length);
+});
+
+/** "手袋、手紙 and 1 more" — a change's examples, linked, with how many words it covers. */
+const moreCount = (r: RendakuReading): number => r.count - r.examples.length;
 </script>

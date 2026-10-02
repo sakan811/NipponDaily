@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { patternsFor } from "~~/shared/patterns";
+import { classifyChange, patternsFor } from "~~/shared/patterns";
 import { WORD_ENTRIES } from "~~/shared/words";
 
 const TODAY = "2026-12-31";
@@ -67,6 +67,79 @@ describe("patternsFor", () => {
     }
   });
 
+  it("accounts for every part whose reading changed, in exactly one group", () => {
+    const { rendaku } = patternsFor(TODAY);
+    const changed = open(TODAY).flatMap((e) =>
+      e.morphemes.filter((m) => m.base && m.base !== m.reading),
+    );
+    const grouped = [
+      ...rendaku.voiced.flatMap((s) => s.readings),
+      ...rendaku.sokuon,
+      ...rendaku.other,
+    ];
+
+    expect(grouped.reduce((n, r) => n + r.count, 0)).toBe(changed.length);
+    expect(rendaku.words).toBe(
+      open(TODAY).filter((e) =>
+        e.morphemes.some((m) => m.base && m.base !== m.reading),
+      ).length,
+    );
+    expect(rendaku.words).toBe(patternsFor(TODAY).withBase);
+  });
+
+  it("groups voiced readings by the sound that changed, most words first", () => {
+    const { voiced } = patternsFor(TODAY).rendaku;
+    const hi = voiced.find((s) => s.from === "ひ" && s.to === "び")!;
+
+    expect(voiced.map((s) => s.count)).toEqual(
+      [...voiced.map((s) => s.count)].sort((a, b) => b - a),
+    );
+    // 日 is ひ alone and び in the weekdays, 花火 and the like.
+    expect(hi.readings.find((r) => r.part === "日")).toMatchObject({
+      base: "ひ",
+      reading: "び",
+      position: "later",
+    });
+    for (const sound of voiced) {
+      for (const r of sound.readings) {
+        expect(r.reading[0]).toBe(sound.to);
+        expect(r.base[0]).toBe(sound.from);
+        expect(r.examples.length).toBeLessThanOrEqual(3);
+        expect(r.examples.length).toBeLessThanOrEqual(r.count);
+      }
+    }
+  });
+
+  it("keeps a word-final っ change apart from voicing", () => {
+    const { sokuon, voiced } = patternsFor(TODAY).rendaku;
+
+    expect(sokuon.length).toBeGreaterThan(0);
+    for (const r of sokuon) expect(r.reading.endsWith("っ")).toBe(true);
+    for (const s of voiced) {
+      for (const r of s.readings) expect(r.reading.endsWith("っ")).toBe(false);
+    }
+  });
+
+  it("only reports changes from words that have opened", () => {
+    const early = patternsFor("2026-01-05").rendaku;
+    const all = [
+      ...early.voiced.flatMap((s) => s.readings),
+      ...early.sokuon,
+      ...early.other,
+    ];
+
+    expect(early.words).toBe(1); // 仮名遣い, January 4th
+    for (const r of all) {
+      for (const ex of r.examples) expect(ex.date <= "2026-01-05").toBe(true);
+    }
+    expect(patternsFor("2025-12-31").rendaku).toEqual({
+      words: 0,
+      voiced: [],
+      sokuon: [],
+      other: [],
+    });
+  });
+
   it("never counts an upcoming word", () => {
     const early = patternsFor("2026-01-02");
 
@@ -84,5 +157,35 @@ describe("patternsFor", () => {
         expect(ex.date <= "2026-03-08").toBe(true);
       }
     }
+  });
+});
+
+describe("classifyChange", () => {
+  it("recognises a voiced first kana", () => {
+    expect(classifyChange("ひ", "び")).toEqual({
+      kind: "voiced",
+      from: "ひ",
+      to: "び",
+    });
+    expect(classifyChange("かみ", "がみ")).toMatchObject({ kind: "voiced" });
+    expect(classifyChange("つき", "づき")).toMatchObject({ kind: "voiced" });
+    expect(classifyChange("せい", "ぜい")).toMatchObject({ kind: "voiced" });
+  });
+
+  it("treats ち→じ and つ→ず as voicing (the four-kana merger)", () => {
+    expect(classifyChange("ち", "じ")).toMatchObject({ kind: "voiced" });
+    expect(classifyChange("つ", "ず")).toMatchObject({ kind: "voiced" });
+  });
+
+  it("recognises a reading that ends in っ", () => {
+    expect(classifyChange("みつ", "みっ")).toEqual({ kind: "sokuon" });
+    expect(classifyChange("こく", "こっ")).toEqual({ kind: "sokuon" });
+  });
+
+  it("leaves anything else as other", () => {
+    expect(classifyChange("かわ", "はな")).toEqual({ kind: "other" });
+    expect(classifyChange("ひ", "ひい")).toEqual({ kind: "other" });
+    // Voiced first kana but the rest also differs.
+    expect(classifyChange("かみ", "がも")).toEqual({ kind: "other" });
   });
 });

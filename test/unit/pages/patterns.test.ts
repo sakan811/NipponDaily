@@ -79,6 +79,58 @@ describe("Patterns Page (/patterns)", () => {
     );
   });
 
+  it("shows which readings change, with the words that show them", async () => {
+    const wrapper = mount(PatternsPage);
+    await flushPromises();
+
+    const { rendaku } = patternsFor(TODAY);
+    const voiced = wrapper.find('[data-testid="rendaku-voiced"]');
+    expect(voiced.text()).toContain("ひ → び");
+    // 日 takes び in the weekdays; its row names the change and links the part.
+    const row = voiced
+      .findAll('[data-testid="rendaku-reading"]')
+      .find((r) => r.text().startsWith("日"))!;
+    expect(row.text()).toContain("ひ → び");
+    expect(row.find("a").attributes("href")).toBe(
+      `/parts/${encodeURIComponent("日")}`,
+    );
+    const hi = rendaku.voiced.find((s) => s.from === "ひ")!;
+    expect(
+      row
+        .findAll("a")
+        .slice(1)
+        .map((a) => a.attributes("href")),
+    ).toEqual(
+      hi.readings
+        .find((r) => r.part === "日")!
+        .examples.map((ex) => `/words/${ex.date}`),
+    );
+  });
+
+  it("calls the rendaku section a sample, not a rule of the language", async () => {
+    // By year's end the っ endings (三日, 国境…) have opened too.
+    (global as any).$fetch.mockResolvedValue(
+      respond(patternsFor("2026-12-31")),
+    );
+    const wrapper = mount(PatternsPage);
+    await flushPromises();
+
+    const text = wrapper.text();
+    expect(text).toContain("Readings that change inside a word");
+    expect(text).toContain("not a rule of the language");
+    expect(wrapper.find('[data-testid="rendaku-sokuon"]').exists()).toBe(true);
+  });
+
+  it("leaves the rendaku section out when no word records a change", async () => {
+    (global as any).$fetch.mockResolvedValue(
+      respond(patternsFor("2025-12-31")),
+    );
+    const wrapper = mount(PatternsPage);
+    await flushPromises();
+
+    expect(wrapper.text()).not.toContain("Readings that change inside a word");
+  });
+
   it("says what the counts can't tell you", async () => {
     const wrapper = mount(PatternsPage);
     await flushPromises();

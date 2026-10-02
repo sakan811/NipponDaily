@@ -244,6 +244,45 @@ export interface ProcessPair {
   examples: WordNeighbor[];
 }
 
+/** One part whose reading changed inside the words that show it: the same
+ *  `base → reading` seen in `count` words. */
+export interface RendakuReading {
+  /** The part as written (日, 仮名, 付く…). */
+  part: string;
+  /** Its reading on its own, and the reading it takes in these words. */
+  base: string;
+  reading: string;
+  /** Whether it is the word's first part or a later one. */
+  position: "first" | "later";
+  /** Open words showing exactly this change. */
+  count: number;
+  /** A few of them. */
+  examples: WordNeighbor[];
+}
+
+/** One sound change at the start of a reading (ひ → び), across every part
+ *  that undergoes it. */
+export interface RendakuSound {
+  from: string;
+  to: string;
+  /** Open words in which a part's first kana changes this way. */
+  count: number;
+  readings: RendakuReading[];
+}
+
+/** The reading changes the entries record (a part's `base` differing from its
+ *  `reading`), split by what changed. */
+export interface RendakuPayload {
+  /** Open words recording at least one change. */
+  words: number;
+  /** The first kana became its voiced counterpart (ひ → び, か → が). */
+  voiced: RendakuSound[];
+  /** The reading's last kana became っ (みつ → みっ). */
+  sokuon: RendakuReading[];
+  /** Any other recorded change — listed rather than dropped. */
+  other: RendakuReading[];
+}
+
 /** What GET /api/patterns returns. */
 export interface PatternsPayload {
   /** Open words counted. */
@@ -258,6 +297,7 @@ export interface PatternsPayload {
   processes: PatternRow<WordProcess>[];
   /** Most-shared first. */
   pairs: ProcessPair[];
+  rendaku: RendakuPayload;
 }
 
 // --- SITE THEME ---
