@@ -16,6 +16,7 @@ import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildEntry } from "./lib/word-entry.mjs";
+import { loadEtymologySnapshot } from "./lib/etymology-snapshot.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -33,9 +34,7 @@ export function loadContext(root = ROOT) {
     for (const v of ref.vocab) vocab.push({ ...v, level });
     Object.assign(kanji, ref.kanji);
   }
-  const snapshot = JSON.parse(
-    readFileSync(join(root, "data/reference/etymology-reference.json"), "utf8"),
-  );
+  const snapshot = loadEtymologySnapshot(root);
   return {
     vocab: (term) => vocab.filter((v) => v.term === term),
     kanji,

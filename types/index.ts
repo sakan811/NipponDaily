@@ -52,7 +52,7 @@ export interface Morpheme {
 }
 
 /** One line of Wiktionary's Etymology section for this word's reading, quoted
- *  verbatim from the pinned snapshot in data/reference/etymology-reference.json. */
+ *  verbatim from the pinned snapshot in data/reference/etymology/. */
 export interface WordSource {
   quote: string;
 }
