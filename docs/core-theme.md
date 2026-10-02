@@ -20,20 +20,26 @@ Time is how the app is styled and used. It runs on two clocks.
 calendar's four seasons: spring, summer, autumn and winter. It repeats every
 year, so it never runs out.
 
-**The learning clock: laps (周).** One word a day, and when the words are used
-up, the cycle starts again from the first. A lap is a return to words already
-met, not a gap. Which word a date shows depends only on the date, so any reader
-in any year gets the same complete page.
+**The learning clock: one word a day.** Each date has one word, and which word
+a date shows depends only on the date, so any reader gets the same complete
+page. The words are finite (every day from 2026-01-01 to 2027-10-31 so far), so
+when they run out the home page keeps showing the newest word instead of going
+blank. The idea of a lap (周), starting again from the first word once the words
+are used up, is where this clock is meant to go; it is not built yet, and no
+page or API repeats a word today.
 
 ## Principles
 
 1. **No reader data.** No accounts, no progress, no streaks. Nothing about a
-   reader is stored or sent anywhere, and the site is the same for everyone.
+   reader is sent to or stored on a server; only a colour mode, a season pick
+   and a music volume stay in the reader's own browser. The site is the same
+   for everyone.
 2. **Fits whenever a reader comes.** Daily is ideal but never required. Every
-   page stands alone, nothing assumes yesterday was read, and there is always a
-   word for today.
-3. **The cycle never breaks.** The word list is finite, so the app is built to
-   repeat gracefully rather than run out.
+   page stands alone, nothing assumes yesterday was read, and the home page
+   always shows a word: today's, or the newest one once the words have run out.
+3. **The page is never empty.** The word list is finite, so the app falls back
+   to the newest word rather than run out. Repeating the words in laps is the
+   intended next step, not a current feature.
 4. **Derive, don't claim.** Data pages and time labels read what the entries
    already say. They add no new fact about a word.
 5. **Only what has arrived.** A word is shown only once its day has come.

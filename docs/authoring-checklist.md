@@ -30,12 +30,11 @@ word. See "Where AI (or any model) may help" in `docs/content-accuracy.md`.
        untouched. Wikimedia rate-limits anonymous clients; the script paces
        itself and honours `Retry-After`. For a bulk batch of candidates pass
        `--skip-missing` so a page with no Japanese section is skipped instead of
-       aborting the run; roughly 60% of pool words turn out to have a usable
-       Etymology section, so pin about twice as many candidates as you need,
-       then `pnpm data:etymology --prune --terms <the chosen ones>` to drop the rest.
+       aborting the run; many pool words have no usable Etymology section, so
+       pin more candidates than you need, then `pnpm data:etymology --prune --terms <the chosen ones>` to drop the rest.
 4. [ ] **Generate**: `pnpm data:words`. It fetches nothing; it reads the committed
        snapshots. It prints every entry it could not build and why, and writes
-       nothing until they are all fixed (`--keep-going` writes the rest). See
+       nothing until they are all fixed (`--keep-going` writes every entry that built and leaves the failed days out). See
        "If the generator refuses an entry" below.
 5. [ ] **Read the result once.** Entries with no breakdown are normal (the source
        gave no clean split) as are entries with no layer (irregular spellings).
@@ -46,6 +45,12 @@ word. See "Where AI (or any model) may help" in `docs/content-accuracy.md`.
 7. [ ] `pnpm test:run` — `word-generation.test.ts` fails if a committed entry
        differs from what the sources produce; `words.test.ts` checks every
        entry independently of the generator.
+8. [ ] **Update the stated range.** The first and last month and the word count
+       are written out in `README.md` (Features, Limitations),
+       `app/pages/docs/features.vue` and `docs/core-theme.md`, and the project's
+       agent-instructions file (the one your coding tool reads, such as
+       `CLAUDE.md` or `AGENTS.md`) names the first and latest month and quotes how
+       many entries have parts or no layer. Nothing computes these, so edit them by hand.
 
 **If the generator refuses an entry:**
 

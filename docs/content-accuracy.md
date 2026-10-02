@@ -8,25 +8,25 @@ To author or change daily words, follow `docs/authoring-checklist.md`.
 
 ## The idea
 
-The dictionary data everything is checked against lives in Redis at runtime,
-where no test can see it — and etymology isn't in a dictionary at all. So the
-evidence is committed to the repo instead. Daily-word entries are not written
-from memory at all: only the one-line headline is hand-written, and every other
-field is **generated from these sources** (`pnpm data:words`) and checked in CI.
+Dictionary data isn't in the repo's tests — and etymology isn't in a dictionary
+at all. So the evidence is committed to the repo, and CI checks everything
+against it offline. Daily-word entries are not written from memory at all: only
+the one-line headline is hand-written, and every other field is **generated
+from these sources** (`pnpm data:words`) and checked in CI.
 
-| Piece                                            | What it is                                                                                                                                                                                                        |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `data/reference/{n5,n4,n3,n2}-reference.json`    | Generated JMdict + KANJIDIC2 snapshot for every word in the JLPT lists (after `shared/meanings.ts` corrections) and every kanji the content uses. **Never edit by hand.**                                         |
-| `data/reference/etymology/`                      | Generated plain text of English Wiktionary's Japanese _Etymology_ sections for every daily word, each page pinned to a **revision id** (CC BY-SA 4.0). **Never edit by hand.**                                    |
-| `pnpm data:reference`                            | Rebuilds `n5-reference.json` from pinned sources.                                                                                                                                                                 |
-| `pnpm data:reference:jlpt`                       | Rebuilds `n4`/`n3`/`n2` reference files.                                                                                                                                                                          |
-| `pnpm data:etymology`                            | Rebuilds the Wiktionary snapshot. Pinned terms keep their stored text (and gain per-section `readings`); new terms are pinned at their current revision; `--refresh <term>` re-pins; `--prune` drops unused pins. |
-| `data/word-plan/YYYY-MM.json`                    | **The only hand-written content**: `{ date, term, headline }` per day (`kana` when a spelling has several pool words).                                                                                            |
-| `pnpm data:words`                                | Generates `data/words/YYYY-MM.json` from the plan and the sources above (`scripts/lib/word-entry.mjs`). Never edit the output by hand.                                                                            |
-| `test/content/word-generation.test.ts`           | Regenerates every month and fails on any difference from the committed entries.                                                                                                                                   |
-| `test/content/words.test.ts`                     | Independent checks of every entry (below).                                                                                                                                                                        |
-| `test/content/` (N5), `test/content/{n4,n3,n2}/` | The pool gate: words resolve in JMdict, no reversed meanings, readings are attested.                                                                                                                              |
-| `shared/meanings.ts`                             | The **only** place to correct or enrich what a pool word says (`VOCAB_FORM_CORRECTIONS`, `VOCAB_MEANING_ENRICHMENTS`), applied with `servedVocab()` when a reference snapshot is built.                           |
+| Piece                                            | What it is                                                                                                                                                                                                                                                                               |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data/reference/{n5,n4,n3,n2}-reference.json`    | Generated JMdict + KANJIDIC2 snapshot for every word in the JLPT lists (after `shared/meanings.ts` corrections) and every kanji the content uses. **Never edit by hand.**                                                                                                                |
+| `data/reference/etymology/`                      | Generated plain text of English Wiktionary's Japanese _Etymology_ sections for every daily word, each page pinned to a **revision id** (CC BY-SA 4.0), stored as `meta.json` plus one `YYYY-MM.json` shard per word-plan month. **Never edit by hand.**                                  |
+| `pnpm data:reference`                            | Rebuilds `n5-reference.json` from pinned sources.                                                                                                                                                                                                                                        |
+| `pnpm data:reference:jlpt`                       | Rebuilds `n4`/`n3`/`n2` reference files.                                                                                                                                                                                                                                                 |
+| `pnpm data:etymology`                            | Rebuilds the Wiktionary snapshot. Pinned terms keep their stored text (and gain per-section `readings`); new terms (`--terms a,b,c`) are pinned at their current revision, `--skip-missing` skips a page that can't be fetched; `--refresh <term>` re-pins; `--prune` drops unused pins. |
+| `data/word-plan/YYYY-MM.json`                    | **The only hand-written content**: `{ date, term, headline }` per day (`kana` when a spelling has several pool words).                                                                                                                                                                   |
+| `pnpm data:words`                                | Generates `data/words/YYYY-MM.json` from the plan and the sources above (`scripts/lib/word-entry.mjs`). Never edit the output by hand.                                                                                                                                                   |
+| `test/content/word-generation.test.ts`           | Regenerates every month and fails on any difference from the committed entries.                                                                                                                                                                                                          |
+| `test/content/words.test.ts`                     | Independent checks of every entry (below).                                                                                                                                                                                                                                               |
+| `test/content/` (N5), `test/content/{n4,n3,n2}/` | The pool gate: words resolve in JMdict, no reversed meanings, readings are attested.                                                                                                                                                                                                     |
+| `shared/meanings.ts`                             | The **only** place to correct or enrich what a pool word says (`VOCAB_FORM_CORRECTIONS`, `VOCAB_MEANING_ENRICHMENTS`), applied with `servedVocab()` when a reference snapshot is built.                                                                                                  |
 
 ## Where AI (or any model) may help — and where it may not
 
@@ -49,9 +49,11 @@ instead. The same goes for any new feature's data.
 
 ## What the entry checks prove — and don't
 
-For every entry `words.test.ts` checks, independently of the generator, that:
+Across the catalogue `words.test.ts` checks that every date and term is unique,
+that each month it starts is complete and that the entries are sorted by date.
+For every entry it checks, independently of the generator, that:
 
-- the term, reading, level and meaning equal the word list's (after `shared/meanings.ts`);
+- the term, reading, level and meaning equal the word list's (after `shared/meanings.ts`), and its layer and processes are ones the site knows (`shared/word-labels.ts`);
 - `pos` holds only tags JMdict gives that word;
 - every `sources[].quote` is found verbatim (modulo whitespace and direction
   marks) in a Wiktionary Etymology section **declared for the entry's own
@@ -64,7 +66,7 @@ For every entry `words.test.ts` checks, independently of the generator, that:
   gives no split of an all-kanji word);
 - the headline mentions only Japanese that the entry's evidence or the pool
   contains;
-- an `unclear` entry quotes a hedged line, and no snapshot pin is orphaned.
+- an `unclear` entry quotes a hedged line, no snapshot pin is orphaned, each pin sits in the shard of the month that plans its word, and the snapshot records its source and licence.
 
 `word-generation.test.ts` additionally requires every committed entry to equal
 what the generator derives from the plan and the sources, so a derived field
