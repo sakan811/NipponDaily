@@ -239,6 +239,7 @@
 </template>
 
 <script setup lang="ts">
+import { usePageSeo } from "../../composables/usePageSeo";
 import AppHeader from "../../components/AppHeader.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import WordEntryView from "../../components/WordEntryView.vue";
@@ -301,6 +302,13 @@ const notFoundSample = JSON.stringify(
   null,
   2,
 );
+
+usePageSeo({
+  title: "Error & fallback states",
+  description:
+    "A catalogue of every degraded or failure state the site can render.",
+  path: "/docs/error-states",
+});
 </script>
 
 <style scoped>

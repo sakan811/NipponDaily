@@ -22,7 +22,7 @@
         :error="error"
         :loading="loading"
         title="Unable to Load This Word"
-        @retry="fetchWord(date)"
+        @retry="refresh()"
       />
 
       <template v-else-if="payload">
@@ -69,31 +69,32 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from "vue";
+import { computed } from "vue";
 import { useRoute } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import WordEntryView from "../../components/WordEntryView.vue";
 import { useDailyWord } from "../../composables/useDailyWord";
+import { usePageSeo } from "../../composables/usePageSeo";
+import { wordDescription, wordTitle } from "../../utils/seo";
 
 const route = useRoute();
-const { payload, loading, error, fetchWord } = useDailyWord();
+// Prev/next links stay on this same page component, so the date follows the
+// route param and the fetch re-runs when it changes.
+const date = computed(() => String(route.params.date ?? ""));
+const { payload, loading, error, refresh } = useDailyWord(date);
 
-const dateParam = (): string => String(route.params.date ?? "");
-let date = dateParam();
-
-onMounted(() => {
-  void fetchWord(date);
+usePageSeo({
+  title: () => (payload.value ? wordTitle(payload.value.entry) : "A word"),
+  description: () =>
+    payload.value
+      ? wordDescription(payload.value.entry)
+      : "One Japanese word, taken apart: its parts, its layer and the evidence for where it comes from.",
+  path: () => `/words/${date.value}`,
+  type: "article",
+  // A word opens at midnight in Japan.
+  publishedTime: () => `${date.value}T00:00:00+09:00`,
+  noindex: () => !payload.value,
 });
-
-// Prev/next links stay on this same page component, so refetch when the
-// date segment changes rather than waiting for a remount.
-watch(
-  () => route.params.date,
-  () => {
-    date = dateParam();
-    void fetchWord(date);
-  },
-);
 </script>

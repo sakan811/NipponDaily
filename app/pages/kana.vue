@@ -292,6 +292,7 @@
 </template>
 
 <script setup lang="ts">
+import { usePageSeo } from "../composables/usePageSeo";
 import AppHeader from "../components/AppHeader.vue";
 import EmaPlaque from "../components/EmaPlaque.vue";
 import OmamoriCharm from "../components/OmamoriCharm.vue";
@@ -300,4 +301,11 @@ import { KANA_ROWS, DAKUTEN_GROUPS, DIGRAPH_GROUPS } from "../data/kana-guide";
 const kanaRows = KANA_ROWS;
 const dakutenGroups = DAKUTEN_GROUPS;
 const digraphGroups = DIGRAPH_GROUPS;
+
+usePageSeo({
+  title: "Hiragana & Katakana",
+  description:
+    "The 46 hiragana and katakana, side by side, each with a shape mnemonic.",
+  path: "/kana",
+});
 </script>

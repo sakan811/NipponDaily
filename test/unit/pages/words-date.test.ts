@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
-import { useRoute } from "#app";
+import { useHead, useRoute, useSeoMeta } from "#app";
 import WordPage from "~/app/pages/words/[date].vue";
 import { WORD_ENTRIES, payloadFor } from "~~/shared/words";
 
@@ -97,6 +97,39 @@ describe("Word Page (/words/[date])", () => {
     await flushPromises();
 
     expect(wrapper.text()).toContain("There is no word for this day.");
+    consoleError.mockRestore();
+  });
+
+  it("sets the page's title, description and canonical URL from the entry", async () => {
+    vi.mocked(useSeoMeta).mockClear();
+    vi.mocked(useHead).mockClear();
+    mount(WordPage);
+    await flushPromises();
+
+    const meta = vi.mocked(useSeoMeta).mock.calls[0]![0] as Record<string, any>;
+    expect(meta.title()).toBe("ありがとう (ありがとう) — Thank you");
+    expect(meta.description()).toContain("ありがとう");
+    expect(meta.ogType).toBe("article");
+    expect(meta.ogUrl()).toBe("https://nippondaily.test/words/2026-10-13");
+    expect(meta.articlePublishedTime()).toBe("2026-10-13T00:00:00+09:00");
+    expect(meta.robots()).toBeUndefined();
+    const head = vi.mocked(useHead).mock.calls[0]![0] as any;
+    expect(head.link[0].href()).toBe(
+      "https://nippondaily.test/words/2026-10-13",
+    );
+  });
+
+  it("keeps an error page out of search results", async () => {
+    (global as any).$fetch.mockRejectedValue({ statusCode: 404 });
+    vi.mocked(useSeoMeta).mockClear();
+    const consoleError = vi
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
+    mount(WordPage);
+    await flushPromises();
+
+    const meta = vi.mocked(useSeoMeta).mock.calls[0]![0] as Record<string, any>;
+    expect(meta.robots()).toBe("noindex, nofollow");
     consoleError.mockRestore();
   });
 

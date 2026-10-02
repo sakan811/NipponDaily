@@ -125,6 +125,7 @@
 </template>
 
 <script setup lang="ts">
+import { usePageSeo } from "../../composables/usePageSeo";
 import AppHeader from "../../components/AppHeader.vue";
 import ColorSwatchBadge from "../../components/ColorSwatchBadge.vue";
 import {
@@ -154,6 +155,13 @@ const seasons = SEASON_IDS.map((id) => SEASONS[id]);
 
 const monthRange = (months: readonly number[]) =>
   `${MONTH_NAMES[months[0]! - 1]}–${MONTH_NAMES[months[months.length - 1]! - 1]}`;
+
+usePageSeo({
+  title: "Color palette & system",
+  description:
+    "The four seasonal palettes and the shape language each season applies.",
+  path: "/docs/color-palette",
+});
 </script>
 
 <style scoped>

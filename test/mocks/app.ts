@@ -15,3 +15,25 @@ export function useRoute() {
 export function useRouter() {
   return { push: () => {}, replace: () => {} };
 }
+
+export function useRuntimeConfig() {
+  return { public: {} };
+}
+
+export function useAsyncData() {
+  return { data: null, error: null, status: "idle", refresh: async () => {} };
+}
+
+export function useSeoMeta() {}
+
+export function useHead() {}
+
+export function useRequestURL() {
+  return new URL("https://nippondaily.test/");
+}
+
+export function useRequestEvent() {
+  return undefined;
+}
+
+export function setResponseStatus() {}

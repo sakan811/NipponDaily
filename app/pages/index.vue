@@ -42,7 +42,7 @@
           :error="error"
           :loading="loading"
           title="Unable to Load Today's Word"
-          @retry="fetchWord()"
+          @retry="refresh()"
         />
 
         <NuxtLink
@@ -223,17 +223,23 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
 import AppHeader from "../components/AppHeader.vue";
 import AppFooter from "../components/AppFooter.vue";
 import TrendingFallback from "../components/TrendingFallback.vue";
 import { useDailyWord } from "../composables/useDailyWord";
+import { usePageSeo } from "../composables/usePageSeo";
+import { wordTitle } from "../utils/seo";
 import { formatLongDate } from "../utils/date";
 
-const { payload, loading, error, fetchWord } = useDailyWord();
+const { payload, loading, error, refresh } = useDailyWord();
 
-onMounted(() => {
-  void fetchWord();
+usePageSeo({
+  title: "One Japanese word a day, taken apart",
+  description: () =>
+    payload.value
+      ? `Today: ${wordTitle(payload.value.entry)}. Each day NipponDaily takes one Japanese word apart — its parts, its layer of the vocabulary, how it came to be — with the Wiktionary lines behind every claim.`
+      : "Each day NipponDaily takes one Japanese word apart — its parts, its layer of the vocabulary, how it came to be — with the Wiktionary lines behind every claim.",
+  path: "/",
 });
 
 const entryParts = [
