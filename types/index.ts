@@ -169,6 +169,97 @@ export interface PartDetail {
   alsoIn: PartWordRef[];
 }
 
+// --- EXPLORE (browse and filter) ---
+
+/** An open word in a result list: enough to recognise it and link to its page. */
+export interface WordSummary {
+  date: string;
+  term: string;
+  kana: string;
+  meaning: string;
+  level: JlptLevel;
+  stratum?: WordStratum;
+  processes: WordProcess[];
+  /** Whether its "Taken apart" row shows any parts. */
+  hasParts: boolean;
+}
+
+/** The filters GET /api/explore accepts. Every one is optional; together they narrow. */
+export interface ExploreFilters {
+  /** Matches the term, the reading (katakana and hiragana alike) or the meaning. */
+  q?: string;
+  level?: JlptLevel;
+  stratum?: WordStratum;
+  process?: WordProcess;
+  /** A part's text, as in /parts/<text>. */
+  part?: string;
+}
+
+/** How many words a filter option would leave, given the other active filters. */
+export interface FacetCount<T extends string> {
+  value: T;
+  count: number;
+}
+
+/** What GET /api/explore returns. */
+export interface ExplorePayload {
+  filters: ExploreFilters;
+  /** Open words in all. */
+  total: number;
+  /** Open words matching every filter — the length of `words`. */
+  count: number;
+  /** The matches, newest first. */
+  words: WordSummary[];
+  /** Each facet counts the words matching every *other* filter, so choosing an
+   *  option never shows a count it cannot deliver. */
+  facets: {
+    level: FacetCount<JlptLevel>[];
+    stratum: FacetCount<WordStratum>[];
+    process: FacetCount<WordProcess>[];
+  };
+}
+
+// --- PATTERNS (counts across words) ---
+
+/** A layer, or "unstated" when neither KANJIDIC2 nor the evidence establishes one. */
+export type StratumKey = WordStratum | "unstated";
+
+export interface PatternCount<T extends string> {
+  value: T;
+  count: number;
+}
+
+/** A row of a breakdown: how many words, and how they split by layer. */
+export interface PatternRow<T extends string> {
+  value: T;
+  count: number;
+  byStratum: Record<StratumKey, number>;
+}
+
+/** Two processes that the same words carry, with a few of those words. */
+export interface ProcessPair {
+  a: WordProcess;
+  b: WordProcess;
+  count: number;
+  examples: WordNeighbor[];
+}
+
+/** What GET /api/patterns returns. */
+export interface PatternsPayload {
+  /** Open words counted. */
+  total: number;
+  /** Of those, how many show a "Taken apart" row. */
+  withParts: number;
+  /** Of those, how many show a part whose reading changed in the word (rendaku/sokuon). */
+  withBase: number;
+  strata: PatternCount<StratumKey>[];
+  levels: PatternRow<JlptLevel>[];
+  /** Most-used first. */
+  processes: PatternRow<WordProcess>[];
+  /** Most-shared first. */
+  pairs: ProcessPair[];
+}
+
 // --- SITE THEME ---
 
 /**
