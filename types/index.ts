@@ -300,6 +300,28 @@ export interface PatternsPayload {
   rendaku: RendakuPayload;
 }
 
+// --- RELATED (more like this) ---
+
+/** What an open word has in common with the entry it is offered beside. */
+export interface RelatedShared {
+  /** Parts both words' "Taken apart" rows show. */
+  parts: string[];
+  processes: WordProcess[];
+  /** Set when both words are in the same layer. */
+  stratum?: WordStratum;
+}
+
+export interface RelatedWord extends PartWordRef {
+  shared: RelatedShared;
+}
+
+/** What GET /api/related returns: open words that resemble one entry, closest first. */
+export interface RelatedPayload {
+  /** The entry they are related to. */
+  date: string;
+  words: RelatedWord[];
+}
+
 // --- SITE THEME ---
 
 /**

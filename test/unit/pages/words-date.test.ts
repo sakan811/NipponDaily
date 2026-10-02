@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import { useHead, useRoute, useSeoMeta } from "#app";
 import WordPage from "~/app/pages/words/[date].vue";
+import { relatedWords } from "~~/shared/related";
 import { WORD_ENTRIES, payloadFor } from "~~/shared/words";
 
 const entryOn = (date: string) => WORD_ENTRIES.find((e) => e.date === date)!;
@@ -50,6 +51,43 @@ describe("Word Page (/words/[date])", () => {
     expect(prev.text()).toContain("出口");
     expect(next.attributes("to")).toBe("/words/2026-10-14");
     expect(next.text()).toContain("果物");
+  });
+
+  it("offers related words beneath the entry", async () => {
+    const date = "2026-10-13";
+    (global as any).$fetch.mockImplementation(async (url: string) =>
+      url === "/api/related"
+        ? {
+            success: true,
+            data: {
+              date,
+              words: relatedWords(entryOn(date), "2026-10-31"),
+            },
+            timestamp: "2026-10-31T00:00:00Z",
+          }
+        : respond(date),
+    );
+    const wrapper = mount(WordPage);
+    await flushPromises();
+
+    expect((global as any).$fetch).toHaveBeenCalledWith("/api/related", {
+      query: { date },
+    });
+    expect(
+      wrapper.findAll('[data-testid="related-word"]').length,
+    ).toBeGreaterThan(0);
+  });
+
+  it("still shows the entry when the related words fail to load", async () => {
+    (global as any).$fetch.mockImplementation(async (url: string) => {
+      if (url === "/api/related") throw { statusCode: 500 };
+      return respond("2026-10-13");
+    });
+    const wrapper = mount(WordPage);
+    await flushPromises();
+
+    expect(wrapper.find('[data-testid="word-term"]').text()).toBe("ありがとう");
+    expect(wrapper.find('[data-testid="related-words"]').exists()).toBe(false);
   });
 
   it("has no next link when the next day hasn't arrived", async () => {

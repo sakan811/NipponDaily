@@ -4,6 +4,7 @@ import type {
   ApiResponse,
   PartDetail,
   PartsIndexPayload,
+  RelatedPayload,
 } from "~~/types/index";
 import { describeError, fetchPage } from "./useDailyWord";
 
@@ -62,4 +63,26 @@ export function usePart(text: MaybeRefOrGetter<string>) {
       await refresh();
     },
   };
+}
+
+/** GET /api/related?date= — open words that resemble one entry. Supplementary:
+ *  the page shows the row only when it loads, so a failure is not an error state. */
+export function useRelatedWords(date: MaybeRefOrGetter<string>) {
+  const { data } = useAsyncData(
+    () => `related:${toValue(date)}`,
+    async () => {
+      // Not fetchPage: a failure here must never turn the whole page into a 404.
+      try {
+        const response = await $fetch<ApiResponse<RelatedPayload>>(
+          "/api/related",
+          { query: { date: toValue(date) } },
+        );
+        return response?.data ?? null;
+      } catch {
+        return null;
+      }
+    },
+  );
+
+  return { related: computed(() => data.value ?? null) };
 }

@@ -28,6 +28,12 @@
       <template v-else-if="payload">
         <WordEntryView :entry="payload.entry" />
 
+        <RelatedWords
+          v-if="related?.words?.length"
+          class="mt-10"
+          :words="related.words"
+        />
+
         <!-- Previous / next open day -->
         <nav
           class="mt-14 pt-6 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between gap-4"
@@ -74,8 +80,10 @@ import { useRoute } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
+import RelatedWords from "../../components/RelatedWords.vue";
 import WordEntryView from "../../components/WordEntryView.vue";
 import { useDailyWord } from "../../composables/useDailyWord";
+import { useRelatedWords } from "../../composables/useParts";
 import { usePageSeo } from "../../composables/usePageSeo";
 import { wordDescription, wordTitle } from "../../utils/seo";
 
@@ -84,6 +92,7 @@ const route = useRoute();
 // route param and the fetch re-runs when it changes.
 const date = computed(() => String(route.params.date ?? ""));
 const { payload, loading, error, refresh } = useDailyWord(date);
+const { related } = useRelatedWords(date);
 
 usePageSeo({
   title: () => (payload.value ? wordTitle(payload.value.entry) : "A word"),
