@@ -22,12 +22,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] dark:hidden rounded-full"
-          >
+          />
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] hidden dark:block rounded-full"
-          >
+          />
         </span>
         <span
           class="font-serif font-bold text-[1em] leading-none text-stone-900 dark:text-white"
@@ -43,6 +43,9 @@
         >
           <NuxtLink to="/words" class="hover:text-primary-500 transition-colors"
             >Calendar</NuxtLink
+          >
+          <NuxtLink to="/parts" class="hover:text-primary-500 transition-colors"
+            >Parts</NuxtLink
           >
           <NuxtLink to="/kana" class="hover:text-primary-500 transition-colors"
             >Kana</NuxtLink

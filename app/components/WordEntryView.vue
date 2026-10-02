@@ -83,31 +83,40 @@
           >
             +
           </li>
-          <li
-            data-testid="word-morpheme"
-            class="season-box min-w-[7rem] border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3 text-center space-y-1"
-          >
-            <p
-              class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
+          <li data-testid="word-morpheme" class="flex">
+            <NuxtLink
+              :to="partPath(m.text)"
+              :aria-label="`${m.text}: every word taken apart with it`"
+              class="season-box min-w-[7rem] border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3 text-center space-y-1 hover:border-primary-500 transition-colors"
             >
-              {{ m.text }}
-            </p>
-            <p
-              class="text-sm font-medium text-primary-600 dark:text-primary-400"
-            >
-              {{ m.reading }}
-              <span
-                v-if="m.base && m.base !== m.reading"
-                class="text-stone-500 dark:text-stone-400"
-                >(from {{ m.base }})</span
+              <p
+                class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
               >
-            </p>
-            <p class="text-xs text-stone-600 dark:text-stone-400">
-              {{ m.meaning }}
-            </p>
+                {{ m.text }}
+              </p>
+              <p
+                class="text-sm font-medium text-primary-600 dark:text-primary-400"
+              >
+                {{ m.reading }}
+                <span
+                  v-if="m.base && m.base !== m.reading"
+                  class="text-stone-500 dark:text-stone-400"
+                  >(from {{ m.base }})</span
+                >
+              </p>
+              <p class="text-xs text-stone-600 dark:text-stone-400">
+                {{ m.meaning }}
+              </p>
+            </NuxtLink>
           </li>
         </template>
       </ol>
+      <p
+        v-if="entry.morphemes.length"
+        class="text-xs text-stone-500 dark:text-stone-400"
+      >
+        Select a part to see every word so far that is taken apart with it.
+      </p>
       <p
         v-else
         data-testid="word-no-breakdown"
@@ -217,6 +226,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { formatLongDate } from "../utils/date";
+import { partPath } from "../utils/seo";
 import { WORD_PROCESSES, WORD_STRATA, isHedged } from "~~/shared/word-labels";
 import type { WordEntry, WordStratum } from "~~/types/index";
 
