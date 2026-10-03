@@ -3,6 +3,7 @@
  * a server. Only open days are listed — an upcoming word's URL must not be
  * advertised any more than its text may be served.
  */
+import { DOC_PATHS } from "./docs";
 import { partsIndex } from "./parts";
 import { WORD_ENTRIES, todayJst } from "./words";
 
@@ -13,6 +14,7 @@ const STATIC_PATHS = [
   "/patterns",
   "/parts",
   "/kana",
+  ...DOC_PATHS,
 ];
 
 const escapeXml = (s: string): string =>
