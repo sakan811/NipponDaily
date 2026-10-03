@@ -273,15 +273,15 @@
         <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
           Romaji via
           <a
-            href="https://github.com/WaniKani/WanaKana"
+            :href="SOURCES.wanakana.url"
             target="_blank"
             rel="noopener"
             class="underline hover:text-primary-500"
-            >wanakana</a
+            >{{ SOURCES.wanakana.name }}</a
           >
-          (MIT) —
+          ({{ SOURCES.wanakana.licence.name }}) —
           <NuxtLink
-            to="/docs/architecture#data-attribution"
+            to="/docs/data-integrity#data-attribution"
             class="underline hover:text-primary-500"
             >full attribution</NuxtLink
           >
@@ -296,6 +296,7 @@ import { usePageSeo } from "../composables/usePageSeo";
 import AppHeader from "../components/AppHeader.vue";
 import EmaPlaque from "../components/EmaPlaque.vue";
 import OmamoriCharm from "../components/OmamoriCharm.vue";
+import { SOURCES } from "~~/shared/sources";
 import { KANA_ROWS, DAKUTEN_GROUPS, DIGRAPH_GROUPS } from "../data/kana-guide";
 
 const kanaRows = KANA_ROWS;
