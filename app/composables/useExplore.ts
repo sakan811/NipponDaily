@@ -6,6 +6,7 @@ import type {
   ExplorePayload,
   PatternsPayload,
 } from "~~/types/index";
+import { queryFromFilters } from "~~/shared/explore-query";
 import { describeError, fetchPage } from "./useDailyWord";
 
 /** GET /api/explore — the open words matching `filters`; refetches when they change. */
@@ -17,7 +18,7 @@ export function useExplore(filters: MaybeRefOrGetter<ExploreFilters>) {
         nuxtApp,
         () =>
           $fetch<ApiResponse<ExplorePayload>>("/api/explore", {
-            query: { ...toValue(filters) },
+            query: queryFromFilters(toValue(filters)),
           }),
         "explore",
       ),

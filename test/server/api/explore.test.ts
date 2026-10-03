@@ -44,9 +44,9 @@ describe("GET /api/explore", () => {
     const result = (await getExplore())({} as any);
 
     expect(result.data.filters).toEqual({
-      level: "N5",
-      stratum: "wago",
-      process: "compound",
+      level: ["N5"],
+      stratum: ["wago"],
+      process: ["compound"],
     });
     expect(
       result.data.words.every(
@@ -102,5 +102,50 @@ describe("GET /api/patterns", () => {
     const march = handler({} as any).data.total;
     at("2026-03-09T12:00:00Z");
     expect(handler({} as any).data.total).toBe(march + 1);
+  });
+});
+
+describe("GET /api/explore with several choices", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-03-08T12:00:00Z"));
+  });
+  afterEach(() => vi.useRealTimers());
+
+  it("accepts comma-joined lists, a part of speech and match=all", async () => {
+    (global as any).getQuery.mockReturnValue({
+      level: "N5,N4",
+      process: "compound,rendaku",
+      pos: "noun",
+      stratum: "unstated",
+      match: "all",
+    });
+    const result = (await getExplore())({} as any);
+
+    expect(result.data.filters).toEqual({
+      level: ["N5", "N4"],
+      process: ["compound", "rendaku"],
+      pos: ["noun"],
+      stratum: ["unstated"],
+      match: "all",
+    });
+    expect(result.data.facets.pos.map((f: any) => f.value)).toContain("verb");
+  });
+
+  it("treats match=any as the default and leaves it out", async () => {
+    (global as any).getQuery.mockReturnValue({ match: "any" });
+    expect((await getExplore())({} as any).data.filters).toEqual({});
+  });
+
+  it("400s one bad value inside a list and a bad match", async () => {
+    const handler = await getExplore();
+    for (const query of [
+      { level: "N5,N1" },
+      { pos: "verb,noun-ish" },
+      { match: "some" },
+    ]) {
+      (global as any).getQuery.mockReturnValue(query);
+      expect(thrownBy(() => handler({} as any)).statusCode).toBe(400);
+    }
   });
 });

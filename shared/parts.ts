@@ -16,8 +16,7 @@ import type {
 } from "~~/types/index";
 import { WORD_ENTRIES, todayJst } from "./words";
 
-/** The longest part text the API accepts (the longest in the data is far shorter). */
-export const MAX_PART_LENGTH = 12;
+export { MAX_PART_LENGTH } from "./part-limits";
 
 const HAN = /\p{Script=Han}/u;
 
