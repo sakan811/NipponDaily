@@ -4,7 +4,7 @@
  *
  * Everything that shows an attribution reads from here: the footer, each
  * entry's citation, `/docs/data-integrity`, and (through `pnpm docs:sync`) the
- * README and `docs/`. Add or change a source or licence in this file only;
+ * README. Add or change a source or licence in this file only;
  * `test/server/docs-sync.test.ts` fails if a licence name or URL is typed
  * anywhere else.
  *

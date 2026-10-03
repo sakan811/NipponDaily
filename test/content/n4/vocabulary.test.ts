@@ -16,7 +16,7 @@ import {
 /**
  * The N4 pool itself — every word it serves — checked against
  * JMdict/KANJIDIC2 evidence in data/reference/n4-reference.json. Mirrors
- * test/content/vocabulary.test.ts's N5 checks; see docs/content.md.
+ * test/content/vocabulary.test.ts's N5 checks; see /docs/authoring.
  */
 
 const reference = loadReference("N4");

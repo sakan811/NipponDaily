@@ -71,7 +71,7 @@ describe("hand-written meanings are backed by JMdict", () => {
 
   // VOCAB_MEANING_OVERRIDES applies across every level, but this
   // project only has committed dictionary evidence for N5 (N4-N2 are
-  // evidence-only, not yet gated; see docs/content.md) — so an
+  // evidence-only, not yet gated; see /docs/authoring) — so an
   // override keyed to an N4-N2 word has nothing to check against here and
   // is skipped, not treated as a missing-word failure.
   it.each(

@@ -20,8 +20,8 @@ import { computed } from "vue";
 /**
  * Renders the "markdown-light" strings kept in `shared/sources.ts` and
  * `shared/endpoints.ts`: `[text](url)` links and `code` spans, nothing else.
- * Those strings are the single source; the same text goes to the markdown docs
- * unchanged by `pnpm docs:sync`.
+ * Those strings are the single source, and the docs table cells use the same
+ * form so a command or path in them is still set as code.
  */
 const props = defineProps<{ text: string }>();
 

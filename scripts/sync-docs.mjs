@@ -1,81 +1,38 @@
 /**
- * pnpm docs:sync — fills the generated regions of README.md and docs/*.md from
- * the single sources of truth, so a fact is written once and every place that
- * states it follows:
+ * pnpm docs:sync — fills the generated region of README.md from the single
+ * source of truth, so the attribution is written once:
  *
  *   shared/sources.ts    attribution (names, URLs, licences, credit lines)
- *   shared/endpoints.ts  the HTTP route list
- *   data/words/*.json    the word range and count (via shared/catalogue.ts)
+ *
+ * The documentation itself is the book under `app/pages/docs/`, which reads
+ * `shared/sources.ts`, `shared/endpoints.ts`, `shared/seasons.ts` and
+ * `GET /api/catalogue` directly, so it has nothing to generate.
  *
  * A region looks like
  *
- *   <!-- docs:begin endpoints -->  …generated…  <!-- docs:end endpoints -->
+ *   <!-- docs:begin attribution -->  …generated…  <!-- docs:end attribution -->
  *
- * (or inline within a sentence). Edit the source, run this, commit the result;
- * never edit between the markers. `--check` writes nothing and exits 1 if any
- * file is out of date, which `test/server/docs-sync.test.ts` also enforces.
- *
- * Only facts that don't change day to day belong here: nothing that depends on
- * "today" (such as how many words have opened) may be rendered, or the check
- * would fail every midnight.
+ * Edit the source, run this, commit the result; never edit between the
+ * markers. `--check` writes nothing and exits 1 if the file is out of date,
+ * which `test/server/docs-sync.test.ts` also enforces.
  */
-import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as prettier from "prettier";
 import { DATA_SOURCES } from "../shared/sources.ts";
-import { API_ENDPOINTS } from "../shared/endpoints.ts";
-import {
-  rangeMonthsText,
-  rangeText,
-  summariseCatalogue,
-} from "../shared/catalogue.ts";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 
 /** Every markdown file that may hold a generated region. */
 export function docFiles() {
-  return [
-    "README.md",
-    ...readdirSync(join(ROOT, "docs"))
-      .filter((f) => f.endsWith(".md"))
-      .sort()
-      .map((f) => `docs/${f}`),
-  ];
+  return ["README.md"];
 }
 
-function catalogue() {
-  const dates = readdirSync(join(ROOT, "data/words"))
-    .filter((f) => f.endsWith(".json"))
-    .flatMap((f) =>
-      JSON.parse(readFileSync(join(ROOT, "data/words", f), "utf8")).map(
-        (e) => e.date,
-      ),
-    );
-  // `today` is irrelevant: nothing date-dependent is rendered.
-  return summariseCatalogue(dates, "");
-}
-
-const cell = (text) => text.replace(/\|/g, "\\|");
-
-function endpointsTable() {
-  const rows = API_ENDPOINTS.map(
-    (e) => `| \`${e.method} ${e.path}${e.query ?? ""}\` | ${cell(e.returns)} |`,
-  );
-  return `\n| Endpoint | Returns |\n| :-- | :-- |\n${rows.join("\n")}\n`;
-}
-
-/** The renderers, by region id. Inline ones return text without newlines. */
+/** The renderers, by region id. */
 export function renderers() {
-  const c = catalogue();
   return {
-    range: () => rangeText(c),
-    "range-months": () => rangeMonthsText(c),
-    first: () => c.first,
-    last: () => c.last,
-    total: () => String(c.total),
     attribution: () => `\n${DATA_SOURCES.map((s) => s.credit).join("\n\n")}\n`,
-    endpoints: endpointsTable,
   };
 }
 
