@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import IndexPage from "~/app/pages/index.vue";
 import { WORD_ENTRIES } from "~~/shared/words";
+import { DOC_CHAPTERS, docPath } from "~~/shared/docs";
 
 const entry = WORD_ENTRIES.find((e) => e.date === "2026-10-01")!;
 
@@ -134,19 +135,16 @@ describe("Index Page (Landing)", () => {
     expect(wrapper.text()).toContain("pinned revision of Wiktionary");
   });
 
-  it("renders the documentation section with all five docs links", () => {
+  it("renders the documentation section linking every chapter and the book", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.text()).toContain("How NipponDaily Works");
-    for (const to of [
-      "/docs/architecture",
-      "/docs/color-palette",
-      "/docs/features",
-      "/docs/error-states",
-      "/docs/data-integrity",
-    ]) {
-      expect(wrapper.find(`a[href="${to}"]`).exists()).toBe(true);
+    for (const chapter of DOC_CHAPTERS) {
+      expect(wrapper.find(`a[href="${docPath(chapter.slug)}"]`).exists()).toBe(
+        true,
+      );
     }
+    expect(wrapper.find('a[href="/docs"]').exists()).toBe(true);
   });
 
   it("renders the footer with license and Wiktionary attribution", () => {

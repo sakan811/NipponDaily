@@ -19,7 +19,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Every word has<br class="hidden sm:inline" />
+          Every word has<br class="hidden sm:inline" >
           <span class="text-primary-500 italic font-normal">a story.</span>
         </h1>
 
@@ -193,28 +193,34 @@
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
           <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
-            Everything behind the front page — the system architecture, the
-            color system, the reader-facing features, the data sources and CI
-            checks that keep every entry true, and a live catalogue of every
-            error and fallback state the site can render.
+            A short book on everything behind the front page: the idea, how the
+            site is built, how every entry is made and checked, and how to work
+            on it.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <ol
+          class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2 max-w-2xl mx-auto font-serif"
+        >
+          <li v-for="chapter in DOC_CHAPTERS" :key="chapter.slug">
+            <NuxtLink
+              :to="docPath(chapter.slug)"
+              class="flex items-baseline gap-3 py-1 no-underline hover:text-primary-500 transition-colors"
+            >
+              <span class="kicker text-stone-400 dark:text-stone-500">{{
+                chapterNumber(chapter.slug).toString().padStart(2, "0")
+              }}</span>
+              {{ chapter.title }}
+            </NuxtLink>
+          </li>
+        </ol>
+        <p class="text-center">
           <NuxtLink
-            v-for="page in docsPages"
-            :key="page.to"
-            :to="page.to"
-            class="no-underline"
+            to="/docs"
+            class="kicker text-stone-500 dark:text-stone-400 hover:text-primary-500 transition-colors"
+            >Open the book</NuxtLink
           >
-            <UPageCard
-              :title="page.title"
-              :description="page.description"
-              :icon="page.icon"
-              class="h-full"
-            />
-          </NuxtLink>
-        </div>
+        </p>
       </section>
     </main>
 
@@ -231,6 +237,7 @@ import { usePageSeo } from "../composables/usePageSeo";
 import { wordTitle } from "../utils/seo";
 import { formatLongDate } from "../utils/date";
 import { LICENCES } from "~~/shared/sources";
+import { DOC_CHAPTERS, chapterNumber, docPath } from "~~/shared/docs";
 
 const { payload, loading, error, refresh } = useDailyWord();
 
@@ -272,44 +279,6 @@ const entryParts = [
   {
     title: "The Evidence",
     description: `The exact Wiktionary lines behind each claim, pinned to a revision with a permalink and its ${LICENCES.ccBySa4.name} license.`,
-  },
-];
-
-const docsPages = [
-  {
-    to: "/docs/architecture",
-    title: "System Architecture",
-    description:
-      "A guided tour of the stack — the Nuxt 4 frontend, the in-repo catalogue of daily words served by date, and the daily cron that keeps the site's season in step with the calendar.",
-    icon: "i-heroicons-building-office-2",
-  },
-  {
-    to: "/docs/color-palette",
-    title: "Color Palette & System",
-    description:
-      "Every color in NipponDaily's four seasonal palettes, named and shown as badges for light and dark mode, plus the shape language each season applies to cards, buttons, and badges.",
-    icon: "i-heroicons-swatch",
-  },
-  {
-    to: "/docs/features",
-    title: "Core Features",
-    description:
-      "The reader-facing capabilities: a new word every day at midnight in Japan, a calendar to look back through every past word, morpheme breakdowns, origin notes with their evidence, and zero tracking.",
-    icon: "i-heroicons-star",
-  },
-  {
-    to: "/docs/error-states",
-    title: "Error & Fallback States",
-    description:
-      "A live catalogue of every degraded, empty, or failure state the UI can render — shown with the real components and mock data so their look can be reviewed without triggering an outage.",
-    icon: "i-heroicons-exclamation-triangle",
-  },
-  {
-    to: "/docs/data-integrity",
-    title: "Data Integrity & Attribution",
-    description:
-      "How every origin claim is checked against pinned Wiktionary text and every reading against JMdict and KANJIDIC2 before a change can merge, plus the licenses and attribution for each source.",
-    icon: "i-heroicons-shield-check",
   },
 ];
 </script>
