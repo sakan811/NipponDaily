@@ -198,123 +198,15 @@
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-            <tr>
+            <tr v-for="endpoint in API_ENDPOINTS" :key="endpoint.path">
               <td class="py-2 px-2 align-top">
-                <code>GET /api/daily-word</code><br /><code
-                  >?date=YYYY-MM-DD</code
+                <code>{{ endpoint.method }} {{ endpoint.path }}</code
+                ><template v-if="endpoint.query"
+                  ><br /><code>{{ endpoint.query }}</code></template
                 >
               </td>
               <td class="py-2 px-2">
-                One entry plus its <code>prev</code> and <code>next</code> days.
-                With no date: today in Japan, or the newest word once the
-                catalogue runs out. A future or invalid date is a
-                <code>400</code>; a past date with no entry (or no word yet) is
-                a <code>404</code>. <code>next</code> stays
-                <code>null</code> until that day has arrived.
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2 align-top">
-                <code>GET /api/word-calendar</code><br /><code
-                  >?month=YYYY-MM</code
-                >
-              </td>
-              <td class="py-2 px-2">
-                <code>{ month, months, today, days }</code>. An open day carries
-                its <code>term</code>, <code>kana</code> and
-                <code>stratum</code>; an upcoming day carries only its date and
-                <code>"upcoming"</code>. The month defaults to the current one
-                if it has words, else the newest. A malformed month is a
-                <code>400</code>, a month with no words a <code>404</code>.
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2 align-top">
-                <code>GET /api/parts</code><br /><code>GET /api/part</code
-                ><br /><code>?text=日</code>
-              </td>
-              <td class="py-2 px-2">
-                The parts index: every morpheme an open word's “Taken apart” row
-                shows (<code>{ parts: [{ text, count, readings }] }</code>), and
-                one part with the open words that show it, grouped by the
-                reading it has in each. Only days that have arrived count, so a
-                part seen only in an upcoming word is a <code>404</code>. A
-                missing or over-long <code>text</code> is a <code>400</code>.
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2 align-top">
-                <code>GET /api/explore</code><br /><code
-                  >?q=&amp;level=&amp;stratum=&amp;process=&amp;part=</code
-                >
-              </td>
-              <td class="py-2 px-2">
-                The open words matching every filter, newest first:
-                <code>{ filters, total, count, words, facets }</code>. Every
-                filter is optional and an empty value means “no filter”;
-                anything else invalid is a <code>400</code>. Each facet counts
-                the words the <em>other</em> filters leave.
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2 align-top">
-                <code>GET /api/patterns</code>
-              </td>
-              <td class="py-2 px-2">
-                Counts across the open words:
-                <code
-                  >{ total, withParts, withBase, strata, levels, processes,
-                  pairs, rendaku }</code
-                >.
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2 align-top">
-                <code>GET /api/related</code><br /><code>?date=YYYY-MM-DD</code>
-              </td>
-              <td class="py-2 px-2">
-                Up to six open words that resemble one entry (shared parts,
-                processes or layer), closest first, each with what it shares:
-                <code>{ date, words }</code>. <code>date</code> is required; a
-                future or malformed one is a <code>400</code>, a day with no
-                entry a <code>404</code>.
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2 align-top">
-                <code>GET /api/site-theme</code>
-              </td>
-              <td class="py-2 px-2">
-                The site <code>SiteTheme</code>:
-                <code>{ season, updatedAt, source }</code>, where
-                <code>source</code> is <code>"cron"</code> or
-                <code>"fallback"</code>. CDN-cached for 60 seconds (<code
-                  >s-maxage=60, stale-while-revalidate=600</code
-                >).
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2 align-top">
-                <code>GET /api/cron/update-season</code>
-              </td>
-              <td class="py-2 px-2">
-                Called by the cron. Needs
-                <code>Authorization: Bearer &lt;CRON_SECRET&gt;</code> (else
-                <code>401</code>). Returns
-                <code>{ season, previousSeason, changed }</code>.
-              </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-2 align-top">
-                <code>/sitemap.xml</code><br /><code>/robots.txt</code>
-              </td>
-              <td class="py-2 px-2">
-                Server routes, not under <code>/api</code>. The sitemap lists
-                the static pages, every open word and each part seen in more
-                than one open word, never an upcoming day. Robots disallows
-                <code>/api/</code> and names the sitemap. URLs use
-                <code>NUXT_PUBLIC_SITE_URL</code> when set, else the request's
-                own origin.
+                <RichText :text="endpoint.returns" />
               </td>
             </tr>
           </tbody>
@@ -361,6 +253,8 @@
 import { usePageSeo } from "../../composables/usePageSeo";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
+import RichText from "../../components/RichText.vue";
+import { API_ENDPOINTS } from "~~/shared/endpoints";
 
 const systemDiagram = `
 flowchart TD
