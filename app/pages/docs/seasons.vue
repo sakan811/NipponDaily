@@ -8,10 +8,10 @@
 
     <h2>The four seasons</h2>
     <p>
-      <code>SeasonId</code> is a closed union, defined once in
-      <code>shared/seasons.ts</code>. A season may be added only once its CSS
-      preset exists in <code>app/assets/css/tailwind.css</code> <em>and</em> its
-      id is in that file.
+      <code>SeasonId</code> is a closed union in <code>types/index.ts</code>,
+      and <code>shared/seasons.ts</code> lists the ids and presets. A season may
+      be added only once its CSS preset exists in
+      <code>app/assets/css/tailwind.css</code> <em>and</em> its id is in both.
     </p>
     <div class="table-wrap">
       <table>

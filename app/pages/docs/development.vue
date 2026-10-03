@@ -6,15 +6,16 @@
     </template>
 
     <h2>Setup</h2>
-    <p>Node 22 or newer (CI runs Node 25) and pnpm.</p>
+    <p>Node 22.19, 24.11 or 26 and newer (Nuxt's supported range) and pnpm.</p>
     <pre><code>pnpm install
 cp .env.example .env
 pnpm dev          # http://localhost:3000</code></pre>
     <p>
       The daily words need no configuration. Redis is only used for the site's
       season; without it the season is kept in process memory. The data scripts
-      (<code>scripts/build-*.mjs</code>) run as bare <code>node</code> and need
-      no credentials.
+      (<code>scripts/build-*.mjs</code>) run through the
+      <code>data:*</code> commands under plain <code>node</code> and need no
+      credentials.
     </p>
 
     <h2>Environment</h2>
@@ -209,7 +210,7 @@ const commands = [
   },
   {
     cmd: "pnpm lint / format / type-check",
-    does: "ESLint (auto-fix), Prettier, `tsc --noEmit`.",
+    does: "ESLint and Prettier (both rewrite files: `--fix`, `--write`), and `tsc --noEmit`.",
   },
   { cmd: "pnpm check-qa", does: "Lint, format, type-check, build and test." },
   {
