@@ -1,13 +1,15 @@
 import { z } from "zod";
 import { safeGetQuery } from "../utils/http-query";
+import { exploreWords } from "~~/shared/explore";
 import {
   MAX_QUERY_LENGTH,
-  PROCESS_IDS,
-  STRATUM_IDS,
-  exploreWords,
-} from "~~/shared/explore";
-import { MAX_PART_LENGTH } from "~~/shared/parts";
+  PROCESS_KEY_IDS,
+  STRATUM_KEY_IDS,
+  splitList,
+} from "~~/shared/explore-query";
+import { MAX_PART_LENGTH } from "~~/shared/part-limits";
 import { JLPT_LEVELS } from "~~/shared/jlpt";
+import { POS_GROUP_IDS } from "~~/shared/word-labels";
 import { todayJst } from "~~/shared/words";
 import type { ExploreFilters } from "~~/types/index";
 
@@ -19,12 +21,26 @@ const optional = <T extends z.ZodTypeAny>(schema: T) =>
     .optional()
     .transform((val) => val || undefined);
 
+/** One or more choices, `?process=rendaku,compound`. An empty list means "no filter". */
+const choices = <T extends [string, ...string[]]>(values: T) =>
+  z
+    .preprocess(
+      (v) => (v === null || v === undefined ? [] : splitList(v)),
+      z.array(z.enum(values)),
+    )
+    .transform((list) => (list.length ? list : undefined));
+
 const exploreQuerySchema = z.object({
   q: optional(z.string().trim().max(MAX_QUERY_LENGTH)),
-  level: optional(z.enum(JLPT_LEVELS)),
-  stratum: optional(z.enum(STRATUM_IDS as [string, ...string[]])),
-  process: optional(z.enum(PROCESS_IDS as [string, ...string[]])),
+  level: choices(JLPT_LEVELS as unknown as [string, ...string[]]),
+  stratum: choices(STRATUM_KEY_IDS as [string, ...string[]]),
+  process: choices(PROCESS_KEY_IDS as [string, ...string[]]),
+  pos: choices(POS_GROUP_IDS as [string, ...string[]]),
   part: optional(z.string().trim().max(MAX_PART_LENGTH)),
+  // "any" is the default, so only "all" is kept in the echoed filters.
+  match: optional(z.enum(["any", "all"])).transform((m) =>
+    m === "all" ? m : undefined,
+  ),
 });
 
 export default defineEventHandler((event) => {

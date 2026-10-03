@@ -1,6 +1,7 @@
 /**
  * Browse-and-filter over the open words: the same entries the calendar and the
- * parts index read, narrowed by search text, level, layer, process or part.
+ * parts index read, narrowed by search text, level, layer, process, part of
+ * speech or part. Several choices in one filter combine as "any" or "all".
  * Nothing here is a claim of its own — it selects and counts fields the
  * entries already carry.
  *
@@ -12,20 +13,28 @@ import type {
   ExplorePayload,
   FacetCount,
   JlptLevel,
+  PosGroup,
+  StratumKey,
   WordEntry,
   WordProcess,
   WordStratum,
   WordSummary,
 } from "~~/types/index";
 import { JLPT_LEVELS } from "./jlpt";
-import { WORD_PROCESSES, WORD_STRATA } from "./word-labels";
+import {
+  POS_GROUP_IDS,
+  WORD_PROCESSES,
+  WORD_STRATA,
+  posGroupsOf,
+} from "./word-labels";
 import { WORD_ENTRIES, todayJst } from "./words";
+
+export { MAX_QUERY_LENGTH } from "./explore-query";
 
 export const STRATUM_IDS = Object.keys(WORD_STRATA) as WordStratum[];
 export const PROCESS_IDS = Object.keys(WORD_PROCESSES) as WordProcess[];
-
-/** The longest search text the API accepts. */
-export const MAX_QUERY_LENGTH = 50;
+/** The layers Explore offers: the four, then the words with none stated. */
+export const STRATUM_KEYS: StratumKey[] = [...STRATUM_IDS, "unstated"];
 
 /** Lower-case, with katakana folded to hiragana, so ラジオ is found by らじお. */
 export function foldForSearch(text: string): string {
@@ -47,18 +56,37 @@ const summaryOf = (e: WordEntry): WordSummary => ({
   hasParts: e.morphemes.length > 0,
 });
 
-type Facet = "level" | "stratum" | "process";
+type Facet = "level" | "stratum" | "process" | "pos";
 
-/** Whether an entry passes every filter except `skip` (used for facet counts). */
+const strataOf = (e: WordEntry): StratumKey[] => [e.stratum ?? "unstated"];
+
+/** Whether `have` satisfies the choices: any one of them, or every one. */
+const satisfies = (
+  chosen: readonly string[] | undefined,
+  have: readonly string[],
+  match: "any" | "all",
+): boolean =>
+  !chosen?.length ||
+  (match === "all"
+    ? chosen.every((c) => have.includes(c))
+    : chosen.some((c) => have.includes(c)));
+
+/** Whether an entry passes every filter except `skip` (used for facet counts).
+ *  A word has one level and one layer, so those read "any" whatever `match`
+ *  says: "all" of two levels could never match. */
 function passes(
   e: WordEntry,
   f: ExploreFilters,
   q: string,
   skip?: Facet,
 ): boolean {
-  if (skip !== "level" && f.level && e.level !== f.level) return false;
-  if (skip !== "stratum" && f.stratum && e.stratum !== f.stratum) return false;
-  if (skip !== "process" && f.process && !e.processes.includes(f.process))
+  const match = f.match ?? "any";
+  if (skip !== "level" && !satisfies(f.level, [e.level], "any")) return false;
+  if (skip !== "stratum" && !satisfies(f.stratum, strataOf(e), "any"))
+    return false;
+  if (skip !== "process" && !satisfies(f.process, e.processes, match))
+    return false;
+  if (skip !== "pos" && !satisfies(f.pos, posGroupsOf(e.pos), match))
     return false;
   if (f.part && !e.morphemes.some((m) => m.text === f.part)) return false;
   if (q) {
@@ -74,7 +102,7 @@ function facet<T extends string>(
   f: ExploreFilters,
   q: string,
   key: Facet,
-  valuesOf: (e: WordEntry) => T[],
+  valuesOf: (e: WordEntry) => readonly string[],
 ): FacetCount<T>[] {
   const pool = entries.filter((e) => passes(e, f, q, key));
   return values.map((value) => ({
@@ -101,13 +129,13 @@ export function exploreWords(
       level: facet<JlptLevel>(JLPT_LEVELS, open, filters, q, "level", (e) => [
         e.level,
       ]),
-      stratum: facet<WordStratum>(
-        STRATUM_IDS,
+      stratum: facet<StratumKey>(
+        STRATUM_KEYS,
         open,
         filters,
         q,
         "stratum",
-        (e) => (e.stratum ? [e.stratum] : []),
+        strataOf,
       ),
       process: facet<WordProcess>(
         PROCESS_IDS,
@@ -116,6 +144,9 @@ export function exploreWords(
         q,
         "process",
         (e) => e.processes,
+      ),
+      pos: facet<PosGroup>(POS_GROUP_IDS, open, filters, q, "pos", (e) =>
+        posGroupsOf(e.pos),
       ),
     },
   };

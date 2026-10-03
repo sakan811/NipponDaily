@@ -3,7 +3,7 @@
  * purpose: app/ components import this, and shared/words.ts (which holds the
  * entries themselves, including future days') must never reach the browser.
  */
-import type { WordProcess, WordStratum } from "~~/types/index";
+import type { PosGroup, WordProcess, WordStratum } from "~~/types/index";
 
 export const WORD_STRATA: Record<
   WordStratum,
@@ -95,3 +95,77 @@ const HEDGE =
   /\b(probably|possibly|perhaps|likely|may be|may have|might|appears? to|seems? to|apparently|uncertain|unknown|unclear|speculat\w*|alternatively|theor(?:y|ies)|missing or incomplete|incomplete|disputed|doubtful)\b/i;
 
 export const isHedged = (quote: string): boolean => HEDGE.test(quote);
+
+/** How a word with no stated layer is named wherever layers are listed. */
+export const STRATUM_UNSTATED = {
+  label: "Not stated",
+  native: "",
+  description:
+    "Neither KANJIDIC2's readings nor the cited text establish a layer for these words (irregular spellings, for example), so none is claimed.",
+};
+
+/** JMdict's part-of-speech tags are long and fine-grained (a dozen Godan
+ *  endings, three noun senses), so Explore filters on these coarse groups. The
+ *  tags themselves stay verbatim on each entry; a group only says which tags
+ *  fall under it. */
+export const POS_GROUPS: Record<
+  PosGroup,
+  { label: string; description: string }
+> = {
+  noun: {
+    label: "Noun",
+    description:
+      "Common nouns, nouns that take suru, and nouns that take the particle の.",
+  },
+  verb: {
+    label: "Verb",
+    description:
+      "Godan and Ichidan verbs, transitive and intransitive, and the irregular ones.",
+  },
+  adjective: {
+    label: "Adjective",
+    description:
+      "い-adjectives, な-adjectives (JMdict's adjectival nouns) and pre-noun adjectivals.",
+  },
+  adverb: { label: "Adverb", description: "Adverbs." },
+  affix: {
+    label: "Prefix or suffix",
+    description:
+      "Prefixes and suffixes, including nouns used as one (JMdict's “noun, used as a suffix”).",
+  },
+  other: {
+    label: "Other",
+    description:
+      "Pronouns, counters, numerals, conjunctions, interjections, auxiliary verbs and set phrases.",
+  },
+  unstated: {
+    label: "Not stated",
+    description: "JMdict has no entry for these words, so no tag is given.",
+  },
+};
+
+export const POS_GROUP_IDS = Object.keys(POS_GROUPS) as PosGroup[];
+
+/** Which group one JMdict tag falls under. Order matters: the affix and
+ *  “noun or verb” cases must be read before the general noun and verb rules. */
+export function posGroupOfTag(tag: string): Exclude<PosGroup, "unstated"> {
+  if (/^nouns?, used as an? (suffix|prefix)/.test(tag)) return "affix";
+  if (/^(suffix|prefix)$/.test(tag)) return "affix";
+  if (/^noun or verb/.test(tag)) return "other";
+  if (/^nouns?\b/.test(tag)) return "noun";
+  if (/^(adjective|adjectival|pre-noun adjectival)/.test(tag))
+    return "adjective";
+  if (/^adverb/.test(tag)) return "adverb";
+  if (/^auxiliary verb/.test(tag)) return "other";
+  if (/verb/.test(tag)) return "verb";
+  return "other";
+}
+
+/** The groups a word's tags fall under, in POS_GROUPS order — a word can sit
+ *  in more than one (a noun that also takes suru and is used as an adverb);
+ *  a word with no tags is "unstated". */
+export function posGroupsOf(pos: readonly string[]): PosGroup[] {
+  if (!pos.length) return ["unstated"];
+  const found = new Set<PosGroup>(pos.map(posGroupOfTag));
+  return POS_GROUP_IDS.filter((g) => found.has(g));
+}

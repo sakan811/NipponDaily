@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { exploreWords, foldForSearch } from "~~/shared/explore";
+import { posGroupsOf } from "~~/shared/word-labels";
 import { WORD_ENTRIES } from "~~/shared/words";
 
 const TODAY = "2026-03-08";
@@ -40,17 +41,17 @@ describe("exploreWords", () => {
   });
 
   it("filters by level, layer and process, and they narrow together", () => {
-    const n5 = exploreWords({ level: "N5" }, TODAY);
+    const n5 = exploreWords({ level: ["N5"] }, TODAY);
     expect(n5.words.length).toBeGreaterThan(0);
     expect(n5.words.every((w) => w.level === "N5")).toBe(true);
 
-    const native = exploreWords({ level: "N5", stratum: "wago" }, TODAY);
+    const native = exploreWords({ level: ["N5"], stratum: ["wago"] }, TODAY);
     expect(native.count).toBeLessThan(n5.count);
     expect(
       native.words.every((w) => w.level === "N5" && w.stratum === "wago"),
     ).toBe(true);
 
-    const rendaku = exploreWords({ process: "rendaku" }, TODAY);
+    const rendaku = exploreWords({ process: ["rendaku"] }, TODAY);
     expect(rendaku.words.every((w) => w.processes.includes("rendaku"))).toBe(
       true,
     );
@@ -86,7 +87,7 @@ describe("exploreWords", () => {
   });
 
   it("counts each facet over the words the *other* filters leave", () => {
-    const result = exploreWords({ level: "N5", stratum: "wago" }, TODAY);
+    const result = exploreWords({ level: ["N5"], stratum: ["wago"] }, TODAY);
 
     // The level facet ignores the level filter but honours the layer one …
     const wagoByLevel = (level: string) =>
@@ -96,16 +97,84 @@ describe("exploreWords", () => {
     }
     // … and picking a facet option yields exactly that many words.
     for (const f of result.facets.stratum) {
-      expect(exploreWords({ level: "N5", stratum: f.value }, TODAY).count).toBe(
-        f.count,
-      );
+      expect(
+        exploreWords({ level: ["N5"], stratum: [f.value] }, TODAY).count,
+      ).toBe(f.count);
     }
     for (const f of result.facets.process) {
       expect(
-        exploreWords({ level: "N5", stratum: "wago", process: f.value }, TODAY)
-          .count,
+        exploreWords(
+          { level: ["N5"], stratum: ["wago"], process: [f.value] },
+          TODAY,
+        ).count,
       ).toBe(f.count);
     }
+  });
+
+  it("keeps a word that has any of several choices, or all of them", () => {
+    const either = exploreWords({ process: ["rendaku", "wasei"] }, TODAY);
+    expect(either.count).toBe(
+      open.filter(
+        (e) => e.processes.includes("rendaku") || e.processes.includes("wasei"),
+      ).length,
+    );
+
+    const both = exploreWords(
+      { process: ["rendaku", "compound"], match: "all" },
+      TODAY,
+    );
+    expect(both.count).toBe(
+      open.filter(
+        (e) =>
+          e.processes.includes("rendaku") && e.processes.includes("compound"),
+      ).length,
+    );
+    expect(both.count).toBeGreaterThan(0);
+    expect(both.count).toBeLessThan(
+      exploreWords({ process: ["rendaku", "compound"] }, TODAY).count,
+    );
+  });
+
+  it("reads several levels or layers as any, even when asked for all", () => {
+    const levels = exploreWords({ level: ["N5", "N4"], match: "all" }, TODAY);
+    expect(levels.count).toBe(
+      open.filter((e) => e.level === "N5" || e.level === "N4").length,
+    );
+  });
+
+  it("finds the words with no stated layer under 'unstated'", () => {
+    const unstated = exploreWords({ stratum: ["unstated"] }, TODAY);
+
+    expect(unstated.count).toBe(open.filter((e) => !e.stratum).length);
+    expect(unstated.count).toBeGreaterThan(0);
+    expect(unstated.words.every((w) => w.stratum === undefined)).toBe(true);
+    expect(
+      exploreWords({}, TODAY).facets.stratum.map((f) => f.value),
+    ).toContain("unstated");
+    // Every open word is in exactly one layer facet.
+    expect(
+      exploreWords({}, TODAY).facets.stratum.reduce((n, f) => n + f.count, 0),
+    ).toBe(open.length);
+  });
+
+  it("filters by part-of-speech group", () => {
+    const verbs = exploreWords({ pos: ["verb"] }, TODAY);
+
+    expect(verbs.count).toBe(
+      open.filter((e) => posGroupsOf(e.pos).includes("verb")).length,
+    );
+    expect(verbs.count).toBeGreaterThan(0);
+    expect(
+      exploreWords({ pos: ["verb", "adjective"] }, TODAY).count,
+    ).toBeGreaterThan(verbs.count);
+    expect(
+      exploreWords({ pos: ["verb", "noun"], match: "all" }, TODAY).count,
+    ).toBe(
+      open.filter((e) => {
+        const g = posGroupsOf(e.pos);
+        return g.includes("verb") && g.includes("noun");
+      }).length,
+    );
   });
 
   it("summarises a word without its sources or morphemes", () => {

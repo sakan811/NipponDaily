@@ -187,15 +187,33 @@ export interface WordSummary {
   hasParts: boolean;
 }
 
-/** The filters GET /api/explore accepts. Every one is optional; together they narrow. */
+/** A coarse group of JMdict part-of-speech tags (see POS_GROUPS in
+ *  shared/word-labels.ts). "unstated" is a word JMdict has no entry for. */
+export type PosGroup =
+  "noun" | "verb" | "adjective" | "adverb" | "affix" | "other" | "unstated";
+
+/** How several choices in the same filter combine: "any" keeps a word that has
+ *  at least one of them, "all" only a word that has every one. It matters for
+ *  the filters a word can hold several values of (process, part of speech);
+ *  a word has one level and one layer, so those always read "any". */
+export type ExploreMatch = "any" | "all";
+
+/** The filters GET /api/explore accepts. Every one is optional; different
+ *  filters narrow together, and several choices within one filter combine
+ *  according to `match`. */
 export interface ExploreFilters {
   /** Matches the term, the reading (katakana and hiragana alike) or the meaning. */
   q?: string;
-  level?: JlptLevel;
-  stratum?: WordStratum;
-  process?: WordProcess;
+  level?: JlptLevel[];
+  /** "unstated" picks the words whose layer neither KANJIDIC2 nor the
+   *  evidence establishes. */
+  stratum?: StratumKey[];
+  process?: WordProcess[];
+  pos?: PosGroup[];
   /** A part's text, as in /parts/<text>. */
   part?: string;
+  /** Defaults to "any". */
+  match?: ExploreMatch;
 }
 
 /** How many words a filter option would leave, given the other active filters. */
@@ -213,12 +231,13 @@ export interface ExplorePayload {
   count: number;
   /** The matches, newest first. */
   words: WordSummary[];
-  /** Each facet counts the words matching every *other* filter, so choosing an
-   *  option never shows a count it cannot deliver. */
+  /** Each facet counts the words matching every *other* filter that carry the
+   *  option, so an option never shows a count it cannot deliver. */
   facets: {
     level: FacetCount<JlptLevel>[];
-    stratum: FacetCount<WordStratum>[];
+    stratum: FacetCount<StratumKey>[];
     process: FacetCount<WordProcess>[];
+    pos: FacetCount<PosGroup>[];
   };
 }
 

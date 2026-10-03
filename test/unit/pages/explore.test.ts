@@ -3,6 +3,7 @@ import { flushPromises, mount } from "@vue/test-utils";
 import { useRoute, useRouter } from "#app";
 import ExplorePage from "~/app/pages/explore.vue";
 import { exploreWords } from "~~/shared/explore";
+import { filtersFromQuery } from "~~/shared/explore-query";
 
 const TODAY = "2026-03-08";
 
@@ -16,7 +17,7 @@ const respond = (data: unknown) => ({
 const serve = () =>
   (global as any).$fetch.mockImplementation(
     async (_url: string, opts?: { query?: Record<string, string> }) =>
-      respond(exploreWords((opts?.query ?? {}) as any, TODAY)),
+      respond(exploreWords(filtersFromQuery(opts?.query ?? {}), TODAY)),
   );
 
 describe("Explore Page (/explore)", () => {
@@ -75,7 +76,7 @@ describe("Explore Page (/explore)", () => {
       query: { level: "N5" },
     });
     expect(chip().attributes("aria-pressed")).toBe("true");
-    const n5 = exploreWords({ level: "N5" }, TODAY).count;
+    const n5 = exploreWords({ level: ["N5"] }, TODAY).count;
     expect(wrapper.find('[data-testid="explore-count"]').text()).toContain(
       `${n5} of`,
     );
@@ -83,6 +84,94 @@ describe("Explore Page (/explore)", () => {
     await chip().trigger("click");
     await flushPromises();
     expect(replace).toHaveBeenLastCalledWith({ query: {} });
+  });
+
+  it("lets several options be picked in one group and joins them in the URL", async () => {
+    const wrapper = mount(ExplorePage);
+    await flushPromises();
+
+    const level = (i: number) =>
+      wrapper.findAll('[data-testid="facet-level"] button')[i]!;
+    await level(0).trigger("click");
+    await flushPromises();
+    await level(1).trigger("click");
+    await flushPromises();
+
+    expect(replace).toHaveBeenLastCalledWith({ query: { level: "N5,N4" } });
+    expect(level(0).attributes("aria-pressed")).toBe("true");
+    expect(level(1).attributes("aria-pressed")).toBe("true");
+    const both = exploreWords({ level: ["N5", "N4"] }, TODAY).count;
+    expect(wrapper.find('[data-testid="explore-count"]').text()).toContain(
+      `${both} of`,
+    );
+
+    await level(0).trigger("click");
+    await flushPromises();
+    expect(replace).toHaveBeenLastCalledWith({ query: { level: "N4" } });
+  });
+
+  it("switches several processes from any to all and keeps it in the URL", async () => {
+    vi.mocked(useRoute).mockReturnValue({
+      path: "/explore",
+      query: { process: "compound,rendaku" },
+      params: {},
+    } as any);
+    const wrapper = mount(ExplorePage);
+    await flushPromises();
+
+    const any = exploreWords({ process: ["compound", "rendaku"] }, TODAY);
+    expect(wrapper.find('[data-testid="explore-count"]').text()).toContain(
+      `${any.count} of`,
+    );
+
+    await wrapper.find('[data-testid="match-all"]').trigger("click");
+    await flushPromises();
+
+    expect(replace).toHaveBeenLastCalledWith({
+      query: { process: "compound,rendaku", match: "all" },
+    });
+    const all = exploreWords(
+      { process: ["compound", "rendaku"], match: "all" },
+      TODAY,
+    );
+    expect(all.count).toBeLessThan(any.count);
+    expect(wrapper.find('[data-testid="explore-count"]').text()).toContain(
+      `${all.count} of`,
+    );
+    expect(
+      wrapper.find('[data-testid="match-all"]').attributes("aria-pressed"),
+    ).toBe("true");
+
+    await wrapper.find('[data-testid="match-any"]').trigger("click");
+    await flushPromises();
+    expect(replace).toHaveBeenLastCalledWith({
+      query: { process: "compound,rendaku" },
+    });
+  });
+
+  it("offers a part-of-speech group and the layer-not-stated option", async () => {
+    const wrapper = mount(ExplorePage);
+    await flushPromises();
+
+    const button = (facet: string, label: string) =>
+      wrapper
+        .findAll(`[data-testid="${facet}"] button`)
+        .find((b) => b.text().includes(label))!;
+
+    await button("facet-stratum", "Not stated").trigger("click");
+    await flushPromises();
+    expect(replace).toHaveBeenLastCalledWith({
+      query: { stratum: "unstated" },
+    });
+
+    await button("facet-pos", "Noun").trigger("click");
+    await flushPromises();
+    expect(replace).toHaveBeenLastCalledWith({
+      query: { stratum: "unstated", pos: "noun" },
+    });
+    expect((global as any).$fetch).toHaveBeenLastCalledWith("/api/explore", {
+      query: { stratum: "unstated", pos: "noun" },
+    });
   });
 
   it("searches after the reader stops typing", async () => {

@@ -44,14 +44,14 @@
           </li>
           <li v-for="p in w.shared.processes" :key="`process-${p}`">
             <NuxtLink
-              :to="explorePath({ process: p })"
+              :to="explorePath({ process: [p] })"
               class="kicker inline-block border border-stone-300 dark:border-stone-700 px-2 py-0.5 text-stone-600 dark:text-stone-400 hover:bg-stone-500/10"
               >{{ WORD_PROCESSES[p].label }}</NuxtLink
             >
           </li>
           <li v-if="w.shared.stratum">
             <NuxtLink
-              :to="explorePath({ stratum: w.shared.stratum })"
+              :to="explorePath({ stratum: [w.shared.stratum] })"
               class="kicker inline-block border border-stone-300 dark:border-stone-700 px-2 py-0.5 text-stone-600 dark:text-stone-400 hover:bg-stone-500/10"
               >{{ WORD_STRATA[w.shared.stratum].native }}
               {{ WORD_STRATA[w.shared.stratum].label }}</NuxtLink

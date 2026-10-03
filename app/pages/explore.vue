@@ -19,8 +19,9 @@
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
           Search every word that has opened, then narrow by JLPT level, layer of
-          the vocabulary or the process that shaped it. Each option shows how
-          many words it would leave.
+          the vocabulary, the process that shaped it or part of speech. Pick as
+          many options as you like in each group. Each option shows how many
+          words it would leave.
         </p>
       </div>
 
@@ -42,7 +43,7 @@
             placeholder="Search a word, its reading, or its meaning"
             class="flex-1 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-2.5 font-body-serif text-base focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30"
             @input="onType"
-          />
+          >
           <UButton
             v-if="active"
             data-testid="explore-clear"
@@ -63,9 +64,9 @@
               v-for="f in facets?.level ?? []"
               :key="f.value"
               type="button"
-              :aria-pressed="filters.level === f.value"
-              :disabled="!f.count && filters.level !== f.value"
-              :class="chip(filters.level === f.value, !f.count)"
+              :aria-pressed="chosen('level', f.value)"
+              :disabled="!f.count && !chosen('level', f.value)"
+              :class="chip(chosen('level', f.value), !f.count)"
               @click="toggle('level', f.value)"
             >
               {{ f.value }}
@@ -83,9 +84,10 @@
               v-for="f in facets?.stratum ?? []"
               :key="f.value"
               type="button"
-              :aria-pressed="filters.stratum === f.value"
-              :disabled="!f.count && filters.stratum !== f.value"
-              :class="chip(filters.stratum === f.value, !f.count)"
+              :aria-pressed="chosen('stratum', f.value)"
+              :disabled="!f.count && !chosen('stratum', f.value)"
+              :title="layer(f.value).description"
+              :class="chip(chosen('stratum', f.value), !f.count)"
               @click="toggle('stratum', f.value)"
             >
               <span
@@ -95,8 +97,8 @@
                 ]"
                 aria-hidden="true"
               />
-              {{ WORD_STRATA[f.value].native }}
-              {{ WORD_STRATA[f.value].label }}
+              {{ layer(f.value).native }}
+              {{ layer(f.value).label }}
               <span class="chip-count">{{ f.count }}</span>
             </button>
           </div>
@@ -111,15 +113,63 @@
               v-for="f in facets?.process ?? []"
               :key="f.value"
               type="button"
-              :aria-pressed="filters.process === f.value"
-              :disabled="!f.count && filters.process !== f.value"
+              :aria-pressed="chosen('process', f.value)"
+              :disabled="!f.count && !chosen('process', f.value)"
               :title="WORD_PROCESSES[f.value].description"
-              :class="chip(filters.process === f.value, !f.count)"
+              :class="chip(chosen('process', f.value), !f.count)"
               @click="toggle('process', f.value)"
             >
               {{ WORD_PROCESSES[f.value].label }}
               <span class="chip-count">{{ f.count }}</span>
             </button>
+          </div>
+        </fieldset>
+
+        <fieldset class="space-y-2">
+          <legend class="kicker text-stone-500 dark:text-stone-400">
+            Part of speech
+          </legend>
+          <div class="flex flex-wrap gap-2" data-testid="facet-pos">
+            <button
+              v-for="f in facets?.pos ?? []"
+              :key="f.value"
+              type="button"
+              :aria-pressed="chosen('pos', f.value)"
+              :disabled="!f.count && !chosen('pos', f.value)"
+              :title="POS_GROUPS[f.value].description"
+              :class="chip(chosen('pos', f.value), !f.count)"
+              @click="toggle('pos', f.value)"
+            >
+              {{ POS_GROUPS[f.value].label }}
+              <span class="chip-count">{{ f.count }}</span>
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset class="space-y-2">
+          <legend class="kicker text-stone-500 dark:text-stone-400">
+            When you pick several
+          </legend>
+          <div
+            class="flex flex-wrap items-center gap-x-4 gap-y-2"
+            data-testid="facet-match"
+          >
+            <div class="flex gap-2">
+              <button
+                v-for="m in MATCH_OPTIONS"
+                :key="m.value"
+                type="button"
+                :data-testid="`match-${m.value}`"
+                :aria-pressed="matchMode === m.value"
+                :class="chip(matchMode === m.value, false)"
+                @click="setMatch(m.value)"
+              >
+                {{ m.label }}
+              </button>
+            </div>
+            <p class="text-xs text-stone-500 dark:text-stone-400 max-w-md">
+              {{ matchHelp }}
+            </p>
           </div>
         </fieldset>
 
@@ -137,7 +187,7 @@
             type="button"
             data-testid="explore-clear-part"
             class="underline hover:text-primary-500"
-            @click="toggle('part', filters.part)"
+            @click="removePart"
           >
             Remove
           </button>
@@ -218,8 +268,9 @@
 
         <p class="pt-6 text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
           Only words that have opened are searched. A layer is shown only when
-          KANJIDIC2 or the cited text establishes it, so a few words have none
-          and never match a layer filter.
+          KANJIDIC2 or the cited text establishes it; the words with none are
+          under “Not stated”. Parts of speech are groups of JMdict's tags (see
+          each option's tooltip), and a word can sit in more than one.
         </p>
       </section>
 
@@ -244,69 +295,88 @@ import { usePageSeo } from "../composables/usePageSeo";
 import { formatLongDate } from "../utils/date";
 import { partPath } from "../utils/seo";
 import { STRATUM_DOT } from "../utils/stratum";
-import { JLPT_LEVELS } from "~~/shared/jlpt";
-import { WORD_PROCESSES, WORD_STRATA } from "~~/shared/word-labels";
-import type { ExploreFilters } from "~~/types/index";
+import { filtersFromQuery, queryFromFilters } from "~~/shared/explore-query";
+import {
+  POS_GROUPS,
+  STRATUM_UNSTATED,
+  WORD_PROCESSES,
+  WORD_STRATA,
+} from "~~/shared/word-labels";
+import type { ExploreFilters, ExploreMatch, StratumKey } from "~~/types/index";
 
 const route = useRoute();
 const router = useRouter();
 
-const first = (v: unknown): string | undefined => {
-  const s = Array.isArray(v) ? v[0] : v;
-  return typeof s === "string" && s ? s : undefined;
-};
-
-/** The filters in the URL, keeping only values the API would accept so a stale or
- *  hand-edited link opens the page rather than an error. */
-function fromQuery(query: Record<string, unknown>): ExploreFilters {
-  const level = first(query.level);
-  const stratum = first(query.stratum);
-  const process = first(query.process);
-  return {
-    q: first(query.q)?.slice(0, 50),
-    level: (JLPT_LEVELS as readonly string[]).includes(level ?? "")
-      ? (level as ExploreFilters["level"])
-      : undefined,
-    stratum: stratum && stratum in WORD_STRATA ? (stratum as never) : undefined,
-    process:
-      process && process in WORD_PROCESSES ? (process as never) : undefined,
-    part: first(query.part)?.slice(0, 12),
-  };
-}
-
 const clean = (f: ExploreFilters): ExploreFilters =>
   Object.fromEntries(
-    Object.entries(f).filter(([, v]) => v !== undefined && v !== ""),
+    Object.entries(f).filter(
+      ([, v]) =>
+        v !== undefined && v !== "" && !(Array.isArray(v) && !v.length),
+    ),
   );
 
-const filters = ref<ExploreFilters>(clean(fromQuery(route.query)));
+/** The filters that hold several choices, and the ones a choice can be toggled in. */
+type ListFilter = "level" | "stratum" | "process" | "pos";
+
+const filters = ref<ExploreFilters>(clean(filtersFromQuery(route.query)));
 const text = ref(filters.value.q ?? "");
 
 const { result, loading, error, refresh } = useExplore(() => filters.value);
 const facets = computed(() => result.value?.facets);
 const active = computed(() => Object.keys(filters.value).length > 0);
+const matchMode = computed<ExploreMatch>(() => filters.value.match ?? "any");
+
+const MATCH_OPTIONS: { value: ExploreMatch; label: string }[] = [
+  { value: "any", label: "Any of them" },
+  { value: "all", label: "All of them" },
+];
+const matchHelp = computed(() =>
+  matchMode.value === "all"
+    ? "A word must carry every process and every part of speech you picked. A word has one level and one layer, so those still match any."
+    : "A word needs at least one of the options picked in a group. Different groups always narrow together.",
+);
+
+const layer = (key: StratumKey) =>
+  key === "unstated" ? STRATUM_UNSTATED : WORD_STRATA[key];
 
 usePageSeo({
   title: "Explore the words",
   description:
-    "Search every word NipponDaily has taken apart and filter by JLPT level, layer of the vocabulary and the process that shaped it.",
+    "Search every word NipponDaily has taken apart and filter by JLPT level, layer of the vocabulary, the process that shaped it and part of speech.",
   path: "/explore",
 });
 
 const set = async (next: ExploreFilters): Promise<void> => {
   filters.value = clean(next);
-  await router.replace({ query: { ...filters.value } });
+  await router.replace({ query: queryFromFilters(filters.value) });
 };
 
-function toggle<K extends keyof ExploreFilters>(
-  key: K,
-  value: ExploreFilters[K],
-): void {
+const chosen = (key: ListFilter, value: string): boolean =>
+  (filters.value[key] as readonly string[] | undefined)?.includes(value) ??
+  false;
+
+/** Adds `value` to a filter's choices, or removes it if it is already there. */
+function toggle(key: ListFilter, value: string): void {
+  const now = (filters.value[key] as string[] | undefined) ?? [];
   void set({
     ...filters.value,
-    [key]: filters.value[key] === value ? undefined : value,
+    [key]: now.includes(value)
+      ? now.filter((v) => v !== value)
+      : [...now, value],
   });
 }
+
+/** Drops the part filter, which is a single value rather than a list. */
+const removePart = (): void => {
+  void set({ ...filters.value, part: undefined });
+};
+
+const setMatch = (match: ExploreMatch): void => {
+  void set({
+    ...filters.value,
+    match: match === "all" ? "all" : undefined,
+  });
+};
 
 let timer: ReturnType<typeof setTimeout> | undefined;
 const applySearch = (): void => {
