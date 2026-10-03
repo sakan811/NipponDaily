@@ -67,7 +67,7 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
             <td>
               <code>{{ m.file }}</code
               ><template v-if="m.serverOnly"
-                ><br ><em>server and tests only</em></template
+                ><br /><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>
