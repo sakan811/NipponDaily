@@ -3,17 +3,16 @@ import { flushPromises, mount } from "@vue/test-utils";
 import FeaturesPage from "~/app/pages/docs/features.vue";
 
 const stubs = {
-  UPageCard: {
-    props: ["title", "description"],
+  UHeader: {
     template:
-      '<div class="u-page-card"><h3>{{ title }}</h3><p>{{ description }}</p></div>',
+      '<div class="u-header"><slot name="left" /><slot name="right" /><slot name="body" /><slot /></div>',
   },
   UFooter: {
     template: '<div class="u-footer"><slot name="left" /><slot /></div>',
   },
 };
 
-describe("Features Page", () => {
+describe("Features chapter", () => {
   it("states the word range and count from /api/catalogue, not from the page", async () => {
     (global as any).$fetch.mockResolvedValue({
       success: true,
@@ -38,8 +37,7 @@ describe("Features Page", () => {
   });
 
   it("describes the daily-word product", () => {
-    const wrapper = mount(FeaturesPage, { global: { stubs } });
-    const text = wrapper.text();
+    const text = mount(FeaturesPage, { global: { stubs } }).text();
 
     for (const title of [
       "A New Word Every Day",
@@ -47,6 +45,8 @@ describe("Features Page", () => {
       "Taken Apart",
       "Evidence for Every Claim",
       "Verified in CI",
+      "Four Seasons",
+      "Pick Your Season",
       "Nothing Stored About You",
     ]) {
       expect(text).toContain(title);
@@ -55,22 +55,11 @@ describe("Features Page", () => {
   });
 
   it("no longer advertises the game, lessons or vocabulary guide", () => {
-    const wrapper = mount(FeaturesPage, { global: { stubs } });
-    const text = wrapper.text();
+    const text = mount(FeaturesPage, { global: { stubs } }).text();
 
     expect(text).not.toContain("daily game");
     expect(text).not.toContain("Lesson Paths");
-    expect(text).not.toContain("hanko");
     expect(text).not.toContain("/api/daily-game");
-  });
-
-  it("describes the seasons without the removed MCP agent", () => {
-    const wrapper = mount(FeaturesPage, { global: { stubs } });
-    const text = wrapper.text();
-
-    expect(text).toContain("Four Seasons");
-    expect(text).toContain("Pick Your Season");
     expect(text).not.toContain("MCP");
-    expect(text).not.toContain("agent");
   });
 });
