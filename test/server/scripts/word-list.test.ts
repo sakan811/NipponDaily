@@ -93,7 +93,7 @@ describe("parseJlptCsv", () => {
 // Real-world case (see data/reference/{n5,n4,n3}-reference.json): elzup's
 // per-level CSVs are curated independently, so a handful of words end up
 // listed at more than one level with the exact same reading — the lower
-// (easier) level should keep them, per CLAUDE.md's Content Accuracy notes.
+// (easier) level should keep them, per docs/content.md.
 describe("dedupeAcrossLevels", () => {
   it("drops a later level's entry when an earlier level already claimed the same term+reading", () => {
     const seenByKey = new Map();

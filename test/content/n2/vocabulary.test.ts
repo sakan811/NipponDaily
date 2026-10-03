@@ -14,8 +14,7 @@ import {
 /**
  * The N2 pool — every word it serves — checked against JMdict/KANJIDIC2
  * evidence in data/reference/n2-reference.json.
- * Mirrors test/content/n3/vocabulary.test.ts; see CLAUDE.md's Content Accuracy
- * section.
+ * Mirrors test/content/n3/vocabulary.test.ts; see docs/content.md.
  */
 
 const reference = loadReference("N2");

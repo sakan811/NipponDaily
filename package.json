@@ -19,7 +19,9 @@
     "data:reference": "node --experimental-strip-types --no-warnings scripts/build-n5-reference.mjs",
     "data:reference:jlpt": "node --experimental-strip-types --no-warnings scripts/build-jlpt-reference.mjs",
     "data:words": "node scripts/generate-word-entries.mjs",
-    "data:etymology": "node scripts/build-etymology-reference.mjs"
+    "data:etymology": "node scripts/build-etymology-reference.mjs",
+    "docs:sync": "node --experimental-strip-types --no-warnings scripts/sync-docs.mjs",
+    "docs:check": "node --experimental-strip-types --no-warnings scripts/sync-docs.mjs --check"
   },
   "dependencies": {
     "@upstash/redis": "^1.39.0",

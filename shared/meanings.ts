@@ -52,7 +52,7 @@ export const VOCAB_MEANING_ENRICHMENTS: Record<string, string> = {
  * word list. test/content/ checks every word — corrected or not — against that
  * level's own committed reference snapshot (currently N5's
  * data/reference/n5-reference.json and N4's data/reference/n4-reference.json
- * — see CLAUDE.md's Content Accuracy section), so a wrong form in the list
+ * — see docs/content.md), so a wrong form in the list
  * fails CI until it's corrected here.
  */
 export interface VocabFormCorrection {
@@ -86,7 +86,7 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   // spelling), wrapped in parenthetical/tilde grammar notation, or missing
   // okurigana — found via `pnpm data:reference:jlpt`'s unresolvedInJmdict
   // list and fixed the same way N5's own corrections were, one discovered
-  // issue at a time (see CLAUDE.md's Content Accuracy section).
+  // issue at a time (see docs/content.md).
   "うそ 嘘": {
     term: "嘘",
     kana: "うそ",
