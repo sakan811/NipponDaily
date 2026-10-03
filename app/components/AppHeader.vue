@@ -25,12 +25,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] dark:hidden rounded-full"
-          />
+          >
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] hidden dark:block rounded-full"
-          />
+          >
         </span>
         <span
           class="font-serif font-bold text-[1em] leading-none text-stone-900 dark:text-white"
@@ -88,6 +88,7 @@ const NAV_LINKS = [
   { to: "/patterns", label: "Patterns" },
   { to: "/parts", label: "Parts" },
   { to: "/kana", label: "Kana" },
+  { to: "/docs", label: "Docs" },
 ];
 
 const menuOpen = ref(false);

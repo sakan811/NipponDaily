@@ -19,7 +19,7 @@ const mountHeader = () =>
     },
   });
 
-const LINKS = ["/words", "/explore", "/patterns", "/parts", "/kana"];
+const LINKS = ["/words", "/explore", "/patterns", "/parts", "/kana", "/docs"];
 
 describe("AppHeader", () => {
   it("has a menu button on small screens that opens every nav link", async () => {
