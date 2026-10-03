@@ -39,7 +39,7 @@ JMdict and KANJIDIC2 are property of the [Electronic Dictionary Research and Dev
 
 Etymology text is quoted from [English Wiktionary](https://en.wiktionary.org) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Each entry links the exact revision it quotes and quotes it verbatim; the one-line headline is NipponDaily's own.
 
-The word lists come from the community list originally compiled at tanos.co.uk, via [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT licence).
+The word lists come from the community list originally compiled at [tanos.co.uk](https://www.tanos.co.uk/jlpt/) (CC BY; credit required), via [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT licence).
 
 Kana conversion in the data scripts and checks uses [wanakana](https://github.com/WaniKani/WanaKana) (MIT licence).
 <!-- docs:end attribution -->

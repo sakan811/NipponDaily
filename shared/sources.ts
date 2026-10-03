@@ -24,6 +24,8 @@ export const LICENCES = {
     name: "CC BY-SA 4.0",
     url: "https://creativecommons.org/licenses/by-sa/4.0/",
   },
+  // tanos.co.uk states "Creative Commons BY" with no version, so none is named.
+  ccBy: { name: "CC BY" },
   mit: { name: "MIT licence" },
 } as const satisfies Record<string, Licence>;
 
@@ -40,6 +42,8 @@ export interface DataSource {
   holderShort?: string;
   /** How it reaches the repo, when not straight from `url`. */
   via?: { name: string; url: string };
+  /** Where the data was originally compiled, when `url` is a redistribution. */
+  origin?: { name: string; url: string; licence: Licence };
   /** What the site takes from it. */
   use: string;
   /** The attribution sentence(s), as shown to readers. */
@@ -55,6 +59,10 @@ const JAMDICT = {
 } as const;
 const WIKTIONARY_URL = "https://en.wiktionary.org";
 const WORD_LIST_URL = "https://github.com/elzup/jlpt-word-list";
+const TANOS = {
+  name: "tanos.co.uk",
+  url: "https://www.tanos.co.uk/jlpt/",
+} as const;
 const WANAKANA_URL = "https://github.com/WaniKani/WanaKana";
 const EDRDG_NAME = "Electronic Dictionary Research and Development Group";
 
@@ -86,8 +94,9 @@ export const SOURCES = {
     short: "JLPT word lists",
     url: WORD_LIST_URL,
     licence: LICENCES.mit,
+    origin: { ...TANOS, licence: LICENCES.ccBy },
     use: "The JLPT N5–N2 vocabulary the daily words are drawn from",
-    credit: `The word lists come from the community list originally compiled at tanos.co.uk, via ${link("elzup/jlpt-word-list", WORD_LIST_URL)} (${LICENCES.mit.name}).`,
+    credit: `The word lists come from the community list originally compiled at ${link(TANOS.name, TANOS.url)} (${LICENCES.ccBy.name}; credit required), via ${link("elzup/jlpt-word-list", WORD_LIST_URL)} (${LICENCES.mit.name}).`,
   },
   wanakana: {
     id: "wanakana",

@@ -165,6 +165,7 @@ describe("attribution", () => {
     s.url,
     s.licence.url,
     s.via?.url,
+    s.origin?.url,
   ]).filter((u): u is string => Boolean(u));
   const bare = (u: string) => u.replace(/\/$/, "");
 
