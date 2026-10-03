@@ -52,9 +52,10 @@
     <ol>
       <li>
         <strong>No reader data.</strong> No accounts, no progress, no streaks.
-        Nothing about a reader is sent to or stored on a server; only a colour
-        mode, a season pick and a music volume stay in the reader's own browser.
-        The site is the same for everyone.
+        Nothing about a reader is sent to or stored on the app's server; only a
+        colour mode, a season pick, a cached copy of the site's season and a
+        music volume stay in the reader's own browser. The site is the same for
+        everyone.
       </li>
       <li>
         <strong>Fits whenever a reader comes.</strong> Daily is ideal but never

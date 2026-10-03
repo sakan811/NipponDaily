@@ -79,9 +79,10 @@
       (日 → び, ひ, か, にち), with rendaku shown as “from ひ”.
       <code>alsoIn</code> lists open words whose <em>spelling</em> contains a
       kanji part but whose breakdown doesn't name it, flagged on the page as
-      claiming nothing. Coverage is bounded by the parsers: single-kanji words,
-      hedged loanwords and unclear native verbs and adjectives have no parts.
-      The sitemap lists parts seen in more than one open word.
+      claiming nothing. Coverage is bounded by the parsers: single-character
+      words, most native verbs and adjectives, many loanwords and any word whose
+      text gives no clean split have no parts. The sitemap lists parts seen in
+      more than one open word.
     </p>
 
     <h3>Explore</h3>
@@ -169,7 +170,7 @@ const fields = [
   {
     name: "morphemes[]",
     meaning:
-      "`text`, surface `reading` (hiragana), `base?` when rendaku or sokuon changed it, `meaning`, `irregular?`. Empty when the source gives no clean split.",
+      "`text`, surface `reading` (hiragana), `base?` when rendaku or sokuon changed it, `meaning`, `irregular?`, and `glossSource?` (`kanjidic2` when the meaning is KANJIDIC2's, not Wiktionary's). Empty when the source gives no clean split.",
   },
   {
     name: "sources[]",

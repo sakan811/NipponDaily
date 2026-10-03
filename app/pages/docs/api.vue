@@ -20,7 +20,7 @@
             <td>
               <code>{{ endpoint.method }} {{ endpoint.path }}</code
               ><template v-if="endpoint.query"
-                ><br ><code>{{ endpoint.query }}</code></template
+                ><br /><code>{{ endpoint.query }}</code></template
               >
             </td>
             <td><RichText :text="endpoint.returns" /></td>
@@ -37,9 +37,7 @@
     </p>
 
     <h2>Example</h2>
-    <p>
-      <code>GET /api/daily-word?date=2026-10-01</code>
-    </p>
+    <p><code>GET /api/daily-word?date=2026-10-01</code>, abridged</p>
     <pre><code>{{ example }}</code></pre>
   </DocsBook>
 </template>
@@ -66,7 +64,7 @@ const example = `{
       "sources": [{ "quote": "…" }],
       "wiktionaryRev": 92203082
     },
-    "prev": null,
+    "prev": { "date": "2026-09-30", "term": "蕎麦" },
     "next": { "date": "2026-10-02", "term": "友達" }
   },
   "timestamp": "2026-10-01T00:00:00Z"

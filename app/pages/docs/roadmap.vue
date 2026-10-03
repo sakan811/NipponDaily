@@ -50,6 +50,12 @@
       </li>
       <li><strong>No request rate limiting</strong> on any endpoint.</li>
       <li>
+        <strong>The fonts come from Google Fonts</strong>
+        (<code>nuxt.config.ts</code>), so a reader's browser contacts Google
+        when a page loads (<code>fonts.googleapis.com</code> and
+        <code>fonts.gstatic.com</code>).
+      </li>
+      <li>
         <strong>No integration tests.</strong> Pages with no test are only
         exercised by <code>pnpm build</code>.
       </li>

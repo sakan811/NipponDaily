@@ -112,7 +112,7 @@ const features = computed(() => [
   {
     title: "Nothing Stored About You",
     description:
-      "No accounts, no tracking. The site fetches words, the month grid, the counts and the season, and sends nothing about you back. Only your color mode, season choice and music volume are remembered, in your own browser.",
+      "No accounts, no tracking. The site fetches words, the month grid, the counts and the season, and sends nothing about you back. Only your color mode, season choice, the site's season and music volume are remembered, in your own browser.",
   },
   {
     title: "Dark Mode & Fallbacks",

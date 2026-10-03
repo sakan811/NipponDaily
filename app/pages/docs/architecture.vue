@@ -27,7 +27,13 @@
         season is kept in process memory; the words need no configuration.
       </li>
       <li>
-        <strong>Nothing about a reader is stored or sent.</strong> No accounts.
+        <strong
+          >Nothing about a reader is stored or sent to the app's server.</strong
+        >
+        No accounts. The fonts are the one outside request (<NuxtLink
+          to="/docs/roadmap"
+          >Roadmap and limits</NuxtLink
+        >).
       </li>
     </ul>
 
@@ -61,7 +67,7 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
             <td>
               <code>{{ m.file }}</code
               ><template v-if="m.serverOnly"
-                ><br ><em>server and tests only</em></template
+                ><br /><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>
@@ -150,7 +156,7 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
         <code>server/utils/config.ts</code>'s
         <code>getEnvOrConfig(configKey, envKey)</code>, which prefers Nuxt
         <code>runtimeConfig</code> and falls back to <code>process.env</code>,
-        so it also works outside a request. The data scripts run as bare
+        so it also works outside a request. The data scripts run under plain
         <code>node</code> and need no Redis credentials.
       </li>
       <li><strong>Types</strong> live in <code>types/index.ts</code>.</li>
@@ -307,7 +313,7 @@ const sharedModules = [
   },
   {
     file: "meanings.ts",
-    role: "`servedVocab()`: the only place to correct or enrich a word-list entry.",
+    role: "`servedVocab()`: the corrections and enrichments applied to a word-list entry (with the row overrides in `scripts/lib/word-list.mjs`).",
   },
   {
     file: "seasons.ts",

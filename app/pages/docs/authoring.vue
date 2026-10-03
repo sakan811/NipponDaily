@@ -49,8 +49,8 @@
       Wikimedia rate-limits anonymous clients, so
       <code>data:etymology</code> paces itself and honours
       <code>Retry-After</code>; a month takes a few minutes. The reference
-      builders need Node 22.13 or newer (<code>node:sqlite</code>),
-      <code>tar</code> and <code>xz</code>.
+      builders also use <code>node:sqlite</code>, <code>tar</code> and
+      <code>xz</code>, and download from PyPI and GitHub.
     </p>
 
     <h2>Adding a month</h2>
@@ -103,11 +103,9 @@
         >).
       </li>
       <li>
-        <strong>Refresh the docs</strong>: <code>pnpm docs:sync</code>. The
-        range and count are computed from <code>data/words/</code> and read live
-        by the pages, so there is nothing to type.
+        <code>pnpm test:run</code>. The range and count the docs quote are read
+        live from <code>data/words/</code>, so there is nothing to update.
       </li>
-      <li><code>pnpm test:run</code>.</li>
     </ol>
 
     <h3>If the generator refuses an entry</h3>
@@ -219,7 +217,7 @@ const pieces = [
   },
   {
     path: "shared/meanings.ts",
-    what: "The only place to correct or enrich what a pool word says, keyed by `term kana` and applied by `servedVocab()` when a snapshot is built.",
+    what: "Where to correct or enrich what a pool word says (`VOCAB_FORM_CORRECTIONS`, `VOCAB_MEANING_ENRICHMENTS`), keyed by `term kana` and applied by `servedVocab()` when a snapshot is built. Three rows the source list itself has wrong are fixed in `scripts/lib/word-list.mjs` (`VOCAB_MEANING_OVERRIDES`, `VOCAB_READING_OVERRIDES`).",
   },
 ];
 
@@ -274,7 +272,7 @@ const month: Required<Pick<DiagramSpec, "nodes" | "edges">> = {
     {
       id: "test",
       label: "pnpm test:run",
-      sub: "docs:sync first",
+      sub: "the docs read the new range",
       col: 0,
       row: 2.8,
       kind: "check",

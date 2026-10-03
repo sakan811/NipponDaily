@@ -16,7 +16,7 @@ One word a day at midnight in Japan (JST) · a month calendar · **Explore** and
 
 ## Quick start
 
-Node 22 or newer (CI runs Node 25) and [pnpm](https://pnpm.io/).
+Node 22.19, 24.11 or 26 and newer (Nuxt's supported range) and [pnpm](https://pnpm.io/).
 
 ```bash
 pnpm install
