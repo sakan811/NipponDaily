@@ -17,7 +17,7 @@ import {
  * The N3 pool itself — every word it serves — checked against
  * JMdict/KANJIDIC2 evidence in
  * data/reference/n3-reference.json. Mirrors test/content/n4/vocabulary.test.ts's
- * N4 checks; see CLAUDE.md's Content Accuracy section.
+ * N4 checks; see docs/content.md.
  */
 
 const reference = loadReference("N3");

@@ -12,7 +12,7 @@
 
 ## Features
 
-- **One word a day** — opens at midnight in Japan (JST). Only each word's headline is hand-written (`data/word-plan/`); everything else in `data/words/` is generated from JMdict, KANJIDIC2 and pinned Wiktionary text (every day from January 2026 to October 2027, 669 words so far), drawn from the JLPT N5–N2 vocabulary.
+- **One word a day** — opens at midnight in Japan (JST). Only each word's headline is hand-written (`data/word-plan/`); everything else in `data/words/` is generated from JMdict, KANJIDIC2 and pinned Wiktionary text (a word for every day of the written range, drawn from the JLPT N5–N2 vocabulary; the days still to come are hidden until they arrive).
 - **Calendar** — `/words` is a month grid; each day that has arrived links to `/words/<date>`. A future word can't be read early, not even by asking the API for its date.
 - **Explore** — `/explore` searches the words that have opened (by word, reading or meaning; katakana matches hiragana) and filters them by JLPT level, layer and process, with live counts. The filters live in the URL.
 - **Patterns** — `/patterns` counts the same entries: layers, levels, processes, which processes travel together, and which sounds voice inside a word (rendaku). Every bar links into Explore.
@@ -24,9 +24,11 @@
 
 ## Tech Stack
 
-[Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/), [Upstash Redis](https://upstash.com/), [Vitest](https://vitest.dev/), [wanakana](https://github.com/WaniKani/WanaKana) (kana conversion in the data scripts and checks), [kuromoji](https://github.com/takuyaa/kuromoji.js) (tokenizer used by the reference builders) and [zod](https://zod.dev/) (query validation in the API). pnpm is the package manager.
+[Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/), [Upstash Redis](https://upstash.com/), [Vitest](https://vitest.dev/), wanakana (kana conversion in the data scripts and checks), [kuromoji](https://github.com/takuyaa/kuromoji.js) (tokenizer used by the reference builders) and [zod](https://zod.dev/) (query validation in the API). pnpm is the package manager.
 
 ## Setup
+
+Node 22 or newer (CI runs Node 25) and [pnpm](https://pnpm.io/).
 
 ```bash
 pnpm install
@@ -56,37 +58,9 @@ The daily words need no configuration. Redis is only used for the site's season;
 | `pnpm data:etymology`                         | Pin Wiktionary pages (`--terms a,b` adds, `--refresh <term>` re-pins, `--prune` drops unused, `--skip-missing` skips pages that can't be fetched)                    |
 | `pnpm data:words`                             | Generate `data/words/` from `data/word-plan/` and the committed sources (`--check` verifies, `--keep-going` writes every entry that built, leaving a failed day out) |
 
-## Seasons
+## Seasons and API
 
-| Season            | Months             |
-| :---------------- | :----------------- |
-| `sakura` (spring) | March–May          |
-| `summer`          | June–August        |
-| `autumn`          | September–November |
-| `winter`          | December–February  |
-
-- `vercel.json` runs `GET /api/cron/update-season` daily at 15:00 UTC (midnight in Japan). It saves the season for that date to Redis, only if it changed.
-- `GET /api/site-theme` serves the saved season. If none is saved yet it uses today's season and saves that.
-- The season button in the header picks any season or "Follow the calendar". The pick lives in the browser's `localStorage` and is never sent anywhere.
-- Palettes and months are defined once in `shared/seasons.ts`; `app/assets/css/tailwind.css` holds the CSS, and a test keeps the two in sync.
-
-## API
-
-| Endpoint                        | Returns                                                                                                                                                       |
-| :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `GET /api/daily-word?date=`     | One entry plus its previous/next day. `date` is `YYYY-MM-DD` (default: today in Japan). A future or invalid date is `400`; a past date with no entry `404`.   |
-| `GET /api/word-calendar?month=` | `{ month, months, today, days }` for `YYYY-MM` (default: current month). An upcoming day carries only its date.                                               |
-| `GET /api/explore`              | Open words filtered by `q`, `level`, `stratum`, `process`, `part` (all optional; empty = no filter, anything invalid `400`), newest first, with facet counts. |
-| `GET /api/patterns`             | Counts across the open words: layers, levels, processes, process pairs and the rendaku section.                                                               |
-| `GET /api/parts`                | Every part (morpheme) shown by a word that has opened: `{ parts: [{ text, count, readings }] }`, most-used first.                                             |
-| `GET /api/related?date=`        | Open words that resemble one entry (shared parts, processes, layer), closest first, each with what it shares. `400` for a future or malformed date.           |
-| `GET /api/part?text=`           | One part and the open words that show it, grouped by the reading it has in each, plus words spelled with it that show no breakdown. `404` if none has.        |
-| `GET /api/site-theme`           | The site's season: `{ season, updatedAt, source }`, cached by the CDN for 60 seconds.                                                                         |
-| `GET /api/cron/update-season`   | Cron target. Requires `Authorization: Bearer <CRON_SECRET>`, else `401`.                                                                                      |
-
-Pages are rendered on the server (a word, the calendar, explore, patterns and the parts pages arrive with their data, a real `404` for a missing day or an unknown route, plus title/description/canonical/Open Graph tags), and `/sitemap.xml` and `/robots.txt` are generated — the sitemap lists only days that have opened (and the parts seen in more than one of them). Set `NUXT_PUBLIC_SITE_URL` to pin the canonical origin; without it each request's own origin is used.
-
-Parameters, status codes and an example response are in [`/docs/architecture`](app/pages/docs/architecture.vue).
+The site's season follows the Japanese calendar (spring `sakura`, `summer`, `autumn`, `winter`). A daily Vercel cron sets it, and the header's season button lets a reader pick their own, stored only in their browser. The word, calendar, explore, patterns, parts and related endpoints serve only days that have opened, and pages are server-rendered with a `/sitemap.xml` and `/robots.txt`. The season table, every endpoint with its parameters and status codes, and the colour system are in [`docs/architecture.md`](docs/architecture.md).
 
 ## Tests
 
@@ -94,7 +68,7 @@ Three Vitest projects (`vitest.config.ts`):
 
 - `test/unit` — components and pages (happy-dom).
 - `test/server` — API handlers, the `shared/` modules, the data scripts and services (node, mocked Redis).
-- `test/content` — every daily-word entry and every word in the JLPT lists checked against the committed evidence in `data/reference/`, fully offline. See [`docs/content-accuracy.md`](docs/content-accuracy.md).
+- `test/content` — every daily-word entry and every word in the JLPT lists checked against the committed evidence in `data/reference/`, fully offline. See [`docs/content.md`](docs/content.md).
 
 There are no integration tests. Several tests guard against drift: `seasons-css-sync` (`shared/seasons.ts` vs the CSS), `icons` (every icon used exists in `app/data/icons.ts`) and `no-future-leak` (nothing under `app/` imports the entries).
 
@@ -102,17 +76,32 @@ CI (`.github/workflows/webpage-test.yml`) runs `pnpm run test` on pushes to `mai
 
 ## Documentation
 
-In the app: [`/docs/architecture`](app/pages/docs/architecture.vue), [`/docs/color-palette`](app/pages/docs/color-palette.vue), [`/docs/features`](app/pages/docs/features.vue), [`/docs/error-states`](app/pages/docs/error-states.vue) and [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
+In the repo, one owner per topic ([`docs/`](docs/README.md) is the index):
 
-In the repo: [`docs/core-theme.md`](docs/core-theme.md) (what the app is and its design principles), [`docs/authoring-checklist.md`](docs/authoring-checklist.md) (add a month, write an entry, refresh sources) and [`docs/content-accuracy.md`](docs/content-accuracy.md). [`TODO.md`](TODO.md) tracks the data-feature backlog.
+- [`docs/core-theme.md`](docs/core-theme.md): what the app is and its design principles.
+- [`docs/architecture.md`](docs/architecture.md): layout, data model, seasons, colour and the API.
+- [`docs/content.md`](docs/content.md): how entries are generated and checked, adding a month, correcting a word, refreshing sources.
+
+[`TODO.md`](TODO.md) tracks the data-feature backlog. In the app, the same ground is covered for readers at [`/docs/features`](app/pages/docs/features.vue), [`/docs/architecture`](app/pages/docs/architecture.vue), [`/docs/data-integrity`](app/pages/docs/data-integrity.vue), [`/docs/color-palette`](app/pages/docs/color-palette.vue) and [`/docs/error-states`](app/pages/docs/error-states.vue).
 
 ## Data & Attribution
 
-Entries quote [English Wiktionary](https://en.wiktionary.org) (CC BY-SA 4.0); each links its exact revision. Readings and meanings are checked against JMdict and KANJIDIC2, property of the [EDRDG](https://www.edrdg.org/) and used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) via [jamdict-data](https://pypi.org/project/jamdict-data/). The JLPT word lists come from [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT), digitized from the community list at tanos.co.uk. Details: [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
+<!-- docs:begin attribution -->
+
+JMdict and KANJIDIC2 are property of the [Electronic Dictionary Research and Development Group](https://www.edrdg.org/), used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) via the [jamdict-data](https://pypi.org/project/jamdict-data/) release.
+
+Etymology text is quoted from [English Wiktionary](https://en.wiktionary.org) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Each entry links the exact revision it quotes and quotes it verbatim; the one-line headline is NipponDaily's own.
+
+The word lists come from the community list originally compiled at tanos.co.uk, via [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT licence).
+
+Kana conversion in the data scripts and checks uses [wanakana](https://github.com/WaniKani/WanaKana) (MIT licence).
+<!-- docs:end attribution -->
+
+Details: [`docs/content.md`](docs/content.md) and [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
 
 ## Limitations
 
-- Entries cover every day from 2026-01-01 to 2027-10-31. After 2027-10-31 the home page keeps showing the newest word until the next month is written.
+- Entries cover every day from <!-- docs:begin range -->2026-01-01 to 2027-10-31<!-- docs:end range -->. After <!-- docs:begin last -->2027-10-31<!-- docs:end last --> the home page keeps showing the newest word until the next month is written.
 - The tests prove that quotes, readings, meanings and parts of speech match the committed evidence, not that Wiktionary is right. The headline is the one hand-written line; a test only checks the Japanese it mentions.
 - No request rate limiting.
 

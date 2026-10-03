@@ -22,8 +22,8 @@ year, so it never runs out.
 
 **The learning clock: one word a day.** Each date has one word, and which word
 a date shows depends only on the date, so any reader gets the same complete
-page. The words are finite (every day from 2026-01-01 to 2027-10-31 so far), so
-when they run out the home page keeps showing the newest word instead of going
+page. The words are finite (the range is in [`architecture.md`](architecture.md)),
+so when they run out the home page keeps showing the newest word instead of going
 blank. The idea of a lap (周), starting again from the first word once the words
 are used up, is where this clock is meant to go; it is not built yet, and no
 page or API repeats a word today.
