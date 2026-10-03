@@ -113,10 +113,37 @@ describe("GET /api/daily-word", () => {
     });
   });
 
-  it("falls back to the newest word once the catalogue has run out", async () => {
-    at("2028-03-10T12:00:00Z");
+  it("is on lap 1 while the catalogue lasts", async () => {
+    at("2027-10-31T12:00:00Z");
     const handler = await getHandler();
-    expect(handler({} as any).data.entry.date).toBe("2027-10-31");
+    const { data } = handler({} as any);
+    expect(data.entry.date).toBe("2027-10-31");
+    expect(data.lap).toBe(1);
+  });
+
+  it("starts again from the first word once the catalogue has run out", async () => {
+    const handler = await getHandler();
+
+    at("2027-11-01T12:00:00Z");
+    expect(handler({} as any).data).toMatchObject({
+      entry: { date: "2026-01-01" },
+      lap: 2,
+      prev: null,
+    });
+
+    // 131 days after the last word: the 131st word, still on lap 2.
+    at("2028-03-10T12:00:00Z");
+    expect(handler({} as any).data).toMatchObject({
+      entry: { date: "2026-05-11" },
+      lap: 2,
+    });
+  });
+
+  it("answers an explicit date from lap 1 only", async () => {
+    at("2028-03-10T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2026-05-11" });
+    const handler = await getHandler();
+    expect(handler({} as any).data.lap).toBe(1);
   });
 
   it("returns 404 before the first word has opened", async () => {

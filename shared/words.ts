@@ -100,10 +100,40 @@ export function entryForDate(date: string): WordEntry | undefined {
   return WORD_ENTRIES.find((e) => e.date === date);
 }
 
-/** The newest entry that is open on `date` — what "today's word" falls back
- *  to once the catalogue runs out, so the site never shows nothing. */
+/** The newest entry that is open on `date` — the word a day shows while the
+ *  catalogue has yet to reach it (the days before the first word are the only
+ *  ones with nothing to show). */
 export function latestEntryOnOrBefore(date: string): WordEntry | undefined {
   return [...WORD_ENTRIES].reverse().find((e) => e.date <= date);
+}
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** Whole days from `from` to `to` (both YYYY-MM-DD). */
+function daysBetween(from: string, to: string): number {
+  return Math.round((Date.parse(to) - Date.parse(from)) / DAY_MS);
+}
+
+/** The word for a day with no entry of its own and the lap it falls on.
+ *
+ *  Until the last written day the answer is the newest entry open on `date`,
+ *  on lap 1. After it the words start again from the first one (a lap, 周):
+ *  the day after the last entry shows the first word on lap 2, the next the
+ *  second, and so on, then lap 3. The word depends only on the date, so every
+ *  reader sees the same one, and every word shown has already been open. */
+export function lapEntryForDate(
+  date: string,
+): { entry: WordEntry; lap: number } | undefined {
+  const last = WORD_ENTRIES[WORD_ENTRIES.length - 1];
+  if (!last || date <= last.date) {
+    const entry = latestEntryOnOrBefore(date);
+    return entry && { entry, lap: 1 };
+  }
+  const since = daysBetween(last.date, date) - 1;
+  return {
+    entry: WORD_ENTRIES[since % WORD_ENTRIES.length]!,
+    lap: 2 + Math.floor(since / WORD_ENTRIES.length),
+  };
 }
 
 /** An entry with the open days on either side of it. `next` stays null until
@@ -111,12 +141,14 @@ export function latestEntryOnOrBefore(date: string): WordEntry | undefined {
 export function payloadFor(
   entry: WordEntry,
   today: string = todayJst(),
+  lap = 1,
 ): DailyWordPayload {
   const i = WORD_ENTRIES.indexOf(entry);
   const prev = WORD_ENTRIES[i - 1];
   const next = WORD_ENTRIES[i + 1];
   return {
     entry,
+    lap,
     prev: prev ? { date: prev.date, term: prev.term } : null,
     next:
       next && next.date <= today ? { date: next.date, term: next.term } : null,

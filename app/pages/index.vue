@@ -51,7 +51,15 @@
           data-testid="today-word"
           class="group season-box block border border-stone-300 dark:border-stone-700 bg-white/80 dark:bg-stone-900/60 p-6 sm:p-8 hover:border-primary-500 transition-colors"
         >
-          <p class="kicker text-primary-600 dark:text-primary-400">
+          <p
+            v-if="payload.lap > 1"
+            data-testid="today-lap"
+            class="kicker text-primary-600 dark:text-primary-400"
+          >
+            Lap {{ payload.lap }} (周) · first opened
+            {{ formatLongDate(payload.entry.date) }}
+          </p>
+          <p v-else class="kicker text-primary-600 dark:text-primary-400">
             {{ formatLongDate(payload.entry.date) }}
           </p>
           <div class="mt-3 flex flex-wrap items-end gap-x-5 gap-y-1">

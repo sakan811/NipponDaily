@@ -3,7 +3,7 @@ import { safeGetQuery } from "../utils/http-query";
 import {
   entryForDate,
   isValidIsoDate,
-  latestEntryOnOrBefore,
+  lapEntryForDate,
   payloadFor,
   todayJst,
 } from "~~/shared/words";
@@ -42,12 +42,12 @@ export default defineEventHandler((event) => {
   }
 
   const today = todayJst();
-  // No ?date= means "today's word" — and if the catalogue has not reached
-  // today yet (or has run out), the newest open word, so the page is never
-  // empty. An explicit date must have its own entry.
-  const entry = requestedDate
-    ? entryForDate(requestedDate)
-    : latestEntryOnOrBefore(today);
+  // No ?date= means "today's word". When the catalogue has run out the words
+  // start again from the first (a lap), so the page is never empty and never
+  // shows a word that has not opened. An explicit date must have its own entry
+  // and is always on lap 1.
+  const shown = requestedDate ? undefined : lapEntryForDate(today);
+  const entry = requestedDate ? entryForDate(requestedDate) : shown?.entry;
 
   if (!entry) {
     throw createError({
@@ -63,7 +63,7 @@ export default defineEventHandler((event) => {
 
   return {
     success: true,
-    data: payloadFor(entry, today),
+    data: payloadFor(entry, today, shown?.lap),
     timestamp: new Date().toISOString(),
   };
 });
