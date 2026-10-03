@@ -8,7 +8,7 @@ const entry = WORD_ENTRIES.find((e) => e.date === "2026-10-01")!;
 
 const payload = {
   success: true,
-  data: { entry, prev: null, next: null },
+  data: { entry, lap: 1, prev: null, next: null },
   timestamp: "2026-10-01T00:00:00Z",
 };
 
@@ -65,6 +65,23 @@ describe("Index Page (Landing)", () => {
     expect(wrapper.find('[data-testid="today-term"]').text()).toBe("電話");
     expect(card.text()).toContain("でんわ");
     expect(card.text()).toContain(entry.headline);
+  });
+
+  it("names the lap only once the words have started again", async () => {
+    const wrapper = mount(IndexPage);
+    await flushPromises();
+    expect(wrapper.find('[data-testid="today-lap"]').exists()).toBe(false);
+
+    (global as any).$fetch.mockResolvedValue({
+      ...payload,
+      data: { ...payload.data, lap: 2 },
+    });
+    const second = mount(IndexPage);
+    await flushPromises();
+    const lap = second.find('[data-testid="today-lap"]');
+    expect(lap.text()).toContain("Lap 2");
+    expect(lap.text()).toContain("first opened");
+    expect(lap.text()).toContain("2026");
   });
 
   it("shows a skeleton, not an error, while the word loads", () => {

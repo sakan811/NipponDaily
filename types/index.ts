@@ -103,6 +103,9 @@ export interface WordNeighbor {
 /** What GET /api/daily-word returns: the entry plus its open neighbours. */
 export interface DailyWordPayload {
   entry: WordEntry;
+  /** Which lap of the catalogue the entry is shown on: 1 until the last
+   *  written day has passed, then 2 for the second time through, and so on. */
+  lap: number;
   /** The previous day with a word, if any. */
   prev: WordNeighbor | null;
   /** The next day with a word — only once that day has itself arrived. */
