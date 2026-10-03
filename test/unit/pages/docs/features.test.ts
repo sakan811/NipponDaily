@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { mount } from "@vue/test-utils";
+import { flushPromises, mount } from "@vue/test-utils";
 import FeaturesPage from "~/app/pages/docs/features.vue";
 
 const stubs = {
@@ -14,6 +14,29 @@ const stubs = {
 };
 
 describe("Features Page", () => {
+  it("states the word range and count from /api/catalogue, not from the page", async () => {
+    (global as any).$fetch.mockResolvedValue({
+      success: true,
+      data: { first: "2026-01-01", last: "2027-10-31", total: 669, open: 276 },
+    });
+    const wrapper = mount(FeaturesPage, { global: { stubs } });
+    await flushPromises();
+
+    expect((global as any).$fetch).toHaveBeenCalledWith("/api/catalogue");
+    expect(wrapper.text()).toContain(
+      "669 words are written, January 2026 to October 2027, and 276 have opened so far.",
+    );
+  });
+
+  it("states no number when the catalogue can't be fetched", async () => {
+    (global as any).$fetch.mockRejectedValue(new Error("offline"));
+    const wrapper = mount(FeaturesPage, { global: { stubs } });
+    await flushPromises();
+
+    expect(wrapper.text()).toContain("A New Word Every Day");
+    expect(wrapper.text()).not.toContain("are written");
+  });
+
   it("describes the daily-word product", () => {
     const wrapper = mount(FeaturesPage, { global: { stubs } });
     const text = wrapper.text();
