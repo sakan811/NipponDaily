@@ -6,27 +6,13 @@
     </template>
 
     <h2>Not built yet</h2>
-    <ul>
-      <li>
-        <strong>Laps (周).</strong> Starting again from the first word once the
-        words are used up. Today no page or API repeats a word; after the last
-        written day the home page keeps showing the newest word until the next
-        month is written (<NuxtLink to="/docs/core-theme">Core theme</NuxtLink
-        >).
-      </li>
-      <li>Multi-select filters and an OR/AND toggle in Explore.</li>
-      <li>
-        Filter by JMdict part-of-speech tag (the verbatim tags are long, so they
-        need grouping).
-      </li>
-      <li>
-        A “layer not stated” option in Explore, since some entries have none.
-      </li>
-      <li>
-        Co-occurrence beyond pairs in Patterns (for example rendaku, compound
-        and native together).
-      </li>
-    </ul>
+    <p>
+      Nothing is queued. The laps, the multi-select and any/all filters in
+      Explore, the part-of-speech groups, the “not stated” layer and the larger
+      combinations in Patterns are built and described in
+      <NuxtLink to="/docs/core-theme">Core theme</NuxtLink> and
+      <NuxtLink to="/docs/words">Words</NuxtLink>.
+    </p>
     <p>
       Any new data feature follows the
       <NuxtLink to="/docs/core-theme">principles</NuxtLink> and the
@@ -47,6 +33,11 @@
         <strong>The counts describe these entries.</strong> They are a JLPT
         N5–N2 sample with parser-derived tags, not the language. Coverage of
         parts is bounded by the parsers.
+      </li>
+      <li>
+        <strong>Laps repeat the same entries.</strong> A later lap shows the
+        same words, unchanged; it does not add new ones or reorder them, and the
+        length of a lap is the number of words written.
       </li>
       <li><strong>No request rate limiting</strong> on any endpoint.</li>
       <li>

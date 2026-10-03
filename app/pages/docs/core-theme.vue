@@ -41,10 +41,11 @@
     <p>
       Each date has one word, and which word a date shows depends only on the
       date, so any reader gets the same complete page. The words are finite, so
-      when they run out the home page keeps showing the newest word instead of
-      going blank. A <em>lap</em> (周), starting again from the first word once
-      the words are used up, is where this clock is meant to go. It is not built
-      yet, and no page or API repeats a word today.
+      when they run out the clock goes round again: a <em>lap</em> (周) starts
+      from the first word, the day after the last one, and the home page says
+      which lap it is on. Only the home page repeats words; every other page and
+      every explicit date stays on the first lap, where each word has its own
+      day.
     </p>
 
     <h2>Principles</h2>
@@ -64,7 +65,7 @@
       </li>
       <li>
         <strong>The page is never empty.</strong> The word list is finite, so
-        the app falls back to the newest word rather than run out.
+        the app starts another lap from the first word rather than run out.
       </li>
       <li>
         <strong>Derive, don't claim.</strong> Data pages and time labels read
@@ -126,8 +127,8 @@ const clocks: Required<DiagramSpec> = {
     },
     {
       id: "newest",
-      label: "Newest word",
-      sub: "when words run out",
+      label: "Next lap (周)",
+      sub: "lapEntryForDate()",
       col: 1,
       row: 2.9,
       kind: "ghost",

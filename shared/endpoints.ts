@@ -22,7 +22,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     path: "/api/daily-word",
     query: "?date=YYYY-MM-DD",
     returns:
-      "One entry plus its `prev` and `next` days. With no date: today in Japan, or the newest word once the catalogue runs out. A future or invalid date is a `400`; a past date with no entry (or no word yet) is a `404`. `next` stays `null` until that day has arrived.",
+      "One entry plus its `prev` and `next` days. With no date: today in Japan; once the catalogue runs out the words start again from the first, and `lap` says which pass it is (1 until then, always 1 for an explicit date). A future or invalid date is a `400`; a past date with no entry (or no word yet) is a `404`. `next` stays `null` until that day has arrived.",
   },
   {
     method: "GET",
@@ -47,15 +47,15 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
   {
     method: "GET",
     path: "/api/explore",
-    query: "?q=&level=&stratum=&process=&part=",
+    query: "?q=&level=&stratum=&process=&pos=&part=&match=",
     returns:
-      "The open words matching every filter, newest first: `{ filters, total, count, words, facets }`. Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. Each facet counts the words the other filters leave.",
+      "The open words matching every filter, newest first: `{ filters, total, count, words, facets }`. Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. `level`, `stratum` (which also takes `unstated`), `process` and `pos` (a group such as `verb`) take several comma-joined choices; `match=all` makes a word carry every process and part of speech chosen instead of any. Each facet counts the words the other filters leave.",
   },
   {
     method: "GET",
     path: "/api/patterns",
     returns:
-      "Counts across the open words: `{ total, withParts, withBase, strata, levels, processes, pairs, rendaku }`.",
+      "Counts across the open words: `{ total, withParts, withBase, strata, levels, processes, pairs, combinations, rendaku }`.",
   },
   {
     method: "GET",

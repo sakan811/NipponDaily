@@ -48,12 +48,12 @@ const features = computed(() => [
   {
     title: "Explore by How Words Are Built",
     description:
-      "`/explore` searches every word that has opened — by the word, its reading (katakana or hiragana) or its meaning — and narrows by JLPT level, layer or process. Each option shows how many words it would leave, and the filters live in the URL so a search can be shared. Upcoming words are never searched.",
+      "`/explore` searches every word that has opened — by the word, its reading (katakana or hiragana) or its meaning — and narrows by JLPT level, layer (including “not stated”), process or part of speech. Pick several options in a group and choose whether a word needs any or all of them. Each option shows how many words it would leave, and the filters live in the URL so a search can be shared. Upcoming words are never searched.",
   },
   {
     title: "Patterns Across the Vocabulary",
     description:
-      "`/patterns` counts the same entries across words: how the vocabulary splits by layer, how each JLPT level's mix differs, which processes are most common and which turn up together. Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language. It also lists which sounds voice inside a word (ひ → び, か → が…), with the parts and words that show each change — a small, parser-derived sample, not a rule of the language.",
+      "`/patterns` counts the same entries across words: how the vocabulary splits by layer, how each JLPT level's mix differs, which processes are most common and which turn up together, in pairs and in sets of three or four. Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language. It also lists which sounds voice inside a word (ひ → び, か → が…), with the parts and words that show each change — a small, parser-derived sample, not a rule of the language.",
   },
   {
     title: "The Parts, Across Words",
@@ -117,7 +117,7 @@ const features = computed(() => [
   {
     title: "Dark Mode & Fallbacks",
     description:
-      "A light and a dark palette for every season. If a fetch fails, a retry card appears instead of an empty page, and once the catalogue runs out the home page shows the newest word.",
+      "A light and a dark palette for every season. If a fetch fails, a retry card appears instead of an empty page, and once the catalogue runs out the home page starts another lap from the first word.",
   },
 ]);
 </script>

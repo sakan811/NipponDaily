@@ -40,9 +40,14 @@
     <p>
       Dates are JST. <code>todayJst()</code> shifts UTC by +9 hours, so a new
       word opens at 15:00 UTC. With no <code>date</code>,
-      <code>GET /api/daily-word</code> serves today's word, or the newest one if
-      the catalogue has run out, so the page is never empty; before the first
-      day it is a <code>404</code>.
+      <code>GET /api/daily-word</code> serves today's word. Once the catalogue
+      has run out it starts a new lap (<code>lapEntryForDate()</code>): the day
+      after the last word shows the first, the next day the second, and so on,
+      round again after the last. The payload's <code>lap</code> says which one
+      (1 until then), and the home page names the lap from 2 on. A word shown on
+      a later lap has always opened already, so nothing leaks; an explicit
+      <code>date</code> is always lap 1. The page is never empty, and before the
+      first day it is a <code>404</code>.
     </p>
 
     <DocDiagram
@@ -89,24 +94,39 @@
     <p>
       <code>/explore</code> filters by <code>q</code> (term, kana, meaning;
       katakana folded to hiragana), <code>level</code>, <code>stratum</code>,
-      <code>process</code> and <code>part</code>, newest first. Each facet's
-      counts are taken over the words the <em>other</em> filters leave, so an
-      option never promises a count it can't deliver. A layer filter never
-      matches words with no stated layer. Filters live in the URL; an unknown
-      value in a hand-edited URL is dropped, while the API answers
-      <code>400</code>.
+      <code>process</code>, <code>pos</code> and <code>part</code>, newest
+      first. Different filters always narrow together. Within
+      <code>level</code>, <code>stratum</code>, <code>process</code> and
+      <code>pos</code> several choices are joined by commas
+      (<code>?process=rendaku,compound</code>), and <code>match</code> says how
+      they combine: by default a word needs <em>any</em> of them, with
+      <code>match=all</code> it needs <em>every</em> process and every part of
+      speech. A word has one level and one layer, so those always read as “any”.
+    </p>
+    <p>
+      The layer <code>unstated</code> picks the words with no stated layer.
+      <code>pos</code> filters on a coarse group of JMdict's tags (noun, verb,
+      adjective, adverb, prefix or suffix, other, or not stated;
+      <code>POS_GROUPS</code> in <code>shared/word-labels.ts</code>), because
+      the verbatim tags are long. The entry keeps the tags as they are, and a
+      word can fall in more than one group. Each facet's counts are taken over
+      the words the <em>other</em> filters leave, so an option never promises a
+      count it can't deliver. Filters live in the URL; an unknown value in a
+      hand-edited URL is dropped, while the API answers <code>400</code>.
     </p>
 
     <h3>Patterns</h3>
     <p>
       <code>/patterns</code>: counts by layer, level and process; level × layer;
-      process × layer; process pairs with up to three example words; and a
-      rendaku section. It lists every part whose recorded
-      <code>base</code> differs from its <code>reading</code>, classed from the
-      two spellings as a voiced first kana (ひ → び; ち → じ and つ → ず count,
-      being the merged voiced sounds), a reading ending in っ, or other. The
-      page says the counts describe these entries (a JLPT N5–N2 sample,
-      parser-derived tags), not the language.
+      process × layer; process pairs and, beyond them, sets of three or four
+      tags (processes plus the layer, such as rendaku, compound and native) with
+      up to three example words each, linking into Explore with
+      <code>match=all</code>; and a rendaku section. It lists every part whose
+      recorded <code>base</code> differs from its <code>reading</code>, classed
+      from the two spellings as a voiced first kana (ひ → び; ち → じ and つ →
+      ず count, being the merged voiced sounds), a reading ending in っ, or
+      other. The page says the counts describe these entries (a JLPT N5–N2
+      sample, parser-derived tags), not the language.
     </p>
 
     <h3>Related words</h3>
@@ -201,7 +221,7 @@ const flow: Required<Pick<DiagramSpec, "nodes" | "edges">> = {
     {
       id: "entry",
       label: "The day's entry",
-      sub: "no date: today/newest",
+      sub: "no date: today, by lap",
       col: 1,
       row: 1.5,
     },

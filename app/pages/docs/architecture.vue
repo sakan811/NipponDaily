@@ -67,7 +67,7 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
             <td>
               <code>{{ m.file }}</code
               ><template v-if="m.serverOnly"
-                ><br /><em>server and tests only</em></template
+                ><br ><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>
@@ -276,7 +276,7 @@ const sharedModules = [
   {
     file: "words.ts",
     serverOnly: true,
-    role: "The catalogue (`WORD_ENTRIES`), JST date logic (`todayJst`…), `entryForDate`, `payloadFor`, `calendarForMonth`.",
+    role: "The catalogue (`WORD_ENTRIES`), JST date logic (`todayJst`…), `entryForDate`, `lapEntryForDate`, `payloadFor`, `calendarForMonth`.",
   },
   {
     file: "parts.ts",
@@ -286,7 +286,7 @@ const sharedModules = [
   {
     file: "explore.ts",
     serverOnly: true,
-    role: "`exploreWords(filters, today)`: search and filters with facet counts.",
+    role: "`exploreWords(filters, today)`: search and filters (several choices, any or all) with facet counts.",
   },
   {
     file: "related.ts",
@@ -308,8 +308,12 @@ const sharedModules = [
     role: "The written range and count, computed from entry dates. Data-free.",
   },
   {
+    file: "explore-query.ts",
+    role: "Reads and writes the Explore filters as a URL query (comma-joined lists). Data-free.",
+  },
+  {
     file: "word-labels.ts",
-    role: "`WORD_STRATA` and `WORD_PROCESSES` labels and definitions. Data-free.",
+    role: "`WORD_STRATA`, `WORD_PROCESSES` and `POS_GROUPS` labels and definitions, and `posGroupsOf()`. Data-free.",
   },
   {
     file: "meanings.ts",

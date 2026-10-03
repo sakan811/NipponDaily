@@ -191,8 +191,8 @@
             <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
               A valid past date (or month) the catalogue doesn't cover, or a
               part no open word shows. With no ?date=, /api/daily-word serves
-              the newest open word instead, and is a 404 only before the first
-              word.
+              today's word (starting a new lap once the words run out), and is a
+              404 only before the first word.
             </p>
             <pre
               class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
