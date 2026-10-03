@@ -5,6 +5,72 @@ import { WORD_ENTRIES } from "~~/shared/words";
 const TODAY = "2026-12-31";
 const open = (today: string) => WORD_ENTRIES.filter((e) => e.date <= today);
 
+describe("patternsFor combinations", () => {
+  const p = patternsFor(TODAY);
+  const carries = (
+    e: (typeof WORD_ENTRIES)[number],
+    c: (typeof p.combinations)[number],
+  ) =>
+    c.processes.every((x) => e.processes.includes(x)) &&
+    (!c.stratum || e.stratum === c.stratum);
+
+  it("lists sets of three or four tags, most-shared first", () => {
+    expect(p.combinations.length).toBeGreaterThan(0);
+    expect(p.combinations.length).toBeLessThanOrEqual(10);
+    expect(p.combinations.map((c) => c.count)).toEqual(
+      [...p.combinations.map((c) => c.count)].sort((a, b) => b - a),
+    );
+    for (const c of p.combinations) {
+      const size = c.processes.length + (c.stratum ? 1 : 0);
+      expect(size).toBeGreaterThanOrEqual(3);
+      expect(size).toBeLessThanOrEqual(4);
+    }
+  });
+
+  it("counts exactly the open words that carry every tag, with examples that do", () => {
+    for (const c of p.combinations) {
+      const words = open(TODAY).filter((e) => carries(e, c));
+      expect(c.count).toBe(words.length);
+      expect(c.examples.length).toBeGreaterThan(0);
+      for (const ex of c.examples) {
+        expect(words.map((e) => e.date)).toContain(ex.date);
+      }
+    }
+  });
+
+  it("includes the layer, as in rendaku, compound and native together", () => {
+    expect(
+      p.combinations.some(
+        (c) =>
+          c.stratum === "wago" &&
+          c.processes.includes("rendaku") &&
+          c.processes.includes("compound"),
+      ),
+    ).toBe(true);
+  });
+
+  it("never lists a set whose words are exactly a larger listed set's", () => {
+    const key = (c: (typeof p.combinations)[number]) =>
+      [...c.processes, c.stratum].filter(Boolean);
+    for (const a of p.combinations) {
+      for (const b of p.combinations) {
+        if (a === b) continue;
+        const bigger =
+          key(b).length > key(a).length &&
+          key(a).every((t) => key(b).includes(t));
+        expect(bigger && a.count === b.count).toBe(false);
+      }
+    }
+  });
+
+  it("counts open days only", () => {
+    expect(patternsFor("2025-12-31").combinations).toEqual([]);
+    for (const c of patternsFor("2026-01-31").combinations) {
+      expect(c.count).toBeLessThanOrEqual(31);
+    }
+  });
+});
+
 describe("patternsFor", () => {
   it("counts every open word once in each breakdown", () => {
     const p = patternsFor(TODAY);
