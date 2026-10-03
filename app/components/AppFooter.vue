@@ -12,14 +12,15 @@
       <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
         Origins quoted from
         <a
-          href="https://en.wiktionary.org"
+          :href="SOURCES.wiktionary.url"
           target="_blank"
           rel="noopener"
           class="underline hover:text-primary-500"
-          >Wiktionary</a
+          >{{ SOURCES.wiktionary.short }}</a
         >
-        (CC BY-SA 4.0); meanings &amp; kanji from JMdict &amp; KANJIDIC2 (EDRDG,
-        CC BY-SA 4.0) —
+        ({{ SOURCES.wiktionary.licence.name }}); meanings &amp; kanji from
+        {{ SOURCES.edrdg.short }} ({{ SOURCES.edrdg.holderShort }},
+        {{ SOURCES.edrdg.licence.name }}) —
         <NuxtLink
           to="/docs/data-integrity"
           class="underline hover:text-primary-500"
@@ -29,3 +30,7 @@
     </template>
   </UFooter>
 </template>
+
+<script setup lang="ts">
+import { SOURCES } from "~~/shared/sources";
+</script>

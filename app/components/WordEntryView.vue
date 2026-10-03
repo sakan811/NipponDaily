@@ -196,13 +196,13 @@
           >Wiktionary: {{ entry.term }} (revision {{ entry.wiktionaryRev }})</a
         >, available under
         <a
-          href="https://creativecommons.org/licenses/by-sa/4.0/"
+          :href="SOURCES.wiktionary.licence.url"
           target="_blank"
           rel="noopener"
           class="underline hover:text-primary-500"
-          >CC BY-SA 4.0</a
+          >{{ SOURCES.wiktionary.licence.name }}</a
         >. Reading, meaning and part of speech from JMdict, and kanji readings
-        from KANJIDIC2 (EDRDG).
+        from KANJIDIC2 ({{ SOURCES.edrdg.holderShort }}).
       </p>
     </section>
 
@@ -244,6 +244,7 @@ import { computed } from "vue";
 import { formatLongDate } from "../utils/date";
 import { partPath } from "../utils/seo";
 import { WORD_PROCESSES, WORD_STRATA, isHedged } from "~~/shared/word-labels";
+import { SOURCES, wiktionaryRevisionUrl } from "~~/shared/sources";
 import type { WordEntry, WordStratum } from "~~/types/index";
 
 const props = defineProps<{ entry: WordEntry }>();
@@ -269,10 +270,7 @@ const hedgedSplit = computed(() =>
   props.entry.sources.some((s) => isHedged(s.quote) && s.quote.includes(" + ")),
 );
 
-const wiktionaryUrl = computed(
-  () =>
-    `https://en.wiktionary.org/w/index.php?title=${encodeURIComponent(
-      props.entry.term,
-    )}&oldid=${props.entry.wiktionaryRev}`,
+const wiktionaryUrl = computed(() =>
+  wiktionaryRevisionUrl(props.entry.term, props.entry.wiktionaryRev),
 );
 </script>

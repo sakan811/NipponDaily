@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
 import { mount } from "@vue/test-utils";
 import DataIntegrityPage from "~/app/pages/docs/data-integrity.vue";
+import { DATA_SOURCES } from "~~/shared/sources";
 
 const NuxtUIComponents = {
   UPage: { template: '<div class="u-page"><slot /></div>' },
@@ -50,6 +51,19 @@ describe("Data Integrity Page", () => {
     expect(text).toContain("English Wiktionary");
     expect(text).toContain("CC BY-SA 4.0");
     expect(text).toContain("data/reference/etymology/");
+  });
+
+  it("renders a credit for every source in shared/sources.ts", () => {
+    const wrapper = mount(DataIntegrityPage, {
+      global: { stubs: NuxtUIComponents },
+    });
+
+    for (const source of DATA_SOURCES) {
+      const credit = wrapper.find(`[data-testid="credit-${source.id}"]`);
+      expect(credit.exists(), source.id).toBe(true);
+      const link = credit.find(`a[href="${source.url}"]`);
+      expect(link.exists(), `${source.id} links ${source.url}`).toBe(true);
+    }
   });
 
   it("documents the daily-word checks and what they cannot prove", () => {

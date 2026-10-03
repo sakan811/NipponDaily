@@ -230,6 +230,7 @@ import { useDailyWord } from "../composables/useDailyWord";
 import { usePageSeo } from "../composables/usePageSeo";
 import { wordTitle } from "../utils/seo";
 import { formatLongDate } from "../utils/date";
+import { LICENCES } from "~~/shared/sources";
 
 const { payload, loading, error, refresh } = useDailyWord();
 
@@ -270,8 +271,7 @@ const entryParts = [
   },
   {
     title: "The Evidence",
-    description:
-      "The exact Wiktionary lines behind each claim, pinned to a revision with a permalink and its CC BY-SA license.",
+    description: `The exact Wiktionary lines behind each claim, pinned to a revision with a permalink and its ${LICENCES.ccBySa4.name} license.`,
   },
 ];
 
