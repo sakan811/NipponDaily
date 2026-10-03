@@ -2,11 +2,9 @@
   <div class="border-l-2 border-primary-500 pl-4">
     <div class="flex items-baseline gap-2 flex-wrap">
       <span class="text-xs font-mono text-stone-400">{{ index }}</span>
-      <h2
-        class="text-xl font-bold font-serif text-stone-900 dark:text-white m-0"
-      >
+      <h3 class="!m-0">
         {{ title }}
-      </h2>
+      </h3>
     </div>
     <p
       class="text-xs font-mono text-primary-600 dark:text-primary-400 mt-1 mb-1"

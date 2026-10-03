@@ -1,0 +1,335 @@
+<template>
+  <DocsBook slug="authoring">
+    <template #lede>
+      Words are added a month at a time, corrected at the source and checked by
+      CI. Never edit <code>data/words/</code> or <code>data/reference/</code> by
+      hand: fix the source or the parser, then regenerate.
+    </template>
+
+    <h2>Where things live</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Piece</th>
+            <th>What it is</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="p in pieces" :key="p.path">
+            <td>
+              <code>{{ p.path }}</code>
+            </td>
+            <td><RichText :text="p.what" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Commands</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Does</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="c in commands" :key="c.cmd">
+            <td>
+              <code>{{ c.cmd }}</code>
+            </td>
+            <td><RichText :text="c.does" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Wikimedia rate-limits anonymous clients, so
+      <code>data:etymology</code> paces itself and honours
+      <code>Retry-After</code>; a month takes a few minutes. The reference
+      builders need Node 22.13 or newer (<code>node:sqlite</code>),
+      <code>tar</code> and <code>xz</code>.
+    </p>
+
+    <h2>Adding a month</h2>
+    <DocDiagram
+      label="Adding a month, from choosing the words to a passing test run"
+      :nodes="month.nodes"
+      :edges="month.edges"
+    />
+    <ol>
+      <li>
+        <strong>Choose the words</strong> (a person or a model may do this).
+        They must be pool words (N5–N2). Prefer words whose Wiktionary page has
+        an Etymology section; the generator will tell you if one doesn't.
+      </li>
+      <li>
+        <strong>Write the plan</strong>
+        <code>data/word-plan/YYYY-MM.json</code>: one
+        <code>{ "date", "term", "headline" }</code> per day,
+        <strong>every day of the month</strong>. Add <code>"kana"</code> only
+        when a spelling has several pool words (明日, 梅雨). The headline is one
+        sentence that earns the click and keeps to what the quoted evidence
+        says.
+      </li>
+      <li>
+        <strong>Pin the evidence</strong>:
+        <code>pnpm data:etymology --terms 電話,友達,…</code>. Pinned terms are
+        untouched. Many pool words have no usable Etymology section, so for a
+        bulk batch pin more candidates than you need with
+        <code>--skip-missing</code>, then
+        <code>pnpm data:etymology --prune --terms &lt;the chosen ones&gt;</code>
+        to drop the rest.
+      </li>
+      <li>
+        <strong>Generate</strong>: <code>pnpm data:words</code>. It prints every
+        entry it could not build and why, and writes nothing until they are
+        fixed (or use <code>--keep-going</code>).
+      </li>
+      <li>
+        <strong>Read the result once.</strong> Entries with no breakdown are
+        normal (the source gave no clean split), as are entries with no layer
+        (irregular spellings). Skim each headline against the quoted lines: it
+        must not claim more than they do.
+      </li>
+      <li>
+        <strong>Register the month</strong> in <code>shared/words.ts</code> (one
+        import line plus the <code>MONTHS</code> array). Keep
+        <code>shared/words.ts</code> out of <code>app/</code> (<NuxtLink
+          to="/docs/architecture"
+          >the import rule</NuxtLink
+        >).
+      </li>
+      <li>
+        <strong>Refresh the docs</strong>: <code>pnpm docs:sync</code>. The
+        range and count are computed from <code>data/words/</code> and read live
+        by the pages, so there is nothing to type.
+      </li>
+      <li><code>pnpm test:run</code>.</li>
+    </ol>
+
+    <h3>If the generator refuses an entry</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Message</th>
+            <th>What to do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="r in refusals" :key="r.message">
+            <td><RichText :text="r.message" /></td>
+            <td><RichText :text="r.todo" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Correcting a word's form, reading or meaning</h2>
+    <ol>
+      <li>
+        Confirm against the JMdict evidence in
+        <code>data/reference/&lt;level&gt;-reference.json</code>.
+      </li>
+      <li>
+        Add to <code>VOCAB_FORM_CORRECTIONS</code> (wrong form or reading) or
+        <code>VOCAB_MEANING_ENRICHMENTS</code> (fuller gloss) in
+        <code>shared/meanings.ts</code>, keyed by <code>term kana</code>, with a
+        <code>reason</code> citing the JMdict entry id. The word's
+        <code>id</code> stays unchanged.
+      </li>
+      <li>
+        Rebuild: <code>pnpm data:reference</code> (N5) or
+        <code>pnpm data:reference:jlpt</code> (N4–N2), then
+        <code>pnpm data:words</code>, and commit the diffs.
+      </li>
+    </ol>
+
+    <h2>Refreshing the sources</h2>
+    <ol>
+      <li>
+        <strong>JMdict and word lists:</strong> bump
+        <code>WORD_LIST_SOURCES</code> and/or <code>JAMDICT_SOURCE</code>, then
+        run <code>pnpm data:reference</code> and
+        <code>pnpm data:reference:jlpt</code> <em>together</em> and review every
+        diff.
+      </li>
+      <li>
+        <strong>Wiktionary:</strong>
+        <code>pnpm data:etymology --refresh &lt;term&gt;</code> re-pins one
+        term. Review the text diff, then run <code>pnpm data:words</code>: a
+        changed etymology changes the entry, and the diff shows it.
+      </li>
+      <li>
+        Dropped a word? <code>pnpm data:etymology --prune</code> removes pins
+        nothing uses.
+      </li>
+      <li><code>pnpm test:run</code>: new gaps show up as failing entries.</li>
+    </ol>
+
+    <h2>When a check fails</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Failure</th>
+            <th>Fix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="f in failures" :key="f.failure">
+            <td>{{ f.failure }}</td>
+            <td><RichText :text="f.fix" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      What the checks cover, and what they cannot, is in
+      <NuxtLink to="/docs/data-integrity">Data integrity</NuxtLink>.
+    </p>
+  </DocsBook>
+</template>
+
+<script setup lang="ts">
+import DocsBook from "../../components/DocsBook.vue";
+import DocDiagram from "../../components/DocDiagram.vue";
+import RichText from "../../components/RichText.vue";
+import type { DiagramSpec } from "../../utils/diagram";
+
+const pieces = [
+  {
+    path: "data/reference/n{5,4,3,2}-reference.json",
+    what: "JMdict and KANJIDIC2 snapshots of every pool word. Generated.",
+  },
+  {
+    path: "data/reference/etymology/",
+    what: "Plain text of each word's Wiktionary Etymology section, pinned to a revision, one file per month of the plan. Generated.",
+  },
+  {
+    path: "data/word-plan/YYYY-MM.json",
+    what: "The only hand-written content: `{ date, term, headline }` per day (`kana` when a spelling has several pool words).",
+  },
+  {
+    path: "data/words/YYYY-MM.json",
+    what: "Generated entries. Never edit by hand.",
+  },
+  {
+    path: "shared/meanings.ts",
+    what: "The only place to correct or enrich what a pool word says, keyed by `term kana` and applied by `servedVocab()` when a snapshot is built.",
+  },
+];
+
+const commands = [
+  {
+    cmd: "pnpm data:reference",
+    does: "Rebuilds `n5-reference.json` from pinned sources (a checksum-verified `jamdict-data` release and a word list at a fixed commit).",
+  },
+  {
+    cmd: "pnpm data:reference:jlpt",
+    does: "Rebuilds the N4, N3 and N2 files, reusing the N5 builder's helpers.",
+  },
+  {
+    cmd: "pnpm data:etymology",
+    does: "Pins Wiktionary pages. `--terms a,b,c` pins new terms at their current revision; `--refresh <term>` re-pins one; `--prune` drops unused pins; `--skip-missing` skips a page that can't be fetched.",
+  },
+  {
+    cmd: "pnpm data:words",
+    does: "Generates `data/words/` from the plan and the committed sources. Fetches nothing. `--check` fails if a file is out of date; `--keep-going` writes every entry that built and lists the failures.",
+  },
+];
+
+const month: Required<Pick<DiagramSpec, "nodes" | "edges">> = {
+  nodes: [
+    {
+      id: "choose",
+      label: "Choose words",
+      sub: "pool words only",
+      col: 0,
+      row: 0,
+      kind: "actor",
+    },
+    {
+      id: "plan",
+      label: "Write the plan",
+      sub: "word-plan/YYYY-MM.json",
+      col: 1,
+      row: 0,
+      kind: "actor",
+    },
+    { id: "pin", label: "Pin evidence", sub: "data:etymology", col: 2, row: 0 },
+    { id: "gen", label: "Generate", sub: "data:words", col: 2, row: 1.4 },
+    {
+      id: "read",
+      label: "Read it once",
+      sub: "headlines vs quotes",
+      col: 1,
+      row: 1.4,
+      kind: "actor",
+    },
+    { id: "reg", label: "Register", sub: "shared/words.ts", col: 0, row: 1.4 },
+    {
+      id: "test",
+      label: "pnpm test:run",
+      sub: "docs:sync first",
+      col: 0,
+      row: 2.8,
+      kind: "check",
+    },
+  ],
+  edges: [
+    { from: "choose", to: "plan" },
+    { from: "plan", to: "pin" },
+    { from: "pin", to: "gen" },
+    { from: "gen", to: "read" },
+    { from: "read", to: "reg" },
+    { from: "reg", to: "test" },
+  ],
+};
+
+const refusals = [
+  {
+    message: "“none for <reading>” or “its only section is for …”",
+    todo: "The page has no Etymology section for the word's reading. Replace the word; do not borrow another reading's section.",
+  },
+  {
+    message: "“2 pool words with that spelling”",
+    todo: "Add `kana` to the plan entry.",
+  },
+  { message: "“no pinned Wiktionary page”", todo: "Pin it first (step 3)." },
+];
+
+const failures = [
+  {
+    failure: "Word not in JMdict",
+    fix: "The source list is wrong. Add a `VOCAB_FORM_CORRECTIONS` entry with a `reason` citing the JMdict entry id, then rebuild the reference.",
+  },
+  {
+    failure: "Meaning not backed",
+    fix: "Reword to match JMdict or drop the sense. Don't widen the checker.",
+  },
+  {
+    failure: "Entry differs from the generator",
+    fix: "Run `pnpm data:words` and review the diff. Fix the source or `scripts/lib/word-entry.mjs`, never the entry.",
+  },
+  {
+    failure: "Quote not found",
+    fix: "The snapshot changed: `pnpm data:etymology --refresh <term>` if you mean to re-pin, then `pnpm data:words`. Never loosen a quote.",
+  },
+  {
+    failure: "Morpheme or tag wrong",
+    fix: "It is derived: fix the source (`shared/meanings.ts`, a re-pin) or the parser, then `pnpm data:words`.",
+  },
+  {
+    failure: "Headline mentions Japanese no evidence contains",
+    fix: "Reword it in `data/word-plan/`.",
+  },
+  {
+    failure: "Stale reference",
+    fix: "Run the reference builder for that level.",
+  },
+];
+</script>
