@@ -1,8 +1,7 @@
 /**
- * Every HTTP route the server answers, written once. `/docs/architecture` and
- * the generated tables in the README and `docs/architecture.md` (via
- * `pnpm docs:sync`) read this list, and `test/server/docs-sync.test.ts` fails
- * if it and the files under `server/api` and `server/routes` disagree.
+ * Every HTTP route the server answers, written once. The API chapter of the
+ * docs (`/docs/api`) reads this list, and `test/server/docs-sync.test.ts`
+ * fails if it and the files under `server/api` and `server/routes` disagree.
  *
  * Data-free, import-free, plain erasable TypeScript. `returns` is
  * "markdown-light": `code` spans only.

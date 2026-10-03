@@ -12,77 +12,24 @@
 
 ## Features
 
-- **One word a day** — opens at midnight in Japan (JST). Only each word's headline is hand-written (`data/word-plan/`); everything else in `data/words/` is generated from JMdict, KANJIDIC2 and pinned Wiktionary text (a word for every day of the written range, drawn from the JLPT N5–N2 vocabulary; the days still to come are hidden until they arrive).
-- **Calendar** — `/words` is a month grid; each day that has arrived links to `/words/<date>`. A future word can't be read early, not even by asking the API for its date.
-- **Explore** — `/explore` searches the words that have opened (by word, reading or meaning; katakana matches hiragana) and filters them by JLPT level, layer and process, with live counts. The filters live in the URL.
-- **Patterns** — `/patterns` counts the same entries: layers, levels, processes, which processes travel together, and which sounds voice inside a word (rendaku). Every bar links into Explore.
-- **Parts** — `/parts` indexes every morpheme the “Taken apart” rows have shown; `/parts/<text>` groups the words that show one by the reading it takes there. Under each entry, “More like this” offers other open words that share a part, a process or a layer.
-- **Evidence** — every origin claim quotes a pinned revision of English Wiktionary. Tests check each entry against committed JMdict/KANJIDIC2 snapshots and that Wiktionary snapshot, and an entry says plainly when an origin is not settled.
-- **Four seasons** — spring (`sakura`), `summer`, `autumn`, `winter` change the palette and the shape of the UI. A daily cron sets the site's season from the date in Japan, and the header's season button lets a reader pick their own.
-- **Season music** — the header's music button plays a looping background track in a season that has one (autumn only, so far). It is off on every load; only the volume is remembered, in the browser.
-- **Kana guide** — `/kana` is a hiragana/katakana chart with mnemonics.
+One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · origin claims quoted from a pinned Wiktionary revision and checked in CI · four seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT N5–N2 vocabulary; only each headline is hand-written.
 
-## Tech Stack
-
-[Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/), [Upstash Redis](https://upstash.com/), [Vitest](https://vitest.dev/), wanakana (kana conversion in the data scripts and checks), [kuromoji](https://github.com/takuyaa/kuromoji.js) (tokenizer used by the reference builders) and [zod](https://zod.dev/) (query validation in the API). pnpm is the package manager.
-
-## Setup
+## Quick start
 
 Node 22 or newer (CI runs Node 25) and [pnpm](https://pnpm.io/).
 
 ```bash
 pnpm install
-cp .env.example .env
-pnpm dev          # http://localhost:3000
+cp .env.example .env   # optional: Redis only stores the site's season
+pnpm dev               # http://localhost:3000
+pnpm check-qa          # lint, format, type-check, build and test
 ```
 
-The daily words need no configuration. Redis is only used for the site's season; fill in `.env` if you want that:
-
-| Variable                   | Used for                                                                                                                                                               |
-| :------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `UPSTASH_REDIS_REST_URL`   | Upstash Redis REST URL. Without Redis the season is kept in process memory.                                                                                            |
-| `UPSTASH_REDIS_REST_TOKEN` | Upstash Redis REST token.                                                                                                                                              |
-| `CRON_SECRET`              | Bearer token for `GET /api/cron/update-season` (Vercel sends it on cron requests). Generate with `openssl rand -hex 32`. Without it the endpoint always answers `401`. |
-| `NUXT_PUBLIC_SITE_URL`     | Optional canonical origin for canonical/Open Graph URLs and the sitemap. Without it each request's own origin is used.                                                 |
-
-## Commands
-
-| Command                                       | Description                                                                                                                                                          |
-| :-------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pnpm dev` / `build` / `start` / `preview`    | Dev server, production build, run the build, preview it                                                                                                              |
-| `pnpm generate`                               | Static site generation                                                                                                                                               |
-| `pnpm test` / `test:run` / `test:coverage`    | Vitest in watch mode / once / with coverage                                                                                                                          |
-| `pnpm lint` / `format` / `type-check`         | ESLint (auto-fix), Prettier, `tsc --noEmit`                                                                                                                          |
-| `pnpm check-qa`                               | Lint, format, type-check, build and test                                                                                                                             |
-| `pnpm data:reference` / `data:reference:jlpt` | Rebuild the JMdict/KANJIDIC2 snapshots for N5 / N4–N2 (Node ≥ 22, `tar`, `xz`, network)                                                                              |
-| `pnpm data:etymology`                         | Pin Wiktionary pages (`--terms a,b` adds, `--refresh <term>` re-pins, `--prune` drops unused, `--skip-missing` skips pages that can't be fetched)                    |
-| `pnpm data:words`                             | Generate `data/words/` from `data/word-plan/` and the committed sources (`--check` verifies, `--keep-going` writes every entry that built, leaving a failed day out) |
-
-## Seasons and API
-
-The site's season follows the Japanese calendar (spring `sakura`, `summer`, `autumn`, `winter`). A daily Vercel cron sets it, and the header's season button lets a reader pick their own, stored only in their browser. The word, calendar, explore, patterns, parts and related endpoints serve only days that have opened, and pages are server-rendered with a `/sitemap.xml` and `/robots.txt`. The season table, every endpoint with its parameters and status codes, and the colour system are in [`docs/architecture.md`](docs/architecture.md).
-
-## Tests
-
-Three Vitest projects (`vitest.config.ts`):
-
-- `test/unit` — components and pages (happy-dom).
-- `test/server` — API handlers, the `shared/` modules, the data scripts and services (node, mocked Redis).
-- `test/content` — every daily-word entry and every word in the JLPT lists checked against the committed evidence in `data/reference/`, fully offline. See [`docs/content.md`](docs/content.md).
-
-There are no integration tests. Several tests guard against drift: `seasons-css-sync` (`shared/seasons.ts` vs the CSS), `icons` (every icon used exists in `app/data/icons.ts`) and `no-future-leak` (nothing under `app/` imports the entries).
-
-CI (`.github/workflows/webpage-test.yml`) runs `pnpm run test` on pushes to `main` and on pull requests targeting it, on Node 25 with pnpm 10.
+Built with [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/), [Upstash Redis](https://upstash.com/) and [Vitest](https://vitest.dev/).
 
 ## Documentation
 
-In the repo, one owner per topic ([`docs/`](docs/README.md) is the index):
-
-- [`docs/core-theme.md`](docs/core-theme.md): what the app is and its design principles.
-- [`docs/architecture.md`](docs/architecture.md): layout, data model, seasons, colour and the API.
-- [`docs/content.md`](docs/content.md): how entries are generated and checked, adding a month, correcting a word, refreshing sources.
-
-[`TODO.md`](TODO.md) tracks the data-feature backlog. In the app, the same ground is covered for readers at [`/docs/features`](app/pages/docs/features.vue), [`/docs/architecture`](app/pages/docs/architecture.vue), [`/docs/data-integrity`](app/pages/docs/data-integrity.vue), [`/docs/color-palette`](app/pages/docs/color-palette.vue) and [`/docs/error-states`](app/pages/docs/error-states.vue).
+The documentation is a short book inside the app, at [`/docs`](app/pages/docs/index.vue) once it is running. Its chapters are the pages under [`app/pages/docs/`](app/pages/docs/), listed in [`shared/docs.ts`](shared/docs.ts): core theme, features, architecture, daily words, API, seasons, colour and shape, error states, data integrity, adding and fixing words, development, and the roadmap. Setup, environment variables, every command and the test layout are in the Development chapter.
 
 ## Data & Attribution
 
@@ -97,13 +44,7 @@ The word lists come from the community list originally compiled at tanos.co.uk, 
 Kana conversion in the data scripts and checks uses [wanakana](https://github.com/WaniKani/WanaKana) (MIT licence).
 <!-- docs:end attribution -->
 
-Details: [`docs/content.md`](docs/content.md) and [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
-
-## Limitations
-
-- Entries cover every day from <!-- docs:begin range -->2026-01-01 to 2027-10-31<!-- docs:end range -->. After <!-- docs:begin last -->2027-10-31<!-- docs:end last --> the home page keeps showing the newest word until the next month is written.
-- The tests prove that quotes, readings, meanings and parts of speech match the committed evidence, not that Wiktionary is right. The headline is the one hand-written line; a test only checks the Japanese it mentions.
-- No request rate limiting.
+Details: [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
 
 ## License
 

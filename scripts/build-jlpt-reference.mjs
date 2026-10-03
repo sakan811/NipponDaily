@@ -3,7 +3,7 @@
  * Builds data/reference/{n4,n3,n2}-reference.json — the same kind of
  * committed, versioned dictionary-evidence snapshot as N5's
  * data/reference/n5-reference.json (see scripts/build-n5-reference.mjs and
- * docs/content.md), for the N4/N3/N2 word lists.
+ * /docs/authoring), for the N4/N3/N2 word lists.
  *
  * N4 now has hand-authored lesson content (app/data/vocab-guide-n4.ts,
  * app/data/lessons-n4.ts) and is gated by test/content/n4/ the same way N5
