@@ -45,15 +45,30 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import { usePageSeo } from "../../composables/usePageSeo";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
+import { useCatalogue } from "../../composables/useCatalogue";
+import { rangeMonthsText } from "~~/shared/catalogue";
+import { LICENCES } from "~~/shared/sources";
 
-const features = [
+// The word range and count come from GET /api/catalogue, never typed here.
+const { catalogue } = useCatalogue();
+
+const wordsFeature = computed(() => {
+  const base =
+    "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT N5–N2 vocabulary.";
+  const c = catalogue.value;
+  return c
+    ? `${base} ${c.total} words are written, ${rangeMonthsText(c)}, and ${c.open} have opened so far.`
+    : base;
+});
+
+const features = computed(() => [
   {
     title: "A New Word Every Day",
-    description:
-      "One entry opens each day at midnight in Japan (JST), the same word for every reader. January through December 2026 and January through October 2027 (669 words) are written so far, all from the JLPT N5–N2 vocabulary.",
+    description: wordsFeature.value,
     icon: "i-heroicons-academic-cap",
   },
   {
@@ -106,8 +121,7 @@ const features = [
   },
   {
     title: "Evidence for Every Claim",
-    description:
-      "Each entry quotes the Wiktionary lines it shows, pinned to one revision with a permalink and its CC BY-SA 4.0 license. Only the one-line headline is hand-written.",
+    description: `Each entry quotes the Wiktionary lines it shows, pinned to one revision with a permalink and its ${LICENCES.ccBySa4.name} license. Only the one-line headline is hand-written.`,
     icon: "i-heroicons-shield-check",
   },
   {
@@ -152,7 +166,7 @@ const features = [
       "A light and a dark palette for every season. If a fetch fails, a retry card appears instead of an empty page, and once the catalogue runs out the home page shows the newest word.",
     icon: "i-heroicons-moon",
   },
-];
+]);
 
 usePageSeo({
   title: "Core features",
