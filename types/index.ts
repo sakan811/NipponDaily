@@ -247,6 +247,16 @@ export interface ProcessPair {
   examples: WordNeighbor[];
 }
 
+/** Three or more tags that the same words carry together: processes, and
+ *  optionally the layer. `count` is the words carrying all of them (and
+ *  possibly more). */
+export interface TagCombination {
+  stratum?: WordStratum;
+  processes: WordProcess[];
+  count: number;
+  examples: WordNeighbor[];
+}
+
 /** One part whose reading changed inside the words that show it: the same
  *  `base → reading` seen in `count` words. */
 export interface RendakuReading {
@@ -300,6 +310,9 @@ export interface PatternsPayload {
   processes: PatternRow<WordProcess>[];
   /** Most-shared first. */
   pairs: ProcessPair[];
+  /** Most-shared first: sets of three or more tags (processes and layer)
+   *  that turn up on the same words, beyond the pairs above. */
+  combinations: TagCombination[];
   rendaku: RendakuPayload;
 }
 

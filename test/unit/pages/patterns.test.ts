@@ -45,8 +45,9 @@ describe("Patterns Page (/patterns)", () => {
         .map((a) => a.attributes("href"));
 
     expect(hrefs("pattern-strata")).toContain("/explore?stratum=wago");
-    // The "not stated" layer is not a filter, so it is not a link.
-    expect(hrefs("pattern-strata")).toHaveLength(4);
+    // The "not stated" layer is a filter too, so every row links.
+    expect(hrefs("pattern-strata")).toContain("/explore?stratum=unstated");
+    expect(hrefs("pattern-strata")).toHaveLength(5);
     expect(hrefs("pattern-levels")).toEqual([
       "/explore?level=N5",
       "/explore?level=N4",
@@ -77,6 +78,22 @@ describe("Patterns Page (/patterns)", () => {
     expect(pairs.find("a").attributes("href")).toBe(
       `/words/${pair.examples[0]!.date}`,
     );
+  });
+
+  it("lists sets of three or more tags, each opening Explore with 'all'", async () => {
+    const wrapper = mount(PatternsPage);
+    await flushPromises();
+
+    const combo = patternsFor(TODAY).combinations[0]!;
+    const list = wrapper.find('[data-testid="pattern-combinations"]');
+    expect(list.text()).toContain(`${combo.count} words`);
+    const links = list.findAll("a").map((a) => a.attributes("href"));
+    expect(links[0]).toContain("/explore?");
+    expect(links[0]).toContain("match=all");
+    expect(links[0]).toContain(
+      `process=${encodeURIComponent(combo.processes.join(","))}`,
+    );
+    expect(links).toContain(`/words/${combo.examples[0]!.date}`);
   });
 
   it("shows which readings change, with the words that show them", async () => {

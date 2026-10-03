@@ -77,8 +77,7 @@
           <ul data-testid="pattern-strata" class="space-y-2">
             <li v-for="s in patterns.strata" :key="s.value">
               <NuxtLink
-                v-if="s.value !== 'unstated'"
-                :to="explorePath({ stratum: s.value })"
+                :to="explorePath({ stratum: [s.value] })"
                 class="group block"
               >
                 <span class="flex items-baseline justify-between gap-3 text-sm">
@@ -97,21 +96,6 @@
                   />
                 </span>
               </NuxtLink>
-              <div v-else>
-                <span class="flex items-baseline justify-between gap-3 text-sm">
-                  <span>{{ layerName(s.value) }}</span>
-                  <span class="tabular-nums text-stone-500 dark:text-stone-400"
-                    >{{ s.count }} ·
-                    {{ percent(s.count, patterns.total) }}</span
-                  >
-                </span>
-                <span class="mt-1 block h-3 bg-stone-200/70 dark:bg-stone-800">
-                  <span
-                    :class="['block h-full', STRATUM_DOT[s.value]]"
-                    :style="{ width: width(s.count, maxStratum) }"
-                  />
-                </span>
-              </div>
             </li>
           </ul>
         </section>
@@ -133,7 +117,7 @@
           <ul data-testid="pattern-levels" class="space-y-3">
             <li v-for="row in patterns.levels" :key="row.value">
               <NuxtLink
-                :to="explorePath({ level: row.value })"
+                :to="explorePath({ level: [row.value] })"
                 class="group block"
               >
                 <span class="flex items-baseline justify-between gap-3 text-sm">
@@ -184,7 +168,7 @@
           <ul data-testid="pattern-processes" class="space-y-3">
             <li v-for="row in patterns.processes" :key="row.value">
               <NuxtLink
-                :to="explorePath({ process: row.value })"
+                :to="explorePath({ process: [row.value] })"
                 class="group block"
               >
                 <span class="flex items-baseline justify-between gap-3 text-sm">
@@ -268,6 +252,61 @@
           </ul>
         </section>
 
+        <!-- Larger combinations -->
+        <section
+          v-if="patterns.combinations.length"
+          class="mt-12 space-y-4"
+          aria-labelledby="combinations-heading"
+        >
+          <h2
+            id="combinations-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            Three or more together
+          </h2>
+          <p
+            class="text-stone-600 dark:text-stone-400 font-body-serif max-w-2xl"
+          >
+            Sets of three or four tags, counting a word's layer as one, that the
+            same words carry. A word that also has other tags is counted too.
+            Each set opens in Explore with “All of them” on.
+          </p>
+          <ul
+            data-testid="pattern-combinations"
+            class="grid grid-cols-1 md:grid-cols-2 gap-3"
+          >
+            <li
+              v-for="combo in patterns.combinations"
+              :key="combinationKey(combo)"
+              class="season-box border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3"
+            >
+              <p class="flex items-baseline justify-between gap-3">
+                <NuxtLink
+                  :to="combinationPath(combo)"
+                  class="font-semibold hover:text-primary-500"
+                  >{{ combinationLabel(combo) }}</NuxtLink
+                >
+                <span
+                  class="tabular-nums text-sm text-stone-500 dark:text-stone-400"
+                  >{{ combo.count }} words</span
+                >
+              </p>
+              <p class="mt-1 text-sm font-serif">
+                <NuxtLink
+                  v-for="(ex, i) in combo.examples"
+                  :key="ex.date"
+                  :to="`/words/${ex.date}`"
+                  class="text-primary-600 dark:text-primary-400 hover:underline"
+                  >{{ ex.term
+                  }}<span v-if="i < combo.examples.length - 1"
+                    >、</span
+                  ></NuxtLink
+                >
+              </p>
+            </li>
+          </ul>
+        </section>
+
         <!-- Rendaku -->
         <section
           v-if="patterns.rendaku.words"
@@ -289,7 +328,7 @@
             show, not a rule of the language: it is a small sample, and the
             parts come from parsing Wiktionary's text.
             <NuxtLink
-              :to="explorePath({ process: 'rendaku' })"
+              :to="explorePath({ process: ['rendaku'] })"
               class="text-primary-600 dark:text-primary-400 hover:underline"
               >Browse the rendaku words</NuxtLink
             >.
@@ -412,7 +451,11 @@ import { usePageSeo } from "../composables/usePageSeo";
 import { explorePath, partPath } from "../utils/seo";
 import { STRATUM_DOT } from "../utils/stratum";
 import { WORD_PROCESSES, WORD_STRATA } from "~~/shared/word-labels";
-import type { RendakuReading, StratumKey } from "~~/types/index";
+import type {
+  RendakuReading,
+  StratumKey,
+  TagCombination,
+} from "~~/types/index";
 
 const { patterns, loading, error, refresh } = usePatterns();
 
@@ -435,6 +478,23 @@ const layerName = (key: StratumKey): string =>
   key === "unstated"
     ? "Not stated"
     : `${WORD_STRATA[key].native} ${WORD_STRATA[key].label}`;
+
+/** "Compound + Rendaku + 和語 Native Japanese" */
+const combinationLabel = (c: TagCombination): string =>
+  [
+    ...c.processes.map((p) => WORD_PROCESSES[p].label),
+    ...(c.stratum ? [layerName(c.stratum)] : []),
+  ].join(" + ");
+
+const combinationKey = (c: TagCombination): string =>
+  [...c.processes, c.stratum ?? ""].join("|");
+
+const combinationPath = (c: TagCombination): string =>
+  explorePath({
+    process: c.processes,
+    stratum: c.stratum ? [c.stratum] : undefined,
+    match: "all",
+  });
 
 const totals = computed(() =>
   patterns.value
