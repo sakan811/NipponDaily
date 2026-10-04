@@ -18,9 +18,16 @@
           class="underline hover:text-primary-500"
           >{{ SOURCES.wiktionary.short }}</a
         >
-        ({{ SOURCES.wiktionary.licence.name }}); meanings &amp; kanji from
-        {{ SOURCES.edrdg.short }} ({{ SOURCES.edrdg.holderShort }},
-        {{ SOURCES.edrdg.licence.name }}) —
+        ({{ SOURCES.wiktionary.licence.name }}) via
+        <a
+          :href="SOURCES.wiktionary.via.url"
+          target="_blank"
+          rel="noopener"
+          class="underline hover:text-primary-500"
+          >{{ SOURCES.wiktionary.via.name }}</a
+        >; meanings &amp; kanji from {{ SOURCES.edrdg.short }} ({{
+          SOURCES.edrdg.holderShort
+        }}, {{ SOURCES.edrdg.licence.name }}) —
         <NuxtLink
           to="/docs/data-integrity"
           class="underline hover:text-primary-500"
