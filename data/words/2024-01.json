@@ -1,0 +1,825 @@
+[
+  {
+    "date": "2024-01-01",
+    "term": "上がる",
+    "kana": "あがる",
+    "meaning": "to rise, to go up",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Agaru is from Old Japanese, first attested in the Nihon Shoki of 720 CE.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First attested in the Nihon Shoki of 720 CE."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-02",
+    "term": "眺め",
+    "kana": "ながめ",
+    "meaning": "scene; view; prospect; outlook",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Nagame is the continuative stem of 眺める (nagameru, “to gaze at”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 眺(なが)める (nagameru, “to gaze at”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-03",
+    "term": "土",
+    "kana": "つち",
+    "meaning": "earth, soil",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tsuchi is first attested in the Kojiki of 712 CE.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First attested in the Kojiki of 712 CE."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-04",
+    "term": "一時",
+    "kana": "いちじ",
+    "meaning": "for a time, temporarily",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adverb (fukushi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Ichiji is 一 (ichi, “one”) plus 時 (ji), either “o'clock” or “time”.",
+    "morphemes": [
+      {
+        "text": "一",
+        "reading": "いち",
+        "meaning": "one"
+      },
+      {
+        "text": "時",
+        "reading": "じ",
+        "meaning": "o'clock"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 一(いち) (ichi, “one”) + 時(じ) (ji, “o'clock”)."
+      },
+      {
+        "quote": "From 一(いち) (ichi, “one”) + 時(じ) (ji, “time”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-05",
+    "term": "身分",
+    "kana": "みぶん",
+    "meaning": "position, status",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "sound-change"],
+    "headline": "Mibun appears to be a shift from older shinbun, swapping the on'yomi shin for the kun'yomi mi; first attested in 1688.",
+    "morphemes": [
+      {
+        "text": "身",
+        "reading": "み",
+        "meaning": "somebody",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "分",
+        "reading": "ぶん",
+        "meaning": "part",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Appears to be a shift from older shinbun reading, replacing the on'yomi of shin for 身 with the kun'yomi of mi. First attested in 1688."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-06",
+    "term": "箒",
+    "kana": "ほうき",
+    "meaning": "broom",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Hōki is an alteration of hahaki, first cited to a text from 1496.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "* /fafaki/ → /fawaki/ → /fauki/ → /fɔːki/ → /hoːki/"
+      },
+      {
+        "quote": "Alteration of hahaki. First cited to a text from 1496."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-07",
+    "term": "以上",
+    "kana": "いじょう",
+    "meaning": "more than; that's all",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adverb (fukushi)",
+      "expressions (phrases, clauses, etc.)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Ijō is an orthographic borrowing from Chinese 以上 (yǐshàng).",
+    "morphemes": [
+      {
+        "text": "以",
+        "reading": "い",
+        "meaning": "by means of",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "上",
+        "reading": "じょう",
+        "meaning": "above",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Orthographic borrowing from Chinese 以上 (yǐshàng)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-08",
+    "term": "センチ",
+    "kana": "センチ",
+    "meaning": "centimeter",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "Senchi is borrowed from French centi-, possibly via English centi-.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Borrowed from French centi-, possibly via English centi-."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-09",
+    "term": "加速度",
+    "kana": "かそくど",
+    "meaning": "acceleration",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Kasokudo is 加 (“add, increase”) plus 速度 (“speed, velocity”).",
+    "morphemes": [
+      {
+        "text": "加",
+        "reading": "か",
+        "meaning": "add, increase"
+      },
+      {
+        "text": "速度",
+        "reading": "そくど",
+        "meaning": "speed, velocity"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 加 (“add, increase”) + 速度 (“speed, velocity”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-10",
+    "term": "できる",
+    "kana": "できる",
+    "meaning": "to be able to (to accomplish)",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["compound", "sound-change"],
+    "headline": "Dekiru began as ideku in the Man'yōshū of 759, written 出で来.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/ideku/ → /deku/ → /dekuru/ → /dekiru/"
+      },
+      {
+        "quote": "Originally appears in the Man'yōshū of 759 CE and other Old Japanese texts as 出(い)で来(く) (ideku), as a compound of 出(い)で (ide, “going out”, the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 出(い)づ (izu, ancient idu, ancient form of modern 出(で)る (deru, “to come out, to go out”))) + 来(く) (ku, “to come”, the ancient form of modern 来(く)る (kuru, “to come”)). The original meaning was “to come out”, extending in figurative contexts to a sense of “to appear, to become manifest”."
+      },
+      {
+        "quote": "Phonologically, ideku shifted to deku by the mid-1400s in the Muromachi period, as the low-tone initial i dropped out, vaguely similar to the way that unstressed syllables in English may disappear. This deku then underwent a common shift in Muromachi Japanese to become dekuru, where all bigrade verbs and irregular verbs underwent a shift that included a -ru on the end of the plain form, in part through a fusion of the 連(れん)体(たい)形(けい) (rentaikei, “attributive form”) that has always ended in -ru for these verbs, and the 終(しゅう)止(し)形(けい) (shūshikei, “terminal form”) that is used at the end of sentences."
+      },
+      {
+        "quote": "As a later part of this same shift, the central vowel shifted from -u- to -i- to produce dekiru, as the main vowel -i- for the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) came to be used for all conjugated forms."
+      },
+      {
+        "quote": "Over this same period, the meaning gradually shifted from “to come out” to include “to appear, to become manifest”, and from there “to come into existence anew”. This then extended further to “to occur, to happen; to be born; to be created, to be produced”, and thence “to come to fruition; to be completed, to be finished (with positive overtones)”. The underlying sense of latent existence gave rise to the meaning of “to be capable of making or producing something”, and then simply “to be able to do”."
+      },
+      {
+        "quote": "In slang contexts in the early 1800s, dekiru came to mean “to have sex”, perhaps similar to the development of the English phrases “to do it, to get some, to get it on”."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-11",
+    "term": "熱帯",
+    "kana": "ねったい",
+    "meaning": "tropics",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Nettai is from Literary Chinese 熱帶 (rèdài, literally “heat, high temperature + belt, zone, area”), coined by missionaries in China.",
+    "morphemes": [
+      {
+        "text": "熱",
+        "reading": "ねっ",
+        "base": "ねつ",
+        "meaning": "heat, high temperature"
+      },
+      {
+        "text": "帯",
+        "reading": "たい",
+        "meaning": "belt, zone, area"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Orthographic borrowing from Literary Chinese 熱帶／热带 (rèdài, literally “heat, high temperature + belt, zone, area”), which was coined by missionaries in China."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-12",
+    "term": "最近",
+    "kana": "さいきん",
+    "meaning": "recently, nowadays, in recent years, most recent, latest",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'",
+      "adverb (fukushi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Saikin is 最 (sai-, “most”) plus 近 (kin, “close”).",
+    "morphemes": [
+      {
+        "text": "最",
+        "reading": "さい",
+        "meaning": "most"
+      },
+      {
+        "text": "近",
+        "reading": "きん",
+        "meaning": "close"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "最 (sai-, “most”) + 近 (kin, “close”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-13",
+    "term": "噂",
+    "kana": "うわさ",
+    "meaning": "rumor, gossip",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "wago",
+    "processes": ["compound", "derivation", "sound-change"],
+    "headline": "Uwasa originally referred to private conversation about one's social superiors, and is possibly from 上 (ufa, “up, upward”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/ufasa/ → /uwasa/"
+      },
+      {
+        "quote": "First attested in works from the Muromachi period."
+      },
+      {
+        "quote": "Considering that the meaning originally referred to private conversation about one's social superiors, possibly derived as a compound of 上 (ufa, “up, upward”, ancient reading of modern uwa, the combining form of modern ue; in reference to those of higher social standing) + さ (sa, “-ness”, suffix indicating state or degree)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-14",
+    "term": "物凄い",
+    "kana": "ものすごい",
+    "meaning": "earth-shattering, staggering, to a very great extent",
+    "level": "N2",
+    "pos": ["adjective (keiyoushi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Monosugoi is 物 (mono-, “somehow; very”) plus 凄い (sugoi, “terrible; amazing”).",
+    "morphemes": [
+      {
+        "text": "物",
+        "reading": "もの",
+        "meaning": "somehow; very"
+      },
+      {
+        "text": "凄い",
+        "reading": "すごい",
+        "meaning": "terrible; amazing"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "物(もの) (mono-, “somehow; very”) + 凄(すご)い (sugoi, “terrible; amazing”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-15",
+    "term": "やっぱり",
+    "kana": "やっぱり",
+    "meaning": "after all, anyway",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Yappari is the emphatic pronunciation of やはり (yahari).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Emphatic pronunciation of やはり (yahari); possibly an older form, see that entry for more."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-16",
+    "term": "お前",
+    "kana": "おまえ",
+    "meaning": "you (sing), presence (of a high personage)",
+    "level": "N3",
+    "pos": ["pronoun"],
+    "stratum": "wago",
+    "processes": ["compound", "derivation"],
+    "headline": "Omae is literally “honourable presence in front of me”, originally a polite pronoun for emperors or gods, first attested in the early 900s.",
+    "morphemes": [
+      {
+        "text": "お",
+        "reading": "お",
+        "meaning": "honorific prefix"
+      },
+      {
+        "text": "前",
+        "reading": "まえ",
+        "meaning": "front"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 御(お) (o-, honorific prefix) + 前(まえ) (mae, “front”), literally \"honourable presence in front of me\". Originally a polite pronoun applied to highly respected persons such as emperors or gods."
+      },
+      {
+        "quote": "First attested in the early 900s."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-17",
+    "term": "単位",
+    "kana": "たんい",
+    "meaning": "credit (for a course in school); unit, denomination",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Tan'i is from Middle Chinese 單位 (tan hwijᴴ).",
+    "morphemes": [
+      {
+        "text": "単",
+        "reading": "たん",
+        "meaning": "simple",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "位",
+        "reading": "い",
+        "meaning": "rank",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 單位 (tan hwijᴴ)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-18",
+    "term": "めちゃくちゃ",
+    "kana": "めちゃくちゃ",
+    "meaning": "absurd, messed up, wrecked",
+    "level": "N2",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": ["ateji"],
+    "headline": "Mechakucha's etymology is hypothetical: 無茶 (mucha) shifted to 滅茶 (mecha) by ateji.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "This etymology is hypothetical. Since that 無茶 (mucha) shifted to 滅茶 (mecha) by ateji (当(あ)て字(じ)), there may be an idea raised that a 滅茶 (mecha) (\"ruined tea\" or thus, \"wrongly prepared tea\") would be a 苦茶 (kucha) (\"bitter tea\"), which would also favor the sense of four-character idioms or 四字熟語 (yojijukugo)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-19",
+    "term": "ビデオ",
+    "kana": "ビデオ",
+    "meaning": "video tape; VCR",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "Bideo is called an internationalism; see English video.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Internationalism; see English video."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-20",
+    "term": "必死",
+    "kana": "ひっし",
+    "meaning": "desperation, frantic, inevitable result",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku"],
+    "headline": "Hisshi is 必 (hitsu, “necessary”) plus 死 (shi, “death”).",
+    "morphemes": [
+      {
+        "text": "必",
+        "reading": "ひっ",
+        "base": "ひつ",
+        "meaning": "inevitable",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "死",
+        "reading": "し",
+        "meaning": "death",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 必 (hitsu, “necessary”) + 死 (shi, “death”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-21",
+    "term": "乗せる",
+    "kana": "のせる",
+    "meaning": "to place on (something), to take on board",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Noseru, “to take on board”, is cognate with 載せる (noseru), from the Classical Japanese verb のす (nosu).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Classical Japanese verb のす (nosu). Cognate with Japanese 載(の)せる (noseru)."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-22",
+    "term": "一般",
+    "kana": "いっぱん",
+    "meaning": "general, average",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Ippan is Middle Chinese 一般, literally “one + sort”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese compound 一般 (ʔjit pan, “ordinary, common, general”, literally “one + sort”). Compare modern Mandarin reading yībān, Hakka yit-pân."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-23",
+    "term": "盛ん",
+    "kana": "さかん",
+    "meaning": "prosperous, active, thriving",
+    "level": "N4",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Sakan is a sound shift from 盛り (sakari), sharing a root with 栄える (sakaeru, “to thrive”) and 咲く (saku, “to bloom”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "First attested in the late 11th century."
+      },
+      {
+        "quote": "Sound shift from 盛(さか)り (sakari), the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 盛(さか)る (sakaru, “to be in prime condition”), itself sharing a root with 栄(さか)える (sakaeru, “to thrive, to boom”) and 咲(さ)く (saku, “to bloom”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-24",
+    "term": "再来週",
+    "kana": "さらいしゅう",
+    "meaning": "the week after next",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Saraishū is analyzed as either 再来 (sarai, “two next”) plus 週, or 再 (sa, “again”) plus 来週 (raishū); first attested in 1966.",
+    "morphemes": [
+      {
+        "text": "再",
+        "reading": "さ",
+        "meaning": "again",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "来",
+        "reading": "らい",
+        "meaning": "next",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "週",
+        "reading": "しゅう",
+        "meaning": "week",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Analyzed by references as either a compound of 再来 (sarai, “two next, the one after next”) + 週 (shū, “week”), or a compound of 再 (sa, “again, one more”) + 来週 (raishū, “next week”)."
+      },
+      {
+        "quote": "First attested in 1966."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-25",
+    "term": "センター",
+    "kana": "センター",
+    "meaning": "center",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "Sentā is borrowed from English center, centre.",
+    "morphemes": [
+      {
+        "text": "センター",
+        "reading": "センター",
+        "meaning": "English center"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English center, centre."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-26",
+    "term": "娘",
+    "kana": "むすめ",
+    "meaning": "daughter (humble)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Musume is analyzed as 生す (musu, “to beget”) plus 女 (me, “female”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First cited to the Nihon Shoki of 720 CE."
+      },
+      {
+        "quote": "Analyzed as a compound of 生す (musu, “to beget”) + 女 (me, “female”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-27",
+    "term": "現象",
+    "kana": "げんしょう",
+    "meaning": "phenomenon",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Genshō is from Middle Chinese 現象 (MC henH zjangX).",
+    "morphemes": [
+      {
+        "text": "現",
+        "reading": "げん",
+        "meaning": "present",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "象",
+        "reading": "しょう",
+        "meaning": "elephant",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 現象 (MC henH zjangX)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-28",
+    "term": "初歩",
+    "kana": "しょほ",
+    "meaning": "elements, rudiments",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Shoho is from Middle Chinese 初步.",
+    "morphemes": [
+      {
+        "text": "初",
+        "reading": "しょ",
+        "meaning": "first time",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "歩",
+        "reading": "ほ",
+        "meaning": "walk",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 初步 (t͡ʃʰɨʌ buoᴴ)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-29",
+    "term": "ますます",
+    "kana": "ますます",
+    "meaning": "increasingly (same as もっと), more and more",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "Masumasu is a reduplication of 増す (masu).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Reduplication of 増す (masu)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-30",
+    "term": "しかし",
+    "kana": "しかし",
+    "meaning": "however; but",
+    "level": "N5",
+    "pos": ["conjunction"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Shikashi is possibly a shift from 然り (shikari, “being like so”) plus し.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/ɕikari ɕi/ → /ɕikaɕːi/ → /ɕikaɕi/"
+      },
+      {
+        "quote": "Possibly a shift from 然(しか)り (shikari, “being like so”, the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of classical verb 然(しか)り (shikari, “to be like so”)) + し (shi, the 連体形 (rentaikei, “attributive form”) of past recollective auxiliary き (ki)), contracting from shikari shi to shikasshi, and then further to shikashi."
+      },
+      {
+        "quote": "The initial sense may have been parseable as that [preceding statement] being so, ..., much like English phrases such as be that as it may or that said, followed by a statement in opposition to the earlier statement."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2024-01-31",
+    "term": "高校生",
+    "kana": "こうこうせい",
+    "meaning": "high school student",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Kōkōsei is 高校 (kōkō, “high school”) plus 生 (-sei, “student; pupil”).",
+    "morphemes": [
+      {
+        "text": "高校",
+        "reading": "こうこう",
+        "meaning": "high school"
+      },
+      {
+        "text": "生",
+        "reading": "せい",
+        "meaning": "student; pupil"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "高(こう)校(こう) (kōkō, “high school”) + 生(せい) (-sei, “student; pupil”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]

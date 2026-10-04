@@ -1,0 +1,729 @@
+[
+  {
+    "date": "2022-11-01",
+    "term": "瞳",
+    "kana": "ひとみ",
+    "meaning": "pupil (of eye)",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "Hitomi is likely 人 (hito, “person”) plus 見 (mi, “see”): one's own reflection in someone else's eyes.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Likely 人(ひと) (hito, “person”) + 見(み) (mi, “see”), in reference to one's own reflection when staring into someone else's eyes. Compare Latin pūpilla, of the same derivation."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-02",
+    "term": "うるさい",
+    "kana": "うるさい",
+    "meaning": "noisy; annoying",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "stratum": "wago",
+    "processes": ["compound", "sound-change"],
+    "headline": "Urusai is probably 心 (uru, “heart, mind”) plus 狭し (sashi, “tight; narrow”): something so overwhelming that one feels pressured.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Probably originally a compound of 心 (uru, “heart, mind”, vowel-shifted from regular reading ura, cognate with 裏 (ura, “the behind or inside of something”)) + 狭し (sashi, “tight; narrow”, Classical and Old Japanese, cognate and synonym of modern 狭い (semai)), from the sense that something is so overwhelming that one feels pressured to yield or submit in some way."
+      },
+      {
+        "quote": "The earliest texts used this word to mean something more like \"overwhelmed by how completely thorough something is (in a positive sense), or by how excessive and repetitive something is (in a negative sense)\". Over time, the term was used less and less in a positive sense, and the focus from the late Heian period gradually became a negative sense of oppression and annoyance from something troublesome, repetitive, or overwhelming. Usage then shifted further, such that the term described not the speaker's own internal state, but rather the troublesome quality of the cause of the emotional response."
+      },
+      {
+        "quote": "First cited to works from the early 900s."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-03",
+    "term": "変える",
+    "kana": "かえる",
+    "meaning": "to change, to alter, to vary",
+    "level": "N4",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Kaeru, “to change”, is from Old Japanese かふ (kapu).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese かふ (kapu), in the 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) pattern."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+      },
+      {
+        "quote": "Cognate with 替(か)える (kaeru), 代(か)える (kaeru) and 換(か)える (kaeru)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-04",
+    "term": "叔母",
+    "kana": "おば",
+    "meaning": "aunt (younger than one's parent)",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Oba, an aunt, is likely 小 (o-, “small, young”) plus 母 (ha, “mother”), as 叔父 (oji) is 小 plus 父.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. Attested in a text from 701. In turn, reconstructed as descending from Proto-Japonic *wonpa."
+      },
+      {
+        "quote": "Likely a compound of 小 (o-, “small, young”) + 母 (ha, “mother”). Compare 叔父 (oji, “uncle”), also likely from 小 (o-) + 父 (chi, “father”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-05",
+    "term": "駐車場",
+    "kana": "ちゅうしゃじょう",
+    "meaning": "parking lot",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Chūshajō is 駐車 (chūsha, “(car) parking”) plus 場 (-jō, “place”).",
+    "morphemes": [
+      {
+        "text": "駐車",
+        "reading": "ちゅうしゃ",
+        "meaning": "(car) parking"
+      },
+      {
+        "text": "場",
+        "reading": "じょう",
+        "meaning": "place"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "駐車(ちゅうしゃ) (chūsha, “(car) parking”) + 場(じょう) (-jō, “place”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-06",
+    "term": "ただいま",
+    "kana": "ただいま",
+    "meaning": "Here I am, I'm home!",
+    "level": "N2",
+    "pos": ["interjection (kandoushi)", "expressions (phrases, clauses, etc.)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tadaima is short for 只今、帰りました (tadaima, kaerimashita), “I'm back right now”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Short of 只(ただ)今(いま)、帰(かえ)りました (tadaima, kaerimashita, “I'm back right now”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-07",
+    "term": "向かい",
+    "kana": "むかい",
+    "meaning": "facing, opposite, across",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Mukai is the continuative stem of 向かう (mukau, “to face”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 向(む)かう (mukau, “to face”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-08",
+    "term": "包帯",
+    "kana": "ほうたい",
+    "meaning": "bandage",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "In hōtai, 包 is a daiyōji replacing 繃.",
+    "morphemes": [
+      {
+        "text": "包",
+        "reading": "ほう",
+        "meaning": "wrap",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "帯",
+        "reading": "たい",
+        "meaning": "sash",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "包 is a daiyōji replacing 繃."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-09",
+    "term": "節",
+    "kana": "ふし",
+    "meaning": "tune, tone, knob",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Fushi was pusi in Old Japanese, attested in 794 as 布之.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 節 (pusi); attested in the Shin'yaku Kegonkyō Ongi Shiki of 794 as 布之. In turn, from Proto-Japonic *pusi. Possibly derived from Old Japanese 節 (pu)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-10",
+    "term": "日付",
+    "kana": "ひづけ",
+    "meaning": "date, dating",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Hizuke is 日 (hi, “day”) plus 付け (-zuke, “fixing, attaching”).",
+    "morphemes": [
+      {
+        "text": "日",
+        "reading": "ひ",
+        "meaning": "day"
+      },
+      {
+        "text": "付",
+        "reading": "づけ",
+        "meaning": "fixing, attaching"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "日(ひ) (hi, “day”) + 付(づ)け (-zuke, “fixing, attaching”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-11",
+    "term": "見送る",
+    "kana": "みおくる",
+    "meaning": "to see off; to escort; to let pass",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Miokuru is 見 (mi, “seeing”) plus 送る (okuru, “to send”).",
+    "morphemes": [
+      {
+        "text": "見",
+        "reading": "み",
+        "meaning": "seeing"
+      },
+      {
+        "text": "送る",
+        "reading": "おくる",
+        "meaning": "to send"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "見(み) (mi, “seeing”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見(み)る (miru, “to see”)) + 送(おく)る (okuru, “to send”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-12",
+    "term": "延びる",
+    "kana": "のびる",
+    "meaning": "to be prolonged",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Nobiru, “to be prolonged”, is from the classical upper bigrade verb のぶ, cognate with 伸びる (nobiru).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From the classical upper bigrade verb(バ行上二段活用) のぶ. Cognate with Japanese 伸(の)びる (nobiru)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-13",
+    "term": "占う",
+    "kana": "うらなう",
+    "meaning": "to predict, to divine",
+    "level": "N2",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Uranau is from 裏 (ura, “back, inside”) or 心 (ura, “heart”), plus なふ (nau, verb modifier).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From either 裏(うら) (ura, “back, inside”) or 心(うら) (ura, “heart”, by extension, \"inner feelings\"), and なふ (nau, verb modifier)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-14",
+    "term": "伸びる",
+    "kana": "のびる",
+    "meaning": "to extend, to make progress, to grow",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "This nobiru, written 伸, shares its classical verb のぶ (nobu) with 延びる (nobiru).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From the classical upper bigrade verb(バ行上二段活用) のぶ (nobu). Cognate with Japanese 延(の)びる (nobiru)."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 上(かみ)二(に)段(だん)活(かつ)用(よう) (kami nidan katsuyō, “upper bigrade conjugation”) verbs ending in -u to modern Japanese 上(かみ)一(いち)段(だん)活(かつ)用(よう) (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-15",
+    "term": "とても",
+    "kana": "とても",
+    "meaning": "very (much), greatly, exceedingly",
+    "level": "N5",
+    "pos": ["adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": ["clipping", "sound-change"],
+    "headline": "Totemo is a clipping of とてもかくても (“no matter how, not at all”); the sense “very” is a later shift, first attested around 1910-1920.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Clipping of とてもかくても (“no matter how, not at all”), used with negative verbs. The sense \"very, exceedingly\" is a shift from the earlier sense of \"no matter how\", and was first attested around 1910-1920. Compare 全然."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-16",
+    "term": "喜び",
+    "kana": "よろこび",
+    "meaning": "joy, pleasure, rejoicing",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Yorokobi is the continuative stem of 喜ぶ (yorokobu, “to be pleased, delighted”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 喜(よろこ)ぶ (yorokobu, “to be pleased, delighted”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-17",
+    "term": "急に",
+    "kana": "きゅうに",
+    "meaning": "suddenly",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Kyū ni is 急 (kyū, “sudden”) plus に (ni, oblique particle).",
+    "morphemes": [
+      {
+        "text": "急",
+        "reading": "きゅう",
+        "meaning": "sudden"
+      },
+      {
+        "text": "に",
+        "reading": "に",
+        "meaning": "oblique particle"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 急(きゅう) (kyū, “sudden”) + に (ni, oblique particle)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-18",
+    "term": "すると",
+    "kana": "すると",
+    "meaning": "and, then",
+    "level": "N4",
+    "pos": ["conjunction"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Suruto is する (suru, “to do”) plus と (to): literally “when doing [whatever came before], then [whatever comes after]”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From する (suru, “to do”) + と (to, “when, whenever”, temporal particle). Literally, \"when doing [whatever came before], then [whatever comes after]\"."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-19",
+    "term": "反る",
+    "kana": "かえる",
+    "meaning": "to return, to come back; to turn over",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Kaeru, “to return”, is from Old Japanese, from Proto-Japonic *kapyaru.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *kapyaru."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-20",
+    "term": "憎い",
+    "kana": "にくい",
+    "meaning": "hateful, abominable, detestable",
+    "level": "N2",
+    "pos": ["adjective (keiyoushi)"],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "Nikui is cognate with 憎む (nikumu, “to hate”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. Cognate with 憎む (nikumu, “to hate”), 難い (-nikui, “difficult [to do]”, verb suffix)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-21",
+    "term": "だが",
+    "kana": "だが",
+    "meaning": "but, however",
+    "level": "N3",
+    "pos": ["conjunction"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Daga is だ (da, “is, are”, copula) plus が (ga).",
+    "morphemes": [
+      {
+        "text": "だ",
+        "reading": "だ",
+        "meaning": "is, are"
+      },
+      {
+        "text": "が",
+        "reading": "が",
+        "meaning": "nominative particle"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Phrase consisting of だ (da, “is, are”, copula) + が (ga, nominative particle, also used contrastively after verbs)."
+      },
+      {
+        "quote": "が is also used after verbs in this same way to indicate “the previous statement is the case, but...”"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-22",
+    "term": "その",
+    "kana": "その",
+    "meaning": "that",
+    "level": "N5",
+    "pos": ["pre-noun adjectival (rentaishi)"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Sono is そ, the distal demonstrative root of Old Japanese, plus の (no).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨so₂ no₂⟩ → */sənə/ → /sono/"
+      },
+      {
+        "quote": "From Old Japanese そ, distal demonstrative root, with の (no) added to form the ordinary adnominal form 'that', as in 'that word', as opposed to the pronoun それ (sore)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-23",
+    "term": "注文",
+    "kana": "ちゅうもん",
+    "meaning": "order, request",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "In chūmon, 注 is a daiyōji replacing 註.",
+    "morphemes": [
+      {
+        "text": "注",
+        "reading": "ちゅう",
+        "meaning": "pour",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "文",
+        "reading": "もん",
+        "meaning": "sentence",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "注 is a daiyōji replacing 註."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-24",
+    "term": "最低",
+    "kana": "さいてい",
+    "meaning": "least, lowest, worst",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Saitei is 最 (sai-, “most”) plus 低 (tei, “low”).",
+    "morphemes": [
+      {
+        "text": "最",
+        "reading": "さい",
+        "meaning": "most"
+      },
+      {
+        "text": "低",
+        "reading": "てい",
+        "meaning": "low"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 最(さい) (sai-, “most”) + 低(てい) (tei, “low”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-25",
+    "term": "子",
+    "kana": "こ",
+    "meaning": "child",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "stratum": "wago",
+    "processes": ["derivation", "sound-change"],
+    "headline": "Ko, “child”, is cognate with 蚕 (ko, “silkworm”) and possibly 小 (ko, “little”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨ko₁⟩ → */kʷo/ → /ko/"
+      },
+      {
+        "quote": "From Old Japanese, attested in the Kojiki (712 CE) and the Man'yōshū (c. 759 CE), two of the oldest examples of written Japanese."
+      },
+      {
+        "quote": "Cognate with 蚕 (ko, “silkworm”) and possibly 小 (ko, “little”, diminutive prefix)."
+      },
+      {
+        "quote": "Possibly cognate with Goguryeo 仇 (*gu), which appears in an ancient place name with an apparent meaning of child."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-26",
+    "term": "残らず",
+    "kana": "のこらず",
+    "meaning": "completely, without exception",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Nokorazu is 残る (nokoru, “to remain”) plus ず (zu, negative continuative ending).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "残(のこ)る (nokoru, “to remain”) + ず (zu, negative continuative ending)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-27",
+    "term": "時間割",
+    "kana": "じかんわり",
+    "meaning": "timetable, schedule",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound"],
+    "headline": "Jikanwari is 時間 (jikan) plus 割 (wari).",
+    "morphemes": [
+      {
+        "text": "時",
+        "reading": "じ",
+        "meaning": "time",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "間",
+        "reading": "かん",
+        "meaning": "interval",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "割",
+        "reading": "わり",
+        "meaning": "proportion",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "時(じ)間(かん) (jikan) + 割(わり) (wari)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-28",
+    "term": "呼び出す",
+    "kana": "よびだす",
+    "meaning": "to summon, to call (e.g., phone)",
+    "level": "N2",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Yobidasu is yobi, the stem of 呼ぶ (yobu, “to call”), plus 出す (-dasu, “out”).",
+    "morphemes": [
+      {
+        "text": "呼び",
+        "reading": "よび",
+        "meaning": "to call"
+      },
+      {
+        "text": "出す",
+        "reading": "だす",
+        "meaning": "out"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "呼(よ)び (yobi, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 呼(よ)ぶ (yobu, “to call”)) + 出(だ)す (-dasu, “out”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-29",
+    "term": "張り切る",
+    "kana": "はりきる",
+    "meaning": "to be in high spirits, to be full of vigor",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Harikiru is 張る (haru, “be enthusiastic”) plus 切る (kiru, “perform an action decisively”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From 張る (haru, \"be enthusiastic\") + 切る (kiru, \"perform an action decisively\")."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-11-30",
+    "term": "しつこい",
+    "kana": "しつこい",
+    "meaning": "insistent, obstinate",
+    "level": "N2",
+    "pos": ["adjective (keiyoushi)"],
+    "stratum": "wago",
+    "processes": ["unclear"],
+    "headline": "Shitsukoi has no certain origin: the second element could be 濃い (koi, “thick”), and the first is uncertain.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "The second element could be 濃(こ)い (koi, “thick”), and the first element remains uncertain. It could be 為付(しつ)ける (shitsukeru, “to accustom”), but is semantically problematic."
+      },
+      {
+        "quote": "Another theory regards it as a deverbal adjective of 執(しっ)する (shissuru, “to insist”) and thinks that it was contaminated by 懐(なつ)こい (natsukoi, “easy to become acquainted with anyone”) and 熱濃(ねつこ)い (netsukoi, “enthusiastic; persistent”), but the earlier meaning of this word is \"very rich and thick\", so this theory is also historical semantically problematic."
+      },
+      {
+        "quote": "Morphologically, just like 懐(なつ)く (natsuku) and 懐(なつ)こい (natsukoi), 執拗(しつこ)い (shitsukoi)"
+      },
+      {
+        "quote": "could be also derived from 為付(しつ)く (shitsuku, “to become practised”), but is still problematic on meaning."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]

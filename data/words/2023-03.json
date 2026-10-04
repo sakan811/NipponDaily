@@ -1,0 +1,813 @@
+[
+  {
+    "date": "2023-03-01",
+    "term": "近寄る",
+    "kana": "ちかよる",
+    "meaning": "to approach, to draw near",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Chikayoru is 近い (chikai, “close”) plus 寄る (yoru, “to approach, get closer”).",
+    "morphemes": [
+      {
+        "text": "近",
+        "reading": "ちか",
+        "meaning": "close"
+      },
+      {
+        "text": "寄る",
+        "reading": "よる",
+        "meaning": "to approach, get closer"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "近(ちか)い (chikai, “close”) + 寄(よ)る (yoru, “to approach, get closer”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-02",
+    "term": "築く",
+    "kana": "きずく",
+    "meaning": "to build, to establish",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "Kizuku is, by surface analysis, 杵 (ki, “mallet, pounder, pestle”) plus 築く (tsuku, “to build up”): “to make something using a pounder or mallet”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, attested in the Izumo Fudoki completed in 733."
+      },
+      {
+        "quote": "By surface analysis, 杵 (ki, “mallet, pounder, pestle”, from which きね (kine) “pestle” is also derived) + 築く (tsuku, “to build up, to pile up, to amass”, see below), for a base sense of “to make something using a pounder or mallet”, much as when building up rammed earth or stonework."
+      },
+      {
+        "quote": "This term as 杵 (ki, “pounder”) + 築く (tsuku, “build up”) then underwent conflation with, or was reanalysed as, 城 (ki, “castle, fortress”) + 築く (tsuku, “build up”) with a basic sense of “to construct”. This latter derivation is given as the only etymology in some references. However, the “to construct” sense is attested centuries later in 1081. Moreover, the “castle, fortress” sense for the initial ki- element was pronounced in Old Japanese as /ki₂/, while the “pounder, mallet” sense was pronounced /ki₁/."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-03",
+    "term": "影",
+    "kana": "かげ",
+    "meaning": "shade, shadow, other side",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Kage is an unbound apophonic form, from Proto-Japonic *kankay, cognate with 陰 (kage, “shadow”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Unbound apophonic form of 影 (kaga)."
+      },
+      {
+        "quote": "From Old Japanese, ultimately from Proto-Japonic *kankay. Cognate with 陰 (kage, “shadow”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-04",
+    "term": "肺",
+    "kana": "はい",
+    "meaning": "lung",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Hai, “lung”, is from Middle Chinese 肺.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 肺 (MC phjojH)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-05",
+    "term": "適切",
+    "kana": "てきせつ",
+    "meaning": "appropriate, adequate, relevance",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Tekisetsu is 適 (teki, “suitable, fit, proper”) plus 切 (setsu, “in close contact”).",
+    "morphemes": [
+      {
+        "text": "適",
+        "reading": "てき",
+        "meaning": "suitable, fit, proper"
+      },
+      {
+        "text": "切",
+        "reading": "せつ",
+        "meaning": "in close contact"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 適(てき) (teki, “suitable, fit, proper”) + 切(せつ) (setsu, “in close contact”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-06",
+    "term": "半径",
+    "kana": "はんけい",
+    "meaning": "radius",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Hankei, a radius, is 半 (han, “half”) plus 径 (kei, “diameter”).",
+    "morphemes": [
+      {
+        "text": "半",
+        "reading": "はん",
+        "meaning": "half"
+      },
+      {
+        "text": "径",
+        "reading": "けい",
+        "meaning": "diameter"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "半 (han, “half”) + 径 (kei, “diameter”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-07",
+    "term": "指輪",
+    "kana": "ゆびわ",
+    "meaning": "(finger) ring",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Yubiwa is 指 (yubi, “finger”) plus 輪 (wa, “ring”).",
+    "morphemes": [
+      {
+        "text": "指",
+        "reading": "ゆび",
+        "meaning": "finger"
+      },
+      {
+        "text": "輪",
+        "reading": "わ",
+        "meaning": "ring"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "指 (yubi, “finger”) + 輪 (wa, “ring”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-08",
+    "term": "さっき",
+    "kana": "さっき",
+    "meaning": "a little while ago",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Sakki is a shift from 先 (saki).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Shift from 先 (saki)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-09",
+    "term": "お辞儀",
+    "kana": "おじぎ",
+    "meaning": "bow",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "derivation"],
+    "headline": "Ojigi is 御 (o-, honorific prefix) plus 辞儀 (jigi, “bow”).",
+    "morphemes": [
+      {
+        "text": "お",
+        "reading": "お",
+        "meaning": "honorific prefix"
+      },
+      {
+        "text": "辞儀",
+        "reading": "じぎ",
+        "meaning": "bow"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 御(お) (o-, honorific prefix) + 辞(じ)儀(ぎ) (jigi, “bow”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-10",
+    "term": "諺",
+    "kana": "ことわざ",
+    "meaning": "proverb, saying",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Kotowaza is 言 (koto) plus 業 (waza).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From 言(こと) (koto) + 業(わざ) (waza)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-11",
+    "term": "畑",
+    "kana": "はたけ",
+    "meaning": "field, patch",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "suffix"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Hatake is first attested in the Man'yōshū, completed sometime after 759 CE; compare Korean 밭 (bat, “dry field”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First attested in the Man’yōshū, completed sometime after 759 CE. In turn from reconstructed Proto-Japonic *patakay. Compare Korean 밭 (bat, “dry field”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-12",
+    "term": "アイスクリーム",
+    "kana": "アイスクリーム",
+    "meaning": "ice cream",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "Aisukurīmu is simply English “ice cream”.",
+    "morphemes": [
+      {
+        "text": "アイスクリーム",
+        "reading": "アイスクリーム",
+        "meaning": "English ice cream"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English ice cream."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-13",
+    "term": "胡椒",
+    "kana": "こしょう",
+    "meaning": "pepper",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Koshō is from Chinese 胡椒 (hújiāo).",
+    "morphemes": [
+      {
+        "text": "胡",
+        "reading": "こ",
+        "meaning": "barbarian",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "椒",
+        "reading": "しょう",
+        "meaning": "Japanese pepper tree",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Chinese 胡椒 (hújiāo)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-14",
+    "term": "丼",
+    "kana": "どんぶり",
+    "meaning": "porcelain bowl, bowl of rice with food on top",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["derivation", "clipping"],
+    "headline": "Donburi has two possible origins: 慳貪振り鉢 (kendon-buri-bachi, “greedy” bowl) with the ken elided, or the onomatopoeia どんぶり for something heavy plunking into deep water.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Multiple possible derivations."
+      },
+      {
+        "quote": "* During the Edo period, restaurants specializing in large portions were called 慳貪屋 (kendon'ya), from 慳貪 (kendon, “greedy”, in reference to “very hungry”) + 屋 (ya, “house, store, restaurant”). The serving bowls were called 慳貪振り鉢 (kendon-buri-bachi), literally “greedy” + “in that fashion” + “bowl”. The ken portion was elided, producing donburi-bachi, and then the -hachi was dropped to produce donburi."
+      },
+      {
+        "quote": "* Alternatively, and perhaps more likely, donburi in reference to “a bowl filled with large amount of food” may be cognate with どんぶり (donburi), an onomatopoeia of something heavy plunking into deep water, or something big and soft plopping down, related to onomatopoeia どぶり (doburi), どぶん (dobun), どんぶ (donbu), and どん (don), all of generally similar meanings. The food starts with a large portion of rice, also referred to as 丼飯 (donburi meshi), which could be analyzed as “plopped-down rice”."
+      },
+      {
+        "quote": ": Donburi is also used to refer to something “rough, approximate, not finely worked”, as in the phrase 丼勘定 (donburi kanjō, “rough approximation, loose estimate”). This is consistent with a derivation from the onomatopoeia, but not from the restaurant terms."
+      },
+      {
+        "quote": "The kanji spelling shows 井 (“a well”) with a dot in the center, possibly indicating something thrown into the well. This could suggest that the Middle Chinese reading tom^X may similarly derive from onomatopoeia."
+      },
+      {
+        "quote": "Abbreviation of donburi above."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-15",
+    "term": "対照",
+    "kana": "たいしょう",
+    "meaning": "contrast, antithesis, comparison",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Taishō is 対 (tai, “place in opposition and compare”) plus 照 (shō, “check one thing against another”).",
+    "morphemes": [
+      {
+        "text": "対",
+        "reading": "たい",
+        "meaning": "place in opposition and compare"
+      },
+      {
+        "text": "照",
+        "reading": "しょう",
+        "meaning": "check one thing against another"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 対(たい) (tai, “place in opposition and compare”) + 照(しょう) (shō, “check one thing against another”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-16",
+    "term": "価格",
+    "kana": "かかく",
+    "meaning": "price, value",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Kakaku is a Middle Chinese compound, 價格 (MC kaeH kaek).",
+    "morphemes": [
+      {
+        "text": "価",
+        "reading": "か",
+        "meaning": "value",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "格",
+        "reading": "かく",
+        "meaning": "status",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Middle Chinese compound 價格 (MC kaeH kaek)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-17",
+    "term": "ジェット機",
+    "kana": "ジェットき",
+    "meaning": "jet plane",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound"],
+    "headline": "Jettoki is ジェット (jetto, “jet”) plus 機 (-ki, “machine, (especially) aircraft”).",
+    "morphemes": [
+      {
+        "text": "ジェット",
+        "reading": "じぇっと",
+        "meaning": "jet"
+      },
+      {
+        "text": "機",
+        "reading": "き",
+        "meaning": "machine, (especially) aircraft"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "ジェット (jetto, “jet”) + 機(き) (-ki, “machine, (especially) aircraft”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-18",
+    "term": "認める",
+    "kana": "みとめる",
+    "meaning": "to recognize, to notice; to approve",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Mitomeru is thought to be 見 (mi, “seeing”) plus 留める (tomeru, “to hold, to keep”): “to keep one's vision on”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Thought to be from 見(み) (mi, “seeing, looking”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見(み)る (miru, “to see, to look”)) + 留(と)める (tomeru, “to hold, to keep, to remain”), possibly with semantics like “to keep one's vision on” → “to recognize, to acknowledge, to observe”."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-19",
+    "term": "あれ",
+    "kana": "あれ",
+    "meaning": "that one (over there)",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "stratum": "wago",
+    "processes": ["compound", "derivation", "sound-change"],
+    "headline": "Are is あ (a, “that, yon”) plus れ (-re, nominalizing suffix for demonstratives), from older kare.",
+    "morphemes": [
+      {
+        "text": "あ",
+        "reading": "あ",
+        "meaning": "that, yon"
+      },
+      {
+        "text": "れ",
+        "reading": "れ",
+        "meaning": "nominalizing suffix for demonstratives"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From older kare → are. Compound of あ (a, “that, yon”) + れ (-re, nominalizing suffix for demonstratives)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-20",
+    "term": "モデル",
+    "kana": "モデル",
+    "meaning": "a fashion model",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "Moderu is called an internationalism; see English model.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Internationalism; see English model."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-21",
+    "term": "望遠鏡",
+    "kana": "ぼうえんきょう",
+    "meaning": "telescope",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Bōenkyō is 望遠 (bōen, “long-distance viewing”) plus 鏡 (-kyō, “lens”).",
+    "morphemes": [
+      {
+        "text": "望遠",
+        "reading": "ぼうえん",
+        "meaning": "long-distance viewing"
+      },
+      {
+        "text": "鏡",
+        "reading": "きょう",
+        "meaning": "lens"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "望遠 (bōen, “long-distance viewing”) + 鏡 (-kyō, “lens”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-22",
+    "term": "深める",
+    "kana": "ふかめる",
+    "meaning": "to deepen, to heighten, to intensify",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Fukameru is the root of 深い (fukai, “deep, profound”) plus -meru, from Classical Japanese 深む (fukamu).",
+    "morphemes": [
+      {
+        "text": "深",
+        "reading": "ふか",
+        "meaning": "deep, profound"
+      },
+      {
+        "text": "める",
+        "reading": "める",
+        "meaning": "-ify, -en"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "深(ふか) (fuka, root of 深(ふか)い (fukai, “deep, profound”)) + める (-meru, “-ify, -en”), developed from Classical Japanese 深(ふか)む (fukamu)."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-23",
+    "term": "助かる",
+    "kana": "たすかる",
+    "meaning": "to be saved; (something) helps (v.i.)",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tasukaru is the mediopassive or spontaneous counterpart to 助ける (tasukeru).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Derived as the mediopassive or spontaneous counterpart to 助ける (tasukeru)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-24",
+    "term": "画家",
+    "kana": "がか",
+    "meaning": "painter",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Gaka is 画 (ga, “picture, drawing, painting”) plus 家 (-ka, “expert, professional, performer”), first cited to 1799.",
+    "morphemes": [
+      {
+        "text": "画",
+        "reading": "が",
+        "meaning": "picture, drawing, painting"
+      },
+      {
+        "text": "家",
+        "reading": "か",
+        "meaning": "expert, professional, performer"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 画(が) (ga, “picture, drawing, painting”) + 家(か) (-ka, “expert, professional, performer”)."
+      },
+      {
+        "quote": "First cited to 1799."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-25",
+    "term": "正",
+    "kana": "せい",
+    "meaning": "(logical) true, regular",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Sei, “true”, is from Middle Chinese 正, the kan'on reading, so likely not as old as the shō reading.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 正 (MC tsyeng|tsyengH). The kan'on reading, so likely not as old as the shō reading."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-26",
+    "term": "女性",
+    "kana": "じょせい",
+    "meaning": "woman",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "meaning-shift"],
+    "headline": "Josei was repurposed from nyoshō in the Meiji period (1868–1912), using the newer kan'on readings.",
+    "morphemes": [
+      {
+        "text": "女",
+        "reading": "じょ",
+        "meaning": "woman",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "性",
+        "reading": "せい",
+        "meaning": "sex",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Spelling repurposed from nyoshō below during the Meiji period (1868–1912), using the relatively newer kan'on readings of the characters."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-27",
+    "term": "指",
+    "kana": "ゆび",
+    "meaning": "finger",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Yubi is from Old Japanese, from Proto-Japonic *oyonpE.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *oyonpE."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-28",
+    "term": "平和",
+    "kana": "へいわ",
+    "meaning": "peace",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "sound-change"],
+    "headline": "Heiwa is a rearrangement of 和平 (wahei, “peace”), first attested in the Meiji era.",
+    "morphemes": [
+      {
+        "text": "平",
+        "reading": "へい",
+        "meaning": "flat",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "和",
+        "reading": "わ",
+        "meaning": "harmony",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Rearrangement of 和平 (wahei, “peace”), likely that 平 (hei) also means \"flat\", therefore switching the kanji meant \"calm, equal + harmony → peace\"."
+      },
+      {
+        "quote": "First attested in the Meiji era."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-29",
+    "term": "見舞う",
+    "kana": "みまう",
+    "meaning": "to ask after (health), to visit",
+    "level": "N2",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Mimau is 見 (mi) plus 舞う (mau).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "見(み) (mi) + 舞(ま)う (mau)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-30",
+    "term": "物騒",
+    "kana": "ぶっそう",
+    "meaning": "dangerous, disturbed, insecure",
+    "level": "N2",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Bussō is a pseudo-loan from Chinese, a reformation of 物騒がしい (monosawagashii).",
+    "morphemes": [
+      {
+        "text": "物",
+        "reading": "ぶっ",
+        "base": "ぶつ",
+        "meaning": "thing",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "騒",
+        "reading": "そう",
+        "meaning": "boisterous",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Pseudo-loan from Chinese, a reformation of 物(もの)騒(さわ)がしい (monosawagashii, na-adjective). Alternatively, from 物忩(ぶっそう) (bussō)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2023-03-31",
+    "term": "咥える",
+    "kana": "くわえる",
+    "meaning": "to hold something in the mouth",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Kuwaeru is from Classical Japanese 咥ふ (kufafu), possibly related to 食う (kuu, “to eat; to grab with one's mouth”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Classical Japanese 咥(くは)ふ (kufafu). Possibly related to 食(く)う (kuu, “to eat; to grab with one's mouth”, historical form 食(く)ふ (kufu)), with auxilliary verb ふ (-fu), expressing repetition or ongoing state."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]
