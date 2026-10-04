@@ -3,6 +3,12 @@
 # vocab-guide-<level>.ts, not read by the app or CI, so it isn't committed.
 data/drafts/
 
+# Kaikki.org Wiktionary extracts (hundreds of MB): only the per-word sections the
+# entries quote are committed (data/reference/etymology/), and the dump is pinned
+# by checksum in scripts/lib/wiktionary-dump.mjs.
+/kaikki.org-*.jsonl
+/ja-extract.jsonl
+
 # Nuxt dev/build outputs
 .output
 .data

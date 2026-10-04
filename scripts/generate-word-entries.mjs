@@ -4,7 +4,7 @@
  *
  * The plan holds the ONLY hand-written text — per day: the date, the word and
  * its one-line headline. Everything else (reading, meaning, level, part of
- * speech, layer, processes, morphemes, the Wiktionary lines, the revision) is
+ * speech, layer, processes, morphemes, the Wiktionary lines, the dump they came from) is
  * derived from the committed sources by scripts/lib/word-entry.mjs. Output is
  * deterministic; test/content/word-generation.test.ts re-runs this in CI.
  *

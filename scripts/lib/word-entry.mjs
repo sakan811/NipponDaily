@@ -757,6 +757,9 @@ export function buildEntry(plan, ctx) {
   const word = candidates[0];
   const snap = ctx.snapshot.entries[plan.term];
   if (!snap) throw new Error(`${plan.term}: no pinned Wiktionary page`);
+  const dump = ctx.snapshot.meta?.dump;
+  if (!dump)
+    throw new Error("the Etymology snapshot does not name its Wiktionary dump");
   const sections = pickSections(snap, word.kana, plan.term, word.meaning);
   const lines = evidenceLines(sections);
   if (lines.length === 0)
@@ -772,6 +775,14 @@ export function buildEntry(plan, ctx) {
   morphemes = flagIrregular(morphemes, ctx.kanji);
 
   const stratum = stratumOf(plan.term, word.kana, morphemes, text, ctx.kanji);
+  // The Wiktionary dump sometimes attaches one reading's etymology to another
+  // (道 みち received the Middle Chinese section of どう, and its own is
+  // missing). KANJIDIC2 is independent of the dump, so a word it reads as
+  // native whose section opens "From Middle Chinese" is refused, not guessed.
+  if (stratum === "wago" && lines.some((l) => /^From Middle Chinese\b/.test(l)))
+    throw new Error(
+      `${plan.term}: KANJIDIC2 reads ${word.kana} as native but its section says it is from Middle Chinese; the dump may have attached another reading's etymology`,
+    );
   // The layer is only stated when KANJIDIC2 (or the evidence) establishes it;
   // irregular spellings (今年, 田舎) leave it out rather than guess.
 
@@ -787,6 +798,6 @@ export function buildEntry(plan, ctx) {
     headline: plan.headline,
     morphemes,
     sources: lines.map((quote) => ({ quote })),
-    wiktionaryRev: snap.revid,
+    wiktionaryDump: dump,
   };
 }
