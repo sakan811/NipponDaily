@@ -9,7 +9,7 @@ import {
   DATA_SOURCES,
   LICENCES,
   SOURCES,
-  wiktionaryRevisionUrl,
+  wiktionaryPageUrl,
 } from "~~/shared/sources";
 import { WORD_ENTRIES } from "~~/shared/words";
 
@@ -73,9 +73,9 @@ describe("data sources", () => {
     expect(SOURCES.edrdg.credit).toContain(SOURCES.edrdg.via.url);
   });
 
-  it("builds a Wiktionary revision permalink", () => {
-    expect(wiktionaryRevisionUrl("手紙", 123)).toBe(
-      `https://en.wiktionary.org/w/index.php?title=${encodeURIComponent("手紙")}&oldid=123`,
+  it("builds a Wiktionary page link", () => {
+    expect(wiktionaryPageUrl("手紙")).toBe(
+      `https://en.wiktionary.org/wiki/${encodeURIComponent("手紙")}`,
     );
   });
 });

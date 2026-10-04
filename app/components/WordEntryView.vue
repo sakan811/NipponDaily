@@ -154,7 +154,7 @@
       </h2>
       <p class="text-sm text-stone-600 dark:text-stone-400 max-w-3xl">
         Quoted line by line from Wiktionary's Etymology section for this
-        reading, pinned to one revision so it can't change underneath us.
+        reading, taken from one dated dump so it can't change underneath us.
         Nothing below is paraphrased.
       </p>
       <div
@@ -193,7 +193,7 @@
           target="_blank"
           rel="noopener"
           class="underline hover:text-primary-500"
-          >Wiktionary: {{ entry.term }} (revision {{ entry.wiktionaryRev }})</a
+          >Wiktionary: {{ entry.term }} (dump of {{ entry.wiktionaryDump }})</a
         >, available under
         <a
           :href="SOURCES.wiktionary.licence.url"
@@ -244,7 +244,7 @@ import { computed } from "vue";
 import { formatLongDate } from "../utils/date";
 import { partPath } from "../utils/seo";
 import { WORD_PROCESSES, WORD_STRATA, isHedged } from "~~/shared/word-labels";
-import { SOURCES, wiktionaryRevisionUrl } from "~~/shared/sources";
+import { SOURCES, wiktionaryPageUrl } from "~~/shared/sources";
 import type { WordEntry, WordStratum } from "~~/types/index";
 
 const props = defineProps<{ entry: WordEntry }>();
@@ -270,7 +270,5 @@ const hedgedSplit = computed(() =>
   props.entry.sources.some((s) => isHedged(s.quote) && s.quote.includes(" + ")),
 );
 
-const wiktionaryUrl = computed(() =>
-  wiktionaryRevisionUrl(props.entry.term, props.entry.wiktionaryRev),
-);
+const wiktionaryUrl = computed(() => wiktionaryPageUrl(props.entry.term));
 </script>

@@ -149,7 +149,7 @@ describe("Index Page (Landing)", () => {
     const wrapper = mount(IndexPage);
 
     expect(wrapper.text()).toContain("Where the Claims Come From");
-    expect(wrapper.text()).toContain("pinned revision of Wiktionary");
+    expect(wrapper.text()).toContain("dated dump of Wiktionary");
   });
 
   it("renders the documentation section linking every chapter and the book", () => {

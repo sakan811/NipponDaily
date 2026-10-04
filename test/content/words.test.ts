@@ -12,6 +12,8 @@ import {
   planMonths,
   // @ts-expect-error — untyped .mjs script helper
 } from "../../scripts/lib/etymology-snapshot.mjs";
+// @ts-expect-error — untyped .mjs script helper
+import { WIKTIONARY_DUMP } from "../../scripts/lib/wiktionary-dump.mjs";
 
 /**
  * The daily-word entries (data/words/*.json) checked against committed
@@ -28,11 +30,10 @@ import {
  */
 
 interface EtymologySnapshot {
-  meta?: { source: string; license: string };
+  meta?: { source: string; license: string; dump: string; sha256: string };
   entries: Record<
     string,
     {
-      revid: number;
       url: string;
       etymologies: { heading: string; text: string; readings: string[] }[];
     }
@@ -224,7 +225,7 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
         .map((x) => normalize(x.quote))
         .filter((q) => !own.includes(q));
       expect(strays, "quotes not found in this reading's section").toEqual([]);
-      expect(entry.wiktionaryRev).toBe(snap!.revid);
+      expect(entry.wiktionaryDump).toBe(snapshot.meta?.dump);
     });
 
     it("carries JMdict's own part-of-speech tags", () => {
@@ -306,5 +307,10 @@ describe("data/reference/etymology/", () => {
     const meta = snapshot.meta;
     expect(meta?.source).toMatch(/Wiktionary/);
     expect(meta?.license).toMatch(/CC BY-SA/);
+  });
+
+  it("names the pinned dump it was read from", () => {
+    expect(snapshot.meta?.dump).toBe(WIKTIONARY_DUMP.dump);
+    expect(snapshot.meta?.sha256).toBe(WIKTIONARY_DUMP.sha256);
   });
 });

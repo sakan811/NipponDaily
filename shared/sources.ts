@@ -58,6 +58,7 @@ const JAMDICT = {
   url: "https://pypi.org/project/jamdict-data/",
 } as const;
 const WIKTIONARY_URL = "https://en.wiktionary.org";
+const KAIKKI = { name: "Kaikki.org", url: "https://kaikki.org/" } as const;
 const WORD_LIST_URL = "https://github.com/elzup/jlpt-word-list";
 const TANOS = {
   name: "tanos.co.uk",
@@ -85,8 +86,9 @@ export const SOURCES = {
     short: "Wiktionary",
     url: WIKTIONARY_URL,
     licence: LICENCES.ccBySa4,
-    use: "Etymology text, quoted verbatim at a pinned revision",
-    credit: `Etymology text is quoted from ${link("English Wiktionary", WIKTIONARY_URL)} under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}. Each entry links the exact revision it quotes and quotes it verbatim; the one-line headline is NipponDaily's own.`,
+    via: KAIKKI,
+    use: "Etymology text, quoted verbatim from a pinned dump",
+    credit: `Etymology text is quoted from ${link("English Wiktionary", WIKTIONARY_URL)} under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, as extracted by wiktextract and distributed by ${link(KAIKKI.name, KAIKKI.url)}. Each entry names the dated dump it quotes, links the page and quotes it verbatim; the one-line headline is NipponDaily's own.`,
   },
   "jlpt-word-list": {
     id: "jlpt-word-list",
@@ -117,7 +119,7 @@ export const DATA_SOURCES: readonly DataSource[] = [
   SOURCES.wanakana,
 ];
 
-/** The permalink to the exact Wiktionary revision an entry quotes. */
-export function wiktionaryRevisionUrl(term: string, revision: number): string {
-  return `${SOURCES.wiktionary.url}/w/index.php?title=${encodeURIComponent(term)}&oldid=${revision}`;
+/** The Wiktionary page an entry quotes (the text is from a dated dump, not the live page). */
+export function wiktionaryPageUrl(term: string): string {
+  return `${SOURCES.wiktionary.url}/wiki/${encodeURIComponent(term)}`;
 }
