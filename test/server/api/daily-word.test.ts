@@ -78,7 +78,7 @@ describe("GET /api/daily-word", () => {
     expect(entry.pos.length).toBeGreaterThan(0);
     expect(entry.sources.length).toBeGreaterThan(0);
     expect(entry).not.toHaveProperty("story");
-    expect(entry.wiktionaryRev).toBeGreaterThan(0);
+    expect(entry.wiktionaryDump).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
   it.each([

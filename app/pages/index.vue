@@ -177,9 +177,9 @@
         >
           Etymology is full of tidy stories that turn out to be wrong, so
           nothing about a word's origin here is written by a person or a model:
-          it is quoted from a pinned revision of Wiktionary, and the build fails
-          if a quote isn't really in it. Readings, meanings and parts of speech
-          come from JMdict, and kanji readings from KANJIDIC2. When the sources
+          it is quoted from a dated dump of Wiktionary, and the build fails if a
+          quote isn't really in it. Readings, meanings and parts of speech come
+          from JMdict, and kanji readings from KANJIDIC2. When the sources
           disagree — or nobody knows — the entry says so instead of picking a
           winner. The words are chosen from the JLPT N5–N2 vocabulary. The
           site's colors and shapes follow the seasons — spring, summer, autumn
@@ -286,7 +286,7 @@ const entryParts = [
   },
   {
     title: "The Evidence",
-    description: `The exact Wiktionary lines behind each claim, pinned to a revision with a permalink and its ${LICENCES.ccBySa4.name} license.`,
+    description: `The exact Wiktionary lines behind each claim, taken from one dated dump, with a link to the page and its ${LICENCES.ccBySa4.name} license.`,
   },
 ];
 </script>

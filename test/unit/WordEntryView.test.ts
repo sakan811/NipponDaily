@@ -22,7 +22,7 @@ const entry = (over: Partial<WordEntry> = {}): WordEntry => ({
     { quote: "Compound of 手 (te, “hand”) + 紙 (kami, “paper”)." },
     { quote: "The kami changes to gami as an instance of rendaku (連濁)." },
   ],
-  wiktionaryRev: 92203082,
+  wiktionaryDump: "2026-09-02",
   ...over,
 });
 
@@ -171,13 +171,14 @@ describe("WordEntryView", () => {
     );
   });
 
-  it("links the pinned Wiktionary revision", () => {
+  it("links the Wiktionary page and names the dump it was quoted from", () => {
     const e = entry();
-    const link = render().find(`a[href*="oldid=${e.wiktionaryRev}"]`);
+    const link = render().find(`a[href*="/wiki/"]`);
 
     expect(link.exists()).toBe(true);
     expect(link.attributes("href")).toContain("en.wiktionary.org");
     expect(link.attributes("href")).toContain(encodeURIComponent("手紙"));
+    expect(link.text()).toContain(e.wiktionaryDump);
   });
 
   it("states the source licenses", () => {

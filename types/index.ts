@@ -90,8 +90,8 @@ export interface WordEntry {
   morphemes: Morpheme[];
   /** What Wiktionary says about the word's origin, line by line, verbatim. */
   sources: WordSource[];
-  /** The Wiktionary revision the sources were quoted from. */
-  wiktionaryRev: number;
+  /** Date of the Wiktionary dump the sources were quoted from (YYYY-MM-DD). */
+  wiktionaryDump: string;
 }
 
 /** A pointer to a neighbouring open day, for prev/next navigation. */
