@@ -21,8 +21,40 @@
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 font-body-serif"
         >
           One word is opened each day at midnight in Japan. Pick any day that
-          has arrived to read how its word is built and where it came from.
+          has arrived to read how its word is built and where it came from, or
+          filter the calendar to light up the days whose words share a level,
+          layer, process or part of speech.
         </p>
+      </div>
+
+      <div class="mt-10 space-y-4">
+        <button
+          type="button"
+          data-testid="calendar-filter-toggle"
+          :aria-expanded="showFilters"
+          aria-controls="calendar-filters"
+          class="season-chip inline-flex items-center gap-2 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-3 py-1.5 text-sm hover:border-primary-500 transition-colors"
+          @click="showFilters = !showFilters"
+        >
+          <UIcon
+            :name="showFilters ? 'i-heroicons-minus' : 'i-heroicons-plus'"
+            class="h-4 w-4"
+          />
+          Filter the calendar
+          <span
+            v-if="activeCount"
+            data-testid="calendar-filter-count"
+            class="text-xs text-primary-600 dark:text-primary-400"
+            >{{ activeCount }} active</span
+          >
+        </button>
+        <WordFilters
+          v-if="showFilters"
+          id="calendar-filters"
+          v-model="filters"
+          :facets="calendar?.facets"
+          @update:model-value="applyFilters"
+        />
       </div>
 
       <TrendingFallback
@@ -66,6 +98,87 @@
           />
         </div>
 
+        <!-- Jump to a year and month -->
+        <nav aria-label="Jump to a month" class="space-y-2">
+          <div class="flex flex-wrap gap-2" data-testid="calendar-years">
+            <button
+              v-for="y in years"
+              :key="y"
+              type="button"
+              :data-testid="`calendar-year-${y}`"
+              :aria-pressed="y === selectedYear"
+              :class="chip(y === selectedYear, false)"
+              @click="pickYear(y)"
+            >
+              {{ y }}
+            </button>
+          </div>
+          <div
+            class="grid grid-cols-6 sm:grid-cols-12 gap-1.5"
+            data-testid="calendar-months"
+          >
+            <button
+              v-for="m in monthChoices"
+              :key="m.key"
+              type="button"
+              data-testid="calendar-pick-month"
+              :data-month="m.key"
+              :aria-pressed="m.key === calendar.month"
+              :aria-label="m.label"
+              :disabled="!m.exists"
+              :class="[
+                chip(m.key === calendar.month, !m.exists),
+                'flex-col !gap-0 !px-1 justify-center',
+                filtersActive && m.exists && !m.count && 'opacity-60',
+              ]"
+              @click="go(m.key)"
+            >
+              {{ m.short }}
+              <span v-if="filtersActive && m.exists" class="chip-count">{{
+                m.count
+              }}</span>
+            </button>
+          </div>
+        </nav>
+
+        <!-- What the filters found -->
+        <div
+          v-if="filtersActive"
+          data-testid="calendar-summary"
+          class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-stone-600 dark:text-stone-400"
+          aria-live="polite"
+        >
+          <p>
+            <strong data-testid="calendar-month-matches">{{
+              monthMatches
+            }}</strong>
+            {{ monthMatches === 1 ? "word" : "words" }} in
+            {{ formatMonthYear(calendar.month) }} match;
+            <span data-testid="calendar-total-matches">{{
+              calendar.count
+            }}</span>
+            of {{ calendar.total }} across every month.
+          </p>
+          <button
+            v-if="!monthMatches && earlierMatch"
+            type="button"
+            data-testid="calendar-earlier-match"
+            class="underline hover:text-primary-500"
+            @click="go(earlierMatch)"
+          >
+            Earlier match: {{ formatMonthYear(earlierMatch) }}
+          </button>
+          <button
+            v-if="!monthMatches && laterMatch"
+            type="button"
+            data-testid="calendar-later-match"
+            class="underline hover:text-primary-500"
+            @click="go(laterMatch)"
+          >
+            Later match: {{ formatMonthYear(laterMatch) }}
+          </button>
+        </div>
+
         <!-- Month grid -->
         <div
           class="grid grid-cols-7 gap-1.5 sm:gap-2"
@@ -89,12 +202,19 @@
               :to="`/words/${cell.date}`"
               role="gridcell"
               data-testid="calendar-day-open"
-              :aria-label="`${formatLongDate(cell.date)}: ${cell.day.term}`"
+              :data-match="filtersActive ? cell.day.match : undefined"
+              :aria-label="`${formatLongDate(cell.date)}: ${cell.day.term}${dimmed(cell.day) ? ' (does not match the filters)' : ''}`"
               :class="[
-                'group season-box block min-h-[4.5rem] sm:min-h-[6rem] border bg-white dark:bg-stone-900/50 p-1.5 sm:p-2.5 transition-colors hover:border-primary-500',
+                'group season-box block min-h-[4.5rem] sm:min-h-[6rem] border p-1.5 sm:p-2.5 transition-colors hover:border-primary-500',
                 cell.date === calendar.today
                   ? 'border-primary-500 ring-2 ring-primary-500/30'
-                  : 'border-stone-300 dark:border-stone-700',
+                  : filtersActive && cell.day.match
+                    ? 'border-primary-500'
+                    : 'border-stone-300 dark:border-stone-700',
+                filtersActive && cell.day.match
+                  ? 'bg-primary-500/10'
+                  : 'bg-white dark:bg-stone-900/50',
+                dimmed(cell.day) && 'opacity-35',
               ]"
             >
               <span
@@ -149,6 +269,12 @@
             />
             {{ info.native }} {{ info.label }}
           </li>
+          <li v-if="filtersActive" class="flex items-center gap-1.5">
+            <span
+              class="inline-block h-2 w-2 border border-stone-400 opacity-40"
+            />
+            Faded: doesn't match the filters
+          </li>
         </ul>
       </section>
 
@@ -168,14 +294,30 @@ import { useRoute, useRouter } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
+import WordFilters from "../../components/WordFilters.vue";
 import { useWordCalendar } from "../../composables/useDailyWord";
 import { usePageSeo } from "../../composables/usePageSeo";
 import { formatLongDate, formatMonthYear } from "../../utils/date";
 import { WORD_STRATA } from "~~/shared/word-labels";
+import { filtersFromQuery, queryFromFilters } from "~~/shared/explore-query";
 import { STRATUM_DOT } from "../../utils/stratum";
-import type { WordCalendarDay } from "~~/types/index";
+import type { ExploreFilters, WordCalendarDay } from "~~/types/index";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const MONTH_SHORT = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 const route = useRoute();
 const router = useRouter();
@@ -183,7 +325,13 @@ const requested = route.query.month;
 const month = ref<string | undefined>(
   typeof requested === "string" ? requested : undefined,
 );
-const { calendar, loading, error, refresh } = useWordCalendar(month);
+const filters = ref<ExploreFilters>(filtersFromQuery(route.query));
+const { calendar, loading, error, refresh } = useWordCalendar(month, filters);
+
+const activeCount = computed(() => Object.keys(filters.value).length);
+const filtersActive = computed(() => activeCount.value > 0);
+// Open from the start when the link carries filters, so they are never hidden.
+const showFilters = ref(filtersActive.value);
 
 usePageSeo({
   title: () =>
@@ -191,7 +339,9 @@ usePageSeo({
       ? `Words for ${formatMonthYear(calendar.value.month)}`
       : "The word calendar",
   description:
-    "Every Japanese word NipponDaily has taken apart so far, one per day, in a month-by-month calendar.",
+    "Every Japanese word NipponDaily has taken apart so far, one per day, in a month-by-month calendar you can filter by level, layer, process and part of speech.",
+  // Filtered views are the same page seen through a filter, so they point
+  // search engines at the plain month.
   path: () =>
     calendar.value ? `/words?month=${calendar.value.month}` : "/words",
   noindex: () => !calendar.value,
@@ -204,10 +354,71 @@ const index = computed(() =>
 const prevMonth = computed(() => months.value[index.value - 1]);
 const nextMonth = computed(() => months.value[index.value + 1]);
 
+/** The URL that carries the month (when one was picked) and the filters. */
+const syncUrl = async (): Promise<void> => {
+  await router.replace({
+    query: {
+      ...(month.value ? { month: month.value } : {}),
+      ...queryFromFilters(filters.value),
+    },
+  });
+};
+
 const go = async (target: string): Promise<void> => {
   month.value = target;
-  await router.replace({ query: { month: target } });
+  await syncUrl();
 };
+
+const applyFilters = async (): Promise<void> => {
+  await syncUrl();
+};
+
+const years = computed(() => [
+  ...new Set(months.value.map((m) => m.slice(0, 4))),
+]);
+const selectedYear = computed(() => calendar.value?.month.slice(0, 4) ?? "");
+
+/** Twelve months of the selected year: those with words can be opened. */
+const monthChoices = computed(() =>
+  MONTH_SHORT.map((short, i) => {
+    const key = `${selectedYear.value}-${String(i + 1).padStart(2, "0")}`;
+    return {
+      key,
+      short,
+      label: formatMonthYear(key),
+      exists: months.value.includes(key),
+      count: calendar.value?.monthCounts[key] ?? 0,
+    };
+  }),
+);
+
+/** Another year keeps the same month when it has words, else its first one. */
+const pickYear = (year: string): void => {
+  if (!calendar.value) return;
+  const same = `${year}-${calendar.value.month.slice(5)}`;
+  const target = months.value.includes(same)
+    ? same
+    : months.value.find((m) => m.startsWith(year));
+  if (target) void go(target);
+};
+
+const monthMatches = computed(() =>
+  calendar.value ? (calendar.value.monthCounts[calendar.value.month] ?? 0) : 0,
+);
+const withMatches = computed(() =>
+  months.value.filter((m) => (calendar.value?.monthCounts[m] ?? 0) > 0),
+);
+/** The nearest months on either side that hold a match, for a month with none. */
+const earlierMatch = computed(() =>
+  withMatches.value.filter((m) => m < (calendar.value?.month ?? "")).at(-1),
+);
+const laterMatch = computed(() =>
+  withMatches.value.find((m) => m > (calendar.value?.month ?? "")),
+);
+
+/** An open day the filters rule out; shown faded, still a link. */
+const dimmed = (day: WordCalendarDay): boolean =>
+  filtersActive.value && day.match === false;
 
 /** Sunday-first blanks before the 1st. */
 const leadingBlanks = computed(() => {
@@ -231,4 +442,21 @@ const cells = computed(() => {
     return { date, dayOfMonth, day: byDate.get(date) };
   });
 });
+
+const chip = (pressed: boolean, empty: boolean): string =>
+  [
+    "season-chip inline-flex items-center gap-1.5 border px-3 py-1 text-sm transition-colors",
+    pressed
+      ? "border-primary-500 bg-primary-500/10 text-primary-700 dark:text-primary-300"
+      : "border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 hover:border-primary-500",
+    empty && !pressed ? "opacity-40 cursor-not-allowed" : "cursor-pointer",
+  ].join(" ");
 </script>
+
+<style scoped>
+.chip-count {
+  font-size: 0.65rem;
+  opacity: 0.65;
+  font-variant-numeric: tabular-nums;
+}
+</style>

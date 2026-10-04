@@ -3,8 +3,10 @@ import { setResponseStatus, useAsyncData, useRequestEvent } from "#app";
 import type {
   ApiResponse,
   DailyWordPayload,
-  WordCalendarDay,
+  ExploreFilters,
+  WordCalendarPayload,
 } from "~~/types/index";
+import { queryFromFilters } from "~~/shared/explore-query";
 
 /**
  * Shared fetch plumbing for the pages that read the catalogue. Everything here
@@ -89,23 +91,24 @@ export function useDailyWord(date?: MaybeRefOrGetter<string | undefined>) {
   };
 }
 
-interface WordCalendarPayload {
-  month: string;
-  months: string[];
-  today: string;
-  days: WordCalendarDay[];
-}
-
-/** GET /api/word-calendar — one month at a time; `month` follows a getter. */
-export function useWordCalendar(month?: MaybeRefOrGetter<string | undefined>) {
+/** GET /api/word-calendar — one month at a time, marked against `filters`;
+ *  `month` and `filters` follow getters and refetch when they change. */
+export function useWordCalendar(
+  month?: MaybeRefOrGetter<string | undefined>,
+  filters?: MaybeRefOrGetter<ExploreFilters>,
+) {
   const { data, error, status, refresh } = useAsyncData(
-    () => `word-calendar:${toValue(month) || "current"}`,
+    () =>
+      `word-calendar:${toValue(month) || "current"}:${JSON.stringify(toValue(filters) ?? {})}`,
     (nuxtApp) =>
       fetchPage<WordCalendarPayload>(
         nuxtApp,
         () =>
           $fetch<ApiResponse<WordCalendarPayload>>("/api/word-calendar", {
-            query: toValue(month) ? { month: toValue(month) } : {},
+            query: {
+              ...(toValue(month) ? { month: toValue(month) } : {}),
+              ...queryFromFilters(toValue(filters) ?? {}),
+            },
           }),
         "word calendar",
       ),
