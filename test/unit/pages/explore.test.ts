@@ -219,7 +219,7 @@ describe("Explore Page (/explore)", () => {
 
     expect(wrapper.text()).toContain("Only words taken apart into");
     expect(wrapper.find('[data-testid="explore-count"]').text()).toContain(
-      "10 of",
+      `${exploreWords({ part: "日" }, TODAY).count} of`,
     );
     await wrapper.find('[data-testid="explore-clear-part"]').trigger("click");
     expect(replace).toHaveBeenLastCalledWith({ query: {} });

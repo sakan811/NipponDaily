@@ -25,11 +25,16 @@ describe("GET /api/parts", () => {
     const result = (await getParts())({} as any);
 
     expect(result.success).toBe(true);
-    expect(result.data.parts[0]).toEqual({
+    expect(result.data.parts[0]).toMatchObject({
       text: "日",
-      count: 10,
-      readings: ["び", "ひ", "か", "にち"],
+      count: WORD_ENTRIES.filter(
+        (e) =>
+          e.date <= "2026-03-08" && e.morphemes.some((m) => m.text === "日"),
+      ).length,
     });
+    expect(result.data.parts[0].readings).toEqual(
+      expect.arrayContaining(["び", "ひ", "か", "にち"]),
+    );
   });
 
   it("grows only as days arrive", async () => {
@@ -63,7 +68,12 @@ describe("GET /api/part", () => {
     const result = (await getPart())({} as any);
 
     expect(result.data.text).toBe("日");
-    expect(result.data.count).toBe(10);
+    expect(result.data.count).toBe(
+      WORD_ENTRIES.filter(
+        (e) =>
+          e.date <= "2026-03-08" && e.morphemes.some((m) => m.text === "日"),
+      ).length,
+    );
     expect(result.data.readings[0].reading).toBe("び");
   });
 

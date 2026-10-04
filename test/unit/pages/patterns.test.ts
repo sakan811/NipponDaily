@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import PatternsPage from "~/app/pages/patterns.vue";
 import { patternsFor } from "~~/shared/patterns";
+import { WORD_ENTRIES } from "~~/shared/words";
 
 const TODAY = "2026-03-08";
 
@@ -139,9 +140,10 @@ describe("Patterns Page (/patterns)", () => {
   });
 
   it("leaves the rendaku section out when no word records a change", async () => {
-    (global as any).$fetch.mockResolvedValue(
-      respond(patternsFor("2025-12-31")),
-    );
+    // The first day of the catalogue is too early for any to have opened.
+    const first = patternsFor(WORD_ENTRIES[0]!.date);
+    expect(first.rendaku.words).toBe(0);
+    (global as any).$fetch.mockResolvedValue(respond(first));
     const wrapper = mount(PatternsPage);
     await flushPromises();
 

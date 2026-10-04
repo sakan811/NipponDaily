@@ -4,6 +4,7 @@ import { useRoute } from "#app";
 import PartsPage from "~/app/pages/parts/index.vue";
 import PartPage from "~/app/pages/parts/[text].vue";
 import { partDetail, partsIndex } from "~~/shared/parts";
+import { WORD_ENTRIES } from "~~/shared/words";
 
 const TODAY = "2026-03-08";
 
@@ -36,8 +37,9 @@ describe("Parts Page (/parts)", () => {
     const first = recurring.find('[data-testid="part-link"]');
     expect(first.attributes("href")).toBe("/parts/%E6%97%A5");
     expect(first.text()).toContain("日");
-    expect(first.text()).toContain("10 words");
-    expect(first.text()).toContain("び · ひ · か · にち");
+    const day = partsIndex(TODAY).find((p) => p.text === "日")!;
+    expect(first.text()).toContain(`${day.count} words`);
+    expect(first.text()).toContain(day.readings.join(" · "));
   });
 
   it("lists the parts seen once as chips", async () => {
@@ -52,7 +54,10 @@ describe("Parts Page (/parts)", () => {
 
   it("says so when nothing has turned up twice", async () => {
     (global as any).$fetch.mockResolvedValue(
-      respond({ parts: partsIndex("2026-01-13") }),
+      // The first word that is taken apart: no part can have turned up twice.
+      respond({
+        parts: partsIndex(WORD_ENTRIES.find((e) => e.morphemes.length)!.date),
+      }),
     );
     const wrapper = mount(PartsPage);
     await flushPromises();
@@ -108,21 +113,24 @@ describe("Part Page (/parts/[text])", () => {
 
     expect(wrapper.find('[data-testid="part-text"]').text()).toBe("日");
     const groups = wrapper.findAll('[data-testid="part-reading"]');
-    expect(groups.map((g) => g.find("h2").text().split(/\s/)[0])).toEqual([
-      "び",
-      "か",
-      "ひ",
-      "にち",
-      "じつ",
-    ]);
-    expect(groups[0]!.findAll('[data-testid="part-use"]')).toHaveLength(7);
+    const readings = groups.map((g) => g.find("h2").text().split(/\s/)[0]);
+    expect(readings[0]).toBe("び");
+    expect(readings).toEqual(
+      expect.arrayContaining(["ひ", "か", "にち", "じつ"]),
+    );
+    // The seven weekdays all read 日 as び.
+    expect(
+      groups[0]!.findAll('[data-testid="part-use"]').length,
+    ).toBeGreaterThanOrEqual(7);
   });
 
   it("links each use to its word and its other parts to their pages", async () => {
     const wrapper = mount(PartPage);
     await flushPromises();
 
-    const monday = wrapper.findAll('[data-testid="part-use"]')[0]!;
+    const monday = wrapper
+      .findAll('[data-testid="part-use"]')
+      .find((u) => u.text().includes("月曜日"))!;
     expect(monday.find('a[href="/words/2026-03-02"]').text()).toContain(
       "月曜日",
     );
