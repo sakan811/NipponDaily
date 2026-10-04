@@ -59,6 +59,11 @@ const JAMDICT = {
 } as const;
 const WIKTIONARY_URL = "https://en.wiktionary.org";
 const KAIKKI = { name: "Kaikki.org", url: "https://kaikki.org/" } as const;
+// Kaikki.org asks that work using its data cite this paper and link the site.
+const WIKTEXTRACT_PAPER = {
+  title: "Wiktextract: Wiktionary as Machine-Readable Structured Data",
+  url: "https://aclanthology.org/2022.lrec-1.140/",
+} as const;
 const WORD_LIST_URL = "https://github.com/elzup/jlpt-word-list";
 const TANOS = {
   name: "tanos.co.uk",
@@ -88,7 +93,7 @@ export const SOURCES = {
     licence: LICENCES.ccBySa4,
     via: KAIKKI,
     use: "Etymology text, quoted verbatim from a pinned dump",
-    credit: `Etymology text is quoted from ${link("English Wiktionary", WIKTIONARY_URL)} under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, as extracted by wiktextract and distributed by ${link(KAIKKI.name, KAIKKI.url)}. Each entry names the dated dump it quotes, links the page and quotes it verbatim; the one-line headline is NipponDaily's own.`,
+    credit: `Etymology text is quoted from ${link("English Wiktionary", WIKTIONARY_URL)} under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, as extracted by wiktextract and distributed by ${link(KAIKKI.name, KAIKKI.url)}, which is maintained by Tatu Ylonen. See Ylonen, ${link(WIKTEXTRACT_PAPER.title, WIKTEXTRACT_PAPER.url)}, Proceedings of the 13th Conference on Language Resources and Evaluation (LREC), 2022, pp. 1317–1325. Each entry names the dated dump it quotes, links the page and quotes it verbatim; the one-line headline is NipponDaily's own.`,
   },
   "jlpt-word-list": {
     id: "jlpt-word-list",
