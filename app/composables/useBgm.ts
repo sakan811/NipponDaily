@@ -2,8 +2,14 @@ import { computed, effectScope, ref, watch } from "vue";
 import type { SeasonId } from "~~/types/index";
 import { useSiteTheme } from "./useSiteTheme";
 
-/** The background track each season plays, if it has one. */
-export const BGM_TRACKS: Partial<Record<SeasonId, string>> = {
+/**
+ * The background track each season plays. All four are mastered to the same
+ * integrated loudness (-16 LUFS, measured on the MP3s), so changing season
+ * never changes how loud the music is.
+ */
+export const BGM_TRACKS: Record<SeasonId, string> = {
+  sakura: "/audio/sakura-bgm.mp3",
+  summer: "/audio/summer-bgm.mp3",
   autumn: "/audio/autumn-bgm.mp3",
   winter: "/audio/winter-bgm.mp3",
 };
@@ -14,7 +20,28 @@ export const DEFAULT_VOLUME = 50;
 const VOLUME_KEY = "bgm-volume";
 /** Loudest the slider can make the track (the master is already near full scale). */
 const MAX_GAIN = 0.6;
+/** Fade for switching the music on or off. */
 const FADE_MS = 700;
+/** One track fading out as the next fades in, when the season changes. */
+const CROSSFADE_MS = 2000;
+const CURVE_STEPS = 64;
+/** Equal-power quarter sine: two unrelated tracks keep a steady loudness. */
+const CURVE = Float32Array.from({ length: CURVE_STEPS }, (_, i) =>
+  Math.sin((i / (CURVE_STEPS - 1)) * (Math.PI / 2)),
+);
+
+/** One playing copy of a track: its own loop and its own fade level. */
+interface Voice {
+  src: string;
+  node: AudioBufferSourceNode;
+  gain: GainNode;
+  /** Loop bounds and position, so a stop can resume in place. */
+  start: number;
+  length: number;
+  from: number;
+  startedAt: number;
+  fading: boolean;
+}
 
 // Shared by every caller (the header's music button, app.vue's init). The
 // audio element outlives any one page's header, so the music carries on
@@ -29,12 +56,14 @@ const tabHidden = ref(false);
 let audio: HTMLAudioElement | null = null;
 let ctx: AudioContext | null = null;
 let gain: GainNode | null = null;
-let source: AudioBufferSourceNode | null = null;
-/** Where the buffer source sits in its loop, so a pause can resume in place. */
-let loopStart = 0;
-let loopLength = 0;
-let loopFrom = 0;
-let loopStartedAt = 0;
+/** Every voice still sounding: the current one, plus any fading out. */
+const voices = new Set<Voice>();
+/** The voice the reader should be hearing (the others are on their way out). */
+let current: Voice | null = null;
+/** Where each track last stopped, so it picks up there next time. */
+const resumeAt = new Map<string, number>();
+/** The track the latest request asked for; a slower, older load must not win. */
+let wanted: string | null = null;
 let pauseTimer: ReturnType<typeof setTimeout> | undefined;
 let started = false;
 const buffers = new Map<string, Promise<AudioBuffer>>();
@@ -142,47 +171,99 @@ function setLevel(target: number, ms: number): void {
 }
 
 const isPlaying = (): boolean =>
-  source !== null || (audio !== null && !audio.paused);
+  voices.size > 0 || (audio !== null && !audio.paused);
 
-function startSource(buf: AudioBuffer): void {
-  if (!ctx || !gain || source) return;
+/** Fades a voice in (0 -> 1) or out (its current level -> 0) over `ms`. */
+function fadeVoice(voice: Voice, dir: "in" | "out", ms: number): void {
+  if (!ctx) return;
+  const param = voice.gain.gain;
+  const now = ctx.currentTime;
+  // Hold wherever a fade already under way has got to, so a quick second
+  // switch continues from there instead of jumping.
+  const level = dir === "out" ? param.value : 1;
+  param.cancelScheduledValues(now);
+  const curve =
+    dir === "in"
+      ? CURVE
+      : Float32Array.from(CURVE, (_, i) => level * CURVE[CURVE_STEPS - 1 - i]!);
+  param.setValueCurveAtTime(curve, now, ms / 1000);
+}
+
+function startVoice(src: string, buf: AudioBuffer): void {
+  if (!ctx || !gain) return;
   const span = soundSpan(buf);
   const node = ctx.createBufferSource();
   node.buffer = buf;
   node.loop = true;
   node.loopStart = span.start;
   node.loopEnd = span.end;
-  node.connect(gain);
-  // Resume where a pause left off (the start of the sound on first play).
-  const resumable = loopFrom >= span.start && loopFrom < span.end;
-  loopStart = span.start;
-  loopLength = span.end - span.start;
-  loopFrom = resumable ? loopFrom : span.start;
-  loopStartedAt = ctx.currentTime;
-  node.start(0, loopFrom);
-  source = node;
+  const voiceGain = ctx.createGain();
+  voiceGain.gain.value = 0;
+  node.connect(voiceGain);
+  voiceGain.connect(gain);
+  // Resume where this track last stopped (the start of the sound at first).
+  const saved = resumeAt.get(src);
+  const from =
+    saved !== undefined && saved >= span.start && saved < span.end
+      ? saved
+      : span.start;
+  const voice: Voice = {
+    src,
+    node,
+    gain: voiceGain,
+    start: span.start,
+    length: span.end - span.start,
+    from,
+    startedAt: ctx.currentTime,
+    fading: false,
+  };
+  node.start(0, from);
+  voices.add(voice);
+  current = voice;
+  fadeVoice(voice, "in", CROSSFADE_MS);
 }
 
-function stopSource(): void {
-  if (!source || !ctx) return;
-  const elapsed = ctx.currentTime - loopStartedAt;
-  loopFrom = loopStart + ((loopFrom - loopStart + elapsed) % loopLength);
-  source.stop();
-  source.disconnect();
-  source = null;
+function stopVoice(voice: Voice): void {
+  if (!voices.delete(voice) || !ctx) return;
+  const elapsed = ctx.currentTime - voice.startedAt;
+  resumeAt.set(
+    voice.src,
+    voice.start + ((voice.from - voice.start + elapsed) % voice.length),
+  );
+  voice.node.stop();
+  voice.node.disconnect();
+  voice.gain.disconnect();
+  if (current === voice) current = null;
+}
+
+/** Fades a voice out and stops it once it can no longer be heard. */
+function retireVoice(voice: Voice): void {
+  voice.fading = true;
+  fadeVoice(voice, "out", CROSSFADE_MS);
+  setTimeout(() => stopVoice(voice), CROSSFADE_MS + 100);
+}
+
+function stopAllVoices(): void {
+  for (const voice of [...voices]) stopVoice(voice);
 }
 
 async function play(src: string): Promise<void> {
   clearTimeout(pauseTimer);
+  wanted = src;
   try {
     const context = ensureContext();
     if (context) {
       // Called straight away so it still counts as part of the click.
       const resumed = context.resume();
       const buf = await loadBuffer(src, context);
-      // Switched off while the file was still loading.
-      if (!enabled.value) return;
-      startSource(buf);
+      // Switched off, or on to another season, while the file was loading.
+      if (!enabled.value || wanted !== src) return;
+      if (!current || current.src !== src) {
+        // The old track keeps playing until the new one is ready, then the
+        // two cross over.
+        if (current) retireVoice(current);
+        startVoice(src, buf);
+      }
       await resumed;
     } else {
       const el = ensureAudio();
@@ -199,19 +280,20 @@ async function play(src: string): Promise<void> {
 }
 
 function stop(): void {
+  wanted = null;
   if (!isPlaying()) return;
   setLevel(0, FADE_MS);
   clearTimeout(pauseTimer);
   pauseTimer = setTimeout(() => {
-    stopSource();
+    stopAllVoices();
     audio?.pause();
   }, FADE_MS + 100);
 }
 
 /**
  * Per-season background music: an on/off switch and a volume level. Music
- * only ever plays while the active season has a track (autumn and winter today), and
- * starts only when the reader switches it on. The volume lives in this
+ * plays the active season's track and starts only when the reader switches it
+ * on; changing season while it plays crossfades into the new season's track. The volume lives in this
  * browser's `localStorage` (`bgm-volume`) and goes nowhere else.
  *
  * `init()` wires the playback side once from app.vue; the header button just
@@ -221,9 +303,9 @@ export function useBgm() {
   const { activeSeason } = useSiteTheme();
 
   const trackSrc = computed(() =>
-    activeSeason.value ? (BGM_TRACKS[activeSeason.value] ?? null) : null,
+    activeSeason.value ? BGM_TRACKS[activeSeason.value] : null,
   );
-  /** Whether the current season has music at all (the button hides when not). */
+  /** Whether a season is active yet (the button hides until one is). */
   const available = computed(() => trackSrc.value !== null);
 
   const init = (): void => {

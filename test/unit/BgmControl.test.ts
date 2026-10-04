@@ -49,9 +49,14 @@ describe("BgmControl", () => {
     useBgm().init();
   });
 
-  it("is hidden in a season with no track", async () => {
-    useSiteTheme().activeSeason.value = "summer";
-    expect(BGM_TRACKS.summer).toBeUndefined();
+  it("has a track for every season", () => {
+    for (const season of ["sakura", "summer", "autumn", "winter"] as const) {
+      expect(BGM_TRACKS[season]).toBe(`/audio/${season}-bgm.mp3`);
+    }
+  });
+
+  it("is hidden until a season is active", async () => {
+    useSiteTheme().activeSeason.value = null;
     const wrapper = mountControl();
     expect(wrapper.find("button").exists()).toBe(false);
   });
