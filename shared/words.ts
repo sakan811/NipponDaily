@@ -15,6 +15,42 @@ import type {
   WordCalendarDay,
   WordEntry,
 } from "~~/types/index";
+import january2022 from "~~/data/words/2022-01.json";
+import february2022 from "~~/data/words/2022-02.json";
+import march2022 from "~~/data/words/2022-03.json";
+import april2022 from "~~/data/words/2022-04.json";
+import may2022 from "~~/data/words/2022-05.json";
+import june2022 from "~~/data/words/2022-06.json";
+import july2022 from "~~/data/words/2022-07.json";
+import august2022 from "~~/data/words/2022-08.json";
+import september2022 from "~~/data/words/2022-09.json";
+import october2022 from "~~/data/words/2022-10.json";
+import november2022 from "~~/data/words/2022-11.json";
+import december2022 from "~~/data/words/2022-12.json";
+import january2023 from "~~/data/words/2023-01.json";
+import february2023 from "~~/data/words/2023-02.json";
+import march2023 from "~~/data/words/2023-03.json";
+import april2023 from "~~/data/words/2023-04.json";
+import may2023 from "~~/data/words/2023-05.json";
+import june2023 from "~~/data/words/2023-06.json";
+import july2023 from "~~/data/words/2023-07.json";
+import august2023 from "~~/data/words/2023-08.json";
+import september2023 from "~~/data/words/2023-09.json";
+import october2023 from "~~/data/words/2023-10.json";
+import november2023 from "~~/data/words/2023-11.json";
+import december2023 from "~~/data/words/2023-12.json";
+import january2024 from "~~/data/words/2024-01.json";
+import february2024 from "~~/data/words/2024-02.json";
+import march2024 from "~~/data/words/2024-03.json";
+import april2024 from "~~/data/words/2024-04.json";
+import may2024 from "~~/data/words/2024-05.json";
+import june2024 from "~~/data/words/2024-06.json";
+import july2024 from "~~/data/words/2024-07.json";
+import august2024 from "~~/data/words/2024-08.json";
+import september2024 from "~~/data/words/2024-09.json";
+import october2024 from "~~/data/words/2024-10.json";
+import november2024 from "~~/data/words/2024-11.json";
+import december2024 from "~~/data/words/2024-12.json";
 import january2026 from "~~/data/words/2026-01.json";
 import february2026 from "~~/data/words/2026-02.json";
 import march2026 from "~~/data/words/2026-03.json";
@@ -37,9 +73,47 @@ import july2027 from "~~/data/words/2027-07.json";
 import august2027 from "~~/data/words/2027-08.json";
 import september2027 from "~~/data/words/2027-09.json";
 import october2027 from "~~/data/words/2027-10.json";
+import november2027 from "~~/data/words/2027-11.json";
+import december2027 from "~~/data/words/2027-12.json";
 
 /** Every month's entries, oldest first. */
 const MONTHS: WordEntry[][] = [
+  january2022 as WordEntry[],
+  february2022 as WordEntry[],
+  march2022 as WordEntry[],
+  april2022 as WordEntry[],
+  may2022 as WordEntry[],
+  june2022 as WordEntry[],
+  july2022 as WordEntry[],
+  august2022 as WordEntry[],
+  september2022 as WordEntry[],
+  october2022 as WordEntry[],
+  november2022 as WordEntry[],
+  december2022 as WordEntry[],
+  january2023 as WordEntry[],
+  february2023 as WordEntry[],
+  march2023 as WordEntry[],
+  april2023 as WordEntry[],
+  may2023 as WordEntry[],
+  june2023 as WordEntry[],
+  july2023 as WordEntry[],
+  august2023 as WordEntry[],
+  september2023 as WordEntry[],
+  october2023 as WordEntry[],
+  november2023 as WordEntry[],
+  december2023 as WordEntry[],
+  january2024 as WordEntry[],
+  february2024 as WordEntry[],
+  march2024 as WordEntry[],
+  april2024 as WordEntry[],
+  may2024 as WordEntry[],
+  june2024 as WordEntry[],
+  july2024 as WordEntry[],
+  august2024 as WordEntry[],
+  september2024 as WordEntry[],
+  october2024 as WordEntry[],
+  november2024 as WordEntry[],
+  december2024 as WordEntry[],
   january2026 as WordEntry[],
   february2026 as WordEntry[],
   march2026 as WordEntry[],
@@ -62,6 +136,8 @@ const MONTHS: WordEntry[][] = [
   august2027 as WordEntry[],
   september2027 as WordEntry[],
   october2027 as WordEntry[],
+  november2027 as WordEntry[],
+  december2027 as WordEntry[],
 ];
 
 export const WORD_ENTRIES: readonly WordEntry[] = MONTHS.flat().sort((a, b) =>
