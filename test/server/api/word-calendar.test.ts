@@ -92,4 +92,70 @@ describe("GET /api/word-calendar", () => {
       statusCode: 404,
     });
   });
+
+  it("marks the days against filters read from the query", async () => {
+    at("2026-03-08T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({
+      month: "2026-03",
+      level: "N2,N3",
+      match: "all",
+    });
+    const handler = await getHandler();
+    const { data } = handler({} as any);
+
+    expect(data.filters).toEqual({ level: ["N2", "N3"], match: "all" });
+    const open = data.days.filter((d: any) => d.status === "open");
+    expect(open).toHaveLength(8);
+    expect(open.every((d: any) => typeof d.match === "boolean")).toBe(true);
+    expect(open.some((d: any) => d.match)).toBe(true);
+    expect(open.some((d: any) => !d.match)).toBe(true);
+    expect(data.count).toBe(
+      Object.values(data.monthCounts as Record<string, number>).reduce(
+        (n, c) => n + c,
+        0,
+      ),
+    );
+    expect(Object.keys(data.facets)).toEqual([
+      "level",
+      "stratum",
+      "process",
+      "pos",
+    ]);
+  });
+
+  it("treats empty filter values as no filter", async () => {
+    at("2026-03-08T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({
+      month: "2026-03",
+      level: "",
+      q: "",
+    });
+    const handler = await getHandler();
+    const { data } = handler({} as any);
+
+    expect(data.filters).toEqual({});
+    expect(data.count).toBe(data.total);
+  });
+
+  it("returns 400 for a filter value the API does not know", async () => {
+    (global as any).getQuery.mockReturnValue({ month: "2026-03", level: "N9" });
+    const handler = await getHandler();
+    expect(thrownBy(() => handler({} as any))).toMatchObject({
+      statusCode: 400,
+    });
+  });
+
+  it("never reveals an upcoming word through a filter", async () => {
+    at("2026-09-20T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({
+      month: "2026-10",
+      q: "電話",
+    });
+    const handler = await getHandler();
+    const { data } = handler({} as any);
+
+    expect(data.count).toBe(0);
+    expect(data.days.every((d: any) => d.status === "upcoming")).toBe(true);
+    expect(JSON.stringify(data.days)).not.toContain("電話");
+  });
 });

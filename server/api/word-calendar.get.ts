@@ -1,11 +1,12 @@
 import { z } from "zod";
 import { safeGetQuery } from "../utils/http-query";
 import {
-  calendarForMonth,
-  isValidMonth,
-  monthsWithEntries,
-  todayJst,
-} from "~~/shared/words";
+  exploreFilterShape,
+  filtersOf,
+  rejectQuery,
+} from "../utils/explore-filters";
+import { exploreCalendar } from "~~/shared/explore";
+import { isValidMonth, monthsWithEntries, todayJst } from "~~/shared/words";
 
 const wordCalendarQuerySchema = z.object({
   month: z
@@ -14,29 +15,18 @@ const wordCalendarQuerySchema = z.object({
     .nullable()
     .optional()
     .transform((val) => val || undefined),
+  ...exploreFilterShape,
 });
 
 export default defineEventHandler((event) => {
   let requestedMonth: string | undefined;
+  let filters: ReturnType<typeof filtersOf>;
   try {
-    ({ month: requestedMonth } = wordCalendarQuerySchema.parse(
-      safeGetQuery(event),
-    ));
+    const query = wordCalendarQuerySchema.parse(safeGetQuery(event));
+    requestedMonth = query.month;
+    filters = filtersOf(query);
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: "Bad Request",
-        data: {
-          error: "Invalid query parameters",
-          details: error.issues.map((e) => ({
-            path: e.path.join("."),
-            message: e.message,
-          })),
-        },
-      });
-    }
-    throw error;
+    return rejectQuery(error);
   }
 
   const months = monthsWithEntries();
@@ -57,7 +47,8 @@ export default defineEventHandler((event) => {
 
   return {
     success: true,
-    data: { month, months, today, days: calendarForMonth(month, today) },
+    // Only open days are ever matched, so an upcoming word cannot be found early.
+    data: exploreCalendar(month, filters, today),
     timestamp: new Date().toISOString(),
   };
 });
