@@ -5,6 +5,10 @@ import { WORD_ENTRIES } from "~~/shared/words";
 
 const TODAY = "2026-03-08";
 const open = WORD_ENTRIES.filter((e) => e.date <= TODAY);
+const FIRST = WORD_ENTRIES[0]!.date;
+const SECOND = WORD_ENTRIES[1]!.date;
+const dayBefore = (date: string) =>
+  new Date(Date.parse(`${date}T00:00:00Z`) - 864e5).toISOString().slice(0, 10);
 
 describe("foldForSearch", () => {
   it("folds katakana to hiragana and lower-cases", () => {
@@ -25,15 +29,12 @@ describe("exploreWords", () => {
   });
 
   it("never returns or counts an upcoming word", () => {
-    const result = exploreWords({}, "2026-01-02");
+    const result = exploreWords({}, SECOND);
 
-    expect(result.words.map((w) => w.date)).toEqual([
-      "2026-01-02",
-      "2026-01-01",
-    ]);
+    expect(result.words.map((w) => w.date)).toEqual([SECOND, FIRST]);
     expect(result.total).toBe(2);
     expect(result.facets.level.reduce((n, f) => n + f.count, 0)).toBe(2);
-    expect(exploreWords({}, "2025-12-31")).toMatchObject({
+    expect(exploreWords({}, dayBefore(FIRST))).toMatchObject({
       total: 0,
       count: 0,
       words: [],
@@ -63,7 +64,9 @@ describe("exploreWords", () => {
   it("filters by the part a word is taken apart into", () => {
     const result = exploreWords({ part: "日" }, TODAY);
 
-    expect(result.count).toBe(10);
+    expect(result.count).toBe(
+      open.filter((e) => e.morphemes.some((m) => m.text === "日")).length,
+    );
     expect(result.words.every((w) => w.hasParts)).toBe(true);
   });
 

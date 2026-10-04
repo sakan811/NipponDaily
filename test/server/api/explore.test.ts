@@ -1,4 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
+import { WORD_ENTRIES } from "~~/shared/words";
+
+const SECOND = WORD_ENTRIES[1]!.date;
 
 const getExplore = async () =>
   (await import("~/server/api/explore.get")).default;
@@ -76,10 +79,10 @@ describe("GET /api/explore", () => {
     const handler = await getExplore();
     const total = () => handler({} as any).data.total;
 
-    at("2026-01-02T12:00:00Z");
+    at(`${SECOND}T12:00:00Z`);
     expect(total()).toBe(2);
     // 15:00 UTC the day before is already the next day in Tokyo.
-    at("2026-01-02T15:00:00Z");
+    at(`${SECOND}T15:00:00Z`);
     expect(total()).toBe(3);
   });
 });
@@ -89,7 +92,7 @@ describe("GET /api/patterns", () => {
   afterEach(() => vi.useRealTimers());
 
   it("counts the words that have opened", async () => {
-    at("2026-01-02T12:00:00Z");
+    at(`${SECOND}T12:00:00Z`);
     const result = (await getPatterns())({} as any);
 
     expect(result.success).toBe(true);

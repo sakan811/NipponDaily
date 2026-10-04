@@ -14,11 +14,12 @@ describe("GET /api/catalogue", () => {
     const result = (await getCatalogue())({} as any);
 
     expect(result.success).toBe(true);
-    expect(result.data.first).toBe("2026-01-01");
+    expect(result.data.first).toBe(WORD_ENTRIES[0]!.date);
     expect(result.data.last).toBe(WORD_ENTRIES[WORD_ENTRIES.length - 1]!.date);
     expect(result.data.total).toBe(WORD_ENTRIES.length);
-    // 31 + 28 days of Jan and Feb, plus 8 of March.
-    expect(result.data.open).toBe(67);
+    expect(result.data.open).toBe(
+      WORD_ENTRIES.filter((e) => e.date <= "2026-03-08").length,
+    );
   });
 
   it("opens a new day at midnight in Japan, not UTC", async () => {

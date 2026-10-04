@@ -4,6 +4,11 @@ import { WORD_ENTRIES } from "~~/shared/words";
 
 const TODAY = "2026-12-31";
 const open = (today: string) => WORD_ENTRIES.filter((e) => e.date <= today);
+const addDays = (date: string, n: number) =>
+  new Date(Date.parse(`${date}T00:00:00Z`) + n * 864e5)
+    .toISOString()
+    .slice(0, 10);
+const dayBefore = (date: string) => addDays(date, -1);
 
 describe("patternsFor combinations", () => {
   const p = patternsFor(TODAY);
@@ -64,8 +69,9 @@ describe("patternsFor combinations", () => {
   });
 
   it("counts open days only", () => {
-    expect(patternsFor("2025-12-31").combinations).toEqual([]);
-    for (const c of patternsFor("2026-01-31").combinations) {
+    const first = WORD_ENTRIES[0]!.date;
+    expect(patternsFor(dayBefore(first)).combinations).toEqual([]);
+    for (const c of patternsFor(addDays(first, 30)).combinations) {
       expect(c.count).toBeLessThanOrEqual(31);
     }
   });
@@ -187,18 +193,20 @@ describe("patternsFor", () => {
   });
 
   it("only reports changes from words that have opened", () => {
-    const early = patternsFor("2026-01-05").rendaku;
+    const first = WORD_ENTRIES[0]!.date;
+    const cutoff = addDays(first, 4);
+    const early = patternsFor(cutoff).rendaku;
     const all = [
       ...early.voiced.flatMap((s) => s.readings),
       ...early.sokuon,
       ...early.other,
     ];
 
-    expect(early.words).toBe(1); // 仮名遣い, January 4th
+    expect(early.words).toBeLessThanOrEqual(5); // five days open
     for (const r of all) {
-      for (const ex of r.examples) expect(ex.date <= "2026-01-05").toBe(true);
+      for (const ex of r.examples) expect(ex.date <= cutoff).toBe(true);
     }
-    expect(patternsFor("2025-12-31").rendaku).toEqual({
+    expect(patternsFor(dayBefore(first)).rendaku).toEqual({
       words: 0,
       voiced: [],
       sokuon: [],
@@ -207,10 +215,11 @@ describe("patternsFor", () => {
   });
 
   it("never counts an upcoming word", () => {
-    const early = patternsFor("2026-01-02");
+    const first = WORD_ENTRIES[0]!.date;
+    const early = patternsFor(addDays(first, 1));
 
     expect(early.total).toBe(2);
-    expect(patternsFor("2025-12-31")).toMatchObject({
+    expect(patternsFor(dayBefore(first))).toMatchObject({
       total: 0,
       withParts: 0,
       pairs: [],

@@ -1,5 +1,10 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 
+import { WORD_ENTRIES } from "~~/shared/words";
+
+const FIRST = WORD_ENTRIES[0]!;
+const LAST = WORD_ENTRIES[WORD_ENTRIES.length - 1]!;
+
 const getHandler = async () =>
   (await import("~/server/api/daily-word.get")).default;
 
@@ -50,9 +55,25 @@ describe("GET /api/daily-word", () => {
     const handler = await getHandler();
     const result = handler({} as any);
 
+    const before =
+      WORD_ENTRIES[WORD_ENTRIES.findIndex((e) => e.date === "2026-01-01") - 1]!;
     expect(result.data.entry.term).toBe("今年");
-    expect(result.data.prev).toBeNull();
+    expect(result.data.prev).toEqual({ date: before.date, term: before.term });
     expect(result.data.next).toEqual({ date: "2026-01-02", term: "チップ" });
+  });
+
+  it("has nothing before the first word of the catalogue", async () => {
+    at("2026-10-20T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: FIRST.date });
+    const handler = await getHandler();
+    const result = handler({} as any);
+
+    expect(result.data.entry.term).toBe(FIRST.term);
+    expect(result.data.prev).toBeNull();
+    expect(result.data.next).toEqual({
+      date: WORD_ENTRIES[1]!.date,
+      term: WORD_ENTRIES[1]!.term,
+    });
   });
 
   it("links across the month boundary in both directions", async () => {
@@ -114,27 +135,27 @@ describe("GET /api/daily-word", () => {
   });
 
   it("is on lap 1 while the catalogue lasts", async () => {
-    at("2027-10-31T12:00:00Z");
+    at(`${LAST.date}T12:00:00Z`);
     const handler = await getHandler();
     const { data } = handler({} as any);
-    expect(data.entry.date).toBe("2027-10-31");
+    expect(data.entry.date).toBe(LAST.date);
     expect(data.lap).toBe(1);
   });
 
   it("starts again from the first word once the catalogue has run out", async () => {
     const handler = await getHandler();
 
-    at("2027-11-01T12:00:00Z");
+    at("2028-01-01T12:00:00Z");
     expect(handler({} as any).data).toMatchObject({
-      entry: { date: "2026-01-01" },
+      entry: { date: FIRST.date },
       lap: 2,
       prev: null,
     });
 
-    // 131 days after the last word: the 131st word, still on lap 2.
+    // 70 days after the last word: the 70th word, still on lap 2.
     at("2028-03-10T12:00:00Z");
     expect(handler({} as any).data).toMatchObject({
-      entry: { date: "2026-05-11" },
+      entry: { date: WORD_ENTRIES[69]!.date },
       lap: 2,
     });
   });
@@ -147,7 +168,7 @@ describe("GET /api/daily-word", () => {
   });
 
   it("returns 404 before the first word has opened", async () => {
-    at("2025-12-15T12:00:00Z");
+    at("2021-12-15T12:00:00Z");
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,
