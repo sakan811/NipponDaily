@@ -5,6 +5,7 @@ import { useSiteTheme } from "./useSiteTheme";
 /** The background track each season plays, if it has one. */
 export const BGM_TRACKS: Partial<Record<SeasonId, string>> = {
   autumn: "/audio/autumn-bgm.mp3",
+  winter: "/audio/winter-bgm.mp3",
 };
 
 /** Slider position (0-100) a first-time listener starts at — background level. */
@@ -209,7 +210,7 @@ function stop(): void {
 
 /**
  * Per-season background music: an on/off switch and a volume level. Music
- * only ever plays while the active season has a track (autumn today), and
+ * only ever plays while the active season has a track (autumn and winter today), and
  * starts only when the reader switches it on. The volume lives in this
  * browser's `localStorage` (`bgm-volume`) and goes nowhere else.
  *
