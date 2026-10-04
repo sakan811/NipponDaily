@@ -37,7 +37,7 @@ The documentation is a short book inside the app, at [`/docs`](app/pages/docs/in
 
 JMdict and KANJIDIC2 are property of the [Electronic Dictionary Research and Development Group](https://www.edrdg.org/), used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) via the [jamdict-data](https://pypi.org/project/jamdict-data/) release.
 
-Etymology text is quoted from [English Wiktionary](https://en.wiktionary.org) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Each entry links the exact revision it quotes and quotes it verbatim; the one-line headline is NipponDaily's own.
+Etymology text is quoted from [English Wiktionary](https://en.wiktionary.org) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), as extracted by wiktextract and distributed by [Kaikki.org](https://kaikki.org/). Each entry names the dated dump it quotes, links the page and quotes it verbatim; the one-line headline is NipponDaily's own.
 
 The word lists come from the community list originally compiled at [tanos.co.uk](https://www.tanos.co.uk/jlpt/) (CC BY; credit required), via [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT licence).
 

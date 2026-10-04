@@ -43,7 +43,8 @@
                 rel="noopener"
                 >{{ SOURCES.wiktionary.name }}</a
               >
-              Etymology sections, pinned per revision id
+              Etymology sections, read from one pinned, dated dump (via
+              {{ SOURCES.wiktionary.via.name }})
             </td>
             <td><code>data/reference/etymology/</code></td>
           </tr>
@@ -64,7 +65,9 @@
       against it, offline. Word-list commits are pinned in
       <code>scripts/word-list-source.mjs</code> and the JMdict release in
       <code>scripts/lib/jamdict.mjs</code>, so no builder can fetch different
-      upstream data for the same level.
+      upstream data for the same level. The Wiktionary dump's date and checksum
+      are pinned in <code>scripts/lib/wiktionary-dump.mjs</code>; the dump
+      itself is too large to commit, so only the sections the entries quote are.
     </p>
 
     <h2>How an entry is built</h2>
@@ -196,7 +199,7 @@
             every <code>sources[].quote</code> is found
             <strong>verbatim</strong> (modulo whitespace and direction marks) in
             a Wiktionary Etymology section declared for the entry's
-            <em>own reading</em>, at the revision the entry names (a page like
+            <em>own reading</em>, from the dump the entry names (a page like
             大人 has one section per reading);
           </li>
           <li>
@@ -231,10 +234,19 @@
     <aside class="note">
       <span class="note-title">What these checks cannot prove</span>
       <p>
-        That Wiktionary is <em>right</em> (only that it says so, at that
-        revision), that JMdict's tags suit every usage, or that a headline is a
-        fair hook. Where Wiktionary hedges, the entry quotes the hedge and flags
-        it instead of choosing a winner.
+        That Wiktionary is <em>right</em> (only that the dump says so), that
+        JMdict's tags suit every usage, or that a headline is a fair hook. Where
+        Wiktionary hedges, the entry quotes the hedge and flags it instead of
+        choosing a winner.
+      </p>
+      <p>
+        The dump is machine-extracted, and two of its faults are known. It drops
+        Wiktionary's “etymology incomplete” banners, so a word the page marks
+        incomplete may not be flagged unclear. And it can attach one reading's
+        etymology to another (道 みち received the Middle Chinese section of
+        どう). The generator refuses a native reading whose section opens “From
+        Middle Chinese”, but a swap between two readings of the same kind would
+        not be caught, so read each new entry once.
       </p>
     </aside>
 
@@ -297,7 +309,7 @@ const provenance = [
     source:
       "Keyword tags found in the quoted text (`rendaku`, `clipping`, `ateji`…).",
   },
-  { field: "wiktionaryRev", source: "The snapshot's `revid`." },
+  { field: "wiktionaryDump", source: "The snapshot's `dump` date." },
   { field: "headline", source: "Hand-written (`data/word-plan/`)." },
 ];
 
@@ -321,7 +333,7 @@ const build: Required<Pick<DiagramSpec, "nodes" | "edges">> = {
     },
     {
       id: "wik",
-      label: "Wiktionary",
+      label: "Wiktionary dump",
       sub: "Etymology sections",
       col: 0,
       row: 2.2,
@@ -337,7 +349,7 @@ const build: Required<Pick<DiagramSpec, "nodes" | "edges">> = {
     {
       id: "etyb",
       label: "data:etymology",
-      sub: "pinned per revision",
+      sub: "from a pinned dump",
       col: 1,
       row: 2.2,
     },

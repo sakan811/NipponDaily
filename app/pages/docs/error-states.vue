@@ -233,7 +233,7 @@ const placeholderEntry: WordEntry = {
         "Placeholder — this line is hedged (probably) so the callout shows. A real entry quotes Wiktionary here, verbatim.",
     },
   ],
-  wiktionaryRev: 1,
+  wiktionaryDump: "2026-09-02",
 };
 
 const sections = [

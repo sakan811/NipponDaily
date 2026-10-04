@@ -82,7 +82,7 @@ const features = computed(() => [
   },
   {
     title: "Evidence for Every Claim",
-    description: `Each entry quotes the Wiktionary lines it shows, pinned to one revision with a permalink and its ${LICENCES.ccBySa4.name} license. Only the one-line headline is hand-written.`,
+    description: `Each entry quotes the Wiktionary lines it shows, taken from one dated dump, with a link to the page and its ${LICENCES.ccBySa4.name} license. Only the one-line headline is hand-written.`,
   },
   {
     title: "Verified in CI",
