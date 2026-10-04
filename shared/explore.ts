@@ -18,6 +18,8 @@ import type {
   WordEntry,
   WordProcess,
   WordStratum,
+  WordCalendarDay,
+  WordCalendarPayload,
   WordSummary,
 } from "~~/types/index";
 import { JLPT_LEVELS } from "./jlpt";
@@ -27,7 +29,12 @@ import {
   WORD_STRATA,
   posGroupsOf,
 } from "./word-labels";
-import { WORD_ENTRIES, todayJst } from "./words";
+import {
+  WORD_ENTRIES,
+  calendarForMonth,
+  monthsWithEntries,
+  todayJst,
+} from "./words";
 
 export { MAX_QUERY_LENGTH } from "./explore-query";
 
@@ -149,5 +156,36 @@ export function exploreWords(
         posGroupsOf(e.pos),
       ),
     },
+  };
+}
+
+/** One month of the calendar marked against the filters. An open day carries
+ *  `match`; an upcoming day carries nothing, so a word that has not opened
+ *  cannot be found by filtering for it. The counts (overall, per month and per
+ *  option) are the Explore ones, so both pages agree on every number. */
+export function exploreCalendar(
+  month: string,
+  filters: ExploreFilters = {},
+  today: string = todayJst(),
+): WordCalendarPayload {
+  const explored = exploreWords(filters, today);
+  const matched = new Set(explored.words.map((w) => w.date));
+  const months = monthsWithEntries();
+  const monthCounts = Object.fromEntries(months.map((m) => [m, 0]));
+  for (const date of matched) monthCounts[date.slice(0, 7)]!++;
+
+  const days: WordCalendarDay[] = calendarForMonth(month, today).map((d) =>
+    d.status === "open" ? { ...d, match: matched.has(d.date) } : d,
+  );
+  return {
+    month,
+    months,
+    today,
+    days,
+    filters,
+    total: explored.total,
+    count: explored.count,
+    monthCounts,
+    facets: explored.facets,
   };
 }

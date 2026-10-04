@@ -1,7 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { exploreWords, foldForSearch } from "~~/shared/explore";
+import {
+  exploreCalendar,
+  exploreWords,
+  foldForSearch,
+} from "~~/shared/explore";
 import { posGroupsOf } from "~~/shared/word-labels";
-import { WORD_ENTRIES } from "~~/shared/words";
+import { WORD_ENTRIES, monthsWithEntries } from "~~/shared/words";
 
 const TODAY = "2026-03-08";
 const open = WORD_ENTRIES.filter((e) => e.date <= TODAY);
@@ -195,5 +199,58 @@ describe("exploreWords", () => {
         "term",
       ].sort(),
     );
+  });
+});
+
+describe("exploreCalendar", () => {
+  const MONTH = "2026-03";
+
+  it("marks every open day as a match when nothing is filtered", () => {
+    const cal = exploreCalendar(MONTH, {}, TODAY);
+
+    expect(cal.days).toHaveLength(31);
+    for (const d of cal.days) {
+      expect(d.match, d.date).toBe(d.status === "open" ? true : undefined);
+    }
+    expect(cal.count).toBe(cal.total);
+    expect(cal.months).toEqual(monthsWithEntries());
+  });
+
+  it("marks the days Explore would return, and no others", () => {
+    const filters = { level: ["N2" as const] };
+    const cal = exploreCalendar(MONTH, filters, TODAY);
+    const explored = new Set(
+      exploreWords(filters, TODAY).words.map((w) => w.date),
+    );
+
+    for (const d of cal.days.filter((x) => x.status === "open")) {
+      expect(d.match, d.date).toBe(explored.has(d.date));
+    }
+    expect(cal.days.some((d) => d.match === false)).toBe(true);
+    expect(cal.count).toBe(explored.size);
+    expect(cal.filters).toEqual(filters);
+    expect(cal.facets).toEqual(exploreWords(filters, TODAY).facets);
+  });
+
+  it("counts matches per month, zero where there are none", () => {
+    const cal = exploreCalendar(MONTH, { level: ["N2"] }, TODAY);
+
+    expect(Object.keys(cal.monthCounts)).toEqual(cal.months);
+    expect(Object.values(cal.monthCounts).reduce((n, c) => n + c, 0)).toBe(
+      cal.count,
+    );
+    // Months after today hold words that have not opened, so none match.
+    expect(cal.monthCounts["2026-12"]).toBe(0);
+    expect(cal.monthCounts["2027-12"]).toBe(0);
+  });
+
+  it("never matches or reveals a day that has not opened", () => {
+    const cal = exploreCalendar(MONTH, { level: ["N5", "N4"] }, "2026-03-03");
+
+    const upcoming = cal.days.filter((d) => d.status === "upcoming");
+    expect(upcoming.length).toBeGreaterThan(0);
+    for (const d of upcoming)
+      expect(d).toEqual({ date: d.date, status: "upcoming" });
+    expect(cal.monthCounts["2026-03"]).toBeLessThanOrEqual(3);
   });
 });

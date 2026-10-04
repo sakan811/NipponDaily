@@ -121,6 +121,28 @@ export interface WordCalendarDay {
   term?: string;
   kana?: string;
   stratum?: WordStratum;
+  /** Only present when open: whether the word passes the calendar's filters
+   *  (always true when there are none). An upcoming day is never matched. */
+  match?: boolean;
+}
+
+/** What GET /api/word-calendar returns: one month's days, marked against the
+ *  filters, plus the counts the month picker and the filter chips show. */
+export interface WordCalendarPayload {
+  month: string;
+  /** Every month that has words, oldest first. */
+  months: string[];
+  today: string;
+  days: WordCalendarDay[];
+  /** The filters applied, as the API read them. */
+  filters: ExploreFilters;
+  /** Open words in all. */
+  total: number;
+  /** Open words matching every filter, across all months. */
+  count: number;
+  /** Open words matching every filter, for each month in `months`. */
+  monthCounts: Record<string, number>;
+  facets: ExploreFacets;
 }
 
 // --- PARTS (the morpheme index) ---
@@ -231,14 +253,16 @@ export interface ExplorePayload {
   count: number;
   /** The matches, newest first. */
   words: WordSummary[];
-  /** Each facet counts the words matching every *other* filter that carry the
-   *  option, so an option never shows a count it cannot deliver. */
-  facets: {
-    level: FacetCount<JlptLevel>[];
-    stratum: FacetCount<StratumKey>[];
-    process: FacetCount<WordProcess>[];
-    pos: FacetCount<PosGroup>[];
-  };
+  facets: ExploreFacets;
+}
+
+/** Each facet counts the words matching every *other* filter that carry the
+ *  option, so an option never shows a count it cannot deliver. */
+export interface ExploreFacets {
+  level: FacetCount<JlptLevel>[];
+  stratum: FacetCount<StratumKey>[];
+  process: FacetCount<WordProcess>[];
+  pos: FacetCount<PosGroup>[];
 }
 
 // --- PATTERNS (counts across words) ---

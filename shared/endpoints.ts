@@ -27,9 +27,9 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
   {
     method: "GET",
     path: "/api/word-calendar",
-    query: "?month=YYYY-MM",
+    query: "?month=YYYY-MM&q=&level=&stratum=&process=&pos=&part=&match=",
     returns:
-      '`{ month, months, today, days }`. An open day carries its `term`, `kana` and `stratum`; an upcoming day carries only its date and `"upcoming"`. The month defaults to the current one if it has words, else the newest. A malformed month is a `400`, a month with no words a `404`.',
+      "`{ month, months, today, days, filters, total, count, monthCounts, facets }`. An open day carries its `term`, `kana`, `stratum` and `match` (whether it passes the filters, always true with none); an upcoming day carries only its date and `\"upcoming\"`, and is never matched. The filters are the `/api/explore` ones, with the same counts: `count` of `total` open words match across every month, `monthCounts` gives each month's matches and `facets` the options' counts. The month defaults to the current one if it has words, else the newest. A malformed month or an invalid filter is a `400`, a month with no words a `404`.",
   },
   {
     method: "GET",
