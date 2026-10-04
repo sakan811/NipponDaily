@@ -82,9 +82,17 @@
           index="04"
           title="Calendar day states"
           component="pages/words/index.vue"
-          trigger="A day is “open” once midnight in Japan has passed (it shows its word and links to it), “today” when it is the current day, and “upcoming” before then — an upcoming day reveals nothing, and the API refuses to serve it. The words below are placeholders."
+          trigger="A day is “open” once midnight in Japan has passed (it shows its word and links to it), “today” when it is the current day, and “upcoming” before then — an upcoming day reveals nothing, and the API refuses to serve it. With calendar filters set, an open day whose word matches is tinted and one that doesn't is “faded” but still a link; an upcoming day is neither. A month with no match says so and points to the nearest months that have one. The words below are placeholders."
         />
-        <div class="grid grid-cols-3 gap-2 max-w-md">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 max-w-xl">
+          <div
+            class="season-box min-h-[6rem] border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 p-2.5 opacity-35"
+          >
+            <p class="text-xs text-stone-500">11</p>
+            <p class="mt-1 text-2xl font-serif font-bold">例</p>
+            <p class="text-xs text-stone-500">れい</p>
+            <p class="kicker text-stone-400 mt-1">faded</p>
+          </div>
           <div
             class="season-box min-h-[6rem] border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 p-2.5"
           >
@@ -175,8 +183,8 @@
               ?date= is not a real calendar date, or is a day that hasn't
               arrived yet in Japan (an upcoming word is never served early). On
               /api/word-calendar, ?month= is not a real YYYY-MM; /api/explore
-              rejects an unknown level, layer or process, and /api/part a
-              missing or over-long text.
+              and /api/word-calendar reject an unknown level, layer or process,
+              and /api/part a missing or over-long text.
             </p>
             <pre
               class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"

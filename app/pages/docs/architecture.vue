@@ -117,7 +117,8 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
       </li>
       <li>
         <strong>Components:</strong> <code>WordEntryView</code> (one entry),
-        <code>RelatedWords</code>, <code>AppHeader</code>,
+        <code>RelatedWords</code>, <code>WordFilters</code> (the filter form
+        shared by Explore and the calendar), <code>AppHeader</code>,
         <code>AppFooter</code>, <code>DocsBook</code> (a docs page),
         <code>DocDiagram</code>, <code>SeasonButton</code>,
         <code>BgmControl</code>, <code>SeasonalEffects</code>,
@@ -286,7 +287,7 @@ const sharedModules = [
   {
     file: "explore.ts",
     serverOnly: true,
-    role: "`exploreWords(filters, today)`: search and filters (several choices, any or all) with facet counts.",
+    role: "`exploreWords(filters, today)`: search and filters (several choices, any or all) with facet counts. `exploreCalendar(month, filters, today)`: one calendar month marked against the same filters, with per-month counts.",
   },
   {
     file: "related.ts",
