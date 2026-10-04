@@ -61,7 +61,9 @@
         <strong>No future leaks.</strong> The API rejects a future
         <code>date</code> (<code>400</code>); <code>payloadFor()</code> reveals
         <code>next</code> only once that day has arrived;
-        <code>calendarForMonth()</code> gives an upcoming day only its date.
+        <code>calendarForMonth()</code> gives an upcoming day only its date, and
+        <code>exploreCalendar()</code> never matches one, so filtering the
+        calendar cannot find a word early.
       </li>
       <li>
         <strong>Server rendering.</strong> A server fetch that fails with
@@ -102,6 +104,13 @@
       they combine: by default a word needs <em>any</em> of them, with
       <code>match=all</code> it needs <em>every</em> process and every part of
       speech. A word has one level and one layer, so those always read as “any”.
+      <code>/words</code> (the calendar) takes the same filters beside
+      <code>month</code>: <code>GET /api/word-calendar</code> marks each open
+      day of the month <code>match</code> or not and returns the same counts,
+      plus how many words match in every month. Both endpoints read the filters
+      through <code>server/utils/explore-filters.ts</code>, so a filter means
+      the same thing in each; the page shares one form,
+      <code>WordFilters</code>.
     </p>
     <p>
       The layer <code>unstated</code> picks the words with no stated layer.
