@@ -1,0 +1,806 @@
+[
+  {
+    "date": "2022-12-01",
+    "term": "メートル",
+    "kana": "メートル",
+    "meaning": "meter",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "Mētoru is from French mètre, a doublet of メーター (mētā).",
+    "morphemes": [
+      {
+        "text": "メートル",
+        "reading": "メートル",
+        "meaning": "French mètre"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From French mètre. Doublet of メーター (mētā, “meter”, measuring instrument)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-02",
+    "term": "売り切れ",
+    "kana": "うりきれ",
+    "meaning": "sold-out",
+    "level": "N2",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "Urikire is the nominalization of the verb 売り切れる (urikireru).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From the nominalization of the verb 売(う)り切(き)れる (urikireru)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-03",
+    "term": "数学",
+    "kana": "すうがく",
+    "meaning": "mathematics",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Sūgaku is 数 (sū, “number”) plus 学 (-gaku, “-logy; -graphy”).",
+    "morphemes": [
+      {
+        "text": "数",
+        "reading": "すう",
+        "meaning": "number"
+      },
+      {
+        "text": "学",
+        "reading": "がく",
+        "meaning": "-logy; -graphy"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 数(すう) (sū, “number”) + 学(がく) (-gaku, “-logy; -graphy”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-04",
+    "term": "爆発",
+    "kana": "ばくはつ",
+    "meaning": "explosion, detonation, eruption",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing", "sound-change"],
+    "headline": "Bakuhatsu is Middle Chinese 爆發, literally “burst, explode + fly or send forth”.",
+    "morphemes": [
+      {
+        "text": "爆",
+        "reading": "ばく",
+        "meaning": "burst, explode"
+      },
+      {
+        "text": "発",
+        "reading": "はつ",
+        "meaning": "fly or send forth"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "/pakupatu/ → /bakufat͡su/ → /bakuhat͡su/"
+      },
+      {
+        "quote": "From Middle Chinese compound 爆發 /爆发 (pɑk pjot, literally “burst, explode + fly or send forth”). Compare modern Min Nan reading po̍k-hoat."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-05",
+    "term": "頼もしい",
+    "kana": "たのもしい",
+    "meaning": "reliable, promising",
+    "level": "N2",
+    "pos": ["adjective (keiyoushi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tanomoshii is from the Early Middle Japanese adjective 頼もし (tanomoshi), whose ending later lost its medial k.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Early Middle Japanese adjective 頼(たの)もし (tanomoshi), with the 終(しゅう)止(し)形(けい) (shūshikei, “predicative form”) ending in し (shi) first replaced with the 連(れん)体(たい)形(けい) (rentaikei, “attributive form”) ending in しき (shiki), and then with the medial /-k-/ falling out to result in an ending of しい (shii). Itself an adjectivization of the verb 頼(たの)む (tanomu, “to request; to entrust to”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-06",
+    "term": "上",
+    "kana": "うわ",
+    "meaning": "upper, outer, surface",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "prefix"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Uwa is the combining form of ue, ancient upe.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/upa/ → /ufa/ → /uwa/"
+      },
+      {
+        "quote": "From Old Japanese. The combining form of ue, ancient upe (see above)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-07",
+    "term": "蛍光灯",
+    "kana": "けいこうとう",
+    "meaning": "fluorescent lamp",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Keikōtō is 蛍光 (keikō, “fluorescent”) plus 灯 (tō, “light”).",
+    "morphemes": [
+      {
+        "text": "蛍光",
+        "reading": "けいこう",
+        "meaning": "fluorescent"
+      },
+      {
+        "text": "灯",
+        "reading": "とう",
+        "meaning": "light"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 蛍(けい)光(こう) (keikō, “fluorescent”) + 灯(とう) (tō, “light”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-08",
+    "term": "議会",
+    "kana": "ぎかい",
+    "meaning": "Diet, congress, parliament",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Gikai is 議 (“debate; deliberation; discussion”) plus 会 (“gathering”).",
+    "morphemes": [
+      {
+        "text": "議",
+        "reading": "ぎ",
+        "meaning": "debate; deliberation; discussion"
+      },
+      {
+        "text": "会",
+        "reading": "かい",
+        "meaning": "gathering"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "議 (“debate; deliberation; discussion”) + 会 (“gathering”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-09",
+    "term": "創造",
+    "kana": "そうぞう",
+    "meaning": "creation",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing", "sound-change"],
+    "headline": "Sōzō is Middle Chinese 創造, literally “to begin + to make”.",
+    "morphemes": [
+      {
+        "text": "創",
+        "reading": "そう",
+        "meaning": "to begin"
+      },
+      {
+        "text": "造",
+        "reading": "ぞう",
+        "meaning": "to make"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "/sauzau/ → /sɔːzɔː/ → /soːzoː/"
+      },
+      {
+        "quote": "From Middle Chinese compound 創造 /创造 (t͡ʃʰɨɐŋᴴ d͡zɑu^X, literally “to begin + to make”). Compare modern Mandarin reading chuàngzào, Cantonese cong³ zou⁶."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-10",
+    "term": "峠",
+    "kana": "とうげ",
+    "meaning": "ridge, (mountain) pass, difficult part",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Tōge, a mountain pass, is a sound shift from 手向け (tamuke, “tribute to a person about to depart”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/tamuke/ → /taũɡe/ → /tauɡe/ → /tɔːɡe/ → /toːɡe/"
+      },
+      {
+        "quote": "Sound shift from 手向け (tamuke, “tribute to a person about to depart”). It is said that these offerings were \"given\" to them as they traveled into the afterlife, akin to a mountain."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-11",
+    "term": "不規則",
+    "kana": "ふきそく",
+    "meaning": "irregularity, unsteadiness",
+    "level": "N2",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Fukisoku is 不 (fu-, “un-; non-”) plus 規則 (kisoku, “rule”).",
+    "morphemes": [
+      {
+        "text": "不",
+        "reading": "ふ",
+        "meaning": "un-; non-"
+      },
+      {
+        "text": "規則",
+        "reading": "きそく",
+        "meaning": "rule"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 不(ふ) (fu-, “un-; non-”) + 規(き)則(そく) (kisoku, “rule”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-12",
+    "term": "行き",
+    "kana": "ゆき",
+    "meaning": "the way there; bound for",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Yuki, “bound for”, is compared on its page to Korean 행 (haeng), written with the same 行.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Compare Korean 행(行) (haeng)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-13",
+    "term": "電柱",
+    "kana": "でんちゅう",
+    "meaning": "telephone pole, telegraph pole, light pole",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Denchū is 電 (den, “electric”) plus 柱 (chū, “pole”).",
+    "morphemes": [
+      {
+        "text": "電",
+        "reading": "でん",
+        "meaning": "electric"
+      },
+      {
+        "text": "柱",
+        "reading": "ちゅう",
+        "meaning": "pole"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "電 (den, “electric”) + 柱 (chū, “pole”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-14",
+    "term": "総理大臣",
+    "kana": "そうりだいじん",
+    "meaning": "Prime Minister",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku"],
+    "headline": "Sōri daijin is 総理 (“prime minister”, literally “leader”) plus 大臣 (“(senior) minister”).",
+    "morphemes": [
+      {
+        "text": "総",
+        "reading": "そう",
+        "meaning": "general",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "理",
+        "reading": "り",
+        "meaning": "logic",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "大",
+        "reading": "だい",
+        "meaning": "large",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "臣",
+        "reading": "じん",
+        "base": "しん",
+        "meaning": "retainer",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "総理 (“prime minister”, literally “leader”) + 大臣 (“(senior) minister”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-15",
+    "term": "鉄道",
+    "kana": "てつどう",
+    "meaning": "railway; railroad",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "wasei"],
+    "headline": "Tetsudō is 鉄 (tetsu, “iron, steel”) plus 道 (dō, “way”), a calque of German Eisenbahn.",
+    "morphemes": [
+      {
+        "text": "鉄",
+        "reading": "てつ",
+        "meaning": "iron, steel"
+      },
+      {
+        "text": "道",
+        "reading": "どう",
+        "meaning": "way"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "鉄(てつ) (tetsu, “iron, steel”) + 道(どう) (dō, “way”). Calque of German Eisenbahn."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-16",
+    "term": "断つ",
+    "kana": "たつ",
+    "meaning": "to sever, to cut off",
+    "level": "N3",
+    "pos": ["Godan verb with 'tsu' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tatsu, “to sever”, resembles Proto-Tai *tacᴰ (“to cut”), though the page offers it only as a similarity.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Note similarities to Proto-Tai *tacᴰ (“to cut”) (whence Thai ตัด (dtàt, “to cut”))."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-17",
+    "term": "残り",
+    "kana": "のこり",
+    "meaning": "remaining, left-over",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Nokori is the continuative stem of 残る (nokoru, “to remain”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 残(のこ)る (nokoru, “to remain”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-18",
+    "term": "真っ暗",
+    "kana": "まっくら",
+    "meaning": "total darkness",
+    "level": "N2",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Makkura is 真っ (ma'-, “truly”) plus 暗 (kura, “dark”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "真っ (ma'-, “truly”) + 暗 (kura, “dark”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-19",
+    "term": "何か",
+    "kana": "なにか",
+    "meaning": "something",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Nanika is 何 (nani, “what”) plus か (ka, indefinite particle).",
+    "morphemes": [
+      {
+        "text": "何",
+        "reading": "なに",
+        "meaning": "what"
+      },
+      {
+        "text": "か",
+        "reading": "か",
+        "meaning": "indefinite particle"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 何(なに) (nani, “what”) + か (ka, indefinite particle)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-20",
+    "term": "うまい",
+    "kana": "うまい",
+    "meaning": "delicious; skillful; fortunate",
+    "level": "N4",
+    "pos": ["adjective (keiyoushi)"],
+    "stratum": "wago",
+    "processes": ["compound", "derivation", "unclear"],
+    "headline": "Umai is from the Early Middle Japanese adjective うまし (umashi), its ending reshaped in two steps.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Early Middle Japanese adjective うまし (umashi), with the 終(しゅう)止(し)形(けい) (shūshikei, “predicative form”) ending in し (shi) first replaced with the 連(れん)体(たい)形(けい) (rentaikei, “attributive form”) ending in き (ki), and then with the medial /-k-/ falling out to result in an ending of い (i). From Old Japanese. Found in the Man'yōshū, completed some time after 759 CE. Sometimes reconstructed as Proto-Japonic *uma."
+      },
+      {
+        "quote": "The ultimate derivation remains unclear. The term occasionally appears in texts from the Heian period (794–1185 CE) with the phonetic spelling mumashi (in the classical terminal form), suggesting a possible pronunciation of */mmasi/ with an emphasized initial /mm/ sound, similar to the reconstructed readings for 馬 (*mma, “horse”) and 梅 (*mme, “plum”). The resulting reconstructed adjective stem of *mma- could indicate a derivation from onomatopoeia; compare English mmm as an expression of approval for something tasty."
+      },
+      {
+        "quote": "Alternatively, umai is listed in some sources as perhaps deriving from verb 熟む (umu, “to ripen, to become ripe”). There is a derived compound term where the meaning is clearly from the adjective, and the spelling uses the 熟 kanji from the verb. However, the verb does not appear in historical sources with an emphatic initial /mm/, and it seems to be cognate with 膿む (umu, “to fester, to fill with pus, to produce pus”, intransitive), possibly also with 生む, 産む (umu, “to bear, to give birth to; to produce”, transitive)."
+      },
+      {
+        "quote": "Reconstructed by Samuel Martin as Proto-Japonic *ma-. Compare Okinawan cognate まーさん (māsan)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-21",
+    "term": "枠",
+    "kana": "わく",
+    "meaning": "frame, slide",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Waku is a kokuji, a Japanese-coined character: 木 plus 卆, and not a simplification of 木 plus 卒.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "A 国字 (kokuji, “Japanese-coined character”). 木 + 卆; it is not a simplification of 木 + 卒 (椊)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-22",
+    "term": "面倒臭い",
+    "kana": "めんどうくさい",
+    "meaning": "bother to do, tiresome",
+    "level": "N2",
+    "pos": ["adjective (keiyoushi)"],
+    "stratum": "hybrid",
+    "processes": [],
+    "headline": "Mendōkusai is 面倒 (“inconvenience”) plus 臭い (“reeks of”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "面倒 (“inconvenience”) + 臭い (“reeks of”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-23",
+    "term": "往復",
+    "kana": "おうふく",
+    "meaning": "(col) round trip, coming and going, return ticket",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "sound-change"],
+    "headline": "Ōfuku, “round trip”, began as waupuku and lost its w along the way.",
+    "morphemes": [
+      {
+        "text": "往",
+        "reading": "おう",
+        "meaning": "going",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "復",
+        "reading": "ふく",
+        "meaning": "restore",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "/waupukʉ/ → /wɔːɸuku/ → /ɔːfuku/ → /oːfuku/"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-24",
+    "term": "回転",
+    "kana": "かいてん",
+    "meaning": "rotation, turning",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "In kaiten, 回 is a daiyōji replacing 廻.",
+    "morphemes": [
+      {
+        "text": "回",
+        "reading": "かい",
+        "meaning": "-times",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "転",
+        "reading": "てん",
+        "meaning": "revolve",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "回 is a daiyōji replacing 廻."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-25",
+    "term": "あんな",
+    "kana": "あんな",
+    "meaning": "such, like that",
+    "level": "N4",
+    "pos": ["pre-noun adjectival (rentaishi)"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Anna contracts あの様な (ano yō na).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Contraction of あの様(よう)な (ano yō na)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-26",
+    "term": "漁師",
+    "kana": "りょうし",
+    "meaning": "fisherman",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Ryōshi “should” be gyoshi: the ryō comes from confusion with 猟, which means hunting.",
+    "morphemes": [
+      {
+        "text": "漁",
+        "reading": "りょう",
+        "meaning": "fishing"
+      },
+      {
+        "text": "師",
+        "reading": "し",
+        "meaning": "master"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "The spelling is likely from Middle Chinese compound 漁師 /渔师 (ngjo srij, literally “fishing + master”). Compare modern Mandarin 漁師 /渔师 (yúshī, “fisherman”)."
+      },
+      {
+        "quote": "The expected reading would be gyoshi. The kan'yōyomi (irregular but customary reading) ryō for the character 漁 is from confusion with 猟, whose most common on reading is ryō and means hunting, as used in the homophonic term 猟(りょう)師(し) (ryōshi, “hunter”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-27",
+    "term": "名",
+    "kana": "な",
+    "meaning": "name, reputation",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Na, “name”, is from Old Japanese, from Proto-Japonic *na; compare Okinawan nā.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *na (compare Okinawan 名 (nā))."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-28",
+    "term": "描く",
+    "kana": "えがく",
+    "meaning": "to draw, to depict, to describe",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["compound", "rendaku"],
+    "headline": "Egaku is 絵 (e, “picture”) plus 書く (kaku, “write”): literally “to write a picture”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/weɡaku/ > /eɡaku/"
+      },
+      {
+        "quote": "Compound of 絵 (e, “picture”) + 書く (kaku, “write”). Literally \"to write a picture\", ie, \"to draw\". The kaku changes to gaku as an instance of rendaku (連濁)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-29",
+    "term": "光",
+    "kana": "ひかり",
+    "meaning": "light",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["derivation", "sound-change"],
+    "headline": "Hikari is the nominalized stem of the verb 光る (hikaru, “to shine, to glitter, to gleam”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨pi₁kari⟩ → */pʲikari/ → /ɸikari/ → /hikari/"
+      },
+      {
+        "quote": "From Old Japanese."
+      },
+      {
+        "quote": "Nominalization of the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 光(ひか)る (hikaru, “to shine, to glitter, to gleam”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-30",
+    "term": "忘れる",
+    "kana": "わすれる",
+    "meaning": "to forget; to leave behind",
+    "level": "N5",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Wasureru is from Old Japanese 忘る (wasuru), from Proto-Japonic *wasuru.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 忘る (wasuru), in the 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) pattern, from Proto-Japonic *wasuru."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+      },
+      {
+        "quote": "First attested in the Kojiki of 712 CE."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2022-12-31",
+    "term": "字体",
+    "kana": "じたい",
+    "meaning": "font, lettering",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Jitai is 字 (“character”) plus 体 (“form”).",
+    "morphemes": [
+      {
+        "text": "字",
+        "reading": "じ",
+        "meaning": "character"
+      },
+      {
+        "text": "体",
+        "reading": "たい",
+        "meaning": "form"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "字 (“character”) + 体 (“form”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]
