@@ -1,8 +1,6 @@
 import { describe, it, expect } from "vitest";
 // @ts-expect-error — plain .mjs module without type declarations
 import * as lib from "../../../scripts/lib/word-entry.mjs";
-// @ts-expect-error — plain .mjs module without type declarations
-import * as wikt from "../../../scripts/lib/wiktionary-readings.mjs";
 
 const {
   pickSections,
@@ -16,39 +14,8 @@ const {
   posOf,
 } = lib as Record<string, (...args: any[]) => any>;
 
-describe("wiktionary-readings", () => {
-  const wikitext = [
-    "==English==",
-    "===Noun===",
-    "==Japanese==",
-    "===Etymology 1===",
-    "{{ja-kanjitab|おとな2}}",
-    "====Pronunciation====",
-    "{{ja-pron|おとな|acc=0}}",
-    "===Etymology 2===",
-    "====Noun====",
-    "{{ja-noun|うし}}",
-    "===Etymology 3===",
-    "{{ja-pron|タイジン}}",
-    "==Korean==",
-    "===Etymology===",
-    "{{ja-pron|ほげ}}",
-  ].join("\n");
-
-  it("splits the Japanese section into Etymology sections and reads each one's reading", () => {
-    const sections = wikt.japaneseEtymologyWikitexts(wikitext);
-    expect(sections).toHaveLength(3);
-    expect(sections.map(wikt.readingsOf)).toEqual([
-      ["おとな"],
-      ["うし"],
-      ["たいじん"],
-    ]);
-  });
-});
-
 describe("pickSections", () => {
   const snap = {
-    revid: 1,
     etymologies: [
       {
         text: "Appears in sources from the Heian period.",
@@ -68,13 +35,12 @@ describe("pickSections", () => {
 
   it("refuses a single section that is for a different reading", () => {
     expect(() =>
-      pickSections({ revid: 1, etymologies: [snap.etymologies[1]] }, "おとな"),
+      pickSections({ etymologies: [snap.etymologies[1]] }, "おとな"),
     ).toThrow(/only section is for うし/);
   });
 
   it("accepts a lone section whose reading the page did not declare", () => {
     const lone = {
-      revid: 1,
       etymologies: [{ text: "From English beer.", readings: [] }],
     };
     expect(pickSections(lone, "ビール")).toHaveLength(1);
