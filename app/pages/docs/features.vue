@@ -102,7 +102,7 @@ const features = computed(() => [
   {
     title: "Season Music",
     description:
-      "The header's music button plays a looping background track in a season that has one — autumn and winter so far. It is off every time the page loads, and the volume you choose is remembered in this browser.",
+      "The header's music button plays a looping background track for the season on screen. All four tracks are mastered to the same loudness, and changing season while the music plays crossfades into the new track. It is off every time the page loads, and the volume you choose is remembered in this browser.",
   },
   {
     title: "Kana Reference",
