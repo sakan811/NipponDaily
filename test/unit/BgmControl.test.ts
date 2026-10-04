@@ -50,8 +50,8 @@ describe("BgmControl", () => {
   });
 
   it("is hidden in a season with no track", async () => {
-    useSiteTheme().activeSeason.value = "winter";
-    expect(BGM_TRACKS.winter).toBeUndefined();
+    useSiteTheme().activeSeason.value = "summer";
+    expect(BGM_TRACKS.summer).toBeUndefined();
     const wrapper = mountControl();
     expect(wrapper.find("button").exists()).toBe(false);
   });
