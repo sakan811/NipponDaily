@@ -197,7 +197,7 @@ const fields = [
     meaning:
       "`{ quote }`: one verbatim line of Wiktionary's Etymology section for this reading.",
   },
-  { name: "wiktionaryRev", meaning: "The pinned Wiktionary revision." },
+  { name: "wiktionaryDump", meaning: "Date of the pinned Wiktionary dump." },
 ];
 
 const flow: Required<Pick<DiagramSpec, "nodes" | "edges">> = {

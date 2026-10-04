@@ -46,11 +46,13 @@
       </table>
     </div>
     <p>
-      Wikimedia rate-limits anonymous clients, so
-      <code>data:etymology</code> paces itself and honours
-      <code>Retry-After</code>; a month takes a few minutes. The reference
-      builders also use <code>node:sqlite</code>, <code>tar</code> and
-      <code>xz</code>, and download from PyPI and GitHub.
+      <code>data:etymology</code> is offline and takes seconds: it reads the
+      Wiktionary dump from {{ SOURCES.wiktionary.via.name }}, a 367 MB file that
+      is never committed. Put it in the repo root (it is git-ignored) or point
+      <code>--dump</code> at it; its name, date and checksum are pinned in
+      <code>scripts/lib/wiktionary-dump.mjs</code> and any other file is
+      refused. The reference builders use <code>node:sqlite</code>,
+      <code>tar</code> and <code>xz</code>, and download from PyPI and GitHub.
     </p>
 
     <h2>Adding a month</h2>
@@ -75,11 +77,11 @@
         says.
       </li>
       <li>
-        <strong>Pin the evidence</strong>:
-        <code>pnpm data:etymology --terms 電話,友達,…</code>. Pinned terms are
-        untouched. Many pool words have no usable Etymology section, so for a
-        bulk batch pin more candidates than you need with
-        <code>--skip-missing</code>, then
+        <strong>Pin the evidence</strong>: <code>pnpm data:etymology</code>.
+        Every term in the plans is included; add
+        <code>--terms 電話,友達,…</code> for words with no plan yet. Many pool
+        words have no usable Etymology section, so for a bulk batch pin more
+        candidates than you need with <code>--skip-missing</code>, then
         <code>pnpm data:etymology --prune --terms &lt;the chosen ones&gt;</code>
         to drop the rest.
       </li>
@@ -157,9 +159,11 @@
       </li>
       <li>
         <strong>Wiktionary:</strong>
-        <code>pnpm data:etymology --refresh &lt;term&gt;</code> re-pins one
-        term. Review the text diff, then run <code>pnpm data:words</code>: a
-        changed etymology changes the entry, and the diff shows it.
+        point <code>WIKTIONARY_DUMP</code> in
+        <code>scripts/lib/wiktionary-dump.mjs</code> at the new file (date,
+        size, checksum), run <code>pnpm data:etymology</code>, review the text
+        diff, then run <code>pnpm data:words</code>: a changed etymology changes
+        the entry, and the diff shows it.
       </li>
       <li>
         Dropped a word? <code>pnpm data:etymology --prune</code> removes pins
@@ -197,6 +201,7 @@ import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
+import { SOURCES } from "~~/shared/sources";
 
 const pieces = [
   {
@@ -205,7 +210,7 @@ const pieces = [
   },
   {
     path: "data/reference/etymology/",
-    what: "Plain text of each word's Wiktionary Etymology section, pinned to a revision, one file per month of the plan. Generated.",
+    what: "Plain text of each word's Wiktionary Etymology section, read from the pinned dump, one file per month of the plan. Generated.",
   },
   {
     path: "data/word-plan/YYYY-MM.json",
@@ -232,7 +237,7 @@ const commands = [
   },
   {
     cmd: "pnpm data:etymology",
-    does: "Pins Wiktionary pages. `--terms a,b,c` pins new terms at their current revision; `--refresh <term>` re-pins one; `--prune` drops unused pins; `--skip-missing` skips a page that can't be fetched.",
+    does: "Reads Wiktionary Etymology sections from the pinned dump, offline, for every term in the entries and plans plus `--terms a,b,c`. `--prune` drops unused pins; `--skip-missing` skips a word the dump has no Etymology for; `--dump <path>` names the file.",
   },
   {
     cmd: "pnpm data:words",
@@ -298,6 +303,11 @@ const refusals = [
     todo: "Add `kana` to the plan entry.",
   },
   { message: "“no pinned Wiktionary page”", todo: "Pin it first (step 3)." },
+  {
+    message:
+      "“KANJIDIC2 reads … as native but its section says it is from Middle Chinese”",
+    todo: "The dump attached another reading's etymology (it did for 道 みち). Replace the word; do not edit the snapshot.",
+  },
 ];
 
 const failures = [
@@ -315,7 +325,7 @@ const failures = [
   },
   {
     failure: "Quote not found",
-    fix: "The snapshot changed: `pnpm data:etymology --refresh <term>` if you mean to re-pin, then `pnpm data:words`. Never loosen a quote.",
+    fix: "The snapshot changed: re-run `pnpm data:etymology`, then `pnpm data:words`. Never loosen a quote.",
   },
   {
     failure: "Morpheme or tag wrong",

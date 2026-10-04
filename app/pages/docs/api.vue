@@ -62,7 +62,7 @@ const example = `{
       "headline": "…",
       "morphemes": [{ "text": "電", "reading": "でん", "meaning": "electric" }],
       "sources": [{ "quote": "…" }],
-      "wiktionaryRev": 92203082
+      "wiktionaryDump": "2026-09-02"
     },
     "prev": { "date": "2026-09-30", "term": "蕎麦" },
     "next": { "date": "2026-10-02", "term": "友達" }

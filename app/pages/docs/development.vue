@@ -217,7 +217,10 @@ const commands = [
     cmd: "pnpm data:reference / data:reference:jlpt",
     does: "Rebuild the JMdict and KANJIDIC2 snapshots for N5, and for N4 to N2.",
   },
-  { cmd: "pnpm data:etymology", does: "Pin Wiktionary pages." },
+  {
+    cmd: "pnpm data:etymology",
+    does: "Read Etymology sections from the pinned Wiktionary dump.",
+  },
   {
     cmd: "pnpm data:words",
     does: "Generate `data/words/` from the plan and the committed sources.",
