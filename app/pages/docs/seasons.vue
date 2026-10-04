@@ -82,7 +82,7 @@
       <li>
         <strong>Music.</strong> <code>BgmControl.vue</code> and
         <code>useBgm.ts</code> play a looping track in a season that has one
-        (autumn only). It is off on every load; only the volume
+        (autumn and winter). It is off on every load; only the volume
         (<code>bgm-volume</code>) is remembered. Looping is gapless through a
         decoded audio buffer and a <code>GainNode</code> (iOS ignores
         <code>element.volume</code>), and it pauses while the tab is hidden.
