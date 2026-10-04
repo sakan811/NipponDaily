@@ -81,11 +81,14 @@
       </li>
       <li>
         <strong>Music.</strong> <code>BgmControl.vue</code> and
-        <code>useBgm.ts</code> play a looping track in a season that has one
-        (autumn and winter). It is off on every load; only the volume
-        (<code>bgm-volume</code>) is remembered. Looping is gapless through a
-        decoded audio buffer and a <code>GainNode</code> (iOS ignores
-        <code>element.volume</code>), and it pauses while the tab is hidden.
+        <code>useBgm.ts</code> play a looping track for each season, all encoded
+        to the same integrated loudness (−16 LUFS, measured on the MP3s) so a
+        season change never changes the level. It is off on every load; only the
+        volume (<code>bgm-volume</code>) is remembered. Looping is gapless
+        through a decoded audio buffer and a <code>GainNode</code> (iOS ignores
+        <code>element.volume</code>). When the season changes mid-song the old
+        track keeps playing until the new one has loaded, then the two crossfade
+        over two seconds. The music pauses while the tab is hidden.
       </li>
     </ul>
 
