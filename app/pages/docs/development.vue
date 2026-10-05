@@ -117,6 +117,39 @@ pnpm dev          # http://localhost:3000</code></pre>
       <li><code>docs-sync</code>: the docs against the code (see below).</li>
     </ul>
 
+    <h2 id="releases">Releases</h2>
+    <p>
+      A release is a git tag on <code>main</code> plus a GitHub Release; the tag
+      is the only record of the version, so <code>package.json</code> carries
+      none. The Releases page is the changelog, and there is no
+      <code>CHANGELOG.md</code>.
+    </p>
+    <ul>
+      <li>
+        <strong>Versions are SemVer, read for a product.</strong> Major: what
+        the app is, or something readers could use, changed or was removed.
+        Minor: new features or data. Patch: fixes only.
+      </li>
+      <li>
+        <strong>Notes are written by theme</strong>, starting from
+        <code>gh release create --generate-notes</code> and trimmed to Features,
+        Data, Docs and Maintenance. Dependency bumps become one Maintenance
+        line.
+      </li>
+      <li>
+        <strong>A major opens with a Breaking or Pivot line</strong> saying what
+        was removed and which earlier tag still has it. The app has been a news
+        reader, an N5 learning game and now a daily word; each of those is still
+        reachable at its last tag, and the tags are the archive, not long-lived
+        branches.
+      </li>
+      <li>
+        <strong>Published tags are never moved or deleted.</strong> Fix a
+        mistake in the notes with <code>gh release edit</code>.
+      </li>
+      <li>Run <code>pnpm check-qa</code> on the commit being tagged.</li>
+    </ul>
+
     <h2 id="docs">Keeping the docs true</h2>
     <p>
       These docs are the pages under <code>app/pages/docs/</code>. There is no
