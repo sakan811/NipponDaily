@@ -404,9 +404,20 @@
     "level": "N4",
     "pos": ["conjunction"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Suruto is する (suru, “to do”) plus と (to): literally “when doing [whatever came before], then [whatever comes after]”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "する",
+        "reading": "する",
+        "meaning": "to do"
+      },
+      {
+        "text": "と",
+        "reading": "と",
+        "meaning": "when, whenever"
+      }
+    ],
     "sources": [
       {
         "quote": "From する (suru, “to do”) + と (to, “when, whenever”, temporal particle). Literally, \"when doing [whatever came before], then [whatever comes after]\"."

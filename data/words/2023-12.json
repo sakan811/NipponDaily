@@ -74,9 +74,20 @@
     "level": "N5",
     "pos": ["pronoun"],
     "stratum": "wago",
-    "processes": ["derivation"],
+    "processes": ["compound", "derivation"],
     "headline": "Kochira is こち (kochi, “this direction (or person)”) plus 等 (-ra, suffix of rough indication or approximation).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "こち",
+        "reading": "こち",
+        "meaning": "this direction (or person)"
+      },
+      {
+        "text": "ら",
+        "reading": "ら",
+        "meaning": "suffix of rough indication or approximation"
+      }
+    ],
     "sources": [
       {
         "quote": "From こち (kochi, “this direction (or person)”) + 等(ら) (-ra, suffix of rough indication or approximation)."

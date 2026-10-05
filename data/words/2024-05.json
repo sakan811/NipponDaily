@@ -254,9 +254,20 @@
     "level": "N5",
     "pos": ["adverb (fukushi)"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Itsumo is いつ (itsu, “when”) plus も (mo, “even, also”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "いつ",
+        "reading": "いつ",
+        "meaning": "when"
+      },
+      {
+        "text": "も",
+        "reading": "も",
+        "meaning": "even, also"
+      }
+    ],
     "sources": [
       {
         "quote": "From いつ (itsu, “when”) + も (mo, “even, also”)."

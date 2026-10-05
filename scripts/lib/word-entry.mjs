@@ -413,11 +413,9 @@ function morphemesOf(lines, term, kana) {
         ];
         const hit = options.find((o) => term.startsWith(o, at));
         if (!hit) break;
-        spelled.push(
-          hit === parts[i].text || hit === "お" || hit === stem
-            ? hit
-            : parts[i].text,
-        );
+        // The part is shown as the word writes it (かなり, not 可なり), so the
+        // parts always spell the word.
+        spelled.push(hit);
         at += hit.length;
       }
       if (spelled.length !== parts.length || at !== term.length) continue;

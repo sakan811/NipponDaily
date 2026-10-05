@@ -524,9 +524,20 @@
     "level": "N2",
     "pos": ["expressions (phrases, clauses, etc.)", "adverb (fukushi)"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Moshikashitara is もしか (moshi ka, “perhaps, if”) plus したら (shitara, “if doing”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "もしか",
+        "reading": "もしか",
+        "meaning": "perhaps, if"
+      },
+      {
+        "text": "したら",
+        "reading": "したら",
+        "meaning": "if doing"
+      }
+    ],
     "sources": [
       {
         "quote": "From もしか (moshi ka, “perhaps, if”) + したら (shitara, “if doing”)."
