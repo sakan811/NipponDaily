@@ -105,6 +105,11 @@
         >).
       </li>
       <li>
+        <strong>Rebuild the share-image fonts</strong> if the new words use a
+        kanji they lack: <code>pnpm assets:og-font</code>. The test fails and
+        names the characters until you do.
+      </li>
+      <li>
         <code>pnpm test:run</code>. The range and count the docs quote are read
         live from <code>data/words/</code>, so there is nothing to update.
       </li>
@@ -240,6 +245,10 @@ const commands = [
     does: "Reads Wiktionary Etymology sections from the pinned dump, offline, for every term in the entries and plans plus `--terms a,b,c`. `--prune` drops unused pins; `--skip-missing` skips a word the dump has no Etymology for; `--dump <path>` names the file.",
   },
   {
+    cmd: "pnpm assets:og-font",
+    does: "Rebuilds the fonts the share images are drawn with in `server/assets/og/`: a subset of Zen Old Mincho Bold cut to the characters of the entries, Outfit copied from `@fontsource/outfit`, and `glyphs.json`, the list of characters they can draw. The upstream font is pinned by commit and checksum in `scripts/build-og-font.mjs`; download it into the repo root (git-ignored) or pass `--font <path>`.",
+  },
+  {
     cmd: "pnpm data:words",
     does: "Generates `data/words/` from the plan and the committed sources. Fetches nothing. `--check` fails if a file is out of date; `--keep-going` writes every entry that built and lists the failures.",
   },
@@ -334,6 +343,10 @@ const failures = [
   {
     failure: "Headline mentions Japanese no evidence contains",
     fix: "Reword it in `data/word-plan/`.",
+  },
+  {
+    failure: "Share-image font missing a character",
+    fix: "A new word uses a character the subset lacks. Run `pnpm assets:og-font` and commit the fonts. A character none of the fonts have (an IPA symbol) is not an error: the card leaves that headline out.",
   },
   {
     failure: "Stale reference",

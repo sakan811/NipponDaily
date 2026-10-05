@@ -114,6 +114,10 @@ pnpm dev          # http://localhost:3000</code></pre>
         <code>icons</code>: every <code>i-heroicons-*</code> name used has a
         path in <code>app/data/icons.ts</code>.
       </li>
+      <li>
+        <code>og-font</code>: the share-image fonts can draw every word, reading
+        and meaning, and nearly every headline.
+      </li>
       <li><code>docs-sync</code>: the docs against the code (see below).</li>
     </ul>
 
@@ -257,6 +261,10 @@ const commands = [
   {
     cmd: "pnpm data:words",
     does: "Generate `data/words/` from the plan and the committed sources.",
+  },
+  {
+    cmd: "pnpm assets:og-font",
+    does: "Rebuild the share-image fonts in `server/assets/og/` (see Adding and fixing words).",
   },
   {
     cmd: "pnpm docs:sync / docs:check",
