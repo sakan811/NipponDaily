@@ -74,8 +74,8 @@ const TANOS = {
   url: "https://www.tanos.co.uk/jlpt/",
 } as const;
 const WANAKANA_URL = "https://github.com/WaniKani/WanaKana";
-const ZEN_OLD_MINCHO_URL = "https://github.com/googlefonts/zen-oldmincho";
-const OUTFIT_URL = "https://github.com/Outfitio/Outfit-Fonts";
+const ZEN_OLD_MINCHO_URL = "https://github.com/google/fonts/tree/main/ofl/zenoldmincho";
+const OUTFIT_URL = "https://github.com/google/fonts/tree/main/ofl/outfit";
 const EDRDG_NAME = "Electronic Dictionary Research and Development Group";
 
 export const SOURCES = {
