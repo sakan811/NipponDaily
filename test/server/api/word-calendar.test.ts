@@ -86,7 +86,7 @@ describe("GET /api/word-calendar", () => {
   });
 
   it("returns 404 for a month with no words", async () => {
-    (global as any).getQuery.mockReturnValue({ month: "2025-01" });
+    (global as any).getQuery.mockReturnValue({ month: "2021-12" });
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,

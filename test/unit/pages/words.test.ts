@@ -166,9 +166,8 @@ describe("Words Page (calendar filters)", () => {
 
     const years = wrapper.findAll('[data-testid="calendar-years"] button');
     expect(years.map((y) => y.text())).toEqual(
-      expect.arrayContaining(["2022", "2023", "2024", "2026", "2027"]),
+      expect.arrayContaining(["2022", "2023", "2024", "2025", "2026", "2027"]),
     );
-    expect(years.map((y) => y.text())).not.toContain("2025");
 
     await wrapper.find('[data-testid="calendar-year-2024"]').trigger("click");
     await flushPromises();
