@@ -127,7 +127,7 @@ describe("GET /api/daily-word", () => {
 
   it("returns 404 for a past date the catalogue does not cover", async () => {
     at("2026-10-20T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2025-12-31" });
+    (global as any).getQuery.mockReturnValue({ date: "2021-12-31" });
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,

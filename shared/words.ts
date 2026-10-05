@@ -51,6 +51,18 @@ import september2024 from "~~/data/words/2024-09.json";
 import october2024 from "~~/data/words/2024-10.json";
 import november2024 from "~~/data/words/2024-11.json";
 import december2024 from "~~/data/words/2024-12.json";
+import january2025 from "~~/data/words/2025-01.json";
+import february2025 from "~~/data/words/2025-02.json";
+import march2025 from "~~/data/words/2025-03.json";
+import april2025 from "~~/data/words/2025-04.json";
+import may2025 from "~~/data/words/2025-05.json";
+import june2025 from "~~/data/words/2025-06.json";
+import july2025 from "~~/data/words/2025-07.json";
+import august2025 from "~~/data/words/2025-08.json";
+import september2025 from "~~/data/words/2025-09.json";
+import october2025 from "~~/data/words/2025-10.json";
+import november2025 from "~~/data/words/2025-11.json";
+import december2025 from "~~/data/words/2025-12.json";
 import january2026 from "~~/data/words/2026-01.json";
 import february2026 from "~~/data/words/2026-02.json";
 import march2026 from "~~/data/words/2026-03.json";
@@ -114,6 +126,18 @@ const MONTHS: WordEntry[][] = [
   october2024 as WordEntry[],
   november2024 as WordEntry[],
   december2024 as WordEntry[],
+  january2025 as WordEntry[],
+  february2025 as WordEntry[],
+  march2025 as WordEntry[],
+  april2025 as WordEntry[],
+  may2025 as WordEntry[],
+  june2025 as WordEntry[],
+  july2025 as WordEntry[],
+  august2025 as WordEntry[],
+  september2025 as WordEntry[],
+  october2025 as WordEntry[],
+  november2025 as WordEntry[],
+  december2025 as WordEntry[],
   january2026 as WordEntry[],
   february2026 as WordEntry[],
   march2026 as WordEntry[],
