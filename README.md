@@ -43,7 +43,7 @@ The word lists come from the community list originally compiled at [tanos.co.uk]
 
 Kana conversion in the data scripts and checks uses [wanakana](https://github.com/WaniKani/WanaKana) (MIT licence).
 
-The share images are drawn in [Zen Old Mincho](https://github.com/googlefonts/zen-oldmincho) and [Outfit](https://github.com/Outfitio/Outfit-Fonts), both under the [SIL Open Font License 1.1](https://openfontlicense.org/); each licence ships beside the font files in `server/assets/og/`.
+The share images are drawn in [Zen Old Mincho](https://github.com/google/fonts/tree/main/ofl/zenoldmincho) and [Outfit](https://github.com/google/fonts/tree/main/ofl/outfit), both under the [SIL Open Font License 1.1](https://openfontlicense.org/); each licence ships beside the font files in `server/assets/og/`.
 <!-- docs:end attribution -->
 
 Details: [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).
