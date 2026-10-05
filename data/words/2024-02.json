@@ -435,9 +435,20 @@
     "level": "N3",
     "pos": ["adverb (fukushi)"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Moshimo is もし (moshi, “if”) plus も (mo, “also, too, even”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "もし",
+        "reading": "もし",
+        "meaning": "if"
+      },
+      {
+        "text": "も",
+        "reading": "も",
+        "meaning": "also, too, even"
+      }
+    ],
     "sources": [
       {
         "quote": "From もし (moshi, “if”) + も (mo, “also, too, even”, inclusive particle)."

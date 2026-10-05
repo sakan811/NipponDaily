@@ -140,9 +140,25 @@
     "level": "N3",
     "pos": ["adverb (fukushi)"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Itsumademo is いつ (itsu, “when”) plus まで (made, “until, up to”) plus も (mo, “even, also”): literally “until even any time”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "いつ",
+        "reading": "いつ",
+        "meaning": "when"
+      },
+      {
+        "text": "まで",
+        "reading": "まで",
+        "meaning": "until, up to"
+      },
+      {
+        "text": "も",
+        "reading": "も",
+        "meaning": "even, also"
+      }
+    ],
     "sources": [
       {
         "quote": "From いつ (itsu, “when”) + まで (made, “until, up to”) + も (mo, “even, also”, inclusive) Literally, \"until even any time\"."

@@ -115,6 +115,16 @@ describe("parseMorphemes", () => {
     ]);
   });
 
+  it("shows a part as the word writes it when the word spells it in kana", () => {
+    const lines = [
+      "可(か) (ka, “acceptable”) + なり (nari, “to be”, archaic).",
+    ];
+    expect(parseMorphemes(lines, "かなり", "かなり")).toEqual([
+      { text: "か", reading: "か", meaning: "acceptable" },
+      { text: "なり", reading: "なり", meaning: "to be" },
+    ]);
+  });
+
   it("gives no breakdown when the parts do not spell the word", () => {
     // 火傷: the source analyses 焼け + 処, which is not what the word is written with.
     const lines = [

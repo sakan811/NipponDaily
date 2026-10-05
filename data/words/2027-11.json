@@ -439,7 +439,18 @@
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Dōmo is どう (dō, “how”) plus も (mo, “ever, even, also”): close in meaning to “no matter how”.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "どう",
+        "reading": "どう",
+        "meaning": "how"
+      },
+      {
+        "text": "も",
+        "reading": "も",
+        "meaning": "ever, even, also"
+      }
+    ],
     "sources": [
       {
         "quote": "Derived as compound of どう (dō, “how”, question word) + も (mo, “ever, even, also”, particle). Literal meaning is close to “no matter how, howsoever, in all cases”. Idiomatically and semantically used as an intensifier in specific contexts. Compare とても (totemo, “very”)."

@@ -542,7 +542,18 @@
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Izure is いづ (izu, interrogative pronoun) plus れ (-re, nominalizing suffix for demonstratives).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "いず",
+        "reading": "いず",
+        "meaning": "interrogative pronoun"
+      },
+      {
+        "text": "れ",
+        "reading": "れ",
+        "meaning": "nominalizing suffix for demonstratives"
+      }
+    ],
     "sources": [
       {
         "quote": "/idure/ → /id͡zure/ → /izure/"
