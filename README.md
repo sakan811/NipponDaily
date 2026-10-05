@@ -42,6 +42,8 @@ Etymology text is quoted from [English Wiktionary](https://en.wiktionary.org) un
 The word lists come from the community list originally compiled at [tanos.co.uk](https://www.tanos.co.uk/jlpt/) (CC BY; credit required), via [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list) (MIT licence).
 
 Kana conversion in the data scripts and checks uses [wanakana](https://github.com/WaniKani/WanaKana) (MIT licence).
+
+The share images are drawn in [Zen Old Mincho](https://github.com/googlefonts/zen-oldmincho) and [Outfit](https://github.com/Outfitio/Outfit-Fonts), both under the [SIL Open Font License 1.1](https://openfontlicense.org/); each licence ships beside the font files in `server/assets/og/`.
 <!-- docs:end attribution -->
 
 Details: [`/docs/data-integrity`](app/pages/docs/data-integrity.vue).

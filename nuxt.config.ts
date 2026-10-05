@@ -1,8 +1,17 @@
+import { createRequire } from "node:module";
 import tailwindcss from "@tailwindcss/vite";
 import { SEASON_IDS } from "./shared/seasons";
 
 const FONTS_URL =
   "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Zen+Old+Mincho:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@400;700&display=swap";
+
+// satori (the share images) shapes text with harfbuzzjs, which reads its
+// hb.wasm from beside its own script by a computed path that the file tracer
+// cannot see, so the deployed server would lack it. Resolve it through satori
+// (pnpm nests it) and ask Nitro to ship it.
+const HARFBUZZ_WASM = createRequire(
+  createRequire(import.meta.url).resolve("satori"),
+).resolve("harfbuzzjs/hb.wasm");
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -97,6 +106,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+  nitro: { externals: { traceInclude: [HARFBUZZ_WASM] } },
   routeRules: {
     // The active season changes a few times a year, and every page load
     // fetches it — let the CDN absorb that. A cron write shows up within

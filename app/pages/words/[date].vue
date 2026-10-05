@@ -85,7 +85,7 @@ import WordEntryView from "../../components/WordEntryView.vue";
 import { useDailyWord } from "../../composables/useDailyWord";
 import { useRelatedWords } from "../../composables/useParts";
 import { usePageSeo } from "../../composables/usePageSeo";
-import { wordDescription, wordTitle } from "../../utils/seo";
+import { shareImagePath, wordDescription, wordTitle } from "../../utils/seo";
 
 const route = useRoute();
 // Prev/next links stay on this same page component, so the date follows the
@@ -105,5 +105,7 @@ usePageSeo({
   // A word opens at midnight in Japan.
   publishedTime: () => `${date.value}T00:00:00+09:00`,
   noindex: () => !payload.value,
+  image: () => (payload.value ? shareImagePath(date.value) : undefined),
+  imageAlt: () => (payload.value ? wordTitle(payload.value.entry) : undefined),
 });
 </script>

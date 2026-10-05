@@ -9,6 +9,10 @@ data/drafts/
 /kaikki.org-*.jsonl
 /ja-extract.jsonl
 
+# The upstream font the share-image subset is cut from (scripts/build-og-font.mjs):
+# only the subset in server/assets/og/ is committed.
+/ZenOldMincho-*.ttf
+
 # Nuxt dev/build outputs
 .output
 .data

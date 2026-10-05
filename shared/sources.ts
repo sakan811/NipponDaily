@@ -27,10 +27,14 @@ export const LICENCES = {
   // tanos.co.uk states "Creative Commons BY" with no version, so none is named.
   ccBy: { name: "CC BY" },
   mit: { name: "MIT licence" },
+  ofl11: {
+    name: "SIL Open Font License 1.1",
+    url: "https://openfontlicense.org/",
+  },
 } as const satisfies Record<string, Licence>;
 
 export interface DataSource {
-  id: "edrdg" | "wiktionary" | "jlpt-word-list" | "wanakana";
+  id: "edrdg" | "wiktionary" | "jlpt-word-list" | "wanakana" | "og-fonts";
   /** Display name. */
   name: string;
   /** Short form for tight spaces such as the footer. */
@@ -70,6 +74,8 @@ const TANOS = {
   url: "https://www.tanos.co.uk/jlpt/",
 } as const;
 const WANAKANA_URL = "https://github.com/WaniKani/WanaKana";
+const ZEN_OLD_MINCHO_URL = "https://github.com/googlefonts/zen-oldmincho";
+const OUTFIT_URL = "https://github.com/Outfitio/Outfit-Fonts";
 const EDRDG_NAME = "Electronic Dictionary Research and Development Group";
 
 export const SOURCES = {
@@ -114,6 +120,15 @@ export const SOURCES = {
     use: "Kana conversion in the data scripts and checks",
     credit: `Kana conversion in the data scripts and checks uses ${link("wanakana", WANAKANA_URL)} (${LICENCES.mit.name}).`,
   },
+  "og-fonts": {
+    id: "og-fonts",
+    name: "Zen Old Mincho and Outfit",
+    short: "Zen Old Mincho & Outfit",
+    url: ZEN_OLD_MINCHO_URL,
+    licence: LICENCES.ofl11,
+    use: "The faces the share images are drawn in",
+    credit: `The share images are drawn in ${link("Zen Old Mincho", ZEN_OLD_MINCHO_URL)} and ${link("Outfit", OUTFIT_URL)}, both under the ${link(LICENCES.ofl11.name, LICENCES.ofl11.url)}; each licence ships beside the font files in \`server/assets/og/\`.`,
+  },
 } as const satisfies Record<DataSource["id"], DataSource>;
 
 /** In the order the credits are shown. */
@@ -122,6 +137,7 @@ export const DATA_SOURCES: readonly DataSource[] = [
   SOURCES.wiktionary,
   SOURCES["jlpt-word-list"],
   SOURCES.wanakana,
+  SOURCES["og-fonts"],
 ];
 
 /** The Wiktionary page an entry quotes (the text is from a dated dump, not the live page). */

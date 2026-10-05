@@ -1,4 +1,5 @@
 import { toValue, type MaybeRefOrGetter } from "vue";
+import { OG_HEIGHT, OG_WIDTH } from "~~/shared/og-card";
 import { useHead, useRequestURL, useRuntimeConfig, useSeoMeta } from "#app";
 
 interface PageSeo {
@@ -12,6 +13,11 @@ interface PageSeo {
   publishedTime?: MaybeRefOrGetter<string | undefined>;
   /** Keep the page out of search results (error states, empty pages). */
   noindex?: MaybeRefOrGetter<boolean>;
+  /** The page's own path to its share image (e.g. "/og.png?date=2026-10-03"),
+   *  made absolute here; with none the page is shared as a plain summary. */
+  image?: MaybeRefOrGetter<string | undefined>;
+  /** What the share image shows, for people who cannot see it. */
+  imageAlt?: MaybeRefOrGetter<string | undefined>;
 }
 
 /** The public origin: `NUXT_PUBLIC_SITE_URL` when set, else the one the page was
@@ -26,6 +32,10 @@ export function useSiteUrl(): string {
 export function usePageSeo(seo: PageSeo): void {
   const origin = useSiteUrl();
   const url = () => origin + toValue(seo.path);
+  const image = () => {
+    const path = toValue(seo.image);
+    return path ? origin + path : undefined;
+  };
 
   useSeoMeta({
     title: () => toValue(seo.title),
@@ -35,7 +45,12 @@ export function usePageSeo(seo: PageSeo): void {
     ogType: seo.type ?? "website",
     ogUrl: url,
     ogSiteName: "NipponDaily",
-    twitterCard: "summary",
+    twitterCard: () => (image() ? "summary_large_image" : "summary"),
+    ogImage: image,
+    ogImageWidth: () => (image() ? OG_WIDTH : undefined),
+    ogImageHeight: () => (image() ? OG_HEIGHT : undefined),
+    ogImageAlt: () => (image() ? toValue(seo.imageAlt) : undefined),
+    twitterImage: image,
     articlePublishedTime: () =>
       seo.type === "article" ? toValue(seo.publishedTime) : undefined,
     robots: () => (toValue(seo.noindex) ? "noindex, nofollow" : undefined),
