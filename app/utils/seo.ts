@@ -9,6 +9,11 @@ export function truncate(text: string, max = 160): string {
   return `${(space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,;:.—-]+$/, "")}…`;
 }
 
+/** The path to a word's share image (`GET /og.png`). */
+export function shareImagePath(date: string): string {
+  return `/og.png?date=${date}`;
+}
+
 /** The tab title for a word: the word, its reading, its meaning. */
 export function wordTitle(entry: Pick<WordEntry, "term" | "kana" | "meaning">) {
   return `${entry.term} (${entry.kana}) — ${entry.meaning}`;

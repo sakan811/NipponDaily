@@ -242,7 +242,7 @@ import AppFooter from "../components/AppFooter.vue";
 import TrendingFallback from "../components/TrendingFallback.vue";
 import { useDailyWord } from "../composables/useDailyWord";
 import { usePageSeo } from "../composables/usePageSeo";
-import { wordTitle } from "../utils/seo";
+import { shareImagePath, wordTitle } from "../utils/seo";
 import { formatLongDate } from "../utils/date";
 import { LICENCES } from "~~/shared/sources";
 import { DOC_CHAPTERS, chapterNumber, docPath } from "~~/shared/docs";
@@ -256,6 +256,10 @@ usePageSeo({
       ? `Today: ${wordTitle(payload.value.entry)}. Each day NipponDaily takes one Japanese word apart — its parts, its layer of the vocabulary, how it came to be — with the Wiktionary lines behind every claim.`
       : "Each day NipponDaily takes one Japanese word apart — its parts, its layer of the vocabulary, how it came to be — with the Wiktionary lines behind every claim.",
   path: "/",
+  // The word shown may be on a later lap, but its own day has always opened.
+  image: () =>
+    payload.value ? shareImagePath(payload.value.entry.date) : undefined,
+  imageAlt: () => (payload.value ? wordTitle(payload.value.entry) : undefined),
 });
 
 const entryParts = [

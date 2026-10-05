@@ -90,6 +90,13 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
   },
   {
     method: "GET",
+    path: "/og.png",
+    query: "?date=YYYY-MM-DD",
+    returns:
+      "Server route, not under `/api` (so `robots.txt` does not block link previews). The share image of one open word as a 1200 by 630 PNG: the word, its reading, meaning, level, layer and headline, in the palette of its day's season. A future, malformed or unknown date is a `404`, so the image cannot reveal a word early. The page's Open Graph tags point here.",
+  },
+  {
+    method: "GET",
     path: "/robots.txt",
     returns:
       "Server route, not under `/api`. Disallows `/api/` and names the sitemap.",
