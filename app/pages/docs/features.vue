@@ -85,6 +85,11 @@ const features = computed(() => [
     description: `Each entry quotes the Wiktionary lines it shows, taken from one dated dump, with a link to the page and its ${LICENCES.ccBySa4.name} license. Only the one-line headline is hand-written.`,
   },
   {
+    title: "Share a Word",
+    description:
+      "A shared link unfolds into a card: the word, its reading, meaning, level and layer, and the headline, in the colours of the season it falls in. It never shows a word before its day.",
+  },
+  {
     title: "Verified in CI",
     description:
       "Every entry is regenerated from JMdict, KANJIDIC2 and the pinned Wiktionary snapshot and compared, and checked independently: reading, level and meaning against the pool, part of speech against JMdict, morphemes against KANJIDIC2 or the cited text, and every quote against the section for its own reading.",

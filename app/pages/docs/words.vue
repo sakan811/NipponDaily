@@ -149,6 +149,33 @@
       clears the minimum.
     </p>
 
+    <h2 id="sharing">Sharing a word</h2>
+    <p>
+      <strong>The share image</strong>, <code>GET /og.png?date=…</code>, carries
+      a word out of the site. It is derived from fields the entry already has,
+      reads open days only and adds no claim. It is a 1200 by 630 PNG of the
+      word, its reading, meaning, level, layer and headline, in the palette of
+      the season its day falls in. The page's Open Graph and Twitter tags point
+      at it, so a shared link unfolds into the card. It is drawn on the server
+      by satori and resvg (<code>shared/og-card.ts</code>,
+      <code>server/utils/og-image.ts</code>) and is served outside
+      <code>/api/</code> so that <code>robots.txt</code> does not stop a link
+      preview from fetching it. A future, malformed or unknown date is a
+      <code>404</code> rather than a <code>400</code>, so the image cannot be
+      used to learn a word early.
+    </p>
+    <p>
+      The card draws Japanese in Zen Old Mincho and Latin in Outfit, the site's
+      two faces, from subsets bundled in <code>server/assets/og/</code> (<code
+        >pnpm assets:og-font</code
+      >, see <NuxtLink to="/docs/authoring">Adding and fixing words</NuxtLink>).
+      Zen Old Mincho has no macron vowels, which Outfit supplies, and neither
+      has IPA symbols or a few rare kanji. A headline with a character neither
+      can draw is left off the card, never shown with empty boxes, and
+      <code>glyphs.json</code> lists what can be drawn so a test can say how
+      often that happens.
+    </p>
+
     <h2>The word pool</h2>
     <p>
       The pool is the community JLPT lists (one CSV per level, N5 to N2),

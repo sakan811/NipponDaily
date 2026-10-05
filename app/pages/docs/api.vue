@@ -29,7 +29,10 @@
       </table>
     </div>
     <p>
-      There is no request rate limiting on any endpoint. A day's words are
+      A successful answer is cached until midnight in Japan (<NuxtLink
+        to="/docs/architecture#caching"
+        >Caching</NuxtLink
+      >). There is no request rate limiting on any endpoint. A day's words are
       served only once it is open (<NuxtLink to="/docs/words"
         >Daily words</NuxtLink
       >); what each failure looks like on a page is in

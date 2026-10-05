@@ -47,7 +47,7 @@
     <h2>Layout</h2>
     <pre><code>app/        pages/, components/, composables/, utils/, data/, assets/css/tailwind.css
 shared/     code imported by both app/ and server/ (the ~~/shared alias); not auto-imported
-server/     api/ (handlers), routes/ (sitemap, robots), services/ (Redis), utils/
+server/     api/ (handlers), routes/ (sitemap, robots, share images), plugins/ (caching), services/ (Redis), utils/, assets/og/ (share-image fonts)
 scripts/    data builders run with node: reference snapshots, etymology pins, entry generator
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
@@ -143,6 +143,28 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
         >).
       </li>
     </ul>
+
+    <h2 id="caching">Caching</h2>
+    <p>
+      The site has no per-reader state, so every successful page and API answer
+      is the same for everyone until the next midnight in Japan, when the day's
+      word opens. <code>server/plugins/day-cache.ts</code> marks each successful
+      <code>GET</code> with <code>s-maxage</code> set to the seconds left until
+      then (<code>server/utils/day-cache.ts</code>), so a CDN serves it without
+      running the app and the copy expires at the moment a new word opens. It
+      sets no <code>stale-while-revalidate</code>, which would show yesterday's
+      word after the day had turned, and it never marks an error. The exceptions
+      are <code>/api/site-theme</code> (60 seconds, in
+      <code>nuxt.config.ts</code>), the cron, and the share image, which never
+      changes once its day has opened and keeps for a week. The season is
+      applied in the browser, never in the HTML, which is why a cached page is
+      safe.
+    </p>
+    <p>
+      This saves invocations, not computation: with every entry in memory a
+      patterns, parts or explore answer takes a few milliseconds, so no
+      in-process cache is kept.
+    </p>
 
     <h2>Conventions</h2>
     <ul>
@@ -303,6 +325,10 @@ const sharedModules = [
     file: "sitemap.ts",
     serverOnly: true,
     role: "`sitemapXml()` and `robotsTxt()`: open days only.",
+  },
+  {
+    file: "og-card.ts",
+    role: "`ogCard(entry)`: the share image of one word as a tree satori draws, in its day's season. Takes the entry as an argument, so it is data-free.",
   },
   {
     file: "catalogue.ts",
