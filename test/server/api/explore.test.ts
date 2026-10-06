@@ -64,7 +64,7 @@ describe("GET /api/explore", () => {
   it("400s a value that is not a level, layer or process", async () => {
     const handler = await getExplore();
     for (const query of [
-      { level: "N1" },
+      { level: "N6" },
       { stratum: "kun" },
       { process: "magic" },
       { q: "x".repeat(51) },
@@ -143,7 +143,7 @@ describe("GET /api/explore with several choices", () => {
   it("400s one bad value inside a list and a bad match", async () => {
     const handler = await getExplore();
     for (const query of [
-      { level: "N5,N1" },
+      { level: "N5,N6" },
       { pos: "verb,noun-ish" },
       { match: "some" },
     ]) {

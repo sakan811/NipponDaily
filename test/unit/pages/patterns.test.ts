@@ -54,6 +54,7 @@ describe("Patterns Page (/patterns)", () => {
       "/explore?level=N4",
       "/explore?level=N3",
       "/explore?level=N2",
+      "/explore?level=N1",
     ]);
     expect(hrefs("pattern-processes")).toContain("/explore?process=compound");
   });
