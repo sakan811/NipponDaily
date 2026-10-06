@@ -539,6 +539,185 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
     reason:
       "The list pairs 目下 read めした ('subordinate, inferior') with the meaning 'at present, now', which belongs to the reading もっか (JMdict 目下 もっか).",
   },
+  "給う たまう": {
+    meaning: "to give; to do ... (suffix)",
+    reason:
+      "The list gives 'to receive, to grant', which reverses the direction; 給う read たまう is 'to give' and, as a suffix, 'to do ...' (JMdict 1230220 給う/賜う).",
+  },
+  // N1 (elzup/jlpt-word-list's n1.csv): the same bundled-note and swapped
+  // term/kana rows N4 and N2 had, found by `pnpm data:reference:jlpt`.
+  "ございます (かん) ございます (かん)": {
+    term: "ございます",
+    kana: "ございます",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is ございます (JMdict 1612690 御座います).",
+  },
+  "こす (みずを～) こす (みずを～)": {
+    term: "濾す",
+    kana: "こす",
+    reason:
+      "The list bundles the usage hint 'みずを～' into the term and reading; 'to strain, to filter' is 濾す read こす (JMdict 1288330 漉す/濾す), not 越す.",
+  },
+  "こつ (をつかむ) こつ (をつかむ)": {
+    term: "こつ",
+    kana: "こつ",
+    reason:
+      "The list bundles the collocation 'をつかむ' into the term and reading; the word is こつ, 'knack, trick' (JMdict 1288540 骨 こつ/コツ).",
+  },
+  "ごらんなさい (かん) ごらんなさい (かん)": {
+    term: "ごらんなさい",
+    kana: "ごらんなさい",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is ごらんなさい (JMdict 1270770 ご覧なさい).",
+  },
+  "コンタクト (レンズ) コンタクト (レンズ)": {
+    term: "コンタクト",
+    kana: "コンタクト",
+    reason:
+      "The list bundles 'レンズ' into the term and reading; the word is コンタクト, 'contact; contact lens' (JMdict 1052410).",
+  },
+  "さきに (いぜん) さきに (いぜん)": {
+    term: "先に",
+    kana: "さきに",
+    reason:
+      "The list glues the synonym 'いぜん' into the term and reading; the adverb is 先に read さきに, 'previously, before, earlier' (JMdict 1387280).",
+  },
+  "摩する さする": {
+    term: "摩る",
+    kana: "さする",
+    reason:
+      "摩する is not a JMdict headword; 'to rub, to stroke' is 摩る read さする (JMdict 1523790 摩る/擦る).",
+  },
+  "さぞ (さぞや。さぞかし) さぞ (さぞや。さぞかし)": {
+    term: "さぞ",
+    kana: "さぞ",
+    reason:
+      "The list bundles the variants 'さぞや。さぞかし' into the term and reading; the word is さぞ (JMdict 1565620 嘸).",
+  },
+  "さらう (こどもを～) さらう (こどもを～)": {
+    term: "攫う",
+    kana: "さらう",
+    meaning: "to carry off, to kidnap",
+    reason:
+      "The list bundles the usage hint 'こどもを～' into the term and reading; 'to carry off, to run away with' is 攫う read さらう (JMdict 1593870 攫う/掠う/拐う), not 浚う (to dredge).",
+  },
+  "とげ (をさす) とげ (をさす)": {
+    term: "とげ",
+    kana: "とげ",
+    reason:
+      "The list bundles the collocation 'をさす' into the term and reading; the word is とげ, 'thorn' (JMdict 1598710 刺/棘).",
+  },
+  "副 とりわけ": {
+    term: "とりわけ",
+    kana: "とりわけ",
+    reason:
+      "副 is not a way to write とりわけ; the adverb is とりわけ, 'especially, above all' (JMdict 1599150 取り分け).",
+  },
+  "おおい (かん) おおい (かん)": {
+    term: "おおい",
+    kana: "おおい",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is おおい, 'hey!' (JMdict 1001200 おい/おおい).",
+  },
+  "おごる (ゆうしょくを～) おごる (ゆうしょくを～)": {
+    term: "奢る",
+    kana: "おごる",
+    reason:
+      "The list bundles the usage hint 'ゆうしょくを～' into the term and reading; the verb is 奢る read おごる, 'to give (someone) a treat' (JMdict 1565940).",
+  },
+  "かく (はじを) かく (はじを)": {
+    term: "恥をかく",
+    kana: "はじをかく",
+    meaning: "to be embarrassed, to lose face",
+    reason:
+      "The list bundles the collocation 'はじを' into the term and reading, and かく alone has 18 JMdict entries (掻く かく is already N3); the idiom is 恥をかく read はじをかく, 'to be embarrassed, to lose face' (JMdict 2088800).",
+  },
+  "兆 きざし": {
+    term: "兆し",
+    kana: "きざし",
+    reason:
+      "兆 read きざし is not a JMdict form; the noun is 兆し read きざし, 'signs, omen' (JMdict 1591160 兆し/萌し).",
+  },
+  "くじ (～をひく) くじ (～をひく)": {
+    term: "籤",
+    kana: "くじ",
+    reason:
+      "The list bundles the collocation '～をひく' into the term and reading; the noun is 籤 read くじ, 'lottery, lot' (JMdict 1570360).",
+  },
+  "あせる (こえが～) あせる (こえが～)": {
+    term: "褪せる",
+    kana: "あせる",
+    reason:
+      "The list bundles the usage hint 'こえが～' into the term and reading; 'to fade, to discolor' is 褪せる read あせる (JMdict 1572410), not 焦る (to be impatient).",
+  },
+  "～合せ ～あわせ": {
+    term: "合わせて",
+    kana: "あわせて",
+    meaning: "in all, in total",
+    reason:
+      "The list writes an affix-shaped term; 'in all' is 合わせて read あわせて, 'in all, in total, collectively' (JMdict 1506010).",
+  },
+  "(花を〜) 生ける, 活ける (はなを～) いける": {
+    term: "活ける",
+    kana: "いける",
+    reason:
+      "The list bundles the usage hint 'はなを～' and two spellings into the term and reading; the verb is 活ける read いける, 'to arrange (flowers)' (JMdict 1587190 生ける/活ける).",
+  },
+  "すくう (みずを～) すくう (みずを～)": {
+    term: "掬う",
+    kana: "すくう",
+    reason:
+      "The list bundles the usage hint 'みずを～' into the term and reading; 'to scoop' is 掬う read すくう (JMdict 1226200 掬う/抄う), not 救う (to rescue).",
+  },
+  "そり (～にのる) そり (～にのる)": {
+    term: "橇",
+    kana: "そり",
+    reason:
+      "The list bundles the collocation '～にのる' into the term and reading; 'sleigh, sled' is 橇 read そり (JMdict 1573500 橇/轌).",
+  },
+  "つじつま (はなしの～) つじつま (はなしの～)": {
+    term: "つじつま",
+    kana: "つじつま",
+    reason:
+      "The list bundles the usage hint 'はなしの～' into the term and reading; the word is つじつま (JMdict 1433730 辻褄).",
+  },
+  "つぶる (めを～) つぶる (めを～)": {
+    term: "瞑る",
+    kana: "つぶる",
+    reason:
+      "The list bundles the collocation 'めを～' into the term and reading; the verb is 瞑る read つぶる, 'to close (one's eyes)' (JMdict 1585820 瞑る/暝る).",
+  },
+  "～増し ～増し": {
+    term: "増し",
+    kana: "まし",
+    meaning: "increase, extra; better",
+    reason:
+      "The list writes an affix-shaped term; the word is 増し read まし, 'increase, extra; better' (JMdict 1611600 増し/マシ).",
+  },
+  "またがる (うまを～) またがる (うまを～)": {
+    term: "またがる",
+    kana: "またがる",
+    reason:
+      "The list bundles the usage hint 'うまを～' into the term and reading; the verb is またがる, 'to straddle' (JMdict 1603970 跨る/跨がる).",
+  },
+  "よし (かん) よし (かん)": {
+    term: "よし",
+    kana: "よし",
+    reason:
+      "The list appends its (かん) interjection tag to the term and reading; the word is よし, 'all right!' (JMdict 2607690 よし/よーし).",
+  },
+  "よって (よりどころ) よって (よりどころ)": {
+    term: "よって",
+    kana: "よって",
+    reason:
+      "The list glues the unrelated word 'よりどころ' into the term and reading; the conjunction is よって, 'therefore, consequently' (JMdict 1605970 因って).",
+  },
+  "ひび (かべの～) ひび (かべの～)": {
+    term: "罅",
+    kana: "ひび",
+    reason:
+      "The list bundles the usage hint 'かべの～' into the term and reading; 'crack, fissure' is 罅 read ひび (JMdict 1010590 罅/皹/皸), not 日々.",
+  },
 };
 
 /** A pool vocab entry with form corrections and meaning enrichments applied,

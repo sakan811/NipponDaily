@@ -3,7 +3,7 @@
  * Builds data/reference/{n4,n3,n2}-reference.json — the same kind of
  * committed, versioned dictionary-evidence snapshot as N5's
  * data/reference/n5-reference.json (see scripts/build-n5-reference.mjs and
- * /docs/authoring), for the N4/N3/N2 word lists.
+ * /docs/authoring), for the N4/N3/N2/N1 word lists.
  *
  * N4 now has hand-authored lesson content (app/data/vocab-guide-n4.ts,
  * app/data/lessons-n4.ts) and is gated by test/content/n4/ the same way N5
@@ -11,7 +11,7 @@
  * readings/words evidence (the latter built from every hand-written example
  * sentence/prose string under app/data, the same way
  * build-n5-reference.mjs's does for N5) is real, load-bearing CI evidence
- * for N4, not just a preview. N3/N2 remain evidence-only: real,
+ * for N4, not just a preview. N3/N2/N1 remain evidence-only: real,
  * checksum-verified JMdict/KANJIDIC2 data for every word and kanji, ready for
  * whoever authors that level's WORD_CLUSTERS next, but with no hand-written
  * content yet for test/content/ to check it against — running N4's own
@@ -49,7 +49,7 @@ import { servedVocab } from "../shared/meanings.ts";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const CACHE_DIR = join(ROOT, "node_modules/.cache/n5-reference");
-const LEVELS = ["N4", "N3", "N2"];
+const LEVELS = ["N4", "N3", "N2", "N1"];
 
 const KANJI_RE = /[㐀-䶿一-鿿々]/;
 const KANJI_RE_G = /[㐀-䶿一-鿿]/gu;
@@ -216,7 +216,7 @@ async function main() {
   // only ever kept at the lowest (easiest) level (see lib/word-list.mjs's
   // dedupeAcrossLevels). N5 itself is never gated by this file (see
   // build-n5-reference.mjs), but its word list still has to fill the
-  // registry first so N4/N3/N2 dedupe against it correctly.
+  // registry first so N4/N3/N2/N1 dedupe against it correctly.
   const seenByKey = new Map();
   dedupeAcrossLevels(await fetchWordList("N5"), "N5", seenByKey);
 

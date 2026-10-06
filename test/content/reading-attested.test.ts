@@ -6,7 +6,7 @@ import {
 } from "../../scripts/lib/authoring-evidence.mjs";
 
 /**
- * Every served word's reading — at every level, including N2, which has no
+ * Every served word's reading — at every level, including N1, which has no
  * hand-written content to gate yet — must be a reading JMdict actually gives
  * for the entries matched to that word. This is the one `pnpm data:audit`
  * check strict enough to gate: a word whose kana JMdict doesn't attest is a
@@ -15,7 +15,7 @@ import {
  * meaning checks stay a review queue rather than a gate because synonyms
  * ("café" / "coffee shop") legitimately fail them.
  */
-describe.each(["N5", "N4", "N3", "N2"])("%s readings", (level) => {
+describe.each(["N5", "N4", "N3", "N2", "N1"])("%s readings", (level) => {
   it("are all attested by JMdict", () => {
     const unattested = loadReference(level)
       .vocab.filter((v: RefVocab) => !readingIsAttested(v))

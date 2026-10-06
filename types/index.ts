@@ -9,7 +9,7 @@ export interface ApiResponse<T = unknown> {
 
 /** The JLPT levels the daily words are drawn from — see shared/jlpt.ts's
  *  JLPT_LEVELS for the runtime-checkable version of this same set. */
-export type JlptLevel = "N5" | "N4" | "N3" | "N2";
+export type JlptLevel = "N5" | "N4" | "N3" | "N2" | "N1";
 
 // --- DAILY WORD ---
 

@@ -1,6 +1,6 @@
 /**
  * Shared jamdict-data (JMdict + KANJIDIC2) access, extracted out of
- * scripts/build-n5-reference.mjs so scripts/build-jlpt-reference.mjs (N4-N2's
+ * scripts/build-n5-reference.mjs so scripts/build-jlpt-reference.mjs (N4-N1's
  * evidence snapshots) can reuse the exact same checksum-verified download and
  * SQLite query logic instead of duplicating it. build-n5-reference.mjs's own
  * behaviour/output is unchanged by this extraction — same source, same

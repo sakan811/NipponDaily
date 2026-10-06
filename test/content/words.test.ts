@@ -18,7 +18,7 @@ import { WIKTIONARY_DUMP } from "../../scripts/lib/wiktionary-dump.mjs";
 /**
  * The daily-word entries (data/words/*.json) checked against committed
  * evidence: dictionary facts against JMdict/KANJIDIC2
- * (data/reference/n{5,4,3,2}-reference.json) and origin claims against pinned
+ * (data/reference/n{5,4,3,2,1}-reference.json) and origin claims against pinned
  * Wiktionary text (data/reference/etymology/).
  *
  * Every field except the headline is generated from those sources

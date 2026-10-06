@@ -18,7 +18,7 @@ import { meaningWords } from "../../shared/meanings.ts";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 export const ROOT = resolve(__dirname, "..", "..");
 
-export const LEVELS = ["N5", "N4", "N3", "N2"];
+export const LEVELS = ["N5", "N4", "N3", "N2", "N1"];
 
 export function loadReference(level) {
   return JSON.parse(
