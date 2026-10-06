@@ -19,7 +19,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Every word has<br class="hidden sm:inline" />
+          Every word has<br class="hidden sm:inline" >
           <span class="text-primary-500 italic font-normal">a story.</span>
         </h1>
 
@@ -181,10 +181,11 @@
           quote isn't really in it. Readings, meanings and parts of speech come
           from JMdict, and kanji readings from KANJIDIC2. When the sources
           disagree — or nobody knows — the entry says so instead of picking a
-          winner. The words are chosen from the JLPT N5–N2 vocabulary. The
-          site's colors and shapes follow the seasons — spring, summer, autumn
-          and winter — and the season button in the header lets you pick your
-          own. Nothing about you is sent or saved on a server.
+          winner. The words are chosen from the JLPT N5–N1 vocabulary, and only
+          from words whose Wiktionary page has an Etymology section. The site's
+          colors and shapes follow the seasons — spring, summer, autumn and
+          winter — and the season button in the header lets you pick your own.
+          Nothing about you is sent or saved on a server.
         </p>
       </section>
 
