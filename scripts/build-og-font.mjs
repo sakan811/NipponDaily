@@ -1,7 +1,7 @@
 /**
  * Builds the fonts the share images are drawn with (`pnpm assets:og-font`):
  * Zen Old Mincho Bold for Japanese, cut down to the characters a card can show
- * (the full font is 5 MB; the subset is under 1 MB, so it can live in the repo
+ * (the full font is 5 MB; the subset is about 1 MB, so it can live in the repo
  * and ship with the server), and Outfit Bold for Latin text, which Zen Old
  * Mincho lacks the macron vowels of (ō, ū). Both are the site's own faces.
  *
