@@ -87,6 +87,30 @@ import september2027 from "~~/data/words/2027-09.json";
 import october2027 from "~~/data/words/2027-10.json";
 import november2027 from "~~/data/words/2027-11.json";
 import december2027 from "~~/data/words/2027-12.json";
+import january2028 from "~~/data/words/2028-01.json";
+import february2028 from "~~/data/words/2028-02.json";
+import march2028 from "~~/data/words/2028-03.json";
+import april2028 from "~~/data/words/2028-04.json";
+import may2028 from "~~/data/words/2028-05.json";
+import june2028 from "~~/data/words/2028-06.json";
+import july2028 from "~~/data/words/2028-07.json";
+import august2028 from "~~/data/words/2028-08.json";
+import september2028 from "~~/data/words/2028-09.json";
+import october2028 from "~~/data/words/2028-10.json";
+import november2028 from "~~/data/words/2028-11.json";
+import december2028 from "~~/data/words/2028-12.json";
+import january2029 from "~~/data/words/2029-01.json";
+import february2029 from "~~/data/words/2029-02.json";
+import march2029 from "~~/data/words/2029-03.json";
+import april2029 from "~~/data/words/2029-04.json";
+import may2029 from "~~/data/words/2029-05.json";
+import june2029 from "~~/data/words/2029-06.json";
+import july2029 from "~~/data/words/2029-07.json";
+import august2029 from "~~/data/words/2029-08.json";
+import september2029 from "~~/data/words/2029-09.json";
+import october2029 from "~~/data/words/2029-10.json";
+import november2029 from "~~/data/words/2029-11.json";
+import december2029 from "~~/data/words/2029-12.json";
 
 /** Every month's entries, oldest first. */
 const MONTHS: WordEntry[][] = [
@@ -162,6 +186,30 @@ const MONTHS: WordEntry[][] = [
   october2027 as WordEntry[],
   november2027 as WordEntry[],
   december2027 as WordEntry[],
+  january2028 as WordEntry[],
+  february2028 as WordEntry[],
+  march2028 as WordEntry[],
+  april2028 as WordEntry[],
+  may2028 as WordEntry[],
+  june2028 as WordEntry[],
+  july2028 as WordEntry[],
+  august2028 as WordEntry[],
+  september2028 as WordEntry[],
+  october2028 as WordEntry[],
+  november2028 as WordEntry[],
+  december2028 as WordEntry[],
+  january2029 as WordEntry[],
+  february2029 as WordEntry[],
+  march2029 as WordEntry[],
+  april2029 as WordEntry[],
+  may2029 as WordEntry[],
+  june2029 as WordEntry[],
+  july2029 as WordEntry[],
+  august2029 as WordEntry[],
+  september2029 as WordEntry[],
+  october2029 as WordEntry[],
+  november2029 as WordEntry[],
+  december2029 as WordEntry[],
 ];
 
 export const WORD_ENTRIES: readonly WordEntry[] = MONTHS.flat().sort((a, b) =>
