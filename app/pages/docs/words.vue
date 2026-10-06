@@ -134,7 +134,7 @@
       recorded <code>base</code> differs from its <code>reading</code>, classed
       from the two spellings as a voiced first kana (ひ → び; ち → じ and つ →
       ず count, being the merged voiced sounds), a reading ending in っ, or
-      other. The page says the counts describe these entries (a JLPT N5–N2
+      other. The page says the counts describe these entries (a JLPT N5–N1
       sample, parser-derived tags), not the language.
     </p>
 
@@ -178,10 +178,11 @@
 
     <h2>The word pool</h2>
     <p>
-      The pool is the community JLPT lists (one CSV per level, N5 to N2),
+      The pool is the community JLPT lists (one CSV per level, N5 to N1),
       cross-referenced against JMdict and KANJIDIC2. It exists only as the
-      committed <code>data/reference/n{5,4,3,2}-reference.json</code> snapshots;
-      there is no Redis pool. <code>scripts/lib/word-list.mjs</code> holds the
+      committed
+      <code>data/reference/n{5,4,3,2,1}-reference.json</code> snapshots; there
+      is no Redis pool. <code>scripts/lib/word-list.mjs</code> holds the
       parsing, the reading and meaning overrides and the gloss cross-check.
     </p>
     <p>
@@ -190,6 +191,12 @@
       spelling with a <em>different</em> reading (開く あく and ひらく) is a
       different word. An entry's <code>term</code>, <code>kana</code>,
       <code>level</code> and <code>meaning</code> must equal a pool word.
+    </p>
+    <p>
+      The pool is larger than the catalogue. A pool word becomes a daily word
+      only if the pinned dump has an Etymology section for its own reading,
+      because every claim is quoted from one. Most pool words have none, so the
+      catalogue holds only the ones that do.
     </p>
   </DocsBook>
 </template>

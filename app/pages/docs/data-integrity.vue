@@ -20,7 +20,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>JLPT vocabulary (N5–N2)</td>
+            <td>JLPT vocabulary (N5–N1)</td>
             <td>
               <a
                 :href="SOURCES['jlpt-word-list'].url"
@@ -32,7 +32,7 @@
               from a checksum-verified <code>jamdict-data</code>
               release
             </td>
-            <td><code>data/reference/n{5,4,3,2}-reference.json</code></td>
+            <td><code>data/reference/n{5,4,3,2,1}-reference.json</code></td>
           </tr>
           <tr>
             <td>Origins</td>
@@ -68,6 +68,8 @@
       upstream data for the same level. The Wiktionary dump's date and checksum
       are pinned in <code>scripts/lib/wiktionary-dump.mjs</code>; the dump
       itself is too large to commit, so only the sections the entries quote are.
+      A pool word with no Etymology section for its reading cannot become an
+      entry (<NuxtLink to="/docs/words">Daily words</NuxtLink>).
     </p>
 
     <h2>How an entry is built</h2>
@@ -222,7 +224,7 @@
       <li>
         <strong>Every word-list word, at every level</strong>
         (<code>vocabulary.test.ts</code> in <code>test/content/</code> and
-        <code>test/content/{n4,n3,n2}/</code>): it is in JMdict with that
+        <code>test/content/{n4,n3,n2,n1}/</code>): it is in JMdict with that
         reading, has no meaning that reverses JMdict's, has its reading attested
         (<code>reading-attested.test.ts</code>), and every enrichment in
         <code>shared/meanings.ts</code> is backed by JMdict. A staleness check

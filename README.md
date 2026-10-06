@@ -12,7 +12,7 @@
 
 ## Features
 
-One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · origin claims quoted from a pinned Wiktionary revision and checked in CI · four seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT N5–N2 vocabulary; only each headline is hand-written.
+One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · origin claims quoted from a pinned Wiktionary dump and checked in CI · four seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT N5–N1 vocabulary, and only from words whose Wiktionary page has an Etymology section; only each headline is hand-written.
 
 ## Quick start
 

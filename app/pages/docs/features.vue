@@ -28,7 +28,7 @@ const { catalogue } = useCatalogue();
 
 const wordsFeature = computed(() => {
   const base =
-    "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT N5–N2 vocabulary.";
+    "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT N5–N1 vocabulary, and only words with a Wiktionary Etymology section.";
   const c = catalogue.value;
   return c
     ? `${base} ${c.total} words are written, ${rangeMonthsText(c)}, and ${c.open} have opened so far.`
