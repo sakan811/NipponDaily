@@ -74,7 +74,8 @@ const TANOS = {
   url: "https://www.tanos.co.uk/jlpt/",
 } as const;
 const WANAKANA_URL = "https://github.com/WaniKani/WanaKana";
-const ZEN_OLD_MINCHO_URL = "https://github.com/google/fonts/tree/main/ofl/zenoldmincho";
+const ZEN_OLD_MINCHO_URL =
+  "https://github.com/google/fonts/tree/main/ofl/zenoldmincho";
 const OUTFIT_URL = "https://github.com/google/fonts/tree/main/ofl/outfit";
 const EDRDG_NAME = "Electronic Dictionary Research and Development Group";
 
@@ -108,7 +109,7 @@ export const SOURCES = {
     url: WORD_LIST_URL,
     licence: LICENCES.mit,
     origin: { ...TANOS, licence: LICENCES.ccBy },
-    use: "The JLPT N5–N2 vocabulary the daily words are drawn from",
+    use: "The JLPT N5–N1 vocabulary the daily words are drawn from",
     credit: `The word lists come from the community list originally compiled at ${link(TANOS.name, TANOS.url)} (${LICENCES.ccBy.name}; credit required), via ${link("elzup/jlpt-word-list", WORD_LIST_URL)} (${LICENCES.mit.name}).`,
   },
   wanakana: {

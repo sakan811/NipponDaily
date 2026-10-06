@@ -2,10 +2,10 @@
  * The single pin for elzup/jlpt-word-list's per-level CSVs, shared by
  * scripts/build-n5-reference.mjs (N5's committed dictionary-evidence
  * snapshot, checked in test/content/) and scripts/build-jlpt-reference.mjs
- * (N4-N2's evidence snapshots). Importing the same pin from both means they
+ * (N4-N1's evidence snapshots). Importing the same pin from both means they
  * always read the exact same bytes.
  *
- * One repo, one commit, four files — n3.csv and n2.csv don't carry a
+ * One repo, one commit, five files — n3.csv, n2.csv and n1.csv don't carry a
  * reliable per-row "JLPT_N3"/"JLPT_N2" tag the way n5.csv/n4.csv do (they
  * use old pre-2010 level tags instead, inconsistently), so every level here
  * is identified by which file it came from, not by a tag inside it — see
@@ -16,6 +16,11 @@
  * diffs.
  */
 export const WORD_LIST_SOURCES = {
+  N1: {
+    repo: "elzup/jlpt-word-list",
+    commit: "13aa3c54b27115be72d8a62cd4071077c68d2171",
+    path: "src/n1.csv",
+  },
   N5: {
     repo: "elzup/jlpt-word-list",
     commit: "13aa3c54b27115be72d8a62cd4071077c68d2171",

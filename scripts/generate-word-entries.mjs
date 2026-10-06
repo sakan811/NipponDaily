@@ -24,7 +24,7 @@ const args = process.argv.slice(2);
 export function loadContext(root = ROOT) {
   const vocab = [];
   const kanji = {};
-  for (const level of ["N5", "N4", "N3", "N2"]) {
+  for (const level of ["N5", "N4", "N3", "N2", "N1"]) {
     const ref = JSON.parse(
       readFileSync(
         join(root, `data/reference/${level.toLowerCase()}-reference.json`),

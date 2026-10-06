@@ -3,7 +3,7 @@ import { buildLevelReference } from "../../../scripts/build-jlpt-reference.mjs";
 
 /**
  * buildLevelReference is the per-level assembly step behind
- * `pnpm data:reference:jlpt` (N4/N3/N2's evidence snapshots, kept separate
+ * `pnpm data:reference:jlpt` (N4/N3/N2/N1's evidence snapshots, kept separate
  * from N5's gated data/reference/n5-reference.json — see this script's own
  * header comment for why). Exercised here against a stub dictionary so the
  * shape/diagnostics are covered without a real jamdict-data download.
