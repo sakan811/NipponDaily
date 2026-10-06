@@ -1,4 +1,11 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
+import { WORD_ENTRIES } from "~~/shared/words";
+
+const LAST = WORD_ENTRIES[WORD_ENTRIES.length - 1]!;
+
+/** `n` days after (or before) a YYYY-MM-DD date. */
+const addDays = (date: string, n: number) =>
+  new Date(Date.parse(date) + n * 86_400_000).toISOString().slice(0, 10);
 
 const getRelated = async () =>
   (await import("~/server/api/related.get")).default;
@@ -54,8 +61,8 @@ describe("GET /api/related", () => {
   });
 
   it("is a 404 for a past date the catalogue does not cover", async () => {
-    at("2030-01-01T12:00:00Z");
-    query({ date: "2029-01-01" });
+    at(`${addDays(LAST.date, 10)}T12:00:00Z`);
+    query({ date: addDays(LAST.date, 1) });
     const handler = await getRelated();
 
     expect(thrownBy(() => handler({} as any))?.statusCode).toBe(404);
