@@ -64,8 +64,10 @@
     <ol>
       <li>
         <strong>Choose the words</strong> (a person or a model may do this).
-        They must be pool words (N5–N2). Prefer words whose Wiktionary page has
-        an Etymology section; the generator will tell you if one doesn't.
+        They must be pool words (N5–N1). Prefer words whose Wiktionary page has
+        an Etymology section; the generator will tell you if one doesn't. Every
+        pool word the pinned dump can back is already planned, so a further
+        month needs a newer dump or a corrected pool.
       </li>
       <li>
         <strong>Write the plan</strong>
@@ -148,7 +150,7 @@
       </li>
       <li>
         Rebuild: <code>pnpm data:reference</code> (N5) or
-        <code>pnpm data:reference:jlpt</code> (N4–N2), then
+        <code>pnpm data:reference:jlpt</code> (N4–N1), then
         <code>pnpm data:words</code>, and commit the diffs.
       </li>
     </ol>
@@ -210,7 +212,7 @@ import { SOURCES } from "~~/shared/sources";
 
 const pieces = [
   {
-    path: "data/reference/n{5,4,3,2}-reference.json",
+    path: "data/reference/n{5,4,3,2,1}-reference.json",
     what: "JMdict and KANJIDIC2 snapshots of every pool word. Generated.",
   },
   {
@@ -238,7 +240,7 @@ const commands = [
   },
   {
     cmd: "pnpm data:reference:jlpt",
-    does: "Rebuilds the N4, N3 and N2 files, reusing the N5 builder's helpers.",
+    does: "Rebuilds the N4, N3, N2 and N1 files, reusing the N5 builder's helpers.",
   },
   {
     cmd: "pnpm data:etymology",

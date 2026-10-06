@@ -61,7 +61,7 @@
       </li>
       <li>
         <strong>The counts describe these entries.</strong> They are a JLPT
-        N5–N2 sample with parser-derived tags, not the language. Coverage of
+        N5–N1 sample with parser-derived tags, not the language. Coverage of
         parts is bounded by the parsers.
       </li>
       <li>
@@ -70,17 +70,17 @@
         length of a lap is the number of words written.
       </li>
       <li>
-        <strong>The words are nearly used up.</strong> Most pool words have no
-        usable Etymology section in the dump, so the pool is far larger than the
-        supply of words that can be built from it. Filling every day up to the
-        end of the catalogue used almost all of them, and the catalogue starts a
-        new lap when it runs out. More words need a larger pool or another
-        source of origins.
+        <strong>The words are used up.</strong> A word needs an Etymology
+        section for its reading in the pinned dump, and most pool words have
+        none, so the pool is far larger than the supply. Every word that can be
+        built is in the catalogue, which starts a new lap when it runs out. More
+        words need a newer dump or another source of origins.
       </li>
       <li>
-        <strong>Loanwords are a large share of 2025.</strong> The words left to
-        use were mostly katakana loanwords with a one-line origin, so Patterns,
-        which counts these entries, shows them more than the language would.
+        <strong>Some years are lopsided.</strong> Katakana loanwords with a
+        one-line origin are over half of 2025, and 2028 and 2029 are almost all
+        N1, so Patterns, which counts these entries, shows more of each than the
+        language would.
       </li>
       <li>
         <strong>The share image can omit a headline.</strong> The two faces it
