@@ -15,6 +15,12 @@ const thrownBy = (fn: () => unknown): unknown => {
 
 const at = (isoUtc: string) => vi.setSystemTime(new Date(isoUtc));
 
+const LAST = WORD_ENTRIES[WORD_ENTRIES.length - 1]!;
+
+/** `n` days after (or before) a YYYY-MM-DD date. */
+const addDays = (date: string, n: number) =>
+  new Date(Date.parse(date) + n * 86_400_000).toISOString().slice(0, 10);
+
 describe("GET /api/word-calendar", () => {
   beforeEach(() => {
     vi.useFakeTimers();
@@ -68,12 +74,12 @@ describe("GET /api/word-calendar", () => {
   });
 
   it("falls back to the newest month when the current one has no words", async () => {
-    at("2028-03-10T12:00:00Z");
+    at(`${addDays(LAST.date, 70)}T12:00:00Z`);
     const handler = await getHandler();
     const { data } = handler({} as any);
 
-    expect(data.month).toBe("2027-12");
-    expect(data.days).toHaveLength(31);
+    expect(data.month).toBe(LAST.date.slice(0, 7));
+    expect(data.days).toHaveLength(Number(LAST.date.slice(8)));
     expect(data.days.every((d: any) => d.status === "open")).toBe(true);
   });
 

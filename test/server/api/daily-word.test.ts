@@ -5,6 +5,10 @@ import { WORD_ENTRIES } from "~~/shared/words";
 const FIRST = WORD_ENTRIES[0]!;
 const LAST = WORD_ENTRIES[WORD_ENTRIES.length - 1]!;
 
+/** `n` days after (or before) a YYYY-MM-DD date. */
+const addDays = (date: string, n: number) =>
+  new Date(Date.parse(date) + n * 86_400_000).toISOString().slice(0, 10);
+
 const getHandler = async () =>
   (await import("~/server/api/daily-word.get")).default;
 
@@ -145,7 +149,7 @@ describe("GET /api/daily-word", () => {
   it("starts again from the first word once the catalogue has run out", async () => {
     const handler = await getHandler();
 
-    at("2028-01-01T12:00:00Z");
+    at(`${addDays(LAST.date, 1)}T12:00:00Z`);
     expect(handler({} as any).data).toMatchObject({
       entry: { date: FIRST.date },
       lap: 2,
@@ -153,7 +157,7 @@ describe("GET /api/daily-word", () => {
     });
 
     // 70 days after the last word: the 70th word, still on lap 2.
-    at("2028-03-10T12:00:00Z");
+    at(`${addDays(LAST.date, 70)}T12:00:00Z`);
     expect(handler({} as any).data).toMatchObject({
       entry: { date: WORD_ENTRIES[69]!.date },
       lap: 2,
@@ -161,7 +165,7 @@ describe("GET /api/daily-word", () => {
   });
 
   it("answers an explicit date from lap 1 only", async () => {
-    at("2028-03-10T12:00:00Z");
+    at(`${addDays(LAST.date, 70)}T12:00:00Z`);
     (global as any).getQuery.mockReturnValue({ date: "2026-05-11" });
     const handler = await getHandler();
     expect(handler({} as any).data.lap).toBe(1);
