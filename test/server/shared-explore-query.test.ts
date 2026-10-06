@@ -18,7 +18,7 @@ describe("filtersFromQuery", () => {
   it("reads lists and drops values the API would refuse", () => {
     expect(
       filtersFromQuery({
-        level: "N5,N1,N4",
+        level: "N5,N6,N4",
         stratum: "wago,bogus,unstated",
         process: ["rendaku", "compound"],
         pos: "verb,bogus",
@@ -39,7 +39,7 @@ describe("filtersFromQuery", () => {
 
   it("returns nothing for an empty or unknown query", () => {
     expect(filtersFromQuery({})).toEqual({});
-    expect(filtersFromQuery({ level: "N1", match: "some", q: "" })).toEqual({});
+    expect(filtersFromQuery({ level: "N6", match: "some", q: "" })).toEqual({});
   });
 });
 
