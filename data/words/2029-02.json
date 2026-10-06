@@ -1,0 +1,739 @@
+[
+  {
+    "date": "2029-02-01",
+    "term": "極めて",
+    "kana": "きわめて",
+    "meaning": "exceedingly, extremely (written expression)",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Kiwamete is from 極める (kiwameru).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From 極(きわ)める (kiwameru)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-02",
+    "term": "阻止",
+    "kana": "そし",
+    "meaning": "obstruction, check, hindrance",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Soshi is ultimately from Middle Chinese 阻止 and is first attested in 1827.",
+    "morphemes": [
+      {
+        "text": "阻",
+        "reading": "そ",
+        "meaning": "thwart",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "止",
+        "reading": "し",
+        "meaning": "stop",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Ultimately from Middle Chinese 阻止 (MC tsrjoX|tsrjoH tsyiX). First attested in 1827."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-03",
+    "term": "賄う",
+    "kana": "まかなう",
+    "meaning": "to give board to, to provide meals, to pay",
+    "level": "N1",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Makanau is from Old Japanese, attested in the Kojiki (712) with the spelling 麻迦那波而.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese; attested in the Kojiki (712) with the spelling 麻迦那波而."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-04",
+    "term": "アマチュア",
+    "kana": "アマチュア",
+    "meaning": "amateur",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "アマチュア is from English amateur.",
+    "morphemes": [
+      {
+        "text": "アマチュア",
+        "reading": "アマチュア",
+        "meaning": "English amateur"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English amateur."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-05",
+    "term": "健全",
+    "kana": "けんぜん",
+    "meaning": "health, soundness, wholesome",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "gairaigo",
+    "processes": ["compound", "borrowing"],
+    "headline": "Kenzen was first used by Sugita Gendan to translate Dutch gezond, in the 1867 book 健全学.",
+    "morphemes": [
+      {
+        "text": "健",
+        "reading": "けん",
+        "meaning": "health",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "全",
+        "reading": "ぜん",
+        "meaning": "whole",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "First used by Gendan Sugita (杉田玄端) for the translation of Dutch gezond. Appeared in the book 健全学 (1867) which is a doubly translated version of The Book of Health (1850) by Robert James Mann from Dutch translation."
+      },
+      {
+        "quote": "* 『ゲゾント』とは無病健全の義 - 健全学 (1867)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-06",
+    "term": "反乱",
+    "kana": "はんらん",
+    "meaning": "rebellion, revolt, uprising",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "In hanran, 反 is a daiyōji replacing 叛.",
+    "morphemes": [
+      {
+        "text": "反",
+        "reading": "はん",
+        "meaning": "anti-",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "乱",
+        "reading": "らん",
+        "meaning": "riot",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "反 is a daiyōji replacing 叛."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-07",
+    "term": "流し",
+    "kana": "ながし",
+    "meaning": "sink",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Nagashi is the continuative stem of the verb 流す (nagasu).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 流(なが)す (nagasu)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-08",
+    "term": "ユニフォーム",
+    "kana": "ユニフォーム",
+    "meaning": "uniform",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ユニフォーム is borrowed from English uniform.",
+    "morphemes": [
+      {
+        "text": "ユニフォーム",
+        "reading": "ユニフォーム",
+        "meaning": "English uniform"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English uniform."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-09",
+    "term": "奢る",
+    "kana": "おごる",
+    "meaning": "to give (someone) a treat",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Ogoru, “to give (someone) a treat”, is a doublet of 驕る (ogoru, “to be arrogant”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Doublet of 驕(おご)る (ogoru, “to be arrogant”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-10",
+    "term": "セクション",
+    "kana": "セクション",
+    "meaning": "section",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "セクション is from English section.",
+    "morphemes": [
+      {
+        "text": "セクション",
+        "reading": "セクション",
+        "meaning": "English section"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English section."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-11",
+    "term": "カクテル",
+    "kana": "カクテル",
+    "meaning": "cocktail",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "カクテル is borrowed from English cocktail.",
+    "morphemes": [
+      {
+        "text": "カクテル",
+        "reading": "カクテル",
+        "meaning": "English cocktail"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English cocktail."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-12",
+    "term": "企画",
+    "kana": "きかく",
+    "meaning": "planning, project",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "In kikaku, 画 is a daiyōji replacing 劃.",
+    "morphemes": [
+      {
+        "text": "企",
+        "reading": "き",
+        "meaning": "undertake",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "画",
+        "reading": "かく",
+        "meaning": "brush-stroke",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "画 is a daiyōji replacing 劃."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-13",
+    "term": "茶の間",
+    "kana": "ちゃのま",
+    "meaning": "living room (Japanese style)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": [],
+    "headline": "Chanoma is 茶 (cha, “tea”) plus 間 (ma, “space”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From 茶 (cha, “tea”) + 間 (ma, “space”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-14",
+    "term": "家計",
+    "kana": "かけい",
+    "meaning": "household economy, family finances",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Kakei is 家 plus 計.",
+    "morphemes": [
+      {
+        "text": "家",
+        "reading": "か",
+        "meaning": "family",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "計",
+        "reading": "けい",
+        "meaning": "plot",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "家 + 計"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-15",
+    "term": "日本",
+    "kana": "にっぽん",
+    "meaning": "Japan",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "processes": ["sound-change"],
+    "headline": "Nippon is a phonetic variant of Nihon that keeps the p sound.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/nitɨpoɴ/ → /nip̚poɴ/"
+      },
+      {
+        "quote": "Phonetic variant of Nihon above, maintaining the /p/ sound."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-16",
+    "term": "仕える",
+    "kana": "つかえる",
+    "meaning": "to serve, to work for",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Tsukaeru is from Old Japanese, appears in the Man'yōshū of 759, and is cognate with 使う (tsukau, “to use”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/tukapu/ → /t͡sukafu/ → /t͡sukafuru/ → /t͡sukaferu/ → /t͡sukaeru/"
+      },
+      {
+        "quote": "From Old Japanese. Appears in the Man'yōshū of 759."
+      },
+      {
+        "quote": "Cognate with 使う (tsukau, ancient tsukapu; “to use”), and derived via regular historical processes from the 下二段活用 (shimo nidan katsuyō, “lower bigrade conjgation”) verb paradigm from this same root form."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+      },
+      {
+        "quote": "While the 四段活用 (yodan katsuyō, “quadrigrade conjugation”) pattern for tsukau was used to refer to the action of a superior to a subordinate, the shimo nidan conjugation pattern was used to refer to the action of a subordinate to a superior."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-17",
+    "term": "裸足",
+    "kana": "はだし",
+    "meaning": "barefoot",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "processes": ["compound", "sound-change"],
+    "headline": "Hadashi was originally 肌 (hada, “skin”) plus 足 (ashi, “foot”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/fada aɕi/ → /fadaɕi/ → /hadaɕi/"
+      },
+      {
+        "quote": "Originally a compound of 肌 (hada, “skin”) + 足 (ashi, “foot”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-18",
+    "term": "センス",
+    "kana": "センス",
+    "meaning": "sense (for music, style, tact, etc.)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "センス is from English sense.",
+    "morphemes": [
+      {
+        "text": "センス",
+        "reading": "センス",
+        "meaning": "English sense"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English sense."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-19",
+    "term": "繁殖",
+    "kana": "はんしょく",
+    "meaning": "breed, multiply, propagation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "In hanshoku, 繁 is a daiyōji replacing 蕃.",
+    "morphemes": [
+      {
+        "text": "繁",
+        "reading": "はん",
+        "meaning": "luxuriant",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "殖",
+        "reading": "しょく",
+        "meaning": "multiply",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "繁 is a daiyōji replacing 蕃."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-20",
+    "term": "従業員",
+    "kana": "じゅうぎょういん",
+    "meaning": "employee, worker",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Jūgyōin is 従業 (jūgyō, “employment”) plus 員 (-in, “member”).",
+    "morphemes": [
+      {
+        "text": "従業",
+        "reading": "じゅうぎょう",
+        "meaning": "employment"
+      },
+      {
+        "text": "員",
+        "reading": "いん",
+        "meaning": "member"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "従業(じゅうぎょう) (jūgyō, “employment”) + 員(いん) (-in, “member”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-21",
+    "term": "情熱",
+    "kana": "じょうねつ",
+    "meaning": "passion, enthusiasm, zeal",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Jōnetsu was coined by the poet Kitamura Tōkoku in 1893 as a translation of English passion.",
+    "morphemes": [
+      {
+        "text": "情",
+        "reading": "じょう",
+        "meaning": "passion",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "熱",
+        "reading": "ねつ",
+        "meaning": "passion",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Coined by Japanese poet and essayist Kitamura Tōkoku in 1893 in his work 情熱 (Jōnetsu) as a translation of English passion."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-22",
+    "term": "コーナー",
+    "kana": "コーナー",
+    "meaning": "corner",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "コーナー is from English corner.",
+    "morphemes": [
+      {
+        "text": "コーナー",
+        "reading": "コーナー",
+        "meaning": "English corner"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English corner."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-23",
+    "term": "隔たる",
+    "kana": "へだたる",
+    "meaning": "to be distant",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "stratum": "wago",
+    "processes": ["compound", "rendaku"],
+    "headline": "Hedataru is from Old Japanese, derived from へだつ (hedatsu), 部 (he, “separate”) plus 立つ (tatsu, “to set up”), with tatsu voiced to datsu by rendaku.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. Derived from へだつ (hedatsu), a compound of 部(へ) (he, “separate”) + 立(た)つ (tatsu, “to set up”), where the tatsu changes to datsu as an instance of rendaku (連濁)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-24",
+    "term": "人民",
+    "kana": "じんみん",
+    "meaning": "people, public",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Jinmin is from the Middle Chinese compound 人民, formerly read ninmin in the goon reading and later jinmin in a mixed reading.",
+    "morphemes": [
+      {
+        "text": "人",
+        "reading": "じん",
+        "meaning": "person",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "民",
+        "reading": "みん",
+        "meaning": "people",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese compound 人民 (MC nyin mjin). Compare modern Mandarin 人民 (rénmín), Wu 人民 (⁶zen-min₆), Min Nan 人民 (jîn-bîn)."
+      },
+      {
+        "quote": "Formerly pronounced with a consistent 呉音 (goon) reading of ninmin, later changing to a mixed 漢音 (kan'on) / 呉音 (goon) reading of jinmin."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-25",
+    "term": "雌",
+    "kana": "めす",
+    "meaning": "female (animal)",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "wago",
+    "processes": ["derivation", "unclear"],
+    "headline": "Mesu is first cited to 1867, and its final -su is of uncertain derivation.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "First cited to 1867."
+      },
+      {
+        "quote": "The initial me- is the same me component seen in many terms referring to senses of \"female\". The final -su portion is of uncertain derivation."
+      },
+      {
+        "quote": "The kanji as used originally in Chinese and in older Japanese with the on'yomi of shi referred more specifically to female birds. If the term mesu is much older than the 1800s, the final -su portion may be the ancient morpheme that appears in various names for types of bird, such as 烏 (karasu, “crow”) or 鶯 (uguisu, “bush warbler”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-26",
+    "term": "繕う",
+    "kana": "つくろう",
+    "meaning": "to mend, to repair",
+    "level": "N1",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["sound-change", "unclear"],
+    "headline": "Tsukurou is likely first attested in the Ruiju Myōgishō, from 作ら (tsukura), the irrealis of 作る (tsukuru, “to make”), plus ふ (fu).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/tukura pu/ → /t͡sukurəfu/ → /t͡sukurofu/ → /t͡sukurou/"
+      },
+      {
+        "quote": "Likely first attested in the Ruiju Myōgishō (c. 12th century)."
+      },
+      {
+        "quote": "Derived from 作ら (tsukura), the 未然形 (mizenkei, “incomplete or irrealis form”) of verb 作る (tsukuru, “to make”) + ふ (fu, auxiliary verb representing ongoing or repetitive action). The medial /-ra-/ changed early on to /-ro-/."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-27",
+    "term": "極楽",
+    "kana": "ごくらく",
+    "meaning": "paradise",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Gokuraku is from Middle Chinese 極樂 (MC gik lak), itself a translation of a Sanskrit word.",
+    "morphemes": [
+      {
+        "text": "極",
+        "reading": "ごく",
+        "meaning": "poles",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "楽",
+        "reading": "らく",
+        "meaning": "music",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 極樂 (MC gik lak), itself a translation of Sanskrit सुखावती (sukhāvatī), the feminine form of सुखवत् (sukhavat, literally “full of joy”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2029-02-28",
+    "term": "ドア",
+    "kana": "ドア",
+    "meaning": "door (Western style)",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ドア is borrowed from English door.",
+    "morphemes": [
+      {
+        "text": "ドア",
+        "reading": "ドア",
+        "meaning": "English door"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English door."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]

@@ -1,0 +1,816 @@
+[
+  {
+    "date": "2028-08-01",
+    "term": "ボルト",
+    "kana": "ボルト",
+    "meaning": "volt; bolt",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ボルト covers “volt” and “bolt”, and the source borrows both from English.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Borrowed from English bolt."
+      },
+      {
+        "quote": "Borrowed from English volt."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-02",
+    "term": "名札",
+    "kana": "なふだ",
+    "meaning": "name plate, name tag",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Nafuda is 名 (na, “name”) plus 札 (fuda, “card, tag”).",
+    "morphemes": [
+      {
+        "text": "名",
+        "reading": "な",
+        "meaning": "name"
+      },
+      {
+        "text": "札",
+        "reading": "ふだ",
+        "meaning": "card, tag"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 名(な) (na, “name”) + 札(ふだ) (fuda, “card, tag”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-03",
+    "term": "ハンガー",
+    "kana": "ハンガー",
+    "meaning": "(coat) hanger",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ハンガー is borrowed from English hanger.",
+    "morphemes": [
+      {
+        "text": "ハンガー",
+        "reading": "ハンガー",
+        "meaning": "English hanger"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English hanger."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-04",
+    "term": "脈",
+    "kana": "みゃく",
+    "meaning": "pulse",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Myaku, “pulse”, is from Middle Chinese 脈 (MC meak).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 脈 (MC meak)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-05",
+    "term": "良し",
+    "kana": "よし",
+    "meaning": "all right!",
+    "level": "N1",
+    "pos": ["'ku' adjective (archaic)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Yoshi is the conclusive form of Classical Japanese adjective 良し (yoshi), modern 良い (yoi).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Japanese phrasebook"
+      },
+      {
+        "quote": "This entry is part of the phrasebook project, which presents criteria for inclusion based on utility, simplicity and commonness."
+      },
+      {
+        "quote": "The 終止形(しゅうしけい) (shūshikei, “terminal form”) of Classical Japanese adjective 良(よ)し (yoshi), modern form 良(よ)い (yoi)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-06",
+    "term": "手錠",
+    "kana": "てじょう",
+    "meaning": "handcuffs, manacles",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound"],
+    "headline": "Tejō is 手 (te, “hand”) plus 錠 (jō, “lock”).",
+    "morphemes": [
+      {
+        "text": "手",
+        "reading": "て",
+        "meaning": "hand"
+      },
+      {
+        "text": "錠",
+        "reading": "じょう",
+        "meaning": "lock"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "手 (te, “hand”) + 錠 (jō, “lock”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-07",
+    "term": "良心",
+    "kana": "りょうしん",
+    "meaning": "conscience",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Ryōshin is 良 (ryō, “good”) plus 心 (shin, “heart”).",
+    "morphemes": [
+      {
+        "text": "良",
+        "reading": "りょう",
+        "meaning": "good"
+      },
+      {
+        "text": "心",
+        "reading": "しん",
+        "meaning": "heart"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 良 (ryō, “good”) + 心 (shin, “heart”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-08",
+    "term": "放射能",
+    "kana": "ほうしゃのう",
+    "meaning": "radioactivity",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Hōshanō is 放射 (hōsha, “radiating, emitting”) plus 能 (nō, “ability, capacity”).",
+    "morphemes": [
+      {
+        "text": "放射",
+        "reading": "ほうしゃ",
+        "meaning": "radiating, emitting"
+      },
+      {
+        "text": "能",
+        "reading": "のう",
+        "meaning": "ability, capacity"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "放射(ほうしゃ) (hōsha, “radiating, emitting”) + 能(のう) (nō, “ability, capacity”)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-09",
+    "term": "浜",
+    "kana": "はま",
+    "meaning": "beach, seashore",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Hama is from Old Japanese and Proto-Japonic, and is first attested in the Kojiki of 712 CE.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *pama. First attested in the Kojiki of 712 CE."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-10",
+    "term": "人目",
+    "kana": "ひとめ",
+    "meaning": "glimpse, public gaze",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Hitome is 人 (hito, “person”) plus 目 (me, “eye”).",
+    "morphemes": [
+      {
+        "text": "人",
+        "reading": "ひと",
+        "meaning": "person"
+      },
+      {
+        "text": "目",
+        "reading": "め",
+        "meaning": "eye"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 人 (hito, “person”) + 目 (me, “eye”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-11",
+    "term": "老いる",
+    "kana": "おいる",
+    "meaning": "to age, to grow old",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Oiru is from the Old Japanese verb 老ゆ (oyu).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese verb 老ゆ (oyu)."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 上(かみ)二(に)段(だん)活(かつ)用(よう) (kami nidan katsuyō, “upper bigrade conjugation”) verbs ending in -u to modern Japanese 上(かみ)一(いち)段(だん)活(かつ)用(よう) (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-12",
+    "term": "不可欠",
+    "kana": "ふかけつ",
+    "meaning": "indispensable, essential",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Fukaketsu is from Middle Chinese 不可缺.",
+    "morphemes": [
+      {
+        "text": "不",
+        "reading": "ふ",
+        "meaning": "negative",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "可",
+        "reading": "か",
+        "meaning": "can",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "欠",
+        "reading": "けつ",
+        "meaning": "lack",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 不可缺."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-13",
+    "term": "合わせて",
+    "kana": "あわせて",
+    "meaning": "in all, in total",
+    "level": "N1",
+    "pos": ["expressions (phrases, clauses, etc.)", "adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Awasete is the -te form of the verb 合わせる (awaseru, “to bring or put together”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "The -te conjunctive conjugation of verb 合わせる (awaseru, “to bring or put together”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-14",
+    "term": "天",
+    "kana": "てん",
+    "meaning": "heaven, sky",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Ten, “heaven”, is from Middle Chinese 天 (MC then, “sky; heavens”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 天 (MC then, “sky; heavens”). Compare modern Mandarin reading tiān."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-15",
+    "term": "ストロー",
+    "kana": "ストロー",
+    "meaning": "straw",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ストロー is from English straw.",
+    "morphemes": [
+      {
+        "text": "ストロー",
+        "reading": "ストロー",
+        "meaning": "English straw"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English straw."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-16",
+    "term": "負担",
+    "kana": "ふたん",
+    "meaning": "burden; load",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Futan is from Sinitic 負擔 (fùdān).",
+    "morphemes": [
+      {
+        "text": "負",
+        "reading": "ふ",
+        "meaning": "defeat",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "担",
+        "reading": "たん",
+        "meaning": "shouldering",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Sinitic 負擔 /负担 (fùdān)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-17",
+    "term": "分子",
+    "kana": "ぶんし",
+    "meaning": "numerator, molecule",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Bunshi is from Middle Chinese 分子 (pjun tsiX).",
+    "morphemes": [
+      {
+        "text": "分",
+        "reading": "ぶん",
+        "meaning": "part",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "子",
+        "reading": "し",
+        "meaning": "child",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 分子 (pjun tsiX)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-18",
+    "term": "ユニーク",
+    "kana": "ユニーク",
+    "meaning": "unique",
+    "level": "N1",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ユニーク is from English unique.",
+    "morphemes": [
+      {
+        "text": "ユニーク",
+        "reading": "ユニーク",
+        "meaning": "English unique"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English unique."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-19",
+    "term": "バッグ",
+    "kana": "バッグ",
+    "meaning": "bag",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "バッグ is borrowed from English bag.",
+    "morphemes": [
+      {
+        "text": "バッグ",
+        "reading": "バッグ",
+        "meaning": "English bag"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English bag."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-20",
+    "term": "取り扱う",
+    "kana": "とりあつかう",
+    "meaning": "to treat, to handle, to deal in",
+    "level": "N1",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Toriatsukau is 取る (toru) plus 扱う (atsukau).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "取(と)る (toru) + 扱(あつか)う (atsukau)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-21",
+    "term": "ロマンチック",
+    "kana": "ロマンチック",
+    "meaning": "romantic",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ロマンチック is from English romantic.",
+    "morphemes": [
+      {
+        "text": "ロマンチック",
+        "reading": "ロマンチック",
+        "meaning": "English romantic"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English romantic."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-22",
+    "term": "余程",
+    "kana": "よほど",
+    "meaning": "very, much, to a large extent, quite",
+    "level": "N1",
+    "pos": [
+      "adverb (fukushi)",
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "stratum": "hybrid",
+    "processes": ["ateji"],
+    "headline": "Yohodo is likely a back-formation from 余っ程 (yoppodo), ultimately from よき (yoki, “good”) plus ほど (hodo, “extent”), with 余 an ateji.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "This form is likely a back-formation from from 余(よ)っ程(ぽど) (yoppodo), interpreting the geminated consonant as an intensifier. Ultimately from よき (yoki, “good”) + ほど (hodo, “extent”). The use of the character 余 is an example of ateji (当(あ)て字(じ))."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-23",
+    "term": "担う",
+    "kana": "になう",
+    "meaning": "to carry on shoulder, to bear (burden), to shoulder (gun)",
+    "level": "N1",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["compound", "derivation"],
+    "headline": "Ninau is from classical 担ふ (ninafu), 荷 (ni, “load”) plus なふ (nafu, verb-forming suffix).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From classical yodan verb 担(にな)ふ (ninafu), compound of 荷(に) (ni, “load”) + なふ (nafu, verb-forming suffix)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-24",
+    "term": "革命",
+    "kana": "かくめい",
+    "meaning": "revolution",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Kakumei is from Middle Chinese 革命 (“to switch to a new dynasty/regime”), and Fukuzawa Yukichi used it to translate English revolution.",
+    "morphemes": [
+      {
+        "text": "革",
+        "reading": "かく",
+        "meaning": "leather",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "命",
+        "reading": "めい",
+        "meaning": "fate",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 革命 (MC keak mjaengH, “to switch to a new dynasty/regime”). This word has been used for a long time in Japan, starting from the introduction of I Ching (易經). Fukuzawa Yukichi (福󠄁澤 諭󠄀吉), in Western Affairs (『西洋事情』, 1866–1870), used this word as a translation of the English word \"revolution\", and it was later popularised by Nakae Chōmin (中江 兆民) and others."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-25",
+    "term": "義理",
+    "kana": "ぎり",
+    "meaning": "debt of gratitude, obligation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Giri is from Middle Chinese 義理, which first meant “righteous principle” and narrowed in Japan during the Muromachi and Edo periods.",
+    "morphemes": [
+      {
+        "text": "義",
+        "reading": "ぎ",
+        "meaning": "meaning",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "理",
+        "reading": "り",
+        "meaning": "reason",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 義理 (MC ngjeH liX)."
+      },
+      {
+        "quote": "Originally, in Middle Chinese and early Japanese attestations, the term carried a philosophical and textual meaning of “righteous principle”, “reason”, or “significance”. During the Muromachi and Edo periods, under the influence of a stratified feudal society, samurai ethics, and the merchant class, the concept underwent semantic narrowing in Japan. The “correct path” shifted to refer specifically to the reciprocal behavioral norms, social debts, and favors expected between individuals in a hierarchical community. This transformed the philosophical concept into a localized social contract and “burden of obligation”, famously contrasting with 人情 (ninjō, “human feeling”). This specialized sense developed entirely internally within Japan."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-26",
+    "term": "人質",
+    "kana": "ひとじち",
+    "meaning": "hostage",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "rendaku"],
+    "headline": "Hitojichi is 人 (hito, “person”) plus 質 (shichi, “pawn, hock”), and first meant “indentureship”, with “hostage” arising by extension.",
+    "morphemes": [
+      {
+        "text": "人",
+        "reading": "ひと",
+        "meaning": "person"
+      },
+      {
+        "text": "質",
+        "reading": "じち",
+        "base": "しち",
+        "meaning": "pawn, hock"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 人 (hito, “person”) + 質 (shichi, “pawn, hock”). The shichi changes to jichi as an instance of rendaku (連濁)."
+      },
+      {
+        "quote": "The original sense was “indentureship”, from the sense of a person being as if in pawn until a debt is paid. The “hostage” sense then arose by extension, from the person being in pawn until a ransom is paid or some other condition is met."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-27",
+    "term": "手軽",
+    "kana": "てがる",
+    "meaning": "easy, simple, cheap",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": ["compound", "derivation", "rendaku"],
+    "headline": "Tegaru is from the stem of 手軽い (tegarui), first cited to a text from 1754.",
+    "morphemes": [
+      {
+        "text": "手",
+        "reading": "て",
+        "meaning": "hand",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "軽",
+        "reading": "がる",
+        "base": "かる",
+        "meaning": "lightly",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From the stem of 手軽い (tegarui)."
+      },
+      {
+        "quote": "First cited to a text from 1754."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-28",
+    "term": "シナリオ",
+    "kana": "シナリオ",
+    "meaning": "scenario",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "シナリオ is borrowed from English scenario, from Italian scenario, and is first attested in 1928.",
+    "morphemes": [
+      {
+        "text": "シナリオ",
+        "reading": "シナリオ",
+        "meaning": "English scenario"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English scenario, borrowed from Italian scenario, from scena + -ario."
+      },
+      {
+        "quote": "First attested in 1928."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-29",
+    "term": "ワット",
+    "kana": "ワット",
+    "meaning": "watt",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ワット is borrowed from English watt.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Borrowed from English watt."
+      },
+      {
+        "quote": "Ultimately from Amharic ወጥ (wäṭ), possibly via English wat."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-30",
+    "term": "ふんだん",
+    "kana": "ふんだん",
+    "meaning": "plentiful, abundant, lavish",
+    "level": "N1",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Fundan was originally 不断 (fudan).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Originally 不断(ふだん) (fudan)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2028-08-31",
+    "term": "世代",
+    "kana": "せだい",
+    "meaning": "generation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Sedai is ultimately from Middle Chinese 世代 and first appears in the early 1500s.",
+    "morphemes": [
+      {
+        "text": "世",
+        "reading": "せ",
+        "meaning": "generation",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "代",
+        "reading": "だい",
+        "meaning": "generation",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Ultimately from Middle Chinese 世代 (MC syejH dojH). First appears in the early 1500s."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]
