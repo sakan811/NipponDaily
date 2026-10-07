@@ -3,7 +3,12 @@
  * purpose: app/ components import this, and shared/words.ts (which holds the
  * entries themselves, including future days') must never reach the browser.
  */
-import type { PosGroup, WordProcess, WordStratum } from "~~/types/index";
+import type {
+  FrequencyGroup,
+  PosGroup,
+  WordProcess,
+  WordStratum,
+} from "~~/types/index";
 
 export const WORD_STRATA: Record<
   WordStratum,
@@ -168,4 +173,47 @@ export function posGroupsOf(pos: readonly string[]): PosGroup[] {
   if (!pos.length) return ["unstated"];
   const found = new Set<PosGroup>(pos.map(posGroupOfTag));
   return POS_GROUP_IDS.filter((g) => found.has(g));
+}
+
+/** How common a word is, from JMdict's own priority codes. The codes stay
+ *  verbatim on each entry; a group only says which codes fall under it. */
+export const FREQUENCY_GROUPS: Record<
+  FrequencyGroup,
+  { label: string; description: string }
+> = {
+  common: {
+    label: "Common",
+    description:
+      "JMdict counts the word as common: its spelling or reading is in the first tier of a frequency list (ichi1, news1, spec1, spec2 or gai1).",
+  },
+  less: {
+    label: "Less common",
+    description:
+      "JMdict ranks the word, but only in a lower tier (news2, ichi2, gai2) or by a frequency band alone (nf01–nf48).",
+  },
+  unlisted: {
+    label: "Not ranked",
+    description:
+      "JMdict gives the word no priority code, which says it is not in the lists it draws on, not that it is rare.",
+  },
+};
+
+export const FREQUENCY_IDS = Object.keys(FREQUENCY_GROUPS) as FrequencyGroup[];
+
+/** The first-tier codes JMdict treats as marking a common word. */
+const COMMON_PRIORITY = /^(?:ichi1|news1|spec1|spec2|gai1)$/;
+
+/** Which group an entry's priority codes fall under. */
+export function frequencyOf(priority: readonly string[] = []): FrequencyGroup {
+  if (priority.some((p) => COMMON_PRIORITY.test(p))) return "common";
+  return priority.length ? "less" : "unlisted";
+}
+
+/** What KANJIDIC2's school grade means. */
+export function kanjiGradeLabel(grade: number): string {
+  if (grade >= 1 && grade <= 6)
+    return `Taught in grade ${grade} (kyōiku kanji)`;
+  if (grade === 8) return "Jōyō kanji taught in secondary school";
+  if (grade === 9 || grade === 10) return "Jinmeiyō kanji, used in names";
+  return `Grade ${grade}`;
 }

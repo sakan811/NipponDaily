@@ -4,7 +4,7 @@ import {
   exploreWords,
   foldForSearch,
 } from "~~/shared/explore";
-import { posGroupsOf } from "~~/shared/word-labels";
+import { frequencyOf, posGroupsOf } from "~~/shared/word-labels";
 import { WORD_ENTRIES, monthsWithEntries } from "~~/shared/words";
 
 const TODAY = "2022-12-13";
@@ -182,6 +182,27 @@ describe("exploreWords", () => {
         return g.includes("verb") && g.includes("noun");
       }).length,
     );
+  });
+
+  it("filters by how common JMdict says a word is", () => {
+    const common = exploreWords({ frequency: ["common"] }, TODAY);
+
+    expect(common.count).toBe(
+      open.filter((e) => frequencyOf(e.priority) === "common").length,
+    );
+    expect(common.count).toBeGreaterThan(0);
+    expect(common.count).toBeLessThan(open.length);
+    // Every word is in exactly one group, so the facet counts add up.
+    expect(
+      exploreWords({}, TODAY).facets.frequency.reduce((n, f) => n + f.count, 0),
+    ).toBe(open.length);
+    expect(
+      exploreWords({ frequency: ["common", "less"] }, TODAY).count,
+    ).toBeGreaterThan(common.count);
+    // The other filters narrow the same way a facet's count says they will.
+    const verbs = exploreWords({ pos: ["verb"] }, TODAY).facets.frequency;
+    const both = exploreWords({ pos: ["verb"], frequency: ["common"] }, TODAY);
+    expect(both.count).toBe(verbs.find((f) => f.value === "common")!.count);
   });
 
   it("summarises a word without its sources or morphemes", () => {

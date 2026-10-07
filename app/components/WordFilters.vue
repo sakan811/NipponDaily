@@ -117,6 +117,27 @@
 
     <fieldset class="space-y-2">
       <legend class="kicker text-stone-500 dark:text-stone-400">
+        How common (JMdict)
+      </legend>
+      <div class="flex flex-wrap gap-2" data-testid="facet-frequency">
+        <button
+          v-for="f in facets?.frequency ?? []"
+          :key="f.value"
+          type="button"
+          :aria-pressed="chosen('frequency', f.value)"
+          :disabled="!f.count && !chosen('frequency', f.value)"
+          :title="FREQUENCY_GROUPS[f.value].description"
+          :class="chip(chosen('frequency', f.value), !f.count)"
+          @click="toggle('frequency', f.value)"
+        >
+          {{ FREQUENCY_GROUPS[f.value].label }}
+          <span class="chip-count">{{ f.count }}</span>
+        </button>
+      </div>
+    </fieldset>
+
+    <fieldset class="space-y-2">
+      <legend class="kicker text-stone-500 dark:text-stone-400">
         When you pick several
       </legend>
       <div
@@ -169,6 +190,7 @@ import { computed, onBeforeUnmount, ref, watch } from "vue";
 import { partPath } from "../utils/seo";
 import { STRATUM_DOT } from "../utils/stratum";
 import {
+  FREQUENCY_GROUPS,
   POS_GROUPS,
   STRATUM_UNSTATED,
   WORD_PROCESSES,
@@ -189,7 +211,7 @@ import type {
  */
 
 /** The filters that hold several choices, and the ones a choice can be toggled in. */
-type ListFilter = "level" | "stratum" | "process" | "pos";
+type ListFilter = "level" | "stratum" | "process" | "pos" | "frequency";
 
 const props = defineProps<{
   modelValue: ExploreFilters;
@@ -230,7 +252,7 @@ const active = computed(() => Object.keys(props.modelValue).length > 0);
 const matchMode = computed<ExploreMatch>(() => props.modelValue.match ?? "any");
 const matchHelp = computed(() =>
   matchMode.value === "all"
-    ? "A word must carry every process and every part of speech you picked. A word has one level and one layer, so those still match any."
+    ? "A word must carry every process and every part of speech you picked. A word has one level, one layer and one frequency group, so those still match any."
     : "A word needs at least one of the options picked in a group. Different groups always narrow together.",
 );
 

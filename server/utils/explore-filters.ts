@@ -7,7 +7,7 @@ import {
 } from "~~/shared/explore-query";
 import { MAX_PART_LENGTH } from "~~/shared/part-limits";
 import { JLPT_LEVELS } from "~~/shared/jlpt";
-import { POS_GROUP_IDS } from "~~/shared/word-labels";
+import { FREQUENCY_IDS, POS_GROUP_IDS } from "~~/shared/word-labels";
 import type { ExploreFilters } from "~~/types/index";
 
 /**
@@ -40,6 +40,7 @@ export const exploreFilterShape = {
   stratum: choices(STRATUM_KEY_IDS as [string, ...string[]]),
   process: choices(PROCESS_KEY_IDS as [string, ...string[]]),
   pos: choices(POS_GROUP_IDS as [string, ...string[]]),
+  frequency: choices(FREQUENCY_IDS as [string, ...string[]]),
   part: optional(z.string().trim().max(MAX_PART_LENGTH)),
   // "any" is the default, so only "all" is kept in the echoed filters.
   match: optional(z.enum(["any", "all"])).transform((m) =>
