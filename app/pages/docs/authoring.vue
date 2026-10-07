@@ -59,11 +59,11 @@
       {{ SOURCES.tatoeba.name }} export, a few seconds' work on about 150 MB
       that is never committed. Download them from the paths listed in
       <code>scripts/lib/tatoeba-export.mjs</code> (each is a <code>bz2</code>;
-      the indices come in a <code>tar</code>), extract them into
-      <code>tatoeba/</code> in the repo root (it is git-ignored), and the script
-      verifies their size and checksum before it reads anything. Tatoeba
-      overwrites its exports every week, so keep the files if you need to
-      rebuild: the committed snapshot, not the export, is what CI checks. It
+      the indices come in a <code>tar</code>), extract them into a
+      <code>tatoeba</code> directory in the repo root (it is git-ignored), and
+      the script verifies their size and checksum before it reads anything.
+      Tatoeba overwrites its exports every week, so keep the files if you need
+      to rebuild: the committed snapshot, not the export, is what CI checks. It
       reads the word plans, so it runs before <code>data:words</code>, which
       copies the sentences into each entry; <code>data:kanji</code> runs after
       it, because it reads the entries' spellings.
@@ -191,9 +191,9 @@
       </li>
       <li>
         <strong>Tatoeba:</strong> download the four files named in
-        <code>scripts/lib/tatoeba-export.mjs</code>, extract them into
-        <code>tatoeba/</code>, and put their date, sizes and checksums in
-        <code>TATOEBA_EXPORT</code>. Run <code>pnpm data:sentences</code>,
+        <code>scripts/lib/tatoeba-export.mjs</code>, extract them into a
+        <code>tatoeba</code> directory, and put their date, sizes and checksums
+        in <code>TATOEBA_EXPORT</code>. Run <code>pnpm data:sentences</code>,
         review the diff (sentences change, and some words gain or lose one),
         then <code>pnpm data:words</code>.
       </li>
