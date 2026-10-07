@@ -29,8 +29,8 @@ export default defineEventHandler((event) => {
     return rejectQuery(error);
   }
 
-  const months = monthsWithEntries();
   const today = todayJst();
+  const months = monthsWithEntries(today);
   // Default: the current month if it has words, otherwise the newest month
   // that does — the calendar always opens on something readable.
   const month =

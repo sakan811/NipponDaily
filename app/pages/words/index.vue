@@ -199,7 +199,7 @@
           <template v-for="cell in cells" :key="cell.date">
             <NuxtLink
               v-if="cell.day?.status === 'open'"
-              :to="`/words/${cell.date}`"
+              :to="`/words/${cell.day.wordDate ?? cell.date}`"
               role="gridcell"
               data-testid="calendar-day-open"
               :data-match="filtersActive ? cell.day.match : undefined"
