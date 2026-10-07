@@ -7,6 +7,12 @@ settings:
 importers:
   .:
     dependencies:
+      "@fontsource/noto-serif-jp":
+        specifier: ^5.3.0
+        version: 5.3.0
+      "@fontsource/zen-old-mincho":
+        specifier: ^5.3.0
+        version: 5.3.0
       "@resvg/resvg-js":
         specifier: ^2.6.2
         version: 2.6.2
@@ -797,10 +803,22 @@ packages:
       }
     engines: { node: ^20.19.0 || ^22.13.0 || >=24 }
 
+  "@fontsource/noto-serif-jp@5.3.0":
+    resolution:
+      {
+        integrity: sha512-7dRFleN7F+uuJdcMW/fJmnl6KLZSn9dHCjAVTaWjTcT4hg5V4ECbi2qgIamI6rS/+yTt16KDLU+9aJi74r6ZxQ==,
+      }
+
   "@fontsource/outfit@5.3.0":
     resolution:
       {
         integrity: sha512-0AVHzTTVJSxWDOxPKSfMeHhZeBFDU3cmgrcOb76ZEyhGo0+xgyG3GsLF3h9+X8w0IX7G4jzjJgFQEBiWdX6VgA==,
+      }
+
+  "@fontsource/zen-old-mincho@5.3.0":
+    resolution:
+      {
+        integrity: sha512-pNvegTkx6rOQRaBMcUoxxeNoIRJajdY0TeX4ngf/26KrtsVoqY11ho6WlwPWDYHi7PY65vf88TV2xjIO+YxQ8Q==,
       }
 
   "@html-validate/stylish@6.1.0":
@@ -8474,7 +8492,11 @@ snapshots:
       "@eslint/core": 1.2.1
       levn: 0.4.1
 
+  "@fontsource/noto-serif-jp@5.3.0": {}
+
   "@fontsource/outfit@5.3.0": {}
+
+  "@fontsource/zen-old-mincho@5.3.0": {}
 
   "@html-validate/stylish@6.1.0": {}
 

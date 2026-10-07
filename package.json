@@ -25,6 +25,8 @@
     "docs:check": "node --experimental-strip-types --no-warnings scripts/sync-docs.mjs --check"
   },
   "dependencies": {
+    "@fontsource/noto-serif-jp": "^5.3.0",
+    "@fontsource/zen-old-mincho": "^5.3.0",
     "@resvg/resvg-js": "^2.6.2",
     "@upstash/redis": "^1.39.0",
     "nuxt": "^4.5.2",

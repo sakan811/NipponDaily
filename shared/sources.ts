@@ -77,6 +77,8 @@ const WANAKANA_URL = "https://github.com/WaniKani/WanaKana";
 const ZEN_OLD_MINCHO_URL =
   "https://github.com/google/fonts/tree/main/ofl/zenoldmincho";
 const OUTFIT_URL = "https://github.com/google/fonts/tree/main/ofl/outfit";
+const NOTO_SERIF_JP_URL =
+  "https://github.com/google/fonts/tree/main/ofl/notoserifjp";
 const EDRDG_NAME = "Electronic Dictionary Research and Development Group";
 
 export const SOURCES = {
@@ -123,12 +125,12 @@ export const SOURCES = {
   },
   "og-fonts": {
     id: "og-fonts",
-    name: "Zen Old Mincho and Outfit",
-    short: "Zen Old Mincho & Outfit",
+    name: "Zen Old Mincho, Outfit and Noto Serif JP",
+    short: "Zen Old Mincho, Outfit & Noto Serif JP",
     url: ZEN_OLD_MINCHO_URL,
     licence: LICENCES.ofl11,
-    use: "The faces the share images are drawn in",
-    credit: `The share images are drawn in ${link("Zen Old Mincho", ZEN_OLD_MINCHO_URL)} and ${link("Outfit", OUTFIT_URL)}, both under the ${link(LICENCES.ofl11.name, LICENCES.ofl11.url)}; each licence ships beside the font files in \`server/assets/og/\`.`,
+    use: "The faces the site is set in and the share images are drawn in",
+    credit: `The site is set in ${link("Zen Old Mincho", ZEN_OLD_MINCHO_URL)}, ${link("Outfit", OUTFIT_URL)} and ${link("Noto Serif JP", NOTO_SERIF_JP_URL)}, served from the app by way of the \`@fontsource\` packages, and the share images are drawn in the first two; all are under the ${link(LICENCES.ofl11.name, LICENCES.ofl11.url)}. The share-image licences ship beside the font files in \`server/assets/og/\`.`,
   },
 } as const satisfies Record<DataSource["id"], DataSource>;
 
