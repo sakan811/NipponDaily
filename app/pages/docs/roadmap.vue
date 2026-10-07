@@ -91,12 +91,12 @@
         <strong>Caching needs a CDN that honours <code>s-maxage</code>.</strong>
         Without one every request runs the app, which is correct but slower.
       </li>
-      <li><strong>No request rate limiting</strong> on any endpoint.</li>
       <li>
-        <strong>The fonts come from Google Fonts</strong>
-        (<code>nuxt.config.ts</code>), so a reader's browser contacts Google
-        when a page loads (<code>fonts.googleapis.com</code> and
-        <code>fonts.gstatic.com</code>).
+        <strong>Rate limiting is per server instance.</strong> The counters live
+        in process memory (nothing about a client is stored), so where the host
+        runs several instances each counts alone, and a client behind a proxy
+        that does not set <code>X-Forwarded-For</code> is counted by the proxy's
+        address.
       </li>
       <li>
         <strong>No integration tests.</strong> Pages with no test are only

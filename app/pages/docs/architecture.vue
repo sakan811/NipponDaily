@@ -30,10 +30,9 @@
         <strong
           >Nothing about a reader is stored or sent to the app's server.</strong
         >
-        No accounts. The fonts are the one outside request (<NuxtLink
-          to="/docs/roadmap"
-          >Roadmap and limits</NuxtLink
-        >).
+        No accounts, and no request to a third party: the fonts are served from
+        the app. The rate limiter keeps an address in memory for a minute and
+        forgets it.
       </li>
     </ul>
 
@@ -47,7 +46,7 @@
     <h2>Layout</h2>
     <pre><code>app/        pages/, components/, composables/, utils/, data/, assets/css/tailwind.css
 shared/     code imported by both app/ and server/ (the ~~/shared alias); not auto-imported
-server/     api/ (handlers), routes/ (sitemap, robots, share images), plugins/ (caching), services/ (Redis), utils/, assets/og/ (share-image fonts)
+server/     api/ (handlers), routes/ (sitemap, robots, share images), middleware/ (rate limit), plugins/ (caching), services/ (Redis), utils/, assets/og/ (share-image fonts)
 scripts/    data builders run with node: reference snapshots, etymology pins, entry generator
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
@@ -67,7 +66,7 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
             <td>
               <code>{{ m.file }}</code
               ><template v-if="m.serverOnly"
-                ><br ><em>server and tests only</em></template
+                ><br /><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>
