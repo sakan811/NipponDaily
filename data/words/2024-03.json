@@ -10,6 +10,7 @@
       "irregular nu verb",
       "intransitive verb"
     ],
+    "priority": ["ichi1", "news2", "nf46"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Shinu has an irregular -nu ending shared only with the now-obsolete verb 往ぬ (inu).",
@@ -28,6 +29,22 @@
         "quote": "The transition from the ナ行(ぎょう)変(へん)格(かく)活(かつ)用(よう) (na-gyō henkaku katsuyō, “na-row irregular conjugation”) pattern to the regular 四(よ)段(だん)活(かつ)用(よう) (yodan katsuyō, “quadrigrade conjugation”) appears in texts from the Muromachi period (1336–1573) and on. The na irregular pattern persisted in increasingly limited use until the Meiji period (1868–1929)."
       }
     ],
+    "examples": [
+      {
+        "id": 168173,
+        "ja": "死なないで。",
+        "en": "Please don't die!",
+        "enId": 246322,
+        "form": "死なないで"
+      },
+      {
+        "id": 144442,
+        "ja": "人は必ず死ぬ。",
+        "en": "Man is mortal.",
+        "enId": 270072,
+        "form": "死ぬ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -37,6 +54,7 @@
     "meaning": "easy, plain, simple",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yasashii is cognate with 優しい (yasashii).",
@@ -44,6 +62,22 @@
     "sources": [
       {
         "quote": "Cognate with 優(やさ)しい (yasashii)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 137229,
+        "ja": "第２課は易しい。",
+        "en": "Lesson Two is easy.",
+        "enId": 276007,
+        "form": "易しい"
+      },
+      {
+        "id": 189259,
+        "ja": "泳ぐことはやさしい。",
+        "en": "It is easy to swim.",
+        "enId": 26405,
+        "form": "やさしい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -55,6 +89,7 @@
     "meaning": "father (formal)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Otōsan began as o- plus 父 (toto) plus 様 (-sama); the long ō was an artificial step.",
     "morphemes": [],
@@ -69,6 +104,22 @@
         "quote": "The /otossan/ → /otoosan/ progression was artificial; regular Japanese sound changes generally would not allow this shift. The /otoosan/ form first appears in the early Meiji period in educational materials mandated by the 文部省 (Monbushō, “Ministry of Education”)."
       }
     ],
+    "examples": [
+      {
+        "id": 227620,
+        "ja": "おとうさんには言わないでね。",
+        "en": "Don't tell Father about this.",
+        "enId": 59003,
+        "form": "おとうさん"
+      },
+      {
+        "id": 121043,
+        "ja": "彼がおとうさんの代わりにその会合に出ました。",
+        "en": "He attended the meeting for his father.",
+        "enId": 282965,
+        "form": "おとうさん"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -78,6 +129,7 @@
     "meaning": "to dance",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Odoru was wodoru, and its original meaning was “to jump”.",
@@ -88,6 +140,22 @@
       },
       {
         "quote": "From Old Japanese, with the original meaning of \"to jump\". First attested in the Nihon Shoki of 720 CE. From Proto-Japonic *wontəru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 78795,
+        "ja": "踊りましょうか。",
+        "en": "Let's dance, shall we?",
+        "enId": 324921,
+        "form": "踊り"
+      },
+      {
+        "id": 78798,
+        "ja": "踊ってもらえますか。",
+        "en": "Would you like to dance?",
+        "enId": 324918,
+        "form": "踊って"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -102,6 +170,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf22", "spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Uso is attested in the late Heian period, possibly cognate with 嘯く (usobuku, “to boast”).",
@@ -109,6 +178,22 @@
     "sources": [
       {
         "quote": "Attested in the late Heian period. Possibly cognate with 嘯(うそぶ)く (usobuku, “to boast”) and 似非(えせ) (ese, “fake, false”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 228260,
+        "ja": "うそを言うな。",
+        "en": "Don't tell lies.",
+        "enId": 65615,
+        "form": "うそ"
+      },
+      {
+        "id": 164837,
+        "ja": "私にうそは言わないで。",
+        "en": "Don't lie to me.",
+        "enId": 452256,
+        "form": "うそ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -123,6 +208,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hidari went [pidari] → [ɸidari] → [çidari], from Proto-Japonic *pintari.",
@@ -133,6 +219,22 @@
       },
       {
         "quote": "From Old Japanese. First attested in the Kojiki of 712 CE. From Proto-Japonic *pintari."
+      }
+    ],
+    "examples": [
+      {
+        "id": 170928,
+        "ja": "左へ曲がりなさい。",
+        "en": "Turn to the left.",
+        "enId": 243552,
+        "form": "左"
+      },
+      {
+        "id": 170930,
+        "ja": "左へ一杯に曲がれ。",
+        "en": "Turn hard left.",
+        "enId": 243550,
+        "form": "左"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -147,6 +249,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Ryokō is literally “to travel + to walk”, from Middle Chinese 旅行.",
@@ -170,6 +273,22 @@
         "quote": "From Middle Chinese compound 旅行 (ljo^X hæng, literally “to travel + to walk”). Compare modern Hakka reading lî-hàng, Min Nan readings lí-hêng, lú-hêng."
       }
     ],
+    "examples": [
+      {
+        "id": 78158,
+        "ja": "旅行は楽しい。",
+        "en": "It's fun to travel.",
+        "enId": 325560,
+        "form": "旅行"
+      },
+      {
+        "id": 78170,
+        "ja": "旅行に行こう。",
+        "en": "Let's take a trip.",
+        "enId": 325547,
+        "form": "旅行"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -182,6 +301,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Iriguchi is 入り + 口, and kuchi changes to guchi by rendaku.",
@@ -212,6 +332,7 @@
     "meaning": "to become cloudy, to become dim",
     "level": "N5",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf43"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Kumoru is the noun 雲 (kumo, “cloud”) plus the verb suffix る (-ru): cloud, made into a verb.",
@@ -219,6 +340,22 @@
     "sources": [
       {
         "quote": "From the noun 雲(くも) (kumo, “cloud”) + る (-ru, verb suffix)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 123258,
+        "ja": "曇ってきた。",
+        "en": "It's getting cloudy.",
+        "enId": 280741,
+        "form": "曇って"
+      },
+      {
+        "id": 123257,
+        "ja": "曇っています。",
+        "en": "It's cloudy.",
+        "enId": 280740,
+        "form": "曇っています"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -230,6 +367,7 @@
     "meaning": "head; mind, brains",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change", "unclear"],
     "headline": "Atama has an unknown derivation, with theories like heaven (a) plus ball (tama).",
@@ -254,6 +392,22 @@
         "quote": "Historically, this term first appears with a sense of fontanelle, in reference to the soft place on the top of an infant's head where the bones of the skull have not yet fused. As such, a more likely derivation might be as a compound of 当(あ)た (ata, “not quite touching, not quite in contact”, 未(み)然(ぜん)形(けい) (mizenkei, “irrealis form”) of classical verb 当(あ)つ (atsu) and root of modern 当(あ)たる (ataru, “to touch, to come into contact”)) + 間(ま) (ma, “space, gap, opening”)."
       }
     ],
+    "examples": [
+      {
+        "id": 123833,
+        "ja": "頭を冷やせ。",
+        "en": "Cool off!",
+        "enId": 280162,
+        "form": "頭"
+      },
+      {
+        "id": 123837,
+        "ja": "頭を下げろ！",
+        "en": "Duck!",
+        "enId": 280158,
+        "form": "頭"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -263,6 +417,7 @@
     "meaning": "half (e.g., にじはん | half-past two)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a prefix"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Han is from Middle Chinese 半 (MC panH).",
@@ -270,6 +425,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 半 (MC panH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 152369,
+        "ja": "私は卵を半ダース買った。",
+        "en": "I bought half a dozen eggs.",
+        "enId": 262181,
+        "form": "半"
+      },
+      {
+        "id": 185100,
+        "ja": "海までわずか半マイルだ。",
+        "en": "It is no more than half a mile to the sea.",
+        "enId": 22216,
+        "form": "半"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -281,6 +452,7 @@
     "meaning": "a little; a few",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sukunai is possibly related to 少し (sukoshi), and possibly cognate with the ku in 幾 (iku).",
@@ -288,6 +460,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Possibly related to 少し (sukoshi). Possibly cognate with the ku part in 幾 (iku)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 173713,
+        "ja": "巧言令色少なし仁。",
+        "en": "Fair words butter no parsnips.",
+        "enId": 240757,
+        "form": "少なし"
+      },
+      {
+        "id": 235158,
+        "ja": "５は８より少ない。",
+        "en": "5 is less than 8.",
+        "enId": 72537,
+        "form": "少ない"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -299,6 +487,7 @@
     "meaning": "bad, sinful; inferior",
     "level": "N5",
     "pos": ["adjective (keiyoushi)", "interjection (kandoushi)"],
+    "priority": ["ichi1", "news2", "nf48"],
     "stratum": "wago",
     "processes": [],
     "headline": "Warui is from classical わろし (waroshi); compare まるい (marui) from まろし (maroshi).",
@@ -306,6 +495,22 @@
     "sources": [
       {
         "quote": "From classical わろし (waroshi). Compare まるい (marui) < まろし (maroshi)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 138013,
+        "ja": "体に悪いよ。",
+        "en": "It's not healthy for you.",
+        "enId": 275222,
+        "form": "悪い"
+      },
+      {
+        "id": 174295,
+        "ja": "後味が悪い。",
+        "en": "It leaves a bad aftertaste.",
+        "enId": 240175,
+        "form": "悪い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -317,6 +522,7 @@
     "meaning": "big, large",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": ["sound-change", "unclear"],
     "headline": "Ōkii went opoki → oɸoki → oɸokiki → owokiː → oːkiː, and appears in the Muromachi period.",
@@ -332,6 +538,22 @@
         "quote": "From older adjective 大(おお)き (ōki, ancient reading opoki), derived as the attributive form ōki (ancient opoki) of cognate adjective ōshi (ancient oposi; attributive opoki appearing already in the Man'yōshū of 759 CE, meaning both “large” or “many”, spelled as 多(おお)し (ōshi) or 大(おお)し (ōshi), modern Japanese 多(おお)い (ōi, “many”)), in turn derived from Old Japanese adjective opo (“indistinct; of uncertain size, shape, or amount”; read as ō in modern Japanese, spelled as 凡 or 大)."
       }
     ],
+    "examples": [
+      {
+        "id": 103170,
+        "ja": "彼は声が大きい。",
+        "en": "He has a loud voice.",
+        "enId": 286988,
+        "form": "大きい"
+      },
+      {
+        "id": 104507,
+        "ja": "彼は手が大きい。",
+        "en": "He has big hands.",
+        "enId": 299184,
+        "form": "大きい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -341,6 +563,7 @@
     "meaning": "to see, to look at, to watch",
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb", "auxiliary verb"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": [],
     "headline": "Miru is cognate with 目 (me, “eye”) and first attested in the Kojiki of 712 CE.",
@@ -348,6 +571,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Kojiki of 712 CE. From Proto-Japonic *miru. Cognate with 目(め) (me, “eye”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 126606,
+        "ja": "着てみない？",
+        "en": "Why not try it on?",
+        "enId": 277442,
+        "form": "みない"
+      },
+      {
+        "id": 174302,
+        "ja": "後ろを見ろ。",
+        "en": "Look back!",
+        "enId": 240166,
+        "form": "見ろ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -359,6 +598,7 @@
     "meaning": "mark, score, grade; point, dot",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ten is from Middle Chinese 點 (MC temX, “point”).",
@@ -366,6 +606,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 點 (MC temX, “point”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 205871,
+        "ja": "それが重要な点です。",
+        "en": "That's the point.",
+        "enId": 43117,
+        "form": "点"
+      },
+      {
+        "id": 208527,
+        "ja": "その先生は点が甘い。",
+        "en": "The teacher grades easily.",
+        "enId": 45786,
+        "form": "点"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -377,6 +633,7 @@
     "meaning": "seven",
     "level": "N5",
     "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01", "spec1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Shichi is from Middle Chinese 七 (MC tshit).",
@@ -384,6 +641,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 七 (MC tshit). Compare Hokkien 七 (chhit), Hakka 七 (chhit)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 156180,
+        "ja": "私は七時に家を出た。",
+        "en": "I left home at seven.",
+        "enId": 258354,
+        "form": "七"
+      },
+      {
+        "id": 202909,
+        "ja": "ちょうど七時半です。",
+        "en": "It is just half past seven.",
+        "enId": 40144,
+        "form": "七"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -395,6 +668,7 @@
     "meaning": "narrow; not spacious",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf47"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Semai was originally sebashi, before it became semashi and then lost its medial k.",
@@ -407,6 +681,22 @@
         "quote": "Cognate with 攻(せ)める (semeru), 責(せ)める (semeru), 迫(せま)る (semaru), 狭(せば)める (sebameru), and 狭(せば)まる (sebamaru), and 窄(すば)る (subaru, “to become narrow”)."
       }
     ],
+    "examples": [
+      {
+        "id": 107686,
+        "ja": "彼は肩幅が狭い。",
+        "en": "He has narrow shoulders.",
+        "enId": 2720230,
+        "form": "狭い"
+      },
+      {
+        "id": 180097,
+        "ja": "狭き門より入れ。",
+        "en": "Enter by the narrow gate.",
+        "enId": 18957,
+        "form": "狭き"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -416,6 +706,7 @@
     "meaning": "water",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mizu is possibly cognate with 瑞 (mizu, “freshness, youth”).",
@@ -431,6 +722,22 @@
         "quote": "Possibly cognate with 瑞 (mizu, “freshness, youth”)."
       }
     ],
+    "examples": [
+      {
+        "id": 143813,
+        "ja": "水が欲しい。",
+        "en": "I want some water.",
+        "enId": 270753,
+        "form": "水"
+      },
+      {
+        "id": 184634,
+        "ja": "蛙の面に水。",
+        "en": "Like water off a duck's back.",
+        "enId": 21763,
+        "form": "水"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -440,6 +747,7 @@
     "meaning": "animal",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Dōbutsu is from Middle Chinese 動物.",
@@ -462,6 +770,22 @@
         "quote": "From Middle Chinese 動物 (duwng^X mjut)"
       }
     ],
+    "examples": [
+      {
+        "id": 121617,
+        "ja": "馬は動物である。",
+        "en": "Horses are animals.",
+        "enId": 1222816,
+        "form": "動物"
+      },
+      {
+        "id": 78212,
+        "ja": "龍は空想の動物だ。",
+        "en": "A dragon is a creature of fancy.",
+        "enId": 325506,
+        "form": "動物"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -476,6 +800,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "expressions (phrases, clauses, etc.)"
     ],
+    "priority": ["ichi1", "news2", "nf31"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shitsurei is literally “lose, loss + propriety”, probably from Middle Chinese 失禮.",
@@ -496,6 +821,15 @@
         "quote": "Probably from Middle Chinese compound 失禮 /失礼 (syit lej^X, literally “lose, loss + propriety”). Compare modern Hokkien 失禮 /失礼 (sit-lé)."
       }
     ],
+    "examples": [
+      {
+        "id": 217382,
+        "ja": "こんな格好でしつれいします。",
+        "en": "Pardon me for being in this dress.",
+        "enId": 54691,
+        "form": "しつれい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -505,6 +839,7 @@
     "meaning": "every day",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Mainichi is 毎 (mai-, “each; every”) plus 日 (nichi, jitsu, “day”).",
@@ -525,6 +860,22 @@
         "quote": "毎 (mai-, “each; every”) + 日 (nichi, jitsu, “day”)"
       }
     ],
+    "examples": [
+      {
+        "id": 82853,
+        "ja": "母は毎日洗濯する。",
+        "en": "Mother washes every day.",
+        "enId": 320863,
+        "form": "毎日"
+      },
+      {
+        "id": 152691,
+        "ja": "私は毎日歩きます。",
+        "en": "I walk every day.",
+        "enId": 261858,
+        "form": "毎日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -534,6 +885,7 @@
     "meaning": "a parent",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": [],
     "headline": "Oya may be cognate with the verb 老ゆ (oyu, “to become old”), from the idea of one's elders.",
@@ -546,6 +898,22 @@
         "quote": "First cited in the Kojiki of 712."
       }
     ],
+    "examples": [
+      {
+        "id": 144817,
+        "ja": "親は子を愛する。",
+        "en": "Parents love their children.",
+        "enId": 269726,
+        "form": "親"
+      },
+      {
+        "id": 144828,
+        "ja": "親の心子知らず。",
+        "en": "It is a wise father that knows his own child.",
+        "enId": 269735,
+        "form": "親"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -555,6 +923,7 @@
     "meaning": "year, age",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Toshi originally referred to grain, particularly rice, and by extension the year's harvest.",
@@ -567,6 +936,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *təsi. Originally referred to grain, particularly rice, and by extension, the year's harvest."
       }
     ],
+    "examples": [
+      {
+        "id": 192926,
+        "ja": "よいお年を。",
+        "en": "Happy New Year!",
+        "enId": 361350,
+        "form": "年"
+      },
+      {
+        "id": 194006,
+        "ja": "もう年だよ。",
+        "en": "I feel my age.",
+        "enId": 31175,
+        "form": "年"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -576,6 +961,7 @@
     "meaning": "inexpensive; cheap (things)",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf47"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yasui first appears in the Kojiki spelled 夜須 (yasu), and is cognate with 休む (yasumu, “to rest”).",
@@ -583,6 +969,22 @@
     "sources": [
       {
         "quote": "From classical 安(やす)し (yasushi), from Old Japanese. First appears in the Kojiki of 712 CE as 夜須（久） (yasu(ku)). In turn from Proto-Japonic *yasu. Cognate with 休(やす)む (yasumu, “to rest”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 171645,
+        "ja": "今日は魚が安い。",
+        "en": "Fish is cheap today.",
+        "enId": 242830,
+        "form": "安い"
+      },
+      {
+        "id": 220098,
+        "ja": "この品物は安い。",
+        "en": "This article is cheap.",
+        "enId": 57417,
+        "form": "安い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -594,6 +996,7 @@
     "meaning": "weak",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yowai was 弱し in Old Japanese, and a king's name varies between 目弱王 and 眉輪王.",
@@ -606,6 +1009,22 @@
         "quote": "Although not phonetically attested in Old Japanese texts in man'yōgana, the name of a king varies between 目弱王 in the Kojiki and 眉輪王, read as mayo₁wa-WAU in the Nihon Shoki."
       }
     ],
+    "examples": [
+      {
+        "id": 126820,
+        "ja": "地理は弱い。",
+        "en": "I am weak in geography.",
+        "enId": 277270,
+        "form": "弱い"
+      },
+      {
+        "id": 155426,
+        "ja": "私は船に弱い。",
+        "en": "I am a bad sailor.",
+        "enId": 259111,
+        "form": "弱い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -615,6 +1034,7 @@
     "meaning": "white",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Shiro is the standalone apophonic form of shira, from Proto-Japonic *siro.",
@@ -630,6 +1050,15 @@
         "quote": "The standalone apophonic form of shira below."
       }
     ],
+    "examples": [
+      {
+        "id": 170962,
+        "ja": "紺屋の白袴。",
+        "en": "The dyer wears white.",
+        "enId": 2776375,
+        "form": "白"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -639,6 +1068,7 @@
     "meaning": "thing (concrete object)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mono is attested in the Kojiki, ultimately from Proto-Japonic *mənə.",
@@ -651,6 +1081,22 @@
         "quote": "From Old Japanese. Attested in the Kojiki. Ultimately from Proto-Japonic *mənə."
       }
     ],
+    "examples": [
+      {
+        "id": 126602,
+        "ja": "着る物がないの。",
+        "en": "I don't have a thing to wear.",
+        "enId": 277446,
+        "form": "物"
+      },
+      {
+        "id": 136867,
+        "ja": "誰が知るものか。",
+        "en": "Who knows?",
+        "enId": 276369,
+        "form": "もの"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -660,6 +1106,7 @@
     "meaning": "baby",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "hybrid",
     "processes": ["sound-change"],
     "headline": "Akanbō is attested from the 19th century, shifted from earlier 赤坊 (akabō): 赤 (aka, “red”) plus 坊 (-bō, “little”).",
@@ -682,6 +1129,7 @@
       "adverb (fukushi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Isshōkenmei comes from 一所懸命 (isshokenmei), which referred to samurai risking their life to defend inherited territory.",
@@ -717,6 +1165,22 @@
         "quote": "Yojijukugo (四(よ)字(じ)熟(じゅく)語(ご)), from 一所懸命(いっしょけんめい) (isshokenmei), which referred to samurais risking their life to defend the territory inherited from ancestors."
       }
     ],
+    "examples": [
+      {
+        "id": 190409,
+        "ja": "一生懸命働いた。",
+        "en": "He worked hard.",
+        "enId": 27567,
+        "form": "一生懸命"
+      },
+      {
+        "id": 190415,
+        "ja": "一生懸命走った。",
+        "en": "I ran as fast as I could.",
+        "enId": 27573,
+        "form": "一生懸命"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -726,6 +1190,7 @@
     "meaning": "to put (things) side by side; to line up",
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Naraberu is the lower monograde shift of 並ぶ (narabu), attested as early as the Man'yōshū of 759 CE.",
@@ -739,6 +1204,22 @@
       },
       {
         "quote": "Probably reflecting the same nara root as verb 均す・平す (narasu, “to flatten something out, to line something up horizontally”) + ぶ (bu, suffix attaching to nouns and adjectives to indicate ongoing state or likeness). If so, probably deriving ultimately from verb 成る・為る・生る (naru, “to come into being; to become”), 慣る・馴る・狎る・熟る (naru, “to become normal, to become regular, to become fitting”, classical form of modern なれる (nareru))."
+      }
+    ],
+    "examples": [
+      {
+        "id": 107690,
+        "ja": "彼は肩をならべていた。",
+        "en": "He was standing shoulder to shoulder.",
+        "enId": 13085744,
+        "form": "ならべていた"
+      },
+      {
+        "id": 185694,
+        "ja": "大きさ順に本を並べた。",
+        "en": "We arranged the books according to size.",
+        "enId": 22826,
+        "form": "並べた"
       }
     ],
     "wiktionaryDump": "2026-09-02"

@@ -10,6 +10,7 @@
       "noun, used as a suffix",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf04"],
     "stratum": "wago",
     "processes": [],
     "headline": "Atsukai is the continuative stem of the verb 扱う (atsukau, “to handle”).",
@@ -17,6 +18,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 扱(あつか)う (atsukau, “to handle”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 101308,
+        "ja": "彼は馬の扱いがうまい。",
+        "en": "He handles horses well.",
+        "enId": 302388,
+        "form": "扱い"
+      },
+      {
+        "id": 99100,
+        "ja": "彼は乱暴な扱いを受けた。",
+        "en": "He received rough treatment.",
+        "enId": 304597,
+        "form": "扱い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -28,6 +45,7 @@
     "meaning": "tsunami, tidal wave",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Tsunami is 津 (tsu, “cove, inlet, outlet”) plus 波 (nami, “wave”), named so because tsunamis do more damage to sea ports.",
@@ -51,6 +69,22 @@
         "quote": "Attested since at least the 甲(こう)陽(よう)軍(ぐん)鑑(かん) (Kōyō Gunkan) of the early 1600s."
       }
     ],
+    "examples": [
+      {
+        "id": 125710,
+        "ja": "津波警報は解除された。",
+        "en": "The tidal wave warning has been canceled.",
+        "enId": 278283,
+        "form": "津波"
+      },
+      {
+        "id": 188785,
+        "ja": "沿岸地帯には津波警報が出た。",
+        "en": "The coast was warned against a tsunami.",
+        "enId": 25931,
+        "form": "津波"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -63,6 +97,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kōri is 小 (ko-, “little”) plus 売り (uri, “selling”).",
@@ -95,6 +130,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ソロ is borrowed from Italian solo.",
@@ -110,6 +146,15 @@
         "quote": "Borrowed from Italian solo."
       }
     ],
+    "examples": [
+      {
+        "id": 120850,
+        "ja": "彼がソロを歌うとき、音程が外れるんじゃないかって、手に汗握っちゃうよね。",
+        "en": "When he gets up on stage to sing one of his out-of-tune solos, I get so nervous for him that I get sweaty palms.",
+        "enId": 283158,
+        "form": "ソロ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -122,6 +167,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf31"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Hidarikiki is 左 (hidari, “left”) plus 利き (kiki, “effective”), with kiki voiced to giki by rendaku.",
@@ -142,6 +188,22 @@
         "quote": "Compound of 左 (hidari, “left”) + 利き (kiki, “effective”). The kiki changes to giki as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 81890,
+        "ja": "僕は左利きです。",
+        "en": "I'm left-handed.",
+        "enId": 321826,
+        "form": "左利き"
+      },
+      {
+        "id": 156492,
+        "ja": "私は私の左利きの彼と共通点がない。",
+        "en": "I don't have much in common with my left-handed boyfriend.",
+        "enId": 258042,
+        "form": "左利き"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -151,6 +213,7 @@
     "meaning": "to dye, to color",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "wago",
     "processes": [],
     "headline": "Someru is from Old Japanese 染む (somu), a lower bigrade verb.",
@@ -166,6 +229,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 79063,
+        "ja": "夕日は高い屋根を赤く染めた。",
+        "en": "The setting sun flushed the high roof.",
+        "enId": 324654,
+        "form": "染めた"
+      },
+      {
+        "id": 84918,
+        "ja": "布は鮮やかな赤色に染められた。",
+        "en": "The cloth was dyed bright red.",
+        "enId": 318795,
+        "form": "染められた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -175,6 +254,7 @@
     "meaning": "at once, first of all, for the time being",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "ichi2", "spec1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Toriaezu is 取り (tori, “taking”) plus 敢えず (aezu), from the negative form of 敢ふ (afu, “to bear, endure”).",
@@ -193,6 +273,7 @@
     "meaning": "hall; hole",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ホール covers “hall”, “hole” and “whole”, and the source borrows all three from English.",
@@ -217,6 +298,7 @@
     "meaning": "remarkable, considerable",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf47"],
     "stratum": "wago",
     "processes": ["rendaku"],
     "headline": "Ichijirushii began as ichishirushi, 逸 (ichi-, “very”) plus 著し (shirushi), and shirushi was voiced to jirushi by rendaku in the Muromachi period.",
@@ -232,6 +314,22 @@
         "quote": "The modern form is from いちじるしき (ichijirushiki), the 連体形 (rentaikei, “attributive form”) of the Late Middle Japanese shiku-adjective いちじるし (ichijirushi), with the medial /-k-/ falling out."
       }
     ],
+    "examples": [
+      {
+        "id": 186864,
+        "ja": "科学は著しく進歩した。",
+        "en": "Science has made remarkable progress.",
+        "enId": 24001,
+        "form": "著しく"
+      },
+      {
+        "id": 142784,
+        "ja": "生産高が著しく増加した。",
+        "en": "Production has remarkably increased.",
+        "enId": 271785,
+        "form": "著しく"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -245,6 +343,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In sōgō, 総 is a daiyōji replacing 綜.",
@@ -267,6 +366,15 @@
         "quote": "総 is a daiyōji replacing 綜."
       }
     ],
+    "examples": [
+      {
+        "id": 76752,
+        "ja": "このプロダクトはインテリジェント総合情報システムです。",
+        "en": "This product is an intelligent integrated information system.",
+        "enId": 326968,
+        "form": "総合"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -276,6 +384,7 @@
     "meaning": "to present, to submit, to hold out",
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sashidasu is 差す (sasu) plus 出す (dasu).",
@@ -283,6 +392,22 @@
     "sources": [
       {
         "quote": "差(さ)す (sasu) + 出(だ)す (dasu)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 104490,
+        "ja": "彼は手を差し出した。",
+        "en": "He held out his hand.",
+        "enId": 293484,
+        "form": "差し出した"
+      },
+      {
+        "id": 88833,
+        "ja": "彼女は手を差し出した。",
+        "en": "She held out her hand.",
+        "enId": 314874,
+        "form": "差し出した"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -294,6 +419,7 @@
     "meaning": "guest",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ゲスト is from English guest.",
@@ -309,6 +435,15 @@
         "quote": "From English guest."
       }
     ],
+    "examples": [
+      {
+        "id": 206978,
+        "ja": "その部屋のゲストは２０人いた。",
+        "en": "The guests in the room were twenty in number.",
+        "enId": 44228,
+        "form": "ゲスト"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -318,6 +453,7 @@
     "meaning": "to unfasten; answer, solve",
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Toku, “to unfasten”, is a doublet of 説く (toku) and 溶く (toku).",
@@ -325,6 +461,22 @@
     "sources": [
       {
         "quote": "Doublet of 説(と)く (toku) and 溶(と)く (toku)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 104339,
+        "ja": "彼は重責を解かれた。",
+        "en": "He was relieved of his heavy responsibility.",
+        "enId": 299352,
+        "form": "解かれた"
+      },
+      {
+        "id": 206369,
+        "ja": "その問題を簡単に解いた。",
+        "en": "I solved the problem easily.",
+        "enId": 43617,
+        "form": "解いた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -336,6 +488,7 @@
     "meaning": "to manipulate, to operate, to pull strings",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf35"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ayatsuru may be 綾 (aya, “thread”) plus 取る (toru, “to take”).",
@@ -343,6 +496,22 @@
     "sources": [
       {
         "quote": "Maybe a compound of 綾(あや) (aya, “thread”) + 取(と)る (toru, “to take”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 162229,
+        "ja": "私は、数字を操るのがへたです。",
+        "en": "I am awkward with numbers.",
+        "enId": 252285,
+        "form": "操る"
+      },
+      {
+        "id": 230569,
+        "ja": "あの通訳は５か国語を自由に操る。",
+        "en": "That interpreter is a master of five languages.",
+        "enId": 67936,
+        "form": "操る"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -354,6 +523,7 @@
     "meaning": "liquid, fluid",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Eki, “liquid”, is from Middle Chinese 液 (yek, “liquid”).",
@@ -372,6 +542,7 @@
     "meaning": "trial, experiment",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kokoromi is the continuative stem of the verb 試みる (kokoromiru, “to try, attempt”).",
@@ -379,6 +550,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 試(こころ)みる (kokoromiru, “to try, attempt”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 221705,
+        "ja": "この試みは失敗に終わった。",
+        "en": "This attempt resulted in failure.",
+        "enId": 59031,
+        "form": "試み"
+      },
+      {
+        "id": 186268,
+        "ja": "我々の試みは、結局失敗した。",
+        "en": "Our attempt has proved to be a failure.",
+        "enId": 23403,
+        "form": "試み"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -390,6 +577,7 @@
     "meaning": "neurosis (GER: Neurose)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ノイローゼ is from German Neurose.",
@@ -405,6 +593,15 @@
         "quote": "From German Neurose."
       }
     ],
+    "examples": [
+      {
+        "id": 74623,
+        "ja": "本物のノイローゼの奴がノイローゼだなんて自称するのかね？",
+        "en": "Do you think real neurotics really go and call themselves such?",
+        "enId": 329096,
+        "form": "ノイローゼ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -414,6 +611,7 @@
     "meaning": "wealth, fortune",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tomi is the continuative stem of the verb 富む (tomu, “to be rich”).",
@@ -421,6 +619,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 富(と)む (tomu, “to be rich”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84959,
+        "ja": "富には翼がある。",
+        "en": "Riches have wings.",
+        "enId": 318754,
+        "form": "富"
+      },
+      {
+        "id": 100432,
+        "ja": "彼は富を築いた。",
+        "en": "He heaped up a fortune.",
+        "enId": 303266,
+        "form": "富"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -432,6 +646,7 @@
     "meaning": "to grant, to award, to teach",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "wago",
     "processes": ["compound", "unclear"],
     "headline": "Sazukeru derives from the classical verb 授く (sazuku), and a surface analysis suggests さ (sa) plus 付ける (tsukeru).",
@@ -447,6 +662,22 @@
         "quote": "First attested in ideographic form in the Nihon Shoki of 720, and in phonetic spelling in the Man'yōshū of 759."
       }
     ],
+    "examples": [
+      {
+        "id": 191083,
+        "ja": "委員会は彼にメダルを授けた。",
+        "en": "The committee bestowed a medal on him.",
+        "enId": 28243,
+        "form": "授けた"
+      },
+      {
+        "id": 183868,
+        "ja": "監督は彼にトロフィーを授けた。",
+        "en": "The manager bestowed a trophy on him.",
+        "enId": 20992,
+        "form": "授けた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -459,6 +690,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kagō is 化 (ka, “change into”) plus 合 (gō, “combine”).",
@@ -491,6 +723,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スタート is borrowed from English start.",
@@ -506,6 +739,22 @@
         "quote": "Borrowed from English start."
       }
     ],
+    "examples": [
+      {
+        "id": 82079,
+        "ja": "僕はスタートで一番遅れた。",
+        "en": "I started last in the race.",
+        "enId": 321636,
+        "form": "スタート"
+      },
+      {
+        "id": 97539,
+        "ja": "彼らは一斉にスタートした。",
+        "en": "They started all at once.",
+        "enId": 306163,
+        "form": "スタート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -519,6 +768,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Seijō is from Middle Chinese 正常.",
@@ -541,6 +791,22 @@
         "quote": "Middle Chinese 正常"
       }
     ],
+    "examples": [
+      {
+        "id": 178046,
+        "ja": "君の脈は正常だ。",
+        "en": "You have a regular pulse.",
+        "enId": 16899,
+        "form": "正常"
+      },
+      {
+        "id": 116590,
+        "ja": "彼の体温は正常だ。",
+        "en": "His temperature is normal.",
+        "enId": 287079,
+        "form": "正常"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -550,6 +816,7 @@
     "meaning": "protagonist",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shujinkō is from Middle Chinese 主人公 (MC tsyuX nyin kuwng).",
@@ -578,6 +845,22 @@
         "quote": "From Middle Chinese 主人公 (MC tsyuX nyin kuwng)."
       }
     ],
+    "examples": [
+      {
+        "id": 148695,
+        "ja": "主人公は、本の最後で死んだ。",
+        "en": "The hero died at the end of the book.",
+        "enId": 265864,
+        "form": "主人公"
+      },
+      {
+        "id": 211158,
+        "ja": "その劇は主人公の死で終わる。",
+        "en": "The play concludes with the hero's death.",
+        "enId": 48432,
+        "form": "主人公"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -590,6 +873,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アンコール is borrowed from English encore.",
@@ -605,6 +889,22 @@
         "quote": "Borrowed from English encore."
       }
     ],
+    "examples": [
+      {
+        "id": 186778,
+        "ja": "歌手に向かって盛んなアンコールが起こった。",
+        "en": "Everyone called out to the singer for an encore.",
+        "enId": 23914,
+        "form": "アンコール"
+      },
+      {
+        "id": 212708,
+        "ja": "そのピアニストはアンコールに応えて２曲弾いた。",
+        "en": "The pianist played two encores.",
+        "enId": 49991,
+        "form": "アンコール"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -614,6 +914,7 @@
     "meaning": "lawsuit, complaint",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Uttae is the continuative stem of the verb 訴える (uttaeru).",
@@ -621,6 +922,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 訴(うった)える (uttaeru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 220719,
+        "ja": "この訴えを退けたくはない。",
+        "en": "I do not want to reject this claim.",
+        "enId": 58041,
+        "form": "訴え"
+      },
+      {
+        "id": 99938,
+        "ja": "彼は僕の訴えを聞こうとしなかった。",
+        "en": "He was deaf to my pleas.",
+        "enId": 303759,
+        "form": "訴え"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -636,6 +953,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Chokkan is cognate with 直観.",
@@ -659,6 +977,22 @@
         "quote": "Cognate with Japanese 直観."
       }
     ],
+    "examples": [
+      {
+        "id": 176320,
+        "ja": "警官は彼が犯人だと直感した。",
+        "en": "The police spotted him at once as the offender.",
+        "enId": 238144,
+        "form": "直感"
+      },
+      {
+        "id": 102030,
+        "ja": "彼は直感で彼女の嘘をついているとわかった。",
+        "en": "By intuition he knew she was lying.",
+        "enId": 301664,
+        "form": "直感"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -668,6 +1002,7 @@
     "meaning": "tone color, timbre",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Neiro is 音 (ne, “tone; sound”) plus 色 (iro, “colour”), and the source compares German Klangfarbe, “sound-color”.",
@@ -697,6 +1032,7 @@
     "meaning": "theory, reason",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In rikutsu, 屈 is a daiyōji replacing 窟, and the source traces it to Liu Yiqing's A New Account of the Tales of the World.",
@@ -722,6 +1058,22 @@
         "quote": "Originally from Chapter 4. Letters and Scholarship, A New Account of the Tales of the World by Liu Yiqing (南朝 宋，劉義慶，《世說新語·文學》)."
       }
     ],
+    "examples": [
+      {
+        "id": 204795,
+        "ja": "それは理屈に合わない。",
+        "en": "It is contrary to reason.",
+        "enId": 42036,
+        "form": "理屈"
+      },
+      {
+        "id": 237013,
+        "ja": "これは理屈で割り切れない。",
+        "en": "This is above reason.",
+        "enId": 55376,
+        "form": "理屈"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -731,6 +1083,7 @@
     "meaning": "to gulp down, to swallow deeply, to understand",
     "level": "N1",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Nomikomu is 飲み (nomi, the stem of 飲む (nomu, “to drink; to swallow”)) plus 込む (komu, “to go into”).",
@@ -751,6 +1104,22 @@
         "quote": "Compound verb from 飲(の)み (nomi, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 飲(の)む (nomu, “to drink; to swallow”)) + 込(こ)む (komu, “to go into”)."
       }
     ],
+    "examples": [
+      {
+        "id": 148909,
+        "ja": "蛇が蛙を飲み込んだ。",
+        "en": "The snake swallowed a frog.",
+        "enId": 265649,
+        "form": "飲み込んだ"
+      },
+      {
+        "id": 204627,
+        "ja": "それを飲み込みなさい。",
+        "en": "Drink it down.",
+        "enId": 41868,
+        "form": "飲み込み"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -763,6 +1132,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In tokushū, 集 is a daiyōji replacing 輯.",
@@ -783,6 +1153,15 @@
     "sources": [
       {
         "quote": "集 is a daiyōji replacing 輯."
+      }
+    ],
+    "examples": [
+      {
+        "id": 150196,
+        "ja": "次号では離婚について特集します。",
+        "en": "The next issue will feature articles on divorce.",
+        "enId": 264361,
+        "form": "特集"
       }
     ],
     "wiktionaryDump": "2026-09-02"

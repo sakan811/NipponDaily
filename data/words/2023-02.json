@@ -6,6 +6,7 @@
     "meaning": "(humble) to hear, to be told, to know",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf35"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A humble “I hear you” is “receive” plus “be granted”.",
@@ -13,6 +14,22 @@
     "sources": [
       {
         "quote": "Compound of 受ける (ukeru, “to receive”) + 賜る (tamawaru, “to be granted”), with alternative (irregular) spelling as 受け賜る."
+      }
+    ],
+    "examples": [
+      {
+        "id": 217051,
+        "ja": "ご伝言を承ります。",
+        "en": "May I take a message for him?",
+        "enId": 54358,
+        "form": "承ります"
+      },
+      {
+        "id": 124932,
+        "ja": "伝言を承りましょうか。",
+        "en": "Would you like to leave a message?",
+        "enId": 25056,
+        "form": "承り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -24,6 +41,7 @@
     "meaning": "full name",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "A full name is “surname” plus “given name”, and Japanese has two Chinese readings for it.",
@@ -56,6 +74,7 @@
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "kango",
     "processes": ["ateji"],
     "headline": "“Futile” is probably kin to “empty” — and its kanji are just stand-ins.",
@@ -63,6 +82,22 @@
     "sources": [
       {
         "quote": "Related to 空(むな)しい (munashī, “empty”). The kanji are ateji (当(あ)て字(じ))."
+      }
+    ],
+    "examples": [
+      {
+        "id": 137936,
+        "ja": "待ってもむだだ。",
+        "en": "There's no point in waiting.",
+        "enId": 275300,
+        "form": "むだ"
+      },
+      {
+        "id": 116444,
+        "ja": "彼の努力はむだだった。",
+        "en": "His efforts were in vain.",
+        "enId": 287225,
+        "form": "むだ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -74,6 +109,7 @@
     "meaning": "eraser",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "hybrid",
     "processes": ["compound", "borrowing"],
     "headline": "An eraser is a native “erasing” stuck to a Dutch-derived “rubber”.",
@@ -94,6 +130,22 @@
         "quote": "Compound of 消し (keshi, “erasing”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 消(け)す (kesu, “put out, extinguish; erase”)) + ゴム (gomu, “rubber”, from Dutch gom)."
       }
     ],
+    "examples": [
+      {
+        "id": 146418,
+        "ja": "消しゴムを借りてもいい？",
+        "en": "May I borrow your eraser?",
+        "enId": 268144,
+        "form": "消しゴム"
+      },
+      {
+        "id": 146419,
+        "ja": "消しゴムでこれらの語を消しなさい。",
+        "en": "Rub out these words with your eraser.",
+        "enId": 268143,
+        "form": "消しゴム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -103,6 +155,7 @@
     "meaning": "radio",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Radio's first written use in Japanese is c. 1924, in a play called “Cherry Blossoms”.",
@@ -121,6 +174,22 @@
         "quote": "First written use c. 1924, in a play entitled 葉桜 (Hazakura, literally “Cherry Blossoms”) by Kunio Kishida; see quotation."
       }
     ],
+    "examples": [
+      {
+        "id": 110348,
+        "ja": "彼はラジオをつけた。",
+        "en": "He turned on the radio.",
+        "enId": 293339,
+        "form": "ラジオ"
+      },
+      {
+        "id": 158616,
+        "ja": "私はラジオを消した。",
+        "en": "I turned off the radio.",
+        "enId": 255912,
+        "form": "ラジオ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -130,6 +199,7 @@
     "meaning": "bright (in reference to personality or weather); cheerful",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "“Bright” is probably a verb for “brighten” with an old adjective ending, first attested in 1689.",
@@ -142,6 +212,22 @@
         "quote": "First attested in 1689."
       }
     ],
+    "examples": [
+      {
+        "id": 80712,
+        "ja": "明るい気分になる。",
+        "en": "It makes me feel cheerful.",
+        "enId": 323003,
+        "form": "明るい"
+      },
+      {
+        "id": 99627,
+        "ja": "彼は明るい少年だ。",
+        "en": "He is a cheerful boy.",
+        "enId": 304070,
+        "form": "明るい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -151,6 +237,7 @@
     "meaning": "weekday",
     "level": "N2",
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "A weekday is a “plain day”, and the same spelling also hides a native compound.",
@@ -182,6 +269,7 @@
     "meaning": "ring finger",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "The ring finger is the “medicine finger”, first cited in 1717.",
@@ -205,6 +293,15 @@
         "quote": "First cited to 1717."
       }
     ],
+    "examples": [
+      {
+        "id": 89957,
+        "ja": "彼女は左手の薬指にダイヤの指輪をはめていた。",
+        "en": "She wore a diamond ring on her left third finger.",
+        "enId": 313758,
+        "form": "薬指"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -217,12 +314,29 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news2", "nf33"],
     "processes": ["rendaku"],
     "headline": "A burn is a “burning place”, and the to of “place” voices to do.",
     "morphemes": [],
     "sources": [
       {
         "quote": "From 焼(や)け (yake, “burn, burning”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 焼(や)ける (yakeru, “to be burnt”)) + 処(と) (to, “place”). The to changes to do as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 139869,
+        "ja": "足にやけどをした。",
+        "en": "I burnt myself on the leg.",
+        "enId": 259241,
+        "form": "やけど"
+      },
+      {
+        "id": 156517,
+        "ja": "私は指先を火傷した。",
+        "en": "I burned my fingertip.",
+        "enId": 13661822,
+        "form": "火傷"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -237,6 +351,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "The national border was already in the 706 record — and a native reading, kunizakai, sits behind the same spelling.",
@@ -269,6 +384,7 @@
     "meaning": "to view, to gaze at",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf21"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "To gaze is related to “long” — possibly a “becoming long” — or to a “long watching” in the Kojiki.",
@@ -281,6 +397,22 @@
         "quote": "Likely related to 詠める (nagameru)."
       }
     ],
+    "examples": [
+      {
+        "id": 187417,
+        "ja": "何時間も海を眺めた。",
+        "en": "I gazed at the sea for hours.",
+        "enId": 24553,
+        "form": "眺めた"
+      },
+      {
+        "id": 98128,
+        "ja": "彼らはお互いを眺めた。",
+        "en": "They looked at each other.",
+        "enId": 305541,
+        "form": "眺めた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -290,6 +422,7 @@
     "meaning": "girlfriend; she",
     "level": "N4",
     "pos": ["pronoun", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "“She” began as “that woman” — and only became a pronoun around 1888, under Western influence.",
@@ -312,6 +445,22 @@
         "quote": "First appears in writing in the late Edo period as a compound of 彼の (kano, ano, “that”) + 女 (onna, “woman”) with the reading kano onna or ano onna, simply meaning “that woman”. The kanojo reading arose by replacing the kun'yomi reading of onna for the second character with its on'yomi of jo. The first written appearance of the kanojo reading is in 1876, in the 改正画引小学読本 (Kaisei Gakubiki Shōgaku Dokuhon, “Revised Stroke-ordered Elementary-school Reader”). The first clear use of this term as a pronoun is around 1888, arising out of influence from Western works. The kanojo reading became more common and replaced kano onna and ano onna during the Taishō period (1912-1926)."
       }
     ],
+    "examples": [
+      {
+        "id": 86784,
+        "ja": "彼女は歩く。",
+        "en": "She walks.",
+        "enId": 316925,
+        "form": "彼女"
+      },
+      {
+        "id": 86070,
+        "ja": "彼女新顔だよ。",
+        "en": "She's new fish in the pond.",
+        "enId": 317641,
+        "form": "彼女"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -321,6 +470,7 @@
     "meaning": "apartment (abbr.)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "An “apartment” that is clipped — twice, from two different longer words.",
@@ -333,6 +483,22 @@
         "quote": "Clipping of アパートメントハウス (apātomentohausu), borrowed from English apartment house."
       }
     ],
+    "examples": [
+      {
+        "id": 229463,
+        "ja": "いいアパートね。",
+        "en": "This is a great apartment.",
+        "enId": 66822,
+        "form": "アパート"
+      },
+      {
+        "id": 114881,
+        "ja": "彼はアパートを借りた。",
+        "en": "He rented an apartment.",
+        "enId": 2726556,
+        "form": "アパート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -342,6 +508,7 @@
     "meaning": "eight days; eighth day of the month",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "“Eight days” is a classical やうか that was probably a やか first — or the other way round.",
@@ -373,6 +540,7 @@
     "meaning": "kindergarten",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Kindergarten was, apparently, translated word for word from German — Japan's first ones opened in 1876.",
@@ -396,6 +564,22 @@
         "quote": "First cited in Japanese to 1876."
       }
     ],
+    "examples": [
+      {
+        "id": 216183,
+        "ja": "しげみちゃんを幼稚園に迎えに行けないの。",
+        "en": "I will not be able to pick up Shigemi at the kindergarten.",
+        "enId": 53486,
+        "form": "幼稚園"
+      },
+      {
+        "id": 76610,
+        "ja": "それにしても、幼稚園というところは、季節の行事にとても敏感です。",
+        "en": "Even so, kindergartens are sensitive to seasonal events.",
+        "enId": 327110,
+        "form": "幼稚園"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -405,6 +589,7 @@
     "meaning": "to be finished",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["news2", "nf46"],
     "stratum": "hybrid",
     "processes": ["compound", "sound-change", "ateji"],
     "headline": "To be finished is to be “done up” — and the 仕 is only there for its sound.",
@@ -417,6 +602,22 @@
         "quote": "The 仕 kanji for the first character is an example of phonetic ateji."
       }
     ],
+    "examples": [
+      {
+        "id": 169015,
+        "ja": "仕上がったばかり。",
+        "en": "Just finished it.",
+        "enId": 245472,
+        "form": "仕上がった"
+      },
+      {
+        "id": 141204,
+        "ja": "洗濯物は仕上がっていますか。",
+        "en": "Is my laundry ready?",
+        "enId": 273368,
+        "form": "仕上がっています"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -426,6 +627,7 @@
     "meaning": "dim, gloomy",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Dim is “thin dark” — with くらい voiced to ぐらい.",
@@ -447,6 +649,22 @@
         "quote": "薄(うす) (usu, “thin”) + 暗(くら)い (kurai, “dark”). The kurai changes to gurai as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 121398,
+        "ja": "薄暗い光の中で彼の顔を見た。",
+        "en": "I saw his face in the dim light.",
+        "enId": 282608,
+        "form": "薄暗い"
+      },
+      {
+        "id": 121396,
+        "ja": "薄暗い明かりで本を読んではいけない。",
+        "en": "You shouldn't read in such poor light.",
+        "enId": 282610,
+        "form": "薄暗い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -456,6 +674,7 @@
     "meaning": "instrument",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "An instrument began as a “weapon” in 718 — and its look-alike 機械 became the common spelling from around 1874.",
@@ -494,6 +713,7 @@
     "meaning": "to use, to make use of",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“To use” is “hold” plus “bring along”.",
@@ -506,6 +726,22 @@
         "quote": "Also historically spelled 用ひる (mochihiru) in some texts since before the Edo period (see that entry for further detail)."
       }
     ],
+    "examples": [
+      {
+        "id": 199345,
+        "ja": "ナイフとして用いられている。",
+        "en": "It can be used as a knife.",
+        "enId": 36547,
+        "form": "用いられている"
+      },
+      {
+        "id": 222014,
+        "ja": "この語は今では用いられない。",
+        "en": "That word has fallen out of use.",
+        "enId": 59338,
+        "form": "用いられない"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -515,6 +751,7 @@
     "meaning": "cotton",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Cotton is “tree cotton”, worn down from mokumen to momen by 1560.",
@@ -530,6 +767,22 @@
         "quote": "The earlier form monmen is attested in 1468 with a sense of \"cotton fibre\", with the medial gemination eliding into momen by 1560."
       }
     ],
+    "examples": [
+      {
+        "id": 223239,
+        "ja": "このブラウスは木綿製です。",
+        "en": "This blouse is cotton.",
+        "enId": 60571,
+        "form": "木綿"
+      },
+      {
+        "id": 220082,
+        "ja": "この布はもめんでできている。",
+        "en": "This cloth is made of cotton.",
+        "enId": 57401,
+        "form": "もめん"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -539,6 +792,7 @@
     "meaning": "zero",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "spec1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "ateji"],
     "headline": "Zero could be English or French — and even the katakana word has a kanji spelling chosen by sound.",
@@ -557,6 +811,7 @@
     "meaning": "twenty days, twentieth (day of the month)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "spec1"],
     "processes": ["sound-change"],
     "headline": "The twentieth of the month has two likely derivations — one through “twenty years old”.",
     "morphemes": [],
@@ -574,6 +829,22 @@
         "quote": "*: /ɸatat͡ɕi ka/ → */ɸat̚t͡ɕɨka/ → /ɸat͡ɕuka/ → /hat͡ɕuka/"
       }
     ],
+    "examples": [
+      {
+        "id": 139663,
+        "ja": "卒業式は三月二十日に行われます。",
+        "en": "The graduation ceremony will take place on March 20th.",
+        "enId": 274537,
+        "form": "二十日"
+      },
+      {
+        "id": 154765,
+        "ja": "私は二十日までに帰るつもりです。",
+        "en": "I expect to be back by the 20th.",
+        "enId": 259774,
+        "form": "二十日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -583,6 +854,7 @@
     "meaning": "warrior, samurai",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "kango",
     "processes": ["rendaku", "borrowing", "ateji"],
     "headline": "Bushi is Chinese “warrior-man” — a theory that it once meant “bowing down” runs into the Nara period.",
@@ -595,6 +867,22 @@
         "quote": "Japanese philologist Shinobu Orikuchi postulated in the 1920s that bushi derived instead from 伏 (bushi), the rendaku (連濁) version of fushi, the 連用形 (ren'yōkei, stem or continuative form) of verb 伏す (fusu, “to bow down, to prostrate”), as found in terms such as 山伏 (yamabushi, “mountain hermit”) and 野伏 (nobushi, “hermit; brigand”). Orikuchi contended that this word arose some time during the Kamakura or Muromachi periods, and that the kanji spelling is ateji (当(あ)て字(じ)). However, the term 武士 (bushi) with the kanji spelling is attested already in the Nara period, many centuries earlier. In addition, rendaku only applies to the latter element in compounds, so nominalized verb fushi would not appear as bushi on its own."
       }
     ],
+    "examples": [
+      {
+        "id": 84263,
+        "ja": "武士は食わねど高楊枝。",
+        "en": "A samurai, even when he has not eaten, uses a toothpick like a lord.",
+        "enId": 319452,
+        "form": "武士"
+      },
+      {
+        "id": 173555,
+        "ja": "江戸時代、武士は刀を２本刺していた。",
+        "en": "A samurai in the Edo era carried two swords.",
+        "enId": 240915,
+        "form": "武士"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -604,6 +892,7 @@
     "meaning": "extreme, excessive, terrible",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf45"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Extreme” is the adverb “very” turned into an adjective.",
@@ -624,6 +913,15 @@
         "quote": "甚だ (hanahada, “very, excessively”) + しい (shii, forms adjectives)."
       }
     ],
+    "examples": [
+      {
+        "id": 229582,
+        "ja": "あんなことを彼女に言うなんて非常識も甚だしい。",
+        "en": "It's quite absurd of you to tell her that sort of thing.",
+        "enId": 66942,
+        "form": "甚だしい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -633,6 +931,7 @@
     "meaning": "to turn inside out, to turn (something) over",
     "level": "N2",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "To turn inside out is to “flip” the “back side” — かえす voiced to がえす.",
@@ -654,6 +953,22 @@
         "quote": "Compound of 裏 (ura, “back side, inside, far side”) + 返す (kaesu, “to flip over, to turn over”). The kaesu changes to gaesu as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 137889,
+        "ja": "袋を裏返しにしなさい。",
+        "en": "Turn your bag inside out.",
+        "enId": 275347,
+        "form": "裏返し"
+      },
+      {
+        "id": 101252,
+        "ja": "彼は肌着を裏返しに着た。",
+        "en": "He put on his undershirt inside out.",
+        "enId": 302444,
+        "form": "裏返し"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -663,6 +978,7 @@
     "meaning": "boys, juveniles",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "A “boy” once meant a young person of either gender, “young years” in Chinese.",
@@ -689,6 +1005,22 @@
         "quote": "Originally referred to young people of either gender. The meaning has narrowed in modern usage to more commonly refer to boys of elementary school or middle school age."
       }
     ],
+    "examples": [
+      {
+        "id": 155850,
+        "ja": "私は少年です。",
+        "en": "I am a boy.",
+        "enId": 453328,
+        "form": "少年"
+      },
+      {
+        "id": 155844,
+        "ja": "私は少年を見た。",
+        "en": "I caught sight of the boy.",
+        "enId": 258693,
+        "form": "少年"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -698,6 +1030,7 @@
     "meaning": "to smile",
     "level": "N3",
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "processes": ["compound", "ateji"],
     "headline": "To smile is to “cheek-smile” — in kanji borrowed from a Chinese “slight smile”.",
     "morphemes": [],
@@ -709,6 +1042,22 @@
         "quote": "The spelling appears to be an example of jukujikun (熟(じゅく)字(じ)訓(くん)), based on Chinese 微笑 (wēixiào, literally “slight smile”)."
       }
     ],
+    "examples": [
+      {
+        "id": 229980,
+        "ja": "アリスは微笑んだ。",
+        "en": "Alice smiled.",
+        "enId": 67345,
+        "form": "微笑んだ"
+      },
+      {
+        "id": 85585,
+        "ja": "微笑みつづけなさい。",
+        "en": "Keep on smiling.",
+        "enId": 318128,
+        "form": "微笑み"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -718,6 +1067,7 @@
     "meaning": "senior members of a group",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "A senior is a Chinese “earlier fellow”, and ソンベ is its doublet.",
@@ -725,6 +1075,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 先輩 (MC sen pwojH). Doublet of ソンベ (sonbe)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 106634,
+        "ja": "彼は仕事の上では私の先輩だ。",
+        "en": "He has more experience on the job than I.",
+        "enId": 297052,
+        "form": "先輩"
+      },
+      {
+        "id": 88233,
+        "ja": "彼女は先輩を追い越して昇進した。",
+        "en": "She was promoted over the heads of her seniors.",
+        "enId": 315475,
+        "form": "先輩"
       }
     ],
     "wiktionaryDump": "2026-09-02"

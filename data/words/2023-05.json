@@ -6,6 +6,7 @@
     "meaning": "friendship",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "“Friendship” is a learned borrowing from Chinese, first attested in 1900.",
@@ -37,6 +38,7 @@
     "meaning": "to feel, to sense",
     "level": "N3",
     "pos": ["Ichidan verb"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "“To feel” was once “to do a feeling”, a verb in a different conjugation.",
@@ -44,6 +46,22 @@
     "sources": [
       {
         "quote": "Shift from 感ずる (kanzuru), a compound of 感 (kan, “feeling”) + する (suru, “to do, to be”). Natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 142814,
+        "ja": "生を感じる。",
+        "en": "I feel alive.",
+        "enId": 271755,
+        "form": "感じる"
+      },
+      {
+        "id": 188407,
+        "ja": "何か感じる。",
+        "en": "I feel something.",
+        "enId": 25550,
+        "form": "感じる"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -58,6 +76,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "A novel is a “small narrative” — and Wiktionary is still asking who coined it.",
@@ -78,6 +97,22 @@
         "quote": "From 小 (shō, “small”) + 説 (setsu, “narrative, story”)."
       }
     ],
+    "examples": [
+      {
+        "id": 146936,
+        "ja": "この小説は難解だ。",
+        "en": "This novel is difficult to understand.",
+        "enId": 58469,
+        "form": "小説"
+      },
+      {
+        "id": 221152,
+        "ja": "この小説は退屈だ。",
+        "en": "This novel bores me.",
+        "enId": 58476,
+        "form": "小説"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -87,6 +122,7 @@
     "meaning": "time",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": [
       "compound",
@@ -116,6 +152,22 @@
         "quote": "The reading is a mix of the goon reading ji and the kan'on reading kan, suggesting either that the reading changed after borrowing (from the expected goon pronunciation of jiken or the expected kan'on pronunciation of shikan), or that this term was independently coined in Japanese after the constituent terms 時(じ) (ji) and 間(かん) (kan) were borrowed."
       }
     ],
+    "examples": [
+      {
+        "id": 182969,
+        "ja": "起きる時間よ。",
+        "en": "Time to get up.",
+        "enId": 20090,
+        "form": "時間"
+      },
+      {
+        "id": 147706,
+        "ja": "出発する時間だ。",
+        "en": "It is really time for us to go.",
+        "enId": 266854,
+        "form": "時間"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -130,6 +182,7 @@
       "noun (common) (futsuumeishi)",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1", "news2", "nf43"],
     "stratum": "kango",
     "processes": ["ateji", "unclear"],
     "headline": "“Many” is in The Tale of the Heike — and its origin is unknown.",
@@ -140,6 +193,22 @@
       },
       {
         "quote": "Origin unknown, kanji spelling appears to be phonetic ateji (当(あ)て字(じ))"
+      }
+    ],
+    "examples": [
+      {
+        "id": 203744,
+        "ja": "たくさん欲しい。",
+        "en": "I want a lot.",
+        "enId": 40984,
+        "form": "たくさん"
+      },
+      {
+        "id": 179738,
+        "ja": "金はたくさんある。",
+        "en": "There is a lot of money.",
+        "enId": 18597,
+        "form": "たくさん"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -154,6 +223,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "East-West came from Chinese — and the 西 voices from さい to ざい.",
@@ -189,6 +259,7 @@
     "meaning": "to be burdened with; to carry on (one's) back or shoulder(s)",
     "level": "N2",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "To shoulder a burden is, literally, to “carry on the back”.",
@@ -221,6 +292,7 @@
     "meaning": "demo, demonstration",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["clipping"],
     "headline": "デモ is a clipped デモンストレーション, and Korean has a form 데모 to compare.",
@@ -228,6 +300,22 @@
     "sources": [
       {
         "quote": "Shortening of デモンストレーション (demonsutorēshon). Also see Korean 데모 (demo)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 202079,
+        "ja": "デモ隊は整然と行進した。",
+        "en": "The demonstrators marched in order.",
+        "enId": 39291,
+        "form": "デモ"
+      },
+      {
+        "id": 202096,
+        "ja": "デモに参加しようと思う。",
+        "en": "I'm going to join a demonstration.",
+        "enId": 39308,
+        "form": "デモ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -243,6 +331,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "“Preceding” is “go before” — and the same spelling has a native reading, sakiyuki, from 1678.",
@@ -266,6 +355,15 @@
         "quote": "First cited to a text from 833."
       }
     ],
+    "examples": [
+      {
+        "id": 190013,
+        "ja": "稲光は雷の音に先行する。",
+        "en": "The flash of lightning precedes the sound of thunder.",
+        "enId": 27169,
+        "form": "先行"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -278,6 +376,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "“Splendid” is “seeing” plus “thing”, first cited in 1309.",
@@ -302,6 +401,22 @@
         "quote": "First cited to a text from 1309."
       }
     ],
+    "examples": [
+      {
+        "id": 175148,
+        "ja": "見事な作品ですね。",
+        "en": "It's an excellent composition.",
+        "enId": 11361464,
+        "form": "見事な"
+      },
+      {
+        "id": 177322,
+        "ja": "君は見事にやってのけた。",
+        "en": "You did an excellent job.",
+        "enId": 16171,
+        "form": "見事に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -311,6 +426,7 @@
     "meaning": "way (of doing something)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "“A way of doing” is built from the stem of する and “method”.",
@@ -333,6 +449,22 @@
         "quote": "From し (shi, “to do”, continuative form of する) + 方(かた) (kata, “method”)."
       }
     ],
+    "examples": [
+      {
+        "id": 216203,
+        "ja": "しかたがないと諦める。",
+        "en": "Abide by the inevitable.",
+        "enId": 53506,
+        "form": "しかた"
+      },
+      {
+        "id": 77931,
+        "ja": "料理の仕方がわかりません。",
+        "en": "I don't know how to cook.",
+        "enId": 325787,
+        "form": "仕方"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -342,6 +474,7 @@
     "meaning": "(flower) vase",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "A vase is a “flower jar” in Chinese — and a native reading of the same spelling used an “earthenware pot”.",
@@ -364,6 +497,22 @@
         "quote": "From Middle Chinese 花 (MC xwae) and 瓶(びん) (bin, “jar”)."
       }
     ],
+    "examples": [
+      {
+        "id": 109184,
+        "ja": "彼は花瓶を落とした。",
+        "en": "He dropped a vase.",
+        "enId": 294506,
+        "form": "花瓶"
+      },
+      {
+        "id": 186560,
+        "ja": "花瓶を水で満たした。",
+        "en": "I filled a vase with water.",
+        "enId": 23696,
+        "form": "花瓶"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -373,6 +522,7 @@
     "meaning": "stomach",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "processes": ["compound", "derivation"],
     "headline": "The “stomach” was a deliberately indirect word for “belly”, spelled with a character that means something else.",
     "morphemes": [],
@@ -384,6 +534,22 @@
         "quote": "The use of the 腹 character to spell 中 (naka) appears to be a relatively recent shift; many dictionaries still list 御中 or お中 as the standard spelling for this term, but usage trends clearly show that this お腹 spelling is now more common for the belly senses."
       }
     ],
+    "examples": [
+      {
+        "id": 227601,
+        "ja": "お腹が痛いの。",
+        "en": "I have a stomachache.",
+        "enId": 64954,
+        "form": "お腹"
+      },
+      {
+        "id": 226688,
+        "ja": "お腹がぺこぺこです。",
+        "en": "I'm starved.",
+        "enId": 64032,
+        "form": "お腹"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -393,6 +559,7 @@
     "meaning": "gravity",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "wasei", "borrowing"],
     "headline": "Gravity borrowed an old Chinese word for “heavy strength” and repurposed it to translate a Dutch one.",
@@ -416,6 +583,22 @@
         "quote": "The gravity sense was a repurposing of the older term (the considerable strength sense) as a calque of Dutch zwaartekracht to translate Dutch works as part of Rangaku studies."
       }
     ],
+    "examples": [
+      {
+        "id": 175650,
+        "ja": "月の重力は地球の６分の１である。",
+        "en": "The gravity of the moon is one-sixth of that of the earth.",
+        "enId": 238815,
+        "form": "重力"
+      },
+      {
+        "id": 147955,
+        "ja": "重力が物を地球の中心に引っ張っている。",
+        "en": "Gravity pulls things toward the center of the earth.",
+        "enId": 266605,
+        "form": "重力"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -425,6 +608,7 @@
     "meaning": "ugly",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Ugly” is, word for word, “hard to look at”.",
@@ -432,6 +616,22 @@
     "sources": [
       {
         "quote": "Compound of 見(み) (mi, “seeing, looking”, the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見(み)る (miru, “to see, to look at”)) + 難(にく)い (nikui, “hard to do, difficult”), with a literal meaning of “hard to look at” or “difficult to see”."
+      }
+    ],
+    "examples": [
+      {
+        "id": 88782,
+        "ja": "彼女は醜いドレスを着ていました。",
+        "en": "She was wearing an ugly dress.",
+        "enId": 314925,
+        "form": "醜い"
+      },
+      {
+        "id": 117299,
+        "ja": "彼の妻は私には醜いとは思えない。",
+        "en": "His wife doesn't seem ugly to me.",
+        "enId": 286365,
+        "form": "醜い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -443,6 +643,7 @@
     "meaning": "lighter; writer",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "A lighter and a writer are the same word in katakana.",
@@ -464,6 +665,7 @@
     "meaning": "in everyday situations, usually, ordinarily",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["ateji"],
     "headline": "“Usually” was written 不断 first — the kanji we use now were fitted to the sound.",
@@ -471,6 +673,22 @@
     "sources": [
       {
         "quote": "The kanji spelling is phonetic ateji (当(あ)て字(じ)); originally written as 不断(ふだん) (fudan)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 86918,
+        "ja": "彼女は普段早起きだ。",
+        "en": "In general, she is an early riser.",
+        "enId": 316791,
+        "form": "普段"
+      },
+      {
+        "id": 153044,
+        "ja": "私は普段６時に目が覚める。",
+        "en": "I usually wake up at six.",
+        "enId": 261501,
+        "form": "普段"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -485,6 +703,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "“New” began as “freshly coming into being”.",
@@ -508,6 +727,22 @@
         "quote": "Derived as a compound of 新 (ara, from 生る (aru, “to come into being”), cognate also with 有り (ari, “to exist”, the Old and classical Japanese copula), 現れる (arawareru, “to appear, to become manifest”), 荒 (ara, “rough, unfinished”), numerous other terms) + た (ta, suffix indicating state). The core meaning seems to have been \"freshly coming into being\", and by extension, new."
       }
     ],
+    "examples": [
+      {
+        "id": 230060,
+        "ja": "あらたな困難が現れた。",
+        "en": "A new difficulty presented itself.",
+        "enId": 67426,
+        "form": "あらたな"
+      },
+      {
+        "id": 145308,
+        "ja": "新たな議論が提起された。",
+        "en": "A new argument was presented.",
+        "enId": 269255,
+        "form": "新たな"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -517,6 +752,7 @@
     "meaning": "to try one's best, to try hard, to persist",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "hybrid",
     "processes": [
       "derivation",
@@ -547,6 +783,22 @@
         "quote": "Some sources use both 頑張る and 眼張る as spellings for the persist, endure sense. Other sources split these out as entirely separate entries."
       }
     ],
+    "examples": [
+      {
+        "id": 229397,
+        "ja": "いいぞ。頑張れよ。",
+        "en": "Sure. Good luck!",
+        "enId": 4431177,
+        "form": "頑張れ"
+      },
+      {
+        "id": 146377,
+        "ja": "焦らずに頑張ってね。",
+        "en": "Stay calm, and do your best.",
+        "enId": 268185,
+        "form": "頑張って"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -556,6 +808,7 @@
     "meaning": "fountain pen",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "A fountain pen is a “ten-thousand-year pen”.",
@@ -585,6 +838,7 @@
     "meaning": "notebook",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "A pocket notebook is a “hand ledger”, in use from the early 1600s.",
@@ -605,6 +859,22 @@
         "quote": "Compound of 手 (te, “hand”) + 帳 (chō, “notebook, ledger”). Appears from the early 1600s."
       }
     ],
+    "examples": [
+      {
+        "id": 215964,
+        "ja": "ジムは手帳に何か書き始めた。",
+        "en": "Jim set out to write something in his notebook.",
+        "enId": 53263,
+        "form": "手帳"
+      },
+      {
+        "id": 172969,
+        "ja": "腰を下ろし、手帳を開きました。",
+        "en": "I sat down and opened my notebook.",
+        "enId": 241504,
+        "form": "手帳"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -614,6 +884,7 @@
     "meaning": "enormous, extensive",
     "level": "N2",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "“Enormous” is “swell” plus “big”, and the word is first attested in 1872.",
@@ -634,6 +905,22 @@
         "quote": "First attested in 1872. Likely a coinage in Japan of Middle Chinese-derived components, as a compound of 膨 (bō, “swell, distend”) + 大 (dai, “big”). The second sense of huge is likely a replacement spelling for Chinese-derived homophone 厖大 (bōdai), first cited to 1898."
       }
     ],
+    "examples": [
+      {
+        "id": 147908,
+        "ja": "叔父は膨大な財産を所持している。",
+        "en": "My uncle is possessed of great wealth.",
+        "enId": 250264,
+        "form": "膨大な"
+      },
+      {
+        "id": 149650,
+        "ja": "辞書を編さんするには膨大な時間を要する。",
+        "en": "Compiling a dictionary demands an enormous amount of time.",
+        "enId": 264908,
+        "form": "膨大な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -643,6 +930,7 @@
     "meaning": "to be dented, to be indented",
     "level": "N2",
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "To be dented is to have “lessened inward” — herikomu worn down to hekomu.",
@@ -655,6 +943,15 @@
         "quote": "Contraction of 減りこむ (herikomu), itself a compound of 減り (heri, “lessening, becoming less”, the 連用形 (ren'yōkei, “continuative or stem form”) of verb 減る heru, “to reduce, to become less”) + 込む (komu, “to go inwardly”)."
       }
     ],
+    "examples": [
+      {
+        "id": 2310082,
+        "ja": "トムは彼女にフラれてへこんでいる。",
+        "en": "Tom is depressed because his girlfriend left him.",
+        "enId": 1553364,
+        "form": "へこんでいる"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -664,6 +961,7 @@
     "meaning": "truck; (running) track",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "A truck has a twin in トロッコ, and a running track shares its spelling.",
@@ -685,6 +983,7 @@
     "meaning": "faults, defect, weakness",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "A fault is a “lacking point”, borrowed from Chinese.",
@@ -706,6 +1005,22 @@
         "quote": "From Middle Chinese compound 缺點 (MC khwet temX, literally “deficient, lacking” + “point, spot”)."
       }
     ],
+    "examples": [
+      {
+        "id": 107900,
+        "ja": "彼は欠点だらけだ。",
+        "en": "He is a mass of faults.",
+        "enId": 295785,
+        "form": "欠点"
+      },
+      {
+        "id": 175951,
+        "ja": "欠点なき人はなし。",
+        "en": "No man is without his faults.",
+        "enId": 238514,
+        "form": "欠点"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -715,6 +1030,7 @@
     "meaning": "perhaps",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "wago",
     "processes": ["derivation", "clipping", "sound-change"],
     "headline": "“Perhaps” is a clipped phrase whose first half is still being argued over.",
@@ -739,6 +1055,22 @@
         "quote": "*/osoruru aku wa/ → /osoruraku wa/ → /osoraku wa/ → /osoraku/"
       }
     ],
+    "examples": [
+      {
+        "id": 114251,
+        "ja": "彼はおそらく来るだろう。",
+        "en": "He is likely to come.",
+        "enId": 289421,
+        "form": "おそらく"
+      },
+      {
+        "id": 180421,
+        "ja": "恐らく明日は晴れでしょう。",
+        "en": "It will be fine weather tomorrow, perhaps.",
+        "enId": 19171,
+        "form": "恐らく"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -748,6 +1080,7 @@
     "meaning": "-- honorific form of 食べる (たべる) and 飲む (のむ) --",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "An honorific “eat” is “take” plus “rise up” — each already honorific.",
@@ -768,6 +1101,22 @@
         "quote": "Compound of 召し (meshi, “taking”, stem of Old Japanese honorific verb mesu, “to see, to look at”, by extension an honorific for “to take, to eat”) + 上がる (agaru, “to rise”, used honorifically to mean “to take up, to eat”)."
       }
     ],
+    "examples": [
+      {
+        "id": 194538,
+        "ja": "もう１杯召し上がれ。",
+        "en": "Have another cup.",
+        "enId": 31711,
+        "form": "召し上がれ"
+      },
+      {
+        "id": 187552,
+        "ja": "何を召し上がりますか。",
+        "en": "What would you like to eat?",
+        "enId": 400191,
+        "form": "召し上がります"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -777,6 +1126,7 @@
     "meaning": "newspaper",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "clipping"],
     "headline": "The newspaper is a Chinese “new hearing” — and in Japanese it began as a clipping of “newspaper paper”.",
@@ -802,6 +1152,22 @@
         "quote": "Originally clipping of 新聞紙 (shinbunshi)"
       }
     ],
+    "examples": [
+      {
+        "id": 145118,
+        "ja": "新聞を取って。",
+        "en": "Get me the newspaper.",
+        "enId": 269445,
+        "form": "新聞"
+      },
+      {
+        "id": 74036,
+        "ja": "この新聞はロハだ。",
+        "en": "This newspaper is free.",
+        "enId": 329684,
+        "form": "新聞"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -811,6 +1177,7 @@
     "meaning": "language; word(s); expression(s)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["compound", "rendaku", "ateji"],
     "headline": "“Word” is an old “word” plus an “edge” — and the 葉 in the spelling is only a stand-in.",
@@ -829,6 +1196,22 @@
         "quote": "The 葉 spelling is an example of ateji (当(あ)て字(じ))."
       }
     ],
+    "examples": [
+      {
+        "id": 92896,
+        "ja": "彼女はことば遊びが好きだ。",
+        "en": "She likes word games.",
+        "enId": 310813,
+        "form": "ことば"
+      },
+      {
+        "id": 87364,
+        "ja": "彼女は彼のことばで気を悪くした。",
+        "en": "She felt hurt at his words.",
+        "enId": 316345,
+        "form": "ことば"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -838,6 +1221,7 @@
     "meaning": "(Japanese footwear), wooden clogs",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf30"],
     "stratum": "kango",
     "processes": ["compound", "derivation", "wasei", "sound-change", "ateji"],
     "headline": "Geta are “lower clogs” — and the “footwear” sense of 駄 may exist only in Japan.",
@@ -864,6 +1248,15 @@
         "quote": "The historical derivation indicates that the 駄 character's “footwear” sense, which is specific to Japanese and is not found in Chinese sources, could have arisen from phonetic ateji (当(あ)て字(じ)) usage in the terms 足(あし)駄(だ) (ashida) and 下(げ)駄(た) (geta)."
       }
     ],
+    "examples": [
+      {
+        "id": 2217324,
+        "ja": "下駄を突っかけて表に飛び出した。",
+        "en": "I slipped on my geta and dashed outside.",
+        "enId": 2217328,
+        "form": "下駄"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -873,6 +1266,7 @@
     "meaning": "snow storm",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
     "processes": ["borrowing", "ateji"],
     "headline": "A snowstorm is a verb's stem — and the spelling was borrowed from Chinese for its meaning.",
     "morphemes": [],
@@ -882,6 +1276,22 @@
       },
       {
         "quote": "The kanji spelling is jukujikun (熟(じゅく)字(じ)訓(くん)), borrowed from Chinese 吹雪 (chuīxuě)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 143853,
+        "ja": "吹雪が続いた。",
+        "en": "The snowstorm held on.",
+        "enId": 270713,
+        "form": "吹雪"
+      },
+      {
+        "id": 74803,
+        "ja": "吹雪でえらい目に遭った。",
+        "en": "We had a terrible time in the blizzard.",
+        "enId": 328916,
+        "form": "吹雪"
       }
     ],
     "wiktionaryDump": "2026-09-02"

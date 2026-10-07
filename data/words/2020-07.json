@@ -6,6 +6,7 @@
     "meaning": "skin",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hada went from pada through ɸada to hada, from Proto-Japonic *panta.",
@@ -27,6 +28,7 @@
     "meaning": "gum, rubber",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Gomu is borrowed from Dutch gom, “gum”.",
@@ -51,6 +53,7 @@
     "meaning": "good, nice",
     "level": "N3",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Yoi is the modern form of the Old Japanese adjective よし (yoshi).",
@@ -61,6 +64,22 @@
       },
       {
         "quote": "/joɕi/ (classical 終止形 (shūshikei) or terminal form) → /joki/ (classical 連体形 (rentaikei) or attributive form) → /joi/ (modern shūshikei and rentaikei)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 192903,
+        "ja": "よい週末を！",
+        "en": "Have a good weekend!",
+        "enId": 30070,
+        "form": "よい"
+      },
+      {
+        "id": 192905,
+        "ja": "よい質問だ。",
+        "en": "Good question!",
+        "enId": 378524,
+        "form": "よい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -87,6 +106,15 @@
         "quote": "First cited to a text from 1092."
       }
     ],
+    "examples": [
+      {
+        "id": 226179,
+        "ja": "からだ全体が密に毛でおおわれている。",
+        "en": "The entire body is densely covered with hair.",
+        "enId": 63519,
+        "form": "密に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -96,6 +124,7 @@
     "meaning": "surely, definitely, undoubtedly, certainly",
     "level": "N4",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kitto is a gemination of きと (kito).",
@@ -114,6 +143,7 @@
     "meaning": "place",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)", "suffix"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "clipping", "sound-change"],
     "headline": "Tokoro is likely cognate with 床 (toko, “raised area; bed”), and first attested in the Kojiki of 712 CE.",
@@ -132,6 +162,22 @@
         "quote": "Listed in some sources as an abbreviation of tokoro above. However, this is also listed as cognate with 床 (toko, “raised area; bed”), which term already appears in use as far back as the Kojiki (712 CE), one of the oldest Japanese texts."
       }
     ],
+    "examples": [
+      {
+        "id": 145729,
+        "ja": "信じるとこよ。",
+        "en": "I almost believe you.",
+        "enId": 268833,
+        "form": "とこ"
+      },
+      {
+        "id": 200835,
+        "ja": "ところにより雨。",
+        "en": "It rains in some places.",
+        "enId": 38038,
+        "form": "ところ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -141,6 +187,7 @@
     "meaning": "to turn, to go around, to revolve",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf46", "spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Mawaru is from Proto-Japonic *maparu, possibly related to 舞う (mau).",
@@ -148,6 +195,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *maparu. Possibly related to 舞(ま)う (mau)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 139145,
+        "ja": "急がば回れ。",
+        "en": "More haste, less speed.",
+        "enId": 19689,
+        "form": "回れ"
+      },
+      {
+        "id": 123438,
+        "ja": "毒が全身に回った。",
+        "en": "The poison has pervaded his whole system.",
+        "enId": 280559,
+        "form": "回った"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -163,6 +226,7 @@
       "nouns which may take the genitive case particle 'no'",
       "prefix"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chika is 地 (chi, “ground”) plus 下 (ka, “under”).",
@@ -183,6 +247,22 @@
         "quote": "地 (chi, “ground”) + 下 (ka, “under”)"
       }
     ],
+    "examples": [
+      {
+        "id": 141209,
+        "ja": "洗濯室は地下です。",
+        "en": "The laundry room is in the basement.",
+        "enId": 273363,
+        "form": "地下"
+      },
+      {
+        "id": 107121,
+        "ja": "彼は今地下に眠っている。",
+        "en": "He is dead and buried now.",
+        "enId": 296565,
+        "form": "地下"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -192,6 +272,7 @@
     "meaning": "spring, fountain",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Izumi is 出づ (idu, “to come out”) plus 水 (mi, “water”).",
@@ -207,6 +288,22 @@
         "quote": "Compound of 出づ (ancient reading idu, modern izu, “to come out”) + 水 (mi, “water”)."
       }
     ],
+    "examples": [
+      {
+        "id": 112578,
+        "ja": "彼はその泉の水を飲んだ。",
+        "en": "He drank from the spring.",
+        "enId": 291098,
+        "form": "泉"
+      },
+      {
+        "id": 97893,
+        "ja": "彼らはその泉で喉の渇きをいやした。",
+        "en": "They satisfied their thirst at the spring.",
+        "enId": 305811,
+        "form": "泉"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -216,6 +313,7 @@
     "meaning": "to be continued",
     "level": "N4",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tsuzuku was tutuku in Old Japanese, and is cognate with 綴る (tsuzuru, “to spell, to write”).",
@@ -231,6 +329,22 @@
         "quote": "Cognate with 綴(つづ)る (tsuzuru, “to spell, to write”)."
       }
     ],
+    "examples": [
+      {
+        "id": 143853,
+        "ja": "吹雪が続いた。",
+        "en": "The snowstorm held on.",
+        "enId": 270713,
+        "form": "続いた"
+      },
+      {
+        "id": 208474,
+        "ja": "戦争は２年続いた。",
+        "en": "The war lasted two years.",
+        "enId": 45733,
+        "form": "続いた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -243,6 +357,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Junchō is 順 (jun, “favorable”) plus 調 (chō, “tone”).",
@@ -263,6 +378,22 @@
         "quote": "From 順 (jun, “favorable”) + 調 (chō, “tone”)."
       }
     ],
+    "examples": [
+      {
+        "id": 81099,
+        "ja": "万事順調だ。",
+        "en": "Everything is all right.",
+        "enId": 322616,
+        "form": "順調"
+      },
+      {
+        "id": 214655,
+        "ja": "ずっと順調だね。",
+        "en": "He's been batting a thousand.",
+        "enId": 51947,
+        "form": "順調"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -275,6 +406,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jōdan is, by surface analysis, 冗 (jō, “superfluous”) plus 談 (dan, “talk”).",
@@ -295,6 +427,15 @@
         "quote": "By surface analysis, 冗(じょう) (jō, “superfluous”) + 談(だん) (dan, “talk”)."
       }
     ],
+    "examples": [
+      {
+        "id": 89391,
+        "ja": "彼女は私の言葉をじょうだんと受け取った。",
+        "en": "She took my words as a joke.",
+        "enId": 314320,
+        "form": "じょうだん"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -304,6 +445,7 @@
     "meaning": "face, mug, surface, side or facet, corner, page",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Men is from Middle Chinese 面 (MC mjienH).",
@@ -311,6 +453,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 面 (MC mjienH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84018,
+        "ja": "風の水の面が波だった。",
+        "en": "The wind rippled the surface of the water.",
+        "enId": 319697,
+        "form": "面"
+      },
+      {
+        "id": 83763,
+        "ja": "物事の明るい面を見なさい。",
+        "en": "Look at the sunny side of things.",
+        "enId": 319953,
+        "form": "面"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -322,6 +480,7 @@
     "meaning": "insect",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mushi is from Old Japanese, from Proto-Japonic *mosi.",
@@ -334,6 +493,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *mosi."
       }
     ],
+    "examples": [
+      {
+        "id": 77079,
+        "ja": "蓼食う虫も好き好き。",
+        "en": "There is no accounting for tastes.",
+        "enId": 40811,
+        "form": "虫"
+      },
+      {
+        "id": 87884,
+        "ja": "彼女は虫が大嫌いだ。",
+        "en": "She has a strong dislike of insects.",
+        "enId": 315822,
+        "form": "虫"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -343,6 +518,7 @@
     "meaning": "(abbr.) Good morning",
     "level": "N2",
     "pos": ["interjection (kandoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Ohayō was originally 御 (o-) plus 早く (hayaku, “early”), from the adjective 早い (hayai).",
@@ -371,6 +547,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Tōhyō began as toupeu.",
@@ -393,6 +570,22 @@
         "quote": "*/toupeu/ → /touɸeu/ → /toːɸyoː/ → /toːhyoː/"
       }
     ],
+    "examples": [
+      {
+        "id": 121239,
+        "ja": "反対投票多数。",
+        "en": "The noes have it.",
+        "enId": 282767,
+        "form": "投票"
+      },
+      {
+        "id": 124310,
+        "ja": "投票で決める。",
+        "en": "We'll decide by voting.",
+        "enId": 279685,
+        "form": "投票"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -402,6 +595,7 @@
     "meaning": "to earn, to have (bear, beget) a child",
     "level": "N2",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Mōkeru is the regular development of classical 儲く (mauku).",
@@ -409,6 +603,22 @@
     "sources": [
       {
         "quote": "Regular development of classical 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verb 儲(まう)く (mauku)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 99545,
+        "ja": "彼は儲けている。",
+        "en": "He's raking it in.",
+        "enId": 462351,
+        "form": "儲けている"
+      },
+      {
+        "id": 80153,
+        "ja": "儲ける考えより使わぬ考え。",
+        "en": "A penny saved is a penny earned.",
+        "enId": 73206,
+        "form": "儲ける"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -420,6 +630,7 @@
     "meaning": "lamp oil, kerosene",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Tōyu is 灯 (“light”) plus 油 (“oil”).",
@@ -438,6 +649,15 @@
     "sources": [
       {
         "quote": "From 灯 (“light”) + 油 (“oil”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 338002,
+        "ja": "雪の多いところでは、灯油は必需品です。",
+        "en": "In places where it snows a lot, kerosene is an indispensable item.",
+        "enId": 338004,
+        "form": "灯油"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -473,6 +693,22 @@
         "quote": "From 御(お) (o-, honorific prefix) + 互(たが)い (tagai, “mutual relationship”)."
       }
     ],
+    "examples": [
+      {
+        "id": 227163,
+        "ja": "お互い仇同士だ。",
+        "en": "They are bitter enemies.",
+        "enId": 64512,
+        "form": "お互い"
+      },
+      {
+        "id": 227161,
+        "ja": "お互い相性がいい。",
+        "en": "The chemistry is right for us.",
+        "enId": 64510,
+        "form": "お互い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -482,6 +718,7 @@
     "meaning": "sentence",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Bun, “sentence”, is a later borrowing from Middle Chinese.",
@@ -489,6 +726,22 @@
     "sources": [
       {
         "quote": "A later borrowing from Middle Chinese. Compare modern Min Nan reading bûn, Hakka vûn."
+      }
+    ],
+    "examples": [
+      {
+        "id": 83690,
+        "ja": "文は人なり。",
+        "en": "The style is the man himself.",
+        "enId": 320026,
+        "form": "文"
+      },
+      {
+        "id": 83688,
+        "ja": "文は武に勝る。",
+        "en": "The pen is mightier than the sword.",
+        "enId": 33795,
+        "form": "文"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -504,6 +757,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Fujiyū is 不 (fu-) plus 自由 (jiyū).",
@@ -532,6 +786,22 @@
         "quote": "Compound of 不(ふ) (fu-) + 自(じ)由(ゆう) (jiyū)"
       }
     ],
+    "examples": [
+      {
+        "id": 178649,
+        "ja": "君には不自由させない。",
+        "en": "You shall want for nothing.",
+        "enId": 17501,
+        "form": "不自由"
+      },
+      {
+        "id": 100133,
+        "ja": "彼は片方の目が不自由だ。",
+        "en": "He is blind in one eye.",
+        "enId": 303564,
+        "form": "不自由"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -541,6 +811,7 @@
     "meaning": "century",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Seiki is from Middle Chinese 世紀 (syejᴴ ki^X).",
@@ -563,6 +834,22 @@
         "quote": "From Middle Chinese 世紀 (syejᴴ ki^X)."
       }
     ],
+    "examples": [
+      {
+        "id": 115269,
+        "ja": "彼は１９世紀に生まれた。",
+        "en": "He was born in the 19th century.",
+        "enId": 288401,
+        "form": "世紀"
+      },
+      {
+        "id": 174828,
+        "ja": "現代哲学は１９世紀に始まる。",
+        "en": "Modern philosophy has its beginnings in the 19th century.",
+        "enId": 239640,
+        "form": "世紀"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -572,6 +859,7 @@
     "meaning": "to pluck, to pick, to trim",
     "level": "N3",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsumu is possibly related to 爪 (tsume, “claw”).",
@@ -579,6 +867,22 @@
     "sources": [
       {
         "quote": "Possibly related to 爪 (tsume, tsuma-, “claw”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 90801,
+        "ja": "彼女は花を摘んだ。",
+        "en": "She picked flowers.",
+        "enId": 312911,
+        "form": "摘んだ"
+      },
+      {
+        "id": 87808,
+        "ja": "彼女は庭の花を摘んだ。",
+        "en": "She picked flowers in the garden.",
+        "enId": 315899,
+        "form": "摘んだ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -590,6 +894,7 @@
     "meaning": "garden shrubs, trees, potted plant",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ueki is 植え (ue, “planting”) plus 木 (ki, “tree or shrub”).",
@@ -610,6 +915,22 @@
         "quote": "Compound of 植え (ue, “planting”, the 連用形 (ren'yōkei, “continuative or stem form”) of verb 植える ueru “to plant (a seed, a plant)”) + 木 (ki, “tree or shrub”)."
       }
     ],
+    "examples": [
+      {
+        "id": 155798,
+        "ja": "私は植木が好きだ。",
+        "en": "I like a garden tree.",
+        "enId": 258739,
+        "form": "植木"
+      },
+      {
+        "id": 82915,
+        "ja": "母は植木の世話をよくする人だ。",
+        "en": "My mother looks after the plants well.",
+        "enId": 320801,
+        "form": "植木"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -622,6 +943,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Myō, “strange”, is from Middle Chinese 妙 (MC mjiewH).",
@@ -629,6 +951,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 妙 (MC mjiewH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 81036,
+        "ja": "妙な音が聞こえた。",
+        "en": "I heard a strange sound.",
+        "enId": 322678,
+        "form": "妙な"
+      },
+      {
+        "id": 81038,
+        "ja": "妙な噂が広がっている。",
+        "en": "Queer rumors are in the air.",
+        "enId": 322677,
+        "form": "妙な"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -640,6 +978,7 @@
     "meaning": "to search, to look for, investigate",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "wago",
     "processes": [],
     "headline": "Saguru is compared with 探す (sagasu, “to search”).",
@@ -647,6 +986,22 @@
     "sources": [
       {
         "quote": "Compare 探(さが)す (sagasu, “to search”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 188667,
+        "ja": "遠まわしに彼の意見を探った。",
+        "en": "I sounded him out about his views.",
+        "enId": 25813,
+        "form": "探った"
+      },
+      {
+        "id": 144970,
+        "ja": "真相は井戸の底にあり探りにくい。",
+        "en": "Truth is difficult to find at the bottom of a well.",
+        "enId": 269593,
+        "form": "探り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -658,6 +1013,7 @@
     "meaning": "perhaps, maybe, by some chance",
     "level": "N2",
     "pos": ["expressions (phrases, clauses, etc.)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Moshikashitara is もしか (moshi ka, “perhaps, if”) plus したら (shitara, “if doing”).",
@@ -687,6 +1043,7 @@
     "meaning": "marathon",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Marason is from English marathon, which comes from Ancient Greek Μᾰρᾰθών (Mărăthṓn).",
@@ -711,6 +1068,7 @@
     "meaning": "but, because, even",
     "level": "N3",
     "pos": ["conjunction", "particle"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Datte is a sound change of だとて (da to te), from だ (da) plus とて (to te, “even, also”).",
@@ -718,6 +1076,22 @@
     "sources": [
       {
         "quote": "Sound change of だとて (da to te), compound of だ (da, “to be”, auxiliary verb) + とて (to te, “even, also”, binding particle)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 203576,
+        "ja": "だって好きなんだもの。",
+        "en": "It's because I love you.",
+        "enId": 2021208,
+        "form": "だって"
+      },
+      {
+        "id": 82315,
+        "ja": "僕だって赤ん坊ではないぞ。",
+        "en": "I was not born yesterday.",
+        "enId": 321399,
+        "form": "だって"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -759,6 +1133,7 @@
     "meaning": "branch, twig",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Eda is inherited from earlier yeda, and the page calls the vowel change irregular.",
@@ -766,6 +1141,22 @@
     "sources": [
       {
         "quote": "Inherited from earlier yeda, from Old Japanese, from Proto-Japonic *yonta. Cognate with Kunigami 枝 (yudā), Miyako 枝 (yuda), Okinawan 枝 (yida), 枝 (yuda), Yaeyama 枝 (yuda), Yonaguni 枝 (duda). The vowel change is irregular."
+      }
+    ],
+    "examples": [
+      {
+        "id": 125793,
+        "ja": "鳥は枝に止まった。",
+        "en": "The birds settled on the branches.",
+        "enId": 278199,
+        "form": "枝"
+      },
+      {
+        "id": 79460,
+        "ja": "柳の枝に雪折れなし。",
+        "en": "Oaks may fall when reeds stand the storm.",
+        "enId": 4571675,
+        "form": "枝"
       }
     ],
     "wiktionaryDump": "2026-09-02"

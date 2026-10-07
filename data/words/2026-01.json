@@ -6,6 +6,7 @@
     "meaning": "decision, vote",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf17"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ketsu, “decision”, is from Middle Chinese 決 (MC kwet).",
@@ -27,6 +28,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カット is from English cut.",
@@ -51,6 +53,7 @@
     "meaning": "warehouse, cellar",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kura is related to 黒 (kuro, “black”).",
@@ -72,6 +75,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Atai is possibly the conjunctive form of the verb 能う (atau).",
@@ -79,6 +83,22 @@
     "sources": [
       {
         "quote": "Possibly the conjunctive form of the verb 能う (atau)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 127139,
+        "ja": "値は下がらないでしょう。",
+        "en": "The price will not come down.",
+        "enId": 276950,
+        "form": "値"
+      },
+      {
+        "id": 219681,
+        "ja": "この本はもっと安い値で買った。",
+        "en": "I bought this book for less.",
+        "enId": 57002,
+        "form": "値"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -90,6 +110,7 @@
     "meaning": "of course, naturally",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Muron is from Middle Chinese 無論, literally “without discussion, no argument”.",
@@ -112,6 +133,22 @@
         "quote": "From Middle Chinese 無論 (MC mju lwonH, literally “without discussion, no argument”). Compare modern Hakka mò-lun or Cantonese mou⁴ leon⁶."
       }
     ],
+    "examples": [
+      {
+        "id": 109686,
+        "ja": "彼は英語は無論のこと、フランス語も話します。",
+        "en": "He speaks French, not to speak of English.",
+        "enId": 294004,
+        "form": "無論"
+      },
+      {
+        "id": 74402,
+        "ja": "むろん、この両極端の間に多くのバリエーションがある。",
+        "en": "Obviously there are many variations between these two extremes.",
+        "enId": 329318,
+        "form": "むろん"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -121,6 +158,7 @@
     "meaning": "to deceive, to falsify, to misrepresent",
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation", "ateji"],
     "headline": "Gomakasu may come from 護摩 (goma, “a holy fire in esoteric Buddhism”) plus the suffix かす (kasu), or from 胡麻菓子 (goma kashi, “sesame candy”).",
@@ -148,6 +186,7 @@
     "meaning": "X-ray (lit: Roentgen)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レントゲン is from German Röntgen.",
@@ -163,6 +202,22 @@
         "quote": "From German Röntgen."
       }
     ],
+    "examples": [
+      {
+        "id": 150967,
+        "ja": "歯のレントゲンを撮りますね。",
+        "en": "I'll take some X-rays of your teeth.",
+        "enId": 263589,
+        "form": "レントゲン"
+      },
+      {
+        "id": 180085,
+        "ja": "胸部のレントゲンをとってください。",
+        "en": "I'd like you to have a chest X-ray.",
+        "enId": 18945,
+        "form": "レントゲン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -175,6 +230,7 @@
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Katte is 勝ち (kachi, “victory, win, advantage”) plus 手 (te, “means, way; hand”).",
@@ -207,6 +263,7 @@
     "meaning": "hint",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ヒント is borrowed from English hint and is first attested in 1886.",
@@ -225,6 +282,22 @@
         "quote": "First attested in 1886."
       }
     ],
+    "examples": [
+      {
+        "id": 106148,
+        "ja": "彼は私にヒントをくれた。",
+        "en": "He gave me a hint.",
+        "enId": 297538,
+        "form": "ヒント"
+      },
+      {
+        "id": 161649,
+        "ja": "私はあなたの動作からヒントを得ることにします。",
+        "en": "I'll take my cue from you.",
+        "enId": 252867,
+        "form": "ヒント"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -234,6 +307,7 @@
     "meaning": "movement, activity, trend",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ugoki is the continuative stem of the verb 動く (ugoku).",
@@ -241,6 +315,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 動(うご)く (ugoku)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 188355,
+        "ja": "俺は動き続ける。",
+        "en": "I gotta keep on movin'.",
+        "enId": 25497,
+        "form": "動き"
+      },
+      {
+        "id": 191555,
+        "ja": "愛の動きは不可解。",
+        "en": "Love moves in mysterious ways.",
+        "enId": 28719,
+        "form": "動き"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -252,6 +342,7 @@
     "meaning": "dare (to do), venture (to do), challenge (to do)",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Aete is 敢え (ae, the stem of 敢ふ (afu, “to bear, endure”)) plus て (te, conjunctive suffix).",
@@ -270,6 +361,22 @@
     "sources": [
       {
         "quote": "敢(あ)え (ae, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 敢(あ)ふ (afu, “to bear, endure”)) + て (te, conjunctive suffix)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 234526,
+        "ja": "あえて行くに及ばない。",
+        "en": "You need not take the trouble to go.",
+        "enId": 71902,
+        "form": "あえて"
+      },
+      {
+        "id": 161865,
+        "ja": "私はあえて彼女に忠告した。",
+        "en": "I ran a risk of advising her.",
+        "enId": 252651,
+        "form": "あえて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -303,6 +410,22 @@
         "quote": "Originally referred to the (amount of) pay that a samurai in employment received and, by extension, his importance. The word consists of 貫(かん) (kan) (in its now obsolete meaning of the monetary equivalent of the income (based on crop) of a samurai) and 禄(ろく) (roku), the salary of someone in government service."
       }
     ],
+    "examples": [
+      {
+        "id": 183785,
+        "ja": "貫禄がついたね。",
+        "en": "You look very dignified.",
+        "enId": 20907,
+        "form": "貫禄"
+      },
+      {
+        "id": 177393,
+        "ja": "君は課長としての貫禄がないね。",
+        "en": "You don't have proper dignity as chief of the section.",
+        "enId": 16242,
+        "form": "貫禄"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -312,13 +435,43 @@
     "meaning": "plan, idea, suggestion",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "spec1"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Omoitsuki is the continuative stem of the verb 思い付く (omoitsuku, “to think of”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "思い",
+        "reading": "おもい",
+        "meaning": "think",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "付き",
+        "reading": "つき",
+        "meaning": "adhere",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 思(おも)い付(つ)く (omoitsuku, “to think of”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 187821,
+        "ja": "何てよい思いつきなのでしょう。",
+        "en": "What a good idea!",
+        "enId": 24961,
+        "form": "思いつき"
+      },
+      {
+        "id": 205496,
+        "ja": "それはすばらしいおもいつきだ。",
+        "en": "That's a bright idea.",
+        "enId": 42742,
+        "form": "おもいつき"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -330,6 +483,7 @@
     "meaning": "trouble (sometimes used as a verb)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "トラブル is borrowed from English trouble.",
@@ -345,6 +499,22 @@
         "quote": "Borrowed from English trouble."
       }
     ],
+    "examples": [
+      {
+        "id": 159230,
+        "ja": "私はトラブルに巻き込まれた。",
+        "en": "I was involved in the trouble.",
+        "enId": 255294,
+        "form": "トラブル"
+      },
+      {
+        "id": 153695,
+        "ja": "私は彼らのトラブルには関係ない。",
+        "en": "I am not concerned with their trouble.",
+        "enId": 260848,
+        "form": "トラブル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -357,6 +527,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ナンセンス is from English nonsense.",
@@ -372,6 +543,22 @@
         "quote": "Borrowed from English nonsense."
       }
     ],
+    "examples": [
+      {
+        "id": 204311,
+        "ja": "そんなナンセンスなことはやめてくれよ。",
+        "en": "Cut out the nonsense, will you?",
+        "enId": 41553,
+        "form": "ナンセンスな"
+      },
+      {
+        "id": 205611,
+        "ja": "それは、いくぶんナンセンスな趣きの楽しさがあった。",
+        "en": "It was a delightful bit of nonsense.",
+        "enId": 42856,
+        "form": "ナンセンスな"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -385,6 +572,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In sanbi, 賛 is a daiyōji replacing 讃.",
@@ -407,6 +595,22 @@
         "quote": "賛 is a daiyōji replacing 讃."
       }
     ],
+    "examples": [
+      {
+        "id": 184751,
+        "ja": "外国人は富士山を賛美する。",
+        "en": "Foreigners admire Mt. Fuji.",
+        "enId": 21880,
+        "form": "賛美"
+      },
+      {
+        "id": 94034,
+        "ja": "彼女の美貌は全校の賛美のまとだ。",
+        "en": "Her beauty is the admiration of the whole school.",
+        "enId": 309672,
+        "form": "賛美"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -416,6 +620,7 @@
     "meaning": "super-, ultra-, hyper-",
     "level": "N1",
     "pos": ["prefix"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Chō, “super-”, is from Middle Chinese 超 (MC trhjew).",
@@ -434,6 +639,7 @@
     "meaning": "oil painting",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Aburae is 油 (abura, “oil”) plus 絵 (e, “picture”).",
@@ -454,6 +660,22 @@
         "quote": "油(あぶら) (abura, “oil”) + 絵(え) (e, “picture”)"
       }
     ],
+    "examples": [
+      {
+        "id": 86465,
+        "ja": "彼女は油絵を始めた。",
+        "en": "She has taken to painting in oils.",
+        "enId": 317246,
+        "form": "油絵"
+      },
+      {
+        "id": 219235,
+        "ja": "この油絵は17世紀のものです。",
+        "en": "This oil painting dates from the 17th century.",
+        "enId": 56551,
+        "form": "油絵"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -463,6 +685,7 @@
     "meaning": "to perpetrate, to violate",
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": [],
     "headline": "Okasu, “to perpetrate”, is a doublet of 冒す (okasu, “to risk”) and 侵す (okasu, “to invade; to infringe”).",
@@ -470,6 +693,22 @@
     "sources": [
       {
         "quote": "Doublet of 冒す (okasu, “to risk”) and 侵す (okasu, “to invade; to infringe”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 100044,
+        "ja": "彼は法を犯した。",
+        "en": "He broke the law.",
+        "enId": 303653,
+        "form": "犯した"
+      },
+      {
+        "id": 87513,
+        "ja": "彼女は犯罪を犯した。",
+        "en": "She committed a crime.",
+        "enId": 313795,
+        "form": "犯した"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -481,6 +720,7 @@
     "meaning": "something one lives for, very important",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "processes": ["compound", "rendaku"],
     "headline": "Ikigai is 生きる (ikiru, “to live, to exist”) plus 甲斐 (kai, “worth, value”), with kai voiced to gai by rendaku.",
     "morphemes": [],
@@ -492,6 +732,22 @@
         "quote": "The kai changes to gai as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 164570,
+        "ja": "私には生き甲斐がない。",
+        "en": "I have nothing to live for.",
+        "enId": 249937,
+        "form": "生き甲斐"
+      },
+      {
+        "id": 88143,
+        "ja": "彼女は息子が生きがいです。",
+        "en": "Her son makes life worth living.",
+        "enId": 315564,
+        "form": "生きがい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -501,6 +757,7 @@
     "meaning": "vocabulary, glossary",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Goi is 語 (go, “word”) plus 彙 (i, “collection”).",
@@ -521,6 +778,22 @@
         "quote": "語(ご) (go, “word”) + 彙(い) (i, “collection”)"
       }
     ],
+    "examples": [
+      {
+        "id": 78920,
+        "ja": "幼い子供は語彙が少ない。",
+        "en": "A young child has a small vocabulary.",
+        "enId": 324796,
+        "form": "語彙"
+      },
+      {
+        "id": 123380,
+        "ja": "読書は語彙を増やすのに役に立つ。",
+        "en": "Reading helps you build up your vocabulary.",
+        "enId": 280618,
+        "form": "語彙"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -530,13 +803,36 @@
     "meaning": "break, pause, gap",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf19"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Kireme is 切れる (kireru, “to be cut, to become fissured”) plus 目 (me, “dividing point, border line”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "切れ",
+        "reading": "きれ",
+        "meaning": "cut",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "目",
+        "reading": "め",
+        "meaning": "eye",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From 切れる (kireru, “to be cut, to become fissured”) + 目 (me, “dividing point, border line”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 179747,
+        "ja": "金の切れ目が縁の切れ目。",
+        "en": "The end of money is the end of love.",
+        "enId": 18606,
+        "form": "切れ目"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -548,6 +844,7 @@
     "meaning": "star",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スター is borrowed from English star.",
@@ -563,6 +860,22 @@
         "quote": "Borrowed from English star."
       }
     ],
+    "examples": [
+      {
+        "id": 89288,
+        "ja": "彼女は私をスターにした。",
+        "en": "She made me a star.",
+        "enId": 314418,
+        "form": "スター"
+      },
+      {
+        "id": 89935,
+        "ja": "彼女は最後に映画のスターになった。",
+        "en": "She ended up a movie star.",
+        "enId": 313780,
+        "form": "スター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -572,6 +885,7 @@
     "meaning": "kind, class, family",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Rui, “kind”, is from Middle Chinese 類 (MC lwijH).",
@@ -579,6 +893,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 類 (MC lwijH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 77725,
+        "ja": "類は友を呼ぶ。",
+        "en": "Birds of a feather flock together.",
+        "enId": 280288,
+        "form": "類"
+      },
+      {
+        "id": 77721,
+        "ja": "類をもって集まる。",
+        "en": "Birds of a feather flock together.",
+        "enId": 280288,
+        "form": "類"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -590,6 +920,7 @@
     "meaning": "lesson",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レッスン is borrowed from English lesson.",
@@ -605,6 +936,22 @@
         "quote": "Borrowed from English lesson."
       }
     ],
+    "examples": [
+      {
+        "id": 199663,
+        "ja": "どれくらいピアノのレッスンがありますか。",
+        "en": "How often do you have your piano lessons?",
+        "enId": 36865,
+        "form": "レッスン"
+      },
+      {
+        "id": 203082,
+        "ja": "ダンスとモデルのレッスンを受けています。",
+        "en": "I take dancing and modeling lessons.",
+        "enId": 40317,
+        "form": "レッスン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -614,6 +961,7 @@
     "meaning": "bat, vat",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バット covers “bat” and “vat”, and the source borrows both from English.",
@@ -635,6 +983,7 @@
     "meaning": "conduct, behavior, action",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf15"],
     "stratum": "wago",
     "processes": [],
     "headline": "Okonai is the continuative stem of the verb 行う (okonau).",
@@ -642,6 +991,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 行(おこな)う (okonau)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 99340,
+        "ja": "彼は勇気ある行いをした。",
+        "en": "He did a courageous act.",
+        "enId": 304357,
+        "form": "行い"
+      },
+      {
+        "id": 117412,
+        "ja": "彼の行いは賞賛に値する。",
+        "en": "His conduct deserves to be praised.",
+        "enId": 286252,
+        "form": "行い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -653,12 +1018,22 @@
     "meaning": "fan",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "processes": ["compound", "ateji"],
     "headline": "Uchiwa is 打ち (uchi, “hitting; batting”) plus 羽 (wa, “wing”), and its kanji are an example of jukujikun.",
     "morphemes": [],
     "sources": [
       {
         "quote": "Compound of 打(う)ち (uchi, “hitting; batting”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 打(う)つ (utsu, “to hit, to bat”)) + 羽(わ) (wa, “wing”). The kanji are an example of jukujikun (熟(じゅく)字(じ)訓(くん))."
+      }
+    ],
+    "examples": [
+      {
+        "id": 76567,
+        "ja": "ちなみに、この部屋には冷房設備なんて物は何も無い。あるのはうちわだけ。",
+        "en": "Incidentally, this room doesn't have anything like an air conditioner. All it has is a hand-held paper fan.",
+        "enId": 694670,
+        "form": "うちわ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -670,6 +1045,7 @@
     "meaning": "burdensome, troublesome, complicated",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf43"],
     "stratum": "wago",
     "processes": [],
     "headline": "Wazurawashii is from the verb 煩う (wazurau, “to worry about”).",
@@ -677,6 +1053,15 @@
     "sources": [
       {
         "quote": "From the verb 煩(わずら)う (wazurau, “to worry about”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 192082,
+        "ja": "ワープロがあれば、こんな煩わしさはなくなるだろう。",
+        "en": "If you had a word processor, you'd be free from all this trouble.",
+        "enId": 29244,
+        "form": "煩わし"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -706,6 +1091,7 @@
     "meaning": "to go through",
     "level": "N1",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsuranuku is 列 (tsura, “row”, archaic) plus 抜く (nuku, “to go through”).",
@@ -713,6 +1099,22 @@
     "sources": [
       {
         "quote": "From 列(つら) (tsura, “row”, archaic) + 抜(ぬ)く (nuku, “to go through”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 174079,
+        "ja": "光は闇を貫く。",
+        "en": "The light penetrates the darkness.",
+        "enId": 240391,
+        "form": "貫く"
+      },
+      {
+        "id": 127320,
+        "ja": "弾丸は彼を貫いた。",
+        "en": "The bullet penetrated him.",
+        "enId": 276769,
+        "form": "貫いた"
       }
     ],
     "wiktionaryDump": "2026-09-02"

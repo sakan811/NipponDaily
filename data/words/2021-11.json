@@ -9,6 +9,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バランス is borrowed from English “balance”.",
@@ -24,6 +25,22 @@
         "quote": "Borrowed from English balance."
       }
     ],
+    "examples": [
+      {
+        "id": 111256,
+        "ja": "彼はバランスを失って自転車から落ちた。",
+        "en": "He lost his balance and fell off his bicycle.",
+        "enId": 292427,
+        "form": "バランス"
+      },
+      {
+        "id": 150092,
+        "ja": "自然界のバランスはとてもこわれやすい。",
+        "en": "The balance of nature is very fragile.",
+        "enId": 264465,
+        "form": "バランス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -33,6 +50,7 @@
     "meaning": "rhythm",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "リズム is borrowed from English “rhythm”.",
@@ -48,6 +66,22 @@
         "quote": "Borrowed from English rhythm."
       }
     ],
+    "examples": [
+      {
+        "id": 74828,
+        "ja": "サンバはブラジルのリズムですね。",
+        "en": "Samba is a Brazilian rhythm, isn't it?",
+        "enId": 328891,
+        "form": "リズム"
+      },
+      {
+        "id": 158610,
+        "ja": "私はリズム＆ブルースが好きです。",
+        "en": "I like R&B.",
+        "enId": 255918,
+        "form": "リズム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -57,6 +91,7 @@
     "meaning": "to apologize",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending"],
+    "priority": ["ichi1", "news2", "nf32"],
     "stratum": "wago",
     "processes": [],
     "headline": "謝る, “to apologize”, is from 誤る (ayamaru, “mistake”).",
@@ -64,6 +99,22 @@
     "sources": [
       {
         "quote": "From 誤る (ayamaru, “mistake”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 149154,
+        "ja": "謝るしかない。",
+        "en": "There is nothing to do but apologize.",
+        "enId": 265403,
+        "form": "謝る"
+      },
+      {
+        "id": 149155,
+        "ja": "謝る必要はないよ。",
+        "en": "Don't apologize.",
+        "enId": 265404,
+        "form": "謝る"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -75,6 +126,7 @@
     "meaning": "office",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "オフィス is the English word “office” in katakana.",
@@ -90,6 +142,22 @@
         "quote": "From English office."
       }
     ],
+    "examples": [
+      {
+        "id": 114239,
+        "ja": "トムはよくオフィスにいる。",
+        "en": "Tom spends a lot of time at the office.",
+        "enId": 4632302,
+        "form": "オフィス"
+      },
+      {
+        "id": 102423,
+        "ja": "彼は大急ぎでオフィスを去った。",
+        "en": "He left the office in great haste.",
+        "enId": 301271,
+        "form": "オフィス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -99,6 +167,7 @@
     "meaning": "to visit",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "訪ねる, “to visit”, comes from the Old Japanese verb 訪ぬ (tadunu).",
@@ -114,6 +183,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 99298,
+        "ja": "彼は友人を訪ねた。",
+        "en": "He paid a visit to his friend.",
+        "enId": 304401,
+        "form": "訪ねた"
+      },
+      {
+        "id": 182334,
+        "ja": "旧友が訪ねてきた。",
+        "en": "Old friends called on me.",
+        "enId": 19514,
+        "form": "訪ねて"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -123,6 +208,7 @@
     "meaning": "air conditioner",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "クーラー, “air conditioner”, is borrowed from English “cooler”, first cited to 1959.",
@@ -141,6 +227,22 @@
         "quote": "First cited to 1959."
       }
     ],
+    "examples": [
+      {
+        "id": 225712,
+        "ja": "クーラーが故障してしまった。",
+        "en": "The air conditioner has got out of order.",
+        "enId": 63051,
+        "form": "クーラー"
+      },
+      {
+        "id": 225714,
+        "ja": "クーラーがきかないようだが。",
+        "en": "The air conditioner doesn't seem to work.",
+        "enId": 63052,
+        "form": "クーラー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -154,6 +256,7 @@
       "adverb (fukushi)",
       "adverb taking the 'to' particle"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "ぶつぶつ, “grumbling in a small voice”, is described simply as onomatopoeic.",
@@ -161,6 +264,22 @@
     "sources": [
       {
         "quote": "Onomatopoeic."
+      }
+    ],
+    "examples": [
+      {
+        "id": 197146,
+        "ja": "ぶつぶつと礼を言った。",
+        "en": "He grunted his thanks.",
+        "enId": 34328,
+        "form": "ぶつぶつと"
+      },
+      {
+        "id": 183622,
+        "ja": "顔中にぶつぶつができた。",
+        "en": "I have spots coming out all over my face.",
+        "enId": 20744,
+        "form": "ぶつぶつ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -172,6 +291,7 @@
     "meaning": "mic",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "マイク is the English word “mic” in katakana.",
@@ -187,6 +307,22 @@
         "quote": "From English mic."
       }
     ],
+    "examples": [
+      {
+        "id": 195730,
+        "ja": "マイクは入っている。",
+        "en": "The microphone is live.",
+        "enId": 32905,
+        "form": "マイク"
+      },
+      {
+        "id": 201582,
+        "ja": "どうしたんだい、マイク。",
+        "en": "What's up, Mike?",
+        "enId": 38792,
+        "form": "マイク"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -196,6 +332,7 @@
     "meaning": "queue, line, row",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "列, “queue, line, row”, is from Middle Chinese 列 (ljet).",
@@ -203,6 +340,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 列 (ljet)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 95157,
+        "ja": "彼女が列の先頭です。",
+        "en": "She is first in line.",
+        "enId": 308549,
+        "form": "列"
+      },
+      {
+        "id": 112297,
+        "ja": "彼はその列の中にいた。",
+        "en": "He was in the queue.",
+        "enId": 291381,
+        "form": "列"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -214,6 +367,7 @@
     "meaning": "part time (esp. female part time employees)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "パートタイム is the English word “part-time” in katakana.",
@@ -229,6 +383,22 @@
         "quote": "From English part-time."
       }
     ],
+    "examples": [
+      {
+        "id": 170353,
+        "ja": "妻はパートタイムで働いている。",
+        "en": "My wife works part time.",
+        "enId": 244129,
+        "form": "パートタイム"
+      },
+      {
+        "id": 91772,
+        "ja": "彼女はパートタイムのタイピストの職を得た。",
+        "en": "She got a part-time job as a typist.",
+        "enId": 311940,
+        "form": "パートタイム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -241,6 +411,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レポート is the English word “report” in katakana.",
@@ -256,6 +427,22 @@
         "quote": "From English report."
       }
     ],
+    "examples": [
+      {
+        "id": 192330,
+        "ja": "レポートを昨日提出した。",
+        "en": "I handed in my report yesterday.",
+        "enId": 29493,
+        "form": "レポート"
+      },
+      {
+        "id": 156782,
+        "ja": "昨日レポートを提出したんだ。",
+        "en": "I turned in a paper yesterday.",
+        "enId": 257752,
+        "form": "レポート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -265,6 +452,7 @@
     "meaning": "to govern, to manage; to subdue",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf46"],
     "stratum": "wago",
     "processes": [],
     "headline": "治める is from Old Japanese 治む (wosamu), and the source gives 収める (osameru) as a cognate.",
@@ -283,6 +471,22 @@
         "quote": "Likely derived ultimately from 長(おさ) (osa, “boss, chief, controller, ruler”)."
       }
     ],
+    "examples": [
+      {
+        "id": 212182,
+        "ja": "その王は島を治めた。",
+        "en": "The king reigned over the island.",
+        "enId": 49462,
+        "form": "治めた"
+      },
+      {
+        "id": 188508,
+        "ja": "その王がその国を治めていた。",
+        "en": "The king governed the country.",
+        "enId": 25652,
+        "form": "治めていた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -292,6 +496,7 @@
     "meaning": "ribbon",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "リボン is borrowed from English “ribbon”.",
@@ -307,6 +512,22 @@
         "quote": "Borrowed from English ribbon."
       }
     ],
+    "examples": [
+      {
+        "id": 87525,
+        "ja": "彼女は髪をリボンで結んだ。",
+        "en": "She bound her hair with a ribbon.",
+        "enId": 312421,
+        "form": "リボン"
+      },
+      {
+        "id": 91293,
+        "ja": "彼女はリボンで髪を束ねた。",
+        "en": "She bound her hair with a ribbon.",
+        "enId": 312421,
+        "form": "リボン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -316,6 +537,7 @@
     "meaning": "to become cool, to wear off",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
     "stratum": "wago",
     "processes": [],
     "headline": "冷める comes from the classical verb 冷む (samu).",
@@ -334,6 +556,22 @@
         "quote": "Related to 寒(さむ)い (samui, “cold (weather)”)."
       }
     ],
+    "examples": [
+      {
+        "id": 145910,
+        "ja": "食べ物が冷めます。",
+        "en": "The food is getting cold.",
+        "enId": 268653,
+        "form": "冷めます"
+      },
+      {
+        "id": 118192,
+        "ja": "彼の愛は冷めていった。",
+        "en": "His love grew cold.",
+        "enId": 285472,
+        "form": "冷めて"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -343,6 +581,7 @@
     "meaning": "message",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "メッセージ is the English word “message” in katakana.",
@@ -358,6 +597,22 @@
         "quote": "From English message."
       }
     ],
+    "examples": [
+      {
+        "id": 194623,
+        "ja": "メッセージをもう一度読みなさい。",
+        "en": "Read the message once more.",
+        "enId": 31796,
+        "form": "メッセージ"
+      },
+      {
+        "id": 223117,
+        "ja": "このメッセージは意味をなさない。",
+        "en": "This message doesn't make sense.",
+        "enId": 60449,
+        "form": "メッセージ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -370,6 +625,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": [],
     "headline": "決まり is the continuative stem of the verb 決まる (kimaru, “to be decided, to be concluded”).",
@@ -377,6 +633,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 決(き)まる (kimaru, “to be decided, to be concluded”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 83880,
+        "ja": "服装の決まりはありますか。",
+        "en": "Is there a dress code?",
+        "enId": 319836,
+        "form": "決まり"
+      },
+      {
+        "id": 81308,
+        "ja": "毎日のきまり仕事にはつくづく飽きた。",
+        "en": "I am quite tired of daily routine.",
+        "enId": 322407,
+        "form": "きまり"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -388,6 +660,7 @@
     "meaning": "dam",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ダム is borrowed from English “dam”.",
@@ -403,6 +676,22 @@
         "quote": "Borrowed from English dam."
       }
     ],
+    "examples": [
+      {
+        "id": 137744,
+        "ja": "大きなダムができるそうだ。",
+        "en": "They say that a huge dam will be built.",
+        "enId": 275491,
+        "form": "ダム"
+      },
+      {
+        "id": 137673,
+        "ja": "大雨のためにダムが決壊した。",
+        "en": "The dam burst owing to the heavy rain.",
+        "enId": 275563,
+        "form": "ダム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -412,6 +701,7 @@
     "meaning": "love",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "愛, “love”, comes from Middle Chinese, and the source points to Mandarin ài for comparison.",
@@ -424,6 +714,15 @@
         "quote": "Compare modern Mandarin 愛／爱 (ài)."
       }
     ],
+    "examples": [
+      {
+        "id": 191555,
+        "ja": "愛の動きは不可解。",
+        "en": "Love moves in mysterious ways.",
+        "enId": 28719,
+        "form": "愛"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -433,6 +732,7 @@
     "meaning": "lunch",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ランチ is borrowed from English “lunch”.",
@@ -448,6 +748,22 @@
         "quote": "Borrowed from English lunch."
       }
     ],
+    "examples": [
+      {
+        "id": 192557,
+        "ja": "ランチは私が持ちましょう。",
+        "en": "I'll bring lunch.",
+        "enId": 29721,
+        "form": "ランチ"
+      },
+      {
+        "id": 81469,
+        "ja": "本日のランチの内容はなんですか。",
+        "en": "What are you serving today?",
+        "enId": 322246,
+        "form": "ランチ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -457,6 +773,7 @@
     "meaning": "circle, sports club (e.g., at a company)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "サークル is borrowed from English “circle”.",
@@ -485,6 +802,7 @@
       "adverb (fukushi)",
       "interjection (kandoushi)"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "まあまあ is a reduplication of まあ, and its likeness to a Cantonese “so-so” phrase is likely coincidental.",
@@ -495,6 +813,22 @@
       },
       {
         "quote": "Resemblance to Cantonese 麻麻地 (maa4 maa4-2 dei6-2) (“so-so”) likely coincidental."
+      }
+    ],
+    "examples": [
+      {
+        "id": 118104,
+        "ja": "彼の英語はまあまあだ。",
+        "en": "His English is quite good.",
+        "enId": 285560,
+        "form": "まあまあ"
+      },
+      {
+        "id": 76792,
+        "ja": "カレーはまあまあでした。",
+        "en": "The curry was nothing special.",
+        "enId": 326928,
+        "form": "まあまあ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -509,6 +843,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ビニール is the English word “vinyl” in katakana.",
@@ -524,6 +859,15 @@
         "quote": "From English vinyl."
       }
     ],
+    "examples": [
+      {
+        "id": 197457,
+        "ja": "ビニールは熱に弱いのが難点だ。",
+        "en": "The weakness of vinyl is that it is easily affected by heat.",
+        "enId": 34643,
+        "form": "ビニール"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -533,6 +877,7 @@
     "meaning": "If that's the case..., If so..., That being the case...",
     "level": "N2",
     "pos": ["conjunction"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "それなら is それ (“that”) plus なら (“if”): literally “if that”.",
@@ -562,6 +907,7 @@
     "meaning": "modern",
     "level": "N2",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "モダン is borrowed from English “modern”.",
@@ -577,6 +923,22 @@
         "quote": "Borrowed from English modern."
       }
     ],
+    "examples": [
+      {
+        "id": 158724,
+        "ja": "私はモダンな家具が好きだ。",
+        "en": "I prefer modern furniture.",
+        "enId": 255804,
+        "form": "モダンな"
+      },
+      {
+        "id": 220087,
+        "ja": "この付近はモダンな建物が多い。",
+        "en": "There are many modern buildings around here.",
+        "enId": 57405,
+        "form": "モダンな"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -586,6 +948,7 @@
     "meaning": "to believe",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "kango",
     "processes": ["sound-change"],
     "headline": "信じる is a shift from 信ずる (shinzuru).",
@@ -593,6 +956,22 @@
     "sources": [
       {
         "quote": "Shift from 信ずる (shinzuru). Natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 145729,
+        "ja": "信じるとこよ。",
+        "en": "I almost believe you.",
+        "enId": 268833,
+        "form": "信じる"
+      },
+      {
+        "id": 145739,
+        "ja": "信じてくれる？",
+        "en": "Do you believe me?",
+        "enId": 268823,
+        "form": "信じて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -604,6 +983,7 @@
     "meaning": "liter",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "リットル, “liter”, is borrowed from French “litre”.",
@@ -619,6 +999,22 @@
         "quote": "Borrowed from French litre."
       }
     ],
+    "examples": [
+      {
+        "id": 220091,
+        "ja": "この瓶には２リットルのお湯が入る。",
+        "en": "This jar can hold two liters of hot water.",
+        "enId": 57410,
+        "form": "リットル"
+      },
+      {
+        "id": 226372,
+        "ja": "ガソリンはリットル単位で売られる。",
+        "en": "Gasoline is sold by the liter.",
+        "enId": 63715,
+        "form": "リットル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -628,6 +1024,7 @@
     "meaning": "juice, soft drink; deuce",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ジュース covers “juice” and “deuce”, each borrowed from its own English word.",
@@ -638,6 +1035,22 @@
       },
       {
         "quote": "Borrowed from English deuce."
+      }
+    ],
+    "examples": [
+      {
+        "id": 215728,
+        "ja": "ジュースをください。",
+        "en": "Some juice, please.",
+        "enId": 53029,
+        "form": "ジュース"
+      },
+      {
+        "id": 223685,
+        "ja": "このジュース、酸っぱいよ。",
+        "en": "This juice tastes sour.",
+        "enId": 61020,
+        "form": "ジュース"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -653,6 +1066,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["spec1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "大, “big, great”, is a Middle Chinese borrowing (MC dajH).",
@@ -660,6 +1074,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 大 (MC dajH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 137762,
+        "ja": "大か、小か。",
+        "en": "Large or small?",
+        "enId": 275473,
+        "form": "大"
+      },
+      {
+        "id": 102359,
+        "ja": "彼は大富豪だ。",
+        "en": "He is a man of great wealth.",
+        "enId": 301335,
+        "form": "大"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -671,6 +1101,7 @@
     "meaning": "contest",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コンテスト is the English word “contest” in katakana.",
@@ -686,6 +1117,22 @@
         "quote": "From English contest."
       }
     ],
+    "examples": [
+      {
+        "id": 113674,
+        "ja": "彼はコンテストで名を挙げた。",
+        "en": "He distinguished himself in the contest.",
+        "enId": 289999,
+        "form": "コンテスト"
+      },
+      {
+        "id": 166519,
+        "ja": "私たちはコンテストに参加した。",
+        "en": "We took part in the contest.",
+        "enId": 247983,
+        "form": "コンテスト"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -695,6 +1142,7 @@
     "meaning": "swirl",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf16"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "渦, “swirl”, is from Old Japanese, and the source shows its sound moving from /udu/ to /uzu/.",

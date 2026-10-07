@@ -6,6 +6,7 @@
     "meaning": "eight",
     "level": "N5",
     "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Hachi is from Middle Chinese 八 (MC peat).",
@@ -13,6 +14,15 @@
     "sources": [
       {
         "quote": "From Middle Chinese 八 (MC peat). Compare literary Hokkien 八 (pat), Hakka 八 (pat)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 93493,
+        "ja": "彼女は八歳のときにダンスを始めた。",
+        "en": "She started dancing when she was eight.",
+        "enId": 310215,
+        "form": "八"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -24,6 +34,7 @@
     "meaning": "black; dark",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kuroi is Old Japanese, first attested in the Kojiki of 712 CE.",
@@ -31,6 +42,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Kojiki of 712 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 88618,
+        "ja": "彼女は色が黒い。",
+        "en": "She is dark-skinned.",
+        "enId": 315089,
+        "form": "黒い"
+      },
+      {
+        "id": 122228,
+        "ja": "日本人は目が黒い。",
+        "en": "The Japanese have dark eyes.",
+        "enId": 281775,
+        "form": "黒い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -42,6 +69,7 @@
     "meaning": "guest, customer",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Kyaku is from Middle Chinese 客 (MC khaek).",
@@ -64,6 +92,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["ateji"],
     "headline": "Betsu is from Ainu ペッ (pet, “water, river”), and its kanji spelling is an example of ateji.",
@@ -71,6 +100,22 @@
     "sources": [
       {
         "quote": "From Ainu ペッ (pet, “water, river”). The kanji spelling is an example of ateji."
+      }
+    ],
+    "examples": [
+      {
+        "id": 83420,
+        "ja": "別の機会を待て。",
+        "en": "Wait for a second chance.",
+        "enId": 320296,
+        "form": "別の"
+      },
+      {
+        "id": 77439,
+        "ja": "恋愛と結婚は別だ。",
+        "en": "Falling in love is one thing; getting married is another.",
+        "enId": 326279,
+        "form": "別"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -82,6 +127,7 @@
     "meaning": "Music",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Ongaku is from Middle Chinese 音樂.",
@@ -104,6 +150,22 @@
         "quote": "From Middle Chinese 音樂 (MC 'im ngaewH|ngaewk|lak)."
       }
     ],
+    "examples": [
+      {
+        "id": 188279,
+        "ja": "音楽は好き？",
+        "en": "Are you fond of music?",
+        "enId": 25421,
+        "form": "音楽"
+      },
+      {
+        "id": 158185,
+        "ja": "私は音楽部員だ。",
+        "en": "I belong to the music club.",
+        "enId": 256345,
+        "form": "音楽"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -116,6 +178,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Teinei is from Middle Chinese 叮嚀, which originally meant a musical instrument used to signal caution.",
@@ -141,6 +204,22 @@
         "quote": "Originally meant a musical instrument used in the ancient Chinese military to signal vigilance or caution."
       }
     ],
+    "examples": [
+      {
+        "id": 111304,
+        "ja": "彼はばか丁寧だ。",
+        "en": "He is polite to a fault.",
+        "enId": 292378,
+        "form": "丁寧"
+      },
+      {
+        "id": 155071,
+        "ja": "丁寧におじぎをしました。",
+        "en": "I bowed politely.",
+        "enId": 653440,
+        "form": "丁寧に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -150,6 +229,7 @@
     "meaning": "to hear, to listen, to ask",
     "level": "N5",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1", "spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kiku first appears in the Kojiki of 712, spelled in phonetic man'yōgana as 岐加受 (kikazu).",
@@ -168,6 +248,22 @@
         "quote": "False cognate of Malayalam കേൾക്കുക (kēḷkkuka)."
       }
     ],
+    "examples": [
+      {
+        "id": 78929,
+        "ja": "世論に聞け。",
+        "en": "Heed public opinion.",
+        "enId": 324787,
+        "form": "聞け"
+      },
+      {
+        "id": 83638,
+        "ja": "聞いてるの？",
+        "en": "Do you hear me?",
+        "enId": 319989,
+        "form": "聞いてる"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -177,6 +273,7 @@
     "meaning": "white",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Shiroi was shiroshi, and its medial k went through voicing, spirantization and gliding until it disappeared.",
@@ -195,6 +292,22 @@
         "quote": "⟨siro₁ki₁⟩ → */sirʷokʲi/ → */sirʷogʲi/ → */sirʷoɣi/ → */sirʷoji/ → /siroi/ → [ɕiɾo̞i]."
       }
     ],
+    "examples": [
+      {
+        "id": 121438,
+        "ja": "白いですか。",
+        "en": "Is it white?",
+        "enId": 282567,
+        "form": "白い"
+      },
+      {
+        "id": 163737,
+        "ja": "私の犬は白い。",
+        "en": "My dog is white.",
+        "enId": 250774,
+        "form": "白い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -204,6 +317,7 @@
     "meaning": "someone",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1", "news2", "nf28"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Dareka is 誰 (dare, “who”) plus か (ka, indefinite particle).",
@@ -224,6 +338,22 @@
         "quote": "From 誰(だれ) (dare, “who”) + か (ka, indefinite particle)."
       }
     ],
+    "examples": [
+      {
+        "id": 137131,
+        "ja": "誰かいるの？",
+        "en": "Is somebody there?",
+        "enId": 276106,
+        "form": "誰か"
+      },
+      {
+        "id": 137053,
+        "ja": "誰かきてくれ。",
+        "en": "Somebody, come help me.",
+        "enId": 10059154,
+        "form": "誰か"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -233,6 +363,7 @@
     "meaning": "very like-able, like very much",
     "level": "N5",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Daisuki is 大 (dai-, “very; much”) plus 好き (suki, “liking”).",
@@ -253,6 +384,22 @@
         "quote": "大(だい) (dai-, “very; much”) + 好(す)き (suki, “liking”)."
       }
     ],
+    "examples": [
+      {
+        "id": 119670,
+        "ja": "彼が大好き！",
+        "en": "I really like him!",
+        "enId": 283992,
+        "form": "大好き"
+      },
+      {
+        "id": 137571,
+        "ja": "大好きだよ！",
+        "en": "I love you.",
+        "enId": 1434,
+        "form": "大好き"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -262,6 +409,7 @@
     "meaning": "child(ren)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "rendaku"],
     "headline": "Kodomo was exclusively plural in Old Japanese: 子 (ko, “child”) plus 共 (-domo, plural suffix).",
@@ -285,6 +433,22 @@
         "quote": "From Old Japanese, though at the time it was exclusively plural. From 子 (ko, “child”) + 共 (-domo, plural suffix)."
       }
     ],
+    "examples": [
+      {
+        "id": 106550,
+        "ja": "彼は子供に残酷だ。",
+        "en": "He is a brute to his children.",
+        "enId": 297136,
+        "form": "子供"
+      },
+      {
+        "id": 110902,
+        "ja": "彼はほんの子供だ。",
+        "en": "He is a mere child.",
+        "enId": 292784,
+        "form": "子供"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -297,6 +461,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Nesshin is 熱 (netsu, “showing intense feeling”) plus 心 (shin, “heart”).",
@@ -320,6 +485,22 @@
         "quote": "From 熱 (netsu, “showing intense feeling”) + 心 (shin, “heart”)."
       }
     ],
+    "examples": [
+      {
+        "id": 109222,
+        "ja": "彼は科学に熱心だ。",
+        "en": "He is keen on science.",
+        "enId": 294219,
+        "form": "熱心"
+      },
+      {
+        "id": 109472,
+        "ja": "彼は化学に熱心だ。",
+        "en": "He's really into chemistry.",
+        "enId": 9353041,
+        "form": "熱心"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -333,6 +514,7 @@
       "noun (common) (futsuumeishi)",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Mukashi is muka, from the verb 向く (muku, “to face opposite”), plus a direction suffix し (shi): “that which stands opposite from the present”.",
@@ -340,6 +522,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. The muka portion derives from the 未然形 (mizenkei, “incomplete form”) of verb 向く (muku, “to face opposite to something”), implying “that which stands opposite from the present”. The shi portion is suffix し (shi) indicating direction, also found in words 縦し (tatashi, “the standing or vertical direction”), 横し (yokoshi, “the sideways or horizontal direction”). This appears to be a somewhat rare alternative form, more commonly encountered as さ (sa), and may be cognate with the nominalizing adjective ending さ (sa)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 142393,
+        "ja": "昔はよくした。",
+        "en": "I used to a lot.",
+        "enId": 272177,
+        "form": "昔"
+      },
+      {
+        "id": 142395,
+        "ja": "昔はよかった。",
+        "en": "I've seen better days.",
+        "enId": 272175,
+        "form": "昔"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -351,6 +549,7 @@
     "meaning": "thousand",
     "level": "N5",
     "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Sen is from Middle Chinese 千 (MC tshen).",
@@ -358,6 +557,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 千 (MC tshen)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 223186,
+        "ja": "このホールには２千人収容できる。",
+        "en": "This hall holds 2,000 people.",
+        "enId": 60518,
+        "form": "千"
+      },
+      {
+        "id": 173177,
+        "ja": "リサーチ・イン・モーションが約２千人の従業員解雇と組織再編を発表した。",
+        "en": "Research in Motion announced the layoff of 2000 employees and a restructuring of the company.",
+        "enId": 241294,
+        "form": "千"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -369,6 +584,7 @@
     "meaning": "early; quick, soon",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf16", "news2", "nf31"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hayai is first attested in the Kojiki of 712, reconstructed as ultimately from Proto-Japonic *paya.",
@@ -376,6 +592,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Kojiki of 712. Reconstructed as ultimately from Proto-Japonic *paya."
+      }
+    ],
+    "examples": [
+      {
+        "id": 140581,
+        "ja": "早かったね。",
+        "en": "You are early.",
+        "enId": 273992,
+        "form": "早かった"
+      },
+      {
+        "id": 81043,
+        "ja": "脈がはやいです。",
+        "en": "My pulse is fast.",
+        "enId": 322672,
+        "form": "はやい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -387,6 +619,7 @@
     "meaning": "young",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf30"],
     "stratum": "wago",
     "processes": [],
     "headline": "Wakai is Old Japanese, from Proto-Japonic *waka.",
@@ -394,6 +627,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *waka."
+      }
+    ],
+    "examples": [
+      {
+        "id": 104533,
+        "ja": "彼は若そうだ。",
+        "en": "He looks young.",
+        "enId": 299157,
+        "form": "若"
+      },
+      {
+        "id": 110825,
+        "ja": "彼はまだ若い。",
+        "en": "He is still young.",
+        "enId": 292861,
+        "form": "若い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -425,6 +674,22 @@
         "quote": "御 (o-, “honorific prefix”) + 風呂 (furo, “bath”)."
       }
     ],
+    "examples": [
+      {
+        "id": 226694,
+        "ja": "お風呂沸いてる？",
+        "en": "Is the bath ready?",
+        "enId": 64038,
+        "form": "お風呂"
+      },
+      {
+        "id": 226695,
+        "ja": "お風呂沸いたわよ。",
+        "en": "The bath is ready.",
+        "enId": 64039,
+        "form": "お風呂"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -434,6 +699,7 @@
     "meaning": "summer vacation",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Natsuyasumi is 夏 (natsu, “summer”) plus 休み (yasumi, “vacation; holiday”).",
@@ -454,6 +720,22 @@
         "quote": "夏(なつ) (natsu, “summer”) + 休(やす)み (yasumi, “vacation; holiday”)"
       }
     ],
+    "examples": [
+      {
+        "id": 187194,
+        "ja": "夏休みが過ぎた。",
+        "en": "The summer vacation is over.",
+        "enId": 24330,
+        "form": "夏休み"
+      },
+      {
+        "id": 184176,
+        "ja": "楽しい夏休みをね。",
+        "en": "Have a nice summer vacation.",
+        "enId": 21304,
+        "form": "夏休み"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -463,6 +745,7 @@
     "meaning": "to start, to begin",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb", "auxiliary verb"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hajimeru is from Proto-Japonic *pansimay (“to begin”, transitive).",
@@ -478,6 +761,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru. For the Old / Classical form, see the 始む entry."
       }
     ],
+    "examples": [
+      {
+        "id": 188784,
+        "ja": "演技はじめ！",
+        "en": "Action!",
+        "enId": 25930,
+        "form": "はじめ"
+      },
+      {
+        "id": 79757,
+        "ja": "夜が明け始めた。",
+        "en": "It began to dawn.",
+        "enId": 323959,
+        "form": "始めた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -487,6 +786,7 @@
     "meaning": "to teach, to inform, to instruct",
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "wago",
     "processes": [],
     "headline": "Oshieru is considered related to 愛しむ (oshimu), though the source calls that morphologically problematic.",
@@ -494,6 +794,22 @@
     "sources": [
       {
         "quote": "Considered as related to 愛(お)しむ (oshimu), but is morphologically problematic."
+      }
+    ],
+    "examples": [
+      {
+        "id": 123566,
+        "ja": "道を教えます。",
+        "en": "I'll show you the way.",
+        "enId": 280431,
+        "form": "教えます"
+      },
+      {
+        "id": 109664,
+        "ja": "彼は英語を教える。",
+        "en": "He teaches English.",
+        "enId": 294025,
+        "form": "教える"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -505,6 +821,7 @@
     "meaning": "to stand (something) up, to erect (something)",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tateru is Old Japanese 立つ (tatu), made explicitly transitive with the lower bigrade pattern.",
@@ -520,6 +837,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 84055,
+        "ja": "風が炎をあおり立てた。",
+        "en": "The wind fanned the flames.",
+        "enId": 319661,
+        "form": "立てた"
+      },
+      {
+        "id": 224264,
+        "ja": "ここへ看板を立てよう。",
+        "en": "Let's set up a sign here.",
+        "enId": 61599,
+        "form": "立てよう"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -529,6 +862,7 @@
     "meaning": "two people",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Futari has three proposed derivations, one a shift from futa tari through put̚tari.",
@@ -563,6 +897,22 @@
         "quote": "*: /puta tari/ → */put̚tari/ → /putari/ → /futari/"
       }
     ],
+    "examples": [
+      {
+        "id": 227554,
+        "ja": "おふたりが幸せでありますように。",
+        "en": "May you both be happy!",
+        "enId": 64907,
+        "form": "ふたり"
+      },
+      {
+        "id": 197170,
+        "ja": "ふたりは５月に結婚することになっていたが。",
+        "en": "They were to have got married in May.",
+        "enId": 34352,
+        "form": "ふたり"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -572,6 +922,7 @@
     "meaning": "to stand, to stand up; to rise",
     "level": "N5",
     "pos": ["Godan verb with 'tsu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf21"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tatsu is a doublet of 建つ (tatsu), 勃つ (tatsu) and 発つ (tatsu, “to depart”).",
@@ -584,6 +935,22 @@
         "quote": "Doublet of 建(た)つ (tatsu), 勃(た)つ (tatsu, “to have an erection”), 発(た)つ (tatsu, “to depart”)."
       }
     ],
+    "examples": [
+      {
+        "id": 78287,
+        "ja": "立ちなさい。",
+        "en": "Stand up!",
+        "enId": 325429,
+        "form": "立ち"
+      },
+      {
+        "id": 78276,
+        "ja": "立って下さい。",
+        "en": "Stand up, please.",
+        "enId": 325441,
+        "form": "立って"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -593,6 +960,7 @@
     "meaning": "nose",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hana “nose” is also from Proto-Japonic *pana; its pronoun sense comes from pointing to one's nose to refer to oneself.",
@@ -600,6 +968,22 @@
     "sources": [
       {
         "quote": "From Proto-Japonic *pana. The sense as a pronoun is from pointing to one's nose to refer to oneself."
+      }
+    ],
+    "examples": [
+      {
+        "id": 85513,
+        "ja": "鼻をほじるな。",
+        "en": "Don't pick your nose.",
+        "enId": 318200,
+        "form": "鼻"
+      },
+      {
+        "id": 85519,
+        "ja": "鼻が詰まった。",
+        "en": "My nose is stuffed up.",
+        "enId": 318194,
+        "form": "鼻"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -611,6 +995,7 @@
     "meaning": "man, person",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hito went pi1to2 → fito → hito → çito, from Proto-Japonic *pitə.",
@@ -626,6 +1011,22 @@
         "quote": "First attested in the Kojiki of 712 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 83690,
+        "ja": "文は人なり。",
+        "en": "The style is the man himself.",
+        "enId": 320026,
+        "form": "人"
+      },
+      {
+        "id": 229344,
+        "ja": "いい人です。",
+        "en": "He is nice.",
+        "enId": 66702,
+        "form": "人"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -635,6 +1036,7 @@
     "meaning": "what",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nani is Old Japanese, from Proto-Japonic *n-anu-.",
@@ -642,6 +1044,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *n-anu-."
+      }
+    ],
+    "examples": [
+      {
+        "id": 187300,
+        "ja": "何枚撮りですか。",
+        "en": "How many exposures would you like?",
+        "enId": 24437,
+        "form": "何"
+      },
+      {
+        "id": 187808,
+        "ja": "何ていう曲なの？",
+        "en": "What's the name of this tune?",
+        "enId": 433608,
+        "form": "何て"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -653,6 +1071,7 @@
     "meaning": "lonely, lonesome",
     "level": "N4",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf33", "spec1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Sabishii was sabusi in the Man'yōshū, and dialect shifts from b to m created samishi.",
@@ -666,6 +1085,22 @@
       },
       {
         "quote": "In early modern times, some dialects shift in reading from /-b-/ to /-m-/, thus creating samishii; similar to 頭 (tsuburi, tsumuri, “head”), in which tsuburi changes to tsumuri, and 煙 (keburi, kemuri, “smoke”), in which keburi changes to kemuri."
+      }
+    ],
+    "examples": [
+      {
+        "id": 102356,
+        "ja": "彼は大変さびしいと思った。",
+        "en": "He felt very lonely.",
+        "enId": 301338,
+        "form": "さびしい"
+      },
+      {
+        "id": 223204,
+        "ja": "このへんはとてもさびしい。",
+        "en": "This neighborhood is very lonely.",
+        "enId": 60536,
+        "form": "さびしい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -706,6 +1141,7 @@
     "meaning": "driver (by occupation)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Untenshu is 運転 (unten) plus 手 (-shu).",
@@ -734,6 +1170,22 @@
         "quote": "運転(うんてん) (unten) + 手(しゅ) (-shu)"
       }
     ],
+    "examples": [
+      {
+        "id": 111279,
+        "ja": "彼はバスの運転手だ。",
+        "en": "He is a bus driver.",
+        "enId": 292404,
+        "form": "運転手"
+      },
+      {
+        "id": 189435,
+        "ja": "運転手は車の中で寝ていた。",
+        "en": "A driver was sleeping in the car.",
+        "enId": 26587,
+        "form": "運転手"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -746,6 +1198,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Oiwai is 御 (o-, polite prefix) plus 祝い (iwai, “celebration, a gift or present”).",
@@ -766,6 +1219,22 @@
         "quote": "御(お) (o-, polite prefix) + 祝(いわ)い (iwai, “celebration, a gift or present”)"
       }
     ],
+    "examples": [
+      {
+        "id": 174258,
+        "ja": "御成功をお祝いします。",
+        "en": "I congratulate you on your success.",
+        "enId": 321781,
+        "form": "お祝い"
+      },
+      {
+        "id": 145611,
+        "ja": "心からお祝いを申し上げます。",
+        "en": "I offer you my hearty congratulations.",
+        "enId": 268951,
+        "form": "お祝い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -775,6 +1244,7 @@
     "meaning": "surely, certainly",
     "level": "N4",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kanarazu is literally “not temporary”: 仮ならず (kari narazu), shifted via karunarazu.",
@@ -785,6 +1255,22 @@
       },
       {
         "quote": "Shift from 仮(かり)ならず (kari narazu), itself from 仮(かり) (kari, “temporary”) + ならず (narazu), in which the second element is the negative form of either the Classical Japanese copula なり (nari) or the verb なる (naru, “to become”). Therefore, the literal meaning is “not temporary” or “not becoming temporary”."
+      }
+    ],
+    "examples": [
+      {
+        "id": 85476,
+        "ja": "必ずやります。",
+        "en": "I'll do it by all means.",
+        "enId": 318237,
+        "form": "必ず"
+      },
+      {
+        "id": 144442,
+        "ja": "人は必ず死ぬ。",
+        "en": "Man is mortal.",
+        "enId": 270072,
+        "form": "必ず"
       }
     ],
     "wiktionaryDump": "2026-09-02"

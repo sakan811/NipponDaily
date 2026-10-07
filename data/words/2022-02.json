@@ -6,6 +6,7 @@
     "meaning": "quantity, amount",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "量, “quantity, amount”, comes from Middle Chinese 量 (MC ljangH, “measure”).",
@@ -13,6 +14,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 量 (MC ljangH, “measure”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 93030,
+        "ja": "彼女はかなりの量の酒を飲んだ。",
+        "en": "She has had quite a lot to drink.",
+        "enId": 310679,
+        "form": "量"
+      },
+      {
+        "id": 2574612,
+        "ja": "光ファイバーケーブルは膨大な量の情報を搬送できる。",
+        "en": "Fibre-optic cables can carry huge amounts of information.",
+        "enId": 2574614,
+        "form": "量"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -24,6 +41,7 @@
     "meaning": "title",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "タイトル is borrowed from English “title”.",
@@ -39,6 +57,22 @@
         "quote": "Borrowed from English title."
       }
     ],
+    "examples": [
+      {
+        "id": 206701,
+        "ja": "その本のタイトルは何ですか。",
+        "en": "What is the title of the book?",
+        "enId": 43949,
+        "form": "タイトル"
+      },
+      {
+        "id": 160267,
+        "ja": "私はその歌のタイトルをどうしても思い出せなかった。",
+        "en": "I failed to recall the song's title.",
+        "enId": 254254,
+        "form": "タイトル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -48,6 +82,7 @@
     "meaning": "stand",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スタンド is borrowed from English “stand” and first attested in 1902.",
@@ -66,6 +101,22 @@
         "quote": "First attested in 1902."
       }
     ],
+    "examples": [
+      {
+        "id": 155225,
+        "ja": "私は大きな電気スタンドは嫌いだ。",
+        "en": "I don't like big desk lamps.",
+        "enId": 1176417,
+        "form": "スタンド"
+      },
+      {
+        "id": 224536,
+        "ja": "ここで電気スタンドは売っていますか。",
+        "en": "Do you sell desk lamps here?",
+        "enId": 61871,
+        "form": "スタンド"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -75,6 +126,7 @@
     "meaning": "field",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "野, “field”, is from Old Japanese, written ⟨no₁⟩ in the source.",
@@ -99,6 +151,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ウーマン is the English word “woman” in katakana.",
@@ -123,6 +176,7 @@
     "meaning": "to kill",
     "level": "N3",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "殺す, “to kill”, is from Old Japanese and first attested in the Nihon Shoki of 720 CE.",
@@ -145,6 +199,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ソフト covers “soft”, a soft hat and software, and the source traces it to English “soft”.",
@@ -160,6 +215,22 @@
         "quote": "From English soft."
       }
     ],
+    "examples": [
+      {
+        "id": 76636,
+        "ja": "そのソフトは完璧からほど遠い。",
+        "en": "That program is still far from perfect.",
+        "enId": 327084,
+        "form": "ソフト"
+      },
+      {
+        "id": 3234378,
+        "ja": "スミスさんはソフトな語り口の人物です。",
+        "en": "Mr Smith is a softly-spoken person.",
+        "enId": 3234381,
+        "form": "ソフトな"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -169,6 +240,7 @@
     "meaning": "if",
     "level": "N4",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "もし, “if”, is from Old Japanese and attested in the Man'yōshū of 759.",
@@ -187,6 +259,7 @@
     "meaning": "passport",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "パスポート is borrowed from English “passport”.",
@@ -202,6 +275,22 @@
         "quote": "Borrowed from English passport."
       }
     ],
+    "examples": [
+      {
+        "id": 198090,
+        "ja": "パスポートは持った？",
+        "en": "Do you have your passport?",
+        "enId": 35279,
+        "form": "パスポート"
+      },
+      {
+        "id": 198080,
+        "ja": "パスポートを盗まれました。",
+        "en": "Someone stole my passport.",
+        "enId": 35269,
+        "form": "パスポート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -211,6 +300,7 @@
     "meaning": "flag",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": [],
     "headline": "旗, “flag”, is from Old Japanese, from Proto-Japonic *pata.",
@@ -218,6 +308,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *pata."
+      }
+    ],
+    "examples": [
+      {
+        "id": 108612,
+        "ja": "彼は旗をかかげた。",
+        "en": "He put up a flag.",
+        "enId": 295073,
+        "form": "旗"
+      },
+      {
+        "id": 183408,
+        "ja": "旗が揚がっている。",
+        "en": "The flag is up.",
+        "enId": 20530,
+        "form": "旗"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -229,6 +335,7 @@
     "meaning": "racket",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ラケット is the English word “racket” in katakana.",
@@ -244,6 +351,22 @@
         "quote": "From English racket."
       }
     ],
+    "examples": [
+      {
+        "id": 192638,
+        "ja": "ラケットは借りれますか。",
+        "en": "Can I rent rackets?",
+        "enId": 29802,
+        "form": "ラケット"
+      },
+      {
+        "id": 110355,
+        "ja": "彼はラケットを下に置いた。",
+        "en": "He put down his racket.",
+        "enId": 293332,
+        "form": "ラケット"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -253,6 +376,7 @@
     "meaning": "handle, steering wheel",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ハンドル covers “handle” and “steering wheel”, and the source traces it to English “handle”.",
@@ -268,6 +392,22 @@
         "quote": "From English handle."
       }
     ],
+    "examples": [
+      {
+        "id": 111222,
+        "ja": "彼はハンドルを逆に切った。",
+        "en": "He turned the steering wheel the other way about.",
+        "enId": 292462,
+        "form": "ハンドル"
+      },
+      {
+        "id": 149093,
+        "ja": "車にはハンドルが一つある。",
+        "en": "A car has one steering wheel.",
+        "enId": 265465,
+        "form": "ハンドル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -277,12 +417,29 @@
     "meaning": "birth date",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf21"],
     "processes": [],
     "headline": "生年月日, “birth date”, is 生 (“birth”) plus 年 (“year”) plus 月 (“month”) plus 日 (“day”).",
     "morphemes": [],
     "sources": [
       {
         "quote": "生 (“birth”) + 年 (“year”) + 月 (“month”) + 日 (“day”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 233057,
+        "ja": "あなたの生年月日を書きなさい。",
+        "en": "Write the date of your birth.",
+        "enId": 70428,
+        "form": "生年月日"
+      },
+      {
+        "id": 142700,
+        "ja": "生年月日を教えてくださいますか？",
+        "en": "May I have your birth date?",
+        "enId": 271870,
+        "form": "生年月日"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -294,6 +451,7 @@
     "meaning": "guitar",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ギター is borrowed from English “guitar”.",
@@ -309,6 +467,22 @@
         "quote": "Borrowed from English guitar."
       }
     ],
+    "examples": [
+      {
+        "id": 226054,
+        "ja": "ギターが弾けますか。",
+        "en": "Can you play the guitar?",
+        "enId": 63394,
+        "form": "ギター"
+      },
+      {
+        "id": 226063,
+        "ja": "ギターが欲しいです。",
+        "en": "I want a guitar.",
+        "enId": 63403,
+        "form": "ギター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -318,10 +492,24 @@
     "meaning": "shopping",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "買い物, “shopping”, is 買い (kai) plus 物 (-mono).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "買い",
+        "reading": "かい",
+        "meaning": "buy",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "物",
+        "reading": "もの",
+        "meaning": "thing",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "買(か)い (kai) + 物(もの) (-mono)"
@@ -336,6 +524,7 @@
     "meaning": "diamond",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ダイヤモンド is borrowed from English “diamond”.",
@@ -360,6 +549,7 @@
     "meaning": "needle, hand (e.g., clock)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "針, “needle”, began as pari in Old Japanese, and its p reached h by way of ɸ.",
@@ -381,6 +571,7 @@
     "meaning": "drama",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ドラマ is borrowed from English “drama” and first cited to 1879.",
@@ -399,6 +590,22 @@
         "quote": "First cited to 1879."
       }
     ],
+    "examples": [
+      {
+        "id": 432842,
+        "ja": "どのドラマが一番好きですか。",
+        "en": "Which drama series do you like best?",
+        "enId": 439635,
+        "form": "ドラマ"
+      },
+      {
+        "id": 97910,
+        "ja": "彼らはその小説をドラマ化した。",
+        "en": "They made the novel into a drama.",
+        "enId": 305793,
+        "form": "ドラマ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -412,6 +619,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "めまい, “dizziness”, is likely a compound of 目 (me, “eye”) plus 舞い (mai), from the verb “to dance; to rotate”.",
@@ -441,6 +649,7 @@
     "meaning": "wine",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ワイン is borrowed from English “wine”.",
@@ -456,6 +665,22 @@
         "quote": "Borrowed from English wine."
       }
     ],
+    "examples": [
+      {
+        "id": 192058,
+        "ja": "ワインを一杯頂きたい。",
+        "en": "I'd like to have a glass of wine.",
+        "enId": 29220,
+        "form": "ワイン"
+      },
+      {
+        "id": 192061,
+        "ja": "ワインをいただきます。",
+        "en": "We'd like to have some wine.",
+        "enId": 29223,
+        "form": "ワイン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -468,6 +693,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スイッチ is borrowed from English “switch”.",
@@ -483,6 +709,22 @@
         "quote": "Borrowed from English switch."
       }
     ],
+    "examples": [
+      {
+        "id": 215136,
+        "ja": "スイッチは切れている。",
+        "en": "The switch is off.",
+        "enId": 52433,
+        "form": "スイッチ"
+      },
+      {
+        "id": 92765,
+        "ja": "彼女はスイッチを押した。",
+        "en": "She pressed the switch.",
+        "enId": 310944,
+        "form": "スイッチ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -492,6 +734,7 @@
     "meaning": "(at) any time, always",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "いつでも is glossed literally as “at even any time”.",
@@ -510,6 +753,7 @@
     "meaning": "a shop",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ショップ is borrowed from English “shop”.",
@@ -525,6 +769,22 @@
         "quote": "Borrowed from English shop."
       }
     ],
+    "examples": [
+      {
+        "id": 224152,
+        "ja": "こちらはワンダーミュージックショップです。",
+        "en": "This is Wonder Music Shop.",
+        "enId": 61488,
+        "form": "ショップ"
+      },
+      {
+        "id": 190115,
+        "ja": "一番近いアンティークショップはどこにあるか教えていただけますか。",
+        "en": "Can you tell me where the nearest antique shop is?",
+        "enId": 27272,
+        "form": "ショップ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -534,6 +794,7 @@
     "meaning": "shelves, rack",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": [],
     "headline": "棚, “shelves, rack”, was written with the phonetic man'yōgana 多奈 in the Nihon Shoki of 720 CE.",
@@ -541,6 +802,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Attested in the Nihon Shoki of 720 CE with the phonetic man'yōgana spelling of 多奈 ⟨tana⟩. In turn, from Proto-Japonic *tana."
+      }
+    ],
+    "examples": [
+      {
+        "id": 137154,
+        "ja": "棚にアルバムがある。",
+        "en": "There is an album on the shelf.",
+        "enId": 276082,
+        "form": "棚"
+      },
+      {
+        "id": 81671,
+        "ja": "本が一冊棚から落ちた。",
+        "en": "A book dropped from the shelf.",
+        "enId": 322044,
+        "form": "棚"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -552,6 +829,7 @@
     "meaning": "course",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コース is borrowed from English “course”.",
@@ -567,6 +845,22 @@
         "quote": "Borrowed from English course."
       }
     ],
+    "examples": [
+      {
+        "id": 149013,
+        "ja": "車はコースをはずれた。",
+        "en": "The car veered from its course.",
+        "enId": 265545,
+        "form": "コース"
+      },
+      {
+        "id": 235703,
+        "ja": "１日コースがありますか。",
+        "en": "Do you have any day tours?",
+        "enId": 73082,
+        "form": "コース"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -576,6 +870,7 @@
     "meaning": "to fan, to flap",
     "level": "N2",
     "pos": ["Godan verb with 'gu' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "扇ぐ is inherited from Old Japanese, and the source calls the shift from apu to ao irregular.",
@@ -600,6 +895,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "デート is the English “date”, in the sense of a social engagement.",
@@ -615,6 +911,22 @@
         "quote": "From English date."
       }
     ],
+    "examples": [
+      {
+        "id": 79144,
+        "ja": "夕べジェーンとデートした。",
+        "en": "I had a date with Jane last night.",
+        "enId": 324573,
+        "form": "デート"
+      },
+      {
+        "id": 153206,
+        "ja": "私は彼女をデートに誘った。",
+        "en": "I asked her for a date.",
+        "enId": 261338,
+        "form": "デート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -624,6 +936,7 @@
     "meaning": "to project, to reflect, to cast (shadow)",
     "level": "N3",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "wago",
     "processes": [],
     "headline": "映す, “to project, to reflect”, is cognate with 移す, says the source.",
@@ -631,6 +944,22 @@
     "sources": [
       {
         "quote": "Cognate with Japanese 移す."
+      }
+    ],
+    "examples": [
+      {
+        "id": 169437,
+        "ja": "山が湖に影を映している。",
+        "en": "The mountains are reflected in the lake.",
+        "enId": 245048,
+        "form": "映している"
+      },
+      {
+        "id": 190046,
+        "ja": "一本の高い木が水面に長い影を映している。",
+        "en": "A tall tree projects its long shadow on the water.",
+        "enId": 27203,
+        "form": "映している"
       }
     ],
     "wiktionaryDump": "2026-09-02"

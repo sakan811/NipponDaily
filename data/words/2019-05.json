@@ -9,6 +9,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Butsuri is Middle Chinese 物理, which meant “nature of things; how things work; matters in life; life in general”.",
@@ -31,6 +32,22 @@
         "quote": "Middle Chinese 物理 (“nature of things; how things work; matters in life; life in general”)"
       }
     ],
+    "examples": [
+      {
+        "id": 152930,
+        "ja": "私は物理は苦手だ。",
+        "en": "I have trouble with physics.",
+        "enId": 261615,
+        "form": "物理"
+      },
+      {
+        "id": 2302951,
+        "ja": "物理でBをとった。",
+        "en": "I got a B in physics.",
+        "enId": 1933294,
+        "form": "物理"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -40,6 +57,7 @@
     "meaning": "to talk, to tell, to recite",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kataru, “to tell”, is cognate with 騙る (kataru).",
@@ -47,6 +65,22 @@
     "sources": [
       {
         "quote": "Cognate with 騙(かた)る (kataru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 174227,
+        "ja": "語る価値さえない。",
+        "en": "It's not even worth mentioning.",
+        "enId": 240242,
+        "form": "語る"
+      },
+      {
+        "id": 121571,
+        "ja": "敗軍の将兵を語らず。",
+        "en": "It is not for the vanquished to talk of war.",
+        "enId": 282434,
+        "form": "語らず"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -64,6 +98,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Tappuri is most likely onomatopoeic, with the stative suffix り (-ri) added.",
@@ -71,6 +106,22 @@
     "sources": [
       {
         "quote": "Most likely of onomatopoeic origin, with the onomatopoeic stative suffix り (-ri) added to it. Compare たぷたぷ (taputapu, “shaking with fluid filled”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 150585,
+        "ja": "時間はたっぷりある。",
+        "en": "We have all kinds of time.",
+        "enId": 263972,
+        "form": "たっぷり"
+      },
+      {
+        "id": 145898,
+        "ja": "食べ物はたっぷりある。",
+        "en": "There is plenty of food.",
+        "enId": 268664,
+        "form": "たっぷり"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -82,6 +133,7 @@
     "meaning": "majority",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kahansū is, by surface analysis, 過半 (kahan) plus 数 (-sū, “number”).",
@@ -110,6 +162,22 @@
         "quote": "By surface analysis, 過半(かはん) (kahan) + 数(すう) (-sū, “number”).."
       }
     ],
+    "examples": [
+      {
+        "id": 97151,
+        "ja": "彼らは国会で過半数を制した。",
+        "en": "They commanded a majority in the Diet.",
+        "enId": 306552,
+        "form": "過半数"
+      },
+      {
+        "id": 78931,
+        "ja": "与党は前の選挙で過半数を占めた。",
+        "en": "The government got their majority at the last election.",
+        "enId": 324784,
+        "form": "過半数"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -119,6 +187,7 @@
     "meaning": "soon, in a short time",
     "level": "N2",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Mamonaku is literally “without (any) space (left)”.",
@@ -137,6 +206,7 @@
     "meaning": "grandchild",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mago, “grandchild”, was umago before it lost its first syllable.",
@@ -158,6 +228,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Saishū is 最 (sai-, “most”) plus 終 (shū, “end”).",
@@ -178,6 +249,22 @@
         "quote": "最 (sai-, “most”) + 終 (shū, “end”)"
       }
     ],
+    "examples": [
+      {
+        "id": 156863,
+        "ja": "私は最終バスに遅れた。",
+        "en": "I was late for the last bus.",
+        "enId": 257671,
+        "form": "最終"
+      },
+      {
+        "id": 170519,
+        "ja": "最終決定は彼に任せた。",
+        "en": "We left the final decision to him.",
+        "enId": 22966,
+        "form": "最終"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -187,6 +274,7 @@
     "meaning": "colleague; co-worker",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Dōryō is borrowed from Middle Chinese 同僚 (MC duwng lew).",
@@ -209,6 +297,22 @@
         "quote": "Borrowed from Middle Chinese 同僚 (MC duwng lew)."
       }
     ],
+    "examples": [
+      {
+        "id": 101638,
+        "ja": "彼は同僚に受けがよい。",
+        "en": "He's popular among his colleagues.",
+        "enId": 302055,
+        "form": "同僚"
+      },
+      {
+        "id": 123122,
+        "ja": "二人とも私の同僚です。",
+        "en": "Both are my colleagues.",
+        "enId": 280878,
+        "form": "同僚"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -218,6 +322,7 @@
     "meaning": "to whisper, to murmur",
     "level": "N2",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Sasayaku is ささ (sasa, an onomatopoeia) plus the verb-forming suffix やく (-yaku).",
@@ -225,6 +330,22 @@
     "sources": [
       {
         "quote": "ささ (sasa, an onomatopoeia) + やく (-yaku, a verb-forming suffix attaching to mimetic words)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 101018,
+        "ja": "彼は彼女に何か囁いた。",
+        "en": "He whispered something to her.",
+        "enId": 302679,
+        "form": "囁いた"
+      },
+      {
+        "id": 106112,
+        "ja": "彼は私に何かささやいた。",
+        "en": "He whispered something to me.",
+        "enId": 297574,
+        "form": "ささやいた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -236,6 +357,7 @@
     "meaning": "(telephone) receiver",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Juwaki is 受話 (juwa, “listening on a telephone”) plus 器 (-ki, “device”).",
@@ -256,6 +378,22 @@
         "quote": "受話(じゅわ) (juwa, “listening on a telephone”) + 器(き) (-ki, “device”)"
       }
     ],
+    "examples": [
+      {
+        "id": 104413,
+        "ja": "彼は受話器を取り上げた。",
+        "en": "He picked up the phone.",
+        "enId": 299278,
+        "form": "受話器"
+      },
+      {
+        "id": 104414,
+        "ja": "彼は受話器を下に置いた。",
+        "en": "He put the phone down.",
+        "enId": 299277,
+        "form": "受話器"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -265,6 +403,7 @@
     "meaning": "itinerary, route",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf43"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Michijun is 道 (michi, “way”) plus 順 (jun, “order”).",
@@ -285,6 +424,22 @@
         "quote": "From 道 (michi, “way”) + 順 (jun, “order”)."
       }
     ],
+    "examples": [
+      {
+        "id": 123549,
+        "ja": "道順はご存知ですか。",
+        "en": "Do you know how to get there?",
+        "enId": 280448,
+        "form": "道順"
+      },
+      {
+        "id": 127012,
+        "ja": "地下鉄の駅までの道順を教えていただけませんか。",
+        "en": "Can you give me directions to the subway station?",
+        "enId": 277078,
+        "form": "道順"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -294,6 +449,7 @@
     "meaning": "to appear (in print), to be recorded",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Noru, “to appear in print”, is cognate with 乗る (noru).",
@@ -301,6 +457,22 @@
     "sources": [
       {
         "quote": "Cognate with Japanese 乗(の)る (noru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 86061,
+        "ja": "彼女名簿に載っていますよ。",
+        "en": "She's on the rolls.",
+        "enId": 317650,
+        "form": "載っています"
+      },
+      {
+        "id": 117092,
+        "ja": "彼の写真が新聞に載っていた。",
+        "en": "His picture was in the newspaper.",
+        "enId": 286573,
+        "form": "載っていた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -312,6 +484,7 @@
     "meaning": "pride",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hokori, “pride”, is the continuative stem of 誇る (hokoru, “to be proud of”).",
@@ -319,6 +492,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 誇(ほこ)る (hokoru, “to be proud of”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 157381,
+        "ja": "私は兄を誇りに思う。",
+        "en": "I'm proud of my brother.",
+        "enId": 257154,
+        "form": "誇り"
+      },
+      {
+        "id": 145417,
+        "ja": "新しい校舎は村の誇りだ。",
+        "en": "The new school building is the boast of the village.",
+        "enId": 269146,
+        "form": "誇り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -330,6 +519,7 @@
     "meaning": "to be piled up, lie on top of one another",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kasanaru is from Old Japanese; compare 嵩む (kasamu, “to increase”).",
@@ -337,6 +527,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Compare 嵩(かさ)む (kasamu, “to increase”), かさ張(ば)る (kasabaru, “to grow bulky”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 85096,
+        "ja": "不幸は重なるものだ。",
+        "en": "Misfortunes always come in threes.",
+        "enId": 318618,
+        "form": "重なる"
+      },
+      {
+        "id": 83760,
+        "ja": "物事は重なって起こる。",
+        "en": "It never rains but it pours.",
+        "enId": 3387145,
+        "form": "重なって"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -348,6 +554,7 @@
     "meaning": "Damn it!",
     "level": "N3",
     "pos": ["interjection (kandoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Shimatta is the perfective of しまう (shimau, “to finish”): literally “finished”.",
@@ -355,6 +562,15 @@
     "sources": [
       {
         "quote": "The perfective form of しまう (shimau, “to finish”), literally meaning “finished”. Compare Mandarin 完了 (wánle)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 216081,
+        "ja": "しまった！ウッカリして、携帯電話をお店に忘れてきちゃった。",
+        "en": "Oh no! I wasn't paying attention and left my cell phone in the restaurant!",
+        "enId": 53382,
+        "form": "しまった"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -384,6 +600,7 @@
     "meaning": "to be caught in, to be stuck in",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf34", "spec1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hikkakaru is a sound shift from ひきかかる (hikikakaru).",
@@ -391,6 +608,22 @@
     "sources": [
       {
         "quote": "Sound shift from ひきかかる (hikikakaru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 172959,
+        "ja": "骨が喉にひっかかった。",
+        "en": "A bone stuck in my throat.",
+        "enId": 241514,
+        "form": "ひっかかった"
+      },
+      {
+        "id": 203678,
+        "ja": "凧が木に引っかかった。",
+        "en": "The kite got caught in the tree.",
+        "enId": 40916,
+        "form": "引っかかった"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -402,6 +635,7 @@
     "meaning": "step, stair, grade",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "counter"],
+    "priority": ["news1", "nf13"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Dan, “step”, is from Middle Chinese 段.",
@@ -409,6 +643,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 段 (MC dwanH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 158445,
+        "ja": "私は一度に２段駆け上がった。",
+        "en": "I ran upstairs two steps at a time.",
+        "enId": 256084,
+        "form": "段"
+      },
+      {
+        "id": 108972,
+        "ja": "彼は階段を一度に三段ずつかけあがった。",
+        "en": "He jumped up the steps three at a time.",
+        "enId": 294718,
+        "form": "段"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -423,6 +673,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news2", "nf31"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kōsa is Middle Chinese 交叉, with 差 a daiyōji replacing 叉.",
@@ -448,6 +699,22 @@
         "quote": "差 is a daiyōji replacing 叉."
       }
     ],
+    "examples": [
+      {
+        "id": 206723,
+        "ja": "その棒は交差しておかれた。",
+        "en": "The sticks were laid across each other.",
+        "enId": 43971,
+        "form": "交差"
+      },
+      {
+        "id": 235393,
+        "ja": "２本の道が十文字に交差している。",
+        "en": "The two roads cut across the street from us.",
+        "enId": 72772,
+        "form": "交差"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -457,6 +724,7 @@
     "meaning": "meeting hall, assembly hall",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kaikan is from Chinese 會館 (huìguǎn), analyzable as 会 (kai, “meeting; gathering”) plus 館 (kan, “public building”).",
@@ -477,6 +745,22 @@
         "quote": "From Chinese 會館 /会馆 (huìguǎn). Analyzable as 会 (kai, “meeting; gathering”) + 館 (kan, “public building”)."
       }
     ],
+    "examples": [
+      {
+        "id": 185413,
+        "ja": "会館は聴衆でいっぱいになった。",
+        "en": "The audience filled the hall.",
+        "enId": 22545,
+        "form": "会館"
+      },
+      {
+        "id": 207351,
+        "ja": "その日に限って子供たちは会館に入ることを許される。",
+        "en": "The hall allows children in only on that day.",
+        "enId": 44603,
+        "form": "会館"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -486,6 +770,7 @@
     "meaning": "to sleep; to go to sleep; to go to bed",
     "level": "N5",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "wago",
     "processes": [],
     "headline": "Neru is from Old Japanese 寝 (nu).",
@@ -493,6 +778,22 @@
     "sources": [
       {
         "quote": "From Old Japanese 寝 (nu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 81845,
+        "ja": "僕は寝たい。",
+        "en": "I want to sleep.",
+        "enId": 321870,
+        "form": "寝"
+      },
+      {
+        "id": 194055,
+        "ja": "もう寝ます。",
+        "en": "I will hit the sack.",
+        "enId": 31224,
+        "form": "寝ます"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -504,6 +805,7 @@
     "meaning": "good, virtue",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Zen, “good”, is from Middle Chinese 善.",
@@ -511,6 +813,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 善 (MC dzyenX)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 170406,
+        "ja": "最善はしばしば善の敵である。",
+        "en": "The best is often the enemy of the good.",
+        "enId": 21087,
+        "form": "善"
+      },
+      {
+        "id": 191441,
+        "ja": "悪に報いるに善をもってせよ。",
+        "en": "Render good for evil.",
+        "enId": 28603,
+        "form": "善"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -522,6 +840,7 @@
     "meaning": "the end, closing",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Oshimai is 御 (o-, beautifying prefix) plus しまい (shimai, “ending, finishing”).",
@@ -551,6 +870,7 @@
     "meaning": "to face, to go towards",
     "level": "N4",
     "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mukau is a shift from 向き合う (mukiau).",
@@ -558,6 +878,22 @@
     "sources": [
       {
         "quote": "Shift from 向(む)き合(あ)う (mukiau)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 109287,
+        "ja": "彼は家に向かった。",
+        "en": "He made for home.",
+        "enId": 294403,
+        "form": "向かった"
+      },
+      {
+        "id": 84006,
+        "ja": "風は帆に向かって吹く。",
+        "en": "The wind blows against the sails.",
+        "enId": 319711,
+        "form": "向かって"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -598,13 +934,43 @@
     "meaning": "to pass (e.g., car), to outdistance, to outstrip",
     "level": "N2",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Oikosu is 追う (ou, “to chase”) plus 越す (kosu, “to go past”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "追い",
+        "reading": "おい",
+        "meaning": "chase",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "越す",
+        "reading": "こす",
+        "meaning": "surpass",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "追(お)う (ou, “to chase”) + 越(こ)す (kosu, “to go past”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 228278,
+        "ja": "うさぎはかめに追い越された。",
+        "en": "The hare was outdistanced by the tortoise.",
+        "enId": 65633,
+        "form": "追い越された"
+      },
+      {
+        "id": 88233,
+        "ja": "彼女は先輩を追い越して昇進した。",
+        "en": "She was promoted over the heads of her seniors.",
+        "enId": 315475,
+        "form": "追い越して"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -616,6 +982,7 @@
     "meaning": "another time, again",
     "level": "N2",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "wago",
     "processes": [],
     "headline": "Aratamete is the -te form of the verb 改める (aratameru).",
@@ -623,6 +990,22 @@
     "sources": [
       {
         "quote": "From the -te conjunctive form of verb 改める (aratameru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 185144,
+        "ja": "改めて言う事はない。",
+        "en": "I have nothing particular to say.",
+        "enId": 22275,
+        "form": "改めて"
+      },
+      {
+        "id": 229099,
+        "ja": "いずれ改めてお伺いいたします。",
+        "en": "I will call on you again.",
+        "enId": 66457,
+        "form": "改めて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -634,6 +1017,7 @@
     "meaning": "without",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nashi is the classical terminal form of the modern adjective 無い (nai).",
@@ -641,6 +1025,22 @@
     "sources": [
       {
         "quote": "Classical terminal form of the modern adjective 無(な)い (nai)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 168125,
+        "ja": "死人に口なし。",
+        "en": "Dead men tell no tales.",
+        "enId": 246356,
+        "form": "なし"
+      },
+      {
+        "id": 80927,
+        "ja": "無事に便りなし。",
+        "en": "No news is good news.",
+        "enId": 2352,
+        "form": "なし"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -652,6 +1052,7 @@
     "meaning": "cup",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Kappu is English cup, a doublet via Late Latin cuppa of コップ (koppu).",
@@ -659,6 +1060,22 @@
     "sources": [
       {
         "quote": "From English cup. Doublet (via Late Latin cuppa) of コップ (koppu), from Dutch kop and Portuguese copo."
+      }
+    ],
+    "examples": [
+      {
+        "id": 226319,
+        "ja": "カップが割れた。",
+        "en": "The cup broke.",
+        "enId": 63659,
+        "form": "カップ"
+      },
+      {
+        "id": 213285,
+        "ja": "そのカップは素敵だ。",
+        "en": "The cup is nice.",
+        "enId": 50571,
+        "form": "カップ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -670,6 +1087,7 @@
     "meaning": "terrible, dreadful",
     "level": "N3",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": [],
     "headline": "Osoroshii is an adjectivization of the verb 恐る (osoru, “to fear”).",
@@ -677,6 +1095,22 @@
     "sources": [
       {
         "quote": "Adjectivization of verb 恐(おそ)る (osoru, “to fear”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 180384,
+        "ja": "恐ろしく今日は寒い。",
+        "en": "It's awfully cold today.",
+        "enId": 19156,
+        "form": "恐ろしく"
+      },
+      {
+        "id": 234752,
+        "ja": "ああ、何て恐ろしい。",
+        "en": "Oh, how awful!",
+        "enId": 72129,
+        "form": "恐ろしい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -691,6 +1125,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Masatsu is a Middle Chinese compound, 摩擦 (MC ma tshat).",
@@ -711,6 +1146,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese compound 摩擦 (MC ma tshat)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 81446,
+        "ja": "摩擦でマッチに火がつくようになる。",
+        "en": "Friction causes a match to light.",
+        "enId": 322269,
+        "form": "摩擦"
+      },
+      {
+        "id": 83492,
+        "ja": "米国人とイギリス人との間の摩擦が高まった。",
+        "en": "Friction between the Americans and the British mounted.",
+        "enId": 320224,
+        "form": "摩擦"
       }
     ],
     "wiktionaryDump": "2026-09-02"

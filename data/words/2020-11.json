@@ -6,6 +6,7 @@
     "meaning": "daughter (humble)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Musume is analyzed as 生す (musu, “to beget”) plus 女 (me, “female”).",
@@ -18,6 +19,22 @@
         "quote": "Analyzed as a compound of 生す (musu, “to beget”) + 女 (me, “female”)."
       }
     ],
+    "examples": [
+      {
+        "id": 144952,
+        "ja": "真理は時の娘。",
+        "en": "Truth is time's daughter.",
+        "enId": 269611,
+        "form": "娘"
+      },
+      {
+        "id": 224146,
+        "ja": "こちらは娘です。",
+        "en": "This is my daughter.",
+        "enId": 61484,
+        "form": "娘"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -27,6 +44,7 @@
     "meaning": "phenomenon",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Genshō is from Middle Chinese 現象 (MC henH zjangX).",
@@ -49,6 +67,22 @@
         "quote": "From Middle Chinese 現象 (MC henH zjangX)."
       }
     ],
+    "examples": [
+      {
+        "id": 175617,
+        "ja": "月食は珍しい現象だ。",
+        "en": "An eclipse of the moon is a rare phenomenon.",
+        "enId": 238848,
+        "form": "現象"
+      },
+      {
+        "id": 123689,
+        "ja": "同一現象が観察された。",
+        "en": "The same phenomenon has been observed.",
+        "enId": 280306,
+        "form": "現象"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -61,6 +95,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shoho is from Middle Chinese 初步.",
@@ -92,6 +127,7 @@
     "meaning": "increasingly (same as もっと), more and more",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Masumasu is a reduplication of 増す (masu).",
@@ -110,6 +146,7 @@
     "meaning": "however; but",
     "level": "N5",
     "pos": ["conjunction"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Shikashi is possibly a shift from 然り (shikari, “being like so”) plus し.",
@@ -134,6 +171,7 @@
     "meaning": "high school student",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kōkōsei is 高校 (kōkō, “high school”) plus 生 (-sei, “student; pupil”).",
@@ -154,6 +192,22 @@
         "quote": "高(こう)校(こう) (kōkō, “high school”) + 生(せい) (-sei, “student; pupil”)."
       }
     ],
+    "examples": [
+      {
+        "id": 232071,
+        "ja": "高校生ですか？",
+        "en": "Are you a senior high school student?",
+        "enId": 16152,
+        "form": "高校生"
+      },
+      {
+        "id": 157102,
+        "ja": "私は高校生です。",
+        "en": "I'm a high school student.",
+        "enId": 257432,
+        "form": "高校生"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -163,6 +217,7 @@
     "meaning": "birth, birth-place",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Umare is the continuative stem of 生まれる (umareru, “to be born”).",
@@ -170,6 +225,22 @@
     "sources": [
       {
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 生(う)まれる (umareru, “to be born”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 107297,
+        "ja": "彼は高貴な生まれだ。",
+        "en": "He is of noble ancestry.",
+        "enId": 296389,
+        "form": "生まれ"
+      },
+      {
+        "id": 155204,
+        "ja": "私は大阪生まれです。",
+        "en": "I was born in Osaka.",
+        "enId": 259335,
+        "form": "生まれ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -181,6 +252,7 @@
     "meaning": "water vapor, steam",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Suijōki is 水 (sui, “water”) plus 蒸気 (jōki, “steam, vapor”).",
@@ -209,6 +281,22 @@
         "quote": "From 水 (sui, \"water,\" \"cold water) + 蒸気 (jōki, \"steam,\" \"vapor\")."
       }
     ],
+    "examples": [
+      {
+        "id": 121886,
+        "ja": "熱は水を水蒸気に変える。",
+        "en": "Heat turns water into steam.",
+        "enId": 282117,
+        "form": "水蒸気"
+      },
+      {
+        "id": 143731,
+        "ja": "水は沸騰すると水蒸気になる。",
+        "en": "Water turns into steam when it is boiled.",
+        "enId": 270835,
+        "form": "水蒸気"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -221,6 +309,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Imēji is borrowed from English image, possibly with -age mispronounced as in page and stage.",
@@ -228,6 +317,22 @@
     "sources": [
       {
         "quote": "Borrowed from English image, possibly mistaking -age is pronounced /eɪd͡ʒ/, as in page, stage, engage, etc."
+      }
+    ],
+    "examples": [
+      {
+        "id": 230738,
+        "ja": "あの人はどうもイメージが悪い。",
+        "en": "He makes a bad impression.",
+        "enId": 68105,
+        "form": "イメージ"
+      },
+      {
+        "id": 184283,
+        "ja": "学生に黒人に対するイメージを聞いた。",
+        "en": "I asked the student what image he had of black people.",
+        "enId": 21411,
+        "form": "イメージ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -239,6 +344,7 @@
     "meaning": "-- extra-modest expression for いる --",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Oru was woru in Old Japanese, written with the phonetic man'yōgana 袁理 in the Kojiki of 712 CE.",
@@ -266,6 +372,7 @@
     "meaning": "plate, dish",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sara is attested in the Nihon Shoki of 720 CE with the phonetic spelling 娑羅.",
@@ -276,6 +383,22 @@
       },
       {
         "quote": "Attested in the Nihon Shoki of 720 CE with the phonetic man'yōgana spelling 娑羅 (sara)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 123435,
+        "ja": "毒を食らわば皿まで。",
+        "en": "As well be hanged for a sheep as a lamb.",
+        "enId": 267685,
+        "form": "皿"
+      },
+      {
+        "id": 216660,
+        "ja": "さらを片づけなさい。",
+        "en": "Please take the dishes away.",
+        "enId": 53965,
+        "form": "さら"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -290,6 +413,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kakudai is 拡 (kaku, “expand”) plus 大 (dai, “big”).",
@@ -310,6 +434,22 @@
         "quote": "拡(かく) (kaku, “expand”) + 大(だい) (dai, “big”)"
       }
     ],
+    "examples": [
+      {
+        "id": 170636,
+        "ja": "最近共産主義は拡大した。",
+        "en": "Recently communism has extended its power.",
+        "enId": 243846,
+        "form": "拡大"
+      },
+      {
+        "id": 184607,
+        "ja": "拡大経済は老化している。",
+        "en": "The expansion is aging.",
+        "enId": 21735,
+        "form": "拡大"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -319,6 +459,7 @@
     "meaning": "bathroom; toilet",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "Toire is a clipping of トイレット (toiretto), borrowed from English toilet.",
@@ -334,6 +475,22 @@
         "quote": "Clipping of トイレット (toiretto), borrowed from English toilet."
       }
     ],
+    "examples": [
+      {
+        "id": 201722,
+        "ja": "トイレは上の階です。",
+        "en": "The toilet is upstairs.",
+        "enId": 38935,
+        "form": "トイレ"
+      },
+      {
+        "id": 201726,
+        "ja": "トイレはどこですか。",
+        "en": "Where is the toilet?",
+        "enId": 38937,
+        "form": "トイレ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -343,6 +500,7 @@
     "meaning": "to become",
     "level": "N5",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": [],
     "headline": "Naru, “to become”, is related to 生る (naru).",
@@ -350,6 +508,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, ultimately from Proto-Japonic *naru. Related to 生(な)る (naru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124379,
+        "ja": "冬になると息が白くなる。",
+        "en": "When it becomes winter, our breath becomes white.",
+        "enId": 279615,
+        "form": "なる"
+      },
+      {
+        "id": 75317,
+        "ja": "完璧な平和を。 永遠なる平和を祈ろう。",
+        "en": "Let us pray for a perfect, an eternal, peace.",
+        "enId": 328402,
+        "form": "なる"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -361,6 +535,7 @@
     "meaning": "bone",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hone went from pone through ɸone to hone, from Proto-Japonic *pənay.",
@@ -371,6 +546,22 @@
       },
       {
         "quote": "From Old Japanese, from Proto-Japonic *pənay."
+      }
+    ],
+    "examples": [
+      {
+        "id": 172960,
+        "ja": "骨が喉にささった。",
+        "en": "The bone caught in my throat.",
+        "enId": 241513,
+        "form": "骨"
+      },
+      {
+        "id": 107716,
+        "ja": "彼は犬に骨をやった。",
+        "en": "He gave the dog a bone.",
+        "enId": 295969,
+        "form": "骨"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -385,6 +576,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Enchō is 延 (en, “to extend”) plus 長 (chō, “long”).",
@@ -405,6 +597,22 @@
         "quote": "延 (en, “to extend”) + 長 (chō, “long”)."
       }
     ],
+    "examples": [
+      {
+        "id": 197611,
+        "ja": "ビザの延長をお願いします。",
+        "en": "Please extend this visa.",
+        "enId": 34797,
+        "form": "延長"
+      },
+      {
+        "id": 185412,
+        "ja": "会期は又延長されるであろう。",
+        "en": "The session will be prolonged again.",
+        "enId": 22544,
+        "form": "延長"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -414,6 +622,7 @@
     "meaning": "to be arrested; to be caught",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf44"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsukamaru is related to 掴まる (tsukamaru), both originally from 束 (tsuka, “bundle”).",
@@ -421,6 +630,22 @@
     "sources": [
       {
         "quote": "Related to 掴(つか)まる (tsukamaru, “to hold oneself still by grabbing something”) and its active form 掴(つか)む (tsukamu, “to grab, to grip, to take hold of”), both originally from 束(つか) (tsuka, “bundle”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 197925,
+        "ja": "パパにつかまれ！",
+        "en": "Hang onto Daddy!",
+        "enId": 35114,
+        "form": "つかまれ"
+      },
+      {
+        "id": 170862,
+        "ja": "詐欺師が捕まった。",
+        "en": "The imposter was caught.",
+        "enId": 243618,
+        "form": "捕まった"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -432,6 +657,7 @@
     "meaning": "at last, finally",
     "level": "N4",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["clipping"],
     "headline": "Yatto may begin with a shortening of 漸く (yōyaku, “at last, finally, barely”).",
@@ -453,6 +679,7 @@
       "expressions (phrases, clauses, etc.)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Otoko no hito is 男 (otoko, “male person, man”) plus の (no) plus 人 (hito, “person”).",
@@ -478,6 +705,22 @@
         "quote": "Phrase consisting of 男 (otoko, “male person, man”) + の (no, appositive particle) + 人 (hito, “person”)."
       }
     ],
+    "examples": [
+      {
+        "id": 174529,
+        "ja": "戸口に男の人がいる。",
+        "en": "There is a man at the door.",
+        "enId": 39075,
+        "form": "男の人"
+      },
+      {
+        "id": 208130,
+        "ja": "その男の人は私を見た。",
+        "en": "The man looked at me.",
+        "enId": 45387,
+        "form": "男の人"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -487,6 +730,7 @@
     "meaning": "south-western half of Japan, including Osaka",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kansai is literally “west of 逢坂の関 (Ōsaka-no-seki, “tollgate of Ōsaka-yama”)”.",
@@ -518,6 +762,7 @@
     "meaning": "to threaten, to coerce",
     "level": "N2",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": [],
     "headline": "Odokasu is compared with 驚く (odoroku, “to surprise”).",
@@ -525,6 +770,22 @@
     "sources": [
       {
         "quote": "Compare 驚(おどろ)く (odoroku, “to surprise”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 180084,
+        "ja": "脅かさないでよ。",
+        "en": "Don't scare me like that!",
+        "enId": 18944,
+        "form": "脅かさないで"
+      },
+      {
+        "id": 87596,
+        "ja": "彼女は猫を脅かして追い払った。",
+        "en": "She scared the cat away.",
+        "enId": 316112,
+        "form": "脅かして"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -539,6 +800,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tanoshimi is the stem form of the verb 楽しむ (“to enjoy”).",
@@ -546,6 +808,22 @@
     "sources": [
       {
         "quote": "連用形 (“stem form”) of verb 楽しむ (“to enjoy”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 152338,
+        "ja": "旅行が楽しみです。",
+        "en": "I am looking forward to the trip.",
+        "enId": 262212,
+        "form": "楽しみ"
+      },
+      {
+        "id": 205293,
+        "ja": "それは楽しみです。",
+        "en": "I'll look forward to it.",
+        "enId": 42535,
+        "form": "楽しみ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -557,6 +835,7 @@
     "meaning": "road",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Dōro went from dauro to dɔːro to doːro, from Middle Chinese 道路.",
@@ -582,6 +861,22 @@
         "quote": "From Middle Chinese 道路 (daw^X luᴴ). Compare modern Mandarin 道路 (dàolù), Cantonese 道路 (dou⁶ lou⁶)."
       }
     ],
+    "examples": [
+      {
+        "id": 236210,
+        "ja": "「道路工事中」",
+        "en": "\"Road under Repair.\"",
+        "enId": 73586,
+        "form": "道路"
+      },
+      {
+        "id": 123515,
+        "ja": "道路は修理中だ。",
+        "en": "The road is under repair.",
+        "enId": 44669,
+        "form": "道路"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -591,6 +886,7 @@
     "meaning": "if",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Moshimo is もし (moshi, “if”) plus も (mo, “also, too, even”).",
@@ -620,6 +916,7 @@
     "meaning": "rock",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Iwa went from ipa to ifa to iwa, from Old Japanese.",
@@ -632,6 +929,22 @@
         "quote": "From Old Japanese. Found in the Man'yōshū finished some time after 759 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 121668,
+        "ja": "波が岩に打ち寄せた。",
+        "en": "The waves washed upon the rocks.",
+        "enId": 282337,
+        "form": "岩"
+      },
+      {
+        "id": 183659,
+        "ja": "岩崩れに気をつけて。",
+        "en": "Look out for rock slides.",
+        "enId": 20782,
+        "form": "岩"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -641,6 +954,7 @@
     "meaning": "reality",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Genjitsu is from the Middle Chinese compound 現實.",
@@ -663,6 +977,22 @@
         "quote": "From Middle Chinese compound 現實 /现实 (henᴴ syit)."
       }
     ],
+    "examples": [
+      {
+        "id": 205883,
+        "ja": "それが現実だ。",
+        "en": "That's the way it is.",
+        "enId": 43129,
+        "form": "現実"
+      },
+      {
+        "id": 174869,
+        "ja": "現実から逃げ出す。",
+        "en": "Fall from reality.",
+        "enId": 239597,
+        "form": "現実"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -672,6 +1002,7 @@
     "meaning": "to float",
     "level": "N2",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Uku is first attested in the Kojiki of 712 CE, from Proto-Japonic *uku.",
@@ -679,6 +1010,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Kojiki of 712 CE. From Proto-Japonic *uku."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80087,
+        "ja": "木は水に浮く。",
+        "en": "Wood floats in water.",
+        "enId": 323630,
+        "form": "浮く"
+      },
+      {
+        "id": 142346,
+        "ja": "石は浮かない。",
+        "en": "A stone does not float.",
+        "enId": 272224,
+        "form": "浮かない"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -690,6 +1037,7 @@
     "meaning": "wave",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Nami is from Old Japanese 浪 (nami₁), from Proto-Japonic *nami.",
@@ -711,6 +1059,7 @@
     "meaning": "what, what kind of",
     "level": "N5",
     "pos": ["pre-noun adjectival (rentaishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Donna contracts どの様な (dono yō na).",
@@ -718,6 +1067,22 @@
     "sources": [
       {
         "quote": "Contraction of どの様(よう)な (dono yō na)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 119286,
+        "ja": "彼ってどんな人？",
+        "en": "What is he like?",
+        "enId": 284377,
+        "form": "どんな"
+      },
+      {
+        "id": 199382,
+        "ja": "どんな天気ですか。",
+        "en": "How's the weather?",
+        "enId": 36584,
+        "form": "どんな"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -734,6 +1099,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun, used as a suffix"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kure is the continuative stem of 暮れる (kureru, “to get dark, to end”).",

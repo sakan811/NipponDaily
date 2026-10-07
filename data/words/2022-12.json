@@ -6,6 +6,7 @@
     "meaning": "trader, shopkeeper, merchant",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "The merchant's しょうにん is Chinese; the native word looks like “trade-person”, あきびと.",
@@ -37,6 +38,7 @@
     "meaning": "so to speak",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "“So to speak” is a “say” in a hypothetical form: “if one were to say”.",
@@ -44,6 +46,22 @@
     "sources": [
       {
         "quote": "The Classical Japanese conditional form of the verb 言う (iu, “to say, to speak”): 言わ (iwa, 未然形 (mizenkei, “irrealis form”) of the verb 言う (iu)) + ば (-ba, an inflectional suffix indicating the hypothetical condition)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 114387,
+        "ja": "彼はいわば学者ばかだ。",
+        "en": "He is, so to speak, a learned fool.",
+        "enId": 289285,
+        "form": "いわば"
+      },
+      {
+        "id": 114386,
+        "ja": "彼はいわば賢い愚か者だ。",
+        "en": "He is a wise fool, so to speak.",
+        "enId": 289286,
+        "form": "いわば"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -55,6 +73,7 @@
     "meaning": "salad",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "unclear"],
     "headline": "Salad is an internationalism — Wiktionary lists English, French and Portuguese as candidate sources.",
@@ -62,6 +81,22 @@
     "sources": [
       {
         "quote": "Internationalism of uncertain specifics, variously proposed to derive from English salad, French salade or Portuguese salada."
+      }
+    ],
+    "examples": [
+      {
+        "id": 216696,
+        "ja": "サラダをもう少しいかが？",
+        "en": "Would you like some more salad?",
+        "enId": 31306,
+        "form": "サラダ"
+      },
+      {
+        "id": 216697,
+        "ja": "サラダをご自由にどうぞ。",
+        "en": "Please help yourself to the salad.",
+        "enId": 54003,
+        "form": "サラダ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -73,6 +108,7 @@
     "meaning": "(someone's) daughter (polite)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf21"],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Politely “your daughter” puts an honorific on both sides of a word for an “unmarried woman”.",
@@ -98,6 +134,22 @@
         "quote": "Of お (honorific prefix) + 嬢 (jō, “unmarried woman; daughter”) + さん (honorific suffix)"
       }
     ],
+    "examples": [
+      {
+        "id": 227016,
+        "ja": "お嬢さんのお名前は？",
+        "en": "What's your daughter's name?",
+        "enId": 64364,
+        "form": "お嬢さん"
+      },
+      {
+        "id": 227020,
+        "ja": "お嬢さんに会わせていただきたい。",
+        "en": "I ask to see your daughter.",
+        "enId": 64366,
+        "form": "お嬢さん"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -110,6 +162,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "hybrid",
     "processes": ["rendaku", "ateji"],
     "headline": "Work is “doing” plus “thing”, and the 仕 is only ateji.",
@@ -117,6 +170,22 @@
     "sources": [
       {
         "quote": "From し (shi, “doing”, continuative form of する (suru, “to do”)) + 事 (koto, “thing; stuff”). The koto reading for 事 changes to goto as an instance of rendaku (連濁). 仕 is ateji (当(あ)て字(じ))."
+      }
+    ],
+    "examples": [
+      {
+        "id": 216878,
+        "ja": "さあ仕事だ。",
+        "en": "Let's get down to business.",
+        "enId": 54185,
+        "form": "仕事"
+      },
+      {
+        "id": 169169,
+        "ja": "仕事どうなの？",
+        "en": "How's your job?",
+        "enId": 245318,
+        "form": "仕事"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -128,6 +197,7 @@
     "meaning": "date",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Here the same character is read twice, once the native way and once the Chinese way.",
@@ -157,6 +227,7 @@
     "meaning": "Monday",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Monday is “moon day”, a name that came from Chinese astrology in the Heian period.",
@@ -184,6 +255,22 @@
         "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
+    "examples": [
+      {
+        "id": 175603,
+        "ja": "月曜日です。",
+        "en": "It's Monday.",
+        "enId": 238862,
+        "form": "月曜日"
+      },
+      {
+        "id": 171638,
+        "ja": "今日は月曜日です。",
+        "en": "It is Monday today.",
+        "enId": 242836,
+        "form": "月曜日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -193,6 +280,7 @@
     "meaning": "Tuesday",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku", "borrowing", "sound-change"],
     "headline": "Tuesday is “Mars day”, a name that came from Chinese astrology in the Heian period.",
@@ -220,6 +308,22 @@
         "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
+    "examples": [
+      {
+        "id": 186643,
+        "ja": "火曜日はお暇ですか。",
+        "en": "Are you free on Tuesday?",
+        "enId": 23779,
+        "form": "火曜日"
+      },
+      {
+        "id": 186646,
+        "ja": "火曜日に国会が開かれる。",
+        "en": "The Diet will meet on Tuesday.",
+        "enId": 23782,
+        "form": "火曜日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -229,6 +333,7 @@
     "meaning": "Wednesday",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Wednesday is “Mercury day”, a name that came from Chinese astrology in the Heian period.",
@@ -256,6 +361,22 @@
         "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
+    "examples": [
+      {
+        "id": 172151,
+        "ja": "今度の水曜日ならいいですよ。",
+        "en": "Next Wednesday will be fine.",
+        "enId": 242323,
+        "form": "水曜日"
+      },
+      {
+        "id": 230678,
+        "ja": "あの政治家は水曜日が面会日だ。",
+        "en": "The politician receives on Wednesdays.",
+        "enId": 68046,
+        "form": "水曜日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -265,6 +386,7 @@
     "meaning": "Thursday",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Thursday is “Jupiter day”, a name that came from Chinese astrology in the Heian period.",
@@ -292,6 +414,22 @@
         "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar."
       }
     ],
+    "examples": [
+      {
+        "id": 169944,
+        "ja": "昨日は木曜日だった。",
+        "en": "Yesterday was Thursday.",
+        "enId": 528533,
+        "form": "木曜日"
+      },
+      {
+        "id": 170804,
+        "ja": "再来週の木曜日はどう？",
+        "en": "How about two weeks from Thursday?",
+        "enId": 243676,
+        "form": "木曜日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -301,6 +439,7 @@
     "meaning": "Friday",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku", "borrowing", "sound-change"],
     "headline": "Friday is “Venus day”, a name that came from Chinese astrology in the Heian period.",
@@ -328,6 +467,22 @@
         "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
+    "examples": [
+      {
+        "id": 193069,
+        "ja": "やっと金曜日だ。",
+        "en": "Thank God it's Friday!",
+        "enId": 30234,
+        "form": "金曜日"
+      },
+      {
+        "id": 179620,
+        "ja": "金曜日の午後はお暇ですか。",
+        "en": "Are you free on Friday afternoon?",
+        "enId": 18478,
+        "form": "金曜日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -337,6 +492,7 @@
     "meaning": "Saturday",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Saturday is “Saturn day”, and its 日 voices to び.",
@@ -364,6 +520,22 @@
         "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
+    "examples": [
+      {
+        "id": 124478,
+        "ja": "土曜日だよ。",
+        "en": "It is Saturday.",
+        "enId": 279516,
+        "form": "土曜日"
+      },
+      {
+        "id": 171533,
+        "ja": "今日は土曜日です。",
+        "en": "It's Saturday today.",
+        "enId": 242943,
+        "form": "土曜日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -373,6 +545,7 @@
     "meaning": "Sunday",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Sunday is “Sun day”, and the -day compound first appears in 1826.",
@@ -397,6 +570,22 @@
         "quote": "The compound form suffixed with 日 (hi, “day”) first appears in 1826 and enters common use from the Meiji period with the promulgation of the Gregorian calendar."
       }
     ],
+    "examples": [
+      {
+        "id": 122156,
+        "ja": "日曜日に会おう。",
+        "en": "Let's meet on Sunday.",
+        "enId": 281815,
+        "form": "日曜日"
+      },
+      {
+        "id": 171522,
+        "ja": "今日は日曜日だ。",
+        "en": "Today is Sunday.",
+        "enId": 63119,
+        "form": "日曜日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -406,6 +595,7 @@
     "meaning": "water well",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "A well is a “water-well place” — and the 戸 in it may not be a door at all.",
@@ -432,6 +622,22 @@
         "quote": "Compound of 井 (i, “water well”) + 所 (to, “place”). The to changes to do as an instance of rendaku (連濁).."
       }
     ],
+    "examples": [
+      {
+        "id": 190727,
+        "ja": "井戸が干上がった。",
+        "en": "The well ran dry.",
+        "enId": 27887,
+        "form": "井戸"
+      },
+      {
+        "id": 190724,
+        "ja": "井戸の水がかれてしまった。",
+        "en": "The well has run dry.",
+        "enId": 27884,
+        "form": "井戸"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -441,6 +647,7 @@
     "meaning": "to swear, to vow",
     "level": "N2",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "To swear an oath may once have meant to “mix blood”.",
@@ -448,6 +655,22 @@
     "sources": [
       {
         "quote": "Probably originally a compound of 血 (chi, “blood”) + 交う (kau, “to cross, to blend, to mix”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 142597,
+        "ja": "誓うよ、ジョン。",
+        "en": "I swear, John.",
+        "enId": 271973,
+        "form": "誓う"
+      },
+      {
+        "id": 108269,
+        "ja": "彼は禁煙を心に誓った。",
+        "en": "He vowed to give up smoking.",
+        "enId": 295417,
+        "form": "誓った"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -459,6 +682,7 @@
     "meaning": "blackboard",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "A blackboard is a “black board” — and a native reading says the same with kuro and ita.",
@@ -479,6 +703,22 @@
         "quote": "黒 (koku, “black”) + 板 (ban, “board”)"
       }
     ],
+    "examples": [
+      {
+        "id": 172973,
+        "ja": "黒板を見なさい。",
+        "en": "Look at the blackboard.",
+        "enId": 241500,
+        "form": "黒板"
+      },
+      {
+        "id": 159712,
+        "ja": "黒板に書きますね。",
+        "en": "I'll write it on the blackboard.",
+        "enId": 254810,
+        "form": "黒板"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -488,6 +728,7 @@
     "meaning": "twins, a twin",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Twins are a “set of two” “children”, with こ voiced to ご.",
@@ -512,6 +753,22 @@
         "quote": "The ko changes to go as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 160322,
+        "ja": "私はそのふたごのどちらも知らない。",
+        "en": "I don't know either twin.",
+        "enId": 254199,
+        "form": "ふたご"
+      },
+      {
+        "id": 232451,
+        "ja": "あなたはトムと彼のふたごの兄弟とを区別できますか。",
+        "en": "Can you tell Tom from his twin brother?",
+        "enId": 69821,
+        "form": "ふたご"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -521,6 +778,7 @@
     "meaning": "gas",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "ateji"],
     "headline": "Gas is an English word — but it also has a kanji spelling picked only for the sound.",
@@ -545,6 +803,7 @@
     "meaning": "(humble) son",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "ateji"],
     "headline": "A son is a “begotten child” — and the 息 is a borrowed stand-in.",
@@ -552,6 +811,22 @@
     "sources": [
       {
         "quote": "Compound of 生(む)す (musu, “to beget”) + 子(こ) (ko, “child”). 息 is jukujikun (熟(じゅく)字(じ)訓(くん)), from Middle Chinese 息子."
+      }
+    ],
+    "examples": [
+      {
+        "id": 118226,
+        "ja": "彼のむすこには音楽の才能がある。",
+        "en": "His son has a gift for music.",
+        "enId": 285439,
+        "form": "むすこ"
+      },
+      {
+        "id": 153017,
+        "ja": "私は父だけでなくむすこも知っている。",
+        "en": "I know not only the father, but also the son.",
+        "enId": 261528,
+        "form": "むすこ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -563,6 +838,7 @@
     "meaning": "cute, adorable",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf32"],
     "processes": ["sound-change", "ateji"],
     "headline": "“Cute” began as “embarrassing, shameful” — and the kanji have nothing to do with the sound.",
     "morphemes": [],
@@ -580,6 +856,22 @@
         "quote": "Already realized phonetically as /kawaiː/ by the early 1600s, and possibly found alongside older form kawayui, as seen in the 1603 edition of the Nippo Jisho."
       }
     ],
+    "examples": [
+      {
+        "id": 86158,
+        "ja": "彼女らはかわいい。",
+        "en": "They are pretty.",
+        "enId": 317553,
+        "form": "かわいい"
+      },
+      {
+        "id": 177594,
+        "ja": "君はなんてかわいい。",
+        "en": "You're such a cute boy.",
+        "enId": 16447,
+        "form": "かわいい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -589,6 +881,7 @@
     "meaning": "romanization, Roman letters (alphabet)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["borrowing"],
     "headline": "Rōmaji has no “n” in it — the Roman part is Portuguese-derived ローマ with the Chinese-derived “character” 字.",
@@ -610,6 +903,7 @@
     "meaning": "thumb",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "The thumb is the “parent finger”.",
@@ -630,6 +924,22 @@
         "quote": "Compound of 親 (oya, “parent, boss”) + 指 (yubi, “finger”)."
       }
     ],
+    "examples": [
+      {
+        "id": 144706,
+        "ja": "針で親指を突いてしまった。",
+        "en": "I pricked my thumb with a needle.",
+        "enId": 269858,
+        "form": "親指"
+      },
+      {
+        "id": 144797,
+        "ja": "親指の爪をはがしてしまいました。",
+        "en": "I had my thumbnail torn off.",
+        "enId": 269767,
+        "form": "親指"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -639,6 +949,7 @@
     "meaning": "part of word written in kana",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku"],
     "headline": "Okurigana are the kana “sent along afterward” — and the word is first attested in 1477.",
@@ -675,6 +986,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Oxygen is “sour element” — a calque of Dutch from the same 1834 book as hydrogen.",
@@ -695,6 +1007,22 @@
         "quote": "From 酸 (san, “acid”) + 素 (so, “element”), calque of Dutch zuurstof (literally “sourstuff”). Compare German Sauerstoff, Luxembourgish Sauerstoff, Indonesian zat asam. Coined by Japanese scientist Udagawa Yōan in 1834 in his book 遠西医方名物考補遺 (“酸素”)."
       }
     ],
+    "examples": [
+      {
+        "id": 106677,
+        "ja": "彼は酸素不足で死んだ。",
+        "en": "He died from lack of oxygen.",
+        "enId": 297009,
+        "form": "酸素"
+      },
+      {
+        "id": 125240,
+        "ja": "鉄や酸素は元素である。",
+        "en": "Iron and oxygen are elements.",
+        "enId": 278753,
+        "form": "酸素"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -704,6 +1032,7 @@
     "meaning": "cavity, tooth decay",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "A cavity is a “bug tooth”, with は voiced to ば.",
@@ -734,6 +1063,7 @@
     "meaning": "motorcycle (lit: auto-bi(ke))",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["wasei", "borrowing", "clipping"],
     "headline": "The “wasei-eigo” motorcycle is, Wiktionary says, actually a real English word.",
@@ -752,6 +1082,22 @@
         "quote": "First cited to a text from 1918."
       }
     ],
+    "examples": [
+      {
+        "id": 161298,
+        "ja": "私はオートバイに乗りたい。",
+        "en": "I want to ride a motorcycle.",
+        "enId": 253220,
+        "form": "オートバイ"
+      },
+      {
+        "id": 227779,
+        "ja": "オートバイに乗るのは楽しい。",
+        "en": "It's fun to ride a motorcycle.",
+        "enId": 65133,
+        "form": "オートバイ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -761,6 +1107,7 @@
     "meaning": "baby, infant",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "A baby is “red” plus an affectionate suffix, from the colour of a newborn's skin.",
@@ -787,6 +1134,22 @@
         "quote": "First cited to a text from 1856 or 1857."
       }
     ],
+    "examples": [
+      {
+        "id": 142238,
+        "ja": "赤ちゃんは父親似だ。",
+        "en": "The baby takes after its father.",
+        "enId": 272332,
+        "form": "赤ちゃん"
+      },
+      {
+        "id": 142241,
+        "ja": "赤ちゃんは寝ています。",
+        "en": "The baby is sleeping.",
+        "enId": 272329,
+        "form": "赤ちゃん"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -796,6 +1159,7 @@
     "meaning": "three days, third day of the month",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "rendaku", "sound-change"],
     "headline": "“Three days” grew out of an earlier “mika”, with a tensed sound added.",
@@ -819,6 +1183,22 @@
         "quote": "Tensening of earlier 三日 (mika); by surface analysis, 三 (mi, “three”) + 日 (-ka, “days”, counter for days)."
       }
     ],
+    "examples": [
+      {
+        "id": 142093,
+        "ja": "切符は三日間有効だ。",
+        "en": "The ticket holds good for three days.",
+        "enId": 45819,
+        "form": "三日"
+      },
+      {
+        "id": 169483,
+        "ja": "三日続きの雨だった。",
+        "en": "It rained three days on end.",
+        "enId": 72642,
+        "form": "三日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -828,6 +1208,7 @@
     "meaning": "toilet, lavatory",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "The toilet is the “place of convenience” — a coinage that Wiktionary dates to the late 1400s.",
@@ -852,6 +1233,15 @@
         "quote": "First cited in works from the late 1400s."
       }
     ],
+    "examples": [
+      {
+        "id": 142728,
+        "ja": "生徒はこの便所を使ってはならない。",
+        "en": "Students must not use this toilet.",
+        "enId": 271842,
+        "form": "便所"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -861,6 +1251,7 @@
     "meaning": "kana",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound", "sound-change"],
     "headline": "Kana means “borrowed name” — characters lent for their sounds.",
@@ -895,6 +1286,7 @@
     "meaning": "bar, bar-room",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf21"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A bar is a “drink place”, using an older form of the word for sake.",
@@ -913,6 +1305,22 @@
     "sources": [
       {
         "quote": "Compound of 酒(さか) (saka-, 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 酒(さけ) (sake, “alcohol”)) + 場(ば) (ba, “place”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 112683,
+        "ja": "彼はその酒場で歯医者に成りすましていた。",
+        "en": "He posed as a dentist at that bar.",
+        "enId": 290993,
+        "form": "酒場"
+      },
+      {
+        "id": 77379,
+        "ja": "労働者たちはくつろげる酒場に集まることが好きである。",
+        "en": "The workers like to gather in a pub where they can let their hair down.",
+        "enId": 326340,
+        "form": "酒場"
       }
     ],
     "wiktionaryDump": "2026-09-02"

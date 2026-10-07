@@ -9,12 +9,29 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "processes": [],
     "headline": "In renpō, 連 is a daiyōji replacing 聯.",
     "morphemes": [],
     "sources": [
       {
         "quote": "連 is a daiyōji replacing 聯."
+      }
+    ],
+    "examples": [
+      {
+        "id": 115275,
+        "ja": "彼は１９５０年代にソビエト連邦へ逃亡した。",
+        "en": "He defected to the Soviet Union in the 1950's.",
+        "enId": 288396,
+        "form": "連邦"
+      },
+      {
+        "id": 159781,
+        "ja": "私はソビエト連邦のことはまったく知らない。",
+        "en": "I don't know about the USSR at all.",
+        "enId": 254741,
+        "form": "連邦"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -29,13 +46,50 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "hybrid",
-    "processes": [],
+    "processes": ["compound", "rendaku"],
     "headline": "Mudazukai is 無駄 (“futility, waste”) plus 遣い (“use, usage”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "無",
+        "reading": "む",
+        "meaning": "nothingness",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "駄",
+        "reading": "だ",
+        "meaning": "burdensome",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "遣い",
+        "reading": "づかい",
+        "base": "つかい",
+        "meaning": "dispatch",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From 無駄 (“futility, waste”) + 遣い (“use, usage”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80907,
+        "ja": "無駄遣いをするな。",
+        "en": "Don't waste your money.",
+        "enId": 322808,
+        "form": "無駄遣い"
+      },
+      {
+        "id": 106888,
+        "ja": "彼は妻の無駄遣いに渋い顔をする。",
+        "en": "He frowns on his wife's wasting money.",
+        "enId": 296798,
+        "form": "無駄遣い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -47,6 +101,7 @@
     "meaning": "process, procedure, protocol",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Tejun is 手 (te, “means”) plus 順 (-jun, “order”).",
@@ -67,6 +122,22 @@
         "quote": "From 手(て) (te, “means”) + 順(じゅん) (-jun, “order”)."
       }
     ],
+    "examples": [
+      {
+        "id": 83267,
+        "ja": "弁護士は行動の手順を決定した。",
+        "en": "The lawyer determined his course of action.",
+        "enId": 320449,
+        "form": "手順"
+      },
+      {
+        "id": 237036,
+        "ja": "安全手順を守らないとけがしますよ。",
+        "en": "You may injure yourself if you don't follow safety procedures.",
+        "enId": 28478,
+        "form": "手順"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -76,6 +147,7 @@
     "meaning": "the palm",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tenohira is 手 (te, “hand”) plus の (no) plus 平 (hira, “flat”), and the source compares English flat of one's hand.",
@@ -97,6 +169,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Shu, “owner”, is from Middle Chinese 主 (MC tsyuX), in the kan'on pronunciation.",
@@ -118,6 +191,7 @@
     "meaning": "and so on, and so forth",
     "level": "N1",
     "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["spec1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Unnun is from Middle Chinese 云云 (MC hjun hjun), with un becoming nun by renjō, and is first cited to 1110.",
@@ -139,6 +213,7 @@
     "meaning": "to cut (skip) classes; to loaf on the job; to idle away one's time",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "gairaigo",
     "processes": ["derivation", "borrowing", "clipping"],
     "headline": "サボる is a clipping of サボタージュ (sabotāju, “idling, truancy”) plus る (-ru, verb-forming suffix), the former from French sabotage.",
@@ -146,6 +221,22 @@
     "sources": [
       {
         "quote": "Clipping of サボタージュ (sabotāju, “idling, truancy”) + る (-ru, verb-forming suffix), the former from French sabotage."
+      }
+    ],
+    "examples": [
+      {
+        "id": 169913,
+        "ja": "昨日学校をさぼったの？",
+        "en": "You played hooky yesterday?",
+        "enId": 244573,
+        "form": "さぼった"
+      },
+      {
+        "id": 200008,
+        "ja": "トムはまた授業をさぼった。",
+        "en": "Tom cut classes again.",
+        "enId": 37210,
+        "form": "さぼった"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -157,13 +248,44 @@
     "meaning": "to name",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "wago",
-    "processes": ["rendaku"],
+    "processes": ["compound", "rendaku"],
     "headline": "Nazukeru is 名 (na) plus 付ける (tsukeru), with tsukeru voiced to zukeru by rendaku.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "名",
+        "reading": "な",
+        "meaning": "name",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "付ける",
+        "reading": "づける",
+        "base": "つける",
+        "meaning": "adhere",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From 名 (na) + 付ける (tsukeru). The tsukeru changes to zukeru as an instance of rendaku (連濁).."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84497,
+        "ja": "父は私に和成と名づけた。",
+        "en": "Father named me Kazunari.",
+        "enId": 319218,
+        "form": "名づけた"
+      },
+      {
+        "id": 153611,
+        "ja": "私は彼を手なづけています。",
+        "en": "I have him eating out of my hand.",
+        "enId": 260934,
+        "form": "なづけています"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -179,6 +301,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Gekirei is from the Middle Chinese compound 激勵 (MC kek ljejH).",
@@ -201,6 +324,22 @@
         "quote": "From Middle Chinese compound 激勵 (MC kek ljejH)."
       }
     ],
+    "examples": [
+      {
+        "id": 233364,
+        "ja": "あなたの激励の言葉に励まされました。",
+        "en": "Your words of encouragement meant a lot to me.",
+        "enId": 70734,
+        "form": "激励"
+      },
+      {
+        "id": 187922,
+        "ja": "何か大きなことをしろと彼は息子を激励した。",
+        "en": "He encouraged his son to do something great.",
+        "enId": 25061,
+        "form": "激励"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -210,6 +349,7 @@
     "meaning": "hey",
     "level": "N1",
     "pos": ["interjection (kandoushi)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ōi is an elongation of おい.",
@@ -228,6 +368,7 @@
     "meaning": "to value, to prize, to esteem",
     "level": "N1",
     "pos": ["Godan verb with 'bu' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Tōtobu is 尊 (tōto, the stem of 尊い (tōtoi, “noble, exalted, sacred”)) plus ぶ (-bu, “to act like”).",
@@ -260,6 +401,7 @@
     "meaning": "stalk",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kuki is from Old Japanese, attested in the Kakyō Hyōshiki of 772 with the phonetic spelling 倶基.",
@@ -281,6 +423,7 @@
     "meaning": "hemp",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf08"],
     "stratum": "wago",
     "processes": [],
     "headline": "Asa is from Old Japanese and is likely cognate with a Korean word for hemp.",
@@ -305,6 +448,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Naizō is 内 (“inside”) plus 蔵 (“to store”).",
@@ -334,6 +478,7 @@
     "meaning": "cold, short, curt, blunt",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["news2", "nf41"],
     "stratum": "hybrid",
     "processes": ["sound-change"],
     "headline": "Sokkenai is a shift from 素気ない (sugenai).",
@@ -352,6 +497,7 @@
     "meaning": "to look back, to turn around, to review",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaerimiru is 帰り (kaeri, the stem of 帰る (kaeru, “to return, to go home”)) plus 見る (miru, “to look, to watch, to take care”).",
@@ -362,6 +508,22 @@
       },
       {
         "quote": "The み (mi) is written as an okurigana to indicate the reading of 顧."
+      }
+    ],
+    "examples": [
+      {
+        "id": 87135,
+        "ja": "彼女は費用を顧みず家を飾りたてた。",
+        "en": "She decorated her house regardless of cost.",
+        "enId": 316573,
+        "form": "顧みず"
+      },
+      {
+        "id": 108660,
+        "ja": "彼は危険をかえりみず勇気を示した。",
+        "en": "He showed courage in the face of danger.",
+        "enId": 295029,
+        "form": "かえりみず"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -377,6 +539,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Issai is from the Middle Chinese compound 一切, in the goon reading, which is probably the earlier import.",
@@ -403,6 +566,22 @@
         "quote": "The goon reading, so likely the earlier import."
       }
     ],
+    "examples": [
+      {
+        "id": 114643,
+        "ja": "彼はいっさいを運に任せた。",
+        "en": "He left everything to chance.",
+        "enId": 289028,
+        "form": "いっさい"
+      },
+      {
+        "id": 114774,
+        "ja": "彼はアルコールを一切飲まない。",
+        "en": "He never drinks alcohol.",
+        "enId": 288897,
+        "form": "一切"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -412,6 +591,7 @@
     "meaning": "space",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スペース is from English space.",
@@ -427,6 +607,22 @@
         "quote": "From English space."
       }
     ],
+    "examples": [
+      {
+        "id": 200981,
+        "ja": "どこでもスペースのある所にそれを置きなさい。",
+        "en": "Put it wherever there is room.",
+        "enId": 38186,
+        "form": "スペース"
+      },
+      {
+        "id": 224017,
+        "ja": "このあたりは駐車できるスペースがほとんどない。",
+        "en": "There are few places to park around here.",
+        "enId": 61351,
+        "form": "スペース"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -436,6 +632,7 @@
     "meaning": "fight",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "interjection (kandoushi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ファイト is from English fight.",
@@ -460,6 +657,7 @@
     "meaning": "in two equal parts",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf21"],
     "processes": [],
     "headline": "Mapputatsu is 真っ (ma'-, “truly”) plus 二つ (futatsu, “two parts”).",
     "morphemes": [],
@@ -480,6 +678,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["unclear"],
     "headline": "Yami is from Old Japanese, with ultimate roots uncertain, and may be cognate with 病む (yamu, “to be ill”) and 止む (yamu, “to stop, to quit”).",
@@ -490,6 +689,22 @@
       },
       {
         "quote": "Reconstructed as deriving ultimately from Proto-Japonic *yamui."
+      }
+    ],
+    "examples": [
+      {
+        "id": 190438,
+        "ja": "一寸先は闇。",
+        "en": "Who can read the future?",
+        "enId": 27597,
+        "form": "闇"
+      },
+      {
+        "id": 174079,
+        "ja": "光は闇を貫く。",
+        "en": "The light penetrates the darkness.",
+        "enId": 240391,
+        "form": "闇"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -504,6 +719,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "セット is borrowed from English set.",
@@ -519,6 +735,22 @@
         "quote": "Borrowed from English set."
       }
     ],
+    "examples": [
+      {
+        "id": 214030,
+        "ja": "セットを片づけろ。",
+        "en": "Strike the set.",
+        "enId": 51320,
+        "form": "セット"
+      },
+      {
+        "id": 79909,
+        "ja": "目覚ましを７時にセットしよう。",
+        "en": "I'll set the alarm for seven o'clock.",
+        "enId": 323808,
+        "form": "セット"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -528,6 +760,7 @@
     "meaning": "data",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "データ is borrowed from English data.",
@@ -543,6 +776,22 @@
         "quote": "Borrowed from English data."
       }
     ],
+    "examples": [
+      {
+        "id": 225861,
+        "ja": "きゃ〜、データが消えた！",
+        "en": "Oh, I lost the data!",
+        "enId": 63199,
+        "form": "データ"
+      },
+      {
+        "id": 202438,
+        "ja": "データはしばしば不正確だ。",
+        "en": "The data is often inaccurate.",
+        "enId": 39649,
+        "form": "データ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -552,6 +801,7 @@
     "meaning": "to rub, to chafe",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": [],
     "headline": "Suru, “to rub”, is from Old Japanese, from Proto-Japonic *suru.",
@@ -570,6 +820,7 @@
     "meaning": "inherent, congenital, hereditary",
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sententeki is 先天 (senten, “congenital”) plus 的 (-teki, “-like”).",
@@ -590,6 +841,22 @@
         "quote": "先天(せんてん) (senten, “congenital”) + 的(てき) (-teki, “-like”)."
       }
     ],
+    "examples": [
+      {
+        "id": 103030,
+        "ja": "彼は先天的な詩人です。",
+        "en": "He is a born poet.",
+        "enId": 300663,
+        "form": "先天的な"
+      },
+      {
+        "id": 88235,
+        "ja": "彼女は先天的な無口です。",
+        "en": "She is reserved by nature.",
+        "enId": 315473,
+        "form": "先天的な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -602,6 +869,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Teibō is from the Middle Chinese compound 堤防, literally “dike, embankment + dike”.",
@@ -625,6 +893,22 @@
         "quote": "From Middle Chinese compound 堤防 (dei? bjang, literally “dike, embankment + dike”). Compare modern Cantonese reading tai⁴ fong⁴."
       }
     ],
+    "examples": [
+      {
+        "id": 143738,
+        "ja": "水は堤防を越えた。",
+        "en": "The water ran over the banks.",
+        "enId": 270828,
+        "form": "堤防"
+      },
+      {
+        "id": 125546,
+        "ja": "堤防が洪水を防いだ。",
+        "en": "The levee kept the floodwater back.",
+        "enId": 278446,
+        "form": "堤防"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -634,6 +918,7 @@
     "meaning": "source, origin",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Minamoto is derived from 水 (mi, “water”), な (na, Old Japanese possessive particle) and 元 (moto, “origin, source”).",
@@ -644,6 +929,22 @@
       },
       {
         "quote": "Vovin believes that the na in the initial mina- element is not a genitive particle, but rather actually meant \"water\", contending that the mi was instead the honorific prefix 御 (mi-). See also 港 (minato, “sluice; port”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 208511,
+        "ja": "その川の源は日本アルプス山中にある。",
+        "en": "The river has its origin in the Japan Alps.",
+        "enId": 45770,
+        "form": "源"
+      },
+      {
+        "id": 220794,
+        "ja": "この川は長野の山々に源を発している。",
+        "en": "This river rises in the mountains in Nagano.",
+        "enId": 58117,
+        "form": "源"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -659,6 +960,7 @@
       "intransitive verb",
       "transitive verb"
     ],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Tomonau is from classical 伴ふ (tomonafu), formed from とも (tomo, “companion”) plus なふ (nafu, verb-forming suffix).",
@@ -666,6 +968,22 @@
     "sources": [
       {
         "quote": "From classical yodan(四段活用) verb 伴(ともな)ふ (tomonafu), formed from とも (tomo, “companion”) + なふ (nafu, verb-forming suffix)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 173125,
+        "ja": "豪雨は雷を伴った。",
+        "en": "The heavy rain was accompanied with thunder.",
+        "enId": 241346,
+        "form": "伴った"
+      },
+      {
+        "id": 175370,
+        "ja": "権力には責任が伴う。",
+        "en": "Power carries responsibility with it.",
+        "enId": 239096,
+        "form": "伴う"
       }
     ],
     "wiktionaryDump": "2026-09-02"

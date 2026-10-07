@@ -6,6 +6,7 @@
     "meaning": "radical (of a kanji character)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf44", "spec2"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Bushu, “radical”, is from Middle Chinese 部首, first mentioned in Chinese in the Shūowén Jiězì of roughly 100 CE.",
@@ -37,6 +38,7 @@
     "meaning": "rough, rude, wild",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": [],
     "headline": "Arai is cognate with 粗い (arai).",
@@ -44,6 +46,22 @@
     "sources": [
       {
         "quote": "Cognate with 粗(あら)い (arai)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 109797,
+        "ja": "彼は運転が荒い。",
+        "en": "He drives roughly.",
+        "enId": 293893,
+        "form": "荒い"
+      },
+      {
+        "id": 108207,
+        "ja": "彼は金使いが荒い。",
+        "en": "He is free with his money.",
+        "enId": 295479,
+        "form": "荒い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -55,6 +73,7 @@
     "meaning": "to expand, to swell (out), to become inflated",
     "level": "N2",
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Fukuramu, “to swell”, is 膨 (fukura, “a bulge, a swelling”) plus -mu, first cited to the mid-800s.",
@@ -67,6 +86,22 @@
         "quote": "From 膨, 脹 (fukura, “a bulge, a swelling”) + む (-mu, suffix indicating “looks like, seems like”). The fukura portion is in turn from now-archaic verb 膨る, 脹る (fukuru, “to swell, to bulge”), superseded by modern 膨れる, 脹れる (fukureru) of the same meaning."
       }
     ],
+    "examples": [
+      {
+        "id": 203879,
+        "ja": "タイヤに空気を入れれば膨らむ。",
+        "en": "If you pump air into a tire, it expands.",
+        "enId": 41120,
+        "form": "膨らむ"
+      },
+      {
+        "id": 190440,
+        "ja": "一陣の風をうけて帆がふくらんだ。",
+        "en": "A gust of wind swelled the sails.",
+        "enId": 27599,
+        "form": "ふくらんだ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -76,6 +111,7 @@
     "meaning": "foremost, beginning",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": [],
     "headline": "Massaki is 真っ (ma'-, “truly”) plus 先 (saki, “first”).",
@@ -83,6 +119,22 @@
     "sources": [
       {
         "quote": "From 真っ (ma'-, “truly”) + 先 (saki, “first”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 155696,
+        "ja": "私は真っ先に母にそれを告げた。",
+        "en": "I told it to my mother first and foremost.",
+        "enId": 258841,
+        "form": "真っ先"
+      },
+      {
+        "id": 175433,
+        "ja": "健二はいつも真っ先に学校に来る。",
+        "en": "Kenji is always the first to come to school.",
+        "enId": 239032,
+        "form": "真っ先"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -94,6 +146,7 @@
     "meaning": "letter; character",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ji, “character”, is from Middle Chinese 字.",
@@ -101,6 +154,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 字 (MC dziH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 105331,
+        "ja": "彼は字が下手だ。",
+        "en": "His handwriting is poor.",
+        "enId": 298357,
+        "form": "字"
+      },
+      {
+        "id": 89185,
+        "ja": "彼女は字が上手だ。",
+        "en": "She has good handwriting.",
+        "enId": 314521,
+        "form": "字"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -112,6 +181,7 @@
     "meaning": "to avoid (physical contact); to ward off, to avert",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sakeru is from 避く (saku), cognate with 裂ける (sakeru).",
@@ -119,6 +189,22 @@
     "sources": [
       {
         "quote": "From 避(さ)く (saku), cognate with Japanese 裂ける (sakeru). See the page for 避(さ)く (saku) for more information."
+      }
+    ],
+    "examples": [
+      {
+        "id": 215947,
+        "ja": "ジムは怒りを抑えて争いをさけることができた。",
+        "en": "Jim was able to hold back his anger and avoid a fight.",
+        "enId": 53248,
+        "form": "さける"
+      },
+      {
+        "id": 111585,
+        "ja": "彼はあまりにも性格が攻撃的で、人に避けられている。",
+        "en": "He is so aggressive that others avoid him.",
+        "enId": 292098,
+        "form": "避けられている"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -130,6 +216,7 @@
     "meaning": "like this, this way",
     "level": "N4",
     "pos": ["adverb (fukushi)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kō, “this way”, shifted from 斯く (kaku): kaku, kau, kɔː, then kō.",
@@ -151,6 +238,7 @@
     "meaning": "or, perhaps",
     "level": "N3",
     "pos": ["conjunction", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Aruiwa is ある (aru, “to be, to exist”) plus a nominalizing い plus は (wa, topic marker), and arose from 漢文訓読.",
@@ -169,6 +257,7 @@
     "meaning": "to breathe in, to suck; to smoke",
     "level": "N5",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": [],
     "headline": "Suu, “to suck”, is likely an onomatopoeia; the page compares words from Middle Korean to Proto-Indo-European.",
@@ -181,6 +270,22 @@
         "quote": "Likely an onomatopoeia. Compare Middle Korean ᄲᆞᆯ〮다〮 (spóltá, “to suck”), Middle Chinese 吸 (MC xip, “to suck”), Proto-Austronesian *-sep (“to suck”), Proto-Indo-European *sewg- (“to suck”), etc."
       }
     ],
+    "examples": [
+      {
+        "id": 140209,
+        "ja": "息を深く吸いなさい。",
+        "en": "Take a deep breath.",
+        "enId": 442538,
+        "form": "吸い"
+      },
+      {
+        "id": 145231,
+        "ja": "新鮮な空気を吸おう。",
+        "en": "Let's breathe the fresh air.",
+        "enId": 269332,
+        "form": "吸おう"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -190,6 +295,7 @@
     "meaning": "last week",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Senshū, “last week”, is first attested in the 1920s.",
@@ -212,6 +318,22 @@
         "quote": "First attested in 1920s."
       }
     ],
+    "examples": [
+      {
+        "id": 141850,
+        "ja": "先週でした。",
+        "en": "It was last week.",
+        "enId": 4632418,
+        "form": "先週"
+      },
+      {
+        "id": 88251,
+        "ja": "彼女は先週旅に出た。",
+        "en": "She set out on a trip last week.",
+        "enId": 313804,
+        "form": "先週"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -221,6 +343,7 @@
     "meaning": "to stay (over night) (v.i.)",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tomaru, “to stay overnight”, is a doublet of 止まる (tomaru).",
@@ -228,6 +351,22 @@
     "sources": [
       {
         "quote": "Doublet of 止(と)まる (tomaru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 91537,
+        "ja": "彼女はホテルに泊まった。",
+        "en": "She stayed at a hotel.",
+        "enId": 312176,
+        "form": "泊まった"
+      },
+      {
+        "id": 169951,
+        "ja": "昨日は彼の家に泊まった。",
+        "en": "I stayed at his place yesterday.",
+        "enId": 244534,
+        "form": "泊まった"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -239,6 +378,7 @@
     "meaning": "shell, shellfish",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Kai, “shell”, was kapi in Old Japanese, from Proto-Japonic *kapi.",
@@ -251,6 +391,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *kapi. Appears voiced in the Kojiki of 712 CE in a compound, with the phonetic man'yōgana spelling 賀比, and in the Man'yōshū, completed some time after 759 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 184904,
+        "ja": "貝は好きではない。",
+        "en": "I don't like shellfish.",
+        "enId": 22035,
+        "form": "貝"
+      },
+      {
+        "id": 76292,
+        "ja": "火力とお鍋と貝の種類によるわ。",
+        "en": "It depends on the strength of the flame, the pan used and the type of ingredients.",
+        "enId": 327428,
+        "form": "貝"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -260,13 +416,43 @@
     "meaning": "to take up, to pick up; to confiscate",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Toriageru is 取る (toru, “to take”) plus 上げる (ageru, “to raise, lift”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "取り",
+        "reading": "とり",
+        "meaning": "take",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "上げる",
+        "reading": "あげる",
+        "meaning": "up",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "取(と)る (toru, “to take”) + 上(あ)げる (ageru, “to raise, lift”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 104413,
+        "ja": "彼は受話器を取り上げた。",
+        "en": "He picked up the phone.",
+        "enId": 299278,
+        "form": "取り上げた"
+      },
+      {
+        "id": 206410,
+        "ja": "その問題は取り上げません。",
+        "en": "We won't take up the problem.",
+        "enId": 43658,
+        "form": "取り上げません"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -278,6 +464,7 @@
     "meaning": "poison, toxicant",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Doku, “poison”, is from Middle Chinese 毒.",
@@ -285,6 +472,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 毒 (MC dowk)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 173522,
+        "ja": "甲の薬は乙の毒。",
+        "en": "One man's medicine is another man's poison.",
+        "enId": 240948,
+        "form": "毒"
+      },
+      {
+        "id": 123437,
+        "ja": "毒を以て毒を制す。",
+        "en": "Diamond cuts diamond.",
+        "enId": 280560,
+        "form": "毒"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -296,6 +499,7 @@
     "meaning": "all, everyone, everybody",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "pronoun", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Minna is a shift from みな (mina), with a doubled consonant added.",
@@ -314,6 +518,7 @@
     "meaning": "vapor, gas",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kitai is Sinitic 氣體 (qìtǐ).",
@@ -336,6 +541,22 @@
         "quote": "Sinitic 氣體 /气体 (qìtǐ)"
       }
     ],
+    "examples": [
+      {
+        "id": 188965,
+        "ja": "液体は気体より重い。",
+        "en": "Liquids are heavier than gases.",
+        "enId": 26111,
+        "form": "気体"
+      },
+      {
+        "id": 179377,
+        "ja": "空気は気体の混合物だ。",
+        "en": "Air is a mixture of gases.",
+        "enId": 18235,
+        "form": "気体"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -345,6 +566,7 @@
     "meaning": "(human) life (e.g., conception to death)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Jinsei is from Middle Chinese 人生.",
@@ -367,6 +589,22 @@
         "quote": "From Middle Chinese 人生 (ȵiɪn ʃˠæŋ)."
       }
     ],
+    "examples": [
+      {
+        "id": 143957,
+        "ja": "人生夢の如し。",
+        "en": "Life is but an empty dream.",
+        "enId": 270562,
+        "form": "人生"
+      },
+      {
+        "id": 143986,
+        "ja": "人生は楽しい。",
+        "en": "Life is sweet.",
+        "enId": 270580,
+        "form": "人生"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -376,6 +614,7 @@
     "meaning": "order, sequence, procedure",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Junjo is 順 (jun, “order”) plus 序 (jo, “order”): “order” twice.",
@@ -396,6 +635,22 @@
         "quote": "From 順 (jun, “order”) + 序 (jo, “order”)."
       }
     ],
+    "examples": [
+      {
+        "id": 187590,
+        "ja": "何をするにも順序を踏んでやりなさい。",
+        "en": "No matter what you do, you must follow the correct order.",
+        "enId": 24727,
+        "form": "順序"
+      },
+      {
+        "id": 136204,
+        "ja": "誰も事件の順序を思い出すことができなかった。",
+        "en": "Nobody could remember the sequence of events.",
+        "enId": 276635,
+        "form": "順序"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -405,6 +660,7 @@
     "meaning": "to sleep",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Nemuru shifted from neburu, from the same root as Old Japanese 寝 (nu), which gives 寝る (neru).",
@@ -426,6 +682,7 @@
     "meaning": "to order, to command, to appoint",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "kango",
     "processes": ["sound-change"],
     "headline": "Meijiru shifted from 命ずる (meizuru), as an s-irregular verb ending in -uru became an upper monograde verb in -iru.",
@@ -433,6 +690,22 @@
     "sources": [
       {
         "quote": "Shift from verb 命ずる (meizuru), by natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 185183,
+        "ja": "回れ右を命じる。",
+        "en": "I order you to turn right.",
+        "enId": 22314,
+        "form": "命じる"
+      },
+      {
+        "id": 182878,
+        "ja": "議長は静粛を命じた。",
+        "en": "The chairperson ordered silence.",
+        "enId": 19999,
+        "form": "命じた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -448,6 +721,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "clipping", "sound-change"],
     "headline": "Hontō first appears in a text of 1770, and the clipped honto first appears in 1886.",
@@ -470,6 +744,22 @@
         "quote": "First appears in the late Edo period in a text from 1770. The clipped reading ほんと (honto) with the shorter second vowel is regarded as a simple shift from original reading ほんとう (hontō), and this first appears in a text from 1886."
       }
     ],
+    "examples": [
+      {
+        "id": 120418,
+        "ja": "彼が言うことはすべてほんとうだ。",
+        "en": "All that he says is true.",
+        "enId": 283591,
+        "form": "ほんとう"
+      },
+      {
+        "id": 161740,
+        "ja": "私には本当のことを話してもらいたい。",
+        "en": "I want you to tell me the truth.",
+        "enId": 2429,
+        "form": "本当"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -479,6 +769,7 @@
     "meaning": "salty (taste)",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf47"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Shiokarai is 塩 (shio, “salt”) plus 辛い (karai, “harsh (of flavor); spicy, salty”).",
@@ -508,6 +799,7 @@
     "meaning": "to get tired of, to lose interest in",
     "level": "N3",
     "pos": ["Ichidan verb", "auxiliary verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": [],
     "headline": "Akiru comes from earlier 飽く (aku), irregularly evolved to the kami ichidan conjugation.",
@@ -515,6 +807,22 @@
     "sources": [
       {
         "quote": "From earlier 飽(あ)く (aku), irregularly evolved to kami ichidan conjugation."
+      }
+    ],
+    "examples": [
+      {
+        "id": 184330,
+        "ja": "学食には飽きた。",
+        "en": "I am tired of eating at the school cafeteria.",
+        "enId": 21458,
+        "form": "飽きた"
+      },
+      {
+        "id": 101586,
+        "ja": "彼は読書に飽きた。",
+        "en": "He got tired of reading.",
+        "enId": 302106,
+        "form": "飽きた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -526,6 +834,7 @@
     "meaning": "to count",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kazoeru began as kazu apu, and took six steps to reach kazoeru.",
@@ -547,6 +856,22 @@
         "quote": "Equivalent to 数(かず) (kazu, “number”) + あう (au, “to join”). The earliest attestation of this verb uses the 下(しも)二(に)段(だん) (shimonidan, “lower bigrade”) conjugation pattern, suggesting an irregular shift from the 四(よ)段(だん) (yodan, “quadrigrade”) conjugation pattern of compounded verb あふ (afu, modern あう (au)). Compare the sporadic shift of the auxiliary verb ふ (-fu, expressing repetition or ongoing state) to える (-eru) in some terms."
       }
     ],
+    "examples": [
+      {
+        "id": 197459,
+        "ja": "ひなを数えるな。",
+        "en": "Don't count your chickens.",
+        "enId": 34645,
+        "form": "数える"
+      },
+      {
+        "id": 144053,
+        "ja": "人数を数えてます。",
+        "en": "I'm counting the number of people.",
+        "enId": 270513,
+        "form": "数えてます"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -556,6 +881,7 @@
     "meaning": "passive",
     "level": "N2",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shōkyokuteki is 消極 (shōkyoku) plus 的 (-teki).",
@@ -584,6 +910,22 @@
         "quote": "消極(しょうきょく) (shōkyoku) + 的(てき) (-teki)"
       }
     ],
+    "examples": [
+      {
+        "id": 104049,
+        "ja": "彼は消極的な性格だ。",
+        "en": "He has a passive character.",
+        "enId": 299643,
+        "form": "消極的な"
+      },
+      {
+        "id": 146414,
+        "ja": "消極的な男は嫌いだ。",
+        "en": "I don't like a negative sort of man.",
+        "enId": 268148,
+        "form": "消極的な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -593,6 +935,7 @@
     "meaning": "this one",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kore is from Old Japanese; compare Okinawan くり (kuri).",
@@ -614,6 +957,7 @@
     "meaning": "to collapse, to crumble",
     "level": "N2",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kuzureru comes from Old Japanese 崩る (kuduru).",
@@ -638,6 +982,22 @@
         "quote": "Ultimately from 屑(くず) (kuzu, “rubbish, refuse, scrap, junk, waste”), and analyzable as etymologically meaning \"to become rubbish\". For the causative form 崩(くず)す (kuzusu), compare lay waste, ruin."
       }
     ],
+    "examples": [
+      {
+        "id": 82468,
+        "ja": "防御が崩れた。",
+        "en": "Their defense came apart.",
+        "enId": 321248,
+        "form": "崩れた"
+      },
+      {
+        "id": 83479,
+        "ja": "壁が地震で崩れた。",
+        "en": "The wall gave way in the earthquake.",
+        "enId": 320237,
+        "form": "崩れた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -647,6 +1007,7 @@
     "meaning": "questionnaire (FRE: enquete), survey",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Anketo is borrowed from French enquête, “inquest”.",
@@ -662,6 +1023,22 @@
         "quote": "Borrowed from French enquête (“inquest”)."
       }
     ],
+    "examples": [
+      {
+        "id": 224003,
+        "ja": "このアンケート、項目が多すぎて記入する気になれないよ。",
+        "en": "I don't feel like filling out this questionnaire. There are too many items.",
+        "enId": 61338,
+        "form": "アンケート"
+      },
+      {
+        "id": 224002,
+        "ja": "このアンケート用紙に必要事項を書き込み、当方にお送り下さい。",
+        "en": "Please fill out this questionnaire and send it to us.",
+        "enId": 61337,
+        "form": "アンケート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -674,6 +1051,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsure is the continuative stem of 連れる (tsureru, “to accompany, lead”).",
@@ -681,6 +1059,15 @@
     "sources": [
       {
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 連(つ)れる (tsureru, “to accompany, lead”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 162410,
+        "ja": "私の連れは疲れすぎていて走るのはおろか、歩くこともできない、と言った。",
+        "en": "My companion said that she was too tired to walk, let alone run.",
+        "enId": 252104,
+        "form": "連れ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -692,6 +1079,7 @@
     "meaning": "state, province",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Shū, “state”, is from Middle Chinese 州, and 州 is a daiyōji replacing 洲.",
@@ -702,6 +1090,22 @@
       },
       {
         "quote": "From Middle Chinese 洲 (MC tsyuw). 州 is a daiyōji replacing 洲."
+      }
+    ],
+    "examples": [
+      {
+        "id": 198596,
+        "ja": "ネッドはユタ州の出身。",
+        "en": "Ned comes from the state of Utah.",
+        "enId": 35789,
+        "form": "州"
+      },
+      {
+        "id": 173147,
+        "ja": "合衆国は５０州から成る。",
+        "en": "The United States comprises 50 states.",
+        "enId": 241325,
+        "form": "州"
       }
     ],
     "wiktionaryDump": "2026-09-02"

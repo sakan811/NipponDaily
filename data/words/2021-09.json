@@ -6,6 +6,7 @@
     "meaning": "anyhow, in any case, at any rate",
     "level": "N2",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "clipping"],
     "headline": "Dōse is どう (dō, “how”) plus せ, a clipping of せよ (seyo), the imperative of する (suru).",
@@ -13,6 +14,22 @@
     "sources": [
       {
         "quote": "Compound of どう (dō, “how”) + せ (se, clipping of せよ (seyo), the imperative form of する (suru, “do”))."
+      }
+    ],
+    "examples": [
+      {
+        "id": 201391,
+        "ja": "どうせお前は。",
+        "en": "You're only foolin' round.",
+        "enId": 38601,
+        "form": "どうせ"
+      },
+      {
+        "id": 201385,
+        "ja": "どうせ行くんでしょ。",
+        "en": "I daresay you are going to go no matter what.",
+        "enId": 38595,
+        "form": "どうせ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -24,6 +41,7 @@
     "meaning": "to worship, to pray",
     "level": "N2",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ogamu is from older 拝む (orogamu), shifting from wogamu.",
@@ -31,6 +49,15 @@
     "sources": [
       {
         "quote": "/wogamu/ > /ogamu/. From older 拝(おろが)む (orogamu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 76614,
+        "ja": "その不届きな野郎の顔を、拝ませてもらうか。",
+        "en": "Let's have a gander at this insolent man.",
+        "enId": 327106,
+        "form": "拝ませて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -42,6 +69,7 @@
     "meaning": "necessities, essential",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Hitsujuhin is 必需 (hitsuju, “need, requirement, essentialness”) plus 品 (-hin, “item, good”).",
@@ -62,6 +90,22 @@
         "quote": "Compound of 必需(ひつじゅ) (hitsuju, “need, requirement, essentialness, indispensability”) + 品(ひん) (-hin, “item, good”). Compare the formation of Chinese 必需品 (bìxūpǐn)."
       }
     ],
+    "examples": [
+      {
+        "id": 226221,
+        "ja": "カメラは私の必需品でした。",
+        "en": "The camera was essential for me.",
+        "enId": 63561,
+        "form": "必需品"
+      },
+      {
+        "id": 176029,
+        "ja": "芸術は贅沢品ではない、必需品だ。",
+        "en": "Art is not a luxury, but a necessity.",
+        "enId": 238436,
+        "form": "必需品"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -80,6 +124,22 @@
         "quote": "First attested in 1778."
       }
     ],
+    "examples": [
+      {
+        "id": 229559,
+        "ja": "あんなやつを信用したら骨までしゃぶられちゃうぞ。",
+        "en": "If you trust such a fellow, you'll lose everything you have.",
+        "enId": 66919,
+        "form": "しゃぶられ"
+      },
+      {
+        "id": 158067,
+        "ja": "私は夏は凍った棒アイスクリームをしゃぶるのが好きです。",
+        "en": "I like to suck on frozen ice cream bars in the summer.",
+        "enId": 256463,
+        "form": "しゃぶる"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -89,6 +149,7 @@
     "meaning": "shadow",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hikage is 日 (hi, “sun”) plus 陰 (kage, “shade”).",
@@ -109,6 +170,22 @@
         "quote": "日(ひ) (hi, “sun”) + 陰(かげ) (kage, “shade”)"
       }
     ],
+    "examples": [
+      {
+        "id": 122899,
+        "ja": "日陰にいなさい。",
+        "en": "Keep in the shade.",
+        "enId": 281103,
+        "form": "日陰"
+      },
+      {
+        "id": 122900,
+        "ja": "日陰で一休みしよう。",
+        "en": "Let's take a rest in the shade.",
+        "enId": 281102,
+        "form": "日陰"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -118,6 +195,7 @@
     "meaning": "thinking, thought, ideas",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kangae is the continuative stem of 考える (kangaeru, “to think”).",
@@ -125,6 +203,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 考(かんが)える (kangaeru, “to think”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 173462,
+        "ja": "考えとくよ。",
+        "en": "I'll have to think about it.",
+        "enId": 241008,
+        "form": "考え"
+      },
+      {
+        "id": 4974,
+        "ja": "良い考えだね！",
+        "en": "That's a good idea!",
+        "enId": 1568,
+        "form": "考え"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -136,6 +230,7 @@
     "meaning": "to talk, to chat, to chatter (same as 話す (はなす))",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Shaberu has no known origin, but is listed in the Nippo Jisho of 1603, with an earliest appearance possibly in the early 1300s.",
@@ -166,6 +261,7 @@
     "meaning": "coins, small change",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf29", "spec2"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kozeni is 小 (ko-, “little”) plus 銭 (zeni, “coins; money”).",
@@ -186,6 +282,22 @@
         "quote": "小(こ) (ko-, “little”) + 銭(ぜに) (zeni, “coins; money”)"
       }
     ],
+    "examples": [
+      {
+        "id": 146927,
+        "ja": "小銭をお持ちですか。",
+        "en": "Do you have any small change?",
+        "enId": 267634,
+        "form": "小銭"
+      },
+      {
+        "id": 146925,
+        "ja": "小銭を混ぜてください。",
+        "en": "I'd like to have smaller bills mixed in.",
+        "enId": 267636,
+        "form": "小銭"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -195,6 +307,7 @@
     "meaning": "all, every",
     "level": "N3",
     "pos": ["pre-noun adjectival (rentaishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Arayuru is a fossilized passive of ar-, “to be, to exist”, one of the few expressions that kept the old passive marker.",
@@ -218,6 +331,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Hantai is from Sinitic 反對.",
@@ -240,6 +354,22 @@
         "quote": "From Sinitic 反對."
       }
     ],
+    "examples": [
+      {
+        "id": 121239,
+        "ja": "反対投票多数。",
+        "en": "The noes have it.",
+        "enId": 282767,
+        "form": "反対"
+      },
+      {
+        "id": 83012,
+        "ja": "母は喫煙に反対だ。",
+        "en": "My mother is against smoking.",
+        "enId": 486136,
+        "form": "反対"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -249,6 +379,7 @@
     "meaning": "to carve, to chisel",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf35"],
     "stratum": "wago",
     "processes": [],
     "headline": "Horu, “to carve”, is a doublet of 掘る (horu, “to dig”), and went poru > ɸoru > horu.",
@@ -270,6 +401,7 @@
     "meaning": "punctuation marks",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf44"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kutōten is 句読 (kutō) plus 点 (ten).",
@@ -307,6 +439,7 @@
     "meaning": "which reminds me ..",
     "level": "N2",
     "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sō ieba is そう (sō, “like that, so”) plus 言えば (ieba), literally “speaking of that....”.",
@@ -325,6 +458,7 @@
     "meaning": "occupation, business",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shokugyō is, by surface analysis, 職 (shoku) plus 業 (-gyō).",
@@ -347,6 +481,22 @@
         "quote": "By surface analysis, 職(しょく) (shoku) + 業(ぎょう) (-gyō)."
       }
     ],
+    "examples": [
+      {
+        "id": 103940,
+        "ja": "彼の職業は医師だ。",
+        "en": "He is a doctor by profession.",
+        "enId": 286778,
+        "form": "職業"
+      },
+      {
+        "id": 217120,
+        "ja": "ご職業は何ですか。",
+        "en": "What do you do?",
+        "enId": 17125,
+        "form": "職業"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -359,12 +509,29 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["spec1", "ichi1"],
     "processes": ["derivation"],
     "headline": "Oshare is 御 (o-, honorific prefix) plus 洒落 (share).",
     "morphemes": [],
     "sources": [
       {
         "quote": "御(お) (o-, honorific prefix) + 洒(しゃ)落(れ) (share)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 93128,
+        "ja": "彼女はオシャレだ。",
+        "en": "She's fashionable.",
+        "enId": 310580,
+        "form": "オシャレ"
+      },
+      {
+        "id": 171989,
+        "ja": "今日のあなたはとってもおしゃれ。",
+        "en": "You're very stylish today.",
+        "enId": 691422,
+        "form": "おしゃれ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -376,6 +543,7 @@
     "meaning": "folk song, popular song",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Min'yō is a calque of German Volkslied.",
@@ -407,6 +575,7 @@
     "meaning": "-- honorific expression for いう --",
     "level": "N4",
     "pos": ["Godan verb - -aru special class", "transitive verb"],
+    "priority": ["ichi2", "spec1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ossharu is an alteration of おおせある (ōse aru).",
@@ -425,6 +594,7 @@
     "meaning": "flour, powder",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["unclear"],
     "headline": "Kona appears to be 粉 (ko, “powder”) plus an unclear suffix な (-na), first cited to 1683.",
@@ -455,6 +625,15 @@
         "quote": "Onomatopoeic."
       }
     ],
+    "examples": [
+      {
+        "id": 75572,
+        "ja": "・・・はぁ、どう状況を受け止めればいいのかしら。",
+        "en": "... Aaah, just how am I supposed to cope with this I wonder?",
+        "enId": 328146,
+        "form": "はぁ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -464,6 +643,7 @@
     "meaning": "the aged, old person",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Rōjin is compared with Proto-Ryukyuan *oe-pito, which uses native elements.",
@@ -486,6 +666,22 @@
         "quote": "Compare Proto-Ryukyuan *oe-pito, using native elements."
       }
     ],
+    "examples": [
+      {
+        "id": 77314,
+        "ja": "老人が車にひかれた。",
+        "en": "The old man was run over by a car.",
+        "enId": 326405,
+        "form": "老人"
+      },
+      {
+        "id": 206137,
+        "ja": "その老人は気難しい。",
+        "en": "The old man is hard to please.",
+        "enId": 43383,
+        "form": "老人"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -495,6 +691,7 @@
     "meaning": "middle finger",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf33"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Nakayubi is 中 (naka, chū, “middle”) plus 指 (yubi, shi, “finger”).",
@@ -527,6 +724,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Misu is from English mistake or miss, and a separate entry covers English Miss.",
@@ -548,6 +746,7 @@
     "meaning": "sign, mark",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Hyōshiki is Middle Chinese 標識.",
@@ -570,6 +769,22 @@
         "quote": "Middle Chinese 標識"
       }
     ],
+    "examples": [
+      {
+        "id": 229719,
+        "ja": "あれは何の標識ですか。",
+        "en": "What does that sign say?",
+        "enId": 67081,
+        "form": "標識"
+      },
+      {
+        "id": 97859,
+        "ja": "彼らはその標識を壁に取り付けた。",
+        "en": "They fixed the sign to the wall.",
+        "enId": 305845,
+        "form": "標識"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -579,6 +794,7 @@
     "meaning": "must not do, bad, wrong",
     "level": "N3",
     "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ikenai is the negative of 行ける (ikeru), the potential form of 行く (iku).",
@@ -597,6 +813,7 @@
     "meaning": "will, volition",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Ishi was coined by Nishi Amane as a translation of English will, and became established through the Tetsugaku Jii of Inoue Tetsujirō.",
@@ -619,6 +836,22 @@
         "quote": "Coined by Japanese philosopher and politician Nishi Amane as a translation of English will, and became established by being included in the 哲学字彙 (Tetsugaku Jii, “Dictionary of Philosophy”) by Inoue Tetsujirō."
       }
     ],
+    "examples": [
+      {
+        "id": 110109,
+        "ja": "彼は意志が弱い。",
+        "en": "He doesn't have a mind of his own.",
+        "enId": 293579,
+        "form": "意志"
+      },
+      {
+        "id": 177470,
+        "ja": "君は意志が強いな。",
+        "en": "You are strong-minded.",
+        "enId": 16319,
+        "form": "意志"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -628,6 +861,7 @@
     "meaning": "(not) particularly, nothing",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Betsu ni is 別 (betsu, “separate”) plus に (ni): literally separately, used idiomatically to mean especially; compare Korean 별로 (byeollo).",
@@ -648,6 +882,22 @@
         "quote": "別 (betsu, “separate”) + に (ni, particle), literally separately, used idiomatically to mean something closer to especially. Compare Korean 별로 (byeollo)."
       }
     ],
+    "examples": [
+      {
+        "id": 213762,
+        "ja": "ソースを別にください。",
+        "en": "I'd like the sauce on the side.",
+        "enId": 51049,
+        "form": "別に"
+      },
+      {
+        "id": 213763,
+        "ja": "ソースは別に添えてください。",
+        "en": "I'd like to have the sauce on the side, please.",
+        "enId": 51050,
+        "form": "別に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -660,6 +910,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Yōmō is 羊 (yō, “sheep”) plus 毛 (mō, “hair”).",
@@ -680,6 +931,22 @@
         "quote": "羊(よう) (yō, “sheep”) + 毛(もう) (mō, “hair”)"
       }
     ],
+    "examples": [
+      {
+        "id": 78843,
+        "ja": "羊は羊毛を与えてくれる。",
+        "en": "Sheep provide us with wool.",
+        "enId": 34763,
+        "form": "羊毛"
+      },
+      {
+        "id": 78842,
+        "ja": "羊毛は染め上がりがきれいです。",
+        "en": "Wool dyes nicely.",
+        "enId": 324875,
+        "form": "羊毛"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -689,6 +956,7 @@
     "meaning": "but, although",
     "level": "N4",
     "pos": ["conjunction", "particle"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["clipping"],
     "headline": "Keredo is a clipping of けれども (keredomo, “although, but”), first attested in 1711.",
@@ -710,6 +978,7 @@
     "meaning": "monkey",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": ["derivation", "borrowing"],
     "headline": "Saru's ultimate derivation is possibly borrowed from Ainu サロ (saro, “monkey”).",
@@ -725,6 +994,22 @@
         "quote": "The kanji is from Chinese 猿 (yuán, “ape”). Compare Japanese 猪 (inoshishi, “boar”) from Chinese 猪 (zhū, “pig”) and Japanese 豚 (buta, “pig”) from Chinese 豚 (tún, “suckling pig”)."
       }
     ],
+    "examples": [
+      {
+        "id": 216633,
+        "ja": "サルは木から落ちた。",
+        "en": "The monkey came down.",
+        "enId": 53937,
+        "form": "サル"
+      },
+      {
+        "id": 213063,
+        "ja": "そのサルは木に登った。",
+        "en": "The monkey climbed up a tree.",
+        "enId": 50347,
+        "form": "サル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -734,6 +1019,7 @@
     "meaning": "to rise; to grow; to mount (v.i.)",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Takamaru is 高 (taka, root of 高い, “high, tall”) plus -maru, developed from Classical Japanese 高む.",
@@ -752,6 +1038,22 @@
     "sources": [
       {
         "quote": "高(たか) (taka, root of 高(たか)い (takai, “high, tall”)) + まる (-maru, “to become (an adjective), -en”), developed from Classical Japanese 高む."
+      }
+    ],
+    "examples": [
+      {
+        "id": 77650,
+        "ja": "冷戦の緊張が高まった。",
+        "en": "Cold-war tension has mounted.",
+        "enId": 326068,
+        "form": "高まった"
+      },
+      {
+        "id": 142476,
+        "ja": "税制改革への圧力が高まっている。",
+        "en": "The pressure for tax reform is growing.",
+        "enId": 272094,
+        "form": "高まっている"
       }
     ],
     "wiktionaryDump": "2026-09-02"

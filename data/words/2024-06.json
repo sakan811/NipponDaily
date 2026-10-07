@@ -6,6 +6,7 @@
     "meaning": "toilet, restroom, bathroom (lit., a place to wash one's hands)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Otearai is 御 (o-) plus 手洗い (tearai, “hand washing”): literally the hand-washing place.",
@@ -26,6 +27,22 @@
         "quote": "御(お) (o-, honorific prefix) + 手(て)洗(あら)い (tearai, “hand washing”)"
       }
     ],
+    "examples": [
+      {
+        "id": 227063,
+        "ja": "お手洗いはどこですか。",
+        "en": "Where's the restroom?",
+        "enId": 38932,
+        "form": "お手洗い"
+      },
+      {
+        "id": 227061,
+        "ja": "お手洗いを拝借できますか。",
+        "en": "May I use the bathroom?",
+        "enId": 64409,
+        "form": "お手洗い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -35,6 +52,7 @@
     "meaning": "to blow (wind, etc.)",
     "level": "N5",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Fuku may originally have been an onomatopoeia; compare ふうふう (fūfū, “to blow with one's lips rounded”).",
@@ -42,6 +60,22 @@
     "sources": [
       {
         "quote": "May originally have been an onomatopoeia. Compare ふうふう (fūfū, “to blow with one's lips rounded”) ."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84005,
+        "ja": "風は南へ吹く。",
+        "en": "The wind blows south.",
+        "enId": 319710,
+        "form": "吹く"
+      },
+      {
+        "id": 126142,
+        "ja": "潮を吹いたぞ。",
+        "en": "There she blows!",
+        "enId": 277850,
+        "form": "吹いた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -53,6 +87,7 @@
     "meaning": "comic (book), cartoon",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05", "spec1"],
     "stratum": "kango",
     "processes": ["compound", "wasei", "sound-change", "meaning-shift"],
     "headline": "Manga was manɡwa, coined in Japan from Middle Chinese-derived 漫 (man, “as one pleases”) plus 画 (ga, “picture”).",
@@ -85,6 +120,22 @@
         "quote": "In the late nineteenth century, the term was repurposed as a translation for the English word caricature. This shift was led by artists such as Imaizumi Ippyō and Kitazawa Rakuten to elevate satirical drawings (formerly known as ポンチ絵(え) (ponchi-e)) into a professional art form. It later expanded to encompass sequential “comics” as that medium gained popularity in the early twentieth century."
       }
     ],
+    "examples": [
+      {
+        "id": 212577,
+        "ja": "そのマンガの本が大変面白いことがわかった。",
+        "en": "I found the comic book very interesting.",
+        "enId": 49861,
+        "form": "マンガ"
+      },
+      {
+        "id": 201974,
+        "ja": "テレビやマンガのせいで学生は本を読みません。",
+        "en": "Students don't read many books because of TV and comics.",
+        "enId": 39185,
+        "form": "マンガ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -94,6 +145,7 @@
     "meaning": "fever, temperature",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Netsu is from Middle Chinese 熱 (MC nyet).",
@@ -101,6 +153,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 熱 (MC nyet)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 121891,
+        "ja": "熱はあるの？",
+        "en": "Have you any fever?",
+        "enId": 282097,
+        "form": "熱"
+      },
+      {
+        "id": 121897,
+        "ja": "熱が上がった。",
+        "en": "The fever has risen.",
+        "enId": 282106,
+        "form": "熱"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -112,6 +180,7 @@
     "meaning": "doctor; physician",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Isha is borrowed from Chinese 醫者 / 医者 (yīzhě).",
@@ -134,6 +203,22 @@
         "quote": "Borrowed from Chinese 醫者 /医者 (yīzhě)."
       }
     ],
+    "examples": [
+      {
+        "id": 110076,
+        "ja": "彼は医者だ。",
+        "en": "He is a doctor.",
+        "enId": 293611,
+        "form": "医者"
+      },
+      {
+        "id": 84640,
+        "ja": "父は医者です。",
+        "en": "My father is a doctor.",
+        "enId": 251657,
+        "form": "医者"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -143,6 +228,7 @@
     "meaning": "throw away (trash), dump, discard",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf46"],
     "stratum": "wago",
     "processes": [],
     "headline": "Suteru is from Old Japanese 捨つ (sutsu), a lower bigrade verb.",
@@ -158,6 +244,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru. For the Old / Classical form, see the 捨つ entry."
       }
     ],
+    "examples": [
+      {
+        "id": 99993,
+        "ja": "彼は望みを捨てた。",
+        "en": "He gave up hope.",
+        "enId": 303704,
+        "form": "捨てた"
+      },
+      {
+        "id": 106874,
+        "ja": "彼は妻子を捨てた。",
+        "en": "He abandoned his family.",
+        "enId": 294456,
+        "form": "捨てた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -167,6 +269,7 @@
     "meaning": "to check; to look up; to inquire; to search",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
     "processes": ["borrowing"],
     "headline": "Shiraberu's senses “to investigate” and “to play an instrument” are probably a semantic loan from Middle Chinese 調.",
@@ -174,6 +277,22 @@
     "sources": [
       {
         "quote": "The seemingly unrelated senses \"to investigate\" and \"to play an instrument\" are probably a semantic loan from Middle Chinese 調 (MC dewH) via kanbun kundoku."
+      }
+    ],
+    "examples": [
+      {
+        "id": 159702,
+        "ja": "辞書で調べます。",
+        "en": "I will look it up in the dictionary.",
+        "enId": 254820,
+        "form": "調べます"
+      },
+      {
+        "id": 82746,
+        "ja": "報告書をよく調べた。",
+        "en": "I went over the report.",
+        "enId": 320969,
+        "form": "調べた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -185,6 +304,7 @@
     "meaning": "to write",
     "level": "N5",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaku is cognate with 掻く (“to scratch”): letters were originally scratched into wood.",
@@ -200,6 +320,22 @@
         "quote": "Cognate with 掻く (kaku, “to scratch”) (letters were originally scratched or carved into wood in order to write); compare English write, from Proto-West Germanic *wrītan (“to scratch, carve”)."
       }
     ],
+    "examples": [
+      {
+        "id": 147422,
+        "ja": "書く紙がない。",
+        "en": "There is no paper to write on.",
+        "enId": 267138,
+        "form": "書く"
+      },
+      {
+        "id": 148547,
+        "ja": "手紙書いてね。",
+        "en": "Write me sometime, OK?",
+        "enId": 265968,
+        "form": "書いて"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -209,6 +345,7 @@
     "meaning": "student",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Gakusei mixes go'on for the first character and kan'on for the second.",
@@ -231,6 +368,22 @@
         "quote": "From Middle Chinese 學生 (MC haewk sraeng). The use of the 呉音 (go'on, literally “Wu sound”) reading for the first character and the 漢音 (kan'on, literally “Han sound”) reading for the second character suggests either an innovation within Japanese, or later influence from another dialect of Chinese."
       }
     ],
+    "examples": [
+      {
+        "id": 90696,
+        "ja": "彼女は学生だ。",
+        "en": "She is a student.",
+        "enId": 313016,
+        "form": "学生"
+      },
+      {
+        "id": 108833,
+        "ja": "彼は学生です。",
+        "en": "He is a student.",
+        "enId": 294855,
+        "form": "学生"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -240,6 +393,7 @@
     "meaning": "black",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kuro belongs to a root *kur that also reaches 暗い (kurai, “dark”) and 蔵 (kura).",
@@ -267,6 +421,22 @@
         "quote": "Possibly also cognate with Ainu kur (“shadow”) and Korean 구름 (gureum, “cloud”); compare also Japanese 雲(くも) (kumo, “cloud”), Korean 검— (geom-, “black”), and Ainu kunne (“black; dark”)."
       }
     ],
+    "examples": [
+      {
+        "id": 221912,
+        "ja": "この黒板は黒でなく緑だ。",
+        "en": "This blackboard is not black, but green.",
+        "enId": 59238,
+        "form": "黒"
+      },
+      {
+        "id": 175240,
+        "ja": "犬は白と黒との区別がつく。",
+        "en": "The dog knows black from white.",
+        "enId": 239226,
+        "form": "黒"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -280,6 +450,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Zenbu is borrowed from Middle Chinese 全部.",
@@ -302,6 +473,22 @@
         "quote": "Borrowed from Middle Chinese 全部 (dzjwen buX)."
       }
     ],
+    "examples": [
+      {
+        "id": 140745,
+        "ja": "全部食べなさい。",
+        "en": "Eat everything.",
+        "enId": 273828,
+        "form": "全部"
+      },
+      {
+        "id": 140747,
+        "ja": "全部所持品です。",
+        "en": "They are all my personal belongings.",
+        "enId": 273826,
+        "form": "全部"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -311,6 +498,7 @@
     "meaning": "next month",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Raigetsu is 来 (rai-, “coming..., next...”) plus 月 (getsu, “month”).",
@@ -331,6 +519,22 @@
         "quote": "From 来 (rai-, “coming..., next...”) + 月 (getsu, “month”)."
       }
     ],
+    "examples": [
+      {
+        "id": 78674,
+        "ja": "来月子供を生みます。",
+        "en": "She will give birth to a child next month.",
+        "enId": 507506,
+        "form": "来月"
+      },
+      {
+        "id": 78676,
+        "ja": "来月休暇を取ります。",
+        "en": "I'll be taking a vacation next month.",
+        "enId": 325040,
+        "form": "来月"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -344,6 +548,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shitsumon is literally “quality + ask” in Middle Chinese, and is first attested in 1771.",
@@ -367,6 +572,22 @@
         "quote": "First attested in 1771."
       }
     ],
+    "examples": [
+      {
+        "id": 192905,
+        "ja": "よい質問だ。",
+        "en": "Good question!",
+        "enId": 378524,
+        "form": "質問"
+      },
+      {
+        "id": 149512,
+        "ja": "質問をどうぞ。",
+        "en": "Ask your question.",
+        "enId": 265049,
+        "form": "質問"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -376,6 +597,7 @@
     "meaning": "(green) tea",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Ocha is a compound of 御 (o-, honorific prefix) plus 茶 (cha, “tea”).",
@@ -396,6 +618,22 @@
         "quote": "Compound of 御 (o-, honorific prefix) + 茶 (cha, “tea”)."
       }
     ],
+    "examples": [
+      {
+        "id": 126626,
+        "ja": "お茶が一杯欲しい。",
+        "en": "I'd like a tea.",
+        "enId": 64225,
+        "form": "お茶"
+      },
+      {
+        "id": 226834,
+        "ja": "お茶を入れますよ。",
+        "en": "I'll make tea for you.",
+        "enId": 64182,
+        "form": "お茶"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -405,6 +643,7 @@
     "meaning": "post office",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Yūbinkyoku is 郵便 (yūbin, “postal service”) plus 局 (-kyoku, “office”).",
@@ -425,6 +664,22 @@
         "quote": "郵便(ゆうびん) (yūbin, “postal service”) + 局(きょく) (-kyoku, “office”)"
       }
     ],
+    "examples": [
+      {
+        "id": 79171,
+        "ja": "郵便局はどこですか。",
+        "en": "Where is the post office?",
+        "enId": 324546,
+        "form": "郵便局"
+      },
+      {
+        "id": 170913,
+        "ja": "左側に郵便局があります。",
+        "en": "You will find the post office on your left.",
+        "enId": 243567,
+        "form": "郵便局"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -437,6 +692,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Saki is cognate with 崎 (saki, “peninsula, cape”).",
@@ -444,6 +700,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *saki. Cognate with 崎(さき) (saki, “peninsula, cape”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124963,
+        "ja": "転ばぬ先の杖。",
+        "en": "Forewarned is forearmed.",
+        "enId": 238066,
+        "form": "先の"
+      },
+      {
+        "id": 195419,
+        "ja": "まだ先は長い。",
+        "en": "We have a long way to go.",
+        "enId": 32593,
+        "form": "先"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -455,6 +727,7 @@
     "meaning": "errand, task, business (to take care of)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Yō is from Middle Chinese 用 (MC yowngH).",
@@ -462,6 +735,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 用 (MC yowngH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 219977,
+        "ja": "この部屋は要人用です。",
+        "en": "This room is for VIPs.",
+        "enId": 57297,
+        "form": "用"
+      },
+      {
+        "id": 156946,
+        "ja": "私は今日はもう用がない。",
+        "en": "I have nothing more to do today.",
+        "enId": 257588,
+        "form": "用"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -473,6 +762,7 @@
     "meaning": "magazine, journal",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Zasshi is said to have been coined as a translation of English magazine, by the publisher of Seiyō Zasshi in 1867.",
@@ -499,6 +789,22 @@
         "quote": "Said to have been coined by Yanagawa Shunsan (柳川(やながわ)春三(しゅんさん)), publisher of 西洋(せいよう)雑誌(ざっし) (Seiyō Zasshi, “Western Magazine”, 1867), as a translation of English magazine."
       }
     ],
+    "examples": [
+      {
+        "id": 169532,
+        "ja": "雑誌をくれないか。",
+        "en": "Give me some kind of magazines, will you?",
+        "enId": 244954,
+        "form": "雑誌"
+      },
+      {
+        "id": 210473,
+        "ja": "その雑誌は毎週出る。",
+        "en": "The magazine comes out every week.",
+        "enId": 47741,
+        "form": "雑誌"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -508,6 +814,7 @@
     "meaning": "spirit, mood",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ki is from Middle Chinese 氣, the kan'on reading, so likely a later borrowing.",
@@ -520,6 +827,22 @@
         "quote": "The kan'on reading, so likely a later borrowing. Compare modern Mandarin 氣 /气 (qi), Northern Min 氣 /气 (ki̿), Min Nan 氣 /气 (khì)."
       }
     ],
+    "examples": [
+      {
+        "id": 183256,
+        "ja": "気は確かか。",
+        "en": "Are you crazy?",
+        "enId": 20379,
+        "form": "気"
+      },
+      {
+        "id": 183287,
+        "ja": "気がのらないな。",
+        "en": "I'm not in the mood.",
+        "enId": 20410,
+        "form": "気"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -529,6 +852,7 @@
     "meaning": "to think, to feel",
     "level": "N4",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "Omou has two main theories; one has it cognate with 面 (omo, “face”).",
@@ -547,6 +871,22 @@
         "quote": "* May be cognate with 重 (omo, “weight”), from the sense of weighing different options. Compare similar derivations of English ponder (as in “to weigh; to think”) and ponderous (as in “heavy, weighty”). However, this runs into problems, since the ancestor of this form is reconstructed as *onpo- (“heavy”)."
       }
     ],
+    "examples": [
+      {
+        "id": 203449,
+        "ja": "だと思った。",
+        "en": "That's what I thought.",
+        "enId": 271588,
+        "form": "思った"
+      },
+      {
+        "id": 5049,
+        "ja": "寝ようと思う。",
+        "en": "I think I'm gonna go to sleep.",
+        "enId": 1645,
+        "form": "思う"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -556,6 +896,7 @@
     "meaning": "paper",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["borrowing", "sound-change"],
     "headline": "Kami was kanpi: a sporadic change turned the mb sound into m, and Ainu borrowed it as kampi.",
@@ -566,6 +907,22 @@
       },
       {
         "quote": "An alternative hypothesis explains the Old Japanese word as a borrowing from Middle Chinese 簡 (kean^X, “bamboo slip used for writing”), with a shift in pronunciation from kan → */kamu/ → /kami/, with excrescent final -i as in 文 (fumi) from borrowed bun or pun. That would require the forms based on [ᵐb] to result from the sporadic change of [m] to [ᵐb], as in 黍 (/⁠kibi⁠/, “millet”) from Old Japanese 寸三 (/⁠ki₁mi₁⁠/). However, Ryukyuan reflexes appear to maintain a /b/ phone, which is more difficult to explain for a borrowing from Chinese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 147422,
+        "ja": "書く紙がない。",
+        "en": "There is no paper to write on.",
+        "enId": 267138,
+        "form": "紙"
+      },
+      {
+        "id": 81641,
+        "ja": "本は紙で出来ている。",
+        "en": "A book is made of paper.",
+        "enId": 322074,
+        "form": "紙"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -580,6 +937,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change", "unclear"],
     "headline": "Ao may have been sawo before it was awo, but the source says the leading s is unclear.",
@@ -595,6 +953,22 @@
         "quote": "Appears as the latter part in older compounds with an -s- infix or prefix. It is unclear if this leading /s/ is indicative of an earlier form (sawo), or if this was an addition for euphony to avoid vowel clusters, or for other reasons. This /s/ is also seen in 雨(あめ) (ame, “rain”, becoming same in old compounds) and 稲(いね) (ine, “rice”, becoming shine in old compounds)."
       }
     ],
+    "examples": [
+      {
+        "id": 145709,
+        "ja": "信号は青だ。",
+        "en": "The traffic signal is green.",
+        "enId": 268853,
+        "form": "青"
+      },
+      {
+        "id": 142128,
+        "ja": "赤信号が青に変った。",
+        "en": "The light changed from red to green.",
+        "enId": 272443,
+        "form": "青"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -604,6 +978,7 @@
     "meaning": "spring",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Haru went /paru/ → /ɸaru/ → /haru/ from Old Japanese.",
@@ -616,6 +991,22 @@
         "quote": "From Old Japanese."
       }
     ],
+    "examples": [
+      {
+        "id": 147599,
+        "ja": "春は冬の次です。",
+        "en": "Spring comes after winter.",
+        "enId": 266960,
+        "form": "春"
+      },
+      {
+        "id": 147606,
+        "ja": "春はもうすぐだ。",
+        "en": "Spring is just around the corner.",
+        "enId": 266950,
+        "form": "春"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -625,6 +1016,7 @@
     "meaning": "area, vicinity",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Hen went /pen/ → /fen/ → /hen/, from Middle Chinese 邊 (“edge; margin, border; nearby”).",
@@ -635,6 +1027,22 @@
       },
       {
         "quote": "From Middle Chinese 邊 (MC pen, “edge; margin, border; nearby, vicinity”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 219889,
+        "ja": "この辺だと思います。",
+        "en": "I think it's around here.",
+        "enId": 57209,
+        "form": "辺"
+      },
+      {
+        "id": 142870,
+        "ja": "正方形には四つの辺がある。",
+        "en": "A square has four sides.",
+        "enId": 271699,
+        "form": "辺"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -649,6 +1057,7 @@
       "adverb (fukushi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hajimete is from 始めて (hajimete), the conjunctive form of the verb 始める (hajimeru, “to begin, to start”).",
@@ -656,6 +1065,22 @@
     "sources": [
       {
         "quote": "From 始(はじ)めて (hajimete), the conjunctive form of the verb 始(はじ)める (hajimeru, “to begin, to start”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 122452,
+        "ja": "日本は初めてですか。",
+        "en": "Is this your first visit to Japan?",
+        "enId": 267007,
+        "form": "初めて"
+      },
+      {
+        "id": 147557,
+        "ja": "初めての診察ですか。",
+        "en": "Is this your first visit here?",
+        "enId": 267003,
+        "form": "初めて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -667,6 +1092,7 @@
     "meaning": "cloudiness, cloudy weather",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kumori is the stem form of the verb 曇る (kumoru, “to become cloudy”).",
@@ -674,6 +1100,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 曇(くも)る (kumoru, “to become cloudy, to cloud up”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 123255,
+        "ja": "曇りの日です。",
+        "en": "It's a cloudy day.",
+        "enId": 280744,
+        "form": "曇り"
+      },
+      {
+        "id": 171795,
+        "ja": "今日は曇りです。",
+        "en": "It's cloudy today.",
+        "enId": 242680,
+        "form": "曇り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -685,6 +1127,7 @@
     "meaning": "to learn, to commit to memory, to remember, to memorize",
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "Oboeru comes ultimately from 思う (omou, “to think”), by a nine-step sound path starting at omopu.",
@@ -727,6 +1170,22 @@
         "quote": "The verb was originally used in intransitive and passive contexts, in accordance with its derivation. It began to be used in more active and transitive contexts starting from roughly the mid-Heian period, with the learn and memorize senses appearing in the Kamakura period."
       }
     ],
+    "examples": [
+      {
+        "id": 184548,
+        "ja": "覚えてろよ。",
+        "en": "I will get even with you some day.",
+        "enId": 21676,
+        "form": "覚えてろ"
+      },
+      {
+        "id": 105475,
+        "ja": "彼は詩を覚えていた。",
+        "en": "He was learning a poem.",
+        "enId": 298214,
+        "form": "覚えていた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -736,6 +1195,7 @@
     "meaning": "to get up (e.g., from sleeping); to happen",
     "level": "N5",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf31"],
     "stratum": "wago",
     "processes": [],
     "headline": "Okiru descends from Old Japanese 起く (oku), from Proto-Japonic *əku.",
@@ -754,6 +1214,22 @@
         "quote": "First cited to the Man'yōshū of circa 759 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 140551,
+        "ja": "早く起きろ。",
+        "en": "Get up early.",
+        "enId": 274021,
+        "form": "起きろ"
+      },
+      {
+        "id": 182972,
+        "ja": "起きなさい！",
+        "en": "Get up!",
+        "enId": 20093,
+        "form": "起き"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -763,6 +1239,7 @@
     "meaning": "silk",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": ["borrowing"],
     "headline": "Kinu is possibly cognate with Chinese 絹 (juàn, “silk”), via early borrowing.",
@@ -775,6 +1252,22 @@
         "quote": "Possibly cognate with Chinese 絹 /绢 (juàn, “silk”) (compare Middle Chinese 絹 (kjwienH)) via early borrowing."
       }
     ],
+    "examples": [
+      {
+        "id": 175205,
+        "ja": "絹は手触りが柔らかい。",
+        "en": "Silk feels soft.",
+        "enId": 239261,
+        "form": "絹"
+      },
+      {
+        "id": 212868,
+        "ja": "そのドレスは絹製です。",
+        "en": "The dress is of silk.",
+        "enId": 50153,
+        "form": "絹"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -784,6 +1277,7 @@
     "meaning": "heavy; serious",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "wago",
     "processes": [],
     "headline": "Omoi is the attributive form of Early Middle Japanese 重し (omoshi), with the medial k fallen out.",
@@ -791,6 +1285,22 @@
     "sources": [
       {
         "quote": "From おもき (omoki), the 連体形 (rentaikei, “attributive form”) of Early Middle Japanese adjective 重し (omoshi), with the medial /-k-/ falling out; eventually from Proto-Japonic *onpo."
+      }
+    ],
+    "examples": [
+      {
+        "id": 219601,
+        "ja": "この本は重い。",
+        "en": "This book is heavy.",
+        "enId": 56922,
+        "form": "重い"
+      },
+      {
+        "id": 147977,
+        "ja": "重そうですから。",
+        "en": "Because it seems to be heavy.",
+        "enId": 266581,
+        "form": "重"
       }
     ],
     "wiktionaryDump": "2026-09-02"

@@ -6,6 +6,7 @@
     "meaning": "alcohol, sake",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "Three theories for sake — “flourish”, “ward off” cold illness, or a corruption of kushi — and none is settled.",
@@ -33,6 +34,22 @@
         "quote": "* The final -ke may be an apophonic form of Old Japanese 酒 (ki₁)."
       }
     ],
+    "examples": [
+      {
+        "id": 148452,
+        "ja": "酒におぼれるな。",
+        "en": "Don't indulge yourself too much in drinking.",
+        "enId": 266106,
+        "form": "酒"
+      },
+      {
+        "id": 148456,
+        "ja": "酒でも飲もうよ。",
+        "en": "Let's have a drink or something.",
+        "enId": 266103,
+        "form": "酒"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -42,6 +59,7 @@
     "meaning": "saucepan, pot",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": ["compound", "rendaku", "sound-change"],
     "headline": "A pot named for a snack: 鍋 is na (“small snack”) + he (“pot”), with rendaku turning he into be.",
@@ -57,6 +75,22 @@
         "quote": "Originally a compound of Old Japanese elements 肴 (na, “small snack, hors d'oeuvre”) + 瓮 (pe, modern he, “a pot or pan for holding food or beverages”). The he changes to be as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 123209,
+        "ja": "鍋を焦げつかせるな。",
+        "en": "Don't let the pan boil dry.",
+        "enId": 36283,
+        "form": "鍋"
+      },
+      {
+        "id": 179717,
+        "ja": "金は鍋を煮え立たせる。",
+        "en": "Money will make the pot boil.",
+        "enId": 18576,
+        "form": "鍋"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -66,6 +100,7 @@
     "meaning": "salt",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Shio is cognate with Ainu sippo, and the Nippo Jisho of 1603 shows it already softened.",
@@ -84,6 +119,15 @@
         "quote": "The medial consonant had already lenited to /w/ by 1603, as recorded in the Nippo Jisho."
       }
     ],
+    "examples": [
+      {
+        "id": 223651,
+        "ja": "このスープは塩が少し足りない。",
+        "en": "This soup wants a bit of salt.",
+        "enId": 60987,
+        "form": "塩"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -93,6 +137,7 @@
     "meaning": "miso, bean paste",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf32"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Vovin considers miso a borrowing from Koreanic — compare meju — and a 938 source calls it a “Korean sauce”.",
@@ -130,6 +175,15 @@
         "quote": "Cognate with Proto-Ryukyuan *miso. A Proto-Japonic *misV is sometimes reconstructed as the ancestor for both if Ryukyuan didn't borrow it directly from Japanese."
       }
     ],
+    "examples": [
+      {
+        "id": 76728,
+        "ja": "この電子辞書は携帯しやすいところが味噌です。",
+        "en": "The good thing about this electronic dictionary is that it's easy to carry.",
+        "enId": 326992,
+        "form": "味噌"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -139,6 +193,7 @@
     "meaning": "egg",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["rendaku"],
     "headline": "An egg is a “ball child”: 玉 (tama) + 子 (ko), with ko voiced to go.",
@@ -146,6 +201,22 @@
     "sources": [
       {
         "quote": "From 玉 (tama, “ball”) + 子 (ko, “child, small thing”). The ko reading for 子 changes to go as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 78489,
+        "ja": "卵は嫌いです。",
+        "en": "I don't care for eggs.",
+        "enId": 325226,
+        "form": "卵"
+      },
+      {
+        "id": 125772,
+        "ja": "鳥は卵を産む。",
+        "en": "Birds lay eggs.",
+        "enId": 278220,
+        "form": "卵"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -157,6 +228,7 @@
     "meaning": "pencil",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["wasei", "borrowing"],
     "headline": "Japanese for “pencil” is a calque of English “lead pencil”, built from a Chinese word.",
@@ -164,6 +236,22 @@
     "sources": [
       {
         "quote": "Calque of English lead pencil, from Middle Chinese 鉛筆 (MC ywen pit)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 227853,
+        "ja": "えんぴつであなたの名前を書きなさい。",
+        "en": "Write your name with the pencil.",
+        "enId": 65206,
+        "form": "えんぴつ"
+      },
+      {
+        "id": 146591,
+        "ja": "少年はエンピツをとがらせておくのが好きだった。",
+        "en": "The boy liked to keep his pencils sharp.",
+        "enId": 267971,
+        "form": "エンピツ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -175,6 +263,7 @@
     "meaning": "winter",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Fuyu began with a p: Old Japanese puyu, from Proto-Japonic *puyu.",
@@ -187,6 +276,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *puyu."
       }
     ],
+    "examples": [
+      {
+        "id": 124342,
+        "ja": "冬は疲れる。",
+        "en": "I feel more tired in the wintertime.",
+        "enId": 279651,
+        "form": "冬"
+      },
+      {
+        "id": 124350,
+        "ja": "冬は去った。",
+        "en": "Winter has gone.",
+        "enId": 279644,
+        "form": "冬"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -196,6 +301,7 @@
     "meaning": "cold (in reference to weather)",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "wago",
     "processes": [],
     "headline": "Samui was samushi, and from the Muromachi period it was sometimes pronounced sabushi.",
@@ -208,6 +314,22 @@
         "quote": "Starting in at least the Muromachi period, this term became sporadically pronounced with a medial /b/ as 寒(さぶ)し (sabushi) (not to be confused with 寂(さぶ)し (sabushi), original form of 寂(さび)しい (sabishii)). Compare the similar /m/~/b/ alternation seen in 寂しい (sabishii, samishii, “lonely, desolate”), 頭 (tsuburi, tsumuri, “head”), and 煙 (keburi, kemuri, “smoke”). Related to 冷(さ)む (samu, “to cool down”), modern 冷(さ)める (sameru)."
       }
     ],
+    "examples": [
+      {
+        "id": 184049,
+        "ja": "寒いからコートを着るべきだ。",
+        "en": "It's cold so you should wear a coat.",
+        "enId": 21177,
+        "form": "寒い"
+      },
+      {
+        "id": 10849985,
+        "ja": "昨夜はすごく寒かったから、外に出ないで中に閉じこもってたよ。",
+        "en": "It was very cold last night, so we didn't go outside, but stayed indoors.",
+        "enId": 244486,
+        "form": "寒かった"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -217,6 +339,7 @@
     "meaning": "snow",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Snow is yuki, but one eastern-dialect song in the Man'yōshū has yoki, and some reconstruct *yoki as the ancestor.",
@@ -235,6 +358,22 @@
         "quote": "Reconstructed by some as deriving from Proto-Japonic *yoki."
       }
     ],
+    "examples": [
+      {
+        "id": 141968,
+        "ja": "雪は消えた。",
+        "en": "The snow has disappeared.",
+        "enId": 272602,
+        "form": "雪"
+      },
+      {
+        "id": 171563,
+        "ja": "今日は雪です。",
+        "en": "It's snowy today.",
+        "enId": 242911,
+        "form": "雪"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -244,6 +383,7 @@
     "meaning": "ice, hail",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ice is a verb turned noun: kōri is the stem of 凍る (kōru, “to freeze”).",
@@ -259,6 +399,22 @@
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 凍(こお)る (kōru, “to freeze”)."
       }
     ],
+    "examples": [
+      {
+        "id": 85399,
+        "ja": "氷が溶けている。",
+        "en": "The ice is melting.",
+        "enId": 318313,
+        "form": "氷"
+      },
+      {
+        "id": 85392,
+        "ja": "氷のように冷たい。",
+        "en": "It's as cold as ice.",
+        "enId": 442090,
+        "form": "氷"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -268,6 +424,7 @@
     "meaning": "smoke, fumes",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": ["clipping", "sound-change"],
     "headline": "Smoke was keburi before it was kemuri, and the shorter kemu is a clipping attested since 1275.",
@@ -292,6 +449,22 @@
         "quote": "Attested since at least 1275."
       }
     ],
+    "examples": [
+      {
+        "id": 8614390,
+        "ja": "彼は部屋に満ちていた煙にむせ返った。",
+        "en": "He was choked by the smoke which filled the room.",
+        "enId": 8614397,
+        "form": "煙"
+      },
+      {
+        "id": 169174,
+        "ja": "仕事している時に他人のたばこのけむりを吸うのはいやだ。",
+        "en": "I don't like to inhale someone's smoke while I'm working.",
+        "enId": 245313,
+        "form": "けむり"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -301,6 +474,7 @@
     "meaning": "fire",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Fire has a hidden twin: hi is an apophonic form of ho, as ki (“tree”) pairs with ko-.",
@@ -316,6 +490,22 @@
         "quote": "Apophonic form of ho (see below). Compare 木 (ki, ko-, “tree”)."
       }
     ],
+    "examples": [
+      {
+        "id": 186729,
+        "ja": "火は燃える。",
+        "en": "Fire burns.",
+        "enId": 23865,
+        "form": "火"
+      },
+      {
+        "id": 186735,
+        "ja": "火は消えた。",
+        "en": "The fire went out.",
+        "enId": 23871,
+        "form": "火"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -325,6 +515,7 @@
     "meaning": "flame",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Flame is “fire's ear of grain”: 火 (ho) + の (no) + 穂 (ho).",
@@ -340,6 +531,22 @@
         "quote": "Compound of 火 (ho, combining form of hi, “fire”) + の (no, possessive particle) + 穂 (ho, “ear (of grain)”)."
       }
     ],
+    "examples": [
+      {
+        "id": 188761,
+        "ja": "炎を弱くしなさい。",
+        "en": "Turn the flame down low.",
+        "enId": 25907,
+        "form": "炎"
+      },
+      {
+        "id": 188762,
+        "ja": "炎が森を包み込んだ。",
+        "en": "Fire devoured the forest.",
+        "enId": 25908,
+        "form": "炎"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -349,6 +556,7 @@
     "meaning": "hot water",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yu goes back to Proto-Japonic *yu and appears in both the Kojiki (712 CE) and the Man'yōshū.",
@@ -361,6 +569,22 @@
         "quote": "First attested in the Kojiki of 712 CE. Also used in the Man'yōshū, completed some time after 759 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 170878,
+        "ja": "砂糖は湯に入れると溶ける。",
+        "en": "Sugar dissolves in hot water.",
+        "enId": 1312579,
+        "form": "湯"
+      },
+      {
+        "id": 142668,
+        "ja": "この湯は精神と肉体の調和をもたらすと言われています。",
+        "en": "It is said that this hot water brings a balance between body and mind.",
+        "enId": 271902,
+        "form": "湯"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -370,6 +594,7 @@
     "meaning": "heater (lit: stove)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Japanese ストーブ is borrowed straight from English stove.",
@@ -385,6 +610,22 @@
         "quote": "Borrowed from English stove."
       }
     ],
+    "examples": [
+      {
+        "id": 113365,
+        "ja": "彼はストーブで体を暖めた。",
+        "en": "He warmed himself at the stove.",
+        "enId": 290308,
+        "form": "ストーブ"
+      },
+      {
+        "id": 214597,
+        "ja": "ストーブで体を温めなさい。",
+        "en": "Warm up using the stove.",
+        "enId": 51890,
+        "form": "ストーブ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -394,6 +635,7 @@
     "meaning": "sweater",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Japanese セーター is borrowed straight from English sweater.",
@@ -409,6 +651,22 @@
         "quote": "Borrowed from English sweater."
       }
     ],
+    "examples": [
+      {
+        "id": 92658,
+        "ja": "彼女はセーターを着た。",
+        "en": "She pulled her sweater on.",
+        "enId": 311051,
+        "form": "セーター"
+      },
+      {
+        "id": 223604,
+        "ja": "このセーターは暖かい。",
+        "en": "This sweater is warm.",
+        "enId": 60940,
+        "form": "セーター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -418,6 +676,7 @@
     "meaning": "shoes, footwear",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["derivation", "borrowing", "sound-change", "unclear"],
     "headline": "Who borrowed from whom? Some Japanese sources say kutsu comes from Korean gudu; some Korean sources say the reverse.",
@@ -436,6 +695,22 @@
         "quote": "Ultimate derivation unclear. Some Japanese sources suggest a borrowing from or cognate with Korean 구두 (gudu, “shoes”), but then some Korean sources suggest that the Korean term was borrowed from Japanese 靴 (kutsu, “shoes”)."
       }
     ],
+    "examples": [
+      {
+        "id": 179237,
+        "ja": "靴を履いて。",
+        "en": "Put on your shoes.",
+        "enId": 18093,
+        "form": "靴"
+      },
+      {
+        "id": 117753,
+        "ja": "彼の靴は茶色だ。",
+        "en": "His shoes are brown.",
+        "enId": 285911,
+        "form": "靴"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -445,6 +720,7 @@
     "meaning": "cough",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "wago",
     "processes": [],
     "headline": "A cough is a verb stem, and seki is cognate with 堰 (seki, “dam”).",
@@ -452,6 +728,22 @@
     "sources": [
       {
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb せく (seku, “to cough”). Cognate with 堰 (seki, “dam”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 214050,
+        "ja": "せきが出ます。",
+        "en": "I have a cough.",
+        "enId": 51340,
+        "form": "せき"
+      },
+      {
+        "id": 214051,
+        "ja": "せきが止まりません。",
+        "en": "I can't stop coughing.",
+        "enId": 51341,
+        "form": "せき"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -463,6 +755,7 @@
     "meaning": "house, home",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "House took four steps from ipe to ie, and Old Korean may have a cousin.",
@@ -478,6 +771,22 @@
         "quote": "Possibly related to 廬 (iho → io, “temporary hut”)."
       }
     ],
+    "examples": [
+      {
+        "id": 187096,
+        "ja": "家に帰るよ。",
+        "en": "I leave to go home.",
+        "enId": 24233,
+        "form": "家"
+      },
+      {
+        "id": 187144,
+        "ja": "家が火事だ。",
+        "en": "The house is on fire!",
+        "enId": 24281,
+        "form": "家"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -487,6 +796,7 @@
     "meaning": "wall",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "A wall is a “place divider”: 処 (ka, “place”) + 重 (he, “division”), with he voiced to be.",
@@ -494,6 +804,22 @@
     "sources": [
       {
         "quote": "Compound of 処(か) (ka, “place”) + 重(へ) (he, “division”), in reference to walls dividing objects apart. The he changes to be as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 99921,
+        "ja": "彼は壁にペンキの上塗りをした。",
+        "en": "He put the final coat of paint on the wall.",
+        "enId": 2098808,
+        "form": "壁"
+      },
+      {
+        "id": 226235,
+        "ja": "かべにかかっている絵をごらんなさい。",
+        "en": "Look at the picture on the wall.",
+        "enId": 63575,
+        "form": "かべ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -505,6 +831,7 @@
     "meaning": "floor",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Yuka meant “bed” in the Nihon Shoki, and a 1668 scholar derived it from “not going”.",
@@ -517,6 +844,22 @@
         "quote": "According to the 和(わ)句(く)解(げ) (Wakuge), published in 1668 by early Edo-period scholar 松(まつ)永(なが)貞(てい)徳(とく) (Matsunaga Teitoku), derives from 行(ゆ)か (yuka), the 未(み)然(ぜん)形(けい) (mizenkei, “irrealis form”) stem of the verb 行(ゆ)く (yuku, “to go”), of an original meaning similar to “not going”, in reference to a place where one sits down to rest."
       }
     ],
+    "examples": [
+      {
+        "id": 146475,
+        "ja": "床に伏せろ！",
+        "en": "Get down!",
+        "enId": 268087,
+        "form": "床"
+      },
+      {
+        "id": 146483,
+        "ja": "床が崩壊した。",
+        "en": "The floor gave way.",
+        "enId": 268079,
+        "form": "床"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -526,6 +869,7 @@
     "meaning": "store, shop",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Mise is short for misedana: miseru (“to show”) + tana (“shelf”).",
@@ -533,6 +877,22 @@
     "sources": [
       {
         "quote": "Short for earlier 見(み)せ棚(だな) (misedana), from 見(み)せる (miseru, “to show”) + 棚(たな) (tana, “shelf”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 101917,
+        "ja": "彼は店に行った。",
+        "en": "He went to the store.",
+        "enId": 485111,
+        "form": "店"
+      },
+      {
+        "id": 124992,
+        "ja": "店は７時に閉まる。",
+        "en": "The shop closes at seven.",
+        "enId": 279001,
+        "form": "店"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -544,6 +904,7 @@
     "meaning": "mirror",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A mirror is “shadow-seeing”: kaga (影, “shadow; image”) + mi (見, “seeing”).",
@@ -556,6 +917,22 @@
         "quote": "Originally a compound of 影 (kaga, ancient combining form of 影 (kage), “shadow; outline; figure; image”) + 見 (mi, “seeing”, the 連用形 (ren'yōkei, “stem or continuative form”) of verb 見る (miru), “to see, to look at”)."
       }
     ],
+    "examples": [
+      {
+        "id": 79953,
+        "ja": "目は心の鏡。",
+        "en": "The eye is the mirror of the soul.",
+        "enId": 323764,
+        "form": "鏡"
+      },
+      {
+        "id": 180064,
+        "ja": "鏡は光を反射する。",
+        "en": "A mirror reflects light.",
+        "enId": 18924,
+        "form": "鏡"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -565,6 +942,7 @@
     "meaning": "star",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hoshi began as posi, from Proto-Japonic *pəsi.",
@@ -577,6 +955,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *pəsi."
       }
     ],
+    "examples": [
+      {
+        "id": 143042,
+        "ja": "星に願いを。",
+        "en": "Let me wish upon a shooting star.",
+        "enId": 271526,
+        "form": "星"
+      },
+      {
+        "id": 143043,
+        "ja": "星が出てきた。",
+        "en": "The stars came out.",
+        "enId": 271525,
+        "form": "星"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -586,6 +980,7 @@
     "meaning": "moon",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tsuki was once tuki, and Wiktionary notes a vowel alternation between its standalone and combining forms.",
@@ -601,6 +996,22 @@
         "quote": "For the vowel alternation, see WT:AJPX#Standalone forms and combining forms."
       }
     ],
+    "examples": [
+      {
+        "id": 175637,
+        "ja": "月は昇った。",
+        "en": "The moon is risen.",
+        "enId": 238788,
+        "form": "月"
+      },
+      {
+        "id": 175672,
+        "ja": "月が沈んだ。",
+        "en": "The moon has set.",
+        "enId": 238792,
+        "form": "月"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -610,6 +1021,7 @@
     "meaning": "cat",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [
       "compound",
@@ -643,6 +1055,22 @@
         "quote": "As a result, this term is one example of words that have the same pitch accent pattern between Tokyo and Osaka/Kyoto. The confusion seems to be due to an impression that the term comes from a compound word origin."
       }
     ],
+    "examples": [
+      {
+        "id": 198627,
+        "ja": "ネコがいる。",
+        "en": "There is a cat.",
+        "enId": 35821,
+        "form": "ネコ"
+      },
+      {
+        "id": 121984,
+        "ja": "猫に九生あり。",
+        "en": "A cat has nine lives.",
+        "enId": 282019,
+        "form": "猫"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -652,6 +1080,7 @@
     "meaning": "dog",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "borrowing", "unclear"],
     "headline": "Derivation uncertain: from “to leave”, from “house” + “sleep”, from 狗 — or borrowed from some unknown language.",
@@ -659,6 +1088,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *enu. Derivation uncertain. Various theories exist, including derivation from ancient verb 往ぬ (inu, “to leave, to be gone”), from the way a dog will guard the house while the master is away; from a compound of 家 (ie, “house, home”) + 寝 (nu, “to sleep”, ancient monosyllabic form of modern 寝る neru); from ancient Japanese 狗 (enu < wenu, “puppy, dog”), itself of uncertain derivation; or as a borrowing from some other unknown language."
+      }
+    ],
+    "examples": [
+      {
+        "id": 217997,
+        "ja": "これらのイヌは大きい。",
+        "en": "These dogs are big.",
+        "enId": 55306,
+        "form": "イヌ"
+      },
+      {
+        "id": 228576,
+        "ja": "いぬが後についてきた。",
+        "en": "The dog followed me.",
+        "enId": 65934,
+        "form": "いぬ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -670,6 +1115,7 @@
     "meaning": "cattle, cow",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Cow is Proto-Japonic *‹u,o›si: the reconstruction cannot decide between u and o.",
@@ -688,6 +1134,7 @@
     "meaning": "horse; promoted bishop (in Japanese chess known as shogi)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": [],
     "headline": "Was it muma? Wiktionary notes the “ma” horse words across Asia, even English mare, but says no consensus exists.",
@@ -703,6 +1150,15 @@
         "quote": "The ma sound denoting \"horse\" is common to a number of languages of central Asia, where horses were first domesticated, which has led some to speculate about a possible cognate root (but no consensus on any kind of relation exists). Compare Manchu ᠮᠣᡵᡳᠨ (morin, “horse”), Mongolian морь (morʹ, “horse”), Korean 말 (mal, “horse”), Mandarin 馬 /马 (mǎ, “horse”), and Proto-Indo-European *márkos (“horse”) and descendants such as Irish marc (“horse”, archaic) or English mare (“female horse”). More at *márkos."
       }
     ],
+    "examples": [
+      {
+        "id": 216129,
+        "ja": "しばらくこのうまにのってもよいですか。",
+        "en": "Can I ride this horse for a long time?",
+        "enId": 53431,
+        "form": "うま"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -712,6 +1168,7 @@
     "meaning": "bird; chicken",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "A bird (tori) may be kin to the Korean word for chicken, 닭 (dak).",

@@ -6,6 +6,7 @@
     "meaning": "assigning (allotment of) parts, role, duties",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Yakuwari is 役 (yaku, “service, work, role”) plus 割り (wari), the noun form of 割る (waru, “to divide”).",
@@ -28,6 +29,22 @@
         "quote": "From 役 (yaku, “service, work, role”) and 割り (wari), the noun form of 割る (waru, “to divide”)."
       }
     ],
+    "examples": [
+      {
+        "id": 162517,
+        "ja": "私の役割は何ですか。",
+        "en": "Where do I come in?",
+        "enId": 251997,
+        "form": "役割"
+      },
+      {
+        "id": 113034,
+        "ja": "彼はその革命で積極的な役割をした。",
+        "en": "He played an active part in the revolution.",
+        "enId": 290641,
+        "form": "役割"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -37,6 +54,7 @@
     "meaning": "to burn",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Moeru is from the classical verb 燃ゆ (moyu), by way of moju and mojeru.",
@@ -55,6 +73,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 80140,
+        "ja": "木が燃える。",
+        "en": "Wood burns.",
+        "enId": 323576,
+        "form": "燃える"
+      },
+      {
+        "id": 186729,
+        "ja": "火は燃える。",
+        "en": "Fire burns.",
+        "enId": 23865,
+        "form": "燃える"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -64,6 +98,7 @@
     "meaning": "to cover, to hide, to conceal",
     "level": "N3",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ōu is the Old Japanese verb 覆ふ (opu, “cover from above”) plus ふ (-fu), which expresses repetition or ongoing state.",
@@ -76,6 +111,22 @@
         "quote": "From the Old Japanese verb 覆(お)ふ (opu, “cover from above”) + ふ (-fu, auxiliary verb modifier, expressing repetition or ongoing state)."
       }
     ],
+    "examples": [
+      {
+        "id": 126110,
+        "ja": "町は雪で覆われていた。",
+        "en": "The city was blanketed with snow.",
+        "enId": 277882,
+        "form": "覆われていた"
+      },
+      {
+        "id": 179423,
+        "ja": "空は雲で覆われている。",
+        "en": "The sky is covered with clouds.",
+        "enId": 18282,
+        "form": "覆われている"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -85,6 +136,7 @@
     "meaning": "tower, pagoda",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["borrowing", "clipping", "sound-change"],
     "headline": "Tō, “tower”, abbreviates 卒塔婆 (sotoba), a transliteration of Sanskrit stūpa, “heap”.",
@@ -100,6 +152,22 @@
         "quote": "An abbreviation for 卒塔婆 (sotoba, sotōba), a transliteration of Sanskrit स्तूप (stūpa, “heap”)."
       }
     ],
+    "examples": [
+      {
+        "id": 229682,
+        "ja": "あれは塔です。",
+        "en": "That is a pagoda.",
+        "enId": 67042,
+        "form": "塔"
+      },
+      {
+        "id": 188681,
+        "ja": "遠くに塔が見えた。",
+        "en": "We saw the tower in the distance.",
+        "enId": 25827,
+        "form": "塔"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -109,6 +177,7 @@
     "meaning": "nest, breeding place",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Su, “nest”, is found in the Kojiki of 712, from Proto-Japonic *su.",
@@ -116,6 +185,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Found in the Kojiki of 712, and included in the Man'yōshū with the phonetic man'yōgana spelling 須 (su). In turn, from Proto-Japonic *su."
+      }
+    ],
+    "examples": [
+      {
+        "id": 126772,
+        "ja": "蜘蛛は巣を張る。",
+        "en": "A spider weaves a web.",
+        "enId": 277318,
+        "form": "巣"
+      },
+      {
+        "id": 125775,
+        "ja": "鳥は木に巣を作る。",
+        "en": "Birds make their nests in trees.",
+        "enId": 278217,
+        "form": "巣"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -127,6 +212,7 @@
     "meaning": "(social) position, status",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Chii is from Middle Chinese 地位, first cited in Japanese in the mid-1200s, so possibly a learned borrowing.",
@@ -149,6 +235,22 @@
         "quote": "Ultimately from Middle Chinese 地位 (MC dijH hwijH). First cited in Japanese to a text from the mid-1200s, so possibly a learned borrowing from Chinese 地位 (dìwèi)."
       }
     ],
+    "examples": [
+      {
+        "id": 102232,
+        "ja": "彼は地位に満足だ。",
+        "en": "He enjoys his position.",
+        "enId": 301462,
+        "form": "地位"
+      },
+      {
+        "id": 110457,
+        "ja": "彼はよい地位を得た。",
+        "en": "He got a good appointment.",
+        "enId": 293229,
+        "form": "地位"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -158,6 +260,7 @@
     "meaning": "folding fan",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sensu is first attested in Japanese in the Taiheiki of the late 1300s.",
@@ -183,6 +286,15 @@
         "quote": "First attested in Japanese in the Taiheiki of the late 1300s."
       }
     ],
+    "examples": [
+      {
+        "id": 77107,
+        "ja": "犬が腕時計と扇子を食った。",
+        "en": "The dog ate a watch and a Japanese fan.",
+        "enId": 326612,
+        "form": "扇子"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -195,6 +307,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Hitomi is likely 人 (hito, “person”) plus 見 (mi, “see”): one's own reflection in someone else's eyes.",
@@ -202,6 +315,22 @@
     "sources": [
       {
         "quote": "Likely 人(ひと) (hito, “person”) + 見(み) (mi, “see”), in reference to one's own reflection when staring into someone else's eyes. Compare Latin pūpilla, of the same derivation."
+      }
+    ],
+    "examples": [
+      {
+        "id": 167090,
+        "ja": "瞳は日のあたる所では収縮する。",
+        "en": "The pupils of the eyes contract in sunlight.",
+        "enId": 247412,
+        "form": "瞳"
+      },
+      {
+        "id": 233059,
+        "ja": "あなたの瞳に、吸い込まれそう！",
+        "en": "I feel like I'm being drawn into your eyes.",
+        "enId": 70430,
+        "form": "瞳"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -213,6 +342,7 @@
     "meaning": "noisy; annoying",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Urusai is probably 心 (uru, “heart, mind”) plus 狭し (sashi, “tight; narrow”): something so overwhelming that one feels pressured.",
@@ -237,6 +367,7 @@
     "meaning": "to change, to alter, to vary",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["news2", "nf34", "spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaeru, “to change”, is from Old Japanese かふ (kapu).",
@@ -255,6 +386,22 @@
         "quote": "Cognate with 替(か)える (kaeru), 代(か)える (kaeru) and 換(か)える (kaeru)."
       }
     ],
+    "examples": [
+      {
+        "id": 98842,
+        "ja": "彼は話題を変えた。",
+        "en": "He changed the topic of conversation.",
+        "enId": 304858,
+        "form": "変えた"
+      },
+      {
+        "id": 106605,
+        "ja": "彼は仕事を変えた。",
+        "en": "He changed his job.",
+        "enId": 297080,
+        "form": "変えた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -264,6 +411,7 @@
     "meaning": "aunt (younger than one's parent)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20", "news2", "nf30"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Oba, an aunt, is likely 小 (o-, “small, young”) plus 母 (ha, “mother”), as 叔父 (oji) is 小 plus 父.",
@@ -285,6 +433,7 @@
     "meaning": "parking lot",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chūshajō is 駐車 (chūsha, “(car) parking”) plus 場 (-jō, “place”).",
@@ -305,6 +454,22 @@
         "quote": "駐車(ちゅうしゃ) (chūsha, “(car) parking”) + 場(じょう) (-jō, “place”)"
       }
     ],
+    "examples": [
+      {
+        "id": 126297,
+        "ja": "駐車場はありますか。",
+        "en": "Is there a parking lot?",
+        "enId": 277695,
+        "form": "駐車場"
+      },
+      {
+        "id": 207839,
+        "ja": "その駐車場は無料だ。",
+        "en": "The parking lot is free of charge.",
+        "enId": 45093,
+        "form": "駐車場"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -314,6 +479,7 @@
     "meaning": "Here I am, I'm home!",
     "level": "N2",
     "pos": ["interjection (kandoushi)", "expressions (phrases, clauses, etc.)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tadaima is short for 只今、帰りました (tadaima, kaerimashita), “I'm back right now”.",
@@ -335,6 +501,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": [],
     "headline": "Mukai is the continuative stem of 向かう (mukau, “to face”).",
@@ -342,6 +509,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 向(む)かう (mukau, “to face”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124984,
+        "ja": "店は銀行の向かいにある。",
+        "en": "The shop is across from the bank.",
+        "enId": 279008,
+        "form": "向かい"
+      },
+      {
+        "id": 202926,
+        "ja": "ちょうど教会の向かいです。",
+        "en": "It's just across the street from the church.",
+        "enId": 40160,
+        "form": "向かい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -357,6 +540,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In hōtai, 包 is a daiyōji replacing 繃.",
@@ -379,6 +563,22 @@
         "quote": "包 is a daiyōji replacing 繃."
       }
     ],
+    "examples": [
+      {
+        "id": 82761,
+        "ja": "包帯をしなさい。",
+        "en": "Apply a bandage.",
+        "enId": 320955,
+        "form": "包帯"
+      },
+      {
+        "id": 88710,
+        "ja": "彼女は傷口に包帯をした。",
+        "en": "She applied a bandage to the wound.",
+        "enId": 314997,
+        "form": "包帯"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -388,6 +588,7 @@
     "meaning": "tune, tone, knob",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Fushi was pusi in Old Japanese, attested in 794 as 布之.",
@@ -395,6 +596,15 @@
     "sources": [
       {
         "quote": "From Old Japanese 節 (pusi); attested in the Shin'yaku Kegonkyō Ongi Shiki of 794 as 布之. In turn, from Proto-Japonic *pusi. Possibly derived from Old Japanese 節 (pu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 118907,
+        "ja": "彼には加古川の人を軽蔑しているふしがある。",
+        "en": "He seems to hold people from Kakogawa in contempt.",
+        "enId": 284755,
+        "form": "ふし"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -406,6 +616,7 @@
     "meaning": "date, dating",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hizuke is 日 (hi, “day”) plus 付け (-zuke, “fixing, attaching”).",
@@ -426,6 +637,22 @@
         "quote": "日(ひ) (hi, “day”) + 付(づ)け (-zuke, “fixing, attaching”)"
       }
     ],
+    "examples": [
+      {
+        "id": 157961,
+        "ja": "私は会議の日付を忘れた。",
+        "en": "I forgot the date of the meeting.",
+        "enId": 256569,
+        "form": "日付"
+      },
+      {
+        "id": 87635,
+        "ja": "彼女は日付を数字で書いた。",
+        "en": "She wrote the date in numeric form.",
+        "enId": 316073,
+        "form": "日付"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -435,6 +662,7 @@
     "meaning": "to see off; to escort; to let pass",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Miokuru is 見 (mi, “seeing”) plus 送る (okuru, “to send”).",
@@ -455,6 +683,22 @@
         "quote": "見(み) (mi, “seeing”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見(み)る (miru, “to see”)) + 送(おく)る (okuru, “to send”)"
       }
     ],
+    "examples": [
+      {
+        "id": 179359,
+        "ja": "空港で彼女を見送った。",
+        "en": "We saw her off at the airport.",
+        "enId": 18216,
+        "form": "見送った"
+      },
+      {
+        "id": 95911,
+        "ja": "彼を空港で見送りました。",
+        "en": "I saw him off at the airport.",
+        "enId": 307794,
+        "form": "見送りました"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -464,6 +708,7 @@
     "meaning": "to be prolonged",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nobiru, “to be prolonged”, is from the classical upper bigrade verb のぶ, cognate with 伸びる (nobiru).",
@@ -482,6 +727,7 @@
     "meaning": "to predict, to divine",
     "level": "N2",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf28"],
     "stratum": "wago",
     "processes": [],
     "headline": "Uranau is from 裏 (ura, “back, inside”) or 心 (ura, “heart”), plus なふ (nau, verb modifier).",
@@ -489,6 +735,15 @@
     "sources": [
       {
         "quote": "From either 裏(うら) (ura, “back, inside”) or 心(うら) (ura, “heart”, by extension, \"inner feelings\"), and なふ (nau, verb modifier)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 158385,
+        "ja": "私は運勢を占ってもらった。",
+        "en": "I had my fortune told.",
+        "enId": 256145,
+        "form": "占って"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -500,6 +755,7 @@
     "meaning": "to extend, to make progress, to grow",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": [],
     "headline": "This nobiru, written 伸, shares its classical verb のぶ (nobu) with 延びる (nobiru).",
@@ -515,6 +771,22 @@
         "quote": "Natural progression from Old and Classical Japanese 上(かみ)二(に)段(だん)活(かつ)用(よう) (kami nidan katsuyō, “upper bigrade conjugation”) verbs ending in -u to modern Japanese 上(かみ)一(いち)段(だん)活(かつ)用(よう) (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
       }
     ],
+    "examples": [
+      {
+        "id": 121302,
+        "ja": "髪が伸びてきた。",
+        "en": "My hair has grown out.",
+        "enId": 282704,
+        "form": "伸びて"
+      },
+      {
+        "id": 109170,
+        "ja": "彼は過労で伸びている。",
+        "en": "He has been exhausted from overwork.",
+        "enId": 294520,
+        "form": "伸びている"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -524,6 +796,7 @@
     "meaning": "very (much), greatly, exceedingly",
     "level": "N5",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["clipping", "sound-change"],
     "headline": "Totemo is a clipping of とてもかくても (“no matter how, not at all”); the sense “very” is a later shift, first attested around 1910-1920.",
@@ -542,6 +815,7 @@
     "meaning": "joy, pleasure, rejoicing",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yorokobi is the continuative stem of 喜ぶ (yorokobu, “to be pleased, delighted”).",
@@ -549,6 +823,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 喜(よろこ)ぶ (yorokobu, “to be pleased, delighted”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 183564,
+        "ja": "喜びでわくわくした。",
+        "en": "I jumped for joy.",
+        "enId": 20687,
+        "form": "喜び"
+      },
+      {
+        "id": 183565,
+        "ja": "喜びが彼の顔に出た。",
+        "en": "His joy showed on his face.",
+        "enId": 20688,
+        "form": "喜び"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -560,6 +850,7 @@
     "meaning": "suddenly",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["spec1"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kyū ni is 急 (kyū, “sudden”) plus に (ni, oblique particle).",
@@ -580,6 +871,22 @@
         "quote": "From 急(きゅう) (kyū, “sudden”) + に (ni, oblique particle)."
       }
     ],
+    "examples": [
+      {
+        "id": 108466,
+        "ja": "彼は急に居直った。",
+        "en": "He changed his attitude suddenly.",
+        "enId": 295220,
+        "form": "急に"
+      },
+      {
+        "id": 148998,
+        "ja": "車は急に左折した。",
+        "en": "The car cut to the left.",
+        "enId": 265560,
+        "form": "急に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -589,6 +896,7 @@
     "meaning": "and, then",
     "level": "N4",
     "pos": ["conjunction"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Suruto is する (suru, “to do”) plus と (to): literally “when doing [whatever came before], then [whatever comes after]”.",
@@ -609,6 +917,22 @@
         "quote": "From する (suru, “to do”) + と (to, “when, whenever”, temporal particle). Literally, \"when doing [whatever came before], then [whatever comes after]\"."
       }
     ],
+    "examples": [
+      {
+        "id": 214097,
+        "ja": "するとあなたは幸せでしょう。",
+        "en": "Then you will be happy.",
+        "enId": 51387,
+        "form": "すると"
+      },
+      {
+        "id": 214099,
+        "ja": "すると、たまたま少女のおばあちゃんが通りかかる。",
+        "en": "Along comes the grandmother and sees her granddaughter.",
+        "enId": 51389,
+        "form": "すると"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -618,6 +942,7 @@
     "meaning": "to return, to come back; to turn over",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaeru, “to return”, is from Old Japanese, from Proto-Japonic *kapyaru.",
@@ -636,6 +961,7 @@
     "meaning": "hateful, abominable, detestable",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["news2", "nf36", "spec2"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Nikui is cognate with 憎む (nikumu, “to hate”).",
@@ -643,6 +969,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Cognate with 憎む (nikumu, “to hate”), 難い (-nikui, “difficult [to do]”, verb suffix)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 140231,
+        "ja": "憎い憎いは可愛いの裏。",
+        "en": "Hatred is the other side of cuteness.",
+        "enId": 12613035,
+        "form": "憎い"
+      },
+      {
+        "id": 226121,
+        "ja": "かわいさ余って憎さ百倍。",
+        "en": "The greatest hate springs from the greatest love.",
+        "enId": 63461,
+        "form": "憎"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -654,6 +996,7 @@
     "meaning": "but, however",
     "level": "N3",
     "pos": ["conjunction"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Daga is だ (da, “is, are”, copula) plus が (ga).",
@@ -677,6 +1020,22 @@
         "quote": "が is also used after verbs in this same way to indicate “the previous statement is the case, but...”"
       }
     ],
+    "examples": [
+      {
+        "id": 74595,
+        "ja": "だがすでに、賽は投げられた。",
+        "en": "However, the die had already been cast.",
+        "enId": 329124,
+        "form": "だが"
+      },
+      {
+        "id": 203847,
+        "ja": "だが、ビルは「バナナ」と言った。",
+        "en": "However, Bill said \"banana.\"",
+        "enId": 41088,
+        "form": "だが"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -686,6 +1045,7 @@
     "meaning": "that",
     "level": "N5",
     "pos": ["pre-noun adjectival (rentaishi)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Sono is そ, the distal demonstrative root of Old Japanese, plus の (no).",
@@ -710,6 +1070,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In chūmon, 注 is a daiyōji replacing 註.",
@@ -732,6 +1093,22 @@
         "quote": "注 is a daiyōji replacing 註."
       }
     ],
+    "examples": [
+      {
+        "id": 217060,
+        "ja": "ご注文をどうぞ。",
+        "en": "May I have your order, please?",
+        "enId": 54367,
+        "form": "注文"
+      },
+      {
+        "id": 126329,
+        "ja": "注文の品が届いた。",
+        "en": "The items which you ordered arrived.",
+        "enId": 277661,
+        "form": "注文"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -745,6 +1122,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Saitei is 最 (sai-, “most”) plus 低 (tei, “low”).",
@@ -763,6 +1141,22 @@
     "sources": [
       {
         "quote": "From 最(さい) (sai-, “most”) + 低(てい) (tei, “low”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 231211,
+        "ja": "あの映画、最低！",
+        "en": "That movie stinks!",
+        "enId": 68577,
+        "form": "最低"
+      },
+      {
+        "id": 85798,
+        "ja": "費用は最低一万円です。",
+        "en": "The expense is 10000 yen at lowest.",
+        "enId": 317915,
+        "form": "最低"
       }
     ],
     "wiktionaryDump": "2026-09-02"

@@ -9,6 +9,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "システム is from English system.",
@@ -24,6 +25,22 @@
         "quote": "From English system."
       }
     ],
+    "examples": [
+      {
+        "id": 216182,
+        "ja": "システムが作動しない場合がある。",
+        "en": "There are cases where the system doesn't go.",
+        "enId": 53485,
+        "form": "システム"
+      },
+      {
+        "id": 223714,
+        "ja": "このシステムには明らかな欠陥がある。",
+        "en": "This system has obvious defects.",
+        "enId": 61050,
+        "form": "システム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -33,6 +50,7 @@
     "meaning": "spark",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Hibana is 火 (hi, “fire”) plus 花 (hana, “flower”).",
@@ -54,6 +72,15 @@
         "quote": "火 (hi, “fire”) + 花 (hana, “flower”)"
       }
     ],
+    "examples": [
+      {
+        "id": 389691,
+        "ja": "小さな火花はしばしば大きな炎を起こす。",
+        "en": "A small spark often kindles a large flame.",
+        "enId": 389365,
+        "form": "火花"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -63,6 +90,7 @@
     "meaning": "to soak; pierce",
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "wago",
     "processes": [],
     "headline": "Shimiru is from Old Japanese 染む (“to dye”), an upper bigrade verb that became upper monograde.",
@@ -87,6 +115,7 @@
     "meaning": "jelly",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ゼリー is from English jelly.",
@@ -111,6 +140,7 @@
     "meaning": "jazz",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ジャズ is borrowed from English jazz.",
@@ -126,6 +156,22 @@
         "quote": "Borrowed from English jazz."
       }
     ],
+    "examples": [
+      {
+        "id": 82084,
+        "ja": "僕はジャズが好きだ。",
+        "en": "I like jazz.",
+        "enId": 321631,
+        "form": "ジャズ"
+      },
+      {
+        "id": 113539,
+        "ja": "彼はジャズに夢中だ。",
+        "en": "He is keen on jazz.",
+        "enId": 290134,
+        "form": "ジャズ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -135,13 +181,43 @@
     "meaning": "to rouse, to swell, to rise",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Moriagaru is 盛る (moru) plus 上がる (agaru).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "盛り",
+        "reading": "もり",
+        "meaning": "boom",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "上がる",
+        "reading": "あがる",
+        "meaning": "above",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "盛(も)る (moru) + 上(あ)がる (agaru)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 183815,
+        "ja": "観客は盛り上がっているよ。",
+        "en": "The audience is really charged up.",
+        "enId": 20938,
+        "form": "盛り上がっている"
+      },
+      {
+        "id": 225285,
+        "ja": "ゲームで一段と盛り上がった。",
+        "en": "The game added to the fun.",
+        "enId": 62623,
+        "form": "盛り上がった"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -173,6 +249,22 @@
         "quote": "助 (“to help”) + 動詞 (“verb”), literally “helping verb”"
       }
     ],
+    "examples": [
+      {
+        "id": 75172,
+        "ja": "canは助動詞ですので、疑問文では文頭に持ってきます。",
+        "en": "'can' is an auxiliary verb, so in question sentences it is brought to the start of the phrase.",
+        "enId": 328547,
+        "form": "助動詞"
+      },
+      {
+        "id": 75202,
+        "ja": "この文は現在完了形です。haveは動詞ではなく、助動詞。",
+        "en": "This sentence is in the present perfect. 'have' is not a verb, but an auxiliary verb.",
+        "enId": 328517,
+        "form": "助動詞"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -182,6 +274,7 @@
     "meaning": "to bear in mind, to aim to do",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf40", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Kokorogakeru is 心 (kokoro, “attention, mind”) plus 掛ける (kakeru, “latch onto”).",
@@ -212,6 +305,7 @@
     "meaning": "decoration",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "デコレーション is borrowed from English decoration.",
@@ -236,6 +330,7 @@
     "meaning": "libretto, scenario",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf11"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Daihon is from Sinitic 臺本 (táiběn).",
@@ -258,6 +353,15 @@
         "quote": "From Sinitic 臺本／台本 (táiběn)."
       }
     ],
+    "examples": [
+      {
+        "id": 137772,
+        "ja": "台本に目を通しておいてください。",
+        "en": "Please go over the script.",
+        "enId": 275464,
+        "form": "台本"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -267,6 +371,7 @@
     "meaning": "chief, (government) secretary",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "wasei", "borrowing"],
     "headline": "Chōkan is 長 (chō, “chief, leader”) plus 官 (kan, “government official”), either a wasei kango or from Middle Chinese 長官.",
@@ -287,6 +392,15 @@
         "quote": "By surface analysis, 長 (chō, “chief, leader”) + 官 (kan, “government official”). Either a wasei kango from these on'yomi readings, or from Middle Chinese 長官 (sum-of-parts reading: /ɖɨɐŋ kuɑn/)."
       }
     ],
+    "examples": [
+      {
+        "id": 125890,
+        "ja": "長官は彼に全権を委任した。",
+        "en": "The governor invested him with full authority.",
+        "enId": 278102,
+        "form": "長官"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -299,6 +413,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Saikai is 再 (“re-”) plus 会 (“meeting”).",
@@ -319,6 +434,22 @@
         "quote": "再 (“re-”) + 会 (“meeting”)"
       }
     ],
+    "examples": [
+      {
+        "id": 214788,
+        "ja": "すぐ再会できるだろう。",
+        "en": "It will not be long before we meet again.",
+        "enId": 20894,
+        "form": "再会"
+      },
+      {
+        "id": 142417,
+        "ja": "昔の恋人に再会してみたい。",
+        "en": "I would love to see my old flame again.",
+        "enId": 272153,
+        "form": "再会"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -331,6 +462,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news2", "nf47"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In mahi, 麻 is a daiyōji replacing 痲.",
@@ -362,6 +494,7 @@
     "meaning": "mentality",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf11"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shinjō is 心 (shin, “heart”) plus 情 (jō, “emotion”).",
@@ -382,6 +515,22 @@
         "quote": "From 心 (shin, “heart”) + 情 (jō, “emotion”)."
       }
     ],
+    "examples": [
+      {
+        "id": 149550,
+        "ja": "嫉妬心くらい強く人間の心情に巣食う情熱はない。",
+        "en": "There is not a passion so strongly rooted in the human heart as envy.",
+        "enId": 265008,
+        "form": "心情"
+      },
+      {
+        "id": 186370,
+        "ja": "我々が真理を知るのは、理知によるだけではなく、また心情によって知るのである。",
+        "en": "We know the truth, not only by reason, but also at heart.",
+        "enId": 23506,
+        "form": "心情"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -391,6 +540,7 @@
     "meaning": "monster",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf19"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kaijū is 怪 (kai, “mysterious”) plus 獣 (jū, “beast”).",
@@ -414,6 +564,22 @@
         "quote": "Comparable terms in other languages: Swedish vidunder, odjur"
       }
     ],
+    "examples": [
+      {
+        "id": 150274,
+        "ja": "次の瞬間ヘラクレスは怪獣を捕まえた。",
+        "en": "The next instant Hercules caught hold of the monster.",
+        "enId": 264283,
+        "form": "怪獣"
+      },
+      {
+        "id": 145731,
+        "ja": "信じられないだろうけど、その洞窟から怪獣が現れたんだ。",
+        "en": "Believe it or not, a monster emerged from the cave.",
+        "enId": 268831,
+        "form": "怪獣"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -423,6 +589,7 @@
     "meaning": "helpless, hopeless, discouraging",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf45"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Kokorobosoi is 心 (kokoro, “heart, feelings”) plus 細い (hosoi, “slender”), with hosoi voiced to bosoi by rendaku.",
@@ -456,6 +623,7 @@
     "meaning": "manufacturer",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "メーカー is from English maker.",
@@ -471,6 +639,22 @@
         "quote": "From English maker."
       }
     ],
+    "examples": [
+      {
+        "id": 212941,
+        "ja": "そのテレビのメーカーは日本の企業である。",
+        "en": "The manufacturer of the television set is a Japanese company.",
+        "enId": 50226,
+        "form": "メーカー"
+      },
+      {
+        "id": 76395,
+        "ja": "メーカーの謳い文句を迂闊に信じてはいけない。",
+        "en": "You mustn't carelessly believe the maker's motto.",
+        "enId": 327325,
+        "form": "メーカー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -480,6 +664,7 @@
     "meaning": "desirable, hoped for",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Nozomashii is 望ま (nozoma), the irrealis of 望む (nozomu, “to wish, to hope, to want, to desire”), plus しい (-shī, adjective-forming suffix).",
@@ -500,6 +685,22 @@
         "quote": "From 望(のぞ)ま (nozoma, 未(み)然(ぜん)形(けい) (mizenkei, “irrealis form”) of the verb 望(のぞ)む (nozomu, “to wish, to hope, to want, to desire”)) + しい (-shī, adjective-forming suffix)."
       }
     ],
+    "examples": [
+      {
+        "id": 91634,
+        "ja": "彼女はひとりでやるのが望ましい。",
+        "en": "It is preferable that she do it alone.",
+        "enId": 312079,
+        "form": "望ましい"
+      },
+      {
+        "id": 136608,
+        "ja": "誰もけがをしないことが望ましい。",
+        "en": "It is desirable that nobody should be hurt.",
+        "enId": 276573,
+        "form": "望ましい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -509,6 +710,7 @@
     "meaning": "base, bass",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ベース covers “base” and “bass”, and the source borrows both from English.",
@@ -530,6 +732,7 @@
     "meaning": "(abbr.) accelerator",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "アクセル is a clipping of アクセラレータ (akuserarēta), from English accelerator.",
@@ -554,6 +757,7 @@
     "meaning": "outline, summary",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ōsuji is 大 (ō-, “big”) plus 筋 (suji, “thread”).",
@@ -574,6 +778,15 @@
         "quote": "大(おお) (ō-, “big”) + 筋(すじ) (suji, “thread”)"
       }
     ],
+    "examples": [
+      {
+        "id": 211274,
+        "ja": "その計画に大すじで賛成していただけませんか。",
+        "en": "Would you agree to the plan in principle?",
+        "enId": 48548,
+        "form": "大すじ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -583,6 +796,7 @@
     "meaning": "to be enthusiastic about",
     "level": "N1",
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["news1", "nf17"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku"],
     "headline": "Ikigomu is 意気 (iki, “spirits, enthusiasm”) plus 込む (komu, “to go into; to be full of, to have a lot of”), with komu voiced to gomu by rendaku.",
@@ -604,6 +818,15 @@
         "quote": "Compound of 意気(いき) (iki, “spirits, enthusiasm”) + 込(こ)む (komu, “to go into; to be full of, to have a lot of”). The komu changes to gomu as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 147567,
+        "ja": "初めから意気込みすぎると、途中で息切れするぞ。",
+        "en": "You have to pace yourself or you'll choke halfway through.",
+        "enId": 266993,
+        "form": "意気込み"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -613,6 +836,7 @@
     "meaning": "outline, summary, gist",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["news2", "nf40", "spec2"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Gairyaku is likely from the Middle Chinese compound 概略, literally “generally, approximately + brief, abbreviated”.",
@@ -633,6 +857,22 @@
         "quote": "Likely from Middle Chinese compound 概略 (gə̀i lɨɐk̚, literally “generally, approximately + brief, abbreviated”)."
       }
     ],
+    "examples": [
+      {
+        "id": 118614,
+        "ja": "彼に計画の概略を述べてもらおう。",
+        "en": "Ask him to sketch out his plan.",
+        "enId": 285049,
+        "form": "概略"
+      },
+      {
+        "id": 184623,
+        "ja": "各種の性格類型が概略図の形で図１に示されている。",
+        "en": "The different character typologies are represented schematically in figure one.",
+        "enId": 21751,
+        "form": "概略"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -645,6 +885,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Kyōtei is ultimately traceable to Middle Chinese 協定, but may be a recent Japanese term, attested only since 1877.",
@@ -652,7 +893,7 @@
       {
         "text": "協",
         "reading": "きょう",
-        "meaning": "co-",
+        "meaning": "cooperation",
         "glossSource": "kanjidic2"
       },
       {
@@ -670,6 +911,22 @@
         "quote": "Ultimately traceable back to Middle Chinese 協定 (MC hep dengH). However, this might be a much more recent term in Japanese, attested only since 1877, suggesting that this word may have been adopted as part of the modernization and internationalization efforts of the Meiji era (1868–1912)."
       }
     ],
+    "examples": [
+      {
+        "id": 108396,
+        "ja": "彼は協定を破ることがよくある。",
+        "en": "He often offends against our agreement.",
+        "enId": 295291,
+        "form": "協定"
+      },
+      {
+        "id": 172171,
+        "ja": "今度の協定を三社で承認しあった。",
+        "en": "This agreement was confirmed by three companies.",
+        "enId": 242303,
+        "form": "協定"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -682,6 +939,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Jinsoku is from Middle Chinese 迅速 (MC swinH suwk).",
@@ -704,6 +962,22 @@
         "quote": "From Middle Chinese 迅速 (MC swinH suwk)."
       }
     ],
+    "examples": [
+      {
+        "id": 112747,
+        "ja": "彼はその事態に迅速に対応した。",
+        "en": "He promptly coped with the situation.",
+        "enId": 290929,
+        "form": "迅速に"
+      },
+      {
+        "id": 233148,
+        "ja": "あなたの迅速な返事が是非とも必要です。",
+        "en": "Your prompt reply is urgently required.",
+        "enId": 70518,
+        "form": "迅速な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -713,6 +987,7 @@
     "meaning": "U.N., United Nations",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In kokuren, 連 is a daiyōji replacing 聯.",
@@ -735,6 +1010,22 @@
         "quote": "連 is a daiyōji replacing 聯."
       }
     ],
+    "examples": [
+      {
+        "id": 234788,
+        "ja": "ＵＮは「国連」を表します。",
+        "en": "UN stands for the United Nations.",
+        "enId": 72165,
+        "form": "国連"
+      },
+      {
+        "id": 210596,
+        "ja": "その国は国連に援助を求めた。",
+        "en": "The country appealed to the United Nations for help.",
+        "enId": 47866,
+        "form": "国連"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -744,6 +1035,7 @@
     "meaning": "evening, (evening) twilight",
     "level": "N1",
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf21"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Yūgure is 夕 (yū, “evening”) plus 暮れ (kure, “dusk, nightfall”), with kure voiced to gure by rendaku.",
@@ -768,6 +1060,22 @@
         "quote": "The kure changes to gure as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 79057,
+        "ja": "夕暮れが谷間に迫っていた。",
+        "en": "Evening was closing in on the valley.",
+        "enId": 324660,
+        "form": "夕暮れ"
+      },
+      {
+        "id": 74955,
+        "ja": "或る夕暮私はこの丘の上に立ったことがある。",
+        "en": "There was a time, one evening, when I stood on top of that hill.",
+        "enId": 328764,
+        "form": "夕暮"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -777,6 +1085,7 @@
     "meaning": "to be used up, to be run out",
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf35"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsukiru is from Old Japanese, found in the Man'yōshū and spelled phonetically as 都奇 and, in the Nihonshoki kayō, as 豆紀.",
@@ -784,6 +1093,22 @@
     "sources": [
       {
         "quote": "From Old Japanese tuki₂. Found in the Man'yōshū, completed some time after 759 CE, spelled phonetically in man'yōgana as 都奇, and in the Nihonshoki kayō (completed 720 CE) under the phonetic man'yōgana 豆紀."
+      }
+    ],
+    "examples": [
+      {
+        "id": 77810,
+        "ja": "力が尽きた。",
+        "en": "My strength is all gone.",
+        "enId": 325907,
+        "form": "尽きた"
+      },
+      {
+        "id": 137960,
+        "ja": "体力が尽きた。",
+        "en": "I am exhausted.",
+        "enId": 275276,
+        "form": "尽きた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -795,6 +1120,7 @@
     "meaning": "to perform, to play (a part), to act",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
     "stratum": "kango",
     "processes": ["sound-change"],
     "headline": "Enjiru is a shift from the verb 演ずる (enzuru), as -uru verbs moved to the -iru pattern.",
@@ -802,6 +1128,22 @@
     "sources": [
       {
         "quote": "Shift from verb 演(えん)ずる (enzuru), by natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 100319,
+        "ja": "彼は舞台で演じた。",
+        "en": "He acted on the stage.",
+        "enId": 303378,
+        "form": "演じた"
+      },
+      {
+        "id": 147958,
+        "ja": "重要な役を演じる。",
+        "en": "I play an important part.",
+        "enId": 266602,
+        "form": "演じる"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -813,6 +1155,7 @@
     "meaning": "(iron) hammer",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Kanazuchi is 金 (kana, “metal”) plus 槌 (tsuchi, “hammer, mallet”), with tsuchi voiced to zuchi by rendaku.",
@@ -832,6 +1175,22 @@
     "sources": [
       {
         "quote": "Compound of 金 (kana, “metal”) + 槌 (tsuchi, “hammer, mallet”). The tsuchi changes to zuchi as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 161191,
+        "ja": "私はカナヅチ同様に泳げない。",
+        "en": "I can no more swim than a hammer can.",
+        "enId": 253327,
+        "form": "カナヅチ"
+      },
+      {
+        "id": 226286,
+        "ja": "かなづちと同様に彼は泳げない。",
+        "en": "He cannot swim any more than a hammer can.",
+        "enId": 63626,
+        "form": "かなづち"
       }
     ],
     "wiktionaryDump": "2026-09-02"

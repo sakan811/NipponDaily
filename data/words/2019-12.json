@@ -6,6 +6,7 @@
     "meaning": "yacht",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Yotto is borrowed from English yacht, from Dutch jacht.",
@@ -21,6 +22,22 @@
         "quote": "Borrowed from English yacht, from Dutch jacht."
       }
     ],
+    "examples": [
+      {
+        "id": 192729,
+        "ja": "ヨットはブイを回った。",
+        "en": "The yacht sailed around a buoy.",
+        "enId": 29895,
+        "form": "ヨット"
+      },
+      {
+        "id": 158628,
+        "ja": "私はヨット部に入っている。",
+        "en": "I belong to the sailing club.",
+        "enId": 255899,
+        "form": "ヨット"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -30,6 +47,7 @@
     "meaning": "to urge (someone) to do (something), to recommend",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf47"],
     "stratum": "wago",
     "processes": [],
     "headline": "Susumeru, “to recommend”, is cognate with 進める (susumeru).",
@@ -37,6 +55,22 @@
     "sources": [
       {
         "quote": "Cognate with Japanese 進(すす)める (susumeru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 179957,
+        "ja": "禁煙を勧めます。",
+        "en": "I advise you to stop smoking.",
+        "enId": 18816,
+        "form": "勧めます"
+      },
+      {
+        "id": 190790,
+        "ja": "医者は転地を勧めた。",
+        "en": "The doctor advised a change of air.",
+        "enId": 27950,
+        "form": "勧めた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -48,6 +82,7 @@
     "meaning": "there, over there, that place",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Asoko shifted from earlier あしこ (ashiko), and appears in the Utsubo Monogatari of the late 900s.",
@@ -66,6 +101,7 @@
     "meaning": "god",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kami, “god”, is not related to 上 (kami) or 髪 (kami), and comes from Proto-Japonic *kamui.",
@@ -87,6 +123,22 @@
         "quote": "Compare Korean 검 (geom, “god, spirit”) and Ainu カムイ (kamuy, “god”)."
       }
     ],
+    "examples": [
+      {
+        "id": 144905,
+        "ja": "神は存在する。",
+        "en": "God is.",
+        "enId": 269646,
+        "form": "神"
+      },
+      {
+        "id": 81033,
+        "ja": "民の声は神の声。",
+        "en": "The voice of the people is the voice of God.",
+        "enId": 322682,
+        "form": "神"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -96,6 +148,7 @@
     "meaning": "one by one, each",
     "level": "N3",
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Hitori hitori is a reduplication of 一人 (hitori, “one person”).",
@@ -130,6 +183,22 @@
         "quote": "Reduplication of 一人(ひとり) (hitori, “one person”)."
       }
     ],
+    "examples": [
+      {
+        "id": 97702,
+        "ja": "彼らはひとりひとりプレゼントをもらった。",
+        "en": "They each received a present.",
+        "enId": 306002,
+        "form": "ひとりひとり"
+      },
+      {
+        "id": 185424,
+        "ja": "会員の名前をひとりひとりあげてください。",
+        "en": "Mention each member by name, please.",
+        "enId": 22556,
+        "form": "ひとりひとり"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -139,6 +208,7 @@
     "meaning": "to approach, to draw near",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Chikayoru is 近い (chikai, “close”) plus 寄る (yoru, “to approach, get closer”).",
@@ -159,6 +229,22 @@
         "quote": "近(ちか)い (chikai, “close”) + 寄(よ)る (yoru, “to approach, get closer”)"
       }
     ],
+    "examples": [
+      {
+        "id": 175323,
+        "ja": "犬に近寄るな。",
+        "en": "Keep away from the dog.",
+        "enId": 68427,
+        "form": "近寄る"
+      },
+      {
+        "id": 176750,
+        "ja": "君子危うきに近寄らず。",
+        "en": "Keep out of harm's way.",
+        "enId": 237712,
+        "form": "近寄らず"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -168,6 +254,7 @@
     "meaning": "to build, to establish",
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Kizuku is, by surface analysis, 杵 (ki, “mallet, pounder, pestle”) plus 築く (tsuku, “to build up”): “to make something using a pounder or mallet”.",
@@ -183,6 +270,22 @@
         "quote": "This term as 杵 (ki, “pounder”) + 築く (tsuku, “build up”) then underwent conflation with, or was reanalysed as, 城 (ki, “castle, fortress”) + 築く (tsuku, “build up”) with a basic sense of “to construct”. This latter derivation is given as the only etymology in some references. However, the “to construct” sense is attested centuries later in 1081. Moreover, the “castle, fortress” sense for the initial ki- element was pronounced in Old Japanese as /ki₂/, while the “pounder, mallet” sense was pronounced /ki₁/."
       }
     ],
+    "examples": [
+      {
+        "id": 100432,
+        "ja": "彼は富を築いた。",
+        "en": "He heaped up a fortune.",
+        "enId": 303266,
+        "form": "築いた"
+      },
+      {
+        "id": 99977,
+        "ja": "彼は貿易で財産を築いた。",
+        "en": "He made his fortune from commerce.",
+        "enId": 303720,
+        "form": "築いた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -192,6 +295,7 @@
     "meaning": "shade, shadow, other side",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kage is an unbound apophonic form, from Proto-Japonic *kankay, cognate with 陰 (kage, “shadow”).",
@@ -204,6 +308,22 @@
         "quote": "From Old Japanese, ultimately from Proto-Japonic *kankay. Cognate with 陰 (kage, “shadow”)."
       }
     ],
+    "examples": [
+      {
+        "id": 189484,
+        "ja": "噂をすれば影がさす。",
+        "en": "Speak of angels and you hear their wings.",
+        "enId": 26635,
+        "form": "影"
+      },
+      {
+        "id": 145057,
+        "ja": "深海で君の影がゆれる。",
+        "en": "It is your shadow in the deep sea.",
+        "enId": 269506,
+        "form": "影"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -213,6 +333,7 @@
     "meaning": "lung",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Hai, “lung”, is from Middle Chinese 肺.",
@@ -220,6 +341,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 肺 (MC phjojH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 182843,
+        "ja": "喫煙が彼の肺を冒した。",
+        "en": "Smoking has affected his lungs.",
+        "enId": 19963,
+        "form": "肺"
+      },
+      {
+        "id": 121721,
+        "ja": "脳は肝臓や肺とは違っていた。",
+        "en": "The brain was not like the liver or the lungs.",
+        "enId": 282284,
+        "form": "肺"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -234,6 +371,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Tekisetsu is 適 (teki, “suitable, fit, proper”) plus 切 (setsu, “in close contact”).",
@@ -254,6 +392,22 @@
         "quote": "From 適(てき) (teki, “suitable, fit, proper”) + 切(せつ) (setsu, “in close contact”)."
       }
     ],
+    "examples": [
+      {
+        "id": 112841,
+        "ja": "彼はその仕事に適切だ。",
+        "en": "He is the right man for the job.",
+        "enId": 290835,
+        "form": "適切"
+      },
+      {
+        "id": 178094,
+        "ja": "君の答えは適切である。",
+        "en": "Your answer is to the point.",
+        "enId": 16946,
+        "form": "適切"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -263,6 +417,7 @@
     "meaning": "radius",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Hankei, a radius, is 半 (han, “half”) plus 径 (kei, “diameter”).",
@@ -292,6 +447,7 @@
     "meaning": "(finger) ring",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Yubiwa is 指 (yubi, “finger”) plus 輪 (wa, “ring”).",
@@ -312,6 +468,22 @@
         "quote": "指 (yubi, “finger”) + 輪 (wa, “ring”)"
       }
     ],
+    "examples": [
+      {
+        "id": 210078,
+        "ja": "その指輪を手放すな。",
+        "en": "You must not part with the ring.",
+        "enId": 47341,
+        "form": "指輪"
+      },
+      {
+        "id": 90095,
+        "ja": "彼女は高価な指輪をしている。",
+        "en": "She is wearing a valuable ring.",
+        "enId": 313619,
+        "form": "指輪"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -321,6 +493,7 @@
     "meaning": "a little while ago",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Sakki is a shift from 先 (saki).",
@@ -328,6 +501,22 @@
     "sources": [
       {
         "quote": "Shift from 先 (saki)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 216791,
+        "ja": "さっき電話が鳴ってたよね？",
+        "en": "The telephone was just ringing, wasn't it?",
+        "enId": 54097,
+        "form": "さっき"
+      },
+      {
+        "id": 216795,
+        "ja": "さっきの手は大失敗だった。",
+        "en": "That move was a big mistake.",
+        "enId": 54101,
+        "form": "さっき"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -342,6 +531,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Ojigi is 御 (o-, honorific prefix) plus 辞儀 (jigi, “bow”).",
@@ -362,6 +552,22 @@
         "quote": "From 御(お) (o-, honorific prefix) + 辞(じ)儀(ぎ) (jigi, “bow”)."
       }
     ],
+    "examples": [
+      {
+        "id": 93135,
+        "ja": "彼女はおじぎした。",
+        "en": "She inclined her head in greeting.",
+        "enId": 310574,
+        "form": "おじぎ"
+      },
+      {
+        "id": 103052,
+        "ja": "彼は先生におじぎした。",
+        "en": "He bowed to his teacher.",
+        "enId": 300641,
+        "form": "おじぎ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -371,6 +577,7 @@
     "meaning": "proverb, saying",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kotowaza is 言 (koto) plus 業 (waza).",
@@ -378,6 +585,22 @@
     "sources": [
       {
         "quote": "From 言(こと) (koto) + 業(わざ) (waza)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 222061,
+        "ja": "この諺は覚える価値がある。",
+        "en": "This proverb is worth remembering.",
+        "enId": 59386,
+        "form": "諺"
+      },
+      {
+        "id": 228305,
+        "ja": "ウェールズに諺があります。",
+        "en": "In Wales we have a proverb.",
+        "enId": 65660,
+        "form": "諺"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -389,6 +612,7 @@
     "meaning": "field, patch",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "suffix"],
+    "priority": ["ichi1", "news1", "nf04", "news2", "nf33"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hatake is first attested in the Man'yōshū, completed sometime after 759 CE; compare Korean 밭 (bat, “dry field”).",
@@ -396,6 +620,15 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Man’yōshū, completed sometime after 759 CE. In turn from reconstructed Proto-Japonic *patakay. Compare Korean 밭 (bat, “dry field”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 207423,
+        "ja": "道はくねくねと畑の中を走っていた。",
+        "en": "The road wound through the fields.",
+        "enId": 44676,
+        "form": "畑"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -407,6 +640,7 @@
     "meaning": "ice cream",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Aisukurīmu is simply English “ice cream”.",
@@ -422,6 +656,22 @@
         "quote": "Borrowed from English ice cream."
       }
     ],
+    "examples": [
+      {
+        "id": 187212,
+        "ja": "夏はアイスクリームに限る。",
+        "en": "There is nothing like ice cream in the summer.",
+        "enId": 24349,
+        "form": "アイスクリーム"
+      },
+      {
+        "id": 234693,
+        "ja": "アイスクリームを２つ下さい。",
+        "en": "Two ice creams, please.",
+        "enId": 72069,
+        "form": "アイスクリーム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -431,6 +681,7 @@
     "meaning": "pepper",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "spec1"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Koshō is from Chinese 胡椒 (hújiāo).",
@@ -453,6 +704,22 @@
         "quote": "From Chinese 胡椒 (hújiāo)."
       }
     ],
+    "examples": [
+      {
+        "id": 224217,
+        "ja": "コショウを入れすぎたね。",
+        "en": "You put far too much pepper in it.",
+        "enId": 61552,
+        "form": "コショウ"
+      },
+      {
+        "id": 224216,
+        "ja": "こしょうを取ってください。",
+        "en": "Please pass me the pepper.",
+        "enId": 61553,
+        "form": "こしょう"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -462,6 +729,7 @@
     "meaning": "porcelain bowl, bowl of rice with food on top",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": ["derivation", "clipping"],
     "headline": "Donburi has two possible origins: 慳貪振り鉢 (kendon-buri-bachi, “greedy” bowl) with the ken elided, or the onomatopoeia どんぶり for something heavy plunking into deep water.",
@@ -498,6 +766,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Taishō is 対 (tai, “place in opposition and compare”) plus 照 (shō, “check one thing against another”).",
@@ -518,6 +787,22 @@
         "quote": "From 対(たい) (tai, “place in opposition and compare”) + 照(しょう) (shō, “check one thing against another”)."
       }
     ],
+    "examples": [
+      {
+        "id": 142220,
+        "ja": "赤は青と美しい対照をなす。",
+        "en": "Red contrasts well with blue.",
+        "enId": 272350,
+        "form": "対照"
+      },
+      {
+        "id": 207391,
+        "ja": "その二つの考えの対照は非常に際立っている。",
+        "en": "The contrast between the two ideas is very marked.",
+        "enId": 44643,
+        "form": "対照"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -527,6 +812,7 @@
     "meaning": "price, value",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kakaku is a Middle Chinese compound, 價格 (MC kaeH kaek).",
@@ -549,6 +835,22 @@
         "quote": "Middle Chinese compound 價格 (MC kaeH kaek)."
       }
     ],
+    "examples": [
+      {
+        "id": 187289,
+        "ja": "価格はいくらですか。",
+        "en": "What is the price?",
+        "enId": 24426,
+        "form": "価格"
+      },
+      {
+        "id": 123444,
+        "ja": "特別価格の見積りです。",
+        "en": "We have quoted special prices.",
+        "enId": 280552,
+        "form": "価格"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -558,6 +860,7 @@
     "meaning": "jet plane",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Jettoki is ジェット (jetto, “jet”) plus 機 (-ki, “machine, (especially) aircraft”).",
@@ -578,6 +881,22 @@
         "quote": "ジェット (jetto, “jet”) + 機(き) (-ki, “machine, (especially) aircraft”)"
       }
     ],
+    "examples": [
+      {
+        "id": 216393,
+        "ja": "ジェット機は東京に着陸した。",
+        "en": "The jet landed at Tokyo.",
+        "enId": 53697,
+        "form": "ジェット機"
+      },
+      {
+        "id": 216400,
+        "ja": "ジェット機が次々に離陸した。",
+        "en": "The jets took off one after another.",
+        "enId": 53704,
+        "form": "ジェット機"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -587,6 +906,7 @@
     "meaning": "to recognize, to notice; to approve",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mitomeru is thought to be 見 (mi, “seeing”) plus 留める (tomeru, “to hold, to keep”): “to keep one's vision on”.",
@@ -594,6 +914,22 @@
     "sources": [
       {
         "quote": "Thought to be from 見(み) (mi, “seeing, looking”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見(み)る (miru, “to see, to look”)) + 留(と)める (tomeru, “to hold, to keep, to remain”), possibly with semantics like “to keep one's vision on” → “to recognize, to acknowledge, to observe”."
+      }
+    ],
+    "examples": [
+      {
+        "id": 78806,
+        "ja": "要求は認められた。",
+        "en": "The request was granted.",
+        "enId": 324910,
+        "form": "認められた"
+      },
+      {
+        "id": 100327,
+        "ja": "彼は負けを認めた。",
+        "en": "He admitted himself defeated.",
+        "enId": 303370,
+        "form": "認めた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -605,6 +941,7 @@
     "meaning": "that one (over there)",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Are is あ (a, “that, yon”) plus れ (-re, nominalizing suffix for demonstratives), from older kare.",
@@ -634,6 +971,7 @@
     "meaning": "a fashion model",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Moderu is called an internationalism; see English model.",
@@ -641,6 +979,22 @@
     "sources": [
       {
         "quote": "Internationalism; see English model."
+      }
+    ],
+    "examples": [
+      {
+        "id": 91356,
+        "ja": "彼女はモデルだったそうだ。",
+        "en": "She is said to have been a model.",
+        "enId": 312358,
+        "form": "モデル"
+      },
+      {
+        "id": 118396,
+        "ja": "彼のオートバイは最新モデルだ。",
+        "en": "His motorcycle is the latest model.",
+        "enId": 285267,
+        "form": "モデル"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -652,6 +1006,7 @@
     "meaning": "telescope",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Bōenkyō is 望遠 (bōen, “long-distance viewing”) plus 鏡 (-kyō, “lens”).",
@@ -672,6 +1027,22 @@
         "quote": "望遠 (bōen, “long-distance viewing”) + 鏡 (-kyō, “lens”)"
       }
     ],
+    "examples": [
+      {
+        "id": 99988,
+        "ja": "彼は望遠鏡に目を当てた。",
+        "en": "He put his eye to a telescope.",
+        "enId": 303709,
+        "form": "望遠鏡"
+      },
+      {
+        "id": 82486,
+        "ja": "望遠鏡のピントをあわせた。",
+        "en": "I adjusted the telescope to my vision.",
+        "enId": 261734,
+        "form": "望遠鏡"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -681,6 +1052,7 @@
     "meaning": "to deepen, to heighten, to intensify",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Fukameru is the root of 深い (fukai, “deep, profound”) plus -meru, from Classical Japanese 深む (fukamu).",
@@ -707,6 +1079,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 185750,
+        "ja": "我々は親睦を深めた。",
+        "en": "We deepened our friendship.",
+        "enId": 22882,
+        "form": "深めた"
+      },
+      {
+        "id": 103219,
+        "ja": "彼は生化学の知識を深めた。",
+        "en": "He extended the knowledge of biochemistry.",
+        "enId": 300474,
+        "form": "深めた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -716,6 +1104,7 @@
     "meaning": "to be saved; (something) helps (v.i.)",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tasukaru is the mediopassive or spontaneous counterpart to 助ける (tasukeru).",
@@ -723,6 +1112,22 @@
     "sources": [
       {
         "quote": "Derived as the mediopassive or spontaneous counterpart to 助ける (tasukeru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 3357826,
+        "ja": "大変助かりました。",
+        "en": "It was a great help!",
+        "enId": 275978,
+        "form": "助かりました"
+      },
+      {
+        "id": 183602,
+        "ja": "危うい所を助かった。",
+        "en": "I had a narrow escape.",
+        "enId": 20724,
+        "form": "助かった"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -737,6 +1142,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Gaka is 画 (ga, “picture, drawing, painting”) plus 家 (-ka, “expert, professional, performer”), first cited to 1799.",
@@ -760,6 +1166,22 @@
         "quote": "First cited to 1799."
       }
     ],
+    "examples": [
+      {
+        "id": 109105,
+        "ja": "彼は画家だ。",
+        "en": "He is a painter.",
+        "enId": 294585,
+        "form": "画家"
+      },
+      {
+        "id": 98353,
+        "ja": "彼らは、画家だ。",
+        "en": "They are artists.",
+        "enId": 305349,
+        "form": "画家"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -772,6 +1194,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Sei, “true”, is from Middle Chinese 正, the kan'on reading, so likely not as old as the shō reading.",
@@ -793,6 +1216,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "meaning-shift"],
     "headline": "Josei was repurposed from nyoshō in the Meiji period (1868–1912), using the newer kan'on readings.",

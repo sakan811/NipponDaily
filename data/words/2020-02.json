@@ -6,6 +6,7 @@
     "meaning": "force, vigor, momentum",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ikioi comes from classical 勢ひ (ikifofi), the continuative stem of the verb 勢ふ (ikifofu).",
@@ -28,6 +29,7 @@
       "adverb taking the 'to' particle",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nikoniko's niko is onomatopoeic for smiling, also seen in にこやか (nikoyaka) and にこり (nikori).",
@@ -46,6 +48,7 @@
     "meaning": "anything of, not one bit",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sukoshi mo is 少し (sukoshi) plus も (mo): literally “(not) even a little”.",
@@ -53,6 +56,22 @@
     "sources": [
       {
         "quote": "From 少(すこ)し (sukoshi) + も (mo), literally \"(not) even a little\"."
+      }
+    ],
+    "examples": [
+      {
+        "id": 143821,
+        "ja": "水が少しもない。",
+        "en": "There is no water.",
+        "enId": 270745,
+        "form": "少しも"
+      },
+      {
+        "id": 229428,
+        "ja": "いいえ、少しも。",
+        "en": "Not at all.",
+        "enId": 66787,
+        "form": "少しも"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -67,6 +86,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hanami is 花 (hana, “flower”) plus 見 (mi, “seeing, viewing”).",
@@ -87,6 +107,22 @@
         "quote": "Compound of 花 (hana, “flower”) + 見 (mi, “seeing, viewing”)."
       }
     ],
+    "examples": [
+      {
+        "id": 227390,
+        "ja": "お花見に行きませんか？",
+        "en": "Why don't we go and see the cherry blossoms?",
+        "enId": 64742,
+        "form": "花見"
+      },
+      {
+        "id": 157981,
+        "ja": "私は花見に行ってきました。",
+        "en": "I have been to see the cherry blossoms.",
+        "enId": 256549,
+        "form": "花見"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -96,6 +132,7 @@
     "meaning": "dwelling, living",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf06"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Jū, “dwelling”, is from Middle Chinese 住, the goon pronunciation, so likely the initial borrowing.",
@@ -117,6 +154,7 @@
     "meaning": "udon noodles (Japanese traditional noodles)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["borrowing", "unclear"],
     "headline": "Udon's origin is uncertain: perhaps from Chinese 餛飩, or a blend of this and 温 (on, “warm”).",
@@ -135,6 +173,7 @@
     "meaning": "to dilute, to water down",
     "level": "N2",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Usumeru is the root of 薄い (usui, “thin, dilute”) plus -meru, from Classical Japanese 薄む (usumu).",
@@ -170,6 +209,7 @@
     "meaning": "after this; from now on; hereafter",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Igo is 以 (i-, “from... and”) plus 後 (go, “behind; after”).",
@@ -190,6 +230,22 @@
         "quote": "以 (i-, “from... and”) + 後 (go, “behind; after”)"
       }
     ],
+    "examples": [
+      {
+        "id": 229631,
+        "ja": "あれ以後は災難続きです。",
+        "en": "I have had a series of misfortunes since then.",
+        "enId": 66992,
+        "form": "以後"
+      },
+      {
+        "id": 191217,
+        "ja": "以後こんなことはいたしません。",
+        "en": "I'll never do this again.",
+        "enId": 28379,
+        "form": "以後"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -199,6 +255,7 @@
     "meaning": "to get strong, to gain strength",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf44"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsuyomaru is 強い (tsuyoi, “strong”) plus -maru.",
@@ -206,6 +263,22 @@
     "sources": [
       {
         "quote": "強(つよ)い (tsuyoi, “strong”) + まる (-maru)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 210911,
+        "ja": "その言葉で彼に対する疑惑はさらに強まった。",
+        "en": "The words confirmed him in his suspicions.",
+        "enId": 48182,
+        "form": "強まった"
+      },
+      {
+        "id": 121836,
+        "ja": "年をとると共に、情熱は薄れるが、身についた習慣は強まるものだ。",
+        "en": "Passions weaken, but habits strengthen, with age.",
+        "enId": 268511,
+        "form": "強まる"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -217,6 +290,7 @@
     "meaning": "stereo",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Sutereo is an internationalism; see English stereo.",
@@ -224,6 +298,22 @@
     "sources": [
       {
         "quote": "Internationalism; see English stereo."
+      }
+    ],
+    "examples": [
+      {
+        "id": 149923,
+        "ja": "自分のステレオを持っています。",
+        "en": "I have my own stereo set.",
+        "enId": 264635,
+        "form": "ステレオ"
+      },
+      {
+        "id": 214600,
+        "ja": "ステレオの音が大きすぎますよ。",
+        "en": "Turn down the stereo.",
+        "enId": 51893,
+        "form": "ステレオ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -238,6 +328,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Makkuro is 真っ (ma'-, “truly”) plus 黒 (kuro, “black”).",
@@ -245,6 +336,22 @@
     "sources": [
       {
         "quote": "From 真っ (ma'-, “truly”) + 黒 (kuro, “black”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 182122,
+        "ja": "魚が真っ黒に焦げた。",
+        "en": "The fish is burnt black.",
+        "enId": 19368,
+        "form": "真っ黒に"
+      },
+      {
+        "id": 182693,
+        "ja": "休暇が終わると彼女は真黒に日焼けしていた。",
+        "en": "She was very brown after her holiday.",
+        "enId": 19820,
+        "form": "真黒に"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -256,6 +363,7 @@
     "meaning": "article, news story",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kiji is a Middle Chinese compound, literally “record + affair, event”.",
@@ -276,6 +384,22 @@
         "quote": "From Middle Chinese compound 記事 /记事 (kiᴴ dzriᴴ, literally “record + affair, event”). Compare modern Mandarin reading jìshì."
       }
     ],
+    "examples": [
+      {
+        "id": 74671,
+        "ja": "またアフィ狙いの記事か。",
+        "en": "Another spam article hoping for click-throughs?",
+        "enId": 329048,
+        "form": "記事"
+      },
+      {
+        "id": 145185,
+        "ja": "新聞から記事を切り抜いた。",
+        "en": "I clipped some articles out of the newspaper.",
+        "enId": 269378,
+        "form": "記事"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -285,6 +409,7 @@
     "meaning": "lip",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["rendaku", "sound-change"],
     "headline": "Kuchibiru, “lip”, may come from kuchiberi: 口 (kuchi, “mouth”) plus 縁 (heri, “edge”).",
@@ -292,6 +417,22 @@
     "sources": [
       {
         "quote": "The くち (kuchi) element is 口(くち) (kuchi, “mouth”). Several dictionaries, such as Kōjien gloss the meaning of this overall term as 口縁(くちべり) (kuchiberi), consisting of 口(くち) (kuchi, “mouth”) + 縁(へり) (heri, “edge”). Therefore the current pronunciation kuchibiru may be a shift from an earlier kuchiberi. The h of heri now becomes a b in an instance of rendaku (連濁), but may not have in older Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 155777,
+        "ja": "私は唇を噛んだ。",
+        "en": "I bit my lip.",
+        "enId": 258760,
+        "form": "唇"
+      },
+      {
+        "id": 124348,
+        "ja": "冬は唇があれます。",
+        "en": "In winter, our lips get chapped.",
+        "enId": 279646,
+        "form": "唇"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -303,6 +444,7 @@
     "meaning": "to resound; to affect",
     "level": "N2",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Hibiku is likely derived from a mimetic word, via reduplication.",
@@ -321,6 +463,7 @@
     "meaning": "to pile up, to put something on another, to heap up",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kasaneru is from classical 重ぬ (kasanu), from Old Japanese.",
@@ -336,6 +479,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 191419,
+        "ja": "彼は悪事を重ねた。",
+        "en": "He committed one crime after another.",
+        "enId": 28581,
+        "form": "重ねた"
+      },
+      {
+        "id": 219734,
+        "ja": "この本は８版を重ねました。",
+        "en": "This book has gone through eight editions.",
+        "enId": 57054,
+        "form": "重ねました"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -345,6 +504,7 @@
     "meaning": "harbor, port",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Minato is attested in the Nihon Shoki of 720; the traditional etymology is 水 (mi-, “water”) plus な (na) plus 門 (to, “gate”).",
@@ -366,6 +526,22 @@
         "quote": "* However, this may present semantic difficulties, as any native formation like namida that proposes \"water\" for the initial nam and \"eye\" for a following component reverses the usual word-formation pattern for Japanese, where the main or head noun comes last. In addition, the na element appears in other words with no relation to \"water\", as an assimilated apophonic form of genitive particle の (no), seen in terms such as 掌 (tanagokoro, “palm of the hand”, literally “hand's heart/center”), 眼間 (manakai, “where the lines of sight of the eyes converge”, literally “eyes' exchanging/crossing”)."
       }
     ],
+    "examples": [
+      {
+        "id": 141127,
+        "ja": "船は港に着いた。",
+        "en": "The ships reached port.",
+        "enId": 273445,
+        "form": "港"
+      },
+      {
+        "id": 208425,
+        "ja": "その船は今港にいる。",
+        "en": "The ship is now in the harbor.",
+        "enId": 45683,
+        "form": "港"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -375,6 +551,7 @@
     "meaning": "elementary school pupil",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shōgakusei is 小学 (shōgaku, “elementary school”) plus 生 (-sei, “student; pupil”).",
@@ -395,6 +572,22 @@
         "quote": "小(しょう)学(がく) (shōgaku, “elementary school”) + 生(せい) (-sei, “student; pupil”)."
       }
     ],
+    "examples": [
+      {
+        "id": 146976,
+        "ja": "小学生は６年間学校に通う。",
+        "en": "Elementary school children go to school for a term of six years.",
+        "enId": 267585,
+        "form": "小学生"
+      },
+      {
+        "id": 97997,
+        "ja": "彼らはそのころ小学生でした。",
+        "en": "They were school children then.",
+        "enId": 305706,
+        "form": "小学生"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -404,6 +597,7 @@
     "meaning": "social science",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shakai kagaku is 社会 (shakai, “society”) plus 科学 (kagaku, “science”).",
@@ -424,6 +618,15 @@
         "quote": "社会 (shakai, “society”) + 科学 (kagaku, “science”)"
       }
     ],
+    "examples": [
+      {
+        "id": 208250,
+        "ja": "その大学の課程は自然科学と社会科学から成り立っている。",
+        "en": "That university's curriculum covers natural science and social science.",
+        "enId": 45507,
+        "form": "社会科学"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -433,6 +636,7 @@
     "meaning": "fast, quick",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf31", "news1", "nf16"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hayai's etymology note is a single pointer: see 早い.",
@@ -440,6 +644,22 @@
     "sources": [
       {
         "quote": "See 早い."
+      }
+    ],
+    "examples": [
+      {
+        "id": 121618,
+        "ja": "馬は走るのが速い。",
+        "en": "A horse runs quickly.",
+        "enId": 282387,
+        "form": "速い"
+      },
+      {
+        "id": 102790,
+        "ja": "彼は走るのがとても速い。",
+        "en": "He can run so fast!",
+        "enId": 300904,
+        "form": "速い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -451,6 +671,7 @@
     "meaning": "handle (of a sword, dagger, etc.), grip",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "E, a handle, is a change in meaning from 枝 (e, “branch, stem”).",
@@ -469,6 +690,7 @@
     "meaning": "to advance, to promote, to hasten",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Susumeru, “to advance”, is cognate with 勧める (susumeru) and 薦める (susumeru).",
@@ -476,6 +698,22 @@
     "sources": [
       {
         "quote": "Cognate with Japanese 勧(すす)める (susumeru) and 薦(すす)める (susumeru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 89813,
+        "ja": "彼女は仕事を進めた。",
+        "en": "She proceeded with the work.",
+        "enId": 313902,
+        "form": "進めた"
+      },
+      {
+        "id": 156410,
+        "ja": "私は時計の針を進めた。",
+        "en": "I advanced the hands on the clock.",
+        "enId": 258124,
+        "form": "進めた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -487,6 +725,7 @@
     "meaning": "particularly",
     "level": "N4",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": [],
     "headline": "Toku ni is 特 (toku, “special”) plus に (ni).",
@@ -494,6 +733,22 @@
     "sources": [
       {
         "quote": "Of 特(とく) (toku, “special”, noun) plus に (ni, particle)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 123475,
+        "ja": "特に犬が好きだ。",
+        "en": "He loves dogs above all.",
+        "enId": 280522,
+        "form": "特に"
+      },
+      {
+        "id": 172252,
+        "ja": "今朝は特に寒い。",
+        "en": "It is especially cold this morning.",
+        "enId": 242223,
+        "form": "特に"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -508,6 +763,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Senkō is from Middle Chinese 銓衡, and 選考 is a daiyōji replacing 銓衡.",
@@ -530,6 +786,15 @@
         "quote": "From Middle Chinese 銓衡／铨衡. 選考 is a daiyōji replacing 銓衡."
       }
     ],
+    "examples": [
+      {
+        "id": 76000,
+        "ja": "職員の選考に関する規則を次のように定める。",
+        "en": "Rules in connection with staff selection are set as follows.",
+        "enId": 327718,
+        "form": "選考"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -539,6 +804,7 @@
     "meaning": "to get, to gain, to win, to learn",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Eru is from Old Japanese, first attested in c. 759 in the Man'yōshū.",
@@ -551,6 +817,22 @@
         "quote": "First attested in c. 759 in the Man'yōshū."
       }
     ],
+    "examples": [
+      {
+        "id": 102771,
+        "ja": "彼は即答を得た。",
+        "en": "He won an immediate response.",
+        "enId": 300923,
+        "form": "得た"
+      },
+      {
+        "id": 106700,
+        "ja": "彼は三等賞を得た。",
+        "en": "He won the third prize.",
+        "enId": 296986,
+        "form": "得た"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -560,6 +842,7 @@
     "meaning": "satellite",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Eisei, a satellite, is 衛 (ei, “to guard”) plus 星 (-sei, “celestial body”).",
@@ -580,6 +863,22 @@
         "quote": "From 衛 (ei, “to guard”) + 星 (-sei, “celestial body”)."
       }
     ],
+    "examples": [
+      {
+        "id": 175633,
+        "ja": "月は地球の衛星だ。",
+        "en": "The moon is the Earth's satellite.",
+        "enId": 238832,
+        "form": "衛星"
+      },
+      {
+        "id": 175630,
+        "ja": "月は地球の衛星である。",
+        "en": "The moon is a satellite of the earth.",
+        "enId": 238835,
+        "form": "衛星"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -589,6 +888,7 @@
     "meaning": "soft (in reference to texture), tender",
     "level": "N4",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Yawarakai is やわらか (yawaraka, “soft, gentle”) plus い (-i).",
@@ -596,6 +896,22 @@
     "sources": [
       {
         "quote": "やわらか (yawaraka, “soft, gentle”, na-adjective) + い (-i, suffix forming adjectives)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 147998,
+        "ja": "柔らかい便が出ます。",
+        "en": "I have soft stools.",
+        "enId": 266561,
+        "form": "柔らかい"
+      },
+      {
+        "id": 222376,
+        "ja": "この牛肉は柔らかい。",
+        "en": "This beef is tender.",
+        "enId": 59703,
+        "form": "柔らかい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -607,6 +923,7 @@
     "meaning": "sweat, perspiration",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ase is from Old Japanese, from Proto-Japonic *asya.",
@@ -614,6 +931,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *asya."
+      }
+    ],
+    "examples": [
+      {
+        "id": 183902,
+        "ja": "汗がダラダラです。",
+        "en": "I'm dripping with sweat.",
+        "enId": 21028,
+        "form": "汗"
+      },
+      {
+        "id": 108693,
+        "ja": "彼は顔の汗をふいた。",
+        "en": "He wiped the sweat off his face.",
+        "enId": 294996,
+        "form": "汗"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -625,6 +958,7 @@
     "meaning": "culture",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "meaning-shift"],
     "headline": "Bunka is Middle Chinese for “the way of educating by using morality, literature, rituals and music”, repurposed in the Meiji period to translate German Kultur.",
@@ -650,6 +984,22 @@
         "quote": "Cited with the culture sense starting from roughly 1870."
       }
     ],
+    "examples": [
+      {
+        "id": 83687,
+        "ja": "文化は言語を破壊する。",
+        "en": "Culture destroys language.",
+        "enId": 320029,
+        "form": "文化"
+      },
+      {
+        "id": 103165,
+        "ja": "彼は西洋文化が好きだ。",
+        "en": "He likes Western culture.",
+        "enId": 300528,
+        "form": "文化"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -659,6 +1009,7 @@
     "meaning": "no, not at all",
     "level": "N5",
     "pos": ["interjection (kandoushi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Iie shifted from いや (iya), from even earlier 否 (ina), and is first cited to the late 1600s.",

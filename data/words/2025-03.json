@@ -6,6 +6,7 @@
     "meaning": "plan",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "プラン is borrowed from English plan.",
@@ -21,6 +22,22 @@
         "quote": "Borrowed from English plan."
       }
     ],
+    "examples": [
+      {
+        "id": 148123,
+        "ja": "週末のプランは？",
+        "en": "What are you going to do over the weekend?",
+        "enId": 266436,
+        "form": "プラン"
+      },
+      {
+        "id": 178505,
+        "ja": "君のプランは素晴らしい。",
+        "en": "Your plan sounds great.",
+        "enId": 17357,
+        "form": "プラン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -30,6 +47,7 @@
     "meaning": "yet, and",
     "level": "N1",
     "pos": ["conjunction", "adverb (fukushi)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Katsu has a Heian accent that implies it is the conclusive form of 勝つ (katsu, “to win”), and it is possibly related to 片 (kata, “one of a pair”).",
@@ -37,6 +55,22 @@
     "sources": [
       {
         "quote": "Its Heian Kyoto accent pattern LF implies this is the same as 終(しゅう)止(し)形(けい) (shūshikei, “conclusive form”) of the verb 勝(か)つ (katsu, “to win”), which has low tone L-. Note the existence of Classical Japanese かつ (katsu, “to be bearable”), homophone of its classical potential form which might have the sense \"capable of opposing\". Possibly related to 片(かた) (kata, “one of a pair”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 105472,
+        "ja": "彼は詩人であり、かつ小説家だ。",
+        "en": "He is a poet and novelist.",
+        "enId": 298217,
+        "form": "かつ"
+      },
+      {
+        "id": 106829,
+        "ja": "彼は作家でもあり、かつまた政治家でもある。",
+        "en": "He is a writer and a statesman.",
+        "enId": 296857,
+        "form": "かつ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -51,6 +85,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1"],
     "processes": ["compound"],
     "headline": "Yosomi is 余所 (yoso, “elsewhere; others”) plus 見 (mi, “looking”).",
     "morphemes": [
@@ -82,6 +117,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Irui is 衣 (i, “clothing; clothes”) plus 類 (rui, “kind; category; group”).",
@@ -102,6 +138,22 @@
         "quote": "衣 (i, “clothing; clothes”) + 類 (rui, “kind; category; group”): literally, “[belonging to] the 'clothes' group [of items]”."
       }
     ],
+    "examples": [
+      {
+        "id": 146210,
+        "ja": "上着は、衣類の１つである。",
+        "en": "A coat is an article of clothing.",
+        "enId": 268352,
+        "form": "衣類"
+      },
+      {
+        "id": 127144,
+        "ja": "男性用の衣類はゆったりしている。",
+        "en": "Men's clothing is loose fitting.",
+        "enId": 276945,
+        "form": "衣類"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -111,6 +163,7 @@
     "meaning": "trend, tendency, movement, attitude",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "unclear"],
     "headline": "Dōkō is uncertain: first attested in 1929, it may be a borrowing from written Chinese, or a coinage from 動 (dō, “moving, movement”) plus 向 (kō, “facing, direction”).",
@@ -131,6 +184,22 @@
         "quote": "Uncertain. First attested in Japanese in 1929. Might be a borrowing from written Chinese 動向, or possibly a coinage within Japanese of Middle Chinese-derived elements as a compound of 動 (dō, “moving, movement”) + 向 (kō, “facing, direction”)."
       }
     ],
+    "examples": [
+      {
+        "id": 145130,
+        "ja": "新聞は世の動向を左右する。",
+        "en": "Newspapers influence the current of time.",
+        "enId": 269433,
+        "form": "動向"
+      },
+      {
+        "id": 122614,
+        "ja": "日本の最新動向について報告したいと思います。",
+        "en": "We would like to report about the latest trends in Japan.",
+        "enId": 281389,
+        "form": "動向"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -140,6 +209,7 @@
     "meaning": "to bury, to entomb",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": ["unclear"],
     "headline": "Hōmuru is often taken as from Old Japanese 葬る (haburu), though the epenthesis of う is uncertain.",
@@ -158,6 +228,7 @@
     "meaning": "university graduate",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf19"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Gakushi is from Middle Chinese 學士.",
@@ -192,6 +263,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In mosaku, 模 is a daiyōji replacing 摸.",
@@ -241,6 +313,7 @@
     "meaning": "gold",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing", "sound-change"],
     "headline": "Ōgon is from Middle Chinese 黃金 (MC hwang kim, “yellow + metal”).",
@@ -268,6 +341,15 @@
         "quote": "Compare modern Cantonese wong⁴ gam¹."
       }
     ],
+    "examples": [
+      {
+        "id": 184945,
+        "ja": "絵の中の少女は黄金ではなくて花のかんむりをかぶっています。",
+        "en": "The girl in the picture is wearing a crown not of gold but of flowers.",
+        "enId": 22076,
+        "form": "黄金"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -277,6 +359,7 @@
     "meaning": "down",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ダウン is from English down.",
@@ -292,6 +375,22 @@
         "quote": "From English down."
       }
     ],
+    "examples": [
+      {
+        "id": 2287348,
+        "ja": "彼は風邪でダウンした。",
+        "en": "He came down with a cold.",
+        "enId": 303433,
+        "form": "ダウン"
+      },
+      {
+        "id": 2287405,
+        "ja": "彼女は風邪でダウンした。",
+        "en": "She came down with a cold.",
+        "enId": 310657,
+        "form": "ダウン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -301,6 +400,7 @@
     "meaning": "to exceed",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["news2", "nf42", "spec2"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Uwamawaru is the bound form 上 (uwa-) of 上 (ue, “up; top”) plus 回る (mawaru, “to go around; to prevail”).",
@@ -321,6 +421,22 @@
         "quote": "Compound of 上(うわ) (uwa-, the 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 上(うえ) (ue, “up; top”)) + 回(まわ)る (mawaru, “to go around; to prevail”)."
       }
     ],
+    "examples": [
+      {
+        "id": 116984,
+        "ja": "彼の出費は収入をはるかに上回っている。",
+        "en": "His expenses exceed his income by far.",
+        "enId": 286473,
+        "form": "上回っている"
+      },
+      {
+        "id": 117192,
+        "ja": "彼の支出は収入をはるかに上回っている。",
+        "en": "His expenses exceed his income by far.",
+        "enId": 286473,
+        "form": "上回っている"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -330,6 +446,7 @@
     "meaning": "foam; form",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "フォーム covers “form” and “foam”, and the source takes both from English.",
@@ -355,6 +472,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sentō is from Middle Chinese 戰鬪, and the source compares Mandarin 戰鬥 (zhàndòu).",
@@ -377,6 +495,22 @@
         "quote": "From Middle Chinese 戰鬪 (*jiɛ̀n *təuᴴ). Compare Mandarin 戰鬥 /战斗 (zhàndòu), Korean 전투 (jeontu), Vietnamese chiến đấu."
       }
     ],
+    "examples": [
+      {
+        "id": 141235,
+        "ja": "戦闘で負傷した。",
+        "en": "He was wounded in the fight.",
+        "enId": 273337,
+        "form": "戦闘"
+      },
+      {
+        "id": 103000,
+        "ja": "彼は戦闘で負傷した。",
+        "en": "He was wounded in the fight.",
+        "enId": 273337,
+        "form": "戦闘"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -389,6 +523,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1"],
     "processes": [],
     "headline": "Kiza is short for 気障り (kizawari, “disagreeable”).",
     "morphemes": [],
@@ -424,6 +559,7 @@
     "meaning": "(computer) monitor",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "モニター is from English monitor.",
@@ -439,6 +575,15 @@
         "quote": "From English monitor."
       }
     ],
+    "examples": [
+      {
+        "id": 190941,
+        "ja": "医師は患者の心臓の鼓動と血圧をモニターで監視した。",
+        "en": "The doctor monitored the patient's heartbeat and blood pressure.",
+        "enId": 28101,
+        "form": "モニター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -451,6 +596,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news2", "nf32"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Muimi is 無 (mu-, “without”) plus 意味 (imi, “meaning”).",
@@ -471,6 +617,22 @@
         "quote": "無 (mu-, “without”) + 意味 (imi, “meaning”)"
       }
     ],
+    "examples": [
+      {
+        "id": 205376,
+        "ja": "それはまったく無意味だ。",
+        "en": "That's quite meaningless.",
+        "enId": 42620,
+        "form": "無意味"
+      },
+      {
+        "id": 204385,
+        "ja": "そんなことをしても無意味だ。",
+        "en": "It's nonsense to try that.",
+        "enId": 41627,
+        "form": "無意味"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -480,6 +642,7 @@
     "meaning": "tax office",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Zeimusho is, by surface analysis, 税務 (zeimu) plus 署 (-sho).",
@@ -508,6 +671,22 @@
         "quote": "By surface analysis, 税務(ぜいむ) (zeimu) + 署(しょ) (-sho)."
       }
     ],
+    "examples": [
+      {
+        "id": 142475,
+        "ja": "税務署は控除を認めた。",
+        "en": "The tax agent allowed the deduction.",
+        "enId": 272095,
+        "form": "税務署"
+      },
+      {
+        "id": 142474,
+        "ja": "税務署は所得税の脱税に目をひからせています。",
+        "en": "Tax officials are zeroing in on income tax evasion.",
+        "enId": 272096,
+        "form": "税務署"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -517,6 +696,7 @@
     "meaning": "butterfly",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Chō, “butterfly”, is from Middle Chinese 蝶 (MC thep|dep) and passed through tepu, tefu, tewu and teu.",
@@ -529,6 +709,22 @@
         "quote": "Phonological development: tepu → tefu → tewu → teu → tjoː [tɕoː]"
       }
     ],
+    "examples": [
+      {
+        "id": 117018,
+        "ja": "彼の趣味は珍しいチョウの収集だ。",
+        "en": "His hobby is collecting strange butterflies.",
+        "enId": 286648,
+        "form": "チョウ"
+      },
+      {
+        "id": 99407,
+        "ja": "彼は約２０匹のチョウをつかまえた。",
+        "en": "He caught twenty butterflies.",
+        "enId": 304291,
+        "form": "チョウ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -538,6 +734,7 @@
     "meaning": "deficit, go in the red",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Akaji is 赤 (aka, “red”) plus 字 (ji, “characters”), and its “deficit” sense, attested since the Taishō period, comes from marking negative sums in red ink.",
@@ -558,6 +755,22 @@
         "quote": "From 赤(あか) (aka, “red”) + 字(じ) (ji, “characters”). The “deficit” sense, attested since the Taishō period, relates to the tradition of indicating negative sums in a ledger with red ink. Compare English in the red."
       }
     ],
+    "examples": [
+      {
+        "id": 147124,
+        "ja": "商売は赤字だ。",
+        "en": "The business is in the red.",
+        "enId": 267437,
+        "form": "赤字"
+      },
+      {
+        "id": 123654,
+        "ja": "同社は赤字である。",
+        "en": "The company is in deficit.",
+        "enId": 22420,
+        "form": "赤字"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -567,6 +780,7 @@
     "meaning": "product, result, fruit",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sanbutsu is from the Middle Chinese compound 產物, literally “produce + thing”.",
@@ -587,6 +801,22 @@
         "quote": "From Middle Chinese compound 產物 /产物 (srɛn^X mjut, literally “produce + thing”). Compare modern Min Nan reading sán-bu̍t, Cantonese caan² mat⁶."
       }
     ],
+    "examples": [
+      {
+        "id": 221936,
+        "ja": "この国の主要な産物は何ですか。",
+        "en": "What are the main products of this country?",
+        "enId": 59262,
+        "form": "産物"
+      },
+      {
+        "id": 207667,
+        "ja": "その展覧会は彼の想像力の産物だった。",
+        "en": "The exhibition was a product of his imagination.",
+        "enId": 44920,
+        "form": "産物"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -596,6 +826,7 @@
     "meaning": "number, figure",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Sū, “number”, is from Middle Chinese 數.",
@@ -603,6 +834,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 數 (MC srjuX|srjuH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 103470,
+        "ja": "彼は数が数えられない。",
+        "en": "He can't count.",
+        "enId": 300223,
+        "form": "数"
+      },
+      {
+        "id": 467294,
+        "ja": "机の上に数冊の本がある。",
+        "en": "There are some books on the desk.",
+        "enId": 20557,
+        "form": "数"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -617,6 +864,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ストップ is borrowed from English stop.",
@@ -632,6 +880,22 @@
         "quote": "Borrowed from English stop."
       }
     ],
+    "examples": [
+      {
+        "id": 141291,
+        "ja": "戦争で彼らの研究はストップした。",
+        "en": "The war brought their research to an end.",
+        "enId": 273281,
+        "form": "ストップ"
+      },
+      {
+        "id": 174982,
+        "ja": "厳しい資金不足で計画はストップしている。",
+        "en": "An acute lack of funds is holding up the plan.",
+        "enId": 239485,
+        "form": "ストップ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -641,6 +905,7 @@
     "meaning": "talent, star, personality",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["wasei"],
     "headline": "タレント is a wasei eigo (pseudo-anglicism) derived from English talent.",
@@ -648,6 +913,22 @@
     "sources": [
       {
         "quote": "Wasei eigo (和製英語; pseudo-anglicism), derived from talent. Compare Korean 탤런트 (taelleonteu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 231310,
+        "ja": "あのタレントはひっぱりだこである。",
+        "en": "That talent is much sought after.",
+        "enId": 68677,
+        "form": "タレント"
+      },
+      {
+        "id": 156561,
+        "ja": "私は子供のころ、松田聖子のようなタレントになりたかった。",
+        "en": "When I was a kid, I dreamed of becoming a star like Seiko Matsuda.",
+        "enId": 257973,
+        "form": "タレント"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -659,6 +940,7 @@
     "meaning": "to loosen, to slow down",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Yurumeru is 緩 (yuru, “loose”) plus める (-meru, “-ify”).",
@@ -679,6 +961,22 @@
         "quote": "From 緩(ゆる) (yuru, “loose”) + める (-meru, “-ify”)."
       }
     ],
+    "examples": [
+      {
+        "id": 211508,
+        "ja": "その規則は最近緩められた。",
+        "en": "The rules were recently relaxed.",
+        "enId": 48785,
+        "form": "緩められた"
+      },
+      {
+        "id": 79438,
+        "ja": "輸入規制は最近だいぶ緩められた。",
+        "en": "Import restrictions have been greatly loosened of late.",
+        "enId": 4632235,
+        "form": "緩められた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -691,6 +989,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Ōkata is the classical stem 大 (ofo) plus 方 (kata, “direction, way, side”).",
@@ -711,6 +1010,15 @@
         "quote": "From 大(おほ) (ofo, stem of classical adjective 大(おほ)き (ofoki), modern 大(おお)きい (ōkii, “big”)) + 方(かた) (kata, “direction, way, side”)."
       }
     ],
+    "examples": [
+      {
+        "id": 117551,
+        "ja": "彼の言っていることの大方に私は同感である。",
+        "en": "I am in agreement with most of what he says.",
+        "enId": 286113,
+        "form": "大方"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -723,6 +1031,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kyūshoku is ultimately from Middle Chinese 給食, literally “to give, to supply + food, meal”, sourced from the Records of the Grand Historian.",
@@ -743,6 +1052,22 @@
         "quote": "Ultimately from Middle Chinese 給食 (MC kip zyik, literally “to give, to supply + food, meal”). Sourced from the Chinese work 史記 /史记 (Shǐjì, “Records of the Grand Historian”) completed in 91 BCE."
       }
     ],
+    "examples": [
+      {
+        "id": 182360,
+        "ja": "給食はあるの？",
+        "en": "Do you have lunch at school?",
+        "enId": 19538,
+        "form": "給食"
+      },
+      {
+        "id": 108440,
+        "ja": "彼は給食を食べに行くという趣旨のメモを残した。",
+        "en": "He left a note to the effect that he was going out for lunch.",
+        "enId": 295246,
+        "form": "給食"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -752,6 +1077,7 @@
     "meaning": "after-school (cram) school",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Juku is originally from Middle Chinese 塾 (MC dzyuwk).",
@@ -759,6 +1085,22 @@
     "sources": [
       {
         "quote": "Originally from Middle Chinese 塾 (MC dzyuwk)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 104308,
+        "ja": "彼は塾で勉強している。",
+        "en": "He studies at a cram school.",
+        "enId": 299383,
+        "form": "塾"
+      },
+      {
+        "id": 104377,
+        "ja": "彼は週に三回塾に行く。",
+        "en": "He goes to a tutorial school three days a week.",
+        "enId": 299314,
+        "form": "塾"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -770,6 +1112,7 @@
     "meaning": "clothing, costume, outfit",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In ishō, 装 is a daiyōji replacing 裳.",
@@ -792,6 +1135,22 @@
         "quote": "装 is a daiyōji replacing 裳."
       }
     ],
+    "examples": [
+      {
+        "id": 198932,
+        "ja": "なんてすてきな衣装だ。",
+        "en": "What a darling outfit!",
+        "enId": 36129,
+        "form": "衣装"
+      },
+      {
+        "id": 90800,
+        "ja": "彼女は花嫁のような衣装を着ている。",
+        "en": "She is dressed like a bride.",
+        "enId": 312912,
+        "form": "衣装"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -801,6 +1160,7 @@
     "meaning": "famous, celebrated, well-known",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Nadakai is 名 (na, “name”) plus 高い (takai, “high, lofty”), with takai voiced to dakai by rendaku.",
@@ -823,6 +1183,22 @@
       },
       {
         "quote": "The takai changes to dakai as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 90818,
+        "ja": "彼女は歌手として名高い。",
+        "en": "She is famous as a singer.",
+        "enId": 312894,
+        "form": "名高い"
+      },
+      {
+        "id": 211401,
+        "ja": "その教授はシェークスピアの研究で名高い。",
+        "en": "The professor is noted for his study of Shakespeare.",
+        "enId": 48676,
+        "form": "名高い"
       }
     ],
     "wiktionaryDump": "2026-09-02"

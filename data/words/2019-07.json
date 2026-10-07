@@ -6,6 +6,7 @@
     "meaning": "newspaper company",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shinbunsha is, by surface analysis, 新聞 (shinbun) plus 社 (-sha).",
@@ -34,6 +35,22 @@
         "quote": "By surface analysis, 新聞(しんぶん) (shinbun) + 社(しゃ) (-sha)."
       }
     ],
+    "examples": [
+      {
+        "id": 200754,
+        "ja": "どちらの新聞社にお勤めですか。",
+        "en": "Which newspaper do you work for?",
+        "enId": 37956,
+        "form": "新聞社"
+      },
+      {
+        "id": 160845,
+        "ja": "私はこの新聞社に勤めて４年になります。",
+        "en": "I have been working for this newspaper for 4 years.",
+        "enId": 253673,
+        "form": "新聞社"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -47,6 +64,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Dairi is, by surface analysis, 代 (dai, “replace”) plus 理 (ri, “deal”).",
@@ -67,6 +85,22 @@
         "quote": "By surface analysis, 代(だい) (dai, “replace”) + 理(り) (ri, “deal”)."
       }
     ],
+    "examples": [
+      {
+        "id": 100338,
+        "ja": "彼は父親の代理をした。",
+        "en": "He substituted for his father.",
+        "enId": 303359,
+        "form": "代理"
+      },
+      {
+        "id": 167486,
+        "ja": "私が彼の代理をします。",
+        "en": "I will take his place.",
+        "enId": 247015,
+        "form": "代理"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -79,6 +113,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["news1", "nf22"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Seikō is from Middle Chinese 精巧.",
@@ -101,6 +136,22 @@
         "quote": "From Middle Chinese 精巧 (t͡siᴇŋ kʰˠau^X)."
       }
     ],
+    "examples": [
+      {
+        "id": 211536,
+        "ja": "その機械は精巧に出来ているので、すぐ壊れる。",
+        "en": "The machine is so delicate that it easily breaks.",
+        "enId": 48813,
+        "form": "精巧"
+      },
+      {
+        "id": 112990,
+        "ja": "彼はその恐竜の精巧な縮小模型をじっと見つめた。",
+        "en": "He stared at the faithful miniature of the dinosaur.",
+        "enId": 290685,
+        "form": "精巧な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -110,6 +161,7 @@
     "meaning": "to place on (something); to publish",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": [],
     "headline": "Noseru is from the Classical Japanese verb のす (nosu), cognate with 乗せる (noseru).",
@@ -134,6 +186,7 @@
     "meaning": "one another, companion, comrade",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Dōshi went from dochi to doshi to dōshi, and its kanji were influenced by Chinese 同志.",
@@ -165,6 +218,7 @@
     "meaning": "energy (GER: energie)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Enerugī is borrowed from German Energie, first cited to 1895.",
@@ -180,6 +234,22 @@
         "quote": "Borrowed from German Energie. First cited to 1895."
       }
     ],
+    "examples": [
+      {
+        "id": 124418,
+        "ja": "怒りはエネルギー。",
+        "en": "Anger is an energy.",
+        "enId": 279576,
+        "form": "エネルギー"
+      },
+      {
+        "id": 121890,
+        "ja": "熱はエネルギーの一種である。",
+        "en": "Heat is a form of energy.",
+        "enId": 282114,
+        "form": "エネルギー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -189,6 +259,7 @@
     "meaning": "tea",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": [],
     "headline": "Cha, “tea”, is a doublet of チャイ (chai) and ティー (tī); compare Mandarin chá and Cantonese caa.",
@@ -196,6 +267,22 @@
     "sources": [
       {
         "quote": "From various lects of Middle Chinese 茶 (MC drae). Compare Mandarin 茶 (chá), Hakka 茶 (chhà), Cantonese 茶 (caa⁴). Doublet of チャイ (chai), ティー (tī)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 218249,
+        "ja": "これは水っぽい茶だね。",
+        "en": "This is a weak tea, isn't it?",
+        "enId": 55561,
+        "form": "茶"
+      },
+      {
+        "id": 126623,
+        "ja": "茶はインドで広く栽培されている。",
+        "en": "Tea is widely grown in India.",
+        "enId": 277425,
+        "form": "茶"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -210,6 +297,7 @@
       "Ichidan verb - zuru verb (alternative form of -jiru verbs)",
       "intransitive verb"
     ],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Kanzuru is 感 plus する, with suru voiced to zuru by rendaku.",
@@ -217,6 +305,22 @@
     "sources": [
       {
         "quote": "Compound of 感 + する. The suru changes to zuru as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 144049,
+        "ja": "人生から非常な喜びを感ずる。",
+        "en": "I get a kick out of life.",
+        "enId": 270517,
+        "form": "感ずる"
+      },
+      {
+        "id": 2247851,
+        "ja": "彼の言葉は正論だったが、僕は心のどこかで引っかかりを感じていた。",
+        "en": "Even though what he said was sound, I still wasn't completely convinced.",
+        "enId": 2247858,
+        "form": "感じていた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -228,6 +332,7 @@
     "meaning": "cause, reason, fault",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "processes": ["sound-change"],
     "headline": "Sei, “cause, reason, fault”, is probably a shift from shoi.",
     "morphemes": [],
@@ -239,6 +344,22 @@
         "quote": "Probably a shift from shoi above."
       }
     ],
+    "examples": [
+      {
+        "id": 226960,
+        "ja": "お前のせいだぞ。",
+        "en": "This is your fault.",
+        "enId": 64308,
+        "form": "せい"
+      },
+      {
+        "id": 178242,
+        "ja": "君の失敗はジムのせいだ。",
+        "en": "You have Jim to thank for your failure.",
+        "enId": 17094,
+        "form": "せい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -248,6 +369,7 @@
     "meaning": "to eat",
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "“To eat” began as the humble “to receive” 食ぶ (tabu), the humble form of 賜ぶ (tabu, “to (deign to) give”).",
@@ -269,6 +391,22 @@
         "quote": "Compare the historical development of meaning from “to humbly receive” → “to eat”, with the modern use of the humble verb 頂(いただ)く (itadaku, “to receive”) just before eating, in a sense of “I humbly receive this food.”"
       }
     ],
+    "examples": [
+      {
+        "id": 1036819,
+        "ja": "何か食べたい？",
+        "en": "Do you feel like eating?",
+        "enId": 953187,
+        "form": "食べ"
+      },
+      {
+        "id": 78845,
+        "ja": "羊は草を食べる。",
+        "en": "Sheep feed on grass.",
+        "enId": 324871,
+        "form": "食べる"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -281,12 +419,29 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news2", "nf28"],
     "processes": ["sound-change"],
     "headline": "Massao is older 真青 (masao) with a doubled consonant for emphasis, first cited in the Nippo Jisho of 1603.",
     "morphemes": [],
     "sources": [
       {
         "quote": "Shift in pronunciation from older 真青 (masao), with gemination as an excrescence to express emphasis. First cited to the Nippo Jisho of 1603."
+      }
+    ],
+    "examples": [
+      {
+        "id": 117837,
+        "ja": "彼の顔は真っ青になった。",
+        "en": "His face turned white.",
+        "enId": 285827,
+        "form": "真っ青"
+      },
+      {
+        "id": 232143,
+        "ja": "あなたは顔が真っ青です。",
+        "en": "You look so pale.",
+        "enId": 69512,
+        "form": "真っ青"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -298,6 +453,7 @@
     "meaning": "to simultaneously serve two or more functions",
     "level": "N2",
     "pos": ["suffix", "Ichidan verb"],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaneru is from Old Japanese 兼ぬ (kanu), from Proto-Japonic *kan-a-.",
@@ -313,6 +469,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 78366,
+        "ja": "理由がわかりかねます。",
+        "en": "I fail to see the reason.",
+        "enId": 325350,
+        "form": "かねます"
+      },
+      {
+        "id": 217185,
+        "ja": "ご期待に添いかねます。",
+        "en": "I'm sorry, but we cannot meet your requirements.",
+        "enId": 1699524,
+        "form": "かねます"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -322,6 +494,7 @@
     "meaning": "to go against, to oppose, to disobey",
     "level": "N3",
     "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sakarau, “to go against”, is built on 逆 (saka).",
@@ -329,6 +502,22 @@
     "sources": [
       {
         "quote": "From 逆(さか) (saka)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 118631,
+        "ja": "彼に逆らうな。",
+        "en": "Don't oppose him.",
+        "enId": 285033,
+        "form": "逆らう"
+      },
+      {
+        "id": 126429,
+        "ja": "忠言耳に逆らう。",
+        "en": "Good advice grates on the ear.",
+        "enId": 277561,
+        "form": "逆らう"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -344,6 +533,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Rōdō is Middle Chinese 勞動, and 動 was replaced by the kokuji 働 from 1897, when the labour movement gained hold in Japan.",
@@ -366,6 +556,22 @@
         "quote": "From Middle Chinese compound 勞動 (MC law duwngX). 動 was replaced by kokuji 働 from 1897 onwards when the labour movement gained hold in Japan."
       }
     ],
+    "examples": [
+      {
+        "id": 96478,
+        "ja": "彼らは奴隷のように労働した。",
+        "en": "They labored like slaves.",
+        "enId": 307227,
+        "form": "労働"
+      },
+      {
+        "id": 98882,
+        "ja": "彼は労働の報酬をもらわなかった。",
+        "en": "He wasn't given any reward for his service.",
+        "enId": 304817,
+        "form": "労働"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -375,6 +581,7 @@
     "meaning": "fruit",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kajitsu is from Middle Chinese 果實.",
@@ -397,6 +604,22 @@
         "quote": "From Middle Chinese 果實 (MC kwaX zyit)."
       }
     ],
+    "examples": [
+      {
+        "id": 186808,
+        "ja": "果実の中には種がある。",
+        "en": "Fruits have seeds in them.",
+        "enId": 23945,
+        "form": "果実"
+      },
+      {
+        "id": 186809,
+        "ja": "果実になる花は少ない。",
+        "en": "Few flowers develop into fruit.",
+        "enId": 23946,
+        "form": "果実"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -409,6 +632,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nama, “raw”, is from Old Japanese, with numerous derivatives already in use in the Heian period.",
@@ -416,6 +640,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Numerous derivatives already in use in the Heian period."
+      }
+    ],
+    "examples": [
+      {
+        "id": 103257,
+        "ja": "彼は生の魚を食べない。",
+        "en": "He doesn't eat raw fish.",
+        "enId": 295273,
+        "form": "生の"
+      },
+      {
+        "id": 108414,
+        "ja": "彼は魚を生で食べない。",
+        "en": "He doesn't eat raw fish.",
+        "enId": 295273,
+        "form": "生"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -427,6 +667,7 @@
     "meaning": "slovenly, loose, a slut",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Darashinai is from しだらない (shidaranai).",
@@ -445,6 +686,7 @@
     "meaning": "role, position",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Yaku is from Middle Chinese 役, the goon reading, so likely the initial borrowing.",
@@ -452,6 +694,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 役 (MC ywek). The goon reading, so likely the initial borrowing."
+      }
+    ],
+    "examples": [
+      {
+        "id": 147958,
+        "ja": "重要な役を演じる。",
+        "en": "I play an important part.",
+        "enId": 266602,
+        "form": "役"
+      },
+      {
+        "id": 187701,
+        "ja": "何の役にも立たない。",
+        "en": "It is good for nothing.",
+        "enId": 24840,
+        "form": "役"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -463,6 +721,7 @@
     "meaning": "junior members of a group",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kōhai is Middle Chinese 後輩, literally “back, behind” plus “people of a certain kind”, first cited to a text from 827 CE.",
@@ -486,6 +745,22 @@
         "quote": "First cited to a text from 827 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 105649,
+        "ja": "彼は私より３年後輩です。",
+        "en": "He is my junior by three years.",
+        "enId": 298038,
+        "form": "後輩"
+      },
+      {
+        "id": 174282,
+        "ja": "後輩にノートＰＣをかりた。",
+        "en": "I borrowed the notebook PC from the junior staff member.",
+        "enId": 240187,
+        "form": "後輩"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -495,6 +770,7 @@
     "meaning": "play",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": [],
     "headline": "Asobi is the continuative stem of 遊ぶ (asobu).",
@@ -513,6 +789,7 @@
     "meaning": "to grow accustomed to",
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf43"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nareru is from Old Japanese 慣る (naru).",
@@ -528,6 +805,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 148159,
+        "ja": "習うより慣れろ。",
+        "en": "Practice makes perfect.",
+        "enId": 266400,
+        "form": "慣れろ"
+      },
+      {
+        "id": 214935,
+        "ja": "すぐに慣れるわ。",
+        "en": "You'll get used to it in no time.",
+        "enId": 52230,
+        "form": "慣れる"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -537,6 +830,7 @@
     "meaning": "helper, assistant",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Joshu is simply described as “from Sinitic”.",
@@ -559,6 +853,22 @@
         "quote": "From Sinitic."
       }
     ],
+    "examples": [
+      {
+        "id": 155935,
+        "ja": "私は助手を探している。",
+        "en": "I am looking for an assistant.",
+        "enId": 258601,
+        "form": "助手"
+      },
+      {
+        "id": 105544,
+        "ja": "彼は私を助手にしました。",
+        "en": "He made me his assistant.",
+        "enId": 298145,
+        "form": "助手"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -571,6 +881,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Yōkyū is from Middle Chinese 要求 (MC 'jiew gjuw).",
@@ -593,6 +904,22 @@
         "quote": "From Middle Chinese 要求 (MC 'jiew gjuw)."
       }
     ],
+    "examples": [
+      {
+        "id": 78806,
+        "ja": "要求は認められた。",
+        "en": "The request was granted.",
+        "enId": 324910,
+        "form": "要求"
+      },
+      {
+        "id": 115912,
+        "ja": "彼の要求を拒絶する。",
+        "en": "I deny his request.",
+        "enId": 287757,
+        "form": "要求"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -605,6 +932,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sanka, “oxidation”, is 酸 (san) plus 化 (-ka, “-ization”), the same 酸 as in 酸素 (sanso), literally “acidic/sour element”.",
@@ -625,6 +953,15 @@
         "quote": "From 酸(さん) (san, “acid”, also in 酸素 (sanso, “oxygen”, literally “acidic/sour element; sourstuff”)) + 化(か) (-ka, “-ization”)."
       }
     ],
+    "examples": [
+      {
+        "id": 74711,
+        "ja": "チョコレートにはＬＤＬの酸化を防止する力がある。",
+        "en": "Chocolate acts to prevent LDL oxidisation.",
+        "enId": 329008,
+        "form": "酸化"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -634,6 +971,7 @@
     "meaning": "to depart (e.g., on a plane, train)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": [],
     "headline": "Hatsu's kanji 発 is a shinjitai, simplified from 發.",
@@ -652,6 +990,7 @@
     "meaning": "pipe, tube",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Kan, “pipe”, is from Middle Chinese 管, and the pipe sense is traced back to the writings of Zhuangzi.",
@@ -673,6 +1012,15 @@
         "quote": "The wind instrument sense is sourced from the 延喜式 (Engishiki) of 927."
       }
     ],
+    "examples": [
+      {
+        "id": 183844,
+        "ja": "管から水が吹き出した。",
+        "en": "Water shot from the pipe.",
+        "enId": 20968,
+        "form": "管"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -685,6 +1033,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Higaeri is 日 (hi, “day”) plus 帰り (kaeri, “return”), with kaeri voiced to gaeri.",
@@ -706,6 +1055,22 @@
         "quote": "From 日 (hi, “day”) + 帰り (kaeri, “return”). The kaeri changes to gaeri as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 101495,
+        "ja": "彼は日帰り旅行に行った。",
+        "en": "He went on a one-day trip.",
+        "enId": 302200,
+        "form": "日帰り"
+      },
+      {
+        "id": 75279,
+        "ja": "これはスキーとバーベキューとパーティーを日帰りで楽しむいいとこ取りの計画だ。",
+        "en": "Skiing, barbecues, parties: with this plan you get the best of everything and can enjoy it all on a one-day visit.",
+        "enId": 328440,
+        "form": "日帰り"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -715,6 +1080,7 @@
     "meaning": "group",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Gun, “group”, is from Middle Chinese 群.",
@@ -733,6 +1099,7 @@
     "meaning": "gasoline, petrol",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Gasorin is from American English gasoline.",
@@ -748,6 +1115,22 @@
         "quote": "From American English gasoline."
       }
     ],
+    "examples": [
+      {
+        "id": 137572,
+        "ja": "大型車はガソリンを食う。",
+        "en": "Large cars use lots of gas.",
+        "enId": 275664,
+        "form": "ガソリン"
+      },
+      {
+        "id": 226375,
+        "ja": "ガソリンの需要は非常に高い。",
+        "en": "There is a great demand for gasoline.",
+        "enId": 63718,
+        "form": "ガソリン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -757,6 +1140,7 @@
     "meaning": "to complain, to appeal, to sue (a person)",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Uttaeru went from urutapu to uttafu to uttaheru to uttaeru, and is attested since at least the early Heian period.",
@@ -775,6 +1159,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru. For the Old / Classical form, see the 訴ふ entry."
       }
     ],
+    "examples": [
+      {
+        "id": 102881,
+        "ja": "彼は訴えようとした。",
+        "en": "He tried to appeal.",
+        "enId": 300813,
+        "form": "訴えよう"
+      },
+      {
+        "id": 165728,
+        "ja": "私たちは支援を訴えた。",
+        "en": "We made an appeal for support.",
+        "enId": 248777,
+        "form": "訴えた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -787,6 +1187,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news2", "nf28"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Senmen is attested from the 13th century.",

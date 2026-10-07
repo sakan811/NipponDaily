@@ -6,6 +6,7 @@
     "meaning": "pretty, clean, tidy",
     "level": "N5",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["spec1", "ichi1"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kirei is ultimately from written Chinese 綺麗, first attested in Japanese in the 1200s.",
@@ -37,6 +38,7 @@
     "meaning": "America, U.S.A.",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Amerika is from English America, a Latinization of the given name of Amerigo Vespucci (1451-1512).",
@@ -61,6 +63,7 @@
     "meaning": "policeman (friendly term)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Omawarisan is 御 (o-, honorific prefix) plus 巡り (mawari, “going around”) plus さん (-san).",
@@ -82,6 +85,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Zuhyō is 図 (zu, “diagram”) plus 表 (hyō, “table”).",
@@ -111,6 +115,7 @@
     "meaning": "market, fair",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ichi, “market”, is found in the Kojiki of 712 CE.",
@@ -118,6 +123,22 @@
     "sources": [
       {
         "quote": "From Old Japanese 市 (ichi). Found in the Kojiki of 712 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 168369,
+        "ja": "市は月曜ごとに立つ。",
+        "en": "The market is held every Monday.",
+        "enId": 246123,
+        "form": "市"
+      },
+      {
+        "id": 147363,
+        "ja": "女３人と鵞鳥一羽で市ができる。",
+        "en": "Three women and a goose make a market.",
+        "enId": 267197,
+        "form": "市"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -129,6 +150,7 @@
     "meaning": "sound, note",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ne originally meant a sound or cry made by an insect, bird or beast, and is first attested in the Kojiki of 712.",
@@ -153,6 +175,7 @@
     "meaning": "red",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf15", "spec1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Akai is from the Early Middle Japanese adjective 赤し (akashi), cognate with 明るい (akarui, “bright”).",
@@ -168,6 +191,22 @@
         "quote": "⟨akaki₁⟩ → */akakʲi/ → */akaɡʲi/ → */akaɣi/ → */akaji/ → */akai/."
       }
     ],
+    "examples": [
+      {
+        "id": 183646,
+        "ja": "顔が赤いよ。",
+        "en": "Your face is red.",
+        "enId": 20768,
+        "form": "赤い"
+      },
+      {
+        "id": 205618,
+        "ja": "それの色は赤い。",
+        "en": "Its color is red.",
+        "enId": 42863,
+        "form": "赤い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -177,6 +216,7 @@
     "meaning": "mold, model, style",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Kata's noun senses are attested from the 8th century, with suffix use later.",
@@ -195,6 +235,7 @@
     "meaning": "drama, play",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Geki, “drama”, is from Middle Chinese 劇.",
@@ -202,6 +243,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 劇 /剧."
+      }
+    ],
+    "examples": [
+      {
+        "id": 211157,
+        "ja": "その劇は終わった。",
+        "en": "The show is over.",
+        "enId": 48431,
+        "form": "劇"
+      },
+      {
+        "id": 211161,
+        "ja": "その劇は好評を得た。",
+        "en": "The play got a favorable notice.",
+        "enId": 48435,
+        "form": "劇"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -213,6 +270,7 @@
     "meaning": "suspicious, dubious, doubtful",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf33"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ayashii is the interjection あや (aya, “oh”) plus -shii.",
@@ -220,6 +278,22 @@
     "sources": [
       {
         "quote": "From interjection あや (aya, “oh”) + しい (-shii)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 179286,
+        "ja": "空模様が怪しい。",
+        "en": "The sky looks angry.",
+        "enId": 18143,
+        "form": "怪しい"
+      },
+      {
+        "id": 120529,
+        "ja": "彼が怪しいと思う。",
+        "en": "I am suspicious of him.",
+        "enId": 283480,
+        "form": "怪しい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -231,6 +305,7 @@
     "meaning": "ring, hoop, circle",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Wa, “ring”, is from Old Japanese, from Proto-Japonic *wa.",
@@ -238,6 +313,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *wa."
+      }
+    ],
+    "examples": [
+      {
+        "id": 137694,
+        "ja": "大きな輪を描こうよ。",
+        "en": "Let's make a big circle.",
+        "enId": 275542,
+        "form": "輪"
+      },
+      {
+        "id": 185955,
+        "ja": "我々は家族の輪の中で育った。",
+        "en": "We grew up within our family circle.",
+        "enId": 23087,
+        "form": "輪"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -249,6 +340,7 @@
     "meaning": "to curse, to feel bitter",
     "level": "N2",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf47"],
     "stratum": "wago",
     "processes": [],
     "headline": "Uramu was previously an upper bigrade verb, then became quadrigrade by the Edo period.",
@@ -267,6 +359,7 @@
     "meaning": "wound, injury, hurt",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kizu's apparent relation to 切る (kiru, “to cut”) is rejected by the mid-vowel preservation in its Ryukyuan cognates.",
@@ -282,6 +375,22 @@
         "quote": "Any apparent relation to verb 切(き)る (kiru, “to cut”) is rejected by mid-vowel preservation of its Ryukyuan cognates."
       }
     ],
+    "examples": [
+      {
+        "id": 175718,
+        "ja": "彼女の後頭部の傷から血が流れている。",
+        "en": "Blood is flowing from the wound at the back of her head.",
+        "enId": 238747,
+        "form": "傷"
+      },
+      {
+        "id": 189854,
+        "ja": "羽に深い傷を負った小鳥を見つけました。",
+        "en": "I found a bird whose wing was severely damaged.",
+        "enId": 27011,
+        "form": "傷"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -291,6 +400,7 @@
     "meaning": "way, manner, kind",
     "level": "N4",
     "pos": ["noun, used as a suffix", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Yō, “way”, is from Middle Chinese 樣 (MC yangH).",
@@ -303,6 +413,22 @@
         "quote": "From Middle Chinese 樣 (MC yangH)."
       }
     ],
+    "examples": [
+      {
+        "id": 192880,
+        "ja": "よう！元気？",
+        "en": "Yo, my man!",
+        "enId": 30047,
+        "form": "よう"
+      },
+      {
+        "id": 217350,
+        "ja": "こんな所出よう！",
+        "en": "I wanna get out of here!",
+        "enId": 54659,
+        "form": "よう"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -312,6 +438,7 @@
     "meaning": "tiredness, fatigue",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsukare is the continuative form of 疲れる (tsukareru).",
@@ -330,6 +457,7 @@
     "meaning": "to do, to try; to wear small items (e.g., necktie, watch, etc.)",
     "level": "N5",
     "pos": ["suru verb - included"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Suru is from the Old Japanese verb す (su, “to do”), from Proto-Japonic *su, and cognate with Okinawan sun.",
@@ -351,6 +479,7 @@
     "meaning": "wife (humble)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsuma, “wife”, is from 端 (tsuma, “side, edge”): the person at someone's side, compare English better half.",
@@ -375,6 +504,7 @@
     "meaning": "charm, fascination, appeal",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Miryoku is a wasei kango, first attested in 1911 in Jun'ichirō Tanizaki's short story 秘密 (Himitsu, “The Secret”).",
@@ -398,6 +528,22 @@
         "quote": "First attested in 1911 in Jun'ichirō Tanizaki's short story 秘密(ひみつ) (Himitsu, “The Secret”) (see quotation)."
       }
     ],
+    "examples": [
+      {
+        "id": 114761,
+        "ja": "彼はある種の魅力があった。",
+        "en": "He had a certain charm.",
+        "enId": 288909,
+        "form": "魅力"
+      },
+      {
+        "id": 116100,
+        "ja": "彼の魅力に引きつけられた。",
+        "en": "I felt drawn toward him.",
+        "enId": 287569,
+        "form": "魅力"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -407,6 +553,7 @@
     "meaning": "graduate school",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Daigakuin is 大学 (daigaku) plus 院 (-in).",
@@ -435,6 +582,22 @@
         "quote": "大学(だいがく) (daigaku) + 院(いん) (-in)"
       }
     ],
+    "examples": [
+      {
+        "id": 102434,
+        "ja": "彼は大学院で勉強を続けた。",
+        "en": "He continued his studies at graduate school.",
+        "enId": 301260,
+        "form": "大学院"
+      },
+      {
+        "id": 155207,
+        "ja": "大学院に進学するつもりです。",
+        "en": "I'm planning to go to graduate school.",
+        "enId": 259332,
+        "form": "大学院"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -444,6 +607,7 @@
     "meaning": "plan, policy",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Saku, “plan”, is from Middle Chinese 策.",
@@ -451,6 +615,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 策 (tsrheak)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 142889,
+        "ja": "正直は最善の策。",
+        "en": "Honesty is the best policy.",
+        "enId": 271679,
+        "form": "策"
+      },
+      {
+        "id": 142890,
+        "ja": "正直は最上の策。",
+        "en": "Honesty is the best policy.",
+        "enId": 271679,
+        "form": "策"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -462,6 +642,7 @@
     "meaning": "to entrust to another, to leave to",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Makaseru is from Old Japanese 任す (makasu).",
@@ -480,6 +661,22 @@
         "quote": "First attested in the Nihon Shoki of 720 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 174315,
+        "ja": "後は任せた！",
+        "en": "The rest is left to you!",
+        "enId": 240154,
+        "form": "任せた"
+      },
+      {
+        "id": 188395,
+        "ja": "俺に任せろ。",
+        "en": "Let me handle this.",
+        "enId": 25537,
+        "form": "任せろ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -489,10 +686,25 @@
     "meaning": "to stop, to halt, to stand still",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound", "rendaku"],
     "headline": "Tachidomaru is 立つ (tatsu, “to stand”) plus 止まる (tomaru, “to stop”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "立ち",
+        "reading": "たち",
+        "meaning": "stand up",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "止まる",
+        "reading": "どまる",
+        "base": "とまる",
+        "meaning": "stop",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "立(た)つ (tatsu, “to stand”) + 止(と)まる (tomaru, “to stop”)"
@@ -507,6 +719,7 @@
     "meaning": "yawn",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Akubi is first attested in the Shinsen Jikyō of 898–901 CE, perhaps as the stem of the verb あくぶ (akubu).",
@@ -528,6 +741,7 @@
     "meaning": "teachings, doctrine",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": [],
     "headline": "Oshie is the continuative stem of 教える (oshieru).",
@@ -535,6 +749,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 教(おし)える (oshieru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 142652,
+        "ja": "聖書には、賢い教えがたくさん見付かります。",
+        "en": "Much wisdom is to be found in the Bible.",
+        "enId": 271918,
+        "form": "教え"
+      },
+      {
+        "id": 144166,
+        "ja": "人々の性格は彼らに与え得る、いかなる教えよりも、その職業に基づく。",
+        "en": "The character of men depends more on their occupations than on any teaching we can give them.",
+        "enId": 270400,
+        "form": "教え"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -546,6 +776,7 @@
     "meaning": "rust (color)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf46"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sabi, “rust”, is the continuative stem of 錆びる (sabiru, “to rust”).",
@@ -553,6 +784,22 @@
     "sources": [
       {
         "quote": "From 錆び (sabi), the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 錆(さ)びる (sabiru, “to rust”, intransitive)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 221395,
+        "ja": "この車は錆に強い。",
+        "en": "This car is resistant to rust.",
+        "enId": 58720,
+        "form": "錆"
+      },
+      {
+        "id": 110515,
+        "ja": "彼はやすりで錆を落とした。",
+        "en": "He rubbed the rust off with a file.",
+        "enId": 293171,
+        "form": "錆"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -564,6 +811,7 @@
     "meaning": "to surround, to encircle",
     "level": "N3",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kakomu was kakumu in the Nara period, and likely shifted under the influence of 囲う (kakou).",
@@ -574,6 +822,15 @@
       },
       {
         "quote": "An alternate pronunciation かごむ (kagomu), with the medial /k/ becoming voiced to /g/, was formerly widely used, as recorded in the 史記抄(しきしょう) (shikishō) written in the Muromachi period (室(むろ)町(まち)時(じ)代(だい) (Muromachi jidai), c. 1336–1573)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 212047,
+        "ja": "その家は木立に囲まれている。",
+        "en": "The house stands among trees.",
+        "enId": 49325,
+        "form": "囲まれている"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -589,6 +846,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Goraku is 娯 (go), enjoyment, plus 楽 (raku), comfort.",
@@ -609,6 +867,22 @@
         "quote": "娯 (ご, go), enjoyment + 楽 (らく, raku), comfort"
       }
     ],
+    "examples": [
+      {
+        "id": 139247,
+        "ja": "村には娯楽がない。",
+        "en": "There are not many amusements in the village.",
+        "enId": 274563,
+        "form": "娯楽"
+      },
+      {
+        "id": 199715,
+        "ja": "トランプは人気のある娯楽だ。",
+        "en": "Playing cards is a popular pastime.",
+        "enId": 36918,
+        "form": "娯楽"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -618,6 +892,7 @@
     "meaning": "to exceed, to cross over, to cross",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": [],
     "headline": "Koeru is from Old Japanese 越ゆ (ko₁yu), from Proto-Japonic *koyai-.",
@@ -633,6 +908,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 143738,
+        "ja": "水は堤防を越えた。",
+        "en": "The water ran over the banks.",
+        "enId": 270828,
+        "form": "越えた"
+      },
+      {
+        "id": 125831,
+        "ja": "鳥が海を越えて行った。",
+        "en": "The birds went across the sea.",
+        "enId": 278161,
+        "form": "越えて"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -642,6 +933,7 @@
     "meaning": "to shine, to glitter, to sparkle",
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Kagayaku was originally kakayaku; Samuel Martin suggests the kaka- element is mimetic.",
@@ -649,6 +941,22 @@
     "sources": [
       {
         "quote": "Originally kakayaku. Samuel Martin suggests the initial kaka- element is a mimetic word. The -yaku element may be the verb-forming suffix やく (-yaku)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175629,
+        "ja": "月は夜に輝く。",
+        "en": "The moon shines at night.",
+        "enId": 238837,
+        "form": "輝く"
+      },
+      {
+        "id": 138081,
+        "ja": "太陽は昼間輝く。",
+        "en": "The sun shines during the day.",
+        "enId": 275154,
+        "form": "輝く"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -660,6 +968,7 @@
     "meaning": "harm, damage",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Gai, “harm”, is from Middle Chinese 害 (hajᴴ, “injury”).",
@@ -667,6 +976,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 害 (hajᴴ, “injury”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 184705,
+        "ja": "害になる薬もある。",
+        "en": "Some medicine does us harm.",
+        "enId": 21833,
+        "form": "害"
+      },
+      {
+        "id": 191452,
+        "ja": "悪い本は害を与える。",
+        "en": "Bad books will do you harm.",
+        "enId": 28614,
+        "form": "害"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -678,6 +1003,7 @@
     "meaning": "plaza",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Hiroba is 広 (hiro, stem of 広い (hiroi, “wide; open”)) plus 場 (ba, “place”).",
@@ -696,6 +1022,22 @@
     "sources": [
       {
         "quote": "広(ひろ) (hiro, stem of 広(ひろ)い (hiroi, “wide; open”)) + 場(ば) (ba, “place”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 173615,
+        "ja": "広場は興奮でわきたった。",
+        "en": "The square buzzed with excitement.",
+        "enId": 240855,
+        "form": "広場"
+      },
+      {
+        "id": 173617,
+        "ja": "広場には数百人の人がいた。",
+        "en": "There were several hundred people in the plaza.",
+        "enId": 240853,
+        "form": "広場"
       }
     ],
     "wiktionaryDump": "2026-09-02"

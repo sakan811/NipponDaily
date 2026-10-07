@@ -6,6 +6,7 @@
     "meaning": "drink, beverage",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Nomimono is 飲み (nomi, the stem of the verb 飲む) plus 物 (-mono, “thing”).",
@@ -26,6 +27,22 @@
         "quote": "Compound of 飲(の)み (nomi, the 連用形 (ren'yōkei, “stem or continuative form”) of the verb 飲む (nomu, “to drink; to swallow”)) + 物(もの) (-mono, “thing”)."
       }
     ],
+    "examples": [
+      {
+        "id": 189942,
+        "ja": "飲物はいかが？",
+        "en": "Would you care for a drink?",
+        "enId": 27098,
+        "form": "飲物"
+      },
+      {
+        "id": 188048,
+        "ja": "何か飲み物をくれ。",
+        "en": "Give me something to drink.",
+        "enId": 25185,
+        "form": "飲み物"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -39,6 +56,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "Otona appears in sources from the Heian period, from Old Japanese.",
@@ -49,6 +67,22 @@
       },
       {
         "quote": "From Old Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 177535,
+        "ja": "君はもう大人だ。",
+        "en": "You are now an adult.",
+        "enId": 16387,
+        "form": "大人"
+      },
+      {
+        "id": 137485,
+        "ja": "大人２枚ください。",
+        "en": "Two adults, please.",
+        "enId": 275751,
+        "form": "大人"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -63,6 +97,7 @@
       "adverb (fukushi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": ["derivation", "rendaku"],
     "headline": "Tokidoki is a reduplication of 時 (toki, “time”), with rendaku.",
@@ -70,6 +105,22 @@
     "sources": [
       {
         "quote": "Reduplication (with rendaku) of 時 (toki, “time”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 4730,
+        "ja": "彼は時々変です。",
+        "en": "Sometimes he can be a strange guy.",
+        "enId": 1303,
+        "form": "時々"
+      },
+      {
+        "id": 228058,
+        "ja": "うん、時々はね。",
+        "en": "Yeah, sometimes they do.",
+        "enId": 65412,
+        "form": "時々"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -81,6 +132,7 @@
     "meaning": "to stop, to come to a halt",
     "level": "N5",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf13", "spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tomaru is inherited from Old Japanese, and a doublet of 泊まる (tomaru).",
@@ -93,6 +145,22 @@
         "quote": "Doublet of 泊(と)まる (tomaru)."
       }
     ],
+    "examples": [
+      {
+        "id": 150511,
+        "ja": "時計が止まった。",
+        "en": "A clock stopped.",
+        "enId": 264046,
+        "form": "止まった"
+      },
+      {
+        "id": 224557,
+        "ja": "ここで止まるな。",
+        "en": "Don't stop here.",
+        "enId": 61893,
+        "form": "止まる"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -102,6 +170,7 @@
     "meaning": "hot (objects)",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": [],
     "headline": "Atsui for hot objects is cognate with 暑い, the one used for hot weather.",
@@ -114,6 +183,22 @@
         "quote": "Cognate with 暑(あつ)い (atsui, “hot (of the weather)”)."
       }
     ],
+    "examples": [
+      {
+        "id": 146381,
+        "ja": "焼けるように熱い。",
+        "en": "It is broiling hot.",
+        "enId": 268181,
+        "form": "熱い"
+      },
+      {
+        "id": 121917,
+        "ja": "熱いココアを下さい。",
+        "en": "I'd like to have some hot chocolate.",
+        "enId": 282085,
+        "form": "熱い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -123,6 +208,7 @@
     "meaning": "all of you, everyone",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Minasan is 皆 (mina, “everybody, everyone”) plus さん (-san), used when addressing a group.",
@@ -143,6 +229,22 @@
         "quote": "From 皆 (mina, “everybody, everyone”) + さん (-san, honorific suffix), used when addressing a group."
       }
     ],
+    "examples": [
+      {
+        "id": 184979,
+        "ja": "皆さんはお元気？",
+        "en": "How is everyone?",
+        "enId": 22110,
+        "form": "皆さん"
+      },
+      {
+        "id": 184988,
+        "ja": "皆さんお静かに。",
+        "en": "Please be quiet, everybody.",
+        "enId": 22119,
+        "form": "皆さん"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -152,6 +254,7 @@
     "meaning": "strong, powerful",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsuyoi is found in the Nihon Shoki of 720 CE, from Proto-Japonic *tuyə.",
@@ -159,6 +262,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Found in the Nihon Shoki of 720 CE. In turn from Proto-Japonic *tuyə. Cognate with Miyako 強 (tsū), Okinawan 強ーさん (chūsan)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 191432,
+        "ja": "悪運が強い。",
+        "en": "Have the devil's own luck.",
+        "enId": 28594,
+        "form": "強い"
+      },
+      {
+        "id": 84021,
+        "ja": "風の強い日です。",
+        "en": "It's a windy day.",
+        "enId": 319696,
+        "form": "強い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -170,6 +289,7 @@
     "meaning": "foot; leg",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01", "nf10"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ashi was asi in Old Japanese, and may be related to an older a for “leg; foot”.",
@@ -177,6 +297,22 @@
     "sources": [
       {
         "quote": "From Old Japanese 足 (asi, “leg; foot”). In turn, appears to be derived from or related to Old Japanese 足 (a, “leg; foot”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 81374,
+        "ja": "妹は足が長い。",
+        "en": "My sister has long legs.",
+        "enId": 322341,
+        "form": "足"
+      },
+      {
+        "id": 102691,
+        "ja": "彼は足が長い。",
+        "en": "He has long legs.",
+        "enId": 287067,
+        "form": "足"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -192,6 +328,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Ichiban is simply 一 (ichi) plus 番 (-ban).",
@@ -214,6 +351,22 @@
         "quote": "From 一(いち) (ichi) + 番(ばん) (-ban)."
       }
     ],
+    "examples": [
+      {
+        "id": 175542,
+        "ja": "健康が一番です。",
+        "en": "Health is the most important thing.",
+        "enId": 238923,
+        "form": "一番"
+      },
+      {
+        "id": 150577,
+        "ja": "時間は一番大切だ。",
+        "en": "Time is the most precious thing.",
+        "enId": 263979,
+        "form": "一番"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -223,6 +376,7 @@
     "meaning": "to meet, to see",
     "level": "N5",
     "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": ["sound-change", "unclear"],
     "headline": "Au has no settled origin: one theory has it imitating the sound of the upper and lower lips meeting.",
@@ -247,6 +401,22 @@
         "quote": "Various forms of あう (合, 会, 逢, 遭; “join; be together; meet”) are attested from the Middle Ages (c. 1185-1573). Compare 合(あ)う (au)."
       }
     ],
+    "examples": [
+      {
+        "id": 122187,
+        "ja": "日曜に会おう。",
+        "en": "Let's meet on Sunday.",
+        "enId": 281815,
+        "form": "会おう"
+      },
+      {
+        "id": 192761,
+        "ja": "よく彼に会う。",
+        "en": "I often see him.",
+        "enId": 29927,
+        "form": "会う"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -256,6 +426,7 @@
     "meaning": "to make sound (animal)",
     "level": "N5",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Naku is a verbalization of na-, the bound form of 音 (ne, “sound, voice”), and a doublet of 泣く (naku, “to cry”).",
@@ -263,6 +434,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from a verbalization of na-, the 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 音(ね) (ne, “sound, voice”). Doublet of 泣く (naku, “to cry”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 78846,
+        "ja": "羊は何て鳴くの？",
+        "en": "What sound does a sheep make?",
+        "enId": 324870,
+        "form": "鳴く"
+      },
+      {
+        "id": 214000,
+        "ja": "セミが鳴いている。",
+        "en": "Cicadas are singing.",
+        "enId": 51289,
+        "form": "鳴いている"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -274,6 +461,7 @@
     "meaning": "to exceed, to go beyond",
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sugiru is likely cognate with 直ぐ (sugu, “straight; soon”), and first attested in the Kojiki of 712.",
@@ -295,6 +483,22 @@
         "quote": "Natural progression from Old and Classical Japanese 上(かみ)二(に)段(だん)活(かつ)用(よう) (kami nidan katsuyō, “upper bigrade conjugation”) verbs ending in -u to modern Japanese 上(かみ)一(いち)段(だん)活(かつ)用(よう) (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
       }
     ],
+    "examples": [
+      {
+        "id": 123196,
+        "ja": "難しすぎる。",
+        "en": "It's too difficult.",
+        "enId": 280805,
+        "form": "すぎる"
+      },
+      {
+        "id": 187205,
+        "ja": "夏は過ぎた。",
+        "en": "The summer is over.",
+        "enId": 24342,
+        "form": "過ぎた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -304,6 +508,7 @@
     "meaning": "South",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Minami is Old Japanese 南 (mi1nami1).",
@@ -316,6 +521,22 @@
         "quote": "From Old Japanese 南 (mi₁nami₁)."
       }
     ],
+    "examples": [
+      {
+        "id": 84005,
+        "ja": "風は南へ吹く。",
+        "en": "The wind blows south.",
+        "enId": 319710,
+        "form": "南"
+      },
+      {
+        "id": 125781,
+        "ja": "鳥は南へ飛んで行った。",
+        "en": "The birds flew to the south.",
+        "enId": 278211,
+        "form": "南"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -325,6 +546,7 @@
     "meaning": "near, close by, short",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": [],
     "headline": "Chikai is Old Japanese, from Proto-Japonic *tika.",
@@ -332,6 +554,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *tika."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175904,
+        "ja": "決断の日は近い。",
+        "en": "The day of decision is at hand.",
+        "enId": 238561,
+        "form": "近い"
+      },
+      {
+        "id": 194562,
+        "ja": "もう１０時近い。",
+        "en": "It is almost ten o'clock.",
+        "enId": 31660,
+        "form": "近い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -343,6 +581,7 @@
     "meaning": "to be sufficient; to be enough",
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tariru is an irregular conjugation shift from 足る (taru), which was originally quadrigrade.",
@@ -350,6 +589,22 @@
     "sources": [
       {
         "quote": "An irregular shift in conjugation from the verb 足(た)る (taru), which originally followed 四(よ)段(だん) (yodan, “quadrigrade”) conjugation."
+      }
+    ],
+    "examples": [
+      {
+        "id": 235647,
+        "ja": "１万円でたりる？",
+        "en": "Will ten thousand yen do?",
+        "enId": 73027,
+        "form": "たりる"
+      },
+      {
+        "id": 235826,
+        "ja": "１ページ足りない。",
+        "en": "There is a page missing.",
+        "enId": 73207,
+        "form": "足りない"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -361,6 +616,7 @@
     "meaning": "refrigerator",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Reizōko is 冷蔵 (reizō, “refrigeration”) plus 庫 (-ko, “depository”).",
@@ -381,6 +637,22 @@
         "quote": "冷蔵(れいぞう) (reizō, “refrigeration”) + 庫(こ) (-ko, “depository”)"
       }
     ],
+    "examples": [
+      {
+        "id": 77634,
+        "ja": "冷蔵庫は食品の腐敗を防ぐ。",
+        "en": "The refrigerator preserves food from decay.",
+        "enId": 326084,
+        "form": "冷蔵庫"
+      },
+      {
+        "id": 137731,
+        "ja": "大きな型の冷蔵庫がほしい。",
+        "en": "I want to buy a large sized refrigerator.",
+        "enId": 275505,
+        "form": "冷蔵庫"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -390,6 +662,7 @@
     "meaning": "to learn",
     "level": "N5",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
     "processes": [],
     "headline": "Narau is related to 倣う (narau, “to imitate”).",
@@ -397,6 +670,22 @@
     "sources": [
       {
         "quote": "Related to 倣(なら)う (narau, “to imitate”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 148159,
+        "ja": "習うより慣れろ。",
+        "en": "Practice makes perfect.",
+        "enId": 266400,
+        "form": "習う"
+      },
+      {
+        "id": 109762,
+        "ja": "彼は泳ぎ方を習った。",
+        "en": "He learned how to swim.",
+        "enId": 293928,
+        "form": "習った"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -408,6 +697,7 @@
     "meaning": "summer",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Natsu was natu: from Old Japanese, from Proto-Japonic *natu.",
@@ -420,6 +710,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *natu."
       }
     ],
+    "examples": [
+      {
+        "id": 187205,
+        "ja": "夏は過ぎた。",
+        "en": "The summer is over.",
+        "enId": 24342,
+        "form": "夏"
+      },
+      {
+        "id": 187201,
+        "ja": "夏は終わった。",
+        "en": "Summer is gone.",
+        "enId": 24338,
+        "form": "夏"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -429,6 +735,7 @@
     "meaning": "to play; to spend time pleasantly; to hang out",
     "level": "N5",
     "pos": ["Godan verb with 'bu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "wago",
     "processes": [],
     "headline": "Asobu is first attested in the Kojiki of 712 CE, from Proto-Japonic *asonpu.",
@@ -436,6 +743,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Kojiki of 712 CE. From Proto-Japonic *asonpu."
+      }
+    ],
+    "examples": [
+      {
+        "id": 79198,
+        "ja": "遊びましょう。",
+        "en": "Let's play.",
+        "enId": 324520,
+        "form": "遊びましょう"
+      },
+      {
+        "id": 190513,
+        "ja": "一緒に遊ばない？",
+        "en": "Would you play with me?",
+        "enId": 27675,
+        "form": "遊ばない"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -451,6 +774,7 @@
       "adverb (fukushi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Kekkō is from Middle Chinese 結構, appearing in the diary of Fujiwara no Sanesuke in 1031.",
@@ -474,6 +798,22 @@
         "quote": "Ultimately from Middle Chinese 結構 (MC ket kuwH). Appears in the 小右記 (Shōyūki, Ouki) of 1031, the diary of Fujiwara no Sanesuke."
       }
     ],
+    "examples": [
+      {
+        "id": 175785,
+        "ja": "結構面白い。",
+        "en": "It's so exciting.",
+        "enId": 238680,
+        "form": "結構"
+      },
+      {
+        "id": 349039,
+        "ja": "もう結構です。",
+        "en": "I don't want any more.",
+        "enId": 31649,
+        "form": "結構"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -483,6 +823,7 @@
     "meaning": "to walk",
     "level": "N5",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Aruku is Old Japanese, first cited to the Man'yōshū of circa 759 CE.",
@@ -490,6 +831,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First cited to the Man'yōshū of circa 759 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 86784,
+        "ja": "彼女は歩く。",
+        "en": "She walks.",
+        "enId": 316925,
+        "form": "歩く"
+      },
+      {
+        "id": 125602,
+        "ja": "通りを歩いた。",
+        "en": "We walked along the street.",
+        "enId": 249090,
+        "form": "歩いた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -501,6 +858,7 @@
     "meaning": "morning",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["borrowing", "sound-change"],
     "headline": "Asa is attested in the Man'yōshū of 759, and its old day cycle began in the afternoon.",
@@ -534,6 +892,22 @@
         "quote": "* The concepts of \"shallow\" and \"deep\" are used in other respects relative to time, such as 夜更(よふ)かし (yofukashi, “staying up late into the night”) and 夜(よ)更(ふ)け (yofuke, “very late at night”), where the fuk- root in both terms is from 深(ふか)い (fukai, “deep; late, long-lasting”)."
       }
     ],
+    "examples": [
+      {
+        "id": 126233,
+        "ja": "朝の八時です。",
+        "en": "It's eight o'clock in the morning.",
+        "enId": 277759,
+        "form": "朝"
+      },
+      {
+        "id": 126241,
+        "ja": "朝に弱いんです。",
+        "en": "I am not a morning person.",
+        "enId": 277752,
+        "form": "朝"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -543,6 +917,7 @@
     "meaning": "to know, to understand",
     "level": "N5",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": [],
     "headline": "Shiru is Old Japanese, from Proto-Japonic *siru.",
@@ -550,6 +925,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *siru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 127070,
+        "ja": "知るもんか。",
+        "en": "Who cares?",
+        "enId": 40434,
+        "form": "知る"
+      },
+      {
+        "id": 127073,
+        "ja": "知りません。",
+        "en": "I don't know.",
+        "enId": 349064,
+        "form": "知りません"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -561,6 +952,7 @@
     "meaning": "to show, to display",
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf35"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Miseru is from Old Japanese 見す (misu), a lower bigrade verb.",
@@ -582,6 +974,22 @@
         "quote": "Analyzable as 見 (mi, the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見(み)る (miru, “to see; to look at”)) + す (-su, causative suffix, corresponding to modern せる (-seru))."
       }
     ],
+    "examples": [
+      {
+        "id": 373277,
+        "ja": "見せてくれ。",
+        "en": "Let me have a look.",
+        "enId": 425743,
+        "form": "見せて"
+      },
+      {
+        "id": 175189,
+        "ja": "見せてあげる。",
+        "en": "Oh, let me show you.",
+        "enId": 239277,
+        "form": "見せて"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -591,6 +999,7 @@
     "meaning": "to need",
     "level": "N5",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["news2", "nf27", "spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Iru “to need” is the same word as 入る (iru, “to enter”).",
@@ -598,6 +1007,22 @@
     "sources": [
       {
         "quote": "Same word as 入(い)る (iru, “to enter”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 145551,
+        "ja": "心配いりません。",
+        "en": "Don't worry about that.",
+        "enId": 41461,
+        "form": "いりません"
+      },
+      {
+        "id": 178141,
+        "ja": "いらぬお世話だ。",
+        "en": "It's none of your business.",
+        "enId": 16994,
+        "form": "いらぬ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -609,6 +1034,7 @@
     "meaning": "to work",
     "level": "N5",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hataraku is most likely derived from a mimetic word はた (hata), perhaps the sound of objects bumping together.",
@@ -624,6 +1050,22 @@
         "quote": "First cited in the late 900s, with the sense of \"to move one's body\"."
       }
     ],
+    "examples": [
+      {
+        "id": 91309,
+        "ja": "彼女はよく働く。",
+        "en": "She works hard.",
+        "enId": 312405,
+        "form": "働く"
+      },
+      {
+        "id": 190409,
+        "ja": "一生懸命働いた。",
+        "en": "He worked hard.",
+        "enId": 27567,
+        "form": "働いた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -633,6 +1075,7 @@
     "meaning": "fat, thick",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": [],
     "headline": "Futoi was 太し (puto1si) in Old Japanese.",
@@ -640,6 +1083,22 @@
     "sources": [
       {
         "quote": "From Old Japanese 太し (puto₁si)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 102554,
+        "ja": "彼は太い首をしている。",
+        "en": "He has a thick neck.",
+        "enId": 301140,
+        "form": "太い"
+      },
+      {
+        "id": 142328,
+        "ja": "石油が太いパイプの中を流れた。",
+        "en": "The oil ran through a thick pipe.",
+        "enId": 272242,
+        "form": "太い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -651,6 +1110,7 @@
     "meaning": "to put on (e.g., glasses); to hang (e.g., on a wall)",
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kakeru comes from Old Japanese 掛く (kaku), a lower bigrade verb.",
@@ -669,6 +1129,22 @@
         "quote": "First attested in the Kojiki of 712 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 174346,
+        "ja": "後で掛け直す。",
+        "en": "I'm gonna have to call you back.",
+        "enId": 240123,
+        "form": "掛け"
+      },
+      {
+        "id": 227758,
+        "ja": "おかけ下さい。",
+        "en": "Sit down, please.",
+        "enId": 38571,
+        "form": "おかけ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -678,6 +1154,7 @@
     "meaning": "far (away), distant",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tōi is from Proto-Japonic *təpə, with cognates in Miyako and Okinawan.",
@@ -685,6 +1162,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *təpə. Cognate with Miyako 遠 (とぅー, tū), Okinawan 遠(とぅー)さん (tūsan)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 83205,
+        "ja": "歩くと遠いですか。",
+        "en": "Is it too far to walk?",
+        "enId": 320512,
+        "form": "遠い"
+      },
+      {
+        "id": 175635,
+        "ja": "月は地球から遠い。",
+        "en": "The moon is distant from the earth.",
+        "enId": 238830,
+        "form": "遠い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -716,6 +1209,22 @@
         "quote": "御(お) (o-, polite prefix) + 皿(さら) (sara, “plate”)"
       }
     ],
+    "examples": [
+      {
+        "id": 162135,
+        "ja": "私は、夕食後、お皿を洗った。",
+        "en": "I washed the dishes after supper.",
+        "enId": 252380,
+        "form": "お皿"
+      },
+      {
+        "id": 182363,
+        "ja": "給仕は新しいお皿を持ってきた。",
+        "en": "The waiter brought a new plate.",
+        "enId": 19540,
+        "form": "お皿"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -725,6 +1234,7 @@
     "meaning": "to decide (v.t.)",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "wago",
     "processes": ["unclear"],
     "headline": "Kimeru is the transitive form of Old Japanese 決む (kimu), a verb that can be either transitive or intransitive.",
@@ -735,6 +1245,22 @@
       },
       {
         "quote": "The source verb kimu appears to follow a common pattern in Old Japanese verbs where the bare form is either transitive or intransitive, depending on context. This pattern persists in some modern verbs, such as つく (tsuku). Many of these Old Japanese verbs developed explicit transitive and intransitive forms, with one group adopting an -aru on the end for the intransitive (as the 未然形 (mizenkei, “irrealis or incomplete form”) ending in -a + the conjugating る (ru) as the basic spontaneous or passive verb ending), and an -eru on the end for the transitive (as the 已然形 (izenkei, “realis or potential form”) + the disappearing る (ru) as a generic verb ending)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124310,
+        "ja": "投票で決める。",
+        "en": "We'll decide by voting.",
+        "enId": 279685,
+        "form": "決める"
+      },
+      {
+        "id": 146038,
+        "ja": "条件を決める。",
+        "en": "I fix the terms.",
+        "enId": 268523,
+        "form": "決める"
       }
     ],
     "wiktionaryDump": "2026-09-02"

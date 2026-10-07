@@ -6,6 +6,7 @@
     "meaning": "public opinion",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "In yoron, 世 is a daiyōji replacing 輿.",
@@ -37,6 +38,7 @@
     "meaning": "bed",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ベッド is borrowed from English bed.",
@@ -52,6 +54,22 @@
         "quote": "Borrowed from English bed."
       }
     ],
+    "examples": [
+      {
+        "id": 196806,
+        "ja": "ベッドから出なさい。",
+        "en": "Get out of bed!",
+        "enId": 33985,
+        "form": "ベッド"
+      },
+      {
+        "id": 111027,
+        "ja": "彼はベッドに腰掛けた。",
+        "en": "He sat on the bed.",
+        "enId": 292659,
+        "form": "ベッド"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -61,6 +79,7 @@
     "meaning": "bar",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バー is borrowed from English bar, and is a doublet of バール and バル.",
@@ -76,6 +95,22 @@
         "quote": "Borrowed from English bar. Doublet of バール and バル."
       }
     ],
+    "examples": [
+      {
+        "id": 176290,
+        "ja": "警察がバーに突入した。",
+        "en": "The police charged into the bar.",
+        "enId": 238174,
+        "form": "バー"
+      },
+      {
+        "id": 198421,
+        "ja": "バーでお待ちになりますか。",
+        "en": "Would you like to wait in the bar?",
+        "enId": 35612,
+        "form": "バー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -85,6 +120,7 @@
     "meaning": "assistance",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf12"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tasuke is the continuative stem of the verb 助ける (tasukeru, “to help, to aid, to assist”).",
@@ -92,6 +128,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 助(たす)ける (tasukeru, “to help, to aid, to assist”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 104239,
+        "ja": "彼は助けを呼んだ。",
+        "en": "He called for help.",
+        "enId": 299444,
+        "form": "助け"
+      },
+      {
+        "id": 104243,
+        "ja": "彼は助けを求めた。",
+        "en": "He called for help.",
+        "enId": 299444,
+        "form": "助け"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -103,6 +155,7 @@
     "meaning": "Chinese word, Sino-Japanese word",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kango is from Middle Chinese 漢語, “Han, Chinese + speech, language”.",
@@ -132,6 +185,7 @@
     "meaning": "heaven, the sky",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf19"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Ōzora is 大 (ō-, “large”) plus 空 (sora, “sky”).",
@@ -153,6 +207,15 @@
         "quote": "大 (ō-, “large”) + 空 (sora, “sky”)"
       }
     ],
+    "examples": [
+      {
+        "id": 155590,
+        "ja": "私は世の中のどんなことをするよりも大空に飛びたい。",
+        "en": "I want to fly more than anything else in the world.",
+        "enId": 258948,
+        "form": "大空"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -162,6 +225,7 @@
     "meaning": "raw materials, subject matter",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sozai is 素 (so, “element”) plus 材 (zai, “material”).",
@@ -184,6 +248,22 @@
         "quote": "素 (そ, so: “element”) + 材 (ざい, zai: “material”)"
       }
     ],
+    "examples": [
+      {
+        "id": 140647,
+        "ja": "素材は何ですか？",
+        "en": "What are the materials?",
+        "enId": 12005479,
+        "form": "素材"
+      },
+      {
+        "id": 103759,
+        "ja": "彼は新素材の開発に従事している。",
+        "en": "He is engaged in developing new materials.",
+        "enId": 299934,
+        "form": "素材"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -193,8 +273,9 @@
     "meaning": "jeans",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
-    "processes": [],
+    "processes": ["wasei"],
     "headline": "ジーパン is a blend of ジーンズ (jīnzu, “jeans”) and パンツ (pantsu, “pants”).",
     "morphemes": [],
     "sources": [
@@ -214,6 +295,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hisoka goes back to Old Japanese and Proto-Japonic.",
@@ -221,6 +303,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *pisǝka.https://starlingdb.org/cgi-bin/response.cgi?root=config&morpho=0&basename=\\data\\alt\\japet&first=1101"
+      }
+    ],
+    "examples": [
+      {
+        "id": 99748,
+        "ja": "彼は密かに庭に入り込んだ。",
+        "en": "He entered the garden secretly.",
+        "enId": 303949,
+        "form": "密かに"
+      },
+      {
+        "id": 86595,
+        "ja": "彼女は密かに彼の失敗を笑った。",
+        "en": "She laughed up her sleeve at his failure.",
+        "enId": 317116,
+        "form": "密かに"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -235,6 +333,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["news2", "nf26"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Tsūsetsu is 痛 (tsū, “severe”) plus 切 (setsu, “keen”).",
@@ -257,6 +356,22 @@
         "quote": "From 痛 (tsū, \"severe, \"vehement,\" \"keen\") + 切 (setsu, \"keen,\" \"acute,\" \"intense\")."
       }
     ],
+    "examples": [
+      {
+        "id": 644324,
+        "ja": "算数教育が非常に大事だと痛切に感じていた。",
+        "en": "I was acutely aware of how very important mathematical education was.",
+        "enId": 644325,
+        "form": "痛切に"
+      },
+      {
+        "id": 87170,
+        "ja": "彼女は悲しさがあまりにも痛切で涙も出なかった。",
+        "en": "Her grief was too acute for tears.",
+        "enId": 309645,
+        "form": "痛切"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -266,6 +381,7 @@
     "meaning": "free",
     "level": "N2",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "フリー is borrowed from English free.",
@@ -290,6 +406,7 @@
     "meaning": "(tree) trunk",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Miki was originally a compound of 身 (mi, “body”) plus 木 (ki, “tree”), first cited to a text from 1726.",
@@ -300,6 +417,15 @@
       },
       {
         "quote": "First cited to a text from 1726."
+      }
+    ],
+    "examples": [
+      {
+        "id": 76788,
+        "ja": "きつつきは、長く尖ったくちばしで、木の幹をつついて、中にいる虫を食べます。",
+        "en": "Woodpeckers peck tree trunks with their long pointed beaks and eat insects found there.",
+        "enId": 326932,
+        "form": "幹"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -314,6 +440,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf21"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In haki, 棄 is a daiyōji replacing 毀.",
@@ -336,6 +463,22 @@
         "quote": "棄 is a daiyōji replacing 毀."
       }
     ],
+    "examples": [
+      {
+        "id": 97123,
+        "ja": "彼らは婚約を破棄した。",
+        "en": "They called off their engagement.",
+        "enId": 306581,
+        "form": "破棄"
+      },
+      {
+        "id": 147224,
+        "ja": "女優は怒って契約を破棄した。",
+        "en": "The actress tore up her contract angrily.",
+        "enId": 267337,
+        "form": "破棄"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -348,6 +491,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ボイコット is borrowed from English boycott.",
@@ -363,6 +507,15 @@
         "quote": "Borrowed from English boycott."
       }
     ],
+    "examples": [
+      {
+        "id": 111280,
+        "ja": "彼はバスのボイコット運動を組織したのである。",
+        "en": "He organized a boycott of the bus service.",
+        "enId": 292403,
+        "form": "ボイコット"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -372,6 +525,7 @@
     "meaning": "technique",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shuhō is from the Middle Chinese compound 手法, which modern Mandarin shares.",
@@ -394,6 +548,22 @@
         "quote": "From Middle Chinese compound 手法 (MC syuwX pjop). Compare modern Mandarin 手法 (shǒufǎ)."
       }
     ],
+    "examples": [
+      {
+        "id": 117024,
+        "ja": "彼の手法は全く驚くべきものだった。",
+        "en": "His technique was absolutely amazing.",
+        "enId": 286642,
+        "form": "手法"
+      },
+      {
+        "id": 94317,
+        "ja": "彼女の手法は私たちよりはるかに進んでいる。",
+        "en": "Her method is far in advance of ours.",
+        "enId": 309389,
+        "form": "手法"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -403,6 +573,7 @@
     "meaning": "to scoop",
     "level": "N1",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sukuu, “to scoop”, is cognate with 救う (sukuu, “to save”).",
@@ -421,6 +592,7 @@
     "meaning": "no",
     "level": "N3",
     "pos": ["interjection (kandoushi)", "noun, used as a prefix"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ノー is borrowed from English no.",
@@ -436,6 +608,22 @@
         "quote": "Borrowed from English no."
       }
     ],
+    "examples": [
+      {
+        "id": 74324,
+        "ja": "米国にノウと言えるのか？",
+        "en": "Can we say \"No\" to America?",
+        "enId": 329396,
+        "form": "ノウ"
+      },
+      {
+        "id": 229314,
+        "ja": "イエスかノーかはっきりしろ。",
+        "en": "Just say yes or no.",
+        "enId": 66672,
+        "form": "ノー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -449,6 +637,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "unclear"],
     "headline": "Bōtō is uncertain, but may be from written Chinese 冒頭 (màotóu), 冒 (“to emerge”) plus 頭 (“the head; the top; the beginning”).",
@@ -475,6 +664,22 @@
         "quote": "First attested in the 1880s in Japanese."
       }
     ],
+    "examples": [
+      {
+        "id": 110900,
+        "ja": "彼はほんの冒頭部分を書き終えた。",
+        "en": "He finished the opening.",
+        "enId": 292786,
+        "form": "冒頭"
+      },
+      {
+        "id": 169295,
+        "ja": "残っているのは冒頭の部分だけであった。",
+        "en": "All that was left was the opening.",
+        "enId": 245191,
+        "form": "冒頭"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -484,6 +689,7 @@
     "meaning": "pattern",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "パターン is borrowed from English pattern.",
@@ -499,6 +705,15 @@
         "quote": "Borrowed from English pattern."
       }
     ],
+    "examples": [
+      {
+        "id": 143366,
+        "ja": "世界貿易の変動パターンが次の表で明らかにされている。",
+        "en": "The shifting pattern of world trade is made clear in the following table.",
+        "enId": 271201,
+        "form": "パターン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -508,6 +723,7 @@
     "meaning": "garage (at house)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ガレージ is borrowed from English garage, perhaps from British English, and from French garage.",
@@ -523,6 +739,22 @@
         "quote": "Borrowed from English garage (given the transcribed form, perhaps borrowed from British English garage), from French garage. Doublet of グラージ."
       }
     ],
+    "examples": [
+      {
+        "id": 226152,
+        "ja": "ガレージは錆びている。",
+        "en": "The garage has rusted.",
+        "enId": 63492,
+        "form": "ガレージ"
+      },
+      {
+        "id": 84738,
+        "ja": "父はガレージを掃除している。",
+        "en": "My father is sweeping the garage.",
+        "enId": 318976,
+        "form": "ガレージ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -532,6 +764,7 @@
     "meaning": "timer",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "タイマー is from English timer.",
@@ -547,6 +780,22 @@
         "quote": "From English timer."
       }
     ],
+    "examples": [
+      {
+        "id": 74025,
+        "ja": "PC内部のタイマー用ボタン電池が切れた。",
+        "en": "The button battery in the PC's internal timer has gone flat.",
+        "enId": 329695,
+        "form": "タイマー"
+      },
+      {
+        "id": 76829,
+        "ja": "オーブントースターのタイマーが鳴る。食パンがコンガリ焼けた、香ばしい匂い。",
+        "en": "The toaster-oven's timer rings. The fragrant smell of well toasted bread.",
+        "enId": 326891,
+        "form": "タイマー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -556,6 +805,7 @@
     "meaning": "apology",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Wabi is the continuative stem of the verb 詫びる (wabiru, “to apologise”).",
@@ -563,6 +813,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 詫(わ)びる (wabiru, “to apologise”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 226498,
+        "ja": "お詫びします。",
+        "en": "I apologize for it.",
+        "enId": 63843,
+        "form": "詫び"
+      },
+      {
+        "id": 145607,
+        "ja": "心からのお詫び。",
+        "en": "Sincere apologies.",
+        "enId": 268954,
+        "form": "詫び"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -583,6 +849,22 @@
         "quote": "From Middle Chinese 都 (MC tu)."
       }
     ],
+    "examples": [
+      {
+        "id": 124528,
+        "ja": "都庁舎に行き、そこでまた列の中で待った。",
+        "en": "The woman left and went to the courthouse, where she waited in line again.",
+        "enId": 279466,
+        "form": "都"
+      },
+      {
+        "id": 236216,
+        "ja": "「都庁舎でもらえますよ」と係員が付け加えた。",
+        "en": "\"You can get it at the Metropolitan Government Office,\" the clerk added.",
+        "enId": 8890264,
+        "form": "都"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -592,6 +874,7 @@
     "meaning": "group",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "グループ is borrowed from English group.",
@@ -607,6 +890,22 @@
         "quote": "Borrowed from English group."
       }
     ],
+    "examples": [
+      {
+        "id": 113900,
+        "ja": "彼はグループからはぐれた。",
+        "en": "He strayed from his group.",
+        "enId": 289773,
+        "form": "グループ"
+      },
+      {
+        "id": 213234,
+        "ja": "そのグループは浜辺を走っている。",
+        "en": "The group is running on the beach.",
+        "enId": 50519,
+        "form": "グループ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -616,6 +915,7 @@
     "meaning": "to inform, to report",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "kango",
     "processes": ["sound-change"],
     "headline": "Hōjiru is a shift from the verb 報ずる (hōzuru), as -uru verbs moved to the -iru pattern.",
@@ -623,6 +923,22 @@
     "sources": [
       {
         "quote": "Shift from verb 報(ほう)ずる (hōzuru), by natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 95658,
+        "ja": "彼女がそのニュースを報じた。",
+        "en": "She reported the news.",
+        "enId": 308047,
+        "form": "報じた"
+      },
+      {
+        "id": 145147,
+        "ja": "新聞は２党間の抗争を報じた。",
+        "en": "The newspaper reported friction between the two parties.",
+        "enId": 269416,
+        "form": "報じた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -637,6 +953,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "キャッチ is borrowed from English catch.",
@@ -652,6 +969,22 @@
         "quote": "Borrowed from English catch."
       }
     ],
+    "examples": [
+      {
+        "id": 107009,
+        "ja": "彼は左手でボールをキャッチした。",
+        "en": "He caught the ball with his left hand.",
+        "enId": 296677,
+        "form": "キャッチ"
+      },
+      {
+        "id": 75491,
+        "ja": "私はいまだに高く上げたバトンをうまくキャッチできない。",
+        "en": "I am still clumsy catching batons thrown high up.",
+        "enId": 328227,
+        "form": "キャッチ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -664,6 +997,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Tentai is from Middle Chinese 天體, analysable as 天 (ten, “heaven”) plus 体 (tai, “body”).",
@@ -687,6 +1021,22 @@
         "quote": "天 (ten, “heaven”) + 体 (tai, “body”)."
       }
     ],
+    "examples": [
+      {
+        "id": 125009,
+        "ja": "天文学は天体の科学である。",
+        "en": "Astronomy is the science of heavenly bodies.",
+        "enId": 278984,
+        "form": "天体"
+      },
+      {
+        "id": 189883,
+        "ja": "宇宙には無数の天体がある。",
+        "en": "There are countless heavenly bodies in space.",
+        "enId": 27039,
+        "form": "天体"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -700,6 +1050,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Ren'ai is from Middle Chinese 戀愛.",
@@ -722,6 +1073,22 @@
         "quote": "From Middle Chinese 戀愛 (MC ljwenH 'ojH)."
       }
     ],
+    "examples": [
+      {
+        "id": 77439,
+        "ja": "恋愛と結婚は別だ。",
+        "en": "Falling in love is one thing; getting married is another.",
+        "enId": 326279,
+        "form": "恋愛"
+      },
+      {
+        "id": 123646,
+        "ja": "同情は恋愛に似ている。",
+        "en": "Pity is akin to love.",
+        "enId": 28740,
+        "form": "恋愛"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -731,6 +1098,7 @@
     "meaning": "buzzer",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": [],
     "headline": "ブザー is from the spelling pronunciation of English buzzer.",
@@ -738,6 +1106,22 @@
     "sources": [
       {
         "quote": "From the spelling pronunciation of English buzzer."
+      }
+    ],
+    "examples": [
+      {
+        "id": 197178,
+        "ja": "ブザーがなった。",
+        "en": "The buzzer sounded.",
+        "enId": 34361,
+        "form": "ブザー"
+      },
+      {
+        "id": 197179,
+        "ja": "ブザーを押して下さい。",
+        "en": "Please push the buzzer.",
+        "enId": 34360,
+        "form": "ブザー"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -749,6 +1133,7 @@
     "meaning": "cameraman",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カメラマン is borrowed from English cameraman.",
@@ -762,6 +1147,22 @@
     "sources": [
       {
         "quote": "Borrowed from English cameraman."
+      }
+    ],
+    "examples": [
+      {
+        "id": 102427,
+        "ja": "彼は大学卒業後カメラマンになった。",
+        "en": "He became a cameraman after he graduated from college.",
+        "enId": 301267,
+        "form": "カメラマン"
+      },
+      {
+        "id": 234397,
+        "ja": "あそこのカメラマンはどこの人ですか。",
+        "en": "What is the nationality of that cameraman over there?",
+        "enId": 71773,
+        "form": "カメラマン"
       }
     ],
     "wiktionaryDump": "2026-09-02"

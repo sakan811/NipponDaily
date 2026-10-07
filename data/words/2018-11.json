@@ -6,12 +6,29 @@
     "meaning": "lovely, sweet",
     "level": "N3",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "processes": [],
     "headline": "Kawairashii is 可愛い (kawaii) plus the ending らしい (-rashii).",
     "morphemes": [],
     "sources": [
       {
         "quote": "From 可愛(かわい)い (kawaii) + らしい (-rashii)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 187785,
+        "ja": "何とかわいらしい人形だ！",
+        "en": "What a lovely doll!",
+        "enId": 24924,
+        "form": "かわいらしい"
+      },
+      {
+        "id": 91968,
+        "ja": "彼女はとてもかわいらしい。",
+        "en": "She is as pretty as anything.",
+        "enId": 311744,
+        "form": "かわいらしい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -23,6 +40,7 @@
     "meaning": "little finger",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Koyubi is 小 (ko-, “little”) plus 指 (yubi, “finger or toe; digit”).",
@@ -43,6 +61,22 @@
         "quote": "小(こ) (ko-, “little”) + 指(ゆび) (yubi, “finger or toe; digit”)"
       }
     ],
+    "examples": [
+      {
+        "id": 146961,
+        "ja": "小指がはれました。",
+        "en": "My little finger is swollen.",
+        "enId": 267600,
+        "form": "小指"
+      },
+      {
+        "id": 139863,
+        "ja": "足の小指が痛むんだ。",
+        "en": "I have a pain in my little toe.",
+        "enId": 274478,
+        "form": "小指"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -52,6 +86,7 @@
     "meaning": "which one, which way",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Dotchi is 何方 (dochi, “where, which way”) with a sokuon added.",
@@ -74,6 +109,7 @@
       "noun, used as a suffix",
       "counter"
     ],
+    "priority": ["news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Kyū went from kipu through kiɸu, kiwu and kiu on its way to kyū, from Middle Chinese 級.",
@@ -86,6 +122,22 @@
         "quote": "From Middle Chinese 級 (MC kip)."
       }
     ],
+    "examples": [
+      {
+        "id": 105639,
+        "ja": "彼は私より一階級上だ。",
+        "en": "He is immediately above me in rank.",
+        "enId": 298048,
+        "form": "級"
+      },
+      {
+        "id": 115300,
+        "ja": "彼は１０年級に在学中だ。",
+        "en": "He is in the tenth grade.",
+        "enId": 288371,
+        "form": "級"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -95,6 +147,7 @@
     "meaning": "to help (v.t.), to save, to rescue",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Tasukeru traces to older 助く (tasuku), a compound of 手 (ta-, “hand”) and 助く (suku, “to help”), first appearing in the late 900s.",
@@ -110,6 +163,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru. For the Old / Classical form, see the 助く entry."
       }
     ],
+    "examples": [
+      {
+        "id": 147381,
+        "ja": "助けてくれ。",
+        "en": "Help me, please.",
+        "enId": 267179,
+        "form": "助けて"
+      },
+      {
+        "id": 136892,
+        "ja": "誰か助けてくれ。",
+        "en": "Someone help me.",
+        "enId": 1650191,
+        "form": "助けて"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -119,6 +188,7 @@
     "meaning": "movie theater, cinema",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Eigakan is 映画 (eiga, “movie”) plus 館 (-kan, “building”).",
@@ -139,6 +209,22 @@
         "quote": "From 映画(えいが) (eiga, “movie”) + 館(かん) (-kan, “building”)."
       }
     ],
+    "examples": [
+      {
+        "id": 189288,
+        "ja": "映画館にいたんだ。",
+        "en": "I was at a movie theater.",
+        "enId": 26437,
+        "form": "映画館"
+      },
+      {
+        "id": 189287,
+        "ja": "映画館内は禁煙です。",
+        "en": "Smoking is not permitted in the cinema.",
+        "enId": 26435,
+        "form": "映画館"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -148,6 +234,7 @@
     "meaning": "chain",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kusari, “chain”, is a noun from the stem of the verb 鏈る (kusaru, “to be linked together”).",
@@ -155,6 +242,22 @@
     "sources": [
       {
         "quote": "Noun derived from the 連用形 (ren'yōkei, “stem form”) of verb 鏈る (kusaru, “to be linked together, to link together”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175245,
+        "ja": "犬は柱に鎖でつながれていた。",
+        "en": "The dog was chained to the post.",
+        "enId": 239221,
+        "form": "鎖"
+      },
+      {
+        "id": 148307,
+        "ja": "囚人たちは鎖につながれている。",
+        "en": "The prisoners are in chains.",
+        "enId": 266252,
+        "form": "鎖"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -166,6 +269,7 @@
     "meaning": "by all means, everything",
     "level": "N3",
     "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nandemo is, by surface analysis, 何で (“why, how”) plus も.",
@@ -173,6 +277,22 @@
     "sources": [
       {
         "quote": "By surface analysis, 何で (“why, how”) + も."
+      }
+    ],
+    "examples": [
+      {
+        "id": 187822,
+        "ja": "何でも聞いて！",
+        "en": "Ask me anything!",
+        "enId": 24960,
+        "form": "何でも"
+      },
+      {
+        "id": 187836,
+        "ja": "何でもするから。",
+        "en": "I'll do anything.",
+        "enId": 24973,
+        "form": "何でも"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -184,6 +304,7 @@
     "meaning": "to get down, to go; come down",
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": [],
     "headline": "Oriru comes from a classical upper bigrade verb, 下る (oru).",
@@ -202,6 +323,7 @@
     "meaning": "constantly",
     "level": "N2",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Taezu is the negative continuative of 絶える (taeru, “to cease”).",
@@ -209,6 +331,22 @@
     "sources": [
       {
         "quote": "From the negative continuative form of the verb 絶える (taeru, “to cease”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 100330,
+        "ja": "彼は父親を絶えず恐れている。",
+        "en": "He is in constant dread of his father.",
+        "enId": 303367,
+        "form": "絶えず"
+      },
+      {
+        "id": 81375,
+        "ja": "妹は絶えず漫画を読んでいます。",
+        "en": "My sister is constantly reading comic books.",
+        "enId": 322340,
+        "form": "絶えず"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -223,6 +361,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kawari, “substitute”, is the continuative stem of the verb 代わる (kawaru, “to substitute”).",
@@ -230,6 +369,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 代(か)わる (kawaru, “to substitute”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84842,
+        "ja": "父が忙しいので、私が代わりに行きます。",
+        "en": "Father is busy, so I will go instead.",
+        "enId": 318872,
+        "form": "代わり"
+      },
+      {
+        "id": 136860,
+        "ja": "誰が彼のかわりをすることが出来ようか。",
+        "en": "Who could take the place of him?",
+        "enId": 276376,
+        "form": "かわり"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -241,6 +396,7 @@
     "meaning": "thread",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ito, “thread”, is from Old Japanese, from Proto-Japonic *ito.",
@@ -248,6 +404,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *ito."
+      }
+    ],
+    "examples": [
+      {
+        "id": 199863,
+        "ja": "トムは凧に糸を付けた。",
+        "en": "Tom attached the string to the kite.",
+        "enId": 37064,
+        "form": "糸"
+      },
+      {
+        "id": 221737,
+        "ja": "この糸はすぐもつれる。",
+        "en": "This thread tangles easily.",
+        "enId": 59063,
+        "form": "糸"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -259,6 +431,7 @@
     "meaning": "tennis court",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Tenisu kōto is simply English “tennis court”.",
@@ -283,6 +456,7 @@
     "meaning": "person (same as 人 (ひと))",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mono, “person”, is first attested in the Nihon Shoki of 720 and is cognate with 物 (mono, “thing”).",
@@ -301,6 +475,22 @@
         "quote": "In ancient texts marked with pronunciation information, this character was always read as hito until around the late 800s, at which point the mono reading becomes prevalent. The mono reading has historically often been used with mild pejorative overtones, as compared to the more neutral term 人(ひと) (hito). This may suggest a broadening of the original “thing” sense for mono, which then was applied as a pejorative for a “person”."
       }
     ],
+    "examples": [
+      {
+        "id": 76034,
+        "ja": "拾った者が持ち主。",
+        "en": "Finders keepers.",
+        "enId": 327684,
+        "form": "者"
+      },
+      {
+        "id": 95857,
+        "ja": "彼を笑い者にする。",
+        "en": "It makes him a laughingstock.",
+        "enId": 307848,
+        "form": "者"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -310,6 +500,7 @@
     "meaning": "to pass away",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nakunaru is literally “to become not”: the -ku form of 無い (nai, “not, missing”) plus なる (naru).",
@@ -325,6 +516,22 @@
         "quote": "Cognate with 無(な)くなる (naku naru)."
       }
     ],
+    "examples": [
+      {
+        "id": 170604,
+        "ja": "最近彼が亡くなった。",
+        "en": "He died recently.",
+        "enId": 993268,
+        "form": "亡くなった"
+      },
+      {
+        "id": 77275,
+        "ja": "老人は今朝亡くなった。",
+        "en": "The old man passed away this morning.",
+        "enId": 326444,
+        "form": "亡くなった"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -334,6 +541,7 @@
     "meaning": "atmosphere (e.g., musical), mood, ambiance",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Fun'iki appeared in a physics book of 1827, translating Dutch lucht (“air”), before it came to mean “atmosphere”.",
@@ -371,6 +579,7 @@
     "meaning": "death, decease",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["news1", "nf01"],
     "processes": ["sound-change"],
     "headline": "Shi, “death”, appears to be a conflation of Middle Chinese 死 with an Old Japanese root that sounded alike.",
     "morphemes": [],
@@ -385,6 +594,22 @@
         "quote": "In kanji compounds, this would be considered as on'yomi; but on its own, this could be considered as either on'yomi or kun'yomi."
       }
     ],
+    "examples": [
+      {
+        "id": 234921,
+        "ja": "９回２死満塁。",
+        "en": "Bases loaded, two outs in the ninth inning.",
+        "enId": 72298,
+        "form": "死"
+      },
+      {
+        "id": 94370,
+        "ja": "彼女の死は事実だ。",
+        "en": "That she is dead is certain.",
+        "enId": 309336,
+        "form": "死"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -394,6 +619,7 @@
     "meaning": "scholarship",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shōgakukin is 奨学 (shōgaku) plus 金 (-kin).",
@@ -422,6 +648,22 @@
         "quote": "奨学(しょうがく) (shōgaku) + 金(きん) (-kin)"
       }
     ],
+    "examples": [
+      {
+        "id": 147108,
+        "ja": "奨学金が交付された。",
+        "en": "I got a grant for my tuition.",
+        "enId": 266239,
+        "form": "奨学金"
+      },
+      {
+        "id": 104171,
+        "ja": "彼は奨学金を得られそうだ。",
+        "en": "He is likely to win the scholarship.",
+        "enId": 299520,
+        "form": "奨学金"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -435,6 +677,7 @@
       "adverb (fukushi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Nochi is from Old Japanese, and its ultimate derivation is unknown.",
@@ -442,6 +685,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Ultimate derivation unknown."
+      }
+    ],
+    "examples": [
+      {
+        "id": 142999,
+        "ja": "晴れ後曇りでした。",
+        "en": "It was sunny, then cloudy.",
+        "enId": 271569,
+        "form": "後"
+      },
+      {
+        "id": 82688,
+        "ja": "法案は激しい論争ののち議会を通過した。",
+        "en": "The bill was passed after a hard fight in the House.",
+        "enId": 321028,
+        "form": "のち"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -453,6 +712,7 @@
     "meaning": "passable",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ka, “passable”, is from Middle Chinese 可.",
@@ -460,6 +720,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 可 (MC khaX)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 184284,
+        "ja": "学生に限り入場可。",
+        "en": "Admission to students only.",
+        "enId": 21412,
+        "form": "可"
+      },
+      {
+        "id": 143557,
+        "ja": "数学は何とか可を取った。",
+        "en": "I somehow got a passing grade in mathematics.",
+        "enId": 271010,
+        "form": "可"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -471,6 +747,7 @@
     "meaning": "wife, Mrs, madam",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Fujin, “madam”, is described as simply from Classical Chinese.",
@@ -502,6 +779,7 @@
     "meaning": "cancer",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Gan, “cancer”, is from Middle Chinese 癌.",
@@ -509,6 +787,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 癌."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84737,
+        "ja": "父はがんで死んだ。",
+        "en": "My father died of cancer.",
+        "enId": 251635,
+        "form": "がん"
+      },
+      {
+        "id": 82498,
+        "ja": "暴力は社会のガンだ。",
+        "en": "Violence is the cancer of our society.",
+        "enId": 321218,
+        "form": "ガン"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -520,13 +814,36 @@
     "meaning": "container, case",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Iremono is the verb 入れる (ireru) plus 物 (-mono).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "入れ",
+        "reading": "いれ",
+        "meaning": "enter",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "物",
+        "reading": "もの",
+        "meaning": "thing",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "入(い)れる (ireru) + 物(もの) (-mono)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 74550,
+        "ja": "眼窩とは、目をいれている骨のいれもののことです。",
+        "en": "The eye socket is the bone receptacle in which the eye fits.",
+        "enId": 329169,
+        "form": "いれもの"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -538,12 +855,29 @@
     "meaning": "to be popular, to come into fashion",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "processes": [],
     "headline": "Hayaru is related to 早い (hayai, “early, fast”), ultimately from Proto-Japonic *paya.",
     "morphemes": [],
     "sources": [
       {
         "quote": "Related to 早(はや)い (hayai, “early, fast”) and 逸(はや)る (hayaru, “to be impatient”), ultimately from Proto-Japonic *paya."
+      }
+    ],
+    "examples": [
+      {
+        "id": 83991,
+        "ja": "風邪がはやっている。",
+        "en": "A lot of colds are going around.",
+        "enId": 319725,
+        "form": "はやっている"
+      },
+      {
+        "id": 172529,
+        "ja": "今何が流行っていますか。",
+        "en": "What is popular now?",
+        "enId": 241946,
+        "form": "流行っています"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -559,6 +893,7 @@
       "intransitive verb",
       "transitive verb"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "Semaru, “to draw near”, is cognate with 攻める (semeru) and 狭い (semai).",
@@ -577,6 +912,7 @@
     "meaning": "broadcast program",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku"],
     "headline": "Bangumi is 番 (ban, “turn”) plus 組み (kumi), with the k voiced to g by rendaku.",
@@ -597,6 +933,22 @@
         "quote": "Compound of 番(ばん) (ban, “turn”) + 組(ぐ)み (-gumi, “set (of items)”). The kumi changes to gumi as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 220148,
+        "ja": "この番組見る？",
+        "en": "Do you want to watch this program?",
+        "enId": 57467,
+        "form": "番組"
+      },
+      {
+        "id": 121164,
+        "ja": "番組は９時に始まる。",
+        "en": "The program starts at nine o'clock.",
+        "enId": 282842,
+        "form": "番組"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -609,6 +961,7 @@
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": [],
     "headline": "Aware originally meant “deeply touching or moving”, with no negative connotation.",
@@ -627,6 +980,7 @@
     "meaning": "backdoor, rear entrance",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Uraguchi is 裏 (ura, “back”) plus 口 (kuchi, “opening, door”), with kuchi voiced to guchi.",
@@ -651,6 +1005,22 @@
         "quote": "The kuchi changes to guchi as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 99068,
+        "ja": "彼は裏口入学した。",
+        "en": "He bought his way into college.",
+        "enId": 304631,
+        "form": "裏口"
+      },
+      {
+        "id": 146507,
+        "ja": "少年は裏口から入った。",
+        "en": "The boy entered by the back door.",
+        "enId": 268055,
+        "form": "裏口"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -660,6 +1030,7 @@
     "meaning": "evil, vice",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Aku, “evil”, is from Middle Chinese 惡.",
@@ -667,6 +1038,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 惡 (MC 'ak)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 191437,
+        "ja": "悪より救い出し給え。",
+        "en": "Deliver us from evil.",
+        "enId": 28598,
+        "form": "悪"
+      },
+      {
+        "id": 74937,
+        "ja": "諸神は悪を雷で打つという。",
+        "en": "They say the gods smite evil with thunderbolts.",
+        "enId": 328782,
+        "form": "悪"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -678,6 +1065,7 @@
     "meaning": "mass communication",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": [],
     "headline": "Masukomi is short for masu komyunikēshon, “mass communication”.",
@@ -685,6 +1073,22 @@
     "sources": [
       {
         "quote": "Short for マスコミュニケーション (masu komyunikēshon)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 402900,
+        "ja": "マスコミが報道しなかったのはなぜ？",
+        "en": "Why is it the mass media didn't report this?",
+        "enId": 402901,
+        "form": "マスコミ"
+      },
+      {
+        "id": 228513,
+        "ja": "イメージはマスコミの情報に形成される。",
+        "en": "An image is formed by the information in the media.",
+        "enId": 65870,
+        "form": "マスコミ"
       }
     ],
     "wiktionaryDump": "2026-09-02"

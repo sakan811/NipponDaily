@@ -6,6 +6,7 @@
     "meaning": "static",
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["news2", "nf46"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Seiteki is 静 (sei) plus 的 (-teki).",
@@ -37,6 +38,7 @@
     "meaning": "dried plum",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf28"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Umeboshi is 梅 (ume, “plum”) plus 干し (hoshi, “drying, dried”), with hoshi voiced to boshi by rendaku.",
@@ -67,6 +69,7 @@
     "meaning": "sunny place, in the sun",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hinata is 日 (hi, “sun”) plus な (na, Old Japanese possessive particle) plus た (ta, “direction, side”).",
@@ -80,6 +83,22 @@
       },
       {
         "quote": "Other various nanori readings."
+      }
+    ],
+    "examples": [
+      {
+        "id": 97699,
+        "ja": "彼らはひなたでからだをかわかしていた。",
+        "en": "They dried themselves in the sun.",
+        "enId": 306005,
+        "form": "ひなた"
+      },
+      {
+        "id": 197462,
+        "ja": "ひなたに座っているのに、まだ寒気がした。",
+        "en": "Even though I was sitting in the sun, I still felt chilly.",
+        "enId": 34649,
+        "form": "ひなた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -109,6 +128,7 @@
     "meaning": "on-line",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "オンライン is from English online.",
@@ -124,6 +144,15 @@
         "quote": "From English online."
       }
     ],
+    "examples": [
+      {
+        "id": 82663,
+        "ja": "法律の変更で、電子商取引におけるオンライン販売が脅かされている。",
+        "en": "Legal changes threaten online sales in digital commerce.",
+        "enId": 321053,
+        "form": "オンライン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -133,6 +162,7 @@
     "meaning": "to be (polite, to exist)",
     "level": "N1",
     "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["ichi2", "spec1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Gozaimasu is a sound change from 御座ります (gozarimasu, “to exist”, polite form).",
@@ -195,6 +225,7 @@
     "meaning": "rough, crude",
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news2", "nf33"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Zatsu, “rough”, is from Middle Chinese 雜 (MC dzop).",
@@ -202,6 +233,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 雜 (MC dzop)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 106670,
+        "ja": "彼は仕事が雑だ。",
+        "en": "He is careless and untidy in his work.",
+        "enId": 297016,
+        "form": "雑"
+      },
+      {
+        "id": 227326,
+        "ja": "お客が雑な作りのスタンドに座って靴を磨いてもらっている。",
+        "en": "A customer is having his shoes shined on a slapped-together stand.",
+        "enId": 64677,
+        "form": "雑な"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -216,6 +263,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Daiben is 代 (dai-, “substitute, in substitution for someone else”) plus 弁 (ben, “speech”).",
@@ -236,6 +284,15 @@
         "quote": "代(だい) (dai-, “substitute, in substitution for someone else”) + 弁(べん) (ben, “speech”)"
       }
     ],
+    "examples": [
+      {
+        "id": 90861,
+        "ja": "彼女は家のない人々の代弁をした。",
+        "en": "She spoke for the homeless.",
+        "enId": 312853,
+        "form": "代弁"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -245,6 +302,7 @@
     "meaning": "to become loose, to slacken",
     "level": "N1",
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Yurumu is 緩い (yurui, “loose”) plus む (mu, “-ize, -en”, verbal suffix).",
@@ -277,6 +335,7 @@
     "meaning": "boots",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ブーツ is borrowed from English boots.",
@@ -290,6 +349,22 @@
     "sources": [
       {
         "quote": "Borrowed from English boots."
+      }
+    ],
+    "examples": [
+      {
+        "id": 159025,
+        "ja": "私はブーツを１足買った。",
+        "en": "I bought a pair of boots.",
+        "enId": 255500,
+        "form": "ブーツ"
+      },
+      {
+        "id": 91625,
+        "ja": "彼女はブーツを一足買った。",
+        "en": "She bought a pair of boots.",
+        "enId": 312088,
+        "form": "ブーツ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -337,6 +412,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Iede is 家 (ie, “house”) plus 出 (de), the stem of 出る (deru, “to go out, exit”).",
@@ -355,6 +431,22 @@
     "sources": [
       {
         "quote": "家(いえ) (ie, “house”) + 出(で) (de, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 出(で)る (deru, “to go out, exit”))"
+      }
+    ],
+    "examples": [
+      {
+        "id": 109255,
+        "ja": "彼は家出をした。",
+        "en": "He ran away from home.",
+        "enId": 294435,
+        "form": "家出"
+      },
+      {
+        "id": 120558,
+        "ja": "彼が家出したのは事実だ。",
+        "en": "It is fact that he ran away from home.",
+        "enId": 283451,
+        "form": "家出"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -381,6 +473,22 @@
         "quote": "Borrowed from English motel."
       }
     ],
+    "examples": [
+      {
+        "id": 193957,
+        "ja": "モーテルに関する情報をください。",
+        "en": "I'd like some information on motels.",
+        "enId": 31125,
+        "form": "モーテル"
+      },
+      {
+        "id": 220483,
+        "ja": "この通りのモーテルはどこも満室だ。",
+        "en": "All the motels on this road are full.",
+        "enId": 57806,
+        "form": "モーテル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -390,6 +498,7 @@
     "meaning": "beast, brute",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kedamono is literally “thing of hair”: 毛 (ke, “hair”) plus だ (da, genitive marker) plus 物 (mono, “thing”).",
@@ -397,6 +506,22 @@
     "sources": [
       {
         "quote": "Literally \"thing of hair\". Compound of 毛 (ke, “hair”) + だ (da, genitive marker) + 物 (mono, “thing”). Medial -da- is a very rare genitive marker found in compounds, also seen in 果物 (kudamono, “fruit”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175007,
+        "ja": "原始人はどう猛な獣を見ておびえた。",
+        "en": "The primitive man was frightened at the sight of a savage beast.",
+        "enId": 239460,
+        "form": "獣"
+      },
+      {
+        "id": 192693,
+        "ja": "ライオンが獣の王であるのと同様、鷲は鳥の王である。",
+        "en": "As the lion is king of beasts, so is the eagle king of birds.",
+        "enId": 29857,
+        "form": "獣"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -408,6 +533,7 @@
     "meaning": "to stop, to abort, to discontinue, to close",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["news1", "nf17"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Uchikiru is 打ち (uchi, verbal prefix adding euphony or emphasis) plus 切る (kiru, “terminate an action”).",
@@ -428,6 +554,22 @@
         "quote": "From 打ち (uchi, verbal prefix adding euphony or emphasis) + 切る (kiru, “terminate an action”)."
       }
     ],
+    "examples": [
+      {
+        "id": 222009,
+        "ja": "この交渉を打ち切りたい。",
+        "en": "We want to break off this negotiation.",
+        "enId": 59333,
+        "form": "打ち切り"
+      },
+      {
+        "id": 78098,
+        "ja": "両国は友好関係を打ち切った。",
+        "en": "The countries terminated friendly relations.",
+        "enId": 325620,
+        "form": "打ち切った"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -437,6 +579,7 @@
     "meaning": "nuance",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ニュアンス is listed as borrowed from French nuance or English nuance, and is first cited to a 1909 book by Nagai Kafū.",
@@ -452,6 +595,22 @@
         "quote": "First cited to ふらんす物語 (Furansu Monogatari), a 1909 book by 永井荷風 (Nagai Kafū)."
       }
     ],
+    "examples": [
+      {
+        "id": 210910,
+        "ja": "その言葉には微妙なニュアンスがある。",
+        "en": "This word has a subtle nuance to it.",
+        "enId": 48181,
+        "form": "ニュアンス"
+      },
+      {
+        "id": 94433,
+        "ja": "彼女の考えと私の考えでは少しニュアンスが違う。",
+        "en": "There's a slight difference between her thinking and mine.",
+        "enId": 309273,
+        "form": "ニュアンス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -461,6 +620,7 @@
     "meaning": "to bother, to harass, to molest",
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["news1", "nf12"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nayamasu is from Old Japanese, first cited in the Man'yōshū of 759, as the causative of 悩む (nayamu, “to be vexed”).",
@@ -473,6 +633,22 @@
         "quote": "Derived as the regular classical causative conjugation of 悩む (nayamu, “to be vexed”)."
       }
     ],
+    "examples": [
+      {
+        "id": 108533,
+        "ja": "彼は疑惑に悩まされた。",
+        "en": "He was assailed with doubts.",
+        "enId": 295153,
+        "form": "悩まされた"
+      },
+      {
+        "id": 96863,
+        "ja": "彼らは重税に悩まされた。",
+        "en": "They were burdened with heavy taxes.",
+        "enId": 306841,
+        "form": "悩まされた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -482,6 +658,7 @@
     "meaning": "three-stringed Japanese guitar",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf14"],
     "processes": ["ateji"],
     "headline": "Shamisen derives from the Okinawan 三線 (sanshin), and was originally called 蛇皮線 (jabisen, literally “snakeskin strings”).",
     "morphemes": [],
@@ -508,6 +685,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Setsujitsu is 切 (setsu, “keen”) plus 実 (jitsu, “faithfulness”).",
@@ -530,6 +708,15 @@
         "quote": "From 切 (setsu, \"keen,\" \"acute,\" \"intense\") + 実 (jitsu, \"faithfulness,\" \"sincerity,\" \"fidelity\")."
       }
     ],
+    "examples": [
+      {
+        "id": 138224,
+        "ja": "太っているのが私の切実な問題です。",
+        "en": "Being fat is a serious problem for me.",
+        "enId": 275011,
+        "form": "切実な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -543,6 +730,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Mukuchi is 無 (mu-, “un-”) plus 口 (kuchi, “mouth”).",
@@ -563,6 +751,15 @@
         "quote": "無(む) (mu-, “un-”) + 口(くち) (kuchi, “mouth”)"
       }
     ],
+    "examples": [
+      {
+        "id": 137760,
+        "ja": "大きくて、のろくて、無口でした。",
+        "en": "He was big and slow and silent.",
+        "enId": 275476,
+        "form": "無口"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -572,6 +769,7 @@
     "meaning": "cost of fuel and light",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf32"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kōnetsuhi is 光熱 (kōnetsu, “lighting and heating”) plus 費 (-hi, “expense”).",
@@ -604,6 +802,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["news1", "nf11"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Saizen is 最 (sai-, “most”) plus 善 (zen, “good”).",
@@ -624,6 +823,22 @@
         "quote": "最(さい) (sai-, “most”) + 善(ぜん) (zen, “good”)"
       }
     ],
+    "examples": [
+      {
+        "id": 142889,
+        "ja": "正直は最善の策。",
+        "en": "Honesty is the best policy.",
+        "enId": 271679,
+        "form": "最善"
+      },
+      {
+        "id": 170402,
+        "ja": "最善を期待しよう。",
+        "en": "Let's hope for the best.",
+        "enId": 244081,
+        "form": "最善"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -633,6 +848,7 @@
     "meaning": "cemetery, graveyard",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Bochi is from the Middle Chinese compound 墓地, literally “grave, tomb + ground, region”, in the kan'on reading.",
@@ -665,6 +881,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["news1", "nf22"],
     "stratum": "kango",
     "processes": ["borrowing", "clipping", "ateji"],
     "headline": "Otsu, “2nd in rank”, is from Middle Chinese 乙 (MC 'it), and its modern slang sense is an aggressive clipping of お疲れ様です (otsukaresama desu).",
@@ -680,6 +897,22 @@
         "quote": "Derived as aggressive clipping of お疲れ様です (otsukaresama desu, used as a kind of greeting at work, literally “that's honorable exhaustion (from hard work)”). The use of 乙 for the spelling is an example of phonetic ateji (当(あ)て字(じ))."
       }
     ],
+    "examples": [
+      {
+        "id": 173522,
+        "ja": "甲の薬は乙の毒。",
+        "en": "One man's medicine is another man's poison.",
+        "enId": 240948,
+        "form": "乙"
+      },
+      {
+        "id": 173523,
+        "ja": "甲の損は乙の得。",
+        "en": "One man's gain is another man's loss.",
+        "enId": 240947,
+        "form": "乙"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -689,6 +922,7 @@
     "meaning": "tile",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "タイル is borrowed from English tile.",
@@ -704,6 +938,15 @@
         "quote": "Borrowed from English tile."
       }
     ],
+    "examples": [
+      {
+        "id": 188449,
+        "ja": "屋根から落ちてきたタイルは粉々に砕けた。",
+        "en": "The tile that fell from the roof broke into pieces.",
+        "enId": 25592,
+        "form": "タイル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -713,6 +956,7 @@
     "meaning": "art, accomplishment, performance",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Gei, “art”, is from Middle Chinese 藝 (“art, skill”).",
@@ -720,6 +964,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 藝 /艺 (ngjiejᴴ, “art, skill”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 176037,
+        "ja": "芸は身を助く。",
+        "en": "Accomplishments are a friend in need.",
+        "enId": 238427,
+        "form": "芸"
+      },
+      {
+        "id": 176038,
+        "ja": "芸は身を助ける。",
+        "en": "Art brings bread.",
+        "enId": 238428,
+        "form": "芸"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -731,6 +991,7 @@
     "meaning": "a channel",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "チャンネル is borrowed from English channel.",
@@ -746,6 +1007,22 @@
         "quote": "Borrowed from English channel."
       }
     ],
+    "examples": [
+      {
+        "id": 202957,
+        "ja": "チャンネルを１にして。",
+        "en": "Turn to channel 1.",
+        "enId": 40192,
+        "form": "チャンネル"
+      },
+      {
+        "id": 202954,
+        "ja": "チャンネル変えてもいい？",
+        "en": "Can I change the channel?",
+        "enId": 40189,
+        "form": "チャンネル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -755,6 +1032,7 @@
     "meaning": "swamp, bog, pond",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Numa appears to be 沼 (nu, “swamp”) plus 間 (ma, “space, area”).",
@@ -762,6 +1040,22 @@
     "sources": [
       {
         "quote": "Appears to be a compound of 沼 (nu, “swamp”) + 間 (ma, “space, area”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 146998,
+        "ja": "ここに小さな沼があります。",
+        "en": "There is a small pond here.",
+        "enId": 267563,
+        "form": "沼"
+      },
+      {
+        "id": 209007,
+        "ja": "その沼にはサギがたくさん住んでいる。",
+        "en": "Lots of herons live in the marsh.",
+        "enId": 46267,
+        "form": "沼"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -773,6 +1067,7 @@
     "meaning": "to escape from, to be exempted",
     "level": "N1",
     "pos": ["Ichidan verb"],
+    "priority": ["news2", "nf28", "spec2"],
     "stratum": "wago",
     "processes": [],
     "headline": "Manugareru is from Old Japanese 免る (manukaru), 目 (ma-, “eye”) plus 抜かる (nukaru, “to mistake”).",

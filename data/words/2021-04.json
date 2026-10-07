@@ -6,6 +6,7 @@
     "meaning": "principle, theory, fundamental truth",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Genri is 原 (gen, “principle”) plus 理 (ri, “theory”).",
@@ -26,6 +27,22 @@
         "quote": "From 原 (gen, “principle”) + 理 (ri, “theory”)."
       }
     ],
+    "examples": [
+      {
+        "id": 111130,
+        "ja": "彼はひとつの原理を考えだした。",
+        "en": "He figured out a principle.",
+        "enId": 292555,
+        "form": "原理"
+      },
+      {
+        "id": 138266,
+        "ja": "多数決原理が民主主義の根本原則だ。",
+        "en": "Majority rule is a basic principle of democracy.",
+        "enId": 274969,
+        "form": "原理"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -35,6 +52,7 @@
     "meaning": "style, manner",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "counter"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Furi was puri in Old Japanese, the continuative stem of 振る (furu, “to swing”).",
@@ -50,6 +68,22 @@
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 振(ふ)る (furu, “to swing”)."
       }
     ],
+    "examples": [
+      {
+        "id": 127076,
+        "ja": "知らぬふりをするな。",
+        "en": "Don't pretend you don't know.",
+        "enId": 277014,
+        "form": "ふり"
+      },
+      {
+        "id": 144590,
+        "ja": "人の振り見て我が振り直せ。",
+        "en": "By other's faults wise men correct their own.",
+        "enId": 269974,
+        "form": "振り"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -62,6 +96,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kyōka is 強 (kyō, “strengthen”) plus 化 (ka, “cause to become”).",
@@ -82,6 +117,22 @@
         "quote": "From 強 (kyō, “strengthen”) + 化 (ka, “cause to become”)."
       }
     ],
+    "examples": [
+      {
+        "id": 185709,
+        "ja": "我々は組織を強化しなくてはならん。",
+        "en": "We must beef up our organization.",
+        "enId": 22840,
+        "form": "強化"
+      },
+      {
+        "id": 79441,
+        "ja": "輸出市場での競争力強化が緊急の課題である。",
+        "en": "The strengthening of competitiveness on export markets is an urgent need.",
+        "enId": 324276,
+        "form": "強化"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -100,6 +151,22 @@
         "quote": "From Middle Chinese 苦 (MC khuX, “suffering”)."
       }
     ],
+    "examples": [
+      {
+        "id": 179533,
+        "ja": "苦は楽の種。",
+        "en": "No pain, no gains.",
+        "enId": 18390,
+        "form": "苦"
+      },
+      {
+        "id": 179538,
+        "ja": "苦あれば楽あり。",
+        "en": "No sweet without sweat.",
+        "enId": 18397,
+        "form": "苦"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -109,6 +176,7 @@
     "meaning": "to get dark, to come to an end",
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kureru is related to 黒 (kuro, “black”).",
@@ -116,6 +184,22 @@
     "sources": [
       {
         "quote": "Related to 黒(くろ) (kuro, “black”), which see for more."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124359,
+        "ja": "冬の日は速く暮れる。",
+        "en": "The night falls fast in winter.",
+        "enId": 279635,
+        "form": "暮れる"
+      },
+      {
+        "id": 87163,
+        "ja": "彼女は悲しみに暮れた。",
+        "en": "She abandoned herself to grief.",
+        "enId": 316545,
+        "form": "暮れた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -127,6 +211,7 @@
     "meaning": "turn (in line), order of things",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Junban is 順 (jun, “order”) plus 番 (ban, “numerical order”).",
@@ -147,6 +232,22 @@
         "quote": "From 順 (jun, “order”) + 番 (ban, “numerical order”)."
       }
     ],
+    "examples": [
+      {
+        "id": 193065,
+        "ja": "やっと順番がきた。",
+        "en": "At last, my turn came.",
+        "enId": 30230,
+        "form": "順番"
+      },
+      {
+        "id": 225186,
+        "ja": "ケンの順番が来た。",
+        "en": "Ken's turn came.",
+        "enId": 62522,
+        "form": "順番"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -156,6 +257,7 @@
     "meaning": "unguarded moment, chance",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf43"],
     "stratum": "wago",
     "processes": [],
     "headline": "Suki was originally the continuative stem of 透く (suku, “to leave a gap”).",
@@ -163,6 +265,22 @@
     "sources": [
       {
         "quote": "Originally the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 透(す)く (suku, “to leave a gap”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 113481,
+        "ja": "彼はすきだらけだ。",
+        "en": "He is utterly unguarded.",
+        "enId": 290192,
+        "form": "すき"
+      },
+      {
+        "id": 123887,
+        "ja": "逃げるすきはなかった。",
+        "en": "I had no chance to escape.",
+        "enId": 280108,
+        "form": "すき"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -174,6 +292,7 @@
     "meaning": "flavor, taste",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Aji went from adi through adzi to azi, from Proto-Japonic *anti.",
@@ -186,6 +305,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *anti."
       }
     ],
+    "examples": [
+      {
+        "id": 77447,
+        "ja": "恋の味は苦い。",
+        "en": "The taste of love is bitter.",
+        "enId": 326271,
+        "form": "味"
+      },
+      {
+        "id": 81065,
+        "ja": "味はいかがですか。",
+        "en": "How about the taste?",
+        "enId": 322650,
+        "form": "味"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -195,6 +330,7 @@
     "meaning": "tongue",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": [],
     "headline": "Shita is from Old Japanese, from Proto-Japonic *sita.",
@@ -202,6 +338,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *sita."
+      }
+    ],
+    "examples": [
+      {
+        "id": 141924,
+        "ja": "舌を見せてください。",
+        "en": "Let me see your tongue.",
+        "enId": 272646,
+        "form": "舌"
+      },
+      {
+        "id": 141925,
+        "ja": "舌を出してください。",
+        "en": "Put out your tongue, please.",
+        "enId": 272645,
+        "form": "舌"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -213,6 +365,7 @@
     "meaning": "place, field (physics)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ba, “place”, is an alteration of Old Japanese 庭 (nipa), modern 庭 (niwa, “garden, yard”).",
@@ -228,6 +381,22 @@
         "quote": "First cited to a text from 1275."
       }
     ],
+    "examples": [
+      {
+        "id": 146091,
+        "ja": "場が白けた。",
+        "en": "The party grew chilly.",
+        "enId": 268471,
+        "form": "場"
+      },
+      {
+        "id": 174182,
+        "ja": "交渉の場を設定せねばならない。",
+        "en": "We have to set the scene for negotiations.",
+        "enId": 240288,
+        "form": "場"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -237,6 +406,7 @@
     "meaning": "chairman",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Gichō is 議 (“discussion”) plus 長 (“head”).",
@@ -257,6 +427,22 @@
         "quote": "議 (“discussion”) + 長 (“head”)"
       }
     ],
+    "examples": [
+      {
+        "id": 108517,
+        "ja": "彼は議長を務めた。",
+        "en": "He acted as chairman.",
+        "enId": 295168,
+        "form": "議長"
+      },
+      {
+        "id": 108523,
+        "ja": "彼は議長に選ばれた。",
+        "en": "He was elected chairman.",
+        "enId": 283534,
+        "form": "議長"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -266,6 +452,7 @@
     "meaning": "defeat, loss",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Make is the continuative stem of 負ける (makeru, “to lose, to be defeated”).",
@@ -273,6 +460,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 負(ま)ける (makeru, “to lose, to be defeated”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 162759,
+        "ja": "私の負けだ。",
+        "en": "I give in.",
+        "enId": 454503,
+        "form": "負け"
+      },
+      {
+        "id": 100327,
+        "ja": "彼は負けを認めた。",
+        "en": "He admitted himself defeated.",
+        "enId": 303370,
+        "form": "負け"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -296,6 +499,15 @@
         "quote": "存(ぞん) (zon) + する (-suru, rendaku form する (zuru))"
       }
     ],
+    "examples": [
+      {
+        "id": 217165,
+        "ja": "こちらが考えられるデザインとなります。ご検討いただきたく存じます。",
+        "en": "We have submitted these possible designs for your consideration.",
+        "enId": 54473,
+        "form": "存じます"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -305,6 +517,7 @@
     "meaning": "to exchange, to interchange, to substitute",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaeru, “to interchange”, is from Old Japanese かふ (kapu), in the lower bigrade pattern.",
@@ -323,6 +536,22 @@
         "quote": "Cognate with 変(か)える (kaeru), 代(か)える (kaeru) and 換(か)える (kaeru)."
       }
     ],
+    "examples": [
+      {
+        "id": 84102,
+        "ja": "部屋を替えてください。",
+        "en": "Please change my room?",
+        "enId": 319612,
+        "form": "替えて"
+      },
+      {
+        "id": 227392,
+        "ja": "お花の水を替えましょう。",
+        "en": "Shall I change the water for the flowers?",
+        "enId": 64744,
+        "form": "替え"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -332,6 +561,7 @@
     "meaning": "king",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Ōsama is 王 (ō) plus 様 (-sama).",
@@ -354,6 +584,22 @@
         "quote": "王(おう) (ō) + 様(さま) (-sama)"
       }
     ],
+    "examples": [
+      {
+        "id": 147284,
+        "ja": "女王様に万歳三唱。",
+        "en": "Three cheers for my Queen!",
+        "enId": 267276,
+        "form": "王様"
+      },
+      {
+        "id": 109523,
+        "ja": "彼は王様以上だった。",
+        "en": "He was more than a king.",
+        "enId": 294167,
+        "form": "王様"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -363,6 +609,7 @@
     "meaning": "pain, ache, sore",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05", "news2", "nf27"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Itami is a nominalization of 痛む (itamu, “to cause pain, hurt”).",
@@ -375,6 +622,22 @@
         "quote": "See the etymology of the corresponding lemma form."
       }
     ],
+    "examples": [
+      {
+        "id": 125676,
+        "ja": "痛みはひどかった。",
+        "en": "The pain was terrible.",
+        "enId": 508370,
+        "form": "痛み"
+      },
+      {
+        "id": 125678,
+        "ja": "痛みはありますか。",
+        "en": "Do you have any pain?",
+        "enId": 278314,
+        "form": "痛み"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -384,6 +647,7 @@
     "meaning": "reluctant, to dislike",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Iyagaru is 嫌 (iya, “despised”) plus がる (-garu, “to act like”).",
@@ -404,6 +668,22 @@
         "quote": "Compound of 嫌 (iya, “despised”) + がる (-garu, “to act like”)"
       }
     ],
+    "examples": [
+      {
+        "id": 121965,
+        "ja": "猫は濡れるのを嫌がる。",
+        "en": "Cats dislike being wet.",
+        "enId": 282038,
+        "form": "嫌がる"
+      },
+      {
+        "id": 101722,
+        "ja": "彼は答えるのを嫌がった。",
+        "en": "He was reluctant to answer.",
+        "enId": 301971,
+        "form": "嫌がった"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -413,6 +693,7 @@
     "meaning": "sex, gender",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Sei, “sex, gender”, is from Middle Chinese 性 (MC sjengH, “nature of something, inherent quality”), the kan'on, so a later borrowing.",
@@ -425,6 +706,22 @@
         "quote": "The kan'on, so a later borrowing."
       }
     ],
+    "examples": [
+      {
+        "id": 148162,
+        "ja": "習い性となる。",
+        "en": "Habit is second nature.",
+        "enId": 266397,
+        "form": "性"
+      },
+      {
+        "id": 230524,
+        "ja": "あの島は熱帯性気候です。",
+        "en": "That island has a tropical climate.",
+        "enId": 67891,
+        "form": "性"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -434,6 +731,7 @@
     "meaning": "pronoun",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Daimeishi is 代 (dai, “replacement”) plus 名詞 (meishi, “noun”), as it stands in for a noun.",
@@ -454,6 +752,22 @@
         "quote": "From 代 (dai, “replacement”) + 名詞 (meishi, “noun”), as it stands in for a noun."
       }
     ],
+    "examples": [
+      {
+        "id": 74106,
+        "ja": "「クレオパトラ」は美人の代名詞になっている。",
+        "en": "The name Cleopatra has become a byword for a beautiful woman.",
+        "enId": 329614,
+        "form": "代名詞"
+      },
+      {
+        "id": 74858,
+        "ja": "関係代名詞は「接続詞+代名詞」のはたらきをしています。",
+        "en": "Relative pronouns perform as 'conjunction + pronoun'.",
+        "enId": 328861,
+        "form": "代名詞"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -463,6 +777,7 @@
     "meaning": "to love, to be affectionate",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "processes": ["compound", "derivation"],
     "headline": "Kawaigaru is 可愛い (kawaii, “cute, adorable”) plus がる (-garu, “feeling or thinking that way”).",
     "morphemes": [
@@ -482,6 +797,22 @@
         "quote": "Derived as compound of 可愛い (kawaii, “cute, adorable”) + がる (-garu, “feeling or thinking that way”, suffix applied to nouns and adjective stems to create a verb)."
       }
     ],
+    "examples": [
+      {
+        "id": 84317,
+        "ja": "父も母に劣らず私をかわいがってくれた。",
+        "en": "My father loved me no less deeply than my mother.",
+        "enId": 319398,
+        "form": "かわいがって"
+      },
+      {
+        "id": 82801,
+        "ja": "母親は往々にして子供をかわいがり過ぎる。",
+        "en": "Mothers often pamper their children.",
+        "enId": 320915,
+        "form": "かわいがり"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -491,6 +822,7 @@
     "meaning": "muscle, sinews",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kin'niku is 筋 (“muscle; tendon”) plus 肉 (“flesh”).",
@@ -511,6 +843,22 @@
         "quote": "筋 (“muscle; tendon”) + 肉 (“flesh”)"
       }
     ],
+    "examples": [
+      {
+        "id": 179948,
+        "ja": "筋肉がなまった。",
+        "en": "My muscles have become soft.",
+        "enId": 18807,
+        "form": "筋肉"
+      },
+      {
+        "id": 189417,
+        "ja": "運動が筋肉を鍛える。",
+        "en": "Exercise trains the muscles.",
+        "enId": 26568,
+        "form": "筋肉"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -524,6 +872,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kūsō is Middle Chinese 空想, literally “fictional, fabricated + think, thought”; the fantasy sense is first cited in Japanese to 1886.",
@@ -550,6 +899,22 @@
         "quote": "The Buddhist sense is older, and was borrowed into Japanese along with various Chinese Buddhist texts. This term is included in the 摩訶止観 (Maka Shikan), better known in English by its Chinese pronunciation, the Mohe Zhiguan, completed some time in the early 600s."
       }
     ],
+    "examples": [
+      {
+        "id": 78212,
+        "ja": "龍は空想の動物だ。",
+        "en": "A dragon is a creature of fancy.",
+        "enId": 325506,
+        "form": "空想"
+      },
+      {
+        "id": 108093,
+        "ja": "彼は空想を抱いた。",
+        "en": "He got ideas into his head.",
+        "enId": 295593,
+        "form": "空想"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -559,6 +924,7 @@
     "meaning": "so; therefore",
     "level": "N4",
     "pos": ["conjunction"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Dakara is だ (“to be”) plus から (“because”).",
@@ -566,6 +932,22 @@
     "sources": [
       {
         "quote": "だ (“to be”) + から (“because”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 203825,
+        "ja": "だから何なの？",
+        "en": "So what?",
+        "enId": 1340,
+        "form": "だから"
+      },
+      {
+        "id": 145255,
+        "ja": "新世界だからな。",
+        "en": "It's a whole new ball of wax.",
+        "enId": 269308,
+        "form": "だから"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -577,6 +959,7 @@
     "meaning": "to extend, to stretch, to reach out",
     "level": "N3",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nobasu, “to extend”, is cognate with 伸ばす (nobasu, “to grow, to spread”).",
@@ -598,6 +981,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news2", "nf29"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Heibon is Middle Chinese 平凡, literally “even, flat + in every case”.",
@@ -618,6 +1002,22 @@
         "quote": "From Middle Chinese compound 平凡 (bjæng bjom, literally “even, flat + in every case”). Compare modern Min Nan reading pêng-hôan."
       }
     ],
+    "examples": [
+      {
+        "id": 110772,
+        "ja": "彼はまったく平凡な男だ。",
+        "en": "He is just an ordinary person.",
+        "enId": 273662,
+        "form": "平凡な"
+      },
+      {
+        "id": 205518,
+        "ja": "それはごく平凡な物語だ。",
+        "en": "It's just another story.",
+        "enId": 42763,
+        "form": "平凡な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -630,6 +1030,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["news1", "nf19"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shinkū is first attested in the Kaifūsō anthology of 751, and its modern sense of vacuum in 1876.",
@@ -658,6 +1059,22 @@
         "quote": "The modern sense of vacuum is first attested in 1876."
       }
     ],
+    "examples": [
+      {
+        "id": 150094,
+        "ja": "自然は真空を嫌う。",
+        "en": "Nature abhors a vacuum.",
+        "enId": 264463,
+        "form": "真空"
+      },
+      {
+        "id": 209642,
+        "ja": "その実験には真空が必要だ。",
+        "en": "For that experiment they need a complete vacuum.",
+        "enId": 46904,
+        "form": "真空"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -667,6 +1084,7 @@
     "meaning": "class, team, set",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["news1", "nf06", "nf21"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kumi is the continuative stem of 組む (kumu, “to assemble”).",
@@ -674,6 +1092,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 組(く)む (kumu, “to assemble”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 112568,
+        "ja": "彼はその組の首席だ。",
+        "en": "He is at the head of the class.",
+        "enId": 291107,
+        "form": "組"
+      },
+      {
+        "id": 194368,
+        "ja": "もうひと組の観光客が到着した。",
+        "en": "Another lot of tourists arrived.",
+        "enId": 31541,
+        "form": "組"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -685,6 +1119,7 @@
     "meaning": "intelligence, brains",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In chinō, 知 is a daiyōji replacing 智.",
@@ -707,6 +1142,22 @@
         "quote": "知 is a daiyōji replacing 智."
       }
     ],
+    "examples": [
+      {
+        "id": 77720,
+        "ja": "類人猿は知能が高い。",
+        "en": "Apes are intelligent.",
+        "enId": 325998,
+        "form": "知能"
+      },
+      {
+        "id": 87935,
+        "ja": "彼女は知能の程度が高い。",
+        "en": "She has a high grade of intelligence.",
+        "enId": 315771,
+        "form": "知能"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -716,6 +1167,7 @@
     "meaning": "band, sash",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Obi is the continuative stem of 帯ぶ (obu, “to put something on the body”), first attested in the Nihon Shoki of 720 CE.",
@@ -734,6 +1186,22 @@
         "quote": "First attested in the Nihon Shoki of 720 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 137949,
+        "ja": "帯に短し、襷に長し。",
+        "en": "Too much spoils, too little is nothing.",
+        "enId": 275287,
+        "form": "帯"
+      },
+      {
+        "id": 75758,
+        "ja": "彼女の着物と帯の取り合わせはおつだね。",
+        "en": "Her kimono and obi combination is smart, isn't it?",
+        "enId": 327960,
+        "form": "帯"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -746,6 +1214,7 @@
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Kōun is probably from Middle Chinese 幸運, literally “lucky fortune”.",
@@ -769,6 +1238,22 @@
       },
       {
         "quote": "Probably from Middle Chinese compound 幸運 /幸运 (hɛng^X hjunᴴ, literally “lucky fortune”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 173663,
+        "ja": "幸運を祈るよ。",
+        "en": "Good luck!",
+        "enId": 429220,
+        "form": "幸運"
+      },
+      {
+        "id": 173662,
+        "ja": "幸運を祈ります。",
+        "en": "I wish you the best of luck.",
+        "enId": 240806,
+        "form": "幸運"
       }
     ],
     "wiktionaryDump": "2026-09-02"

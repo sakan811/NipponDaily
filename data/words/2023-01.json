@@ -6,6 +6,7 @@
     "meaning": "study, den",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "A study is a “reading room”, first attested in the late 800s.",
@@ -28,6 +29,22 @@
         "quote": "First attested in the late 800s. Appears to be a borrowing from Middle Chinese 書齋 (MC syo tsreaj, “a reading room, a study”)."
       }
     ],
+    "examples": [
+      {
+        "id": 104262,
+        "ja": "彼は書斎にいる。",
+        "en": "He is in his library.",
+        "enId": 299429,
+        "form": "書斎"
+      },
+      {
+        "id": 163306,
+        "ja": "私の書斎は２階にある。",
+        "en": "My study is upstairs.",
+        "enId": 251206,
+        "form": "書斎"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -41,6 +58,7 @@
       "transitive verb",
       "intransitive verb"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "To repeat is to “reel” and “return”.",
@@ -61,6 +79,22 @@
         "quote": "繰り (kuri, 連用形 (ren'yōkei, “stem or continuative form”) of the verb 繰る (kuru, “to reel, to wind, to spin”)) + 返す (kaesu, “to return”)"
       }
     ],
+    "examples": [
+      {
+        "id": 77591,
+        "ja": "歴史は繰り返す。",
+        "en": "History repeats itself.",
+        "enId": 326126,
+        "form": "繰り返す"
+      },
+      {
+        "id": 104736,
+        "ja": "彼は質問を繰り返しました。",
+        "en": "He repeated his question.",
+        "enId": 298954,
+        "form": "繰り返しました"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -70,6 +104,7 @@
     "meaning": "piano",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "The piano is a clipped “pianoforte” — or a plain Italian word, depending on the source.",
@@ -77,6 +112,22 @@
     "sources": [
       {
         "quote": "From Italian piano, possibly via English piano. Some sources derive this as a clipping of ピアノフォルテ (pianoforute, “pianoforte”), itself borrowed from Italian pianoforte."
+      }
+    ],
+    "examples": [
+      {
+        "id": 174630,
+        "ja": "古いピアノだよ。",
+        "en": "It's an old piano.",
+        "enId": 239839,
+        "form": "ピアノ"
+      },
+      {
+        "id": 197721,
+        "ja": "ピアノは高いです。",
+        "en": "A piano is expensive.",
+        "enId": 34908,
+        "form": "ピアノ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -88,6 +139,7 @@
     "meaning": "news",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["derivation", "borrowing"],
     "headline": "“News” ends in ス, not ズ — an English /z/ heard as an s.",
@@ -103,6 +155,22 @@
         "quote": "Borrowed from English news. The English word-final voiced sound /z/ is sometimes transcribed as if it was voiceless, as ス (su), rather than as ズ (zu), especially if it represents English -s (plural suffix). Compare ゼット (zetto, “zed”). Also compare Korean 스 (seu) which is used along with 즈 (jeu)."
       }
     ],
+    "examples": [
+      {
+        "id": 198760,
+        "ja": "ニュースがもれた。",
+        "en": "The news leaked out.",
+        "enId": 35955,
+        "form": "ニュース"
+      },
+      {
+        "id": 223412,
+        "ja": "このニュースは初耳です。",
+        "en": "This news is new to me.",
+        "enId": 60744,
+        "form": "ニュース"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -112,6 +180,7 @@
     "meaning": "one month",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A single month, ひとつき, may be an old “one month” — and Chinese-derived readings of the same spelling sit alongside it.",
@@ -178,6 +247,7 @@
     "meaning": "layman, amateur, novice",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "processes": ["compound", "sound-change"],
     "headline": "An amateur is a “plain person” — and the “person” part is a form of 人 that never stands on its own.",
     "morphemes": [
@@ -202,6 +272,22 @@
         "quote": "The term 人 (hito, “person”) appears in various older compounds with a root form of 人 (*puto → *buto → *udo, *puto → *futo → *uto). This form is never seen in isolation, and it often undergoes further phonetic changes to combine with preceding vowels. Compare the formation of 仲人 (nakōdo), from naka + udo; 旅人 (tabiudo), from tabi + udo."
       }
     ],
+    "examples": [
+      {
+        "id": 113503,
+        "ja": "彼はしろうとの庭師だが、彼の育てる花は美しい。",
+        "en": "He is an amateur gardener, but his flowers are beautiful.",
+        "enId": 290170,
+        "form": "しろうと"
+      },
+      {
+        "id": 231317,
+        "ja": "あのシロウト歌手は文句なくタレントショーで一位となった。",
+        "en": "The amateur singer won first in the talent show hands down.",
+        "enId": 68684,
+        "form": "シロウト"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -211,6 +297,7 @@
     "meaning": "for one's self, personally",
     "level": "N2",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "“By oneself” began as “body” plus a possessive plus “quality”, and its ず is a softened つ.",
@@ -226,6 +313,22 @@
         "quote": "The okurigana ら (ra) is used to indicate the reading."
       }
     ],
+    "examples": [
+      {
+        "id": 104798,
+        "ja": "彼は自分自ら辞めた。",
+        "en": "He did so of his own accord.",
+        "enId": 298892,
+        "form": "自ら"
+      },
+      {
+        "id": 150143,
+        "ja": "自らスパイと認める。",
+        "en": "Confess himself to be a spy.",
+        "enId": 264414,
+        "form": "自ら"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -235,6 +338,7 @@
     "meaning": "box lunch",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["borrowing", "clipping", "sound-change", "ateji"],
     "headline": "The bentō was probably a “face tub” — and the 弁 was picked to avoid another character's meaning.",
@@ -253,6 +357,22 @@
         "quote": "Shift from 弁(べん)当(とう) (bentō) above, shortening the vowel."
       }
     ],
+    "examples": [
+      {
+        "id": 188944,
+        "ja": "駅で弁当を買った。",
+        "en": "I bought a box lunch at the station.",
+        "enId": 26091,
+        "form": "弁当"
+      },
+      {
+        "id": 127302,
+        "ja": "暖かい弁当が買える。",
+        "en": "We can buy hot lunches.",
+        "enId": 276787,
+        "form": "弁当"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -265,6 +385,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku", "sound-change", "ateji"],
     "headline": "“Flashy” may come from a lively “breaking melody” on the shamisen — the 派 is only ateji.",
@@ -280,6 +401,22 @@
         "quote": "The use of the 派 character is an example of ateji (当(あ)て字(じ))."
       }
     ],
+    "examples": [
+      {
+        "id": 218152,
+        "ja": "これは派手すぎる。",
+        "en": "This is too bright.",
+        "enId": 55464,
+        "form": "派手"
+      },
+      {
+        "id": 223394,
+        "ja": "このネクタイは派手すぎますよ。",
+        "en": "I'm afraid this tie is too loud.",
+        "enId": 60727,
+        "form": "派手"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -289,6 +426,7 @@
     "meaning": "Asia",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Asia comes through Dutch — and the kanji for it came from Chinese.",
@@ -313,6 +451,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Coffee came by way of Dutch, with English leaning on it, from an Arabic word — and it has two twins.",
@@ -334,6 +473,7 @@
       "expressions (phrases, clauses, etc.)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A girl is a “female child” — with a second, rarer name built on another word for “woman”.",
@@ -359,6 +499,22 @@
         "quote": "Compound of 女 (onna, “a woman; female”) + の (no, appositional particle) + 子 (ko, “a child”)."
       }
     ],
+    "examples": [
+      {
+        "id": 227937,
+        "ja": "エミはよい女の子だ。",
+        "en": "Emi is a good girl.",
+        "enId": 65291,
+        "form": "女の子"
+      },
+      {
+        "id": 175557,
+        "ja": "健は女の子に親切です。",
+        "en": "Ken is kind to the girls.",
+        "enId": 238908,
+        "form": "女の子"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -368,6 +524,7 @@
     "meaning": "workplace",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "hybrid",
     "processes": ["compound", "wasei", "borrowing"],
     "headline": "A workplace mixes a Chinese-derived “job” with a native-sounding “place” — a clue that it was coined in Japan.",
@@ -388,6 +545,22 @@
         "quote": "Given the mixed Sinitic-Japanese reading, probably coined in Japan as a compound of 職 (shoku, “employment, trade, job”, on'yomi, from Middle Chinese) + 場 (ba, “place, site”, kun'yomi, from Old Japanese)."
       }
     ],
+    "examples": [
+      {
+        "id": 103938,
+        "ja": "彼は職場でまだ仕事中だ。",
+        "en": "He is still at work in the workroom.",
+        "enId": 299754,
+        "form": "職場"
+      },
+      {
+        "id": 145966,
+        "ja": "職場に出てもいいですか。",
+        "en": "Can I go to work?",
+        "enId": 268596,
+        "form": "職場"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -397,6 +570,7 @@
     "meaning": "crescent moon",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf35"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "The crescent moon is the “third-day moon”: a moon named for the third day of a lunar month.",
@@ -430,6 +604,7 @@
     "meaning": "one's whereabouts",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Whereabouts is “the direction one goes” — and its last syllable is a worn-down he.",
@@ -445,6 +620,22 @@
         "quote": "From verb 行く (yuku, “to go”) + 辺 (-he, “direction, location”)."
       }
     ],
+    "examples": [
+      {
+        "id": 75648,
+        "ja": "杳として行方が知れない。",
+        "en": "Nothing whatever is known of him.",
+        "enId": 328070,
+        "form": "行方"
+      },
+      {
+        "id": 117358,
+        "ja": "彼の行方は誰にもわからない。",
+        "en": "God knows where he has gone.",
+        "enId": 283226,
+        "form": "行方"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -454,6 +645,7 @@
     "meaning": "museum",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "A museum is a “building of wide learning”.",
@@ -474,6 +666,22 @@
         "quote": "博物 (hakubutsu, “wide learning”) + 館 (kan, “building”)"
       }
     ],
+    "examples": [
+      {
+        "id": 185639,
+        "ja": "我々は博物館へ行った。",
+        "en": "We went to the museum.",
+        "enId": 22771,
+        "form": "博物館"
+      },
+      {
+        "id": 121453,
+        "ja": "博物館はどこにありますか。",
+        "en": "Where is the museum?",
+        "enId": 282553,
+        "form": "博物館"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -483,12 +691,29 @@
     "meaning": "lost (stray) child",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf30"],
     "processes": ["rendaku", "sound-change"],
     "headline": "A lost child is a “wandering child” — with the middle syllable worn away.",
     "morphemes": [],
     "sources": [
       {
         "quote": "Alteration of 迷い子 (mayoigo). The ko changes to go as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 97635,
+        "ja": "彼らはみんなで迷子を探した。",
+        "en": "They all sought for the lost child.",
+        "enId": 306069,
+        "form": "迷子"
+      },
+      {
+        "id": 138889,
+        "ja": "村人たちは迷子を捜しに出た。",
+        "en": "The villagers went in search of the missing child.",
+        "enId": 274592,
+        "form": "迷子"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -505,6 +730,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Sleeping in is, word for word, a “sleeping boy”.",
@@ -525,6 +751,22 @@
         "quote": "Compound of 寝 (ne, “sleeping”, the 連用形 (ren'yōkei, “the continuative or stem form”) of verb 寝る (neru, “to sleep”)) + 坊 (bō, “boy”, term of endearment)."
       }
     ],
+    "examples": [
+      {
+        "id": 111682,
+        "ja": "彼はときどき寝坊する。",
+        "en": "He sometimes sleeps in.",
+        "enId": 292000,
+        "form": "寝坊"
+      },
+      {
+        "id": 81843,
+        "ja": "僕は寝坊して学校に遅刻した。",
+        "en": "I overslept and was late for school.",
+        "enId": 321872,
+        "form": "寝坊"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -534,6 +776,7 @@
     "meaning": "gram",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "“Gram” was once ガラム — like ガラス and グラス, before it settled.",
@@ -555,6 +798,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf15"],
     "processes": ["sound-change", "meaning-shift", "ateji"],
     "headline": "“Unskilled” may be “at the edge” of what you can do.",
     "morphemes": [],
@@ -564,6 +808,22 @@
       },
       {
         "quote": "The kanji spelling appears to be an instance of jukujikun (熟(じゅく)字(じ)訓(くん))."
+      }
+    ],
+    "examples": [
+      {
+        "id": 105331,
+        "ja": "彼は字が下手だ。",
+        "en": "His handwriting is poor.",
+        "enId": 298357,
+        "form": "下手"
+      },
+      {
+        "id": 109798,
+        "ja": "彼は運転が下手だ。",
+        "en": "He is a bad driver.",
+        "enId": 293892,
+        "form": "下手"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -578,6 +838,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound", "wasei", "borrowing"],
     "headline": "Gymnastics got its name in the early Meiji school reforms, when physical education joined the curriculum.",
@@ -598,6 +859,22 @@
         "quote": "Apparently coined in Japanese from Middle Chinese-derived elements, as a compound of 体 (tai, “body”) + 操 (sō, “control, manipulate”). First cited in education-related materials from the early Meiji Period in the early 1870s, as part of educational reforms that included the addition of physical education to school curricula."
       }
     ],
+    "examples": [
+      {
+        "id": 102530,
+        "ja": "彼は体操が得意だ。",
+        "en": "He is good at gymnastics.",
+        "enId": 295049,
+        "form": "体操"
+      },
+      {
+        "id": 175497,
+        "ja": "健康のために体操する。",
+        "en": "I take exercise for health.",
+        "enId": 238968,
+        "form": "体操"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -610,6 +887,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Fur is “hair-skin” — with a Chinese-derived twin of the same spelling attested centuries earlier.",
@@ -643,6 +921,7 @@
     "meaning": "razor",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "processes": ["compound", "borrowing"],
     "headline": "A razor is “hair-shaver” — and the kanji came ready-made from Chinese.",
     "morphemes": [],
@@ -663,6 +942,7 @@
     "meaning": "national, people, citizen",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "“Citizen” came from Chinese — but a native “country” and “people” compound hides behind the same spelling.",
@@ -685,6 +965,22 @@
         "quote": "From Middle Chinese compound 國民 (MC kwok mjin)."
       }
     ],
+    "examples": [
+      {
+        "id": 122253,
+        "ja": "日本人は勤勉な国民だ。",
+        "en": "The Japanese are an industrious people.",
+        "enId": 281739,
+        "form": "国民"
+      },
+      {
+        "id": 173024,
+        "ja": "国民は重税に苦しんだ。",
+        "en": "The people groaned under the burden of heavy taxation.",
+        "enId": 241449,
+        "form": "国民"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -694,6 +990,7 @@
     "meaning": "crowd of people",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi2", "news2", "nf32", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "A crowd is “people” who are “full”.",
@@ -715,6 +1012,22 @@
         "quote": "Compound of 人(ひと) (hito, “person”) + 込(こ)み (komi, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 込(こ)む (komu, “to go into, be full of, have a lot of”).)."
       }
     ],
+    "examples": [
+      {
+        "id": 144207,
+        "ja": "人込みの中で彼とあった。",
+        "en": "I met him in the crowd.",
+        "enId": 270358,
+        "form": "人込み"
+      },
+      {
+        "id": 103592,
+        "ja": "彼は人ごみでスリにあった。",
+        "en": "He had his pocket picked in the crowd.",
+        "enId": 300101,
+        "form": "人ごみ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -724,6 +1037,7 @@
     "meaning": "(someone else's) house; home -- polite word for 家 (いえ) --",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Politely “your home” mixes a native honorific with a Chinese-derived word for “home”.",
@@ -744,6 +1058,22 @@
         "quote": "Compound of 御 (o-, honorific prefix, kun'yomi) + 宅 (taku, “home”, on'yomi)."
       }
     ],
+    "examples": [
+      {
+        "id": 80618,
+        "ja": "明日お宅に伺います。",
+        "en": "I'll call at your house tomorrow.",
+        "enId": 402035,
+        "form": "お宅"
+      },
+      {
+        "id": 226893,
+        "ja": "お宅の犬は大きいですね。",
+        "en": "Your dog is very big.",
+        "enId": 64241,
+        "form": "お宅"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -753,6 +1083,7 @@
     "meaning": "bus; bath; bass",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "A bus, a bath and a bass all hide in one two-syllable word.",
@@ -771,6 +1102,15 @@
         "quote": "Borrowed from German Bass."
       }
     ],
+    "examples": [
+      {
+        "id": 77225,
+        "ja": "バス通学と積極的差別是正措置などが論争の多い話題だった。",
+        "en": "School busing and taking a proactive stance against discrimination were hotly debated topics.",
+        "enId": 2019916,
+        "form": "バス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -780,6 +1120,7 @@
     "meaning": "hiragana",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku"],
     "headline": "Hiragana is “smooth kana”, with かな voiced to がな.",
@@ -818,6 +1159,7 @@
     "meaning": "objective, plan, policy",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "A policy is literally a “direction needle” — another name for a magnetic needle.",
@@ -838,6 +1180,22 @@
         "quote": "方 (“direction”) + 針 (“needle”), another name for the 磁針 (jishin, “magnetic needle”), with the meaning figuratively extending to \"guidance\" in general."
       }
     ],
+    "examples": [
+      {
+        "id": 96791,
+        "ja": "彼らは新方針を採用した。",
+        "en": "They adopted a new policy.",
+        "enId": 306913,
+        "form": "方針"
+      },
+      {
+        "id": 150133,
+        "ja": "自己の方針をあくまで守れ。",
+        "en": "Keep to your own line.",
+        "enId": 264424,
+        "form": "方針"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -847,6 +1205,7 @@
     "meaning": "to be conspicuous, to stand out",
     "level": "N2",
     "pos": ["Godan verb with 'tsu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "To stand out is, quite literally, for the “eye” to “stand”.",
@@ -869,6 +1228,22 @@
       },
       {
         "quote": "The tatsu changes to datsu as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 75660,
+        "ja": "林に竹が目立つ。",
+        "en": "Bamboo stands out in the woods.",
+        "enId": 328058,
+        "form": "目立つ"
+      },
+      {
+        "id": 117869,
+        "ja": "彼の額の傷は目立つ。",
+        "en": "The scar on his forehead is conspicuous.",
+        "enId": 285795,
+        "form": "目立つ"
       }
     ],
     "wiktionaryDump": "2026-09-02"

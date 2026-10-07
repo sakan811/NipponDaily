@@ -6,6 +6,7 @@
     "meaning": "shirt",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "シャツ is borrowed from English “shirt”.",
@@ -21,6 +22,22 @@
         "quote": "Borrowed from English shirt."
       }
     ],
+    "examples": [
+      {
+        "id": 215873,
+        "ja": "シャツ、裏返しよ。",
+        "en": "Your shirt is inside out.",
+        "enId": 53174,
+        "form": "シャツ"
+      },
+      {
+        "id": 384720,
+        "ja": "シャツの替えがない。",
+        "en": "I don't have a spare shirt.",
+        "enId": 384721,
+        "form": "シャツ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -30,6 +47,7 @@
     "meaning": "origin, source; basis, foundation",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "素, “origin, source; basis, foundation”, is compared in the source with 元 (moto, “origin”).",
@@ -48,6 +66,7 @@
     "meaning": "captain",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "キャプテン is borrowed from English “captain”.",
@@ -63,6 +82,22 @@
         "quote": "Borrowed from English captain."
       }
     ],
+    "examples": [
+      {
+        "id": 98336,
+        "ja": "彼らは、私をキャプテンと呼ぶ。",
+        "en": "They call me captain.",
+        "enId": 305366,
+        "form": "キャプテン"
+      },
+      {
+        "id": 114732,
+        "ja": "彼はいいキャプテンになりますよ。",
+        "en": "He will make a good team captain.",
+        "enId": 288939,
+        "form": "キャプテン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -72,6 +107,7 @@
     "meaning": "to rot, to go bad",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": [],
     "headline": "腐る, “to rot, to go bad”, is related to 糞 (kuso) and 臭い (kusai).",
@@ -79,6 +115,22 @@
     "sources": [
       {
         "quote": "Related to 糞(くそ) (kuso) and 臭(くさ)い (kusai)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 182295,
+        "ja": "牛乳が腐った。",
+        "en": "The milk has gone bad.",
+        "enId": 19478,
+        "form": "腐った"
+      },
+      {
+        "id": 140504,
+        "ja": "早熟れの早腐り。",
+        "en": "Soon ripe, soon rotten.",
+        "enId": 274068,
+        "form": "腐り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -90,6 +142,7 @@
     "meaning": "(Western) soup",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スープ, “(Western) soup”, is borrowed from English “soup”.",
@@ -105,6 +158,22 @@
         "quote": "Borrowed from English soup."
       }
     ],
+    "examples": [
+      {
+        "id": 170487,
+        "ja": "最初にスープを飲んだ。",
+        "en": "We began with the soup.",
+        "enId": 243996,
+        "form": "スープ"
+      },
+      {
+        "id": 215033,
+        "ja": "スープは冷めていない。",
+        "en": "The soup is not cool.",
+        "enId": 52329,
+        "form": "スープ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -114,6 +183,7 @@
     "meaning": "tunnel",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "トンネル is the English word “tunnel” in katakana.",
@@ -127,6 +197,22 @@
     "sources": [
       {
         "quote": "From English tunnel."
+      }
+    ],
+    "examples": [
+      {
+        "id": 169401,
+        "ja": "山を通してトンネルを通した。",
+        "en": "They drove a tunnel through the hill.",
+        "enId": 245085,
+        "form": "トンネル"
+      },
+      {
+        "id": 183136,
+        "ja": "汽車はトンネルを通り抜けた。",
+        "en": "The train traversed a tunnel.",
+        "enId": 20258,
+        "form": "トンネル"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -147,6 +233,15 @@
         "quote": "Cognate with 刺(さ)す (sasu)."
       }
     ],
+    "examples": [
+      {
+        "id": 110946,
+        "ja": "彼はボタンの穴に花を挿した。",
+        "en": "He stuck a flower in his buttonhole.",
+        "enId": 292740,
+        "form": "挿した"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -156,6 +251,7 @@
     "meaning": "fork",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "フォーク is borrowed from English “fork”.",
@@ -180,6 +276,7 @@
     "meaning": "to shine",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf31"],
     "stratum": "wago",
     "processes": [],
     "headline": "照る, “to shine”, is from Old Japanese and first attested in the Kojiki of 712 CE.",
@@ -187,6 +284,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Kojiki of 712 CE. From Proto-Japonic *teru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 122908,
+        "ja": "日の照るうちに草を干せ。",
+        "en": "Make hay while the sun shines.",
+        "enId": 4429499,
+        "form": "照る"
+      },
+      {
+        "id": 138074,
+        "ja": "太陽は明るく照っている。",
+        "en": "The sun is shining brightly.",
+        "enId": 64135,
+        "form": "照っている"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -198,6 +311,7 @@
     "meaning": "collection; correction",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コレクション is borrowed from English “collection”.",
@@ -213,6 +327,22 @@
         "quote": "Borrowed from English collection."
       }
     ],
+    "examples": [
+      {
+        "id": 106017,
+        "ja": "彼は私に切手のコレクションを見せてくれた。",
+        "en": "He showed me his stamp collection.",
+        "enId": 297669,
+        "form": "コレクション"
+      },
+      {
+        "id": 143385,
+        "ja": "世界中の銀のティースプーンのコレクションがある。",
+        "en": "I have a collection of silver tea spoons from all over the world.",
+        "enId": 271182,
+        "form": "コレクション"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -222,10 +352,24 @@
     "meaning": "heading, index",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "見出し, “heading, index”, is the continuative stem of the verb 見出す (midasu, “to find out, to select”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "見",
+        "reading": "み",
+        "meaning": "see",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "出し",
+        "reading": "だし",
+        "meaning": "exit",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見(み)出(だ)す (midasu, “to find out, to select”)."
@@ -243,6 +387,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ノック covers “knock” and baseball fungo, and the source traces it to English “knock”.",
@@ -258,6 +403,22 @@
         "quote": "From English knock."
       }
     ],
+    "examples": [
+      {
+        "id": 111766,
+        "ja": "彼はドアをノックした。",
+        "en": "He knocked at the door.",
+        "enId": 291912,
+        "form": "ノック"
+      },
+      {
+        "id": 201816,
+        "ja": "ドアをノックしなさい。",
+        "en": "Knock on the door.",
+        "enId": 39026,
+        "form": "ノック"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -267,6 +428,7 @@
     "meaning": "to finish",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb", "auxiliary verb"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "終える traces a long sound path from Old Japanese wopu, through /wofuru/ and /oheru/, to /oeru/.",
@@ -291,6 +453,22 @@
         "quote": "Probably not related to superficially similar 追う (ou, ancient opu, “to follow”, quadrigrade conjugation in older Japanese), considering the distinct lack of initial /w/ in ancient spellings."
       }
     ],
+    "examples": [
+      {
+        "id": 106620,
+        "ja": "彼は仕事を終えた。",
+        "en": "He got through with his work.",
+        "enId": 297066,
+        "form": "終えた"
+      },
+      {
+        "id": 155984,
+        "ja": "私は宿題を終えた。",
+        "en": "I've finished my homework.",
+        "enId": 258552,
+        "form": "終えた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -300,6 +478,7 @@
     "meaning": "platform",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "プラットホーム is borrowed from English “platform”.",
@@ -324,6 +503,7 @@
     "meaning": "suit",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スーツ is borrowed from English “suit”.",
@@ -339,6 +519,22 @@
         "quote": "Borrowed from English suit."
       }
     ],
+    "examples": [
+      {
+        "id": 215067,
+        "ja": "スーツに着替えなさい。",
+        "en": "Change into your suit.",
+        "enId": 52363,
+        "form": "スーツ"
+      },
+      {
+        "id": 200996,
+        "ja": "どこでスーツを作ったの？",
+        "en": "Where did you have your suit made?",
+        "enId": 38201,
+        "form": "スーツ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -348,6 +544,7 @@
     "meaning": "stock; stump (of tree)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "counter"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "株, “stock; stump (of tree)”, is from Old Japanese, with cognates in Kunigami, Amami Ōshima and Okinawan.",
@@ -355,6 +552,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *kampu. Cognate with Kunigami 株 (khabū), Northern Amami Ōshima 株 (gabu), Okinawan 株 (kabu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 2325060,
+        "ja": "彼は株に投資した。",
+        "en": "He invested his money in stocks.",
+        "enId": 295466,
+        "form": "株"
+      },
+      {
+        "id": 184091,
+        "ja": "株は新高値を付けた。",
+        "en": "Stocks hit a new high.",
+        "enId": 21219,
+        "form": "株"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -366,6 +579,7 @@
     "meaning": "cement",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "セメント is borrowed from English “cement”.",
@@ -381,6 +595,22 @@
         "quote": "Borrowed from English cement."
       }
     ],
+    "examples": [
+      {
+        "id": 142349,
+        "ja": "石の塊はセメントで接合された。",
+        "en": "The blocks of stone were jointed with cement.",
+        "enId": 272221,
+        "form": "セメント"
+      },
+      {
+        "id": 213992,
+        "ja": "セメントは２、３時間で固まる。",
+        "en": "The cement will set in a couple of hours.",
+        "enId": 51280,
+        "form": "セメント"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -393,6 +623,7 @@
       "adverb (fukushi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf33"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "元々 is a reduplication of 元 (moto, “origin”).",
@@ -400,6 +631,22 @@
     "sources": [
       {
         "quote": "Reduplication of 元(もと) (moto, “origin”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 97238,
+        "ja": "彼らは元々あった文明を破壊した。",
+        "en": "They destroyed the native civilization.",
+        "enId": 306464,
+        "form": "元々"
+      },
+      {
+        "id": 97610,
+        "ja": "彼らはもともと農業をやっていました。",
+        "en": "Originally they were farmers.",
+        "enId": 306094,
+        "form": "もともと"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -411,6 +658,7 @@
     "meaning": "accent",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アクセント is borrowed from English “accent”.",
@@ -426,6 +674,22 @@
         "quote": "Borrowed from English accent."
       }
     ],
+    "examples": [
+      {
+        "id": 222022,
+        "ja": "この語のアクセントはどこにあるか。",
+        "en": "How is the word accented?",
+        "enId": 59346,
+        "form": "アクセント"
+      },
+      {
+        "id": 210822,
+        "ja": "その語のアクセントは第二音節にある。",
+        "en": "The accent of the word is on the second syllable.",
+        "enId": 48092,
+        "form": "アクセント"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -435,6 +699,7 @@
     "meaning": "bell",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": [],
     "headline": "鈴, “bell”, was written with the phonetic spelling 須受 (suzu) in the Man'yōshū of 759.",
@@ -459,6 +724,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スケート is the English word “skate” in katakana.",
@@ -474,6 +740,22 @@
         "quote": "From English skate."
       }
     ],
+    "examples": [
+      {
+        "id": 176606,
+        "ja": "兄はスケートが上手だ。",
+        "en": "My brother is a good skater.",
+        "enId": 237856,
+        "form": "スケート"
+      },
+      {
+        "id": 92721,
+        "ja": "彼女はスケートが出来る。",
+        "en": "She is able to skate.",
+        "enId": 310988,
+        "form": "スケート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -483,6 +765,7 @@
     "meaning": "Japanese harp",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "琴, “Japanese harp”, is possibly a compound of 木 (ko, “tree, wood”) and 音 (oto, “sound”), with a medial o dropped.",
@@ -498,6 +781,15 @@
         "quote": "Possibly derived from a compound of elements 木 (ko, “tree, wood”, combining form) + 音 (oto, “sound”), with the additional medial o dropped by haplology."
       }
     ],
+    "examples": [
+      {
+        "id": 89198,
+        "ja": "彼女は琴を弾くことがとても好きだ。",
+        "en": "She likes to play the koto very much.",
+        "enId": 314508,
+        "form": "琴"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -507,6 +799,7 @@
     "meaning": "accessory",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アクセサリー is borrowed from English “accessory”.",
@@ -522,6 +815,22 @@
         "quote": "Borrowed from English accessory."
       }
     ],
+    "examples": [
+      {
+        "id": 86846,
+        "ja": "彼女は服にアクセサリーを付けている。",
+        "en": "She is wearing accessories.",
+        "enId": 316864,
+        "form": "アクセサリー"
+      },
+      {
+        "id": 219960,
+        "ja": "この服にはどんなアクセサリーを付けるの？",
+        "en": "What sort of jewelry are you going to wear with this dress?",
+        "enId": 57280,
+        "form": "アクセサリー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -531,6 +840,7 @@
     "meaning": "escalator",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "エスカレーター, “escalator”, is borrowed from English and first cited to a text from 1920.",
@@ -549,6 +859,22 @@
         "quote": "First cited to a text from 1920."
       }
     ],
+    "examples": [
+      {
+        "id": 146274,
+        "ja": "上りのエスカレーターはどこですか？",
+        "en": "Where's the up-escalator?",
+        "enId": 268288,
+        "form": "エスカレータ"
+      },
+      {
+        "id": 85408,
+        "ja": "標識はエスカレーターの位置を示している。",
+        "en": "The sign indicates the location of the escalator.",
+        "enId": 318305,
+        "form": "エスカレーター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -558,6 +884,7 @@
     "meaning": "to have someone stay (over night) (v.t.)",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": [],
     "headline": "泊める is a doublet of 止める (tomeru).",
@@ -565,6 +892,22 @@
     "sources": [
       {
         "quote": "Doublet of 止(と)める (tomeru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 190133,
+        "ja": "一晩泊めてあげよう。",
+        "en": "I'll put you up for the night.",
+        "enId": 1224481,
+        "form": "泊めて"
+      },
+      {
+        "id": 95925,
+        "ja": "彼を一晩泊めてやった。",
+        "en": "I accommodated him with a night's lodging.",
+        "enId": 307780,
+        "form": "泊めて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -576,6 +919,7 @@
     "meaning": "whiskey",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ウイスキー is borrowed from the English spelling “whisky”.",
@@ -591,6 +935,22 @@
         "quote": "Borrowed from English whisky."
       }
     ],
+    "examples": [
+      {
+        "id": 223984,
+        "ja": "このウイスキーはどう。",
+        "en": "How do you like this whisky?",
+        "enId": 61320,
+        "form": "ウイスキー"
+      },
+      {
+        "id": 223983,
+        "ja": "このウイスキーは強すぎる。",
+        "en": "This whisky is too strong.",
+        "enId": 61318,
+        "form": "ウイスキー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -600,6 +960,7 @@
     "meaning": "youthful, young",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf31"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "若々しい doubles 若 (waka) and adds the suffix しい (-shii).",
@@ -607,6 +968,22 @@
     "sources": [
       {
         "quote": "Reduplication of 若(わか) (waka), the stem of 若(わか)い (wakai, “young”), suffixed with しい (-shii)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 88181,
+        "ja": "彼女は相変わらず若々しい。",
+        "en": "She looks as young as ever.",
+        "enId": 315526,
+        "form": "若々しい"
+      },
+      {
+        "id": 101363,
+        "ja": "彼は年をとっていてもまだ若々しい。",
+        "en": "He is old, but he's worn well.",
+        "enId": 302333,
+        "form": "若々しい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -618,6 +995,7 @@
     "meaning": "concert",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コンサート is borrowed from English “concert”.",
@@ -633,6 +1011,22 @@
         "quote": "Borrowed from English concert."
       }
     ],
+    "examples": [
+      {
+        "id": 217511,
+        "ja": "コンサートよかった？",
+        "en": "Did you have a good concert?",
+        "enId": 54820,
+        "form": "コンサート"
+      },
+      {
+        "id": 217514,
+        "ja": "コンサートはどうだった？",
+        "en": "How did you enjoy the concert?",
+        "enId": 54823,
+        "form": "コンサート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -642,6 +1036,7 @@
     "meaning": "you",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“You” began as a place word: あなた originally meant that direction, that side, that place far away.",
@@ -669,6 +1064,7 @@
     "meaning": "milk",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ミルク is borrowed from English “milk” and first cited in the 1870s.",
@@ -687,6 +1083,22 @@
         "quote": "First cited in the 1870s."
       }
     ],
+    "examples": [
+      {
+        "id": 195044,
+        "ja": "ミルクはいかが？",
+        "en": "How about some milk?",
+        "enId": 32219,
+        "form": "ミルク"
+      },
+      {
+        "id": 147482,
+        "ja": "暑いとミルクが腐る。",
+        "en": "The hot weather turns milk.",
+        "enId": 267078,
+        "form": "ミルク"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -696,6 +1108,7 @@
     "meaning": "handkerchief",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ハンカチ is borrowed from English “handkerchief”.",
@@ -709,6 +1122,22 @@
     "sources": [
       {
         "quote": "Borrowed from English handkerchief."
+      }
+    ],
+    "examples": [
+      {
+        "id": 111230,
+        "ja": "彼はハンカチを取り出した。",
+        "en": "He took out his handkerchief.",
+        "enId": 292454,
+        "form": "ハンカチ"
+      },
+      {
+        "id": 111231,
+        "ja": "彼はハンカチで鼻をかんだ。",
+        "en": "He blew his nose in a handkerchief.",
+        "enId": 292453,
+        "form": "ハンカチ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
