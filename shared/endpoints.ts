@@ -27,7 +27,8 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
   {
     method: "GET",
     path: "/api/word-calendar",
-    query: "?month=YYYY-MM&q=&level=&stratum=&process=&pos=&part=&match=",
+    query:
+      "?month=YYYY-MM&q=&level=&stratum=&process=&pos=&frequency=&part=&match=",
     returns:
       "`{ month, months, today, days, filters, total, count, monthCounts, facets }`. An open day carries its `term`, `kana`, `stratum` and `match` (whether it passes the filters, always true with none); an upcoming day carries only its date and `\"upcoming\"`, and is never matched. The filters are the `/api/explore` ones, with the same counts: `count` of `total` open words match across every month, `monthCounts` gives each month's matches and `facets` the options' counts. The month defaults to the current one if it has words, else the newest. A malformed month or an invalid filter is a `400`, a month with no words a `404`.",
   },
@@ -46,10 +47,23 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
   },
   {
     method: "GET",
-    path: "/api/explore",
-    query: "?q=&level=&stratum=&process=&pos=&part=&match=",
+    path: "/api/kanji",
     returns:
-      "The open words matching every filter, newest first: `{ filters, total, count, words, facets }`. Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. `level`, `stratum` (which also takes `unstated`), `process` and `pos` (a group such as `verb`) take several comma-joined choices; `match=all` makes a word carry every process and part of speech chosen instead of any. Each facet counts the words the other filters leave.",
+      "The kanji index, `{ kanji: [{ char, count, grade? }] }`: every kanji an open word is written with, most-used first, with KANJIDIC2's school grade.",
+  },
+  {
+    method: "GET",
+    path: "/api/kanji-detail",
+    query: "?char=日",
+    returns:
+      "KANJIDIC2's record of one kanji with the open words written with it: `{ char, strokeCount, grade?, freq?, on, kun, meanings, count, words, isPart }`. Only days that have arrived count, so a kanji used only by an upcoming word is a `404`. A missing value or more than one character is a `400`.",
+  },
+  {
+    method: "GET",
+    path: "/api/explore",
+    query: "?q=&level=&stratum=&process=&pos=&frequency=&part=&match=",
+    returns:
+      "The open words matching every filter, newest first: `{ filters, total, count, words, facets }`. Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. `level`, `stratum` (which also takes `unstated`), `process`, `pos` (a group such as `verb`) and `frequency` (`common`, `less` or `unlisted`, from JMdict's priority codes) take several comma-joined choices; `match=all` makes a word carry every process and part of speech chosen instead of any. Each facet counts the words the other filters leave.",
   },
   {
     method: "GET",
@@ -86,7 +100,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     method: "GET",
     path: "/sitemap.xml",
     returns:
-      "Server route, not under `/api`. Lists the static pages, every open word and each part seen in more than one open word, never an upcoming day. URLs use `NUXT_PUBLIC_SITE_URL` when set, else the request's own origin.",
+      "Server route, not under `/api`. Lists the static pages, every open word and each part or kanji seen in more than one open word, never an upcoming day. URLs use `NUXT_PUBLIC_SITE_URL` when set, else the request's own origin.",
   },
   {
     method: "GET",
