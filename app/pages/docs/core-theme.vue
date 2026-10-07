@@ -49,7 +49,7 @@
     </p>
 
     <h2>Principles</h2>
-    <p>Every new feature is checked against these five.</p>
+    <p>Every new feature is checked against these six.</p>
     <ol>
       <li>
         <strong>No reader data.</strong> No accounts, no progress, no streaks.
@@ -74,6 +74,14 @@
       <li>
         <strong>Only what has arrived.</strong> A word is shown only once its
         day has come.
+      </li>
+      <li>
+        <strong>Fits every device.</strong> The app is built to fit every
+        device, from a narrow phone to a wide desktop screen. Pages are laid out
+        mobile-first and flow to the width they are given, wide figures and
+        tables scroll inside their own box instead of widening the page, and
+        nothing important hides behind hover, so touch, keyboard and
+        screen-reader readers get the same pages.
       </li>
     </ol>
 
