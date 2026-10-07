@@ -23,10 +23,22 @@ import {
  */
 
 interface Snapshot {
-  meta?: { license: string; export: string; files: Record<string, string> };
+  meta?: {
+    license: string;
+    export: string;
+    furigana: string;
+    files: Record<string, string>;
+  };
   entries: Record<
     string,
-    { id: number; ja: string; en: string; enId: number; form: string }[]
+    {
+      id: number;
+      ja: string;
+      en: string;
+      enId: number;
+      form: string;
+      furigana?: string[][];
+    }[]
   >;
 }
 const snapshot = loadSentenceSnapshot(
@@ -42,6 +54,11 @@ describe("data/reference/sentences/", () => {
     expect(snapshot.meta?.export).toBe(TATOEBA_EXPORT.date);
     for (const [name, pin] of Object.entries(TATOEBA_EXPORT.files))
       expect(snapshot.meta?.files[name], name).toBe((pin as any).sha256);
+  });
+
+  it("says how its readings were checked", () => {
+    expect(snapshot.meta?.furigana).toMatch(/kuromoji/);
+    expect(snapshot.meta?.furigana).toMatch(/JMdict/);
   });
 
   it("has no sentences for words that are not in the catalogue", () => {
@@ -61,6 +78,40 @@ describe("the example sentences of every entry", () => {
         JSON.stringify(snapshot.entries[e.term] ?? []),
     ).map((e) => e.term);
     expect(stale, "run pnpm data:words").toEqual([]);
+  });
+
+  it("has furigana that joins back to the sentence, readings over kanji only", () => {
+    const KANA = /^[\p{sc=Hiragana}ー]+$/u;
+    let readings = 0;
+    for (const e of WORD_ENTRIES)
+      for (const ex of e.examples ?? []) {
+        if (!ex.furigana) continue;
+        expect(
+          ex.furigana.map((p) => p[0]).join(""),
+          `${ex.id} furigana joins back to its sentence`,
+        ).toBe(ex.ja);
+        for (const part of ex.furigana) {
+          expect([1, 2], `${ex.id} part shape`).toContain(part.length);
+          if (part.length === 1) continue;
+          readings++;
+          expect(part[0], `${ex.id}: ${part[0]} is not kanji`).toMatch(
+            /^[\p{sc=Han}々]+$/u,
+          );
+          expect(part[1], `${ex.id}: reading of ${part[0]}`).toMatch(KANA);
+          // A reading never straddles the word's form, which the page marks.
+          const at = ex.ja.indexOf(ex.form);
+          const start = ex.furigana
+            .slice(0, ex.furigana.indexOf(part))
+            .reduce((n, p) => n + p[0]!.length, 0);
+          const end = start + part[0]!.length;
+          for (const edge of [at, at + ex.form.length])
+            expect(
+              edge <= start || edge >= end,
+              `${ex.id}: ${part[0]} straddles ${ex.form}`,
+            ).toBe(true);
+        }
+      }
+    expect(readings, "most sentences get readings").toBeGreaterThan(5000);
   });
 
   it("is a good share of them", () => {
