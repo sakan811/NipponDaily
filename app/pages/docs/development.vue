@@ -252,15 +252,23 @@ const commands = [
   { cmd: "pnpm check-qa", does: "Lint, format, type-check, build and test." },
   {
     cmd: "pnpm data:reference / data:reference:jlpt",
-    does: "Rebuild the JMdict and KANJIDIC2 snapshots for N5, and for N4 to N2.",
+    does: "Rebuild the JMdict and KANJIDIC2 snapshots for N5, and for N4 to N1.",
   },
   {
     cmd: "pnpm data:etymology",
     does: "Read Etymology sections from the pinned Wiktionary dump.",
   },
   {
+    cmd: "pnpm data:sentences",
+    does: "Pick each word's example sentences from the pinned Tatoeba export.",
+  },
+  {
     cmd: "pnpm data:words",
     does: "Generate `data/words/` from the plan and the committed sources.",
+  },
+  {
+    cmd: "pnpm data:kanji",
+    does: "Copy KANJIDIC2's record of every kanji the entries use into `data/reference/kanji.json`.",
   },
   {
     cmd: "pnpm assets:og-font",

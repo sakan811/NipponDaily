@@ -8,8 +8,9 @@
     <h2>Not built yet</h2>
     <p>
       The laps, the multi-select and any/all filters in Explore, the
-      part-of-speech groups, the “not stated” layer, the larger combinations in
-      Patterns, and the share image are built and described in
+      part-of-speech and how-common groups, the “not stated” layer, the larger
+      combinations in Patterns, the kanji pages, the example sentences, the
+      JMdict cross-check and the share image are built and described in
       <NuxtLink to="/docs/core-theme">Core theme</NuxtLink> and
       <NuxtLink to="/docs/words">Words</NuxtLink>. What is left is a list of
       ideas, not a promise. Any of them follows the
@@ -19,26 +20,29 @@
     </p>
     <ul>
       <li>
-        <strong>More breakdowns.</strong> Most entries without one are a single
-        kanji, or a kanji with okurigana whose Wiktionary text gives a
-        derivation (the stem of a verb) rather than a split. Wiktionary's
-        structured templates carry the same text as the prose, so reading them
-        instead of the prose would add only a few dozen. A kanji-plus-okurigana
-        split from KANJIDIC2 would add many more, as a derived split marked as
-        such, like <code>glossSource: "kanjidic2"</code>.
+        <strong>More breakdowns.</strong> A KANJIDIC2 split now covers words
+        written with kanji and their okurigana (手続き, 言い出す), marked as
+        derived. What is left without one is mostly a single kanji, or a single
+        kanji with okurigana (抱く), where the only split is the word itself;
+        loanwords whose text names no one source; and a few dozen where
+        Wiktionary's structured templates give a derivation that its prose words
+        differently. Reading the templates would need them pinned beside each
+        section.
       </li>
       <li>
-        <strong>A second source for the processes.</strong> The reference
-        snapshots keep only each word's kanji, readings, parts of speech and
-        glosses. JMdict also tags abbreviations, ateji and the source language
-        of a loanword, which would check the keyword-found processes and layers
-        against a source other than Wiktionary.
+        <strong>A newer JMdict.</strong> The checks against JMdict use the
+        <code>jamdict-data</code> release already pinned, which records a loan
+        source only where JMdict names the foreign word or marks a coinage made
+        in Japan. A newer release, or one that keeps the language of every
+        loanword, would let the cross-check refute a keyword tag as well as
+        confirm one.
       </li>
       <li>
-        <strong>New data.</strong> JMdict's priority tags would give a “how
-        common” filter. Kanji pages (KANJIDIC2 has grade, strokes and readings)
-        and example sentences from an open corpus would each need a pinned
-        source, a check and an entry in <code>shared/sources.ts</code>.
+        <strong>More data on each word.</strong> Readings over the example
+        sentences (Tatoeba publishes transcriptions), stroke order from an open
+        kanji set, and the other JMdict notes (field, register, dialect) each
+        need a pinned source, a check and an entry in
+        <code>shared/sources.ts</code>.
       </li>
       <li>
         <strong>Ways to follow the words</strong>: a feed or calendar
@@ -52,6 +56,28 @@
 
     <h2>Limits</h2>
     <ul>
+      <li>
+        <strong>Example sentences are picked, not reviewed.</strong> They come
+        from a community collection by fixed rules (the corpus indexes them
+        under the word, with a translation, short, with the word's own form in
+        the text) and a short filter drops the plainly unsuitable. A sentence
+        can still be awkward or oddly translated, and a word whose spelling
+        JMdict reads several ways gets one only where the corpus says which
+        reading it means. Skim a new month's sentences as you skim its
+        headlines.
+      </li>
+      <li>
+        <strong>“Common” is JMdict's flag.</strong> It comes from lists JMdict
+        draws on (a newspaper count, an old frequency list, a loanword list), so
+        it says how a word ranks there, not how often it is used today, and a
+        word outside the lists is “not ranked”, not rare.
+      </li>
+      <li>
+        <strong>A kanji page describes the character.</strong> KANJIDIC2 lists
+        every reading and meaning the character can have; a word uses one. A
+        derived breakdown shows KANJIDIC2's meaning, not always the one the word
+        uses.
+      </li>
       <li>
         <strong>The tests prove agreement, not truth.</strong> They show that
         quotes, readings, meanings and parts of speech match the committed

@@ -54,6 +54,20 @@
       refused. The reference builders use <code>node:sqlite</code>,
       <code>tar</code> and <code>xz</code>, and download from PyPI and GitHub.
     </p>
+    <p>
+      <code>data:sentences</code> is offline too. It reads four files of a
+      {{ SOURCES.tatoeba.name }} export, a few seconds' work on about 150 MB
+      that is never committed. Download them from the paths listed in
+      <code>scripts/lib/tatoeba-export.mjs</code> (each is a <code>bz2</code>;
+      the indices come in a <code>tar</code>), extract them into
+      <code>tatoeba/</code> in the repo root (it is git-ignored), and the script
+      verifies their size and checksum before it reads anything. Tatoeba
+      overwrites its exports every week, so keep the files if you need to
+      rebuild: the committed snapshot, not the export, is what CI checks. It
+      reads the word plans, so it runs before <code>data:words</code>, which
+      copies the sentences into each entry; <code>data:kanji</code> runs after
+      it, because it reads the entries' spellings.
+    </p>
 
     <h2>Adding a month</h2>
     <DocDiagram
@@ -80,8 +94,9 @@
         any day already past opens at once.
       </li>
       <li>
-        <strong>Pin the evidence</strong>: <code>pnpm data:etymology</code>.
-        Every term in the plans is included; add
+        <strong>Pin the evidence</strong>: <code>pnpm data:etymology</code>, and
+        <code>pnpm data:sentences</code> for the example sentences (a word with
+        none is fine). Every term in the plans is included; add
         <code>--terms 電話,友達,…</code> for words with no plan yet. Many pool
         words have no usable Etymology section, so for a bulk batch pin more
         candidates than you need with <code>--skip-missing</code>, then
@@ -89,9 +104,10 @@
         to drop the rest.
       </li>
       <li>
-        <strong>Generate</strong>: <code>pnpm data:words</code>. It prints every
-        entry it could not build and why, and writes nothing until they are
-        fixed (or use <code>--keep-going</code>).
+        <strong>Generate</strong>: <code>pnpm data:words</code>, then
+        <code>pnpm data:kanji</code> for any kanji the new words add. It prints
+        every entry it could not build and why, and writes nothing until they
+        are fixed (or use <code>--keep-going</code>).
       </li>
       <li>
         <strong>Read the result once.</strong> Entries with no breakdown are
@@ -174,8 +190,17 @@
         the entry, and the diff shows it.
       </li>
       <li>
+        <strong>Tatoeba:</strong> download the four files named in
+        <code>scripts/lib/tatoeba-export.mjs</code>, extract them into
+        <code>tatoeba/</code>, and put their date, sizes and checksums in
+        <code>TATOEBA_EXPORT</code>. Run <code>pnpm data:sentences</code>,
+        review the diff (sentences change, and some words gain or lose one),
+        then <code>pnpm data:words</code>.
+      </li>
+      <li>
         Dropped a word? <code>pnpm data:etymology --prune</code> removes pins
-        nothing uses.
+        nothing uses, and <code>pnpm data:sentences</code> and
+        <code>pnpm data:kanji</code> drop what the word alone used.
       </li>
       <li><code>pnpm test:run</code>: new gaps show up as failing entries.</li>
     </ol>
@@ -221,6 +246,14 @@ const pieces = [
     what: "Plain text of each word's Wiktionary Etymology section, read from the pinned dump, one file per month of the plan. Generated.",
   },
   {
+    path: "data/reference/sentences/",
+    what: "The example sentences the pinned Tatoeba export gives each word, with their translations, one file per month of the plan. Generated.",
+  },
+  {
+    path: "data/reference/kanji.json",
+    what: "KANJIDIC2's record of every kanji the entries are written with, for the kanji pages. Generated.",
+  },
+  {
     path: "data/word-plan/YYYY-MM.json",
     what: "The only hand-written content: `{ date, term, headline }` per day (`kana` when a spelling has several pool words).",
   },
@@ -248,12 +281,20 @@ const commands = [
     does: "Reads Wiktionary Etymology sections from the pinned dump, offline, for every term in the entries and plans plus `--terms a,b,c`. `--prune` drops unused pins; `--skip-missing` skips a word the dump has no Etymology for; `--dump <path>` names the file.",
   },
   {
+    cmd: "pnpm data:sentences",
+    does: "Picks every entry's example sentences from the pinned Tatoeba export, offline (`--dir <path>` names the extracted files, `--check` fails if the snapshot is out of date).",
+  },
+  {
+    cmd: "pnpm data:kanji",
+    does: "Copies KANJIDIC2's record of every kanji the entries use out of the level snapshots into `data/reference/kanji.json`. Fetches nothing; `--check` fails if it is out of date.",
+  },
+  {
     cmd: "pnpm assets:og-font",
     does: "Rebuilds the fonts the share images are drawn with in `server/assets/og/`: a subset of Zen Old Mincho Bold cut to the characters of the entries, Outfit copied from `@fontsource/outfit`, and `glyphs.json`, the list of characters they can draw. The upstream font is pinned by commit and checksum in `scripts/build-og-font.mjs`; download it into the repo root (git-ignored) or pass `--font <path>`.",
   },
   {
     cmd: "pnpm data:words",
-    does: "Generates `data/words/` from the plan and the committed sources. Fetches nothing. `--check` fails if a file is out of date; `--keep-going` writes every entry that built and lists the failures.",
+    does: "Generates `data/words/` from the plan and the committed sources (the sentences too). Fetches nothing. `--check` fails if a file is out of date; `--keep-going` writes every entry that built and lists the failures.",
   },
 ];
 
@@ -354,6 +395,14 @@ const failures = [
   {
     failure: "Stale reference",
     fix: "Run the reference builder for that level.",
+  },
+  {
+    failure: "Sentences or kanji out of step with the entries",
+    fix: "Run `pnpm data:sentences` (with the Tatoeba export in place), `pnpm data:words`, then `pnpm data:kanji`.",
+  },
+  {
+    failure: "Entry disagrees with JMdict",
+    fix: "The generator takes JMdict's loan source, `wasei` and ateji notes itself, so a failure means the entry is stale: run `pnpm data:words`. A word whose text and JMdict truly disagree is a case for a parser change, never a loosened test.",
   },
 ];
 </script>
