@@ -55,7 +55,9 @@
                 SOURCES.tatoeba.name
               }}</a>
               sentences with an English translation that its own index lists
-              under the word, read from one pinned, dated export
+              under the word, read from one pinned, dated export; the readings
+              over their kanji are kuromoji's, kept only where the index or
+              JMdict confirms them
             </td>
             <td><code>data/reference/sentences/</code></td>
           </tr>
@@ -277,7 +279,10 @@
         keeps the first character, or kana), has a translation and a readable
         length, and the snapshot names the export it came from. The sentences
         are not reviewed one by one: the export is the community's, and a short
-        filter keeps out the plainly unsuitable.
+        filter keeps out the plainly unsuitable. Each sentence's furigana joins
+        back to its text, puts a reading only over kanji, in hiragana, and never
+        across the edge of the word's form; the snapshot says how readings were
+        checked.
       </li>
       <li>
         <strong>Kanji</strong> (<code>kanji.test.ts</code>):
@@ -382,7 +387,7 @@ const provenance = [
   {
     field: "examples[]",
     source:
-      "Tatoeba sentences the pinned export indexes under the word, as picked by `scripts/lib/example-sentences.mjs`: with a translation, short, the word's own form in the text. Quoted unchanged.",
+      "Tatoeba sentences the pinned export indexes under the word, as picked by `scripts/lib/example-sentences.mjs`: with a translation, short, the word's own form in the text. Quoted unchanged. `furigana` is read by kuromoji and kept by `scripts/lib/furigana.mjs` only where Tatoeba's index gives the word that reading, or JMdict gives the spelling that one reading.",
   },
   { field: "wiktionaryDump", source: "The snapshot's `dump` date." },
   { field: "headline", source: "Hand-written (`data/word-plan/`)." },
