@@ -31,8 +31,8 @@
           >Nothing about a reader is stored or sent to the app's server.</strong
         >
         No accounts, and no request to a third party: the fonts are served from
-        the app. The rate limiter keeps an address in memory for a minute and
-        forgets it.
+        the app. The rate limiter counts addresses in process memory only, a
+        minute at a time, and writes them nowhere.
       </li>
     </ul>
 
@@ -176,11 +176,13 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
         service: they are in-repo data.
       </li>
       <li>
-        <strong>Configuration</strong> goes through
-        <code>server/utils/config.ts</code>'s
+        <strong>Configuration</strong> (Redis credentials, the cron secret) goes
+        through <code>server/utils/config.ts</code>'s
         <code>getEnvOrConfig(configKey, envKey)</code>, which prefers Nuxt
         <code>runtimeConfig</code> and falls back to <code>process.env</code>,
-        so it also works outside a request. The data scripts run under plain
+        so it also works outside a request. The public site URL is read from
+        <code>runtimeConfig.public</code> by <code>siteOrigin()</code> in
+        <code>server/utils/site-url.ts</code>. The data scripts run under plain
         <code>node</code> and need no Redis credentials.
       </li>
       <li><strong>Types</strong> live in <code>types/index.ts</code>.</li>
@@ -334,7 +336,7 @@ const sharedModules = [
   },
   {
     file: "og-card.ts",
-    role: "`ogCard(entry)`: the share image of one word as a tree satori draws, in its day's season. Takes the entry as an argument, so it is data-free.",
+    role: "`ogCard(entry, glyphs)`: the share image of one word as a tree satori draws, in its day's season. Takes the entry as an argument, so it is data-free.",
   },
   {
     file: "catalogue.ts",
@@ -346,7 +348,7 @@ const sharedModules = [
   },
   {
     file: "word-labels.ts",
-    role: "`WORD_STRATA`, `WORD_PROCESSES` and `POS_GROUPS` labels and definitions, and `posGroupsOf()`. Data-free.",
+    role: "`WORD_STRATA`, `WORD_PROCESSES`, `POS_GROUPS` and `FREQUENCY_GROUPS` labels and definitions, `posGroupsOf()`, `frequencyOf()` and `isHedged()`. Data-free.",
   },
   {
     file: "meanings.ts",
@@ -360,6 +362,10 @@ const sharedModules = [
   { file: "endpoints.ts", role: "The route list." },
   { file: "docs.ts", role: "The chapters of this book." },
   { file: "jlpt.ts", role: "`JLPT_LEVELS`." },
+  {
+    file: "part-limits.ts",
+    role: "`MAX_PART_LENGTH`, the longest part text the API accepts.",
+  },
 ];
 
 const sources = [
