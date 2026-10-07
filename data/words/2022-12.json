@@ -1,804 +1,918 @@
 [
   {
     "date": "2022-12-01",
-    "term": "メートル",
-    "kana": "メートル",
-    "meaning": "meter",
-    "level": "N5",
+    "term": "商人",
+    "kana": "しょうにん",
+    "meaning": "trader, shopkeeper, merchant",
+    "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "Mētoru is from French mètre, a doublet of メーター (mētā).",
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "The merchant's しょうにん is Chinese; the native word looks like “trade-person”, あきびと.",
     "morphemes": [
       {
-        "text": "メートル",
-        "reading": "メートル",
-        "meaning": "French mètre"
+        "text": "商",
+        "reading": "しょう",
+        "meaning": "merchant",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "人",
+        "reading": "にん",
+        "meaning": "person",
+        "glossSource": "kanjidic2"
       }
     ],
     "sources": [
       {
-        "quote": "From French mètre. Doublet of メーター (mētā, “meter”, measuring instrument)."
+        "quote": "From Middle Chinese 商人 (MC syang nyin)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-02",
-    "term": "売り切れ",
-    "kana": "うりきれ",
-    "meaning": "sold-out",
-    "level": "N2",
-    "pos": [
-      "nouns which may take the genitive case particle 'no'",
-      "noun (common) (futsuumeishi)"
-    ],
+    "term": "言わば",
+    "kana": "いわば",
+    "meaning": "so to speak",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
     "stratum": "wago",
     "processes": ["derivation"],
-    "headline": "Urikire is the nominalization of the verb 売り切れる (urikireru).",
+    "headline": "“So to speak” is a “say” in a hypothetical form: “if one were to say”.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "From the nominalization of the verb 売(う)り切(き)れる (urikireru)."
+        "quote": "The Classical Japanese conditional form of the verb 言う (iu, “to say, to speak”): 言わ (iwa, 未然形 (mizenkei, “irrealis form”) of the verb 言う (iu)) + ば (-ba, an inflectional suffix indicating the hypothetical condition)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-03",
-    "term": "数学",
-    "kana": "すうがく",
-    "meaning": "mathematics",
+    "term": "サラダ",
+    "kana": "サラダ",
+    "meaning": "salad",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Sūgaku is 数 (sū, “number”) plus 学 (-gaku, “-logy; -graphy”).",
-    "morphemes": [
-      {
-        "text": "数",
-        "reading": "すう",
-        "meaning": "number"
-      },
-      {
-        "text": "学",
-        "reading": "がく",
-        "meaning": "-logy; -graphy"
-      }
-    ],
+    "stratum": "gairaigo",
+    "processes": ["borrowing", "unclear"],
+    "headline": "Salad is an internationalism — Wiktionary lists English, French and Portuguese as candidate sources.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "From 数(すう) (sū, “number”) + 学(がく) (-gaku, “-logy; -graphy”)."
+        "quote": "Internationalism of uncertain specifics, variously proposed to derive from English salad, French salade or Portuguese salada."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-04",
-    "term": "爆発",
-    "kana": "ばくはつ",
-    "meaning": "explosion, detonation, eruption",
-    "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
-    ],
+    "term": "お嬢さん",
+    "kana": "おじょうさん",
+    "meaning": "(someone's) daughter (polite)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": ["compound", "borrowing", "sound-change"],
-    "headline": "Bakuhatsu is Middle Chinese 爆發, literally “burst, explode + fly or send forth”.",
+    "processes": ["compound", "derivation"],
+    "headline": "Politely “your daughter” puts an honorific on both sides of a word for an “unmarried woman”.",
     "morphemes": [
       {
-        "text": "爆",
-        "reading": "ばく",
-        "meaning": "burst, explode"
+        "text": "お",
+        "reading": "お",
+        "meaning": "honorific prefix"
       },
       {
-        "text": "発",
-        "reading": "はつ",
-        "meaning": "fly or send forth"
+        "text": "嬢",
+        "reading": "じょう",
+        "meaning": "unmarried woman; daughter"
+      },
+      {
+        "text": "さん",
+        "reading": "さん",
+        "meaning": "honorific suffix"
       }
     ],
     "sources": [
       {
-        "quote": "/pakupatu/ → /bakufat͡su/ → /bakuhat͡su/"
-      },
-      {
-        "quote": "From Middle Chinese compound 爆發 /爆发 (pɑk pjot, literally “burst, explode + fly or send forth”). Compare modern Min Nan reading po̍k-hoat."
+        "quote": "Of お (honorific prefix) + 嬢 (jō, “unmarried woman; daughter”) + さん (honorific suffix)"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-05",
-    "term": "頼もしい",
-    "kana": "たのもしい",
-    "meaning": "reliable, promising",
-    "level": "N2",
-    "pos": ["adjective (keiyoushi)"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Tanomoshii is from the Early Middle Japanese adjective 頼もし (tanomoshi), whose ending later lost its medial k.",
+    "term": "仕事",
+    "kana": "しごと",
+    "meaning": "work, job, occupation, employment",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "hybrid",
+    "processes": ["rendaku", "ateji"],
+    "headline": "Work is “doing” plus “thing”, and the 仕 is only ateji.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "From Early Middle Japanese adjective 頼(たの)もし (tanomoshi), with the 終(しゅう)止(し)形(けい) (shūshikei, “predicative form”) ending in し (shi) first replaced with the 連(れん)体(たい)形(けい) (rentaikei, “attributive form”) ending in しき (shiki), and then with the medial /-k-/ falling out to result in an ending of しい (shii). Itself an adjectivization of the verb 頼(たの)む (tanomu, “to request; to entrust to”)."
+        "quote": "From し (shi, “doing”, continuative form of する (suru, “to do”)) + 事 (koto, “thing; stuff”). The koto reading for 事 changes to goto as an instance of rendaku (連濁). 仕 is ateji (当(あ)て字(じ))."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-06",
-    "term": "上",
-    "kana": "うわ",
-    "meaning": "upper, outer, surface",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)", "prefix"],
-    "stratum": "wago",
-    "processes": ["sound-change"],
-    "headline": "Uwa is the combining form of ue, ancient upe.",
-    "morphemes": [],
-    "sources": [
+    "term": "日日",
+    "kana": "ひにち",
+    "meaning": "date",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound"],
+    "headline": "Here the same character is read twice, once the native way and once the Chinese way.",
+    "morphemes": [
       {
-        "quote": "/upa/ → /ufa/ → /uwa/"
+        "text": "日",
+        "reading": "ひ",
+        "meaning": "sun; day"
       },
       {
-        "quote": "From Old Japanese. The combining form of ue, ancient upe (see above)."
+        "text": "日",
+        "reading": "にち",
+        "meaning": "sun; day"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 日(ひ) (hi, “sun; day”, using the native Japanese reading) + 日(にち) (nichi, “sun; day”, using the Chinese-derived reading)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-07",
-    "term": "蛍光灯",
-    "kana": "けいこうとう",
-    "meaning": "fluorescent lamp",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Keikōtō is 蛍光 (keikō, “fluorescent”) plus 灯 (tō, “light”).",
+    "term": "月曜日",
+    "kana": "げつようび",
+    "meaning": "Monday",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Monday is “moon day”, a name that came from Chinese astrology in the Heian period.",
     "morphemes": [
       {
-        "text": "蛍光",
-        "reading": "けいこう",
-        "meaning": "fluorescent"
+        "text": "月曜",
+        "reading": "げつよう",
+        "meaning": "moon"
       },
       {
-        "text": "灯",
-        "reading": "とう",
-        "meaning": "light"
+        "text": "日",
+        "reading": "び",
+        "base": "ひ",
+        "meaning": "day"
       }
     ],
     "sources": [
       {
-        "quote": "Compound of 蛍(けい)光(こう) (keikō, “fluorescent”) + 灯(とう) (tō, “light”)."
+        "quote": "/getueubi/ > /getuyoːbi/."
+      },
+      {
+        "quote": "Compound of 月曜 (getsuyō, “moon”, in reference also to the day for that celestial body, as originally imported from Chinese astrology in the Heian period) + 日 (hi, “day”)."
+      },
+      {
+        "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-08",
-    "term": "議会",
-    "kana": "ぎかい",
-    "meaning": "Diet, congress, parliament",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Gikai is 議 (“debate; deliberation; discussion”) plus 会 (“gathering”).",
+    "term": "火曜日",
+    "kana": "かようび",
+    "meaning": "Tuesday",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "rendaku", "borrowing", "sound-change"],
+    "headline": "Tuesday is “Mars day”, a name that came from Chinese astrology in the Heian period.",
     "morphemes": [
       {
-        "text": "議",
-        "reading": "ぎ",
-        "meaning": "debate; deliberation; discussion"
+        "text": "火曜",
+        "reading": "かよう",
+        "meaning": "Mars (the planet)"
       },
       {
-        "text": "会",
-        "reading": "かい",
-        "meaning": "gathering"
+        "text": "日",
+        "reading": "び",
+        "base": "ひ",
+        "meaning": "day"
       }
     ],
     "sources": [
       {
-        "quote": "議 (“debate; deliberation; discussion”) + 会 (“gathering”)"
+        "quote": "/kaeubi/ → /kajoːbi/"
+      },
+      {
+        "quote": "Compound of 火曜 (kayō, “Mars (the planet)”, in reference also to the day for that planet, as originally imported from Chinese astrology in the Heian period) + 日 (hi, “day”)."
+      },
+      {
+        "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-09",
-    "term": "創造",
-    "kana": "そうぞう",
-    "meaning": "creation",
-    "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
-    ],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing", "sound-change"],
-    "headline": "Sōzō is Middle Chinese 創造, literally “to begin + to make”.",
+    "term": "水曜日",
+    "kana": "すいようび",
+    "meaning": "Wednesday",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Wednesday is “Mercury day”, a name that came from Chinese astrology in the Heian period.",
     "morphemes": [
       {
-        "text": "創",
-        "reading": "そう",
-        "meaning": "to begin"
+        "text": "水曜",
+        "reading": "すいよう",
+        "meaning": "Mercury (the planet)"
       },
       {
-        "text": "造",
-        "reading": "ぞう",
-        "meaning": "to make"
+        "text": "日",
+        "reading": "び",
+        "base": "ひ",
+        "meaning": "day"
       }
     ],
     "sources": [
       {
-        "quote": "/sauzau/ → /sɔːzɔː/ → /soːzoː/"
+        "quote": "/suieubi/ > /suijoːbi/."
       },
       {
-        "quote": "From Middle Chinese compound 創造 /创造 (t͡ʃʰɨɐŋᴴ d͡zɑu^X, literally “to begin + to make”). Compare modern Mandarin reading chuàngzào, Cantonese cong³ zou⁶."
+        "quote": "Compound of 水曜 (suiyō, “Mercury (the planet)”, in reference also to the day for that planet, as originally imported from Chinese astrology in the Heian period) + 日 (hi, “day”)."
+      },
+      {
+        "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-10",
-    "term": "峠",
-    "kana": "とうげ",
-    "meaning": "ridge, (mountain) pass, difficult part",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
-    "stratum": "wago",
-    "processes": ["sound-change"],
-    "headline": "Tōge, a mountain pass, is a sound shift from 手向け (tamuke, “tribute to a person about to depart”).",
-    "morphemes": [],
-    "sources": [
+    "term": "木曜日",
+    "kana": "もくようび",
+    "meaning": "Thursday",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Thursday is “Jupiter day”, a name that came from Chinese astrology in the Heian period.",
+    "morphemes": [
       {
-        "quote": "/tamuke/ → /taũɡe/ → /tauɡe/ → /tɔːɡe/ → /toːɡe/"
+        "text": "木曜",
+        "reading": "もくよう",
+        "meaning": "Jupiter (the planet)"
       },
       {
-        "quote": "Sound shift from 手向け (tamuke, “tribute to a person about to depart”). It is said that these offerings were \"given\" to them as they traveled into the afterlife, akin to a mountain."
+        "text": "日",
+        "reading": "び",
+        "base": "ひ",
+        "meaning": "day"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "/mokueubi/ > /mokujoːbi/."
+      },
+      {
+        "quote": "Compound of 木曜 (mokuyō, “Jupiter (the planet)”, in reference also to the day for that planet, as originally imported from Chinese astrology in the Heian period) + 日 (hi, “day”)."
+      },
+      {
+        "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-11",
-    "term": "不規則",
-    "kana": "ふきそく",
-    "meaning": "irregularity, unsteadiness",
-    "level": "N2",
-    "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "noun (common) (futsuumeishi)"
-    ],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Fukisoku is 不 (fu-, “un-; non-”) plus 規則 (kisoku, “rule”).",
+    "term": "金曜日",
+    "kana": "きんようび",
+    "meaning": "Friday",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "rendaku", "borrowing", "sound-change"],
+    "headline": "Friday is “Venus day”, a name that came from Chinese astrology in the Heian period.",
     "morphemes": [
       {
-        "text": "不",
-        "reading": "ふ",
-        "meaning": "un-; non-"
+        "text": "金曜",
+        "reading": "きんよう",
+        "meaning": "Venus (the planet)"
       },
       {
-        "text": "規則",
-        "reading": "きそく",
-        "meaning": "rule"
+        "text": "日",
+        "reading": "び",
+        "base": "ひ",
+        "meaning": "day"
       }
     ],
     "sources": [
       {
-        "quote": "Compound of 不(ふ) (fu-, “un-; non-”) + 規(き)則(そく) (kisoku, “rule”)."
+        "quote": "/kiɴeubi/ → /kiɴjoːbi/"
+      },
+      {
+        "quote": "Compound of 金曜 (kin'yō, “Venus (the planet)”, in reference also to the day for that planet, as originally imported from Chinese astrology in the Heian period) + 日 (hi, “day”)."
+      },
+      {
+        "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-12",
-    "term": "行き",
-    "kana": "ゆき",
-    "meaning": "the way there; bound for",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Yuki, “bound for”, is compared on its page to Korean 행 (haeng), written with the same 行.",
-    "morphemes": [],
+    "term": "土曜日",
+    "kana": "どようび",
+    "meaning": "Saturday",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Saturday is “Saturn day”, and its 日 voices to び.",
+    "morphemes": [
+      {
+        "text": "土曜",
+        "reading": "どよう",
+        "meaning": "Saturn (the planet)"
+      },
+      {
+        "text": "日",
+        "reading": "び",
+        "base": "ひ",
+        "meaning": "day"
+      }
+    ],
     "sources": [
       {
-        "quote": "Compare Korean 행(行) (haeng)."
+        "quote": "/doeubi/ > /dojoːbi/"
+      },
+      {
+        "quote": "Compound of 土曜 (doyō, “Saturn (the planet)”, in reference also to the day for that planet, as originally imported from Chinese astrology in the Heian period) + 日 (hi, “day”). The hi changes to bi as an instance of rendaku (連濁)."
+      },
+      {
+        "quote": "The compound form suffixed with 日 (hi, “day”) appears in common use from the Meiji period with the promulgation of the Gregorian calendar. See also Names of the days of the week on Wikipedia.Wikipedia"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-13",
-    "term": "電柱",
-    "kana": "でんちゅう",
-    "meaning": "telephone pole, telegraph pole, light pole",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Denchū is 電 (den, “electric”) plus 柱 (chū, “pole”).",
+    "term": "日曜日",
+    "kana": "にちようび",
+    "meaning": "Sunday",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Sunday is “Sun day”, and the -day compound first appears in 1826.",
     "morphemes": [
       {
-        "text": "電",
-        "reading": "でん",
-        "meaning": "electric"
+        "text": "日曜",
+        "reading": "にちよう",
+        "meaning": "Sun"
       },
       {
-        "text": "柱",
-        "reading": "ちゅう",
-        "meaning": "pole"
+        "text": "日",
+        "reading": "び",
+        "base": "ひ",
+        "meaning": "day"
       }
     ],
     "sources": [
       {
-        "quote": "電 (den, “electric”) + 柱 (chū, “pole”)"
+        "quote": "Compound of 日曜 (nichiyō, “Sun”, in reference also to the day for that celestial body, as originally imported from Chinese astrology in the Heian period) + 日 (hi, “day”)."
+      },
+      {
+        "quote": "The compound form suffixed with 日 (hi, “day”) first appears in 1826 and enters common use from the Meiji period with the promulgation of the Gregorian calendar."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-14",
-    "term": "総理大臣",
-    "kana": "そうりだいじん",
-    "meaning": "Prime Minister",
+    "term": "井戸",
+    "kana": "いど",
+    "meaning": "water well",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
+    "stratum": "wago",
     "processes": ["compound", "rendaku"],
-    "headline": "Sōri daijin is 総理 (“prime minister”, literally “leader”) plus 大臣 (“(senior) minister”).",
+    "headline": "A well is a “water-well place” — and the 戸 in it may not be a door at all.",
     "morphemes": [
       {
-        "text": "総",
-        "reading": "そう",
-        "meaning": "general",
+        "text": "井",
+        "reading": "い",
+        "meaning": "well",
         "glossSource": "kanjidic2"
       },
       {
-        "text": "理",
-        "reading": "り",
-        "meaning": "logic",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "大",
-        "reading": "だい",
-        "meaning": "large",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "臣",
-        "reading": "じん",
-        "base": "しん",
-        "meaning": "retainer",
+        "text": "戸",
+        "reading": "ど",
+        "base": "と",
+        "meaning": "door",
         "glossSource": "kanjidic2"
       }
     ],
     "sources": [
       {
-        "quote": "総理 (“prime minister”, literally “leader”) + 大臣 (“(senior) minister”)"
+        "quote": "First attested in the Saibara."
+      },
+      {
+        "quote": "Compound of 井 (i, “water well”) + 所 (to, “place”). The to changes to do as an instance of rendaku (連濁).."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-15",
-    "term": "鉄道",
-    "kana": "てつどう",
-    "meaning": "railway; railroad",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound", "wasei"],
-    "headline": "Tetsudō is 鉄 (tetsu, “iron, steel”) plus 道 (dō, “way”), a calque of German Eisenbahn.",
-    "morphemes": [
-      {
-        "text": "鉄",
-        "reading": "てつ",
-        "meaning": "iron, steel"
-      },
-      {
-        "text": "道",
-        "reading": "どう",
-        "meaning": "way"
-      }
-    ],
+    "term": "誓う",
+    "kana": "ちかう",
+    "meaning": "to swear, to vow",
+    "level": "N2",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "To swear an oath may once have meant to “mix blood”.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "鉄(てつ) (tetsu, “iron, steel”) + 道(どう) (dō, “way”). Calque of German Eisenbahn."
+        "quote": "Probably originally a compound of 血 (chi, “blood”) + 交う (kau, “to cross, to blend, to mix”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-16",
-    "term": "断つ",
-    "kana": "たつ",
-    "meaning": "to sever, to cut off",
+    "term": "黒板",
+    "kana": "こくばん",
+    "meaning": "blackboard",
     "level": "N3",
-    "pos": ["Godan verb with 'tsu' ending", "transitive verb"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Tatsu, “to sever”, resembles Proto-Tai *tacᴰ (“to cut”), though the page offers it only as a similarity.",
-    "morphemes": [],
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "A blackboard is a “black board” — and a native reading says the same with kuro and ita.",
+    "morphemes": [
+      {
+        "text": "黒",
+        "reading": "こく",
+        "meaning": "black"
+      },
+      {
+        "text": "板",
+        "reading": "ばん",
+        "meaning": "board"
+      }
+    ],
     "sources": [
       {
-        "quote": "Note similarities to Proto-Tai *tacᴰ (“to cut”) (whence Thai ตัด (dtàt, “to cut”))."
+        "quote": "黒 (koku, “black”) + 板 (ban, “board”)"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-17",
-    "term": "残り",
-    "kana": "のこり",
-    "meaning": "remaining, left-over",
+    "term": "双子",
+    "kana": "ふたご",
+    "meaning": "twins, a twin",
     "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": [],
-    "headline": "Nokori is the continuative stem of 残る (nokoru, “to remain”).",
-    "morphemes": [],
+    "processes": ["compound", "rendaku"],
+    "headline": "Twins are a “set of two” “children”, with こ voiced to ご.",
+    "morphemes": [
+      {
+        "text": "双",
+        "reading": "ふた",
+        "meaning": "set of two"
+      },
+      {
+        "text": "子",
+        "reading": "ご",
+        "base": "こ",
+        "meaning": "child"
+      }
+    ],
     "sources": [
       {
-        "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 残(のこ)る (nokoru, “to remain”)."
+        "quote": "双(ふた) (futa, “set of two”) + 子(こ) (ko, “child”)"
+      },
+      {
+        "quote": "The ko changes to go as an instance of rendaku (連濁)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-18",
-    "term": "真っ暗",
-    "kana": "まっくら",
-    "meaning": "total darkness",
-    "level": "N2",
-    "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "noun (common) (futsuumeishi)"
+    "term": "ガス",
+    "kana": "ガス",
+    "meaning": "gas",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing", "ateji"],
+    "headline": "Gas is an English word — but it also has a kanji spelling picked only for the sound.",
+    "morphemes": [
+      {
+        "text": "ガス",
+        "reading": "ガス",
+        "meaning": "English gas"
+      }
     ],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Makkura is 真っ (ma'-, “truly”) plus 暗 (kura, “dark”).",
-    "morphemes": [],
     "sources": [
       {
-        "quote": "真っ (ma'-, “truly”) + 暗 (kura, “dark”)"
+        "quote": "From English gas. The kanji spelling is ateji."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-19",
-    "term": "何か",
-    "kana": "なにか",
-    "meaning": "something",
-    "level": "N3",
-    "pos": ["adverb (fukushi)"],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "Nanika is 何 (nani, “what”) plus か (ka, indefinite particle).",
-    "morphemes": [
-      {
-        "text": "何",
-        "reading": "なに",
-        "meaning": "what"
-      },
-      {
-        "text": "か",
-        "reading": "か",
-        "meaning": "indefinite particle"
-      }
-    ],
+    "term": "息子",
+    "kana": "むすこ",
+    "meaning": "(humble) son",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing", "ateji"],
+    "headline": "A son is a “begotten child” — and the 息 is a borrowed stand-in.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "From 何(なに) (nani, “what”) + か (ka, indefinite particle)."
+        "quote": "Compound of 生(む)す (musu, “to beget”) + 子(こ) (ko, “child”). 息 is jukujikun (熟(じゅく)字(じ)訓(くん)), from Middle Chinese 息子."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-20",
-    "term": "うまい",
-    "kana": "うまい",
-    "meaning": "delicious; skillful; fortunate",
-    "level": "N4",
+    "term": "可愛い",
+    "kana": "かわいい",
+    "meaning": "cute, adorable",
+    "level": "N5",
     "pos": ["adjective (keiyoushi)"],
-    "stratum": "wago",
-    "processes": ["compound", "derivation", "unclear"],
-    "headline": "Umai is from the Early Middle Japanese adjective うまし (umashi), its ending reshaped in two steps.",
+    "processes": ["sound-change", "ateji"],
+    "headline": "“Cute” began as “embarrassing, shameful” — and the kanji have nothing to do with the sound.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "From Early Middle Japanese adjective うまし (umashi), with the 終(しゅう)止(し)形(けい) (shūshikei, “predicative form”) ending in し (shi) first replaced with the 連(れん)体(たい)形(けい) (rentaikei, “attributive form”) ending in き (ki), and then with the medial /-k-/ falling out to result in an ending of い (i). From Old Japanese. Found in the Man'yōshū, completed some time after 759 CE. Sometimes reconstructed as Proto-Japonic *uma."
+        "quote": "/kawajui/ → /kawaiː/"
       },
       {
-        "quote": "The ultimate derivation remains unclear. The term occasionally appears in texts from the Heian period (794–1185 CE) with the phonetic spelling mumashi (in the classical terminal form), suggesting a possible pronunciation of */mmasi/ with an emphasized initial /mm/ sound, similar to the reconstructed readings for 馬 (*mma, “horse”) and 梅 (*mme, “plum”). The resulting reconstructed adjective stem of *mma- could indicate a derivation from onomatopoeia; compare English mmm as an expression of approval for something tasty."
+        "quote": "Shift in pronunciation from kawayui below."
       },
       {
-        "quote": "Alternatively, umai is listed in some sources as perhaps deriving from verb 熟む (umu, “to ripen, to become ripe”). There is a derived compound term where the meaning is clearly from the adjective, and the spelling uses the 熟 kanji from the verb. However, the verb does not appear in historical sources with an emphatic initial /mm/, and it seems to be cognate with 膿む (umu, “to fester, to fill with pus, to produce pus”, intransitive), possibly also with 生む, 産む (umu, “to bear, to give birth to; to produce”, transitive)."
+        "quote": "The kanji spelling 可愛い is an example of ateji (当(あ)て字(じ)), and uses an irregular reading of 愛. The phonological resemblance to Mandarin 可愛 (kě'ài), Min Nan 可愛 (khó-ài, “lovable”) is coincidental. Note that the medial -w- here is not an excrescence added between ka (可) and ai (愛), since the word is not formed from these morphemes."
       },
       {
-        "quote": "Reconstructed by Samuel Martin as Proto-Japonic *ma-. Compare Okinawan cognate まーさん (māsan)."
+        "quote": "Already realized phonetically as /kawaiː/ by the early 1600s, and possibly found alongside older form kawayui, as seen in the 1603 edition of the Nippo Jisho."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-21",
-    "term": "枠",
-    "kana": "わく",
-    "meaning": "frame, slide",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Waku is a kokuji, a Japanese-coined character: 木 plus 卆, and not a simplification of 木 plus 卒.",
+    "term": "ローマ字",
+    "kana": "ローマじ",
+    "meaning": "romanization, Roman letters (alphabet)",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["borrowing"],
+    "headline": "Rōmaji has no “n” in it — the Roman part is Portuguese-derived ローマ with the Chinese-derived “character” 字.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "A 国字 (kokuji, “Japanese-coined character”). 木 + 卆; it is not a simplification of 木 + 卒 (椊)."
+        "quote": "ローマ (“Rome, Roman”) + 字 (“character”)."
+      },
+      {
+        "quote": "Note: There is no ン (\"n\") in ローマ字(じ) • (rōmaji) . ローマ is borrowed from Portuguese. Compare however ローマン体 (“roman type”), which uses ローマン; borrowed from English."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-22",
-    "term": "面倒臭い",
-    "kana": "めんどうくさい",
-    "meaning": "bother to do, tiresome",
+    "term": "親指",
+    "kana": "おやゆび",
+    "meaning": "thumb",
     "level": "N2",
-    "pos": ["adjective (keiyoushi)"],
-    "stratum": "hybrid",
-    "processes": [],
-    "headline": "Mendōkusai is 面倒 (“inconvenience”) plus 臭い (“reeks of”).",
-    "morphemes": [],
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "The thumb is the “parent finger”.",
+    "morphemes": [
+      {
+        "text": "親",
+        "reading": "おや",
+        "meaning": "parent, boss"
+      },
+      {
+        "text": "指",
+        "reading": "ゆび",
+        "meaning": "finger"
+      }
+    ],
     "sources": [
       {
-        "quote": "面倒 (“inconvenience”) + 臭い (“reeks of”)"
+        "quote": "Compound of 親 (oya, “parent, boss”) + 指 (yubi, “finger”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-23",
-    "term": "往復",
-    "kana": "おうふく",
-    "meaning": "(col) round trip, coming and going, return ticket",
+    "term": "送り仮名",
+    "kana": "おくりがな",
+    "meaning": "part of word written in kana",
     "level": "N2",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru",
-      "nouns which may take the genitive case particle 'no'"
-    ],
-    "stratum": "kango",
-    "processes": ["compound", "sound-change"],
-    "headline": "Ōfuku, “round trip”, began as waupuku and lost its w along the way.",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "rendaku"],
+    "headline": "Okurigana are the kana “sent along afterward” — and the word is first attested in 1477.",
     "morphemes": [
       {
-        "text": "往",
-        "reading": "おう",
-        "meaning": "going",
-        "glossSource": "kanjidic2"
+        "text": "送り",
+        "reading": "おくり",
+        "meaning": "sending"
       },
       {
-        "text": "復",
-        "reading": "ふく",
-        "meaning": "restore",
-        "glossSource": "kanjidic2"
+        "text": "仮名",
+        "reading": "がな",
+        "base": "かな",
+        "meaning": "kana"
       }
     ],
     "sources": [
       {
-        "quote": "/waupukʉ/ → /wɔːɸuku/ → /ɔːfuku/ → /oːfuku/"
+        "quote": "Compound of 送(おく)り (okuri, “sending”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 送(おく)る (okuru, “to send”), from the sense of sending something afterward or adding something on the end) + 仮名(かな) (kana, “kana”). The kana changes to gana as an instance of rendaku (連濁)."
+      },
+      {
+        "quote": "First attested in 1477."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-24",
-    "term": "回転",
-    "kana": "かいてん",
-    "meaning": "rotation, turning",
-    "level": "N2",
+    "term": "酸素",
+    "kana": "さんそ",
+    "meaning": "oxygen",
+    "level": "N3",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "nouns which may take the genitive case particle 'no'"
     ],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "In kaiten, 回 is a daiyōji replacing 廻.",
+    "processes": ["compound", "wasei"],
+    "headline": "Oxygen is “sour element” — a calque of Dutch from the same 1834 book as hydrogen.",
     "morphemes": [
       {
-        "text": "回",
-        "reading": "かい",
-        "meaning": "-times",
-        "glossSource": "kanjidic2"
+        "text": "酸",
+        "reading": "さん",
+        "meaning": "acid"
       },
       {
-        "text": "転",
-        "reading": "てん",
-        "meaning": "revolve",
-        "glossSource": "kanjidic2"
+        "text": "素",
+        "reading": "そ",
+        "meaning": "element"
       }
     ],
     "sources": [
       {
-        "quote": "回 is a daiyōji replacing 廻."
+        "quote": "From 酸 (san, “acid”) + 素 (so, “element”), calque of Dutch zuurstof (literally “sourstuff”). Compare German Sauerstoff, Luxembourgish Sauerstoff, Indonesian zat asam. Coined by Japanese scientist Udagawa Yōan in 1834 in his book 遠西医方名物考補遺 (“酸素”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-25",
-    "term": "あんな",
-    "kana": "あんな",
-    "meaning": "such, like that",
-    "level": "N4",
-    "pos": ["pre-noun adjectival (rentaishi)"],
+    "term": "虫歯",
+    "kana": "むしば",
+    "meaning": "cavity, tooth decay",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": ["sound-change"],
-    "headline": "Anna contracts あの様な (ano yō na).",
-    "morphemes": [],
+    "processes": ["compound", "rendaku"],
+    "headline": "A cavity is a “bug tooth”, with は voiced to ば.",
+    "morphemes": [
+      {
+        "text": "虫",
+        "reading": "むし",
+        "meaning": "worm, bug"
+      },
+      {
+        "text": "歯",
+        "reading": "ば",
+        "base": "は",
+        "meaning": "tooth"
+      }
+    ],
     "sources": [
       {
-        "quote": "Contraction of あの様(よう)な (ano yō na)."
+        "quote": "Compound of 虫 (mushi, “worm, bug”) + 歯 (ha, “tooth”). The ha changes to ba as an instance of rendaku (連濁)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-26",
-    "term": "漁師",
-    "kana": "りょうし",
-    "meaning": "fisherman",
-    "level": "N2",
+    "term": "オートバイ",
+    "kana": "オートバイ",
+    "meaning": "motorcycle (lit: auto-bi(ke))",
+    "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing"],
-    "headline": "Ryōshi “should” be gyoshi: the ryō comes from confusion with 猟, which means hunting.",
+    "stratum": "gairaigo",
+    "processes": ["wasei", "borrowing", "clipping"],
+    "headline": "The “wasei-eigo” motorcycle is, Wiktionary says, actually a real English word.",
     "morphemes": [
       {
-        "text": "漁",
-        "reading": "りょう",
-        "meaning": "fishing"
-      },
-      {
-        "text": "師",
-        "reading": "し",
-        "meaning": "master"
+        "text": "オートバイ",
+        "reading": "オートバイ",
+        "meaning": "English autobicycle"
       }
     ],
     "sources": [
       {
-        "quote": "The spelling is likely from Middle Chinese compound 漁師 /渔师 (ngjo srij, literally “fishing + master”). Compare modern Mandarin 漁師 /渔师 (yúshī, “fisherman”)."
+        "quote": "Clipping of オートバイシクル (ōtobaishikuru), erroneously listed in some monolingual Japanese dictionaries as wasei eigo, but actually borrowed from English autobicycle, an early English term for motorcycle. See also autobike."
       },
       {
-        "quote": "The expected reading would be gyoshi. The kan'yōyomi (irregular but customary reading) ryō for the character 漁 is from confusion with 猟, whose most common on reading is ryō and means hunting, as used in the homophonic term 猟(りょう)師(し) (ryōshi, “hunter”)."
+        "quote": "First cited to a text from 1918."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-27",
-    "term": "名",
-    "kana": "な",
-    "meaning": "name, reputation",
-    "level": "N3",
+    "term": "赤ちゃん",
+    "kana": "あかちゃん",
+    "meaning": "baby, infant",
+    "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": [],
-    "headline": "Na, “name”, is from Old Japanese, from Proto-Japonic *na; compare Okinawan nā.",
-    "morphemes": [],
+    "processes": ["compound", "derivation"],
+    "headline": "A baby is “red” plus an affectionate suffix, from the colour of a newborn's skin.",
+    "morphemes": [
+      {
+        "text": "赤",
+        "reading": "あか",
+        "meaning": "red"
+      },
+      {
+        "text": "ちゃん",
+        "reading": "ちゃん",
+        "meaning": "familiarizing suffix"
+      }
+    ],
     "sources": [
       {
-        "quote": "From Old Japanese, from Proto-Japonic *na (compare Okinawan 名 (nā))."
+        "quote": "Compound of 赤 (aka, “red”) + ちゃん (-chan, familiarizing suffix)."
+      },
+      {
+        "quote": "Compare 赤ん坊 (akanbō) and 赤子 (akago), both of which also allude to the reddish complexion of a newborn. Compare also the similar formation of Malay anak merah (literally “child + red”)."
+      },
+      {
+        "quote": "First cited to a text from 1856 or 1857."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-28",
-    "term": "描く",
-    "kana": "えがく",
-    "meaning": "to draw, to depict, to describe",
-    "level": "N3",
-    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "term": "三日",
+    "kana": "みっか",
+    "meaning": "three days, third day of the month",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": ["compound", "rendaku"],
-    "headline": "Egaku is 絵 (e, “picture”) plus 書く (kaku, “write”): literally “to write a picture”.",
-    "morphemes": [],
-    "sources": [
+    "processes": ["compound", "rendaku", "sound-change"],
+    "headline": "“Three days” grew out of an earlier “mika”, with a tensed sound added.",
+    "morphemes": [
       {
-        "quote": "/weɡaku/ > /eɡaku/"
+        "text": "三",
+        "reading": "みっ",
+        "base": "みつ",
+        "meaning": "three",
+        "glossSource": "kanjidic2"
       },
       {
-        "quote": "Compound of 絵 (e, “picture”) + 書く (kaku, “write”). Literally \"to write a picture\", ie, \"to draw\". The kaku changes to gaku as an instance of rendaku (連濁)."
+        "text": "日",
+        "reading": "か",
+        "meaning": "counter for days",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Tensening of earlier 三日 (mika); by surface analysis, 三 (mi, “three”) + 日 (-ka, “days”, counter for days)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-29",
-    "term": "光",
-    "kana": "ひかり",
-    "meaning": "light",
-    "level": "N4",
+    "term": "便所",
+    "kana": "べんじょ",
+    "meaning": "toilet, lavatory",
+    "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "wago",
-    "processes": ["derivation", "sound-change"],
-    "headline": "Hikari is the nominalized stem of the verb 光る (hikaru, “to shine, to glitter, to gleam”).",
-    "morphemes": [],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "The toilet is the “place of convenience” — a coinage that Wiktionary dates to the late 1400s.",
+    "morphemes": [
+      {
+        "text": "便",
+        "reading": "べん",
+        "meaning": "convenience, ease"
+      },
+      {
+        "text": "所",
+        "reading": "じょ",
+        "base": "しょ",
+        "meaning": "place"
+      }
+    ],
     "sources": [
       {
-        "quote": "⟨pi₁kari⟩ → */pʲikari/ → /ɸikari/ → /hikari/"
+        "quote": "Appears to be a coinage in Japanese from Middle Chinese-derived roots, as a compound of 便 (ben, “convenience, ease”, also meaning “bodily waste; bowel movement”) + 所 (sho, “place”). The sho changes to jo as an instance of rendaku (連濁). Compare English expressions seat of ease, house of ease, also pooper, shitter."
       },
       {
-        "quote": "From Old Japanese."
-      },
-      {
-        "quote": "Nominalization of the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 光(ひか)る (hikaru, “to shine, to glitter, to gleam”)."
+        "quote": "First cited in works from the late 1400s."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-30",
-    "term": "忘れる",
-    "kana": "わすれる",
-    "meaning": "to forget; to leave behind",
-    "level": "N5",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Wasureru is from Old Japanese 忘る (wasuru), from Proto-Japonic *wasuru.",
-    "morphemes": [],
+    "term": "仮名",
+    "kana": "かな",
+    "meaning": "kana",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound", "sound-change"],
+    "headline": "Kana means “borrowed name” — characters lent for their sounds.",
+    "morphemes": [
+      {
+        "text": "仮",
+        "reading": "か",
+        "meaning": "sham",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "名",
+        "reading": "な",
+        "meaning": "name",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
-        "quote": "From Old Japanese 忘る (wasuru), in the 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) pattern, from Proto-Japonic *wasuru."
+        "quote": "/karina/ → /kanna/ → /kana/"
       },
       {
-        "quote": "Development"
-      },
-      {
-        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
-      },
-      {
-        "quote": "First attested in the Kojiki of 712 CE."
+        "quote": "Contraction of 仮(かん)名(な) (kanna) above. The reading may appear to be jūbakoyomi, but is instead actually an irregular development of the kun'yomi."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2022-12-31",
-    "term": "字体",
-    "kana": "じたい",
-    "meaning": "font, lettering",
-    "level": "N3",
+    "term": "酒場",
+    "kana": "さかば",
+    "meaning": "bar, bar-room",
+    "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
+    "stratum": "wago",
     "processes": ["compound"],
-    "headline": "Jitai is 字 (“character”) plus 体 (“form”).",
+    "headline": "A bar is a “drink place”, using an older form of the word for sake.",
     "morphemes": [
       {
-        "text": "字",
-        "reading": "じ",
-        "meaning": "character"
+        "text": "酒",
+        "reading": "さか",
+        "meaning": "alcohol"
       },
       {
-        "text": "体",
-        "reading": "たい",
-        "meaning": "form"
+        "text": "場",
+        "reading": "ば",
+        "meaning": "place"
       }
     ],
     "sources": [
       {
-        "quote": "字 (“character”) + 体 (“form”)"
+        "quote": "Compound of 酒(さか) (saka-, 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 酒(さけ) (sake, “alcohol”)) + 場(ば) (ba, “place”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"

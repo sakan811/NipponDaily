@@ -1,746 +1,887 @@
 [
   {
     "date": "2023-05-01",
-    "term": "住",
-    "kana": "じゅう",
-    "meaning": "dwelling, living",
+    "term": "友好",
+    "kana": "ゆうこう",
+    "meaning": "friendship",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": ["borrowing"],
-    "headline": "Jū, “dwelling”, is from Middle Chinese 住, the goon pronunciation, so likely the initial borrowing.",
-    "morphemes": [],
-    "sources": [
+    "processes": ["compound", "borrowing"],
+    "headline": "“Friendship” is a learned borrowing from Chinese, first attested in 1900.",
+    "morphemes": [
       {
-        "quote": "From Middle Chinese 住 (MC drjuH)."
+        "text": "友",
+        "reading": "ゆう",
+        "meaning": "friend",
+        "glossSource": "kanjidic2"
       },
       {
-        "quote": "The goon pronunciation, so likely the initial borrowing."
+        "text": "好",
+        "reading": "こう",
+        "meaning": "fond",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Appears to be a learned borrowing from Chinese 友好 (yǒuhǎo). First attested in 1900."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-02",
-    "term": "うどん",
-    "kana": "うどん",
-    "meaning": "udon noodles (Japanese traditional noodles)",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "wago",
-    "processes": ["borrowing", "unclear"],
-    "headline": "Udon's origin is uncertain: perhaps from Chinese 餛飩, or a blend of this and 温 (on, “warm”).",
+    "term": "感じる",
+    "kana": "かんじる",
+    "meaning": "to feel, to sense",
+    "level": "N3",
+    "pos": ["Ichidan verb"],
+    "stratum": "kango",
+    "processes": ["compound", "sound-change"],
+    "headline": "“To feel” was once “to do a feeling”, a verb in a different conjugation.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "Uncertain. Perhaps from Chinese 餛飩 /馄饨, or a blend of this term and 温(おん) (on, “warm”). Compare Japanese 餛飩."
+        "quote": "Shift from 感ずる (kanzuru), a compound of 感 (kan, “feeling”) + する (suru, “to do, to be”). Natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-03",
-    "term": "薄める",
-    "kana": "うすめる",
-    "meaning": "to dilute, to water down",
-    "level": "N2",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "stratum": "wago",
+    "term": "小説",
+    "kana": "しょうせつ",
+    "meaning": "novel",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
     "processes": ["compound"],
-    "headline": "Usumeru is the root of 薄い (usui, “thin, dilute”) plus -meru, from Classical Japanese 薄む (usumu).",
+    "headline": "A novel is a “small narrative” — and Wiktionary is still asking who coined it.",
     "morphemes": [
       {
-        "text": "薄",
-        "reading": "うす",
-        "meaning": "thin, dilute"
+        "text": "小",
+        "reading": "しょう",
+        "meaning": "small"
       },
       {
-        "text": "める",
-        "reading": "める",
-        "meaning": "-ify, -en"
+        "text": "説",
+        "reading": "せつ",
+        "meaning": "narrative, story"
       }
     ],
     "sources": [
       {
-        "quote": "薄(うす) (usu, root of 薄(うす)い (usui, “thin, dilute”)) + める (-meru, “-ify, -en”), developed from Classical Japanese 薄(うす)む (usumu)."
-      },
-      {
-        "quote": "Development"
-      },
-      {
-        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+        "quote": "From 小 (shō, “small”) + 説 (setsu, “narrative, story”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-04",
-    "term": "以後",
-    "kana": "いご",
-    "meaning": "after this; from now on; hereafter",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "term": "時間",
+    "kana": "じかん",
+    "meaning": "time",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Igo is 以 (i-, “from... and”) plus 後 (go, “behind; after”).",
+    "processes": [
+      "compound",
+      "derivation",
+      "wasei",
+      "borrowing",
+      "meaning-shift"
+    ],
+    "headline": "The Chinese “time interval” was repurposed in 1881 to translate the philosophers' “time”.",
     "morphemes": [
       {
-        "text": "以",
-        "reading": "い",
-        "meaning": "from... and"
+        "text": "時",
+        "reading": "じ",
+        "meaning": "o'clock"
       },
       {
-        "text": "後",
-        "reading": "ご",
-        "meaning": "behind; after"
+        "text": "間",
+        "reading": "かん",
+        "meaning": "time interval suffix"
       }
     ],
     "sources": [
       {
-        "quote": "以 (i-, “from... and”) + 後 (go, “behind; after”)"
+        "quote": "Probably originally borrowed from Middle Chinese compound 時間 (dzyi kɛn, literally “time interval”). Repurposed in the early Meiji period as a translation of the western term time in relation to philosophy in the 1881 publication of 哲学字彙 (Tetsugaku Jii, “Philosophy Dictionary”) compiled by Inoue Tetsujirō. The meaning \"hour\" can be analyzed as a compound of 時(じ) (ji, “o'clock”) + 間(かん) (-kan, time interval suffix). Compare other terms formed with the suffix 間(かん) (-kan) like 三(さん)分(ぷん)間(かん) (sanpunkan) and 三日(みっか)間(かん) (mikkakan)."
+      },
+      {
+        "quote": "The reading is a mix of the goon reading ji and the kan'on reading kan, suggesting either that the reading changed after borrowing (from the expected goon pronunciation of jiken or the expected kan'on pronunciation of shikan), or that this term was independently coined in Japanese after the constituent terms 時(じ) (ji) and 間(かん) (kan) were borrowed."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-05",
-    "term": "強まる",
-    "kana": "つよまる",
-    "meaning": "to get strong, to gain strength",
-    "level": "N3",
-    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Tsuyomaru is 強い (tsuyoi, “strong”) plus -maru.",
+    "term": "沢山",
+    "kana": "たくさん",
+    "meaning": "many, much",
+    "level": "N5",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)",
+      "adverb (fukushi)"
+    ],
+    "stratum": "kango",
+    "processes": ["ateji", "unclear"],
+    "headline": "“Many” is in The Tale of the Heike — and its origin is unknown.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "強(つよ)い (tsuyoi, “strong”) + まる (-maru)"
+        "quote": "First appears in The Tale of the Heike (c. late 12th century)."
+      },
+      {
+        "quote": "Origin unknown, kanji spelling appears to be phonetic ateji (当(あ)て字(じ))"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-06",
-    "term": "ステレオ",
-    "kana": "ステレオ",
-    "meaning": "stereo",
-    "level": "N4",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "Sutereo is an internationalism; see English stereo.",
-    "morphemes": [],
+    "term": "東西",
+    "kana": "とうざい",
+    "meaning": "East and West, whole country",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "East-West came from Chinese — and the 西 voices from さい to ざい.",
+    "morphemes": [
+      {
+        "text": "東",
+        "reading": "とう",
+        "meaning": "east",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "西",
+        "reading": "ざい",
+        "base": "さい",
+        "meaning": "west",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
-        "quote": "Internationalism; see English stereo."
+        "quote": "From Middle Chinese 東西 (MC tuwng sej)."
+      },
+      {
+        "quote": "The sai reading for 西 changes to zai as an instance of rendaku (連濁)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-07",
-    "term": "真っ黒",
-    "kana": "まっくろ",
-    "meaning": "pitch black",
+    "term": "背負う",
+    "kana": "せおう",
+    "meaning": "to be burdened with; to carry on (one's) back or shoulder(s)",
     "level": "N2",
-    "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
     "stratum": "wago",
-    "processes": [],
-    "headline": "Makkuro is 真っ (ma'-, “truly”) plus 黒 (kuro, “black”).",
-    "morphemes": [],
+    "processes": ["compound"],
+    "headline": "To shoulder a burden is, literally, to “carry on the back”.",
+    "morphemes": [
+      {
+        "text": "背",
+        "reading": "せ",
+        "meaning": "back"
+      },
+      {
+        "text": "負う",
+        "reading": "おう",
+        "meaning": "to carry or bear something"
+      }
+    ],
     "sources": [
       {
-        "quote": "From 真っ (ma'-, “truly”) + 黒 (kuro, “black”)."
+        "quote": "Compound of 背 (se, “back”) + 負う (ou, “to carry or bear something”)."
+      },
+      {
+        "quote": "First cited in the early 1200s."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-08",
-    "term": "記事",
-    "kana": "きじ",
-    "meaning": "article, news story",
+    "term": "デモ",
+    "kana": "デモ",
+    "meaning": "demo, demonstration",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing"],
-    "headline": "Kiji is a Middle Chinese compound, literally “record + affair, event”.",
-    "morphemes": [
-      {
-        "text": "記",
-        "reading": "き",
-        "meaning": "record"
-      },
-      {
-        "text": "事",
-        "reading": "じ",
-        "meaning": "affair, event"
-      }
-    ],
+    "stratum": "gairaigo",
+    "processes": ["clipping"],
+    "headline": "デモ is a clipped デモンストレーション, and Korean has a form 데모 to compare.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "From Middle Chinese compound 記事 /记事 (kiᴴ dzriᴴ, literally “record + affair, event”). Compare modern Mandarin reading jìshì."
+        "quote": "Shortening of デモンストレーション (demonsutorēshon). Also see Korean 데모 (demo)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-09",
-    "term": "唇",
-    "kana": "くちびる",
-    "meaning": "lip",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "wago",
-    "processes": ["rendaku", "sound-change"],
-    "headline": "Kuchibiru, “lip”, may come from kuchiberi: 口 (kuchi, “mouth”) plus 縁 (heri, “edge”).",
-    "morphemes": [],
+    "term": "先行",
+    "kana": "せんこう",
+    "meaning": "preceding, going first",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "“Preceding” is “go before” — and the same spelling has a native reading, sakiyuki, from 1678.",
+    "morphemes": [
+      {
+        "text": "先",
+        "reading": "せん",
+        "meaning": "preceding"
+      },
+      {
+        "text": "行",
+        "reading": "こう",
+        "meaning": "to go"
+      }
+    ],
     "sources": [
       {
-        "quote": "The くち (kuchi) element is 口(くち) (kuchi, “mouth”). Several dictionaries, such as Kōjien gloss the meaning of this overall term as 口縁(くちべり) (kuchiberi), consisting of 口(くち) (kuchi, “mouth”) + 縁(へり) (heri, “edge”). Therefore the current pronunciation kuchibiru may be a shift from an earlier kuchiberi. The h of heri now becomes a b in an instance of rendaku (連濁), but may not have in older Japanese."
+        "quote": "Ultimately from Middle Chinese 先行 (MC sen haeng, literally “preceding + to go”)."
+      },
+      {
+        "quote": "First cited to a text from 833."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-10",
-    "term": "響く",
-    "kana": "ひびく",
-    "meaning": "to resound; to affect",
-    "level": "N2",
-    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "term": "見事",
+    "kana": "みごと",
+    "meaning": "splendid, magnificent",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "adverb (fukushi)"
+    ],
     "stratum": "wago",
-    "processes": ["derivation"],
-    "headline": "Hibiku is likely derived from a mimetic word, via reduplication.",
-    "morphemes": [],
+    "processes": ["compound", "rendaku"],
+    "headline": "“Splendid” is “seeing” plus “thing”, first cited in 1309.",
+    "morphemes": [
+      {
+        "text": "見",
+        "reading": "み",
+        "meaning": "seeing"
+      },
+      {
+        "text": "事",
+        "reading": "ごと",
+        "base": "こと",
+        "meaning": "fact, event, abstract thing"
+      }
+    ],
     "sources": [
       {
-        "quote": "From Old Japanese. Likely derived from a mimetic word, via reduplication. Cognate with Okinawan 響ちゅん (fibichun)."
+        "quote": "Compound of 見 (mi, “seeing”, the 連用形 (ren'yōkei, “continuative or stem form”) of verb 見る (miru, “to see, to look at”)) + 事 (koto, “fact, event, abstract thing”)."
+      },
+      {
+        "quote": "First cited to a text from 1309."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-11",
-    "term": "重ねる",
-    "kana": "かさねる",
-    "meaning": "to pile up, to put something on another, to heap up",
-    "level": "N3",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Kasaneru is from classical 重ぬ (kasanu), from Old Japanese.",
-    "morphemes": [],
+    "term": "仕方",
+    "kana": "しかた",
+    "meaning": "way (of doing something)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound"],
+    "headline": "“A way of doing” is built from the stem of する and “method”.",
+    "morphemes": [
+      {
+        "text": "仕",
+        "reading": "し",
+        "meaning": "doing",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "方",
+        "reading": "かた",
+        "meaning": "direction",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
-        "quote": "From classical form 重(かさ)ぬ (kasanu), from Old Japanese."
-      },
-      {
-        "quote": "Development"
-      },
-      {
-        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+        "quote": "From し (shi, “to do”, continuative form of する) + 方(かた) (kata, “method”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-12",
-    "term": "港",
-    "kana": "みなと",
-    "meaning": "harbor, port",
-    "level": "N4",
+    "term": "花瓶",
+    "kana": "かびん",
+    "meaning": "(flower) vase",
+    "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "wago",
-    "processes": ["compound", "derivation"],
-    "headline": "Minato is attested in the Nihon Shoki of 720; the traditional etymology is 水 (mi-, “water”) plus な (na) plus 門 (to, “gate”).",
-    "morphemes": [],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "A vase is a “flower jar” in Chinese — and a native reading of the same spelling used an “earthenware pot”.",
+    "morphemes": [
+      {
+        "text": "花",
+        "reading": "か",
+        "meaning": "flower",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "瓶",
+        "reading": "びん",
+        "meaning": "jar",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
-        "quote": "From Old Japanese. Attested in the Nihon Shoki of 720. Reconstructed as deriving from Proto-Japonic *minato."
-      },
-      {
-        "quote": "The traditional etymology that Japanese sources trace back to is a compound of 水 (mi-, “water”) + な (na, assimilated apophonic form of の (no, “genitive case marker”)) + 門 (to, “gate”)."
-      },
-      {
-        "quote": "* However, this does not correlate cleanly with the etymology of 水 (mizu, “water”), reconstructed as Proto-Japonic *mentu (“water”). Then again, there are numerous attested words where 水 (mi) is used as the first and last element in compounds, suggesting either that the derivation of 水 (mizu) might differ."
-      },
-      {
-        "quote": "Vovin, on the other hand suggests that the initial mi- was 御 (mi-, “honorific prefix”), while -na- meant \"water\", possibly from Proto-Tai *C̬.namꟲ (“water”). Compare 涙 (namida, “tears”), 菜葱, 水葱 (nagi, “Monochoria vaginalis”), 漬く (nazuku, “soak in water”, obsolete)."
-      },
-      {
-        "quote": "* However, this may present semantic difficulties, as any native formation like namida that proposes \"water\" for the initial nam and \"eye\" for a following component reverses the usual word-formation pattern for Japanese, where the main or head noun comes last. In addition, the na element appears in other words with no relation to \"water\", as an assimilated apophonic form of genitive particle の (no), seen in terms such as 掌 (tanagokoro, “palm of the hand”, literally “hand's heart/center”), 眼間 (manakai, “where the lines of sight of the eyes converge”, literally “eyes' exchanging/crossing”)."
+        "quote": "From Middle Chinese 花 (MC xwae) and 瓶(びん) (bin, “jar”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-13",
-    "term": "小学生",
-    "kana": "しょうがくせい",
-    "meaning": "elementary school pupil",
-    "level": "N2",
+    "term": "お腹",
+    "kana": "おなか",
+    "meaning": "stomach",
+    "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Shōgakusei is 小学 (shōgaku, “elementary school”) plus 生 (-sei, “student; pupil”).",
-    "morphemes": [
-      {
-        "text": "小学",
-        "reading": "しょうがく",
-        "meaning": "elementary school"
-      },
-      {
-        "text": "生",
-        "reading": "せい",
-        "meaning": "student; pupil"
-      }
-    ],
+    "processes": ["compound", "derivation"],
+    "headline": "The “stomach” was a deliberately indirect word for “belly”, spelled with a character that means something else.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "小(しょう)学(がく) (shōgaku, “elementary school”) + 生(せい) (-sei, “student; pupil”)."
+        "quote": "Compound of 御 (o-, honorific prefix) + 中 (naka, “insides; innards, stomach”). Originally coined as a deliberately indirect 女房詞 (nyōbō kotoba, “woman's word”) for 腹 (hara, “belly, gut”)."
+      },
+      {
+        "quote": "The use of the 腹 character to spell 中 (naka) appears to be a relatively recent shift; many dictionaries still list 御中 or お中 as the standard spelling for this term, but usage trends clearly show that this お腹 spelling is now more common for the belly senses."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-14",
-    "term": "社会科学",
-    "kana": "しゃかいかがく",
-    "meaning": "social science",
+    "term": "重力",
+    "kana": "じゅうりょく",
+    "meaning": "gravity",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Shakai kagaku is 社会 (shakai, “society”) plus 科学 (kagaku, “science”).",
+    "processes": ["compound", "wasei", "borrowing"],
+    "headline": "Gravity borrowed an old Chinese word for “heavy strength” and repurposed it to translate a Dutch one.",
     "morphemes": [
       {
-        "text": "社会",
-        "reading": "しゃかい",
-        "meaning": "society"
+        "text": "重",
+        "reading": "じゅう",
+        "meaning": "considerable; heavy"
       },
       {
-        "text": "科学",
-        "reading": "かがく",
-        "meaning": "science"
+        "text": "力",
+        "reading": "りょく",
+        "meaning": "force, power"
       }
     ],
     "sources": [
       {
-        "quote": "社会 (shakai, “society”) + 科学 (kagaku, “science”)"
+        "quote": "Initially from Middle Chinese 重力 (MC drjowngX lik, literally “considerable; heavy + force, power”)."
+      },
+      {
+        "quote": "The gravity sense was a repurposing of the older term (the considerable strength sense) as a calque of Dutch zwaartekracht to translate Dutch works as part of Rangaku studies."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-15",
-    "term": "速い",
-    "kana": "はやい",
-    "meaning": "fast, quick",
-    "level": "N5",
+    "term": "醜い",
+    "kana": "みにくい",
+    "meaning": "ugly",
+    "level": "N2",
     "pos": ["adjective (keiyoushi)"],
     "stratum": "wago",
-    "processes": [],
-    "headline": "Hayai's etymology note is a single pointer: see 早い.",
+    "processes": ["compound"],
+    "headline": "“Ugly” is, word for word, “hard to look at”.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "See 早い."
+        "quote": "Compound of 見(み) (mi, “seeing, looking”, the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見(み)る (miru, “to see, to look at”)) + 難(にく)い (nikui, “hard to do, difficult”), with a literal meaning of “hard to look at” or “difficult to see”."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-16",
-    "term": "柄",
-    "kana": "え",
-    "meaning": "handle (of a sword, dagger, etc.), grip",
+    "term": "ライター",
+    "kana": "ライター",
+    "meaning": "lighter; writer",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "E, a handle, is a change in meaning from 枝 (e, “branch, stem”).",
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "A lighter and a writer are the same word in katakana.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "Change in meaning from 枝(え) (e, historically ye, “branch, stem”)."
+        "quote": "Borrowed from English lighter."
+      },
+      {
+        "quote": "Borrowed from English writer."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-17",
-    "term": "進める",
-    "kana": "すすめる",
-    "meaning": "to advance, to promote, to hasten",
+    "term": "普段",
+    "kana": "ふだん",
+    "meaning": "in everyday situations, usually, ordinarily",
     "level": "N3",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Susumeru, “to advance”, is cognate with 勧める (susumeru) and 薦める (susumeru).",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "kango",
+    "processes": ["ateji"],
+    "headline": "“Usually” was written 不断 first — the kanji we use now were fitted to the sound.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "Cognate with Japanese 勧(すす)める (susumeru) and 薦(すす)める (susumeru)."
+        "quote": "The kanji spelling is phonetic ateji (当(あ)て字(じ)); originally written as 不断(ふだん) (fudan)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-18",
-    "term": "特に",
-    "kana": "とくに",
-    "meaning": "particularly",
-    "level": "N4",
-    "pos": ["adverb (fukushi)"],
-    "stratum": "kango",
-    "processes": [],
-    "headline": "Toku ni is 特 (toku, “special”) plus に (ni).",
-    "morphemes": [],
+    "term": "新た",
+    "kana": "あらた",
+    "meaning": "new, fresh",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "stratum": "wago",
+    "processes": ["compound", "derivation"],
+    "headline": "“New” began as “freshly coming into being”.",
+    "morphemes": [
+      {
+        "text": "新",
+        "reading": "あら",
+        "meaning": "numerous other terms"
+      },
+      {
+        "text": "た",
+        "reading": "た",
+        "meaning": "suffix indicating state"
+      }
+    ],
     "sources": [
       {
-        "quote": "Of 特(とく) (toku, “special”, noun) plus に (ni, particle)."
+        "quote": "From Old Japanese. Attested in the Man'yōshū, completed in 759."
+      },
+      {
+        "quote": "Derived as a compound of 新 (ara, from 生る (aru, “to come into being”), cognate also with 有り (ari, “to exist”, the Old and classical Japanese copula), 現れる (arawareru, “to appear, to become manifest”), 荒 (ara, “rough, unfinished”), numerous other terms) + た (ta, suffix indicating state). The core meaning seems to have been \"freshly coming into being\", and by extension, new."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-19",
-    "term": "選考",
-    "kana": "せんこう",
-    "meaning": "selection, screening",
-    "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+    "term": "頑張る",
+    "kana": "がんばる",
+    "meaning": "to try one's best, to try hard, to persist",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "stratum": "hybrid",
+    "processes": [
+      "derivation",
+      "sound-change",
+      "meaning-shift",
+      "ateji",
+      "unclear"
     ],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing"],
-    "headline": "Senkō is from Middle Chinese 銓衡, and 選考 is a daiyōji replacing 銓衡.",
-    "morphemes": [
-      {
-        "text": "選",
-        "reading": "せん",
-        "meaning": "elect",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "考",
-        "reading": "こう",
-        "meaning": "consider",
-        "glossSource": "kanjidic2"
-      }
-    ],
+    "headline": "“Do your best” once meant “be stubborn” — and the 頑 may belong to neither candidate origin.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "From Middle Chinese 銓衡／铨衡. 選考 is a daiyōji replacing 銓衡."
+        "quote": "Derivation uncertain. The two leading theories are:"
+      },
+      {
+        "quote": "* Sense shift from 眼張る (ganbaru, “to keep watch on something, to stare at something”, literally “keep one's eye on something”)"
+      },
+      {
+        "quote": "* Shift in pronunciation from 我に張る (ga ni haru, literally “to stick to one's desires, to insist on one's point of view”)"
+      },
+      {
+        "quote": "The sense was originally to be stubborn, to be obstinate, with negative overtones. The modern positive sense of to persist, to endure has arisen since the end of the Edo period in 1868."
+      },
+      {
+        "quote": "The spelling is ateji (当(あ)て字(じ)), using the 頑 (gan) character to express a sense of stubborn. The historical kana spelling ぐわんばる (gwanbaru) comes from the use of this 頑 character, and is not related to either of the expected derivations above."
+      },
+      {
+        "quote": "Some sources use both 頑張る and 眼張る as spellings for the persist, endure sense. Other sources split these out as entirely separate entries."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-20",
-    "term": "得る",
-    "kana": "える",
-    "meaning": "to get, to gain, to win, to learn",
-    "level": "N3",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Eru is from Old Japanese, first attested in c. 759 in the Man'yōshū.",
-    "morphemes": [],
-    "sources": [
+    "term": "万年筆",
+    "kana": "まんねんひつ",
+    "meaning": "fountain pen",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "A fountain pen is a “ten-thousand-year pen”.",
+    "morphemes": [
       {
-        "quote": "From Old Japanese."
+        "text": "万年",
+        "reading": "まんねん",
+        "meaning": "ten thousand years; eternity"
       },
       {
-        "quote": "First attested in c. 759 in the Man'yōshū."
+        "text": "筆",
+        "reading": "ひつ",
+        "meaning": "pen"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "万年 (mannen, “ten thousand years; eternity”) + 筆 (hitsu, fude, “pen”)"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-21",
-    "term": "衛星",
-    "kana": "えいせい",
-    "meaning": "satellite",
-    "level": "N3",
+    "term": "手帳",
+    "kana": "てちょう",
+    "meaning": "notebook",
+    "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
+    "stratum": "hybrid",
     "processes": ["compound"],
-    "headline": "Eisei, a satellite, is 衛 (ei, “to guard”) plus 星 (-sei, “celestial body”).",
+    "headline": "A pocket notebook is a “hand ledger”, in use from the early 1600s.",
     "morphemes": [
       {
-        "text": "衛",
-        "reading": "えい",
-        "meaning": "to guard"
+        "text": "手",
+        "reading": "て",
+        "meaning": "hand"
       },
       {
-        "text": "星",
-        "reading": "せい",
-        "meaning": "celestial body"
+        "text": "帳",
+        "reading": "ちょう",
+        "meaning": "notebook, ledger"
       }
     ],
     "sources": [
       {
-        "quote": "From 衛 (ei, “to guard”) + 星 (-sei, “celestial body”)."
+        "quote": "Compound of 手 (te, “hand”) + 帳 (chō, “notebook, ledger”). Appears from the early 1600s."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-22",
-    "term": "柔らかい",
-    "kana": "やわらかい",
-    "meaning": "soft (in reference to texture), tender",
-    "level": "N4",
-    "pos": ["adjective (keiyoushi)"],
-    "stratum": "wago",
-    "processes": ["derivation"],
-    "headline": "Yawarakai is やわらか (yawaraka, “soft, gentle”) plus い (-i).",
-    "morphemes": [],
+    "term": "膨大",
+    "kana": "ぼうだい",
+    "meaning": "enormous, extensive",
+    "level": "N2",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "“Enormous” is “swell” plus “big”, and the word is first attested in 1872.",
+    "morphemes": [
+      {
+        "text": "膨",
+        "reading": "ぼう",
+        "meaning": "swell, distend"
+      },
+      {
+        "text": "大",
+        "reading": "だい",
+        "meaning": "big"
+      }
+    ],
     "sources": [
       {
-        "quote": "やわらか (yawaraka, “soft, gentle”, na-adjective) + い (-i, suffix forming adjectives)."
+        "quote": "First attested in 1872. Likely a coinage in Japan of Middle Chinese-derived components, as a compound of 膨 (bō, “swell, distend”) + 大 (dai, “big”). The second sense of huge is likely a replacement spelling for Chinese-derived homophone 厖大 (bōdai), first cited to 1898."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-23",
-    "term": "汗",
-    "kana": "あせ",
-    "meaning": "sweat, perspiration",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
+    "term": "凹む",
+    "kana": "へこむ",
+    "meaning": "to be dented, to be indented",
+    "level": "N2",
+    "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
     "stratum": "wago",
-    "processes": [],
-    "headline": "Ase is from Old Japanese, from Proto-Japonic *asya.",
+    "processes": ["compound", "sound-change"],
+    "headline": "To be dented is to have “lessened inward” — herikomu worn down to hekomu.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "From Old Japanese, from Proto-Japonic *asya."
+        "quote": "/herikomu/ → /hekomu/"
+      },
+      {
+        "quote": "Contraction of 減りこむ (herikomu), itself a compound of 減り (heri, “lessening, becoming less”, the 連用形 (ren'yōkei, “continuative or stem form”) of verb 減る heru, “to reduce, to become less”) + 込む (komu, “to go inwardly”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-24",
-    "term": "文化",
-    "kana": "ぶんか",
-    "meaning": "culture",
-    "level": "N4",
+    "term": "トラック",
+    "kana": "トラック",
+    "meaning": "truck; (running) track",
+    "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing", "meaning-shift"],
-    "headline": "Bunka is Middle Chinese for “the way of educating by using morality, literature, rituals and music”, repurposed in the Meiji period to translate German Kultur.",
-    "morphemes": [
-      {
-        "text": "文",
-        "reading": "ぶん",
-        "meaning": "literature",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "化",
-        "reading": "か",
-        "meaning": "change",
-        "glossSource": "kanjidic2"
-      }
-    ],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "A truck has a twin in トロッコ, and a running track shares its spelling.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "Learned borrowing from Middle Chinese 文化 (mjun xwæH, “the way of educating by using morality, literature, rituals and music”), repurposed during the Meiji period as a translation of German Kultur."
+        "quote": "From American English truck. Doublet of トロッコ (torokko)."
       },
       {
-        "quote": "Cited with the culture sense starting from roughly 1870."
+        "quote": "From English track."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-25",
-    "term": "いいえ",
-    "kana": "いいえ",
-    "meaning": "no, not at all",
-    "level": "N5",
-    "pos": ["interjection (kandoushi)"],
-    "stratum": "wago",
-    "processes": ["sound-change"],
-    "headline": "Iie shifted from いや (iya), from even earlier 否 (ina), and is first cited to the late 1600s.",
-    "morphemes": [],
+    "term": "欠点",
+    "kana": "けってん",
+    "meaning": "faults, defect, weakness",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "A fault is a “lacking point”, borrowed from Chinese.",
+    "morphemes": [
+      {
+        "text": "欠",
+        "reading": "けっ",
+        "base": "けつ",
+        "meaning": "deficient, lacking"
+      },
+      {
+        "text": "点",
+        "reading": "てん",
+        "meaning": "point, spot"
+      }
+    ],
     "sources": [
       {
-        "quote": "/ina/ → /ija/ → /ije/ → /iːe/"
-      },
-      {
-        "quote": "First cited to the late 1600s."
-      },
-      {
-        "quote": "Shift from いや (iya), from even earlier 否 (ina). While いや (iya) was broadly used in the Muromachi period, in the Edo period, いや (iya) shifted to use mainly in informal or more intimate contexts, while いいえ (īe) was used in more formal or polite contexts. いや (iya) is still in use, including broader senses not included for いいえ (īe)."
+        "quote": "From Middle Chinese compound 缺點 (MC khwet temX, literally “deficient, lacking” + “point, spot”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-26",
-    "term": "関心",
-    "kana": "かんしん",
-    "meaning": "concern, interest",
+    "term": "恐らく",
+    "kana": "おそらく",
+    "meaning": "perhaps",
     "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Kanshin is 関 (kan, “concern”) plus 心 (shin, “heart”).",
-    "morphemes": [
-      {
-        "text": "関",
-        "reading": "かん",
-        "meaning": "concern"
-      },
-      {
-        "text": "心",
-        "reading": "しん",
-        "meaning": "heart"
-      }
-    ],
+    "pos": ["adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": ["derivation", "clipping", "sound-change"],
+    "headline": "“Perhaps” is a clipped phrase whose first half is still being argued over.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "From 関 (kan, “concern”) + 心 (shin, “heart”)."
+        "quote": "Sources are agreed that modern osoraku as an adverb is a clipping of older noun phrase 恐らくは (osoraku wa), trimming off the topic particle は (wa). This clipped form first appears in the late 1500s. Speculatively, this usage might have been influenced by the -ku adverbial ending used for adjectives."
+      },
+      {
+        "quote": "Past there, different sources give different derivations for the osoraku portion itself."
+      },
+      {
+        "quote": "* May be from the -ku nominalization of verb 恐る (osoru, “to fear, to be afraid of”), originally a 四段活用 (yodan katsuyō, “quadrigrade-conjugation”) verb. In the traditional analysis, the く (ku) noun-forming suffix attaches to the 未然形 (mizenkei, “irrealis form”) of the verb stem, ending in -a: osoru (plain form) → osora- (irrealis) + -ku (noun-forming suffix) = osoraku."
+      },
+      {
+        "quote": "* Older documents also record a form 恐るらくは (osoruraku wa), which may be from 恐る (osoru, “to fear, to be afraid of”) as either a 上二段活用 (kami nidan katsuyō, “upper bigrade-conjugation”) or 下二段活用 (shimo nidan katsuyō, “lower bigrade-conjugation”) verb. In the traditional analysis, for bigrade verbs, the く (ku) noun-forming suffix manifests instead as らく (raku) and attaches to the 終止形 (shūshikei, “terminal or predicative form”) of the verb, the standard \"plain\" or \"dictionary form\" ending in -u: osoru + -raku = osoruraku."
+      },
+      {
+        "quote": "The irregularities in the verb form required for -ku nominalization, and the shifts between bare -ku and longer form -raku, can be resolved if the underlying form of the nominalizing suffix were -aku instead, syntactically acting as a noun, and thus requiring that the verb be in the 連体形 (rentaikei, “adnominal form”). Also, Old Japanese did not allow hiatus (consecutive vowels without an intervening consonant), forcing either vowel fusion or vowel elision. For bigrade osoru, we would have adnominal form osoruru + suffix -aku, with the final -u in osoruru eliding to give us attested osoruraku."
+      },
+      {
+        "quote": "*/osoruru aku wa/ → /osoruraku wa/ → /osoraku wa/ → /osoraku/"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-27",
-    "term": "博士",
-    "kana": "はかせ",
-    "meaning": "doctorate, PhD., doctor",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
-    "processes": ["borrowing"],
-    "headline": "Hakase is ultimately from Middle Chinese 博士, an official title in the ritsuryō system, likely borrowed in the Old Japanese period.",
-    "morphemes": [],
+    "term": "召し上がる",
+    "kana": "めしあがる",
+    "meaning": "-- honorific form of 食べる (たべる) and 飲む (のむ) --",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": ["compound", "derivation"],
+    "headline": "An honorific “eat” is “take” plus “rise up” — each already honorific.",
+    "morphemes": [
+      {
+        "text": "召し",
+        "reading": "めし",
+        "meaning": "taking"
+      },
+      {
+        "text": "上がる",
+        "reading": "あがる",
+        "meaning": "to rise"
+      }
+    ],
     "sources": [
       {
-        "quote": "Ultimately from Middle Chinese 博士 (pak dzri^X). Unattested in extant Old Japanese texts, but likely borrowed in the Old Japanese period, being an official title in the ritsuryō system."
+        "quote": "Compound of 召し (meshi, “taking”, stem of Old Japanese honorific verb mesu, “to see, to look at”, by extension an honorific for “to take, to eat”) + 上がる (agaru, “to rise”, used honorifically to mean “to take up, to eat”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-28",
-    "term": "校舎",
-    "kana": "こうしゃ",
-    "meaning": "school building",
-    "level": "N3",
+    "term": "新聞",
+    "kana": "しんぶん",
+    "meaning": "newspaper",
+    "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Kōsha is 校 (kō, “school”) plus 舎 (-sha, “house”), first attested in 1884.",
+    "processes": ["compound", "borrowing", "clipping"],
+    "headline": "The newspaper is a Chinese “new hearing” — and in Japanese it began as a clipping of “newspaper paper”.",
     "morphemes": [
       {
-        "text": "校",
-        "reading": "こう",
-        "meaning": "school"
+        "text": "新",
+        "reading": "しん",
+        "meaning": "new",
+        "glossSource": "kanjidic2"
       },
       {
-        "text": "舎",
-        "reading": "しゃ",
-        "meaning": "house"
+        "text": "聞",
+        "reading": "ぶん",
+        "meaning": "hear",
+        "glossSource": "kanjidic2"
       }
     ],
     "sources": [
       {
-        "quote": "Compound of 校(こう) (kō, “school”) + 舎(しゃ) (-sha, “house”)."
+        "quote": "From Middle Chinese 新聞 (MC sin mjun). Compare Hokkien 新聞 /新闻 (sin-bûn)."
       },
       {
-        "quote": "First attested in 1884."
+        "quote": "Originally clipping of 新聞紙 (shinbunshi)"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-29",
-    "term": "毛",
-    "kana": "け",
-    "meaning": "hair, fur",
-    "level": "N4",
+    "term": "言葉",
+    "kana": "ことば",
+    "meaning": "language; word(s); expression(s)",
+    "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": [],
-    "headline": "Ke, “hair”, is cognate with Proto-Ryukyuan *ke (“hair, fur”).",
+    "processes": ["compound", "rendaku", "ateji"],
+    "headline": "“Word” is an old “word” plus an “edge” — and the 葉 in the spelling is only a stand-in.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "From Old Japanese. Attested in the Man'yōshū of circa 759 CE. Ultimately from Proto-Japonic *kay. Cognate with Proto-Ryukyuan *ke (“hair, fur”)."
+        "quote": "From Old Japanese 言葉 (ko₂to₂ba), attestable since at least the Man'yōshū of 759 CE. In turn, reconstructed as deriving from Proto-Japonic *kətənpa."
+      },
+      {
+        "quote": "Compound of 言(こと) (koto, “word”) + 端(は) (ha, “edge, beginning, end”). The ha changes to ba as an instance of rendaku (連濁)."
+      },
+      {
+        "quote": "The term 言(こと) (koto) was formerly the main term for word in Japanese. This term is also cognate with 事(こと) (koto, “thing, fact, event”). The ha may have been added to differentiate from 事(こと) (koto)."
+      },
+      {
+        "quote": "The 葉 spelling is an example of ateji (当(あ)て字(じ))."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-30",
-    "term": "看護婦",
-    "kana": "かんごふ",
-    "meaning": "(female) nurse",
-    "level": "N4",
+    "term": "下駄",
+    "kana": "げた",
+    "meaning": "(Japanese footwear), wooden clogs",
+    "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Kangofu is 看護 (“nursing”) plus 婦 (“woman; female”).",
+    "processes": ["compound", "derivation", "wasei", "sound-change", "ateji"],
+    "headline": "Geta are “lower clogs” — and the “footwear” sense of 駄 may exist only in Japan.",
     "morphemes": [
       {
-        "text": "看護",
-        "reading": "かんご",
-        "meaning": "nursing"
+        "text": "下",
+        "reading": "げ",
+        "meaning": "lower, under"
       },
       {
-        "text": "婦",
-        "reading": "ふ",
-        "meaning": "woman; female"
+        "text": "駄",
+        "reading": "た",
+        "meaning": "loading, carrying; footwear"
       }
     ],
     "sources": [
       {
-        "quote": "Compound of 看護 (“nursing”) + 婦 (“woman; female”)."
+        "quote": "A surface analysis suggests a Japanese coinage of Middle Chinese-derived components, as a compound of 下(げ) (ge, “lower, under”) + 駄(た) (ta, “loading, carrying; footwear”)."
+      },
+      {
+        "quote": "Historical usage suggests a shift from older term 足(あし)駄(だ) (ashida, “clogs”, later, referring more specifically to “tall clogs” in contrast to the “short clogs” referenced by the term 下(げ)駄(た) (geta)), itself deriving from 足(あし) (ashi, “foot”) + 板(いた) (ita, “board”), from the even older practice of wearing flat pieces of wood on one's feet when working in the paddies to keep from sinking into the mud, similar in principle to snowshoes. This latter footwear persisted in use into the 20th century as 田(た)下(げ)駄(た) (tageta, literally “paddy geta”)."
+      },
+      {
+        "quote": "The historical derivation indicates that the 駄 character's “footwear” sense, which is specific to Japanese and is not found in Chinese sources, could have arisen from phonetic ateji (当(あ)て字(じ)) usage in the terms 足(あし)駄(だ) (ashida) and 下(げ)駄(た) (geta)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2023-05-31",
-    "term": "調査",
-    "kana": "ちょうさ",
-    "meaning": "survey; investigation",
-    "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
-    ],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Chōsa is chō (調, investigate) plus sa (査, look into).",
-    "morphemes": [
-      {
-        "text": "調",
-        "reading": "ちょう",
-        "meaning": "investigate",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "査",
-        "reading": "さ",
-        "meaning": "investigate",
-        "glossSource": "kanjidic2"
-      }
-    ],
+    "term": "吹雪",
+    "kana": "ふぶき",
+    "meaning": "snow storm",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "processes": ["borrowing", "ateji"],
+    "headline": "A snowstorm is a verb's stem — and the spelling was borrowed from Chinese for its meaning.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "From chō (調, investigate) + sa (査, look into)."
+        "quote": "The 連用形 (ren'yōkei, “stem or continuative form”) of verb 吹雪く (fubuku, “to blow violently (said of wind); to blow a snowstorm”)."
+      },
+      {
+        "quote": "The kanji spelling is jukujikun (熟(じゅく)字(じ)訓(くん)), borrowed from Chinese 吹雪 (chuīxuě)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
