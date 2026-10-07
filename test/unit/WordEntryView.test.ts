@@ -200,4 +200,53 @@ describe("WordEntryView", () => {
     );
     expect(wrapper.text()).toContain("外来語");
   });
+
+  it("shows example sentences with the word marked, a translation and Tatoeba links", () => {
+    const wrapper = render({
+      examples: [
+        {
+          id: 1234,
+          ja: "手紙を書いた。",
+          en: "I wrote a letter.",
+          enId: 5678,
+          form: "手紙",
+        },
+      ],
+    });
+
+    const ex = wrapper.find('[data-testid="word-example"]');
+    expect(ex.text()).toContain("手紙を書いた。");
+    expect(ex.find("mark").text()).toBe("手紙");
+    expect(ex.text()).toContain("I wrote a letter.");
+    const links = ex.findAll("a").map((a) => a.attributes("href"));
+    expect(links[0]).toMatch(/\/sentences\/show\/1234$/);
+    expect(links[1]).toMatch(/\/sentences\/show\/5678$/);
+    expect(wrapper.text()).toContain("Nobody has reviewed them one by one");
+  });
+
+  it("shows no sentence section when the word has none", () => {
+    expect(render().find('[data-testid="word-examples"]').exists()).toBe(false);
+  });
+
+  it("links each kanji of the word to its page", () => {
+    const links = render().findAll('[data-testid="word-kanji"] a');
+    expect(links.map((a) => a.attributes("href"))).toEqual([
+      "/kanji/%E6%89%8B",
+      "/kanji/%E7%B4%99",
+    ]);
+  });
+
+  it("marks a common word", () => {
+    expect(
+      render({ priority: ["ichi1", "news1"] })
+        .find('[data-testid="word-common"]')
+        .exists(),
+    ).toBe(true);
+    expect(
+      render({ priority: ["news2"] })
+        .find('[data-testid="word-common"]')
+        .exists(),
+    ).toBe(false);
+    expect(render().find('[data-testid="word-common"]').exists()).toBe(false);
+  });
 });

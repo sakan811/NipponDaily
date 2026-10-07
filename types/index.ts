@@ -51,6 +51,21 @@ export interface Morpheme {
   glossSource?: "kanjidic2";
 }
 
+/** An example sentence for a word, picked from the pinned Tatoeba export
+ *  (data/reference/sentences/) by the rules in scripts/lib/example-sentences.mjs.
+ *  Tatoeba's text, never rewritten. */
+export interface WordExample {
+  /** The Japanese sentence's Tatoeba number (tatoeba.org/sentences/show/<id>). */
+  id: number;
+  ja: string;
+  /** An English translation of it. */
+  en: string;
+  /** The English sentence's Tatoeba number. */
+  enId: number;
+  /** The form of the word as it stands in `ja` (食べた for 食べる). */
+  form: string;
+}
+
 /** One line of Wiktionary's Etymology section for this word's reading, quoted
  *  verbatim from the pinned snapshot in data/reference/etymology/. */
 export interface WordSource {
@@ -78,6 +93,9 @@ export interface WordEntry {
    *  verbatim (e.g. "Ichidan verb", "transitive verb"). Empty only when JMdict
    *  has no entry for the word. */
   pos: string[];
+  /** JMdict's priority codes for this spelling and reading, verbatim (ichi1,
+   *  news1, gai1, nf05…); left out when JMdict tags neither. */
+  priority?: string[];
   /** The layer of the vocabulary — present only when KANJIDIC2's readings
    *  (or the evidence) establish it; irregular spellings leave it out. */
   stratum?: WordStratum;
@@ -90,6 +108,9 @@ export interface WordEntry {
   morphemes: Morpheme[];
   /** What Wiktionary says about the word's origin, line by line, verbatim. */
   sources: WordSource[];
+  /** Sentences that use the word, from Tatoeba; left out when the pinned export
+   *  has none that qualifies. */
+  examples?: WordExample[];
   /** Date of the Wiktionary dump the sources were quoted from (YYYY-MM-DD). */
   wiktionaryDump: string;
 }
@@ -194,6 +215,42 @@ export interface PartDetail {
   alsoIn: PartWordRef[];
 }
 
+// --- KANJI (KANJIDIC2 records of the characters the words are written with) ---
+
+/** One kanji in the index: how many open words are written with it. */
+export interface KanjiSummary {
+  char: string;
+  /** Open words whose spelling contains it. */
+  count: number;
+  /** KANJIDIC2's school grade (1–6, 8, 9 or 10), when it has one. */
+  grade?: number;
+}
+
+/** What GET /api/kanji returns: every kanji an open word is written with. */
+export interface KanjiIndexPayload {
+  kanji: KanjiSummary[];
+}
+
+/** What GET /api/kanji-detail?char= returns: KANJIDIC2's record of one
+ *  character and the open words written with it. */
+export interface KanjiDetail {
+  char: string;
+  strokeCount: number;
+  grade?: number;
+  /** Rank by newspaper frequency among KANJIDIC2's 2,500 most used. */
+  freq?: number;
+  /** On'yomi, in katakana as KANJIDIC2 gives them. */
+  on: string[];
+  /** Kun'yomi as KANJIDIC2 gives them: a dot marks where okurigana begin. */
+  kun: string[];
+  meanings: string[];
+  /** Open words whose spelling contains it, oldest first. */
+  count: number;
+  words: PartWordRef[];
+  /** Whether some open word shows it as a part, so /parts/<char> exists. */
+  isPart: boolean;
+}
+
 // --- EXPLORE (browse and filter) ---
 
 /** An open word in a result list: enough to recognise it and link to its page. */
@@ -214,6 +271,12 @@ export interface WordSummary {
 export type PosGroup =
   "noun" | "verb" | "adjective" | "adverb" | "affix" | "other" | "unstated";
 
+/** How common JMdict says a word is, read from its priority codes: "common"
+ *  when it carries one of the lists JMdict counts as common (ichi1, news1,
+ *  spec1, spec2, gai1), "less" when it carries only other codes (news2, ichi2,
+ *  gai2, nf…), "unlisted" when it carries none. */
+export type FrequencyGroup = "common" | "less" | "unlisted";
+
 /** How several choices in the same filter combine: "any" keeps a word that has
  *  at least one of them, "all" only a word that has every one. It matters for
  *  the filters a word can hold several values of (process, part of speech);
@@ -232,6 +295,7 @@ export interface ExploreFilters {
   stratum?: StratumKey[];
   process?: WordProcess[];
   pos?: PosGroup[];
+  frequency?: FrequencyGroup[];
   /** A part's text, as in /parts/<text>. */
   part?: string;
   /** Defaults to "any". */
@@ -263,6 +327,7 @@ export interface ExploreFacets {
   stratum: FacetCount<StratumKey>[];
   process: FacetCount<WordProcess>[];
   pos: FacetCount<PosGroup>[];
+  frequency: FacetCount<FrequencyGroup>[];
 }
 
 // --- PATTERNS (counts across words) ---

@@ -24,6 +24,10 @@ export const LICENCES = {
     name: "CC BY-SA 4.0",
     url: "https://creativecommons.org/licenses/by-sa/4.0/",
   },
+  ccBy2Fr: {
+    name: "CC BY 2.0 FR",
+    url: "https://creativecommons.org/licenses/by/2.0/fr/",
+  },
   // tanos.co.uk states "Creative Commons BY" with no version, so none is named.
   ccBy: { name: "CC BY" },
   mit: { name: "MIT licence" },
@@ -34,7 +38,13 @@ export const LICENCES = {
 } as const satisfies Record<string, Licence>;
 
 export interface DataSource {
-  id: "edrdg" | "wiktionary" | "jlpt-word-list" | "wanakana" | "og-fonts";
+  id:
+    | "edrdg"
+    | "wiktionary"
+    | "tatoeba"
+    | "jlpt-word-list"
+    | "wanakana"
+    | "og-fonts";
   /** Display name. */
   name: string;
   /** Short form for tight spaces such as the footer. */
@@ -68,6 +78,7 @@ const WIKTEXTRACT_PAPER = {
   title: "Wiktextract: Wiktionary as Machine-Readable Structured Data",
   url: "https://aclanthology.org/2022.lrec-1.140/",
 } as const;
+const TATOEBA_URL = "https://tatoeba.org";
 const WORD_LIST_URL = "https://github.com/elzup/jlpt-word-list";
 const TANOS = {
   name: "tanos.co.uk",
@@ -104,6 +115,16 @@ export const SOURCES = {
     use: "Etymology text, quoted verbatim from a pinned dump",
     credit: `Etymology text is quoted from ${link("English Wiktionary", WIKTIONARY_URL)} under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, as extracted by wiktextract and distributed by ${link(KAIKKI.name, KAIKKI.url)}, which is maintained by Tatu Ylonen. See Ylonen, ${link(WIKTEXTRACT_PAPER.title, WIKTEXTRACT_PAPER.url)}, Proceedings of the 13th Conference on Language Resources and Evaluation (LREC), 2022, pp. 1317–1325. Each entry names the dated dump it quotes, links the page and quotes it verbatim; the one-line headline is NipponDaily's own.`,
   },
+  tatoeba: {
+    id: "tatoeba",
+    name: "Tatoeba",
+    short: "Tatoeba",
+    url: TATOEBA_URL,
+    licence: LICENCES.ccBy2Fr,
+    holder: "Tatoeba contributors",
+    use: "Example sentences and their English translations, picked from a pinned export",
+    credit: `Example sentences and their translations are from ${link("Tatoeba", TATOEBA_URL)}, a collection written by its community, under ${link(LICENCES.ccBy2Fr.name, LICENCES.ccBy2Fr.url)}. Each shows its Tatoeba number, which links to the sentence and its authors. They are picked from a dated export by fixed rules and quoted unchanged; nobody reviews them one by one.`,
+  },
   "jlpt-word-list": {
     id: "jlpt-word-list",
     name: "elzup/jlpt-word-list",
@@ -138,10 +159,16 @@ export const SOURCES = {
 export const DATA_SOURCES: readonly DataSource[] = [
   SOURCES.edrdg,
   SOURCES.wiktionary,
+  SOURCES.tatoeba,
   SOURCES["jlpt-word-list"],
   SOURCES.wanakana,
   SOURCES["og-fonts"],
 ];
+
+/** The Tatoeba page of one sentence, which lists its author and translations. */
+export function tatoebaSentenceUrl(id: number): string {
+  return `${SOURCES.tatoeba.url}/sentences/show/${id}`;
+}
 
 /** The Wiktionary page an entry quotes (the text is from a dated dump, not the live page). */
 export function wiktionaryPageUrl(term: string): string {
