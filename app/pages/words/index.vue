@@ -243,11 +243,21 @@
             </NuxtLink>
 
             <div
-              v-else
+              v-else-if="cell.day"
               role="gridcell"
               data-testid="calendar-day-closed"
               :aria-label="`${formatLongDate(cell.date)}: not yet open`"
               class="min-h-[4.5rem] sm:min-h-[6rem] border border-dashed border-stone-300/70 dark:border-stone-800 p-1.5 sm:p-2.5 text-[11px] sm:text-xs text-stone-400 dark:text-stone-600"
+            >
+              {{ cell.dayOfMonth }}
+            </div>
+
+            <div
+              v-else
+              role="gridcell"
+              data-testid="calendar-day-empty"
+              :aria-label="`${formatLongDate(cell.date)}: no word`"
+              class="min-h-[4.5rem] sm:min-h-[6rem] p-1.5 sm:p-2.5 text-[11px] sm:text-xs text-stone-300 dark:text-stone-700"
             >
               {{ cell.dayOfMonth }}
             </div>
