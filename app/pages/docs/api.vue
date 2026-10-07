@@ -1,8 +1,8 @@
 <template>
   <DocsBook slug="api">
     <template #lede>
-      Every response is <code>{ success, data, timestamp }</code>. Handlers live
-      in <code>server/api/</code> and <code>server/routes/</code>, and this
+      Every JSON answer is <code>{ success, data, timestamp }</code>. Handlers
+      live in <code>server/api/</code> and <code>server/routes/</code>, and this
       table is the list in <code>shared/endpoints.ts</code>.
     </template>
 
@@ -58,21 +58,25 @@ const example = `{
   "data": {
     "entry": {
       "date": "2026-10-01",
-      "term": "電話",
-      "kana": "でんわ",
-      "meaning": "a telephone",
-      "level": "N5",
-      "pos": ["noun (common) (futsuumeishi)"],
-      "stratum": "kango",
-      "processes": ["compound", "wasei"],
-      "headline": "…",
-      "morphemes": [{ "text": "電", "reading": "でん", "meaning": "electric" }],
-      "sources": [{ "quote": "…" }],
+      "term": "サンキュー",
+      "kana": "サンキュー",
+      "meaning": "thank you",
+      "level": "N1",
+      "pos": ["interjection (kandoushi)"],
+      "priority": ["gai1"],
+      "stratum": "gairaigo",
+      "processes": ["borrowing"],
+      "headline": "サンキュー is borrowed from English thank you.",
+      "morphemes": [
+        { "text": "サンキュー", "reading": "サンキュー", "meaning": "English thank you" }
+      ],
+      "sources": [{ "quote": "Borrowed from English thank you." }],
       "wiktionaryDump": "2026-09-02"
     },
-    "prev": { "date": "2026-09-30", "term": "蕎麦" },
-    "next": { "date": "2026-10-02", "term": "友達" }
+    "lap": 1,
+    "prev": { "date": "2026-09-30", "term": "免れる" },
+    "next": { "date": "2026-10-02", "term": "霞む" }
   },
-  "timestamp": "2026-10-01T00:00:00Z"
+  "timestamp": "2026-10-07T00:00:00.000Z"
 }`;
 </script>
