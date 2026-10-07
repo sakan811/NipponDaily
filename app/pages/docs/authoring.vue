@@ -55,8 +55,10 @@
       <code>tar</code> and <code>xz</code>, and download from PyPI and GitHub.
     </p>
     <p>
-      <code>data:sentences</code> is offline too. It reads four files of a
-      {{ SOURCES.tatoeba.name }} export, a few seconds' work on about 150 MB
+      <code>data:sentences</code> is offline too, bar one fetch: it also reads
+      the pinned JMdict (the same checksum-verified download the reference
+      builders share, cached once) to check the furigana. It reads four files of
+      a {{ SOURCES.tatoeba.name }} export, a few seconds' work on about 150 MB
       that is never committed. Download them from the paths listed in
       <code>scripts/lib/tatoeba-export.mjs</code> (each is a <code>bz2</code>;
       the indices come in a <code>tar</code>), extract them into a

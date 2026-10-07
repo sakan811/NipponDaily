@@ -9,8 +9,9 @@
     <p>
       The laps, the multi-select and any/all filters in Explore, the
       part-of-speech and how-common groups, the “not stated” layer, the larger
-      combinations in Patterns, the kanji pages, the example sentences, the
-      JMdict cross-check and the share image are built and described in
+      combinations in Patterns, the kanji pages, the example sentences with
+      their furigana, the JMdict cross-check and the share image are built and
+      described in
       <NuxtLink to="/docs/core-theme">Core theme</NuxtLink> and
       <NuxtLink to="/docs/words">Words</NuxtLink>. What is left is a list of
       ideas, not a promise. Any of them follows the
@@ -38,16 +39,20 @@
         confirm one.
       </li>
       <li>
-        <strong>More data on each word.</strong> Readings over the example
-        sentences (Tatoeba publishes transcriptions), stroke order from an open
-        kanji set, and the other JMdict notes (field, register, dialect) each
-        need a pinned source, a check and an entry in
-        <code>shared/sources.ts</code>.
+        <strong>More data on each word.</strong> Pitch accent from an open
+        accent dictionary, stroke order from an open kanji set, and the other
+        JMdict notes (field, register, dialect) each need a pinned source, a
+        check and an entry in <code>shared/sources.ts</code>.
       </li>
       <li>
-        <strong>Ways to follow the words</strong>: a feed or calendar
-        (<code>.ics</code>) of the newest open words, and an export of the open
-        words for flash-card tools, each with the licences they carry.
+        <strong>Furigana for the kanji left bare.</strong> A spelling JMdict
+        reads several ways, with no reading in Tatoeba's index to settle it, is
+        left bare. A sense-level source that says which reading a sentence means
+        (or a reviewed list of the common ones) would cover more.
+      </li>
+      <li>
+        <strong>An export for flash-card tools</strong> of the open words, with
+        the licences they carry.
       </li>
       <li>
         <strong>More words.</strong> See the limit below: the supply is finite.
@@ -56,6 +61,14 @@
 
     <h2>Limits</h2>
     <ul>
+      <li>
+        <strong>Furigana is partial on purpose.</strong> kuromoji reads every
+        sentence, but its readings are statistical and some are wrong, so one is
+        shown only where Tatoeba's index or JMdict confirms it (most kanji
+        words). The rest stay bare, so a bare kanji means “unsure”, not “easy”,
+        and the readings are those of the dictionary form's stem, so a verb
+        whose stem changes (来る as き) is left bare too.
+      </li>
       <li>
         <strong>Example sentences are picked, not reviewed.</strong> They come
         from a community collection by fixed rules (the corpus indexes them

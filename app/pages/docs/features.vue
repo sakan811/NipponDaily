@@ -68,7 +68,7 @@ const features = computed(() => [
   {
     title: "In a Sentence",
     description:
-      "Most entries show a sentence or two that use the word, with their English translations, from Tatoeba's community collection. They are picked by fixed rules from one dated export, quoted unchanged, linked to their Tatoeba pages, and credited. Nobody has reviewed them one by one, and the page says so.",
+      "Most entries show a sentence or two that use the word, with their English translations, from Tatoeba's community collection. They are picked by fixed rules from one dated export, quoted unchanged, linked to their Tatoeba pages, and credited. Furigana is drawn over a kanji only where two sources agree on its reading; a kanji they cannot settle (今日, 何) is left bare. Nobody has reviewed them one by one, and the page says so.",
   },
   {
     title: "More Like This",
