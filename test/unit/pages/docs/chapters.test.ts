@@ -131,7 +131,7 @@ describe("the chapters' content", () => {
   it("api lists every endpoint from shared/endpoints.ts", async () => {
     const text = (await render("api")).text();
     for (const e of API_ENDPOINTS) expect(text).toContain(e.path);
-    expect(text).toContain("no request rate limiting");
+    expect(text).toContain("429");
   });
 
   it("seasons lists the presets and the cron, from the registry", async () => {
