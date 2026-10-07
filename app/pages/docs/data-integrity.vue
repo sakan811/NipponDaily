@@ -73,7 +73,8 @@
           <tr>
             <td>Daily words</td>
             <td>
-              Generated from the two above plus the hand-written headlines in
+              Generated from the word-list snapshots, the Etymology pins and the
+              sentence snapshot, plus the hand-written headlines in
               <code>data/word-plan/</code>
             </td>
             <td><code>data/words/YYYY-MM.json</code></td>
@@ -99,8 +100,9 @@
     <p>
       Everything is processed offline. The reference builders download the
       pinned JMdict release and word lists once (checksum-verified, then
-      cached), and every other step, from <code>pnpm data:etymology</code> and
-      <code>pnpm data:sentences</code> to <code>pnpm data:kanji</code>,
+      cached); <code>pnpm data:sentences</code> reuses that cached JMdict to
+      check furigana (fetching it if it is missing), and every other step, from
+      <code>pnpm data:etymology</code> to <code>pnpm data:kanji</code>,
       <code>pnpm data:words</code> and the tests, reads only local files.
     </p>
 
@@ -370,7 +372,7 @@ const provenance = [
   {
     field: "stratum",
     source:
-      "KANJIDIC2 on/kun analysis of the spelling, or JMdict's loan source; omitted when irregular spellings defeat it.",
+      "A katakana spelling (hybrid when mixed with kanji), a loan source named by the text or by JMdict, KANJIDIC2's on/kun analysis of the spelling, or else the text's “Middle Chinese” or “Old Japanese”. Omitted when none settles it (irregular spellings).",
   },
   {
     field: "sources[]",
