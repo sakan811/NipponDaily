@@ -271,9 +271,8 @@
         coinage made in Japan or an ateji spelling carries that process; a
         European loan source means the borrowing process and the loanword layer
         (unless the cited text itself puts Chinese forward and hedges, as for
-        缶). It only confirms: this jamdict-data build records a loan source
-        only where JMdict names the foreign word or marks a coinage, so silence
-        from JMdict proves nothing.
+        缶). It only confirms: this jamdict-data build gives no loan source for
+        many loanwords (カメラ, ノート), so silence from JMdict proves nothing.
       </li>
       <li>
         <strong>Example sentences</strong> (<code>examples.test.ts</code>): each

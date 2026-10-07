@@ -24,19 +24,19 @@
         <strong>More breakdowns.</strong> A KANJIDIC2 split now covers words
         written with kanji and their okurigana (手続き, 言い出す), marked as
         derived. What is left without one is mostly a single kanji, or a single
-        kanji with okurigana (抱く), where the only split is the word itself;
-        loanwords whose text names no one source; and a few dozen where
-        Wiktionary's structured templates give a derivation that its prose words
-        differently. Reading the templates would need them pinned beside each
-        section.
+        kanji with okurigana (抱く), where the only split is the word itself.
+        The rest are words written only in kana, loanwords whose text names no
+        one source, irregular spellings (為替, 足袋) and words where
+        Wiktionary's structured templates may give a derivation that its prose
+        words differently. Reading the templates would need them pinned beside
+        each section.
       </li>
       <li>
         <strong>A newer JMdict.</strong> The checks against JMdict use the
-        <code>jamdict-data</code> release already pinned, which records a loan
-        source only where JMdict names the foreign word or marks a coinage made
-        in Japan. A newer release, or one that keeps the language of every
-        loanword, would let the cross-check refute a keyword tag as well as
-        confirm one.
+        <code>jamdict-data</code> release already pinned, which gives no loan
+        source for many loanwords (カメラ, ノート). A newer release, or one that
+        keeps the language of every loanword, would let the cross-check refute a
+        keyword tag as well as confirm one.
       </li>
       <li>
         <strong>More data on each word.</strong> Pitch accent from an open
@@ -46,10 +46,10 @@
       </li>
       <li>
         <strong>A second analyser for the furigana.</strong> kuromoji uses the
-        IPADIC dictionary, as Tatoeba's software does, so their mistakes can
-        agree. An analyser built on a different dictionary (UniDic: Sudachi,
-        Lindera or MeCab) would check Tatoeba's machine-made readings
-        independently and settle some of the few kanji still left bare.
+        IPADIC dictionary and Tatoeba's software is MeCab, so their mistakes may
+        agree. An analyser built on a different dictionary (MeCab with UniDic,
+        or Sudachi) would check Tatoeba's machine-made readings independently
+        and settle some of the few kanji still left bare.
       </li>
       <li>
         <strong>An export for flash-card tools</strong> of the open words, with
@@ -115,7 +115,7 @@
         <strong>The words are used up.</strong> A word needs an Etymology
         section for its reading in the pinned dump, and most pool words have
         none, so the pool is far larger than the supply. Nearly every word that
-        can be built is in the catalogue (a few dozen were left out by hand
+        can be built is in the catalogue (about thirty were left out by hand
         because the page's text was thin or about another sense), which starts a
         new lap when it runs out. More words need a newer dump or another source
         of origins.
