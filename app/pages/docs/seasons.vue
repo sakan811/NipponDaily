@@ -86,9 +86,11 @@
         season change never changes the level. It is off on every load; only the
         volume (<code>bgm-volume</code>) is remembered. Looping is gapless
         through a decoded audio buffer and a <code>GainNode</code> (iOS ignores
-        <code>element.volume</code>). When the season changes mid-song the old
-        track keeps playing until the new one has loaded, then the two crossfade
-        over two seconds. The music pauses while the tab is hidden.
+        <code>element.volume</code>); a browser without Web Audio falls back to
+        a plain looping audio element, with no crossfade. When the season
+        changes mid-song the old track keeps playing until the new one has
+        loaded, then the two crossfade over two seconds. The music pauses while
+        the tab is hidden.
       </li>
     </ul>
 
