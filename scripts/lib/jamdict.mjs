@@ -57,6 +57,16 @@ export async function ensureJamdictDb(cacheDir) {
 
 const KANJI_RE = /[㐀-䶿一-鿿々]/;
 
+/** Every reading JMdict gives a written form, when it gives more than one
+ *  (今日: きょう, こんにち, こんじつ). A sentence corpus that indexes the bare
+ *  spelling cannot say which of them it means, so the sentence builder reads
+ *  this to refuse such an index entry. */
+export function spellingReadings(dict, term) {
+  if (!KANJI_RE.test(term)) return undefined;
+  const readings = dict.readingsOf(term);
+  return readings.length > 1 ? readings : undefined;
+}
+
 /** Strips the word list's notation so a form can be looked up in JMdict —
  *  shared by every level's word list. Different files in elzup/
  *  jlpt-word-list mark suru-verbs differently: n5.csv annotates the reading
@@ -89,6 +99,23 @@ export function openDictionary(dbPath) {
     idsByKana: db.prepare("SELECT DISTINCT idseq FROM Kana WHERE text = ?"),
     kanjiOf: db.prepare("SELECT text FROM Kanji WHERE idseq = ? ORDER BY ID"),
     kanaOf: db.prepare("SELECT text FROM Kana WHERE idseq = ? ORDER BY ID"),
+    // Priority tags (ke_pri / re_pri) and form notes (ke_inf / re_inf) hang
+    // off one spelling or one reading, not off the entry.
+    kanjiPri: db.prepare(
+      "SELECT k.text AS form, p.text AS tag FROM Kanji k JOIN KJP p ON p.kid = k.ID WHERE k.idseq = ? ORDER BY k.ID, p.rowid",
+    ),
+    kanaPri: db.prepare(
+      "SELECT k.text AS form, p.text AS tag FROM Kana k JOIN KNP p ON p.kid = k.ID WHERE k.idseq = ? ORDER BY k.ID, p.rowid",
+    ),
+    kanjiInfo: db.prepare(
+      "SELECT k.text AS form, p.text AS tag FROM Kanji k JOIN KJI p ON p.kid = k.ID WHERE k.idseq = ? ORDER BY k.ID, p.rowid",
+    ),
+    kanaInfo: db.prepare(
+      "SELECT k.text AS form, p.text AS tag FROM Kana k JOIN KNI p ON p.kid = k.ID WHERE k.idseq = ? ORDER BY k.ID, p.rowid",
+    ),
+    loanSources: db.prepare(
+      "SELECT text, lang, lstype, wasei FROM SenseSource WHERE sid = ? ORDER BY rowid",
+    ),
     senses: db.prepare("SELECT ID FROM Sense WHERE idseq = ? ORDER BY ID"),
     glosses: db.prepare(
       "SELECT text FROM SenseGloss WHERE sid = ? AND lang = 'eng' ORDER BY rowid",
@@ -96,7 +123,7 @@ export function openDictionary(dbPath) {
     pos: db.prepare("SELECT text FROM pos WHERE sid = ? ORDER BY rowid"),
     misc: db.prepare("SELECT text FROM misc WHERE sid = ?"),
     char: db.prepare(
-      "SELECT ID, stroke_count FROM character WHERE literal = ?",
+      "SELECT ID, stroke_count, grade, freq FROM character WHERE literal = ?",
     ),
     groups: db.prepare("SELECT ID FROM rm_group WHERE cid = ? ORDER BY ID"),
     readings: db.prepare(
@@ -108,15 +135,46 @@ export function openDictionary(dbPath) {
   };
   const col = (rows, key) => rows.map((r) => r[key]);
 
+  /** `[{ form, tag }]` rows as `{ form: [tag, …] }`, in JMdict's order. */
+  const byForm = (rows) => {
+    const out = {};
+    for (const { form, tag } of rows) (out[form] ??= []).push(tag);
+    return out;
+  };
+
+  /** Every tag JMdict writes verbatim; a key is left out when it has nothing,
+   *  so an entry only grows where JMdict says something. `priority` holds the
+   *  ke_pri / re_pri codes of each spelling and reading (ichi1, news1, nf05…),
+   *  `info` its ke_inf / re_inf notes (ateji, irregular kanji usage…), and a
+   *  sense's `misc` its misc tags (abbreviation, archaism…) and `loan` the
+   *  language it was borrowed from (`wasei` for a coinage made in Japan). */
   function entry(idseq) {
+    const priority = byForm([
+      ...q.kanjiPri.all(idseq),
+      ...q.kanaPri.all(idseq),
+    ]);
+    const info = byForm([...q.kanjiInfo.all(idseq), ...q.kanaInfo.all(idseq)]);
     return {
       idseq,
       kanji: col(q.kanjiOf.all(idseq), "text"),
       readings: col(q.kanaOf.all(idseq), "text"),
-      senses: q.senses.all(idseq).map(({ ID }) => ({
-        pos: col(q.pos.all(ID), "text"),
-        glosses: col(q.glosses.all(ID), "text"),
-      })),
+      ...(Object.keys(priority).length ? { priority } : {}),
+      ...(Object.keys(info).length ? { info } : {}),
+      senses: q.senses.all(idseq).map(({ ID }) => {
+        const misc = col(q.misc.all(ID), "text");
+        const loan = q.loanSources.all(ID).map((l) => ({
+          lang: l.lang,
+          ...(l.text ? { text: l.text } : {}),
+          ...(l.lstype === "part" ? { partial: true } : {}),
+          ...(l.wasei === "y" ? { wasei: true } : {}),
+        }));
+        return {
+          pos: col(q.pos.all(ID), "text"),
+          glosses: col(q.glosses.all(ID), "text"),
+          ...(misc.length ? { misc } : {}),
+          ...(loan.length ? { loan } : {}),
+        };
+      }),
     };
   }
 
@@ -260,7 +318,17 @@ export function openDictionary(dbPath) {
         }
         meanings.push(...col(q.meanings.all(ID), "value"));
       }
-      return { strokeCount: c.stroke_count, on, kun, meanings };
+      return {
+        strokeCount: c.stroke_count,
+        // KANJIDIC2's school grade (1–6 taught in elementary school, 8 the
+        // rest of the jōyō list, 9–10 name kanji) and its rank by newspaper
+        // frequency (1–2500); either is left out when KANJIDIC2 has none.
+        ...(c.grade ? { grade: Number(c.grade) } : {}),
+        ...(c.freq ? { freq: Number(c.freq) } : {}),
+        on,
+        kun,
+        meanings,
+      };
     },
   };
 }

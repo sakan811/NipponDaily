@@ -37,6 +37,7 @@ import {
   JAMDICT_SOURCE,
   ensureJamdictDb,
   openDictionary,
+  spellingReadings,
 } from "./lib/jamdict.mjs";
 import {
   MAX_SPAN_TOKENS,
@@ -110,6 +111,9 @@ function buildLevelReference(level, entries, dict, shared) {
       listMeaning: e.listMeaning,
       jlptLevel: level,
       jmdict,
+      ...(spellingReadings(dict, served.term)
+        ? { spellingReadings: spellingReadings(dict, served.term) }
+        : {}),
       ...(evidence ? { evidence } : {}),
     };
   });
