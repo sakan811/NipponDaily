@@ -49,7 +49,7 @@ describe("Index Page (Landing)", () => {
 
     expect(wrapper.text()).toContain("a story.");
     expect(wrapper.text()).toContain("takes it apart");
-    expect(wrapper.text()).toContain("the calendar keeps them all");
+    expect(wrapper.text()).toContain("The calendar keeps every word");
   });
 
   it("fetches and shows today's word, linking to its page", async () => {

@@ -28,10 +28,25 @@
         >
           Each day NipponDaily opens one Japanese word and takes it apart: its
           morphemes, the layer of the language it belongs to, the sound changes
-          and borrowings that made it, and the evidence behind every claim. Miss
-          a day and nothing is lost — the calendar keeps them all.
+          and borrowings that made it, and the evidence behind every claim.
         </p>
       </div>
+
+      <!-- How it works -->
+      <ol
+        data-testid="how-it-works"
+        class="mt-10 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 text-center font-sans"
+        aria-label="How it works"
+      >
+        <li v-for="(step, idx) in howItWorks" :key="idx" class="space-y-1">
+          <p class="kicker text-primary-600 dark:text-primary-400">
+            {{ step.title }}
+          </p>
+          <p class="text-sm text-stone-600 dark:text-stone-400">
+            {{ step.text }}
+          </p>
+        </li>
+      </ol>
 
       <!-- Today's word -->
       <section class="mt-14 max-w-3xl mx-auto" aria-labelledby="today-heading">
@@ -262,6 +277,21 @@ usePageSeo({
     payload.value ? shareImagePath(payload.value.entry.date) : undefined,
   imageAlt: () => (payload.value ? wordTitle(payload.value.entry) : undefined),
 });
+
+const howItWorks = [
+  {
+    title: "1 · A word a day",
+    text: "A new word opens every day at midnight in Japan. Today's is below.",
+  },
+  {
+    title: "2 · Read it apart",
+    text: "Open it to see its parts, its origin and the sources, in plain steps.",
+  },
+  {
+    title: "3 · Miss a day? Fine",
+    text: "The calendar keeps every word under the day it first opened. Once all have had a day, they come round again.",
+  },
+];
 
 const entryParts = [
   {
