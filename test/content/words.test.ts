@@ -96,15 +96,14 @@ describe("the daily-word catalogue", () => {
     expect(new Set(terms).size).toBe(terms.length);
   });
 
-  it("covers every day of each month it starts", () => {
-    const months = [...new Set(WORD_ENTRIES.map((e) => e.date.slice(0, 7)))];
-    for (const month of months) {
-      const [y, m] = month.split("-").map(Number) as [number, number];
-      const daysInMonth = new Date(Date.UTC(y, m, 0)).getUTCDate();
-      const have = WORD_ENTRIES.filter((e) => e.date.startsWith(month)).length;
-      expect(have, `${month} should have ${daysInMonth} entries`).toBe(
-        daysInMonth,
-      );
+  it("has no gap between its first and last day", () => {
+    // The first and last months may be partial; every day between has a word.
+    for (let i = 1; i < WORD_ENTRIES.length; i++) {
+      const gap =
+        (Date.parse(WORD_ENTRIES[i]!.date) -
+          Date.parse(WORD_ENTRIES[i - 1]!.date)) /
+        86_400_000;
+      expect(gap, `${WORD_ENTRIES[i]!.date} follows a gap`).toBe(1);
     }
   });
 

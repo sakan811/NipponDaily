@@ -34,40 +34,40 @@ describe("GET /api/daily-word", () => {
   afterEach(() => vi.useRealTimers());
 
   it("serves today's word, with its neighbours", async () => {
-    at("2026-10-05T12:00:00Z");
+    at("2023-07-12T12:00:00Z");
     const handler = await getHandler();
     const result = handler({} as any);
 
     expect(result.success).toBe(true);
-    expect(result.data.entry.date).toBe("2026-10-05");
+    expect(result.data.entry.date).toBe("2023-07-12");
     expect(result.data.entry.term).toBe("時計");
-    expect(result.data.prev).toEqual({ date: "2026-10-04", term: "パン" });
-    // 2026-10-06 is tomorrow: its existence is not revealed early.
+    expect(result.data.prev).toEqual({ date: "2023-07-11", term: "パン" });
+    // 2023-07-13 is tomorrow: its existence is not revealed early.
     expect(result.data.next).toBeNull();
   });
 
   it("flips to the next day at midnight in Japan, not UTC", async () => {
     // 15:00 UTC on the 5th is already 00:00 on the 6th in Tokyo.
-    at("2026-10-05T15:00:00Z");
+    at("2023-07-12T15:00:00Z");
     const handler = await getHandler();
-    expect(handler({} as any).data.entry.date).toBe("2026-10-06");
+    expect(handler({} as any).data.entry.date).toBe("2023-07-13");
   });
 
   it("serves a past word by ?date= and links forward to the next open day", async () => {
-    at("2026-10-20T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-01-01" });
+    at("2023-07-27T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2022-10-08" });
     const handler = await getHandler();
     const result = handler({} as any);
 
     const before =
-      WORD_ENTRIES[WORD_ENTRIES.findIndex((e) => e.date === "2026-01-01") - 1]!;
+      WORD_ENTRIES[WORD_ENTRIES.findIndex((e) => e.date === "2022-10-08") - 1]!;
     expect(result.data.entry.term).toBe("今年");
     expect(result.data.prev).toEqual({ date: before.date, term: before.term });
-    expect(result.data.next).toEqual({ date: "2026-01-02", term: "チップ" });
+    expect(result.data.next).toEqual({ date: "2022-10-09", term: "チップ" });
   });
 
   it("has nothing before the first word of the catalogue", async () => {
-    at("2026-10-20T12:00:00Z");
+    at("2023-07-27T12:00:00Z");
     (global as any).getQuery.mockReturnValue({ date: FIRST.date });
     const handler = await getHandler();
     const result = handler({} as any);
@@ -81,19 +81,19 @@ describe("GET /api/daily-word", () => {
   });
 
   it("links across the month boundary in both directions", async () => {
-    at("2026-10-20T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-10-01" });
+    at("2023-07-27T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2023-07-08" });
     const handler = await getHandler();
     const result = handler({} as any);
 
     expect(result.data.entry.term).toBe("電話");
-    expect(result.data.prev).toEqual({ date: "2026-09-30", term: "蕎麦" });
-    expect(result.data.next).toEqual({ date: "2026-10-02", term: "友達" });
+    expect(result.data.prev).toEqual({ date: "2023-07-07", term: "蕎麦" });
+    expect(result.data.next).toEqual({ date: "2023-07-09", term: "友達" });
   });
 
   it("carries the origin evidence a page needs", async () => {
-    at("2026-10-20T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-10-13" });
+    at("2023-07-27T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2023-07-20" });
     const handler = await getHandler();
     const { entry } = handler({} as any).data;
 
@@ -107,12 +107,12 @@ describe("GET /api/daily-word", () => {
   });
 
   it.each([
-    ["a future date", "2026-10-25"],
+    ["a future date", "2023-08-01"],
     ["an impossible calendar date", "2026-02-30"],
     ["an out-of-range month", "2026-13-01"],
     ["not a date at all", "yesterday"],
   ])("returns 400 for %s", async (_label, date) => {
-    at("2026-10-20T12:00:00Z");
+    at("2023-07-27T12:00:00Z");
     (global as any).getQuery.mockReturnValue({ date });
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
@@ -121,8 +121,8 @@ describe("GET /api/daily-word", () => {
   });
 
   it("never serves a future word, even when asked by exact date", async () => {
-    at("2026-10-01T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-10-02" });
+    at("2023-07-08T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2023-07-09" });
     const handler = await getHandler();
     const err = thrownBy(() => handler({} as any));
     expect(err).toMatchObject({ statusCode: 400 });
@@ -130,8 +130,8 @@ describe("GET /api/daily-word", () => {
   });
 
   it("returns 404 for a past date the catalogue does not cover", async () => {
-    at("2026-10-20T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2021-12-31" });
+    at("2023-07-27T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2018-10-07" });
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,
@@ -166,13 +166,13 @@ describe("GET /api/daily-word", () => {
 
   it("answers an explicit date from lap 1 only", async () => {
     at(`${addDays(LAST.date, 70)}T12:00:00Z`);
-    (global as any).getQuery.mockReturnValue({ date: "2026-05-11" });
+    (global as any).getQuery.mockReturnValue({ date: "2023-02-15" });
     const handler = await getHandler();
     expect(handler({} as any).data.lap).toBe(1);
   });
 
   it("returns 404 before the first word has opened", async () => {
-    at("2021-12-15T12:00:00Z");
+    at("2018-09-25T12:00:00Z");
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,

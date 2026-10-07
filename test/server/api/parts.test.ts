@@ -21,7 +21,7 @@ describe("GET /api/parts", () => {
   afterEach(() => vi.useRealTimers());
 
   it("lists the parts of the words that have opened", async () => {
-    at("2026-03-08T12:00:00Z");
+    at("2022-12-13T12:00:00Z");
     const result = (await getParts())({} as any);
 
     expect(result.success).toBe(true);
@@ -29,7 +29,7 @@ describe("GET /api/parts", () => {
       text: "日",
       count: WORD_ENTRIES.filter(
         (e) =>
-          e.date <= "2026-03-08" && e.morphemes.some((m) => m.text === "日"),
+          e.date <= "2022-12-13" && e.morphemes.some((m) => m.text === "日"),
       ).length,
     });
     expect(result.data.parts[0].readings).toEqual(
@@ -59,7 +59,7 @@ describe("GET /api/parts", () => {
 describe("GET /api/part", () => {
   beforeEach(() => {
     vi.useFakeTimers();
-    at("2026-03-08T12:00:00Z");
+    at("2022-12-13T12:00:00Z");
     (global as any).getQuery.mockReturnValue({ text: "日" });
   });
   afterEach(() => vi.useRealTimers());
@@ -71,7 +71,7 @@ describe("GET /api/part", () => {
     expect(result.data.count).toBe(
       WORD_ENTRIES.filter(
         (e) =>
-          e.date <= "2026-03-08" && e.morphemes.some((m) => m.text === "日"),
+          e.date <= "2022-12-13" && e.morphemes.some((m) => m.text === "日"),
       ).length,
     );
     expect(result.data.readings[0].reading).toBe("び");
@@ -92,12 +92,12 @@ describe("GET /api/part", () => {
   });
 
   it("404s a part that only an upcoming word shows", async () => {
-    // 曜 never stands alone, but 誕生 is a part only of 誕生日 (2026-07-12).
+    // 曜 never stands alone, but 誕生 is a part only of 誕生日 (2023-04-18).
     const handler = await getPart();
     (global as any).getQuery.mockReturnValue({ text: "誕生" });
     expect(thrownBy(() => handler({} as any)).statusCode).toBe(404);
 
-    at("2026-07-12T00:00:00Z");
+    at("2023-04-18T00:00:00Z");
     expect(handler({} as any).data.count).toBe(1);
   });
 });

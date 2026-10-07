@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { partDetail, partsIndex } from "~~/shared/parts";
 import { WORD_ENTRIES } from "~~/shared/words";
 
-const TODAY = "2026-03-08";
+const TODAY = "2022-12-13";
 const dayBefore = (date: string) =>
   new Date(Date.parse(`${date}T00:00:00Z`) - 864e5).toISOString().slice(0, 10);
 const withDay = (today: string) =>
@@ -72,12 +72,12 @@ describe("partDetail", () => {
       base: "ひ",
       meaning: "day",
       parts: ["月曜", "日"],
-      word: { date: "2026-03-02", kana: "げつようび", meaning: "Monday" },
+      word: { date: "2022-12-07", kana: "げつようび", meaning: "Monday" },
     });
   });
 
   it("counts a word once even when it shows the part twice", () => {
-    const detail = partDetail("日", "2026-03-01")!;
+    const detail = partDetail("日", "2022-12-06")!;
     const uses = detail.readings.flatMap((r) => r.uses);
     // 日日 shows 日 twice (ひ and にち) but is one word.
     expect(new Set(uses.map((u) => u.word.date)).size).toBe(detail.count);
@@ -85,7 +85,7 @@ describe("partDetail", () => {
   });
 
   it("lists words spelled with a kanji but not broken down with it", () => {
-    const detail = partDetail("日", "2026-05-10")!;
+    const detail = partDetail("日", "2023-02-14")!;
 
     // 三日月: spelled with 日, but no breakdown names it.
     expect(detail.alsoIn.map((w) => w.term)).toContain("三日月");
@@ -96,7 +96,7 @@ describe("partDetail", () => {
   });
 
   it("gives a kana part no spelling matches", () => {
-    expect(partDetail("お", "2027-12-31")!.alsoIn).toEqual([]);
+    expect(partDetail("お", "2024-10-06")!.alsoIn).toEqual([]);
   });
 
   it("never lists an upcoming word, among the uses or the spelling matches", () => {
@@ -106,13 +106,13 @@ describe("partDetail", () => {
       ...detail.alsoIn.map((w) => w.date),
     ];
     expect(dates.every((d) => d <= TODAY)).toBe(true);
-    // 三日月 (2026-03-23) hasn't opened yet.
+    // 三日月 (2022-12-28) hasn't opened yet.
     expect(detail.alsoIn.map((w) => w.term)).not.toContain("三日月");
   });
 
   it("is undefined for a part no open word shows", () => {
     const first = withDay("2999-12-31")[0]!;
     expect(partDetail("日", dayBefore(first.date))).toBeUndefined();
-    expect(partDetail("存在しない", "2027-12-31")).toBeUndefined();
+    expect(partDetail("存在しない", "2024-10-06")).toBeUndefined();
   });
 });

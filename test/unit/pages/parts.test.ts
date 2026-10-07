@@ -6,12 +6,12 @@ import PartPage from "~/app/pages/parts/[text].vue";
 import { partDetail, partsIndex } from "~~/shared/parts";
 import { WORD_ENTRIES } from "~~/shared/words";
 
-const TODAY = "2026-03-08";
+const TODAY = "2022-12-13";
 
 const respond = (data: unknown) => ({
   success: true,
   data,
-  timestamp: "2026-03-08T00:00:00Z",
+  timestamp: "2022-12-13T00:00:00Z",
 });
 
 describe("Parts Page (/parts)", () => {
@@ -94,7 +94,7 @@ describe("Part Page (/parts/[text])", () => {
       params: { text: "日" },
     } as any);
     (global as any).$fetch.mockResolvedValue(
-      respond(partDetail("日", "2026-05-10")),
+      respond(partDetail("日", "2023-02-14")),
     );
   });
 
@@ -131,7 +131,7 @@ describe("Part Page (/parts/[text])", () => {
     const monday = wrapper
       .findAll('[data-testid="part-use"]')
       .find((u) => u.text().includes("月曜日"))!;
-    expect(monday.find('a[href="/words/2026-03-02"]').text()).toContain(
+    expect(monday.find('a[href="/words/2022-12-07"]').text()).toContain(
       "月曜日",
     );
     expect(monday.find('a[href="/parts/%E6%9C%88%E6%9B%9C"]').text()).toBe(

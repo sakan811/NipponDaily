@@ -15,6 +15,45 @@ import type {
   WordCalendarDay,
   WordEntry,
 } from "~~/types/index";
+import october2018 from "~~/data/words/2018-10.json";
+import november2018 from "~~/data/words/2018-11.json";
+import december2018 from "~~/data/words/2018-12.json";
+import january2019 from "~~/data/words/2019-01.json";
+import february2019 from "~~/data/words/2019-02.json";
+import march2019 from "~~/data/words/2019-03.json";
+import april2019 from "~~/data/words/2019-04.json";
+import may2019 from "~~/data/words/2019-05.json";
+import june2019 from "~~/data/words/2019-06.json";
+import july2019 from "~~/data/words/2019-07.json";
+import august2019 from "~~/data/words/2019-08.json";
+import september2019 from "~~/data/words/2019-09.json";
+import october2019 from "~~/data/words/2019-10.json";
+import november2019 from "~~/data/words/2019-11.json";
+import december2019 from "~~/data/words/2019-12.json";
+import january2020 from "~~/data/words/2020-01.json";
+import february2020 from "~~/data/words/2020-02.json";
+import march2020 from "~~/data/words/2020-03.json";
+import april2020 from "~~/data/words/2020-04.json";
+import may2020 from "~~/data/words/2020-05.json";
+import june2020 from "~~/data/words/2020-06.json";
+import july2020 from "~~/data/words/2020-07.json";
+import august2020 from "~~/data/words/2020-08.json";
+import september2020 from "~~/data/words/2020-09.json";
+import october2020 from "~~/data/words/2020-10.json";
+import november2020 from "~~/data/words/2020-11.json";
+import december2020 from "~~/data/words/2020-12.json";
+import january2021 from "~~/data/words/2021-01.json";
+import february2021 from "~~/data/words/2021-02.json";
+import march2021 from "~~/data/words/2021-03.json";
+import april2021 from "~~/data/words/2021-04.json";
+import may2021 from "~~/data/words/2021-05.json";
+import june2021 from "~~/data/words/2021-06.json";
+import july2021 from "~~/data/words/2021-07.json";
+import august2021 from "~~/data/words/2021-08.json";
+import september2021 from "~~/data/words/2021-09.json";
+import october2021 from "~~/data/words/2021-10.json";
+import november2021 from "~~/data/words/2021-11.json";
+import december2021 from "~~/data/words/2021-12.json";
 import january2022 from "~~/data/words/2022-01.json";
 import february2022 from "~~/data/words/2022-02.json";
 import march2022 from "~~/data/words/2022-03.json";
@@ -73,47 +112,48 @@ import july2026 from "~~/data/words/2026-07.json";
 import august2026 from "~~/data/words/2026-08.json";
 import september2026 from "~~/data/words/2026-09.json";
 import october2026 from "~~/data/words/2026-10.json";
-import november2026 from "~~/data/words/2026-11.json";
-import december2026 from "~~/data/words/2026-12.json";
-import january2027 from "~~/data/words/2027-01.json";
-import february2027 from "~~/data/words/2027-02.json";
-import march2027 from "~~/data/words/2027-03.json";
-import april2027 from "~~/data/words/2027-04.json";
-import may2027 from "~~/data/words/2027-05.json";
-import june2027 from "~~/data/words/2027-06.json";
-import july2027 from "~~/data/words/2027-07.json";
-import august2027 from "~~/data/words/2027-08.json";
-import september2027 from "~~/data/words/2027-09.json";
-import october2027 from "~~/data/words/2027-10.json";
-import november2027 from "~~/data/words/2027-11.json";
-import december2027 from "~~/data/words/2027-12.json";
-import january2028 from "~~/data/words/2028-01.json";
-import february2028 from "~~/data/words/2028-02.json";
-import march2028 from "~~/data/words/2028-03.json";
-import april2028 from "~~/data/words/2028-04.json";
-import may2028 from "~~/data/words/2028-05.json";
-import june2028 from "~~/data/words/2028-06.json";
-import july2028 from "~~/data/words/2028-07.json";
-import august2028 from "~~/data/words/2028-08.json";
-import september2028 from "~~/data/words/2028-09.json";
-import october2028 from "~~/data/words/2028-10.json";
-import november2028 from "~~/data/words/2028-11.json";
-import december2028 from "~~/data/words/2028-12.json";
-import january2029 from "~~/data/words/2029-01.json";
-import february2029 from "~~/data/words/2029-02.json";
-import march2029 from "~~/data/words/2029-03.json";
-import april2029 from "~~/data/words/2029-04.json";
-import may2029 from "~~/data/words/2029-05.json";
-import june2029 from "~~/data/words/2029-06.json";
-import july2029 from "~~/data/words/2029-07.json";
-import august2029 from "~~/data/words/2029-08.json";
-import september2029 from "~~/data/words/2029-09.json";
-import october2029 from "~~/data/words/2029-10.json";
-import november2029 from "~~/data/words/2029-11.json";
-import december2029 from "~~/data/words/2029-12.json";
 
 /** Every month's entries, oldest first. */
 const MONTHS: WordEntry[][] = [
+  october2018 as WordEntry[],
+  november2018 as WordEntry[],
+  december2018 as WordEntry[],
+  january2019 as WordEntry[],
+  february2019 as WordEntry[],
+  march2019 as WordEntry[],
+  april2019 as WordEntry[],
+  may2019 as WordEntry[],
+  june2019 as WordEntry[],
+  july2019 as WordEntry[],
+  august2019 as WordEntry[],
+  september2019 as WordEntry[],
+  october2019 as WordEntry[],
+  november2019 as WordEntry[],
+  december2019 as WordEntry[],
+  january2020 as WordEntry[],
+  february2020 as WordEntry[],
+  march2020 as WordEntry[],
+  april2020 as WordEntry[],
+  may2020 as WordEntry[],
+  june2020 as WordEntry[],
+  july2020 as WordEntry[],
+  august2020 as WordEntry[],
+  september2020 as WordEntry[],
+  october2020 as WordEntry[],
+  november2020 as WordEntry[],
+  december2020 as WordEntry[],
+  january2021 as WordEntry[],
+  february2021 as WordEntry[],
+  march2021 as WordEntry[],
+  april2021 as WordEntry[],
+  may2021 as WordEntry[],
+  june2021 as WordEntry[],
+  july2021 as WordEntry[],
+  august2021 as WordEntry[],
+  september2021 as WordEntry[],
+  october2021 as WordEntry[],
+  november2021 as WordEntry[],
+  december2021 as WordEntry[],
   january2022 as WordEntry[],
   february2022 as WordEntry[],
   march2022 as WordEntry[],
@@ -172,44 +212,6 @@ const MONTHS: WordEntry[][] = [
   august2026 as WordEntry[],
   september2026 as WordEntry[],
   october2026 as WordEntry[],
-  november2026 as WordEntry[],
-  december2026 as WordEntry[],
-  january2027 as WordEntry[],
-  february2027 as WordEntry[],
-  march2027 as WordEntry[],
-  april2027 as WordEntry[],
-  may2027 as WordEntry[],
-  june2027 as WordEntry[],
-  july2027 as WordEntry[],
-  august2027 as WordEntry[],
-  september2027 as WordEntry[],
-  october2027 as WordEntry[],
-  november2027 as WordEntry[],
-  december2027 as WordEntry[],
-  january2028 as WordEntry[],
-  february2028 as WordEntry[],
-  march2028 as WordEntry[],
-  april2028 as WordEntry[],
-  may2028 as WordEntry[],
-  june2028 as WordEntry[],
-  july2028 as WordEntry[],
-  august2028 as WordEntry[],
-  september2028 as WordEntry[],
-  october2028 as WordEntry[],
-  november2028 as WordEntry[],
-  december2028 as WordEntry[],
-  january2029 as WordEntry[],
-  february2029 as WordEntry[],
-  march2029 as WordEntry[],
-  april2029 as WordEntry[],
-  may2029 as WordEntry[],
-  june2029 as WordEntry[],
-  july2029 as WordEntry[],
-  august2029 as WordEntry[],
-  september2029 as WordEntry[],
-  october2029 as WordEntry[],
-  november2029 as WordEntry[],
-  december2029 as WordEntry[],
 ];
 
 export const WORD_ENTRIES: readonly WordEntry[] = MONTHS.flat().sort((a, b) =>

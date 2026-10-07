@@ -7,7 +7,7 @@ import {
 import { posGroupsOf } from "~~/shared/word-labels";
 import { WORD_ENTRIES, monthsWithEntries } from "~~/shared/words";
 
-const TODAY = "2026-03-08";
+const TODAY = "2022-12-13";
 const open = WORD_ENTRIES.filter((e) => e.date <= TODAY);
 const FIRST = WORD_ENTRIES[0]!.date;
 const SECOND = WORD_ENTRIES[1]!.date;
@@ -185,7 +185,7 @@ describe("exploreWords", () => {
   });
 
   it("summarises a word without its sources or morphemes", () => {
-    const [first] = exploreWords({}, "2026-01-01").words;
+    const [first] = exploreWords({}, "2022-10-08").words;
 
     expect(Object.keys(first!).sort()).toEqual(
       [
@@ -203,7 +203,7 @@ describe("exploreWords", () => {
 });
 
 describe("exploreCalendar", () => {
-  const MONTH = "2026-03";
+  const MONTH = "2022-12";
 
   it("marks every open day as a match when nothing is filtered", () => {
     const cal = exploreCalendar(MONTH, {}, TODAY);
@@ -240,17 +240,17 @@ describe("exploreCalendar", () => {
       cal.count,
     );
     // Months after today hold words that have not opened, so none match.
-    expect(cal.monthCounts["2026-12"]).toBe(0);
-    expect(cal.monthCounts["2027-12"]).toBe(0);
+    expect(cal.monthCounts["2023-09"]).toBe(0);
+    expect(cal.monthCounts["2024-10"]).toBe(0);
   });
 
   it("never matches or reveals a day that has not opened", () => {
-    const cal = exploreCalendar(MONTH, { level: ["N5", "N4"] }, "2026-03-03");
+    const cal = exploreCalendar(MONTH, { level: ["N5", "N4"] }, "2022-12-03");
 
     const upcoming = cal.days.filter((d) => d.status === "upcoming");
     expect(upcoming.length).toBeGreaterThan(0);
     for (const d of upcoming)
       expect(d).toEqual({ date: d.date, status: "upcoming" });
-    expect(cal.monthCounts["2026-03"]).toBeLessThanOrEqual(3);
+    expect(cal.monthCounts["2022-12"]).toBeLessThanOrEqual(3);
   });
 });
