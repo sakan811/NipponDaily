@@ -6,6 +6,7 @@
     "meaning": "I (formal), myself, private affairs",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi2"],
     "stratum": "wago",
     "processes": ["compound", "unclear"],
     "headline": "Watakushi has no known source: a surface analysis suggests a compound, but no likely etyma are known.",
@@ -33,6 +34,22 @@
         "quote": "The meaning evolved over time from “private” or “privatization”, to refer to things that are personal, to refer to one's own person, and then finally to serve as a generic first-person pronoun. The full form watakushi is still used in modern Japanese as a formal, highly polite first-person pronoun. The abbreviated form watashi is now the most common and neutrally polite first-person pronoun."
       }
     ],
+    "examples": [
+      {
+        "id": 159334,
+        "ja": "私は泳げません。",
+        "en": "I don't know how to swim.",
+        "enId": 255189,
+        "form": "私"
+      },
+      {
+        "id": 180022,
+        "ja": "私は驚きのあまり口もきけなかった。",
+        "en": "I was too surprised to speak.",
+        "enId": 18882,
+        "form": "私"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -42,6 +59,7 @@
     "meaning": "Japanese sandals (footwear)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "sound-change"],
     "headline": "Zōri: in late Middle Japanese the initial zo temporarily became an affricate, jo.",
@@ -80,6 +98,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Futsū is Middle Chinese 普通, literally “ordinary + through”.",
@@ -103,6 +122,22 @@
         "quote": "From Middle Chinese compound 普通 (MC phuX thuwng, literally “ordinary + through”). Compare modern Hakka phû-thûng, Cantonese pou² tung¹, Mandarin pǔtōng."
       }
     ],
+    "examples": [
+      {
+        "id": 151176,
+        "ja": "視力は普通です。",
+        "en": "I have normal eyesight.",
+        "enId": 263380,
+        "form": "普通"
+      },
+      {
+        "id": 121545,
+        "ja": "背丈は普通でした。",
+        "en": "The man was of normal height.",
+        "enId": 282460,
+        "form": "普通"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -115,6 +150,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Chū is from Middle Chinese 註, and 注 is a daiyōji replacing 註.",
@@ -122,6 +158,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 註 (MC tsyuH|trjuH). 注 is a daiyōji replacing 註."
+      }
+    ],
+    "examples": [
+      {
+        "id": 126363,
+        "ja": "注はページの下欄についている。",
+        "en": "The notes are at the bottom of the page.",
+        "enId": 277628,
+        "form": "注"
+      },
+      {
+        "id": 182775,
+        "ja": "脚注とはページの下部の注をいう。",
+        "en": "Footnotes are notes at the foot of a page.",
+        "enId": 19895,
+        "form": "注"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -133,6 +185,7 @@
     "meaning": "detailed; full; accurate",
     "level": "N3",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kuwashii is simply from Old Japanese.",
@@ -140,6 +193,22 @@
     "sources": [
       {
         "quote": "From Old Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 177083,
+        "ja": "君は相撲に詳しいね。",
+        "en": "You know quite a lot about sumo.",
+        "enId": 15931,
+        "form": "詳しい"
+      },
+      {
+        "id": 219876,
+        "ja": "この辺に詳しいですか。",
+        "en": "Are you familiar with this area?",
+        "enId": 57196,
+        "form": "詳しい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -151,6 +220,7 @@
     "meaning": "next week",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Raishū is 来 (rai-, “coming..., next...”) plus 週 (shū, “week”).",
@@ -171,6 +241,22 @@
         "quote": "From 来 (rai-, “coming..., next...”) + 週 (shū, “week”)."
       }
     ],
+    "examples": [
+      {
+        "id": 78625,
+        "ja": "来週は試験だ。",
+        "en": "The exam is coming up next week.",
+        "enId": 325091,
+        "form": "来週"
+      },
+      {
+        "id": 78635,
+        "ja": "来週また会いたい。",
+        "en": "I'd like to see you again next week.",
+        "enId": 325081,
+        "form": "来週"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -180,6 +266,7 @@
     "meaning": "National Diet, parliament, congress",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Kokkai is from Chinese 國會 (guóhuì); the page also lists Korean 국회 (Gukhoe) and Vietnamese Quốc hội.",
@@ -209,6 +296,22 @@
         "quote": "From Vietnamese Quốc hội."
       }
     ],
+    "examples": [
+      {
+        "id": 173084,
+        "ja": "国会は開会中だ。",
+        "en": "The Diet is now in session.",
+        "enId": 241388,
+        "form": "国会"
+      },
+      {
+        "id": 173086,
+        "ja": "国会は解散された。",
+        "en": "The Diet has been dissolved.",
+        "enId": 241386,
+        "form": "国会"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -221,6 +324,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Haiiro is 灰 (hai, “ash”) plus 色 (-iro, “color”).",
@@ -250,6 +354,7 @@
     "meaning": "gravity",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Inryoku is a calque of Dutch aantrekkingskracht, “attraction force”.",
@@ -272,6 +377,22 @@
         "quote": "Calque of Dutch aantrekkingskracht (“attraction force”)."
       }
     ],
+    "examples": [
+      {
+        "id": 189978,
+        "ja": "引力が惑星を引きつける。",
+        "en": "Gravity binds the planets to the Sun.",
+        "enId": 27134,
+        "form": "引力"
+      },
+      {
+        "id": 198748,
+        "ja": "ニュートンは引力の法則を確立した。",
+        "en": "Newton established the law of gravity.",
+        "enId": 35942,
+        "form": "引力"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -281,6 +402,7 @@
     "meaning": "wing",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hane is 羽 (ha, “feather”) plus 根 (ne, “root”), originally the spot where a quill meets the skin.",
@@ -293,6 +415,22 @@
         "quote": "Compound of 羽(は) (ha, “feather”, see below) + 根(ね) (ne, “root”), originally referring specifically to where the quill of a feather attaches to the skin. Over time, the meaning broadened to refer to a feather, and from there, to refer to a wing."
       }
     ],
+    "examples": [
+      {
+        "id": 189853,
+        "ja": "羽は鳥に固有のものだ。",
+        "en": "Feathers are peculiar to birds.",
+        "enId": 27009,
+        "form": "羽"
+      },
+      {
+        "id": 207761,
+        "ja": "その鳥は羽を震わせた。",
+        "en": "The bird quivered its wings.",
+        "enId": 45015,
+        "form": "羽"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -302,6 +440,7 @@
     "meaning": "lost property",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf40"],
     "processes": [],
     "headline": "Otoshimono is 落とす (otosu) plus 物 (-mono).",
     "morphemes": [],
@@ -322,6 +461,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Yunyū is an alteration of shunyū, using the kan'yōon yu for 輸.",
@@ -353,6 +493,7 @@
     "meaning": "book, publication",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shoseki is from Middle Chinese 書籍 (MC syo dzjek).",
@@ -384,6 +525,7 @@
     "meaning": "return, coming back",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Kaeri is the nominalized stem of 帰る (kaeru, “to return”).",
@@ -391,6 +533,22 @@
     "sources": [
       {
         "quote": "Nominalization of the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 帰(かえ)る (kaeru, “to return”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 218941,
+        "ja": "これが帰りの切符だ。",
+        "en": "Here's my return ticket.",
+        "enId": 56257,
+        "form": "帰り"
+      },
+      {
+        "id": 107072,
+        "ja": "彼は今日も帰りが遅い。",
+        "en": "He is also returning late today.",
+        "enId": 296614,
+        "form": "帰り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -411,6 +569,22 @@
         "quote": "From Middle Chinese 意 (MC 'iH)."
       }
     ],
+    "examples": [
+      {
+        "id": 87515,
+        "ja": "彼女は判決に不満の意を表した。",
+        "en": "She complained about the sentence.",
+        "enId": 316193,
+        "form": "意"
+      },
+      {
+        "id": 111448,
+        "ja": "彼はどんな忠告も意に介さない。",
+        "en": "He doesn't heed any advice.",
+        "enId": 292235,
+        "form": "意"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -420,6 +594,7 @@
     "meaning": "postage, carriage",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf15"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sōryō is 送 (sō) plus 料 (-ryō).",
@@ -442,6 +617,15 @@
         "quote": "送(そう) (sō) + 料(りょう) (-ryō)"
       }
     ],
+    "examples": [
+      {
+        "id": 193775,
+        "ja": "もしも無料でなければ、カタログの価格と日本までの送料をお教えください。",
+        "en": "If they are not free, please let me know how much the catalogue and the postage to Japan are.",
+        "enId": 30944,
+        "form": "送料"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -454,6 +638,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Dōitsu is from Chinese 同一, literally “same + one”.",
@@ -474,6 +659,22 @@
         "quote": "From Chinese 同一 (duwng + ʔjit, literally “same + one”)."
       }
     ],
+    "examples": [
+      {
+        "id": 123689,
+        "ja": "同一現象が観察された。",
+        "en": "The same phenomenon has been observed.",
+        "enId": 280306,
+        "form": "同一"
+      },
+      {
+        "id": 190020,
+        "ja": "一連の犯罪は同一犯によるものだと考えられた。",
+        "en": "The series of crimes were thought to have been committed by the same man.",
+        "enId": 1990412,
+        "form": "同一"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -483,6 +684,7 @@
     "meaning": "persons",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": ["derivation", "rendaku"],
     "headline": "Katagata is a reduplication of 方 (kata, “person”), with kata voiced to gata.",
@@ -490,6 +692,22 @@
     "sources": [
       {
         "quote": "Reduplication of 方(かた) (kata, “person”). The kata changes to gata as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 125040,
+        "ja": "天皇は亡くなった方々の霊に祈りを捧げた。",
+        "en": "The Emperor prayed for the souls of the deceased.",
+        "enId": 278953,
+        "form": "方々"
+      },
+      {
+        "id": 230802,
+        "ja": "あの人たちが昨日あなたが会った方々ですか。",
+        "en": "Are those the people you saw yesterday?",
+        "enId": 68169,
+        "form": "方々"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -504,6 +722,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Hifu is a Sino-Japonic compound of Middle Chinese 皮 and 膚, first attested in 717.",
@@ -535,6 +754,7 @@
     "meaning": "to append, to sum up, to add (up)",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kuwaeru is from the Classical Japanese verb 加ふ (kufafu).",
@@ -550,6 +770,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 182263,
+        "ja": "牛乳を少し加えなさい。",
+        "en": "Add a little milk.",
+        "enId": 19454,
+        "form": "加え"
+      },
+      {
+        "id": 215039,
+        "ja": "スープに塩を加えよう。",
+        "en": "I'll put some salt in the soup.",
+        "enId": 52335,
+        "form": "加えよう"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -559,6 +795,7 @@
     "meaning": "fortunately; luckily",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Saiwai is derived from sakiwai, and began as sakipapi.",
@@ -574,6 +811,22 @@
         "quote": "Most often spelled as 幸い with the final い to indicate the reading."
       }
     ],
+    "examples": [
+      {
+        "id": 173694,
+        "ja": "幸い天気は良かった。",
+        "en": "Fortunately, the weather was good.",
+        "enId": 240769,
+        "form": "幸い"
+      },
+      {
+        "id": 85098,
+        "ja": "不幸の裏には幸いあり。",
+        "en": "Every cloud has a silver lining.",
+        "enId": 36678,
+        "form": "幸い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -583,6 +836,7 @@
     "meaning": "to attack, to assault",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": [],
     "headline": "Semeru, “to attack”, comes from the Classical Japanese verb せむ (semu).",
@@ -601,6 +855,15 @@
         "quote": "Cognate with 責(せ)める (semeru), 迫(せま)る (semaru), 狭(せば)める (sebameru), 狭(せば)まる (sebamaru), and 狭(せま)い (semai)."
       }
     ],
+    "examples": [
+      {
+        "id": 106177,
+        "ja": "彼は私にその問題をいかに攻めるべきかについて教えてくれた。",
+        "en": "He enlightened me on how I should attack the subject.",
+        "enId": 297509,
+        "form": "攻める"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -610,6 +873,7 @@
     "meaning": "definitely, without fail, absoluteness",
     "level": "N3",
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "wasei"],
     "headline": "Zettai was coined by Inoue Tetsujirō in 1881 as a calque of English absolute, changing the spelling from 絶待 to 絶対.",
@@ -633,6 +897,22 @@
         "quote": "Coined by Japanese philosopher Inoue Tetsujirō in 1881 in his work 哲学字彙 (Tetsugaku Jii, “Dictionary of Philosophy”) as a calque of English absolute, based on the Profound Meaning of the Lotus Sutra (《法華玄義》), changing the spelling from 絶待 to 絶対."
       }
     ],
+    "examples": [
+      {
+        "id": 141934,
+        "ja": "絶対確実だ。",
+        "en": "There is no doubt.",
+        "enId": 272636,
+        "form": "絶対"
+      },
+      {
+        "id": 141932,
+        "ja": "絶対無理だね。",
+        "en": "No way.",
+        "enId": 272638,
+        "form": "絶対"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -642,6 +922,7 @@
     "meaning": "rope",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsuna is first attested in the Harima Fudoki of 715 CE, from Proto-Japonic *tuna.",
@@ -654,6 +935,22 @@
         "quote": "First attested in the Harima Fudoki of 715 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 173481,
+        "ja": "綱は張りすぎて切れた。",
+        "en": "The rope broke under the strain.",
+        "enId": 240989,
+        "form": "綱"
+      },
+      {
+        "id": 107350,
+        "ja": "彼は綱をつかんで助かった。",
+        "en": "He caught hold of a rope and saved himself.",
+        "enId": 293832,
+        "form": "綱"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -663,6 +960,7 @@
     "meaning": "pine tree",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["clipping", "sound-change"],
     "headline": "Matsu might be a shift from 保つ (tamotsu, “to hold”), but the Heian accents do not match.",
@@ -721,6 +1019,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Bunkai is Middle Chinese 分解.",
@@ -743,6 +1042,22 @@
         "quote": "Middle Chinese 分解"
       }
     ],
+    "examples": [
+      {
+        "id": 105300,
+        "ja": "彼は時計を分解した。",
+        "en": "He took apart a watch.",
+        "enId": 298389,
+        "form": "分解"
+      },
+      {
+        "id": 196948,
+        "ja": "プリズムは光を分解する。",
+        "en": "A prism decomposes light.",
+        "enId": 34127,
+        "form": "分解"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -752,6 +1067,7 @@
     "meaning": "Zen (Buddhism)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Zen is shortened from 禅那 (zenna), a Middle Chinese transliteration of Sanskrit dhyāna, “profound meditation”.",
@@ -759,6 +1075,15 @@
     "sources": [
       {
         "quote": "Shortened from 禅那 (zenna, “Zen meditation practice”), from Middle Chinese 禪那 (MC dzyen na), a transliteration of Sanskrit ध्यान (dhyāna, “profound meditation”). Compare Pali jhāna."
+      }
+    ],
+    "examples": [
+      {
+        "id": 140731,
+        "ja": "禅は私たちの心を鍛練するといわれる。",
+        "en": "They say Zen cultivates our mind.",
+        "enId": 273842,
+        "form": "禅"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -770,6 +1095,7 @@
     "meaning": "price",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Nedan is 値 (ne, “price”) plus 段 (dan, “level”).",
@@ -790,6 +1116,22 @@
         "quote": "From 値(ね) (ne, “price”) + 段(だん) (dan, “level”)."
       }
     ],
+    "examples": [
+      {
+        "id": 2290110,
+        "ja": "値段聞いた？",
+        "en": "Did you ask the price?",
+        "enId": 276975,
+        "form": "値段"
+      },
+      {
+        "id": 127134,
+        "ja": "値段が高すぎです。",
+        "en": "It's too expensive.",
+        "enId": 276955,
+        "form": "値段"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -799,6 +1141,7 @@
     "meaning": "good fortune",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf06"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Fuku, “good fortune”, is from Middle Chinese 福.",
@@ -806,6 +1149,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 福 (MC pjuwk)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 146358,
+        "ja": "笑う門には福来る。",
+        "en": "Fortune comes in by a merry gate.",
+        "enId": 268204,
+        "form": "福"
+      },
+      {
+        "id": 170295,
+        "ja": "災い転じて福となる。",
+        "en": "Good comes out of evil.",
+        "enId": 244188,
+        "form": "福"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -817,6 +1176,7 @@
     "meaning": "kitchen knife, carving knife",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Hōchō, a kitchen knife, comes from Middle Chinese 庖丁, “cook”.",
@@ -840,6 +1200,22 @@
       },
       {
         "quote": "包 is a daiyōji replacing 庖."
+      }
+    ],
+    "examples": [
+      {
+        "id": 82759,
+        "ja": "包丁で指を切りました。",
+        "en": "I cut my finger with a knife.",
+        "enId": 255311,
+        "form": "包丁"
+      },
+      {
+        "id": 87837,
+        "ja": "彼女は長年の間に包丁をすり減らした。",
+        "en": "She ground down a kitchen knife in the course of many years.",
+        "enId": 315870,
+        "form": "包丁"
       }
     ],
     "wiktionaryDump": "2026-09-02"

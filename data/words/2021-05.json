@@ -6,6 +6,7 @@
     "meaning": "to make noise, to clamor",
     "level": "N4",
     "pos": ["Godan verb with 'gu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Sawagu shifted from older sawaku, a verbalization of さわ (sawa), the root of さわさわ (sawasawa, “noisily; rustling”).",
@@ -13,6 +14,22 @@
     "sources": [
       {
         "quote": "Shift from older form さわく (sawaku), a verbalization of さわ (sawa), root of さわさわ (sawasawa, “noisily; rustling”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 204251,
+        "ja": "そんなに騒ぐな。",
+        "en": "Don't make so much noise.",
+        "enId": 41493,
+        "form": "騒ぐ"
+      },
+      {
+        "id": 178824,
+        "ja": "君たち、騒がないで。",
+        "en": "Boys, don't make any noise.",
+        "enId": 17676,
+        "form": "騒がないで"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -24,6 +41,7 @@
     "meaning": "hut, cabin, shed",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Koya is 小 (ko-, “little”) plus 屋 (ya, “house, dwelling”).",
@@ -53,6 +71,7 @@
     "meaning": "sticky rice cake",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mochi shifted from older mochii, historical mochihi; the page compares モモンガ (momonga) for a similar shift.",
@@ -68,6 +87,22 @@
         "quote": "Compare モモンガ (momonga, “Japanese dwarf flying squirrel”), with a similar shift."
       }
     ],
+    "examples": [
+      {
+        "id": 99490,
+        "ja": "彼は餅をすっかり食べたわけではない。",
+        "en": "He didn't eat all of the rice cakes.",
+        "enId": 304208,
+        "form": "餅"
+      },
+      {
+        "id": 393893,
+        "ja": "もちを食べている時にのどに詰まらせて窒息死する老人がたくさんいる。",
+        "en": "Many old people choke to death while eating mochi.",
+        "enId": 393894,
+        "form": "もち"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -77,6 +112,7 @@
     "meaning": "at the most, at best",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["sound-change"],
     "headline": "Seizei is a shift from 精誠 (seizei).",
@@ -84,6 +120,22 @@
     "sources": [
       {
         "quote": "Shift from 精誠(せいぜい) (seizei)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 113290,
+        "ja": "彼はせいぜい１８歳だ。",
+        "en": "He is not more than eighteen.",
+        "enId": 290384,
+        "form": "せいぜい"
+      },
+      {
+        "id": 2520536,
+        "ja": "彼女はせいぜい18歳だ。",
+        "en": "She is eighteen at most.",
+        "enId": 311046,
+        "form": "せいぜい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -95,6 +147,7 @@
     "meaning": "to serve, to act",
     "level": "N2",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsutomeru, “to serve”, is a doublet of 勤める (tsutomeru).",
@@ -102,6 +155,22 @@
     "sources": [
       {
         "quote": "Doublet of 勤(つと)める (tsutomeru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 106507,
+        "ja": "彼は市長を務めた。",
+        "en": "He served as mayor.",
+        "enId": 297179,
+        "form": "務めた"
+      },
+      {
+        "id": 108517,
+        "ja": "彼は議長を務めた。",
+        "en": "He acted as chairman.",
+        "enId": 295168,
+        "form": "務めた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -113,6 +182,7 @@
     "meaning": "expression of gratitude; bow",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Rei, “gratitude; bow”, is from Middle Chinese 禮 (MC lejX).",
@@ -120,6 +190,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 禮 (MC lejX)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 94237,
+        "ja": "彼女の親切な助力に対して彼は礼を述べた。",
+        "en": "He thanked her for her kind help.",
+        "enId": 309467,
+        "form": "礼"
+      },
+      {
+        "id": 154581,
+        "ja": "私は彼がしてくれた事に対して礼を述べた。",
+        "en": "I thanked him for what he had done.",
+        "enId": 259959,
+        "form": "礼"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -134,6 +220,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Honmono is 本 (hon, “actual”) plus 物 (mono, “thing”).",
@@ -154,6 +241,22 @@
         "quote": "Compound of 本(ほん) (hon, “actual”) + 物(もの) (mono, “thing”)."
       }
     ],
+    "examples": [
+      {
+        "id": 81459,
+        "ja": "本物を追求しろ。",
+        "en": "Make it real.",
+        "enId": 322256,
+        "form": "本物"
+      },
+      {
+        "id": 207048,
+        "ja": "その品物は本物だ。",
+        "en": "The article is genuine.",
+        "enId": 44298,
+        "form": "本物"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -167,6 +270,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In rengō, 連 is a daiyōji replacing 聯.",
@@ -189,6 +293,22 @@
         "quote": "連 is a daiyōji replacing 聯."
       }
     ],
+    "examples": [
+      {
+        "id": 141252,
+        "ja": "戦争は連合軍の勝利に終わった。",
+        "en": "The war ended in victory for the Allied Powers.",
+        "enId": 273320,
+        "form": "連合"
+      },
+      {
+        "id": 124400,
+        "ja": "党が連合して、新しい政府となった。",
+        "en": "A combination of parties formed the new government.",
+        "enId": 279594,
+        "form": "連合"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -198,6 +318,7 @@
     "meaning": "borrowing, debt, loan",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["borrowing"],
     "headline": "Kari was the stem of classical 借る (karu, “to borrow”), and is now also the stem of 借りる (kariru).",
@@ -205,6 +326,22 @@
     "sources": [
       {
         "quote": "Originally the 連用形 (ren'yōkei, “continuative or stem form”) of classical verb 借る (karu, “to borrow”), now also the 連用形 (ren'yōkei) of modern verb 借りる (kariru, “to borrow”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 237346,
+        "ja": "私は母に借りがある。",
+        "en": "I owe what I am to my mother.",
+        "enId": 246768,
+        "form": "借り"
+      },
+      {
+        "id": 178720,
+        "ja": "君に１０ドルの借りがある。",
+        "en": "I owe you ten dollars.",
+        "enId": 17572,
+        "form": "借り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -216,6 +353,7 @@
     "meaning": "cupboard, cabinet",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Todana is 戸 (to, “door”) plus 棚 (tana, “shelf”), with tana voiced to dana.",
@@ -240,6 +378,22 @@
         "quote": "The tana changes to dana as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 174525,
+        "ja": "私は戸棚を覗いた。",
+        "en": "I looked in the cupboard.",
+        "enId": 239944,
+        "form": "戸棚"
+      },
+      {
+        "id": 219638,
+        "ja": "この本は戸棚の上です。",
+        "en": "This book goes on the top shelf.",
+        "enId": 56958,
+        "form": "戸棚"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -249,6 +403,7 @@
     "meaning": "books",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shomotsu is first attested in the 1920s.",
@@ -271,6 +426,22 @@
         "quote": "First attested in 1920s."
       }
     ],
+    "examples": [
+      {
+        "id": 147408,
+        "ja": "書物は人生の楽しみを増やす。",
+        "en": "Books add to the pleasures of life.",
+        "enId": 267152,
+        "form": "書物"
+      },
+      {
+        "id": 209406,
+        "ja": "その書物は非常に価値がある。",
+        "en": "The book is of great value.",
+        "enId": 46667,
+        "form": "書物"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -280,6 +451,7 @@
     "meaning": "life",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Inochi is probably 息 (i, “breath”) plus の (no) plus 霊 (chi, “spirit, force, soul”).",
@@ -292,6 +464,22 @@
         "quote": "Some analyses describe this as a compound using 生 (i, “life, breath”, i in compounds, iki on its own) as the initial semantic element. This is equally valid, as 息 (iki) and 生き (iki) are cognates."
       }
     ],
+    "examples": [
+      {
+        "id": 80759,
+        "ja": "命あっての物種。",
+        "en": "While there is life, there is hope.",
+        "enId": 271725,
+        "form": "命"
+      },
+      {
+        "id": 116003,
+        "ja": "彼の命が心配だ。",
+        "en": "I'm afraid for his life.",
+        "enId": 287666,
+        "form": "命"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -301,6 +489,7 @@
     "meaning": "cloth",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Nuno is from Old Japanese, from Proto-Japonic *nono.",
@@ -322,6 +511,7 @@
     "meaning": "temperature (weather - not used for things)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kion appeared in the Seimi Kaisō of 1837-1847.",
@@ -344,6 +534,22 @@
         "quote": "Appeared in 舎密開宗 (Seimi Kaisō) of 1837-1847."
       }
     ],
+    "examples": [
+      {
+        "id": 83563,
+        "ja": "平均気温が上昇した。",
+        "en": "The average temperature has gone up.",
+        "enId": 320153,
+        "form": "気温"
+      },
+      {
+        "id": 183229,
+        "ja": "気温が数度下がった。",
+        "en": "The temperature fell several degrees.",
+        "enId": 20351,
+        "form": "気温"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -356,6 +562,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kara, “empty”, is cognate with 殻 (kara, “shell”).",
@@ -363,6 +570,22 @@
     "sources": [
       {
         "quote": "Cognate with 殻 (kara, “shell”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 213246,
+        "ja": "そのグラスは空だった。",
+        "en": "I found the glass empty.",
+        "enId": 50532,
+        "form": "空"
+      },
+      {
+        "id": 207212,
+        "ja": "その箱はほとんど空です。",
+        "en": "The box is almost empty.",
+        "enId": 44463,
+        "form": "空"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -377,6 +600,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Soshiki is Middle Chinese 組織, “to weave threads together; to form from smaller components”.",
@@ -399,6 +623,15 @@
         "quote": "Middle Chinese 組織 (tsu^X tsyik, “to weave threads together; to form from smaller components”)"
       }
     ],
+    "examples": [
+      {
+        "id": 220723,
+        "ja": "この組織は幹部ばかりが名を連ね、果たして決断を下せるのか怪しいものだ。",
+        "en": "Since in this organization they're all managers, it's a wonder any decisions get made.",
+        "enId": 8547374,
+        "form": "組織"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -408,6 +641,7 @@
     "meaning": "grain",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsubu is not attested until a Muromachi-period text, and an earlier form tsubi may have preceded it.",
@@ -429,6 +663,7 @@
     "meaning": "enemy, rival",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Teki is from Middle Chinese 敵 (MC dek), first cited in Japanese in the early 1200s.",
@@ -436,6 +671,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 敵 (MC dek). First cited in Japanese to the early 1200s."
+      }
+    ],
+    "examples": [
+      {
+        "id": 75859,
+        "ja": "敵に塩を送る。",
+        "en": "I'll help an enemy instead of capitalizing on their distress.",
+        "enId": 11210909,
+        "form": "敵"
+      },
+      {
+        "id": 124416,
+        "ja": "怒りは敵と思え。",
+        "en": "Hatred is our enemy.",
+        "enId": 279578,
+        "form": "敵"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -447,6 +698,7 @@
     "meaning": "alcohol",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "sound-change"],
     "headline": "Arukōru began as arukohoru, borrowed from Dutch alcohol with a phonetic kanji spelling.",
@@ -465,6 +717,22 @@
         "quote": "Borrowed from Dutch alcohol, initially borrowed and pronounced as アルコホル (arukohoru) with evidence of a phonetic kanji spelling as 亜(あ)爾(る)箇(こ)保(ほ)児(る) (arukohoru). The medial /h/ appears to have fallen out due to historical kana orthography-induced spelling pronunciation (ho→wo→o), in the manner of the evolution of 凍(こほ)る (kōru). Compare French alcool, Italian alcol, Portuguese álcool, where Romance languages also lost the medial /h/."
       }
     ],
+    "examples": [
+      {
+        "id": 114774,
+        "ja": "彼はアルコールを一切飲まない。",
+        "en": "He never drinks alcohol.",
+        "enId": 288897,
+        "form": "アルコール"
+      },
+      {
+        "id": 229941,
+        "ja": "アルコール類は控えてください。",
+        "en": "Don't drink any alcohol.",
+        "enId": 67306,
+        "form": "アルコール"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -477,6 +745,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sōzoku is Middle Chinese 相續, literally “successively, one after another + to succeed, to continue”, first attested in Japanese in 820.",
@@ -497,6 +766,22 @@
         "quote": "Ultimately from Middle Chinese 相續 (sjangH zjowk, literally “successively, one after another + to succeed, to continue”). First attested in Japanese in 820."
       }
     ],
+    "examples": [
+      {
+        "id": 170222,
+        "ja": "財産を相続する。",
+        "en": "I succeed to a fortune.",
+        "enId": 244262,
+        "form": "相続"
+      },
+      {
+        "id": 154619,
+        "ja": "私は莫大な遺産を相続した。",
+        "en": "I came into a huge fortune.",
+        "enId": 259921,
+        "form": "相続"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -506,6 +791,7 @@
     "meaning": "it can't be helped, it's inevitable",
     "level": "N2",
     "pos": ["expressions (phrases, clauses, etc.)", "adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "hybrid",
     "processes": [],
     "headline": "Shikata ga nai is literally “there is no way”.",
@@ -513,6 +799,22 @@
     "sources": [
       {
         "quote": "Phrase composed of 仕方がない (shikata ga nai, literally “there is no way”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 169010,
+        "ja": "仕方がないよ。",
+        "en": "There is no choice.",
+        "enId": 245477,
+        "form": "仕方がない"
+      },
+      {
+        "id": 95821,
+        "ja": "彼を待つより仕方がない。",
+        "en": "All we can do is to wait for him.",
+        "enId": 307884,
+        "form": "仕方がない"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -527,6 +829,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Shokyū began as shokipu, from the Middle Chinese compound 初級, literally “beginning + level, grade”.",
@@ -550,6 +853,15 @@
         "quote": "From Middle Chinese compound 初級 /初级 (tsrhjo kjap?, literally “beginning + level, grade”). Compare modern Min Nan chho͘-kip or Cantonese co¹ kap¹."
       }
     ],
+    "examples": [
+      {
+        "id": 221500,
+        "ja": "この辞書は初級者に、いやそれどころか上級者にも役に立つ。",
+        "en": "This dictionary is useful to beginners, yes, and to advanced learners.",
+        "enId": 58824,
+        "form": "初級"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -559,6 +871,7 @@
     "meaning": "to look up at, to admire",
     "level": "N2",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Miageru is 見る (miru, “to see, look”) plus 上げる (ageru, “to raise”).",
@@ -579,6 +892,22 @@
         "quote": "見(み)る (miru, “to see, look”) + 上(あ)げる (ageru, “to raise”)"
       }
     ],
+    "examples": [
+      {
+        "id": 108098,
+        "ja": "彼は空を見上げた。",
+        "en": "He looked up at the sky.",
+        "enId": 295588,
+        "form": "見上げた"
+      },
+      {
+        "id": 90367,
+        "ja": "彼女は空を見上げた。",
+        "en": "She looked up at the sky.",
+        "enId": 313347,
+        "form": "見上げた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -591,6 +920,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Bunseki is Literary Chinese 分析 (fēnxī, “to separate, divide or split apart”).",
@@ -613,6 +943,22 @@
         "quote": "Literary Chinese 分析 (fēnxī, “to separate, divide or split apart; to reason; to justify”)"
       }
     ],
+    "examples": [
+      {
+        "id": 146016,
+        "ja": "状況をどう分析しますか。",
+        "en": "How would you analyze the situation?",
+        "enId": 268546,
+        "form": "分析"
+      },
+      {
+        "id": 112328,
+        "ja": "彼はその問題を徹底的に分析した。",
+        "en": "He made a thorough analysis of the problem.",
+        "enId": 291350,
+        "form": "分析"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -622,6 +968,7 @@
     "meaning": "direction, course, way",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Hōkō is from Middle Chinese 方向 (MC pjang xjangH).",
@@ -644,6 +991,22 @@
         "quote": "From Middle Chinese 方向 (MC pjang xjangH)."
       }
     ],
+    "examples": [
+      {
+        "id": 229323,
+        "ja": "いい方向に飛んだね。",
+        "en": "You got that one going in a good direction.",
+        "enId": 66681,
+        "form": "方向"
+      },
+      {
+        "id": 157370,
+        "ja": "私は警官に方向を尋ねた。",
+        "en": "I asked a policeman for directions.",
+        "enId": 257163,
+        "form": "方向"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -656,6 +1019,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Okawari is 御 (o-) plus 代わり (kawari, “compensation”).",
@@ -676,6 +1040,22 @@
         "quote": "From 御(お) (o-, honorific prefix) + 代(か)わり (kawari, “compensation”)."
       }
     ],
+    "examples": [
+      {
+        "id": 143796,
+        "ja": "水のお代わりを下さい。",
+        "en": "I would like some more water.",
+        "enId": 270771,
+        "form": "お代わり"
+      },
+      {
+        "id": 201360,
+        "ja": "どうぞおかわりをして下さい。",
+        "en": "Please have a second helping.",
+        "enId": 38569,
+        "form": "おかわり"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -685,6 +1065,7 @@
     "meaning": "to draw, to scoop, to pump",
     "level": "N3",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kumu, “to draw”, is likely the same word as 斟む (kumu, “to consider people's feelings”) and 酌む (kumu, “to serve sake”).",
@@ -692,6 +1073,22 @@
     "sources": [
       {
         "quote": "Likely the same word as 斟(く)む (kumu, “to consider people's feelings”) and 酌(く)む (kumu, “to serve sake”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 198282,
+        "ja": "バケツに水を汲んでくるよ。",
+        "en": "I'll get a bucket of water.",
+        "enId": 35474,
+        "form": "汲んで"
+      },
+      {
+        "id": 110037,
+        "ja": "彼は井戸へ行って水をくんできた。",
+        "en": "He fetched some water from the well.",
+        "enId": 293651,
+        "form": "くんで"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -703,6 +1100,7 @@
     "meaning": "to be sold",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ureru is the potential form of 売る (uru, “to sell”).",
@@ -710,6 +1108,22 @@
     "sources": [
       {
         "quote": "Potential form of 売(う)る (uru, “to sell”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 169472,
+        "ja": "傘が良く売れる。",
+        "en": "Umbrellas sell well.",
+        "enId": 245014,
+        "form": "売れる"
+      },
+      {
+        "id": 205207,
+        "ja": "それは高く売れた。",
+        "en": "We got a good price for that.",
+        "enId": 42450,
+        "form": "売れた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -721,6 +1135,7 @@
     "meaning": "to weaken",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yowameru is 弱 (yowa, root of 弱い, “weak”) plus -meru, “-en, -ify”.",
@@ -728,6 +1143,22 @@
     "sources": [
       {
         "quote": "From 弱(よわ) (yowa, root of 弱い (“weak”)) + める (-meru, “-en, -ify”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 137779,
+        "ja": "台風は勢力を弱め嵐に変わった。",
+        "en": "The typhoon became weaker and changed into a storm.",
+        "enId": 275457,
+        "form": "弱め"
+      },
+      {
+        "id": 150649,
+        "ja": "時は友情を深めるが、恋愛を弱める。",
+        "en": "Time, which strengthens friendship, weakens love.",
+        "enId": 263908,
+        "form": "弱める"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -739,6 +1170,7 @@
     "meaning": "coarse, rough",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
     "processes": [],
     "headline": "Arai, “coarse”, is cognate with 荒い (arai).",
@@ -746,6 +1178,22 @@
     "sources": [
       {
         "quote": "Cognate with 荒(あら)い (arai)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 206883,
+        "ja": "その物体の表面はかなり粗い。",
+        "en": "The surface of the object is fairly rough.",
+        "enId": 44132,
+        "form": "粗い"
+      },
+      {
+        "id": 211567,
+        "ja": "その奇妙な物体の表面はかなり粗い。",
+        "en": "The surface of the peculiar object is fairly rough.",
+        "enId": 48844,
+        "form": "粗い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -757,6 +1205,7 @@
     "meaning": "short (length)",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Mijikai was mizikasi in Old Japanese, first attested in c. 759 in the Man'yōshū; its constituent parts remain obscure.",
@@ -773,6 +1222,22 @@
       },
       {
         "quote": "Appears to be derived as a compound, but the constituent parts remain obscure. The stem みじか (mijika) is also found in compounds, and in the now-obsolete adjective forms 短(みじか)やか (mijikayaka) and 短(みじか)らか (mijikaraka), indicating that the か (ka) is not the adjectivizing suffix か (-ka) (as in 静(しず)か (shizuka)), but rather part of the root."
+      }
+    ],
+    "examples": [
+      {
+        "id": 94068,
+        "ja": "彼女の髪は短い。",
+        "en": "She has short hair.",
+        "enId": 309638,
+        "form": "短い"
+      },
+      {
+        "id": 144034,
+        "ja": "人生なんて短い。",
+        "en": "How short life is!",
+        "enId": 486263,
+        "form": "短い"
       }
     ],
     "wiktionaryDump": "2026-09-02"

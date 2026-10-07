@@ -6,6 +6,7 @@
     "meaning": "train (ordinary)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Ressha is from Sinitic 列車 (lièchē).",
@@ -29,6 +30,22 @@
         "quote": "From Sinitic 列車 /列车 (lièchē)."
       }
     ],
+    "examples": [
+      {
+        "id": 77473,
+        "ja": "列車は脱線した。",
+        "en": "The train ran off the tracks.",
+        "enId": 326246,
+        "form": "列車"
+      },
+      {
+        "id": 77502,
+        "ja": "列車は加速した。",
+        "en": "The train gathered speed.",
+        "enId": 326217,
+        "form": "列車"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -38,6 +55,7 @@
     "meaning": "religion",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "meaning-shift"],
     "headline": "Shūkyō is 宗 (shū, “doctrine”) plus 教 (kyō, “teaching”), repurposed near the start of the Meiji period to translate English religion.",
@@ -61,6 +79,22 @@
         "quote": "Repurposed near the start of the Meiji period to translate English religion, which sense is first attested in 1866."
       }
     ],
+    "examples": [
+      {
+        "id": 148250,
+        "ja": "宗教は信じない。",
+        "en": "I don't believe in religion.",
+        "enId": 266309,
+        "form": "宗教"
+      },
+      {
+        "id": 124084,
+        "ja": "当時その宗教は全盛だった。",
+        "en": "The religion was in its glory in those days.",
+        "enId": 279911,
+        "form": "宗教"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -70,6 +104,7 @@
     "meaning": "principal, headmaster",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kōchō is 校 (kō, “school”) plus 長 (chō, “chief”).",
@@ -90,6 +125,22 @@
         "quote": "Sino-Japanese word from 校(こう) (kō, “school”) + 長(ちょう) (chō, “chief”)."
       }
     ],
+    "examples": [
+      {
+        "id": 107358,
+        "ja": "彼は校長が嫌いだ。",
+        "en": "He dislikes the principal.",
+        "enId": 296328,
+        "form": "校長"
+      },
+      {
+        "id": 107356,
+        "ja": "彼は校長に昇進した。",
+        "en": "He was promoted to the position of head teacher.",
+        "enId": 296330,
+        "form": "校長"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -99,10 +150,24 @@
     "meaning": "to understand, to have thorough knowledge",
     "level": "N2",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Kokoroeru is from the classical verb kokorou, written 心得.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "心",
+        "reading": "こころ",
+        "meaning": "heart",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "得る",
+        "reading": "える",
+        "meaning": "gain",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From classical verb 心(こころ)得(う) (kokorou)."
@@ -112,6 +177,22 @@
       },
       {
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 86942,
+        "ja": "彼女は夫の心理を心得ている。",
+        "en": "She knows her husband's psychology.",
+        "enId": 316769,
+        "form": "心得ている"
+      },
+      {
+        "id": 89735,
+        "ja": "彼女は子供の扱いを心得ている。",
+        "en": "She is good with kids.",
+        "enId": 313980,
+        "form": "心得ている"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -173,6 +254,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change", "unclear"],
     "headline": "Kenkyū's first character 研 originally read gen; for reasons unknown the reading shifted to a kan'yō yomi of ken.",
@@ -198,6 +280,22 @@
         "quote": "The original on'yomi for the first character 研 was gen, more closely matching the Chinese origins. For reasons unknown, the reading shifted from gen to a kan'yō yomi of ken."
       }
     ],
+    "examples": [
+      {
+        "id": 107697,
+        "ja": "彼は研究に夢中だ。",
+        "en": "His study absorbs him.",
+        "enId": 295988,
+        "form": "研究"
+      },
+      {
+        "id": 90240,
+        "ja": "彼女は研究に夢中だ。",
+        "en": "She is absorbed in her study.",
+        "enId": 313473,
+        "form": "研究"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -207,6 +305,7 @@
     "meaning": "humor",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": [],
     "headline": "Yūmoa is a transliteration of English humour or humor.",
@@ -214,6 +313,22 @@
     "sources": [
       {
         "quote": "Transliteration of English humour or humor."
+      }
+    ],
+    "examples": [
+      {
+        "id": 110489,
+        "ja": "彼はユーモアがない。",
+        "en": "He is devoid of humor.",
+        "enId": 293197,
+        "form": "ユーモア"
+      },
+      {
+        "id": 110488,
+        "ja": "彼はユーモアが分かる。",
+        "en": "He has a sense of humor.",
+        "enId": 293198,
+        "form": "ユーモア"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -225,6 +340,7 @@
     "meaning": "railway crossing, level crossing, starting line, scratch, crossover",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Fumikiri is fumi, the stem of 踏む (fumu, “step on”), plus kiri, the stem of 切る (kiru).",
@@ -243,6 +359,15 @@
     "sources": [
       {
         "quote": "From 踏(ふ)み (fumi, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 踏(ふ)む (fumu, “step on, tread on, stamp”).) + 切(き)り (kiri, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 切(き)る (kiru, “perform an action as if by cutting”).)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 176056,
+        "ja": "警報機が鳴っているときは絶対に踏切を渡らないでください。",
+        "en": "Don't cross the tracks when the alarm is ringing.",
+        "enId": 7015360,
+        "form": "踏切"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -291,6 +416,7 @@
     "meaning": "farmer, farm family",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Nōka is from Sinitic 農家 (nóngjiā).",
@@ -313,6 +439,22 @@
         "quote": "From Sinitic 農家 /农家 (nóngjiā)."
       }
     ],
+    "examples": [
+      {
+        "id": 121711,
+        "ja": "農家の子になりたいかね。",
+        "en": "Would you like to be a farm boy?",
+        "enId": 282294,
+        "form": "農家"
+      },
+      {
+        "id": 117935,
+        "ja": "彼の家族は小麦農家だった。",
+        "en": "His family had been wheat farmers.",
+        "enId": 285729,
+        "form": "農家"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -322,6 +464,7 @@
     "meaning": "medicine",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kusuri appears to be the stem of an unattested verb kusuru, “to have a mystical effect”.",
@@ -334,6 +477,22 @@
         "quote": "From Old Japanese. Cognate with the kusu root of adjective 奇し (kusushi, “mystical”), from the way that drugs and medicines would have mystical effects. It is not clear whether this is a contraction or the original form."
       }
     ],
+    "examples": [
+      {
+        "id": 79499,
+        "ja": "薬が効いた。",
+        "en": "The medicine has worked.",
+        "enId": 324220,
+        "form": "薬"
+      },
+      {
+        "id": 237356,
+        "ja": "お薬飲んだ？",
+        "en": "Have you taken your medicine yet?",
+        "enId": 16380,
+        "form": "薬"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -343,6 +502,7 @@
     "meaning": "to bloom",
     "level": "N5",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Saku, “to bloom”, is simply from Old Japanese.",
@@ -350,6 +510,22 @@
     "sources": [
       {
         "quote": "From Old Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 197900,
+        "ja": "バラが咲いている。",
+        "en": "The roses are in bloom.",
+        "enId": 35089,
+        "form": "咲いている"
+      },
+      {
+        "id": 121521,
+        "ja": "梅の花は3月に咲く。",
+        "en": "Plum blossoms come out in March.",
+        "enId": 282484,
+        "form": "咲く"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -361,6 +537,7 @@
     "meaning": "brain, memory",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Nō, “brain”, is from Middle Chinese 腦, and went from nau through nɔː to noː.",
@@ -373,6 +550,22 @@
         "quote": "From Middle Chinese 腦 (MC nawX)."
       }
     ],
+    "examples": [
+      {
+        "id": 121722,
+        "ja": "脳の構造は複雑だ。",
+        "en": "The structure of the brain is complicated.",
+        "enId": 282283,
+        "form": "脳"
+      },
+      {
+        "id": 144339,
+        "ja": "人間の目は脳と共に働く。",
+        "en": "In humans, the eyes act together with the brain.",
+        "enId": 270226,
+        "form": "脳"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -382,6 +575,7 @@
     "meaning": "elevator",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Erebētā is borrowed from American English elevator.",
@@ -397,6 +591,22 @@
         "quote": "Borrowed from American English elevator."
       }
     ],
+    "examples": [
+      {
+        "id": 227883,
+        "ja": "エレベータが故障している。",
+        "en": "The elevator is out of order.",
+        "enId": 65236,
+        "form": "エレベータ"
+      },
+      {
+        "id": 227886,
+        "ja": "エレベーターはどこですか。",
+        "en": "Where is the elevator?",
+        "enId": 65239,
+        "form": "エレベーター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -406,12 +616,29 @@
     "meaning": "full, to the utmost",
     "level": "N4",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "processes": [],
     "headline": "Ippai, “full”, is literally 一 (ichi, “one”) plus 杯 (hai, “cupful”).",
     "morphemes": [],
     "sources": [
       {
         "quote": "From 一(いち) (ichi, “one”) + 杯(はい) (hai, “cupful”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 190217,
+        "ja": "一杯ください。",
+        "en": "Give me a shot.",
+        "enId": 27376,
+        "form": "一杯"
+      },
+      {
+        "id": 143712,
+        "ja": "水を一杯下さい。",
+        "en": "A glass of water, please.",
+        "enId": 270854,
+        "form": "一杯"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -423,6 +650,7 @@
     "meaning": "beard",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change", "unclear"],
     "headline": "Hige has several theories, including hohoge (頬 “cheek” plus 毛 “hair”) and hirakuke (開く “to open” plus 毛), literally “hair of the opening”.",
@@ -459,6 +687,7 @@
     "meaning": "to deepen",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Fukamaru is 深 (fuka) plus まる (-maru, “to become (an adjective), -en”).",
@@ -479,6 +708,22 @@
         "quote": "深(ふか) (fuka, root of 深(ふか)い (fukai, “deep, profound”)) + まる (-maru, “to become (an adjective), -en”), developed from Classical Japanese 深(ふか)む (fukamu)."
       }
     ],
+    "examples": [
+      {
+        "id": 145594,
+        "ja": "心の傷は深まるばかり。",
+        "en": "The pain in my heart just gets worse.",
+        "enId": 268968,
+        "form": "深まる"
+      },
+      {
+        "id": 79126,
+        "ja": "夕闇が次第に深まっていった。",
+        "en": "The twilight merged into darkness.",
+        "enId": 324591,
+        "form": "深まって"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -488,6 +733,7 @@
     "meaning": "-- honorific expression for いく, くる, and いる --",
     "level": "N4",
     "pos": ["Godan verb - -aru special class", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Irassharu was originally a contraction of いらせらる (iraseraru), an honorific conjugation of the verb iru.",
@@ -506,6 +752,7 @@
     "meaning": "waiting room",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Machiaishitsu is machiai, the stem of 待ち合う (machiau), plus 室 (-shitsu, “room”).",
@@ -534,6 +781,22 @@
         "quote": "Compound of 待(ま)ち合(あ)い (machiai, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 待(ま)ち合(あ)う (machiau)) + 室(しつ) (-shitsu, “room”)."
       }
     ],
+    "examples": [
+      {
+        "id": 102523,
+        "ja": "彼は待合室を見回した。",
+        "en": "He looked around the waiting room.",
+        "enId": 301170,
+        "form": "待合室"
+      },
+      {
+        "id": 102525,
+        "ja": "彼は待合室に座っています。",
+        "en": "He's sitting in the waiting room.",
+        "enId": 301169,
+        "form": "待合室"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -543,6 +806,7 @@
     "meaning": "curtain, act (in play)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "counter"],
+    "priority": ["news1", "nf04"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Maku, “curtain”, is from Middle Chinese 幕 (MC mak).",
@@ -550,6 +814,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 幕 (MC mak)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 81222,
+        "ja": "幕が下りた。",
+        "en": "The curtain fell.",
+        "enId": 322492,
+        "form": "幕"
+      },
+      {
+        "id": 81224,
+        "ja": "幕があがった。",
+        "en": "The curtain rose.",
+        "enId": 322491,
+        "form": "幕"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -561,6 +841,7 @@
     "meaning": "why (same as どうして)",
     "level": "N5",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Naze began as nani semu ni, from Old Japanese 何せむに.",
@@ -582,6 +863,7 @@
     "meaning": "then, well, so",
     "level": "N5",
     "pos": ["conjunction", "interjection (kandoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["clipping"],
     "headline": "De wa is a clipping of ではないか (de wa nai ka, “isn't it; might it be”).",
@@ -589,6 +871,22 @@
     "sources": [
       {
         "quote": "Clipping of ではないか (de wa nai ka, “isn't it; might it be”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 202136,
+        "ja": "では始めましょう。",
+        "en": "Then let us begin.",
+        "enId": 39348,
+        "form": "では"
+      },
+      {
+        "id": 202142,
+        "ja": "ではこれで失礼します。",
+        "en": "I am afraid I must be going now.",
+        "enId": 39354,
+        "form": "では"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -604,6 +902,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound", "derivation", "borrowing"],
     "headline": "Mujun is literally 矛 (“lance, spear”) plus 盾 (“shield”).",
@@ -624,6 +923,22 @@
         "quote": "From Middle Chinese 矛盾 (MC mjuw zywinX), literally 矛 (“lance, spear”) + 盾 (“shield”). See the Chinese etymology section for the full derivation."
       }
     ],
+    "examples": [
+      {
+        "id": 99680,
+        "ja": "彼は矛盾している。",
+        "en": "He isn't consistent with himself.",
+        "enId": 304017,
+        "form": "矛盾"
+      },
+      {
+        "id": 204823,
+        "ja": "それは矛盾だらけだ。",
+        "en": "It's a bundle of contradictions.",
+        "enId": 42065,
+        "form": "矛盾"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -636,6 +951,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Kōtsū is Middle Chinese 交通, literally “cross through”.",
@@ -661,6 +977,22 @@
         "quote": "From Middle Chinese compound 交通 (kaew thuwng, literally “cross through”)."
       }
     ],
+    "examples": [
+      {
+        "id": 224319,
+        "ja": "ここは交通が激しい。",
+        "en": "The traffic is heavy here.",
+        "enId": 61634,
+        "form": "交通"
+      },
+      {
+        "id": 137433,
+        "ja": "大雪で交通が途絶えた。",
+        "en": "The traffic was interrupted by the heavy snow.",
+        "enId": 275803,
+        "form": "交通"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -670,6 +1002,7 @@
     "meaning": "feeling, sense, impression",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": [],
     "headline": "Kanji is the continuative stem of the verbs 感ずる (kanzuru) and 感じる (kanjiru, “to feel”).",
@@ -677,6 +1010,22 @@
     "sources": [
       {
         "quote": "The 連用形 (ren'yōkei, “continuative or stem form”) of the verbs 感ずる (kanzuru) and 感じる (kanjiru, “to feel”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 102284,
+        "ja": "彼は誰みたいな感じ？",
+        "en": "Who is he like?",
+        "enId": 301410,
+        "form": "感じ"
+      },
+      {
+        "id": 189896,
+        "ja": "右目が熱い感じです。",
+        "en": "My right eye feels hot.",
+        "enId": 27052,
+        "form": "感じ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -688,6 +1037,7 @@
     "meaning": "electric power",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Denryoku is 電 (den, “electric”) plus 力 (-ryoku, “power”).",
@@ -708,6 +1058,22 @@
         "quote": "From 電(でん) (den, “electric”) + 力(りょく) (-ryoku, “power”)."
       }
     ],
+    "examples": [
+      {
+        "id": 208496,
+        "ja": "その川は町に電力を供給する。",
+        "en": "The river furnishes electric power to the town.",
+        "enId": 45755,
+        "form": "電力"
+      },
+      {
+        "id": 222483,
+        "ja": "この機械はここで必要な電力の１割をくう。",
+        "en": "This machine consumes 10% of all the power we use.",
+        "enId": 59812,
+        "form": "電力"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -717,6 +1083,7 @@
     "meaning": "to bark, to howl",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hoeru is from Proto-Japonic *pəyu, and cognate with Kunigami buirun.",
@@ -724,6 +1091,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *pəyu. Cognate with Kunigami 吠いるん (ぶいるん, buirun), Miyako 吠いㇲ゙ (ぶいㇲ゙, buiz)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 2482136,
+        "ja": "犬が吠えている。",
+        "en": "A dog is barking.",
+        "enId": 239127,
+        "form": "吠えている"
+      },
+      {
+        "id": 152141,
+        "ja": "私を見て、吠えた。",
+        "en": "He looked at me and barked.",
+        "enId": 262410,
+        "form": "吠えた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -735,6 +1118,7 @@
     "meaning": "how, in what way",
     "level": "N5",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change", "ateji"],
     "headline": "Dō is first cited to 1604 in the Portuguese work Arte da Lingoa de Iapam.",
@@ -765,6 +1149,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shinzō is 心 (shin, “heart”) plus 臓 (zō, “internal organ”).",
@@ -785,6 +1170,22 @@
         "quote": "From 心(しん) (shin, “heart”) + 臓(ぞう) (zō, “internal organ”)."
       }
     ],
+    "examples": [
+      {
+        "id": 145564,
+        "ja": "心臓に悪いな。",
+        "en": "It's not good for my heart.",
+        "enId": 268998,
+        "form": "心臓"
+      },
+      {
+        "id": 103848,
+        "ja": "彼は心臓が悪い。",
+        "en": "He has a bad heart.",
+        "enId": 299844,
+        "form": "心臓"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -797,6 +1198,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kakuchō is 拡 (kaku, “expand”) plus 張 (chō, “stretch”).",
@@ -815,6 +1217,22 @@
     "sources": [
       {
         "quote": "拡(かく) (kaku, “expand”) + 張(ちょう) (chō, “stretch”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 184429,
+        "ja": "学校の体育館が拡張された。",
+        "en": "The school gymnasium was enlarged.",
+        "enId": 21556,
+        "form": "拡張"
+      },
+      {
+        "id": 168365,
+        "ja": "市は遊歩道を拡張する計画だ。",
+        "en": "The city is planning to extend the boardwalk.",
+        "enId": 246128,
+        "form": "拡張"
       }
     ],
     "wiktionaryDump": "2026-09-02"

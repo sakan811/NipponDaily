@@ -6,6 +6,7 @@
     "meaning": "band",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バンド is the English word “band” in katakana.",
@@ -21,6 +22,22 @@
         "quote": "From English band."
       }
     ],
+    "examples": [
+      {
+        "id": 197752,
+        "ja": "バンド名はレッド・ホット。",
+        "en": "My band name's Red Hot.",
+        "enId": 34940,
+        "form": "バンド"
+      },
+      {
+        "id": 188370,
+        "ja": "俺はバンドで演奏してるんだ。",
+        "en": "I play in a band.",
+        "enId": 25513,
+        "form": "バンド"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -33,6 +50,7 @@
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "楽, “comfort, ease”, is borrowed from Middle Chinese, where the source writes it 樂 (MC lak).",
@@ -40,6 +58,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 樂 (MC lak)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 179533,
+        "ja": "苦は楽の種。",
+        "en": "No pain, no gains.",
+        "enId": 18390,
+        "form": "楽"
+      },
+      {
+        "id": 184139,
+        "ja": "楽にしてね。",
+        "en": "Make yourself at home.",
+        "enId": 2378,
+        "form": "楽"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -51,6 +85,7 @@
     "meaning": "car",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カー is the English word “car”, borrowed as it is.",
@@ -66,6 +101,22 @@
         "quote": "Borrowed from English car."
       }
     ],
+    "examples": [
+      {
+        "id": 98250,
+        "ja": "彼らはＧＴカーが大好きだった。",
+        "en": "They loved grand touring cars.",
+        "enId": 305452,
+        "form": "カー"
+      },
+      {
+        "id": 75251,
+        "ja": "今週、３日連続でカーアクションものの外国映画を字幕で見た。",
+        "en": "This week I've watched foreign car-action movies with subtitles for three days in a row.",
+        "enId": 328468,
+        "form": "カー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -75,6 +126,7 @@
     "meaning": "delay, lag",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04", "news2", "nf25"],
     "stratum": "wago",
     "processes": [],
     "headline": "遅れ, “delay, lag”, is the continuative stem of the verb 遅れる (okureru), with examples from at least the 1300s.",
@@ -87,6 +139,22 @@
         "quote": "Examples appear from at least the 1300s."
       }
     ],
+    "examples": [
+      {
+        "id": 90713,
+        "ja": "彼女は学校に遅れがちだ。",
+        "en": "She tends to be late for school.",
+        "enId": 309948,
+        "form": "遅れ"
+      },
+      {
+        "id": 115253,
+        "ja": "彼は１時間遅れで現れた。",
+        "en": "He turned up an hour later.",
+        "enId": 288416,
+        "form": "遅れ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -96,6 +164,7 @@
     "meaning": "recreation",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レクリェーション is borrowed from English “recreation”.",
@@ -129,6 +198,22 @@
         "quote": "Reduplication of 点."
       }
     ],
+    "examples": [
+      {
+        "id": 126789,
+        "ja": "池に落ち葉が点々と浮かんでいた。",
+        "en": "The pond was dotted with fallen leaves.",
+        "enId": 277301,
+        "form": "点々"
+      },
+      {
+        "id": 126851,
+        "ja": "地図上のこの点々は何を表しているのですか。",
+        "en": "What do these dots represent on the map?",
+        "enId": 277239,
+        "form": "点々"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -138,6 +223,7 @@
     "meaning": "contest (FRE: concours)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コンクール, “contest”, is from French “concours”.",
@@ -153,6 +239,22 @@
         "quote": "From French concours."
       }
     ],
+    "examples": [
+      {
+        "id": 160380,
+        "ja": "私はそのコンクールに参加した。",
+        "en": "I took part in the contest.",
+        "enId": 254141,
+        "form": "コンクール"
+      },
+      {
+        "id": 165811,
+        "ja": "私たちは合唱コンクールで一等賞をとるために一生懸命がんばった。",
+        "en": "We tried hard to get first prize in the chorus contest.",
+        "enId": 248692,
+        "form": "コンクール"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -162,6 +264,7 @@
     "meaning": "this year",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "processes": ["compound", "borrowing"],
     "headline": "“This year” is spelled with 今, “now” — but the word began with 此, “this”.",
     "morphemes": [],
@@ -173,6 +276,15 @@
         "quote": "The use of the kanji 今 (“now”) instead of 此 (“this”) is an orthographic borrowing from Chinese 今年 (jīnnián)."
       }
     ],
+    "examples": [
+      {
+        "id": 113818,
+        "ja": "彼はことしわたしが英語を教えている生徒です。",
+        "en": "He is a student who I am teaching English this year.",
+        "enId": 289855,
+        "form": "ことし"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -182,6 +294,7 @@
     "meaning": "gratuity, tip; chip",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "A tip and a chip share one katakana spelling but two different English words.",
@@ -203,6 +316,7 @@
     "meaning": "joke, pun, witticism",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf43"],
     "processes": ["borrowing", "ateji"],
     "headline": "A pun or witticism is the stem of a verb for “stylish” — spelled with kanji that were fitted to the sound.",
     "morphemes": [],
@@ -214,6 +328,22 @@
         "quote": "First cited to the late 1600s."
       }
     ],
+    "examples": [
+      {
+        "id": 85776,
+        "ja": "非常にうまい洒落だったので、満場爆笑した。",
+        "en": "It was such a nice joke that everybody burst out laughing.",
+        "enId": 317937,
+        "form": "洒落"
+      },
+      {
+        "id": 166423,
+        "ja": "私たちはその教授が昔から言っているしゃれにうんざりしている。",
+        "en": "We are tired of the professor's old joke.",
+        "enId": 248080,
+        "form": "しゃれに"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -223,6 +353,7 @@
     "meaning": "kana orthography, syllabary spelling",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku"],
     "headline": "Kana orthography is “kana use” — and the つかい voices to づかい.",
@@ -256,6 +387,7 @@
     "meaning": "coal",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "reread"],
     "headline": "Coal is “rock charcoal” — a native word that was later re-read in Chinese sounds.",
@@ -287,6 +419,7 @@
     "meaning": "to permit, to allow, to approve",
     "level": "N3",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "To permit is to make something “loose”.",
@@ -294,6 +427,22 @@
     "sources": [
       {
         "quote": "Compound of 緩(ゆる) (yuru, “loose, lax”) + す (-su, causative suffix)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 182164,
+        "ja": "許して下さい。",
+        "en": "Please forgive me.",
+        "enId": 38820,
+        "form": "許して"
+      },
+      {
+        "id": 106849,
+        "ja": "彼は罪を許された。",
+        "en": "He was absolved of his sin.",
+        "enId": 296837,
+        "form": "許された"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -305,6 +454,7 @@
     "meaning": "to notice, to recognize, to become aware of",
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf31", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "To notice is for awareness to “stick” — つく voiced to づく.",
@@ -326,6 +476,22 @@
         "quote": "Compound of 気 (ki, “awareness”) + 付く (tsuku, “to stick, to attach, to turn on”). The tsuku reading for 付く changes to zuku as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 135911,
+        "ja": "誰も彼に気づかなかった。",
+        "en": "No one took notice of him.",
+        "enId": 276658,
+        "form": "気づかなかった"
+      },
+      {
+        "id": 205662,
+        "ja": "それには気付かなかった。",
+        "en": "I didn't notice it.",
+        "enId": 42907,
+        "form": "気付かなかった"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -335,6 +501,7 @@
     "meaning": "to move",
     "level": "N4",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "“To move” may start from the sound of something wriggling.",
@@ -345,6 +512,22 @@
       },
       {
         "quote": "Likely derived as a compound of うご (ugo, a 擬態語 (gitaigo, “mimetic word”) imitative of something crawling or creeping; compare the sound shapes of roots wrig- or wig- in English wriggle, wiggle) + く (ku, verb-forming suffix). Compare also the related adverb うごうご (ugougo, “wrigglingly, squirmingly, creepingly: moving in continuous small increments”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 123792,
+        "ja": "動かないで！",
+        "en": "Hold it!",
+        "enId": 280203,
+        "form": "動かないで"
+      },
+      {
+        "id": 145606,
+        "ja": "心が動くね。",
+        "en": "That sounds very tempting.",
+        "enId": 268957,
+        "form": "動く"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -359,6 +542,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "“Skilful” is, in Chinese, “top hand” — and this reading mixes two layers of Chinese sounds.",
@@ -387,6 +571,22 @@
         "quote": "This reading is likely a later innovation in Japanese after the initial borrowing. This uses the goon of jō for the first character, and the kan'yōon of zu for the second character."
       }
     ],
+    "examples": [
+      {
+        "id": 77951,
+        "ja": "料理が上手ですね。",
+        "en": "You are a good cook.",
+        "enId": 325767,
+        "form": "上手"
+      },
+      {
+        "id": 89185,
+        "ja": "彼女は字が上手だ。",
+        "en": "She has good handwriting.",
+        "enId": 314521,
+        "form": "上手"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -399,6 +599,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Chalk has a Japanese twin in チャコ.",
@@ -423,6 +624,7 @@
     "meaning": "pale",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Pale is “blue-white” — and the しろい voices to じろい on the way in.",
@@ -444,6 +646,22 @@
         "quote": "青 (ao, “blue”) + 白い (shiroi, “white”). The shiroi changes to jiroi as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 85314,
+        "ja": "病気ですか。顔が青白いよ。",
+        "en": "Are you sick? You look pale.",
+        "enId": 318399,
+        "form": "青白い"
+      },
+      {
+        "id": 177063,
+        "ja": "君は大変青白い顔をしている。",
+        "en": "You look very pale.",
+        "enId": 15912,
+        "form": "青白い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -453,6 +671,7 @@
     "meaning": "20 years old",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Twenty years old is an Old Japanese “twenty items” — read as a single old word, not as nijū + sai.",
@@ -460,6 +679,22 @@
     "sources": [
       {
         "quote": "From Old Japanese はたち (patati, “twenty items”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 101537,
+        "ja": "彼は二十歳のときにこの本を書いた。",
+        "en": "He wrote this book at the age of twenty.",
+        "enId": 288476,
+        "form": "二十歳"
+      },
+      {
+        "id": 185478,
+        "ja": "我々日本人は二十歳で大人の年齢になる。",
+        "en": "We Japanese come of age at twenty.",
+        "enId": 22610,
+        "form": "二十歳"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -471,6 +706,7 @@
     "meaning": "time, years, days",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Time” is the moon (or month) and the sun (or day), side by side.",
@@ -491,6 +727,22 @@
         "quote": "Compound of 月 (tsuki, “moon, month”) + 日 (hi, “sun, day”)."
       }
     ],
+    "examples": [
+      {
+        "id": 207387,
+        "ja": "その二つの事件の間には何年もの月日が経っている。",
+        "en": "Years intervene between the two incidents.",
+        "enId": 44639,
+        "form": "月日"
+      },
+      {
+        "id": 127093,
+        "ja": "知らないうちに月日は経ってしまう、俺はチャンスを逃したくない。",
+        "en": "The years go by before I know, so I don't wanna miss this chance.",
+        "enId": 276997,
+        "form": "月日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -503,6 +755,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "“Abundance” arrived from written Chinese, and is first attested in Japanese in the 1830s.",
@@ -525,6 +778,22 @@
         "quote": "Ultimately from written Chinese 豐富 /丰富 (fēngfù). First attested in Japanese in the 1830s."
       }
     ],
+    "examples": [
+      {
+        "id": 145776,
+        "ja": "食物は豊富にある。",
+        "en": "We have food in abundance.",
+        "enId": 268671,
+        "form": "豊富に"
+      },
+      {
+        "id": 145891,
+        "ja": "食べ物は豊富にある。",
+        "en": "We have food in abundance.",
+        "enId": 268671,
+        "form": "豊富に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -534,6 +803,7 @@
     "meaning": "again, once more, a second time",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Again” is “two” plus a counter for “times”.",
@@ -546,6 +816,22 @@
         "quote": "The okurigana び (bi) is used to indicate the reading."
       }
     ],
+    "examples": [
+      {
+        "id": 94830,
+        "ja": "彼女に再び会った。",
+        "en": "I saw her again.",
+        "enId": 308876,
+        "form": "再び"
+      },
+      {
+        "id": 81628,
+        "ja": "本を再び読み続けた。",
+        "en": "I went on with my reading.",
+        "enId": 322088,
+        "form": "再び"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -555,6 +841,7 @@
     "meaning": "to protect; to abide (by the rules)",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "To protect is to “watch over”, and its first syllable is an old word for “eye”.",
@@ -562,6 +849,22 @@
     "sources": [
       {
         "quote": "Compound of 目(ま) (ma-, “eye, sight”, archaic) + 守(も)る (moru, “protect, watch over”, Etymology 2). まぼる and まぶる are alterations of まもる."
+      }
+    ],
+    "examples": [
+      {
+        "id": 85843,
+        "ja": "秘密を守れる？",
+        "en": "Can you keep a secret?",
+        "enId": 9594,
+        "form": "守れる"
+      },
+      {
+        "id": 170910,
+        "ja": "左側通行を守れ。",
+        "en": "Keep to the left.",
+        "enId": 243568,
+        "form": "守れ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -573,6 +876,7 @@
     "meaning": "glove(s)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "A glove is a “hand bag”, with ふくろ voiced to ぶくろ.",
@@ -594,6 +898,22 @@
         "quote": "Compound of 手(て) (te, “hand”) + 袋(ふくろ) (fukuro, “bag”). The fukuro reading for 袋 changes to bukuro as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 148522,
+        "ja": "手袋はよい贈り物だ。",
+        "en": "A pair of gloves is a nice gift.",
+        "enId": 266037,
+        "form": "手袋"
+      },
+      {
+        "id": 104454,
+        "ja": "彼は手袋をはめている。",
+        "en": "He is wearing gloves.",
+        "enId": 299237,
+        "form": "手袋"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -603,6 +923,7 @@
     "meaning": "morning, A.M.",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "“A.M.” is “before noon”.",
@@ -623,6 +944,22 @@
         "quote": "午 (go, “noon”) + 前 (zen, “fore-; pre-”)"
       }
     ],
+    "examples": [
+      {
+        "id": 90175,
+        "ja": "彼女は午前７時に起きた。",
+        "en": "She got up at seven in the morning.",
+        "enId": 313538,
+        "form": "午前"
+      },
+      {
+        "id": 124985,
+        "ja": "店は午前９時にあきます。",
+        "en": "The store opens at 9 a.m.",
+        "enId": 279009,
+        "form": "午前"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -632,6 +969,7 @@
     "meaning": "lens",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "A lens may have come through Dutch or English — Wiktionary says it can't be sure which.",
@@ -639,6 +977,22 @@
     "sources": [
       {
         "quote": "Borrowed from Dutch lens or English lens."
+      }
+    ],
+    "examples": [
+      {
+        "id": 192320,
+        "ja": "レンズだけ交換できますか。",
+        "en": "Can I buy only the lenses?",
+        "enId": 29483,
+        "form": "レンズ"
+      },
+      {
+        "id": 192319,
+        "ja": "レンズを通ると像は逆になった。",
+        "en": "Through the lens the image was inverted.",
+        "enId": 29482,
+        "form": "レンズ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -650,6 +1004,7 @@
     "meaning": "to be resurrected, to be revived",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["spec1", "ichi1", "news2", "nf44"],
     "stratum": "wago",
     "processes": ["rendaku"],
     "headline": "To be revived is, literally, to “return from the land of the dead”.",
@@ -662,6 +1017,22 @@
         "quote": "First attested in the Nihon Shoki of 720 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 85085,
+        "ja": "不思議な感じが蘇ってきた。",
+        "en": "The strange feeling came back.",
+        "enId": 318628,
+        "form": "蘇って"
+      },
+      {
+        "id": 147623,
+        "ja": "春の雨が花に生気をよみがえらせた。",
+        "en": "A spring rain revived the flower.",
+        "enId": 266937,
+        "form": "よみがえらせた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -671,6 +1042,7 @@
     "meaning": "speech, words, one's lines, remarks",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf32"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "An actor's lines may be a “calling out” — and the kanji came from a different, Chinese-derived word.",
@@ -692,6 +1064,22 @@
         "quote": "The kanji spelling is from the synonymous Middle Chinese-derived daishi reading below."
       }
     ],
+    "examples": [
+      {
+        "id": 4749,
+        "ja": "それは私の台詞だよ！",
+        "en": "That's my line!",
+        "enId": 1188355,
+        "form": "台詞"
+      },
+      {
+        "id": 76604,
+        "ja": "それはこっちのセリフですよ。",
+        "en": "That's what I want to say.",
+        "enId": 327116,
+        "form": "セリフ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -704,6 +1092,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "“Possible” is “may” plus “able” — borrowed whole from Middle Chinese.",
@@ -724,6 +1113,22 @@
         "quote": "From Middle Chinese compound 可能 (kha^X nong, literally “may, can + able, ability”)."
       }
     ],
+    "examples": [
+      {
+        "id": 150776,
+        "ja": "事態はまだ改善可能だ。",
+        "en": "The situation is still capable of improvement.",
+        "enId": 263781,
+        "form": "可能"
+      },
+      {
+        "id": 127251,
+        "ja": "男の子へのしつけは可能である。",
+        "en": "Boys can be trained to behave.",
+        "enId": 276838,
+        "form": "可能"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -733,6 +1138,7 @@
     "meaning": "memories, recollections, reminiscence",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A memory is a “thought” that has “come out”.",
@@ -753,6 +1159,22 @@
         "quote": "Compound of 思(おも)い (omoi, “thought”) + 出(で) (de, “something coming out”)."
       }
     ],
+    "examples": [
+      {
+        "id": 192907,
+        "ja": "良い思い出になりました。",
+        "en": "It was a good memory.",
+        "enId": 12455092,
+        "form": "思い出"
+      },
+      {
+        "id": 121734,
+        "ja": "納豆には嫌な思い出があってね。",
+        "en": "Natto reminds me of a bad experience.",
+        "enId": 282271,
+        "form": "思い出"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -762,6 +1184,7 @@
     "meaning": "lunch, noon",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf28", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Lunch, or noon, is a beautified “daytime”.",
@@ -780,6 +1203,22 @@
     "sources": [
       {
         "quote": "Compound of 御(お) (o-, beautifying prefix) + 昼(ひる) (hiru, “daytime; midday, noon”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 226829,
+        "ja": "お昼ですよ。",
+        "en": "Lunch is on.",
+        "enId": 64177,
+        "form": "お昼"
+      },
+      {
+        "id": 226826,
+        "ja": "お昼にしよう。",
+        "en": "Let's have lunch.",
+        "enId": 64175,
+        "form": "お昼"
       }
     ],
     "wiktionaryDump": "2026-09-02"

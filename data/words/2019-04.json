@@ -10,6 +10,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Jama was originally a Buddhist term, from Middle Chinese 邪魔, literally “wrong, evil, perverse” plus “devil, demon”.",
@@ -33,6 +34,22 @@
         "quote": "From Middle Chinese 邪魔 (MC zjae ma, literally “wrong, evil, perverse\" + \"devil, demon”). Compare modern Mandarin 邪魔 (xiémó)."
       }
     ],
+    "examples": [
+      {
+        "id": 148900,
+        "ja": "邪魔なのです。",
+        "en": "It is in the way.",
+        "enId": 265658,
+        "form": "邪魔"
+      },
+      {
+        "id": 148902,
+        "ja": "邪魔するのか。",
+        "en": "You get in my way?",
+        "enId": 265656,
+        "form": "邪魔"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -42,6 +59,7 @@
     "meaning": "loose, lenient, slow",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yurui appears to be derived from the archaic verb 揺る (yuru, “to shake, sway”).",
@@ -49,6 +67,15 @@
     "sources": [
       {
         "quote": "Appears to be derived from the archaic verb 揺(ゆ)る (yuru, “to shake, sway”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 222254,
+        "ja": "この靴は少し緩い。",
+        "en": "These shoes are a little loose.",
+        "enId": 59581,
+        "form": "緩い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -63,6 +90,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shodō is 書 (sho, “writing”) plus 道 (-dō, “-manship”).",
@@ -83,6 +111,15 @@
         "quote": "書 (sho, “writing”) + 道 (-dō, “-manship”)"
       }
     ],
+    "examples": [
+      {
+        "id": 147412,
+        "ja": "書道を習うのは楽しい。",
+        "en": "Learning calligraphy is fun.",
+        "enId": 267148,
+        "form": "書道"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -95,6 +132,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sofu is from Middle Chinese 祖父, the kan'on reading, so likely a later borrowing.",
@@ -129,6 +167,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chiji shortens 知某州事, “one who knows matters concerning the county/province”.",
@@ -151,6 +190,22 @@
         "quote": "From obsolete Chinese 知府 (zhīfǔ, “governor or magistrate of a county or province”), which was often referred to as 知某州事 (one who knows matters concerning the county/province), which shortens to 知事."
       }
     ],
+    "examples": [
+      {
+        "id": 155133,
+        "ja": "私は知事に立候補した。",
+        "en": "I ran for the governor.",
+        "enId": 259406,
+        "form": "知事"
+      },
+      {
+        "id": 127056,
+        "ja": "知事自らテレビに出演した。",
+        "en": "The governor appeared on TV in person.",
+        "enId": 266325,
+        "form": "知事"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -160,6 +215,7 @@
     "meaning": "south and north",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Nanboku is Middle Chinese 南北, literally “south and north”.",
@@ -183,6 +239,15 @@
         "quote": "Middle Chinese 南北 (literally “south and north”)"
       }
     ],
+    "examples": [
+      {
+        "id": 122409,
+        "ja": "日本は南北に長い国です。",
+        "en": "Japan is a very long country from north to south.",
+        "enId": 281594,
+        "form": "南北"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -192,6 +257,7 @@
     "meaning": "hometown",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Kokyō is from Middle Chinese 故鄉 (MC kuH xjang), and its vowels shifted twice on the way.",
@@ -217,6 +283,15 @@
         "quote": "From Middle Chinese 故鄉 (MC kuH xjang)."
       }
     ],
+    "examples": [
+      {
+        "id": 12179643,
+        "ja": "久しぶりに故郷に帰ると、懐かしい気持ちが込み上がる。",
+        "en": "Returning to your hometown after a long time fills you with nostalgia.",
+        "enId": 12179646,
+        "form": "故郷"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -229,6 +304,7 @@
       "adverb (fukushi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "sound-change"],
     "headline": "Issō is 一 (ichi, “one”) plus 層 (sō, “layer”), shifted in pronunciation.",
@@ -255,6 +331,22 @@
         "quote": "一(いち) (ichi, “one”) + 層(そう) (sō, “layer”)"
       }
     ],
+    "examples": [
+      {
+        "id": 171813,
+        "ja": "今日はいっそう寒い。",
+        "en": "It is still colder today.",
+        "enId": 242662,
+        "form": "いっそう"
+      },
+      {
+        "id": 105344,
+        "ja": "彼は事態を一層悪くした。",
+        "en": "He added insult to injury.",
+        "enId": 298345,
+        "form": "一層"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -264,6 +356,7 @@
     "meaning": "loan, lending",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kashi is the continuative stem of 貸す (kasu, “to lend, loan”).",
@@ -271,6 +364,22 @@
     "sources": [
       {
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 貸(か)す (kasu, “to lend, loan”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 202119,
+        "ja": "でも、これで１つ貸しだね。",
+        "en": "But you're going to owe me one.",
+        "enId": 39331,
+        "form": "貸し"
+      },
+      {
+        "id": 196643,
+        "ja": "ペンが必要でしたらお貸しいたします。",
+        "en": "If you need a pen, I'll lend you one.",
+        "enId": 33821,
+        "form": "貸し"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -282,6 +391,7 @@
     "meaning": "aim",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Nerai is a nominalization of the stem of 狙う (nerau, “to aim”).",
@@ -289,6 +399,22 @@
     "sources": [
       {
         "quote": "Nominalization of the 連用形 (ren'yōkei, “continuative or stem form”) of verb 狙う (nerau, “to aim”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 178157,
+        "ja": "君の狙いは何なんだ？",
+        "en": "What are you getting at?",
+        "enId": 453112,
+        "form": "狙い"
+      },
+      {
+        "id": 74671,
+        "ja": "またアフィ狙いの記事か。",
+        "en": "Another spam article hoping for click-throughs?",
+        "enId": 329048,
+        "form": "狙い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -300,6 +426,7 @@
     "meaning": "to harden, to solidify, to become firm",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Katamaru is 固 (kata, “hard; solid”) plus -maru, “to become”.",
@@ -320,6 +447,22 @@
         "quote": "From 固(かた) (kata, “hard; solid”, root of 固い) + まる (-maru, “to become (an adjective), -en”)."
       }
     ],
+    "examples": [
+      {
+        "id": 189526,
+        "ja": "雨降って地固まる。",
+        "en": "Adversity strengthens the foundations.",
+        "enId": 400111,
+        "form": "固まる"
+      },
+      {
+        "id": 182269,
+        "ja": "牛乳は凍って固まった。",
+        "en": "The milk froze and became solid.",
+        "enId": 19460,
+        "form": "固まった"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -329,6 +472,7 @@
     "meaning": "violent, vehement, intense",
     "level": "N3",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hageshii is cognate with the verb 励む (hagemu).",
@@ -336,6 +480,22 @@
     "sources": [
       {
         "quote": "Cognate with the verb 励む (hagemu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84011,
+        "ja": "風は激しく吹いた。",
+        "en": "The wind blew hard.",
+        "enId": 319704,
+        "form": "激しく"
+      },
+      {
+        "id": 137893,
+        "ja": "胎動が激しいです。",
+        "en": "My baby kicks very hard.",
+        "enId": 275343,
+        "form": "激しい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -347,6 +507,7 @@
     "meaning": "as I thought, absolutely",
     "level": "N4",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Yahari may be a hypercorrect back-formation from やっぱり (yappari).",
@@ -371,6 +532,7 @@
     "meaning": "food, clothing and shelter",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Ishokujū is 衣 (i, “clothing”), 食 (shoku, “food”) and 住 (jū, “shelter”).",
@@ -396,6 +558,22 @@
         "quote": "Compound of 衣(い) (i, “clothing”) + 食(しょく) (shoku, “food”) + 住(じゅう) (jū, “shelter”)."
       }
     ],
+    "examples": [
+      {
+        "id": 190983,
+        "ja": "衣食住は生活の基本です。",
+        "en": "Food, clothing and shelter are the basis of life.",
+        "enId": 28143,
+        "form": "衣食住"
+      },
+      {
+        "id": 168553,
+        "ja": "子供は衣食住を親に依存している。",
+        "en": "Children depend on their parents for food, clothing and shelter.",
+        "enId": 245939,
+        "form": "衣食住"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -405,6 +583,7 @@
     "meaning": "waterfall",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Taki, “waterfall”, is simply listed as from Old Japanese.",
@@ -417,6 +596,22 @@
         "quote": "From Old Japanese."
       }
     ],
+    "examples": [
+      {
+        "id": 180126,
+        "ja": "橋の上流に滝がある。",
+        "en": "There is a waterfall above the bridge.",
+        "enId": 18986,
+        "form": "滝"
+      },
+      {
+        "id": 137143,
+        "ja": "谷は滝の音を反響する。",
+        "en": "The valley echoes the sound of the waterfall.",
+        "enId": 276093,
+        "form": "滝"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -426,6 +621,7 @@
     "meaning": "(not) always, (not) necessarily",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kanarazushimo is 必ず (kanarazu, “certainly”) plus the emphatic しも (shimo), the same one seen in 誰しも (dareshimo).",
@@ -446,6 +642,22 @@
         "quote": "From 必(かなら)ず (kanarazu, “certainly, (negative polarity) not necessarily”) + しも (shimo, emphatic word). The しも (shimo) can also be seen in 誰しも (dareshimo) and まだしも (madashimo)."
       }
     ],
+    "examples": [
+      {
+        "id": 142331,
+        "ja": "石炭は必ずしも黒くない。",
+        "en": "Coal is not always black.",
+        "enId": 272238,
+        "form": "必ずしも"
+      },
+      {
+        "id": 169408,
+        "ja": "山は必ずしも緑ではない。",
+        "en": "Mountains are not necessarily green.",
+        "enId": 245079,
+        "form": "必ずしも"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -455,6 +667,7 @@
     "meaning": "gathering, meeting, collection",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": [],
     "headline": "Atsumari is the continuative stem of 集まる (atsumaru).",
@@ -462,6 +675,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 集(あつ)まる (atsumaru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 171201,
+        "ja": "今晩彼の家出集まりがある。",
+        "en": "We will have a meeting at his house this evening.",
+        "enId": 243276,
+        "form": "集まり"
+      },
+      {
+        "id": 224830,
+        "ja": "ごく内輪の集まりなのです。",
+        "en": "It's quite an informal meeting.",
+        "enId": 62165,
+        "form": "集まり"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -473,6 +702,7 @@
     "meaning": "correct",
     "level": "N4",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Tadashii is 直 (tada, “straight; direct; straightforward”) plus the adjective suffix し, first appearing in 858 CE.",
@@ -485,6 +715,22 @@
         "quote": "First appears in 858 CE in the 大智度論 (Daichido-ron), the Japanese rendering of the Chinese text Da zhidu lun. Used primarily in 漢文訓読 (kanbun kundoku, “Japanese-language readings of Classical Chinese texts”, literally “Chinese text, meaning (Japanese) reading”) contexts, with almost no usage in 和文 (wabun, “Japanese texts”) or kana contexts until after the Heian Period."
       }
     ],
+    "examples": [
+      {
+        "id": 137402,
+        "ja": "大体正しい。",
+        "en": "That's mostly right.",
+        "enId": 500364,
+        "form": "正しい"
+      },
+      {
+        "id": 82372,
+        "ja": "僕が正しいと思う。",
+        "en": "I think I'm right.",
+        "enId": 433529,
+        "form": "正しい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -494,6 +740,7 @@
     "meaning": "discount",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Waribiki is the continuative stem of 割り引く (waribiku).",
@@ -517,6 +764,22 @@
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 割(わ)り引(び)く (waribiku)."
       }
     ],
+    "examples": [
+      {
+        "id": 79700,
+        "ja": "夜間の割引はありますか。",
+        "en": "Are there special evening rates?",
+        "enId": 324017,
+        "form": "割引"
+      },
+      {
+        "id": 207635,
+        "ja": "その店は夏の間特別割引をやった。",
+        "en": "The store offered special discounts during the summer.",
+        "enId": 44888,
+        "form": "割引"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -526,6 +789,7 @@
     "meaning": "sky, air",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kūchū, “sky”, was borrowed from Middle Chinese 空中, glossed “sky; air + middle”.",
@@ -546,6 +810,22 @@
         "quote": "Borrowing from Middle Chinese 空中 (MC khuwng trjuwng, “sky; air + middle”)."
       }
     ],
+    "examples": [
+      {
+        "id": 188753,
+        "ja": "煙は空中へと舞い上がった。",
+        "en": "The smoke ascended into the air.",
+        "enId": 25899,
+        "form": "空中"
+      },
+      {
+        "id": 203600,
+        "ja": "ダチョウは空中を飛ばない。",
+        "en": "An ostrich does not fly through the air.",
+        "enId": 40838,
+        "form": "空中"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -555,6 +835,7 @@
     "meaning": "day after tomorrow",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "processes": ["sound-change"],
     "headline": "Asatte shifted from asate, and the kanji spelling comes from myōgonichi.",
     "morphemes": [],
@@ -569,6 +850,22 @@
         "quote": "The kanji spelling is from myōgonichi (see Etymology 3 below)."
       }
     ],
+    "examples": [
+      {
+        "id": 234490,
+        "ja": "あさって来てください。",
+        "en": "Come the day after tomorrow.",
+        "enId": 71866,
+        "form": "あさって"
+      },
+      {
+        "id": 234495,
+        "ja": "あさってはトムの誕生日だ。",
+        "en": "The day after tomorrow is Tom's birthday.",
+        "enId": 71870,
+        "form": "あさって"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -578,6 +875,7 @@
     "meaning": "desire, wish, request",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Negai is the continuative stem of 願う (negau).",
@@ -585,6 +883,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 願(ねが)う (negau)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 143042,
+        "ja": "星に願いを。",
+        "en": "Let me wish upon a shooting star.",
+        "enId": 271526,
+        "form": "願い"
+      },
+      {
+        "id": 178428,
+        "ja": "君の願いは何？",
+        "en": "What's your wish?",
+        "enId": 17280,
+        "form": "願い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -596,6 +910,7 @@
     "meaning": "devil, demon, evil spirit",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Akuma is Middle Chinese 惡魔, literally “bad, evil + demon”.",
@@ -616,6 +931,22 @@
         "quote": "From Middle Chinese 惡魔 (MC 'ak ma, literally “bad, evil + demon”)."
       }
     ],
+    "examples": [
+      {
+        "id": 81440,
+        "ja": "魔女集会で悪魔を召喚する。",
+        "en": "Her coven conjures the demons.",
+        "enId": 322275,
+        "form": "悪魔"
+      },
+      {
+        "id": 103565,
+        "ja": "彼は人間の姿をした悪魔だ。",
+        "en": "He is a devil in human shape.",
+        "enId": 300128,
+        "form": "悪魔"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -625,6 +956,7 @@
     "meaning": "bride, daughter-in-law",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yome has several theories, all reading it as よ (yo) plus 女 (me, “woman, female”); the yo may be 呼 (“to call out, invite”) or 弱 (“weak”).",
@@ -649,6 +981,22 @@
         "quote": "* 吉 (“good luck”)"
       }
     ],
+    "examples": [
+      {
+        "id": 187151,
+        "ja": "嫁と姑の仲は大嵐。",
+        "en": "Mother-in-law and daughter-in-law are a tempest and hailstorm.",
+        "enId": 24288,
+        "form": "嫁"
+      },
+      {
+        "id": 187150,
+        "ja": "嫁にやらなくてはならない娘が３人いる。",
+        "en": "I have three daughters to marry off.",
+        "enId": 24287,
+        "form": "嫁"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -658,6 +1006,7 @@
     "meaning": "this person; this direction; this side",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kotchi is a shift from the archaic pronoun こち (kochi).",
@@ -679,6 +1028,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "Puro is an abbreviation for some borrowed words from English.",
@@ -686,6 +1036,22 @@
     "sources": [
       {
         "quote": "An abbreviation for some borrowed words from English."
+      }
+    ],
+    "examples": [
+      {
+        "id": 178434,
+        "ja": "君の歌はプロ顔負けだ。",
+        "en": "Your singing puts professional singers to shame.",
+        "enId": 17286,
+        "form": "プロ"
+      },
+      {
+        "id": 94617,
+        "ja": "彼女の演技はプロ並みです。",
+        "en": "Her acting is on the level of a professional.",
+        "enId": 309088,
+        "form": "プロ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -697,6 +1063,7 @@
     "meaning": "a little, partially, somewhat",
     "level": "N3",
     "pos": ["adverb (fukushi)", "noun or verb acting prenominally"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["clipping"],
     "headline": "Yaya is a clipping of 稚児 (yayako).",
@@ -715,6 +1082,7 @@
     "meaning": "fry pan, frying pan",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Furaipan is borrowed from American English frypan.",
@@ -728,6 +1096,22 @@
     "sources": [
       {
         "quote": "Borrowed from American English frypan"
+      }
+    ],
+    "examples": [
+      {
+        "id": 159008,
+        "ja": "私はフライパンで野菜を炒めた。",
+        "en": "I pan-fried vegetables.",
+        "enId": 255517,
+        "form": "フライパン"
+      },
+      {
+        "id": 223242,
+        "ja": "このフライパンのとっては持ちやすい。",
+        "en": "The handle of this pan is easy to hold.",
+        "enId": 60574,
+        "form": "フライパン"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -773,6 +1157,7 @@
     "meaning": "to be reflected, to come out (photo)",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf28"],
     "stratum": "wago",
     "processes": [],
     "headline": "Utsuru, “to be reflected”, is cognate with 移る.",
@@ -780,6 +1165,22 @@
     "sources": [
       {
         "quote": "Cognate with Japanese 移る."
+      }
+    ],
+    "examples": [
+      {
+        "id": 174502,
+        "ja": "湖に山の影が映っていた。",
+        "en": "We could see the reflection of the mountains in the lake.",
+        "enId": 239967,
+        "form": "映っていた"
+      },
+      {
+        "id": 143812,
+        "ja": "水たまりに映った影が見えた。",
+        "en": "Reflections could be seen in the puddles.",
+        "enId": 270754,
+        "form": "映った"
       }
     ],
     "wiktionaryDump": "2026-09-02"

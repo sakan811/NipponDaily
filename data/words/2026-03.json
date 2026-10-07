@@ -6,6 +6,7 @@
     "meaning": "English letter (character)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf14"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Eiji is 英 (ei, “English”) plus 字 (ji, “character, letter”).",
@@ -38,6 +39,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Toho is a Sino-Japanese word from 徒步, maybe from Middle Chinese.",
@@ -60,6 +62,15 @@
         "quote": "Sino-Japanese word from 徒步, maybe from Middle Chinese."
       }
     ],
+    "examples": [
+      {
+        "id": 215228,
+        "ja": "ジョンは彼のオフィスへ徒歩で行きます。",
+        "en": "John goes to his office on foot.",
+        "enId": 52526,
+        "form": "徒歩"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -72,6 +83,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["news1", "nf16"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kikon is 既 (ki, “already”) plus 婚 (kon, “marriage”).",
@@ -92,6 +104,15 @@
         "quote": "既 (ki, “already”) + 婚 (kon, “marriage”)"
       }
     ],
+    "examples": [
+      {
+        "id": 183400,
+        "ja": "既婚女性が家や夫や子供たちの面倒を見ることがどんなことか、彼女は知っていた。",
+        "en": "She knew what it was like for married women to look after houses, husbands and children.",
+        "enId": 20523,
+        "form": "既婚"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -104,6 +125,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sōdai is from Middle Chinese 壮大 (MC dajH|daH).",
@@ -126,6 +148,22 @@
         "quote": "From Middle Chinese 壮大 (MC dajH|daH)."
       }
     ],
+    "examples": [
+      {
+        "id": 74778,
+        "ja": "壮大な眺めですね。",
+        "en": "It's a magnificent view, isn't it?",
+        "enId": 328940,
+        "form": "壮大な"
+      },
+      {
+        "id": 212179,
+        "ja": "その王室の結婚式は壮大な祭典であった。",
+        "en": "The royal wedding was a magnificent occasion.",
+        "enId": 49458,
+        "form": "壮大な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -135,6 +173,7 @@
     "meaning": "textile, fabric",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Orimono is 織り (ori, the stem of 織る (oru), weaving, woven) plus 物 (mono, “thing”).",
@@ -157,6 +196,22 @@
         "quote": "From 織(お)り (ori, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 織(お)る (oru), weaving, woven) + 物(もの) (mono, “thing”)."
       }
     ],
+    "examples": [
+      {
+        "id": 221063,
+        "ja": "この織物を染めて欲しいのです。",
+        "en": "I'd like to have this fabric dyed.",
+        "enId": 58385,
+        "form": "織物"
+      },
+      {
+        "id": 230541,
+        "ja": "あの店には織物類が置いてありますか。",
+        "en": "Does that store keep textile goods?",
+        "enId": 67908,
+        "form": "織物"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -166,6 +221,7 @@
     "meaning": "business",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ビジネス is from English business.",
@@ -179,6 +235,22 @@
     "sources": [
       {
         "quote": "From English business."
+      }
+    ],
+    "examples": [
+      {
+        "id": 111179,
+        "ja": "彼はビジネスの経歴がある。",
+        "en": "He has a background in business.",
+        "enId": 292505,
+        "form": "ビジネス"
+      },
+      {
+        "id": 224285,
+        "ja": "ここは東京のビジネス街だ。",
+        "en": "This is a business section of Tokyo.",
+        "enId": 61620,
+        "form": "ビジネス"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -219,6 +291,22 @@
         "quote": "By surface analysis, 骨董(こっとう) (kottō) + 品(ひん) (-hin)."
       }
     ],
+    "examples": [
+      {
+        "id": 107232,
+        "ja": "彼は骨董品を見る目がある。",
+        "en": "He has an eye for antiques.",
+        "enId": 296454,
+        "form": "骨董品"
+      },
+      {
+        "id": 90066,
+        "ja": "彼女は骨董品がとても好きだ。",
+        "en": "She loves antiques.",
+        "enId": 1442232,
+        "form": "骨董品"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -228,6 +316,7 @@
     "meaning": "heartening, reassuring",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Kokorozuyoi is 心 (kokoro, “heart, feelings”) plus 強い (tsuyoi, “strong”), with tsuyoi voiced to zuyoi by rendaku.",
@@ -247,6 +336,15 @@
     "sources": [
       {
         "quote": "From 心 (kokoro, “heart, feelings”) + 強い (tsuyoi, “strong”).The tsuyoi changes to zuyoi as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 74473,
+        "ja": "僕には警察よりも何よりもみんながいてくれることの方が心強いのですよ。",
+        "en": "For my part, having you lot with me is more reassuring than the police or anything!",
+        "enId": 329246,
+        "form": "心強い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -269,6 +367,22 @@
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 瞬(またた)く (matataku, “to blink”)."
       }
     ],
+    "examples": [
+      {
+        "id": 195325,
+        "ja": "まばたきのように素早い。",
+        "en": "As quick as a wink.",
+        "enId": 32499,
+        "form": "まばたき"
+      },
+      {
+        "id": 91457,
+        "ja": "彼女はまばたきして涙を止めようとした。",
+        "en": "She blinked to stop the tears.",
+        "enId": 312256,
+        "form": "まばたき"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -281,6 +395,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カムバック is from English comeback, and its idol fandom sense is a semantic loan from Korean.",
@@ -311,6 +426,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf16"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Hōsha is a calque of English radiation.",
@@ -333,6 +449,15 @@
         "quote": "Calque of English radiation."
       }
     ],
+    "examples": [
+      {
+        "id": 200676,
+        "ja": "ドップラー効果はまた、一般に光と放射エネルギーにおいても見られる。",
+        "en": "The Doppler effect is also observed with light and with radiant energy in general.",
+        "enId": 37878,
+        "form": "放射"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -342,6 +467,7 @@
     "meaning": "seductive, melancholy, languid",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["news2", "nf38"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Nayamashii is from the verb 悩む (nayamu) and the adjectivizing suffix しい (-shii).",
@@ -349,6 +475,15 @@
     "sources": [
       {
         "quote": "From the verb 悩む (nayamu) and the adjectivizing suffix しい (-shii)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 87575,
+        "ja": "彼女は悩ましい目つきで僕を見た。",
+        "en": "She looked at me seductively.",
+        "enId": 316133,
+        "form": "悩ましい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -363,6 +498,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ōmizu is 大 (ō, “great”) plus 水 (mizu, “water”).",
@@ -383,6 +519,22 @@
         "quote": "Compound of 大 (ō, “great”) + 水 (mizu, “water”)."
       }
     ],
+    "examples": [
+      {
+        "id": 180115,
+        "ja": "橋は大水で流された。",
+        "en": "The bridge was carried away by the flood.",
+        "enId": 18975,
+        "form": "大水"
+      },
+      {
+        "id": 180116,
+        "ja": "橋は大水で洗い流された。",
+        "en": "The bridge was washed away by the flood.",
+        "enId": 18976,
+        "form": "大水"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -392,6 +544,7 @@
     "meaning": "dispute, quarrel, conflict",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "Arasoi is the continuative stem of the verb 争う (arasō, “to compete, argue”).",
@@ -399,6 +552,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 争(あらそ)う (arasō, “to compete, argue”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 196264,
+        "ja": "ポスト争いは厳しい。",
+        "en": "Competition for the position is very intense.",
+        "enId": 33443,
+        "form": "争い"
+      },
+      {
+        "id": 155359,
+        "ja": "私は争いを避けようとした。",
+        "en": "I tried to avoid conflict.",
+        "enId": 259180,
+        "form": "争い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -414,6 +583,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["news1", "nf12"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kogara is 小 (ko-, “little”) plus 柄 (gara, “physique, build”).",
@@ -434,6 +604,22 @@
         "quote": "From 小(こ) (ko-, “little”) + 柄(がら) (gara, “physique, build”)."
       }
     ],
+    "examples": [
+      {
+        "id": 104124,
+        "ja": "彼は小柄な男です。",
+        "en": "He has a small frame.",
+        "enId": 299568,
+        "form": "小柄な"
+      },
+      {
+        "id": 139910,
+        "ja": "息子は年の割には小柄だ。",
+        "en": "My son is small for his age.",
+        "enId": 274439,
+        "form": "小柄"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -451,6 +637,22 @@
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 目論(もくろ)む (mokuromu)."
       }
     ],
+    "examples": [
+      {
+        "id": 156203,
+        "ja": "私は自分の目論見を漏らさないように用心した。",
+        "en": "I was wary of showing my intention.",
+        "enId": 258331,
+        "form": "目論見"
+      },
+      {
+        "id": 156281,
+        "ja": "私は自分のもくろみをもらさないように用心した。",
+        "en": "I was wary of showing my intentions.",
+        "enId": 258253,
+        "form": "もくろみ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -460,6 +662,7 @@
     "meaning": "logic",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Ronri is from the Middle Chinese compound 論理, literally “debate, theory + reason, principle”.",
@@ -480,6 +683,22 @@
         "quote": "From Middle Chinese compound 論理 (MC lwon liX, literally “debate, theory + reason, principle”). Compare modern Mandarin reading lùnlǐ."
       }
     ],
+    "examples": [
+      {
+        "id": 115903,
+        "ja": "彼の論理にはついていけない。",
+        "en": "I cannot follow his logic.",
+        "enId": 287766,
+        "form": "論理"
+      },
+      {
+        "id": 2142119,
+        "ja": "君の論理にはついて行けないよ。",
+        "en": "I cannot follow your logic.",
+        "enId": 257124,
+        "form": "論理"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -489,6 +708,7 @@
     "meaning": "team",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "チーム is from English team.",
@@ -504,6 +724,22 @@
         "quote": "From English team."
       }
     ],
+    "examples": [
+      {
+        "id": 111968,
+        "ja": "彼はチームの主将だ。",
+        "en": "He is the captain of the team.",
+        "enId": 291710,
+        "form": "チーム"
+      },
+      {
+        "id": 192054,
+        "ja": "わがチームが負けた。",
+        "en": "Our team lost.",
+        "enId": 29216,
+        "form": "チーム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -513,6 +749,7 @@
     "meaning": "soul, spirit",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["compound", "sound-change", "unclear"],
     "headline": "Tamashii is 魂 (tama, “soul, spirit”) plus an uncertain shii, possibly 強ひ (shihi), from the classical verb 強ふ.",
@@ -534,6 +771,22 @@
         "quote": "Thought to be cognate with 玉 (tama, “jewel”), but note differences in pitch accent."
       }
     ],
+    "examples": [
+      {
+        "id": 117328,
+        "ja": "彼の魂に平和を！",
+        "en": "Peace to his ashes!",
+        "enId": 286336,
+        "form": "魂"
+      },
+      {
+        "id": 144604,
+        "ja": "人の魂は不滅だ。",
+        "en": "A person's soul is immortal.",
+        "enId": 269959,
+        "form": "魂"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -543,6 +796,7 @@
     "meaning": "industrialist, businessman",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf11"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jitsugyōka is, by surface analysis, 実業 (jitsugyō) plus 家 (-ka).",
@@ -571,6 +825,22 @@
         "quote": "By surface analysis, 実業(じつぎょう) (jitsugyō) + 家(か) (-ka)."
       }
     ],
+    "examples": [
+      {
+        "id": 104722,
+        "ja": "彼は実業家としてはやり手だ。",
+        "en": "He's an acute businessman.",
+        "enId": 298967,
+        "form": "実業家"
+      },
+      {
+        "id": 126079,
+        "ja": "聴衆のほとんどは実業家だった。",
+        "en": "The audience was mostly businessmen.",
+        "enId": 277914,
+        "form": "実業家"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -580,6 +850,7 @@
     "meaning": "to become weak, to decline",
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": [],
     "headline": "Otoroeru is from Classical Japanese 衰ふ (otorofu), 劣ろ (otoro, the irrealis of 劣る (otoru, “to be inferior to”)) plus ふ (-fu).",
@@ -598,6 +869,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru. For the Old / Classical form, see the 衰ふ entry."
       }
     ],
+    "examples": [
+      {
+        "id": 84057,
+        "ja": "風がやや衰えた。",
+        "en": "The wind abated a little.",
+        "enId": 319660,
+        "form": "衰えた"
+      },
+      {
+        "id": 107764,
+        "ja": "彼は健康が衰えた。",
+        "en": "He declined in health.",
+        "enId": 295921,
+        "form": "衰えた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -607,6 +894,7 @@
     "meaning": "fan",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ファン is borrowed from English fan.",
@@ -622,6 +910,22 @@
         "quote": "Borrowed from English fan."
       }
     ],
+    "examples": [
+      {
+        "id": 111108,
+        "ja": "彼はファンの邪魔をした。",
+        "en": "He interfered with the fans.",
+        "enId": 292578,
+        "form": "ファン"
+      },
+      {
+        "id": 200385,
+        "ja": "どのチームのファンですか。",
+        "en": "Which is your favorite team?",
+        "enId": 37586,
+        "form": "ファン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -631,6 +935,7 @@
     "meaning": "a commercial",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コマーシャル is borrowed from English commercial.",
@@ -646,6 +951,22 @@
         "quote": "Borrowed from English commercial."
       }
     ],
+    "examples": [
+      {
+        "id": 113493,
+        "ja": "彼はスーパーマーケットのコマーシャルを扱っている。",
+        "en": "He deals with the commercials of the supermarket.",
+        "enId": 290181,
+        "form": "コマーシャル"
+      },
+      {
+        "id": 231331,
+        "ja": "あのコマーシャルってインパクト強いね。特に、音楽が耳に残るよ。",
+        "en": "That commercial makes a strong impression - especially the music. It stays in your head.",
+        "enId": 68697,
+        "form": "コマーシャル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -655,6 +976,7 @@
     "meaning": "to choose at one's own discretion",
     "level": "N1",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["news2", "nf32"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Mihakarau is 見る (miru, “to see”) plus 計らう (hakarau, “to arrange, take measures”).",
@@ -684,6 +1006,7 @@
     "meaning": "feces",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Daiben is 大 (“big”) plus 便 (“excreta”).",
@@ -713,6 +1036,7 @@
     "meaning": "hell",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Jigoku is from Middle Chinese 地獄, literally “(under)ground prison”.",
@@ -736,6 +1060,22 @@
         "quote": "From Middle Chinese 地獄 (diɪᴴ ŋɨok̚), literally “(under)ground prison”). Compare modern Min Nan reading tē-gio̍k, or Hakka thi-ngiu̍k."
       }
     ],
+    "examples": [
+      {
+        "id": 211918,
+        "ja": "その牙城はお前の地獄よ。",
+        "en": "Her kingdom is your hell.",
+        "enId": 49196,
+        "form": "地獄"
+      },
+      {
+        "id": 126917,
+        "ja": "地獄への転落は容易である。",
+        "en": "The descent to hell is easy.",
+        "enId": 277173,
+        "form": "地獄"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -745,6 +1085,7 @@
     "meaning": "to end, to be finished, to be exhausted",
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["news2", "nf37", "spec2"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hateru is from Old Japanese はつ (patu), a lower bigrade verb.",
@@ -769,6 +1110,7 @@
     "meaning": "quiz",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "クイズ is borrowed from English quiz.",
@@ -784,6 +1126,22 @@
         "quote": "Borrowed from English quiz."
       }
     ],
+    "examples": [
+      {
+        "id": 223862,
+        "ja": "このクイズは全然分からない。",
+        "en": "I can make nothing of this quiz.",
+        "enId": 61198,
+        "form": "クイズ"
+      },
+      {
+        "id": 146589,
+        "ja": "少年はクイズを解くのにかなり苦労した。",
+        "en": "The boy took great pains to solve the quiz.",
+        "enId": 46394,
+        "form": "クイズ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -796,6 +1154,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "kango",
     "processes": ["ateji"],
     "headline": "The kanji of mucha are ateji, literally meaning “tealess”.",
@@ -803,6 +1162,15 @@
     "sources": [
       {
         "quote": "The kanji are ateji (当(あ)て字(じ)), literally meaning \"tealess\"."
+      }
+    ],
+    "examples": [
+      {
+        "id": 179144,
+        "ja": "君がそれをたった一人でやろうなんてむちゃだ。",
+        "en": "You are mad to try to do it all alone.",
+        "enId": 18000,
+        "form": "むちゃ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -817,6 +1185,7 @@
       "expressions (phrases, clauses, etc.)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news2", "nf31"],
     "stratum": "wago",
     "processes": [],
     "headline": "Minoue is 身 (mi) plus の (no) plus 上 (ue).",
@@ -824,6 +1193,22 @@
     "sources": [
       {
         "quote": "身(み) (mi) + の (no) + 上(うえ) (ue)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 116800,
+        "ja": "彼の身の上に何があったか誰も知らない。",
+        "en": "No one knows what has happened to him.",
+        "enId": 286868,
+        "form": "身の上"
+      },
+      {
+        "id": 88537,
+        "ja": "彼女は深呼吸してから、身の上を語り始めた。",
+        "en": "She took a deep breath and then started to talk about herself.",
+        "enId": 315170,
+        "form": "身の上"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -835,6 +1220,7 @@
     "meaning": "to go, to proceed",
     "level": "N1",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Omomuku was originally 面向く (omomuku), 面 (omo, “face”) plus 向く (muku, “toward”).",
@@ -842,6 +1228,15 @@
     "sources": [
       {
         "quote": "Originally 面(おも)向(む)く (omomuku), compound of 面(おも) (omo, “face”) + 向(む)く (muku, “toward”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175907,
+        "ja": "決心がつきかねたので、私は感情のおもむくままに行動した。",
+        "en": "I couldn't decide what to do, so I just followed my heart.",
+        "enId": 238558,
+        "form": "おもむく"
       }
     ],
     "wiktionaryDump": "2026-09-02"

@@ -6,6 +6,7 @@
     "meaning": "five",
     "level": "N5",
     "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "五, “five”, comes from Middle Chinese (MC nguX).",
@@ -13,6 +14,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 五 (MC nguX). Compare modern Hokkien 五 (gō͘ / gǒ͘)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 174429,
+        "ja": "五人の席はありますか。",
+        "en": "Do you have a table for five?",
+        "enId": 240040,
+        "form": "五"
+      },
+      {
+        "id": 201024,
+        "ja": "どこかは今五時だろう。",
+        "en": "It's five o'clock somewhere now.",
+        "enId": 38229,
+        "form": "五"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -24,6 +41,7 @@
     "meaning": "code; cord; chord",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コード traces to three English words: “code”, “cord” and “chord”.",
@@ -48,6 +66,7 @@
     "meaning": "neck",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "首, “neck”, is from Old Japanese, from Proto-Japonic *kunpi.",
@@ -55,6 +74,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *kunpi."
+      }
+    ],
+    "examples": [
+      {
+        "id": 227524,
+        "ja": "おまえは首だ。",
+        "en": "You're fired.",
+        "enId": 64877,
+        "form": "首"
+      },
+      {
+        "id": 95863,
+        "ja": "彼を首にしてやる。",
+        "en": "He shall be fired.",
+        "enId": 307841,
+        "form": "首"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -69,6 +104,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スケジュール is borrowed from English “schedule”.",
@@ -82,6 +118,22 @@
     "sources": [
       {
         "quote": "Borrowed from English schedule."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124789,
+        "ja": "電車はスケジュール通りに駅を出た。",
+        "en": "The train left the station on time.",
+        "enId": 279204,
+        "form": "スケジュール"
+      },
+      {
+        "id": 220140,
+        "ja": "この飛行機はスケジュール通りですか。",
+        "en": "Is this plane on schedule?",
+        "enId": 57459,
+        "form": "スケジュール"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -111,6 +163,7 @@
     "meaning": "top",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "トップ is borrowed from English “top”, a doublet of トップス.",
@@ -129,6 +182,22 @@
         "quote": "Doublet of トップス (toppusu)."
       }
     ],
+    "examples": [
+      {
+        "id": 92959,
+        "ja": "彼女はクラスでトップです。",
+        "en": "She is at the top of her class.",
+        "enId": 310750,
+        "form": "トップ"
+      },
+      {
+        "id": 89219,
+        "ja": "彼女は試験にトップで合格した。",
+        "en": "She passed first in the exam.",
+        "enId": 314487,
+        "form": "トップ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -138,6 +207,7 @@
     "meaning": "knee, lap",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "wago",
     "processes": [],
     "headline": "膝, “knee, lap”, is from Old Japanese, from Proto-Japonic *pinsa.",
@@ -145,6 +215,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *pinsa."
+      }
+    ],
+    "examples": [
+      {
+        "id": 111185,
+        "ja": "彼はヒザの力が抜けた。",
+        "en": "His knee gave way.",
+        "enId": 292499,
+        "form": "ヒザ"
+      },
+      {
+        "id": 127327,
+        "ja": "弾丸はひざの上に入った。",
+        "en": "The bullet entered above the knee.",
+        "enId": 276762,
+        "form": "ひざ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -159,6 +245,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "インク, “ink”, is borrowed from English, and it supplanted an earlier インキ from Dutch “inkt”.",
@@ -171,6 +258,22 @@
         "quote": "Supplanted earlier インキ (inki) from Dutch inkt."
       }
     ],
+    "examples": [
+      {
+        "id": 226251,
+        "ja": "彼女はインクで書いた。",
+        "en": "She wrote in ink.",
+        "enId": 63591,
+        "form": "インク"
+      },
+      {
+        "id": 182619,
+        "ja": "吸取り紙はインク吸い取る。",
+        "en": "Blotting paper absorbs ink.",
+        "enId": 19752,
+        "form": "インク"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -180,6 +283,7 @@
     "meaning": "jam",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ジャム is the English word “jam” in katakana.",
@@ -195,6 +299,22 @@
         "quote": "From English jam."
       }
     ],
+    "examples": [
+      {
+        "id": 218285,
+        "ja": "これは自家製のジャムです。",
+        "en": "This is homemade jam.",
+        "enId": 55597,
+        "form": "ジャム"
+      },
+      {
+        "id": 229062,
+        "ja": "イチゴはジャムに作られる。",
+        "en": "Strawberries are made into jam.",
+        "enId": 66419,
+        "form": "ジャム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -204,6 +324,7 @@
     "meaning": "short (e.g., story, film)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf13"],
     "processes": [],
     "headline": "In 短編, the source says 編 is a daiyōji replacing 篇.",
     "morphemes": [],
@@ -221,6 +342,7 @@
     "meaning": "stress",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ストレス is borrowed from English “stress”.",
@@ -236,6 +358,22 @@
         "quote": "Borrowed from English stress."
       }
     ],
+    "examples": [
+      {
+        "id": 214587,
+        "ja": "ストレスがたまってきたよ。",
+        "en": "I'm feeling stressed.",
+        "enId": 51880,
+        "form": "ストレス"
+      },
+      {
+        "id": 92695,
+        "ja": "彼女はストレスに対処できない。",
+        "en": "She is unable to cope with stress.",
+        "enId": 311014,
+        "form": "ストレス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -245,6 +383,7 @@
     "meaning": "and; furthermore",
     "level": "N5",
     "pos": ["conjunction"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "wago",
     "processes": [],
     "headline": "また is from Old Japanese and first cited to the Nihon Shoki of 720 CE.",
@@ -263,6 +402,7 @@
     "meaning": "theme, project, topic (GER: Thema)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "テーマ comes from German “Thema”, first cited in a text from 1910.",
@@ -281,6 +421,22 @@
         "quote": "First cited in a text from 1910."
       }
     ],
+    "examples": [
+      {
+        "id": 139661,
+        "ja": "卒論のテーマは決めましたか。",
+        "en": "Have you decided on the subject of your thesis?",
+        "enId": 274539,
+        "form": "テーマ"
+      },
+      {
+        "id": 77971,
+        "ja": "両方の展望にはある共通のテーマがある。",
+        "en": "A common theme underlies both perspectives.",
+        "enId": 325747,
+        "form": "テーマ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -290,6 +446,7 @@
     "meaning": "to be born",
     "level": "N5",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "生まれる is the passive form of 生む (umu, “to give birth to”), hence “to be born”.",
@@ -300,6 +457,22 @@
       },
       {
         "quote": "Also attested in its Classical Japanese form 生まる (umaru), following 下二段活用 (shimo nidan katsuyō, “lower bigrade conjugation”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 89873,
+        "ja": "彼女は昨年生まれた。",
+        "en": "She was born last year.",
+        "enId": 313842,
+        "form": "生まれた"
+      },
+      {
+        "id": 102410,
+        "ja": "彼は大阪で生まれた。",
+        "en": "He was born in Osaka.",
+        "enId": 301284,
+        "form": "生まれた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -314,6 +487,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コーチ is borrowed from English “coach”.",
@@ -329,6 +503,22 @@
         "quote": "Borrowed from English coach."
       }
     ],
+    "examples": [
+      {
+        "id": 224977,
+        "ja": "コーチが助言をしてくれた。",
+        "en": "The coach gave me some advice.",
+        "enId": 62312,
+        "form": "コーチ"
+      },
+      {
+        "id": 224975,
+        "ja": "コーチの忠告が私達を救った。",
+        "en": "The coach's advice saved us.",
+        "enId": 62310,
+        "form": "コーチ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -341,8 +531,9 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
-    "processes": ["borrowing"],
+    "processes": ["wasei", "borrowing"],
     "headline": "ワンピース, “one-piece dress”, is borrowed from English “one-piece”.",
     "morphemes": [
       {
@@ -356,6 +547,22 @@
         "quote": "Borrowed from English one-piece."
       }
     ],
+    "examples": [
+      {
+        "id": 222973,
+        "ja": "このワンピースはいくらですか。",
+        "en": "How much is this dress?",
+        "enId": 60304,
+        "form": "ワンピース"
+      },
+      {
+        "id": 222974,
+        "ja": "このワンピースは、君の雰囲気にぴったりだね。",
+        "en": "This dress is YOU.",
+        "enId": 60305,
+        "form": "ワンピース"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -365,6 +572,7 @@
     "meaning": "cloth, piece, cut",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "切れ is the nominative form of 切れる (kireru, “be cut off, be injured”).",
@@ -372,6 +580,22 @@
     "sources": [
       {
         "quote": "Nominative form of 切(き)れる (kireru, “be cut off, be injured”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 122987,
+        "ja": "肉は何切れにしましょうか。",
+        "en": "How many slices of meat would you like?",
+        "enId": 281014,
+        "form": "切れ"
+      },
+      {
+        "id": 142112,
+        "ja": "切れはずたずたに切り裂かれた。",
+        "en": "The cloth was torn to shreds.",
+        "enId": 272458,
+        "form": "切れ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -383,6 +607,7 @@
     "meaning": "locker",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ロッカー is borrowed from English “locker”.",
@@ -407,6 +632,7 @@
     "meaning": "to pinch; to hold between; to insert",
     "level": "N2",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "挟む appears to be the Old Japanese root pasa plus the verb-forming suffix む (mu).",
@@ -419,6 +645,22 @@
         "quote": "Derivationally, this appears to be Old Japanese root pasa (modern hasa) + verb-forming suffix む (mu, “seem like, look like; treat like; make like”). Root pasa may be a kind of ablaut cognate with poso as reflected in modern adjective 細い (hosoi, “narrow”), and adverbs 細々 (hosoboso, “narrowly”, iterative, repetitive), ほっそり (hossori, “narrowly, skinnily”, stative). Root pasa is also reflected in modern noun 稲架 (hasa, “frame for drying sheaves of harvested rice”)."
       }
     ],
+    "examples": [
+      {
+        "id": 105247,
+        "ja": "彼は耳に鉛筆を挟んだ。",
+        "en": "He stuck his pencil behind his ear.",
+        "enId": 298442,
+        "form": "挟んだ"
+      },
+      {
+        "id": 159386,
+        "ja": "ドアに指をはさまれた。",
+        "en": "I had my fingers caught in the door.",
+        "enId": 255137,
+        "form": "はさまれた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -428,6 +670,7 @@
     "meaning": "pistol",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ピストル is the English word “pistol” in katakana.",
@@ -443,6 +686,22 @@
         "quote": "From English pistol."
       }
     ],
+    "examples": [
+      {
+        "id": 82519,
+        "ja": "暴漢のピストルが発射された。",
+        "en": "A ruffian's pistol went off.",
+        "enId": 321197,
+        "form": "ピストル"
+      },
+      {
+        "id": 197593,
+        "ja": "ピストルの弾が彼の足を貫通した。",
+        "en": "A pistol bullet went clean through his leg.",
+        "enId": 34780,
+        "form": "ピストル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -456,6 +715,7 @@
       "noun, used as a suffix",
       "counter"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "度, “counter for occurrences”, is cognate with 旅 (tabi, “journey, travel”).",
@@ -463,6 +723,22 @@
     "sources": [
       {
         "quote": "Cognate with 旅(たび) (tabi, “journey, travel”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 167414,
+        "ja": "私が訪ねるたびあなたは留守だ。",
+        "en": "Every time I call on you, you're out.",
+        "enId": 247086,
+        "form": "たび"
+      },
+      {
+        "id": 101770,
+        "ja": "彼は東京へ来るたび私を訪ねてきた。",
+        "en": "He visited me every time he came up to Tokyo.",
+        "enId": 301923,
+        "form": "たび"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -474,6 +750,7 @@
     "meaning": "film (roll of)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "フィルム is the English word “film” in katakana.",
@@ -489,6 +766,22 @@
         "quote": "From English film."
       }
     ],
+    "examples": [
+      {
+        "id": 197224,
+        "ja": "フィルムがなくなった。",
+        "en": "My film has run out.",
+        "enId": 34406,
+        "form": "フィルム"
+      },
+      {
+        "id": 223256,
+        "ja": "このフィルムは現像が早い。",
+        "en": "This film develops fast.",
+        "enId": 60588,
+        "form": "フィルム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -498,6 +791,7 @@
     "meaning": "decoration",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": [],
     "headline": "飾り, “decoration”, is the continuative stem of the verb 飾る (kazaru, “to decorate, to adorn”).",
@@ -505,6 +799,22 @@
     "sources": [
       {
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 飾(かざ)る (kazaru, “to decorate, to adorn”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 205069,
+        "ja": "それは飾りにすぎない。",
+        "en": "It is merely an ornament.",
+        "enId": 42311,
+        "form": "飾り"
+      },
+      {
+        "id": 207222,
+        "ja": "その箱に飾りのテープをかけてください。",
+        "en": "Do up the box with decorative tape.",
+        "enId": 44473,
+        "form": "飾り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -516,6 +826,7 @@
     "meaning": "brush",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ブラシ is the English word “brush” in katakana.",
@@ -531,6 +842,15 @@
         "quote": "From English brush."
       }
     ],
+    "examples": [
+      {
+        "id": 89401,
+        "ja": "彼女は私の靴にさっとブラシをかけてくれた。",
+        "en": "She gave my shoes a quick brush.",
+        "enId": 314310,
+        "form": "ブラシ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -540,6 +860,7 @@
     "meaning": "chorus",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コーラス is the English word “chorus” in katakana.",
@@ -555,6 +876,22 @@
         "quote": "From English chorus."
       }
     ],
+    "examples": [
+      {
+        "id": 137049,
+        "ja": "誰がコーラスを指揮しますか。",
+        "en": "Who leads the chorus?",
+        "enId": 276187,
+        "form": "コーラス"
+      },
+      {
+        "id": 97647,
+        "ja": "彼らはみな一緒にコーラスを歌いました。",
+        "en": "They all joined in the chorus.",
+        "enId": 306057,
+        "form": "コーラス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -564,6 +901,7 @@
     "meaning": "to stand; to be built (v.i.), to erect, to be erected",
     "level": "N3",
     "pos": ["Godan verb with 'tsu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": [],
     "headline": "建つ, “to stand; to be built”, is cognate with 立つ (tatsu).",
@@ -571,6 +909,22 @@
     "sources": [
       {
         "quote": "Cognate with Japanese 立(た)つ (tatsu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 173951,
+        "ja": "口では大阪の城も建つ。",
+        "en": "Easier said than done.",
+        "enId": 239682,
+        "form": "建つ"
+      },
+      {
+        "id": 163963,
+        "ja": "私の家は丘の上に建っています。",
+        "en": "My house stands on a hill.",
+        "enId": 29067,
+        "form": "建っています"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -582,6 +936,7 @@
     "meaning": "tape",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "テープ is the English word “tape” in katakana.",
@@ -597,6 +952,22 @@
         "quote": "From English tape."
       }
     ],
+    "examples": [
+      {
+        "id": 159466,
+        "ja": "私はテープを買います。",
+        "en": "I buy a tape.",
+        "enId": 255057,
+        "form": "テープ"
+      },
+      {
+        "id": 202434,
+        "ja": "テープが回っているよ。",
+        "en": "The tape is rolling.",
+        "enId": 39645,
+        "form": "テープ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -606,6 +977,7 @@
     "meaning": "to branch off, to diverge from",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": [],
     "headline": "分かれる comes from the classical verb わかる, and is cognate with 別れる and 分ける.",
@@ -613,6 +985,22 @@
     "sources": [
       {
         "quote": "From the classical lower bigrade verb (ラ行下二段活用) わかる (wakaru). Cognate with 別(わか)れる (wakareru) and 分(わ)ける (wakeru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 225569,
+        "ja": "クラスは意見が分かれた。",
+        "en": "The class were divided in their opinion.",
+        "enId": 62906,
+        "form": "分かれた"
+      },
+      {
+        "id": 219630,
+        "ja": "この本は四部に分かれている。",
+        "en": "This book is divided into four parts.",
+        "enId": 56951,
+        "form": "分かれている"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -627,6 +1015,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カーブ covers “curve” and the baseball curve ball, and the source traces it to English “curve”.",
@@ -651,6 +1040,7 @@
     "meaning": "to copy (v.t.); to photograph",
     "level": "N4",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": [],
     "headline": "写す, “to copy; to photograph”, is cognate with 移す.",
@@ -658,6 +1048,22 @@
     "sources": [
       {
         "quote": "Cognate with Japanese 移す."
+      }
+    ],
+    "examples": [
+      {
+        "id": 99284,
+        "ja": "彼は友達のノートを正確に写した。",
+        "en": "He copied his friend's notebook with precision.",
+        "enId": 304415,
+        "form": "写した"
+      },
+      {
+        "id": 209615,
+        "ja": "その写真は空から写されたものである。",
+        "en": "The picture was taken from the air.",
+        "enId": 46877,
+        "form": "写された"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -669,6 +1075,7 @@
     "meaning": "curtain",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カーテン is borrowed from English “curtain”.",
@@ -682,6 +1089,22 @@
     "sources": [
       {
         "quote": "Borrowed from English curtain."
+      }
+    ],
+    "examples": [
+      {
+        "id": 74074,
+        "ja": "カーテンに火が点いた。",
+        "en": "The curtain caught fire.",
+        "enId": 63832,
+        "form": "カーテン"
+      },
+      {
+        "id": 226481,
+        "ja": "カーテンは緑に決めた。",
+        "en": "I have settled on green for the curtains.",
+        "enId": 63826,
+        "form": "カーテン"
       }
     ],
     "wiktionaryDump": "2026-09-02"

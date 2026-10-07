@@ -6,6 +6,7 @@
     "meaning": "wrist",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Tekubi is 手 (te, “hand”) plus 首 (kubi, “neck”).",
@@ -26,6 +27,22 @@
         "quote": "手(て) (te, “hand”) + 首(くび) (kubi, “neck”)"
       }
     ],
+    "examples": [
+      {
+        "id": 105794,
+        "ja": "彼は私の手首を掴んだ。",
+        "en": "He seized me by the wrist.",
+        "enId": 297893,
+        "form": "手首"
+      },
+      {
+        "id": 124958,
+        "ja": "転んで手首を痛めました。",
+        "en": "I fell down and hurt my wrist.",
+        "enId": 279035,
+        "form": "手首"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -38,6 +55,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Nakanaori is 仲 (naka, “relationship”) plus 直り (naori, “improving, being repaired”).",
@@ -58,6 +76,22 @@
         "quote": "仲(なか) (naka, “relationship”) + 直(なお)り (naori, “improving, being repaired”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 直(なお)る (naoru, “to improve, be repaired”))"
       }
     ],
+    "examples": [
+      {
+        "id": 95078,
+        "ja": "彼女と仲直りした。",
+        "en": "I made up with her.",
+        "enId": 308628,
+        "form": "仲直り"
+      },
+      {
+        "id": 119174,
+        "ja": "彼と仲直りしたい。",
+        "en": "I want to come to terms with him.",
+        "enId": 284489,
+        "form": "仲直り"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -67,6 +101,7 @@
     "meaning": "to sew",
     "level": "N2",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Nuu went from nupu to nuɸu to nuː, from Old Japanese.",
@@ -77,6 +112,22 @@
       },
       {
         "quote": "From Old Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 86839,
+        "ja": "彼女はドレスを縫っている。",
+        "en": "She is sewing a dress.",
+        "enId": 316871,
+        "form": "縫っている"
+      },
+      {
+        "id": 217640,
+        "ja": "これを手で縫ったんですか。",
+        "en": "Did you sew this by hand?",
+        "enId": 54949,
+        "form": "縫った"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -91,6 +142,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["news1", "nf16"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Tansui is 淡 (“tasteless”) plus 水 (“water”).",
@@ -111,6 +163,22 @@
         "quote": "淡 (“tasteless”) + 水 (“water”)"
       }
     ],
+    "examples": [
+      {
+        "id": 216838,
+        "ja": "サケは淡水で産卵する。",
+        "en": "Salmon lay their eggs in fresh water.",
+        "enId": 54145,
+        "form": "淡水"
+      },
+      {
+        "id": 174472,
+        "ja": "湖や河の水は、たいてい淡水である。",
+        "en": "The water in lakes and rivers is usually fresh.",
+        "enId": 239997,
+        "form": "淡水"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -120,6 +188,7 @@
     "meaning": "to grow cold, to cool down",
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hieru is from the classical verb 冷ゆ (hiyu).",
@@ -135,6 +204,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 139873,
+        "ja": "足が冷えます。",
+        "en": "My feet get cold.",
+        "enId": 274468,
+        "form": "冷えます"
+      },
+      {
+        "id": 77948,
+        "ja": "料理が冷えてます。",
+        "en": "The food is cold.",
+        "enId": 325769,
+        "form": "冷えてます"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -144,6 +229,7 @@
     "meaning": "terrible, awful, unfair, cruel",
     "level": "N4",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hidoi is derived from 非道 (hidō, “evil, inhuman”) plus -i.",
@@ -162,6 +248,7 @@
     "meaning": "shield",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf11"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tate is the nominalized form of the verb 立てる (tateru, “stand”).",
@@ -169,6 +256,15 @@
     "sources": [
       {
         "quote": "The nominalized form of the verb 立てる (tateru, “stand”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 147583,
+        "ja": "盾の両面を見よ。",
+        "en": "Look on both sides of the shield.",
+        "enId": 266977,
+        "form": "盾"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -180,6 +276,7 @@
     "meaning": "sounds",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf33"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Monooto is 物 (mono, “thing”) plus 音 (oto, “sound”).",
@@ -200,6 +297,22 @@
         "quote": "物(もの) (mono, “thing”) + 音(おと) (oto, “sound”)"
       }
     ],
+    "examples": [
+      {
+        "id": 146521,
+        "ja": "少年は物音に震えた。",
+        "en": "The boy quivered at the sound.",
+        "enId": 268041,
+        "form": "物音"
+      },
+      {
+        "id": 83821,
+        "ja": "物音が聞こえたようだ。",
+        "en": "I fancy that I heard a noise.",
+        "enId": 319895,
+        "form": "物音"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -209,6 +322,7 @@
     "meaning": "to adapt, to respond, to comply with",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["sound-change"],
     "headline": "Ōjiru shifted from the verb 応ずる (ōzuru).",
@@ -216,6 +330,22 @@
     "sources": [
       {
         "quote": "Shift from verb 応(おう)ずる (ōzuru), by natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 116821,
+        "ja": "彼の申し出に応じた。",
+        "en": "I took him up on his offer.",
+        "enId": 286847,
+        "form": "応じた"
+      },
+      {
+        "id": 153864,
+        "ja": "私は彼の招待に応じた。",
+        "en": "I accepted his invitation.",
+        "enId": 260678,
+        "form": "応じた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -227,6 +357,7 @@
     "meaning": "blanket",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Mōfu is probably an orthographic borrowing from Chinese 毛布 (máobù, literally “hair + cloth”), first cited in 1867 for wool fabric.",
@@ -247,6 +378,22 @@
         "quote": "Probably an orthographic borrowing from Chinese 毛布 (máobù, literally “hair + cloth”), using the expected Japanese readings of the characters. First cited to a text from 1867 with the sense wool fabric."
       }
     ],
+    "examples": [
+      {
+        "id": 80172,
+        "ja": "毛布をください。",
+        "en": "Can I get a blanket?",
+        "enId": 323545,
+        "form": "毛布"
+      },
+      {
+        "id": 81219,
+        "ja": "枕と毛布を下さい。",
+        "en": "May I have a pillow and a blanket, please?",
+        "enId": 322496,
+        "form": "毛布"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -256,6 +403,7 @@
     "meaning": "difficulty, hardships, defect",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["news1", "nf11"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Nan, “difficulty”, is from Middle Chinese 難 (MC nan).",
@@ -278,6 +426,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku"],
     "headline": "Binzume is 瓶 (bin, “bottle”) plus 詰め (tsume), the stem of 詰める (tsumeru, “to stuff”), with tsume voiced to zume.",
@@ -308,6 +457,7 @@
     "meaning": "to be full, to mature",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": [],
     "headline": "Michiru is from Old Japanese 満つ (mitu), from Proto-Japonic *mit-.",
@@ -323,6 +473,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 126146,
+        "ja": "潮が満ち始めている。",
+        "en": "The tide is coming in.",
+        "enId": 277846,
+        "form": "満ち"
+      },
+      {
+        "id": 99417,
+        "ja": "彼は野心に満ちている。",
+        "en": "He is full of ambition.",
+        "enId": 304281,
+        "form": "満ちている"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -332,6 +498,7 @@
     "meaning": "sword, saber",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "In katana, 刀 first appears in the Nihon Shoki of 720 CE, but the katana furigana appears only centuries later.",
@@ -356,6 +523,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Kōyō began as kou jepu: Middle Chinese 紅葉, literally “crimson, red + leaf”.",
@@ -388,6 +556,7 @@
     "meaning": "(hand) towel",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf34", "spec1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Tenugui is 手 (te, “hand”) plus 拭い (nugui, “wiping; wiper”).",
@@ -420,6 +589,7 @@
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Meiwaku is from Middle Chinese 迷惑 (MC mej hwok).",
@@ -442,6 +612,22 @@
         "quote": "From Middle Chinese 迷惑 (MC mej hwok)."
       }
     ],
+    "examples": [
+      {
+        "id": 124681,
+        "ja": "電話は迷惑な事がある。",
+        "en": "The telephone can be a nuisance.",
+        "enId": 279313,
+        "form": "迷惑な"
+      },
+      {
+        "id": 80226,
+        "ja": "迷惑にならないようにしなさい。",
+        "en": "Never make a nuisance of yourself.",
+        "enId": 323491,
+        "form": "迷惑"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -451,6 +637,7 @@
     "meaning": "underground water",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf14"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chikasui is 地下 (chika, “underground”) plus 水 (-sui, “water”).",
@@ -480,6 +667,7 @@
     "meaning": "small bird",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kotori is 小 (ko-, “little”) plus 鳥 (tori, “bird”), first attested in the late 900s in the Utsubo Monogatari.",
@@ -503,6 +691,22 @@
         "quote": "First attested in the late 900s, in the Utsubo Monogatari."
       }
     ],
+    "examples": [
+      {
+        "id": 104125,
+        "ja": "彼は小鳥を狙った。",
+        "en": "He aimed at the bird.",
+        "enId": 299567,
+        "form": "小鳥"
+      },
+      {
+        "id": 121944,
+        "ja": "猫は小鳥に忍び寄った。",
+        "en": "The cat crept toward the bird.",
+        "enId": 282059,
+        "form": "小鳥"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -515,6 +719,7 @@
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Son, “loss”, is from Middle Chinese 損 (MC swonX).",
@@ -522,6 +727,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 損 (MC swonX)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124411,
+        "ja": "怒るのは損だ。",
+        "en": "It doesn't pay to lose your temper.",
+        "enId": 279584,
+        "form": "損"
+      },
+      {
+        "id": 139557,
+        "ja": "損はしないよ。",
+        "en": "You cannot lose.",
+        "enId": 274549,
+        "form": "損"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -533,6 +754,7 @@
     "meaning": "earthenware, crockery, china",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Setomono is literally “Seto ware”: Seto City has long been famous for its earthenware.",
@@ -570,6 +792,7 @@
     "meaning": "a winter scarf",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Mafurā is borrowed from English muffler.",
@@ -585,6 +808,15 @@
         "quote": "Borrowing from English muffler."
       }
     ],
+    "examples": [
+      {
+        "id": 174432,
+        "ja": "五次元のマフラーはよい音がする。",
+        "en": "The 5ZIGEN exhaust makes a nice sound.",
+        "enId": 240037,
+        "form": "マフラー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -598,6 +830,7 @@
       "adverb (fukushi)",
       "noun, used as a suffix"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Teido is Middle Chinese 程度.",
@@ -620,6 +853,22 @@
         "quote": "Middle Chinese 程度"
       }
     ],
+    "examples": [
+      {
+        "id": 204973,
+        "ja": "それは程度の問題です。",
+        "en": "That is a matter of degrees.",
+        "enId": 42215,
+        "form": "程度"
+      },
+      {
+        "id": 87935,
+        "ja": "彼女は知能の程度が高い。",
+        "en": "She has a high grade of intelligence.",
+        "enId": 315771,
+        "form": "程度"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -629,6 +878,7 @@
     "meaning": "market, bazaar",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ichiba is 市 (ichi, “market”) plus 場 (ba, “place”); compare English marketplace.",
@@ -649,6 +899,22 @@
         "quote": "市(いち) (ichi, “market”) + 場(ば) (ba, “place”). Compare English marketplace."
       }
     ],
+    "examples": [
+      {
+        "id": 207820,
+        "ja": "その町には市場がある。",
+        "en": "There is a market in the town.",
+        "enId": 45074,
+        "form": "市場"
+      },
+      {
+        "id": 82854,
+        "ja": "母は毎日市場に買い物に行く。",
+        "en": "My mother goes to the market every day to buy things.",
+        "enId": 1439847,
+        "form": "市場"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -658,6 +924,7 @@
     "meaning": "to exchange, to interchange, to substitute",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf24"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaeru, “to substitute”, is from Old Japanese かふ (kapu).",
@@ -685,6 +952,7 @@
     "meaning": "area, locality, region",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Chihō is from Middle Chinese 地方 (MC dijH pjang).",
@@ -707,6 +975,22 @@
         "quote": "From Middle Chinese 地方 (MC dijH pjang)."
       }
     ],
+    "examples": [
+      {
+        "id": 107061,
+        "ja": "彼は今年の夏、東北地方を旅行した。",
+        "en": "He traveled through the Tohoku district this summer.",
+        "enId": 289883,
+        "form": "地方"
+      },
+      {
+        "id": 207863,
+        "ja": "その地方は大規模に開発されるだろう。",
+        "en": "It seems the rural area will be developed on a large scale.",
+        "enId": 45119,
+        "form": "地方"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -716,6 +1000,7 @@
     "meaning": "exit and entrance",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Deiriguchi is an abbreviated form of 出入り口.",
@@ -754,6 +1039,7 @@
     "meaning": "one's lifetime",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Shōgai, “one's lifetime”, began as syaugai.",
@@ -776,6 +1062,22 @@
         "quote": "/syaugai/ → /syoːgai/."
       }
     ],
+    "examples": [
+      {
+        "id": 88350,
+        "ja": "彼女は生涯独身であった。",
+        "en": "She remained single all her life.",
+        "enId": 312585,
+        "form": "生涯"
+      },
+      {
+        "id": 107389,
+        "ja": "彼は幸せな生涯を送った。",
+        "en": "He lived a happy life.",
+        "enId": 296297,
+        "form": "生涯"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -785,6 +1087,7 @@
     "meaning": "four",
     "level": "N3",
     "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Yon is a shift from yo, influenced by analogy with the final sound of the preceding number 三 (san, “three”).",
@@ -792,6 +1095,22 @@
     "sources": [
       {
         "quote": "Shift from yo above, influenced by analogy by the final sound of preceding number 三 (san, “three”). The most common form as a stand-alone number."
+      }
+    ],
+    "examples": [
+      {
+        "id": 153056,
+        "ja": "富士山には四回登ったよ。",
+        "en": "I've climbed Mt. Fuji four times.",
+        "enId": 261488,
+        "form": "四"
+      },
+      {
+        "id": 148072,
+        "ja": "十から四を引けば六が残る。",
+        "en": "If you take four from ten, you have six.",
+        "enId": 266487,
+        "form": "四"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -806,6 +1125,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Kyanpu is English camp, a doublet of キャンパス (kyanpasu, “campus”).",
@@ -821,6 +1141,22 @@
         "quote": "Borrowed from English camp. Doublet of キャンパス (kyanpasu, “campus”)."
       }
     ],
+    "examples": [
+      {
+        "id": 96760,
+        "ja": "彼らは水際でキャンプをした。",
+        "en": "They camped at the water's edge.",
+        "enId": 306944,
+        "form": "キャンプ"
+      },
+      {
+        "id": 122843,
+        "ja": "日暮れ前にキャンプに戻った。",
+        "en": "We came back to camp before dark.",
+        "enId": 281159,
+        "form": "キャンプ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -830,6 +1166,7 @@
     "meaning": "if possible, as much as possible",
     "level": "N4",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Narubeku is なる (naru, “to become”) plus べく (beku, adverbial form of べし), first cited to the 1890s.",

@@ -28,6 +28,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Kanjin is 肝 (kan, “liver”) plus 腎 (jin, “kidney”), with 心 a daiyōji replacing 腎.",
@@ -51,6 +52,22 @@
         "quote": "肝(かん) (kan, “liver”) + 腎(じん) (jin, “kidney”). 心 is a daiyōji replacing 腎; the じん (jin) reading of 心 is not an example of rendaku."
       }
     ],
+    "examples": [
+      {
+        "id": 168951,
+        "ja": "始めが肝心。",
+        "en": "A good beginning makes a good ending.",
+        "enId": 245536,
+        "form": "肝心"
+      },
+      {
+        "id": 78525,
+        "ja": "落ち着きが肝心です。",
+        "en": "We must keep calm.",
+        "enId": 325191,
+        "form": "肝心"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -60,6 +77,7 @@
     "meaning": "handle, grip, knob",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Totte is a sound shift from 取りて (torite).",
@@ -78,6 +96,7 @@
     "meaning": "truly (same as 実に (じつに))",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ikanimo is いかに (ikani) plus も (mo).",
@@ -96,6 +115,7 @@
     "meaning": "nice, likable, desirable",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Konomashii is the verb 好む (konomu, “to prefer, to like”) made into an adjective with the suffix しい (-shii).",
@@ -103,6 +123,22 @@
     "sources": [
       {
         "quote": "Adjectivization of verb 好(この)む (konomu, “to prefer, to like”), using the adjectivizing suffix しい (-shii, “that kind of thing, that kind of quality”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 210083,
+        "ja": "その志望者は試験官に好ましい印象を与えた。",
+        "en": "The applicant impressed the examiner favorably.",
+        "enId": 47346,
+        "form": "好ましい"
+      },
+      {
+        "id": 208833,
+        "ja": "その新作映画の前評判は非常に好ましいものである。",
+        "en": "The advance reviews of the new film are very favorable.",
+        "enId": 46092,
+        "form": "好ましい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -114,6 +150,7 @@
     "meaning": "lawn",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Shiba is from Old Japanese, one of the oldest attested words in the language, used in the Man'yōshū and Nihon Shoki.",
@@ -126,6 +163,22 @@
         "quote": "This character usually means a type of fungus in Chinese. However, it was also used phonetically in 芝麻 (*chimæ, “sesame”) (modern Mandarin 芝麻 (zhīmá)), and it seems that the Japanese use of this character for the sense of grass may have come from this sesame sense in Chinese."
       }
     ],
+    "examples": [
+      {
+        "id": 149281,
+        "ja": "芝は刈る必要がある。",
+        "en": "The grass needs cutting.",
+        "enId": 46890,
+        "form": "芝"
+      },
+      {
+        "id": 174031,
+        "ja": "公園の芝は青く美しい。",
+        "en": "The grass in the park is green and beautiful.",
+        "enId": 240439,
+        "form": "芝"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -135,6 +188,7 @@
     "meaning": "feeling, sensation, mood",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "processes": ["borrowing", "sound-change", "ateji"],
     "headline": "Kokochi is a sound shift from 心持ち (kokoromochi, “nature; feeling, mood”), and its kanji spelling is an ateji.",
     "morphemes": [],
@@ -147,6 +201,22 @@
       },
       {
         "quote": "The kanji spelling is ateji (当(あ)て字(じ)), borrowed from Chinese 心地 (xīndì)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175886,
+        "ja": "穴があれば入りたい心地だ。",
+        "en": "I wish I could sink through the floor.",
+        "enId": 238579,
+        "form": "心地"
+      },
+      {
+        "id": 81832,
+        "ja": "僕は生きた心地がしなかった。",
+        "en": "I felt like I was dead.",
+        "enId": 321883,
+        "form": "心地"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -162,6 +232,7 @@
       "transitive verb",
       "intransitive verb"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Nageku is from Old Japanese, verbalized from a noun for “sigh; lament” built from 長 (naga, “long”) plus 息 (iki, “breath”).",
@@ -169,6 +240,22 @@
     "sources": [
       {
         "quote": "From Old Japanese 嘆く (nage₂ku, “to sigh; to grieve over; to lament”). In turn, verbalized from noun 嘆き (nage₂ki₁, “sigh; lament”), derived as a compound of 長 (naga, “long”) + 息 (iki₁, “breath”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 103618,
+        "ja": "彼は身の不安を嘆いた。",
+        "en": "He lamented his hard fate.",
+        "enId": 300075,
+        "form": "嘆いた"
+      },
+      {
+        "id": 107611,
+        "ja": "彼は現状を大いに嘆いた。",
+        "en": "He deeply deplored the situation.",
+        "enId": 296074,
+        "form": "嘆いた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -183,6 +270,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ダンプ is from English dump.",
@@ -207,6 +295,7 @@
     "meaning": "bowl, vessel, container",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change", "unclear"],
     "headline": "Utsuwa is from Old Japanese, cognate with 空 (utsuo), and appears to be 内 (utsu, “hollow”) plus は, though the は is unclear.",
@@ -219,6 +308,22 @@
         "quote": "From Old Japanese. Cognate with 空 (utsuo, ancient utsupo, utsubo), signifying a hollowness. Appears to be a compound of 空, 内 (utsu, “hollow”, combining form, standalone form uchi, “inside”) + は (ha). The derivation of this ha element is unclear."
       }
     ],
+    "examples": [
+      {
+        "id": 75109,
+        "ja": "彼は将来国家の棟梁たるべき器だ。",
+        "en": "He has the capacity to be a future leader of the nation.",
+        "enId": 328610,
+        "form": "器"
+      },
+      {
+        "id": 76868,
+        "ja": "いくら器だけを日本一にしても、中身が三流やったらな～んの意味もないんちゃうの？",
+        "en": "The container may be the best in Japan, but if the contents are third class, then isn't it completely meaningless?",
+        "enId": 326852,
+        "form": "器"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -228,13 +333,43 @@
     "meaning": "value, worth, price",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Neuchi is 値 (ne, “price; cost”) plus 打ち (uchi).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "値",
+        "reading": "ね",
+        "meaning": "price",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "打ち",
+        "reading": "うち",
+        "meaning": "strike",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "値(ね) (ne, “price; cost”) + 打(う)ち (uchi)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 191753,
+        "ja": "わらの男でも金の女の値打ちがある。",
+        "en": "A man of straw is worth a woman of gold.",
+        "enId": 28916,
+        "form": "値打ち"
+      },
+      {
+        "id": 219561,
+        "ja": "この本は読む値打ちがあるとおもう。",
+        "en": "I think this book is worth reading.",
+        "enId": 56882,
+        "form": "値打ち"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -246,6 +381,7 @@
     "meaning": "to rub, to stroke",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "unclear"],
     "headline": "Sasuru is さ (sa) plus 擦る (suru, “to rub”), and the sa is unclear.",
@@ -253,6 +389,22 @@
     "sources": [
       {
         "quote": "Compound of さ (sa) + 擦る (suru, “to rub”). The sa element is unclear."
+      }
+    ],
+    "examples": [
+      {
+        "id": 180088,
+        "ja": "胸をさすってあげましょうか。",
+        "en": "Would you like me to massage your chest?",
+        "enId": 18948,
+        "form": "さすって"
+      },
+      {
+        "id": 82773,
+        "ja": "母親は病気の子供の背中をさすった。",
+        "en": "The mother rubbed the sick child's back.",
+        "enId": 320943,
+        "form": "さすった"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -264,6 +416,7 @@
     "meaning": "to bear, to carry, to be entrusted",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["news1", "nf24"],
     "stratum": "wago",
     "processes": [],
     "headline": "Obiru is from Old Japanese 帯ぶ (obu), which moved from the quadrigrade pattern to the upper bigrade and then to the modern upper monograde.",
@@ -279,6 +432,22 @@
         "quote": "Natural progression from Old and Classical Japanese 上(かみ)二(に)段(だん)活(かつ)用(よう) (kami nidan katsuyō, “upper bigrade conjugation”) verbs ending in -u to modern Japanese 上(かみ)一(いち)段(だん)活(かつ)用(よう) (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
       }
     ],
+    "examples": [
+      {
+        "id": 148436,
+        "ja": "酒気帯び運転をするな。",
+        "en": "Don't drive under the influence of alcohol.",
+        "enId": 266123,
+        "form": "帯び"
+      },
+      {
+        "id": 124293,
+        "ja": "東の空が赤みを帯びている。",
+        "en": "There is a tinge of red in the eastern sky.",
+        "enId": 279701,
+        "form": "帯びている"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -288,6 +457,7 @@
     "meaning": "battery",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バッテリー is borrowed from English battery.",
@@ -303,6 +473,22 @@
         "quote": "Borrowed from English battery"
       }
     ],
+    "examples": [
+      {
+        "id": 197958,
+        "ja": "バッテリーが切れた。",
+        "en": "The battery gave out.",
+        "enId": 35147,
+        "form": "バッテリー"
+      },
+      {
+        "id": 149063,
+        "ja": "車のバッテリーが上がってるよ。",
+        "en": "The car battery is dead.",
+        "enId": 265495,
+        "form": "バッテリー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -315,13 +501,37 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
-    "processes": ["rendaku"],
+    "processes": ["compound", "rendaku"],
     "headline": "Tomobataraki is 共 (tomo-) plus 働き (hataraki), with hataraki voiced to bataraki by rendaku.",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "共",
+        "reading": "とも",
+        "meaning": "both",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "働き",
+        "reading": "ばたらき",
+        "base": "はたらき",
+        "meaning": "work",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From 共(とも) (tomo-) + 働(はたら)き (hataraki, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 働(はたら)く (hataraku).). The hataraki changes to bataraki as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 74077,
+        "ja": "「少しうちに寄っていかない？」「いいの？」「うち共働きで親は遅いの」",
+        "en": "\"Want to drop round my place?\" \"Can I?\" \"My parents come home late as they both work.\"",
+        "enId": 329643,
+        "form": "共働き"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -357,6 +567,7 @@
     "meaning": "to finish up, to complete",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "hybrid",
     "processes": ["compound", "sound-change", "ateji"],
     "headline": "Shiageru is し (shi, “doing”) plus 上げる (ageru, “to raise up; to bring to an end”), from older 仕上ぐ (shiagu).",
@@ -372,6 +583,22 @@
         "quote": "The 仕 kanji for the first character is an example of phonetic ateji."
       }
     ],
+    "examples": [
+      {
+        "id": 169054,
+        "ja": "仕事を仕上げましたか。",
+        "en": "Have you got through with your work?",
+        "enId": 245433,
+        "form": "仕上げました"
+      },
+      {
+        "id": 214783,
+        "ja": "すぐ始めて仕上げよう。",
+        "en": "Let's start at once and have done with it.",
+        "enId": 52077,
+        "form": "仕上げよう"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -381,6 +608,7 @@
     "meaning": "urine",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf13"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Nyō, “urine”, is ultimately from Middle Chinese 尿 (MC newH) and is first attested in 1275.",
@@ -396,6 +624,22 @@
         "quote": "First attested in 1275."
       }
     ],
+    "examples": [
+      {
+        "id": 122051,
+        "ja": "尿が少し赤いです。",
+        "en": "My urine is a little red.",
+        "enId": 281952,
+        "form": "尿"
+      },
+      {
+        "id": 122049,
+        "ja": "尿の色がピンクです。",
+        "en": "My urine is pink.",
+        "enId": 281955,
+        "form": "尿"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -408,6 +652,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chūdan is from Sinitic 中斷 (zhōngduàn).",
@@ -430,6 +675,22 @@
         "quote": "From Sinitic 中斷 /中断 (zhōngduàn)."
       }
     ],
+    "examples": [
+      {
+        "id": 210025,
+        "ja": "試合は一時中断された。",
+        "en": "The game was suspended.",
+        "enId": 47288,
+        "form": "中断"
+      },
+      {
+        "id": 85276,
+        "ja": "病気のため休暇が中断した。",
+        "en": "Illness cut short his vacation.",
+        "enId": 318437,
+        "form": "中断"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -439,6 +700,7 @@
     "meaning": "unsightly, ugly",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf35"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Migurushii is 見 (mi, “looking”) plus 苦しい (kurushii, “painful, agonising”), with kurushii voiced to gurushii by rendaku.",
@@ -463,6 +725,15 @@
         "quote": "The kurushii changes to gurushii as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 224679,
+        "ja": "ここだけの話だけれど、あの太った見苦しい魔女は減量中なのだ。",
+        "en": "Between ourselves, the fat ugly witch is on a diet.",
+        "enId": 62014,
+        "form": "見苦しい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -472,6 +743,7 @@
     "meaning": "to be moist; to profit by",
     "level": "N1",
     "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Uruou may, on a surface analysis, be the irrealis of classical 潤ふ (urufu) plus ふ (fu), and it is related to 閏 (urū).",
@@ -490,6 +762,7 @@
     "meaning": "the end, the extremity, the limit(s)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf15"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hate is from the continuative stem of 果てる (hateru).",
@@ -497,6 +770,22 @@
     "sources": [
       {
         "quote": "From the 連用形 (ren'yōkei, “continuative or stem form”) of 果てる (hateru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 189882,
+        "ja": "宇宙の果てへと私を誘う。",
+        "en": "I am invited to the end of the universe.",
+        "enId": 27038,
+        "form": "果て"
+      },
+      {
+        "id": 189881,
+        "ja": "宇宙の果てへの道を求める。",
+        "en": "I am seeking the path to the end of the universe.",
+        "enId": 27037,
+        "form": "果て"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -508,6 +797,7 @@
     "meaning": "flavor, appearance, quaint",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf15", "ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Omomuki is the continuative stem of the verb 趣く (omomuku).",
@@ -515,6 +805,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 趣(おもむ)く (omomuku)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 183343,
+        "ja": "機知は会話に趣を添える。",
+        "en": "Wit gives zest to conversation.",
+        "enId": 20465,
+        "form": "趣"
+      },
+      {
+        "id": 117314,
+        "ja": "彼の最新作は趣を異にする。",
+        "en": "His latest work belongs to a different category.",
+        "enId": 286350,
+        "form": "趣"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -529,6 +835,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Taihi is 対 (tai, “place in opposition and compare”) plus 比 (hi, “compare”).",
@@ -549,6 +856,22 @@
         "quote": "From 対 (tai, “place in opposition and compare”) + 比 (hi, “compare”)."
       }
     ],
+    "examples": [
+      {
+        "id": 179474,
+        "ja": "空と山の対比が鮮烈だ。",
+        "en": "The contrast between the sky and the mountain is striking.",
+        "enId": 18332,
+        "form": "対比"
+      },
+      {
+        "id": 158657,
+        "ja": "私はよく兄と対比される。",
+        "en": "I am often contrasted with my brother.",
+        "enId": 255871,
+        "form": "対比"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -558,6 +881,7 @@
     "meaning": "to force, to compel, to coerce",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Shiiru is from Old Japanese 強ふ (sipu), an upper bigrade verb, and is related to 誣いる (shiiru, “to slander; to defame”).",
@@ -579,6 +903,22 @@
         "quote": "Related to 誣(し)いる (shiiru, “to slander; to defame”). Possibly related to 癈いる (shiiru, “to lose function (said of body organs)”)."
       }
     ],
+    "examples": [
+      {
+        "id": 97438,
+        "ja": "彼らは我々に服従を強いた。",
+        "en": "They enforced obedience upon us.",
+        "enId": 306263,
+        "form": "強いた"
+      },
+      {
+        "id": 148667,
+        "ja": "守備隊は降伏を強いられた。",
+        "en": "The garrison was forced to surrender.",
+        "enId": 265892,
+        "form": "強いられた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -592,6 +932,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Hōwa is from Middle Chinese 飽和.",
@@ -626,6 +967,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Shinjū is 心 (shin, “heart, mind, spirit”) plus 中 (-chū, “center, throughout”), with the chū voiced to jū.",
@@ -656,6 +998,7 @@
     "meaning": "pot",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ポット is from English pot.",
@@ -669,6 +1012,22 @@
     "sources": [
       {
         "quote": "From English pot."
+      }
+    ],
+    "examples": [
+      {
+        "id": 170885,
+        "ja": "砂糖はポットにありますか。",
+        "en": "Is there any sugar in the pot?",
+        "enId": 243595,
+        "form": "ポット"
+      },
+      {
+        "id": 196234,
+        "ja": "ポットにお湯はありますか？",
+        "en": "Is there any water in the pot?",
+        "enId": 33410,
+        "form": "ポット"
       }
     ],
     "wiktionaryDump": "2026-09-02"

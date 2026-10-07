@@ -6,6 +6,7 @@
     "meaning": "to collect, to gather (v.t.), to assemble",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Atsumeru is from Old Japanese 集む (atumu).",
@@ -21,6 +22,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 187955,
+        "ja": "何か集めていますか。",
+        "en": "Do you collect anything?",
+        "enId": 25094,
+        "form": "集めています"
+      },
+      {
+        "id": 150720,
+        "ja": "持ち物をまとめなさい。",
+        "en": "Get your things together.",
+        "enId": 263837,
+        "form": "まとめ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -30,6 +47,7 @@
     "meaning": "that over there; like that, that way; um...",
     "level": "N5",
     "pos": ["interjection (kandoushi)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ano is あ (a, distal pronominal marker) plus の (no, genitive particle).",
@@ -59,6 +77,7 @@
     "meaning": "learning, knowledge",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf12"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Gaku, “learning”, is from Middle Chinese 學, the goon pronunciation, so likely the initial borrowing.",
@@ -69,6 +88,22 @@
       },
       {
         "quote": "The goon pronunciation, so likely the initial borrowing."
+      }
+    ],
+    "examples": [
+      {
+        "id": 100723,
+        "ja": "彼は非常に学がある。",
+        "en": "He is very learned.",
+        "enId": 302974,
+        "form": "学"
+      },
+      {
+        "id": 146487,
+        "ja": "少年老い易く学成り難し。",
+        "en": "Art is long, time is fleeting.",
+        "enId": 268075,
+        "form": "学"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -84,6 +119,7 @@
       "noun (common) (futsuumeishi)",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Saisho is 最 (sai-, “most”) plus 初 (sho, “new, first”).",
@@ -104,6 +140,22 @@
         "quote": "最 (sai-, “most”) + 初 (sho, “new, first”)"
       }
     ],
+    "examples": [
+      {
+        "id": 120345,
+        "ja": "彼が最初に来た。",
+        "en": "He was the first to come.",
+        "enId": 283664,
+        "form": "最初"
+      },
+      {
+        "id": 170498,
+        "ja": "最初から始めよう。",
+        "en": "Let's begin at the beginning.",
+        "enId": 243985,
+        "form": "最初"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -113,6 +165,7 @@
     "meaning": "blood",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "Chi, “blood”, is from Old Japanese, from Proto-Japonic *ti.",
@@ -120,6 +173,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *ti."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175708,
+        "ja": "血は争えない。",
+        "en": "Blood will tell.",
+        "enId": 238757,
+        "form": "血"
+      },
+      {
+        "id": 175716,
+        "ja": "血で血を洗う。",
+        "en": "Blood will have blood.",
+        "enId": 238749,
+        "form": "血"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -131,6 +200,7 @@
     "meaning": "sewing machine",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Mishin is simply from English “sewing machine”.",
@@ -146,6 +216,22 @@
         "quote": "From English sewing machine."
       }
     ],
+    "examples": [
+      {
+        "id": 155745,
+        "ja": "私は新しいミシンを買った。",
+        "en": "I bought a new sewing machine.",
+        "enId": 258792,
+        "form": "ミシン"
+      },
+      {
+        "id": 223130,
+        "ja": "このミシンのこつをのみ込むのに、どのくらい時間がかかるのか。",
+        "en": "How long does it take to get the hang of this sewing machine?",
+        "enId": 60461,
+        "form": "ミシン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -155,6 +241,7 @@
     "meaning": "nausea, sickness in the stomach",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf17"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Hakike is haki, the stem of 吐く (haku, “vomit”), plus 気 (-ke, “feeling”).",
@@ -175,6 +262,22 @@
         "quote": "Compound of 吐(は)き (haki, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 吐(は)く (haku, “vomit”).) + 気(け) (-ke, “feeling”)."
       }
     ],
+    "examples": [
+      {
+        "id": 124615,
+        "ja": "吐き気がします。",
+        "en": "I feel like throwing up.",
+        "enId": 279379,
+        "form": "吐き気"
+      },
+      {
+        "id": 198954,
+        "ja": "なんだかめまいと吐き気がします。",
+        "en": "I feel sort of dizzy and I feel like throwing up.",
+        "enId": 36151,
+        "form": "吐き気"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -187,6 +290,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Sunao is, by surface analysis, 素 (su, “plain”) plus 直 (nao, “straight”).",
@@ -207,6 +311,22 @@
         "quote": "By surface analysis, 素(す) (su, “plain”) + 直(なお) (nao, “straight”)."
       }
     ],
+    "examples": [
+      {
+        "id": 104732,
+        "ja": "彼は実に素直な人だ。",
+        "en": "He is an extremely frank person.",
+        "enId": 298958,
+        "form": "素直な"
+      },
+      {
+        "id": 102887,
+        "ja": "彼は素直に私の欠点を指摘した。",
+        "en": "He frankly pointed out my faults.",
+        "enId": 300807,
+        "form": "素直に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -220,6 +340,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news2", "nf29", "news1", "nf22"],
     "stratum": "wago",
     "processes": ["clipping"],
     "headline": "Sakasa is a clipping of 逆様 (sakasama), of the same meaning.",
@@ -227,6 +348,22 @@
     "sources": [
       {
         "quote": "Clipping of 逆(さか)様(さま) (sakasama), of the same meaning."
+      }
+    ],
+    "examples": [
+      {
+        "id": 125438,
+        "ja": "弟は絵をさかさに掛けた。",
+        "en": "My brother hung the picture upside down.",
+        "enId": 278555,
+        "form": "さかさ"
+      },
+      {
+        "id": 110982,
+        "ja": "彼はボールペンを逆さに持った。",
+        "en": "He held a ball-point by the wrong end.",
+        "enId": 292704,
+        "form": "逆さ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -238,6 +375,7 @@
     "meaning": "shameful, indecent",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["clipping", "sound-change"],
     "headline": "Mittomonai is a vowel shortening and gemination of みとうもない (mitōmonai), from みたくもない (mitakumonai, “don't even want to see”).",
@@ -256,6 +394,7 @@
     "meaning": "to be in time for",
     "level": "N4",
     "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Maniau is 間 (ma, “spatial interval, temporal interval”) plus に (ni) plus 合う (au, “to match, to fit”).",
@@ -281,6 +420,22 @@
         "quote": "From 間(ま) (ma, “spatial interval, temporal interval”) + に (ni, “to, at”, indirect object particle) + 合(あ)う (au, “to match, to fit”)."
       }
     ],
+    "examples": [
+      {
+        "id": 183143,
+        "ja": "汽車に間にあった。",
+        "en": "I got there in time for the train.",
+        "enId": 20265,
+        "form": "間にあった"
+      },
+      {
+        "id": 225149,
+        "ja": "ケンは間に合った。",
+        "en": "Ken has made it.",
+        "enId": 62484,
+        "form": "間に合った"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -290,6 +445,7 @@
     "meaning": "to burn, to be roasted",
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yakeru is from Old Japanese 焼く (yaku), in the lower bigrade pattern.",
@@ -308,6 +464,22 @@
         "quote": "First attested in the Kojiki of 712 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 146381,
+        "ja": "焼けるように熱い。",
+        "en": "It is broiling hot.",
+        "enId": 268181,
+        "form": "焼ける"
+      },
+      {
+        "id": 76477,
+        "ja": "パンがふんわり焼けた。",
+        "en": "The bread was baked light and fluffy.",
+        "enId": 327243,
+        "form": "焼けた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -317,6 +489,7 @@
     "meaning": "this week",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Konshū, “this week”, began as konsiu.",
@@ -339,6 +512,22 @@
         "quote": "/konsiu/ → /konsjuː/"
       }
     ],
+    "examples": [
+      {
+        "id": 157021,
+        "ja": "私は今週休暇を取る。",
+        "en": "I take a vacation this week.",
+        "enId": 257513,
+        "form": "今週"
+      },
+      {
+        "id": 157025,
+        "ja": "私は今週お休みです。",
+        "en": "I am on holiday this week.",
+        "enId": 252252,
+        "form": "今週"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -351,6 +540,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Ranbō is ran (乱, disordered, confused, chaotic) plus bō (暴, acting with destructive force).",
@@ -373,6 +563,22 @@
         "quote": "From ran (乱, disordered, confused, chaotic) + bō (暴, acting with destructive force)."
       }
     ],
+    "examples": [
+      {
+        "id": 123551,
+        "ja": "道具を乱暴に扱うな。",
+        "en": "Don't handle the tools roughly.",
+        "enId": 280447,
+        "form": "乱暴に"
+      },
+      {
+        "id": 99100,
+        "ja": "彼は乱暴な扱いを受けた。",
+        "en": "He received rough treatment.",
+        "enId": 304597,
+        "form": "乱暴な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -382,6 +588,7 @@
     "meaning": "heart (of city)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Toshin is 都 (to, “metropolis”) plus 心 (shin, “central part”).",
@@ -402,6 +609,22 @@
         "quote": "From 都 (to, “metropolis”) + 心 (shin, “central part”)."
       }
     ],
+    "examples": [
+      {
+        "id": 112664,
+        "ja": "彼はその商売を都心に集中した。",
+        "en": "He centered his business on the metropolitan area.",
+        "enId": 291012,
+        "form": "都心"
+      },
+      {
+        "id": 124529,
+        "ja": "都心では高層ビルが雨後のたけのこのように増えている。",
+        "en": "High rises are mushrooming in the heart of the city.",
+        "enId": 279465,
+        "form": "都心"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -411,6 +634,7 @@
     "meaning": "interior, inner part",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": ["borrowing", "sound-change"],
     "headline": "Oku is rooted in Old Japanese despite overlapping with a goon reading from Middle Chinese, and is cognate with 沖 (oki, “the open sea, offshore”).",
@@ -418,6 +642,22 @@
     "sources": [
       {
         "quote": "Despite the apparent overlap with the modern goon reading of oku that is derived from Middle Chinese, this term is actually rooted in Old Japanese, appearing in the Man'yōshū collection of poetry dating to roughly 759 CE. Cognate with 沖 (oki, “the open sea, offshore”), originally in reference to “somewhere far removed, possibly out of sight”. While oki came to mean “far removed in the wide open → far off shore”, oku instead came to mean “far removed inside → inside, interior”."
+      }
+    ],
+    "examples": [
+      {
+        "id": 107728,
+        "ja": "彼は建物の奥に行ってみました。",
+        "en": "He went to the back of the building.",
+        "enId": 295957,
+        "form": "奥"
+      },
+      {
+        "id": 101916,
+        "ja": "彼は店の奥の暗い隅に姿を消した。",
+        "en": "He disappeared into a dark corner at the back of the shop.",
+        "enId": 301777,
+        "form": "奥"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -429,6 +669,7 @@
     "meaning": "pillow",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "wago",
     "processes": [],
     "headline": "Makura is first attested in the Nihon Shoki of 720 CE, and has Proto-Ryukyuan cognates such as Okinawan makkwa.",
@@ -444,6 +685,22 @@
         "quote": "Cognate with Proto-Ryukyuan *makura, whence Kikai 枕 (makka), Kunigami 枕 (makkā), Miyako 枕 (maffa), Northern Amami Ōshima 枕 (makura), Okinawan 枕 (makkwa), Okinoerabu 枕 (makura), Southern Amami Ōshima 枕 (makra), Tokunoshima 枕 (makkwa), Yaeyama 枕 (maffa), Yonaguni 枕 (magura), and Yoron 枕 (makkura)."
       }
     ],
+    "examples": [
+      {
+        "id": 81216,
+        "ja": "枕を下さい。",
+        "en": "Please get me a pillow.",
+        "enId": 593537,
+        "form": "枕"
+      },
+      {
+        "id": 81219,
+        "ja": "枕と毛布を下さい。",
+        "en": "May I have a pillow and a blanket, please?",
+        "enId": 322496,
+        "form": "枕"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -453,6 +710,7 @@
     "meaning": "to be finished, to be ready",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Dekiagaru is deki, the stem of 出来る (dekiru), plus 上がる (agaru, “to go up, come to an end”).",
@@ -473,6 +731,22 @@
         "quote": "From 出来 (deki, the stem or continuative form of verb 出来る (dekiru), “to be able to do; be finished, be ready”) + 上がる (agaru, “to go up, come to an end”)."
       }
     ],
+    "examples": [
+      {
+        "id": 176445,
+        "ja": "計画が出来上がった。",
+        "en": "The plans have been drawn up.",
+        "enId": 238019,
+        "form": "出来上がった"
+      },
+      {
+        "id": 147702,
+        "ja": "出発の準備はできあがっています。",
+        "en": "I'm all set to start.",
+        "enId": 266858,
+        "form": "できあがっています"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -482,6 +756,7 @@
     "meaning": "regrettable, mortifying, vexing",
     "level": "N3",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kuyashii is first attested in the Kojiki of 712 CE, ultimately from the classical verb 悔ゆ (kuyu, “to regret”).",
@@ -503,6 +778,7 @@
     "meaning": "rice field",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ta, “rice field”, appears in the Kojiki of roughly 711-712, from Proto-Japonic *ta.",
@@ -521,6 +797,7 @@
     "meaning": "boy",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf28"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Bōya is 坊 (bō, “boy”) plus や (ya, interjectory particle); its resemblance to English boy is coincidental.",
@@ -541,6 +818,22 @@
         "quote": "From 坊(ぼう) (bō, “boy”) + や (ya, interjectory particle). Compare 婆(ばあ)や (bāya), 爺(じい)や (jīya), 姉(ねえ)や (nēya). Resemblance to English boy is coincidental."
       }
     ],
+    "examples": [
+      {
+        "id": 234333,
+        "ja": "あっちへ行きな、ぼうや。",
+        "en": "Out of my way, boy.",
+        "enId": 71709,
+        "form": "ぼうや"
+      },
+      {
+        "id": 82605,
+        "ja": "坊や、おかあさんは何処だい？",
+        "en": "Where is your mother, boy?",
+        "enId": 321111,
+        "form": "坊や"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -550,6 +843,7 @@
     "meaning": "Buddhist priest, monk",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf21"],
     "stratum": "kango",
     "processes": [],
     "headline": "Bōsan is from お坊さん (obōsan).",
@@ -557,6 +851,15 @@
     "sources": [
       {
         "quote": "From お坊(ぼう)さん (obōsan)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 231217,
+        "ja": "あの偉い坊さんを見ろよ。",
+        "en": "Look at the big shot.",
+        "enId": 68585,
+        "form": "坊さん"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -571,6 +874,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "Pasu has three borrowings behind it: English pass, a clipping of カリパス (karipasu) from calipers, and English path.",
@@ -595,6 +899,7 @@
     "meaning": "question, problem, doubt",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Gimon is Middle Chinese 疑問, literally “doubt, suspicion + ask”, first attested in the early 1600s.",
@@ -618,6 +923,22 @@
         "quote": "First attested in the early 1600s."
       }
     ],
+    "examples": [
+      {
+        "id": 182916,
+        "ja": "疑問の余地はない。",
+        "en": "There is no room for doubt.",
+        "enId": 20037,
+        "form": "疑問"
+      },
+      {
+        "id": 76243,
+        "ja": "疑問が氷解しました！",
+        "en": "My doubts have been cleared up.",
+        "enId": 327475,
+        "form": "疑問"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -627,6 +948,7 @@
     "meaning": "arm (in reference to body)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ude is from Proto-Japonic *untai, cognate with Okinawan 腕 (udi).",
@@ -634,6 +956,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *untai. Cognate with Okinawan 腕 (udi)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 77111,
+        "ja": "腕を放して。",
+        "en": "Let go of my arm!",
+        "enId": 326609,
+        "form": "腕"
+      },
+      {
+        "id": 162405,
+        "ja": "腕がまだ痛む。",
+        "en": "My arm still hurts.",
+        "enId": 252109,
+        "form": "腕"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -645,6 +983,7 @@
     "meaning": "flute, whistle",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Fue went from puye through ɸue to fue, and is likely related to the verb 吹く (fuku, “to blow”).",
@@ -669,6 +1008,7 @@
     "meaning": "powerful, strong, vigorous",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Chikarazuyoi is 力 (chikara, “power, strength”) plus 強い (tsuyoi), with tsuyoi voiced to zuyoi.",
@@ -690,6 +1030,22 @@
         "quote": "Compound of 力(ちから) (chikara, “power, strength”) + 強(つよ)い (tsuyoi, “strong, powerful”). The tsuyoi changes to zuyoi as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 199053,
+        "ja": "なるほどこの車は小さいが力強い。",
+        "en": "Indeed this car is small, but it is powerful.",
+        "enId": 36251,
+        "form": "力強い"
+      },
+      {
+        "id": 95756,
+        "ja": "彼の力強い演説は聴衆をぐいぐいひっぱっていった。",
+        "en": "His powerful speech carried the audience with him.",
+        "enId": 307949,
+        "form": "力強い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -699,6 +1055,7 @@
     "meaning": "dawn, daybreak",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Yoake is 夜 (yo, “night”) plus 明け (ake, “end (of a period)”).",
@@ -719,6 +1076,22 @@
         "quote": "夜(よ) (yo, “night”) + 明(あ)け (ake, “end (of a period)”)"
       }
     ],
+    "examples": [
+      {
+        "id": 370036,
+        "ja": "夜明け前が一番暗い。",
+        "en": "The darkest hour is just before the dawn.",
+        "enId": 370038,
+        "form": "夜明け"
+      },
+      {
+        "id": 165069,
+        "ja": "私たちは夜明けに起きた。",
+        "en": "We got up at dawn.",
+        "enId": 249437,
+        "form": "夜明け"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -728,12 +1101,29 @@
     "meaning": "to throw, to fling; to abandon",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf06"],
     "processes": ["sound-change"],
     "headline": "Hōru took five steps from papur to hōru.",
     "morphemes": [],
     "sources": [
       {
         "quote": "/papur/- → /ɸaɸur/- → */ɸawur/- → /ɸaur/- → /ɸoːr/- → /hoːr/-"
+      }
+    ],
+    "examples": [
+      {
+        "id": 209575,
+        "ja": "その車は何週間も放ってある。",
+        "en": "The car has been kicking around the roadside for weeks.",
+        "enId": 46837,
+        "form": "放って"
+      },
+      {
+        "id": 74374,
+        "ja": "いい球を放るようになったな、恵一君。",
+        "en": "You throw a good ball nowadays, Keiichi.",
+        "enId": 329346,
+        "form": "放る"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -745,6 +1135,7 @@
     "meaning": "to push, to press, to stamp (e.g., a passport)",
     "level": "N5",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": [],
     "headline": "Osu, “to push”, is a doublet of 推す (osu).",
@@ -752,6 +1143,22 @@
     "sources": [
       {
         "quote": "Doublet of 推(お)す (osu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 150622,
+        "ja": "時間が押してる。",
+        "en": "Time presses.",
+        "enId": 8360373,
+        "form": "押してる"
+      },
+      {
+        "id": 138214,
+        "ja": "太鼓判を押してくれた。",
+        "en": "He gave me his stamp of approval.",
+        "enId": 275021,
+        "form": "押して"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -763,6 +1170,7 @@
     "meaning": "monk, priest",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf09"],
     "stratum": "kango",
     "processes": ["borrowing", "clipping"],
     "headline": "Sō is a clipping of 僧伽 (sōgya), borrowed from Sanskrit saṃgha.",
@@ -770,6 +1178,22 @@
     "sources": [
       {
         "quote": "Clipping of 僧伽 (sōgya), borrowed from Sanskrit संघ (saṃgha)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 208376,
+        "ja": "その僧は子供たちの遊びに参加した。",
+        "en": "The priest participated in the children's game.",
+        "enId": 45634,
+        "form": "僧"
+      },
+      {
+        "id": 236877,
+        "ja": "その僧は子供達の遊びに仲間入りした。",
+        "en": "The priest participated in the children's games.",
+        "enId": 45633,
+        "form": "僧"
       }
     ],
     "wiktionaryDump": "2026-09-02"

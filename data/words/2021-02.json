@@ -6,6 +6,7 @@
     "meaning": "leather",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kawa, “leather”, is a specialization of 皮 (kawa, “skin”).",
@@ -13,6 +14,22 @@
     "sources": [
       {
         "quote": "Specialization of 皮(かわ) (kawa, “skin”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 192888,
+        "ja": "よい革は何年ももつものだ。",
+        "en": "Good leather will wear for years.",
+        "enId": 30053,
+        "form": "革"
+      },
+      {
+        "id": 223322,
+        "ja": "このバッグは革でできています。",
+        "en": "This bag is made of leather.",
+        "enId": 60653,
+        "form": "革"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -24,13 +41,43 @@
     "meaning": "socialization; friendship; association",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Tsukiai is the stem of 付き合う (tsukiau, “keep company with”), equivalent to 付き (tsuki) plus 合い (ai).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "付き",
+        "reading": "つき",
+        "meaning": "adhere",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "合い",
+        "reading": "あい",
+        "meaning": "fit",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 付(つ)き合(あ)う (tsukiau, “keep company with; get along with”), equivalent to 付(つ)き (tsuki) + 合(あ)い (ai)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 111882,
+        "ja": "彼はつきあいが悪い。",
+        "en": "He is unsociable.",
+        "enId": 291795,
+        "form": "つきあい"
+      },
+      {
+        "id": 111883,
+        "ja": "彼はつきあいが広い。",
+        "en": "He has a lot of acquaintances.",
+        "enId": 291796,
+        "form": "つきあい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -42,13 +89,44 @@
     "meaning": "tidying up, finishing",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf34"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound", "rendaku"],
     "headline": "Katazuke is the continuative stem of 片付ける (katazukeru, “to tidy up”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "片",
+        "reading": "かた",
+        "meaning": "one-sided",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "付け",
+        "reading": "づけ",
+        "base": "つけ",
+        "meaning": "adhere",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 片付(かたづ)ける (katazukeru, “to tidy up”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 88606,
+        "ja": "彼女は食事の後片付けをした。",
+        "en": "She cleared away the dishes from the table.",
+        "enId": 315101,
+        "form": "片付け"
+      },
+      {
+        "id": 185407,
+        "ja": "会議で使った書類の片づけを頼まれた。",
+        "en": "I was asked to put away all the papers we used at the meeting.",
+        "enId": 22539,
+        "form": "片づけ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -63,6 +141,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Jūyō is Middle Chinese 重要, literally “heavy + important”.",
@@ -86,6 +165,22 @@
         "quote": "From Middle Chinese compound 重要 (drjowng^X ʔjiewᴴ, literally “heavy + important”)."
       }
     ],
+    "examples": [
+      {
+        "id": 77818,
+        "ja": "量より質が重要だ。",
+        "en": "Quality is more important than quantity.",
+        "enId": 325900,
+        "form": "重要"
+      },
+      {
+        "id": 147958,
+        "ja": "重要な役を演じる。",
+        "en": "I play an important part.",
+        "enId": 266602,
+        "form": "重要な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -98,6 +193,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Hadaka was originally 肌 (hada, “skin”) plus 赤 (aka, “red”).",
@@ -119,6 +215,7 @@
     "meaning": "brave, valiant",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf45"],
     "stratum": "wago",
     "processes": [],
     "headline": "Isamashii is 勇む (isamu) plus しい (-shii).",
@@ -126,6 +223,22 @@
     "sources": [
       {
         "quote": "勇(いさ)む (isamu) + しい (-shii)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 86454,
+        "ja": "彼女は勇ましかった。",
+        "en": "She was brave.",
+        "enId": 317257,
+        "form": "勇ましかった"
+      },
+      {
+        "id": 74800,
+        "ja": "一人で原始林へ乗り込もうとは君はなんて勇ましいんだ。",
+        "en": "How brave of you to go alone into the primaeval forest!",
+        "enId": 328919,
+        "form": "勇ましい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -137,6 +250,7 @@
     "meaning": "fruit, seed, good result",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Mi is from Old Japanese, first attested in the Kojiki of 712 CE.",
@@ -144,6 +258,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Kojiki of 712 CE in sense 1."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80099,
+        "ja": "木はその実で分かる。",
+        "en": "A tree is known by its fruit.",
+        "enId": 245644,
+        "form": "実"
+      },
+      {
+        "id": 221478,
+        "ja": "この実はたべられます。",
+        "en": "This berry is good to eat.",
+        "enId": 58802,
+        "form": "実"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -155,6 +285,7 @@
     "meaning": "rate, ratio, percentage",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ritsu, “rate”, is from Middle Chinese 率 (MC lwit).",
@@ -162,6 +293,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 率 (MC lwit)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 103206,
+        "ja": "彼は生産率を良くする案を出した。",
+        "en": "He put forward a plan for improving the rate of production.",
+        "enId": 290720,
+        "form": "率"
+      },
+      {
+        "id": 124587,
+        "ja": "賭け率２対１でレッズが勝つだろう。",
+        "en": "The odds are two-to-one that the Reds win.",
+        "enId": 279407,
+        "form": "率"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -173,6 +320,7 @@
     "meaning": "weapon, arms",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Buki is from Middle Chinese 武器 (MC mjuX khijH).",
@@ -195,6 +343,22 @@
         "quote": "From Middle Chinese 武器 (MC mjuX khijH)."
       }
     ],
+    "examples": [
+      {
+        "id": 105976,
+        "ja": "彼は私に武器を向けた。",
+        "en": "He raised a weapon against me.",
+        "enId": 297710,
+        "form": "武器"
+      },
+      {
+        "id": 121663,
+        "ja": "涙は子供の武器である。",
+        "en": "Tears are a child's weapon.",
+        "enId": 282342,
+        "form": "武器"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -204,6 +368,7 @@
     "meaning": "food",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Tabemono is tabe, the stem of 食べる (taberu, “to eat”), plus 物 (-mono, “thing”).",
@@ -224,6 +389,22 @@
         "quote": "Compound of 食(た)べ (tabe, “eating”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 食(た)べる (taberu, “to eat”)) + 物(もの) (-mono, “thing”)."
       }
     ],
+    "examples": [
+      {
+        "id": 145910,
+        "ja": "食べ物が冷めます。",
+        "en": "The food is getting cold.",
+        "enId": 268653,
+        "form": "食べ物"
+      },
+      {
+        "id": 145891,
+        "ja": "食べ物は豊富にある。",
+        "en": "We have food in abundance.",
+        "enId": 268671,
+        "form": "食べ物"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -233,6 +414,7 @@
     "meaning": "scales, weighing machine",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hakari is the continuative stem of 量る (hakaru).",
@@ -240,6 +422,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 量(はか)る (hakaru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 78760,
+        "ja": "浴室の秤で体重を計った。",
+        "en": "I weighed myself on the bathroom scales.",
+        "enId": 324956,
+        "form": "秤"
+      },
+      {
+        "id": 186542,
+        "ja": "荷物をはかりの上にのせてください。",
+        "en": "Please put your baggage on this scale.",
+        "enId": 23678,
+        "form": "はかり"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -251,6 +449,7 @@
     "meaning": "the professor's office; laboratory",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kenkyūshitsu is 研究 (kenkyū, “research”) plus 室 (-shitsu, “room”).",
@@ -271,6 +470,22 @@
         "quote": "From 研究(けんきゅう) (kenkyū, “research”) + 室(しつ) (-shitsu, “room”)."
       }
     ],
+    "examples": [
+      {
+        "id": 166408,
+        "ja": "私たちはその研究室を利用した。",
+        "en": "We have made use of the laboratory.",
+        "enId": 248095,
+        "form": "研究室"
+      },
+      {
+        "id": 104990,
+        "ja": "彼は自分の研究室で実験を行っている。",
+        "en": "He is carrying out experiments in his laboratory.",
+        "enId": 298699,
+        "form": "研究室"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -280,8 +495,9 @@
     "meaning": "seal (used for signature)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "hybrid",
-    "processes": ["compound"],
+    "processes": ["compound", "ateji"],
     "headline": "Hanko comes from 版行 (hankō) > hanko.",
     "morphemes": [
       {
@@ -311,6 +527,7 @@
     "meaning": "association, union",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Kumiai went from kumiapi through kumiaɸi and kumiawi to kumiai.",
@@ -333,6 +550,22 @@
         "quote": "/kumiahi/: *[kumiapi] → [kumiaɸi] → [kumiawi] → [kumiai]."
       }
     ],
+    "examples": [
+      {
+        "id": 140611,
+        "ja": "組合は無期限ストに入った。",
+        "en": "The union went out on a strike for an indefinite period.",
+        "enId": 273962,
+        "form": "組合"
+      },
+      {
+        "id": 176497,
+        "ja": "経営者側と組合は和解した。",
+        "en": "The management and the union were reconciled.",
+        "enId": 237967,
+        "form": "組合"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -342,6 +575,7 @@
     "meaning": "always, usually, every time, never (with neg. verb)",
     "level": "N5",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Itsumo is いつ (itsu, “when”) plus も (mo, “even, also”).",
@@ -371,6 +605,7 @@
     "meaning": "to regret, to mourn",
     "level": "N2",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["news2", "nf30", "spec2"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kuyamu is derived from 悔いる (kuiru).",
@@ -378,6 +613,22 @@
     "sources": [
       {
         "quote": "Derived from 悔いる (kuiru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 172417,
+        "ja": "今更悔やんでも後の祭りだ。",
+        "en": "It is too late to repent.",
+        "enId": 242058,
+        "form": "悔やんで"
+      },
+      {
+        "id": 113188,
+        "ja": "彼はそのことをもう悔やんでいた。",
+        "en": "He was already regretting it.",
+        "enId": 290486,
+        "form": "悔やんでいた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -389,6 +640,7 @@
     "meaning": "to hit; to apply to",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ateru is from Old Japanese 当つ (atu), in the lower bigrade pattern.",
@@ -404,6 +656,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 101956,
+        "ja": "彼は的に当てた。",
+        "en": "He hit the mark.",
+        "enId": 301738,
+        "form": "当てた"
+      },
+      {
+        "id": 108812,
+        "ja": "彼は額に手を当てた。",
+        "en": "He put his hand to his forehead.",
+        "enId": 294877,
+        "form": "当てた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -413,6 +681,7 @@
     "meaning": "high school; senior high school",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Kōkō contracts 高等学校 (kōtō-gakkō, “high school”).",
@@ -435,6 +704,22 @@
         "quote": "Contraction of 高(こう)等(とう)学(がっ)校(こう) (kōtō-gakkō, “high school”)."
       }
     ],
+    "examples": [
+      {
+        "id": 157107,
+        "ja": "私は高校2年生だ。",
+        "en": "I am in the second year of high school.",
+        "enId": 257427,
+        "form": "高校"
+      },
+      {
+        "id": 107286,
+        "ja": "彼は高校の生徒です。",
+        "en": "He is a student at a high school.",
+        "enId": 296400,
+        "form": "高校"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -444,6 +729,7 @@
     "meaning": "limits, place to leave off",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kiri is the continuative stem of 切る (kiru, “to cut”).",
@@ -451,6 +737,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 切(き)る (kiru, “to cut”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 100584,
+        "ja": "彼は病気でずっと床についたきりだ。",
+        "en": "He has been confined to his bed with illness.",
+        "enId": 303114,
+        "form": "きり"
+      },
+      {
+        "id": 115141,
+        "ja": "彼は３８歳なのに両親に頼りきりです。",
+        "en": "Though 38, he is still dependent on his parents.",
+        "enId": 288530,
+        "form": "きり"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -462,6 +764,7 @@
     "meaning": "bill, note",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Satsu, “bill”, is from Middle Chinese 札 (MC tsreat).",
@@ -474,6 +777,22 @@
         "quote": "From Middle Chinese 札 (MC tsreat)."
       }
     ],
+    "examples": [
+      {
+        "id": 174440,
+        "ja": "五ドル札を崩せますか。",
+        "en": "Can you change a five-dollar bill?",
+        "enId": 240029,
+        "form": "札"
+      },
+      {
+        "id": 235644,
+        "ja": "１万円札くずれますか。",
+        "en": "Can you break a 10,000 yen bill?",
+        "enId": 27200,
+        "form": "札"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -483,6 +802,7 @@
     "meaning": "fire station",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shōbōsho is 消防 (shōbō, “fire fighting”) plus 署 (-sho, “station, office”).",
@@ -511,6 +831,22 @@
         "quote": "From 消防(しょうぼう) (shōbō, “fire fighting”) + 署(しょ) (-sho, “station, office”)."
       }
     ],
+    "examples": [
+      {
+        "id": 146391,
+        "ja": "消防署に連絡してください。",
+        "en": "Please call the fire department.",
+        "enId": 268171,
+        "form": "消防署"
+      },
+      {
+        "id": 146390,
+        "ja": "消防署は警察署の隣にあります。",
+        "en": "The fire station is next to the police station.",
+        "enId": 268172,
+        "form": "消防署"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -520,6 +856,7 @@
     "meaning": "to fall behind, to be inferior to",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": [],
     "headline": "Otoru is cognate with 落ちる (ochiru, “to fall”), via an Old Japanese root ot-.",
@@ -532,6 +869,22 @@
         "quote": "Via Old Japanese root ot-, cognate with 落(お)ちる (ochiru, “to fall”, intransitive) and 落(お)とす (otosu, “to drop something”, transitive)."
       }
     ],
+    "examples": [
+      {
+        "id": 220404,
+        "ja": "この点で私は彼に劣る。",
+        "en": "I fall behind him in this respect.",
+        "enId": 57727,
+        "form": "劣る"
+      },
+      {
+        "id": 100214,
+        "ja": "彼は物理では誰にも劣らない。",
+        "en": "He is second to none in physics.",
+        "enId": 303483,
+        "form": "劣らない"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -541,6 +894,7 @@
     "meaning": "to move (from a house); to transfer (from a department); to shift",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "wago",
     "processes": [],
     "headline": "Utsuru, “to move”, is cognate with 写る.",
@@ -548,6 +902,22 @@
     "sources": [
       {
         "quote": "Cognate with Japanese 写る."
+      }
+    ],
+    "examples": [
+      {
+        "id": 150748,
+        "ja": "事務所は６階に移った。",
+        "en": "The office has been transferred up to the sixth floor.",
+        "enId": 263810,
+        "form": "移った"
+      },
+      {
+        "id": 216772,
+        "ja": "さて、次の話題に移ろう。",
+        "en": "But now to our next topic.",
+        "enId": 54078,
+        "form": "移ろう"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -559,6 +929,7 @@
     "meaning": "day before yesterday",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Issakujitsu is 一昨 (issaku-, “the previous... before...”) plus 日 (jitsu, “day”), first cited to a text from 1275.",
@@ -591,6 +962,7 @@
     "meaning": "peak, height (of a season); prime",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": [],
     "headline": "Sakari is the continuative stem of 盛る (sakaru).",
@@ -598,6 +970,22 @@
     "sources": [
       {
         "quote": "The 連用形 (ren'yōkei, “continuative or stem form”) of verb 盛る (sakaru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 107122,
+        "ja": "彼は今男盛りだ。",
+        "en": "He is now in the prime of manhood.",
+        "enId": 296564,
+        "form": "盛り"
+      },
+      {
+        "id": 169567,
+        "ja": "桜花が盛りであった。",
+        "en": "The cherry blossoms were at their best.",
+        "enId": 244920,
+        "form": "盛り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -609,6 +997,7 @@
     "meaning": "terrible (in reference to food), unappetizing, unpleasant (taste)",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Mazui is derived from 貧しい (mazushii, “poor”).",
@@ -627,6 +1016,7 @@
     "meaning": "rice-plant",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ine is attested in the Man'yōshū of circa 759 CE, and is possibly related to 米 (yone).",
@@ -642,6 +1032,22 @@
         "quote": "Possibly related to 米 (yone, “rice (husked grains of the Asian rice plant, Oryza sativa)”)."
       }
     ],
+    "examples": [
+      {
+        "id": 171331,
+        "ja": "今年は稲の育ちがいい。",
+        "en": "The rice is coming well this year.",
+        "enId": 243144,
+        "form": "稲"
+      },
+      {
+        "id": 121683,
+        "ja": "農夫達は稲を植えていた。",
+        "en": "The peasants were planting rice.",
+        "enId": 282322,
+        "form": "稲"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -651,6 +1057,7 @@
     "meaning": "great war, great battle",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Taisen is 大 (tai, “big, large”) plus 戦 (sen, “battle”).",
@@ -669,6 +1076,15 @@
     "sources": [
       {
         "quote": "Compound of 大(たい) (tai, “big, large”) + 戦(せん) (sen, “battle”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 231180,
+        "ja": "あの家の繁栄は大戦中からのことだ。",
+        "en": "The prosperity of the family dates from the Great War.",
+        "enId": 68546,
+        "form": "大戦"
       }
     ],
     "wiktionaryDump": "2026-09-02"

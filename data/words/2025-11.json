@@ -30,6 +30,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レギュラー is from English regular.",
@@ -45,6 +46,22 @@
         "quote": "From English regular."
       }
     ],
+    "examples": [
+      {
+        "id": 192362,
+        "ja": "レギュラー満タンでお願いします。",
+        "en": "Fill it with regular, please.",
+        "enId": 29526,
+        "form": "レギュラー"
+      },
+      {
+        "id": 113644,
+        "ja": "彼はサッカー部のレギュラーだった。",
+        "en": "He was a regular member of the soccer club.",
+        "enId": 290029,
+        "form": "レギュラー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -57,6 +74,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "チェンジ is borrowed from English change.",
@@ -81,6 +99,7 @@
     "meaning": "to slip out, to sneak away, to excel",
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Nukedasu is 抜け (nuke, the stem of 抜ける (nukeru, “to be extracted, to come out”)) plus 出す (dasu, “to take out”).",
@@ -101,6 +120,22 @@
         "quote": "Compound of 抜(ぬ)け (nuke, “連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 抜(ぬ)ける (nukeru, “to be extracted, to come out”).”) + 出(だ)す (dasu, “to take out”)."
       }
     ],
+    "examples": [
+      {
+        "id": 199962,
+        "ja": "トムは教室を抜け出した。",
+        "en": "Tom slipped out of the classroom.",
+        "enId": 37163,
+        "form": "抜け出した"
+      },
+      {
+        "id": 108323,
+        "ja": "彼は教室をさっと抜け出した。",
+        "en": "He slipped out of the classroom.",
+        "enId": 295364,
+        "form": "抜け出した"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -113,6 +148,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf14"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Taimen is from the Middle Chinese compound 對面 (MC twojH mjienH).",
@@ -150,6 +186,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Nebiki is 値 (ne, “price”) plus 引き (hiki, “reducing”), with hiki voiced to biki by rendaku.",
@@ -174,6 +211,22 @@
         "quote": "The hiki changes to biki as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 127138,
+        "ja": "値引きしてもらえませんか。",
+        "en": "Could you give me a discount?",
+        "enId": 276951,
+        "form": "値引き"
+      },
+      {
+        "id": 146793,
+        "ja": "少し値引きしてくれませんか。",
+        "en": "Won't you take something off this price?",
+        "enId": 267768,
+        "form": "値引き"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -183,6 +236,7 @@
     "meaning": "terrible, awful, serious, absolutely not",
     "level": "N1",
     "pos": ["pre-noun adjectival (rentaishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tonda is the past or perfective of 飛ぶ (tobu, “to deviate from common sense”), and is unrelated to とんでもない (tondemonai, “outrageous”).",
@@ -204,6 +258,7 @@
     "meaning": "exceedingly, extremely (written expression)",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kiwamete is from 極める (kiwameru).",
@@ -211,6 +266,22 @@
     "sources": [
       {
         "quote": "From 極(きわ)める (kiwameru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 108288,
+        "ja": "彼は極めて臆病だ。",
+        "en": "He is timid as a hare.",
+        "enId": 295398,
+        "form": "極めて"
+      },
+      {
+        "id": 95275,
+        "ja": "彼女が怒るのは極めて当然だ。",
+        "en": "It is quite natural for her to get angry.",
+        "enId": 308233,
+        "form": "極めて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -225,6 +296,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Soshi is ultimately from Middle Chinese 阻止 and is first attested in 1827.",
@@ -247,6 +319,22 @@
         "quote": "Ultimately from Middle Chinese 阻止 (MC tsrjoX|tsrjoH tsyiX). First attested in 1827."
       }
     ],
+    "examples": [
+      {
+        "id": 150091,
+        "ja": "自然環境の悪化を阻止しましょう。",
+        "en": "Let's stop the deterioration of the natural environment.",
+        "enId": 264466,
+        "form": "阻止"
+      },
+      {
+        "id": 176203,
+        "ja": "警察は街頭デモを阻止しようとした。",
+        "en": "The police tried to stop the street demonstration.",
+        "enId": 238262,
+        "form": "阻止"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -256,6 +344,7 @@
     "meaning": "to give board to, to provide meals, to pay",
     "level": "N1",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "wago",
     "processes": [],
     "headline": "Makanau is from Old Japanese, attested in the Kojiki (712) with the spelling 麻迦那波而.",
@@ -263,6 +352,22 @@
     "sources": [
       {
         "quote": "From Old Japanese; attested in the Kojiki (712) with the spelling 麻迦那波而."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84300,
+        "ja": "父親は家族の生活をまかなう。",
+        "en": "A father provides for his family.",
+        "enId": 319415,
+        "form": "まかなう"
+      },
+      {
+        "id": 220100,
+        "ja": "この品物の値段では製造費をまかなえない。",
+        "en": "The price of this article does not cover the cost of its manufacture.",
+        "enId": 57419,
+        "form": "まかなえない"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -277,6 +382,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アマチュア is from English amateur.",
@@ -292,6 +398,22 @@
         "quote": "From English amateur."
       }
     ],
+    "examples": [
+      {
+        "id": 114874,
+        "ja": "彼はアマチュアにすぎない。",
+        "en": "He is just an amateur.",
+        "enId": 288797,
+        "form": "アマチュア"
+      },
+      {
+        "id": 232404,
+        "ja": "あなたはプロだが私はアマチュアだ。",
+        "en": "You are a professional, but I am an amateur.",
+        "enId": 69774,
+        "form": "アマチュア"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -304,6 +426,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "gairaigo",
     "processes": ["compound", "borrowing"],
     "headline": "Kenzen was first used by Sugita Gendan to translate Dutch gezond, in the 1867 book 健全学.",
@@ -329,6 +452,22 @@
         "quote": "* 『ゲゾント』とは無病健全の義 - 健全学 (1867)"
       }
     ],
+    "examples": [
+      {
+        "id": 82831,
+        "ja": "母子ともに健全です。",
+        "en": "Mother and child are both doing well.",
+        "enId": 320885,
+        "form": "健全"
+      },
+      {
+        "id": 117416,
+        "ja": "彼の考え方は健全です。",
+        "en": "His way of thinking is sound.",
+        "enId": 286248,
+        "form": "健全"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -342,6 +481,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In hanran, 反 is a daiyōji replacing 叛.",
@@ -364,6 +504,22 @@
         "quote": "反 is a daiyōji replacing 叛."
       }
     ],
+    "examples": [
+      {
+        "id": 121236,
+        "ja": "反乱が勃発した。",
+        "en": "A revolt broke out.",
+        "enId": 282769,
+        "form": "反乱"
+      },
+      {
+        "id": 121237,
+        "ja": "反乱は鎮圧された。",
+        "en": "The revolt was crushed.",
+        "enId": 282770,
+        "form": "反乱"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -373,6 +529,7 @@
     "meaning": "sink",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nagashi is the continuative stem of the verb 流す (nagasu).",
@@ -380,6 +537,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 流(なが)す (nagasu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 99021,
+        "ja": "彼は流しのタクシーを止めた。",
+        "en": "He hailed a cruising taxi.",
+        "enId": 304679,
+        "form": "流しの"
+      },
+      {
+        "id": 90990,
+        "ja": "彼女は汚れた皿を流しに浸けた。",
+        "en": "She put the dirty dishes in the sink.",
+        "enId": 312724,
+        "form": "流し"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -391,6 +564,7 @@
     "meaning": "uniform",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ユニフォーム is borrowed from English uniform.",
@@ -406,6 +580,22 @@
         "quote": "Borrowed from English uniform."
       }
     ],
+    "examples": [
+      {
+        "id": 176330,
+        "ja": "警官は青いユニフォームを着ている。",
+        "en": "Police officers wear blue uniforms.",
+        "enId": 238134,
+        "form": "ユニフォーム"
+      },
+      {
+        "id": 81691,
+        "ja": "僕達は試合で着る新しいユニフォームを買った。",
+        "en": "We bought new uniforms to wear at the game.",
+        "enId": 322024,
+        "form": "ユニフォーム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -415,6 +605,7 @@
     "meaning": "to give (someone) a treat",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ogoru, “to give (someone) a treat”, is a doublet of 驕る (ogoru, “to be arrogant”).",
@@ -422,6 +613,22 @@
     "sources": [
       {
         "quote": "Doublet of 驕(おご)る (ogoru, “to be arrogant”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 82407,
+        "ja": "僕がおごるよ。",
+        "en": "I'll pay the bill.",
+        "enId": 321308,
+        "form": "おごる"
+      },
+      {
+        "id": 235668,
+        "ja": "１杯おごろう。",
+        "en": "Let me buy you a drink.",
+        "enId": 27378,
+        "form": "おごろう"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -433,6 +640,7 @@
     "meaning": "section",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "セクション is from English section.",
@@ -457,6 +665,7 @@
     "meaning": "cocktail",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カクテル is borrowed from English cocktail.",
@@ -472,6 +681,22 @@
         "quote": "Borrowed from English cocktail."
       }
     ],
+    "examples": [
+      {
+        "id": 231352,
+        "ja": "あのカクテルは甘くて飲みやすいよ。",
+        "en": "That cocktail is sweet and easy to drink.",
+        "enId": 68720,
+        "form": "カクテル"
+      },
+      {
+        "id": 192563,
+        "ja": "キューバリブレはラム酒をベースにしたカクテルです。",
+        "en": "A Cuba Libre is a cocktail with a rum base.",
+        "enId": 29727,
+        "form": "カクテル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -484,6 +709,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In kikaku, 画 is a daiyōji replacing 劃.",
@@ -506,6 +732,22 @@
         "quote": "画 is a daiyōji replacing 劃."
       }
     ],
+    "examples": [
+      {
+        "id": 145296,
+        "ja": "新企画は図にあたった。",
+        "en": "The new plan worked well.",
+        "enId": 269267,
+        "form": "企画"
+      },
+      {
+        "id": 108687,
+        "ja": "彼は企画部門に属している。",
+        "en": "He belongs to the planning section.",
+        "enId": 295003,
+        "form": "企画"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -515,6 +757,7 @@
     "meaning": "living room (Japanese style)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "hybrid",
     "processes": [],
     "headline": "Chanoma is 茶 (cha, “tea”) plus 間 (ma, “space”).",
@@ -533,6 +776,7 @@
     "meaning": "household economy, family finances",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kakei is 家 plus 計.",
@@ -555,6 +799,22 @@
         "quote": "家 + 計"
       }
     ],
+    "examples": [
+      {
+        "id": 158018,
+        "ja": "私は家計を妻に任せた。",
+        "en": "I entrusted my wife with the family finances.",
+        "enId": 256512,
+        "form": "家計"
+      },
+      {
+        "id": 186439,
+        "ja": "我が家の家計は赤字だ。",
+        "en": "Our family budget is in the red.",
+        "enId": 23575,
+        "form": "家計"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -564,6 +824,7 @@
     "meaning": "Japan",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf25", "spec1"],
     "processes": ["sound-change"],
     "headline": "Nippon is a phonetic variant of Nihon that keeps the p sound.",
     "morphemes": [],
@@ -584,6 +845,7 @@
     "meaning": "to serve, to work for",
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["news2", "nf41", "spec2"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tsukaeru is from Old Japanese, appears in the Man'yōshū of 759, and is cognate with 使う (tsukau, “to use”).",
@@ -608,6 +870,22 @@
         "quote": "While the 四段活用 (yodan katsuyō, “quadrigrade conjugation”) pattern for tsukau was used to refer to the action of a superior to a subordinate, the shimo nidan conjugation pattern was used to refer to the action of a subordinate to a superior."
       }
     ],
+    "examples": [
+      {
+        "id": 87403,
+        "ja": "彼女は彼に仕えた。",
+        "en": "She attended on him.",
+        "enId": 316305,
+        "form": "仕えた"
+      },
+      {
+        "id": 100995,
+        "ja": "彼は彼女に仕えている。",
+        "en": "He waits on her.",
+        "enId": 302702,
+        "form": "仕えている"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -620,6 +898,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1"],
     "processes": ["compound", "sound-change"],
     "headline": "Hadashi was originally 肌 (hada, “skin”) plus 足 (ashi, “foot”).",
     "morphemes": [],
@@ -631,6 +910,15 @@
         "quote": "Originally a compound of 肌 (hada, “skin”) + 足 (ashi, “foot”)."
       }
     ],
+    "examples": [
+      {
+        "id": 103024,
+        "ja": "彼は専門家はだしの優れた技術をもっている。",
+        "en": "He has excellent techniques which would outdo a specialist.",
+        "enId": 300669,
+        "form": "はだし"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -640,6 +928,7 @@
     "meaning": "sense (for music, style, tact, etc.)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "センス is from English sense.",
@@ -655,6 +944,22 @@
         "quote": "From English sense."
       }
     ],
+    "examples": [
+      {
+        "id": 213988,
+        "ja": "センスが全然ないわ。",
+        "en": "You have absolutely no fashion sense.",
+        "enId": 10119039,
+        "form": "センス"
+      },
+      {
+        "id": 221981,
+        "ja": "この広告はセンスがいいね。",
+        "en": "That's an interesting ad.",
+        "enId": 59307,
+        "form": "センス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -668,6 +973,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In hanshoku, 繁 is a daiyōji replacing 蕃.",
@@ -690,6 +996,22 @@
         "quote": "繁 is a daiyōji replacing 蕃."
       }
     ],
+    "examples": [
+      {
+        "id": 228275,
+        "ja": "うさぎは繁殖が早い。",
+        "en": "Rabbits breed quickly.",
+        "enId": 65630,
+        "form": "繁殖"
+      },
+      {
+        "id": 198601,
+        "ja": "ネズミはどんどん繁殖する。",
+        "en": "Rats breed rapidly.",
+        "enId": 35794,
+        "form": "繁殖"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -699,6 +1021,7 @@
     "meaning": "employee, worker",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jūgyōin is 従業 (jūgyō, “employment”) plus 員 (-in, “member”).",
@@ -719,6 +1042,22 @@
         "quote": "従業(じゅうぎょう) (jūgyō, “employment”) + 員(いん) (-in, “member”)"
       }
     ],
+    "examples": [
+      {
+        "id": 104350,
+        "ja": "彼は従業員と打ち解けない。",
+        "en": "He is inaccessible to his employees.",
+        "enId": 299341,
+        "form": "従業員"
+      },
+      {
+        "id": 112678,
+        "ja": "彼はその従業員を解雇した。",
+        "en": "He dismissed the employee.",
+        "enId": 290998,
+        "form": "従業員"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -728,6 +1067,7 @@
     "meaning": "passion, enthusiasm, zeal",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jōnetsu was coined by the poet Kitamura Tōkoku in 1893 as a translation of English passion.",
@@ -750,6 +1090,22 @@
         "quote": "Coined by Japanese poet and essayist Kitamura Tōkoku in 1893 in his work 情熱 (Jōnetsu) as a translation of English passion."
       }
     ],
+    "examples": [
+      {
+        "id": 103959,
+        "ja": "彼は情熱に押し流された。",
+        "en": "He was borne away by passion.",
+        "enId": 299733,
+        "form": "情熱"
+      },
+      {
+        "id": 108416,
+        "ja": "彼は魚つりに情熱をもっている。",
+        "en": "He has a passion for fishing.",
+        "enId": 295270,
+        "form": "情熱"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -759,6 +1115,7 @@
     "meaning": "corner",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コーナー is from English corner.",
@@ -774,6 +1131,22 @@
         "quote": "From English corner."
       }
     ],
+    "examples": [
+      {
+        "id": 228976,
+        "ja": "いつコーナーを曲がるかはむずかしい問題です。",
+        "en": "When to turn the corner is a difficult problem.",
+        "enId": 66334,
+        "form": "コーナー"
+      },
+      {
+        "id": 102330,
+        "ja": "彼は第３コーナーを回ったところでレースを諦めた。",
+        "en": "He threw away the race after rounding the third turn.",
+        "enId": 301364,
+        "form": "コーナー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -783,6 +1156,7 @@
     "meaning": "to be distant",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["news2", "nf35", "spec2"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Hedataru is from Old Japanese, derived from へだつ (hedatsu), 部 (he, “separate”) plus 立つ (tatsu, “to set up”), with tatsu voiced to datsu by rendaku.",
@@ -790,6 +1164,15 @@
     "sources": [
       {
         "quote": "From Old Japanese. Derived from へだつ (hedatsu), a compound of 部(へ) (he, “separate”) + 立(た)つ (tatsu, “to set up”), where the tatsu changes to datsu as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 208302,
+        "ja": "その村は海から何キロも隔たっている。",
+        "en": "The village is many kilometers away from the seashore.",
+        "enId": 45559,
+        "form": "隔たっている"
       }
     ],
     "wiktionaryDump": "2026-09-02"

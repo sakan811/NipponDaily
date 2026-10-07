@@ -6,6 +6,7 @@
     "meaning": "driver, screwdriver",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ドライバー is borrowed from English driver.",
@@ -21,6 +22,22 @@
         "quote": "Borrowed from English driver."
       }
     ],
+    "examples": [
+      {
+        "id": 111020,
+        "ja": "彼はベテランのドライバーだ。",
+        "en": "He is an expert driver.",
+        "enId": 292666,
+        "form": "ドライバー"
+      },
+      {
+        "id": 97750,
+        "ja": "彼らはドライバーに損害賠償を請求した。",
+        "en": "They demanded damages from the driver.",
+        "enId": 305954,
+        "form": "ドライバー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -33,6 +50,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "processes": [],
     "headline": "Hannō was coined by Iwakawa Tomotarō in 1884 as a translation of English reaction, and the ō of 応 became nō by renjō.",
     "morphemes": [],
@@ -53,6 +71,7 @@
     "meaning": "to add one thing to another",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf44"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Tsukekuwaeru is 付け (tsuke, the stem of 付ける (tsukeru, “to attach”)) plus 加える (kuwaeru, “to add”).",
@@ -73,6 +92,22 @@
         "quote": "From 付(つ)け (tsuke, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 付(つ)ける (tsukeru, “to attach”)) + 加(くわ)える (kuwaeru, “to add”)"
       }
     ],
+    "examples": [
+      {
+        "id": 194553,
+        "ja": "もう１点付け加えてもいいですか。",
+        "en": "May I add a point?",
+        "enId": 31726,
+        "form": "付け加えて"
+      },
+      {
+        "id": 114165,
+        "ja": "彼はお腹がすいていると付け加えた。",
+        "en": "On top of everything else, he added that he was hungry.",
+        "enId": 4632275,
+        "form": "付け加えた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -82,6 +117,7 @@
     "meaning": "peak, ridge",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Mine is 御 (mi, honorific prefix) plus 峰 (ne, “peak”), in reference to the 神 (kami, “god or spirit”) at the top of a mountain.",
@@ -94,6 +130,15 @@
         "quote": "Compare 道 (michi, “road”)."
       }
     ],
+    "examples": [
+      {
+        "id": 206776,
+        "ja": "その峰は雲の上にそびえている。",
+        "en": "The peak rises above the clouds.",
+        "enId": 44024,
+        "form": "峰"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -103,6 +148,7 @@
     "meaning": "good or bad, merits or demerits, quality",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yoshiashi is 善し (“classical Japanese of now 良い (yoi)”) plus 悪し (“classical Japanese synonym of 悪い (warui)”).",
@@ -110,6 +156,22 @@
     "sources": [
       {
         "quote": "From 善し (“classical Japanese of now 良(よ)い (yoi)”) + 悪し (“classical Japanese synonym of 悪(わる)い (warui)”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 192739,
+        "ja": "よしあしは別としてとにかくやってみよう。",
+        "en": "Whether it's good or not, let's do it anyway.",
+        "enId": 29905,
+        "form": "よしあし"
+      },
+      {
+        "id": 221195,
+        "ja": "この女の子はまだ小さくてもののよしあしがわからない。",
+        "en": "The girl is not old enough to be responsible.",
+        "enId": 58518,
+        "form": "よしあし"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -124,6 +186,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Mokei is 模 (mo, “copy”) plus 型 (kei, “type”).",
@@ -144,6 +207,22 @@
         "quote": "模 (も, mo), \"copy\" + 型 (けい, kei), \"type\""
       }
     ],
+    "examples": [
+      {
+        "id": 152589,
+        "ja": "私は模型の飛行機を作った。",
+        "en": "I made a model plane.",
+        "enId": 261960,
+        "form": "模型"
+      },
+      {
+        "id": 80185,
+        "ja": "模型の宇宙船を作るのは面白い。",
+        "en": "Making model spaceships is interesting.",
+        "enId": 323532,
+        "form": "模型"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -156,6 +235,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Hōkai is from Middle Chinese 崩潰, and 壊 (kai) is a daiyōji replacing 潰 (kai).",
@@ -178,6 +258,22 @@
         "quote": "From Middle Chinese 崩潰 (MC pong hwojH). 壊 (kai) is a daiyōji replacing 潰 (kai)."
       }
     ],
+    "examples": [
+      {
+        "id": 146483,
+        "ja": "床が崩壊した。",
+        "en": "The floor gave way.",
+        "enId": 268079,
+        "form": "崩壊"
+      },
+      {
+        "id": 207512,
+        "ja": "その塔は崩壊した。",
+        "en": "The tower fell into ruin.",
+        "enId": 44765,
+        "form": "崩壊"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -187,6 +283,7 @@
     "meaning": "to drift about, to float, to hang in air",
     "level": "N1",
     "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tadayou is from Old Japanese and is first cited to the Kojiki of 712 CE.",
@@ -197,6 +294,22 @@
       },
       {
         "quote": "From Old Japanese. First cited to the Kojiki of 712 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 197891,
+        "ja": "バラの香りが漂っている。",
+        "en": "The fragrance of roses is in the air.",
+        "enId": 12482256,
+        "form": "漂っている"
+      },
+      {
+        "id": 147622,
+        "ja": "春の花の香りが漂っていた。",
+        "en": "The air was scented with spring flowers.",
+        "enId": 266938,
+        "form": "漂っていた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -211,6 +324,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ガイド is from English guide.",
@@ -226,6 +340,22 @@
         "quote": "From English guide."
       }
     ],
+    "examples": [
+      {
+        "id": 213291,
+        "ja": "そのガイドを咎めるな。",
+        "en": "Don't blame the guide.",
+        "enId": 50576,
+        "form": "ガイド"
+      },
+      {
+        "id": 183808,
+        "ja": "観光ガイドは雇えますか。",
+        "en": "Is there a tour guide available?",
+        "enId": 20930,
+        "form": "ガイド"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -235,6 +365,7 @@
     "meaning": "avalanche",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "processes": ["borrowing", "ateji"],
     "headline": "Nadare is the stem of the classical verb 傾る (nadaru), and its kanji spelling is jukujikun, borrowed from Chinese 雪崩 (xuěbēng).",
     "morphemes": [],
@@ -244,6 +375,22 @@
       },
       {
         "quote": "The kanji spelling is jukujikun (熟(じゅく)字(じ)訓(くん)), borrowed from Chinese 雪崩 (xuěbēng)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 141957,
+        "ja": "雪崩で道路がふさがった。",
+        "en": "The road was blocked by an avalanche.",
+        "enId": 12271251,
+        "form": "雪崩"
+      },
+      {
+        "id": 172414,
+        "ja": "今頃の時期はなだれに注意しなければならない。",
+        "en": "You have to watch out for avalanches at this time of the year.",
+        "enId": 242061,
+        "form": "なだれ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -258,6 +405,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf16"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In ryakudatsu, 略 is a daiyōji replacing 掠.",
@@ -280,6 +428,15 @@
         "quote": "略 is a daiyōji replacing 掠."
       }
     ],
+    "examples": [
+      {
+        "id": 143056,
+        "ja": "政府役人の豪邸が略奪された。",
+        "en": "A government official's stately mansion was looted.",
+        "enId": 271512,
+        "form": "略奪"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -293,6 +450,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news2", "nf32"],
     "stratum": "wago",
     "processes": [],
     "headline": "Umaretsuki is 生まれ (umare) plus 付き (tsuki).",
@@ -300,6 +458,22 @@
     "sources": [
       {
         "quote": "From 生(う)まれ (umare) + 付(つ)き (tsuki)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 88358,
+        "ja": "彼女は生まれつき弱い。",
+        "en": "She is weak by nature.",
+        "enId": 315349,
+        "form": "生まれつき"
+      },
+      {
+        "id": 103240,
+        "ja": "彼は生まれつき内気だ。",
+        "en": "He is reserved by nature.",
+        "enId": 300453,
+        "form": "生まれつき"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -311,6 +485,7 @@
     "meaning": "genre",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ジャンル is borrowed from French genre.",
@@ -326,6 +501,15 @@
         "quote": "Borrowed from French genre."
       }
     ],
+    "examples": [
+      {
+        "id": 8585822,
+        "ja": "このジャンルの曲が好きです。",
+        "en": "I like this kind of music.",
+        "enId": 8585819,
+        "form": "ジャンル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -335,6 +519,7 @@
     "meaning": "timely, run-batted-in (baseball), RBI",
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "タイムリー is from English timely.",
@@ -359,6 +544,7 @@
     "meaning": "calendar, almanac",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "suffix"],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Koyomi is generally considered a shift from 日 (ka, “day”) plus 読み (yomi, “reading; counting”), literally “day counting”.",
@@ -377,6 +563,7 @@
     "meaning": "pleasant, agreeable",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kokoroyoi is 心 (kokoro, “heart”) plus 良い (yoi, “good”).",
@@ -384,6 +571,22 @@
     "sources": [
       {
         "quote": "From 心 (kokoro, “heart”) + 良い (yoi, “good”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 156687,
+        "ja": "私は昨夜快く眠った。",
+        "en": "I slept comfortably last night.",
+        "enId": 257847,
+        "form": "快く"
+      },
+      {
+        "id": 90769,
+        "ja": "彼女は快く願いを聞いてくれた。",
+        "en": "She graciously listened to my request.",
+        "enId": 1344377,
+        "form": "快く"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -395,6 +598,7 @@
     "meaning": "ghost, specter, phantom",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Yūrei is from the Middle Chinese compound 幽靈, literally “dark + supernatural”.",
@@ -415,6 +619,22 @@
         "quote": "From Middle Chinese compound 幽靈 /幽灵 (ʔjiw leng, literally “dark + supernatural”). Compare modern Mandarin reading yōulíng, Min Nan iu-lêng."
       }
     ],
+    "examples": [
+      {
+        "id": 79276,
+        "ja": "幽霊は存在する。",
+        "en": "Ghosts exist.",
+        "enId": 324442,
+        "form": "幽霊"
+      },
+      {
+        "id": 79271,
+        "ja": "幽霊を信じますか。",
+        "en": "Do you believe in ghosts?",
+        "enId": 63212,
+        "form": "幽霊"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -424,6 +644,7 @@
     "meaning": "pair, pear",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ペア is borrowed from English pair.",
@@ -448,6 +669,7 @@
     "meaning": "greedy, vulgar, shabby",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Iyashii is from Old Japanese and is first attested in the Nihon Shoki of 720 CE.",
@@ -455,6 +677,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Nihon Shoki of 720 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 101211,
+        "ja": "彼は卑しい振舞いをした。",
+        "en": "He behaved in a cheap manner.",
+        "enId": 302486,
+        "form": "卑しい"
+      },
+      {
+        "id": 121162,
+        "ja": "卑しいことは絶対にしない。",
+        "en": "He is above all meanness.",
+        "enId": 282844,
+        "form": "卑しい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -466,6 +704,7 @@
     "meaning": "fish",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "ichi2", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Uo, “fish”, is from Old Japanese, ultimately from Proto-Japonic *uwo.",
@@ -490,6 +729,7 @@
     "meaning": "to plan, to intend, to aspire to",
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kokorozasu is 心 (kokoro, “heart; mind”) plus 指す (sasu, “to point”), first cited to the mid-900s.",
@@ -502,6 +742,22 @@
         "quote": "First cited to the mid-900s."
       }
     ],
+    "examples": [
+      {
+        "id": 152832,
+        "ja": "私は法律家を志している。",
+        "en": "I intend to become a lawyer.",
+        "enId": 261715,
+        "form": "志している"
+      },
+      {
+        "id": 88715,
+        "ja": "彼女は女優になることを志した。",
+        "en": "She aimed to become an actress.",
+        "enId": 314992,
+        "form": "志した"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -511,6 +767,7 @@
     "meaning": "puzzling, tangled, complicated, complex",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yayakoshii is an adjectivization of 稚児 (yayako, “infant”), from the way infants are fretful and complicated to deal with.",
@@ -518,6 +775,22 @@
     "sources": [
       {
         "quote": "Adjectivization of 稚児(ややこ) (yayako, “infant”), from the way infants are fretful and complicated to deal with."
+      }
+    ],
+    "examples": [
+      {
+        "id": 231377,
+        "ja": "あの５人の関係は、ややこしい。",
+        "en": "The relationships among those five people are complicated.",
+        "enId": 68744,
+        "form": "ややこしい"
+      },
+      {
+        "id": 193077,
+        "ja": "やっとややこしい迷路の外に出られた。",
+        "en": "I finally found my way out of the confusing maze.",
+        "enId": 30242,
+        "form": "ややこしい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -529,6 +802,7 @@
     "meaning": "mood",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ムード is from English mood.",
@@ -544,6 +818,22 @@
         "quote": "From English mood."
       }
     ],
+    "examples": [
+      {
+        "id": 75606,
+        "ja": "街はクリスマスムード一色・・・もうじきイブだ。",
+        "en": "The streets are in full Christmas mood - it's almost Christmas Eve.",
+        "enId": 328112,
+        "form": "ムード"
+      },
+      {
+        "id": 192349,
+        "ja": "レストランにその音楽が流れてきたのでロマンチックなムードになった。",
+        "en": "Music started playing in the restaurant so there was a real romantic mood.",
+        "enId": 29512,
+        "form": "ムード"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -553,6 +843,7 @@
     "meaning": "will, intention, motive",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kokorozashi is the continuative stem of the verb 志す (kokorozasu, “to intend to do something, to aspire to do something”).",
@@ -560,6 +851,22 @@
     "sources": [
       {
         "quote": "The 連用形 (ren'yōkei, “continuative or stem form”) of verb 志す (kokorozasu, “to intend to do something, to aspire to do something”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 187468,
+        "ja": "何事をするにも志が大切。",
+        "en": "The will is as good as the deed.",
+        "enId": 24605,
+        "form": "志"
+      },
+      {
+        "id": 75418,
+        "ja": "でも、仲間たちは志はあっても、資金調達やマネジメントには無知でした。",
+        "en": "However, although our companions were willing, they knew nothing about management or getting money.",
+        "enId": 328300,
+        "form": "志"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -571,6 +878,7 @@
     "meaning": "alkali",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アルカリ is borrowed from Dutch alkali.",
@@ -595,6 +903,7 @@
     "meaning": "yet, still",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Imada is from Old Japanese, first appearing in the Kojiki of 712 CE, and ultimately from Proto-Japonic.",
@@ -602,6 +911,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, first appearing in the Kojiki of 712 CE; ultimately from Proto-Japonic *imanta. Cognate with Okinawan なーだ (nāda, “yet”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 100579,
+        "ja": "彼はいまだ病気で寝ている。",
+        "en": "He remains sick in bed.",
+        "enId": 303119,
+        "form": "いまだ"
+      },
+      {
+        "id": 176257,
+        "ja": "警察はいまだ犯人を特定できないでいる。",
+        "en": "The police still can't point out who committed the crime.",
+        "enId": 238207,
+        "form": "いまだ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -617,6 +942,7 @@
       "nouns which may take the genitive case particle 'no'",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ベスト covers “best” and “vest”, and the source takes both from English.",
@@ -642,6 +968,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Renjitsu is 連 (“successive”) plus 日 (“day”).",
@@ -662,6 +989,22 @@
         "quote": "連 (“successive”) + 日 (“day”)"
       }
     ],
+    "examples": [
+      {
+        "id": 77416,
+        "ja": "連日交通事故が起きる。",
+        "en": "Traffic accidents happen daily.",
+        "enId": 326303,
+        "form": "連日"
+      },
+      {
+        "id": 223046,
+        "ja": "このように連日遅くまで起きていたことが私の健康にこたえ始めていた。",
+        "en": "All these late nights were beginning to tell on my health.",
+        "enId": 60377,
+        "form": "連日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -674,6 +1017,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Giketsu is from Middle Chinese 議決.",
@@ -696,6 +1040,22 @@
         "quote": "From Middle Chinese 議決 (ngjeᴴ kwet)."
       }
     ],
+    "examples": [
+      {
+        "id": 76200,
+        "ja": "憲法の規定に従い衆院の議決が参院に優越する。",
+        "en": "Under the Constitution, the lower chamber's resolutions override those of the upper chamber.",
+        "enId": 327518,
+        "form": "議決"
+      },
+      {
+        "id": 78378,
+        "ja": "理事会は海外の持ち株を放棄することを議決しました。",
+        "en": "The Board of Trustees voted to divest the organization's overseas holdings.",
+        "enId": 325338,
+        "form": "議決"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -708,6 +1068,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Kōnyū is from the Middle Chinese compound 購入, literally “present, give + enter”.",
@@ -731,6 +1092,22 @@
         "quote": "From Middle Chinese compound 購入 /购入 (kuwᴴ nyip, literally “present, give + enter”). Compare modern Cantonese reading kau³ jap⁶."
       }
     ],
+    "examples": [
+      {
+        "id": 155747,
+        "ja": "私は新しいテレビを購入した。",
+        "en": "I bought a new television.",
+        "enId": 258790,
+        "form": "購入"
+      },
+      {
+        "id": 159896,
+        "ja": "私はその品物を半額で購入した。",
+        "en": "I purchased the goods for half price.",
+        "enId": 254626,
+        "form": "購入"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -740,6 +1117,7 @@
     "meaning": "out",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アウト is from English out.",

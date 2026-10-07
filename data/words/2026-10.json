@@ -6,6 +6,7 @@
     "meaning": "thank you",
     "level": "N1",
     "pos": ["interjection (kandoushi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "サンキュー is borrowed from English thank you.",
@@ -30,6 +31,7 @@
     "meaning": "to grow hazy, to be misty",
     "level": "N1",
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kasumu is from Old Japanese and cognate with 霞める (kasumeru, “to blur, to obscure”) and かすか (kasuka, “faint, dim”).",
@@ -45,6 +47,22 @@
         "quote": "Cognate with 霞(かす)む (kasumu, “to grow hazy, to become blurry”) above."
       }
     ],
+    "examples": [
+      {
+        "id": 80025,
+        "ja": "目がかすみます。",
+        "en": "I have bleary eyes.",
+        "enId": 323692,
+        "form": "かすみます"
+      },
+      {
+        "id": 179871,
+        "ja": "近くの物がかすんで見えます。",
+        "en": "Close things look blurred.",
+        "enId": 18730,
+        "form": "かすんで"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -58,6 +76,7 @@
       "noun, used as a suffix",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": [],
     "headline": "Mashi is the continuative stem of the verb 増す (masu).",
@@ -65,6 +84,22 @@
     "sources": [
       {
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 増(ま)す (masu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 126751,
+        "ja": "遅くともしないよりまし。",
+        "en": "Better late than never.",
+        "enId": 2344,
+        "form": "まし"
+      },
+      {
+        "id": 125107,
+        "ja": "天気は今日の方が少しはましだ。",
+        "en": "The weather is a shade better today.",
+        "enId": 278886,
+        "form": "まし"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -76,6 +111,7 @@
     "meaning": "to respect, to honor, to esteem, to prize",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Omonjiru is a shift from the verb 重んずる (omonzuru), as -uru verbs moved to the -iru pattern.",
@@ -83,6 +119,22 @@
     "sources": [
       {
         "quote": "Shift from verb 重(おも)んずる (omonzuru), by natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 108892,
+        "ja": "彼は学校で重んじられた。",
+        "en": "He was made much of at school.",
+        "enId": 294800,
+        "form": "重んじられた"
+      },
+      {
+        "id": 210166,
+        "ja": "その子は両親を重んじた。",
+        "en": "That child thought much of his parents.",
+        "enId": 47430,
+        "form": "重んじた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -94,6 +146,7 @@
     "meaning": "rope",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ロープ is borrowed from English rope.",
@@ -109,6 +162,22 @@
         "quote": "Borrowed from English rope."
       }
     ],
+    "examples": [
+      {
+        "id": 192268,
+        "ja": "ロープを放すな。",
+        "en": "Don't let go of the rope.",
+        "enId": 29431,
+        "form": "ロープ"
+      },
+      {
+        "id": 192271,
+        "ja": "ロープを下ろした。",
+        "en": "I let down the rope.",
+        "enId": 29433,
+        "form": "ロープ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -118,6 +187,7 @@
     "meaning": "to swell (out), to be inflated, to bulge",
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": [],
     "headline": "Fukureru is from Old Japanese 膨る (pukuru), and the source compares 袋 (fukuro, “bag”), from the way a bag is filled with items.",
@@ -139,6 +209,22 @@
         "quote": "First cited to the Man’yōshū, completed sometime after 759 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 203747,
+        "ja": "たくさん食べたので腹が膨れた。",
+        "en": "I've had enough, so my stomach is full.",
+        "enId": 40987,
+        "form": "膨れた"
+      },
+      {
+        "id": 92255,
+        "ja": "彼女はそれで遊ぶことを拒んで、ただ座ってふくれていたのです。",
+        "en": "She refused to play with it, and just sat there looking angry.",
+        "enId": 311456,
+        "form": "ふくれていた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -148,6 +234,7 @@
     "meaning": "me, oneself, self, ego",
     "level": "N1",
     "pos": ["pronoun"],
+    "priority": ["news1", "nf14"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Ware is from Old Japanese, the long form of 我 (wa) plus れ (-re, nominalizing suffix).",
@@ -158,6 +245,22 @@
       },
       {
         "quote": "Compound of 我 (wa, see below) + れ (-re, nominalizing suffix)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 77432,
+        "ja": "恋人よ、我に帰れ。",
+        "en": "Lover, come back to me.",
+        "enId": 326287,
+        "form": "我"
+      },
+      {
+        "id": 357576,
+        "ja": "我思う、故に我あり。",
+        "en": "I think, therefore I am.",
+        "enId": 454514,
+        "form": "我"
       }
     ],
     "wiktionaryDump": "2026-09-02"

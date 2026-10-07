@@ -6,13 +6,43 @@
     "meaning": "with all one's strength (heart), resignation, resolution",
     "level": "N2",
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Omoikiri is the continuative stem of the verb 思い切る (omoikiru).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "思い",
+        "reading": "おもい",
+        "meaning": "think",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "切り",
+        "reading": "きり",
+        "meaning": "cut",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 思(おも)い切(き)る (omoikiru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 156532,
+        "ja": "私は思いきり働きたい。",
+        "en": "I will work to the best of my ability.",
+        "enId": 258002,
+        "form": "思いきり"
+      },
+      {
+        "id": 87202,
+        "ja": "彼女は彼を思い切りけとばした。",
+        "en": "She gave him a good kick.",
+        "enId": 316506,
+        "form": "思い切り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -24,6 +54,7 @@
     "meaning": "sleepy, drowsy",
     "level": "N4",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf30"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nemui is related to 眠る (nemuru, “to sleep”), all ultimately related to Classical Japanese 寝 (nu, “to sleep”).",
@@ -31,6 +62,22 @@
     "sources": [
       {
         "quote": "Compare 眠る (nemuru, “to sleep”), 眠り (nemuri, “sleep”), 眠たい (nemutai, “sleepy”), and おねむ (o-nemu, “(childish) sleepiness, sleep”), all ultimately related to Classical Japanese 寝 (nu, “to sleep”, modern 寝る (neru))."
+      }
+    ],
+    "examples": [
+      {
+        "id": 81007,
+        "ja": "眠いですか？",
+        "en": "Are you sleepy?",
+        "enId": 322709,
+        "form": "眠い"
+      },
+      {
+        "id": 172772,
+        "ja": "今とても眠い。",
+        "en": "I'm very sleepy now.",
+        "enId": 241702,
+        "form": "眠い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -42,6 +89,7 @@
     "meaning": "president",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Daitōryō is 大 (dai-, “great”) plus 統領 (tōryō, “leader”).",
@@ -70,6 +118,22 @@
         "quote": "大(だい) (dai-, “great”) + 統領(とうりょう) (tōryō, “leader”)"
       }
     ],
+    "examples": [
+      {
+        "id": 102365,
+        "ja": "彼は大統領を辞任した。",
+        "en": "He resigned as president.",
+        "enId": 301329,
+        "form": "大統領"
+      },
+      {
+        "id": 102371,
+        "ja": "彼は大統領に選ばれた。",
+        "en": "He was elected president.",
+        "enId": 301323,
+        "form": "大統領"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -79,6 +143,7 @@
     "meaning": "feelings, emotion, passion",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Jō, “feelings”, is from Middle Chinese 情.",
@@ -86,6 +151,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 情 (MC dzjeng)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 88629,
+        "ja": "彼女は情にもろい。",
+        "en": "She is accessible to pity.",
+        "enId": 315078,
+        "form": "情"
+      },
+      {
+        "id": 103960,
+        "ja": "彼は情に厚い人だ。",
+        "en": "He is a man of warm heart.",
+        "enId": 299732,
+        "form": "情"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -97,6 +178,7 @@
     "meaning": "today, this day",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Konnichi is from Middle Chinese 今日, the goon reading, so likely the original borrowing.",
@@ -122,6 +204,15 @@
         "quote": "The goon, so likely the original reading of the term as first borrowed from Middle Chinese."
       }
     ],
+    "examples": [
+      {
+        "id": 171479,
+        "ja": "今日ますます多くの人が、都会より田舎の生活を好むようになっています。",
+        "en": "Nowadays more and more people prefer country life to city life.",
+        "enId": 242478,
+        "form": "今日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -134,6 +225,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news2", "nf47", "spec2"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Asanebō is 朝 (asa, “morning”) plus 寝坊 (nebō, “sleeping in, waking late; someone who sleeps in”).",
@@ -154,6 +246,22 @@
         "quote": "Compound of 朝 (asa, “morning”) + 寝坊 (nebō, “sleeping in, waking late; someone who sleeps in”)."
       }
     ],
+    "examples": [
+      {
+        "id": 87867,
+        "ja": "彼女は朝寝坊だ。",
+        "en": "She is a late riser.",
+        "enId": 315840,
+        "form": "朝寝坊"
+      },
+      {
+        "id": 126169,
+        "ja": "朝寝坊が癖になった。",
+        "en": "I took to sleeping late in the morning.",
+        "enId": 277822,
+        "form": "朝寝坊"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -163,6 +271,7 @@
     "meaning": "underwear",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Shitagi is 下 (shita, “under”) plus 着 (-gi, “clothing”).",
@@ -184,6 +293,22 @@
         "quote": "下(した) (shita, “under”) + 着(ぎ) (-gi, “clothing”)"
       }
     ],
+    "examples": [
+      {
+        "id": 188577,
+        "ja": "汚い下着を人前で洗うな。",
+        "en": "Don't wash your dirty linen in public.",
+        "enId": 25722,
+        "form": "下着"
+      },
+      {
+        "id": 188216,
+        "ja": "下着までビショビショです。",
+        "en": "I got soaked to the skin.",
+        "enId": 25356,
+        "form": "下着"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -193,6 +318,7 @@
     "meaning": "conference room",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kaigishitsu is 会議 (kaigi, “meeting”) plus 室 (shitsu, “room”).",
@@ -213,6 +339,22 @@
         "quote": "会議(かいぎ) (kaigi, “meeting”) + 室(しつ) (shitsu, “room”)"
       }
     ],
+    "examples": [
+      {
+        "id": 211885,
+        "ja": "会議室は現在使用中です。",
+        "en": "The meeting room is in use now.",
+        "enId": 49162,
+        "form": "会議室"
+      },
+      {
+        "id": 225547,
+        "ja": "クラブの会員は会議室に集まった。",
+        "en": "The club members assembled in the meeting room.",
+        "enId": 62883,
+        "form": "会議室"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -225,6 +367,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kagaku is Chinese 化學 (huàxué, literally “change + study”), first cited in Japanese in an 1860 translation of a Dutch text.",
@@ -260,6 +403,7 @@
     "meaning": "when",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1", "news2", "nf29"],
     "stratum": "wago",
     "processes": [],
     "headline": "Itsu is from Old Japanese, and its first syllable may be a root shared with 如何 (ikaga) and 何処 (izuko).",
@@ -284,6 +428,7 @@
     "meaning": "elbow",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hiji is from Old Japanese, first attested in the Nihon Shoki of 720 CE, from Proto-Japonic *penti.",
@@ -291,6 +436,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Nihon Shoki of 720 CE. From Proto-Japonic *penti."
+      }
+    ],
+    "examples": [
+      {
+        "id": 197594,
+        "ja": "ひじを痛めました。",
+        "en": "I hurt my elbow.",
+        "enId": 34779,
+        "form": "ひじ"
+      },
+      {
+        "id": 89422,
+        "ja": "彼女は私のひじを引っ張った。",
+        "en": "She gave a pluck at my elbow.",
+        "enId": 314289,
+        "form": "ひじ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -302,6 +463,7 @@
     "meaning": "hair",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kami's kanji 髪 is a shinjitai, simplified from 髮.",
@@ -309,6 +471,15 @@
     "sources": [
       {
         "quote": "Japanese shinjitai. Simplified from 髮 (犮 → 友)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 76440,
+        "ja": "ポールは手で髪を梳きました。",
+        "en": "Paul ran his hand through his hair.",
+        "enId": 327280,
+        "form": "髪"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -324,6 +495,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Subete was originally the -te form of an Old Japanese verb 統ぶ (subu), compare 統べる (suberu).",
@@ -331,6 +503,22 @@
     "sources": [
       {
         "quote": "Originally the -te conjunctive form of Old Japanese verb 統ぶ (subu); compare modern 統べる (suberu, “to gather many things together; to treat many things as a single group”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 126144,
+        "ja": "潮の全てはひく。",
+        "en": "Every tide has its ebb.",
+        "enId": 3053574,
+        "form": "全て"
+      },
+      {
+        "id": 140839,
+        "ja": "全て嫌いである。",
+        "en": "I like none of them.",
+        "enId": 273733,
+        "form": "全て"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -342,6 +530,7 @@
     "meaning": "good",
     "level": "N5",
     "pos": ["adjective (keiyoushi) - yoi/ii class"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ii is a shift from 良い (yoi), classical 良し (yoshi), by way of seven steps from yo₂si.",
@@ -354,6 +543,22 @@
         "quote": "Ultimately a shift from 良い (yoi), classical 良し (yoshi)."
       }
     ],
+    "examples": [
+      {
+        "id": 229344,
+        "ja": "いい人です。",
+        "en": "He is nice.",
+        "enId": 66702,
+        "form": "いい"
+      },
+      {
+        "id": 229376,
+        "ja": "いい塩梅だ。",
+        "en": "The seasoning is just right.",
+        "enId": 66735,
+        "form": "いい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -363,6 +568,7 @@
     "meaning": "nail",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kugi is first cited to the Man'yōshu of circa 759 CE, from Proto-Japonic *kunki.",
@@ -370,6 +576,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First cited to the Man'yōshu of circa 759 CE, with the phonetic man'yōgana spelling 久枳. From Proto-Japonic *kunki."
+      }
+    ],
+    "examples": [
+      {
+        "id": 121230,
+        "ja": "板にくぎを打ち込んだ。",
+        "en": "He hammered nails into the plank.",
+        "enId": 282776,
+        "form": "くぎ"
+      },
+      {
+        "id": 101223,
+        "ja": "彼は板にくぎを打ち込んだ。",
+        "en": "He drove a nail into the board.",
+        "enId": 302473,
+        "form": "くぎ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -381,6 +603,7 @@
     "meaning": "god",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Kamisama is 神 (kami, “deity, god”) plus 様 (-sama, honorific suffix).",
@@ -401,6 +624,22 @@
         "quote": "From 神(かみ) (kami, “deity, god”) + 様(さま) (-sama, honorific suffix)."
       }
     ],
+    "examples": [
+      {
+        "id": 151460,
+        "ja": "私達は神様を信じます。",
+        "en": "We believe in God.",
+        "enId": 248918,
+        "form": "神様"
+      },
+      {
+        "id": 231816,
+        "ja": "あなたは神様を信じますか。",
+        "en": "Do you believe in God?",
+        "enId": 15971,
+        "form": "神様"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -410,6 +649,7 @@
     "meaning": "to ridicule, to make fun of",
     "level": "N2",
     "pos": ["Godan verb with 'u' ending"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Karakau is attested in The Tale of the Heike (c. 1330); the kara may be cognate with 絡む (karamu, “to become entangled”), and the kau may be 交う (kau, “to exchange; to mix”).",
@@ -431,6 +671,7 @@
     "meaning": "probability",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kakuritsu was coined by Matsumiya Tetsuo in 1908 as a translation of English probability.",
@@ -453,6 +694,22 @@
         "quote": "Coined by Matsumiya Tetsuo in 1908 as a translation of English probability."
       }
     ],
+    "examples": [
+      {
+        "id": 147198,
+        "ja": "勝ち負けの確率は五分五分だ。",
+        "en": "The chances of victory or defeat are even.",
+        "enId": 267363,
+        "form": "確率"
+      },
+      {
+        "id": 120538,
+        "ja": "彼が回復する確率はあるにしても極めて少ない。",
+        "en": "There is little if any hope for his recovery.",
+        "enId": 283471,
+        "form": "確率"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -462,6 +719,7 @@
     "meaning": "to restrict, to limit, to confine",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Kagiru has an uncertain origin: it looks related to 鍵 (kagi, “key”), but Japanese references do not make that connection.",
@@ -477,6 +735,22 @@
         "quote": "While a surface analysis might suggest a relation to 鍵 (kagi, “key”) or its cognate 鉤 (kagi, “lock”), Japanese references do not make such a connection. In addition, the oldest uses of derived noun 限り (kagiri, “limitation, bound, extent”) indicate that the initial sense was one of \"limitation\" in terms of time, in contrast to 極み (kiwami, “limitation, bound, extent”) in terms of space."
       }
     ],
+    "examples": [
+      {
+        "id": 198349,
+        "ja": "ハイキングは秋に限る。",
+        "en": "Autumn is the best season for going on hikes.",
+        "enId": 35540,
+        "form": "限る"
+      },
+      {
+        "id": 185811,
+        "ja": "我々は資源が限られている。",
+        "en": "We have limited resources.",
+        "enId": 22943,
+        "form": "限られている"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -486,6 +760,7 @@
     "meaning": "buttocks, bottom",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": ["derivation", "ateji", "unclear"],
     "headline": "Shiri is from Old Japanese, from Proto-Japonic *siri, and its ultimate derivation is unknown.",
@@ -501,6 +776,22 @@
         "quote": "From Ainu シㇼ (sir, “place, land, island”). The kanji spelling is an example of ateji."
       }
     ],
+    "examples": [
+      {
+        "id": 123831,
+        "ja": "頭隠して尻隠さず。",
+        "en": "Protect yourself at all points.",
+        "enId": 280164,
+        "form": "尻"
+      },
+      {
+        "id": 193037,
+        "ja": "やめなさい、お尻をぶちますよ。",
+        "en": "Stop that, or I'll fix your wagon.",
+        "enId": 30203,
+        "form": "尻"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -510,6 +801,7 @@
     "meaning": "first day of the month",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "spec1"],
     "processes": ["compound", "sound-change"],
     "headline": "Tsuitachi began as tsuki tachi: 月 (“moon; month”) plus 立ち (“standing; starting, occurring”).",
     "morphemes": [],
@@ -521,6 +813,15 @@
         "quote": "Originally a compound of 月 (tsuki, “moon; month”) + 立ち (tachi, “standing; starting, occurring”, the 連用形 (ren'yōkei, “continuative or stem form”) of verb 立つ (tatsu, “to stand up; to start, to occur”))."
       }
     ],
+    "examples": [
+      {
+        "id": 168964,
+        "ja": "四月一日です。",
+        "en": "It's April first.",
+        "enId": 245523,
+        "form": "一日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -530,6 +831,7 @@
     "meaning": "doctrine, cause, principle",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shugi is from Classical Chinese 主義 (zhǔyì), attested in the Records of the Grand Historian.",
@@ -552,6 +854,22 @@
         "quote": "From Classical Chinese 主義 /主义 (zhǔyì), attested in the Records of the Grand Historian"
       }
     ],
+    "examples": [
+      {
+        "id": 108778,
+        "ja": "彼は完璧主義者だ。",
+        "en": "He is a person who never cuts corners.",
+        "enId": 294911,
+        "form": "主義"
+      },
+      {
+        "id": 104522,
+        "ja": "彼は主義を曲げない。",
+        "en": "He sticks to his principles.",
+        "enId": 299169,
+        "form": "主義"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -561,6 +879,7 @@
     "meaning": "instantly, suddenly, all at once",
     "level": "N2",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Tachimachi is apparently a shift from 立ち待ち (tachimachi, “standing and waiting”), first cited in the Man'yōshū of 759.",
@@ -582,6 +901,7 @@
     "meaning": "to scratch",
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaku, “to scratch”, is cognate with 書く (kaku, “to write”).",
@@ -597,6 +917,22 @@
         "quote": "Cognate with 書く (kaku, “to write”)."
       }
     ],
+    "examples": [
+      {
+        "id": 137599,
+        "ja": "大汗をかいた。",
+        "en": "They sweated gallons.",
+        "enId": 275637,
+        "form": "かいた"
+      },
+      {
+        "id": 103102,
+        "ja": "彼は赤っ恥をかいた。",
+        "en": "He covered himself with shame.",
+        "enId": 300591,
+        "form": "かいた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -606,6 +942,7 @@
     "meaning": "tear",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["derivation", "borrowing", "unclear"],
     "headline": "Namida is attested as namita in the Nihon Shoki, and later the Man'yōshū has the ta replaced by da.",
@@ -630,6 +967,7 @@
     "meaning": "where, which, who",
     "level": "N3",
     "pos": ["adverb (fukushi)", "pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Izure is いづ (izu, interrogative pronoun) plus れ (-re, nominalizing suffix for demonstratives).",
@@ -662,6 +1000,7 @@
     "meaning": "before long, soon, at length",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Yagate contracts 止難 (yamigate): the verb 止む (yamu, “to stop”) plus 難て (gate, “difficult”).",
@@ -686,6 +1025,7 @@
     "meaning": "ten",
     "level": "N5",
     "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Jū, “ten”, is from Middle Chinese 十 (MC dzyip), with a literary Hokkien cousin, si̍p.",
@@ -696,6 +1036,22 @@
       },
       {
         "quote": "From Middle Chinese 十 (MC dzyip). Compare literary Hokkien 十 (si̍p)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 193977,
+        "ja": "もう夜の十時だ。",
+        "en": "It's already ten o'clock at night.",
+        "enId": 31145,
+        "form": "十"
+      },
+      {
+        "id": 236037,
+        "ja": "十時半の電車に乗ります。",
+        "en": "I'm going to take the 10:30 train.",
+        "enId": 73418,
+        "form": "十"
       }
     ],
     "wiktionaryDump": "2026-09-02"

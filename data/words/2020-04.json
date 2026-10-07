@@ -9,6 +9,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In shokuyoku, 欲 is a daiyōji replacing 慾.",
@@ -31,6 +32,22 @@
         "quote": "欲 is a daiyōji replacing 慾"
       }
     ],
+    "examples": [
+      {
+        "id": 103896,
+        "ja": "彼は食欲旺盛だ。",
+        "en": "He has a good appetite.",
+        "enId": 299795,
+        "form": "食欲"
+      },
+      {
+        "id": 155779,
+        "ja": "私は食欲がない。",
+        "en": "I have no appetite.",
+        "enId": 1071660,
+        "form": "食欲"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -40,6 +57,7 @@
     "meaning": "cape (on coast)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Misaki is attested in the Nihon Shoki of 720, analyzable as み (mi) plus 先 (saki, “tip, point; promontory”).",
@@ -64,6 +82,22 @@
         "quote": "* Shift from 海(うみ) (umi, “sea”), with the same consideration as above."
       }
     ],
+    "examples": [
+      {
+        "id": 208407,
+        "ja": "その船は岬を回った。",
+        "en": "The ship sailed around the cape.",
+        "enId": 45665,
+        "form": "岬"
+      },
+      {
+        "id": 141093,
+        "ja": "船は岬に沿って回った。",
+        "en": "The boat sailed around the promontory.",
+        "enId": 273479,
+        "form": "岬"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -73,13 +107,43 @@
     "meaning": "lost article, something forgotten",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf33"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Wasuremono is wasure, the stem of 忘れる (wasureru), plus 物 (-mono).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "忘れ",
+        "reading": "わすれ",
+        "meaning": "forget",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "物",
+        "reading": "もの",
+        "meaning": "thing",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "忘(わす)れ (wasure, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 忘(わす)れる (wasureru)) + 物(もの) (-mono)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 82540,
+        "ja": "忘れ物ない？",
+        "en": "Do you have everything?",
+        "enId": 321176,
+        "form": "忘れ物"
+      },
+      {
+        "id": 171417,
+        "ja": "今日忘れ物をした。",
+        "en": "I left behind something today.",
+        "enId": 243057,
+        "form": "忘れ物"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -91,6 +155,7 @@
     "meaning": "skin, hide, leather",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kawa went from kapa through kaɸa to kawa, from Proto-Japonic *kapa.",
@@ -103,6 +168,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *kapa."
       }
     ],
+    "examples": [
+      {
+        "id": 85553,
+        "ja": "美は皮一重。",
+        "en": "Beauty is only skin deep.",
+        "enId": 1507611,
+        "form": "皮"
+      },
+      {
+        "id": 85526,
+        "ja": "美貌は皮一重。",
+        "en": "Beauty is but skin deep.",
+        "enId": 318157,
+        "form": "皮"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -112,6 +193,7 @@
     "meaning": "to collect, to gather, to accumulate",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tamaru is cognate with 堪る (tamaru, “to restrain oneself”).",
@@ -119,6 +201,22 @@
     "sources": [
       {
         "quote": "Cognate with Japanese 堪(たま)る (tamaru, “to restrain oneself”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 93891,
+        "ja": "彼女の目に涙がたまった。",
+        "en": "Tears gathered in her eyes.",
+        "enId": 309816,
+        "form": "たまった"
+      },
+      {
+        "id": 143788,
+        "ja": "水の淀む所には汚物が溜る。",
+        "en": "Standing pools gather filth.",
+        "enId": 270778,
+        "form": "溜る"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -130,6 +228,7 @@
     "meaning": "breast, chest",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Mune is from Proto-Japonic *munai, with the same apophony as 神 (kamu, kami).",
@@ -163,6 +262,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "unclear"],
     "headline": "Gyōretsu is attested from 749 as a line or procession; the date of its mathematical sense, “matrix”, is uncertain.",
@@ -188,6 +288,22 @@
         "quote": "The date of the mathematical sense is uncertain. Matrices for calculation were long known in Chinese mathematics, and were used to solve systems of linear equations in the work 九章算術 /九章算术 (“The Nine Chapters on the Mathematical Art”), compiled from the 10th through the 2nd centuries BCE. The component terms 行 and 列 (liè) are both used in that text, but not in the particular combination of 行列 (hángliè) (see also Wikisource). The first Japanese work on this aspect of mathematics was a 1683 text by 関孝和 (Seki Takakazu), but it is not yet clear if this text includes the term 行列 (gyōretsu) with the sense of matrix."
       }
     ],
+    "examples": [
+      {
+        "id": 173323,
+        "ja": "行列が学校の側を通った。",
+        "en": "The parade passed our school.",
+        "enId": 241146,
+        "form": "行列"
+      },
+      {
+        "id": 107317,
+        "ja": "彼は行列を見ようと首を伸ばした。",
+        "en": "He craned his neck to see the procession.",
+        "enId": 296369,
+        "form": "行列"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -200,6 +316,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Keito is 毛 (ke, “fur, hair”) plus 糸 (ito, “thread, string”).",
@@ -220,6 +337,22 @@
         "quote": "毛(け) (ke, “fur, hair”) + 糸(いと) (ito, “thread, string”)"
       }
     ],
+    "examples": [
+      {
+        "id": 142206,
+        "ja": "赤ん坊が毛糸の玉をもつれさせた。",
+        "en": "The baby tangled the ball of yarn.",
+        "enId": 272364,
+        "form": "毛糸"
+      },
+      {
+        "id": 86545,
+        "ja": "彼女は毛糸でセーターを編んでいる。",
+        "en": "She is knitting a sweater.",
+        "enId": 317166,
+        "form": "毛糸"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -229,6 +362,7 @@
     "meaning": "grave, tomb",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Haka has no known origin; the final ka may be 処 (-ka, suffix denoting place), as in 住み処 (sumika).",
@@ -241,6 +375,22 @@
         "quote": "Ultimate derivation unknown. One possibility is that the final ka may be 処(か) (-ka, suffix denoting place), as in the term 住(す)み処(か) (sumika, “dwelling, home, abode”, literally “living place”)."
       }
     ],
+    "examples": [
+      {
+        "id": 95777,
+        "ja": "彼を墓に埋めた。",
+        "en": "They buried him in his grave.",
+        "enId": 307928,
+        "form": "墓"
+      },
+      {
+        "id": 96176,
+        "ja": "彼らは墓を掘った。",
+        "en": "They dug a grave.",
+        "enId": 307529,
+        "form": "墓"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -250,6 +400,7 @@
     "meaning": "year, fiscal year",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "unclear"],
     "headline": "Nendo is uncertain, possibly from Middle Chinese 年度.",
@@ -272,6 +423,15 @@
         "quote": "Uncertain. Possibly from Middle Chinese 年度 (MC nen duH). Compare modern Mandarin 年度 (niándù)."
       }
     ],
+    "examples": [
+      {
+        "id": 77605,
+        "ja": "零細小売店などは新年度には利益を上げるでしょう。",
+        "en": "Mom-and-pop stores will turn a profit in the new fiscal year.",
+        "enId": 326113,
+        "form": "年度"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -281,6 +441,7 @@
     "meaning": "globe, sphere, ball",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tama, “ball”, is the same word as 玉 (tama).",
@@ -299,6 +460,7 @@
     "meaning": "acidity",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sansei is 酸 (san, “acid”) plus 性 (-sei, “-ity”).",
@@ -319,6 +481,15 @@
         "quote": "酸(さん) (san, “acid”) + 性(せい) (-sei, “-ity”)"
       }
     ],
+    "examples": [
+      {
+        "id": 198334,
+        "ja": "パイナップルやレモンのような酸性の果実はすっぱい。",
+        "en": "Acid fruits like pineapples and lemons are sour.",
+        "enId": 35526,
+        "form": "酸性の"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -328,6 +499,7 @@
     "meaning": "to reach",
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Todoku is a shift from tozuku.",
@@ -335,6 +507,22 @@
     "sources": [
       {
         "quote": "Shift from tozuku below."
+      }
+    ],
+    "examples": [
+      {
+        "id": 79187,
+        "ja": "郵便が届いた。",
+        "en": "The mail has arrived.",
+        "enId": 324530,
+        "form": "届いた"
+      },
+      {
+        "id": 126329,
+        "ja": "注文の品が届いた。",
+        "en": "The items which you ordered arrived.",
+        "enId": 277661,
+        "form": "届いた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -346,6 +534,7 @@
     "meaning": "to boil",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Yuderu is from the shimo nidan verb 茹づ (yuzu).",
@@ -364,13 +553,43 @@
     "meaning": "vehicle",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Norimono is 乗り (nori) plus 物 (-mono).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "乗り",
+        "reading": "のり",
+        "meaning": "ride",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "物",
+        "reading": "もの",
+        "meaning": "thing",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "乗(の)り (nori) + 物(もの) (-mono)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 146171,
+        "ja": "乗り物は子供向けである。",
+        "en": "Rides in the cars are for kids.",
+        "enId": 268391,
+        "form": "乗り物"
+      },
+      {
+        "id": 224317,
+        "ja": "ここは公共の乗り物が不便だ。",
+        "en": "This place isn't convenient to public transportation.",
+        "enId": 61652,
+        "form": "乗り物"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -382,6 +601,7 @@
     "meaning": "cassette (tape)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Kasetto is from English cassette, ultimately from French cassette.",
@@ -395,6 +615,22 @@
     "sources": [
       {
         "quote": "From English cassette, ultimately from French cassette."
+      }
+    ],
+    "examples": [
+      {
+        "id": 160415,
+        "ja": "私はそのカセットにさらに１０ドル払わなければならなかった。",
+        "en": "I had to pay ten dollars for the cassette in addition.",
+        "enId": 254106,
+        "form": "カセット"
+      },
+      {
+        "id": 156837,
+        "ja": "私は財布をなくしてしまっていた、それでそのカセットが買えなかった。",
+        "en": "I had lost my purse, so I couldn't buy the cassette.",
+        "enId": 257696,
+        "form": "カセット"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -415,6 +651,22 @@
         "quote": "From 勝(かっ)手(て) (katte) + に (ni)."
       }
     ],
+    "examples": [
+      {
+        "id": 147178,
+        "ja": "勝手にすれば？",
+        "en": "Do as you like.",
+        "enId": 17188,
+        "form": "勝手に"
+      },
+      {
+        "id": 147177,
+        "ja": "勝手に何でも使って。",
+        "en": "Make yourself at home.",
+        "enId": 2378,
+        "form": "勝手に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -424,6 +676,7 @@
     "meaning": "Act (law: the X Act)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Hō was once はふ (fafu) in kan'on and ほふ (fofu) in goon, reportedly used in general and Buddhist senses respectively.",
@@ -431,6 +684,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 法 (MC pjop). Originally, the kan'on was はふ (fafu), and the goon was ほふ (fofu), although both became ほう (hō) in modern Japanese. It is suggested that the kan'on was used in the general senses, while the goon was used in Buddhist contexts."
+      }
+    ],
+    "examples": [
+      {
+        "id": 100044,
+        "ja": "彼は法を犯した。",
+        "en": "He broke the law.",
+        "enId": 303653,
+        "form": "法"
+      },
+      {
+        "id": 145332,
+        "ja": "新しい法が成立した。",
+        "en": "A new law has come into existence.",
+        "enId": 269231,
+        "form": "法"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -442,6 +711,7 @@
     "meaning": "one object; body; what on earth?; generally",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Ittai is 一 (ichi, “one”) plus 体 (-tai, counter for bodies and humanoid objects).",
@@ -465,6 +735,22 @@
         "quote": "一(いち) (ichi, “one”) + 体(たい) (-tai, counter for bodies and humanoid objects)."
       }
     ],
+    "examples": [
+      {
+        "id": 190342,
+        "ja": "一体誰かしら？",
+        "en": "Who ever can it be?",
+        "enId": 27500,
+        "form": "一体"
+      },
+      {
+        "id": 190365,
+        "ja": "一体どうしたんだ。",
+        "en": "What on earth is the matter?",
+        "enId": 27508,
+        "form": "一体"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -474,6 +760,7 @@
     "meaning": "middle, halfway",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nakaba is compared to なか (naka, “middle, inside”), likely ultimately from Proto-Japonic *naka.",
@@ -481,6 +768,22 @@
     "sources": [
       {
         "quote": "Compare なか (naka, “middle, inside”). Likely ultimately from Proto-Japonic *naka."
+      }
+    ],
+    "examples": [
+      {
+        "id": 168945,
+        "ja": "始めよければ半ば成功。",
+        "en": "Well begun is half done.",
+        "enId": 21231,
+        "form": "半ば"
+      },
+      {
+        "id": 216860,
+        "ja": "さいさき良ければ半ば成功。",
+        "en": "Well begun is half done.",
+        "enId": 21231,
+        "form": "半ば"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -492,6 +795,7 @@
     "meaning": "you (informal for men)",
     "level": "N4",
     "pos": ["pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["borrowing", "sound-change"],
     "headline": "Kimi is possibly a borrowing from the Sillan word for king, written 今 (kum), whose morpheme survives in Korean 임금 (imgeum).",
@@ -502,6 +806,22 @@
       },
       {
         "quote": "From Old Japanese. Possibly a borrowing from the Sillan word for king, written with the character 今 (kum). The same morpheme survives in the second syllable of the Modern Korean word 임금 (imgeum)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 176749,
+        "ja": "君次第だよ。",
+        "en": "It's up to you.",
+        "enId": 237713,
+        "form": "君"
+      },
+      {
+        "id": 178073,
+        "ja": "君の番だよ。",
+        "en": "It's your move.",
+        "enId": 16925,
+        "form": "君の"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -516,6 +836,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In shōgai, 害 is a daiyōji replacing 碍.",
@@ -547,6 +868,7 @@
     "meaning": "to differ, to vary",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kotonaru is 異 (koto, “difference”) plus なる (naru).",
@@ -567,6 +889,22 @@
         "quote": "Verbalization of 異 (koto, “difference”) + なる (naru, “the 連体形 (rentaikei, “adnominal form”) of なり (nari, “to be”)”)."
       }
     ],
+    "examples": [
+      {
+        "id": 148466,
+        "ja": "趣味は異なる。",
+        "en": "Tastes differ.",
+        "enId": 266093,
+        "form": "異なる"
+      },
+      {
+        "id": 144637,
+        "ja": "人の好みは異なる。",
+        "en": "Tastes differ.",
+        "enId": 266093,
+        "form": "異なる"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -576,6 +914,7 @@
     "meaning": "to separate, to set free",
     "level": "N3",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hanasu, “to set free”, is a doublet of 離す (hanasu, “to separate”).",
@@ -583,6 +922,22 @@
     "sources": [
       {
         "quote": "Doublet of 離す (hanasu, “to separate”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 77111,
+        "ja": "腕を放して。",
+        "en": "Let go of my arm!",
+        "enId": 326609,
+        "form": "放して"
+      },
+      {
+        "id": 77113,
+        "ja": "腕を放してくれ。",
+        "en": "Let go of my arm.",
+        "enId": 326606,
+        "form": "放して"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -594,6 +949,7 @@
     "meaning": "sand",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Suna is attested in the Myōgoki (1275), and one theory shortens it from 砂子 (sunago).",
@@ -612,6 +968,7 @@
     "meaning": "to become used to seeing, to be familiar with",
     "level": "N2",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["news2", "nf26", "spec2"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Minareru is 見る (miru, “to see, look”) plus 慣れる (nareru, “to get used to”).",
@@ -632,6 +989,22 @@
         "quote": "見(み)る (miru, “to see, look”) + 慣(な)れる (nareru, “to get used to”)"
       }
     ],
+    "examples": [
+      {
+        "id": 79903,
+        "ja": "目覚めると、見慣れない部屋にいた。",
+        "en": "I awoke to find myself in a strange room.",
+        "enId": 323814,
+        "form": "見慣れない"
+      },
+      {
+        "id": 80851,
+        "ja": "霧はロンドンで見慣れた光景だった。",
+        "en": "Fog was a familiar sight in London.",
+        "enId": 322864,
+        "form": "見慣れた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -641,6 +1014,7 @@
     "meaning": "wisdom, wit, intelligence",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chie is Middle Chinese 智慧, with 知 and 恵 as daiyōji replacing 智 and 慧.",
@@ -666,6 +1040,22 @@
         "quote": "知 is a daiyōji replacing 智. 恵 is a daiyōji replacing 慧."
       }
     ],
+    "examples": [
+      {
+        "id": 127067,
+        "ja": "知恵は富に勝る。",
+        "en": "Wisdom is better than riches.",
+        "enId": 277023,
+        "form": "知恵"
+      },
+      {
+        "id": 179500,
+        "ja": "愚者のあと知恵。",
+        "en": "It is easy to be wise after the event.",
+        "enId": 18358,
+        "form": "知恵"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -675,6 +1065,7 @@
     "meaning": "to long for, to yearn after",
     "level": "N2",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Akogareru is from 憧る (akugaru), originally 所 (aku) plus 離る (karu), a cognate of 枯れる (kareru).",
@@ -685,6 +1076,22 @@
       },
       {
         "quote": "Originally a compound of 所(あく) (aku) and 離(か)る (karu), the latter a cognate of 枯(か)れる (kareru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 101860,
+        "ja": "彼は都会の生活に憧れている。",
+        "en": "He'd love to live in the city.",
+        "enId": 301833,
+        "form": "憧れている"
+      },
+      {
+        "id": 154928,
+        "ja": "田舎の生活にとても憧れます。",
+        "en": "Rural life appeals to me very much.",
+        "enId": 259611,
+        "form": "憧れます"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -700,6 +1107,7 @@
       "intransitive verb",
       "transitive verb"
     ],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Isogu appears to be a root iso (“earnest? industrious?”) plus -gu, first attested as isogi in the Man'yōshū of 759.",
@@ -712,6 +1120,22 @@
         "quote": "First attested as noun form isogi (\"hurrying, rushing\") in the Man'yōshū of 759."
       }
     ],
+    "examples": [
+      {
+        "id": 139145,
+        "ja": "急がば回れ。",
+        "en": "More haste, less speed.",
+        "enId": 19689,
+        "form": "急がば"
+      },
+      {
+        "id": 182508,
+        "ja": "急ぎなさい。",
+        "en": "Hurry up.",
+        "enId": 1329,
+        "form": "急ぎ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -721,6 +1145,7 @@
     "meaning": "raw materials",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Genryō is a Middle Chinese compound: 原 (gen, “original”) plus 料 (ryō, “material”).",
@@ -739,6 +1164,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese compound 原料 (MC ngjwon lew): 原 (gen, “original”) + 料 (ryō, “material”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 122519,
+        "ja": "日本はいろんな原料に乏しい。",
+        "en": "Japan is lacking in raw materials.",
+        "enId": 281484,
+        "form": "原料"
+      },
+      {
+        "id": 122477,
+        "ja": "日本は原料を輸入に頼っている。",
+        "en": "Japan depends on imports for raw materials.",
+        "enId": 281526,
+        "form": "原料"
       }
     ],
     "wiktionaryDump": "2026-09-02"

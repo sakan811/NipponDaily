@@ -6,6 +6,7 @@
     "meaning": "60th birthday",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf17"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In kanreki, 還 (kan, “return”) refers to sixty years being a sexagenary cycle in the Chinese 干支 calendar.",
@@ -48,6 +49,15 @@
         "quote": "Compound of 生 + 真面目"
       }
     ],
+    "examples": [
+      {
+        "id": 92974,
+        "ja": "彼女はきまじめな気質である。",
+        "en": "She is a serious person.",
+        "enId": 310735,
+        "form": "きまじめな"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -57,6 +67,7 @@
     "meaning": "time",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "タイム is borrowed from English time.",
@@ -84,6 +95,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Bijutsu is 美 (bi, “beautiful”) plus 術 (-jutsu, “technique”).",
@@ -104,6 +116,22 @@
         "quote": "美 (bi, “beautiful”) + 術 (-jutsu, “technique”)"
       }
     ],
+    "examples": [
+      {
+        "id": 116299,
+        "ja": "彼の美術の知識は貧弱だ。",
+        "en": "His knowledge of art is poor.",
+        "enId": 287369,
+        "form": "美術"
+      },
+      {
+        "id": 85542,
+        "ja": "美術展覧会に行きましたか。",
+        "en": "Did you go to the art exhibition?",
+        "enId": 318171,
+        "form": "美術"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -113,6 +141,7 @@
     "meaning": "axis, stem, shaft",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Jiku is derived from Middle Chinese 軸 (MC drjuwk).",
@@ -120,6 +149,22 @@
     "sources": [
       {
         "quote": "Derived from Middle Chinese 軸 (MC drjuwk)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 104767,
+        "ja": "彼は軸のような重要な役割を演じた。",
+        "en": "He played an important part like an axis.",
+        "enId": 298923,
+        "form": "軸"
+      },
+      {
+        "id": 209259,
+        "ja": "その小説は南北戦争を軸にしている。",
+        "en": "The novel is centered on the Civil War.",
+        "enId": 46520,
+        "form": "軸"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -131,6 +176,7 @@
     "meaning": "to rule, to govern, to administer",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Tsukasadoru is 官 (tsukasa, “position of authority”) plus 取る (toru, “to take”), with toru voiced to doru by rendaku.",
@@ -138,6 +184,22 @@
     "sources": [
       {
         "quote": "Compound of 官 (tsukasa, “position of authority”) + 取る (toru, “to take”). The toru changes to doru as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 168334,
+        "ja": "市長は市政を司る。",
+        "en": "The mayor administers the affairs of the city.",
+        "enId": 246159,
+        "form": "司る"
+      },
+      {
+        "id": 209005,
+        "ja": "その省は内政問題の行政をつかさどる。",
+        "en": "The ministry administers the internal affairs.",
+        "enId": 46265,
+        "form": "つかさどる"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -149,6 +211,7 @@
     "meaning": "precious, valuable, noble",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tōtoi is from Old Japanese, first attested in the Kojiki of 712 CE, and is possibly derived from 太い (futoi, “fat”).",
@@ -173,6 +236,7 @@
     "meaning": "carpet",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カーペット is from English carpet.",
@@ -188,6 +252,22 @@
         "quote": "From English carpet."
       }
     ],
+    "examples": [
+      {
+        "id": 146481,
+        "ja": "床にカーペットを敷いた。",
+        "en": "They laid the carpet on the floor.",
+        "enId": 268081,
+        "form": "カーペット"
+      },
+      {
+        "id": 183468,
+        "ja": "机のしたにカーペットを敷いた。",
+        "en": "I put down a rug under my desk.",
+        "enId": 20591,
+        "form": "カーペット"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -197,6 +277,7 @@
     "meaning": "inside, middle, among",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "prefix", "suffix"],
+    "priority": ["spec1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Chū, “inside”, is from Middle Chinese 中 (MC trjuwng).",
@@ -204,6 +285,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 中 (MC trjuwng)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 103904,
+        "ja": "彼は食事中だ。",
+        "en": "He is eating.",
+        "enId": 299788,
+        "form": "中"
+      },
+      {
+        "id": 122033,
+        "ja": "妊娠中ですか。",
+        "en": "Are you pregnant?",
+        "enId": 281970,
+        "form": "中"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -215,6 +312,7 @@
     "meaning": "ceremony",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "セレモニー is borrowed from English ceremony.",
@@ -239,6 +337,7 @@
     "meaning": "to fall in love with, to love",
     "level": "N1",
     "pos": ["suru verb - special class"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Koisuru is 恋 (koi, “love”) plus する (-suru, “to do”).",
@@ -259,6 +358,22 @@
         "quote": "恋(こい) (koi, “love”) + する (-suru, “to do”)"
       }
     ],
+    "examples": [
+      {
+        "id": 77454,
+        "ja": "恋する相手を捜しています。",
+        "en": "I'm looking for someone to fall in love with.",
+        "enId": 326265,
+        "form": "恋する"
+      },
+      {
+        "id": 197700,
+        "ja": "ピーターはその子を恋するようになった。",
+        "en": "Peter fell in love with the girl.",
+        "enId": 34887,
+        "form": "恋する"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -268,6 +383,7 @@
     "meaning": "spring",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["wasei", "borrowing", "clipping"],
     "headline": "スプリング is borrowed from English spring, and also clips スプリングコート (supuringu kōto, “a topcoat”).",
@@ -295,6 +411,7 @@
     "meaning": "planet",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Wakusei is a calque of Dutch dwaalster (“wander star”), 惑 (waku, “to move about confusedly, to wander”) plus 星 (sei, “star”), coined in 1792 by Motoki Yoshinaga.",
@@ -321,6 +438,22 @@
         "quote": "Also cited in the 1805 work 和蘭通舶 (Oranda Tsūhaku, “Holland Liner”) by Shiba Kōkan."
       }
     ],
+    "examples": [
+      {
+        "id": 126947,
+        "ja": "地球は美しい惑星だ。",
+        "en": "The earth is a beautiful planet.",
+        "enId": 277143,
+        "form": "惑星"
+      },
+      {
+        "id": 126944,
+        "ja": "地球は惑星の１つです。",
+        "en": "The earth is one of the planets.",
+        "enId": 277146,
+        "form": "惑星"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -330,6 +463,7 @@
     "meaning": "House of Councilors",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sangiin is 参議 (sangi, “participation in government”) plus 院 (-in, “institution”).",
@@ -350,6 +484,22 @@
         "quote": "参議(さんぎ) (sangi, “participation in government”) + 院(いん) (-in, “institution”)"
       }
     ],
+    "examples": [
+      {
+        "id": 169441,
+        "ja": "参議院はどんな改正案も通さなくても構わないようです。",
+        "en": "The Upper House seems bent on defeating any reform bills.",
+        "enId": 245045,
+        "form": "参議院"
+      },
+      {
+        "id": 174599,
+        "ja": "古参議員たちは、選挙で参議院の議席を失いそうになりました。",
+        "en": "The old guard was nearly voted out of the Upper House.",
+        "enId": 239870,
+        "form": "参議院"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -362,6 +512,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kainyū is 介 (kai, “force in”) plus 入 (nyū, “enter”).",
@@ -382,6 +533,22 @@
         "quote": "介(かい) (kai, “force in”) + 入(にゅう) (nyū, “enter”)."
       }
     ],
+    "examples": [
+      {
+        "id": 176285,
+        "ja": "警察が騒動に介入した。",
+        "en": "The police intervened in the disturbance.",
+        "enId": 238180,
+        "form": "介入"
+      },
+      {
+        "id": 94666,
+        "ja": "彼女のプライバシーに介入するな。",
+        "en": "Don't intrude on her privacy.",
+        "enId": 309040,
+        "form": "介入"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -394,6 +561,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Shizuku is a kokuji, a character coined in Japan, combining 雨 (“rain”) plus 下 (“to drop”).",
@@ -412,10 +580,24 @@
     "meaning": "connection, relation",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf18", "spec1"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Musubitsuki is the nominative form of 結び付く (musubitsuku).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "結び",
+        "reading": "むすび",
+        "meaning": "join",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "付き",
+        "reading": "つき",
+        "meaning": "adhere",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Nominative form of 結び付く (musubitsuku, \"be connected or related,\" \"join together\")"
@@ -430,6 +612,7 @@
     "meaning": "chic",
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "シック is from French chic.",
@@ -455,9 +638,22 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
-    "processes": ["derivation"],
+    "processes": ["compound", "derivation"],
     "headline": "Temawashi is a nominalization of 手で回す (te de mawasu, “to wind with the hand”), or the stem of 手回す (temawasu, “to prepare”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "手",
+        "reading": "て",
+        "meaning": "hand",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "回し",
+        "reading": "まわし",
+        "meaning": "round",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "* (winding by hand): Nominalization of 手(て)で回(まわ)す (te de mawasu, “to wind with the hand”)."
@@ -478,6 +674,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "processes": ["sound-change"],
     "headline": "In kappatsu, 発 is a daiyōji replacing 潑.",
     "morphemes": [],
@@ -489,6 +686,22 @@
         "quote": "発 is a daiyōji replacing 潑."
       }
     ],
+    "examples": [
+      {
+        "id": 228157,
+        "ja": "うちの母は活発です。",
+        "en": "My mother is active.",
+        "enId": 65511,
+        "form": "活発"
+      },
+      {
+        "id": 165966,
+        "ja": "私たちは活発な討論をした。",
+        "en": "We had a very vigorous debate.",
+        "enId": 248230,
+        "form": "活発な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -498,6 +711,7 @@
     "meaning": "justice, right, righteousness",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "meaning-shift"],
     "headline": "Seigi is from Middle Chinese 正義, and in the Meiji era it was repurposed to translate Western concepts of “justice”.",
@@ -523,6 +737,22 @@
         "quote": "During the Meiji era, the term was repurposed to translate Western legal and philosophical concepts of “justice” (such as English justice, French justice, or German Gerechtigkeit)."
       }
     ],
+    "examples": [
+      {
+        "id": 103310,
+        "ja": "彼は正義だ。",
+        "en": "He is justice.",
+        "enId": 300383,
+        "form": "正義"
+      },
+      {
+        "id": 77809,
+        "ja": "力は正義なり。",
+        "en": "Might is right.",
+        "enId": 325909,
+        "form": "正義"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -532,6 +762,7 @@
     "meaning": "part-time job",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "パート is borrowed from English part.",
@@ -547,6 +778,22 @@
         "quote": "Borrowed from English part."
       }
     ],
+    "examples": [
+      {
+        "id": 210043,
+        "ja": "その試験は２つのパートに分かれていた。",
+        "en": "The exam was divided into two parts.",
+        "enId": 47306,
+        "form": "パート"
+      },
+      {
+        "id": 76720,
+        "ja": "ごめんね。明日は朝からパートがあるのよ。",
+        "en": "Sorry, I have a part-time job starting tomorrow morning.",
+        "enId": 327000,
+        "form": "パート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -556,6 +803,7 @@
     "meaning": "loose",
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ルーズ is from English loose.",
@@ -580,6 +828,7 @@
     "meaning": "to partition, to divide, to mark off",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["news2", "nf29"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Shikiru is 仕 (shi, “do”) plus 切る (kiru, “cut off by a partition”).",
@@ -598,6 +847,22 @@
     "sources": [
       {
         "quote": "From 仕(し) (shi, “do”) + 切(き)る (kiru, “cut off by a partition”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 125488,
+        "ja": "庭は柵で小道と仕切られている。",
+        "en": "The garden is railed off from the path.",
+        "enId": 278504,
+        "form": "仕切られている"
+      },
+      {
+        "id": 84077,
+        "ja": "部長の都合が悪くなってしまったので、飲み会の日程は仕切り直しだね。",
+        "en": "We'll have to organize the drinking party all over again as the section chief can't make it now.",
+        "enId": 319639,
+        "form": "仕切り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -646,6 +911,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shutsuen is from Sinitic 出演 (chūyǎn).",
@@ -668,6 +934,22 @@
         "quote": "From Sinitic 出演 (chūyǎn)."
       }
     ],
+    "examples": [
+      {
+        "id": 136893,
+        "ja": "誰が出演していますか。",
+        "en": "Who's in it?",
+        "enId": 276343,
+        "form": "出演"
+      },
+      {
+        "id": 127056,
+        "ja": "知事自らテレビに出演した。",
+        "en": "The governor appeared on TV in person.",
+        "enId": 266325,
+        "form": "出演"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -686,6 +968,22 @@
         "quote": "From やけ (yake) + に (ni)."
       }
     ],
+    "examples": [
+      {
+        "id": 171517,
+        "ja": "今日は彼はやけに親切だ。",
+        "en": "He is being very kind today.",
+        "enId": 242425,
+        "form": "やけに"
+      },
+      {
+        "id": 107071,
+        "ja": "彼は今日、やけに親切だな。",
+        "en": "He is being very kind today.",
+        "enId": 242425,
+        "form": "やけに"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -698,6 +996,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アプローチ is from English approach.",
@@ -713,6 +1012,22 @@
         "quote": "From English approach."
       }
     ],
+    "examples": [
+      {
+        "id": 228113,
+        "ja": "うまいアプローチだね。",
+        "en": "That's a good approach.",
+        "enId": 65466,
+        "form": "アプローチ"
+      },
+      {
+        "id": 219923,
+        "ja": "この分析には以下のアプローチがとられた。",
+        "en": "The approach employed in this analysis was as follows.",
+        "enId": 57243,
+        "form": "アプローチ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -722,6 +1037,7 @@
     "meaning": "make an effort!, work hard!",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsutomete extends the regular verb form 務めて (tsutomete), from 務める (tsutomeru, “to make an effort, to work at something”).",
@@ -729,6 +1045,22 @@
     "sources": [
       {
         "quote": "Extension of regular verb form 務めて (tsutomete), from 務める (tsutomeru, “to make an effort, to work at something”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 101854,
+        "ja": "彼は努めて雇い主を満足させようとした。",
+        "en": "He was zealous in satisfying his employer.",
+        "enId": 301839,
+        "form": "努めて"
+      },
+      {
+        "id": 236871,
+        "ja": "人質にとられながら、彼は努めて勇敢に振る舞った。",
+        "en": "He tried to brave it out while held as a hostage.",
+        "enId": 270368,
+        "form": "努めて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -740,6 +1072,7 @@
     "meaning": "teamwork",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "チームワーク is from English teamwork.",
@@ -753,6 +1086,22 @@
     "sources": [
       {
         "quote": "From English teamwork."
+      }
+    ],
+    "examples": [
+      {
+        "id": 205813,
+        "ja": "それぞれの筋肉が完璧なチームワークを示す。",
+        "en": "Each muscle shows perfect teamwork.",
+        "enId": 43059,
+        "form": "チームワーク"
+      },
+      {
+        "id": 79652,
+        "ja": "野球の最もすばらしいところはチームワークだ。",
+        "en": "The most wonderful thing about baseball is teamwork.",
+        "enId": 324066,
+        "form": "チームワーク"
       }
     ],
     "wiktionaryDump": "2026-09-02"

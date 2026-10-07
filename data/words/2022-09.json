@@ -6,6 +6,7 @@
     "meaning": "cheese",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "interjection (kandoushi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "チーズ is borrowed from English “cheese”.",
@@ -21,6 +22,22 @@
         "quote": "Borrowed from English cheese."
       }
     ],
+    "examples": [
+      {
+        "id": 203034,
+        "ja": "チーズは牛乳で作る。",
+        "en": "Cheese is made from milk.",
+        "enId": 32228,
+        "form": "チーズ"
+      },
+      {
+        "id": 200043,
+        "ja": "トムはチーズが好きです。",
+        "en": "Tom likes cheese.",
+        "enId": 37244,
+        "form": "チーズ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -30,6 +47,7 @@
     "meaning": "to give up, to abandon",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change", "meaning-shift"],
     "headline": "諦める once meant “to see clearly; to understand thoroughly”, as the archaic verb 明らむ (akiramu).",
@@ -37,6 +55,22 @@
     "sources": [
       {
         "quote": "From 明(あき)らむ (akiramu), an archaic verb that originally meant “to see clearly; to understand thoroughly”. Over time, the sense shifted from “understanding something clearly” to “realizing that one’s wish cannot be fulfilled and thus giving up with acceptance”."
+      }
+    ],
+    "examples": [
+      {
+        "id": 125387,
+        "ja": "諦めないで。",
+        "en": "Don't give up!",
+        "enId": 278606,
+        "form": "諦めないで"
+      },
+      {
+        "id": 125388,
+        "ja": "諦めてしまえ。",
+        "en": "Give it up.",
+        "enId": 278605,
+        "form": "諦めて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -48,6 +82,7 @@
     "meaning": "text; text book",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "テキスト is borrowed from English “text”.",
@@ -63,6 +98,22 @@
         "quote": "Borrowed from English text."
       }
     ],
+    "examples": [
+      {
+        "id": 75483,
+        "ja": "・テキストデータの誤字脱字を修正。",
+        "en": "・ Corrected mistaken/missing characters in the text data.",
+        "enId": 328235,
+        "form": "テキスト"
+      },
+      {
+        "id": 202361,
+        "ja": "テキストは初心者向きにできている。",
+        "en": "This textbook is designed for beginners.",
+        "enId": 39572,
+        "form": "テキスト"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -75,6 +126,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "リポート is the English word “report” in katakana, spelled with ポ.",
@@ -99,6 +151,7 @@
     "meaning": "light",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": [],
     "headline": "灯, “light”, is cognate with and an extension of 火 (hi, “fire”).",
@@ -106,6 +159,22 @@
     "sources": [
       {
         "quote": "Cognate with and extension of 火 (hi, “fire”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 226242,
+        "ja": "がは灯に集まる。",
+        "en": "Moths are attracted by light.",
+        "enId": 63582,
+        "form": "灯"
+      },
+      {
+        "id": 140398,
+        "ja": "窓に灯がともっていた。",
+        "en": "There was a light burning in the window.",
+        "enId": 274175,
+        "form": "灯"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -117,6 +186,7 @@
     "meaning": "menu",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "メニュー is the English word “menu” in katakana.",
@@ -130,6 +200,22 @@
     "sources": [
       {
         "quote": "From English menu."
+      }
+    ],
+    "examples": [
+      {
+        "id": 194611,
+        "ja": "メニューを見せて下さい。",
+        "en": "Please let me take a look at the menu.",
+        "enId": 31783,
+        "form": "メニュー"
+      },
+      {
+        "id": 194613,
+        "ja": "メニューをお願いします。",
+        "en": "Let me see a menu.",
+        "enId": 31786,
+        "form": "メニュー"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -158,6 +244,7 @@
     "meaning": "antenna",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アンテナ is borrowed from English “antenna”.",
@@ -173,6 +260,22 @@
         "quote": "Borrowed from English antenna."
       }
     ],
+    "examples": [
+      {
+        "id": 208111,
+        "ja": "その男はアンテナを取り付けようとした。",
+        "en": "The man tried to install his own antenna.",
+        "enId": 45368,
+        "form": "アンテナ"
+      },
+      {
+        "id": 224001,
+        "ja": "このアンテナを屋根につけると画面がはっきりする。",
+        "en": "You'll get a clear picture with this antenna on the roof.",
+        "enId": 61336,
+        "form": "アンテナ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -182,6 +285,7 @@
     "meaning": "all, whole, entire",
     "level": "N3",
     "pos": ["prefix"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "全, “all, whole, entire”, comes from Middle Chinese 全 (dzjwen, “complete, whole”).",
@@ -189,6 +293,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 全 (dzjwen, “complete, whole”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 209680,
+        "ja": "その辞書は全２巻です。",
+        "en": "The dictionary comes in two volumes.",
+        "enId": 46941,
+        "form": "全"
+      },
+      {
+        "id": 176650,
+        "ja": "軍部は全領土を占領した。",
+        "en": "The armed forces occupied the entire territory.",
+        "enId": 237812,
+        "form": "全"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -200,6 +320,7 @@
     "meaning": "spoon",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スプーン is borrowed from English “spoon” and first attested in 1860.",
@@ -218,6 +339,22 @@
         "quote": "First attested in 1860."
       }
     ],
+    "examples": [
+      {
+        "id": 214526,
+        "ja": "スプーンがありません。",
+        "en": "There is a spoon missing.",
+        "enId": 51818,
+        "form": "スプーン"
+      },
+      {
+        "id": 214525,
+        "ja": "スプーンをいただけますか。",
+        "en": "Could we have a spoon?",
+        "enId": 51817,
+        "form": "スプーン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -231,6 +368,7 @@
       "noun, used as a suffix",
       "counter"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "票, “label, ballot, sign”, is traced to Middle Chinese 票.",
@@ -238,6 +376,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 票."
+      }
+    ],
+    "examples": [
+      {
+        "id": 183378,
+        "ja": "棄権が二票あった。",
+        "en": "There were two abstentions.",
+        "enId": 20501,
+        "form": "票"
+      },
+      {
+        "id": 112500,
+        "ja": "彼はその提案に賛成票を投じた。",
+        "en": "He cast a vote for the proposition.",
+        "enId": 291177,
+        "form": "票"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -249,6 +403,7 @@
     "meaning": "season (sporting)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "シーズン is the English word “season” in katakana.",
@@ -264,6 +419,22 @@
         "quote": "From English season."
       }
     ],
+    "examples": [
+      {
+        "id": 229064,
+        "ja": "苺は今がシーズンだ。",
+        "en": "Strawberries are in season now.",
+        "enId": 66417,
+        "form": "シーズン"
+      },
+      {
+        "id": 79657,
+        "ja": "野球シーズンが始まった。",
+        "en": "The baseball season has opened.",
+        "enId": 324061,
+        "form": "シーズン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -273,6 +444,7 @@
     "meaning": "pilot",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "パイロット is the English word “pilot” in katakana.",
@@ -288,6 +460,22 @@
         "quote": "From English pilot."
       }
     ],
+    "examples": [
+      {
+        "id": 97727,
+        "ja": "彼らはパイロットです。",
+        "en": "They are pilots.",
+        "enId": 305977,
+        "form": "パイロット"
+      },
+      {
+        "id": 164656,
+        "ja": "私にはパイロットの友人がいる。",
+        "en": "I have a friend who is a pilot.",
+        "enId": 249851,
+        "form": "パイロット"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -297,6 +485,7 @@
     "meaning": "please, kindly, by all means",
     "level": "N5",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "どうぞ is どう (“how, anyhow”) plus ぞ, an emphatic particle.",
@@ -317,6 +506,22 @@
         "quote": "From どう (dō, “how, anyhow”) + ぞ (zo, emphatic particle)."
       }
     ],
+    "examples": [
+      {
+        "id": 143328,
+        "ja": "是非どうぞ。",
+        "en": "By all means.",
+        "enId": 38522,
+        "form": "どうぞ"
+      },
+      {
+        "id": 198337,
+        "ja": "はいどうぞ。",
+        "en": "Here it is.",
+        "enId": 35529,
+        "form": "どうぞ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -326,6 +531,7 @@
     "meaning": "tent",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "テント is the English word “tent” in katakana.",
@@ -341,6 +547,22 @@
         "quote": "From English tent."
       }
     ],
+    "examples": [
+      {
+        "id": 224476,
+        "ja": "ここにテントを張ろう。",
+        "en": "Let's put up our tent here.",
+        "enId": 61811,
+        "form": "テント"
+      },
+      {
+        "id": 141381,
+        "ja": "川の近くにテントを張った。",
+        "en": "We set up the tent next to the river.",
+        "enId": 273190,
+        "form": "テント"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -350,6 +572,7 @@
     "meaning": "to sting, to bite (e.g., bug), to prick, to stab",
     "level": "N3",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": [],
     "headline": "刺す, “to sting, to bite, to stab”, is cognate with 指す and 挿す, which are also read sasu.",
@@ -380,6 +603,22 @@
         "quote": "鎖(さ)す (sasu)."
       }
     ],
+    "examples": [
+      {
+        "id": 186461,
+        "ja": "蚊が刺した。",
+        "en": "A mosquito just bit me.",
+        "enId": 23597,
+        "form": "刺した"
+      },
+      {
+        "id": 157976,
+        "ja": "蚊に刺された。",
+        "en": "I got bitten by mosquitoes.",
+        "enId": 256554,
+        "form": "刺された"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -389,6 +628,7 @@
     "meaning": "mask",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "マスク is borrowed from English “mask”.",
@@ -404,6 +644,15 @@
         "quote": "Borrowed from English mask."
       }
     ],
+    "examples": [
+      {
+        "id": 190934,
+        "ja": "医師は鼻と口に白のマスクをしていた。",
+        "en": "The doctors wore white masks over their mouths and noses.",
+        "enId": 28094,
+        "form": "マスク"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -413,6 +662,7 @@
     "meaning": "to return (v.i.); to come back",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf44"],
     "stratum": "wago",
     "processes": [],
     "headline": "戻る, “to return”, is a doublet of 悖る (motoru, “to go against”).",
@@ -420,6 +670,22 @@
     "sources": [
       {
         "quote": "Doublet of 悖(もと)る (motoru, “to go against”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 106586,
+        "ja": "彼は四時にもどるでしょう。",
+        "en": "He will come back at four.",
+        "enId": 297100,
+        "form": "もどる"
+      },
+      {
+        "id": 91530,
+        "ja": "彼女はほどなくもどるでしょう。",
+        "en": "She will be back before long.",
+        "enId": 312183,
+        "form": "もどる"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -434,6 +700,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ファックス is borrowed from English “fax”.",
@@ -458,6 +725,7 @@
     "meaning": "to ask, to question",
     "level": "N3",
     "pos": ["Godan verb with 'u' ending (special class)", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "問う was spelled inconsistently in Old Japanese literature, as both to₁pu and to₂pu.",
@@ -470,6 +738,22 @@
         "quote": "From Old Japanese. Inconsistently spelled as both to₁pu and to₂pu in Old Japanese literature."
       }
     ],
+    "examples": [
+      {
+        "id": 208027,
+        "ja": "その男は窃盗犯に問われた。",
+        "en": "The man was charged with theft.",
+        "enId": 45284,
+        "form": "問われた"
+      },
+      {
+        "id": 220626,
+        "ja": "この男は窃盗罪に問われた。",
+        "en": "This man was charged with theft.",
+        "enId": 57948,
+        "form": "問われた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -479,6 +763,7 @@
     "meaning": "chewing gum",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ガム, “chewing gum”, is borrowed from English “gum”.",
@@ -494,6 +779,22 @@
         "quote": "Borrowed from English gum."
       }
     ],
+    "examples": [
+      {
+        "id": 226229,
+        "ja": "ガムが靴底にくっついた。",
+        "en": "The gum adhered to the sole of the shoe.",
+        "enId": 63569,
+        "form": "ガム"
+      },
+      {
+        "id": 226228,
+        "ja": "ガムが彼の靴にくっついた。",
+        "en": "Some gum stuck to his shoes.",
+        "enId": 63568,
+        "form": "ガム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -506,6 +807,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "サイレン is borrowed from English “siren”.",
@@ -521,6 +823,22 @@
         "quote": "Borrowed from English siren."
       }
     ],
+    "examples": [
+      {
+        "id": 216851,
+        "ja": "サイレンが鳴った。",
+        "en": "The siren blew.",
+        "enId": 54161,
+        "form": "サイレン"
+      },
+      {
+        "id": 142947,
+        "ja": "正午のサイレンが鳴っている。",
+        "en": "The noon siren is blowing.",
+        "enId": 271621,
+        "form": "サイレン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -530,6 +848,7 @@
     "meaning": "question, query",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "wago",
     "processes": [],
     "headline": "問い, “question, query”, is the continuative stem of the verb 問う (tou).",
@@ -537,6 +856,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 問(と)う (tou)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 219439,
+        "ja": "この問いに対する答は間違っている。",
+        "en": "The answer to this question is wrong.",
+        "enId": 56759,
+        "form": "問い"
+      },
+      {
+        "id": 115293,
+        "ja": "彼は１０分で全部の問いの答えを出した。",
+        "en": "He answered all the questions in ten minutes.",
+        "enId": 288378,
+        "form": "問い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -551,6 +886,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "メモ, “memorandum, note”, is the English word “memo” in katakana.",
@@ -564,6 +900,22 @@
     "sources": [
       {
         "quote": "From English memo."
+      }
+    ],
+    "examples": [
+      {
+        "id": 194608,
+        "ja": "メモを取りなさい。",
+        "en": "You should make notes.",
+        "enId": 31782,
+        "form": "メモ"
+      },
+      {
+        "id": 124716,
+        "ja": "電話でメモが取れますか。",
+        "en": "Can you take notes over the phone?",
+        "enId": 279278,
+        "form": "メモ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -586,6 +938,22 @@
         "quote": "Wasei-kango compound of 放(ほう) (hō, “release”) + 送(そう) (sō, “send”)."
       }
     ],
+    "examples": [
+      {
+        "id": 171191,
+        "ja": "今放送中です。",
+        "en": "They are on the air now.",
+        "enId": 243286,
+        "form": "放送"
+      },
+      {
+        "id": 148388,
+        "ja": "首相は明日放送に出る。",
+        "en": "The Prime Minister will go on the air tomorrow.",
+        "enId": 266171,
+        "form": "放送"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -595,6 +963,7 @@
     "meaning": "slippers",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スリッパ, “slippers”, is the English word “slipper” in katakana.",
@@ -610,6 +979,22 @@
         "quote": "From English slipper."
       }
     ],
+    "examples": [
+      {
+        "id": 214119,
+        "ja": "スリッパをはいてください。",
+        "en": "Please put on your slippers.",
+        "enId": 51409,
+        "form": "スリッパ"
+      },
+      {
+        "id": 223615,
+        "ja": "このスリッパに履きかえてください。",
+        "en": "Please put on these slippers.",
+        "enId": 60950,
+        "form": "スリッパ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -619,6 +1004,7 @@
     "meaning": "to dissolve (paint)",
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "溶く, “to dissolve (paint)”, is cognate with 解く (toku).",
@@ -640,6 +1026,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "クリーニング, “dry cleaning”, is borrowed from English “cleaning”.",
@@ -655,6 +1042,22 @@
         "quote": "Borrowed from English cleaning."
       }
     ],
+    "examples": [
+      {
+        "id": 225528,
+        "ja": "クリーニング取ってきておいて。",
+        "en": "Please pick up my dry cleaning.",
+        "enId": 62864,
+        "form": "クリーニング"
+      },
+      {
+        "id": 219226,
+        "ja": "この洋服のクリーニング頼みます。",
+        "en": "I want this suit cleaned.",
+        "enId": 56542,
+        "form": "クリーニング"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -664,6 +1067,7 @@
     "meaning": "dress",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ドレス is borrowed from English “dress”.",
@@ -679,6 +1083,22 @@
         "quote": "Borrowed from English dress."
       }
     ],
+    "examples": [
+      {
+        "id": 212868,
+        "ja": "そのドレスは絹製です。",
+        "en": "The dress is of silk.",
+        "enId": 50153,
+        "form": "ドレス"
+      },
+      {
+        "id": 223442,
+        "ja": "このドレスは高そうだ。",
+        "en": "That dress seems to be very expensive.",
+        "enId": 60777,
+        "form": "ドレス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -688,6 +1108,7 @@
     "meaning": "softly, gently",
     "level": "N3",
     "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "そっと was originally そと, and the source calls Italian “sotto” a false friend.",
@@ -698,6 +1119,22 @@
       },
       {
         "quote": "Italian sotto is a false friend. と (-to) is a common adverb element."
+      }
+    ],
+    "examples": [
+      {
+        "id": 86143,
+        "ja": "彼女をそっとしておこう。",
+        "en": "Let's leave her alone.",
+        "enId": 317568,
+        "form": "そっと"
+      },
+      {
+        "id": 92045,
+        "ja": "彼女はドアをそっと押した。",
+        "en": "She gave the door a gentle push.",
+        "enId": 311666,
+        "form": "そっと"
       }
     ],
     "wiktionaryDump": "2026-09-02"

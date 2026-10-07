@@ -9,6 +9,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ダブル is borrowed from English double.",
@@ -24,6 +25,22 @@
         "quote": "Borrowed from English double."
       }
     ],
+    "examples": [
+      {
+        "id": 203364,
+        "ja": "ダブルにしてください。",
+        "en": "A double, please.",
+        "enId": 40602,
+        "form": "ダブル"
+      },
+      {
+        "id": 179497,
+        "ja": "空いているのはダブルの部屋だけだ。",
+        "en": "The only room available is a double.",
+        "enId": 18353,
+        "form": "ダブル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -33,6 +50,7 @@
     "meaning": "beast, brute, damn",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "interjection (kandoushi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Chikushō is from Middle Chinese 畜生, literally “livestock + livestock; sacrificial animal”, itself influenced by Sanskrit.",
@@ -65,6 +83,7 @@
     "meaning": "compass",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コンパス is borrowed from Dutch kompas.",
@@ -80,6 +99,22 @@
         "quote": "Borrowed from Dutch kompas."
       }
     ],
+    "examples": [
+      {
+        "id": 160679,
+        "ja": "私はコンパスで円を描いた。",
+        "en": "I drew a circle with compasses.",
+        "enId": 253841,
+        "form": "コンパス"
+      },
+      {
+        "id": 198354,
+        "ja": "ハイカーは森の中でも方向が分かるように、コンパスを携帯する必要がある。",
+        "en": "Hikers need to carry a compass with them to find their way through the woods.",
+        "enId": 35546,
+        "form": "コンパス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -89,6 +124,7 @@
     "meaning": "to be zealous, to make an effort",
     "level": "N1",
     "pos": ["Godan verb with 'mu' ending"],
+    "priority": ["ichi1", "news2", "nf32"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hagemu is cognate with the adjective 激しい (hageshii), and is possibly はげ (hage) plus む (-mu).",
@@ -96,6 +132,22 @@
     "sources": [
       {
         "quote": "Cognate with the adjective 激しい (hageshii). Possibly from はげ (hage, root of 激しい) + む (-mu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 100119,
+        "ja": "彼は勉強に励んでいる。",
+        "en": "He is diligent in his study.",
+        "enId": 303578,
+        "form": "励んでいる"
+      },
+      {
+        "id": 102123,
+        "ja": "彼は著述に励んでいた。",
+        "en": "He was fully occupied with his writing.",
+        "enId": 301571,
+        "form": "励んでいた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -107,6 +159,7 @@
     "meaning": "will, desire, ambition",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In iyoku, 欲 is a daiyōji replacing 慾.",
@@ -129,6 +182,22 @@
         "quote": "欲 is a daiyōji replacing 慾."
       }
     ],
+    "examples": [
+      {
+        "id": 206112,
+        "ja": "その老人は生きる意欲をなくした。",
+        "en": "The old man lost the will to live.",
+        "enId": 43358,
+        "form": "意欲"
+      },
+      {
+        "id": 187637,
+        "ja": "何より大切なのは、英語をマスターしようという強い意欲である。",
+        "en": "What is most important is your strong will to master English.",
+        "enId": 24775,
+        "form": "意欲"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -141,6 +210,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コンタクト is from English contact.",
@@ -156,6 +226,22 @@
         "quote": "From English contact."
       }
     ],
+    "examples": [
+      {
+        "id": 91411,
+        "ja": "彼女はメガネをはずしてコンタクトをはめた。",
+        "en": "She took off her glasses and put her contacts in.",
+        "enId": 312302,
+        "form": "コンタクト"
+      },
+      {
+        "id": 74894,
+        "ja": "コンタクトを入れるというのはいかがでしょう？",
+        "en": "How about wearing contact lenses?",
+        "enId": 328826,
+        "form": "コンタクト"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -165,6 +251,7 @@
     "meaning": "lever; liver",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レバー is borrowed from English lever.",
@@ -178,6 +265,22 @@
     "sources": [
       {
         "quote": "Borrowed from English lever."
+      }
+    ],
+    "examples": [
+      {
+        "id": 192340,
+        "ja": "レバーを押しあげて下さい。",
+        "en": "Please push up the lever.",
+        "enId": 3620497,
+        "form": "レバー"
+      },
+      {
+        "id": 74508,
+        "ja": "調節レバーを上に上げると座面の高さを調節できます。",
+        "en": "You can adjust the seat height by moving the adjustment lever up.",
+        "enId": 329211,
+        "form": "レバー"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -216,6 +319,7 @@
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf21"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shinsei is from Middle Chinese 神聖 (MC zyin syengH).",
@@ -238,6 +342,22 @@
         "quote": "From Middle Chinese 神聖 (MC zyin syengH)."
       }
     ],
+    "examples": [
+      {
+        "id": 228377,
+        "ja": "インドでは牛は神聖な動物です。",
+        "en": "In India, the cow is a sacred animal.",
+        "enId": 65733,
+        "form": "神聖な"
+      },
+      {
+        "id": 140291,
+        "ja": "荘厳な寺院で神聖な儀式が行われた。",
+        "en": "The sacred ceremony was held in the magnificent temple.",
+        "enId": 274282,
+        "form": "神聖な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -247,6 +367,7 @@
     "meaning": "arrow",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ya, “arrow”, is from Old Japanese and is found in the Kojiki of 712 CE.",
@@ -265,6 +386,7 @@
     "meaning": "relationship",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Aidagara is 間 (aida, “between; relations”) plus 柄 (-gara, “quality, characteristics”).",
@@ -285,6 +407,22 @@
         "quote": "Compound of Old Japanese-derived elements 間 (aida, “between; relations”) + 柄 (-gara, “quality, characteristics”)."
       }
     ],
+    "examples": [
+      {
+        "id": 226790,
+        "ja": "お二人の間柄は？",
+        "en": "How are you related?",
+        "enId": 64138,
+        "form": "間柄"
+      },
+      {
+        "id": 228592,
+        "ja": "いとこの間柄です。",
+        "en": "We are cousins.",
+        "enId": 65950,
+        "form": "間柄"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -294,6 +432,7 @@
     "meaning": "to feel ashamed",
     "level": "N1",
     "pos": ["Ichidan verb"],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hajiru is from the Old Japanese verb 恥づ.",
@@ -301,6 +440,22 @@
     "sources": [
       {
         "quote": "From Old Japanese verb 恥づ."
+      }
+    ],
+    "examples": [
+      {
+        "id": 102221,
+        "ja": "彼は恥じて目を閉じた。",
+        "en": "He looked down in shame.",
+        "enId": 301473,
+        "form": "恥じて"
+      },
+      {
+        "id": 104751,
+        "ja": "彼は失敗を恥じている。",
+        "en": "He is ashamed of his failure.",
+        "enId": 298939,
+        "form": "恥じている"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -312,6 +467,7 @@
     "meaning": "pipe, tube",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsutsu is from Old Japanese 筒 (tutu), from Proto-Japonic *tutu.",
@@ -330,6 +486,7 @@
     "meaning": "new",
     "level": "N1",
     "pos": ["noun or verb acting prenominally"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ニュー is borrowed from English new.",
@@ -345,6 +502,22 @@
         "quote": "Borrowed from English new."
       }
     ],
+    "examples": [
+      {
+        "id": 214643,
+        "ja": "スティービー・ワンダーのニューアルバムはありますか。",
+        "en": "Do you have Stevie Wonder's new album?",
+        "enId": 51936,
+        "form": "ニュー"
+      },
+      {
+        "id": 74826,
+        "ja": "ニュービジネスアイディアの開発は誰もが望む理想的なことだろう。",
+        "en": "The development of a new business idea is no doubt the ideal that everybody wishes for.",
+        "enId": 328893,
+        "form": "ニュー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -354,6 +527,7 @@
     "meaning": "brilliant, magnificent, spectacular",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf30"],
     "stratum": "wago",
     "processes": ["derivation", "rendaku"],
     "headline": "Hanabanashii is a reduplication of 花 (hana, “flower”) plus しい (-shii), with hana voiced to bana by rendaku.",
@@ -375,6 +549,7 @@
     "meaning": "cotton",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Men, “cotton”, is from Middle Chinese 綿 (“wool; cotton; soft, downy”).",
@@ -382,6 +557,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 綿 /绵 (miɛn, “wool; cotton; soft, downy”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80216,
+        "ja": "綿は水を吸い込む。",
+        "en": "Cotton sucks up water.",
+        "enId": 323501,
+        "form": "綿"
+      },
+      {
+        "id": 146221,
+        "ja": "上質の綿でできています。",
+        "en": "It's made of fine cotton.",
+        "enId": 268341,
+        "form": "綿"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -393,6 +584,7 @@
     "meaning": "milk, breast, loop",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Chichi, “milk”, is by surface analysis a reduplication of 乳 (chi).",
@@ -438,6 +630,7 @@
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Yūutsu is from the Middle Chinese compound 憂鬱, literally “worry + melancholy”.",
@@ -461,6 +654,22 @@
         "quote": "From Middle Chinese compound 憂鬱 (MC 'juw 'jut, literally “worry + melancholy”)."
       }
     ],
+    "examples": [
+      {
+        "id": 86424,
+        "ja": "彼女は憂鬱だった。",
+        "en": "She felt blue.",
+        "enId": 317287,
+        "form": "憂鬱"
+      },
+      {
+        "id": 171491,
+        "ja": "今日は憂鬱な気分だ。",
+        "en": "I have the blues today.",
+        "enId": 242983,
+        "form": "憂鬱な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -470,6 +679,7 @@
     "meaning": "ear (of plant), head (of plant)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ho is from Old Japanese, from Proto-Japonic *po, and is related to 秀 (ho, “excelling; standing out”).",
@@ -492,6 +702,7 @@
       "noun, used as a suffix",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ブーム is borrowed from English boom.",
@@ -507,6 +718,22 @@
         "quote": "Borrowed from English boom."
       }
     ],
+    "examples": [
+      {
+        "id": 197219,
+        "ja": "ブームは峠を越した。",
+        "en": "The boom has peaked out.",
+        "enId": 34401,
+        "form": "ブーム"
+      },
+      {
+        "id": 146969,
+        "ja": "小型車のブームは終わろうとしている。",
+        "en": "The small car boom is ending.",
+        "enId": 267592,
+        "form": "ブーム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -519,6 +746,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ファイル is borrowed from English file.",
@@ -534,6 +762,22 @@
         "quote": "Borrowed from English file."
       }
     ],
+    "examples": [
+      {
+        "id": 197237,
+        "ja": "ファイルを３つ添付します。",
+        "en": "I'm attaching three files.",
+        "enId": 34419,
+        "form": "ファイル"
+      },
+      {
+        "id": 223260,
+        "ja": "このファイルは削除して下さい。",
+        "en": "Please delete this file.",
+        "enId": 60593,
+        "form": "ファイル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -546,6 +790,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Seijitsu is from Middle Chinese 誠實 (MC dzyeng zyit).",
@@ -568,6 +813,22 @@
         "quote": "From Middle Chinese 誠實 (MC dzyeng zyit)."
       }
     ],
+    "examples": [
+      {
+        "id": 99404,
+        "ja": "彼は約束に誠実である。",
+        "en": "He is sincere in his promises.",
+        "enId": 402039,
+        "form": "誠実"
+      },
+      {
+        "id": 111559,
+        "ja": "彼はとても誠実な人だ。",
+        "en": "He is a very sincere person.",
+        "enId": 292124,
+        "form": "誠実な"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -577,6 +838,7 @@
     "meaning": "calorific value",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf31"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Netsuryō is, by surface analysis, 熱 (netsu) plus 量 (-ryō).",
@@ -611,6 +873,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In renmei, 連 is a daiyōji replacing 聯.",
@@ -633,6 +896,15 @@
         "quote": "連 is a daiyōji replacing 聯."
       }
     ],
+    "examples": [
+      {
+        "id": 75338,
+        "ja": "某連盟元会長が背任の容疑で逮捕されました。",
+        "en": "The former president of a certain association has been arrested on suspicion of breach of trust.",
+        "enId": 328381,
+        "form": "連盟"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -642,6 +914,7 @@
     "meaning": "lunch (mid-day meal)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf46", "spec2"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hirumeshi is 昼 (hiru, “noon”) plus 飯 (meshi, “food; meal”).",
@@ -671,6 +944,7 @@
     "meaning": "to make a mistake",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ayamaru is from Old Japanese, first attested in the Nihon Shoki of 720 CE, and may derive from the classical verb ayamu (怪む or 危む).",
@@ -683,6 +957,22 @@
         "quote": "This was originally just the intransitive counterpart to transitive verb ayamatsu (spelled either 過つ or 誤つ). Both may derive from classical verb ayamu (spelled either 怪む or 危む), itself derived from stem aya related to ideas of danger, as in terms 危うい (ayaui, “risky, dangerous”), 怪しい (ayashii, “questionable, dubious; clumsy, awkward; foreboding (in a bad way); mysterious, bewitching”)."
       }
     ],
+    "examples": [
+      {
+        "id": 101230,
+        "ja": "彼は判断を誤った。",
+        "en": "He erred in his judgement.",
+        "enId": 302466,
+        "form": "誤った"
+      },
+      {
+        "id": 138233,
+        "ja": "多弁の人は多く誤る。",
+        "en": "He that talks much, errs much.",
+        "enId": 275002,
+        "form": "誤る"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -692,6 +982,7 @@
     "meaning": "pediatrics",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shōnika is 小児 (shōni, “infant”) plus 科 (-ka, “course, department”).",
@@ -721,13 +1012,43 @@
     "meaning": "to be accepted, to receive (an application)",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf36"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Uketsukeru is 受ける (ukeru) plus 付ける (tsukeru).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "受け",
+        "reading": "うけ",
+        "meaning": "receive",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "付ける",
+        "reading": "つける",
+        "meaning": "adhere",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "From 受ける (ukeru) + 付ける (tsukeru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 144208,
+        "ja": "人工乳を受け付けません。",
+        "en": "He refuses formula.",
+        "enId": 270357,
+        "form": "受け付けません"
+      },
+      {
+        "id": 124715,
+        "ja": "電話でも受け付けていますよ。",
+        "en": "We take telephone orders.",
+        "enId": 279279,
+        "form": "受け付けています"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -739,6 +1060,7 @@
     "meaning": "net",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ami is a verbal noun of 編む.",
@@ -746,6 +1068,22 @@
     "sources": [
       {
         "quote": "Verbal noun of 編む."
+      }
+    ],
+    "examples": [
+      {
+        "id": 99546,
+        "ja": "彼は網を張った。",
+        "en": "He fixed the net.",
+        "enId": 304151,
+        "form": "網"
+      },
+      {
+        "id": 225623,
+        "ja": "クモは網を張る。",
+        "en": "Spiders spin webs.",
+        "enId": 62960,
+        "form": "網"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -757,6 +1095,7 @@
     "meaning": "crane",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "クレーン is from English crane, and a doublet of カラン (karan).",
@@ -770,6 +1109,15 @@
     "sources": [
       {
         "quote": "From English crane. Doublet of カラン (karan)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 74652,
+        "ja": "クレーンを操縦するのには、勿論、免許が必要です。",
+        "en": "Of course, a license is needed to operate a crane.",
+        "enId": 329067,
+        "form": "クレーン"
       }
     ],
     "wiktionaryDump": "2026-09-02"

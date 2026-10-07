@@ -10,6 +10,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shukushō is 縮 (shuku, “shrink,” “reduce,” “shorten”) plus 小 (shō, “small,” “little”).",
@@ -32,6 +33,22 @@
         "quote": "From 縮 (shuku, \"shrink,\" \"reduce,\" \"shorten\") + 小 (shō, \"small,\" \"little\")."
       }
     ],
+    "examples": [
+      {
+        "id": 147830,
+        "ja": "縮小コピーを撮ってくるよ。",
+        "en": "I'm going to make reduced copies.",
+        "enId": 266730,
+        "form": "縮小"
+      },
+      {
+        "id": 176467,
+        "ja": "経済は厳しい不況で縮小した。",
+        "en": "The economy recorded a negative growth.",
+        "enId": 237993,
+        "form": "縮小"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -41,6 +58,7 @@
     "meaning": "(gram) particle(s), postposition",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf45"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Joshi is 助 (jo, “helper”) plus 詞 (shi, “word”).",
@@ -73,6 +91,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Inki is borrowed from Dutch inkt, ultimately from Ancient Greek énkauston, “burned-in”.",
@@ -94,6 +113,7 @@
     "meaning": "concrete, tangible, material",
     "level": "N3",
     "pos": ["noun or verb acting prenominally"],
+    "priority": ["news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "meaning-shift"],
     "headline": "Gutai is Middle Chinese 具體, literally “arrange + body”, repurposed in 1881 as a translation of English concrete.",
@@ -126,6 +146,7 @@
     "meaning": "to fish",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf35"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsuru, “to fish”, is cognate with 吊る (tsuru, “to hang”).",
@@ -133,6 +154,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Man'yōshū of circa 759 CE. From Proto-Japonic *turu. Cognate with 吊る (tsuru, “to hang”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 185014,
+        "ja": "海老で鯛を釣る。",
+        "en": "Throw a sprat to catch a whale.",
+        "enId": 22146,
+        "form": "釣る"
+      },
+      {
+        "id": 108413,
+        "ja": "彼は魚を３匹釣った。",
+        "en": "He caught three fish.",
+        "enId": 295272,
+        "form": "釣った"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -144,6 +181,7 @@
     "meaning": "outrageous, No way!",
     "level": "N3",
     "pos": ["adjective (keiyoushi)", "expressions (phrases, clauses, etc.)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tondemonai is considered a shift from 途でもない (to de mo nai, literally “that is not even the way”).",
@@ -174,6 +212,7 @@
     "meaning": "studio",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Sutajio is an internationalism, perhaps from English studio, with its vowel transcribed as a, possibly through confusion with study.",
@@ -181,6 +220,22 @@
     "sources": [
       {
         "quote": "Internationalism. Perhaps from English studio, whose English vowel /uː/ is transcribed into Japanese as a instead of *u or *ū, perhaps due to phonetic confusion with study. Compare Italian studio (“room for study”), English study (“room for reading and writing”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 214681,
+        "ja": "スタジオに入れません。",
+        "en": "We cannot go into the studio.",
+        "enId": 51974,
+        "form": "スタジオ"
+      },
+      {
+        "id": 79751,
+        "ja": "夜にスタジオでは電気をつけない。",
+        "en": "I don't switch on the light in my studio at night.",
+        "enId": 323966,
+        "form": "スタジオ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -192,6 +247,7 @@
     "meaning": "lamp; ramp",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ランプ covers “lamp” and “ramp”: the lamp is from Dutch lamp, later reinforced by English, and the ramp is from English ramp.",
@@ -213,6 +269,7 @@
     "meaning": "sun, sunshine, day",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hi, “day”, comes from Old Japanese, from Proto-Japonic *pi (“day”).",
@@ -225,6 +282,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *pi (“day”)."
       }
     ],
+    "examples": [
+      {
+        "id": 85563,
+        "ja": "美しい日です。",
+        "en": "It's a beautiful day.",
+        "enId": 318150,
+        "form": "日"
+      },
+      {
+        "id": 122904,
+        "ja": "日は西に沈む。",
+        "en": "The sun sets in the west.",
+        "enId": 275141,
+        "form": "日"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -234,6 +307,7 @@
     "meaning": "to tie up in a bundle, to control",
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tabaneru is apparently related to 束 (taba, “bundle”).",
@@ -255,6 +329,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Naisho is a sound shift from 内証 (naishō, “a secret”).",
@@ -286,6 +361,7 @@
     "meaning": "position",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ポジション is from English position.",
@@ -313,6 +389,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news2", "nf26"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Jishu is from Middle Chinese 自首, literally “self + report to the authorities; plead guilty”, first mentioned in the Ritsuryō legal code of 718 CE.",
@@ -333,6 +410,22 @@
         "quote": "Ultimately from Middle Chinese 自首 (MC dzijH syuwH, literally “self + report to the authorities; plead guilty”). Borrowed into Old Japanese, where its first mention is in the Ritsuryō legal code of 718 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 207163,
+        "ja": "その犯人は警察に自首した。",
+        "en": "The criminal gave himself up to the police.",
+        "enId": 44414,
+        "form": "自首"
+      },
+      {
+        "id": 107941,
+        "ja": "彼は警察に自首したそうです。",
+        "en": "I heard that he gave himself up to the police.",
+        "enId": 295744,
+        "form": "自首"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -342,6 +435,7 @@
     "meaning": "samurai",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Samurai is a sound shift from saburai, itself the stem of classical 侍ふ (saburafu, “to serve”).",
@@ -357,6 +451,22 @@
         "quote": "The shift from saburaf- → samuraf- is due to the development of the 女性語 (josei-go, “women's language”) in Middle Japanese. A different development of this b is seen in 候 (sōrō, “service”, classical saurafu)."
       }
     ],
+    "examples": [
+      {
+        "id": 2240523,
+        "ja": "太郎には侍の血が流れている。",
+        "en": "A samurai's blood runs in Taro's veins.",
+        "enId": 2240847,
+        "form": "侍"
+      },
+      {
+        "id": 74329,
+        "ja": "『うぐいす侍』人間愛とユーモア溢れる侍物語。",
+        "en": "\"The Nightingale Samurai\" is a samurai tale full of humanity and humour.",
+        "enId": 329391,
+        "form": "侍"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -366,6 +476,7 @@
     "meaning": "contrast",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コントラスト is an internationalism, pointing to English contrast.",
@@ -373,6 +484,15 @@
     "sources": [
       {
         "quote": "Internationalism; see English contrast."
+      }
+    ],
+    "examples": [
+      {
+        "id": 206267,
+        "ja": "その洋服は赤と白のコントラストが美しい。",
+        "en": "The dress has a beautiful contrast between red and white.",
+        "enId": 43513,
+        "form": "コントラスト"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -387,6 +507,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In kukaku, 画 is a daiyōji replacing 劃.",
@@ -409,6 +530,22 @@
         "quote": "画 is a daiyōji replacing 劃."
       }
     ],
+    "examples": [
+      {
+        "id": 92906,
+        "ja": "彼女はここから数区画離れた所に住んでいる。",
+        "en": "She lives a few blocks away from here.",
+        "enId": 310803,
+        "form": "区画"
+      },
+      {
+        "id": 112977,
+        "ja": "彼はその区画の新しい男の子とすぐ親しくなった。",
+        "en": "He quickly made friends with the new boy on the block.",
+        "enId": 290698,
+        "form": "区画"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -418,6 +555,7 @@
     "meaning": "sale",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "セール is from English sale.",
@@ -433,6 +571,22 @@
         "quote": "From English sale."
       }
     ],
+    "examples": [
+      {
+        "id": 187153,
+        "ja": "夏物は今セール中です。",
+        "en": "The summer goods are now on sale.",
+        "enId": 24290,
+        "form": "セール"
+      },
+      {
+        "id": 156258,
+        "ja": "私は自分の古着をのみの市セールに寄付した。",
+        "en": "I gave my old clothes for the flea market sale.",
+        "enId": 258276,
+        "form": "セール"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -442,6 +596,7 @@
     "meaning": "pause",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ポーズ is from English pause.",
@@ -466,6 +621,7 @@
     "meaning": "rice porridge",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf24"],
     "stratum": "wago",
     "processes": [
       "compound",
@@ -509,6 +665,15 @@
         "quote": "*: Another issue is that the verb 炊ぐ (kashigu) initially referred to the steaming of rice, which could not have resulted in any kind of kayu or rice porridge. Only later did the practices of cooking rice shift to instead boil rice in water, a necessary step in the making of kayu."
       }
     ],
+    "examples": [
+      {
+        "id": 148840,
+        "ja": "若いときは貧乏でかゆをすすって暮らした。",
+        "en": "When he was young, he was so poor that he virtually had to live on gruel.",
+        "enId": 265718,
+        "form": "かゆ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -518,6 +683,7 @@
     "meaning": "tower",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "タワー is from English tower.",
@@ -533,6 +699,22 @@
         "quote": "From English tower."
       }
     ],
+    "examples": [
+      {
+        "id": 188679,
+        "ja": "遠くに東京タワーが見えた。",
+        "en": "I could see Tokyo Tower far away.",
+        "enId": 25825,
+        "form": "タワー"
+      },
+      {
+        "id": 231707,
+        "ja": "あなたは東京タワーを訪れましたか。",
+        "en": "Did you visit the Tokyo Tower?",
+        "enId": 69075,
+        "form": "タワー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -545,6 +727,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf43"],
     "stratum": "wago",
     "processes": [],
     "headline": "Akogare is the continuative stem of the verb 憧れる (akogareru).",
@@ -552,6 +735,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 憧(あこが)れる (akogareru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 123676,
+        "ja": "同時通訳が彼女の憧れだ。",
+        "en": "Her dream is to become a simultaneous interpreter.",
+        "enId": 280320,
+        "form": "憧れ"
+      },
+      {
+        "id": 90338,
+        "ja": "彼女は兄にあこがれを抱いている。",
+        "en": "She adores her elder brother.",
+        "enId": 313376,
+        "form": "あこがれ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -563,6 +762,7 @@
     "meaning": "the text, original",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf20"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Genbun is gen (原, original) plus bun (文, writings).",
@@ -585,6 +785,22 @@
         "quote": "From gen (原, original) + bun (文, writings)."
       }
     ],
+    "examples": [
+      {
+        "id": 79462,
+        "ja": "訳文を原文と比較しなさい。",
+        "en": "Compare the translation with the original.",
+        "enId": 324255,
+        "form": "原文"
+      },
+      {
+        "id": 81448,
+        "ja": "翻訳を原文と比べてみよう。",
+        "en": "Let's compare the translation with the original.",
+        "enId": 322267,
+        "form": "原文"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -597,6 +813,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kanyū is 加 (ka, “to add”) plus 入 (nyū, “to enter”).",
@@ -617,6 +834,22 @@
         "quote": "加(か) (ka, “to add”) + 入(にゅう) (nyū, “to enter”)"
       }
     ],
+    "examples": [
+      {
+        "id": 113066,
+        "ja": "彼はその会に加入させてもらえなかった。",
+        "en": "He was debarred from entering the club.",
+        "enId": 290609,
+        "form": "加入"
+      },
+      {
+        "id": 186335,
+        "ja": "我々のクラブは国際的な組織に加入した。",
+        "en": "Our club is affiliated with an international organization.",
+        "enId": 23471,
+        "form": "加入"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -626,6 +859,7 @@
     "meaning": "perhaps, possibly",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Moshikashite is もし (moshi) plus か (ka) plus して (shite).",
@@ -644,6 +878,7 @@
     "meaning": "beak, bill",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["rendaku"],
     "headline": "Kuchibashi is 口 (kuchi, “mouth”) plus 端 (hashi, “tip; edge”), with hashi voiced to bashi by rendaku.",
@@ -659,6 +894,15 @@
         "quote": "The kanji is composed of 口(くち) (kuchi) and 觜(はし) (hashi, “beak; bill”). See also Etymology 2."
       }
     ],
+    "examples": [
+      {
+        "id": 76788,
+        "ja": "きつつきは、長く尖ったくちばしで、木の幹をつついて、中にいる虫を食べます。",
+        "en": "Woodpeckers peck tree trunks with their long pointed beaks and eat insects found there.",
+        "enId": 326932,
+        "form": "くちばし"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -671,6 +915,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ドリル is borrowed from English drill.",
@@ -695,6 +940,7 @@
     "meaning": "music",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ミュージック is from English music.",
@@ -710,6 +956,22 @@
         "quote": "From English music."
       }
     ],
+    "examples": [
+      {
+        "id": 224152,
+        "ja": "こちらはワンダーミュージックショップです。",
+        "en": "This is Wonder Music Shop.",
+        "enId": 61488,
+        "form": "ミュージック"
+      },
+      {
+        "id": 155802,
+        "ja": "私は場末のジャズクラブに行って、ライブミュージックを楽しみます。",
+        "en": "I like to go to a local jazz club where I can enjoy live music.",
+        "enId": 258735,
+        "form": "ミュージック"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -719,8 +981,9 @@
     "meaning": "game under lights (e.g., baseball), night game",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
-    "processes": ["borrowing"],
+    "processes": ["wasei", "borrowing"],
     "headline": "ナイター is borrowed from English nighter.",
     "morphemes": [
       {
@@ -734,6 +997,22 @@
         "quote": "Borrowed from English nighter."
       }
     ],
+    "examples": [
+      {
+        "id": 158661,
+        "ja": "私はよくテレビでナイターを見る。",
+        "en": "I often watch night games on TV.",
+        "enId": 255867,
+        "form": "ナイター"
+      },
+      {
+        "id": 169659,
+        "ja": "昨夜はナイターを見て楽しみましたか。",
+        "en": "Did you enjoy watching the night game last night?",
+        "enId": 244826,
+        "form": "ナイター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -743,13 +1022,43 @@
     "meaning": "to step into (someone else's territory, to break into, to raid",
     "level": "N1",
     "pos": ["Godan verb with 'mu' ending"],
+    "priority": ["news2", "nf46"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Fumikomu is 踏む (fumu, “to step on, tread on, stamp”) plus 込む (komu, “to go into”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "踏み",
+        "reading": "ふみ",
+        "meaning": "step",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "込む",
+        "reading": "こむ",
+        "meaning": "crowded",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Compound of 踏(ふ)む (fumu, “to step on, tread on, stamp”) + 込(こ)む (komu, “to go into”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 177372,
+        "ja": "君は危険な領域に踏み込んでいるよ。",
+        "en": "You're stepping into dangerous territory.",
+        "enId": 16222,
+        "form": "踏み込んでいる"
+      },
+      {
+        "id": 176752,
+        "ja": "君子が恐れて踏み込まぬ所へも愚者は突入する。",
+        "en": "Fools rush in where angels fear to tread.",
+        "enId": 237710,
+        "form": "踏み込まぬ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -764,6 +1073,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Kizoku appears to be coined in Japanese from 貴 (ki, “noble”) plus 族 (zoku, “clan, tribe, family”), first attested in Fukuzawa Yukichi's writing of the late 1860s.",
@@ -784,6 +1094,22 @@
         "quote": "Appears to be coined in Japanese of Middle Chinese-derived components, as a compound of 貴 (ki, “noble”) + 族 (zoku, “clan, tribe, family”). First attested in the late 1860s in the writings of Fukuzawa Yukichi."
       }
     ],
+    "examples": [
+      {
+        "id": 104277,
+        "ja": "彼は純粋の貴族だ。",
+        "en": "He's a genuine aristocrat.",
+        "enId": 299414,
+        "form": "貴族"
+      },
+      {
+        "id": 183023,
+        "ja": "貴族に列せられた。",
+        "en": "He was created a peer.",
+        "enId": 20145,
+        "form": "貴族"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -793,6 +1119,7 @@
     "meaning": "orientation",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "オリエンテーション is borrowed from English orientation.",
@@ -806,6 +1133,15 @@
     "sources": [
       {
         "quote": "Borrowed from English orientation."
+      }
+    ],
+    "examples": [
+      {
+        "id": 145209,
+        "ja": "新入生向けのオリエンテーションを行う。",
+        "en": "We will have a period of orientation for freshmen.",
+        "enId": 269354,
+        "form": "オリエンテーション"
       }
     ],
     "wiktionaryDump": "2026-09-02"

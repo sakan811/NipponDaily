@@ -9,6 +9,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Muri is 無 (mu, “lack”) plus 理 (ri, “reason”).",
@@ -29,6 +30,22 @@
         "quote": "From 無(む) (mu, “lack”) + 理(り) (ri, “reason”)."
       }
     ],
+    "examples": [
+      {
+        "id": 118011,
+        "ja": "彼の化けの皮をはごうとしたが、むりだった。",
+        "en": "I tried in vain to catch him out.",
+        "enId": 285653,
+        "form": "むり"
+      },
+      {
+        "id": 111473,
+        "ja": "彼はどれだけ一生懸命やっても試験に受かるのはむりだろう。",
+        "en": "No matter how hard he may work, he will not be able to pass the exams.",
+        "enId": 292211,
+        "form": "むり"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -38,6 +55,7 @@
     "meaning": "noon, daytime",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["sound-change", "unclear"],
     "headline": "Hiru is derived from 日 (hi, “day”), plus an element ru of unclear meaning that 夜 (yoru) seems to share.",
@@ -53,6 +71,22 @@
         "quote": "Derived from 日(ひ) (hi, “day”), suffixed with an element ru of unclear meaning. Compare 夜(よる) (yoru, “night, evening”), which seems to use this same ru element."
       }
     ],
+    "examples": [
+      {
+        "id": 87902,
+        "ja": "彼女は昼ごろ現れた。",
+        "en": "She made her appearance around noon.",
+        "enId": 315805,
+        "form": "昼"
+      },
+      {
+        "id": 102135,
+        "ja": "彼は昼眠って夜働く。",
+        "en": "He sleeps by day and works by night.",
+        "enId": 301559,
+        "form": "昼"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -62,6 +96,7 @@
     "meaning": "three things",
     "level": "N5",
     "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mittsu is a shift from the previous 三つ (mitsu).",
@@ -69,6 +104,22 @@
     "sources": [
       {
         "quote": "Shift from previous 三(み)つ (mitsu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 217647,
+        "ja": "これを三つください。",
+        "en": "I'd like three of these.",
+        "enId": 54957,
+        "form": "三つ"
+      },
+      {
+        "id": 635027,
+        "ja": "東京駅は三つ目です。",
+        "en": "Tokyo Station is the third stop.",
+        "enId": 635028,
+        "form": "三つ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -80,6 +131,7 @@
     "meaning": "tooth",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ha went /pa/ > /ɸa/ > /ha/, from Proto-Japonic *pa.",
@@ -92,6 +144,15 @@
         "quote": "From Old Japanese, from Proto-Japonic *pa. Cognate with Okinawan 歯 (hā)."
       }
     ],
+    "examples": [
+      {
+        "id": 208598,
+        "ja": "その赤ちゃんは歯が生えはじめている。",
+        "en": "The baby is cutting his teeth.",
+        "enId": 45857,
+        "form": "歯"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -101,6 +162,7 @@
     "meaning": "stone",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ishi is likely cognate with 磯 (iso, “pebble; gravel; rocky beach”).",
@@ -116,6 +178,22 @@
         "quote": "Likely cognate with 磯(いそ) (iso, “pebble; gravel; rocky beach”)."
       }
     ],
+    "examples": [
+      {
+        "id": 124942,
+        "ja": "点滴石を穿つ。",
+        "en": "Constant dripping wears away a stone.",
+        "enId": 279051,
+        "form": "石"
+      },
+      {
+        "id": 142346,
+        "ja": "石は浮かない。",
+        "en": "A stone does not float.",
+        "enId": 272224,
+        "form": "石"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -125,6 +203,7 @@
     "meaning": "thin, slender, fine",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hosoi was fososhi, then lost its shi ending and its medial k.",
@@ -132,6 +211,15 @@
     "sources": [
       {
         "quote": "From Early Middle Japanese adjective 細(ふぉそ)し (fososhi), with the 終(しゅう)止(し)形(けい) (shūshikei, “predicative form”) ending in し (shi) first replaced with the 連(れん)体(たい)形(けい) (rentaikei, “attributive form”) ending in き (ki), and then with the medial /-k-/ falling out to result in an ending of い (i)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 102553,
+        "ja": "彼は太っているくせに声は細い。",
+        "en": "His voice is thin even though he is fat.",
+        "enId": 301141,
+        "form": "細い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -143,6 +231,7 @@
     "meaning": "strength, power",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Chikara is a compound of 霊 (chi, “power, life force, essence”) plus 柄 (kara, “source, origin”).",
@@ -150,6 +239,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, ultimately from Proto-Japonic *tikara. Compound of Old Japanese elements 霊 (chi, “power, life force, essence”) + 柄 (kara, “source, origin”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 77810,
+        "ja": "力が尽きた。",
+        "en": "My strength is all gone.",
+        "enId": 325907,
+        "form": "力"
+      },
+      {
+        "id": 77809,
+        "ja": "力は正義なり。",
+        "en": "Might is right.",
+        "enId": 325909,
+        "form": "力"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -161,6 +266,7 @@
     "meaning": "three",
     "level": "N5",
     "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "San went */sam/ → /samu/ → /saɴ/, from Middle Chinese 三.",
@@ -179,6 +285,15 @@
         "quote": "Borrowing from Mandarin 三 (sān), with the pitch accent different from etymology 1."
       }
     ],
+    "examples": [
+      {
+        "id": 1166423,
+        "ja": "私たちは一日に三回、犬に餌を与えている。",
+        "en": "We feed our dog three times a day.",
+        "enId": 247806,
+        "form": "三"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -188,6 +303,7 @@
     "meaning": "red",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Aka is Old Japanese, from Proto-Japonic *aka, and the source gives nothing earlier.",
@@ -195,6 +311,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *aka."
+      }
+    ],
+    "examples": [
+      {
+        "id": 142143,
+        "ja": "赤丸で囲む。",
+        "en": "Circle in red pencil.",
+        "enId": 272426,
+        "form": "赤"
+      },
+      {
+        "id": 145707,
+        "ja": "信号は赤だった。",
+        "en": "The signal was red.",
+        "enId": 268855,
+        "form": "赤"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -206,6 +338,7 @@
     "meaning": "(with te-form verb) please do for me",
     "level": "N5",
     "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["news1", "nf13"],
     "stratum": "wago",
     "processes": ["clipping", "sound-change"],
     "headline": "Kudasai is the imperative of 下さる (kudasaru, “to give”), the honorific form of 呉れる (kureru).",
@@ -213,6 +346,22 @@
     "sources": [
       {
         "quote": "Imperative (命(めい)令(れい)形(けい) (meireikei)) form of 下(くだ)さる (kudasaru, “to give”), the honorific form of 呉(く)れる (kureru). This form is said to have either directly shifted from an earlier 下(くだ)され (kudasare), which is more typical of 四(よ)段(だん)活(かつ)用(よう) (yodan katsuyō, “quadrigrade inflection”) and its descendant 五(ご)段(だん)活(かつ)用(よう) (godan katsuyō, “quintigrade inflection”), or to be a clipping of 下(くだ)さいまし (kudasaimashi) or 下(くだ)さいませ (kudasaimase), from 下(くだ)さり (kudasari, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 下(くだ)さる (kudasaru), then shifting from kudasari to kudasai in a process called イ音(おん)便(びん) (i-onbin, “-i sound shift”)) + まし (-mashi) or ませ (-mase), imperative forms of ます (-masu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 78718,
+        "ja": "来て下さい。",
+        "en": "Please come.",
+        "enId": 324997,
+        "form": "下さい"
+      },
+      {
+        "id": 81216,
+        "ja": "枕を下さい。",
+        "en": "Please get me a pillow.",
+        "enId": 593537,
+        "form": "下さい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -224,6 +373,7 @@
     "meaning": "to pray; to wish",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf46"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Inoru is 斎 (i-, prefix expressing sacredness) plus 宣る (noru, “to say or express an intention, usually to a deity”).",
@@ -236,6 +386,22 @@
         "quote": "Derived from 斎 (i-, prefix expressing sacredness) + 宣る (noru, “to say or express an intention, usually to a deity”)."
       }
     ],
+    "examples": [
+      {
+        "id": 183118,
+        "ja": "祈ってくれ。",
+        "en": "Just keep your fingers crossed.",
+        "enId": 20240,
+        "form": "祈って"
+      },
+      {
+        "id": 143233,
+        "ja": "成功を祈るわ。",
+        "en": "Break a leg.",
+        "enId": 271335,
+        "form": "祈る"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -245,6 +411,7 @@
     "meaning": "same, identical",
     "level": "N5",
     "pos": ["noun or verb acting prenominally", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf33"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Onaji is irregular even in Classical Japanese, mixing -i adjective and -na adjective behavior.",
@@ -260,6 +427,22 @@
         "quote": "An irregular adjective even in Classical Japanese (where the attributive form was usually 同じ), it has become more irregular in the modern language, mixing attributes of -i adjectives and -na adjectives (and sometimes neither)."
       }
     ],
+    "examples": [
+      {
+        "id": 227599,
+        "ja": "おなじ間違いを繰り返すな。",
+        "en": "Don't make the same mistake again.",
+        "enId": 534725,
+        "form": "おなじ"
+      },
+      {
+        "id": 168954,
+        "ja": "始まりがうまければ半ばうまくいったもおなじ。",
+        "en": "Well begun is half done.",
+        "enId": 21231,
+        "form": "おなじ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -269,6 +452,7 @@
     "meaning": "man, male",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a prefix"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Otoko may be おと (oto, “young?”) plus 子 (ko, “child”), compared with 少女 (otome).",
@@ -287,6 +471,22 @@
         "quote": "Compare 少(おと)女(め) (otome, “young woman”)."
       }
     ],
+    "examples": [
+      {
+        "id": 7357207,
+        "ja": "彼は果報な男だ。",
+        "en": "He's a lucky guy.",
+        "enId": 2467047,
+        "form": "男"
+      },
+      {
+        "id": 144273,
+        "ja": "男は社会を形成する。",
+        "en": "The men form a society.",
+        "enId": 270292,
+        "form": "男"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -296,6 +496,7 @@
     "meaning": "to hold, to carry; to possess",
     "level": "N5",
     "pos": ["Godan verb with 'tsu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": [],
     "headline": "Motsu is first attested in the Kojiki of 712 CE, with cognates across the Ryukyuan languages.",
@@ -311,6 +512,22 @@
         "quote": "Cognate with Kikai 持ちゅい (muchui), Kunigami 持ちゅん (muchun), Northern Amami Ōshima 持と゚ぅり (muθuri), Okinawan 持ちゅん (muchun), Okinoerabu 持ちゅん (muchun), Southern Amami Ōshima 持ちゅむっ (muchum), Tokunoshima 持つぃ (mutsï), Yoron 持ちゅん (muchun), Miyako 持つぃ (mutsï), Yaeyama 持つん (mutsun), and Yonaguni 持とぅん (mutun)."
       }
     ],
+    "examples": [
+      {
+        "id": 125528,
+        "ja": "底を持ってくれ。",
+        "en": "Grab the bottom.",
+        "enId": 278464,
+        "form": "持って"
+      },
+      {
+        "id": 191001,
+        "ja": "胃がもたれます。",
+        "en": "My stomach feels heavy.",
+        "enId": 28161,
+        "form": "もたれます"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -320,6 +537,7 @@
     "meaning": "dictionary",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Jisho “dictionary” repurposes an older jisho meaning “letter of resignation”.",
@@ -349,6 +567,22 @@
         "quote": "From Middle Chinese compound 辤書 /辤书 (zi syo, literally “quit + writing”)."
       }
     ],
+    "examples": [
+      {
+        "id": 159702,
+        "ja": "辞書で調べます。",
+        "en": "I will look it up in the dictionary.",
+        "enId": 254820,
+        "form": "辞書"
+      },
+      {
+        "id": 205102,
+        "ja": "それは辞書だよ。",
+        "en": "It's a dictionary.",
+        "enId": 42345,
+        "form": "辞書"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -358,6 +592,7 @@
     "meaning": "country; place of origin",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kuni appears in the Kojiki of 712, and is perhaps related to Middle Chinese 郡 (“commandery”).",
@@ -365,6 +600,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Appears in the Kojiki of 712, the Nihon Shoki completed in 720, and the Man'yōshū completed some time after 759. Perhaps related to Middle Chinese 郡 (MC gjunH, “geographic region: commandery, prefecture”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 210592,
+        "ja": "その国は消滅した。",
+        "en": "The nation ceased to exist.",
+        "enId": 47861,
+        "form": "国"
+      },
+      {
+        "id": 108241,
+        "ja": "彼は金で国を売った。",
+        "en": "He sold his country for money.",
+        "enId": 295445,
+        "form": "国"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -379,6 +630,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hare is the stem of the verb 晴れる (hareru, “to be clear (of weather)”).",
@@ -386,6 +638,22 @@
     "sources": [
       {
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 晴(は)れる (hareru, “to be clear (of weather)”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 171566,
+        "ja": "今日は晴れだ。",
+        "en": "It is sunny today.",
+        "enId": 242909,
+        "form": "晴れ"
+      },
+      {
+        "id": 143025,
+        "ja": "晴れだと思うよ。",
+        "en": "I think it will be sunny.",
+        "enId": 271543,
+        "form": "晴れ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -397,6 +665,7 @@
     "meaning": "expression of gratitude; thanking; gift of appreciation; bow",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Orei is 御 (o-, honorific prefix) plus 礼 (rei, “bow”).",
@@ -435,6 +704,22 @@
         "quote": "Ultimately from Middle Chinese 準備 (MC tsywinX|tsywet bijH). Attested from the early 1800s."
       }
     ],
+    "examples": [
+      {
+        "id": 214362,
+        "ja": "すべて準備完了。",
+        "en": "All systems are go.",
+        "enId": 51654,
+        "form": "準備"
+      },
+      {
+        "id": 74992,
+        "ja": "明日の準備で忙しい。",
+        "en": "I'm busy getting ready for tomorrow.",
+        "enId": 328727,
+        "form": "準備"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -444,12 +729,29 @@
     "meaning": "older sister (formal)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "processes": [],
     "headline": "Onēsan is 御 (o-) plus 姉 (nē) plus さん (-san).",
     "morphemes": [],
     "sources": [
       {
         "quote": "御(お) (o-) + 姉(ねえ) (nē) + さん (-san)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 168930,
+        "ja": "お姉さんによろしくね。",
+        "en": "Say hello to your sister for me.",
+        "enId": 245559,
+        "form": "お姉さん"
+      },
+      {
+        "id": 91886,
+        "ja": "彼女はトムのお姉さんです。",
+        "en": "She's Tom's sister.",
+        "enId": 311826,
+        "form": "お姉さん"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -461,6 +763,7 @@
     "meaning": "to disappear, to get lost",
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nakunaru is 無い (nai) in -ku form plus なる (naru): literally “to become not, to become nonexistent”.",
@@ -473,6 +776,22 @@
         "quote": "Cognate with 亡(な)くなる (naku naru)."
       }
     ],
+    "examples": [
+      {
+        "id": 123818,
+        "ja": "頭痛が無くなった。",
+        "en": "My headache has gone.",
+        "enId": 280175,
+        "form": "無くなった"
+      },
+      {
+        "id": 175042,
+        "ja": "元気がなくなった。",
+        "en": "I lost heart.",
+        "enId": 239425,
+        "form": "なくなった"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -482,6 +801,7 @@
     "meaning": "generous, sweet",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf19"],
     "stratum": "wago",
     "processes": [],
     "headline": "Amai was amashi in Early Middle Japanese, first attested in the Nihon Shoki of 720 CE.",
@@ -489,6 +809,22 @@
     "sources": [
       {
         "quote": "From Early Middle Japanese adjective 甘(あま)し (amashi), with the 終(しゅう)止(し)形(けい) (shūshikei, “predicative form”) ending in し (shi) first replaced with the 連(れん)体(たい)形(けい) (rentaikei, “attributive form”) ending in き (ki), and then with the medial /-k-/ falling out to result in an ending of い (i). First attested in the Nihon Shoki of 720 CE. From Proto-Japonic *ama."
+      }
+    ],
+    "examples": [
+      {
+        "id": 107346,
+        "ja": "彼は考えが甘い。",
+        "en": "He is unrealistic.",
+        "enId": 296339,
+        "form": "甘い"
+      },
+      {
+        "id": 170880,
+        "ja": "砂糖は全て甘い。",
+        "en": "All sugar is sweet.",
+        "enId": 243600,
+        "form": "甘い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -500,6 +836,7 @@
     "meaning": "evening",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ban is from Middle Chinese 晚 (MC mjonX).",
@@ -507,6 +844,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 晚 (MC mjonX)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80694,
+        "ja": "明後日の晩かえります。",
+        "en": "I'll come back the evening after next.",
+        "enId": 323021,
+        "form": "晩"
+      },
+      {
+        "id": 207157,
+        "ja": "その晩は月が出ていた。",
+        "en": "There was a moon that night.",
+        "enId": 44408,
+        "form": "晩"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -518,6 +871,7 @@
     "meaning": "he, boyfriend",
     "level": "N4",
     "pos": ["pronoun", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Kare is 彼 (ka, “that, yon”) plus れ (-re); the male sense of “he” only arose later.",
@@ -530,6 +884,22 @@
         "quote": "The sense development seems to have proceeded from \"that thing over there\" to \"that person over there [of indeterminate gender]\". The specifically male sense of \"he\" only arose later during the late Edo period and early Meiji period, influenced by translations of texts from European languages."
       }
     ],
+    "examples": [
+      {
+        "id": 95885,
+        "ja": "彼を見張れ。",
+        "en": "Keep watch on him.",
+        "enId": 307820,
+        "form": "彼"
+      },
+      {
+        "id": 98782,
+        "ja": "彼も来ない。",
+        "en": "He isn't coming, either.",
+        "enId": 304918,
+        "form": "彼"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -539,6 +909,7 @@
     "meaning": "to carry out; to conduct (typically used in written language)",
     "level": "N4",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Okonau may be おこ (oko, from 起く) plus なふ (nafu), though the source calls that suffixation unusual.",
@@ -546,6 +917,22 @@
     "sources": [
       {
         "quote": "From classical 四(よ)段(だん)活(かつ)用(よう) (yodan katsuyō) verb 行(おこな)ふ (okonafu), possibly formed from おこ (oko, from 起(お)く (oku)) + なふ (nafu, verb-forming suffix). However, the suffix なふ (-nafu) usually attaches on nominal roots, not other verb stems, making the theorized suffixation unusual."
+      }
+    ],
+    "examples": [
+      {
+        "id": 94582,
+        "ja": "彼女の歓迎会を行った。",
+        "en": "We had a welcome party for her.",
+        "enId": 309124,
+        "form": "行った"
+      },
+      {
+        "id": 137327,
+        "ja": "大統領は大赦を行った。",
+        "en": "The president granted a general pardon.",
+        "enId": 275909,
+        "form": "行った"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -565,6 +952,22 @@
         "quote": "From the native Japanese word 心(こころ)配(くば)り (kokorokubari). Can be analyzed as 心(しん) (shin, “heart”) + 配(はい) (hai, “to concern oneself with”)."
       }
     ],
+    "examples": [
+      {
+        "id": 145541,
+        "ja": "心配するな。",
+        "en": "Never mind!",
+        "enId": 20394,
+        "form": "心配"
+      },
+      {
+        "id": 4734,
+        "ja": "心配しないで。",
+        "en": "Don't worry.",
+        "enId": 506446,
+        "form": "心配"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -574,6 +977,7 @@
     "meaning": "to leave, to go out; to appear; to attend",
     "level": "N5",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Deru was idu: the initial i fell out in compounds, and du shifted to -deru only later.",
@@ -595,6 +999,22 @@
         "quote": "Some sources trace the development instead as ⟨idu⟩ → ⟨iduru⟩ → /id͡zuru/ → /d͡zuru/ → /deru/."
       }
     ],
+    "examples": [
+      {
+        "id": 84111,
+        "ja": "部屋を出ろ。",
+        "en": "You must go out of the room.",
+        "enId": 319603,
+        "form": "出ろ"
+      },
+      {
+        "id": 167677,
+        "ja": "私が出ます。",
+        "en": "I'll get it.",
+        "enId": 246823,
+        "form": "出ます"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -604,6 +1024,7 @@
     "meaning": "zero, nought",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf37", "spec1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Rei is from Middle Chinese 零, whose original meaning was a small rainfall.",
@@ -625,6 +1046,7 @@
     "meaning": "every morning",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Maiasa is 毎 (mai-, “every”) plus 朝, read either あさ (asa) or ちょう (chō).",
@@ -654,6 +1076,7 @@
     "meaning": "to play (a string instrument or piano)",
     "level": "N5",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Hiku “to play (an instrument)” is derived from 引く (hiku, “to pull”).",
@@ -661,6 +1084,22 @@
     "sources": [
       {
         "quote": "Derived from 引(ひ)く (hiku, “to pull”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 160597,
+        "ja": "私はショパンを弾く。",
+        "en": "I play Chopin.",
+        "enId": 253922,
+        "form": "弾く"
+      },
+      {
+        "id": 197724,
+        "ja": "ピアノが弾けますか。",
+        "en": "Can you play the piano?",
+        "enId": 34911,
+        "form": "弾けます"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -672,6 +1111,7 @@
     "meaning": "hand; arm",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": [],
     "headline": "Te is from Proto-Japonic *tay, and the source invites comparing 目 (me, ma-, “eye”).",
@@ -679,6 +1119,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *tay. Compare 目 (me, ma-, “eye”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 104510,
+        "ja": "彼は手がよい。",
+        "en": "He has a good hand.",
+        "enId": 299181,
+        "form": "手"
+      },
+      {
+        "id": 146299,
+        "ja": "賞は彼の手に。",
+        "en": "The prize went to him.",
+        "enId": 268263,
+        "form": "手"
       }
     ],
     "wiktionaryDump": "2026-09-02"

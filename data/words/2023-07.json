@@ -6,6 +6,7 @@
     "meaning": "salaryman; company employee",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["compound", "derivation", "wasei", "borrowing", "clipping"],
     "headline": "Often called “fake English”, サラリーマン may be real English with a letter dropped.",
@@ -24,6 +25,22 @@
         "quote": "The term began to be used in the Taishō period and became firmly established by the early Shōwa period. Prior to its popularization, terms such as 月給取り, 俸給生活者, and 勤め人 were used for similar workers, alongside more derogatory terms like 腰弁当 and 洋服細民. Around 1960, the term ビジネスマン (bijinesuman) also started being used to avoid the mediocre image associated with this word."
       }
     ],
+    "examples": [
+      {
+        "id": 100424,
+        "ja": "彼は普通のサラリーマンだ。",
+        "en": "He's just an ordinary office worker.",
+        "enId": 303274,
+        "form": "サラリーマン"
+      },
+      {
+        "id": 199358,
+        "ja": "なあに、しがないサラリーマンですよ。",
+        "en": "Me? I'm a plain old salaryman.",
+        "enId": 36560,
+        "form": "サラリーマン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -33,6 +50,7 @@
     "meaning": "eye glasses",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13", "spec1"],
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "めがね was “eye metal” first; the kanji came from Chinese later.",
     "morphemes": [],
@@ -44,6 +62,22 @@
         "quote": "Appears in texts from the late 1500s."
       }
     ],
+    "examples": [
+      {
+        "id": 163890,
+        "ja": "私の眼鏡はどこ？",
+        "en": "Where are my glasses?",
+        "enId": 438930,
+        "form": "眼鏡"
+      },
+      {
+        "id": 108703,
+        "ja": "彼は眼鏡を外した。",
+        "en": "He took off his glasses.",
+        "enId": 294986,
+        "form": "眼鏡"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -53,6 +87,7 @@
     "meaning": "souvenir",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
     "processes": ["compound", "rendaku"],
     "headline": "The kanji say “soil” and “produce”; the likely origin is a shrine's “small box”.",
     "morphemes": [],
@@ -64,6 +99,22 @@
         "quote": "The ke changes to ge as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 218069,
+        "ja": "これは友人への土産です。",
+        "en": "These are gifts for my friends.",
+        "enId": 55380,
+        "form": "土産"
+      },
+      {
+        "id": 78190,
+        "ja": "旅行から帰るときの土産のことを考えておきなさい。",
+        "en": "Make allowance for souvenirs on the return trip.",
+        "enId": 325528,
+        "form": "土産"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -73,7 +124,8 @@
     "meaning": "rural, countryside",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
-    "processes": ["compound", "borrowing", "sound-change", "unclear"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "processes": ["compound", "borrowing", "sound-change", "ateji", "unclear"],
     "headline": "いなか began as “winaka”, and its kanji came from a Chinese word.",
     "morphemes": [],
     "sources": [
@@ -87,6 +139,22 @@
         "quote": "The spelling is from Chinese 田舍 (tiánshè)."
       }
     ],
+    "examples": [
+      {
+        "id": 93200,
+        "ja": "彼女はいなかに住んでいる。",
+        "en": "She lives in the country.",
+        "enId": 310509,
+        "form": "いなか"
+      },
+      {
+        "id": 163986,
+        "ja": "私の家はいなかにあります。",
+        "en": "My home is in the country.",
+        "enId": 250524,
+        "form": "いなか"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -96,6 +164,7 @@
     "meaning": "siblings (humble), brothers and sisters",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Brothers have two readings, and they come from two waves of Chinese.",
@@ -116,6 +185,22 @@
         "quote": "From 兄 (kyō, “elder brother”, goon) + 弟 (dai, “younger brother”, goon), from Middle Chinese 兄弟."
       }
     ],
+    "examples": [
+      {
+        "id": 236839,
+        "ja": "兄弟はいるか。",
+        "en": "Do you have any brothers?",
+        "enId": 71127,
+        "form": "兄弟"
+      },
+      {
+        "id": 84885,
+        "ja": "父は５人兄弟です。",
+        "en": "My father is one of five brothers.",
+        "enId": 11955467,
+        "form": "兄弟"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -125,6 +210,7 @@
     "meaning": "soy sauce",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf31"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Soy sauce is “thick paste + oil”, and its sound has smoothed from /ɕauju/ to /ɕoːju/.",
@@ -160,6 +246,7 @@
     "meaning": "soba (buckwheat noodles)",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf43"],
     "processes": [
       "compound",
       "derivation",
@@ -190,6 +277,22 @@
         "quote": "The kanji spelling is an example of jukujikun (熟(じゅく)字(じ)訓(くん)), from 蕎 (“buckwheat”) + 麦 (“wheat”)."
       }
     ],
+    "examples": [
+      {
+        "id": 214981,
+        "ja": "すぐそこでそばを立ち食いしてきた。",
+        "en": "I had a bowl of noodles at a street nearby.",
+        "enId": 52277,
+        "form": "そば"
+      },
+      {
+        "id": 125853,
+        "ja": "長野にいる友人を訪問した際、おいしいそばをごちそうになった。",
+        "en": "When I visited my friend in Nagano, I was treated to delicious soba.",
+        "enId": 278139,
+        "form": "そば"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -203,6 +306,7 @@
       "noun or participle which takes the aux. verb suru",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "A Japanese-made word, built from Chinese parts, to name the telephone.",
@@ -226,6 +330,22 @@
         "quote": "First attested in a text from 1891."
       }
     ],
+    "examples": [
+      {
+        "id": 124724,
+        "ja": "電話しよう。",
+        "en": "Let's make a phone call.",
+        "enId": 279270,
+        "form": "電話"
+      },
+      {
+        "id": 124742,
+        "ja": "電話が切れた。",
+        "en": "The telephone was still.",
+        "enId": 279252,
+        "form": "電話"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -235,6 +355,7 @@
     "meaning": "friend",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "rendaku"],
     "headline": "“Friend” is built as “friends”: an old plural that took over the singular.",
@@ -256,6 +377,22 @@
         "quote": "From 友(とも) (tomo, “friend”) + 達(たち) (-tachi, pluralizing suffix). Originally plural, but also used in the singular sense in modern Japanese."
       }
     ],
+    "examples": [
+      {
+        "id": 79294,
+        "ja": "友達は留守だった。",
+        "en": "The friend was absent.",
+        "enId": 324423,
+        "form": "友達"
+      },
+      {
+        "id": 79326,
+        "ja": "友達が今晩来ます。",
+        "en": "A friend of mine is coming this evening.",
+        "enId": 324391,
+        "form": "友達"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -265,6 +402,7 @@
     "meaning": "letter",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Hand + paper gives “letter” in Japanese, but the identical characters in Chinese are an unrelated false friend.",
@@ -289,6 +427,22 @@
         "quote": "An etymologically unrelated false friend of Chinese 手紙 /手纸 (shǒuzhǐ)."
       }
     ],
+    "examples": [
+      {
+        "id": 148547,
+        "ja": "手紙書いてね。",
+        "en": "Write me sometime, OK?",
+        "enId": 265968,
+        "form": "手紙"
+      },
+      {
+        "id": 148569,
+        "ja": "手紙を下さい。",
+        "en": "Let me hear from you.",
+        "enId": 265990,
+        "form": "手紙"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -298,6 +452,7 @@
     "meaning": "bread",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Japanese パン is Portuguese pão, and behind that, Latin pānis.",
@@ -322,6 +477,7 @@
     "meaning": "a watch; a clock",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["borrowing", "ateji"],
     "headline": "The spelling you know isn't the original, and the sources disagree about why it works.",
@@ -334,6 +490,22 @@
         "quote": "The 土圭 spelling is the original form, with the kan'on reading of tokei. This has been largely superseded by the spelling 時計 in modern writing, which uses the 時 character as ateji (当(あ)て字(じ)). Probably this spelling from native Japanese word ときはかり(see below). Alternatively, the kanji spelling could be interpreted as jukujikun (熟(じゅく)字(じ)訓(くん)), using the meanings of the characters as 時 (“time”) + 計 (“measurement”)."
       }
     ],
+    "examples": [
+      {
+        "id": 180291,
+        "ja": "教会の塔の時計が９時を打った。",
+        "en": "The clock in the church tower struck nine.",
+        "enId": 19088,
+        "form": "時計"
+      },
+      {
+        "id": 164146,
+        "ja": "私のとけいは時間が正確ではありません。",
+        "en": "My watch doesn't keep good time.",
+        "enId": 250364,
+        "form": "とけい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -343,6 +515,7 @@
     "meaning": "new",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "新しい was once “aratashi”: two syllables swapped places about a thousand years ago.",
@@ -364,6 +537,22 @@
         "quote": "Displaced Old Japanese 新し (nipisi, adjective). This is reflected in the modern language as prefixing stem 新 (nii-), which is no longer productive."
       }
     ],
+    "examples": [
+      {
+        "id": 219590,
+        "ja": "この本は新しい。",
+        "en": "This book is new.",
+        "enId": 56910,
+        "form": "新しい"
+      },
+      {
+        "id": 117428,
+        "ja": "彼の考えは新しい。",
+        "en": "His ideas are up to date.",
+        "enId": 286236,
+        "form": "新しい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -373,6 +562,7 @@
     "meaning": "sliced raw fish",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Stuck flesh”: nobody is sure why a verb for sticking names sliced fish.",
@@ -405,6 +595,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "The Japanese word for a part-time job is German.",
@@ -429,6 +620,7 @@
     "meaning": "teacher, professor; master; doctor",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "A teacher is, literally, someone “born earlier”.",
@@ -451,6 +643,22 @@
         "quote": "From Middle Chinese 先生 (MC sen sraeng, literally “born earlier”)."
       }
     ],
+    "examples": [
+      {
+        "id": 141767,
+        "ja": "先生が来る。",
+        "en": "There comes our teacher.",
+        "enId": 272802,
+        "form": "先生"
+      },
+      {
+        "id": 141738,
+        "ja": "先生に頼もう。",
+        "en": "Let's ask the teacher.",
+        "enId": 272832,
+        "form": "先生"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -460,6 +668,7 @@
     "meaning": "tomorrow",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "processes": ["borrowing", "sound-change"],
     "headline": "“Tomorrow” was originally “next morning”, and the kanji came afterwards.",
     "morphemes": [],
@@ -471,6 +680,22 @@
         "quote": "The kanji spelling is from Chinese 明日 (míngrì)."
       }
     ],
+    "examples": [
+      {
+        "id": 234468,
+        "ja": "明日は私の誕生日だ。",
+        "en": "Tomorrow is my birthday.",
+        "enId": 71844,
+        "form": "明日"
+      },
+      {
+        "id": 354003,
+        "ja": "彼はあした来るかな。",
+        "en": "I wonder if he'll come tomorrow.",
+        "enId": 416543,
+        "form": "あした"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -480,6 +705,7 @@
     "meaning": "power outlet, wall socket",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["wasei", "clipping"],
     "headline": "It sounds like English “consent” but it is “concentric plug”, shortened.",
@@ -487,6 +713,15 @@
     "sources": [
       {
         "quote": "Clipping of コンセントリックプラグ (konsentorikku puragu), wasei eigo (和製英語; pseudo-anglicism) derived from concentric + plug, used since the late Meiji period. Sometimes the source word is mistaken for the unrelated English consent, which would be transliterated the same way."
+      }
+    ],
+    "examples": [
+      {
+        "id": 110349,
+        "ja": "彼はラジオをコンセントにつないだ。",
+        "en": "He plugged in the radio.",
+        "enId": 293338,
+        "form": "コンセント"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -498,6 +733,7 @@
     "meaning": "an exit",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "“Go out” + “mouth”: an exit is a door with a voiced mouth.",
@@ -522,6 +758,22 @@
         "quote": "The kuchi changes to guchi as an instance of rendaku (連濁)."
       }
     ],
+    "examples": [
+      {
+        "id": 147749,
+        "ja": "出口はどちらですか。",
+        "en": "Where is the way out?",
+        "enId": 266811,
+        "form": "出口"
+      },
+      {
+        "id": 96856,
+        "ja": "彼らは出口のほうに進んだ。",
+        "en": "They made for the exit.",
+        "enId": 306848,
+        "form": "出口"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -531,6 +783,7 @@
     "meaning": "Thank you",
     "level": "N3",
     "pos": ["interjection (kandoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["rendaku", "sound-change"],
     "headline": "“Thank you” started out meaning “hard to exist”, which is to say, rare.",
@@ -564,6 +817,7 @@
     "meaning": "fruit",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "processes": ["compound", "sound-change", "ateji"],
     "headline": "Fruit is literally “tree's thing”, with a lost possessive hiding in the middle.",
     "morphemes": [],
@@ -575,6 +829,22 @@
         "quote": "The medial da is also seen in 獣 (kedamono, “beast”, literally “hairy thing”). The kanji is jukujikun (熟(じゅく)字(じ)訓(くん))."
       }
     ],
+    "examples": [
+      {
+        "id": 192324,
+        "ja": "レモンはすっぱいくだものだ。",
+        "en": "The lemon is a sour fruit.",
+        "enId": 29486,
+        "form": "くだもの"
+      },
+      {
+        "id": 199607,
+        "ja": "どんなくだものがご入用ですか。",
+        "en": "What kind of fruit do you want?",
+        "enId": 1449839,
+        "form": "くだもの"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -584,6 +854,7 @@
     "meaning": "typhoon",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "unclear"],
     "headline": "Typhoon is a borrowing that was later dressed in Chinese-looking kanji.",
@@ -618,6 +889,22 @@
         "quote": "台 is a daiyōji replacing 颱."
       }
     ],
+    "examples": [
+      {
+        "id": 137786,
+        "ja": "台風は去った。",
+        "en": "The typhoon is gone.",
+        "enId": 275450,
+        "form": "台風"
+      },
+      {
+        "id": 137805,
+        "ja": "台風で川が氾濫した。",
+        "en": "The typhoon caused the river to flood.",
+        "enId": 275431,
+        "form": "台風"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -627,6 +914,7 @@
     "meaning": "tatami mat (Japanese straw mat)",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
     "processes": [],
     "headline": "A tatami is, at heart, something you fold.",
@@ -634,6 +922,22 @@
     "sources": [
       {
         "quote": "From 畳む (tatamu, “to fold”, verb)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 103952,
+        "ja": "彼は畳の上に大の字になった。",
+        "en": "He lay on the mat at full length.",
+        "enId": 299740,
+        "form": "畳"
+      },
+      {
+        "id": 146011,
+        "ja": "畳に座っていたので足が痛い。",
+        "en": "My legs ache from sitting on tatami.",
+        "enId": 268551,
+        "form": "畳"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -645,12 +949,29 @@
     "meaning": "delicious, tasty",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "processes": ["derivation"],
     "headline": "Delicious began as an honorific: “o-” + “ishii”.",
     "morphemes": [],
     "sources": [
       {
         "quote": "Originally from 御 (o-, honorific prefix) + 美しい (ishii, “good; delicious”, possibly obsolete in modern contexts; the delicious sense evolved out of 女房詞 (nyōbo kotoba, “women's word”) usage)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 200661,
+        "ja": "とてもおいしいよ。",
+        "en": "It tastes very good.",
+        "enId": 37861,
+        "form": "おいしい"
+      },
+      {
+        "id": 137275,
+        "ja": "大変おいしいですよ。",
+        "en": "It's really good.",
+        "enId": 275961,
+        "form": "おいしい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -662,6 +983,7 @@
     "meaning": "bathrobe, informal summer kimono",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "processes": ["clipping"],
     "headline": "ゆかた is the front half of a longer word, and the kanji say “bathing garment”.",
     "morphemes": [],
@@ -679,6 +1001,7 @@
     "meaning": "enjoyable, fun",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf16"],
     "stratum": "wago",
     "processes": [
       "compound",
@@ -715,6 +1038,22 @@
         "quote": "*: No words resemble *tanV meaning \"fun\" or \"to enjoy\"."
       }
     ],
+    "examples": [
+      {
+        "id": 184164,
+        "ja": "楽しい旅を。",
+        "en": "Enjoy your trip.",
+        "enId": 21287,
+        "form": "楽しい"
+      },
+      {
+        "id": 78158,
+        "ja": "旅行は楽しい。",
+        "en": "It's fun to travel.",
+        "enId": 325560,
+        "form": "楽しい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -724,6 +1063,7 @@
     "meaning": "kimono; Japanese traditional dress",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["compound", "sound-change", "meaning-shift"],
     "headline": "A kimono was once just “a wearing-thing”: any clothing at all.",
@@ -750,6 +1090,15 @@
         "quote": "As contact with the West grew, the sense shifted from referring generically to any clothing to referring specifically to 和服(わふく) (wafuku, “(traditional) Japanese clothing”), in particular kimono and other robe-like full-length garments (長着(ながぎ) (nagagi)), as opposed to Western apparel (洋服(ようふく) (yōfuku))."
       }
     ],
+    "examples": [
+      {
+        "id": 75301,
+        "ja": "なかなか「きもの」を着る機会がないというかたも、思い切って着てみましょう！",
+        "en": "Also, those of you who don't have the chance to wear a 'kimono', go for it and wear one!",
+        "enId": 328418,
+        "form": "きもの"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -759,6 +1108,7 @@
     "meaning": "bicycle",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "A “self-rolling vehicle”, coined in Japan in 1870 for a tricycle.",
@@ -796,6 +1146,7 @@
     "meaning": "fire",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["compound", "reread"],
     "headline": "A fire was once “the matter of fire”, a native phrase later re-read in Chinese sounds.",
@@ -818,6 +1169,22 @@
         "quote": "Old Japanese 火事 (pi₂ no₂ ko₂to₂) (now spelled as 火の事 (hi no koto)), later read with 音読み (on'yomi)."
       }
     ],
+    "examples": [
+      {
+        "id": 187144,
+        "ja": "家が火事だ。",
+        "en": "The house is on fire!",
+        "enId": 24281,
+        "form": "火事"
+      },
+      {
+        "id": 124353,
+        "ja": "冬は火事が多い。",
+        "en": "We often have fires in winter.",
+        "enId": 279641,
+        "form": "火事"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -827,6 +1194,7 @@
     "meaning": "a dream",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "“Dream” began as “sleep-eye”: sight seen while asleep.",
@@ -842,6 +1210,22 @@
         "quote": "Appears in texts from the 900s."
       }
     ],
+    "examples": [
+      {
+        "id": 80950,
+        "ja": "夢をつかめ！",
+        "en": "Get the dream.",
+        "enId": 322764,
+        "form": "夢"
+      },
+      {
+        "id": 80952,
+        "ja": "夢みたいだ。",
+        "en": "It's like a dream come true.",
+        "enId": 322763,
+        "form": "夢"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -851,6 +1235,7 @@
     "meaning": "scenery, landscape",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
     "processes": [],
     "headline": "けしき was spelled another way first; 景 was swapped in for the sense.",
     "morphemes": [],

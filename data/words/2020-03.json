@@ -6,6 +6,7 @@
     "meaning": "concern, interest",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kanshin is 関 (kan, “concern”) plus 心 (shin, “heart”).",
@@ -26,6 +27,22 @@
         "quote": "From 関 (kan, “concern”) + 心 (shin, “heart”)."
       }
     ],
+    "examples": [
+      {
+        "id": 152290,
+        "ja": "私は歴史に関心がある。",
+        "en": "I'm interested in history.",
+        "enId": 262259,
+        "form": "関心"
+      },
+      {
+        "id": 155573,
+        "ja": "私は政治に関心がない。",
+        "en": "I'm not concerned with politics.",
+        "enId": 258965,
+        "form": "関心"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -35,6 +52,7 @@
     "meaning": "doctorate, PhD., doctor",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf04"],
     "processes": ["borrowing"],
     "headline": "Hakase is ultimately from Middle Chinese 博士, an official title in the ritsuryō system, likely borrowed in the Old Japanese period.",
     "morphemes": [],
@@ -52,6 +70,7 @@
     "meaning": "school building",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kōsha is 校 (kō, “school”) plus 舎 (-sha, “house”), first attested in 1884.",
@@ -75,6 +94,22 @@
         "quote": "First attested in 1884."
       }
     ],
+    "examples": [
+      {
+        "id": 173575,
+        "ja": "校舎は全焼した。",
+        "en": "The schoolhouse was burnt to ashes.",
+        "enId": 240895,
+        "form": "校舎"
+      },
+      {
+        "id": 107359,
+        "ja": "彼は校舎に放火した。",
+        "en": "He set fire to the school building.",
+        "enId": 296327,
+        "form": "校舎"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -84,6 +119,7 @@
     "meaning": "hair, fur",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ke, “hair”, is cognate with Proto-Ryukyuan *ke (“hair, fur”).",
@@ -91,6 +127,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Attested in the Man'yōshū of circa 759 CE. Ultimately from Proto-Japonic *kay. Cognate with Proto-Ryukyuan *ke (“hair, fur”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 99182,
+        "ja": "彼は羊の毛を刈った。",
+        "en": "He clipped the sheep.",
+        "enId": 304518,
+        "form": "毛"
+      },
+      {
+        "id": 123845,
+        "ja": "頭の毛は灰色だった。",
+        "en": "His head was gray.",
+        "enId": 280147,
+        "form": "毛"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -102,6 +154,7 @@
     "meaning": "(female) nurse",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kangofu is 看護 (“nursing”) plus 婦 (“woman; female”).",
@@ -122,6 +175,22 @@
         "quote": "Compound of 看護 (“nursing”) + 婦 (“woman; female”)."
       }
     ],
+    "examples": [
+      {
+        "id": 157804,
+        "ja": "私は看護婦です。",
+        "en": "I'm a nurse.",
+        "enId": 256726,
+        "form": "看護婦"
+      },
+      {
+        "id": 90655,
+        "ja": "彼女は看護婦です。",
+        "en": "She is a nurse.",
+        "enId": 313056,
+        "form": "看護婦"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -134,6 +203,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chōsa is chō (調, investigate) plus sa (査, look into).",
@@ -156,6 +226,22 @@
         "quote": "From chō (調, investigate) + sa (査, look into)."
       }
     ],
+    "examples": [
+      {
+        "id": 176153,
+        "ja": "警察は調査を続けた。",
+        "en": "The police continued their investigation.",
+        "enId": 238311,
+        "form": "調査"
+      },
+      {
+        "id": 207774,
+        "ja": "その調査は進行中です。",
+        "en": "The investigation is under way.",
+        "enId": 45028,
+        "form": "調査"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -165,6 +251,7 @@
     "meaning": "that one",
     "level": "N5",
     "pos": ["pronoun"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Sore is そ (so, “that”, medial reference marker) plus れ (-re, specific pronoun referent marker).",
@@ -194,6 +281,7 @@
     "meaning": "roof",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Yane is 屋 (ya, “building, house”) plus 根 (ne, “root”), and ancient houses were dugouts where the roof came right down to the ground.",
@@ -217,6 +305,22 @@
         "quote": "Houses in ancient Japan were dugouts, where the roof came right down to the ground."
       }
     ],
+    "examples": [
+      {
+        "id": 164017,
+        "ja": "私の家の屋根は赤い。",
+        "en": "The roof of my house is red.",
+        "enId": 250493,
+        "form": "屋根"
+      },
+      {
+        "id": 212121,
+        "ja": "その家の屋根は赤い。",
+        "en": "The roof of the house is red.",
+        "enId": 49400,
+        "form": "屋根"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -226,6 +330,7 @@
     "meaning": "difference, discrepancy",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": [],
     "headline": "Chigai is the continuative stem of 違う (chigau, “to differ”).",
@@ -238,6 +343,22 @@
         "quote": "Formed from 違(ちが)う (chigau, “to differ”)."
       }
     ],
+    "examples": [
+      {
+        "id": 121167,
+        "ja": "番号違いのようですが。",
+        "en": "I am afraid you have the wrong number.",
+        "enId": 282839,
+        "form": "違い"
+      },
+      {
+        "id": 157722,
+        "ja": "私は記憶違いをしていた。",
+        "en": "I was guilty of a slip of memory.",
+        "enId": 256809,
+        "form": "違い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -247,6 +368,7 @@
     "meaning": "~ Street, ~ Avenue",
     "level": "N4",
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tōri is the stem form of 通る (tōru, “to go by; to go past; to go along”).",
@@ -254,6 +376,22 @@
     "sources": [
       {
         "quote": "From the 連用形 (ren'yōkei, “stem form”) of the verb 通る (tōru, “to go by; to go past; to go along”, intransitive)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 125603,
+        "ja": "通りを渡れ。",
+        "en": "Cross the street.",
+        "enId": 278389,
+        "form": "通り"
+      },
+      {
+        "id": 125602,
+        "ja": "通りを歩いた。",
+        "en": "We walked along the street.",
+        "enId": 249090,
+        "form": "通り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -268,6 +406,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sekidō is an orthographic borrowing from Chinese 赤道 (chìdào).",
@@ -290,6 +429,22 @@
         "quote": "Orthographic borrowing from Chinese 赤道 (chìdào)."
       }
     ],
+    "examples": [
+      {
+        "id": 141122,
+        "ja": "船は今夜赤道を越すだろう。",
+        "en": "The ship will cross the equator tonight.",
+        "enId": 273450,
+        "form": "赤道"
+      },
+      {
+        "id": 3138291,
+        "ja": "地球は赤道に関して対称ではない。",
+        "en": "The earth is not symmetrical about the equator.",
+        "enId": 3138293,
+        "form": "赤道"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -299,6 +454,7 @@
     "meaning": "to suffer, to groan, to be worried",
     "level": "N3",
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Kurushimu is first cited to the Kojiki of 712 CE, related to 苦しい (kurushii, “painful, suffering”).",
@@ -311,6 +467,22 @@
         "quote": "-mu is an auxiliary suffix of becoming the specified state."
       }
     ],
+    "examples": [
+      {
+        "id": 108118,
+        "ja": "彼は苦しみ悶えていた。",
+        "en": "He was in agony.",
+        "enId": 295568,
+        "form": "苦しみ"
+      },
+      {
+        "id": 144063,
+        "ja": "人々は貧困に苦しんだ。",
+        "en": "People were ground down by poverty.",
+        "enId": 270503,
+        "form": "苦しんだ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -320,6 +492,7 @@
     "meaning": "to hit, to strike",
     "level": "N3",
     "pos": ["Godan verb with 'tsu' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Butsu is a shift from 打つ (utsu).",
@@ -327,6 +500,22 @@
     "sources": [
       {
         "quote": "Shift from 打(う)つ (utsu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 105721,
+        "ja": "彼は私の頭をぶった。",
+        "en": "He hit me on the head.",
+        "enId": 303763,
+        "form": "ぶった"
+      },
+      {
+        "id": 197169,
+        "ja": "ぶたれて耳鳴りがした。",
+        "en": "My ears were ringing from being beaten.",
+        "enId": 34351,
+        "form": "ぶたれて"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -338,6 +527,7 @@
     "meaning": "to bet, to risk, to gamble",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf41"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kakeru, “to bet”, is derived from 掛ける (kakeru, “to hang; to manipulate; to spend, invest”).",
@@ -345,6 +535,22 @@
     "sources": [
       {
         "quote": "Derived from 掛(か)ける (kakeru, “to hang; to manipulate; to spend, invest”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124589,
+        "ja": "賭けてもいいよ。",
+        "en": "I'd bet my life on it.",
+        "enId": 279405,
+        "form": "賭けて"
+      },
+      {
+        "id": 159914,
+        "ja": "私はその馬に５ポンド賭けた。",
+        "en": "I bet five pounds on the horse.",
+        "enId": 254608,
+        "form": "賭けた"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -356,6 +562,7 @@
     "meaning": "impudent, shameless,",
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Atsukamashii is related to 厚い (atsui, “thick”).",
@@ -363,6 +570,22 @@
     "sources": [
       {
         "quote": "Related to 厚い (atsui, “thick”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 116756,
+        "ja": "彼の性格の特徴は厚かましさだ。",
+        "en": "His personality is marked by forwardness.",
+        "enId": 286912,
+        "form": "厚かまし"
+      },
+      {
+        "id": 178341,
+        "ja": "君の厚かましいのには呆れたよ。",
+        "en": "I am amazed at your audacity.",
+        "enId": 17193,
+        "form": "厚かましい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -377,6 +600,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Setsubi appears to be a Meiji-period repurposing of written Chinese 設備 (shèbèi, “equipment; to make preparations”) and Old Japanese 設け備ふ (makesonapu).",
@@ -402,6 +626,22 @@
         "quote": "First attested in a pocket English–Japanese dictionary from 1862, provided as the gloss for the verb season, presumably from the sense of \"to make something ready\"."
       }
     ],
+    "examples": [
+      {
+        "id": 212597,
+        "ja": "そのホテルは設備がよい。",
+        "en": "The hotel has good accommodation.",
+        "enId": 49880,
+        "form": "設備"
+      },
+      {
+        "id": 222597,
+        "ja": "この学校は暖房設備がない。",
+        "en": "This school has no heating.",
+        "enId": 59927,
+        "form": "設備"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -411,6 +651,7 @@
     "meaning": "daily necessities",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Nichiyōhin is, by surface analysis, 日用 (nichiyō, “everyday use”) plus 品 (-hin, “item”).",
@@ -431,6 +672,22 @@
         "quote": "By surface analysis, 日用(にちよう) (nichiyō, “everyday use”) + 品(ひん) (-hin, “item”)."
       }
     ],
+    "examples": [
+      {
+        "id": 122119,
+        "ja": "日用品の値段が上がった。",
+        "en": "Daily commodities increased in price.",
+        "enId": 281884,
+        "form": "日用品"
+      },
+      {
+        "id": 122118,
+        "ja": "日用品売り場は何階でしょうか。",
+        "en": "What floor is the daily goods department on?",
+        "enId": 281885,
+        "form": "日用品"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -440,6 +697,7 @@
     "meaning": "to seize, to catch, to grasp",
     "level": "N3",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Tsukamu is derived from 束 (tsuka, “bunch, bundle”) plus -mu, and is first cited to a text from 850.",
@@ -452,6 +710,22 @@
         "quote": "First cited to a text from 850."
       }
     ],
+    "examples": [
+      {
+        "id": 80950,
+        "ja": "夢をつかめ！",
+        "en": "Get the dream.",
+        "enId": 322764,
+        "form": "つかめ"
+      },
+      {
+        "id": 115729,
+        "ja": "彼の腕を掴んだ。",
+        "en": "She took him by the arm.",
+        "enId": 287941,
+        "form": "掴んだ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -461,6 +735,7 @@
     "meaning": "cream",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Kurīmu is English cream, a doublet of クレーム (kurēmu).",
@@ -476,6 +751,22 @@
         "quote": "From English cream. Doublet of クレーム (kurēmu)."
       }
     ],
+    "examples": [
+      {
+        "id": 198016,
+        "ja": "バターはクリームで作る。",
+        "en": "Butter is made from cream.",
+        "enId": 35199,
+        "form": "クリーム"
+      },
+      {
+        "id": 225524,
+        "ja": "クリームを使い切ってしまった。",
+        "en": "We have run out of cream.",
+        "enId": 62860,
+        "form": "クリーム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -485,6 +776,7 @@
     "meaning": "automobile",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jidōsha is 自動 (jidō, “automatic movement”) plus 車 (-sha, “vehicle”).",
@@ -505,6 +797,22 @@
         "quote": "From 自動(じどう) (jidō, “automatic movement”) + 車(しゃ) (-sha, “vehicle”)."
       }
     ],
+    "examples": [
+      {
+        "id": 150036,
+        "ja": "自動車は左折した。",
+        "en": "The car made a turn to the left.",
+        "enId": 264521,
+        "form": "自動車"
+      },
+      {
+        "id": 150051,
+        "ja": "自動車が正面衝突した。",
+        "en": "The cars collided head on.",
+        "enId": 264507,
+        "form": "自動車"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -514,6 +822,7 @@
     "meaning": "(fine) art, the arts",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Geijutsu is from Literary Chinese 藝術, collectively the 六藝 (Liùyì, “Six Arts”) and 術數 (shùshù, “numerology”).",
@@ -536,6 +845,22 @@
         "quote": "From Literary Chinese 藝術, collectively the 六藝 (Liùyì, “Six Arts”) and 術數 (shùshù, “numerology”)"
       }
     ],
+    "examples": [
+      {
+        "id": 176035,
+        "ja": "芸術のための芸術。",
+        "en": "Art for art's sake.",
+        "enId": 349458,
+        "form": "芸術"
+      },
+      {
+        "id": 124091,
+        "ja": "当時、芸術は全盛でした。",
+        "en": "Art was then at its best.",
+        "enId": 279904,
+        "form": "芸術"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -545,6 +870,7 @@
     "meaning": "flatness, level, smooth",
     "level": "N3",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Taira is た (ta-) plus 平 (hira), attested in the Nihon Shoki (720 CE).",
@@ -557,6 +883,15 @@
         "quote": "Attested in the Nihon Shoki (720 CE). The Ruiju Myōgishō (late Heian period) gives two readings for 平, タヒラ (tahira, modern taira) and タヒラカ (tahiraka); it is not clear whether the two had different meanings."
       }
     ],
+    "examples": [
+      {
+        "id": 191177,
+        "ja": "昔、地球は平らなものだと考えられていた。",
+        "en": "It used to be thought that the earth was flat.",
+        "enId": 28337,
+        "form": "平ら"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -566,6 +901,7 @@
     "meaning": "footprint",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10", "spec1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ashiato is 足 (ashi, “foot”) plus 跡 (ato, “trace, mark”).",
@@ -595,6 +931,7 @@
     "meaning": "long, lengthy",
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf15"],
     "stratum": "wago",
     "processes": [],
     "headline": "Nagai is first attested in the Kojiki of 712 CE, and is possibly cognate with 流れる (nagareru, “to flow”), in reference to extending.",
@@ -607,6 +944,22 @@
         "quote": "Possibly cognate with 流れる (nagareru, “to flow”, intransitive), and 流す (nagasu, “to flow”, transitive), in reference to extending."
       }
     ],
+    "examples": [
+      {
+        "id": 81374,
+        "ja": "妹は足が長い。",
+        "en": "My sister has long legs.",
+        "enId": 322341,
+        "form": "長い"
+      },
+      {
+        "id": 102691,
+        "ja": "彼は足が長い。",
+        "en": "He has long legs.",
+        "enId": 287067,
+        "form": "長い"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -616,6 +969,7 @@
     "meaning": "theory",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Setsu, “theory”, is from Middle Chinese 說.",
@@ -623,6 +977,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 說 (MC sywet)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 208556,
+        "ja": "その説は一般に認められるだろう。",
+        "en": "The theory will find general acceptance.",
+        "enId": 45815,
+        "form": "説"
+      },
+      {
+        "id": 160838,
+        "ja": "私はこの説を信じることは出来ない。",
+        "en": "I can't accept this theory.",
+        "enId": 253680,
+        "form": "説"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -634,6 +1004,7 @@
     "meaning": "metal",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kinzoku is Middle Chinese 金屬, literally “metal + be attached to; category”.",
@@ -654,6 +1025,22 @@
         "quote": "From Middle Chinese compound 金屬 /金属 (kim dzyowk, literally “metal + be attached to; category”)."
       }
     ],
+    "examples": [
+      {
+        "id": 169306,
+        "ja": "酸は金属を侵す。",
+        "en": "Acids act on metals.",
+        "enId": 245180,
+        "form": "金属"
+      },
+      {
+        "id": 123491,
+        "ja": "銅も銀も金属である。",
+        "en": "Copper and silver are both metals.",
+        "enId": 280505,
+        "form": "金属"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -663,6 +1050,7 @@
     "meaning": "ingredients, material",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Zairyō is a Middle Chinese compound, literally “materials + ingredients”.",
@@ -683,6 +1071,22 @@
         "quote": "From Middle Chinese compound 材料 (dzoj lewᴴ, literally “materials + ingredients”). Compare modern Mandarin reading cáiliào."
       }
     ],
+    "examples": [
+      {
+        "id": 146888,
+        "ja": "小麦粉はケーキの主な材料だ。",
+        "en": "Flour is the main ingredient in cakes.",
+        "enId": 267673,
+        "form": "材料"
+      },
+      {
+        "id": 125383,
+        "ja": "泥は陶器を作るのに必要な材料です。",
+        "en": "Clay is the essential ingredient in making pottery.",
+        "enId": 278610,
+        "form": "材料"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -692,6 +1096,7 @@
     "meaning": "son (of others)",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf33"],
     "processes": [],
     "headline": "Botchan is 坊 (bō) plus ちゃん (-chan).",
     "morphemes": [],
@@ -709,6 +1114,7 @@
     "meaning": "corner (e.g., desk, pavement)",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kado, “corner”, is from Old Japanese, from Proto-Japonic *kanto.",
@@ -716,6 +1122,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, in turn, from Proto-Japonic *kanto."
+      }
+    ],
+    "examples": [
+      {
+        "id": 213634,
+        "ja": "そこの角ですよ。",
+        "en": "It's at the corner.",
+        "enId": 50921,
+        "form": "角"
+      },
+      {
+        "id": 96536,
+        "ja": "彼らは町角を曲がった。",
+        "en": "They walked around the corner.",
+        "enId": 307169,
+        "form": "角"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -727,6 +1149,7 @@
     "meaning": "welcome",
     "level": "N3",
     "pos": ["interjection (kandoushi)"],
+    "priority": ["spec1"],
     "stratum": "wago",
     "processes": ["clipping"],
     "headline": "Irasshai is the imperative of いらっしゃる (irassharu), shortened from いらっしゃいまし (irasshaimashi).",
@@ -734,6 +1157,22 @@
     "sources": [
       {
         "quote": "Imperative form (命(めい)令(れい)形(けい) (meireikei)) of いらっしゃる (irassharu); shortening of いらっしゃいまし (irasshaimashi)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80392,
+        "ja": "明日またいらっしゃい。",
+        "en": "Come again tomorrow.",
+        "enId": 323324,
+        "form": "いらっしゃい"
+      },
+      {
+        "id": 74890,
+        "ja": "毎度、またいらっしゃい。",
+        "en": "Thanks, please come again.",
+        "enId": 328827,
+        "form": "いらっしゃい"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -748,6 +1187,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shōka is from Middle Chinese 消化 (MC sjew xwaeH).",
@@ -768,6 +1208,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 消化 (MC sjew xwaeH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 192065,
+        "ja": "ワインは消化を助ける。",
+        "en": "Wine helps digest food.",
+        "enId": 29227,
+        "form": "消化"
+      },
+      {
+        "id": 145782,
+        "ja": "食物は胃の中で消化される。",
+        "en": "Food is digested in the stomach.",
+        "enId": 452255,
+        "form": "消化"
       }
     ],
     "wiktionaryDump": "2026-09-02"

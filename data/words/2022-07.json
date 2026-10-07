@@ -6,6 +6,7 @@
     "meaning": "writing brush",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "筆, “writing brush”, shifted from fumite to fude, the medial み nasalizing the vowel and voicing the next consonant.",
@@ -27,6 +28,7 @@
     "meaning": "bench",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ベンチ is borrowed from English “bench”, a doublet of バンク.",
@@ -45,6 +47,22 @@
         "quote": "Doublet of バンク."
       }
     ],
+    "examples": [
+      {
+        "id": 196632,
+        "ja": "ベンチに座った。",
+        "en": "He seated himself on the bench.",
+        "enId": 33811,
+        "form": "ベンチ"
+      },
+      {
+        "id": 196633,
+        "ja": "ベンチに座ろうよ。",
+        "en": "Let's sit down on the bench.",
+        "enId": 33813,
+        "form": "ベンチ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -54,6 +72,7 @@
     "meaning": "sequel, continuation",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "wago",
     "processes": [],
     "headline": "続き, “sequel, continuation”, is the continuative stem of the verb 続く (tsuzuku, “to continue”).",
@@ -61,6 +80,22 @@
     "sources": [
       {
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 続(つづ)く (tsuzuku, “to continue”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 191416,
+        "ja": "悪事続きだ。",
+        "en": "When it rains, it pours.",
+        "enId": 26846,
+        "form": "続き"
+      },
+      {
+        "id": 169483,
+        "ja": "三日続きの雨だった。",
+        "en": "It rained three days on end.",
+        "enId": 72642,
+        "form": "続き"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -72,6 +107,7 @@
     "meaning": "Christmas",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "クリスマス is borrowed from English “Christmas”.",
@@ -87,6 +123,22 @@
         "quote": "Borrowed from English Christmas."
       }
     ],
+    "examples": [
+      {
+        "id": 80472,
+        "ja": "明日はクリスマスだ。",
+        "en": "Tomorrow is Christmas Day.",
+        "enId": 323245,
+        "form": "クリスマス"
+      },
+      {
+        "id": 225462,
+        "ja": "クリスマスは間近ですね。",
+        "en": "Christmas is near at hand, isn't it?",
+        "enId": 62799,
+        "form": "クリスマス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -96,6 +148,7 @@
     "meaning": "origin, original; former",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "元, “origin, original; former”, is a doublet of 下 (moto, “base, basis”), and was cited to the Kojiki of 712 CE.",
@@ -117,6 +170,7 @@
     "meaning": "scarf",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スカーフ is borrowed from English “scarf”.",
@@ -132,6 +186,22 @@
         "quote": "Borrowed from English scarf."
       }
     ],
+    "examples": [
+      {
+        "id": 123841,
+        "ja": "頭をスカーフで包みなさい。",
+        "en": "Wrap your head in a scarf.",
+        "enId": 280154,
+        "form": "スカーフ"
+      },
+      {
+        "id": 223640,
+        "ja": "このスカーフはすべすべする。",
+        "en": "This scarf feels soft.",
+        "enId": 60976,
+        "form": "スカーフ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -141,6 +211,7 @@
     "meaning": "album",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アルバム is borrowed from English “album”.",
@@ -154,6 +225,22 @@
     "sources": [
       {
         "quote": "Borrowed from English album."
+      }
+    ],
+    "examples": [
+      {
+        "id": 137154,
+        "ja": "棚にアルバムがある。",
+        "en": "There is an album on the shelf.",
+        "enId": 276082,
+        "form": "アルバム"
+      },
+      {
+        "id": 106213,
+        "ja": "彼は私にアルバムを見せた。",
+        "en": "He showed me his album.",
+        "enId": 297473,
+        "form": "アルバム"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -182,6 +269,7 @@
     "meaning": "chime",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "チャイム is the English word “chime” in katakana.",
@@ -197,6 +285,22 @@
         "quote": "From English chime."
       }
     ],
+    "examples": [
+      {
+        "id": 202968,
+        "ja": "チャイムが鳴ったね。",
+        "en": "The door bell has rung.",
+        "enId": 40203,
+        "form": "チャイム"
+      },
+      {
+        "id": 75524,
+        "ja": "教室に入って席に着くのとほぼ同時に、始業を知らせるチャイムの音が鳴り響く。",
+        "en": "About the same time as he entered the classroom and arrived at his seat, the chime to announce class rings across the school.",
+        "enId": 328194,
+        "form": "チャイム"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -206,6 +310,7 @@
     "meaning": "fortune, luck",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "運, “fortune, luck”, is a Middle Chinese borrowing (MC hjunH).",
@@ -213,6 +318,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 運 (MC hjunH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175750,
+        "ja": "結婚は運次第。",
+        "en": "Marriage is a lottery.",
+        "enId": 238715,
+        "form": "運"
+      },
+      {
+        "id": 189479,
+        "ja": "運が私に向いてきた。",
+        "en": "Luck turned in my favor.",
+        "enId": 26630,
+        "form": "運"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -228,6 +349,7 @@
       "noun or participle which takes the aux. verb suru",
       "noun or verb acting prenominally"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "オーバー covers “overcoat” and “over, exceeding”, and the source traces it to English “over”.",
@@ -243,6 +365,22 @@
         "quote": "Borrowed from English over."
       }
     ],
+    "examples": [
+      {
+        "id": 114269,
+        "ja": "彼はオーバーを脱いだ。",
+        "en": "He took off his overcoat.",
+        "enId": 289403,
+        "form": "オーバー"
+      },
+      {
+        "id": 218265,
+        "ja": "これは重量オーバーです。",
+        "en": "This weighs more than the limit.",
+        "enId": 55577,
+        "form": "オーバー"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -252,6 +390,7 @@
     "meaning": "plan, scheme, proposal",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "案, “plan, scheme, proposal”, is a Middle Chinese borrowing (MC 'anH).",
@@ -259,6 +398,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 案 (MC 'anH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 191240,
+        "ja": "案は全然ない。",
+        "en": "I have no plans whatever.",
+        "enId": 28401,
+        "form": "案"
+      },
+      {
+        "id": 212389,
+        "ja": "その案は通った。",
+        "en": "The proposal went through.",
+        "enId": 49671,
+        "form": "案"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -270,6 +425,7 @@
     "meaning": "steak",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ステーキ is borrowed from English “steak”.",
@@ -285,6 +441,22 @@
         "quote": "Borrowed from English steak."
       }
     ],
+    "examples": [
+      {
+        "id": 82078,
+        "ja": "ステーキがもっと欲しい。",
+        "en": "I want more of the steak.",
+        "enId": 321637,
+        "form": "ステーキ"
+      },
+      {
+        "id": 214618,
+        "ja": "ステーキは胃にもたれる。",
+        "en": "Steak lies heavy on the stomach.",
+        "enId": 51911,
+        "form": "ステーキ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -294,6 +466,7 @@
     "meaning": "sliding screen",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf37"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "襖, “sliding screen”, is a compound of 臥す (fusu) plus 間 (ma).",
@@ -312,6 +485,7 @@
     "meaning": "bucket, pail",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バケツ is the English word “bucket” in katakana.",
@@ -327,6 +501,22 @@
         "quote": "From English bucket."
       }
     ],
+    "examples": [
+      {
+        "id": 159141,
+        "ja": "私はバケツに水を入れた。",
+        "en": "I poured water into the bucket.",
+        "enId": 255384,
+        "form": "バケツ"
+      },
+      {
+        "id": 198281,
+        "ja": "バケツの水を空けなさい。",
+        "en": "Empty the water out of the bucket.",
+        "enId": 35473,
+        "form": "バケツ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -336,6 +526,7 @@
     "meaning": "helicopter",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ヘリコプター is borrowed from English “helicopter”.",
@@ -351,6 +542,22 @@
         "quote": "Borrowed from English helicopter."
       }
     ],
+    "examples": [
+      {
+        "id": 97688,
+        "ja": "彼らはヘリコプターで救出された。",
+        "en": "They were rescued by helicopter.",
+        "enId": 306016,
+        "form": "ヘリコプター"
+      },
+      {
+        "id": 111013,
+        "ja": "彼はヘリコプターで病院に運ばれた。",
+        "en": "He was transported to the hospital by helicopter.",
+        "enId": 292673,
+        "form": "ヘリコプター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -360,6 +567,7 @@
     "meaning": "little, few",
     "level": "N5",
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": [],
     "headline": "少し, “little, few”, is from Old Japanese and possibly related to 少ない (sukunai).",
@@ -367,6 +575,22 @@
     "sources": [
       {
         "quote": "From Old Japanese. Possibly related to 少ない (sukunai). Possibly cognate with the ku part in 幾 (iku)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 146779,
+        "ja": "少し疲れた。",
+        "en": "I'm a bit tired.",
+        "enId": 258672,
+        "form": "少し"
+      },
+      {
+        "id": 146782,
+        "ja": "少し肌寒い。",
+        "en": "There's a slight chill in the air.",
+        "enId": 267779,
+        "form": "少し"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -378,6 +602,7 @@
     "meaning": "Belt for western clothes",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ベルト, “belt for western clothes”, is the English word “belt” in katakana.",
@@ -393,6 +618,22 @@
         "quote": "From English belt."
       }
     ],
+    "examples": [
+      {
+        "id": 229718,
+        "ja": "あれは革のベルトです。",
+        "en": "That is a leather belt.",
+        "enId": 67079,
+        "form": "ベルト"
+      },
+      {
+        "id": 90070,
+        "ja": "彼女は腰にベルトを締めた。",
+        "en": "She girded her waist with a belt.",
+        "enId": 313644,
+        "form": "ベルト"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -402,6 +643,7 @@
     "meaning": "connection, link, relationship",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "繋がり is the continuative stem of the verb 繋がる (tsunagaru, “to be connected”).",
@@ -409,6 +651,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 繋(つな)がる (tsunagaru, “to be connected”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 235542,
+        "ja": "２つの間には重要なつながりがある。",
+        "en": "There's a vital link between the two.",
+        "enId": 72921,
+        "form": "つながり"
+      },
+      {
+        "id": 227472,
+        "ja": "オランダ語はドイツ語と密接なつながりがある。",
+        "en": "Dutch is closely related to German.",
+        "enId": 64824,
+        "form": "つながり"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -420,6 +678,7 @@
     "meaning": "butter",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バター is borrowed from English “butter”.",
@@ -435,6 +694,22 @@
         "quote": "Borrowed from English butter."
       }
     ],
+    "examples": [
+      {
+        "id": 182279,
+        "ja": "牛乳はバターになる。",
+        "en": "Milk is made into butter.",
+        "enId": 19471,
+        "form": "バター"
+      },
+      {
+        "id": 198013,
+        "ja": "バターは牛乳から作る。",
+        "en": "We make butter from milk.",
+        "enId": 35201,
+        "form": "バター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -444,6 +719,7 @@
     "meaning": "to stir-fry",
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
     "stratum": "wago",
     "processes": [],
     "headline": "炒める, “to stir-fry”, comes from the earlier verb 炒む (itamu).",
@@ -459,6 +735,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 159008,
+        "ja": "私はフライパンで野菜を炒めた。",
+        "en": "I pan-fried vegetables.",
+        "enId": 255517,
+        "form": "炒めた"
+      },
+      {
+        "id": 76369,
+        "ja": "ルーは、バターと小麦粉を炒めながら作ります。",
+        "en": "Roux is made while cooking flour and butter together.",
+        "enId": 327351,
+        "form": "炒め"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -471,6 +763,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ゴール is borrowed from English “goal”.",
@@ -495,6 +788,7 @@
     "meaning": "cake",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ケーキ is borrowed from English “cake”.",
@@ -510,6 +804,22 @@
         "quote": "Borrowed from English cake."
       }
     ],
+    "examples": [
+      {
+        "id": 225312,
+        "ja": "ケーキをどうぞ。",
+        "en": "Help yourself to the cake.",
+        "enId": 62648,
+        "form": "ケーキ"
+      },
+      {
+        "id": 213230,
+        "ja": "そのケーキは甘い。",
+        "en": "The cake tastes sweet.",
+        "enId": 50515,
+        "form": "ケーキ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -519,6 +829,7 @@
     "meaning": "by no means",
     "level": "N3",
     "pos": ["interjection (kandoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "まさか is first attested in the Man'yōshū of 759, and the source lists several theories of its derivation.",
@@ -557,6 +868,7 @@
     "meaning": "notebook",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ノート, “notebook”, is borrowed from English “note”.",
@@ -572,6 +884,22 @@
         "quote": "Borrowed from English note."
       }
     ],
+    "examples": [
+      {
+        "id": 159173,
+        "ja": "私はノートがほしい。",
+        "en": "I want a notebook.",
+        "enId": 255352,
+        "form": "ノート"
+      },
+      {
+        "id": 111348,
+        "ja": "彼はノートを取り出した。",
+        "en": "He took a notebook out.",
+        "enId": 292335,
+        "form": "ノート"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -581,6 +909,7 @@
     "meaning": "celebration, festival",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": [],
     "headline": "祝い, “celebration”, is the continuative stem of the verb 祝う (iwau, “to celebrate”).",
@@ -602,6 +931,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ダイヤル is borrowed from English “dial”.",
@@ -626,6 +956,7 @@
     "meaning": "from now on, after this",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "これから is literally “[starting] from this”.",
@@ -647,6 +978,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "サービス is borrowed from English “service”.",
@@ -662,6 +994,22 @@
         "quote": "Borrowed from English service."
       }
     ],
+    "examples": [
+      {
+        "id": 230537,
+        "ja": "あの店はサービスが良い。",
+        "en": "That store gives good service.",
+        "enId": 67904,
+        "form": "サービス"
+      },
+      {
+        "id": 141217,
+        "ja": "洗濯のサービスはありますか。",
+        "en": "Do you have a laundry service?",
+        "enId": 273355,
+        "form": "サービス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -671,6 +1019,7 @@
     "meaning": "a work, a harvest",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf07"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "作, “a work, a harvest”, is from Middle Chinese 作 (tsak, “to do, to work”).",
@@ -678,6 +1027,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 作 (tsak, “to do, to work”). Compare Cantonese 作 (zok³), Wu 作."
+      }
+    ],
+    "examples": [
+      {
+        "id": 221717,
+        "ja": "この詩は彼の作とされている。",
+        "en": "This poem is attributed to him.",
+        "enId": 59043,
+        "form": "作"
+      },
+      {
+        "id": 75633,
+        "ja": "３作目はレベルが一段上でした。",
+        "en": "The third in the series was a level above the rest.",
+        "enId": 328085,
+        "form": "作"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -689,6 +1054,7 @@
     "meaning": "percent",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "パーセント is borrowed from English “percent”.",
@@ -702,6 +1068,22 @@
     "sources": [
       {
         "quote": "Borrowed from English percent."
+      }
+    ],
+    "examples": [
+      {
+        "id": 83517,
+        "ja": "米の値段が３パーセント上がった。",
+        "en": "The price of rice rose by three percent.",
+        "enId": 320199,
+        "form": "パーセント"
+      },
+      {
+        "id": 148531,
+        "ja": "手数料は３パーセントかかります。",
+        "en": "We charge a commission of 3%.",
+        "enId": 266028,
+        "form": "パーセント"
       }
     ],
     "wiktionaryDump": "2026-09-02"

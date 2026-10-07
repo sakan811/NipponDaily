@@ -9,6 +9,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sayū is 左 (sa, “left”) plus 右 (yū, “right”).",
@@ -29,6 +30,22 @@
         "quote": "From 左(さ) (sa, “left”) + 右(ゆう) (yū, “right”)."
       }
     ],
+    "examples": [
+      {
+        "id": 107011,
+        "ja": "彼は左右を見回した。",
+        "en": "He looked around.",
+        "enId": 296675,
+        "form": "左右"
+      },
+      {
+        "id": 141086,
+        "ja": "船は嵐で左右に揺れた。",
+        "en": "The ship rolled from side to side in the storm.",
+        "enId": 273486,
+        "form": "左右"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -38,13 +55,43 @@
     "meaning": "to receive, to get, to accept",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Uketoru is 受ける (ukeru, “to receive”) plus 取る (toru, “to take”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "受け",
+        "reading": "うけ",
+        "meaning": "take",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "取る",
+        "reading": "とる",
+        "meaning": "take",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "受(う)ける (ukeru, “to receive”) + 取(と)る (toru, “to take”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 195646,
+        "ja": "まじめに受け取るな。",
+        "en": "Don't take it seriously.",
+        "enId": 32821,
+        "form": "受け取る"
+      },
+      {
+        "id": 155832,
+        "ja": "私は招待状を受け取った。",
+        "en": "I received an invitation.",
+        "enId": 258705,
+        "form": "受け取った"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -56,6 +103,7 @@
     "meaning": "mouse, rat",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf37", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "rendaku", "clipping"],
     "headline": "Nezumi was originally 根 (ne, “root”, signifying somewhere hidden away) plus 住み (sumi, “to live”): “one who lives in hidden places”.",
@@ -68,6 +116,22 @@
         "quote": "Abbreviation of nezumi. Used in some compounds."
       }
     ],
+    "examples": [
+      {
+        "id": 198603,
+        "ja": "ネズミでした。",
+        "en": "It was a mouse.",
+        "enId": 35797,
+        "form": "ネズミ"
+      },
+      {
+        "id": 121964,
+        "ja": "猫はネズミを追いかけた。",
+        "en": "The cat ran after the rat.",
+        "enId": 282039,
+        "form": "ネズミ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -77,6 +141,7 @@
     "meaning": "(male) (vulg.) to eat",
     "level": "N3",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf33", "spec1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kuu went from kupu through kuwu to kuu; the medial w vanishes but resurfaces in kuwanai and kuwareru.",
@@ -95,6 +160,22 @@
         "quote": "Possibly cognate with 口(くち) (kuchi, “mouth”)."
       }
     ],
+    "examples": [
+      {
+        "id": 137575,
+        "ja": "大魚は小魚を食う。",
+        "en": "The great fish eat the small.",
+        "enId": 275661,
+        "form": "食う"
+      },
+      {
+        "id": 77079,
+        "ja": "蓼食う虫も好き好き。",
+        "en": "There is no accounting for tastes.",
+        "enId": 40811,
+        "form": "食う"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -104,6 +185,7 @@
     "meaning": "queen",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Joō is Middle Chinese 女王, literally “female + king”.",
@@ -124,6 +206,15 @@
         "quote": "From Middle Chinese 女王 (nrjo^X hjwang, literally “female + king”)."
       }
     ],
+    "examples": [
+      {
+        "id": 9972625,
+        "ja": "エリザベス２世は、イギリスの女王です。",
+        "en": "Elizabeth II is the Queen of England.",
+        "enId": 26142,
+        "form": "女王"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -136,6 +227,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Jōkyō is Middle Chinese 上 (MC dzyangX) plus 京 (MC kjaeng).",
@@ -158,6 +250,22 @@
         "quote": "From Middle Chinese 上 (MC dzyangX) + 京 (MC kjaeng)."
       }
     ],
+    "examples": [
+      {
+        "id": 104178,
+        "ja": "彼は商用で上京した。",
+        "en": "He came up to Tokyo on business.",
+        "enId": 299513,
+        "form": "上京"
+      },
+      {
+        "id": 99585,
+        "ja": "彼は明日上京する予定だ。",
+        "en": "He is scheduled to come up to Tokyo tomorrow.",
+        "enId": 304112,
+        "form": "上京"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -167,6 +275,7 @@
     "meaning": "to bear fruit, to ripen",
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Minoru is usually considered 実 (mi, “fruit”) plus 乗る (noru, “to ride”), though noru may be a corruption of なる (naru, “to bear fruit”).",
@@ -174,6 +283,22 @@
     "sources": [
       {
         "quote": "Usually considered a compound of 実(み) (mi, “fruit”) + 乗(の)る (noru, “to ride”). Alternatively, noru may be a corruption of なる (naru, “to become; to bear fruit”); compare the form 実(みな)る (minaru), attested in the Nihon Shoki."
+      }
+    ],
+    "examples": [
+      {
+        "id": 116454,
+        "ja": "彼の努力が実った。",
+        "en": "His efforts bore fruit.",
+        "enId": 287215,
+        "form": "実った"
+      },
+      {
+        "id": 94122,
+        "ja": "彼女の努力がみのった。",
+        "en": "Her efforts bore fruit.",
+        "enId": 309583,
+        "form": "みのった"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -185,6 +310,7 @@
     "meaning": "tennis",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "テニス is borrowed from English “tennis”.",
@@ -200,6 +326,22 @@
         "quote": "Borrowed from English tennis."
       }
     ],
+    "examples": [
+      {
+        "id": 111806,
+        "ja": "彼はテニスをした。",
+        "en": "He played tennis.",
+        "enId": 291872,
+        "form": "テニス"
+      },
+      {
+        "id": 159443,
+        "ja": "私はテニスが好き。",
+        "en": "I like tennis.",
+        "enId": 255080,
+        "form": "テニス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -209,6 +351,7 @@
     "meaning": "hundred million",
     "level": "N4",
     "pos": ["numeric"],
+    "priority": ["ichi1", "news2", "nf44"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "億, “hundred million”, is a Middle Chinese borrowing (MC 'ik).",
@@ -216,6 +359,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 億 (MC 'ik)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 147665,
+        "ja": "出来高は５億株だった。",
+        "en": "The turnover was 500 million shares.",
+        "enId": 266895,
+        "form": "億"
+      },
+      {
+        "id": 179462,
+        "ja": "空には何十億もの星がある。",
+        "en": "There are billions of stars in the sky.",
+        "enId": 18320,
+        "form": "億"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -230,6 +389,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ベテラン is the English word “veteran” in katakana.",
@@ -245,6 +405,22 @@
         "quote": "From English veteran."
       }
     ],
+    "examples": [
+      {
+        "id": 111020,
+        "ja": "彼はベテランのドライバーだ。",
+        "en": "He is an expert driver.",
+        "enId": 292666,
+        "form": "ベテラン"
+      },
+      {
+        "id": 84728,
+        "ja": "父はこの道２０年のベテランです。",
+        "en": "My father has been doing this job for twenty years.",
+        "enId": 318986,
+        "form": "ベテラン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -254,6 +430,7 @@
     "meaning": "such, like this",
     "level": "N5",
     "pos": ["pre-noun adjectival (rentaishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "こんな is a contraction of この様な (kono yō na).",
@@ -261,6 +438,22 @@
     "sources": [
       {
         "quote": "Contraction of この様(よう)な (kono yō na)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 217350,
+        "ja": "こんな所出よう！",
+        "en": "I wanna get out of here!",
+        "enId": 54659,
+        "form": "こんな"
+      },
+      {
+        "id": 2298302,
+        "ja": "こんなの信じない。",
+        "en": "I don't believe this.",
+        "enId": 1887213,
+        "form": "こんな"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -272,6 +465,7 @@
     "meaning": "apron",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "エプロン is borrowed from English “apron”.",
@@ -287,6 +481,15 @@
         "quote": "Borrowed from English apron."
       }
     ],
+    "examples": [
+      {
+        "id": 227951,
+        "ja": "エプロンの紐を結んでください。",
+        "en": "Tie the apron.",
+        "enId": 65304,
+        "form": "エプロン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -300,6 +503,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "逆, “reverse, opposite”, is a Middle Chinese borrowing (MC ngjaek).",
@@ -318,6 +522,7 @@
     "meaning": "shutter",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "シャッター is borrowed from English “shutter”.",
@@ -333,6 +538,22 @@
         "quote": "Borrowed from English shutter."
       }
     ],
+    "examples": [
+      {
+        "id": 215785,
+        "ja": "シャッターを押してくれますか。",
+        "en": "Could you press this button?",
+        "enId": 53086,
+        "form": "シャッター"
+      },
+      {
+        "id": 219001,
+        "ja": "これがシャッターです。押すだけです。",
+        "en": "The shutter's over here. All you have to do is press it.",
+        "enId": 56317,
+        "form": "シャッター"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -342,6 +563,7 @@
     "meaning": "to flow, to be washed away",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf47"],
     "stratum": "wago",
     "processes": [],
     "headline": "流れる comes from the classical lower bigrade verb 流る (nagaru).",
@@ -349,6 +571,22 @@
     "sources": [
       {
         "quote": "From the classical lower bigrade (下二段活用(しもにだん) (shimo nidan)) verb 流(なが)る (nagaru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 189369,
+        "ja": "雲が流れていく。",
+        "en": "The clouds are rolling away.",
+        "enId": 26521,
+        "form": "流れて"
+      },
+      {
+        "id": 143739,
+        "ja": "水は低きに流れる。",
+        "en": "Water finds its own level.",
+        "enId": 270827,
+        "form": "流れる"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -360,6 +598,7 @@
     "meaning": "pen",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ペン is borrowed from Dutch “pen”.",
@@ -375,6 +614,22 @@
         "quote": "Borrowed from Dutch pen."
       }
     ],
+    "examples": [
+      {
+        "id": 164115,
+        "ja": "私のペンを使うな。",
+        "en": "Don't use my pen.",
+        "enId": 250395,
+        "form": "ペン"
+      },
+      {
+        "id": 196596,
+        "ja": "ペンを取ってくれ。",
+        "en": "Pass me the pen.",
+        "enId": 33775,
+        "form": "ペン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -384,6 +639,7 @@
     "meaning": "bonus",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ボーナス is borrowed from English “bonus”.",
@@ -399,6 +655,22 @@
         "quote": "Borrowed from English bonus."
       }
     ],
+    "examples": [
+      {
+        "id": 196536,
+        "ja": "ボーナスをもらった。",
+        "en": "I received my bonus.",
+        "enId": 33715,
+        "form": "ボーナス"
+      },
+      {
+        "id": 196535,
+        "ja": "ボーナス全部を買い物と旅行に使ってしまった。",
+        "en": "I blew my whole bonus on shopping and travel.",
+        "enId": 33714,
+        "form": "ボーナス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -408,6 +680,7 @@
     "meaning": "tough; physically strenuous",
     "level": "N3",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "苦しい is analysed as a compound of ⟨kuru-⟩, which indicates stress or temper, and the adjectivizing suffix ⟨-si⟩.",
@@ -423,6 +696,22 @@
         "quote": "The modern form kurushii is derived from Early Middle Japanese adjective 苦(くる)し (kurushi), with the 終(しゅう)止(し)形(けい) (shūshikei, “predicative form”) ending in し (shi) first replaced with the 連(れん)体(たい)形(けい) (rentaikei, “attributive form”) ending in しき (shiki), and then with the medial /-k-/ falling out to result in an ending of しい (shii)."
       }
     ],
+    "examples": [
+      {
+        "id": 77819,
+        "ja": "良薬は口に苦し。",
+        "en": "A good medicine tastes bitter.",
+        "enId": 325899,
+        "form": "苦し"
+      },
+      {
+        "id": 179537,
+        "ja": "苦しい、やめろ。",
+        "en": "It's so painful. Stop it!",
+        "enId": 18395,
+        "form": "苦しい"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -432,6 +721,7 @@
     "meaning": "wool",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ウール is borrowed from English “wool”.",
@@ -447,6 +737,22 @@
         "quote": "Borrowed from English wool."
       }
     ],
+    "examples": [
+      {
+        "id": 228317,
+        "ja": "ウールは染色しやすい。",
+        "en": "Wool takes a dye well.",
+        "enId": 65672,
+        "form": "ウール"
+      },
+      {
+        "id": 93176,
+        "ja": "彼女はウールの服を着ていた。",
+        "en": "She was clothed in wool.",
+        "enId": 310533,
+        "form": "ウール"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -460,6 +766,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "adverb (fukushi)"
     ],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "かなり is 可 (ka, “acceptable”) plus なり (nari, “to be”, archaic).",
@@ -489,6 +796,7 @@
     "meaning": "etiquette",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "エチケット comes from French “étiquette”.",
@@ -504,6 +812,22 @@
         "quote": "From French étiquette."
       }
     ],
+    "examples": [
+      {
+        "id": 205533,
+        "ja": "それはエチケットの問題だ。",
+        "en": "It's a matter of etiquette.",
+        "enId": 42778,
+        "form": "エチケット"
+      },
+      {
+        "id": 98772,
+        "ja": "彼らがエチケットを知らないことに彼女はがっかりした。",
+        "en": "She was dismayed at their ignorance in etiquette.",
+        "enId": 304928,
+        "form": "エチケット"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -513,6 +837,7 @@
     "meaning": "family name, lineage",
     "level": "N3",
     "pos": ["suffix"],
+    "priority": ["news1", "nf07"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "氏, “family name, lineage”, is a Middle Chinese borrowing (MC dzyeX).",
@@ -520,6 +845,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 氏 (MC dzyeX)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 143028,
+        "ja": "星野氏は気難しい。",
+        "en": "Mr Hoshino is hard to please.",
+        "enId": 271540,
+        "form": "氏"
+      },
+      {
+        "id": 124867,
+        "ja": "田中氏は医者ですね。",
+        "en": "Mr Tanaka is a doctor, isn't he?",
+        "enId": 279126,
+        "form": "氏"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -555,6 +896,7 @@
     "meaning": "oil",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "オイル is the English word “oil” in katakana.",
@@ -570,6 +912,22 @@
         "quote": "From English oil."
       }
     ],
+    "examples": [
+      {
+        "id": 227823,
+        "ja": "オイルをしらべましょうか。",
+        "en": "Shall I check the oil?",
+        "enId": 65176,
+        "form": "オイル"
+      },
+      {
+        "id": 145502,
+        "ja": "新しいオイル・タンカーが進水した。",
+        "en": "A new oil tanker was launched.",
+        "enId": 269061,
+        "form": "オイル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -579,6 +937,7 @@
     "meaning": "to come untied, to come apart",
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "解ける descends from the classical 下二段 verb 解く (toku).",
@@ -594,6 +953,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 141971,
+        "ja": "雪は解け去った。",
+        "en": "The snow has melted away.",
+        "enId": 272599,
+        "form": "解け"
+      },
+      {
+        "id": 85387,
+        "ja": "氷は解けると水に戻る。",
+        "en": "Ice turns back into water when it melts.",
+        "enId": 318326,
+        "form": "解ける"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -603,6 +978,7 @@
     "meaning": "record",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レコード is borrowed from English “record”.",
@@ -616,6 +992,22 @@
     "sources": [
       {
         "quote": "Borrowed from English record."
+      }
+    ],
+    "examples": [
+      {
+        "id": 98359,
+        "ja": "彼らは、レコードを買います。",
+        "en": "They will buy a record.",
+        "enId": 305343,
+        "form": "レコード"
+      },
+      {
+        "id": 156708,
+        "ja": "昨晩はレコードを聴きました。",
+        "en": "I listened to some records last night.",
+        "enId": 257826,
+        "form": "レコード"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -633,6 +1025,7 @@
       "adverb (fukushi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["spec1", "ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "ふわふわ is imitative; the source compares English “fluffy” and Hungarian “puha”.",
@@ -651,6 +1044,7 @@
     "meaning": "screen",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スクリーン is borrowed from English “screen”.",
@@ -666,6 +1060,15 @@
         "quote": "Borrowed from English screen."
       }
     ],
+    "examples": [
+      {
+        "id": 204737,
+        "ja": "それらの単語は彼のコンピューター・スクリーンに現れたのだった。",
+        "en": "The words would appear on his computer screen.",
+        "enId": 41977,
+        "form": "スクリーン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -675,6 +1078,7 @@
     "meaning": "to praise; to say nice things",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf39"],
     "stratum": "wago",
     "processes": [],
     "headline": "褒める, “to praise”, comes from Old Japanese 褒む (pomu).",
@@ -690,6 +1094,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 168128,
+        "ja": "死者はほめよ。",
+        "en": "Speak well of the dead.",
+        "enId": 246367,
+        "form": "ほめよ"
+      },
+      {
+        "id": 141504,
+        "ja": "先生は彼女をほめた。",
+        "en": "Her teacher praised her.",
+        "enId": 273066,
+        "form": "ほめた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -699,6 +1119,7 @@
     "meaning": "bell",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ベル is the English word “bell” in katakana.",
@@ -709,6 +1130,22 @@
       },
       {
         "quote": "From English Bell."
+      }
+    ],
+    "examples": [
+      {
+        "id": 196691,
+        "ja": "ベルは正午に鳴る。",
+        "en": "The bell rings at noon.",
+        "enId": 33870,
+        "form": "ベル"
+      },
+      {
+        "id": 196705,
+        "ja": "ベルが鳴ってるよ。",
+        "en": "There's the bell.",
+        "enId": 33884,
+        "form": "ベル"
       }
     ],
     "wiktionaryDump": "2026-09-02"

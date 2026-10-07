@@ -6,6 +6,7 @@
     "meaning": "fawn, be very hungry",
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Pekopeko is related to the verb 凹む (hekomu, “to become hollow or dented, to collapse inwardly, to sink in”).",
@@ -13,6 +14,22 @@
     "sources": [
       {
         "quote": "Related to the verb 凹む (hekomu, “to become hollow or dented, to collapse inwardly, to sink in”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 226688,
+        "ja": "お腹がぺこぺこです。",
+        "en": "I'm starved.",
+        "enId": 64032,
+        "form": "ぺこぺこ"
+      },
+      {
+        "id": 146195,
+        "ja": "上役にやたらにぺこぺこするな。",
+        "en": "Don't be subservient to your boss.",
+        "enId": 268367,
+        "form": "ぺこぺこ"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -24,6 +41,7 @@
     "meaning": "otolaryngology",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf40"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jibika is 耳鼻 (jibi, “ears and nose”) plus 科 (-ka, “field of study”).",
@@ -56,6 +74,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "セックス is borrowed from English sex.",
@@ -80,6 +99,7 @@
     "meaning": "the world, whole country",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Tenka is from Middle Chinese 天下 (MC then haeX, “heaven + under”), in the kan'on reading, so likely a later borrowing.",
@@ -109,6 +129,7 @@
     "meaning": "style",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スタイル is borrowed from English style.",
@@ -124,6 +145,22 @@
         "quote": "Borrowed from English style."
       }
     ],
+    "examples": [
+      {
+        "id": 113397,
+        "ja": "彼はスタイルがいい。",
+        "en": "He has a nice build.",
+        "enId": 290276,
+        "form": "スタイル"
+      },
+      {
+        "id": 92715,
+        "ja": "彼女はスタイルが悪い。",
+        "en": "She has no figure.",
+        "enId": 310994,
+        "form": "スタイル"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -133,6 +170,7 @@
     "meaning": "to call, to send for, to put on",
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["news2", "nf47", "spec2"],
     "stratum": "wago",
     "processes": [],
     "headline": "Mesu, “to call”, is cognate with 見す (mesu, “(honorific) to see; to govern”).",
@@ -140,6 +178,22 @@
     "sources": [
       {
         "quote": "Cognate with 見(め)す (mesu, “(honorific) to see; to govern”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 76810,
+        "ja": "お祖父さまはお風邪を召していらっしゃいます。",
+        "en": "Grandfather has caught a cold.",
+        "enId": 326910,
+        "form": "召して"
+      },
+      {
+        "id": 231357,
+        "ja": "あのお年を召した人に席を譲ってあげてはどうですか。",
+        "en": "Why don't you give your seat to that old gentleman?",
+        "enId": 68723,
+        "form": "召した"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -151,6 +205,7 @@
     "meaning": "protein",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf47", "spec1"],
     "stratum": "gairaigo",
     "processes": ["compound", "borrowing"],
     "headline": "Tanpakushitsu is 蛋白 (tanpaku, “egg white”) plus 質 (-shitsu, “material”), with 蛋白 a semantic loan from German Eiweiß.",
@@ -180,6 +235,7 @@
     "meaning": "sign, omen, indication",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": [],
     "headline": "Kizashi is the continuative stem of the verb 兆す (kizasu, “to show signs”).",
@@ -187,6 +243,22 @@
     "sources": [
       {
         "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 兆(きざ)す (kizasu, “to show signs”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 78451,
+        "ja": "嵐のきざしがある。",
+        "en": "There is a threat of a storm.",
+        "enId": 325265,
+        "form": "きざし"
+      },
+      {
+        "id": 189553,
+        "ja": "雨は止む兆しが無い。",
+        "en": "The rain shows no sign of stopping.",
+        "enId": 26705,
+        "form": "兆し"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -198,6 +270,7 @@
     "meaning": "range, stove",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レンジ is borrowed from English range.",
@@ -225,6 +298,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ōhaba is 大 (ō-, “large”) plus 幅 (haba, “width, breadth”).",
@@ -245,6 +319,22 @@
         "quote": "Compound of 大(おお) (ō-, “large”) + 幅(はば) (haba, “width, breadth”)."
       }
     ],
+    "examples": [
+      {
+        "id": 137280,
+        "ja": "大幅に昇給した。",
+        "en": "I got a big pay raise.",
+        "enId": 275956,
+        "form": "大幅に"
+      },
+      {
+        "id": 143228,
+        "ja": "成績が大幅に下がった。",
+        "en": "My grades fell greatly.",
+        "enId": 271340,
+        "form": "大幅に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -254,6 +344,7 @@
     "meaning": "atmospheric current",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf29"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kiryū is 気, air, plus 流, current or flow.",
@@ -276,6 +367,15 @@
         "quote": "From 気, air, and 流, current/flow."
       }
     ],
+    "examples": [
+      {
+        "id": 203616,
+        "ja": "ただ今気流の関係で揺れております。",
+        "en": "We are currently experiencing some turbulence.",
+        "enId": 40854,
+        "form": "気流"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -285,6 +385,7 @@
     "meaning": "cane",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf28"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tsue is from Old Japanese and is found in the Man'yōshū.",
@@ -297,6 +398,22 @@
         "quote": "From Old Japanese. Found in the Man'yōshū, completed some time after 759 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 124963,
+        "ja": "転ばぬ先の杖。",
+        "en": "Forewarned is forearmed.",
+        "enId": 238066,
+        "form": "杖"
+      },
+      {
+        "id": 77270,
+        "ja": "老人は杖をついていた。",
+        "en": "The old man walked with a stick.",
+        "enId": 326449,
+        "form": "杖"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -306,6 +423,7 @@
     "meaning": "make up, structure, physique",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf06", "nf20"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsukuri is the continuative stem of the verb 作る (tsukuru, “to make, to produce, to manufacture”).",
@@ -313,6 +431,22 @@
     "sources": [
       {
         "quote": "The 連用形 (ren'yōkei, “continuative or stem form”) of verb 作る (tsukuru, “to make, to produce, to manufacture”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 94568,
+        "ja": "彼女の顔のつくりの中で目が一番いい。",
+        "en": "Her eyes are her best feature.",
+        "enId": 309138,
+        "form": "つくり"
+      },
+      {
+        "id": 149279,
+        "ja": "芝刈り機が簡素な作りの荷車に積んである。",
+        "en": "Some lawn equipment is loaded into the jerry-built cart.",
+        "enId": 265279,
+        "form": "作り"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -324,6 +458,7 @@
     "meaning": "management, executive",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Kanbu is a calque of French cadre (“executive, manager”), from 幹 (kan, “core, main part”) plus 部 (bu, “division, department”).",
@@ -344,6 +479,22 @@
         "quote": "Calque of French cadre (“executive, manager”), from 幹(かん) (kan, “core, main part”) + 部(ぶ) (bu, “division, department”)."
       }
     ],
+    "examples": [
+      {
+        "id": 112371,
+        "ja": "彼はその問題について幹部の何人かと協議した。",
+        "en": "He consulted with some of the staff on the matter.",
+        "enId": 291306,
+        "form": "幹部"
+      },
+      {
+        "id": 124399,
+        "ja": "党幹部らは、党組織の欠陥問題に取り組んでいます。",
+        "en": "Party leaders are grappling with flaws in the party system.",
+        "enId": 279595,
+        "form": "幹部"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -356,6 +507,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
+    "priority": ["ichi1", "news2", "nf25"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Mujaki is 無 (“non-”) plus 邪気 (“malice”), which occur in Classical Chinese but never as a single word.",
@@ -376,6 +528,22 @@
         "quote": "無 (“non-”) + 邪気 (“malice”), attestable in Classical Chinese e.g. Du Fu's famous prose 《秋述》 (literally “autumnal sentiments”) but never as a single word."
       }
     ],
+    "examples": [
+      {
+        "id": 86586,
+        "ja": "彼女は無邪気を装った。",
+        "en": "She put on an air of innocence.",
+        "enId": 317124,
+        "form": "無邪気"
+      },
+      {
+        "id": 112083,
+        "ja": "彼はたいへん無邪気だ。",
+        "en": "He is harmless as a dove.",
+        "enId": 291594,
+        "form": "無邪気"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -385,6 +553,7 @@
     "meaning": "retainer, retinue, servant",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf39", "spec2"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kerai was originally 家礼 (kerai).",
@@ -416,6 +585,7 @@
     "meaning": "pet",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "ペット is borrowed from English pet, and the source also lists clippings of トランペット (toranpetto, “trumpet”) and English PET.",
@@ -431,6 +601,22 @@
         "quote": "Borrowed from English PET, itself the initialism for polyethylene terephthalate, a common material used to make plastic."
       }
     ],
+    "examples": [
+      {
+        "id": 111025,
+        "ja": "彼はペットに優しい。",
+        "en": "He's gentle with our pets.",
+        "enId": 292656,
+        "form": "ペット"
+      },
+      {
+        "id": 196776,
+        "ja": "ペット持ち込み禁止。",
+        "en": "No pets allowed.",
+        "enId": 33955,
+        "form": "ペット"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -443,6 +629,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["news1", "nf13"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Menjo is borrowed from Chinese 免除 (miǎnchú).",
@@ -465,6 +652,22 @@
         "quote": "Borrowed from Chinese 免除 (miǎnchú)."
       }
     ],
+    "examples": [
+      {
+        "id": 178210,
+        "ja": "君の出席は免除する。",
+        "en": "We will exempt you from attending.",
+        "enId": 17062,
+        "form": "免除"
+      },
+      {
+        "id": 100182,
+        "ja": "彼は兵役を免除されている。",
+        "en": "He is exempt from the military service.",
+        "enId": 303515,
+        "form": "免除"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -474,6 +677,7 @@
     "meaning": "straw",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
     "headline": "Wara is from Old Japanese, from Proto-Japonic *wara.",
@@ -481,6 +685,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *wara."
+      }
+    ],
+    "examples": [
+      {
+        "id": 231220,
+        "ja": "あのわらは火が付きやすい。",
+        "en": "That straw catches fire easily.",
+        "enId": 68587,
+        "form": "わら"
+      },
+      {
+        "id": 191753,
+        "ja": "わらの男でも金の女の値打ちがある。",
+        "en": "A man of straw is worth a woman of gold.",
+        "enId": 28916,
+        "form": "わら"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -492,6 +712,7 @@
     "meaning": "given in, given up hope",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf22"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Oteage is 御 (o, honorific prefix) plus 手 (te, “hand, hands”) plus 上げ (age, “raising”), the stem of 上げる (ageru).",
@@ -517,6 +738,22 @@
         "quote": "Compound of 御 (o, honorific prefix) + 手 (te, “hand, hands”) + 上げ (age, “raising”, the 連用形 (ren'yōkei, “continuative or stem form”) of verb 上げる ageru “to raise something”)."
       }
     ],
+    "examples": [
+      {
+        "id": 227069,
+        "ja": "お手上げだ。",
+        "en": "I'm at a complete loss!",
+        "enId": 64418,
+        "form": "お手上げ"
+      },
+      {
+        "id": 81553,
+        "ja": "本当にお手上げだ。",
+        "en": "I'm really up a tree.",
+        "enId": 322162,
+        "form": "お手上げ"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -526,6 +763,7 @@
     "meaning": "intention, idea, inclination",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In ikō, 向 is a daiyōji replacing 嚮.",
@@ -551,6 +789,22 @@
         "quote": "ikau > ikɔː > ikoː."
       }
     ],
+    "examples": [
+      {
+        "id": 118139,
+        "ja": "彼の意向に逆らうな。",
+        "en": "Don't go against his wishes.",
+        "enId": 285525,
+        "form": "意向"
+      },
+      {
+        "id": 110111,
+        "ja": "彼は意向を遠回しに言った。",
+        "en": "He hinted at his intention.",
+        "enId": 293577,
+        "form": "意向"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -563,6 +817,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf01"],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change", "unclear"],
     "headline": "Osu is 雄 (o, “male”) plus す (su), though the su is of unknown derivation.",
@@ -578,6 +833,22 @@
         "quote": "See also the etymology of 雌 (mesu)."
       }
     ],
+    "examples": [
+      {
+        "id": 231056,
+        "ja": "あの犬はオスかメスか。",
+        "en": "Is that dog male or female?",
+        "enId": 68424,
+        "form": "オス"
+      },
+      {
+        "id": 79151,
+        "ja": "雄のくじゃくは尾の羽毛が色彩豊かである。",
+        "en": "The male peacock has colorful tail feathers.",
+        "enId": 324566,
+        "form": "雄"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -590,6 +861,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "デッサン is borrowed from French dessin (“a sketch, a drawing”).",
@@ -605,6 +877,15 @@
         "quote": "Borrowed from French dessin (“a sketch, a drawing”)."
       }
     ],
+    "examples": [
+      {
+        "id": 166379,
+        "ja": "私たちはその少年のデッサンのすばらしさに驚嘆した。",
+        "en": "We were amazed at the excellence of the boy's drawings.",
+        "enId": 248124,
+        "form": "デッサン"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -615,9 +896,22 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "hybrid",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Kogecha is 焦げる (kogeru, “to burn, to blacken”) plus 茶 (cha, “(tea) brown”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "焦げ",
+        "reading": "こげ",
+        "meaning": "burn",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "茶",
+        "reading": "ちゃ",
+        "meaning": "tea",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "焦(こ)げる (kogeru, “to burn, to blacken”) + 茶(ちゃ) (cha, “(tea) brown”)"
@@ -659,6 +953,7 @@
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "kango",
     "processes": ["compound", "reread"],
     "headline": "Tsuihō is a Sinicization of 追い放つ (oihanatsu).",
@@ -679,6 +974,22 @@
     "sources": [
       {
         "quote": "Sinicization of 追(お)い放(はな)つ (oihanatsu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 100072,
+        "ja": "彼は母国を追放された。",
+        "en": "He was exiled from his country.",
+        "enId": 303625,
+        "form": "追放"
+      },
+      {
+        "id": 107514,
+        "ja": "彼は故国を追放された。",
+        "en": "He was exiled from his own country.",
+        "enId": 296172,
+        "form": "追放"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -719,6 +1030,7 @@
     "meaning": "toy",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Gangu is from Middle Chinese 玩具 (MC ngwanH gjuH).",
@@ -753,6 +1065,7 @@
     "meaning": "elegant",
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["gai1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "エレガント is borrowed from English elegant.",
@@ -777,6 +1090,7 @@
     "meaning": "intelligence",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Chisei is from Middle Chinese 知性 (MC trje sjengH).",
@@ -799,6 +1113,22 @@
         "quote": "From Middle Chinese 知性 (MC trje sjengH)."
       }
     ],
+    "examples": [
+      {
+        "id": 118784,
+        "ja": "彼には知性がある。",
+        "en": "He is possessed of intelligence.",
+        "enId": 284879,
+        "form": "知性"
+      },
+      {
+        "id": 123372,
+        "ja": "読書は知性を向上させる。",
+        "en": "Reading improves the mind.",
+        "enId": 280626,
+        "form": "知性"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -808,6 +1138,7 @@
     "meaning": "to be guided, to be shown",
     "level": "N1",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["rendaku"],
     "headline": "Michibiku is likely 道 (michi, “path”) plus 引く (hiku, “to pull; to draw”), meaning “to pull along a path”.",
@@ -815,6 +1146,22 @@
     "sources": [
       {
         "quote": "Likely formed from 道(みち) (michi, “path”) + 引(ひ)く (hiku, “to pull; to draw”, rendaku form 引(び)く (biku)), meaning \"to pull along a path\" -> \"to lead/guide\"."
+      }
+    ],
+    "examples": [
+      {
+        "id": 86201,
+        "ja": "彼女は老人を部屋に導いた。",
+        "en": "She led the old man into the room.",
+        "enId": 317510,
+        "form": "導いた"
+      },
+      {
+        "id": 103696,
+        "ja": "彼は神の導きのもとで働いた。",
+        "en": "He worked under divine guidance.",
+        "enId": 299997,
+        "form": "導き"
       }
     ],
     "wiktionaryDump": "2026-09-02"

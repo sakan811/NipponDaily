@@ -6,6 +6,7 @@
     "meaning": "bamboo",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "Take, “bamboo”, has several derivation theories, one linking it to words for height: 高 (taka), 長 (take), 丈 (take).",
@@ -45,6 +46,7 @@
     "meaning": "Take care of yourself, Take care!, Get well soon",
     "level": "N2",
     "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["spec1"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Odaiji ni is お (o) plus 大事 (daiji, “important”) plus に (ni), shortened from お大事になさってください (o daiji ni nasatte kudasai).",
@@ -70,6 +72,22 @@
         "quote": "From お (o, honorific marker) + 大(だい)事(じ) (daiji, “important”) + に (ni, particle for direction); shortened from expressions such as お大(だい)事(じ)になさってください (o daiji ni nasatte kudasai, “Please take care of yourself”)."
       }
     ],
+    "examples": [
+      {
+        "id": 201342,
+        "ja": "どうぞお大事に。",
+        "en": "Please take care of yourself.",
+        "enId": 38550,
+        "form": "お大事に"
+      },
+      {
+        "id": 226911,
+        "ja": "お体をお大事に。",
+        "en": "Take care of yourself.",
+        "enId": 64257,
+        "form": "お大事に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -79,6 +97,7 @@
     "meaning": "to give",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "news2", "nf04", "nf29", "nf42"],
     "stratum": "wago",
     "processes": [],
     "headline": "Ageru is from Old Japanese 上ぐ (agu), from Proto-Japonic *ank-a-.",
@@ -103,6 +122,7 @@
     "meaning": "to plant",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ueru is from the classical verb 植う (uu).",
@@ -121,6 +141,22 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
+    "examples": [
+      {
+        "id": 154971,
+        "ja": "私は庭にバラを植えた。",
+        "en": "I planted roses in the garden.",
+        "enId": 259568,
+        "form": "植えた"
+      },
+      {
+        "id": 87811,
+        "ja": "彼女は庭に木犀を植えた。",
+        "en": "She planted fragrant olives in the garden.",
+        "enId": 315896,
+        "form": "植えた"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -130,6 +166,7 @@
     "meaning": "bag, sack",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": [],
     "headline": "Fukuro is very likely related to 含む (fukumu, “to include”) and 膨れる (fukureru, “to swell”), from a root *puk-.",
@@ -142,6 +179,22 @@
         "quote": "Very likely related to 含む (fukumu, “to include”), also among others deriving from a root *puk- (e.g. 膨れる (fukureru, “to swell”))."
       }
     ],
+    "examples": [
+      {
+        "id": 121201,
+        "ja": "犯人は袋の中の鼠だ。",
+        "en": "The culprit is caught like a rat in a trap.",
+        "enId": 282805,
+        "form": "袋"
+      },
+      {
+        "id": 127196,
+        "ja": "男は袋を肩に担いだ。",
+        "en": "The man threw a bag across his shoulder.",
+        "enId": 276893,
+        "form": "袋"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -151,6 +204,7 @@
     "meaning": "Mister (mostly in addressing someone on an envelope)",
     "level": "N2",
     "pos": ["suffix"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["rendaku"],
     "headline": "Dono is tono with the t voiced to d by rendaku.",
@@ -172,6 +226,7 @@
       "nouns which may take the genitive case particle 'no'",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
+    "priority": ["ichi1", "news1", "nf14"],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Mugen may be a learned borrowing from Chinese 無限 (wúxiàn, literally “without + limit”), first cited to 1881 as a translation of English infinite.",
@@ -192,6 +247,22 @@
         "quote": "May be a learned borrowing from Chinese 無限 /无限 (wúxiàn, literally “without + limit”). First cited to 1881 in the 哲学字彙 (Tetsugaku Jii, “Philosophical Vocabulary”) as a translation of English infinite."
       }
     ],
+    "examples": [
+      {
+        "id": 142326,
+        "ja": "石油の供給は無限ではない。",
+        "en": "Supplies of oil are not infinite.",
+        "enId": 272244,
+        "form": "無限"
+      },
+      {
+        "id": 74783,
+        "ja": "宇宙は無限に膨張し続けるのか？",
+        "en": "Will the universe expand indefinitely?",
+        "enId": 328936,
+        "form": "無限に"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -201,6 +272,7 @@
     "meaning": "exhibition",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Tenrankai is 展覧 (tenran, “exhibition”) plus 会 (-kai, “gathering”).",
@@ -221,6 +293,22 @@
         "quote": "展覧(てんらん) (tenran, “exhibition”) + 会(かい) (-kai, “gathering”)"
       }
     ],
+    "examples": [
+      {
+        "id": 85542,
+        "ja": "美術展覧会に行きましたか。",
+        "en": "Did you go to the art exhibition?",
+        "enId": 318171,
+        "form": "展覧会"
+      },
+      {
+        "id": 165110,
+        "ja": "私たちは毎年展覧会を開く。",
+        "en": "We hold an exhibition every year.",
+        "enId": 249396,
+        "form": "展覧会"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -230,6 +318,7 @@
     "meaning": "Buddhist temple",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
     "stratum": "wago",
     "processes": ["derivation", "borrowing"],
     "headline": "Tera appears in the Nihon Shoki of 720 CE; some sources derive it from an ancestor of Middle Korean 졀 (jeol), likely Baekje.",
@@ -254,6 +343,22 @@
         "quote": "Considering the phonetic development in Korean, the avenues for transmission of Buddhist terms to Japan, and the consistent temple sense of the Japanese term throughout recorded history, the now-obsolete Korean 뎔 (dyeol, “temple”) may be a more likely source than Pali thera (“elders”)."
       }
     ],
+    "examples": [
+      {
+        "id": 150735,
+        "ja": "寺の隣に鬼が住む。",
+        "en": "The devil lurks behind the cross.",
+        "enId": 263823,
+        "form": "寺"
+      },
+      {
+        "id": 209776,
+        "ja": "その寺にも行ったよ。",
+        "en": "We also went to the temple.",
+        "enId": 47039,
+        "form": "寺"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -263,6 +368,7 @@
     "meaning": "basket, cage",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf23", "spec1"],
     "stratum": "wago",
     "processes": ["compound", "rendaku", "unclear"],
     "headline": "Kago appears to be an uncertain element ka plus 籠 (ko), with ko voiced to go.",
@@ -270,6 +376,22 @@
     "sources": [
       {
         "quote": "Appears to be derived from a compound of an uncertain element ka and 籠 (ko) below, with ko changing to go as an instance of rendaku (連濁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 146590,
+        "ja": "少年はかごから鳥を放した。",
+        "en": "The boy released a bird from the cage.",
+        "enId": 267972,
+        "form": "かご"
+      },
+      {
+        "id": 213286,
+        "ja": "かごは苺でいっぱいでした。",
+        "en": "The basket was filled with strawberries.",
+        "enId": 50572,
+        "form": "かご"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -281,6 +403,7 @@
     "meaning": "to be happy; to be glad",
     "level": "N4",
     "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Ureshii might come from 熟れる (ureru, “to ripen, mature”) plus しい, though it is unclear how “feeling mature” matches “glad”.",
@@ -293,6 +416,22 @@
         "quote": "A surface analysis suggests that this might be derived from 熟れる (ureru, “to ripen, mature”) + しい (shii, “adjective forming suffix”). However, it is unclear how the sense of \"feeling mature\" would match the sense of \"glad\"."
       }
     ],
+    "examples": [
+      {
+        "id": 234702,
+        "ja": "ああ嬉しい。",
+        "en": "How glad I am!",
+        "enId": 72079,
+        "form": "嬉しい"
+      },
+      {
+        "id": 177896,
+        "ja": "うれしくないの？",
+        "en": "Aren't you happy?",
+        "enId": 16747,
+        "form": "うれしくない"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -302,13 +441,44 @@
     "meaning": "matter of taste",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "wago",
-    "processes": ["derivation"],
+    "processes": ["compound", "derivation", "rendaku"],
     "headline": "Sukizuki is a reduplication of 好き (suki, “fondness”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "好き",
+        "reading": "すき",
+        "meaning": "fond",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "好き",
+        "reading": "ずき",
+        "base": "すき",
+        "meaning": "fond",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "Reduplication of 好き (suki, “fondness”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 77079,
+        "ja": "蓼食う虫も好き好き。",
+        "en": "There is no accounting for tastes.",
+        "enId": 40811,
+        "form": "好き好き"
+      },
+      {
+        "id": 76313,
+        "ja": "音楽の好みは人によって好きずきです。",
+        "en": "Music preferences vary from person to person.",
+        "enId": 327407,
+        "form": "好きずき"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -323,6 +493,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news2", "nf27"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chūsei is 中 (chū) plus 性 (-sei).",
@@ -354,6 +525,7 @@
     "meaning": "lava",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In yōgan, 溶 is a daiyōji replacing 熔.",
@@ -376,6 +548,22 @@
         "quote": "溶 is a daiyōji replacing 熔."
       }
     ],
+    "examples": [
+      {
+        "id": 186707,
+        "ja": "火山は炎と溶岩を吹き出す。",
+        "en": "The volcano shoots out flames and lava.",
+        "enId": 23843,
+        "form": "溶岩"
+      },
+      {
+        "id": 211955,
+        "ja": "その火山は溶岩を流し出した。",
+        "en": "The volcano poured molten rock.",
+        "enId": 49233,
+        "form": "溶岩"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -385,6 +573,7 @@
     "meaning": "daytime, during the day",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hiruma is 昼 (hiru, “daytime; noon”) plus 間 (ma, “space; period”).",
@@ -414,6 +603,7 @@
     "meaning": "pair, couple, set",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Tsui, “pair”, is from Middle Chinese 對 (MC twojH).",
@@ -421,6 +611,15 @@
     "sources": [
       {
         "quote": "From Middle Chinese 對 (MC twojH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 76742,
+        "ja": "この国の王は人ではなく、はるか天空に居られるという三対の翼を持つ神獣なんだ。",
+        "en": "The king of this country isn't a person, but a divine beast with three pairs of wings said to be in far away in the sky.",
+        "enId": 326978,
+        "form": "対"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -432,6 +631,7 @@
     "meaning": "castle",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Shiro's derivation is unknown; the reading first appears in 794 CE when 山背 (Yamashiro) was renamed 山城 by Emperor Kanmu.",
@@ -439,6 +639,22 @@
     "sources": [
       {
         "quote": "Derivation unknown. The shiro reading for this character appears in 794 CE when the 山背 (Yamashiro) region was renamed 山城, by Emperor Kanmu, thus applying the shiro reading to the 城 kanji for the first time."
+      }
+    ],
+    "examples": [
+      {
+        "id": 230828,
+        "ja": "あの城は美しい。",
+        "en": "That castle is beautiful.",
+        "enId": 68196,
+        "form": "城"
+      },
+      {
+        "id": 188650,
+        "ja": "遠方に城が見えた。",
+        "en": "We saw a castle in the distance.",
+        "enId": 25796,
+        "form": "城"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -450,13 +666,43 @@
     "meaning": "to turn back, to go back, reverse",
     "level": "N2",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Hikikaesu is 引く (hiku, “to pull”) plus 返す (kaesu, “to return; to repeat”).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "引き",
+        "reading": "ひき",
+        "meaning": "pull",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "返す",
+        "reading": "かえす",
+        "meaning": "return",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "引(ひ)く (hiku, “to pull”) + 返(かえ)す (kaesu, “to return; to repeat”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 189988,
+        "ja": "引き返そう。",
+        "en": "Let's turn back.",
+        "enId": 27144,
+        "form": "引き返そう"
+      },
+      {
+        "id": 102152,
+        "ja": "彼は中途で引き返した。",
+        "en": "He turned back halfway.",
+        "enId": 301542,
+        "form": "引き返した"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -492,6 +738,7 @@
     "meaning": "gloss, glaze",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf23"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsuya is from Old Japanese, from Proto-Japonic *tuya.",
@@ -499,6 +746,22 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *tuya."
+      }
+    ],
+    "examples": [
+      {
+        "id": 222283,
+        "ja": "この金属は磨くとつやがでる。",
+        "en": "This metal burnishes well.",
+        "enId": 59610,
+        "form": "つや"
+      },
+      {
+        "id": 150980,
+        "ja": "飼い猫の毛のつやが悪くなった。",
+        "en": "Our cat's fur has lost its luster.",
+        "enId": 263576,
+        "form": "つや"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -510,6 +773,7 @@
     "meaning": "love, tender passion",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Koi went from kopi through kofi and kowi to koi, from the stem of 恋う (kou, “to love, yearn”).",
@@ -525,6 +789,22 @@
         "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 恋(こ)う (kou, “to love, yearn”)."
       }
     ],
+    "examples": [
+      {
+        "id": 77447,
+        "ja": "恋の味は苦い。",
+        "en": "The taste of love is bitter.",
+        "enId": 326271,
+        "form": "恋"
+      },
+      {
+        "id": 86213,
+        "ja": "彼女は恋に破れた。",
+        "en": "She was disappointed in love.",
+        "enId": 317498,
+        "form": "恋"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -538,10 +818,24 @@
       "transitive verb",
       "intransitive verb"
     ],
+    "priority": ["ichi2"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound"],
     "headline": "Tōrikakaru is 通る (tōru, “to pass through”) plus 掛かる (kakaru).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "通り",
+        "reading": "とおり",
+        "meaning": "pass through",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "掛かる",
+        "reading": "かかる",
+        "meaning": "hang",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "通(とお)る (tōru, “to pass through”) + 掛(か)かる (kakaru)"
@@ -556,6 +850,7 @@
     "meaning": "to be photographed, to be projected",
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf17"],
     "stratum": "wago",
     "processes": [],
     "headline": "Utsuru, “to be photographed”, is a doublet of 移る (utsuru, “to move; to transfer”).",
@@ -563,6 +858,22 @@
     "sources": [
       {
         "quote": "Doublet of 移(うつ)る (utsuru, “to move; to transfer”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 228093,
+        "ja": "うまく写っているといいですが。",
+        "en": "I hope it'll come out good.",
+        "enId": 65448,
+        "form": "写っている"
+      },
+      {
+        "id": 149257,
+        "ja": "写真に写っている人は皆にこにこしている。",
+        "en": "Everybody in the picture is smiling.",
+        "enId": 265301,
+        "form": "写っている"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -577,6 +888,7 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shinkei was first used in the Kaitai Shinsho of 1774 by Sugita Genpaku and others, translating the Dutch zenuw.",
@@ -602,6 +914,22 @@
         "quote": "In order to translate the Dutch term \"zenuw\", Genpaku coined the word 神(しん)経(けい) (shinkei) by combining the word 神(しん)気(き) (shinki, “life energy”) and 経(けい)脈(みゃく) (keimyaku, “network of paths”). The original German medical book was published in 1734, and Genpaku and his colleagues spent three years translating the Dutch version and it is recognized as the first Japanese publication relating to the human anatomy as understood by the western medical science. The Dutch version was used because that was perhaps the only foreign language familiar to Japanese at that time as Dutch shipping was the only authorized merchant ships to enter Nagasaki, the only open port recognized by the Tokugawa Shogunate while Japan refused to deal with outside world under the strict isolation policy in effect at that time."
       }
     ],
+    "examples": [
+      {
+        "id": 144890,
+        "ja": "神経は抜くのですか。",
+        "en": "Are you going to remove the nerve?",
+        "enId": 269674,
+        "form": "神経"
+      },
+      {
+        "id": 144887,
+        "ja": "神経を抜く必要があります。",
+        "en": "I have to remove your nerve.",
+        "enId": 269677,
+        "form": "神経"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -611,6 +939,7 @@
     "meaning": "battle, fight",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
     "stratum": "wago",
     "processes": [],
     "headline": "Tatakai is the continuative stem of 戦う (tatakau, “to fight”).",
@@ -618,6 +947,22 @@
     "sources": [
       {
         "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 戦(たたか)う (tatakau, “to fight”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 141342,
+        "ja": "戦いに勝つ。",
+        "en": "We will win the day.",
+        "enId": 273229,
+        "form": "戦い"
+      },
+      {
+        "id": 141338,
+        "ja": "戦いは終わった。",
+        "en": "The fight is over.",
+        "enId": 273233,
+        "form": "戦い"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -629,6 +974,7 @@
     "meaning": "to lose (a game) (v.i.), to be defeated",
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
     "stratum": "wago",
     "processes": [],
     "headline": "Makeru is from Old Japanese 負く (maku), from Proto-Japonic *mak-a-.",
@@ -647,6 +993,22 @@
         "quote": "First attested in the Nihon Shoki of 720 CE."
       }
     ],
+    "examples": [
+      {
+        "id": 84282,
+        "ja": "負けるが勝ち。",
+        "en": "When you lose, you actually win.",
+        "enId": 319433,
+        "form": "負ける"
+      },
+      {
+        "id": 148716,
+        "ja": "弱者は負ける。",
+        "en": "Weak people lose.",
+        "enId": 1167491,
+        "form": "負ける"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -656,13 +1018,44 @@
     "meaning": "to be prolonged, to drag on",
     "level": "N2",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf32"],
     "stratum": "wago",
-    "processes": [],
+    "processes": ["compound", "rendaku"],
     "headline": "Nagabiku is 長い (nagai) plus 引く (hiku).",
-    "morphemes": [],
+    "morphemes": [
+      {
+        "text": "長",
+        "reading": "なが",
+        "meaning": "long",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "引く",
+        "reading": "びく",
+        "base": "ひく",
+        "meaning": "pull",
+        "glossSource": "kanjidic2"
+      }
+    ],
     "sources": [
       {
         "quote": "長(なが)い (nagai) + 引(ひ)く (hiku)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 125894,
+        "ja": "長びきそうですか。",
+        "en": "Will it take long to recover?",
+        "enId": 278098,
+        "form": "長びき"
+      },
+      {
+        "id": 211295,
+        "ja": "その経済学者は長引く不況を予期していた。",
+        "en": "The economist anticipated a prolonged depression.",
+        "enId": 48569,
+        "form": "長引く"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -674,6 +1067,7 @@
     "meaning": "pole, rod, stick",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Bō, “pole”, is from Middle Chinese 棒, the goon pronunciation, so likely an earlier borrowing.",
@@ -681,6 +1075,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 棒 (MC baewngX). The goon pronunciation, so likely an earlier borrowing."
+      }
+    ],
+    "examples": [
+      {
+        "id": 139875,
+        "ja": "足が棒になった。",
+        "en": "My legs feel heavy as lead.",
+        "enId": 274466,
+        "form": "棒"
+      },
+      {
+        "id": 107705,
+        "ja": "彼は犬を棒でたたいた。",
+        "en": "He beat the dog with a stick.",
+        "enId": 295980,
+        "form": "棒"
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -692,6 +1102,7 @@
     "meaning": "glass; grass",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Gurasu is English glass, a doublet of ガラス (garasu), from Dutch.",
@@ -707,6 +1118,15 @@
         "quote": "Borrowed from English glass. Doublet of ガラス (garasu), from Dutch."
       }
     ],
+    "examples": [
+      {
+        "id": 225570,
+        "ja": "グラスは粉々に割れてしまった。",
+        "en": "The glass shattered into pieces.",
+        "enId": 62905,
+        "form": "グラス"
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -716,6 +1136,7 @@
     "meaning": "vitality, energy",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Katsuryoku is 活 (katsu, “life”) plus 力 (-ryoku, “power”).",
@@ -734,6 +1155,22 @@
     "sources": [
       {
         "quote": "活(かつ) (katsu, “life”) + 力(りょく) (-ryoku, “power”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 114568,
+        "ja": "彼はいつも活力旺盛だ。",
+        "en": "He is always full of vigor.",
+        "enId": 289103,
+        "form": "活力"
+      },
+      {
+        "id": 108804,
+        "ja": "彼は活力に満ち溢れている。",
+        "en": "He is full of energy.",
+        "enId": 294885,
+        "form": "活力"
       }
     ],
     "wiktionaryDump": "2026-09-02"
