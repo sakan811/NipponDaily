@@ -298,6 +298,10 @@ export function openDictionary(dbPath) {
         q.idsByKanji.all(word).length > 0 || q.idsByKana.all(word).length > 0
       );
     },
+    /** Every reading of one JMdict entry, by its sequence number. */
+    readingsOfEntry(idseq) {
+      return col(q.kanaOf.all(idseq), "text");
+    },
     /** All JMdict readings for a written form. */
     readingsOf(surface) {
       const out = new Set();

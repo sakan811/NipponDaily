@@ -57,7 +57,9 @@ describe("data/reference/sentences/", () => {
   });
 
   it("says how its readings were checked", () => {
+    expect(snapshot.meta?.furigana).toMatch(/Tatoeba/);
     expect(snapshot.meta?.furigana).toMatch(/kuromoji/);
+    expect(snapshot.meta?.furigana).toMatch(/KANJIDIC2/);
     expect(snapshot.meta?.furigana).toMatch(/JMdict/);
   });
 
@@ -112,6 +114,20 @@ describe("the example sentences of every entry", () => {
         }
       }
     expect(readings, "most sentences get readings").toBeGreaterThan(5000);
+  });
+
+  it("reads almost every kanji of the sentences it shows", () => {
+    const KANJI = /[\p{sc=Han}々]/gu;
+    let kanji = 0;
+    let read = 0;
+    for (const e of WORD_ENTRIES)
+      for (const ex of e.examples ?? []) {
+        kanji += ex.ja.match(KANJI)?.length ?? 0;
+        for (const part of ex.furigana ?? [])
+          if (part.length === 2) read += [...part[0]!].length;
+      }
+    // A reading the sources cannot settle is left out, not guessed.
+    expect(read / kanji).toBeGreaterThan(0.99);
   });
 
   it("is a good share of them", () => {

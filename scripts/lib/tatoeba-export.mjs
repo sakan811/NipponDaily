@@ -4,7 +4,7 @@
  * and a checksum decides which files it accepts.
  *
  * Tatoeba (https://tatoeba.org) is a public, community-built collection of
- * sentences with translations; its weekly exports are CC BY 2.0 FR. Four files
+ * sentences with translations; its weekly exports are CC BY 2.0 FR. Five files
  * are used, each pinned below by size and SHA-256 of the extracted file:
  *
  *   jpn_sentences.tsv   id \t lang \t text            every Japanese sentence
@@ -12,6 +12,11 @@
  *   eng_sentences.tsv   id \t lang \t text            every English sentence
  *   jpn_indices.csv     jpn id \t eng id \t words     the dictionary words of each Japanese
  *                                                     sentence, from the Tanaka corpus it began as
+ *   jpn_transcriptions.tsv  id \t jpn \t Hrkt \t user \t text
+ *                                                     the furigana of a sentence, `[漢字|か|ん|じ]`
+ *                                                     with one reading per kanji; `user` is the
+ *                                                     contributor who wrote it, blank when Tatoeba's
+ *                                                     software (MeCab) did
  *
  * The exports are overwritten every week, so these bytes will not be served for
  * ever: the committed snapshot (data/reference/sentences/) is the evidence, and
@@ -55,6 +60,12 @@ export const TATOEBA_EXPORT = {
       sha256:
         "8814689e026d86649565f6b08d83a3f2a6297481678c7e4d075ecfe2b1fc8d08",
     },
+    "jpn_transcriptions.tsv": {
+      url: "per_language/jpn/jpn_transcriptions.tsv.bz2",
+      bytes: 28574803,
+      sha256:
+        "af8c8447f345adead11618f423a73bc71daa3280b8e48964d02dd0dd5606f59b",
+    },
   },
 };
 
@@ -91,7 +102,8 @@ const lines = (path) => readFileSync(path, "utf8").split("\n").filter(Boolean);
 const TOKEN = /^([^([{~]+)(?:\(([^)]+)\))?(?:\[\d+\])?(?:\{([^}]+)\})?~?$/;
 
 /** Reads the export from `dir`: the Japanese sentences, the dictionary words
- *  each is indexed under, and the English translations those point to. */
+ *  each is indexed under, the English translations those point to, and the
+ *  furigana of each sentence. */
 export function readExport(dir) {
   const jpn = new Map();
   for (const l of lines(join(dir, "jpn_sentences.tsv"))) {
@@ -122,6 +134,14 @@ export function readExport(dir) {
     }
   }
 
+  // sentence id → its furigana, and whether a person wrote it.
+  const transcriptions = new Map();
+  for (const l of lines(join(dir, "jpn_transcriptions.tsv"))) {
+    const [id, , script, user, text] = l.split("\t");
+    if (script === "Hrkt" && text)
+      transcriptions.set(id, { text, human: Boolean(user) });
+  }
+
   // Only the English sentences some Japanese one links to are kept.
   const wanted = new Set([...links.values()].flat());
   const eng = new Map();
@@ -130,5 +150,5 @@ export function readExport(dir) {
     const id = l.slice(0, tab);
     if (wanted.has(id)) eng.set(id, l.slice(l.indexOf("\t", tab + 1) + 1));
   }
-  return { jpn, links, index, eng };
+  return { jpn, links, index, eng, transcriptions };
 }
