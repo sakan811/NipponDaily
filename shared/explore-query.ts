@@ -7,7 +7,12 @@
 import type { ExploreFilters, ExploreMatch } from "~~/types/index";
 import { JLPT_LEVELS } from "./jlpt";
 import { MAX_PART_LENGTH } from "./part-limits";
-import { POS_GROUP_IDS, WORD_PROCESSES, WORD_STRATA } from "./word-labels";
+import {
+  FREQUENCY_IDS,
+  POS_GROUP_IDS,
+  WORD_PROCESSES,
+  WORD_STRATA,
+} from "./word-labels";
 
 /** The longest search text the API accepts. */
 export const MAX_QUERY_LENGTH = 50;
@@ -50,6 +55,7 @@ export function filtersFromQuery(
     stratum: only(query.stratum, STRATUM_KEY_IDS),
     process: only(query.process, PROCESS_KEY_IDS),
     pos: only(query.pos, POS_GROUP_IDS),
+    frequency: only(query.frequency, FREQUENCY_IDS),
     part: text(query.part, MAX_PART_LENGTH),
     match: match === "all" ? ("all" as ExploreMatch) : undefined,
   };

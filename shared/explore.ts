@@ -12,6 +12,7 @@ import type {
   ExploreFilters,
   ExplorePayload,
   FacetCount,
+  FrequencyGroup,
   JlptLevel,
   PosGroup,
   StratumKey,
@@ -24,9 +25,11 @@ import type {
 } from "~~/types/index";
 import { JLPT_LEVELS } from "./jlpt";
 import {
+  FREQUENCY_IDS,
   POS_GROUP_IDS,
   WORD_PROCESSES,
   WORD_STRATA,
+  frequencyOf,
   posGroupsOf,
 } from "./word-labels";
 import {
@@ -63,9 +66,13 @@ const summaryOf = (e: WordEntry): WordSummary => ({
   hasParts: e.morphemes.length > 0,
 });
 
-type Facet = "level" | "stratum" | "process" | "pos";
+type Facet = "level" | "stratum" | "process" | "pos" | "frequency";
 
 const strataOf = (e: WordEntry): StratumKey[] => [e.stratum ?? "unstated"];
+
+const frequencyGroupOf = (e: WordEntry): FrequencyGroup[] => [
+  frequencyOf(e.priority),
+];
 
 /** Whether `have` satisfies the choices: any one of them, or every one. */
 const satisfies = (
@@ -79,8 +86,8 @@ const satisfies = (
     : chosen.some((c) => have.includes(c)));
 
 /** Whether an entry passes every filter except `skip` (used for facet counts).
- *  A word has one level and one layer, so those read "any" whatever `match`
- *  says: "all" of two levels could never match. */
+ *  A word has one level, one layer and one frequency group, so those read
+ *  "any" whatever `match` says: "all" of two levels could never match. */
 function passes(
   e: WordEntry,
   f: ExploreFilters,
@@ -94,6 +101,11 @@ function passes(
   if (skip !== "process" && !satisfies(f.process, e.processes, match))
     return false;
   if (skip !== "pos" && !satisfies(f.pos, posGroupsOf(e.pos), match))
+    return false;
+  if (
+    skip !== "frequency" &&
+    !satisfies(f.frequency, frequencyGroupOf(e), "any")
+  )
     return false;
   if (f.part && !e.morphemes.some((m) => m.text === f.part)) return false;
   if (q) {
@@ -154,6 +166,14 @@ export function exploreWords(
       ),
       pos: facet<PosGroup>(POS_GROUP_IDS, open, filters, q, "pos", (e) =>
         posGroupsOf(e.pos),
+      ),
+      frequency: facet<FrequencyGroup>(
+        FREQUENCY_IDS,
+        open,
+        filters,
+        q,
+        "frequency",
+        frequencyGroupOf,
       ),
     },
   };

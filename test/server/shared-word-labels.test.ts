@@ -1,5 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
+  FREQUENCY_IDS,
+  frequencyOf,
   POS_GROUP_IDS,
   posGroupOfTag,
   posGroupsOf,
@@ -56,5 +58,18 @@ describe("posGroupsOf", () => {
       expect(groups.length).toBeGreaterThan(0);
       for (const g of groups) expect(POS_GROUP_IDS).toContain(g);
     }
+  });
+});
+
+describe("frequencyOf", () => {
+  it("is common for a first-tier priority code, less for any other, unlisted for none", () => {
+    expect(frequencyOf(["ichi1", "news1", "nf06"])).toBe("common");
+    expect(frequencyOf(["news2"])).toBe("less");
+    expect(frequencyOf(["ichi2", "nf30"])).toBe("less");
+    expect(frequencyOf(["gai1"])).toBe("common");
+    expect(frequencyOf(["spec2"])).toBe("common");
+    expect(frequencyOf([])).toBe("unlisted");
+    expect(frequencyOf(undefined)).toBe("unlisted");
+    expect(FREQUENCY_IDS).toEqual(["common", "less", "unlisted"]);
   });
 });

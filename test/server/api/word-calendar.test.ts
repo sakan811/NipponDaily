@@ -126,6 +126,7 @@ describe("GET /api/word-calendar", () => {
       "stratum",
       "process",
       "pos",
+      "frequency",
     ]);
   });
 
