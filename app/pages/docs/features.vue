@@ -68,7 +68,7 @@ const features = computed(() => [
   {
     title: "In a Sentence",
     description:
-      "Most entries show a sentence or two that use the word, with their English translations, from Tatoeba's community collection. They are picked by fixed rules from one dated export, quoted unchanged, linked to their Tatoeba pages, and credited. Furigana is drawn over a kanji only where two sources agree on its reading; a kanji they cannot settle (今日, 何) is left bare. Nobody has reviewed them one by one, and the page says so.",
+      "Most entries show a sentence or two that use the word, with their English translations, from Tatoeba's community collection. They are picked by fixed rules from one dated export, quoted unchanged, linked to their Tatoeba pages, and credited. Furigana is Tatoeba's own, drawn over a kanji only where it passes a check against the dictionaries and a contributor or a second source stands behind it; a word is shown in a sentence whose kanji are all read where one exists, and a reading that cannot be settled is left bare, not guessed. Nobody has reviewed them one by one, and the page says so.",
   },
   {
     title: "More Like This",

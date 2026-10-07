@@ -277,7 +277,7 @@ const fields = [
   {
     name: "examples[]?",
     meaning:
-      "`{ id, ja, en, enId, form, furigana? }`: up to two example sentences from the pinned Tatoeba export, with their translations, unchanged. `id` and `enId` are Tatoeba's numbers and `form` is the word as the sentence writes it. `furigana` cuts `ja` into parts that join back to it, `[text]` or `[kanji, reading]`, and is left out when no kanji got a verified reading. The whole field is left out when no sentence qualifies.",
+      "`{ id, ja, en, enId, form, furigana? }`: up to two example sentences from the pinned Tatoeba export, with their translations, unchanged. `id` and `enId` are Tatoeba's numbers and `form` is the word as the sentence writes it. `furigana` cuts `ja` into parts that join back to it, `[text]` or `[kanji, reading]`, and is left out when no kanji got a verified reading; a kanji whose reading the sources cannot settle stays bare in it. The whole field is left out when no sentence qualifies.",
   },
   { name: "wiktionaryDump", meaning: "Date of the pinned Wiktionary dump." },
 ];

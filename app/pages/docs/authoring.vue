@@ -57,9 +57,10 @@
     <p>
       <code>data:sentences</code> is offline too, bar one fetch: it also reads
       the pinned JMdict (the same checksum-verified download the reference
-      builders share, cached once) to check the furigana. It reads four files of
-      a {{ SOURCES.tatoeba.name }} export, a few seconds' work on about 150 MB
-      that is never committed. Download them from the paths listed in
+      builders share, cached once) to check the furigana against JMdict and
+      KANJIDIC2. It reads five files of a {{ SOURCES.tatoeba.name }} export,
+      under a minute's work on about 180 MB that is never committed. Download
+      them from the paths listed in
       <code>scripts/lib/tatoeba-export.mjs</code> (each is a <code>bz2</code>;
       the indices come in a <code>tar</code>), extract them into a
       <code>tatoeba</code> directory in the repo root (it is git-ignored), and
@@ -192,7 +193,7 @@
         the entry, and the diff shows it.
       </li>
       <li>
-        <strong>Tatoeba:</strong> download the four files named in
+        <strong>Tatoeba:</strong> download the five files named in
         <code>scripts/lib/tatoeba-export.mjs</code>, extract them into a
         <code>tatoeba</code> directory, and put their date, sizes and checksums
         in <code>TATOEBA_EXPORT</code>. Run <code>pnpm data:sentences</code>,

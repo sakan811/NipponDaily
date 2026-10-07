@@ -45,10 +45,11 @@
         check and an entry in <code>shared/sources.ts</code>.
       </li>
       <li>
-        <strong>Furigana for the kanji left bare.</strong> A spelling JMdict
-        reads several ways, with no reading in Tatoeba's index to settle it, is
-        left bare. A sense-level source that says which reading a sentence means
-        (or a reviewed list of the common ones) would cover more.
+        <strong>A second analyser for the furigana.</strong> kuromoji uses the
+        IPADIC dictionary, as Tatoeba's software does, so their mistakes can
+        agree. An analyser built on a different dictionary (UniDic: Sudachi,
+        Lindera or MeCab) would check Tatoeba's machine-made readings
+        independently and settle some of the few kanji still left bare.
       </li>
       <li>
         <strong>An export for flash-card tools</strong> of the open words, with
@@ -62,12 +63,14 @@
     <h2>Limits</h2>
     <ul>
       <li>
-        <strong>Furigana is partial on purpose.</strong> kuromoji reads every
-        sentence, but its readings are statistical and some are wrong, so one is
-        shown only where Tatoeba's index or JMdict confirms it (most kanji
-        words). The rest stay bare, so a bare kanji means “unsure”, not “easy”,
-        and the readings are those of the dictionary form's stem, so a verb
-        whose stem changes (来る as き) is left bare too.
+        <strong>Furigana is nearly complete, not guaranteed.</strong> The
+        readings are Tatoeba's. About a third were written by a contributor and
+        the rest by software that Tatoeba says sometimes errs, so a reading is
+        shown only if it passes a check against KANJIDIC2 or JMdict and a
+        contributor, kuromoji or Tatoeba's index stands behind it. A reading the
+        sources cannot settle, a number with its counter (３月) and a name stay
+        bare, so a bare kanji means “unsure”, not “easy”. A contributor can
+        still be wrong, and so can software and kuromoji together.
       </li>
       <li>
         <strong>Example sentences are picked, not reviewed.</strong> They come
