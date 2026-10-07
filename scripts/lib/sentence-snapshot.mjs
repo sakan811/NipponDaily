@@ -3,7 +3,7 @@
  * per word-plan month under data/reference/sentences/, plus meta.json.
  *
  *   data/reference/sentences/meta.json     source, licence and the export pinned
- *   data/reference/sentences/YYYY-MM.json  { term: [{ id, ja, en, enId, form }] }
+ *   data/reference/sentences/YYYY-MM.json  { term: [{ id, ja, en, enId, form, furigana? }] }
  *
  * A term's shard comes only from the word plans, so the layout is
  * deterministic. A term with no sentence has no key. Readers get the merged
@@ -23,6 +23,17 @@ import { planMonths } from "./etymology-snapshot.mjs";
 export const SENTENCES_DIR = "data/reference/sentences";
 
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
+
+/** One space of indent, except that a sentence's `furigana` parts stay on one
+ *  line, so a diff of the snapshot shows a sentence, not a column of pieces. */
+function stringify(data) {
+  return (
+    JSON.stringify(data, null, 1).replace(
+      /^( {3}"furigana": )(\[[\s\S]*?\n {3}\])$/gm,
+      (_, key, block) => key + JSON.stringify(JSON.parse(block)),
+    ) + "\n"
+  );
+}
 
 /** Every shard merged: `{ meta, entries }`; empty `entries` if none exists. */
 export function loadSentenceSnapshot(root) {
@@ -50,8 +61,7 @@ export function writeSentenceSnapshot(root, meta, entries) {
   for (const term of Object.keys(entries).sort())
     (shards[months[term] ?? "unplanned"] ??= {})[term] = entries[term];
 
-  const write = (name, data) =>
-    writeFileSync(join(dir, name), JSON.stringify(data, null, 1) + "\n");
+  const write = (name, data) => writeFileSync(join(dir, name), stringify(data));
   write("meta.json", meta);
   for (const [name, shard] of Object.entries(shards))
     write(`${name}.json`, shard);

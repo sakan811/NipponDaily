@@ -64,7 +64,15 @@ export interface WordExample {
   enId: number;
   /** The form of the word as it stands in `ja` (食べた for 食べる). */
   form: string;
+  /** `ja` cut into parts that join back to it: `[text]` for plain text,
+   *  `[kanji, reading]` where a reading is shown over the kanji. A reading is
+   *  here only where kuromoji and Tatoeba's index or JMdict agree
+   *  (scripts/lib/furigana.mjs); left out when none was. */
+  furigana?: SentencePart[];
 }
+
+/** A stretch of a sentence: plain text, or kanji with the reading to show over it. */
+export type SentencePart = [text: string] | [text: string, reading: string];
 
 /** One line of Wiktionary's Etymology section for this word's reading, quoted
  *  verbatim from the pinned snapshot in data/reference/etymology/. */
