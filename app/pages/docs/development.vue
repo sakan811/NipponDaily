@@ -20,8 +20,9 @@ pnpm dev          # http://localhost:3000</code></pre>
 
     <h2>Environment</h2>
     <p>
-      See <code>.env.example</code>. All server-side config goes through
-      <code>getEnvOrConfig</code> in <code>server/utils/config.ts</code>.
+      See <code>.env.example</code>. Redis and cron settings go through
+      <code>getEnvOrConfig</code> in <code>server/utils/config.ts</code>; the
+      site URL is read from <code>runtimeConfig.public</code>.
     </p>
     <div class="table-wrap">
       <table>
