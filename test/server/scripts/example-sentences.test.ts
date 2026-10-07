@@ -3,7 +3,12 @@ import { describe, it, expect } from "vitest";
 import * as lib from "../../../scripts/lib/example-sentences.mjs";
 
 const { pickExamples } = lib as {
-  pickExamples: (word: any, corpus: any, max?: number) => any[];
+  pickExamples: (
+    word: any,
+    corpus: any,
+    max?: number,
+    unread?: (sentence: any) => number,
+  ) => any[];
 };
 
 /** A corpus in the shape readExport() returns. */
@@ -61,6 +66,24 @@ describe("pickExamples", () => {
       },
       { 手紙: [{ id: "3" }, { id: "2" }, { id: "1" }] },
     );
+    expect(pickExamples(word, c).map((e) => e.id)).toEqual([1, 2]);
+  });
+
+  it("puts sentences with every kanji read ahead of shorter ones that are not", () => {
+    const c = corpus(
+      {
+        "1": "手紙を出しました。",
+        "2": "手紙を書きました。",
+        "3": "昨日友達に長い手紙を書きました。",
+      },
+      { 手紙: [{ id: "1" }, { id: "2" }, { id: "3" }] },
+    );
+    // Sentence 1 has two kanji nobody could read; 2 has none; 3 has one.
+    const left: Record<number, number> = { 1: 2, 2: 0, 3: 1 };
+    expect(
+      pickExamples(word, c, 2, (s) => left[s.id]!).map((e) => e.id),
+    ).toEqual([2, 3]);
+    // Without a count the shortest still win.
     expect(pickExamples(word, c).map((e) => e.id)).toEqual([1, 2]);
   });
 

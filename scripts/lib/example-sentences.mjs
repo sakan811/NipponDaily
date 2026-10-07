@@ -17,7 +17,8 @@
  *    under a headword; they are left out;
  *  - it has an English translation, and is short enough to read at a glance;
  *  - neither side holds a word on the small filter below.
- * The shortest qualifying sentences win, then the lowest id.
+ * The sentences with the fewest kanji left without a reading win (when the
+ * caller can say), then the shortest, then the lowest id.
  */
 import { toHiragana } from "wanakana";
 
@@ -37,7 +38,7 @@ const len = (s) => [...s].length;
 
 /** The example sentences for a word: [{ id, ja, en, enId, form }].
  *  `word` is { term, kana, spellingReadings? }; `corpus` is readExport()'s result. */
-export function pickExamples(word, corpus, max = MAX_EXAMPLES) {
+export function pickExamples(word, corpus, max = MAX_EXAMPLES, unread) {
   const { term, kana, spellingReadings } = word;
   const want = toHiragana(kana);
   const shared = (spellingReadings?.length ?? 0) > 1;
@@ -69,7 +70,13 @@ export function pickExamples(word, corpus, max = MAX_EXAMPLES) {
     if (UNWANTED_EN.test(en) || UNWANTED_JA.test(ja)) continue;
     found.push({ id: Number(hit.id), ja, en, enId: Number(enId), form });
   }
-  found.sort((a, b) => len(a.ja) - len(b.ja) || a.id - b.id);
+  // `unread(sentence)` counts the kanji the page could not give a reading: the
+  // fewest come first, so a word is shown in a sentence a learner can read.
+  const missing = new Map(found.map((s) => [s, unread?.(s) ?? 0]));
+  found.sort(
+    (a, b) =>
+      missing.get(a) - missing.get(b) || len(a.ja) - len(b.ja) || a.id - b.id,
+  );
   const seen = new Set();
   return found.filter((s) => !seen.has(s.ja) && seen.add(s.ja)).slice(0, max);
 }
