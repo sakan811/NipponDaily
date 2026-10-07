@@ -32,8 +32,11 @@
       A successful answer is cached until midnight in Japan (<NuxtLink
         to="/docs/architecture#caching"
         >Caching</NuxtLink
-      >). There is no request rate limiting on any endpoint. A day's words are
-      served only once it is open (<NuxtLink to="/docs/words"
+      >). An address that asks an endpoint or the share image more than 120
+      times a minute gets a <code>429</code> with
+      <code>Retry-After</code> (counted in memory per server instance, never
+      stored). A day's words are served only once it is open (<NuxtLink
+        to="/docs/words"
         >Daily words</NuxtLink
       >); what each failure looks like on a page is in
       <NuxtLink to="/docs/error-states">Error and fallback states</NuxtLink>.
