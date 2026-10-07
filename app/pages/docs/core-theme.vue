@@ -43,9 +43,10 @@
       date, so any reader gets the same complete page. The words are finite, so
       when they run out the clock goes round again: a <em>lap</em> (周) starts
       from the first word, the day after the last one, and the home page says
-      which lap it is on. Only the home page repeats words; every other page and
-      every explicit date stays on the first lap, where each word has its own
-      day.
+      which lap it is on. Only the home page and the calendar repeat words (the
+      calendar marks them ↻); every other page and every explicit date stays on
+      the first lap, where each word has its own day, and each entry says when
+      it was first opened.
     </p>
 
     <h2>Principles</h2>
