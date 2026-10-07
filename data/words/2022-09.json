@@ -28,14 +28,22 @@
         "ja": "チーズは牛乳で作る。",
         "en": "Cheese is made from milk.",
         "enId": 32228,
-        "form": "チーズ"
+        "form": "チーズ",
+        "furigana": [
+          ["チーズは"],
+          ["牛乳", "ぎゅうにゅう"],
+          ["で"],
+          ["作", "つく"],
+          ["る。"]
+        ]
       },
       {
         "id": 200043,
         "ja": "トムはチーズが好きです。",
         "en": "Tom likes cheese.",
         "enId": 37244,
-        "form": "チーズ"
+        "form": "チーズ",
+        "furigana": [["トムはチーズが"], ["好", "す"], ["きです。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -63,14 +71,16 @@
         "ja": "諦めないで。",
         "en": "Don't give up!",
         "enId": 278606,
-        "form": "諦めないで"
+        "form": "諦めないで",
+        "furigana": [["諦", "あきら"], ["めないで。"]]
       },
       {
         "id": 125388,
         "ja": "諦めてしまえ。",
         "en": "Give it up.",
         "enId": 278605,
-        "form": "諦めて"
+        "form": "諦めて",
+        "furigana": [["諦", "あきら"], ["めてしまえ。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -104,14 +114,28 @@
         "ja": "・テキストデータの誤字脱字を修正。",
         "en": "・ Corrected mistaken/missing characters in the text data.",
         "enId": 328235,
-        "form": "テキスト"
+        "form": "テキスト",
+        "furigana": [
+          ["・テキストデータの"],
+          ["誤字", "ごじ"],
+          ["脱字", "だつじ"],
+          ["を"],
+          ["修正", "しゅうせい"],
+          ["。"]
+        ]
       },
       {
         "id": 202361,
         "ja": "テキストは初心者向きにできている。",
         "en": "This textbook is designed for beginners.",
         "enId": 39572,
-        "form": "テキスト"
+        "form": "テキスト",
+        "furigana": [
+          ["テキストは"],
+          ["初心者", "しょしんしゃ"],
+          ["向", "む"],
+          ["きにできている。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -167,14 +191,16 @@
         "ja": "がは灯に集まる。",
         "en": "Moths are attracted by light.",
         "enId": 63582,
-        "form": "灯"
+        "form": "灯",
+        "furigana": [["がは灯に"], ["集", "あつ"], ["まる。"]]
       },
       {
         "id": 140398,
         "ja": "窓に灯がともっていた。",
         "en": "There was a light burning in the window.",
         "enId": 274175,
-        "form": "灯"
+        "form": "灯",
+        "furigana": [["窓", "まど"], ["に灯がともっていた。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -208,14 +234,22 @@
         "ja": "メニューを見せて下さい。",
         "en": "Please let me take a look at the menu.",
         "enId": 31783,
-        "form": "メニュー"
+        "form": "メニュー",
+        "furigana": [
+          ["メニューを"],
+          ["見", "み"],
+          ["せて"],
+          ["下", "くだ"],
+          ["さい。"]
+        ]
       },
       {
         "id": 194613,
         "ja": "メニューをお願いします。",
         "en": "Let me see a menu.",
         "enId": 31786,
-        "form": "メニュー"
+        "form": "メニュー",
+        "furigana": [["メニューをお"], ["願", "ねが"], ["いします。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -273,7 +307,14 @@
         "ja": "このアンテナを屋根につけると画面がはっきりする。",
         "en": "You'll get a clear picture with this antenna on the roof.",
         "enId": 61336,
-        "form": "アンテナ"
+        "form": "アンテナ",
+        "furigana": [
+          ["このアンテナを"],
+          ["屋根", "やね"],
+          ["につけると"],
+          ["画面", "がめん"],
+          ["がはっきりする。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -301,14 +342,32 @@
         "ja": "その辞書は全２巻です。",
         "en": "The dictionary comes in two volumes.",
         "enId": 46941,
-        "form": "全"
+        "form": "全",
+        "furigana": [
+          ["その"],
+          ["辞書", "じしょ"],
+          ["は"],
+          ["全", "ぜん"],
+          ["２"],
+          ["巻", "かん"],
+          ["です。"]
+        ]
       },
       {
         "id": 176650,
         "ja": "軍部は全領土を占領した。",
         "en": "The armed forces occupied the entire territory.",
         "enId": 237812,
-        "form": "全"
+        "form": "全",
+        "furigana": [
+          ["軍部", "ぐんぶ"],
+          ["は"],
+          ["全", "ぜん"],
+          ["領土", "りょうど"],
+          ["を"],
+          ["占領", "せんりょう"],
+          ["した。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -384,14 +443,31 @@
         "ja": "棄権が二票あった。",
         "en": "There were two abstentions.",
         "enId": 20501,
-        "form": "票"
+        "form": "票",
+        "furigana": [
+          ["棄権", "きけん"],
+          ["が二"],
+          ["票", "ひょう"],
+          ["あった。"]
+        ]
       },
       {
         "id": 112500,
         "ja": "彼はその提案に賛成票を投じた。",
         "en": "He cast a vote for the proposition.",
         "enId": 291177,
-        "form": "票"
+        "form": "票",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はその"],
+          ["提案", "ていあん"],
+          ["に"],
+          ["賛成", "さんせい"],
+          ["票", "ひょう"],
+          ["を"],
+          ["投", "とう"],
+          ["じた。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -425,14 +501,26 @@
         "ja": "苺は今がシーズンだ。",
         "en": "Strawberries are in season now.",
         "enId": 66417,
-        "form": "シーズン"
+        "form": "シーズン",
+        "furigana": [
+          ["苺", "いちご"],
+          ["は"],
+          ["今", "いま"],
+          ["がシーズンだ。"]
+        ]
       },
       {
         "id": 79657,
         "ja": "野球シーズンが始まった。",
         "en": "The baseball season has opened.",
         "enId": 324061,
-        "form": "シーズン"
+        "form": "シーズン",
+        "furigana": [
+          ["野球", "やきゅう"],
+          ["シーズンが"],
+          ["始", "はじ"],
+          ["まった。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -466,14 +554,21 @@
         "ja": "彼らはパイロットです。",
         "en": "They are pilots.",
         "enId": 305977,
-        "form": "パイロット"
+        "form": "パイロット",
+        "furigana": [["彼", "かれ"], ["らはパイロットです。"]]
       },
       {
         "id": 164656,
         "ja": "私にはパイロットの友人がいる。",
         "en": "I have a friend who is a pilot.",
         "enId": 249851,
-        "form": "パイロット"
+        "form": "パイロット",
+        "furigana": [
+          ["私", "わたし"],
+          ["にはパイロットの"],
+          ["友人", "ゆうじん"],
+          ["がいる。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -512,7 +607,8 @@
         "ja": "是非どうぞ。",
         "en": "By all means.",
         "enId": 38522,
-        "form": "どうぞ"
+        "form": "どうぞ",
+        "furigana": [["是非", "ぜひ"], ["どうぞ。"]]
       },
       {
         "id": 198337,
@@ -553,14 +649,22 @@
         "ja": "ここにテントを張ろう。",
         "en": "Let's put up our tent here.",
         "enId": 61811,
-        "form": "テント"
+        "form": "テント",
+        "furigana": [["ここにテントを"], ["張", "は"], ["ろう。"]]
       },
       {
         "id": 141381,
         "ja": "川の近くにテントを張った。",
         "en": "We set up the tent next to the river.",
         "enId": 273190,
-        "form": "テント"
+        "form": "テント",
+        "furigana": [
+          ["川の"],
+          ["近", "ちか"],
+          ["くにテントを"],
+          ["張", "は"],
+          ["った。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -609,14 +713,16 @@
         "ja": "蚊が刺した。",
         "en": "A mosquito just bit me.",
         "enId": 23597,
-        "form": "刺した"
+        "form": "刺した",
+        "furigana": [["蚊", "か"], ["が"], ["刺", "さ"], ["した。"]]
       },
       {
         "id": 157976,
         "ja": "蚊に刺された。",
         "en": "I got bitten by mosquitoes.",
         "enId": 256554,
-        "form": "刺された"
+        "form": "刺された",
+        "furigana": [["蚊", "か"], ["に"], ["刺", "さ"], ["された。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -650,7 +756,15 @@
         "ja": "医師は鼻と口に白のマスクをしていた。",
         "en": "The doctors wore white masks over their mouths and noses.",
         "enId": 28094,
-        "form": "マスク"
+        "form": "マスク",
+        "furigana": [
+          ["医師", "いし"],
+          ["は"],
+          ["鼻", "はな"],
+          ["と"],
+          ["口", "くち"],
+          ["に白のマスクをしていた。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -678,14 +792,16 @@
         "ja": "彼は四時にもどるでしょう。",
         "en": "He will come back at four.",
         "enId": 297100,
-        "form": "もどる"
+        "form": "もどる",
+        "furigana": [["彼", "かれ"], ["は四時にもどるでしょう。"]]
       },
       {
         "id": 91530,
         "ja": "彼女はほどなくもどるでしょう。",
         "en": "She will be back before long.",
         "enId": 312183,
-        "form": "もどる"
+        "form": "もどる",
+        "furigana": [["彼女", "かのじょ"], ["はほどなくもどるでしょう。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -744,14 +860,29 @@
         "ja": "その男は窃盗犯に問われた。",
         "en": "The man was charged with theft.",
         "enId": 45284,
-        "form": "問われた"
+        "form": "問われた",
+        "furigana": [
+          ["その男は"],
+          ["窃盗", "せっとう"],
+          ["犯", "はん"],
+          ["に"],
+          ["問", "と"],
+          ["われた。"]
+        ]
       },
       {
         "id": 220626,
         "ja": "この男は窃盗罪に問われた。",
         "en": "This man was charged with theft.",
         "enId": 57948,
-        "form": "問われた"
+        "form": "問われた",
+        "furigana": [
+          ["この男は"],
+          ["窃盗", "せっとう"],
+          ["罪に"],
+          ["問", "と"],
+          ["われた。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -785,14 +916,22 @@
         "ja": "ガムが靴底にくっついた。",
         "en": "The gum adhered to the sole of the shoe.",
         "enId": 63569,
-        "form": "ガム"
+        "form": "ガム",
+        "furigana": [["ガムが"], ["靴", "くつ"], ["底にくっついた。"]]
       },
       {
         "id": 226228,
         "ja": "ガムが彼の靴にくっついた。",
         "en": "Some gum stuck to his shoes.",
         "enId": 63568,
-        "form": "ガム"
+        "form": "ガム",
+        "furigana": [
+          ["ガムが"],
+          ["彼", "かれ"],
+          ["の"],
+          ["靴", "くつ"],
+          ["にくっついた。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -829,14 +968,21 @@
         "ja": "サイレンが鳴った。",
         "en": "The siren blew.",
         "enId": 54161,
-        "form": "サイレン"
+        "form": "サイレン",
+        "furigana": [["サイレンが"], ["鳴", "な"], ["った。"]]
       },
       {
         "id": 142947,
         "ja": "正午のサイレンが鳴っている。",
         "en": "The noon siren is blowing.",
         "enId": 271621,
-        "form": "サイレン"
+        "form": "サイレン",
+        "furigana": [
+          ["正午", "しょうご"],
+          ["のサイレンが"],
+          ["鳴", "な"],
+          ["っている。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -864,14 +1010,35 @@
         "ja": "この問いに対する答は間違っている。",
         "en": "The answer to this question is wrong.",
         "enId": 56759,
-        "form": "問い"
+        "form": "問い",
+        "furigana": [
+          ["この"],
+          ["問", "と"],
+          ["いに"],
+          ["対", "たい"],
+          ["する答は"],
+          ["間違", "まちが"],
+          ["っている。"]
+        ]
       },
       {
         "id": 115293,
         "ja": "彼は１０分で全部の問いの答えを出した。",
         "en": "He answered all the questions in ten minutes.",
         "enId": 288378,
-        "form": "問い"
+        "form": "問い",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は１０"],
+          ["分", "ふん"],
+          ["で"],
+          ["全部", "ぜんぶ"],
+          ["の"],
+          ["問", "と"],
+          ["いの答えを"],
+          ["出", "だ"],
+          ["した。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -908,14 +1075,21 @@
         "ja": "メモを取りなさい。",
         "en": "You should make notes.",
         "enId": 31782,
-        "form": "メモ"
+        "form": "メモ",
+        "furigana": [["メモを"], ["取", "と"], ["りなさい。"]]
       },
       {
         "id": 124716,
         "ja": "電話でメモが取れますか。",
         "en": "Can you take notes over the phone?",
         "enId": 279278,
-        "form": "メモ"
+        "form": "メモ",
+        "furigana": [
+          ["電話", "でんわ"],
+          ["でメモが"],
+          ["取", "と"],
+          ["れますか。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -944,14 +1118,23 @@
         "ja": "今放送中です。",
         "en": "They are on the air now.",
         "enId": 243286,
-        "form": "放送"
+        "form": "放送",
+        "furigana": [["今"], ["放送", "ほうそう"], ["中", "ちゅう"], ["です。"]]
       },
       {
         "id": 148388,
         "ja": "首相は明日放送に出る。",
         "en": "The Prime Minister will go on the air tomorrow.",
         "enId": 266171,
-        "form": "放送"
+        "form": "放送",
+        "furigana": [
+          ["首相", "しゅしょう"],
+          ["は明日"],
+          ["放送", "ほうそう"],
+          ["に"],
+          ["出", "で"],
+          ["る。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -992,7 +1175,8 @@
         "ja": "このスリッパに履きかえてください。",
         "en": "Please put on these slippers.",
         "enId": 60950,
-        "form": "スリッパ"
+        "form": "スリッパ",
+        "furigana": [["このスリッパに"], ["履", "は"], ["きかえてください。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1048,14 +1232,22 @@
         "ja": "クリーニング取ってきておいて。",
         "en": "Please pick up my dry cleaning.",
         "enId": 62864,
-        "form": "クリーニング"
+        "form": "クリーニング",
+        "furigana": [["クリーニング"], ["取", "と"], ["ってきておいて。"]]
       },
       {
         "id": 219226,
         "ja": "この洋服のクリーニング頼みます。",
         "en": "I want this suit cleaned.",
         "enId": 56542,
-        "form": "クリーニング"
+        "form": "クリーニング",
+        "furigana": [
+          ["この"],
+          ["洋服", "ようふく"],
+          ["のクリーニング"],
+          ["頼", "たの"],
+          ["みます。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1089,14 +1281,21 @@
         "ja": "そのドレスは絹製です。",
         "en": "The dress is of silk.",
         "enId": 50153,
-        "form": "ドレス"
+        "form": "ドレス",
+        "furigana": [
+          ["そのドレスは"],
+          ["絹", "きぬ"],
+          ["製", "せい"],
+          ["です。"]
+        ]
       },
       {
         "id": 223442,
         "ja": "このドレスは高そうだ。",
         "en": "That dress seems to be very expensive.",
         "enId": 60777,
-        "form": "ドレス"
+        "form": "ドレス",
+        "furigana": [["このドレスは"], ["高", "たか"], ["そうだ。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1127,14 +1326,21 @@
         "ja": "彼女をそっとしておこう。",
         "en": "Let's leave her alone.",
         "enId": 317568,
-        "form": "そっと"
+        "form": "そっと",
+        "furigana": [["彼女", "かのじょ"], ["をそっとしておこう。"]]
       },
       {
         "id": 92045,
         "ja": "彼女はドアをそっと押した。",
         "en": "She gave the door a gentle push.",
         "enId": 311666,
-        "form": "そっと"
+        "form": "そっと",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はドアをそっと"],
+          ["押", "お"],
+          ["した。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"

@@ -31,14 +31,23 @@
         "ja": "母は留守です。",
         "en": "Mother is away from home.",
         "enId": 320877,
-        "form": "母"
+        "form": "母",
+        "furigana": [["母", "はは"], ["は"], ["留守", "るす"], ["です。"]]
       },
       {
         "id": 82883,
         "ja": "母は頭が古い。",
         "en": "Mother has old-fashioned ideas.",
         "enId": 320833,
-        "form": "母"
+        "form": "母",
+        "furigana": [
+          ["母", "はは"],
+          ["は"],
+          ["頭", "あたま"],
+          ["が"],
+          ["古", "ふる"],
+          ["い。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -69,14 +78,30 @@
         "ja": "私の父は大の旅行好きです。",
         "en": "My father is a great traveler.",
         "enId": 251713,
-        "form": "父"
+        "form": "父",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["父", "ちち"],
+          ["は大の"],
+          ["旅行", "りょこう"],
+          ["好きです。"]
+        ]
       },
       {
         "id": 97798,
         "ja": "彼らはチョーサーを英詩の父と呼んだ。",
         "en": "They referred to Chaucer as the father of English poetry.",
         "enId": 305906,
-        "form": "父"
+        "form": "父",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らはチョーサーを英詩の"],
+          ["父", "ちち"],
+          ["と"],
+          ["呼", "よ"],
+          ["んだ。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -116,14 +141,23 @@
         "ja": "兄がいます。",
         "en": "I have an older brother.",
         "enId": 237828,
-        "form": "兄"
+        "form": "兄",
+        "furigana": [["兄", "あに"], ["がいます。"]]
       },
       {
         "id": 163802,
         "ja": "私の兄は健康だ。",
         "en": "My brother is healthy.",
         "enId": 250709,
-        "form": "兄"
+        "form": "兄",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["兄", "あに"],
+          ["は"],
+          ["健康", "けんこう"],
+          ["だ。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -163,14 +197,30 @@
         "ja": "私の姉は甘党だ。",
         "en": "My sister has a sweet tooth.",
         "enId": 250961,
-        "form": "姉"
+        "form": "姉",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["姉", "あね"],
+          ["は"],
+          ["甘党", "あまとう"],
+          ["だ。"]
+        ]
       },
       {
         "id": 89377,
         "ja": "彼女は私の姉です。",
         "en": "She is my elder sister.",
         "enId": 314333,
-        "form": "姉"
+        "form": "姉",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["私", "わたし"],
+          ["の"],
+          ["姉", "あね"],
+          ["です。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -213,14 +263,28 @@
         "ja": "私の妹は有名だ。",
         "en": "My sister is famous.",
         "enId": 251921,
-        "form": "妹"
+        "form": "妹",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["妹", "いもうと"],
+          ["は"],
+          ["有名", "ゆうめい"],
+          ["だ。"]
+        ]
       },
       {
         "id": 99854,
         "ja": "彼は妹がいません。",
         "en": "He doesn't have a sister.",
         "enId": 303843,
-        "form": "妹"
+        "form": "妹",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["妹", "いもうと"],
+          ["がいません。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -253,14 +317,22 @@
         "ja": "昨夜は暑かった。",
         "en": "It was hot last night.",
         "enId": 244845,
-        "form": "昨夜"
+        "form": "昨夜",
+        "furigana": [["昨夜は"], ["暑", "あつ"], ["かった。"]]
       },
       {
         "id": 79132,
         "ja": "ゆうべ霜が降りた。",
         "en": "It frosted last night.",
         "enId": 324585,
-        "form": "ゆうべ"
+        "form": "ゆうべ",
+        "furigana": [
+          ["ゆうべ"],
+          ["霜", "しも"],
+          ["が"],
+          ["降", "お"],
+          ["りた。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -308,7 +380,14 @@
         "ja": "まもなく楽しい正月だ。",
         "en": "I'm looking forward to the New Year holidays.",
         "enId": 32463,
-        "form": "正月"
+        "form": "正月",
+        "furigana": [
+          ["まもなく"],
+          ["楽", "たの"],
+          ["しい"],
+          ["正月", "しょうがつ"],
+          ["だ。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -339,7 +418,15 @@
         "ja": "船はまっすぐ北に向かっている。",
         "en": "The ship is bearing due north.",
         "enId": 273429,
-        "form": "北"
+        "form": "北",
+        "furigana": [
+          ["船", "ふね"],
+          ["はまっすぐ"],
+          ["北", "きた"],
+          ["に"],
+          ["向", "む"],
+          ["かっている。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -378,14 +465,22 @@
         "ja": "お金が欲しい。",
         "en": "I want money.",
         "enId": 64620,
-        "form": "お金"
+        "form": "お金",
+        "furigana": [["お"], ["金", "かね"], ["が"], ["欲", "ほ"], ["しい。"]]
       },
       {
         "id": 161236,
         "ja": "私はお金不足だ。",
         "en": "I'm short of money.",
         "enId": 253273,
-        "form": "お金"
+        "form": "お金",
+        "furigana": [
+          ["私", "わたし"],
+          ["はお"],
+          ["金", "かね"],
+          ["不足", "ふそく"],
+          ["だ。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -413,14 +508,16 @@
         "ja": "美しい日です。",
         "en": "It's a beautiful day.",
         "enId": 318150,
-        "form": "美しい"
+        "form": "美しい",
+        "furigana": [["美", "うつく"], ["しい"], ["日", "ひ"], ["です。"]]
       },
       {
         "id": 87103,
         "ja": "彼女は美しい。",
         "en": "She is a beauty.",
         "enId": 316605,
-        "form": "美しい"
+        "form": "美しい",
+        "furigana": [["彼女", "かのじょ"], ["は"], ["美", "うつく"], ["しい。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -451,14 +548,29 @@
         "ja": "恋の味は苦い。",
         "en": "The taste of love is bitter.",
         "enId": 326271,
-        "form": "苦い"
+        "form": "苦い",
+        "furigana": [
+          ["恋", "こい"],
+          ["の"],
+          ["味", "あじ"],
+          ["は"],
+          ["苦", "にが"],
+          ["い。"]
+        ]
       },
       {
         "id": 219288,
         "ja": "この薬は苦い。",
         "en": "This medicine tastes bitter.",
         "enId": 56604,
-        "form": "苦い"
+        "form": "苦い",
+        "furigana": [
+          ["この"],
+          ["薬", "くすり"],
+          ["は"],
+          ["苦", "にが"],
+          ["い。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -486,14 +598,22 @@
         "ja": "好事魔多し。",
         "en": "Happy events tend to be accompanied by problems.",
         "enId": 240722,
-        "form": "多し"
+        "form": "多し",
+        "furigana": [["好事"], ["魔", "ま"], ["多", "おお"], ["し。"]]
       },
       {
         "id": 146140,
         "ja": "乗組員が多い。",
         "en": "The crew is large.",
         "enId": 268422,
-        "form": "多い"
+        "form": "多い",
+        "furigana": [
+          ["乗組", "のりくみ"],
+          ["員", "いん"],
+          ["が"],
+          ["多", "おお"],
+          ["い。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -527,14 +647,36 @@
         "ja": "トムが出品した絵は皆入賞した。",
         "en": "Tom got prizes for all the pictures he sent to the exhibition.",
         "enId": 10079867,
-        "form": "絵"
+        "form": "絵",
+        "furigana": [
+          ["トムが"],
+          ["出品", "しゅっぴん"],
+          ["した"],
+          ["絵", "え"],
+          ["は"],
+          ["皆", "みな"],
+          ["入賞", "にゅうしょう"],
+          ["した。"]
+        ]
       },
       {
         "id": 174091,
         "ja": "光が絵の中には描かれていない大きな窓から射し込んでいます。",
         "en": "Light shines through the large windows outside the picture frame.",
         "enId": 240379,
-        "form": "絵"
+        "form": "絵",
+        "furigana": [
+          ["光", "ひかり"],
+          ["が"],
+          ["絵", "え"],
+          ["の"],
+          ["中", "なか"],
+          ["には描かれていない"],
+          ["大", "おお"],
+          ["きな"],
+          ["窓", "まど"],
+          ["から射し込んでいます。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -565,14 +707,16 @@
         "ja": "切らないでよ！",
         "en": "Don't hang up!",
         "enId": 272455,
-        "form": "切らないで"
+        "form": "切らないで",
+        "furigana": [["切", "き"], ["らないでよ！"]]
       },
       {
         "id": 168244,
         "ja": "指を切りました。",
         "en": "I just cut my finger.",
         "enId": 246249,
-        "form": "切りました"
+        "form": "切りました",
+        "furigana": [["指を"], ["切", "き"], ["りました。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -616,14 +760,16 @@
         "ja": "だれか玄関にいる。",
         "en": "Someone is at the door.",
         "enId": 40433,
-        "form": "玄関"
+        "form": "玄関",
+        "furigana": [["だれか"], ["玄関", "げんかん"], ["にいる。"]]
       },
       {
         "id": 136916,
         "ja": "誰か玄関に来てるよ。",
         "en": "Someone is at the front door.",
         "enId": 40468,
-        "form": "玄関"
+        "form": "玄関",
+        "furigana": [["誰か"], ["玄関", "げんかん"], ["に来てるよ。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -654,14 +800,16 @@
         "ja": "涼しくなりました。",
         "en": "It has cooled off.",
         "enId": 325807,
-        "form": "涼しく"
+        "form": "涼しく",
+        "furigana": [["涼", "すず"], ["しくなりました。"]]
       },
       {
         "id": 77913,
         "ja": "涼しくなってきた。",
         "en": "The weather is becoming cooler.",
         "enId": 325805,
-        "form": "涼しく"
+        "form": "涼しく",
+        "furigana": [["涼", "すず"], ["しくなってきた。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -696,14 +844,16 @@
         "ja": "気は確かか。",
         "en": "Are you crazy?",
         "enId": 20379,
-        "form": "確か"
+        "form": "確か",
+        "furigana": [["気", "き"], ["は"], ["確", "たし"], ["かか。"]]
       },
       {
         "id": 205294,
         "ja": "それは確かかい。",
         "en": "Can I take your word for it?",
         "enId": 42537,
-        "form": "確か"
+        "form": "確か",
+        "furigana": [["それは"], ["確", "たし"], ["かかい。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -740,14 +890,23 @@
         "ja": "向こうへ行け！",
         "en": "Get away!",
         "enId": 240634,
-        "form": "向こう"
+        "form": "向こう",
+        "furigana": [["向", "む"], ["こうへ行け！"]]
       },
       {
         "id": 173838,
         "ja": "向こうの方で泳ごう。",
         "en": "Let's swim over there.",
         "enId": 240632,
-        "form": "向こう"
+        "form": "向こう",
+        "furigana": [
+          ["向", "む"],
+          ["こうの"],
+          ["方", "ほう"],
+          ["で"],
+          ["泳", "およ"],
+          ["ごう。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -775,14 +934,23 @@
         "ja": "彼は鍵を探した。",
         "en": "He looked for the key.",
         "enId": 296040,
-        "form": "探した"
+        "form": "探した",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["鍵", "かぎ"],
+          ["を"],
+          ["探", "さが"],
+          ["した。"]
+        ]
       },
       {
         "id": 127389,
         "ja": "探してください。",
         "en": "Please look for it.",
         "enId": 1461890,
-        "form": "探して"
+        "form": "探して",
+        "furigana": [["探", "さが"], ["してください。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -824,7 +992,13 @@
         "ja": "彼の奥さんは外国人らしい。",
         "en": "His wife seems to be foreign.",
         "enId": 285634,
-        "form": "外国人"
+        "form": "外国人",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["奥", "おく"],
+          ["さんは外国人らしい。"]
+        ]
       },
       {
         "id": 122392,
@@ -874,7 +1048,8 @@
         "ja": "うみできれいな貝がらをひろった。",
         "en": "I picked up a pretty shell at the seaside.",
         "enId": 500169,
-        "form": "うみ"
+        "form": "うみ",
+        "furigana": [["うみできれいな"], ["貝", "かい"], ["がらをひろった。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -905,14 +1080,16 @@
         "ja": "言わぬが花。",
         "en": "Speech is silver, silence is gold.",
         "enId": 239721,
-        "form": "花"
+        "form": "花",
+        "furigana": [["言わぬが"], ["花", "はな"], ["。"]]
       },
       {
         "id": 186603,
         "ja": "花より団子。",
         "en": "A loaf of bread is better than the songs of birds.",
         "enId": 23739,
-        "form": "花"
+        "form": "花",
+        "furigana": [["花", "はな"], ["より"], ["団子", "だんご"], ["。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -954,7 +1131,8 @@
         "ja": "おもちゃ売り場は５階です。",
         "en": "The toy department is on the fifth floor.",
         "enId": 64842,
-        "form": "売り場"
+        "form": "売り場",
+        "furigana": [["おもちゃ売り場は５"], ["階", "かい"], ["です。"]]
       },
       {
         "id": 234776,
@@ -995,14 +1173,21 @@
         "ja": "女の心は猫の目。",
         "en": "A woman's mind and winter wind change often.",
         "enId": 267243,
-        "form": "女"
+        "form": "女",
+        "furigana": [["女", "おんな"], ["の"], ["心", "こころ"], ["は猫の目。"]]
       },
       {
         "id": 91200,
         "ja": "彼女は意地悪女だ。",
         "en": "She's a big teaser.",
         "enId": 312514,
-        "form": "女"
+        "form": "女",
+        "furigana": [
+          ["彼女は"],
+          ["意地", "いじ"],
+          ["悪女", "あくじょ"],
+          ["だ。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1030,14 +1215,28 @@
         "ja": "彼が歌を歌った。",
         "en": "He sang a song.",
         "enId": 283456,
-        "form": "歌"
+        "form": "歌",
+        "furigana": [
+          ["彼", "かれ"],
+          ["が"],
+          ["歌", "うた"],
+          ["を"],
+          ["歌", "うた"],
+          ["った。"]
+        ]
       },
       {
         "id": 90830,
         "ja": "彼女は歌がうまい。",
         "en": "She sings well.",
         "enId": 312882,
-        "form": "歌"
+        "form": "歌",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["歌", "うた"],
+          ["がうまい。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1069,14 +1268,16 @@
         "ja": "今は忙しい。",
         "en": "I'm busy at the moment.",
         "enId": 40152,
-        "form": "今"
+        "form": "今",
+        "furigana": [["今", "いま"], ["は"], ["忙", "いそが"], ["しい。"]]
       },
       {
         "id": 172845,
         "ja": "今しかない。",
         "en": "It's now or never.",
         "enId": 241628,
-        "form": "今"
+        "form": "今",
+        "furigana": [["今", "いま"], ["しかない。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1104,14 +1305,16 @@
         "ja": "後で知らせるよ。",
         "en": "I'll let you know later.",
         "enId": 240132,
-        "form": "知らせる"
+        "form": "知らせる",
+        "furigana": [["後", "あと"], ["で"], ["知", "し"], ["らせるよ。"]]
       },
       {
         "id": 127098,
         "ja": "知らせてください。",
         "en": "Please let me know.",
         "enId": 250098,
-        "form": "知らせて"
+        "form": "知らせて",
+        "furigana": [["知", "し"], ["らせてください。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1150,14 +1353,16 @@
         "ja": "病院に行けよ。",
         "en": "Go to the hospital.",
         "enId": 20096,
-        "form": "病院"
+        "form": "病院",
+        "furigana": [["病院", "びょういん"], ["に行けよ。"]]
       },
       {
         "id": 224278,
         "ja": "ここは病院だ。",
         "en": "This is a hospital.",
         "enId": 61614,
-        "form": "病院"
+        "form": "病院",
+        "furigana": [["ここは"], ["病院", "びょういん"], ["だ。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1204,14 +1409,31 @@
         "ja": "留学生も入れるのかしら。",
         "en": "Can foreign students be in the club?",
         "enId": 325478,
-        "form": "留学生"
+        "form": "留学生",
+        "furigana": [
+          ["留学生", "りゅうがくせい"],
+          ["も"],
+          ["入", "い"],
+          ["れるのかしら。"]
+        ]
       },
       {
         "id": 234487,
         "ja": "アジアからの留学生は日本語同様に英語も話す。",
         "en": "Students from Asia studying abroad speak English too, just as Japanese students do.",
         "enId": 71863,
-        "form": "留学生"
+        "form": "留学生",
+        "furigana": [
+          ["アジアからの"],
+          ["留学生", "りゅうがくせい"],
+          ["は日本語"],
+          ["同様", "どうよう"],
+          ["に"],
+          ["英語", "えいご"],
+          ["も"],
+          ["話", "はな"],
+          ["す。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1245,14 +1467,16 @@
         "ja": "逃げるが勝ち。",
         "en": "Yielding is sometimes the best way of succeeding.",
         "enId": 280107,
-        "form": "逃げる"
+        "form": "逃げる",
+        "furigana": [["逃", "に"], ["げるが"], ["勝", "か"], ["ち。"]]
       },
       {
         "id": 125376,
         "ja": "泥棒が逃げた。",
         "en": "The thief ran away.",
         "enId": 36818,
-        "form": "逃げた"
+        "form": "逃げた",
+        "furigana": [["泥棒が"], ["逃", "に"], ["げた。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1291,14 +1515,23 @@
         "ja": "いろいろなお菓子があった。",
         "en": "There were various kinds of sweets.",
         "enId": 65800,
-        "form": "お菓子"
+        "form": "お菓子",
+        "furigana": [["いろいろなお"], ["菓子", "かし"], ["があった。"]]
       },
       {
         "id": 149703,
         "ja": "自由にお菓子をお取りください。",
         "en": "Please help yourself to the cake.",
         "enId": 25788,
-        "form": "お菓子"
+        "form": "お菓子",
+        "furigana": [
+          ["自由", "じゆう"],
+          ["にお"],
+          ["菓子", "かし"],
+          ["をお"],
+          ["取", "と"],
+          ["りください。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
