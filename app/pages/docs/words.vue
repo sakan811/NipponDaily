@@ -47,8 +47,10 @@
       newest word that is open, on lap 1. The payload's <code>lap</code> says
       which one (1 until then), and the home page names the lap from 2 on. A
       word shown on a later lap has always opened already, so nothing leaks; an
-      explicit <code>date</code> is always lap 1. The page is never empty, and
-      before the first day it is a <code>404</code>.
+      explicit <code>date</code> is always lap 1. The calendar fills those days
+      too: <code>calendarForMonth()</code> gives each open day after the last
+      entry the lap word, linked to that word's own page. The page is never
+      empty, and before the first day it is a <code>404</code>.
     </p>
 
     <DocDiagram
