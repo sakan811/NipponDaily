@@ -13,8 +13,8 @@
       their furigana, the JMdict cross-check and the share image are built and
       described in
       <NuxtLink to="/docs/core-theme">Core theme</NuxtLink> and
-      <NuxtLink to="/docs/words">Words</NuxtLink>. What is left is a list of
-      ideas, not a promise. Any of them follows the
+      <NuxtLink to="/docs/words">Daily words</NuxtLink>. What is left is a list
+      of ideas, not a promise. Any of them follows the
       <NuxtLink to="/docs/core-theme">principles</NuxtLink> and the
       <NuxtLink to="/docs/architecture">import rule</NuxtLink>: read open days
       only, derive rather than claim, and store nothing about a reader.
@@ -64,9 +64,9 @@
     <ul>
       <li>
         <strong>Furigana is nearly complete, not guaranteed.</strong> The
-        readings are Tatoeba's. About a third were written by a contributor and
-        the rest by software that Tatoeba says sometimes errs, so a reading is
-        shown only if it passes a check against KANJIDIC2 or JMdict and a
+        readings are Tatoeba's. Fewer than half were written by a contributor
+        and the rest by software that Tatoeba says sometimes errs, so a reading
+        is shown only if it passes a check against KANJIDIC2 or JMdict and a
         contributor, kuromoji or Tatoeba's index stands behind it. A reading the
         sources cannot settle, a number with its counter (３月) and a name stay
         bare, so a bare kanji means “unsure”, not “easy”. A contributor can
@@ -114,15 +114,17 @@
       <li>
         <strong>The words are used up.</strong> A word needs an Etymology
         section for its reading in the pinned dump, and most pool words have
-        none, so the pool is far larger than the supply. Every word that can be
-        built is in the catalogue, which starts a new lap when it runs out. More
-        words need a newer dump or another source of origins.
+        none, so the pool is far larger than the supply. Nearly every word that
+        can be built is in the catalogue (a few dozen were left out by hand
+        because the page's text was thin or about another sense), which starts a
+        new lap when it runs out. More words need a newer dump or another source
+        of origins.
       </li>
       <li>
-        <strong>Some years are lopsided.</strong> Katakana loanwords with a
-        one-line origin are over half of 2025, and 2028 and 2029 are almost all
-        N1, so Patterns, which counts these entries, shows more of each than the
-        language would.
+        <strong>Some years are lopsided.</strong> Katakana spellings are nearly
+        half of 2022, and 2025 and 2026 are almost all N1 (no word before 2024
+        is), so Patterns, which counts these entries, shows more of each than
+        the language would.
       </li>
       <li>
         <strong>The share image can omit a headline.</strong> The two faces it
