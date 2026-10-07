@@ -2,8 +2,27 @@ import { createRequire } from "node:module";
 import tailwindcss from "@tailwindcss/vite";
 import { SEASON_IDS } from "./shared/seasons";
 
-const FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Zen+Old+Mincho:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@400;700&display=swap";
+// The site's faces, served from the app itself (@fontsource ships each as
+// unicode-range slices, so a page downloads only the slices its text needs).
+// Weights match what the markup uses; no request goes to a third party.
+const FONT_CSS = [
+  ...[300, 400, 500, 600, 700].map((w) => `@fontsource/outfit/${w}.css`),
+  ...[400, 500, 600, 700, 900].map(
+    (w) => `@fontsource/zen-old-mincho/${w}.css`,
+  ),
+  ...[400, 700].map((w) => `@fontsource/noto-serif-jp/${w}.css`),
+];
+
+// Every browser that runs the app reads woff2, so the woff fallback each
+// @fontsource rule lists is dropped before Vite copies it into the build.
+const woff2Only = {
+  name: "fontsource-woff2-only",
+  enforce: "pre" as const,
+  transform(code: string, id: string) {
+    if (!/@fontsource\/[^?]+\.css(\?|$)/.test(id)) return;
+    return code.replace(/,\s*url\([^)]*\.woff\)\s*format\(["']woff["']\)/g, "");
+  },
+};
 
 // satori (the share images) shapes text with harfbuzzjs, which reads its
 // hb.wasm from beside its own script by a computed path that the file tracer
@@ -17,7 +36,7 @@ const HARFBUZZ_WASM = createRequire(
 export default defineNuxtConfig({
   compatibilityDate: "2026-01-14",
   devtools: { enabled: true },
-  css: ["~/assets/css/tailwind.css"],
+  css: [...FONT_CSS, "~/assets/css/tailwind.css"],
   modules: ["@nuxt/test-utils/module", "@nuxt/eslint", "@nuxt/hints"],
   app: {
     head: {
@@ -67,16 +86,6 @@ export default defineNuxtConfig({
         },
       ],
       link: [
-        // Fonts were an @import inside tailwind.css, which serialised
-        // CSS -> fonts CSS -> font files; a preconnect + <link> in <head>
-        // lets the browser fetch them in parallel with the app CSS.
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossorigin: "",
-        },
-        { rel: "stylesheet", href: FONTS_URL },
         {
           rel: "icon",
           type: "image/x-icon",
@@ -136,7 +145,7 @@ export default defineNuxtConfig({
     },
   },
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [woff2Only, tailwindcss()],
   },
   hints: {
     features: {
