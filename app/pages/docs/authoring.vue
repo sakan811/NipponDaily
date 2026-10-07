@@ -47,7 +47,7 @@
     </div>
     <p>
       <code>data:etymology</code> is offline and takes seconds: it reads the
-      Wiktionary dump from {{ SOURCES.wiktionary.via.name }}, a 367 MB file that
+      Wiktionary dump from {{ SOURCES.wiktionary.via.name }}, a 385 MB file that
       is never committed. Put it in the repo root (it is git-ignored) or point
       <code>--dump</code> at it; its name, date and checksum are pinned in
       <code>scripts/lib/wiktionary-dump.mjs</code> and any other file is
@@ -59,7 +59,7 @@
       the pinned JMdict (the same checksum-verified download the reference
       builders share, cached once) to check the furigana against JMdict and
       KANJIDIC2. It reads five files of a {{ SOURCES.tatoeba.name }} export,
-      under a minute's work on about 180 MB that is never committed. Download
+      about a minute's work on about 175 MB that is never committed. Download
       them from the paths listed in
       <code>scripts/lib/tatoeba-export.mjs</code> (each is a <code>bz2</code>;
       the indices come in a <code>tar</code>), extract them into a
@@ -83,9 +83,10 @@
         <strong>Choose the words</strong> (a person or a model may do this).
         They must be pool words (N5–N1). Prefer words whose Wiktionary page has
         an Etymology section; the generator will tell you if one doesn't. Nearly
-        every pool word the pinned dump can back is already planned (a few dozen
-        were left out by hand because the page's text was thin or about another
-        sense), so a further month needs a newer dump or a corrected pool.
+        every pool word the pinned dump can back is already planned (about
+        thirty were left out by hand because the page's text was thin or about
+        another sense), so a further month needs a newer dump or a corrected
+        pool.
       </li>
       <li>
         <strong>Write the plan</strong>
