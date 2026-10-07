@@ -7,8 +7,9 @@
  * word to the browser. The data-free labels live in shared/word-labels.ts.
  *
  * To add a month: write data/word-plan/YYYY-MM.json, pin its pages with
- * `pnpm data:etymology --terms …`, run `pnpm data:words` to generate
- * data/words/YYYY-MM.json, then add its import below.
+ * `pnpm data:etymology --terms …`, pick its sentences with
+ * `pnpm data:sentences`, run `pnpm data:words` to generate
+ * data/words/YYYY-MM.json, then `pnpm data:kanji`, and add its import below.
  */
 import type {
   DailyWordPayload,

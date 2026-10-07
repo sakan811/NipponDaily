@@ -28,6 +28,15 @@
       <div class="flex flex-wrap gap-2" data-testid="word-badges">
         <UBadge color="gray" variant="outline">JLPT {{ entry.level }}</UBadge>
         <UBadge
+          v-if="common"
+          data-testid="word-common"
+          color="gray"
+          variant="outline"
+          :title="FREQUENCY_GROUPS.common.description"
+        >
+          {{ FREQUENCY_GROUPS.common.label }}
+        </UBadge>
+        <UBadge
           v-for="tag in entry.pos"
           :key="tag"
           data-testid="word-pos"
@@ -123,8 +132,9 @@
         class="text-xs text-stone-500 dark:text-stone-400 max-w-3xl"
       >
         Wiktionary's text doesn't split this word, so each part is one of its
-        kanji, with the reading and the dictionary meaning KANJIDIC2 gives that
-        character — a word doesn't always use every sense of its kanji.
+        kanji (with the okurigana written after it), with the reading and the
+        dictionary meaning KANJIDIC2 gives that character — a word doesn't
+        always use every sense of its kanji.
       </p>
       <p
         v-else-if="!entry.morphemes.length"
@@ -141,6 +151,95 @@
           Wiktionary's text for it doesn't give a split that spells the word and
           joins to its reading, and any other split would be a guess.
         </template>
+      </p>
+      <p
+        v-if="kanjiChars.length"
+        data-testid="word-kanji"
+        class="flex flex-wrap items-center gap-2 text-sm text-stone-600 dark:text-stone-400"
+      >
+        Written with
+        <NuxtLink
+          v-for="c in kanjiChars"
+          :key="c"
+          :to="kanjiPath(c)"
+          :aria-label="`${c}: its readings, meanings and every word written with it`"
+          class="season-chip inline-block border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-2.5 py-0.5 font-serif text-lg text-stone-900 dark:text-white hover:border-primary-500 transition-colors"
+          >{{ c }}</NuxtLink
+        >
+      </p>
+    </section>
+
+    <!-- In a sentence -->
+    <section
+      v-if="entry.examples?.length"
+      class="space-y-4"
+      aria-labelledby="examples-heading"
+    >
+      <h2
+        id="examples-heading"
+        class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+      >
+        In a sentence
+      </h2>
+      <ul data-testid="word-examples" class="space-y-4 max-w-3xl">
+        <li
+          v-for="ex in entry.examples"
+          :key="ex.id"
+          data-testid="word-example"
+          class="border-l-2 border-primary-500/50 pl-3 space-y-1"
+        >
+          <p
+            class="text-xl font-serif text-stone-900 dark:text-white"
+            lang="ja"
+          >
+            <template v-for="(piece, i) in splitAround(ex.ja, ex.form)" :key="i"
+              ><mark
+                v-if="piece.hit"
+                class="bg-primary-500/15 text-inherit px-0.5"
+                >{{ piece.text }}</mark
+              ><template v-else>{{ piece.text }}</template></template
+            >
+          </p>
+          <p
+            class="text-base text-stone-700 dark:text-stone-300 font-body-serif"
+          >
+            {{ ex.en }}
+          </p>
+          <p class="text-xs text-stone-500 dark:text-stone-400">
+            <a
+              :href="tatoebaSentenceUrl(ex.id)"
+              target="_blank"
+              rel="noopener"
+              class="underline hover:text-primary-500"
+              >Tatoeba #{{ ex.id }}</a
+            >,
+            <a
+              :href="tatoebaSentenceUrl(ex.enId)"
+              target="_blank"
+              rel="noopener"
+              class="underline hover:text-primary-500"
+              >translation #{{ ex.enId }}</a
+            >
+          </p>
+        </li>
+      </ul>
+      <p class="text-xs text-stone-500 dark:text-stone-400 max-w-3xl">
+        Sentences are from
+        <a
+          :href="SOURCES.tatoeba.url"
+          target="_blank"
+          rel="noopener"
+          class="underline hover:text-primary-500"
+          >{{ SOURCES.tatoeba.name }}</a
+        >
+        (<a
+          :href="SOURCES.tatoeba.licence.url"
+          target="_blank"
+          rel="noopener"
+          class="underline hover:text-primary-500"
+          >{{ SOURCES.tatoeba.licence.name }}</a
+        >), picked by fixed rules from a dated export and shown unchanged.
+        Nobody has reviewed them one by one.
       </p>
     </section>
 
@@ -242,9 +341,19 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { formatLongDate } from "../utils/date";
-import { partPath } from "../utils/seo";
-import { WORD_PROCESSES, WORD_STRATA, isHedged } from "~~/shared/word-labels";
-import { SOURCES, wiktionaryPageUrl } from "~~/shared/sources";
+import { kanjiPath, partPath } from "../utils/seo";
+import {
+  FREQUENCY_GROUPS,
+  WORD_PROCESSES,
+  WORD_STRATA,
+  frequencyOf,
+  isHedged,
+} from "~~/shared/word-labels";
+import {
+  SOURCES,
+  tatoebaSentenceUrl,
+  wiktionaryPageUrl,
+} from "~~/shared/sources";
 import type { WordEntry, WordStratum } from "~~/types/index";
 
 const props = defineProps<{ entry: WordEntry }>();
@@ -255,6 +364,27 @@ const STRATUM_COLOR: Record<WordStratum, string> = {
   gairaigo: "warning",
   hybrid: "gray",
 };
+
+/** A sentence in pieces, the word's own form marked, so it can be highlighted. */
+function splitAround(
+  text: string,
+  form: string,
+): { text: string; hit: boolean }[] {
+  const at = text.indexOf(form);
+  if (at < 0) return [{ text, hit: false }];
+  return [
+    { text: text.slice(0, at), hit: false },
+    { text: form, hit: true },
+    { text: text.slice(at + form.length), hit: false },
+  ].filter((p) => p.text);
+}
+
+/** The distinct kanji of the term (the same range the kanji pages cover). */
+const kanjiChars = computed(() => [
+  ...new Set(props.entry.term.match(/[㐀-䶿一-鿿]/gu) ?? []),
+]);
+
+const common = computed(() => frequencyOf(props.entry.priority) === "common");
 
 const fromKanjidic = computed(() =>
   props.entry.morphemes.some((m) => m.glossSource === "kanjidic2"),

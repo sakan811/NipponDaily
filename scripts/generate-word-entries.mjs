@@ -4,8 +4,8 @@
  *
  * The plan holds the ONLY hand-written text — per day: the date, the word and
  * its one-line headline. Everything else (reading, meaning, level, part of
- * speech, layer, processes, morphemes, the Wiktionary lines, the dump they came from) is
- * derived from the committed sources by scripts/lib/word-entry.mjs. Output is
+ * speech, layer, processes, morphemes, the Wiktionary lines, the dump they came from,
+ * the example sentences) is derived from the committed sources by scripts/lib/word-entry.mjs. Output is
  * deterministic; test/content/word-generation.test.ts re-runs this in CI.
  *
  *   node scripts/generate-word-entries.mjs            write every month
@@ -17,6 +17,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildEntry } from "./lib/word-entry.mjs";
 import { loadEtymologySnapshot } from "./lib/etymology-snapshot.mjs";
+import { loadSentenceSnapshot } from "./lib/sentence-snapshot.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -35,10 +36,12 @@ export function loadContext(root = ROOT) {
     Object.assign(kanji, ref.kanji);
   }
   const snapshot = loadEtymologySnapshot(root);
+  const sentences = loadSentenceSnapshot(root);
   return {
     vocab: (term) => vocab.filter((v) => v.term === term),
     kanji,
     snapshot,
+    sentences,
   };
 }
 
