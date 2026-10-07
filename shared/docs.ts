@@ -29,7 +29,7 @@ export const DOC_CHAPTERS: readonly DocChapter[] = [
     part: "The idea",
     title: "Core theme",
     summary:
-      "What the app is, why time is its theme, and the five principles every feature is checked against.",
+      "What the app is, why time is its theme, and the six principles every feature is checked against.",
   },
   {
     slug: "features",

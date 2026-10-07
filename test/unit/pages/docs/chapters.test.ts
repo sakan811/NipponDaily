@@ -96,9 +96,9 @@ describe("the contents", () => {
 });
 
 describe("the chapters' content", () => {
-  it("core theme states the five principles", async () => {
+  it("core theme states the six principles", async () => {
     const wrapper = await render("core-theme");
-    expect(wrapper.findAll(".book-prose ol > li")).toHaveLength(5);
+    expect(wrapper.findAll(".book-prose ol > li")).toHaveLength(6);
     expect(wrapper.text()).toContain("Only what has arrived.");
     expect(wrapper.find("figure svg").exists()).toBe(true);
   });
