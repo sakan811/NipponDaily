@@ -12,6 +12,8 @@ const {
   processesOf,
   stratumOf,
   posOf,
+  priorityOf,
+  jmdictFactsOf,
 } = lib as Record<string, (...args: any[]) => any>;
 
 describe("pickSections", () => {
@@ -278,6 +280,50 @@ describe("parseKanji", () => {
   it("needs two or more kanji", () => {
     expect(parseKanji("人", "ひと", kanji, "", "person")).toEqual([]);
   });
+
+  describe("with okurigana", () => {
+    const withKun = {
+      ...kanji,
+      買: { on: ["バイ"], kun: ["か.う"], meanings: ["buy"] },
+      物: { on: ["ブツ", "モツ"], kun: ["もの"], meanings: ["thing"] },
+      何: { on: ["カ"], kun: ["なに", "なん"], meanings: ["what"] },
+      回: { on: ["カイ"], kun: ["まわ.る"], meanings: ["-times", "revolve"] },
+    };
+
+    it("keeps each kanji's okurigana with it, so the parts spell the word", () => {
+      expect(parseKanji("買い物", "かいもの", withKun, "", "shopping")).toEqual(
+        [
+          {
+            text: "買い",
+            reading: "かい",
+            meaning: "buy",
+            glossSource: "kanjidic2",
+          },
+          {
+            text: "物",
+            reading: "もの",
+            meaning: "thing",
+            glossSource: "kanjidic2",
+          },
+        ],
+      );
+    });
+
+    it("refuses kana that are not okurigana KANJIDIC2 knows (何でも)", () => {
+      expect(parseKanji("何でも", "なんでも", withKun, "", "anything")).toEqual(
+        [],
+      );
+    });
+
+    it("does not split a single kanji and its okurigana (it is the word itself)", () => {
+      expect(parseKanji("買う", "かう", withKun, "", "to buy")).toEqual([]);
+    });
+
+    it("leaves out a sense that is no sense of the word (-times)", () => {
+      const m = parseKanji("回物", "まわもの", withKun, "", "x");
+      expect(m[0].meaning).toBe("revolve");
+    });
+  });
 });
 
 describe("parseLoan", () => {
@@ -329,6 +375,17 @@ describe("processesOf", () => {
   });
 });
 
+describe("processesOf with JMdict's facts", () => {
+  it("adds what JMdict records and the text leaves unsaid", () => {
+    expect(processesOf("From English pliers.", [], { wasei: true })).toContain(
+      "wasei",
+    );
+    expect(processesOf("Unknown.", [], { ateji: true })).toContain("ateji");
+    expect(processesOf("", [], { loan: true })).toContain("borrowing");
+    expect(processesOf("", [], {})).toEqual([]);
+  });
+});
+
 describe("stratumOf", () => {
   const kanji = {
     花: { on: ["カ", "ケ"], kun: ["はな"] },
@@ -341,6 +398,17 @@ describe("stratumOf", () => {
     手: { on: ["シュ", "ズ"], kun: ["て", "た-"] },
     洗: { on: ["セン"], kun: ["あら.う"] },
   };
+
+  it("is gairaigo when JMdict names a loan source, unless the text says Chinese", () => {
+    expect(
+      stratumOf("缶", "かん", [], "Dutch kan.", kanji, { loan: true }),
+    ).toBe("gairaigo");
+    expect(
+      stratumOf("缶", "かん", [], "Or Middle Chinese 罐.", kanji, {
+        loan: true,
+      }),
+    ).not.toBe("gairaigo");
+  });
 
   it("is gairaigo for katakana and hybrid for kanji+katakana", () => {
     expect(stratumOf("ビール", "ビール", [], "", kanji)).toBe("gairaigo");
@@ -361,6 +429,105 @@ describe("stratumOf", () => {
       "wago",
     );
     expect(stratumOf("花火", "ほげ", [], "", kanji)).toBeNull();
+  });
+});
+
+describe("JMdict priority and facts", () => {
+  const vocab = {
+    term: "缶",
+    kana: "かん",
+    meaning: "can, tin",
+    jmdict: [
+      {
+        kanji: ["缶", "罐"],
+        readings: ["かん"],
+        priority: { 缶: ["ichi1", "news1", "nf06"], かん: ["ichi1"] },
+        info: { 缶: ["ateji (phonetic) reading"] },
+        senses: [
+          {
+            pos: ["noun (common) (futsuumeishi)"],
+            glosses: ["can", "tin"],
+            loan: [
+              { lang: "dut", text: "kan" },
+              { lang: "eng", text: "can" },
+            ],
+          },
+        ],
+      },
+      {
+        kanji: [],
+        readings: ["かん"],
+        priority: { かん: ["news2"] },
+        senses: [{ pos: ["noun"], glosses: ["intuition"] }],
+      },
+    ],
+  };
+
+  it("lists the codes of the spelling and the reading, once each", () => {
+    expect(priorityOf(vocab)).toEqual(["ichi1", "news1", "nf06"]);
+  });
+
+  it("takes nothing from a homograph that shares only the reading", () => {
+    expect(
+      priorityOf({ ...vocab, term: "かん", meaning: "intuition" }),
+    ).toEqual(["news2"]);
+  });
+
+  it("is empty when JMdict tags neither", () => {
+    expect(
+      priorityOf({
+        ...vocab,
+        jmdict: [{ ...vocab.jmdict[0], priority: undefined }],
+      }),
+    ).toEqual([]);
+  });
+
+  it("reads a loan source and an ateji note off the matched sense", () => {
+    expect(jmdictFactsOf(vocab)).toEqual({
+      wasei: false,
+      ateji: true,
+      loan: true,
+    });
+  });
+
+  it("only counts a loan from a loanword language, and a wasei flag apart", () => {
+    const sanskrit = {
+      ...vocab,
+      jmdict: [
+        {
+          ...vocab.jmdict[0],
+          info: undefined,
+          senses: [
+            {
+              pos: [],
+              glosses: ["can"],
+              loan: [{ lang: "san", text: "dāna" }],
+            },
+          ],
+        },
+      ],
+    };
+    expect(jmdictFactsOf(sanskrit)).toEqual({
+      wasei: false,
+      ateji: false,
+      loan: false,
+    });
+    const wasei = {
+      ...vocab,
+      jmdict: [
+        {
+          ...vocab.jmdict[0],
+          senses: [
+            {
+              pos: [],
+              glosses: ["can"],
+              loan: [{ lang: "eng", wasei: true }],
+            },
+          ],
+        },
+      ],
+    };
+    expect(jmdictFactsOf(wasei)).toMatchObject({ wasei: true, loan: false });
   });
 });
 

@@ -36,6 +36,7 @@ import {
   JAMDICT_SOURCE,
   ensureJamdictDb,
   openDictionary,
+  spellingReadings,
 } from "./lib/jamdict.mjs";
 import { servedVocab } from "../shared/meanings.ts";
 
@@ -135,6 +136,9 @@ async function main() {
       listReading: e.listReading,
       listMeaning: e.listMeaning,
       jmdict: dict.lookupWord(served.term, served.kana),
+      ...(spellingReadings(dict, served.term)
+        ? { spellingReadings: spellingReadings(dict, served.term) }
+        : {}),
     };
   });
 

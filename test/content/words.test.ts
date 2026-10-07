@@ -170,6 +170,17 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
               `${m.text}: ${m.base ?? m.reading} is not a KANJIDIC2 reading of ${char}`,
             );
           }
+          // A part written with okurigana (見舞う, 売り) only has them if
+          // KANJIDIC2 gives the kanji a kun'yomi that takes okurigana.
+          if (
+            m.glossSource === "kanjidic2" &&
+            [...m.text].length > 1 &&
+            !k.kun.some((r) => r.includes("."))
+          ) {
+            problems.push(
+              `${m.text}: KANJIDIC2 lists no okurigana for ${char}`,
+            );
+          }
           const backedByKanji = k.meanings.some(
             (x) => x.toLowerCase() === gloss,
           );

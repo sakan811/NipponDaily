@@ -2,12 +2,14 @@
  * Builds one daily-word entry from SOURCES ONLY — no model-written text.
  *
  *   pool record (kana, meaning, level)   ← data/reference/n*-reference.json
- *   part of speech                       ← the same file's JMdict senses, tags verbatim
- *   stratum / on-kun analysis            ← KANJIDIC2 readings in that file
+ *   part of speech, priority             ← the same file's JMdict senses and priority codes, verbatim
+ *   stratum / on-kun analysis            ← KANJIDIC2 readings in that file (and JMdict's loan source)
  *   evidence (`sources`)                 ← the pinned Wiktionary section for THIS reading, line by line
  *   morphemes                            ← parsed from that evidence ("A (a, “gloss”) + B (b, “gloss”)"),
  *                                          kept only if the parts literally spell the word and join to its reading
- *   processes                            ← tags found by keyword in that evidence
+ *   examples                             ← the pinned Tatoeba snapshot (data/reference/sentences/), as picked
+ *   processes                            ← tags found by keyword in that evidence, plus what JMdict
+ *                                          independently records (wasei, ateji, a loan source)
  *
  * The only hand-written field is the headline (data/word-plan/*.json). Pure
  * functions: scripts/generate-word-entries.mjs does the I/O, and
@@ -133,8 +135,11 @@ const norm = (s) =>
     .replace(/\s+/g, " ")
     .trim();
 
-/** JMdict's own tags for the sense(s) the pool's meaning came from, verbatim. */
-export function posOf(vocab) {
+/** The JMdict entry this word is, and the sense(s) its pool meaning came from
+ *  (the first sense when none matches). Every JMdict fact an entry carries is
+ *  read from here, so a homograph that shares only the reading (また "womb"
+ *  next to また "again") never lends its tags. */
+function matchedJmdict(vocab) {
   const hira = toHiragana(vocab.kana);
   const entries = (vocab.jmdict ?? []).filter(
     (j) =>
@@ -142,13 +147,67 @@ export function posOf(vocab) {
       (j.kanji.includes(vocab.term) || toHiragana(vocab.term) === hira),
   );
   const pool = new Set(vocab.meaning.split(/[,;]/).map(norm).filter(Boolean));
-  for (const e of entries) {
-    const hit = e.senses.filter((s) =>
+  for (const entry of entries) {
+    const senses = entry.senses.filter((s) =>
       (s.glosses ?? []).some((g) => pool.has(norm(g))),
     );
-    if (hit.length) return [...new Set(hit.flatMap((s) => s.pos))];
+    if (senses.length) return { entry, senses };
   }
-  return entries[0] ? [...new Set(entries[0].senses[0]?.pos ?? [])] : [];
+  return entries[0]
+    ? { entry: entries[0], senses: entries[0].senses.slice(0, 1) }
+    : null;
+}
+
+/** JMdict's own tags for the sense(s) the pool's meaning came from, verbatim. */
+export function posOf(vocab) {
+  const m = matchedJmdict(vocab);
+  return m ? [...new Set(m.senses.flatMap((s) => s.pos ?? []))] : [];
+}
+
+/** The priority codes JMdict gives this spelling and reading (ichi1, news1,
+ *  gai1, nf05…), verbatim, spelling first. Empty when JMdict tags neither. */
+export function priorityOf(vocab) {
+  const m = matchedJmdict(vocab);
+  if (!m) return [];
+  const hira = toHiragana(vocab.kana);
+  const forms = [
+    ...m.entry.kanji.filter((k) => k === vocab.term),
+    ...m.entry.readings.filter((r) => toHiragana(r) === hira),
+  ];
+  return [...new Set(forms.flatMap((f) => m.entry.priority?.[f] ?? []))];
+}
+
+/** The languages a loan source can name that the site counts as a loanword
+ *  layer (the ones LOAN reads from Wiktionary too). */
+const LOAN_LANGUAGES = new Set([
+  "eng",
+  "dut",
+  "por",
+  "ger",
+  "fre",
+  "ita",
+  "spa",
+  "rus",
+]);
+
+/** What JMdict, a source independent of Wiktionary, says about how the word
+ *  was made: a coinage made in Japan (`wasei`), a spelling it calls ateji,
+ *  gikun or jukujikun (`ateji`), and a loan source in one of the loanword
+ *  languages (`loan`). Read from the matched sense, so it only confirms. */
+export function jmdictFactsOf(vocab) {
+  const m = matchedJmdict(vocab);
+  const none = { wasei: false, ateji: false, loan: false };
+  if (!m) return none;
+  const hira = toHiragana(vocab.kana);
+  const loans = m.senses.flatMap((s) => s.loan ?? []);
+  const notes = Object.entries(m.entry.info ?? {})
+    .filter(([f]) => f === vocab.term || toHiragana(f) === hira)
+    .flatMap(([, tags]) => tags);
+  return {
+    wasei: loans.some((l) => l.wasei && LOAN_LANGUAGES.has(l.lang)),
+    ateji: notes.some((t) => /\b(?:ateji|gikun|jukujikun)\b/.test(t)),
+    loan: loans.some((l) => !l.wasei && LOAN_LANGUAGES.has(l.lang)),
+  };
 }
 
 // ------------------------------------------------------------------ morphemes
@@ -469,7 +528,11 @@ export function parseLoan(lines, term) {
 
 const has = (re, text) => re.test(text);
 
-export function processesOf(text, morphemes) {
+/** Tags found by keyword in the quoted text, plus what JMdict independently
+ *  records (`facts`, from jmdictFactsOf): a coinage made in Japan, an ateji
+ *  or jukujikun spelling, a loan source. The keywords only ever see the
+ *  Wiktionary prose, so JMdict adds the tags that prose leaves unsaid. */
+export function processesOf(text, morphemes, facts = {}) {
   const p = [];
   const add = (cond, id) => cond && p.push(id);
   add(morphemes.length >= 2 || has(/\bcompound\b/i, text), "compound");
@@ -482,17 +545,19 @@ export function processesOf(text, morphemes) {
   );
   add(morphemes.some((m) => m.base) || has(/rendaku/i, text), "rendaku");
   add(
-    has(
-      /\b(coined in (Japan|Japanese)|Japanese coinage|wasei|calque)\b/i,
-      text,
-    ),
+    facts.wasei ||
+      has(
+        /\b(coined in (Japan|Japanese)|Japanese coinage|wasei|calque)\b/i,
+        text,
+      ),
     "wasei",
   );
   add(
-    has(
-      /\b(borrow(?:ed|ing)?|from (?:Middle )?Chinese|from (?:American |British )?(?:English|Dutch|Portuguese|German|French|Italian|Spanish|Russian)|internationalism)\b/i,
-      text,
-    ),
+    facts.loan ||
+      has(
+        /\b(borrow(?:ed|ing)?|from (?:Middle )?Chinese|from (?:American |British )?(?:English|Dutch|Portuguese|German|French|Italian|Spanish|Russian)|internationalism)\b/i,
+        text,
+      ),
     "borrowing",
   );
   add(has(/\b(clipping|clipped|shortening|abbreviation)\b/i, text), "clipping");
@@ -510,7 +575,7 @@ export function processesOf(text, morphemes) {
     ),
     "meaning-shift",
   );
-  add(has(/\b(ateji|jukujikun)\b/i, text), "ateji");
+  add(facts.ateji || has(/\b(ateji|jukujikun)\b/i, text), "ateji");
   add(has(/(sinicization|re-?read|later read with)/i, text), "reread");
   add(
     has(
@@ -665,40 +730,79 @@ const wordIn = (word, text) =>
     "i",
   ).test(text);
 
-/** A Sino-Japanese (or any all-kanji) word the source gives no split of: the
- *  spelling is still its characters, so each part is one kanji with the
- *  reading KANJIDIC2 gives it there and one of KANJIDIC2's own meanings — the
- *  one the Wiktionary text or the word's JMdict meaning already uses, else
- *  KANJIDIC2's first. Only when the characters' readings split the word's
- *  reading one way (no ateji, no jukujikun, no ambiguity). */
+/** KANJIDIC2's meanings of a kanji without the ones that are no sense of the
+ *  word ("-times" for 回 as a counter, "radical (no. 9)"), unless nothing else
+ *  is left. */
+const senseList = (meanings) => {
+  const own = meanings.filter((m) => !/^-|-$|\bradical\b/i.test(m));
+  return own.length ? own : meanings;
+};
+
+/** Whether the kana that follow a kanji in a spelling are okurigana for the
+ *  reading it was given there: KANJIDIC2 lists a kun'yomi `stem.okurigana`,
+ *  and the spelling carries that ending (食べる), its stem (食べ), its
+ *  continuative form (怒り, 続き) or its first kana (老い). On'yomi take none,
+ *  so 何でも or 愛する gives no kanji part to speak of. */
+function okuriganaFits(info, reading, run) {
+  if (reading.type !== "kun") return false;
+  const stem = reading.base ?? reading.r;
+  return info.kun.some((kun) => {
+    const [s, okuri = ""] = kun.replace(/-/g, "").split(".");
+    if (s !== stem || !okuri) return false;
+    const last = okuri.at(-1);
+    return (
+      run === okuri ||
+      okuri.startsWith(run) ||
+      (RENYO[last] && run === okuri.slice(0, -1) + RENYO[last])
+    );
+  });
+}
+
+/** A word the source gives no split of, taken apart by its own characters:
+ *  each kanji is one part (with the okurigana written after it, 食べる 食べ +
+ *  る, so that the parts spell the word), read as KANJIDIC2 says it is read
+ *  there, with one of KANJIDIC2's own meanings — the one the Wiktionary text
+ *  or the word's JMdict meaning already uses, else KANJIDIC2's first. Only
+ *  when the characters' readings split the word's reading one way (no ateji,
+ *  no jukujikun, no ambiguity) and every kana run is okurigana KANJIDIC2
+ *  knows. A single kanji with okurigana (抱く) is one part and not a split,
+ *  so it is left alone. */
 export function parseKanji(term, kana, kanji, text, meaning) {
+  if (!/^\p{sc=Han}[\p{sc=Han}\p{sc=Hiragana}]*$/u.test(term)) return [];
   const chars = [...term];
-  if (
-    chars.length < 2 ||
-    !chars.every((c) => /\p{sc=Han}/u.test(c) && c !== "々")
-  )
-    return [];
+  if (chars.length < 2 || chars.includes("々")) return [];
   if (/\b(?:ateji|jukujikun|jukuji)\b/i.test(text)) return [];
   const paths = segmentPaths(term, kana, kanji);
-  const distinct = new Set(paths.map((p) => p.map((v) => v.r).join("|")));
+  const distinct = new Set(
+    paths.map((p) => p.map((v) => v.r ?? v.kana).join("|")),
+  );
   if (distinct.size !== 1) return [];
-  return paths[0].map((v, i) => {
-    const meanings = kanji[chars[i]].meanings;
+  const units = [];
+  chars.forEach((c, i) => {
+    const v = paths[0][i];
+    if (v.kana) units.at(-1).run += c;
+    else units.push({ char: c, v, run: "" });
+  });
+  if (units.length < 2) return [];
+  if (units.some((u) => u.run && !okuriganaFits(kanji[u.char], u.v, u.run)))
+    return [];
+  return units.map(({ char, v, run }) => {
+    const meanings = senseList(kanji[char].meanings);
     const pick =
       meanings.find((m) => wordIn(m, text)) ??
       meanings.find((m) => wordIn(m, meaning)) ??
       meanings[0];
     return {
-      text: chars[i],
-      reading: v.r,
-      ...(v.base ? { base: v.base } : {}),
+      text: char + run,
+      reading: v.r + toHiragana(run),
+      ...(v.base ? { base: v.base + toHiragana(run) } : {}),
       meaning: pick,
       glossSource: "kanjidic2",
     };
   });
 }
 
-export function stratumOf(term, kana, morphemes, text, kanji) {
+export function stratumOf(term, kana, morphemes, text, kanji, facts = {}) {
   if (/^[\p{sc=Katakana}ー]+$/u.test(term)) return "gairaigo";
   // A spelling that mixes kanji and katakana (消しゴム, ローマ字) mixes layers by construction.
   if (/\p{sc=Katakana}/u.test(term) && /\p{sc=Han}/u.test(term))
@@ -707,6 +811,9 @@ export function stratumOf(term, kana, morphemes, text, kanji) {
     /\b(?:borrow(?:ed|ing)|from)\s+(?:(?:American|British)\s+)?(?:English|Dutch|Portuguese|German|French|Italian|Spanish|Russian)\b/i;
   if (loan.test(text) && !/Middle Chinese|Chinese/.test(text))
     return "gairaigo";
+  // JMdict names the language a word was borrowed from (缶, from Dutch kan,
+  // reads like an on'yomi but is no Sino-Japanese word).
+  if (facts.loan && !/Middle Chinese|Chinese/.test(text)) return "gairaigo";
   const masks = segmentationMasks(term, kana, kanji);
   if (masks) {
     const onOnly = masks.has(1);
@@ -772,7 +879,15 @@ export function buildEntry(plan, ctx) {
     morphemes = parseKanji(plan.term, word.kana, ctx.kanji, text, word.meaning);
   morphemes = flagIrregular(morphemes, ctx.kanji);
 
-  const stratum = stratumOf(plan.term, word.kana, morphemes, text, ctx.kanji);
+  const facts = jmdictFactsOf(word);
+  const stratum = stratumOf(
+    plan.term,
+    word.kana,
+    morphemes,
+    text,
+    ctx.kanji,
+    facts,
+  );
   // The Wiktionary dump sometimes attaches one reading's etymology to another
   // (道 みち received the Middle Chinese section of どう, and its own is
   // missing). KANJIDIC2 is independent of the dump, so a word it reads as
@@ -784,6 +899,10 @@ export function buildEntry(plan, ctx) {
   // The layer is only stated when KANJIDIC2 (or the evidence) establishes it;
   // irregular spellings (今年, 田舎) leave it out rather than guess.
 
+  // The sentences the pinned Tatoeba export gives this word (data:sentences);
+  // a word with none simply shows none.
+  const examples = ctx.sentences?.entries?.[plan.term] ?? [];
+
   return {
     date: plan.date,
     term: plan.term,
@@ -791,11 +910,13 @@ export function buildEntry(plan, ctx) {
     meaning: word.meaning,
     level: word.level,
     pos: posOf(word),
+    ...(priorityOf(word).length ? { priority: priorityOf(word) } : {}),
     ...(stratum ? { stratum } : {}),
-    processes: processesOf(text, morphemes),
+    processes: processesOf(text, morphemes, facts),
     headline: plan.headline,
     morphemes,
     sources: lines.map((quote) => ({ quote })),
+    ...(examples.length ? { examples } : {}),
     wiktionaryDump: dump,
   };
 }
