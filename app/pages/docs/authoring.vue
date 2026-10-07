@@ -76,7 +76,8 @@
         <strong>every day of the month</strong>. Add <code>"kana"</code> only
         when a spelling has several pool words (明日, 梅雨). The headline is one
         sentence that earns the click and keeps to what the quoted evidence
-        says.
+        says. A new month continues directly after the last day, with no gap;
+        any day already past opens at once.
       </li>
       <li>
         <strong>Pin the evidence</strong>: <code>pnpm data:etymology</code>.

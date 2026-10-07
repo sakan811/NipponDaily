@@ -43,9 +43,11 @@
       <code>GET /api/daily-word</code> serves today's word. Once the catalogue
       has run out it starts a new lap (<code>lapEntryForDate()</code>): the day
       after the last word shows the first, the next day the second, and so on,
-      round again after the last. The payload's <code>lap</code> says which one
-      (1 until then), and the home page names the lap from 2 on. A word shown on
-      a later lap has always opened already, so nothing leaks; an explicit
+      round again after the last. The words are dated so that every one has
+      opened already and the last falls on or before today: lap 1 is over and
+      the laps run from here. The payload's <code>lap</code> says which one (1
+      until then), and the home page names the lap from 2 on. A word shown on a
+      later lap has always opened already, so nothing leaks; an explicit
       <code>date</code> is always lap 1. The page is never empty, and before the
       first day it is a <code>404</code>.
     </p>

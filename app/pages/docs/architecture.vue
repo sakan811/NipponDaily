@@ -11,9 +11,9 @@
     <ul>
       <li>
         <strong>The entries are in-repo data</strong>:
-        <code>data/words/YYYY-MM.json</code>, one entry per day, every day of a
-        month, running <CatalogueRange />. Only the headline is hand-written;
-        everything else is generated from sources (<NuxtLink
+        <code>data/words/YYYY-MM.json</code>, one entry per day, no day missing
+        in a month, running <CatalogueRange />. Only the headline is
+        hand-written; everything else is generated from sources (<NuxtLink
           to="/docs/data-integrity"
           >Data integrity</NuxtLink
         >).
@@ -67,7 +67,7 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
             <td>
               <code>{{ m.file }}</code
               ><template v-if="m.serverOnly"
-                ><br /><em>server and tests only</em></template
+                ><br ><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>
