@@ -3,7 +3,7 @@
     <!-- The word -->
     <header class="space-y-4">
       <p class="kicker text-primary-600 dark:text-primary-400">
-        {{ formatLongDate(entry.date) }}
+        First opened {{ formatLongDate(entry.date) }}
       </p>
       <div class="flex flex-wrap items-end gap-x-6 gap-y-2">
         <h1
