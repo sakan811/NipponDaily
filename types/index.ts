@@ -150,6 +150,10 @@ export interface WordCalendarDay {
   term?: string;
   kana?: string;
   stratum?: WordStratum;
+  /** Only on a lap day (the catalogue has run out): the date the word first
+   *  opened, which is the page it lives on, and the lap it is shown on. */
+  wordDate?: string;
+  lap?: number;
   /** Only present when open: whether the word passes the calendar's filters
    *  (always true when there are none). An upcoming day is never matched. */
   match?: boolean;

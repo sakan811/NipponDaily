@@ -306,18 +306,35 @@ export function payloadFor(
   };
 }
 
-/** Months (YYYY-MM) that have at least one entry, oldest first. */
-export function monthsWithEntries(): string[] {
-  return [...new Set(WORD_ENTRIES.map((e) => e.date.slice(0, 7)))];
+/** Months (YYYY-MM) that have at least one entry, oldest first, then any month
+ *  after the last entry that a lap has reached by `today`. */
+export function monthsWithEntries(today: string = todayJst()): string[] {
+  const months = [...new Set(WORD_ENTRIES.map((e) => e.date.slice(0, 7)))];
+  const last = WORD_ENTRIES[WORD_ENTRIES.length - 1];
+  if (!last) return months;
+  for (let m = nextMonth(last.date.slice(0, 7)); m <= today.slice(0, 7);) {
+    months.push(m);
+    m = nextMonth(m);
+  }
+  return months;
+}
+
+function nextMonth(month: string): string {
+  const [y, m] = month.split("-").map(Number) as [number, number];
+  return m === 12 ? `${y + 1}-01` : `${y}-${String(m + 1).padStart(2, "0")}`;
 }
 
 /** Every day of a month as the calendar shows it: an open day carries its
- *  word, an upcoming day carries nothing, and a day with no entry is omitted. */
+ *  word, an upcoming day carries nothing, and a day with no entry is omitted.
+ *  After the last entry the open days carry the lap word (`wordDate` is the
+ *  page it lives on); the days still to come stay omitted. */
 export function calendarForMonth(
   month: string,
   today: string = todayJst(),
 ): WordCalendarDay[] {
-  return WORD_ENTRIES.filter((e) => e.date.startsWith(month)).map((e) =>
+  const days: WordCalendarDay[] = WORD_ENTRIES.filter((e) =>
+    e.date.startsWith(month),
+  ).map((e) =>
     e.date <= today
       ? {
           date: e.date,
@@ -328,4 +345,23 @@ export function calendarForMonth(
         }
       : { date: e.date, status: "upcoming" },
   );
+  const last = WORD_ENTRIES[WORD_ENTRIES.length - 1];
+  if (!last || month < last.date.slice(0, 7)) return days;
+  const [y, m] = month.split("-").map(Number) as [number, number];
+  const daysInMonth = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = `${month}-${String(d).padStart(2, "0")}`;
+    if (date <= last.date || date > today) continue;
+    const { entry, lap } = lapEntryForDate(date)!;
+    days.push({
+      date,
+      status: "open",
+      term: entry.term,
+      kana: entry.kana,
+      stratum: entry.stratum,
+      wordDate: entry.date,
+      lap,
+    });
+  }
+  return days;
 }

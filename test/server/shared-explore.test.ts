@@ -234,7 +234,7 @@ describe("exploreCalendar", () => {
       expect(d.match, d.date).toBe(d.status === "open" ? true : undefined);
     }
     expect(cal.count).toBe(cal.total);
-    expect(cal.months).toEqual(monthsWithEntries());
+    expect(cal.months).toEqual(monthsWithEntries(TODAY));
   });
 
   it("marks the days Explore would return, and no others", () => {

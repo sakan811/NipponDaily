@@ -190,12 +190,21 @@ export function exploreCalendar(
 ): WordCalendarPayload {
   const explored = exploreWords(filters, today);
   const matched = new Set(explored.words.map((w) => w.date));
-  const months = monthsWithEntries();
+  const months = monthsWithEntries(today);
   const monthCounts = Object.fromEntries(months.map((m) => [m, 0]));
   for (const date of matched) monthCounts[date.slice(0, 7)]!++;
+  // A lap day shows a word that opened on an earlier date and counts when
+  // that word matches.
+  for (const m of months) {
+    for (const d of calendarForMonth(m, today)) {
+      if (d.wordDate && matched.has(d.wordDate)) monthCounts[m]!++;
+    }
+  }
 
   const days: WordCalendarDay[] = calendarForMonth(month, today).map((d) =>
-    d.status === "open" ? { ...d, match: matched.has(d.date) } : d,
+    d.status === "open"
+      ? { ...d, match: matched.has(d.wordDate ?? d.date) }
+      : d,
   );
   return {
     month,

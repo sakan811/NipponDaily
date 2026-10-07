@@ -73,14 +73,20 @@ describe("GET /api/word-calendar", () => {
     expect(JSON.stringify(days)).not.toContain("電話");
   });
 
-  it("falls back to the newest month when the current one has no words", async () => {
-    at(`${addDays(LAST.date, 70)}T12:00:00Z`);
+  it("opens on the current month once a lap has reached it, with the lap words", async () => {
+    const today = addDays(LAST.date, 70);
+    at(`${today}T12:00:00Z`);
     const handler = await getHandler();
     const { data } = handler({} as any);
 
-    expect(data.month).toBe(LAST.date.slice(0, 7));
-    expect(data.days).toHaveLength(Number(LAST.date.slice(8)));
+    expect(data.month).toBe(today.slice(0, 7));
+    expect(data.months.at(-1)).toBe(today.slice(0, 7));
     expect(data.days.every((d: any) => d.status === "open")).toBe(true);
+    expect(data.days.at(-1)).toMatchObject({
+      date: today,
+      lap: 2,
+      wordDate: expect.any(String),
+    });
   });
 
   it("returns 400 for a malformed month", async () => {
