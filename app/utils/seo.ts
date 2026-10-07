@@ -40,6 +40,11 @@ export function partPath(text: string): string {
   return `/parts/${encodeURIComponent(text)}`;
 }
 
+/** The path of a kanji's page. */
+export function kanjiPath(char: string): string {
+  return `/kanji/${encodeURIComponent(char)}`;
+}
+
 /** The Explore page narrowed by `filters`, as a link. */
 export function explorePath(filters: ExploreFilters): string {
   return `/explore?${new URLSearchParams(queryFromFilters(filters)).toString()}`;

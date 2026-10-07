@@ -87,6 +87,7 @@ const NAV_LINKS = [
   { to: "/explore", label: "Explore" },
   { to: "/patterns", label: "Patterns" },
   { to: "/parts", label: "Parts" },
+  { to: "/kanji", label: "Kanji" },
   { to: "/kana", label: "Kana" },
   { to: "/docs", label: "Docs" },
 ];

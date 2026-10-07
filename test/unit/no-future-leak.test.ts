@@ -35,7 +35,7 @@ describe("future words never reach the browser bundle", () => {
     ].map((m) => m[1]!);
     expect(
       found.filter((i) =>
-        /(shared\/(?:words|parts|explore|patterns|related|sitemap)|data\/words)(?:["'/.]|$)/.test(
+        /(shared\/(?:words|parts|kanji|explore|patterns|related|sitemap)|data\/words)(?:["'/.]|$)/.test(
           i,
         ),
       ),
@@ -43,7 +43,7 @@ describe("future words never reach the browser bundle", () => {
   });
 
   it.each(files.map((f) => [f.replace(APP + "/", ""), f] as const))(
-    "%s imports none of shared/words, shared/parts, shared/explore, shared/patterns, shared/related, shared/sitemap or data/words",
+    "%s imports none of shared/words, shared/parts, shared/kanji, shared/explore, shared/patterns, shared/related, shared/sitemap or data/words",
     (_name, path) => {
       // Only real imports count — the docs pages legitimately *mention*
       // data/words/ in prose.
@@ -54,7 +54,7 @@ describe("future words never reach the browser bundle", () => {
       ].map((m) => m[1]!);
       expect(
         imports.filter((i) =>
-          /(shared\/(?:words|parts|explore|patterns|related|sitemap)|data\/words)(?:["'/.]|$)/.test(
+          /(shared\/(?:words|parts|kanji|explore|patterns|related|sitemap)|data\/words)(?:["'/.]|$)/.test(
             i,
           ),
         ),

@@ -19,7 +19,9 @@
     "data:reference": "node --experimental-strip-types --no-warnings scripts/build-n5-reference.mjs",
     "data:reference:jlpt": "node --experimental-strip-types --no-warnings scripts/build-jlpt-reference.mjs",
     "data:words": "node scripts/generate-word-entries.mjs",
+    "data:kanji": "node --experimental-strip-types --no-warnings scripts/build-kanji-reference.mjs",
     "data:etymology": "node scripts/build-etymology-reference.mjs",
+    "data:sentences": "node scripts/build-sentences-reference.mjs",
     "assets:og-font": "node scripts/build-og-font.mjs",
     "docs:sync": "node --experimental-strip-types --no-warnings scripts/sync-docs.mjs",
     "docs:check": "node --experimental-strip-types --no-warnings scripts/sync-docs.mjs --check"
