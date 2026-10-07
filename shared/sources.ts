@@ -122,8 +122,8 @@ export const SOURCES = {
     url: TATOEBA_URL,
     licence: LICENCES.ccBy2Fr,
     holder: "Tatoeba contributors",
-    use: "Example sentences and their English translations, picked from a pinned export",
-    credit: `Example sentences and their translations are from ${link("Tatoeba", TATOEBA_URL)}, a collection written by its community, under ${link(LICENCES.ccBy2Fr.name, LICENCES.ccBy2Fr.url)}. Each shows its Tatoeba number, which links to the sentence and its authors. They are picked from a dated export by fixed rules and quoted unchanged; nobody reviews them one by one.`,
+    use: "Example sentences, their English translations and furigana, picked from a pinned export",
+    credit: `Example sentences, their translations and their furigana are from ${link("Tatoeba", TATOEBA_URL)}, a collection written by its community, under ${link(LICENCES.ccBy2Fr.name, LICENCES.ccBy2Fr.url)}. Each shows its Tatoeba number, which links to the sentence and its authors. They are picked from a dated export by fixed rules and quoted unchanged; nobody reviews them one by one.`,
   },
   "jlpt-word-list": {
     id: "jlpt-word-list",
