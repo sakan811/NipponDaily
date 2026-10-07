@@ -19,7 +19,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Every word has<br class="hidden sm:inline" >
+          Every word has<br class="hidden sm:inline" />
           <span class="text-primary-500 italic font-normal">a story.</span>
         </h1>
 

@@ -20,7 +20,7 @@
             <td>
               <code>{{ endpoint.method }} {{ endpoint.path }}</code
               ><template v-if="endpoint.query"
-                ><br ><code>{{ endpoint.query }}</code></template
+                ><br /><code>{{ endpoint.query }}</code></template
               >
             </td>
             <td><RichText :text="endpoint.returns" /></td>
