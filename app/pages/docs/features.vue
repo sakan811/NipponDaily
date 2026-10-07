@@ -73,7 +73,7 @@ const features = computed(() => [
   {
     title: "More Like This",
     description:
-      "Under each entry, a few other words that have opened and share something with it: a part, a process or a layer. Each card says exactly what is shared and links to where you can see more of it. A word that shares only very common tags is not offered, and upcoming words never are.",
+      "Under each entry on its own page (`/words/<date>`), a few other words that have opened and share something with it: a part, a process or a layer. Each card says exactly what is shared and links to where you can see more of it. A word that shares only very common tags is not offered, and upcoming words never are.",
   },
   {
     title: "Taken Apart",
