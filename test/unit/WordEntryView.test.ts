@@ -224,6 +224,30 @@ describe("WordEntryView", () => {
     expect(wrapper.text()).toContain("Nobody has reviewed them one by one");
   });
 
+  it("draws the readings over their kanji, the word's own form still marked", () => {
+    const wrapper = render({
+      examples: [
+        {
+          id: 1234,
+          ja: "手紙を書いた。",
+          en: "I wrote a letter.",
+          enId: 5678,
+          form: "手紙",
+          furigana: [["手紙", "てがみ"], ["を"], ["書", "か"], ["いた。"]],
+        },
+      ],
+    });
+
+    const sentence = wrapper.find('[data-testid="word-example"] p');
+    expect(sentence.findAll("ruby").map((r) => r.find("rt").text())).toEqual([
+      "てがみ",
+      "か",
+    ]);
+    expect(sentence.find("mark ruby rt").text()).toBe("てがみ");
+    expect(sentence.findAll("rp").length).toBe(4);
+    expect(sentence.element.getAttribute("lang")).toBe("ja");
+  });
+
   it("shows no sentence section when the word has none", () => {
     expect(render().find('[data-testid="word-examples"]').exists()).toBe(false);
   });

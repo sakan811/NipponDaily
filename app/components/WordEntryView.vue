@@ -189,15 +189,23 @@
           class="border-l-2 border-primary-500/50 pl-3 space-y-1"
         >
           <p
-            class="text-xl font-serif text-stone-900 dark:text-white"
+            class="text-xl font-serif text-stone-900 dark:text-white [&_rt]:text-[0.5em] [&_rt]:text-stone-500 dark:[&_rt]:text-stone-400"
+            :class="ex.furigana ? 'leading-loose' : ''"
             lang="ja"
           >
-            <template v-for="(piece, i) in splitAround(ex.ja, ex.form)" :key="i"
-              ><mark
-                v-if="piece.hit"
-                class="bg-primary-500/15 text-inherit px-0.5"
-                >{{ piece.text }}</mark
-              ><template v-else>{{ piece.text }}</template></template
+            <template
+              v-for="(piece, i) in sentencePieces(ex.ja, ex.form, ex.furigana)"
+              :key="i"
+              ><component
+                :is="piece.hit ? 'mark' : 'span'"
+                :class="
+                  piece.hit ? 'bg-primary-500/15 text-inherit px-0.5' : ''
+                "
+                ><ruby v-if="piece.reading"
+                  >{{ piece.text }}<rp>(</rp><rt>{{ piece.reading }}</rt
+                  ><rp>)</rp></ruby
+                ><template v-else>{{ piece.text }}</template></component
+              ></template
             >
           </p>
           <p
@@ -342,6 +350,7 @@
 import { computed } from "vue";
 import { formatLongDate } from "../utils/date";
 import { kanjiPath, partPath } from "../utils/seo";
+import { sentencePieces } from "../utils/sentence";
 import {
   FREQUENCY_GROUPS,
   WORD_PROCESSES,
@@ -364,20 +373,6 @@ const STRATUM_COLOR: Record<WordStratum, string> = {
   gairaigo: "warning",
   hybrid: "gray",
 };
-
-/** A sentence in pieces, the word's own form marked, so it can be highlighted. */
-function splitAround(
-  text: string,
-  form: string,
-): { text: string; hit: boolean }[] {
-  const at = text.indexOf(form);
-  if (at < 0) return [{ text, hit: false }];
-  return [
-    { text: text.slice(0, at), hit: false },
-    { text: form, hit: true },
-    { text: text.slice(at + form.length), hit: false },
-  ].filter((p) => p.text);
-}
 
 /** The distinct kanji of the term (the same range the kanji pages cover). */
 const kanjiChars = computed(() => [
