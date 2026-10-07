@@ -31,8 +31,8 @@ describe("GET /og.png", () => {
   afterEach(() => vi.useRealTimers());
 
   it("draws an open day as a PNG that a CDN may keep", async () => {
-    at("2026-10-05T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-10-01" });
+    at("2023-07-12T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2023-07-08" });
     const handler = await getHandler();
     const body = (await handler({} as any)) as Buffer;
 
@@ -42,8 +42,8 @@ describe("GET /og.png", () => {
   });
 
   it("serves today's card, since today has opened", async () => {
-    at("2026-10-05T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-10-05" });
+    at("2023-07-12T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2023-07-12" });
     const handler = await getHandler();
     expect(((await handler({} as any)) as Buffer).length).toBeGreaterThan(
       10_000,
@@ -51,8 +51,8 @@ describe("GET /og.png", () => {
   });
 
   it("answers 404, not 400, for an upcoming day, so nothing is revealed", async () => {
-    at("2026-10-05T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2026-10-06" });
+    at("2023-07-12T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ date: "2023-07-13" });
     const handler = await getHandler();
     expect(await thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,
@@ -61,13 +61,13 @@ describe("GET /og.png", () => {
   });
 
   it("answers 404 for a malformed, missing or unknown date", async () => {
-    at("2026-10-05T12:00:00Z");
+    at("2023-07-12T12:00:00Z");
     const handler = await getHandler();
     for (const query of [
       {},
       { date: "soon" },
       { date: "2026-02-30" },
-      { date: "2021-12-31" },
+      { date: "2018-10-07" },
     ]) {
       (global as any).getQuery.mockReturnValue(query);
       expect(

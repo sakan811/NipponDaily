@@ -18,7 +18,7 @@ const textOf = (n: CardNode | string | undefined): string[] => {
   return Array.isArray(c) ? c.flatMap(textOf) : textOf(c);
 };
 
-const entry = WORD_ENTRIES.find((e) => e.date === "2026-10-01")!;
+const entry = WORD_ENTRIES.find((e) => e.term === "電話")!;
 
 describe("the share card", () => {
   it("is 1200 by 630", () => {
@@ -59,7 +59,7 @@ describe("the share card", () => {
     // Japan's calendar, not UTC: midnight on 1 December in Tokyo is still 30 Nov UTC.
     expect(cardSeason("2025-12-01").id).toBe("winter");
     expect(cardSeason("2025-03-01").id).toBe("sakura");
-    const style = ogCard(entry).props.style!;
+    const style = ogCard({ ...entry, date: "2026-10-01" }).props.style!;
     expect(String(style.borderLeft)).toContain("#d26b38");
   });
 

@@ -4,18 +4,18 @@ import IndexPage from "~/app/pages/index.vue";
 import { WORD_ENTRIES } from "~~/shared/words";
 import { DOC_CHAPTERS, docPath } from "~~/shared/docs";
 
-const entry = WORD_ENTRIES.find((e) => e.date === "2026-10-01")!;
+const entry = WORD_ENTRIES.find((e) => e.date === "2023-07-08")!;
 
 const payload = {
   success: true,
   data: { entry, lap: 1, prev: null, next: null },
-  timestamp: "2026-10-01T00:00:00Z",
+  timestamp: "2023-07-08T00:00:00Z",
 };
 
 describe("Index Page (Landing)", () => {
   beforeEach(() => {
     vi.useFakeTimers({ toFake: ["Date"] });
-    vi.setSystemTime(new Date("2026-10-01T03:00:00Z"));
+    vi.setSystemTime(new Date("2023-07-08T03:00:00Z"));
     (global as any).$fetch.mockReset();
     (global as any).$fetch.mockResolvedValue(payload);
   });
@@ -61,7 +61,7 @@ describe("Index Page (Landing)", () => {
     });
     const card = wrapper.find('[data-testid="today-word"]');
     expect(card.exists()).toBe(true);
-    expect(card.attributes("href")).toBe("/words/2026-10-01");
+    expect(card.attributes("href")).toBe("/words/2023-07-08");
     expect(wrapper.find('[data-testid="today-term"]').text()).toBe("電話");
     expect(card.text()).toContain("でんわ");
     expect(card.text()).toContain(entry.headline);
@@ -81,7 +81,7 @@ describe("Index Page (Landing)", () => {
     const lap = second.find('[data-testid="today-lap"]');
     expect(lap.text()).toContain("Lap 2");
     expect(lap.text()).toContain("first opened");
-    expect(lap.text()).toContain("2026");
+    expect(lap.text()).toContain("2023");
   });
 
   it("shows a skeleton, not an error, while the word loads", () => {

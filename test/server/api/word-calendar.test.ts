@@ -29,30 +29,30 @@ describe("GET /api/word-calendar", () => {
   afterEach(() => vi.useRealTimers());
 
   it("opens on the current month and lists every month that has words", async () => {
-    at("2026-10-10T12:00:00Z");
+    at("2023-07-17T12:00:00Z");
     const handler = await getHandler();
     const { data } = handler({} as any);
 
-    expect(data.month).toBe("2026-10");
+    expect(data.month).toBe("2023-07");
     expect(data.months).toEqual([
       ...new Set(WORD_ENTRIES.map((e) => e.date.slice(0, 7))),
     ]);
-    expect(data.today).toBe("2026-10-10");
+    expect(data.today).toBe("2023-07-17");
     expect(data.days).toHaveLength(31);
   });
 
   it("shows a word only for days that have arrived", async () => {
-    at("2026-10-03T12:00:00Z");
+    at("2023-07-10T12:00:00Z");
     const handler = await getHandler();
     const { days } = handler({} as any).data;
 
     const open = days.filter((d: any) => d.status === "open");
-    expect(open.map((d: any) => d.date)).toEqual([
-      "2026-10-01",
-      "2026-10-02",
-      "2026-10-03",
-    ]);
-    expect(open[0]).toMatchObject({
+    expect(open.map((d: any) => d.date)).toEqual(
+      WORD_ENTRIES.filter(
+        (e) => e.date.startsWith("2023-07") && e.date <= "2023-07-10",
+      ).map((e) => e.date),
+    );
+    expect(open.find((d: any) => d.date === "2023-07-08")).toMatchObject({
       term: "電話",
       kana: "でんわ",
       stratum: "kango",
@@ -64,8 +64,8 @@ describe("GET /api/word-calendar", () => {
   });
 
   it("reveals nothing but dates before the first day", async () => {
-    at("2026-09-20T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ month: "2026-10" });
+    at("2023-06-27T12:00:00Z");
+    (global as any).getQuery.mockReturnValue({ month: "2023-07" });
     const handler = await getHandler();
     const { days } = handler({} as any).data;
 
@@ -92,7 +92,7 @@ describe("GET /api/word-calendar", () => {
   });
 
   it("returns 404 for a month with no words", async () => {
-    (global as any).getQuery.mockReturnValue({ month: "2021-12" });
+    (global as any).getQuery.mockReturnValue({ month: "2018-09" });
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 404,
@@ -100,9 +100,9 @@ describe("GET /api/word-calendar", () => {
   });
 
   it("marks the days against filters read from the query", async () => {
-    at("2026-03-08T12:00:00Z");
+    at("2022-12-13T12:00:00Z");
     (global as any).getQuery.mockReturnValue({
-      month: "2026-03",
+      month: "2022-12",
       level: "N2,N3",
       match: "all",
     });
@@ -111,7 +111,7 @@ describe("GET /api/word-calendar", () => {
 
     expect(data.filters).toEqual({ level: ["N2", "N3"], match: "all" });
     const open = data.days.filter((d: any) => d.status === "open");
-    expect(open).toHaveLength(8);
+    expect(open).toHaveLength(13);
     expect(open.every((d: any) => typeof d.match === "boolean")).toBe(true);
     expect(open.some((d: any) => d.match)).toBe(true);
     expect(open.some((d: any) => !d.match)).toBe(true);
@@ -130,9 +130,9 @@ describe("GET /api/word-calendar", () => {
   });
 
   it("treats empty filter values as no filter", async () => {
-    at("2026-03-08T12:00:00Z");
+    at("2022-12-13T12:00:00Z");
     (global as any).getQuery.mockReturnValue({
-      month: "2026-03",
+      month: "2022-12",
       level: "",
       q: "",
     });
@@ -144,7 +144,7 @@ describe("GET /api/word-calendar", () => {
   });
 
   it("returns 400 for a filter value the API does not know", async () => {
-    (global as any).getQuery.mockReturnValue({ month: "2026-03", level: "N9" });
+    (global as any).getQuery.mockReturnValue({ month: "2022-12", level: "N9" });
     const handler = await getHandler();
     expect(thrownBy(() => handler({} as any))).toMatchObject({
       statusCode: 400,
@@ -152,9 +152,9 @@ describe("GET /api/word-calendar", () => {
   });
 
   it("never reveals an upcoming word through a filter", async () => {
-    at("2026-09-20T12:00:00Z");
+    at("2023-06-27T12:00:00Z");
     (global as any).getQuery.mockReturnValue({
-      month: "2026-10",
+      month: "2023-07",
       q: "電話",
     });
     const handler = await getHandler();
