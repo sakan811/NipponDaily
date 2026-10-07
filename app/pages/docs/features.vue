@@ -43,7 +43,7 @@ const features = computed(() => [
   {
     title: "A Calendar to Look Back Through",
     description:
-      "`/words` is a month grid. A day that has arrived shows its word and links to the full entry; an upcoming day shows only its date, and the API refuses to serve it, so a word can't be read early. Jump to any year and month from the picker above the grid. “Filter the calendar” opens the Explore filters (search, level, layer, process, part of speech, any or all): days whose word doesn't match fade but stay links, each month in the picker shows how many matches it holds, and a month with none points to the nearest months that do. The month and filters live in the URL, so a view can be shared.",
+      "`/words` is a month grid. A day that has arrived shows its word and links to the full entry; an upcoming day shows only its date, and the API refuses to serve it, so a word can't be read early; a day the catalogue has no word for is left blank. Jump to any year and month from the picker above the grid. “Filter the calendar” opens the Explore filters (search, level, layer, process, part of speech, any or all): days whose word doesn't match fade but stay links, each month in the picker shows how many matches it holds, and a month with none points to the nearest months that do. The month and filters live in the URL, so a view can be shared.",
   },
   {
     title: "Explore by How Words Are Built",
