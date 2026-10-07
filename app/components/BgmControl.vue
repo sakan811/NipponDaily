@@ -67,7 +67,7 @@
           aria-label="Music volume"
           :aria-valuetext="`${volume}%`"
           @input="setVolume(Number(($event.target as HTMLInputElement).value))"
-        />
+        >
         <UIcon
           name="i-heroicons-speaker-wave"
           class="w-4 h-4 text-stone-500 dark:text-stone-400"
