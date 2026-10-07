@@ -1,683 +1,743 @@
 [
   {
     "date": "2025-07-01",
-    "term": "アナウンサー",
-    "kana": "アナウンサー",
-    "meaning": "announcer",
-    "level": "N4",
+    "term": "植民地",
+    "kana": "しょくみんち",
+    "meaning": "colony",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "アナウンサー is borrowed from English “announcer”.",
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Shokuminchi is 植民 (shokumin, “colonization”) plus 地 (chi, “land”).",
     "morphemes": [
       {
-        "text": "アナウンサー",
-        "reading": "アナウンサー",
-        "meaning": "English announcer"
+        "text": "植民",
+        "reading": "しょくみん",
+        "meaning": "colonization"
+      },
+      {
+        "text": "地",
+        "reading": "ち",
+        "meaning": "land"
       }
     ],
     "sources": [
       {
-        "quote": "Borrowed from English announcer."
+        "quote": "植民 (shokumin, “colonization”) + 地 (chi, “land”)"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-02",
-    "term": "銅",
-    "kana": "どう",
-    "meaning": "copper",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["borrowing"],
-    "headline": "銅, “copper”, comes from Middle Chinese, and the source compares Min Nan, Wu and Xiang readings.",
+    "term": "逃す",
+    "kana": "のがす",
+    "meaning": "to let loose, to set free, to let escape",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Nogasu is from the causative form of Proto-Japonic *nonk- (“to flee, escape”), and the source compares 逃がす (nigasu).",
     "morphemes": [],
     "sources": [
       {
-        "quote": "From Middle Chinese 銅 (MC duwng). Compare modern Min Nan reading tông, Wu don, Xiang dong²."
+        "quote": "From the causative form of Proto-Japonic *nonk- (“to flee, escape”). Compare 逃がす (nigasu)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-03",
-    "term": "インタビュー",
-    "kana": "インタビュー",
-    "meaning": "interview",
-    "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
-    ],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "インタビュー is borrowed from English “interview”.",
+    "term": "風車",
+    "kana": "ふうしゃ",
+    "meaning": "windmill",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Fūsha is from Middle Chinese 風車, literally “wind + wheel”.",
     "morphemes": [
       {
-        "text": "インタビュー",
-        "reading": "インタビュー",
-        "meaning": "English interview"
+        "text": "風",
+        "reading": "ふう",
+        "meaning": "wind"
+      },
+      {
+        "text": "車",
+        "reading": "しゃ",
+        "meaning": "wheel"
       }
     ],
     "sources": [
       {
-        "quote": "Borrowed from English interview."
+        "quote": "From Middle Chinese 風車 (MC pjuwng tsyhae, “wind + wheel”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-04",
-    "term": "伸ばす",
-    "kana": "のばす",
-    "meaning": "to extend, to stretch, to reach out",
-    "level": "N3",
-    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "term": "揺らぐ",
+    "kana": "ゆらぐ",
+    "meaning": "to swing, to sway, to shake",
+    "level": "N1",
+    "pos": ["Godan verb with 'gu' ending", "intransitive verb"],
     "stratum": "wago",
     "processes": [],
-    "headline": "伸ばす is cognate with 延ばす (nobasu), from the classical verb のぶ (nobu).",
+    "headline": "Yuragu was formerly ゆらく (yuraku), derived from the adverb ゆら (yura), which evokes the sound of a rocking ball or bell.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "Cognate with Japanese 延(の)ばす (nobasu, “to extend, to stretch, to spread”), from classical verb のぶ (nobu)."
+        "quote": "Formerly ゆらく (yuraku), with the final -ku softening to -gu. Derived from adverb ゆら (yura, evoking the sound of a ball or bell rocking), itself derived from or cognate with the imperfective form of Old Japanese verb ゆる (yuru) (揺る / 淘る / 汰る, \"to rock, to shake\")."
+      },
+      {
+        "quote": "Compare 揺れる (yureru, “to shake; to be unsettled; to hesitate”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-05",
-    "term": "スライド",
-    "kana": "スライド",
-    "meaning": "slide",
-    "level": "N2",
+    "term": "タイミング",
+    "kana": "タイミング",
+    "meaning": "timing",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
-    "headline": "スライド is borrowed from English “slide”.",
+    "headline": "タイミング is from English timing.",
     "morphemes": [
       {
-        "text": "スライド",
-        "reading": "スライド",
-        "meaning": "English slide"
+        "text": "タイミング",
+        "reading": "タイミング",
+        "meaning": "English timing"
       }
     ],
     "sources": [
       {
-        "quote": "Borrowed from English slide."
+        "quote": "From English timing."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-06",
-    "term": "アイデア",
-    "kana": "アイデア",
-    "meaning": "idea",
-    "level": "N2",
+    "term": "結び",
+    "kana": "むすび",
+    "meaning": "ending, conclusion, union",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "Idea in English, アイデア in Japanese: the source traces it straight to the English word “idea”.",
-    "morphemes": [
-      {
-        "text": "アイデア",
-        "reading": "アイデア",
-        "meaning": "English idea"
-      }
-    ],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Musubi is the continuative stem of the verb 結ぶ (musubu), first appearing in the Man'yōshū of 759 CE.",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "From English idea."
+        "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 結(むす)ぶ (musubu)."
+      },
+      {
+        "quote": "First appears in the Man'yōshū of 759 CE."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-07",
-    "term": "宅",
-    "kana": "たく",
-    "meaning": "house, home",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
-    "stratum": "kango",
-    "processes": ["borrowing"],
-    "headline": "宅, “house, home”, is derived from Middle Chinese 宅 (MC draek).",
+    "term": "売り出し",
+    "kana": "うりだし",
+    "meaning": "(bargain) sale",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Uridashi is 売り (uri) plus 出し (dashi), the stem of 出す (dasu).",
     "morphemes": [],
     "sources": [
       {
-        "quote": "Derived from Middle Chinese 宅 (MC draek)."
+        "quote": "売り (uri) + 出し (dashi, the 連用形 (ren'yōkei, “stem or continuative form”) of the verb 出す (dasu))"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-08",
-    "term": "ブローチ",
-    "kana": "ブローチ",
-    "meaning": "brooch",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "ブローチ is borrowed from English “brooch”.",
-    "morphemes": [
-      {
-        "text": "ブローチ",
-        "reading": "ブローチ",
-        "meaning": "English brooch"
-      }
-    ],
+    "term": "侵す",
+    "kana": "おかす",
+    "meaning": "to invade, to raid, to trespass",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Okasu, “to invade”, is a doublet of 犯す (okasu, “to commit (crime)”) and 冒す (okasu, “to risk”).",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "Borrowed from English brooch."
+        "quote": "Doublet of 犯す (okasu, “to commit (crime)”) and 冒す (okasu, “to risk”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-09",
-    "term": "銀",
-    "kana": "ぎん",
-    "meaning": "silver",
-    "level": "N3",
+    "term": "アラブ",
+    "kana": "アラブ",
+    "meaning": "Arab",
+    "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
-    "stratum": "kango",
+    "stratum": "gairaigo",
     "processes": ["borrowing"],
-    "headline": "銀, “silver”, is from Middle Chinese 銀 (MC ngin), and the source compares Hokkien gîn.",
+    "headline": "アラブ is an internationalism, ultimately from Arabic, first cited in Japanese in a 1914 dictionary of loanwords.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "From Middle Chinese 銀 (MC ngin). Compare modern Hokkien reading gîn."
+        "quote": "Internationalism, ultimately from Arabic عَرَب (ʕarab); see English Arab."
+      },
+      {
+        "quote": "First cited in Japanese to a dictionary of loanwords from 1914."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-10",
-    "term": "ボート",
-    "kana": "ボート",
-    "meaning": "rowing boat",
-    "level": "N3",
+    "term": "殺人",
+    "kana": "さつじん",
+    "meaning": "murder",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "ボート, “rowing boat”, is the English word “boat” in katakana.",
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Satsujin is 殺 (satsu, “killing”) plus 人 (jin, “human”).",
     "morphemes": [
       {
-        "text": "ボート",
-        "reading": "ボート",
-        "meaning": "English boat"
+        "text": "殺",
+        "reading": "さつ",
+        "meaning": "killing"
+      },
+      {
+        "text": "人",
+        "reading": "じん",
+        "meaning": "human"
       }
     ],
     "sources": [
       {
-        "quote": "From English boat."
+        "quote": "Compound of 殺(さつ) (satsu, “killing”) + 人(じん) (jin, “human”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-11",
-    "term": "でも",
-    "kana": "でも",
-    "meaning": "but, however",
-    "level": "N5",
-    "pos": ["conjunction", "particle"],
+    "term": "招き",
+    "kana": "まねき",
+    "meaning": "invitation",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
     "processes": [],
-    "headline": "でも is で, the て-form of the copula だ/です, plus も (“even; too”).",
+    "headline": "Maneki is the continuative stem of the verb 招く (maneku, “to invite, call over”).",
     "morphemes": [],
     "sources": [
       {
-        "quote": "で (de, conjunctive (\"て-form\") of copula だ/です) + も (mo, “even; too”)."
-      },
-      {
-        "quote": "When でも follows a noun, で is the conjunctive or \"て-form\" of the copula だ/です. で can also appear in the conjunctive form of certain classes of verbs; in that case, でも can be analyzed as the conjunctive form of the verb + the inclusive particle も, and means \"even if\"; compare with the allomorph ても used for different classes of verbs."
+        "quote": "連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 招(まね)く (maneku, “to invite, call over”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-12",
-    "term": "カロリー",
-    "kana": "カロリー",
-    "meaning": "calorie",
-    "level": "N2",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
-    "stratum": "gairaigo",
+    "term": "財",
+    "kana": "ざい",
+    "meaning": "fortune, riches",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "stratum": "kango",
     "processes": ["borrowing"],
-    "headline": "カロリー is borrowed from French “calorie”.",
-    "morphemes": [
-      {
-        "text": "カロリー",
-        "reading": "カロリー",
-        "meaning": "French calorie"
-      }
-    ],
+    "headline": "Zai, “fortune”, is from Middle Chinese 財 (MC dzoj).",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "Borrowed from French calorie."
+        "quote": "From Middle Chinese 財 (MC dzoj)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-13",
-    "term": "もしかすると",
-    "kana": "もしかすると",
-    "meaning": "perhaps, maybe, by some chance",
-    "level": "N3",
-    "pos": ["adverb (fukushi)"],
+    "term": "濯ぐ",
+    "kana": "すすぐ",
+    "meaning": "to rinse, to wash out",
+    "level": "N1",
+    "pos": ["Godan verb with 'gu' ending", "transitive verb"],
     "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "もしかすると is もしか (“perhaps, if”) plus すると (“doing so”).",
-    "morphemes": [
-      {
-        "text": "もしか",
-        "reading": "もしか",
-        "meaning": "perhaps, if"
-      },
-      {
-        "text": "すると",
-        "reading": "すると",
-        "meaning": "doing so"
-      }
-    ],
+    "processes": [],
+    "headline": "Susugu was originally pronounced unvoiced, as 濯く (susuku).",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "From もしか (moshi ka, “perhaps, if”) + すると (suru to, “doing so”)."
+        "quote": "Originally pronounced unvoiced, as 濯(すす)く (susuku)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-14",
-    "term": "カラー",
-    "kana": "カラー",
-    "meaning": "collar, color",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "カラー is two words in one: the source gives both English “color” and English “collar”.",
-    "morphemes": [],
-    "sources": [
+    "term": "収集",
+    "kana": "しゅうしゅう",
+    "meaning": "gathering up, collection",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Shūshū is from Middle Chinese 收集, first appearing around 760 CE with the spelling 聚集 in kanbun texts.",
+    "morphemes": [
       {
-        "quote": "From English color."
+        "text": "収",
+        "reading": "しゅう",
+        "meaning": "income",
+        "glossSource": "kanjidic2"
       },
       {
-        "quote": "From English collar."
+        "text": "集",
+        "reading": "しゅう",
+        "meaning": "gather",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 收集 (MC syuw dzip, “to collect, to gather”), from 收 (MC syuw, “to receive, to collect”) + 集 (MC dzip, “to gather”). First appears in roughly 760 CE with the spelling 聚集 in kanbun texts."
+      },
+      {
+        "quote": "The 収集 spelling appears to be more common in modern usage."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-15",
-    "term": "ファスナー",
-    "kana": "ファスナー",
-    "meaning": "fastener, zipper",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "ファスナー, “fastener, zipper”, is borrowed from English “fastener”.",
-    "morphemes": [
-      {
-        "text": "ファスナー",
-        "reading": "ファスナー",
-        "meaning": "English fastener"
-      }
-    ],
+    "term": "面する",
+    "kana": "めんする",
+    "meaning": "to face on, to look out on to",
+    "level": "N1",
+    "pos": ["suru verb - special class"],
+    "stratum": "kango",
+    "processes": [],
+    "headline": "Men suru is 面 (men, “face”) plus する (-suru).",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "Borrowed from English fastener."
+        "quote": "面(めん) (men, “face”) + する (-suru)"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-16",
-    "term": "玉",
-    "kana": "たま",
-    "meaning": "ball, sphere, coin",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "玉, “ball, sphere, coin”, is recorded simply as from Old Japanese.",
-    "morphemes": [],
+    "term": "嘲笑う",
+    "kana": "あざわらう",
+    "meaning": "to sneer at, to ridicule",
+    "level": "N1",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "processes": ["compound"],
+    "headline": "Azawarau is 嘲 (aza, “something off-color or not quite right”) plus 笑う (warau, “laugh”).",
+    "morphemes": [
+      {
+        "text": "嘲",
+        "reading": "あざ",
+        "meaning": "something off-color or not quite right",
+        "irregular": true
+      },
+      {
+        "text": "笑う",
+        "reading": "わらう",
+        "meaning": "laugh"
+      }
+    ],
     "sources": [
       {
-        "quote": "From Old Japanese."
+        "quote": "Compound of 嘲 (aza, “something off-color or not quite right”, compounding element found in terms such as 嘲る (azakeru, “to ridicule, to jeer at”) and 欺く (azamuku, “to deceive”), cognate with 痣 (aza, “bruise”)) + 笑う (warau, “laugh”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-17",
-    "term": "カバー",
-    "kana": "カバー",
-    "meaning": "cover (e.g., book)",
-    "level": "N2",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
-    ],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "カバー is the English word “cover” in katakana.",
+    "term": "蜂蜜",
+    "kana": "はちみつ",
+    "meaning": "honey",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound"],
+    "headline": "Hachimitsu is 蜂 (hachi, “bee”) plus 蜜 (mitsu, “honey”).",
     "morphemes": [
       {
-        "text": "カバー",
-        "reading": "カバー",
-        "meaning": "English cover"
+        "text": "蜂",
+        "reading": "はち",
+        "meaning": "bee"
+      },
+      {
+        "text": "蜜",
+        "reading": "みつ",
+        "meaning": "honey"
       }
     ],
     "sources": [
       {
-        "quote": "From English cover."
+        "quote": "Compound of 蜂(はち) (hachi, “bee”) + 蜜(みつ) (mitsu, “honey”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-18",
-    "term": "続々",
-    "kana": "ぞくぞく",
-    "meaning": "successively, one after another",
-    "level": "N2",
-    "pos": ["adverb (fukushi)", "adverb taking the 'to' particle"],
-    "stratum": "kango",
-    "processes": ["derivation", "borrowing"],
-    "headline": "続々 doubles 続 (zoku), itself from Middle Chinese 續.",
+    "term": "インテリ",
+    "kana": "インテリ",
+    "meaning": "(abbr.) egghead, intelligentsia",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "インテリ is from the Russian word intelligéncija.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "Reduplication of 続(ぞく) (zoku, “continuing”), itself from Middle Chinese 續 (MC zjowk)."
+        "quote": "From Russian интеллиге́нция (intelligéncija)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-19",
-    "term": "スピーチ",
-    "kana": "スピーチ",
-    "meaning": "speech",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "スピーチ is borrowed from English “speech”.",
-    "morphemes": [
-      {
-        "text": "スピーチ",
-        "reading": "スピーチ",
-        "meaning": "English speech"
-      }
-    ],
+    "term": "取り戻す",
+    "kana": "とりもどす",
+    "meaning": "to take back, to regain",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Torimodosu is 取る (toru, “to take”) plus 戻す (modosu, “to return, put back”).",
+    "morphemes": [],
     "sources": [
       {
-        "quote": "Borrowed from English speech."
+        "quote": "取(と)る (toru, “to take”) + 戻(もど)す (modosu, “to return, put back”)"
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-20",
-    "term": "売り切れる",
-    "kana": "うりきれる",
-    "meaning": "to be sold out",
-    "level": "N2",
-    "pos": ["Ichidan verb", "intransitive verb"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "売り切れる is 売る (uru, “to sell”) plus 切れる (kireru, “to do completely”).",
+    "term": "禁じる",
+    "kana": "きんじる",
+    "meaning": "to prohibit",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "kango",
+    "processes": ["sound-change"],
+    "headline": "Kinjiru is a shift from the verb 禁ずる (kinzuru), as -uru verbs moved to the -iru pattern.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "売(う)る (uru, “to sell”) + 切(き)れる (kireru, “to do completely”)"
+        "quote": "Shift from verb 禁(きん)ずる (kinzuru), by natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-21",
-    "term": "コート",
-    "kana": "コート",
-    "meaning": "coat; court (e.g., tennis)",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "コート covers two English words: “coat” and “court”.",
-    "morphemes": [],
-    "sources": [
+    "term": "承諾",
+    "kana": "しょうだく",
+    "meaning": "consent, agreement",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Shōdaku is 承 (shō, “agree to”) plus 諾 (daku, “consent”).",
+    "morphemes": [
       {
-        "quote": "Borrowed from English coat."
+        "text": "承",
+        "reading": "しょう",
+        "meaning": "agree to"
       },
       {
-        "quote": "Borrowed from English court."
+        "text": "諾",
+        "reading": "だく",
+        "meaning": "consent"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 承 (shō, “agree to”) + 諾 (daku, “consent”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-22",
-    "term": "王",
-    "kana": "おう",
-    "meaning": "king",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
-    "stratum": "kango",
-    "processes": ["borrowing", "sound-change"],
-    "headline": "王, “king”, is from Middle Chinese, and the source gives its sound path as /wau/ to /oː/.",
+    "term": "しょっちゅう",
+    "kana": "しょっちゅう",
+    "meaning": "always, constantly",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Shotchū is possibly from 初中後 (shochūgo).",
     "morphemes": [],
     "sources": [
       {
-        "quote": "/wau/ → /wɔː/ → */woː/ → /oː/"
-      },
-      {
-        "quote": "From Middle Chinese 王 (MC hjwang)."
+        "quote": "Possibly from 初中後 (shochūgo)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-23",
-    "term": "サンダル",
-    "kana": "サンダル",
-    "meaning": "sandal",
-    "level": "N4",
+    "term": "屋敷",
+    "kana": "やしき",
+    "meaning": "mansion",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "サンダル is borrowed from English “sandal” or French “sandale”; the source does not pick one.",
-    "morphemes": [],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Yashiki is 屋 (ya, “house”) plus 敷 (shiki, “building site”), short for 敷地 (shikichi).",
+    "morphemes": [
+      {
+        "text": "屋",
+        "reading": "や",
+        "meaning": "house"
+      },
+      {
+        "text": "敷",
+        "reading": "しき",
+        "meaning": "building site"
+      }
+    ],
     "sources": [
       {
-        "quote": "Borrowed from English sandal or French sandale."
+        "quote": "From 屋(や) (ya, “house”) + 敷(しき) (shiki, “building site”, short for 敷(しき)地(ち) (shikichi))."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-24",
-    "term": "プール",
-    "kana": "プール",
-    "meaning": "swimming pool",
-    "level": "N5",
+    "term": "河川",
+    "kana": "かせん",
+    "meaning": "rivers",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "プール, “swimming pool”, is borrowed from English “pool”.",
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Kasen is 河 (ka, “river, large river”) plus 川 (sen, “river”).",
     "morphemes": [
       {
-        "text": "プール",
-        "reading": "プール",
-        "meaning": "English pool"
+        "text": "河",
+        "reading": "か",
+        "meaning": "river, large river"
+      },
+      {
+        "text": "川",
+        "reading": "せん",
+        "meaning": "river"
       }
     ],
     "sources": [
       {
-        "quote": "Borrowed from English pool."
+        "quote": "From 河 (ka, “river, large river”) + 川 (sen, “river”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-25",
-    "term": "五",
-    "kana": "ご",
-    "meaning": "five",
-    "level": "N5",
-    "pos": ["numeric"],
-    "stratum": "kango",
-    "processes": ["borrowing"],
-    "headline": "五, “five”, comes from Middle Chinese (MC nguX).",
+    "term": "尽くす",
+    "kana": "つくす",
+    "meaning": "to exhaust, to run out; to devote, to serve",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tsukusu is from Old Japanese, found in the Man'yōshū and spelled phonetically as 都久須.",
     "morphemes": [],
     "sources": [
       {
-        "quote": "From Middle Chinese 五 (MC nguX). Compare modern Hokkien 五 (gō͘ / gǒ͘)."
+        "quote": "From Old Japanese [script needed] (tukusu). Found in the Man'yōshū, completed some time after 759 CE, spelled phonetically in man'yōgana as 都久須."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-26",
-    "term": "コード",
-    "kana": "コード",
-    "meaning": "code; cord; chord",
-    "level": "N3",
+    "term": "デモンストレーション",
+    "kana": "デモンストレーション",
+    "meaning": "demonstration",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
-    "headline": "コード traces to three English words: “code”, “cord” and “chord”.",
-    "morphemes": [],
+    "headline": "デモンストレーション is from English demonstration.",
+    "morphemes": [
+      {
+        "text": "デモンストレーション",
+        "reading": "デモンストレーション",
+        "meaning": "English demonstration"
+      }
+    ],
     "sources": [
       {
-        "quote": "Borrowed from English code."
-      },
-      {
-        "quote": "Borrowed from English cord."
-      },
-      {
-        "quote": "Borrowed from English chord."
+        "quote": "From English demonstration."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-27",
-    "term": "首",
-    "kana": "くび",
-    "meaning": "neck",
-    "level": "N4",
+    "term": "ショー",
+    "kana": "ショー",
+    "meaning": "show",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "首, “neck”, is from Old Japanese, from Proto-Japonic *kunpi.",
-    "morphemes": [],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ショー is borrowed from English show.",
+    "morphemes": [
+      {
+        "text": "ショー",
+        "reading": "ショー",
+        "meaning": "English show"
+      }
+    ],
     "sources": [
       {
-        "quote": "From Old Japanese, from Proto-Japonic *kunpi."
+        "quote": "Borrowed from English show."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-28",
-    "term": "スケジュール",
-    "kana": "スケジュール",
-    "meaning": "schedule",
-    "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
-    ],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "スケジュール is borrowed from English “schedule”.",
+    "term": "渡り鳥",
+    "kana": "わたりどり",
+    "meaning": "migratory bird, bird of passage",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["compound", "rendaku"],
+    "headline": "Wataridori is 渡り (watari, the stem of 渡る (wataru, “to migrate”)) plus 鳥 (tori, “bird”).",
     "morphemes": [
       {
-        "text": "スケジュール",
-        "reading": "スケジュール",
-        "meaning": "English schedule"
+        "text": "渡り",
+        "reading": "わたり",
+        "meaning": "to migrate"
+      },
+      {
+        "text": "鳥",
+        "reading": "どり",
+        "base": "とり",
+        "meaning": "bird"
       }
     ],
     "sources": [
       {
-        "quote": "Borrowed from English schedule."
+        "quote": "From 渡(わた)り (watari, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 渡(わた)る (wataru, “to migrate”)) + 鳥(とり) (tori, “bird”)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-29",
-    "term": "碗",
-    "kana": "わん",
-    "meaning": "bowl",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "kango",
-    "processes": ["borrowing"],
-    "headline": "碗, “bowl”, is a Middle Chinese borrowing (MC 'wanX).",
+    "term": "試みる",
+    "kana": "こころみる",
+    "meaning": "to try, to test",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Kokoromiru is 心 (kokoro, “heart, mind”) plus 見る (miru, “to look, watch, take care”).",
     "morphemes": [],
     "sources": [
       {
-        "quote": "From Middle Chinese 碗 (MC 'wanX)."
+        "quote": "From 心 (kokoro, “heart, mind”) + 見る (miru, “to look, watch, take care”)."
+      },
+      {
+        "quote": "The み (mi) is written as an okurigana to indicate the reading of 試."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-30",
-    "term": "トップ",
-    "kana": "トップ",
-    "meaning": "top",
-    "level": "N3",
+    "term": "座談会",
+    "kana": "ざだんかい",
+    "meaning": "symposium, round-table discussion",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "トップ is borrowed from English “top”, a doublet of トップス.",
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Zadankai is, by surface analysis, 座談 (zadan) plus 会 (-kai).",
     "morphemes": [
       {
-        "text": "トップ",
-        "reading": "トップ",
-        "meaning": "English top"
+        "text": "座",
+        "reading": "ざ",
+        "meaning": "squat",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "談",
+        "reading": "だん",
+        "meaning": "discuss",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "会",
+        "reading": "かい",
+        "meaning": "meeting",
+        "glossSource": "kanjidic2"
       }
     ],
     "sources": [
       {
-        "quote": "Borrowed from English top."
-      },
-      {
-        "quote": "Doublet of トップス (toppusu)."
+        "quote": "By surface analysis, 座談(ざだん) (zadan) + 会(かい) (-kai)."
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2025-07-31",
-    "term": "膝",
-    "kana": "ひざ",
-    "meaning": "knee, lap",
-    "level": "N3",
+    "term": "圧力",
+    "kana": "あつりょく",
+    "meaning": "stress, pressure",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "膝, “knee, lap”, is from Old Japanese, from Proto-Japonic *pinsa.",
-    "morphemes": [],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Atsuryoku is 圧 (atsu, “pressure”) plus 力 (-ryoku, “power”).",
+    "morphemes": [
+      {
+        "text": "圧",
+        "reading": "あつ",
+        "meaning": "pressure"
+      },
+      {
+        "text": "力",
+        "reading": "りょく",
+        "meaning": "power"
+      }
+    ],
     "sources": [
       {
-        "quote": "From Old Japanese, from Proto-Japonic *pinsa."
+        "quote": "圧(あつ) (atsu, “pressure”) + 力(りょく) (-ryoku, “power”)"
       }
     ],
     "wiktionaryDump": "2026-09-02"

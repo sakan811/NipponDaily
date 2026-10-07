@@ -1,0 +1,847 @@
+[
+  {
+    "date": "2019-11-01",
+    "term": "私",
+    "kana": "わたくし",
+    "meaning": "I (formal), myself, private affairs",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "stratum": "wago",
+    "processes": ["compound", "unclear"],
+    "headline": "Watakushi has no known source: a surface analysis suggests a compound, but no likely etyma are known.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 私 (watakusi)."
+      },
+      {
+        "quote": "A surface analysis suggests a compound term. However, no likely etyma are known."
+      },
+      {
+        "quote": "* From first-person pronoun 我 (wa, “I, me”) + takusi: although the first element seems likely, the original meaning of watakushi was “private”, as opposed to “public”, with no first-person pronoun usage until the late 13th century."
+      },
+      {
+        "quote": "* From 我(わ) (wa, “I, me”) + つ (tsu, “genitive marker”), and the other parts remain unknown."
+      },
+      {
+        "quote": "* From wata + kusi: the only phonetic matches are 綿 (wata, “cotton; cotton batting”), 腸 (wata, “guts, one's innards”, likely derived from the “batting” sense), 海 (wata, “sea, ocean”) + 串 (kusi, “skewer”), 奇し (kusi, “magic, fantastic, supernatural”, adjective), 酒 (kusi, “alcoholic beverage”, likely derived from the “magic” sense), 櫛 (kusi, “comb”)."
+      },
+      {
+        "quote": "* The first element may come from 内(うち) (uchi, “one's own, my, our”), and the second element remains unknown."
+      },
+      {
+        "quote": "The meaning evolved over time from “private” or “privatization”, to refer to things that are personal, to refer to one's own person, and then finally to serve as a generic first-person pronoun. The full form watakushi is still used in modern Japanese as a formal, highly polite first-person pronoun. The abbreviated form watashi is now the most common and neutrally polite first-person pronoun."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-02",
+    "term": "草履",
+    "kana": "ぞうり",
+    "meaning": "Japanese sandals (footwear)",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "sound-change"],
+    "headline": "Zōri: in late Middle Japanese the initial zo temporarily became an affricate, jo.",
+    "morphemes": [
+      {
+        "text": "草",
+        "reading": "ぞう",
+        "base": "そう",
+        "meaning": "grass",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "履",
+        "reading": "り",
+        "meaning": "perform",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "In late Middle Japanese, the initial [zo] temporarily becomes affricate [dʒo]."
+      },
+      {
+        "quote": "/zauri/ → /zoːri/"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-03",
+    "term": "普通",
+    "kana": "ふつう",
+    "meaning": "common; usual",
+    "level": "N4",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing", "sound-change"],
+    "headline": "Futsū is Middle Chinese 普通, literally “ordinary + through”.",
+    "morphemes": [
+      {
+        "text": "普",
+        "reading": "ふ",
+        "meaning": "ordinary"
+      },
+      {
+        "text": "通",
+        "reading": "つう",
+        "meaning": "through"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "/putuː/ → /fut͡suː/"
+      },
+      {
+        "quote": "From Middle Chinese compound 普通 (MC phuX thuwng, literally “ordinary + through”). Compare modern Hakka phû-thûng, Cantonese pou² tung¹, Mandarin pǔtōng."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-04",
+    "term": "注",
+    "kana": "ちゅう",
+    "meaning": "annotation, explanatory note",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Chū is from Middle Chinese 註, and 注 is a daiyōji replacing 註.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 註 (MC tsyuH|trjuH). 注 is a daiyōji replacing 註."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-05",
+    "term": "詳しい",
+    "kana": "くわしい",
+    "meaning": "detailed; full; accurate",
+    "level": "N3",
+    "pos": ["adjective (keiyoushi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Kuwashii is simply from Old Japanese.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-06",
+    "term": "来週",
+    "kana": "らいしゅう",
+    "meaning": "next week",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Raishū is 来 (rai-, “coming..., next...”) plus 週 (shū, “week”).",
+    "morphemes": [
+      {
+        "text": "来",
+        "reading": "らい",
+        "meaning": "coming..., next..."
+      },
+      {
+        "text": "週",
+        "reading": "しゅう",
+        "meaning": "week"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 来 (rai-, “coming..., next...”) + 週 (shū, “week”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-07",
+    "term": "国会",
+    "kana": "こっかい",
+    "meaning": "National Diet, parliament, congress",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Kokkai is from Chinese 國會 (guóhuì); the page also lists Korean 국회 (Gukhoe) and Vietnamese Quốc hội.",
+    "morphemes": [
+      {
+        "text": "国",
+        "reading": "こっ",
+        "base": "こく",
+        "meaning": "country",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "会",
+        "reading": "かい",
+        "meaning": "meeting",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Chinese 國會 /国会 (guóhuì)."
+      },
+      {
+        "quote": "From Korean 국회 (Gukhoe)."
+      },
+      {
+        "quote": "From Vietnamese Quốc hội."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-08",
+    "term": "灰色",
+    "kana": "はいいろ",
+    "meaning": "grey, ashen",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Haiiro is 灰 (hai, “ash”) plus 色 (-iro, “color”).",
+    "morphemes": [
+      {
+        "text": "灰",
+        "reading": "はい",
+        "meaning": "ash"
+      },
+      {
+        "text": "色",
+        "reading": "いろ",
+        "meaning": "color"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 灰(はい) (hai, “ash”) + 色(いろ) (-iro, “color”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-09",
+    "term": "引力",
+    "kana": "いんりょく",
+    "meaning": "gravity",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "wasei"],
+    "headline": "Inryoku is a calque of Dutch aantrekkingskracht, “attraction force”.",
+    "morphemes": [
+      {
+        "text": "引",
+        "reading": "いん",
+        "meaning": "pull",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "力",
+        "reading": "りょく",
+        "meaning": "power",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Calque of Dutch aantrekkingskracht (“attraction force”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-10",
+    "term": "羽",
+    "kana": "はね",
+    "meaning": "wing",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Hane is 羽 (ha, “feather”) plus 根 (ne, “root”), originally the spot where a quill meets the skin.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Appears in the Wamyō Ruijushō of 938 CE."
+      },
+      {
+        "quote": "Compound of 羽(は) (ha, “feather”, see below) + 根(ね) (ne, “root”), originally referring specifically to where the quill of a feather attaches to the skin. Over time, the meaning broadened to refer to a feather, and from there, to refer to a wing."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-11",
+    "term": "落し物",
+    "kana": "おとしもの",
+    "meaning": "lost property",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "processes": [],
+    "headline": "Otoshimono is 落とす (otosu) plus 物 (-mono).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "落(お)とす (otosu) + 物(もの) (-mono)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-12",
+    "term": "輸入",
+    "kana": "ゆにゅう",
+    "meaning": "import",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "sound-change"],
+    "headline": "Yunyū is an alteration of shunyū, using the kan'yōon yu for 輸.",
+    "morphemes": [
+      {
+        "text": "輸",
+        "reading": "ゆ",
+        "meaning": "transport",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "入",
+        "reading": "にゅう",
+        "meaning": "enter",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Alteration of shunyū below, using the kan'yōon of yu for the 輸 character."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-13",
+    "term": "書籍",
+    "kana": "しょせき",
+    "meaning": "book, publication",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Shoseki is from Middle Chinese 書籍 (MC syo dzjek).",
+    "morphemes": [
+      {
+        "text": "書",
+        "reading": "しょ",
+        "meaning": "write",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "籍",
+        "reading": "せき",
+        "meaning": "enroll",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 書籍 (MC syo dzjek)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-14",
+    "term": "帰り",
+    "kana": "かえり",
+    "meaning": "return, coming back",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "Kaeri is the nominalized stem of 帰る (kaeru, “to return”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Nominalization of the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 帰(かえ)る (kaeru, “to return”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-15",
+    "term": "意",
+    "kana": "い",
+    "meaning": "feelings, thoughts; meaning",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "I, “thoughts”, is from Middle Chinese 意.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 意 (MC 'iH)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-16",
+    "term": "送料",
+    "kana": "そうりょう",
+    "meaning": "postage, carriage",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Sōryō is 送 (sō) plus 料 (-ryō).",
+    "morphemes": [
+      {
+        "text": "送",
+        "reading": "そう",
+        "meaning": "escort",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "料",
+        "reading": "りょう",
+        "meaning": "fee",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "送(そう) (sō) + 料(りょう) (-ryō)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-17",
+    "term": "同一",
+    "kana": "どういつ",
+    "meaning": "identity, sameness, similarity",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Dōitsu is from Chinese 同一, literally “same + one”.",
+    "morphemes": [
+      {
+        "text": "同",
+        "reading": "どう",
+        "meaning": "same"
+      },
+      {
+        "text": "一",
+        "reading": "いつ",
+        "meaning": "one"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Chinese 同一 (duwng + ʔjit, literally “same + one”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-18",
+    "term": "方々",
+    "kana": "かたがた",
+    "meaning": "persons",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["derivation", "rendaku"],
+    "headline": "Katagata is a reduplication of 方 (kata, “person”), with kata voiced to gata.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Reduplication of 方(かた) (kata, “person”). The kata changes to gata as an instance of rendaku (連濁)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-19",
+    "term": "皮膚",
+    "kana": "ひふ",
+    "meaning": "skin",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Hifu is a Sino-Japonic compound of Middle Chinese 皮 and 膚, first attested in 717.",
+    "morphemes": [
+      {
+        "text": "皮",
+        "reading": "ひ",
+        "meaning": "skin",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "膚",
+        "reading": "ふ",
+        "meaning": "skin",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Sino-Japonic compound word from Middle Chinese 皮 (MC bje) and Middle Chinese 膚 (MC pju). First attested in 717. Compare Korean 피부 (pibu)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-20",
+    "term": "加える",
+    "kana": "くわえる",
+    "meaning": "to append, to sum up, to add (up)",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Kuwaeru is from the Classical Japanese verb 加ふ (kufafu).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Classical Japanese verb 加(くは)ふ (kufafu)."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-21",
+    "term": "幸い",
+    "kana": "さいわい",
+    "meaning": "fortunately; luckily",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Saiwai is derived from sakiwai, and began as sakipapi.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/sakipapi/ → /sakiɸaɸi/ → /sakiwawi/ → /sakiwai/ → /saiwai/"
+      },
+      {
+        "quote": "Derived from sakiwai below."
+      },
+      {
+        "quote": "Most often spelled as 幸い with the final い to indicate the reading."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-22",
+    "term": "攻める",
+    "kana": "せめる",
+    "meaning": "to attack, to assault",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Semeru, “to attack”, comes from the Classical Japanese verb せむ (semu).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From the Classical Japanese verb せむ (semu)."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+      },
+      {
+        "quote": "Cognate with 責(せ)める (semeru), 迫(せま)る (semaru), 狭(せば)める (sebameru), 狭(せば)まる (sebamaru), and 狭(せま)い (semai)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-23",
+    "term": "絶対",
+    "kana": "ぜったい",
+    "meaning": "definitely, without fail, absoluteness",
+    "level": "N3",
+    "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "wasei"],
+    "headline": "Zettai was coined by Inoue Tetsujirō in 1881 as a calque of English absolute, changing the spelling from 絶待 to 絶対.",
+    "morphemes": [
+      {
+        "text": "絶",
+        "reading": "ぜっ",
+        "base": "ぜつ",
+        "meaning": "discontinue",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "対",
+        "reading": "たい",
+        "meaning": "vis-a-vis",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Coined by Japanese philosopher Inoue Tetsujirō in 1881 in his work 哲学字彙 (Tetsugaku Jii, “Dictionary of Philosophy”) as a calque of English absolute, based on the Profound Meaning of the Lotus Sutra (《法華玄義》), changing the spelling from 絶待 to 絶対."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-24",
+    "term": "綱",
+    "kana": "つな",
+    "meaning": "rope",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tsuna is first attested in the Harima Fudoki of 715 CE, from Proto-Japonic *tuna.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, ultimately from Proto-Japonic *tuna."
+      },
+      {
+        "quote": "First attested in the Harima Fudoki of 715 CE."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-25",
+    "term": "松",
+    "kana": "まつ",
+    "meaning": "pine tree",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": ["clipping", "sound-change"],
+    "headline": "Matsu might be a shift from 保つ (tamotsu, “to hold”), but the Heian accents do not match.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. Attested in the Kojiki of 712 and the Man'yōshū of 759. In turn, from Proto-Japonic *matu."
+      },
+      {
+        "quote": "Various theories exist regarding its ultimate origin:"
+      },
+      {
+        "quote": "* Might be a shift from 保つ (tamotsu, “to hold”). However, the accent of 保つ (tamotsu) in the Heian period is HHL, while 松 (matsu) is LH. It can be better derived from 持つ (motsu, “to hold, to carry”), which has LF accent in the Heian period."
+      },
+      {
+        "quote": "* Might be from 待つ (matsu, “to wait”), either from the way that a pine tree must wait for leaves to fall to grow new ones, or from the way that it lasts ten thousand years and preserves its color. The accent of 待つ (matsu) is LF."
+      },
+      {
+        "quote": "* Possibly derived from 全く (mataku, “entirely”), from 全い (matai, “complete”), because it spends its time in the snow for winter. However, the classical term 全し (matasi) is HHF in the Heian period."
+      },
+      {
+        "quote": "* From 睫毛 (matsuge, “eyelashes”), since their leaves represent such. However, it requires deletion of the -ge, and matsuge is certainly from 目 (ma-, “eye”)."
+      },
+      {
+        "quote": "* From 真常木 (matonoki, “true eternal tree”), as the pine tree is an evergreen tree."
+      },
+      {
+        "quote": "* From a place name 松のむらたち (MATSU no muratachi), as opposed to muratatsu."
+      },
+      {
+        "quote": "* From 芽厚 (meatsu, literally “buds (are) thick”)."
+      },
+      {
+        "quote": "* From 纏わる (matsuwaru, “get wrapped around”), as the leaves are around the trunk."
+      },
+      {
+        "quote": "* From 真 (ma-, “true”) + つ (tsu, abbreviation of 約まる (tsuzumaru, “to shrink”))."
+      },
+      {
+        "quote": "* From 間千 (machi, literally “space (of) thousands”)."
+      },
+      {
+        "quote": "* A shift from 股 (mata, “crouch”), as the pine tree leaves split into two."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-26",
+    "term": "分解",
+    "kana": "ぶんかい",
+    "meaning": "analysis, disassembly",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Bunkai is Middle Chinese 分解.",
+    "morphemes": [
+      {
+        "text": "分",
+        "reading": "ぶん",
+        "meaning": "part",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "解",
+        "reading": "かい",
+        "meaning": "unravel",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Middle Chinese 分解"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-27",
+    "term": "禅",
+    "kana": "ぜん",
+    "meaning": "Zen (Buddhism)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Zen is shortened from 禅那 (zenna), a Middle Chinese transliteration of Sanskrit dhyāna, “profound meditation”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Shortened from 禅那 (zenna, “Zen meditation practice”), from Middle Chinese 禪那 (MC dzyen na), a transliteration of Sanskrit ध्यान (dhyāna, “profound meditation”). Compare Pali jhāna."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-28",
+    "term": "値段",
+    "kana": "ねだん",
+    "meaning": "price",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "hybrid",
+    "processes": ["compound"],
+    "headline": "Nedan is 値 (ne, “price”) plus 段 (dan, “level”).",
+    "morphemes": [
+      {
+        "text": "値",
+        "reading": "ね",
+        "meaning": "price"
+      },
+      {
+        "text": "段",
+        "reading": "だん",
+        "meaning": "level"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 値(ね) (ne, “price”) + 段(だん) (dan, “level”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-29",
+    "term": "福",
+    "kana": "ふく",
+    "meaning": "good fortune",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Fuku, “good fortune”, is from Middle Chinese 福.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 福 (MC pjuwk)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2019-11-30",
+    "term": "包丁",
+    "kana": "ほうちょう",
+    "meaning": "kitchen knife, carving knife",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Hōchō, a kitchen knife, comes from Middle Chinese 庖丁, “cook”.",
+    "morphemes": [
+      {
+        "text": "包",
+        "reading": "ほう",
+        "meaning": "wrap",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "丁",
+        "reading": "ちょう",
+        "meaning": "street",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 庖丁 (baew teng, “cook”)."
+      },
+      {
+        "quote": "包 is a daiyōji replacing 庖."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]
