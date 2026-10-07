@@ -53,6 +53,27 @@ describe("Words Page (Calendar)", () => {
     expect(open[2]!.text()).toContain(monthEntries[2]!.term);
   });
 
+  it("marks a repeated word with the day it first opened", async () => {
+    const payload = calendarPayload("2023-07-03");
+    payload.data.days[1]!.wordDate = "2018-10-09";
+    (global as any).$fetch.mockResolvedValue(payload);
+    const wrapper = mount(WordsPage);
+    await flushPromises();
+
+    const open = wrapper.findAll('[data-testid="calendar-day-open"]');
+    expect(wrapper.findAll('[data-testid="calendar-day-repeat"]')).toHaveLength(
+      1,
+    );
+    expect(open[1]!.find('[data-testid="calendar-day-repeat"]').exists()).toBe(
+      true,
+    );
+    expect(open[1]!.attributes("href")).toBe("/words/2018-10-09");
+    expect(open[1]!.attributes("aria-label")).toContain("first opened");
+    expect(
+      wrapper.find('[data-testid="calendar-first-opened-note"]').exists(),
+    ).toBe(true);
+  });
+
   it("shows later days as closed, with no word and no link", async () => {
     const wrapper = mount(WordsPage);
     await flushPromises();

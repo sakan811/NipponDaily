@@ -25,6 +25,14 @@
           filter the calendar to light up the days whose words share a level,
           layer, process or part of speech.
         </p>
+        <p
+          data-testid="calendar-first-opened-note"
+          class="text-sm text-stone-500 dark:text-stone-400 font-sans"
+        >
+          A word sits on the day it was first opened. Once every word has had
+          its day, they come round again: those days are marked
+          <span aria-hidden="true">↻</span> and open the word's original day.
+        </p>
       </div>
 
       <div class="mt-10 space-y-4">
@@ -203,7 +211,7 @@
               role="gridcell"
               data-testid="calendar-day-open"
               :data-match="filtersActive ? cell.day.match : undefined"
-              :aria-label="`${formatLongDate(cell.date)}: ${cell.day.term}${dimmed(cell.day) ? ' (does not match the filters)' : ''}`"
+              :aria-label="`${formatLongDate(cell.date)}: ${cell.day.term}${isRepeat(cell) ? `, first opened ${formatLongDate(cell.day.wordDate!)}` : ''}${dimmed(cell.day) ? ' (does not match the filters)' : ''}`"
               :class="[
                 'group season-box block min-h-[4.5rem] sm:min-h-[6rem] border p-1.5 sm:p-2.5 transition-colors hover:border-primary-500',
                 cell.date === calendar.today
@@ -221,6 +229,13 @@
                 class="flex items-start justify-between text-[11px] sm:text-xs text-stone-500 dark:text-stone-400"
               >
                 {{ cell.dayOfMonth }}
+                <span
+                  v-if="isRepeat(cell)"
+                  data-testid="calendar-day-repeat"
+                  :title="`Repeat: first opened ${formatLongDate(cell.day.wordDate!)}`"
+                  aria-hidden="true"
+                  >↻</span
+                >
                 <span
                   v-if="cell.day.stratum"
                   :class="[
@@ -278,6 +293,10 @@
               :class="['inline-block h-2 w-2 rounded-full', STRATUM_DOT[key]]"
             />
             {{ info.native }} {{ info.label }}
+          </li>
+          <li class="flex items-center gap-1.5">
+            <span aria-hidden="true">↻</span>
+            A repeat: the word was first opened on another day
           </li>
           <li v-if="filtersActive" class="flex items-center gap-1.5">
             <span
@@ -429,6 +448,10 @@ const laterMatch = computed(() =>
 /** An open day the filters rule out; shown faded, still a link. */
 const dimmed = (day: WordCalendarDay): boolean =>
   filtersActive.value && day.match === false;
+
+/** An open day showing a word that first opened on another day (a later lap). */
+const isRepeat = (cell: { date: string; day?: WordCalendarDay }): boolean =>
+  !!cell.day?.wordDate && cell.day.wordDate !== cell.date;
 
 /** Sunday-first blanks before the 1st. */
 const leadingBlanks = computed(() => {
