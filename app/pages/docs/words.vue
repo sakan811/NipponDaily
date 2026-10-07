@@ -89,30 +89,47 @@
       <code>alsoIn</code> lists open words whose <em>spelling</em> contains a
       kanji part but whose breakdown doesn't name it, flagged on the page as
       claiming nothing. Coverage is bounded by the parsers: single-character
-      words, most native verbs and adjectives, many loanwords and any word whose
-      text gives no clean split have no parts. The sitemap lists parts seen in
-      more than one open word.
+      words, a single kanji with its okurigana (抱く), many loanwords and any
+      word whose text gives no clean split have no parts. The sitemap lists
+      parts seen in more than one open word.
+    </p>
+
+    <h3>Kanji</h3>
+    <p>
+      <code>/kanji</code> and <code>/kanji/&lt;character&gt;</code>: every kanji
+      an open word is written with, from KANJIDIC2's own record of it (its
+      on'yomi and kun'yomi, meanings, school grade, strokes and newspaper
+      frequency rank) beside the open words that contain it. It is built from
+      the spellings of the entries alone, so it adds no claim about a word: the
+      record describes the character, and a word does not use every reading or
+      meaning listed. A kanji used only by an upcoming word is a
+      <code>404</code>, like a part. The records are
+      <code>data/reference/kanji.json</code>, made offline by
+      <code>pnpm data:kanji</code> from the level snapshots, and
+      <code>shared/kanji.ts</code> reads them (server only, like the other
+      modules that see every entry). Each entry links its kanji, and the sitemap
+      lists kanji seen in more than one open word.
     </p>
 
     <h3>Explore</h3>
     <p>
       <code>/explore</code> filters by <code>q</code> (term, kana, meaning;
       katakana folded to hiragana), <code>level</code>, <code>stratum</code>,
-      <code>process</code>, <code>pos</code> and <code>part</code>, newest
-      first. Different filters always narrow together. Within
-      <code>level</code>, <code>stratum</code>, <code>process</code> and
+      <code>process</code>, <code>pos</code>, <code>frequency</code> and
+      <code>part</code>, newest first. Different filters always narrow together.
+      Within <code>level</code>, <code>stratum</code>, <code>process</code> and
       <code>pos</code> several choices are joined by commas
       (<code>?process=rendaku,compound</code>), and <code>match</code> says how
       they combine: by default a word needs <em>any</em> of them, with
       <code>match=all</code> it needs <em>every</em> process and every part of
-      speech. A word has one level and one layer, so those always read as “any”.
-      <code>/words</code> (the calendar) takes the same filters beside
-      <code>month</code>: <code>GET /api/word-calendar</code> marks each open
-      day of the month <code>match</code> or not and returns the same counts,
-      plus how many words match in every month. Both endpoints read the filters
-      through <code>server/utils/explore-filters.ts</code>, so a filter means
-      the same thing in each; the page shares one form,
-      <code>WordFilters</code>.
+      speech. A word has one level, one layer and one frequency group, so those
+      always read as “any”. <code>/words</code> (the calendar) takes the same
+      filters beside <code>month</code>:
+      <code>GET /api/word-calendar</code> marks each open day of the month
+      <code>match</code> or not and returns the same counts, plus how many words
+      match in every month. Both endpoints read the filters through
+      <code>server/utils/explore-filters.ts</code>, so a filter means the same
+      thing in each; the page shares one form, <code>WordFilters</code>.
     </p>
     <p>
       The layer <code>unstated</code> picks the words with no stated layer.
@@ -120,8 +137,17 @@
       adjective, adverb, prefix or suffix, other, or not stated;
       <code>POS_GROUPS</code> in <code>shared/word-labels.ts</code>), because
       the verbatim tags are long. The entry keeps the tags as they are, and a
-      word can fall in more than one group. Each facet's counts are taken over
-      the words the <em>other</em> filters leave, so an option never promises a
+      word can fall in more than one group. <code>frequency</code> filters on
+      how common JMdict says a word is, from the priority codes its entry keeps
+      (<code>FREQUENCY_GROUPS</code>): <em>common</em> when its spelling or
+      reading is in the first tier of a list JMdict draws on
+      (<code>ichi1</code>, <code>news1</code>, <code>spec1</code>,
+      <code>spec2</code>, <code>gai1</code>, the codes JMdict itself counts as
+      common), <em>less common</em> when it has only other codes
+      (<code>news2</code>, <code>ichi2</code>, <code>nf01</code>…), and
+      <em>not ranked</em> when it has none, which says the word is outside those
+      lists and not that it is rare. Each facet's counts are taken over the
+      words the <em>other</em> filters leave, so an option never promises a
       count it can't deliver. Filters live in the URL; an unknown value in a
       hand-edited URL is dropped, while the API answers <code>400</code>.
     </p>
@@ -223,24 +249,35 @@ const fields = [
       "JMdict's own part-of-speech tags, verbatim, for the sense the meaning came from.",
   },
   {
+    name: "priority?",
+    meaning:
+      "JMdict's priority codes for the spelling and reading (`ichi1`, `news1`, `nf05`…), verbatim; left out when JMdict tags neither.",
+  },
+  {
     name: "stratum?",
     meaning:
-      "`wago`, `kango`, `gairaigo` or `hybrid`; stated only when KANJIDIC2 or the evidence establishes it.",
+      "`wago`, `kango`, `gairaigo` or `hybrid`; stated only when KANJIDIC2, JMdict's loan source or the evidence establishes it.",
   },
   {
     name: "processes",
-    meaning: "Keyword tags found in the quoted text (`WORD_PROCESSES`).",
+    meaning:
+      "Keyword tags found in the quoted text (`WORD_PROCESSES`), plus the ones JMdict independently records: a coinage made in Japan, an ateji or jukujikun spelling, a loan source.",
   },
   { name: "headline", meaning: "The only hand-written field." },
   {
     name: "morphemes[]",
     meaning:
-      "`text`, surface `reading` (hiragana), `base?` when rendaku or sokuon changed it, `meaning`, `irregular?`, and `glossSource?` (`kanjidic2` when the meaning is KANJIDIC2's, not Wiktionary's). Empty when the source gives no clean split.",
+      "`text`, surface `reading` (hiragana), `base?` when rendaku or sokuon changed it, `meaning`, `irregular?`, and `glossSource?` (`kanjidic2` when the meaning is KANJIDIC2's, not Wiktionary's; a part may carry the okurigana written after its kanji). Empty when the source gives no clean split.",
   },
   {
     name: "sources[]",
     meaning:
       "`{ quote }`: one verbatim line of Wiktionary's Etymology section for this reading.",
+  },
+  {
+    name: "examples[]?",
+    meaning:
+      "`{ id, ja, en, enId, form }`: up to two example sentences from the pinned Tatoeba export, with their translations, unchanged. `id` and `enId` are Tatoeba's numbers and `form` is the word as the sentence writes it. Left out when no sentence qualifies.",
   },
   { name: "wiktionaryDump", meaning: "Date of the pinned Wiktionary dump." },
 ];

@@ -47,7 +47,7 @@
     <pre><code>app/        pages/, components/, composables/, utils/, data/, assets/css/tailwind.css
 shared/     code imported by both app/ and server/ (the ~~/shared alias); not auto-imported
 server/     api/ (handlers), routes/ (sitemap, robots, share images), middleware/ (rate limit), plugins/ (caching), services/ (Redis), utils/, assets/og/ (share-image fonts)
-scripts/    data builders run with node: reference snapshots, etymology pins, entry generator
+scripts/    data builders run with node: reference snapshots, etymology pins, example sentences, kanji records, entry generator
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
 test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots)</code></pre>
@@ -79,9 +79,9 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
       <span class="note-title">The one import rule</span>
       <p>
         Nothing under <code>app/</code> may import
-        <code>shared/words|parts|explore|patterns|related|sitemap</code> or
-        <code>data/words</code>. They carry every entry, upcoming ones included,
-        and would ship them to the browser. The server fetches through
+        <code>shared/words|parts|kanji|explore|patterns|related|sitemap</code>
+        or <code>data/words</code>. They carry every entry, upcoming ones
+        included, and would ship them to the browser. The server fetches through
         <code>$fetch</code>, which calls the API handler in-process, so the data
         never enters the client bundle.
         <code>test/unit/no-future-leak.test.ts</code> enforces it, and
@@ -96,7 +96,8 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
         <strong>Pages:</strong> <code>/</code> (today's word),
         <code>/words</code> (month calendar), <code>/words/&lt;date&gt;</code>,
         <code>/explore</code>, <code>/patterns</code>, <code>/parts</code>,
-        <code>/parts/&lt;text&gt;</code>, <code>/kana</code>,
+        <code>/parts/&lt;text&gt;</code>, <code>/kanji</code>,
+        <code>/kanji/&lt;character&gt;</code>, <code>/kana</code>,
         <code>/docs/*</code> (this book) and a catch-all that answers a real
         <code>404</code> and is <code>noindex</code>. The removed
         <code>/game</code>, <code>/learn/**</code> and
@@ -109,10 +110,11 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
         <strong>Composables</strong> are <code>useAsyncData</code>-based, so the
         server renders with data: <code>useDailyWord</code>,
         <code>useWordCalendar</code>, <code>usePartsIndex</code>,
-        <code>usePart</code>, <code>useRelatedWords</code>,
-        <code>useExplore</code>, <code>usePatterns</code>,
-        <code>useCatalogue</code>, plus <code>usePageSeo</code>,
-        <code>useSiteTheme</code> and <code>useBgm</code>.
+        <code>usePart</code>, <code>useKanjiIndex</code>, <code>useKanji</code>,
+        <code>useRelatedWords</code>, <code>useExplore</code>,
+        <code>usePatterns</code>, <code>useCatalogue</code>, plus
+        <code>usePageSeo</code>, <code>useSiteTheme</code> and
+        <code>useBgm</code>.
       </li>
       <li>
         <strong>Components:</strong> <code>WordEntryView</code> (one entry),
@@ -304,6 +306,11 @@ const sharedModules = [
     file: "parts.ts",
     serverOnly: true,
     role: "`partsIndex(today)` and `partDetail(text, today)`: the morpheme index, derived from the entries' `morphemes`.",
+  },
+  {
+    file: "kanji.ts",
+    serverOnly: true,
+    role: "`kanjiIndex(today)` and `kanjiDetail(char, today)`: KANJIDIC2's record of each kanji an open word is written with (`data/reference/kanji.json`) and the open words that use it.",
   },
   {
     file: "explore.ts",

@@ -43,12 +43,12 @@ const features = computed(() => [
   {
     title: "A Calendar to Look Back Through",
     description:
-      "`/words` is a month grid. A day that has arrived shows its word and links to the full entry; an upcoming day shows only its date, and the API refuses to serve it, so a word can't be read early; a day the catalogue has no word for is left blank. Jump to any year and month from the picker above the grid. “Filter the calendar” opens the Explore filters (search, level, layer, process, part of speech, any or all): days whose word doesn't match fade but stay links, each month in the picker shows how many matches it holds, and a month with none points to the nearest months that do. The month and filters live in the URL, so a view can be shared.",
+      "`/words` is a month grid. A day that has arrived shows its word and links to the full entry; an upcoming day shows only its date, and the API refuses to serve it, so a word can't be read early; a day the catalogue has no word for is left blank. Jump to any year and month from the picker above the grid. “Filter the calendar” opens the Explore filters (search, level, layer, process, part of speech, how common, any or all): days whose word doesn't match fade but stay links, each month in the picker shows how many matches it holds, and a month with none points to the nearest months that do. The month and filters live in the URL, so a view can be shared.",
   },
   {
     title: "Explore by How Words Are Built",
     description:
-      "`/explore` searches every word that has opened — by the word, its reading (katakana or hiragana) or its meaning — and narrows by JLPT level, layer (including “not stated”), process or part of speech. Pick several options in a group and choose whether a word needs any or all of them. Each option shows how many words it would leave, and the filters live in the URL so a search can be shared. The calendar uses the same filters. Upcoming words are never searched.",
+      "`/explore` searches every word that has opened — by the word, its reading (katakana or hiragana) or its meaning — and narrows by JLPT level, layer (including “not stated”), process, part of speech or how common JMdict says the word is. Pick several options in a group and choose whether a word needs any or all of them. Each option shows how many words it would leave, and the filters live in the URL so a search can be shared. The calendar uses the same filters. Upcoming words are never searched.",
   },
   {
     title: "Patterns Across the Vocabulary",
@@ -61,6 +61,16 @@ const features = computed(() => [
       "`/parts` gathers every part a “Taken apart” row has shown. Open one — 日, say — to see each word it turns up in, grouped by the reading it takes there (び, ひ, か, にち), with rendaku shown. Words that merely contain the character, with no breakdown naming it, are listed apart and claim nothing.",
   },
   {
+    title: "The Kanji",
+    description:
+      "`/kanji` lists every kanji a word that has opened is written with. Open one — 日, say — for KANJIDIC2's record of it (on'yomi, kun'yomi, meanings, school grade, strokes, newspaper rank) and every word so far that is written with it. Each entry links its own kanji, and the page says a word doesn't use every reading or meaning of its kanji.",
+  },
+  {
+    title: "In a Sentence",
+    description:
+      "Most entries show a sentence or two that use the word, with their English translations, from Tatoeba's community collection. They are picked by fixed rules from one dated export, quoted unchanged, linked to their Tatoeba pages, and credited. Nobody has reviewed them one by one, and the page says so.",
+  },
+  {
     title: "More Like This",
     description:
       "Under each entry, a few other words that have opened and share something with it: a part, a process or a layer. Each card says exactly what is shared and links to where you can see more of it. A word that shares only very common tags is not offered, and upcoming words never are.",
@@ -68,12 +78,12 @@ const features = computed(() => [
   {
     title: "Taken Apart",
     description:
-      "Where Wiktionary splits a word into parts with glosses, each morpheme is shown with its reading and that gloss, but only if the parts spell the word and join to its reading. When the text gives no split of an all-kanji word, each part is one of its kanji with KANJIDIC2's reading and meaning, and the page says so. Otherwise no breakdown is shown, since any other split would be a guess.",
+      "Where Wiktionary splits a word into parts with glosses, each morpheme is shown with its reading and that gloss, but only if the parts spell the word and join to its reading. When the text gives no split of a word written with kanji (and the okurigana after them), each part is one of its kanji with KANJIDIC2's reading and meaning, and the page says so. Otherwise no breakdown is shown, since any other split would be a guess.",
   },
   {
     title: "Which Layer, Which Process",
     description:
-      "Every entry shows JMdict's part-of-speech tags, its layer when KANJIDIC2's readings establish it — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes its Wiktionary text mentions (compounding, rendaku, clipping, ateji, sound change…), each defined on the page.",
+      "Every entry shows JMdict's part-of-speech tags, a “Common” mark when JMdict counts the word as common, its layer when KANJIDIC2's readings or JMdict's loan source establish it — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes its Wiktionary text mentions, or JMdict records (compounding, rendaku, clipping, ateji, sound change…), each defined on the page.",
   },
   {
     title: "The Story, in Wiktionary's Words",
@@ -92,7 +102,7 @@ const features = computed(() => [
   {
     title: "Verified in CI",
     description:
-      "Every entry is regenerated from JMdict, KANJIDIC2 and the pinned Wiktionary snapshot and compared, and checked independently: reading, level and meaning against the pool, part of speech against JMdict, morphemes against KANJIDIC2 or the cited text, and every quote against the section for its own reading.",
+      "Every entry is regenerated from JMdict, KANJIDIC2 and the pinned Wiktionary snapshot and compared, and checked independently: reading, level and meaning against the pool, part of speech against JMdict, morphemes against KANJIDIC2 or the cited text, priority, loan and ateji claims against JMdict, each example sentence against the committed export snapshot, and every quote against the section for its own reading.",
   },
   {
     title: "Four Seasons",
