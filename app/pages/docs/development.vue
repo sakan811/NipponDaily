@@ -253,7 +253,7 @@ const commands = [
   { cmd: "pnpm check-qa", does: "Lint, format, type-check, build and test." },
   {
     cmd: "pnpm data:reference / data:reference:jlpt",
-    does: "Rebuild the JMdict and KANJIDIC2 snapshots for N5, and for N4 to N1.",
+    does: "Rebuild the JMdict and KANJIDIC2 snapshots for N5, and for N4 to N1, from the pinned EDRDG files in the repo root.",
   },
   {
     cmd: "pnpm data:etymology",
@@ -264,12 +264,20 @@ const commands = [
     does: "Pick each word's example sentences from the pinned Tatoeba export.",
   },
   {
+    cmd: "pnpm data:pitch",
+    does: "Pick each word's pitch accent from the pinned Kanjium list into `data/reference/pitch.json`.",
+  },
+  {
     cmd: "pnpm data:words",
     does: "Generate `data/words/` from the plan and the committed sources.",
   },
   {
     cmd: "pnpm data:kanji",
     does: "Copy KANJIDIC2's record of every kanji the entries use into `data/reference/kanji.json`.",
+  },
+  {
+    cmd: "pnpm data:strokes",
+    does: "Copy KanjiVG's strokes for those kanji into `data/reference/strokes.json`, where its count matches KANJIDIC2's.",
   },
   {
     cmd: "pnpm assets:og-font",

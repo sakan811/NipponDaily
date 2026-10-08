@@ -9,9 +9,10 @@
     <p>
       The laps, the multi-select and any/all filters in Explore, the
       part-of-speech and how-common groups, the “not stated” layer, the larger
-      combinations in Patterns, the kanji pages, the example sentences with
-      their furigana, the JMdict cross-check and the share image are built and
-      described in
+      combinations in Patterns, the kanji pages with their stroke order, the
+      example sentences with their furigana, the pitch accent, JMdict's
+      register, field and dialect tags, the JMdict cross-check and the share
+      image are built and described in
       <NuxtLink to="/docs/core-theme">Core theme</NuxtLink> and
       <NuxtLink to="/docs/words">Daily words</NuxtLink>. What is left is a list
       of ideas, not a promise. Any of them follows the
@@ -35,17 +36,12 @@
         beside each section.
       </li>
       <li>
-        <strong>A newer JMdict.</strong> The checks against JMdict use the
-        <code>jamdict-data</code> release already pinned, which gives no loan
-        source for many loanwords (カメラ, ノート). A newer release, or one that
-        keeps the language of every loanword, would let the cross-check refute a
-        keyword tag as well as confirm one.
-      </li>
-      <li>
-        <strong>More data on each word.</strong> Pitch accent from an open
-        accent dictionary, stroke order from an open kanji set, and the other
-        JMdict notes (field, register, dialect) each need a pinned source, a
-        check and an entry in <code>shared/sources.ts</code>.
+        <strong>A second source for the pitch accent.</strong> The accent list
+        is one source, so nothing checks it the way KANJIDIC2 and a second
+        analyser check the furigana. An independent open accent dictionary would
+        let the app show an accent only where two agree, and name the words they
+        disagree on. It would need its own pinned file, a check and an entry in
+        <code>shared/sources.ts</code>.
       </li>
       <li>
         <strong>More words.</strong> See the limit below: the supply is finite.
@@ -74,6 +70,44 @@
         JMdict reads several ways gets one only where the corpus says which
         reading it means. Skim a new month's sentences as you skim its
         headlines.
+      </li>
+      <li>
+        <strong>JMdict changes every day, and has moved.</strong> The file is
+        pinned by checksum, but EDRDG overwrites it daily, so rebuilding needs
+        the files kept beside the code (they are git-ignored) and a newer pin
+        can reword tags and glosses: the move to the 2026 file renamed
+        “colloquialism” to “colloquial”, merged senses and changed a handful of
+        meanings, and two list rows needed a correction. Even the 2026 file
+        names a loan source for few loanwords (カメラ, ノート have none), so the
+        cross-check still only confirms a keyword tag and cannot refute one.
+      </li>
+      <li>
+        <strong
+          >Register, field and dialect are JMdict's labels, and often
+          absent.</strong
+        >
+        A tag is shown only if every sense the word's meaning matches carries
+        it, so a word with one tagged sense and one untagged sense shows
+        nothing. The register list is a fixed set of JMdict's usage tags
+        (<code>REGISTER_TAGS</code>); other tags, such as “archaic” or
+        “abbreviation”, are not shown. No word in the catalogue shows a dialect
+        at present.
+      </li>
+      <li>
+        <strong>Pitch accent is one list's, not a recording.</strong> It comes
+        from Kanjium's accent list, which credits an individual's free database
+        and does not say whose speech it records, and a word is shown an accent
+        only where the list gives that exact spelling and reading, so some words
+        show none. The number is the mora after which the pitch falls; how it
+        changes in a compound, with a particle or in a sentence is not shown.
+        Where the list gives several accents all are shown, without saying which
+        is more usual.
+      </li>
+      <li>
+        <strong>Stroke order is KanjiVG's drawing.</strong> It is shown only
+        where KanjiVG draws as many strokes as KANJIDIC2 counts, so a few kanji
+        show none, and a kanji is drawn in KanjiVG's standard hand, not in every
+        typeface's. The frames are static; nothing is animated.
       </li>
       <li>
         <strong>“Common” is JMdict's flag.</strong> It comes from lists JMdict

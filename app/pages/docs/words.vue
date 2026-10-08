@@ -30,6 +30,14 @@
       </table>
     </div>
     <p>
+      The page shows <code>register</code>, <code>field</code> and
+      <code>dialect</code> as outlined badges beside the part-of-speech tags,
+      and <code>pitch</code> as the reading with a line over the high morae and
+      a ↓ after the one the pitch falls on, named heiban, atamadaka, nakadaka or
+      odaka (<code>app/utils/pitch.ts</code> only lays the number over the
+      word's own kana). Neither adds a claim.
+    </p>
+    <p>
       A hedge in a quoted line (“probably”, “unknown”…) is detected when the
       page renders (<code>isHedged</code> in <code>shared/word-labels.ts</code>)
       and shown as “Not settled”. Where each field comes from is in
@@ -99,16 +107,21 @@
     <p>
       <code>/kanji</code> and <code>/kanji/&lt;character&gt;</code>: every kanji
       an open word is written with, from KANJIDIC2's own record of it (its
-      on'yomi and kun'yomi, meanings, school grade, strokes and newspaper
-      frequency rank) beside the open words that contain it. It is built from
-      the spellings of the entries alone, so it adds no claim about a word: the
-      record describes the character, and a word does not use every reading or
-      meaning listed. A kanji used only by an upcoming word is a
-      <code>404</code>, like a part. The records are
-      <code>data/reference/kanji.json</code>, made offline by
+      on'yomi and kun'yomi, meanings, school grade, stroke count and newspaper
+      frequency rank) and the order its strokes are drawn in, beside the open
+      words that contain it. It is built from the spellings of the entries
+      alone, so it adds no claim about a word: the record describes the
+      character, and a word does not use every reading or meaning listed. A
+      kanji used only by an upcoming word is a <code>404</code>, like a part.
+      The records are <code>data/reference/kanji.json</code>, made offline by
       <code>pnpm data:kanji</code> from the level snapshots, and
-      <code>shared/kanji.ts</code> reads them (server only, like the other
-      modules that see every entry). Each entry links its kanji, and the sitemap
+      <code>data/reference/strokes.json</code>, made by
+      <code>pnpm data:strokes</code> from a pinned KanjiVG release, which keeps
+      a kanji's strokes only where KanjiVG draws as many as KANJIDIC2 counts (a
+      kanji with fewer or more shows none). <code>shared/kanji.ts</code> reads
+      both (server only, like the other modules that see every entry), and the
+      page draws the strokes one at a time, numbered at their start
+      (<code>KanjiStrokes</code>). Each entry links its kanji, and the sitemap
       lists kanji seen in more than one open word.
     </p>
 
@@ -180,18 +193,18 @@
 
     <h2 id="sharing">Sharing a word</h2>
     <p>
-      <strong>The share image</strong>, <code>GET /og.png?date=…</code>, carries
-      a word out of the site. It is derived from fields the entry already has,
-      reads open days only and adds no claim. It is a 1200 by 630 PNG of the
-      word, its reading, meaning, level, layer and headline, in the palette of
-      the season its day falls in. The page's Open Graph and Twitter tags point
-      at it, so a shared link unfolds into the card. It is drawn on the server
-      by satori and resvg (<code>shared/og-card.ts</code>,
-      <code>server/utils/og-image.ts</code>) and is served outside
-      <code>/api/</code> so that <code>robots.txt</code> does not stop a link
-      preview from fetching it. A future, malformed or unknown date is a
-      <code>404</code> rather than a <code>400</code>, so the image cannot be
-      used to learn a word early.
+      <strong>The share image</strong>, <code>GET /og.png?date=…</code>, is what
+      a shared link shows as its preview. The app serves it and sends nothing to
+      anyone. It is derived from fields the entry already has, reads open days
+      only and adds no claim. It is a 1200 by 630 PNG of the word, its reading,
+      meaning, level, layer and headline, in the palette of the season its day
+      falls in. The page's Open Graph and Twitter tags point at it, so a shared
+      link unfolds into the card. It is drawn on the server by satori and resvg
+      (<code>shared/og-card.ts</code>, <code>server/utils/og-image.ts</code>)
+      and is served outside <code>/api/</code> so that
+      <code>robots.txt</code> does not stop a link preview from fetching it. A
+      future, malformed or unknown date is a <code>404</code> rather than a
+      <code>400</code>, so the image cannot be used to learn a word early.
     </p>
     <p>
       The card draws Japanese in Zen Old Mincho and Latin in Outfit, the site's
@@ -255,6 +268,16 @@ const fields = [
       "JMdict's priority codes for the spelling and reading (`ichi1`, `news1`, `nf05`…), verbatim; left out when JMdict tags neither.",
   },
   {
+    name: "register?, field?, dialect?",
+    meaning:
+      "JMdict's tags for how the word is used (`colloquial`, `polite (teineigo) language`, `slang`…), the field it belongs to (`medicine`, `baseball`…) and its dialect (`Kansai-ben`…), verbatim; each is a tag every sense the meaning matched carries, and is left out when there is none.",
+  },
+  {
+    name: "pitch?",
+    meaning:
+      "The mora after which the pitch falls, as the pinned Kanjium accent list gives it for this exact spelling and reading (`0`: it never falls, `1`: after the first mora…); several when the list gives several. Left out when the list has none.",
+  },
+  {
     name: "stratum?",
     meaning:
       "`wago`, `kango`, `gairaigo` or `hybrid`; stated only when KANJIDIC2, JMdict's loan source or the evidence establishes it.",
@@ -262,7 +285,7 @@ const fields = [
   {
     name: "processes",
     meaning:
-      "Keyword tags found in the quoted text (`WORD_PROCESSES`), plus the ones JMdict independently records: a coinage made in Japan, an ateji or jukujikun spelling, a loan source.",
+      "Keyword tags found in the quoted text (`WORD_PROCESSES`), plus the ones JMdict independently records: a coinage made in Japan, an ateji, gikun or jukujikun spelling or reading (for a word written with kanji), a loan source.",
   },
   { name: "headline", meaning: "The only hand-written field." },
   {
