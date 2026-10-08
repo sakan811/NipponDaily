@@ -30,6 +30,10 @@ export const LICENCES = {
   },
   // tanos.co.uk states "Creative Commons BY" with no version, so none is named.
   ccBy: { name: "CC BY" },
+  apache2: {
+    name: "Apache licence 2.0",
+    url: "https://www.apache.org/licenses/LICENSE-2.0",
+  },
   mit: { name: "MIT licence" },
   // NINJAL offers UniDic under any one of these.
   unidic: { name: "BSD, LGPL or GPL" },
@@ -50,6 +54,7 @@ export interface DataSource {
     | "tatoeba"
     | "jlpt-word-list"
     | "wanakana"
+    | "kuromoji"
     | "unidic"
     | "kanjium"
     | "kanjivg"
@@ -92,6 +97,7 @@ const TANOS = {
 const WANAKANA_URL = "https://github.com/WaniKani/WanaKana";
 const KANJIUM_URL = "https://github.com/mifunetoshiro/kanjium";
 const KANJIVG_URL = "https://kanjivg.tagaini.net";
+const KUROMOJI_URL = "https://github.com/takuyaa/kuromoji.js";
 const UNIDIC_URL = "https://clrd.ninjal.ac.jp/unidic/";
 const LINDERA_URL = "https://github.com/lindera/lindera";
 const ZEN_OLD_MINCHO_URL =
@@ -152,6 +158,17 @@ export const SOURCES = {
     use: "Kana conversion in the data scripts and checks",
     credit: `Kana conversion in the data scripts and checks uses ${link("wanakana", WANAKANA_URL)} (${LICENCES.mit.name}).`,
   },
+  kuromoji: {
+    id: "kuromoji",
+    name: "kuromoji",
+    short: "kuromoji",
+    url: KUROMOJI_URL,
+    licence: LICENCES.apache2,
+    holder: "Nara Institute of Science and Technology (NAIST)",
+    holderShort: "NAIST",
+    use: "A first reading of example sentences, to check Tatoeba's furigana",
+    credit: `Tatoeba's furigana is first checked against ${link("kuromoji", KUROMOJI_URL)} (${LICENCES.apache2.name}) with its IPADIC dictionary, copyright Nara Institute of Science and Technology, which permits its use and distribution. The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.`,
+  },
   unidic: {
     id: "unidic",
     name: "UniDic",
@@ -162,7 +179,7 @@ export const SOURCES = {
     holderShort: "NINJAL",
     via: { name: "Lindera", url: LINDERA_URL },
     use: "A second, independent reading of example sentences, to check Tatoeba's furigana",
-    credit: `Tatoeba's furigana is checked against a second analyser, ${link("Lindera", LINDERA_URL)} (${LICENCES.mit.name}) with the ${link("UniDic", UNIDIC_URL)} dictionary of the National Institute for Japanese Language and Linguistics (${LICENCES.unidic.name}). The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.`,
+    credit: `It is then checked against a second analyser, ${link("Lindera", LINDERA_URL)} (${LICENCES.mit.name}) with the ${link("UniDic", UNIDIC_URL)} dictionary of the National Institute for Japanese Language and Linguistics (${LICENCES.unidic.name}). The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.`,
   },
   kanjium: {
     id: "kanjium",
@@ -202,6 +219,7 @@ export const DATA_SOURCES: readonly DataSource[] = [
   SOURCES.tatoeba,
   SOURCES["jlpt-word-list"],
   SOURCES.wanakana,
+  SOURCES.kuromoji,
   SOURCES.unidic,
   SOURCES.kanjium,
   SOURCES.kanjivg,
