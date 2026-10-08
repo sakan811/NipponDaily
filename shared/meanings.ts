@@ -87,6 +87,18 @@ export const VOCAB_FORM_CORRECTIONS: Record<string, VocabFormCorrection> = {
   // okurigana — found via `pnpm data:reference:jlpt`'s unresolvedInJmdict
   // list and fixed the same way N5's own corrections were, one discovered
   // issue at a time (see /docs/authoring).
+  // The JMdict of 2026-10-08 (the 2021 build the first corrections were checked
+  // against is gone) disagrees with two list rows.
+  "夕方 ゆうがた": {
+    meaning: "early evening (usu. from 3pm to 6pm), dusk",
+    reason:
+      "The list says 'late afternoon… evening'; JMdict 1542790 glosses 夕方 'early evening (usu. from 3pm to 6pm)' and 'dusk', which are used here.",
+  },
+  "傾らか なだらか": {
+    term: "なだらか",
+    reason:
+      "JMdict 1632290 writes なだらか in kana alone and no longer lists 傾らか.",
+  },
   "うそ 嘘": {
     term: "嘘",
     kana: "うそ",
