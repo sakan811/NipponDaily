@@ -58,7 +58,7 @@
               under the word, read from one pinned, dated export; the readings
               over their kanji are Tatoeba's own furigana of each sentence, each
               checked against KANJIDIC2 or JMdict and kept only where a
-              contributor wrote it or kuromoji or Tatoeba's index agrees
+              contributor wrote it or kuromoji, UniDic or Tatoeba's index agrees
             </td>
             <td><code>data/reference/sentences/</code></td>
           </tr>
