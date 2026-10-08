@@ -32,6 +32,24 @@ export default defineConfig({
           testTimeout: 30000,
         },
       },
+      // The built app answering real requests (slow: it builds Nuxt first).
+      // It does not extend the root config: that loads test/setup.ts, which
+      // replaces the global fetch with a mock, and this project needs the real
+      // one.
+      {
+        extends: false,
+        resolve: {
+          alias: { "~~": resolve(import.meta.dirname, ".") },
+        },
+        test: {
+          name: "integration",
+          globals: true,
+          environment: "node",
+          include: ["test/integration/**/*.test.ts"],
+          testTimeout: 60000,
+          hookTimeout: 600000,
+        },
+      },
       // Server-side unit tests (Node environment)
       {
         extends: true,
