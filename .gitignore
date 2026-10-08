@@ -206,3 +206,8 @@ CLAUDE.md
 .gemini/settings.json
 doppler.yaml
 GEMINI.md
+# JMdict and KANJIDIC2 as EDRDG publishes them (overwritten daily): the snapshots in
+# data/reference/ are what CI checks, and the files are pinned by checksum in
+# scripts/lib/jmdict.mjs.
+/JMdict_e.gz
+/kanjidic2.xml.gz

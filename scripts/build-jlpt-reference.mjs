@@ -34,11 +34,11 @@ import { fileURLToPath } from "node:url";
 import { dedupeAcrossLevels, parseJlptCsv, slugify } from "./lib/word-list.mjs";
 import { WORD_LIST_SOURCES, wordListUrl } from "./word-list-source.mjs";
 import {
-  JAMDICT_SOURCE,
-  ensureJamdictDb,
+  JMDICT_SOURCE,
+  ensureJmdictFiles,
   openDictionary,
   spellingReadings,
-} from "./lib/jamdict.mjs";
+} from "./lib/jmdict.mjs";
 import {
   MAX_SPAN_TOKENS,
   buildTokenizer,
@@ -49,7 +49,6 @@ import {
 import { servedVocab } from "../shared/meanings.ts";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE_DIR = join(ROOT, "node_modules/.cache/n5-reference");
 const LEVELS = ["N4", "N3", "N2", "N1"];
 
 const KANJI_RE = /[㐀-䶿一-鿿々]/;
@@ -148,7 +147,7 @@ function buildLevelReference(level, entries, dict, shared) {
       level,
       sources: {
         jmdict: {
-          ...JAMDICT_SOURCE,
+          ...JMDICT_SOURCE,
           licence: "JMdict/KANJIDIC2 © EDRDG, CC BY-SA 4.0",
         },
         wordList: { ...WORD_LIST_SOURCES[level], licence: "MIT" },
@@ -209,11 +208,11 @@ async function buildSharedContentEvidence(dict, tokenizer) {
 }
 
 async function main() {
-  const [dbPath, tokenizer] = await Promise.all([
-    ensureJamdictDb(CACHE_DIR),
+  const [files, tokenizer] = await Promise.all([
+    ensureJmdictFiles(ROOT),
     buildTokenizer(),
   ]);
-  const dict = openDictionary(dbPath);
+  const dict = openDictionary(files);
   const shared = await buildSharedContentEvidence(dict, tokenizer);
 
   // A word listed at more than one level with the exact same reading is
