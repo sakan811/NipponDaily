@@ -14,6 +14,13 @@
  *    dictionary) hears the same reading, or the sources the sentence builder
  *    has always used (below) already agree on it.
  *
+ * UniDic (scripts/lib/unidic.mjs) is a second, independent analyser: a
+ * different dictionary from kuromoji's IPADIC and from Tatoeba's MeCab, so
+ * where it hears a run as the transcription does, that counts as kuromoji's
+ * hearing does, and where the sources confirm its reading it can read a run the
+ * transcription left bare. Each analyser stands or falls by its own hearing: a
+ * reading one of them contradicts is not rescued by the other.
+ *
  * Those older sources still decide on their own where the transcription has
  * nothing for a run, and veto it where they disagree. kuromoji picks a reading
  * by statistics and gets some wrong (後 as ご where the sentence means のち,
@@ -78,32 +85,49 @@ const stem = (r) => toHiragana(r.replace(/-/g, "").split(".")[0]);
  *   jmdictReadings: (spelling: string) => string[],
  *   kanjiReadings?: (kanji: string) => string[],
  *   transcription?: { text: string, human: boolean },
+ *   unidicTokens?: { surface_form: string, reading?: string, basic_form?: string }[],
  * }} sources
  *   Tatoeba's index readings for this sentence by dictionary word (hiragana),
  *   every reading JMdict gives a spelling, every on and kun reading KANJIDIC2
- *   gives a kanji, and Tatoeba's furigana of the sentence (`human`: a
- *   contributor wrote it)
+ *   gives a kanji, Tatoeba's furigana of the sentence (`human`: a
+ *   contributor wrote it) and UniDic's tokens of it, in kuromoji's shape
  * @returns {string[][] | undefined} the parts, or undefined when no kanji got a reading
  */
 export function furiganaFor(
   ja,
   form,
   tokens,
-  { indexReadings, jmdictReadings, kanjiReadings = () => [], transcription },
+  {
+    indexReadings,
+    jmdictReadings,
+    kanjiReadings = () => [],
+    transcription,
+    unidicTokens = [],
+  },
 ) {
   // The tokens are evidence, not the frame: if they do not spell the sentence
-  // they say nothing.
-  const heard =
-    tokens.map((t) => t.surface_form).join("") === ja
-      ? tokenRuns(tokens, attestedBy(indexReadings, jmdictReadings))
+  // they say nothing. Each analyser's runs stay apart, so one's reading is
+  // never stitched to the other's.
+  const attested = attestedBy(indexReadings, jmdictReadings);
+  const hearing = (list) =>
+    list.map((t) => t.surface_form).join("") === ja
+      ? tokenRuns(list, attested)
       : [];
+  const voices = [hearing(tokens), hearing(unidicTokens)];
 
   /** Ruby spans `{ a, b, reading, pieces? }` over `ja`, never overlapping. */
   const spans = [];
   const transcribed = transcription
     ? segmentsOf(transcription.text, ja)
     : undefined;
-  const claimOf = (from, to) => runsCovering(heard, from, to, "claimed");
+  /** An analyser hears this segment as the transcription reads it, and the
+   *  dictionary does not give the word it heard there another reading. */
+  const heardAs = (seg, reading) =>
+    voices.some(
+      (runs) =>
+        runsCovering(runs, seg.a, seg.b, "claimed") === reading &&
+        !contradictedIn(runs, seg),
+    );
 
   const segments = transcribed ?? [];
   /** Tatoeba's index, written by people, reads the word the same way. */
@@ -121,11 +145,13 @@ export function furiganaFor(
     }
     return false;
   };
-  /** The dictionary gives the word kuromoji heard here another reading. */
-  const contradicted = (seg) =>
-    heard.some((r) => r.contradicted && r.a < seg.b && r.b > seg.a);
+  /** The dictionary gives the word an analyser heard here another reading. */
+  const contradictedIn = (runs, seg) =>
+    runs.some((r) => r.contradicted && r.a < seg.b && r.b > seg.a);
   const touching = (r) => segments.filter((s) => s.a < r.b && s.b > r.a);
-  const verified = new Set(heard.filter((r) => r.confirmed !== undefined));
+  const verified = new Set(
+    voices.flatMap((runs) => runs.filter((r) => r.confirmed !== undefined)),
+  );
   const dropped = new Set();
   const supported = new Set();
   for (const run of [...verified]) {
@@ -144,14 +170,12 @@ export function furiganaFor(
     }
   }
   for (const seg of segments) {
-    if (dropped.has(seg)) continue;
+    if (dropped.has(seg) && !supported.has(seg)) continue;
     const reading = seg.pieces.join("");
     if (
       supported.has(seg) ||
       (checked(seg, jmdictReadings, kanjiReadings) &&
-        (transcription.human ||
-          indexed(seg) ||
-          (claimOf(seg.a, seg.b) === reading && !contradicted(seg))))
+        (transcription.human || indexed(seg) || heardAs(seg, reading)))
     )
       spans.push({ ...seg, reading });
   }

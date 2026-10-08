@@ -59,6 +59,7 @@ describe("data/reference/sentences/", () => {
   it("says how its readings were checked", () => {
     expect(snapshot.meta?.furigana).toMatch(/Tatoeba/);
     expect(snapshot.meta?.furigana).toMatch(/kuromoji/);
+    expect(snapshot.meta?.furigana).toMatch(/UniDic/);
     expect(snapshot.meta?.furigana).toMatch(/KANJIDIC2/);
     expect(snapshot.meta?.furigana).toMatch(/JMdict/);
   });
