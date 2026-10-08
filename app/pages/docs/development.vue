@@ -119,6 +119,10 @@ pnpm dev          # http://localhost:3000</code></pre>
         <code>og-font</code>: the share-image fonts can draw every word, reading
         and meaning, and nearly every headline.
       </li>
+      <li>
+        <code>contrast</code>: text on colour in every season and mode against
+        WCAG AA, with the pairs that fall short listed so none gets worse.
+      </li>
       <li><code>docs-sync</code>: the docs against the code (see below).</li>
     </ul>
 
