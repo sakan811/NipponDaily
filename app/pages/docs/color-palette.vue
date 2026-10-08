@@ -21,9 +21,10 @@
       <li>
         <strong>The base palette is also spring</strong> (<code>sakura</code>):
         deep rose primary and sage secondary in light, teal and orchid in dark.
-        <code>sakura</code> has no <code>[data-season]</code> block;
-        <code>autumn</code> overrides all five colour families, and
-        <code>summer</code> and <code>winter</code> only primary and secondary.
+        <code>sakura</code> has no palette block under
+        <code>[data-season]</code>; <code>autumn</code> overrides all five
+        colour families, and <code>summer</code> and <code>winter</code> only
+        primary and secondary.
       </li>
       <li>
         <strong>Dark mode</strong> is a <code>.dark</code> class on
