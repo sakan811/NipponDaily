@@ -45,6 +45,8 @@ The word lists come from the community list originally compiled at [tanos.co.uk]
 
 Kana conversion in the data scripts and checks uses [wanakana](https://github.com/WaniKani/WanaKana) (MIT licence).
 
+Tatoeba's furigana is checked against a second analyser, [Lindera](https://github.com/lindera/lindera) (MIT licence) with the [UniDic](https://clrd.ninjal.ac.jp/unidic/) dictionary of the National Institute for Japanese Language and Linguistics (BSD, LGPL or GPL). The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.
+
 The site is set in [Zen Old Mincho](https://github.com/google/fonts/tree/main/ofl/zenoldmincho), [Outfit](https://github.com/google/fonts/tree/main/ofl/outfit) and [Noto Serif JP](https://github.com/google/fonts/tree/main/ofl/notoserifjp), served from the app by way of the `@fontsource` packages, and the share images are drawn in the first two; all are under the [SIL Open Font License 1.1](https://openfontlicense.org/). The share-image licences ship beside the font files in `server/assets/og/`.
 <!-- docs:end attribution -->
 

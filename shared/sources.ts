@@ -31,6 +31,8 @@ export const LICENCES = {
   // tanos.co.uk states "Creative Commons BY" with no version, so none is named.
   ccBy: { name: "CC BY" },
   mit: { name: "MIT licence" },
+  // NINJAL offers UniDic under any one of these.
+  unidic: { name: "BSD, LGPL or GPL" },
   ofl11: {
     name: "SIL Open Font License 1.1",
     url: "https://openfontlicense.org/",
@@ -44,6 +46,7 @@ export interface DataSource {
     | "tatoeba"
     | "jlpt-word-list"
     | "wanakana"
+    | "unidic"
     | "og-fonts";
   /** Display name. */
   name: string;
@@ -85,6 +88,8 @@ const TANOS = {
   url: "https://www.tanos.co.uk/jlpt/",
 } as const;
 const WANAKANA_URL = "https://github.com/WaniKani/WanaKana";
+const UNIDIC_URL = "https://clrd.ninjal.ac.jp/unidic/";
+const LINDERA_URL = "https://github.com/lindera/lindera";
 const ZEN_OLD_MINCHO_URL =
   "https://github.com/google/fonts/tree/main/ofl/zenoldmincho";
 const OUTFIT_URL = "https://github.com/google/fonts/tree/main/ofl/outfit";
@@ -144,6 +149,18 @@ export const SOURCES = {
     use: "Kana conversion in the data scripts and checks",
     credit: `Kana conversion in the data scripts and checks uses ${link("wanakana", WANAKANA_URL)} (${LICENCES.mit.name}).`,
   },
+  unidic: {
+    id: "unidic",
+    name: "UniDic",
+    short: "UniDic",
+    url: UNIDIC_URL,
+    licence: LICENCES.unidic,
+    holder: "National Institute for Japanese Language and Linguistics (NINJAL)",
+    holderShort: "NINJAL",
+    via: { name: "Lindera", url: LINDERA_URL },
+    use: "A second, independent reading of example sentences, to check Tatoeba's furigana",
+    credit: `Tatoeba's furigana is checked against a second analyser, ${link("Lindera", LINDERA_URL)} (${LICENCES.mit.name}) with the ${link("UniDic", UNIDIC_URL)} dictionary of the National Institute for Japanese Language and Linguistics (${LICENCES.unidic.name}). The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.`,
+  },
   "og-fonts": {
     id: "og-fonts",
     name: "Zen Old Mincho, Outfit and Noto Serif JP",
@@ -162,6 +179,7 @@ export const DATA_SOURCES: readonly DataSource[] = [
   SOURCES.tatoeba,
   SOURCES["jlpt-word-list"],
   SOURCES.wanakana,
+  SOURCES.unidic,
   SOURCES["og-fonts"],
 ];
 
