@@ -98,6 +98,27 @@ describe("Kanji Detail Page (/kanji/[char])", () => {
     expect(wrapper.text()).toContain("KANJIDIC2");
   });
 
+  it("draws the strokes one by one, with KanjiVG credited", async () => {
+    const wrapper = mount(KanjiDetailPage);
+    await flushPromises();
+
+    const d = kanjiDetail("日", TODAY)!;
+    expect(wrapper.findAll('[data-testid="kanji-stroke"]')).toHaveLength(
+      d.strokeCount,
+    );
+    expect(wrapper.text()).toContain("KanjiVG");
+  });
+
+  it("shows no stroke order for a kanji without strokes", async () => {
+    (global as any).$fetch.mockResolvedValue(
+      respond({ ...kanjiDetail("日", TODAY)!, strokes: undefined }),
+    );
+    const wrapper = mount(KanjiDetailPage);
+    await flushPromises();
+
+    expect(wrapper.find('[data-testid="kanji-strokes"]').exists()).toBe(false);
+  });
+
   it("links to the part page only when a word shows the kanji as a part", async () => {
     const wrapper = mount(KanjiDetailPage);
     await flushPromises();

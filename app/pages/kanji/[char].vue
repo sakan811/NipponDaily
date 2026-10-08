@@ -112,6 +112,23 @@
           </div>
         </section>
 
+        <section
+          v-if="kanji.strokes"
+          class="space-y-3"
+          aria-labelledby="strokes-heading"
+        >
+          <h2
+            id="strokes-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            Stroke order
+          </h2>
+          <KanjiStrokes :strokes="kanji.strokes" />
+          <p class="text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
+            <RichText :text="SOURCES.kanjivg.credit" />
+          </p>
+        </section>
+
         <section class="space-y-3" aria-labelledby="words-heading">
           <h2
             id="words-heading"
@@ -178,6 +195,7 @@ import { computed } from "vue";
 import { useRoute } from "#app";
 import AppHeader from "../../components/AppHeader.vue";
 import AppFooter from "../../components/AppFooter.vue";
+import KanjiStrokes from "../../components/KanjiStrokes.vue";
 import RichText from "../../components/RichText.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import { usePageSeo } from "../../composables/usePageSeo";

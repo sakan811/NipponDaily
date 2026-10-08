@@ -2,8 +2,10 @@
  * The kanji index: KANJIDIC2's record of each character the open words are
  * written with, and which open words use it. The records are the committed
  * data/reference/kanji.json (`pnpm data:kanji`), the same KANJIDIC2 data the
- * entries' readings and layers are checked against, so nothing here is a new
- * claim: it reads the characters of each term across words.
+ * entries' readings and layers are checked against, with each character's
+ * strokes from data/reference/strokes.json (`pnpm data:strokes`, KanjiVG), so
+ * nothing here is a new claim: it reads the characters of each term across
+ * words.
  *
  * Server and tests only, for the same reason as shared/words.ts: every
  * function takes `today` and looks only at open days, so a kanji used only by
@@ -16,6 +18,7 @@ import type {
   WordEntry,
 } from "~~/types/index";
 import kanjiReference from "~~/data/reference/kanji.json";
+import strokeReference from "~~/data/reference/strokes.json";
 import { partDetail } from "./parts";
 import { WORD_ENTRIES, todayJst } from "./words";
 
@@ -29,6 +32,7 @@ interface KanjiRecord {
 }
 
 const RECORDS = kanjiReference.kanji as Record<string, KanjiRecord>;
+const STROKES = strokeReference.strokes as Record<string, string[]>;
 
 /** The same range the reference builders read kanji by (no 々 or 〆). */
 const HAN = /[㐀-䶿一-鿿]/gu;
@@ -90,5 +94,6 @@ export function kanjiDetail(
     count: words.length,
     words,
     isPart: partDetail(char, today) !== undefined,
+    ...(STROKES[char] ? { strokes: STROKES[char] } : {}),
   };
 }

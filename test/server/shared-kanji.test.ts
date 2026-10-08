@@ -52,6 +52,19 @@ describe("kanjiDetail", () => {
     expect(d.isPart).toBe(partDetail("日", TODAY) !== undefined);
   });
 
+  it("gives KanjiVG's strokes, as many as KANJIDIC2 counts", () => {
+    const d = kanjiDetail("日", TODAY)!;
+    expect(d.strokes).toHaveLength(d.strokeCount);
+    expect(d.strokes![0]).toMatch(/^[Mm]/);
+  });
+
+  it("gives no strokes where the two sources count differently", () => {
+    const entry = WORD_ENTRIES.find((e) => e.term.includes("飴"))!;
+    const d = kanjiDetail("飴", entry.date);
+    expect(d).toBeDefined();
+    expect(d!.strokes).toBeUndefined();
+  });
+
   it("is undefined for a kanji no open word uses, and for a non-kanji", () => {
     const first = WORD_ENTRIES[0]!.date;
     const later = WORD_ENTRIES.find(
