@@ -53,6 +53,16 @@
         </li>
       </ul>
       <p
+        v-if="pitches.length"
+        data-testid="word-pitch-help"
+        class="text-xs text-stone-500 dark:text-stone-400 max-w-3xl"
+      >
+        How to read it: a line over a kana means the voice is high there, and ↓
+        marks where it drops. A kana with no line is low. With no ↓ the pitch
+        stays high to the end and does not drop even on a following particle
+        (が, は).
+      </p>
+      <p
         data-testid="word-meaning"
         class="text-lg sm:text-xl text-stone-700 dark:text-stone-300 font-body-serif"
       >

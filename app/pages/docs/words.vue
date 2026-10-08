@@ -35,7 +35,8 @@
       and <code>pitch</code> as the reading with a line over the high morae and
       a ↓ after the one the pitch falls on, named heiban, atamadaka, nakadaka or
       odaka (<code>app/utils/pitch.ts</code> only lays the number over the
-      word's own kana). Neither adds a claim.
+      word's own kana), with a short note under the line saying how to read it.
+      Neither adds a claim.
     </p>
     <p>
       A hedge in a quoted line (“probably”, “unknown”…) is detected when the
