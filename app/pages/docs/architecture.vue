@@ -47,7 +47,7 @@
     <pre><code>app/        pages/, components/, composables/, utils/, data/, assets/css/tailwind.css
 shared/     code imported by both app/ and server/ (the ~~/shared alias); not auto-imported
 server/     api/ (handlers), routes/ (sitemap, robots, share images), middleware/ (rate limit), plugins/ (caching), services/ (Redis), utils/, assets/og/ (share-image fonts)
-scripts/    data builders run with node: reference snapshots, etymology pins, example sentences, kanji records, entry generator
+scripts/    data builders run with node: reference snapshots, etymology pins, example sentences, pitch accents, kanji records, strokes, entry generator
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
 test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots)</code></pre>
@@ -117,9 +117,10 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
         <code>useBgm</code>.
       </li>
       <li>
-        <strong>Components:</strong> <code>WordEntryView</code> (one entry),
-        <code>RelatedWords</code>, <code>WordFilters</code> (the filter form
-        shared by Explore and the calendar), <code>AppHeader</code>,
+        <strong>Components:</strong> <code>WordEntryView</code> (one entry, with
+        its pitch accent), <code>KanjiStrokes</code> (a kanji's strokes, one
+        frame each), <code>RelatedWords</code>, <code>WordFilters</code> (the
+        filter form shared by Explore and the calendar), <code>AppHeader</code>,
         <code>AppFooter</code>, <code>DocsBook</code> (a docs page),
         <code>DocDiagram</code>, <code>SeasonButton</code>,
         <code>BgmControl</code>, <code>SeasonalEffects</code>,
@@ -312,7 +313,7 @@ const sharedModules = [
   {
     file: "kanji.ts",
     serverOnly: true,
-    role: "`kanjiIndex(today)` and `kanjiDetail(char, today)`: KANJIDIC2's record of each kanji an open word is written with (`data/reference/kanji.json`) and the open words that use it.",
+    role: "`kanjiIndex(today)` and `kanjiDetail(char, today)`: KANJIDIC2's record of each kanji an open word is written with (`data/reference/kanji.json`), its KanjiVG strokes where the counts agree (`data/reference/strokes.json`) and the open words that use it.",
   },
   {
     file: "explore.ts",

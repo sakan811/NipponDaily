@@ -87,11 +87,13 @@
       <li>
         <strong>Nothing leaves the app.</strong> Everything the app offers is
         read in the app. It exports nothing (no download, no file for another
-        tool), sends nothing to another service (no analytics, no sign-in, no
-        form, no third-party script, font or embed), and keeps the data it shows
-        committed beside the code. A link to a source is a citation the reader
-        may follow, not something the app sends. A page that other sites preview
-        is still served by the app, and no one is told who read it.
+        tool), sends nothing about a reader to anyone (no analytics, no sign-in,
+        no form), loads no third-party script, font or embed, and keeps the data
+        it shows committed beside the code. The one value the server keeps
+        outside its own process is the season, in the app's own datastore. A
+        link to a source is a citation the reader may follow, not something the
+        app sends. A page that other sites preview is still served by the app,
+        and no one is told who read it.
       </li>
     </ol>
 

@@ -64,6 +64,8 @@ const example = `{
       "level": "N1",
       "pos": ["interjection (kandoushi)"],
       "priority": ["gai1"],
+      "register": ["colloquial"],
+      "pitch": [1],
       "stratum": "gairaigo",
       "processes": ["borrowing"],
       "headline": "サンキュー is borrowed from English thank you.",

@@ -51,16 +51,21 @@
       is never committed. Put it in the repo root (it is git-ignored) or point
       <code>--dump</code> at it; its name, date and checksum are pinned in
       <code>scripts/lib/wiktionary-dump.mjs</code> and any other file is
-      refused. The reference builders use <code>node:sqlite</code>,
-      <code>tar</code> and <code>xz</code>, and download from PyPI and GitHub.
+      refused. The reference builders read JMdict and KANJIDIC2 from two files
+      in the repo root, <code>JMdict_e.gz</code> and
+      <code>kanjidic2.xml.gz</code> (git-ignored). EDRDG overwrites both every
+      day, so their size and checksum are pinned in
+      <code>scripts/lib/jmdict.mjs</code>: a missing file is downloaded from the
+      address there, any other copy is refused, and you should keep the two
+      files if you need to rebuild. The word lists are fetched from GitHub.
     </p>
     <p>
-      <code>data:sentences</code> is offline too, bar one fetch: it also reads
-      the pinned JMdict (the same checksum-verified download the reference
-      builders share, cached once) to check the furigana against JMdict and
-      KANJIDIC2. It reads five files of a {{ SOURCES.tatoeba.name }} export,
-      about a minute's work on about 175 MB that is never committed. Download
-      them from the paths listed in
+      <code>data:sentences</code> is offline too: it also reads the two pinned
+      EDRDG files the reference builders share, to check the furigana against
+      JMdict and KANJIDIC2, and runs kuromoji and UniDic from
+      <code>node_modules</code>. It reads five files of a
+      {{ SOURCES.tatoeba.name }} export, about a minute's work on about 175 MB
+      that is never committed. Download them from the paths listed in
       <code>scripts/lib/tatoeba-export.mjs</code> (each is a <code>bz2</code>;
       the indices come in a <code>tar</code>), extract them into a
       <code>tatoeba</code> directory in the repo root (it is git-ignored), and
@@ -70,6 +75,21 @@
       reads the word plans, so it runs before <code>data:words</code>, which
       copies the sentences into each entry; <code>data:kanji</code> runs after
       it, because it reads the entries' spellings.
+    </p>
+    <p>
+      <code>data:pitch</code> and <code>data:strokes</code> each download one
+      pinned file the first time (Kanjium's accent list at a fixed commit,
+      KanjiVG's release; size and checksum are in
+      <code>scripts/build-pitch-reference.mjs</code> and
+      <code>scripts/build-strokes-reference.mjs</code>), cache it under
+      <code>node_modules/.cache/</code>, and are offline after that. Like
+      <code>data:sentences</code>, <code>data:pitch</code> reads the word plans
+      and the level snapshots, so it runs before <code>data:words</code>;
+      <code>data:strokes</code> reads <code>data/reference/kanji.json</code>, so
+      it runs after <code>data:kanji</code>. Neither guesses: a word the accent
+      list does not give for that exact spelling and reading shows no pitch, and
+      a kanji whose stroke count KanjiVG and KANJIDIC2 disagree on shows no
+      strokes.
     </p>
 
     <h2>Adding a month</h2>
@@ -100,8 +120,9 @@
       </li>
       <li>
         <strong>Pin the evidence</strong>: <code>pnpm data:etymology</code>, and
-        <code>pnpm data:sentences</code> for the example sentences (a word with
-        none is fine). Every term in the plans is included; add
+        <code>pnpm data:sentences</code> for the example sentences and
+        <code>pnpm data:pitch</code> for the pitch accent (a word with none of
+        either is fine). Every term in the plans is included; add
         <code>--terms 電話,友達,…</code> for words with no plan yet. Many pool
         words have no usable Etymology section, so for a bulk batch pin more
         candidates than you need with <code>--skip-missing</code>, then
@@ -110,9 +131,10 @@
       </li>
       <li>
         <strong>Generate</strong>: <code>pnpm data:words</code>, then
-        <code>pnpm data:kanji</code> for any kanji the new words add. It prints
-        every entry it could not build and why, and writes nothing until they
-        are fixed (or use <code>--keep-going</code>).
+        <code>pnpm data:kanji</code> and <code>pnpm data:strokes</code> for any
+        kanji the new words add. It prints every entry it could not build and
+        why, and writes nothing until they are fixed (or use
+        <code>--keep-going</code>).
       </li>
       <li>
         <strong>Read the result once.</strong> Entries with no breakdown are
@@ -180,11 +202,15 @@
     <h2>Refreshing the sources</h2>
     <ol>
       <li>
-        <strong>JMdict and word lists:</strong> bump
-        <code>WORD_LIST_SOURCES</code> and/or <code>JAMDICT_SOURCE</code>, then
-        run <code>pnpm data:reference</code> and
-        <code>pnpm data:reference:jlpt</code> <em>together</em> and review every
-        diff.
+        <strong>JMdict, KANJIDIC2 and word lists:</strong> bump
+        <code>WORD_LIST_SOURCES</code> and/or <code>JMDICT_SOURCE</code> (put
+        the new files in the repo root and record their date, size and
+        checksum), then run <code>pnpm data:reference</code> and
+        <code>pnpm data:reference:jlpt</code> <em>together</em>, then
+        <code>pnpm data:sentences</code>, <code>pnpm data:words</code> and
+        <code>pnpm data:kanji</code>, and review every diff. A newer JMdict can
+        reword a tag or a gloss, and then a test or a correction in
+        <code>shared/meanings.ts</code> says so.
       </li>
       <li>
         <strong>Wiktionary:</strong>
@@ -203,9 +229,17 @@
         then <code>pnpm data:words</code>.
       </li>
       <li>
+        <strong>Kanjium and KanjiVG:</strong> change the commit or release, size
+        and checksum in <code>PITCH_SOURCE</code> or
+        <code>STROKES_SOURCE</code>, run <code>pnpm data:pitch</code> and
+        <code>pnpm data:words</code>, or <code>pnpm data:strokes</code>, and
+        review the diff.
+      </li>
+      <li>
         Dropped a word? <code>pnpm data:etymology --prune</code> removes pins
-        nothing uses, and <code>pnpm data:sentences</code> and
-        <code>pnpm data:kanji</code> drop what the word alone used.
+        nothing uses, and <code>pnpm data:sentences</code>,
+        <code>pnpm data:pitch</code>, <code>pnpm data:kanji</code> and
+        <code>pnpm data:strokes</code> drop what the word alone used.
       </li>
       <li><code>pnpm test:run</code>: new gaps show up as failing entries.</li>
     </ol>
@@ -259,6 +293,14 @@ const pieces = [
     what: "KANJIDIC2's record of every kanji the entries are written with, for the kanji pages. Generated.",
   },
   {
+    path: "data/reference/pitch.json",
+    what: "The pitch accent the pinned Kanjium list gives each word, for its exact spelling and reading. Generated.",
+  },
+  {
+    path: "data/reference/strokes.json",
+    what: "KanjiVG's strokes for each kanji the entries are written with, where its count matches KANJIDIC2's. Generated.",
+  },
+  {
     path: "data/word-plan/YYYY-MM.json",
     what: "The only hand-written content: `{ date, term, headline }` per day (`kana` when a spelling has several pool words).",
   },
@@ -275,7 +317,7 @@ const pieces = [
 const commands = [
   {
     cmd: "pnpm data:reference",
-    does: "Rebuilds `n5-reference.json` from pinned sources (a checksum-verified `jamdict-data` release and a word list at a fixed commit).",
+    does: "Rebuilds `n5-reference.json` from pinned sources (the checksum-verified JMdict and KANJIDIC2 files in the repo root and a word list at a fixed commit).",
   },
   {
     cmd: "pnpm data:reference:jlpt",
@@ -294,12 +336,20 @@ const commands = [
     does: "Copies KANJIDIC2's record of every kanji the entries use out of the level snapshots into `data/reference/kanji.json`. Fetches nothing; `--check` fails if it is out of date.",
   },
   {
+    cmd: "pnpm data:pitch",
+    does: "Picks each word's pitch accent from the pinned Kanjium list into `data/reference/pitch.json` (`--file <path>` names the list, `--check` fails if the snapshot is out of date).",
+  },
+  {
+    cmd: "pnpm data:strokes",
+    does: "Copies KanjiVG's strokes for every kanji in `data/reference/kanji.json` into `data/reference/strokes.json`, keeping those whose count matches KANJIDIC2's (`--file <path>` names the release, `--check` fails if the snapshot is out of date).",
+  },
+  {
     cmd: "pnpm assets:og-font",
     does: "Rebuilds the fonts the share images are drawn with in `server/assets/og/`: a subset of Zen Old Mincho Bold cut to the characters of the entries, Outfit copied from `@fontsource/outfit`, and `glyphs.json`, the list of characters they can draw. The upstream font is pinned by commit and checksum in `scripts/build-og-font.mjs`; download it into the repo root (git-ignored) or pass `--font <path>`.",
   },
   {
     cmd: "pnpm data:words",
-    does: "Generates `data/words/` from the plan and the committed sources (the sentences too). Fetches nothing. `--check` fails if a file is out of date; `--keep-going` writes every entry that built and lists the failures.",
+    does: "Generates `data/words/` from the plan and the committed sources (the sentences and pitch accents too). Fetches nothing. `--check` fails if a file is out of date; `--keep-going` writes every entry that built and lists the failures.",
   },
 ];
 
@@ -403,7 +453,7 @@ const failures = [
   },
   {
     failure: "Sentences or kanji out of step with the entries",
-    fix: "Run `pnpm data:sentences` (with the Tatoeba export in place), `pnpm data:words`, then `pnpm data:kanji`.",
+    fix: "Run `pnpm data:sentences` (with the Tatoeba export in place), `pnpm data:pitch`, `pnpm data:words`, then `pnpm data:kanji` and `pnpm data:strokes`.",
   },
   {
     failure: "Entry disagrees with JMdict",

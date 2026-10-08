@@ -63,7 +63,7 @@ const features = computed(() => [
   {
     title: "The Kanji",
     description:
-      "`/kanji` lists every kanji a word that has opened is written with. Open one — 日, say — for KANJIDIC2's record of it (on'yomi, kun'yomi, meanings, school grade, strokes, newspaper rank) and every word so far that is written with it. Each entry links its own kanji, and the page says a word doesn't use every reading or meaning of its kanji.",
+      "`/kanji` lists every kanji a word that has opened is written with. Open one — 日, say — for KANJIDIC2's record of it (on'yomi, kun'yomi, meanings, school grade, stroke count, newspaper rank), the order its strokes are drawn in (KanjiVG's, shown only where KanjiVG and KANJIDIC2 count the same number of strokes) and every word so far that is written with it. Each entry links its own kanji, and the page says a word doesn't use every reading or meaning of its kanji.",
   },
   {
     title: "In a Sentence",
@@ -81,9 +81,14 @@ const features = computed(() => [
       "Where Wiktionary splits a word into parts with glosses, each morpheme is shown with its reading and that gloss, but only if the parts spell the word and join to its reading. When the text gives no split of a word written with kanji (and the okurigana after them), each part is one of its kanji with KANJIDIC2's reading and meaning, and the page says so. Otherwise no breakdown is shown, since any other split would be a guess.",
   },
   {
+    title: "How It Is Said",
+    description:
+      "Where the pinned Kanjium accent list gives a word's exact spelling and reading, the entry shows its pitch accent: the reading with a line over the high morae and a ↓ after the one where the pitch falls, named flat (heiban), head-high (atamadaka), middle-high (nakadaka) or tail-high (odaka). A word the list does not give shows none, and where it gives several accents they are all shown.",
+  },
+  {
     title: "Which Layer, Which Process",
     description:
-      "Every entry shows JMdict's part-of-speech tags, a “Common” mark when JMdict counts the word as common, its layer when KANJIDIC2's readings or JMdict's loan source establish it — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes its Wiktionary text mentions, or JMdict records (compounding, rendaku, clipping, ateji, sound change…), each defined on the page.",
+      "Every entry shows JMdict's part-of-speech tags, a “Common” mark when JMdict counts the word as common, JMdict's own register, field and dialect tags where every sense the meaning matches carries them (colloquial, polite, baseball, Kansai-ben…), its layer when KANJIDIC2's readings or JMdict's loan source establish it — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes its Wiktionary text mentions, or JMdict records (compounding, rendaku, clipping, ateji, sound change…), each defined on the page.",
   },
   {
     title: "The Story, in Wiktionary's Words",
@@ -102,7 +107,7 @@ const features = computed(() => [
   {
     title: "Verified in CI",
     description:
-      "Every entry is regenerated from JMdict, KANJIDIC2 and the pinned Wiktionary snapshot and compared, and checked independently: reading, level and meaning against the pool, part of speech against JMdict, morphemes against KANJIDIC2 or the cited text, priority, loan and ateji claims against JMdict, each example sentence against the committed export snapshot, and every quote against the section for its own reading.",
+      "Every entry is regenerated from JMdict, KANJIDIC2 and the pinned Wiktionary snapshot and compared, and checked independently: reading, level and meaning against the pool, part of speech, register, field and dialect against JMdict, morphemes against KANJIDIC2 or the cited text, priority, loan and ateji claims against JMdict, each pitch accent against the committed accent snapshot and the word's count of morae, each kanji's strokes against KANJIDIC2's stroke count, each example sentence against the committed export snapshot, and every quote against the section for its own reading.",
   },
   {
     title: "Four Seasons",
