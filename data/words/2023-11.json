@@ -7,6 +7,7 @@
     "level": "N5",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf04", "spec1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsukuru is first attested in the Kojiki of 712 CE, ultimately from Proto-Japonic *tukoru.",
@@ -51,6 +52,7 @@
     "level": "N5",
     "pos": ["numeric", "prefix", "noun, used as a prefix"],
     "priority": ["ichi1", "news2", "nf33"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Ichi is from Middle Chinese 一 (ʔiɪt̚), and went itɨ → it͡sɨ → it͡ɕɨ on the way.",
@@ -110,6 +112,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Shokudō was jikidō, a refectory in a Buddhist temple, before the Meiji period's kan'on reading of 食.",
@@ -171,6 +174,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jimusho is, by surface analysis, 事務 (jimu) plus 所 (-sho).",
@@ -199,6 +203,36 @@
         "quote": "By surface analysis, 事務(じむ) (jimu) + 所(しょ) (-sho)."
       }
     ],
+    "examples": [
+      {
+        "id": 105335,
+        "ja": "彼は事務所にいない。",
+        "en": "He is out of the office.",
+        "enId": 298354,
+        "form": "事務所",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["事務所", "じむしょ"],
+          ["にいない。"]
+        ]
+      },
+      {
+        "id": 150748,
+        "ja": "事務所は６階に移った。",
+        "en": "The office has been transferred up to the sixth floor.",
+        "enId": 263810,
+        "form": "事務所",
+        "furigana": [
+          ["事務所", "じむしょ"],
+          ["は６"],
+          ["階", "かい"],
+          ["に"],
+          ["移", "うつ"],
+          ["った。"]
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -212,6 +246,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Tsugi is a nominalization of the stem of the verb 次ぐ (tsugu, “to follow, to be next; to connect”).",
@@ -256,6 +291,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "derivation", "unclear"],
     "headline": "Katachi is 形 (kata, “shape, form”) plus ち (-chi), but the chi element's derivation is unclear.",
@@ -313,6 +349,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Kuruma is attested in phonetic spelling as 久流末 (kuruma), and may originally have meant “wheel”.",
@@ -367,6 +404,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "clipping"],
     "headline": "Chikatetsu is a clipping of 地下鉄道 (chika tetsudō, “underground railway”).",
@@ -432,6 +470,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
     "processes": [],
     "headline": "Kippu is 切る (kiru, “cut”) plus 符 (fu, “tally split in half used for identification”).",
     "morphemes": [],
@@ -481,6 +520,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "pitch": [3, 4],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Daigakusei is 大学 (daigaku, “university”) plus 生 (-sei, “student; pupil”).",
@@ -529,6 +569,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kanji is a Middle Chinese compound, literally “Han Chinese + character”.",
@@ -593,8 +634,9 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [2],
     "stratum": "wago",
-    "processes": ["borrowing", "sound-change", "unclear"],
+    "processes": ["borrowing", "sound-change", "ateji", "unclear"],
     "headline": "Kinō went kinopu → kinoɸu → kinowu → kinou → kinoː, and its initial ki is unclear.",
     "morphemes": [],
     "sources": [
@@ -653,8 +695,9 @@
     "kana": "もん",
     "meaning": "gate",
     "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Mon is from Middle Chinese 門 (MC mwon).",
@@ -706,6 +749,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Atsui for weather and 熱い for objects share one source: Old Japanese, from Proto-Japonic *atu.",
@@ -718,24 +762,6 @@
         "quote": "Cognate with 熱(あつ)い (atsui, “hot (of an object)”)."
       }
     ],
-    "examples": [
-      {
-        "id": 171593,
-        "ja": "今日は暑い。",
-        "en": "It's hot today.",
-        "enId": 242881,
-        "form": "暑い",
-        "furigana": [["今日", "きょう"], ["は"], ["暑", "あつ"], ["い。"]]
-      },
-      {
-        "id": 80162,
-        "ja": "猛烈な暑さだ。",
-        "en": "The heat is intense.",
-        "enId": 19176,
-        "form": "暑",
-        "furigana": [["猛烈", "もうれつ"], ["な"], ["暑", "あつ"], ["さだ。"]]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -746,6 +772,7 @@
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Ireru developed from the classical lower bigrade verb 入る, meaning to put something into something.",
@@ -799,6 +826,7 @@
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Yureru comes from the lower bigrade intransitive classical verb 揺る (yuru).",
@@ -849,6 +877,7 @@
     "level": "N5",
     "pos": ["Godan verb - Iku/Yuku special class", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Iku has a hidden twin: yuku, thanks to an old habit of inserting a y glide before vowels.",
@@ -895,6 +924,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [1, 0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shinsetsu is literally “blood relative + close”, a Middle Chinese compound.",
@@ -951,6 +981,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Ushiro may be from us- (“lost; gone”) plus a locative suffix, but the ultimate derivation is unknown.",
@@ -994,6 +1025,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Tonari may be 外 (to1, “outside, other”) plus nari, but the source gives two analyses of the second part.",
@@ -1055,6 +1087,7 @@
     "level": "N5",
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Maitsuki is “every + month” and is first attested in roughly 1215.",
@@ -1088,6 +1121,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [4],
     "stratum": "wago",
     "processes": ["derivation", "sound-change", "unclear"],
     "headline": "Isogashii is derived from the verb 急ぐ (isogu, “to hurry”), first attested in a text from 850.",
@@ -1137,6 +1171,7 @@
     "level": "N5",
     "pos": ["numeric"],
     "priority": ["ichi1", "news1", "nf01", "spec1"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Hyaku is borrowed from Middle Chinese 百 (MC paek, literally “hundred”).",
@@ -1156,6 +1191,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Hikōki is first attested in 1908, and is 飛行 (hikō, “flying, flight”) plus 機 (-ki, “machine”), a calque of English flying machine.",
@@ -1212,6 +1248,8 @@
     "level": "N4",
     "pos": ["pronoun"],
     "priority": ["ichi1", "news1", "nf07"],
+    "register": ["male term or language"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["sound-change"],
     "headline": "Boku shifted from the kun'yomi of shimobe or yatsugare to the on'yomi, and became prevalent around the Meiji period.",
@@ -1249,6 +1287,7 @@
     "level": "N5",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Hairu is from older 這ひ入る (fafiiru): a compound of 這ひ (fafi, from 這ふ, “to crawl”) plus 入る (iru, “to enter”).",
@@ -1292,6 +1331,7 @@
     "level": "N4",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf35"],
+    "pitch": [0, 3],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kanashii historically also meant “dear; beloved; lovely”, in addition to “sad”.",
@@ -1338,6 +1378,7 @@
     "level": "N4",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf27"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Nuru is possibly related to 濡れる (nureru, “to get wet”).",
@@ -1384,6 +1425,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0, 3],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Higashi was hingashi: /ɸiŋɡaɕi/ → /ɸiɡaɕi/ → /hiɡaɕi/.",
@@ -1441,6 +1483,7 @@
     "level": "N5",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf41"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Wataru is Old Japanese, from Proto-Japonic *wataru.",

@@ -7,6 +7,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [2, 0],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ドライバー is borrowed from English driver.",
@@ -58,9 +59,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
     "processes": [],
     "headline": "Hannō was coined by Iwakawa Tomotarō in 1884 as a translation of English reaction, and the ō of 応 became nō by renjō.",
     "morphemes": [],
@@ -82,6 +85,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf44"],
+    "pitch": [5, 0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Tsukekuwaeru is 付け (tsuke, the stem of 付ける (tsukeru, “to attach”)) plus 加える (kuwaeru, “to add”).",
@@ -146,6 +150,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Mine is 御 (mi, honorific prefix) plus 峰 (ne, “peak”), in reference to the 神 (kami, “god or spirit”) at the top of a mountain.",
@@ -186,6 +191,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "spec1"],
+    "pitch": [1, 2],
     "stratum": "wago",
     "processes": [],
     "headline": "Yoshiashi is 善し (“classical Japanese of now 良い (yoi)”) plus 悪し (“classical Japanese synonym of 悪い (warui)”).",
@@ -238,6 +244,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Mokei is 模 (mo, “copy”) plus 型 (kei, “type”).",
@@ -304,9 +311,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Hōkai is from Middle Chinese 崩潰, and 壊 (kai) is a daiyōji replacing 潰 (kai).",
@@ -363,6 +372,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'u' ending", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tadayou is from Old Japanese and is first cited to the Kojiki of 712 CE.",
@@ -418,9 +428,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ガイド is from English guide.",
@@ -469,6 +481,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [0],
     "processes": ["borrowing", "ateji"],
     "headline": "Nadare is the stem of the classical verb 傾る (nadaru), and its kanji spelling is jukujikun, borrowed from Chinese 雪崩 (xuěbēng).",
     "morphemes": [],
@@ -481,19 +494,6 @@
       }
     ],
     "examples": [
-      {
-        "id": 141957,
-        "ja": "雪崩で道路がふさがった。",
-        "en": "The road was blocked by an avalanche.",
-        "enId": 12271251,
-        "form": "雪崩",
-        "furigana": [
-          ["雪崩", "なだれ"],
-          ["で"],
-          ["道路", "どうろ"],
-          ["がふさがった。"]
-        ]
-      },
       {
         "id": 172414,
         "ja": "今頃の時期はなだれに注意しなければならない。",
@@ -520,9 +520,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["news1", "nf16"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In ryakudatsu, 略 is a daiyōji replacing 掠.",
@@ -577,6 +579,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news2", "nf32"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Umaretsuki is 生まれ (umare) plus 付き (tsuki).",
@@ -628,6 +631,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ジャンル is borrowed from French genre.",
@@ -669,6 +673,7 @@
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "タイムリー is from English timely.",
@@ -694,6 +699,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "suffix"],
     "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [3, 0],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Koyomi is generally considered a shift from 日 (ka, “day”) plus 読み (yomi, “reading; counting”), literally “day counting”.",
@@ -713,6 +719,7 @@
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [4],
     "stratum": "wago",
     "processes": [],
     "headline": "Kokoroyoi is 心 (kokoro, “heart”) plus 良い (yoi, “good”).",
@@ -770,6 +777,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Yūrei is from the Middle Chinese compound 幽靈, literally “dark + supernatural”.",
@@ -828,6 +836,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ペア is borrowed from English pair.",
@@ -853,6 +862,7 @@
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1"],
+    "pitch": [3, 0],
     "stratum": "wago",
     "processes": [],
     "headline": "Iyashii is from Old Japanese and is first attested in the Nihon Shoki of 720 CE.",
@@ -902,6 +912,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "ichi2", "news1", "nf03"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Uo, “fish”, is from Old Japanese, ultimately from Proto-Japonic *uwo.",
@@ -925,8 +936,13 @@
     "kana": "こころざす",
     "meaning": "to plan, to intend, to aspire to",
     "level": "N1",
-    "pos": ["Godan verb with 'su' ending", "intransitive verb"],
+    "pos": [
+      "Godan verb with 'su' ending",
+      "intransitive verb",
+      "transitive verb"
+    ],
     "priority": ["ichi1", "news2", "nf36"],
+    "pitch": [4],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kokorozasu is 心 (kokoro, “heart; mind”) plus 指す (sasu, “to point”), first cited to the mid-900s.",
@@ -982,6 +998,7 @@
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1"],
+    "pitch": [4],
     "stratum": "wago",
     "processes": [],
     "headline": "Yayakoshii is an adjectivization of 稚児 (yayako, “infant”), from the way infants are fretful and complicated to deal with.",
@@ -1033,6 +1050,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ムード is from English mood.",
@@ -1088,6 +1106,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Kokorozashi is the continuative stem of the verb 志す (kokorozasu, “to intend to do something, to aspire to do something”).",
@@ -1112,25 +1131,6 @@
           ["大切", "たいせつ"],
           ["。"]
         ]
-      },
-      {
-        "id": 75418,
-        "ja": "でも、仲間たちは志はあっても、資金調達やマネジメントには無知でした。",
-        "en": "However, although our companions were willing, they knew nothing about management or getting money.",
-        "enId": 328300,
-        "form": "志",
-        "furigana": [
-          ["でも、"],
-          ["仲間", "なかま"],
-          ["たちは"],
-          ["志", "こころざし"],
-          ["はあっても、"],
-          ["資金", "しきん"],
-          ["調達", "ちょうたつ"],
-          ["やマネジメントには"],
-          ["無知", "むち"],
-          ["でした。"]
-        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1143,6 +1143,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [0],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アルカリ is borrowed from Dutch alkali.",
@@ -1168,6 +1169,7 @@
     "level": "N1",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Imada is from Old Japanese, first appearing in the Kojiki of 712 CE, and ultimately from Proto-Japonic.",
@@ -1223,6 +1225,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ベスト covers “best” and “vest”, and the source takes both from English.",
@@ -1249,6 +1252,7 @@
       "adverb (fukushi)"
     ],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Renjitsu is 連 (“successive”) plus 日 (“day”).",
@@ -1317,9 +1321,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Giketsu is from Middle Chinese 議決.",
@@ -1399,9 +1405,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Kōnyū is from the Middle Chinese compound 購入, literally “present, give + enter”.",
@@ -1469,6 +1477,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アウト is from English out.",

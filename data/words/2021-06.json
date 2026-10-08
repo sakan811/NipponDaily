@@ -5,11 +5,9 @@
     "kana": "げきじょう",
     "meaning": "theater, playhouse",
     "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Gekijō is 劇 (geki, “drama”) plus 場 (jō, “place”).",
@@ -64,9 +62,11 @@
     "level": "N3",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "In kesseki, 欠 is a daiyōji replacing 缺.",
@@ -129,6 +129,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Saikō is 最 (sai-, “most”) plus 高 (kō, “high”).",
@@ -149,24 +150,6 @@
         "quote": "最 (sai-, “most”) + 高 (kō, “high”)."
       }
     ],
-    "examples": [
-      {
-        "id": 183160,
-        "ja": "気分は最高。",
-        "en": "We are having a whale of a time.",
-        "enId": 20282,
-        "form": "最高",
-        "furigana": [["気分", "きぶん"], ["は"], ["最高", "さいこう"], ["。"]]
-      },
-      {
-        "id": 170540,
-        "ja": "最高の気分だ。",
-        "en": "I feel on top of the world.",
-        "enId": 243942,
-        "form": "最高",
-        "furigana": [["最高", "さいこう"], ["の"], ["気分", "きぶん"], ["だ。"]]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -176,11 +159,12 @@
     "meaning": "it has been a long time; for the first time in a long time",
     "level": "N4",
     "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0, 5],
     "stratum": "wago",
     "processes": [],
     "headline": "Hisashiburi is 久しい (hisashii, “long”) plus 振り (-buri, “first time after”).",
@@ -228,6 +212,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Tojiru is from Old Japanese 閉づ (tozu), and the distinction between ぢ and じ was lost over time.",
@@ -271,6 +256,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf04"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Ura, “back”, is simply from Old Japanese.",
@@ -315,10 +301,12 @@
     "meaning": "yellow",
     "level": "N5",
     "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "noun (common) (futsuumeishi)"
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
     "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kiiro is 黄 (ki, “yellow”) plus 色 (iro, “colour”).",
@@ -349,6 +337,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf39"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mei, “niece”, is attested in the Ryūnoshūge of 738, and its initial me- is often associated with 女 (me, “female”).",
@@ -416,6 +405,7 @@
       "transitive verb"
     ],
     "priority": ["ichi1", "news2", "nf47"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Masu, “to increase”, is simply from Old Japanese ます.",
@@ -467,6 +457,7 @@
     "level": "N2",
     "pos": ["expressions (phrases, clauses, etc.)"],
     "priority": ["spec1"],
+    "register": ["humble (kenjougo) language"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Onegai shimasu is 御 (o-) plus 願う (negau, “request, implore”) plus します, the formal form of する (suru).",
@@ -504,6 +495,7 @@
     "level": "N3",
     "pos": ["pronoun"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Wareware is a reduplication of 我 (ware, “I; me”).",
@@ -551,6 +543,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Zenkoku is Middle Chinese 全國, literally “whole country”, first attested in the mid-1800s.",
@@ -654,6 +647,7 @@
     "level": "N4",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Naosu is derived from 直 (nao, “straight; common, normal, ordinary”) plus a transitive suffix, and is cognate with 治す (naosu, “to cure, to heal”).",
@@ -701,6 +695,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0, 1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Tairiku is an orthographic borrowing from Chinese 大陸 (dàlù).",
@@ -762,6 +757,7 @@
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf27"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Horu, “to dig”, is a doublet of 彫る (horu, “to carve”).",
@@ -813,6 +809,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf33"],
+    "pitch": [3, 0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hadagi is 肌 (hada, “skin”) plus 着 (-gi, “clothing”).",
@@ -847,6 +844,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shinshin is 心 (shin, “heart”) plus 身 (shin, “body”): the same reading twice.",
@@ -880,6 +878,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Gōka is Middle Chinese 豪華, literally “grand + flowery”.",
@@ -943,6 +942,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Sumi is first attested in the Nihon Shoki of 720 CE with the phonetic spelling 須彌, and is cognate with 炭 (sumi, “charcoal”).",
@@ -992,6 +992,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [1, 3],
     "stratum": "wago",
     "processes": [],
     "headline": "Kagiri is the continuative stem of 限る (kagiru, “to limit, to restrict”).",
@@ -1042,6 +1043,8 @@
     "level": "N4",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf45"],
+    "register": ["humble (kenjougo) language"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Ukagau is a doublet of 窺う (ukagau, “to peek”).",
@@ -1091,6 +1094,7 @@
     "level": "N5",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
+    "pitch": [1, 0],
     "stratum": "wago",
     "processes": ["derivation", "sound-change", "unclear"],
     "headline": "Mō has an unknown derivation; it was originally まう (mau), first attested in 1477.",
@@ -1133,6 +1137,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kindai is 近 (“near”) plus 代 (“age; period”).",
@@ -1200,6 +1205,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Ou is perhaps cognate with 負う (ou, “to carry on the back”), as both involve one person moving behind another, though the accents do not match.",
@@ -1243,6 +1249,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Ken, “ticket”, went from kwen to ken, from Middle Chinese 券 (MC khjwonH, “ticket”).",
@@ -1283,6 +1290,7 @@
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [4, 3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Norikaeru is 乗り (nori, “getting on, riding”) plus 換える (kaeru, “to exchange, to change”).",
@@ -1357,6 +1365,8 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf20"],
+    "register": ["humble (kenjougo) language"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kanai is literally “inside the house”: 家 (ka, “house”) plus 内 (nai, “inside”).",

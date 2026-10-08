@@ -10,6 +10,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Giri is from Middle Chinese 義理, which first meant “righteous principle” and narrowed in Japan during the Muromachi and Edo periods.",
@@ -83,6 +84,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku"],
     "headline": "Hitojichi is 人 (hito, “person”) plus 質 (shichi, “pawn, hock”), and first meant “indentureship”, with “hostage” arising by extension.",
@@ -150,6 +152,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "derivation", "rendaku"],
     "headline": "Tegaru is from the stem of 手軽い (tegarui), first cited to a text from 1754.",
@@ -206,6 +209,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [0],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "シナリオ is borrowed from English scenario, from Italian scenario, and is first attested in 1928.",
@@ -244,6 +248,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ワット is borrowed from English watt.",
@@ -265,6 +270,7 @@
     "meaning": "plentiful, abundant, lavish",
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Fundan was originally 不断 (fudan).",
@@ -282,11 +288,9 @@
     "kana": "せだい",
     "meaning": "generation",
     "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1, 0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sedai is ultimately from Middle Chinese 世代 and first appears in the early 1500s.",
@@ -357,6 +361,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Mangetsu is from Middle Chinese 滿月, literally “full + moon”.",
@@ -436,9 +441,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["gai1"],
+    "pitch": [4],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コントロール is from English control.",
@@ -493,11 +500,11 @@
     "meaning": "automatic",
     "level": "N1",
     "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
       "nouns which may take the genitive case particle 'no'",
-      "noun (common) (futsuumeishi)"
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
     "priority": ["gai1"],
+    "pitch": [5, 4],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "オートマチック is from English automatic.",
@@ -521,11 +528,9 @@
     "kana": "はなやか",
     "meaning": "brilliant, gorgeous, florid",
     "level": "N1",
-    "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "noun (common) (futsuumeishi)"
-    ],
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Hanayaka is 花 (hana, “flower”) plus やか (-yaka, “seeming like”), and the source compares English flowery.",
@@ -581,9 +586,10 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "nouns which may take the genitive case particle 'no'"
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Ninmei is from Middle Chinese 任命, “burden, charge + command”.",
@@ -644,11 +650,9 @@
     "kana": "ポイント",
     "meaning": "point",
     "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [0],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ポイント is from English point.",
@@ -702,6 +706,7 @@
     "meaning": "drive in",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a prefix"],
+    "pitch": [4, 5],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ドライブイン is English drive-in, equal to ドライブ (doraibu) plus イン (in).",
@@ -756,6 +761,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バック is borrowed from English back.",
@@ -781,6 +787,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [4, 5],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スポーツカー is from English sports car.",
@@ -832,6 +839,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news2", "nf39"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Meiryō is from Middle Chinese 明瞭.",
@@ -893,6 +901,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ケース is borrowed from English case.",
@@ -918,6 +927,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kakageru is a regular shift from Classical Japanese 掲ぐ (kakagu), itself a contraction of 掻き上ぐ (kakiagu).",
@@ -970,6 +980,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [0],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "フロント is borrowed from English front.",
@@ -1025,9 +1036,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "processes": [],
     "headline": "In hanpatsu, 発 is a daiyōji replacing 撥.",
     "morphemes": [],
@@ -1089,9 +1102,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Ryōshō is 了 (ryō, “comprehend”) plus 承 (shō, “agree to”), and 了 is a daiyōji replacing 諒.",
@@ -1140,6 +1155,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [4],
     "stratum": "wago",
     "processes": ["rendaku"],
     "headline": "Otozureru is from the Classical Japanese verb otoduru, analysable as 音 (oto, “sound”) plus 連れる (tsureru, “to bring along; to accompany”), with rendaku.",
@@ -1151,20 +1167,35 @@
     ],
     "examples": [
       {
-        "id": 144373,
-        "ja": "人間がすべての石油を使い切ってしまうときがおとずれるかもしれない。",
-        "en": "The time may come when people will have used up all the oil.",
-        "enId": 270192,
-        "form": "おとずれる",
+        "id": 106781,
+        "ja": "彼は昨日私を訪れた。",
+        "en": "He called on me yesterday.",
+        "enId": 296905,
+        "form": "訪れた",
         "furigana": [
-          ["人間", "にんげん"],
-          ["がすべての"],
-          ["石油", "せきゆ"],
+          ["彼", "かれ"],
+          ["は"],
+          ["昨日", "きのう"],
+          ["私", "わたし"],
           ["を"],
-          ["使", "つか"],
-          ["い"],
-          ["切", "き"],
-          ["ってしまうときがおとずれるかもしれない。"]
+          ["訪", "おとず"],
+          ["れた。"]
+        ]
+      },
+      {
+        "id": 169834,
+        "ja": "昨日彼の家を訪れた。",
+        "en": "I called at his house yesterday.",
+        "enId": 244652,
+        "form": "訪れた",
+        "furigana": [
+          ["昨日", "きのう"],
+          ["彼", "かれ"],
+          ["の"],
+          ["家", "いえ"],
+          ["を"],
+          ["訪", "おとず"],
+          ["れた。"]
         ]
       }
     ],
@@ -1197,11 +1228,15 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
+      "transitive verb",
       "conjunction",
       "prefix",
-      "suffix"
+      "suffix",
+      "nouns which may take the genitive case particle 'no'",
+      "intransitive verb"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [0, 1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "プラス is from English plus.",
@@ -1249,6 +1284,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Butsuzō is 仏 (butsu, “Buddha”) plus 像 (zō, “image”).",
@@ -1320,6 +1356,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [2],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ドライ is borrowed from English dry.",
@@ -1362,6 +1399,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["news1", "nf23"],
+    "pitch": [0, 3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Nagedasu is 投げる (nageru, “to throw”) plus 出す (dasu, “to send out”).",
@@ -1436,6 +1474,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mayu is a shift from the older reading まよ (mayo).",

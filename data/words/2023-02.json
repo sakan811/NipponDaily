@@ -7,6 +7,8 @@
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf35"],
+    "register": ["humble (kenjougo) language"],
+    "pitch": [5],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A humble “I hear you” is “receive” plus “be granted”.",
@@ -55,6 +57,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf36"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "A full name is “surname” plus “given name”, and Japanese has two Chinese readings for it.",
@@ -88,6 +91,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
     "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["ateji"],
     "headline": "“Futile” is probably kin to “empty” — and its kanji are just stand-ins.",
@@ -130,6 +134,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
     "stratum": "hybrid",
     "processes": ["compound", "borrowing"],
     "headline": "An eraser is a native “erasing” stuck to a Dutch-derived “rubber”.",
@@ -150,31 +155,6 @@
         "quote": "Compound of 消し (keshi, “erasing”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 消(け)す (kesu, “put out, extinguish; erase”)) + ゴム (gomu, “rubber”, from Dutch gom)."
       }
     ],
-    "examples": [
-      {
-        "id": 146418,
-        "ja": "消しゴムを借りてもいい？",
-        "en": "May I borrow your eraser?",
-        "enId": 268144,
-        "form": "消しゴム",
-        "furigana": [["消", "け"], ["しゴムを"], ["借", "か"], ["りてもいい？"]]
-      },
-      {
-        "id": 146419,
-        "ja": "消しゴムでこれらの語を消しなさい。",
-        "en": "Rub out these words with your eraser.",
-        "enId": 268143,
-        "form": "消しゴム",
-        "furigana": [
-          ["消", "け"],
-          ["しゴムでこれらの"],
-          ["語", "ご"],
-          ["を"],
-          ["消", "け"],
-          ["しなさい。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -185,6 +165,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Radio's first written use in Japanese is c. 1924, in a play called “Cherry Blossoms”.",
@@ -231,6 +212,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0, 3],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "“Bright” is probably a verb for “brighten” with an old adjective ending, first attested in 1689.",
@@ -278,6 +260,7 @@
     "level": "N2",
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "A weekday is a “plain day”, and the same spelling also hides a native compound.",
@@ -310,6 +293,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "The ring finger is the “medicine finger”, first cited in 1717.",
@@ -362,10 +346,12 @@
     "level": "N2",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news2", "nf33"],
-    "processes": ["rendaku"],
+    "pitch": [0],
+    "processes": ["rendaku", "ateji"],
     "headline": "A burn is a “burning place”, and the to of “place” voices to do.",
     "morphemes": [],
     "sources": [
@@ -406,11 +392,9 @@
     "kana": "こっきょう",
     "meaning": "national or state border",
     "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "The national border was already in the 706 record — and a native reading, kunizakai, sits behind the same spelling.",
@@ -444,6 +428,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "To gaze is related to “long” — possibly a “becoming long” — or to a “long watching” in the Kojiki.",
@@ -498,6 +483,7 @@
     "level": "N4",
     "pos": ["pronoun", "noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "“She” began as “that woman” — and only became a pronoun around 1888, under Western influence.",
@@ -548,6 +534,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [2],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "An “apartment” that is clipped — twice, from two different longer words.",
@@ -587,6 +574,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "spec1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "“Eight days” is a classical やうか that was probably a やか first — or the other way round.",
@@ -619,6 +607,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Kindergarten was, apparently, translated word for word from German — Japan's first ones opened in 1876.",
@@ -688,6 +677,7 @@
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["news2", "nf46"],
+    "pitch": [3],
     "stratum": "hybrid",
     "processes": ["compound", "sound-change", "ateji"],
     "headline": "To be finished is to be “done up” — and the 仕 is only there for its sound.",
@@ -734,6 +724,7 @@
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [4, 0],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Dim is “thin dark” — with くらい voiced to ぐらい.",
@@ -805,6 +796,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "An instrument began as a “weapon” in 718 — and its look-alike 機械 became the common spelling from around 1874.",
@@ -844,6 +836,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [3, 0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“To use” is “hold” plus “bring along”.",
@@ -892,6 +885,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Cotton is “tree cotton”, worn down from mokumen to momen by 1560.",
@@ -940,6 +934,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "spec1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing", "ateji"],
     "headline": "Zero could be English or French — and even the katakana word has a kanji spelling chosen by sound.",
@@ -959,6 +954,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "spec1"],
+    "pitch": [0],
     "processes": ["sound-change"],
     "headline": "The twentieth of the month has two likely derivations — one through “twenty years old”.",
     "morphemes": [],
@@ -976,42 +972,6 @@
         "quote": "*: /ɸatat͡ɕi ka/ → */ɸat̚t͡ɕɨka/ → /ɸat͡ɕuka/ → /hat͡ɕuka/"
       }
     ],
-    "examples": [
-      {
-        "id": 139663,
-        "ja": "卒業式は三月二十日に行われます。",
-        "en": "The graduation ceremony will take place on March 20th.",
-        "enId": 274537,
-        "form": "二十日",
-        "furigana": [
-          ["卒業", "そつぎょう"],
-          ["式", "しき"],
-          ["は"],
-          ["三月", "さんがつ"],
-          ["二十日", "はつか"],
-          ["に"],
-          ["行", "おこな"],
-          ["われます。"]
-        ]
-      },
-      {
-        "id": 154765,
-        "ja": "私は二十日までに帰るつもりです。",
-        "en": "I expect to be back by the 20th.",
-        "enId": 259774,
-        "form": "二十日",
-        "furigana": [
-          ["私", "わたし"],
-          ["は"],
-          ["二", "に"],
-          ["十", "じゅう"],
-          ["日", "にち"],
-          ["までに"],
-          ["帰", "かえ"],
-          ["るつもりです。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1022,6 +982,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["rendaku", "borrowing", "ateji"],
     "headline": "Bushi is Chinese “warrior-man” — a theory that it once meant “bowing down” runs into the Nara period.",
@@ -1080,6 +1041,7 @@
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf45"],
+    "pitch": [5],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Extreme” is the adverb “very” turned into an adjective.",
@@ -1130,6 +1092,7 @@
     "level": "N2",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf36"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "To turn inside out is to “flip” the “back side” — かえす voiced to がえす.",
@@ -1193,6 +1156,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "A “boy” once meant a young person of either gender, “young years” in Chinese.",
@@ -1259,6 +1223,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [3],
     "processes": ["compound", "ateji"],
     "headline": "To smile is to “cheek-smile” — in kanji borrowed from a Chinese “slight smile”.",
     "morphemes": [],
@@ -1270,24 +1235,6 @@
         "quote": "The spelling appears to be an example of jukujikun (熟(じゅく)字(じ)訓(くん)), based on Chinese 微笑 (wēixiào, literally “slight smile”)."
       }
     ],
-    "examples": [
-      {
-        "id": 229980,
-        "ja": "アリスは微笑んだ。",
-        "en": "Alice smiled.",
-        "enId": 67345,
-        "form": "微笑んだ",
-        "furigana": [["アリスは"], ["微笑", "ほほえ"], ["んだ。"]]
-      },
-      {
-        "id": 85585,
-        "ja": "微笑みつづけなさい。",
-        "en": "Keep on smiling.",
-        "enId": 318128,
-        "form": "微笑み",
-        "furigana": [["微笑", "ほほえ"], ["みつづけなさい。"]]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1296,8 +1243,9 @@
     "kana": "せんぱい",
     "meaning": "senior members of a group",
     "level": "N4",
-    "pos": ["noun (common) (futsuumeishi)"],
+    "pos": ["noun (common) (futsuumeishi)", "suffix"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "A senior is a Chinese “earlier fellow”, and ソンベ is its doublet.",

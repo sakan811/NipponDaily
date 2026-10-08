@@ -7,6 +7,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [3, 0],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Yakuwari is 役 (yaku, “service, work, role”) plus 割り (wari), the noun form of 割る (waru, “to divide”).",
@@ -74,6 +75,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Moeru is from the classical verb 燃ゆ (moyu), by way of moju and mojeru.",
@@ -120,6 +122,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0, 2],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ōu is the Old Japanese verb 覆ふ (opu, “cover from above”) plus ふ (-fu), which expresses repetition or ongoing state.",
@@ -174,6 +177,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing", "clipping", "sound-change"],
     "headline": "Tō, “tower”, abbreviates 卒塔婆 (sotoba), a transliteration of Sanskrit stūpa, “heap”.",
@@ -224,6 +228,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1, 0],
     "stratum": "wago",
     "processes": [],
     "headline": "Su, “nest”, is found in the Kojiki of 712, from Proto-Japonic *su.",
@@ -277,6 +282,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Chii is from Middle Chinese 地位, first cited in Japanese in the mid-1200s, so possibly a learned borrowing.",
@@ -341,6 +347,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sensu is first attested in Japanese in the Taiheiki of the late 1300s.",
@@ -393,11 +400,9 @@
     "kana": "ひとみ",
     "meaning": "pupil (of eye)",
     "level": "N2",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Hitomi is likely 人 (hito, “person”) plus 見 (mi, “see”): one's own reflection in someone else's eyes.",
@@ -477,6 +482,7 @@
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["news2", "nf34", "spec1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaeru, “to change”, is from Old Japanese かふ (kapu).",
@@ -537,6 +543,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf20", "news2", "nf30"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Oba, an aunt, is likely 小 (o-, “small, young”) plus 母 (ha, “mother”), as 叔父 (oji) is 小 plus 父.",
@@ -559,6 +566,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chūshajō is 駐車 (chūsha, “(car) parking”) plus 場 (-jō, “place”).",
@@ -616,7 +624,7 @@
     "kana": "ただいま",
     "meaning": "Here I am, I'm home!",
     "level": "N2",
-    "pos": ["interjection (kandoushi)", "expressions (phrases, clauses, etc.)"],
+    "pos": ["interjection (kandoushi)"],
     "priority": ["ichi1"],
     "stratum": "wago",
     "processes": [],
@@ -640,6 +648,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Mukai is the continuative stem of 向かう (mukau, “to face”).",
@@ -691,9 +700,10 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "nouns which may take the genitive case particle 'no'"
+      "transitive verb"
     ],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In hōtai, 包 is a daiyōji replacing 繃.",
@@ -751,6 +761,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Fushi was pusi in Old Japanese, attested in 794 as 布之.",
@@ -789,6 +800,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hizuke is 日 (hi, “day”) plus 付け (-zuke, “fixing, attaching”).",
@@ -855,6 +867,7 @@
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Miokuru is 見 (mi, “seeing”) plus 送る (okuru, “to send”).",
@@ -917,6 +930,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Nobiru, “to be prolonged”, is from the classical upper bigrade verb のぶ, cognate with 伸びる (nobiru).",
@@ -936,6 +950,7 @@
     "level": "N2",
     "pos": ["Godan verb with 'u' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": [],
     "headline": "Uranau is from 裏 (ura, “back, inside”) or 心 (ura, “heart”), plus なふ (nau, verb modifier).",
@@ -972,6 +987,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "This nobiru, written 伸, shares its classical verb のぶ (nobu) with 延びる (nobiru).",
@@ -1041,6 +1057,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0, 3, 4],
     "stratum": "wago",
     "processes": [],
     "headline": "Yorokobi is the continuative stem of 喜ぶ (yorokobu, “to be pleased, delighted”).",
@@ -1087,6 +1104,7 @@
     "level": "N3",
     "pos": ["adverb (fukushi)"],
     "priority": ["spec1"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kyū ni is 急 (kyū, “sudden”) plus に (ni, oblique particle).",
@@ -1149,6 +1167,7 @@
     "level": "N4",
     "pos": ["conjunction"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Suruto is する (suru, “to do”) plus と (to): literally “when doing [whatever came before], then [whatever comes after]”.",
@@ -1203,6 +1222,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaeru, “to return”, is from Old Japanese, from Proto-Japonic *kapyaru.",
@@ -1222,6 +1242,7 @@
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["news2", "nf36", "spec2"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Nikui is cognate with 憎む (nikumu, “to hate”).",
@@ -1229,42 +1250,6 @@
     "sources": [
       {
         "quote": "From Old Japanese. Cognate with 憎む (nikumu, “to hate”), 難い (-nikui, “difficult [to do]”, verb suffix)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 140231,
-        "ja": "憎い憎いは可愛いの裏。",
-        "en": "Hatred is the other side of cuteness.",
-        "enId": 12613035,
-        "form": "憎い",
-        "furigana": [
-          ["憎", "にく"],
-          ["い"],
-          ["憎", "にく"],
-          ["いは"],
-          ["可愛", "かわい"],
-          ["いの"],
-          ["裏", "うら"],
-          ["。"]
-        ]
-      },
-      {
-        "id": 226121,
-        "ja": "かわいさ余って憎さ百倍。",
-        "en": "The greatest hate springs from the greatest love.",
-        "enId": 63461,
-        "form": "憎",
-        "furigana": [
-          ["かわいさ"],
-          ["余", "あま"],
-          ["って"],
-          ["憎", "にく"],
-          ["さ"],
-          ["百", "ひゃく"],
-          ["倍", "ばい"],
-          ["。"]
-        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1277,6 +1262,7 @@
     "level": "N3",
     "pos": ["conjunction"],
     "priority": ["spec1"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Daga is だ (da, “is, are”, copula) plus が (ga).",
@@ -1356,9 +1342,11 @@
     "level": "N3",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In chūmon, 注 is a daiyōji replacing 註.",
@@ -1420,6 +1408,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Saitei is 最 (sai-, “most”) plus 低 (tei, “low”).",
@@ -1438,38 +1427,6 @@
     "sources": [
       {
         "quote": "From 最(さい) (sai-, “most”) + 低(てい) (tei, “low”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 231211,
-        "ja": "あの映画、最低！",
-        "en": "That movie stinks!",
-        "enId": 68577,
-        "form": "最低",
-        "furigana": [
-          ["あの"],
-          ["映画", "えいが"],
-          ["、"],
-          ["最低", "さいてい"],
-          ["！"]
-        ]
-      },
-      {
-        "id": 85798,
-        "ja": "費用は最低一万円です。",
-        "en": "The expense is 10000 yen at lowest.",
-        "enId": 317915,
-        "form": "最低",
-        "furigana": [
-          ["費用", "ひよう"],
-          ["は"],
-          ["最低", "さいてい"],
-          ["一", "いち"],
-          ["万", "まん"],
-          ["円", "えん"],
-          ["です。"]
-        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
