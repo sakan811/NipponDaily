@@ -284,6 +284,14 @@ describe("WordEntryView", () => {
     expect(lines[1]!.text()).toContain("falls after mora 2");
     expect(lines[1]!.text()).toContain("↓");
     expect(render().find('[data-testid="word-pitch"]').exists()).toBe(false);
+    expect(
+      render({ pitch: [0] })
+        .find('[data-testid="word-pitch-help"]')
+        .text(),
+    ).toContain("How to read it");
+    expect(render().find('[data-testid="word-pitch-help"]').exists()).toBe(
+      false,
+    );
   });
 
   it("marks a common word", () => {
