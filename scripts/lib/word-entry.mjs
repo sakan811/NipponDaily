@@ -177,6 +177,61 @@ export function priorityOf(vocab) {
   return [...new Set(forms.flatMap((f) => m.entry.priority?.[f] ?? []))];
 }
 
+/** JMdict `misc` tags that say how a word is used by speaker and setting
+ *  (its register), as the file words them. The rest of `misc` (abbreviation,
+ *  archaic, rare term, proverb…) describes the word, not who says it where. */
+export const REGISTER_TAGS = new Set([
+  "colloquial",
+  "familiar language",
+  "slang",
+  "Internet slang",
+  "manga slang",
+  "honorific or respectful (sonkeigo) language",
+  "humble (kenjougo) language",
+  "polite (teineigo) language",
+  "formal or literary term",
+  "poetical term",
+  "vulgar expression or word",
+  "derogatory",
+  "jocular, humorous term",
+  "euphemistic",
+  "children's language",
+  "female term or language",
+  "male term or language",
+]);
+
+/** The tags that every matched sense carries, in the first sense's order. A
+ *  word whose senses disagree (バッテリー: a battery, and a baseball
+ *  battery) says nothing, since the tag may belong to a meaning it is not
+ *  shown for. */
+const sharedTags = (vocab, pick) => {
+  const m = matchedJmdict(vocab);
+  if (!m) return [];
+  const [first, ...rest] = m.senses.map(pick);
+  return [...new Set(first)].filter((t) =>
+    rest.every((tags) => tags.includes(t)),
+  );
+};
+
+/** The register JMdict gives the sense(s) the pool's meaning came from
+ *  (colloquial, polite, slang…), verbatim. */
+export function registerOf(vocab) {
+  return sharedTags(vocab, (s) =>
+    (s.misc ?? []).filter((t) => REGISTER_TAGS.has(t)),
+  );
+}
+
+/** The field of application JMdict gives them (medicine, baseball…),
+ *  verbatim. */
+export function fieldOf(vocab) {
+  return sharedTags(vocab, (s) => s.field ?? []);
+}
+
+/** The dialect JMdict gives them (Kansai-ben…), verbatim. */
+export function dialectOf(vocab) {
+  return sharedTags(vocab, (s) => s.dialect ?? []);
+}
+
 /** The languages a loan source can name that the site counts as a loanword
  *  layer (the ones LOAN reads from Wiktionary too). */
 const LOAN_LANGUAGES = new Set([
@@ -200,8 +255,11 @@ export function jmdictFactsOf(vocab) {
   if (!m) return none;
   const hira = toHiragana(vocab.kana);
   const loans = m.senses.flatMap((s) => s.loan ?? []);
+  // A note on a spelling or reading (いつ for 何時: gikun) describes the kanji
+  // word, so a word written in kana alone takes none.
+  const written = /\p{sc=Han}/u.test(vocab.term);
   const notes = Object.entries(m.entry.info ?? {})
-    .filter(([f]) => f === vocab.term || toHiragana(f) === hira)
+    .filter(([f]) => written && (f === vocab.term || toHiragana(f) === hira))
     .flatMap(([, tags]) => tags);
   return {
     wasei: loans.some((l) => l.wasei && LOAN_LANGUAGES.has(l.lang)),
@@ -903,6 +961,7 @@ export function buildEntry(plan, ctx) {
   // a word with none simply shows none.
   const examples = ctx.sentences?.entries?.[plan.term] ?? [];
 
+
   return {
     date: plan.date,
     term: plan.term,
@@ -911,6 +970,9 @@ export function buildEntry(plan, ctx) {
     level: word.level,
     pos: posOf(word),
     ...(priorityOf(word).length ? { priority: priorityOf(word) } : {}),
+    ...(registerOf(word).length ? { register: registerOf(word) } : {}),
+    ...(fieldOf(word).length ? { field: fieldOf(word) } : {}),
+    ...(dialectOf(word).length ? { dialect: dialectOf(word) } : {}),
     ...(stratum ? { stratum } : {}),
     processes: processesOf(text, morphemes, facts),
     headline: plan.headline,

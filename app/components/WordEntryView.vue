@@ -46,6 +46,17 @@
           {{ tag }}
         </UBadge>
         <UBadge
+          v-for="note in notes"
+          :key="`${note.kind}-${note.tag}`"
+          data-testid="word-note"
+          :data-kind="note.kind"
+          :title="note.title"
+          color="gray"
+          variant="outline"
+        >
+          {{ note.tag }}
+        </UBadge>
+        <UBadge
           v-if="entry.stratum"
           :color="STRATUM_COLOR[entry.stratum]"
           variant="soft"
@@ -380,6 +391,28 @@ const kanjiChars = computed(() => [
 ]);
 
 const common = computed(() => frequencyOf(props.entry.priority) === "common");
+
+/** JMdict's register, field and dialect tags for the word, as badges. */
+const notes = computed(() => {
+  const { register = [], field = [], dialect = [] } = props.entry;
+  return [
+    ...register.map((tag) => ({
+      kind: "register",
+      tag,
+      title: "How JMdict says the word is used (register)",
+    })),
+    ...field.map((tag) => ({
+      kind: "field",
+      tag,
+      title: "The field JMdict puts the word in",
+    })),
+    ...dialect.map((tag) => ({
+      kind: "dialect",
+      tag,
+      title: "The dialect JMdict marks the word with",
+    })),
+  ];
+});
 
 const fromKanjidic = computed(() =>
   props.entry.morphemes.some((m) => m.glossSource === "kanjidic2"),

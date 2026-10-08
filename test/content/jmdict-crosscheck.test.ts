@@ -8,14 +8,16 @@ import {
   loadEtymologySnapshot,
   // @ts-expect-error — untyped .mjs script helper
 } from "../../scripts/lib/etymology-snapshot.mjs";
+// @ts-expect-error — untyped .mjs script helper
+import { REGISTER_TAGS } from "../../scripts/lib/word-entry.mjs";
 
 /**
  * What JMdict says about a word, checked against what each entry claims.
  * JMdict is a source independent of Wiktionary, so where the two overlap they
- * can disagree, and where they do it shows. The check only confirms: a
- * jamdict-data build records a loan source only where the entry names the
- * foreign word or marks a coinage made in Japan, so JMdict saying nothing
- * proves nothing.
+ * can disagree, and where they do it shows. The check only confirms: JMdict
+ * records a loan source only where the entry names the foreign word or marks a
+ * coinage made in Japan (the 2026 file gives none for カメラ or ノート), so
+ * JMdict saying nothing proves nothing.
  */
 
 const snapshot = loadEtymologySnapshot(
@@ -46,6 +48,9 @@ const norm = (s: string): string =>
 interface JmSense {
   pos: string[];
   glosses: string[];
+  misc?: string[];
+  field?: string[];
+  dialect?: string[];
   loan?: { lang: string; text?: string; wasei?: boolean; partial?: boolean }[];
 }
 type JmEntry = RefEntry & {
@@ -111,6 +116,22 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
       }
     });
 
+    it("carries only the register, field and dialect every matched sense gives", () => {
+      const senses = matched?.senses ?? [];
+      const shared = (pick: (s: JmSense) => string[] | undefined) =>
+        senses.length
+          ? (pick(senses[0]) ?? []).filter((t) =>
+              senses.every((s) => (pick(s) ?? []).includes(t)),
+            )
+          : [];
+      expect(entry.field ?? []).toEqual(shared((s) => s.field));
+      expect(entry.dialect ?? []).toEqual(shared((s) => s.dialect));
+      // Every register tag is a misc tag JMdict gives, and nothing else is.
+      expect(entry.register ?? []).toEqual(
+        shared((s) => s.misc).filter((t) => REGISTER_TAGS.has(t)),
+      );
+    });
+
     it("is called common only when a first-tier code says so", () => {
       const common = frequencyOf(entry.priority) === "common";
       const firstTier = (entry.priority ?? []).some((c) =>
@@ -122,8 +143,12 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
     it("says what JMdict says about how it was made", () => {
       if (!matched) return;
       const loans = matched.senses.flatMap((s) => s.loan ?? []);
+      const written = /\p{sc=Han}/u.test(entry.term);
       const notes = Object.entries(matched.entry.info ?? {})
-        .filter(([form]) => form === entry.term || toHiragana(form) === hira)
+        .filter(
+          ([form]) =>
+            written && (form === entry.term || toHiragana(form) === hira),
+        )
         .flatMap(([, tags]) => tags);
       const processes = new Set<string>(entry.processes);
       if (loans.some((l) => l.wasei && EUROPEAN.has(l.lang)))
@@ -145,3 +170,23 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
     });
   },
 );
+
+describe("the register tags", () => {
+  it("are all words the pinned JMdict uses in misc", () => {
+    const used = new Set<string>();
+    for (const level of ["N5", "N4", "N3", "N2", "N1"] as const)
+      for (const v of loadReference(level).vocab)
+        for (const e of v.jmdict as JmEntry[])
+          for (const s of e.senses) for (const t of s.misc ?? []) used.add(t);
+    const unknown = [...(REGISTER_TAGS as Set<string>)].filter(
+      (t) => !used.has(t),
+    );
+    // A tag no pool word carries is fine; a renamed one (colloquialism became
+    // colloquial) would make the list silently stop matching.
+    expect(
+      unknown.filter((t) =>
+        ["colloquial", "polite (teineigo) language", "slang"].includes(t),
+      ),
+    ).toEqual([]);
+  });
+});

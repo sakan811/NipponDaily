@@ -260,6 +260,20 @@ describe("WordEntryView", () => {
     ]);
   });
 
+  it("shows JMdict's register, field and dialect tags", () => {
+    const notes = render({
+      register: ["colloquial"],
+      field: ["baseball"],
+      dialect: ["Kansai-ben"],
+    }).findAll('[data-testid="word-note"]');
+    expect(notes.map((n) => [n.attributes("data-kind"), n.text()])).toEqual([
+      ["register", "colloquial"],
+      ["field", "baseball"],
+      ["dialect", "Kansai-ben"],
+    ]);
+    expect(render().findAll('[data-testid="word-note"]')).toHaveLength(0);
+  });
+
   it("marks a common word", () => {
     expect(
       render({ priority: ["ichi1", "news1"] })
