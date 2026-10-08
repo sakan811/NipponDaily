@@ -43,20 +43,6 @@
         disagree on. It would need its own pinned file, a check and an entry in
         <code>shared/sources.ts</code>.
       </li>
-      <li>
-        <strong>A pool wider than the JLPT lists.</strong> The supply is limited
-        by the pool, not only by the dump (see the limit below). A rough count
-        of JMdict's common spellings that have an Etymology section in the
-        pinned dump but are on none of the five lists came to well over a
-        thousand with more than a line of text. Many of those are names,
-        particles or single kanji, so the number the generator would accept is
-        smaller and has not been measured. Using them would make
-        <code>level</code> optional, change the “JLPT N5–N1” promise in
-        <NuxtLink to="/docs/core-theme">Core theme</NuxtLink> and
-        <NuxtLink to="/docs/features">Core features</NuxtLink>, and need a
-        meaning from JMdict for words no list glosses, so it is a decision about
-        what the app is before it is a build task.
-      </li>
     </ul>
 
     <h2>Limits</h2>
@@ -145,18 +131,21 @@
         parts is bounded by the parsers.
       </li>
       <li>
-        <strong>Laps repeat the same entries.</strong> A later lap shows the
-        same words, unchanged; it does not add new ones or reorder them, and the
-        length of a lap is the number of words written.
+        <strong>Laps repeat the same entries.</strong> By design (<NuxtLink
+          to="/docs/core-theme"
+          >Core theme</NuxtLink
+        >). A later lap shows the same words, unchanged; it does not add new
+        ones or reorder them, and the length of a lap is the number of words
+        written.
       </li>
       <li>
-        <strong>The words are used up.</strong> A word needs an Etymology
-        section for its reading in the pinned dump, and most pool words have
-        none, so the pool is far larger than the supply. Nearly every word that
-        can be built is in the catalogue (about thirty were left out by hand
-        because the page's text was thin or about another sense), which starts a
-        new lap when it runs out. More words need a pool beyond the JLPT lists
-        (above), a newer dump or another source of origins.
+        <strong>The words are used up, and stay so.</strong> The pool is the
+        JLPT lists alone, on purpose. A word needs an Etymology section for its
+        reading in the pinned dump, and most pool words have none, so the pool
+        is far larger than the supply. Nearly every word that can be built is in
+        the catalogue (about thirty were left out by hand because the page's
+        text was thin or about another sense), which starts a new lap when it
+        runs out. A newer dump may add a few.
       </li>
       <li>
         <strong>Some years are lopsided.</strong> Katakana spellings are nearly

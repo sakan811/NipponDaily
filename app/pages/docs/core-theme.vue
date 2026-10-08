@@ -18,6 +18,16 @@
       cited source and none is written from memory.
     </p>
 
+    <h3>The vocabulary is the JLPT lists, on purpose</h3>
+    <p>
+      Every word comes from the community JLPT N5–N1 lists, and from nowhere
+      else. The lists are a trusted, widely used starting point, and the app
+      keeps to them rather than widen the pool to find more words. A word is
+      added only if it is on a list and the pinned dump has an Etymology section
+      for its reading, so when no more such words can be built the catalogue is
+      complete, not short.
+    </p>
+
     <h2>Time is the theme</h2>
     <p>
       Time is how the app is styled and how it is used. It runs on two clocks.
@@ -47,6 +57,12 @@
       calendar marks them ↻); every other page and every explicit date stays on
       the first lap, where each word has its own day, and each entry says when
       it was first opened.
+    </p>
+    <p>
+      The loop is intended, not a stopgap. The words keep coming round in the
+      order they first opened, so a reader meets every word that has opened
+      again and again, and the app never reaches for words outside the lists to
+      avoid a repeat.
     </p>
 
     <h2>Principles</h2>
