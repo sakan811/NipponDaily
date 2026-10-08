@@ -274,6 +274,18 @@ describe("WordEntryView", () => {
     expect(render().findAll('[data-testid="word-note"]')).toHaveLength(0);
   });
 
+  it("shows the pitch accent over the reading, one line for each accent", () => {
+    const wrapper = render({ pitch: [0, 2] });
+    const lines = wrapper.findAll('[data-testid="word-pitch"] li');
+    expect(lines).toHaveLength(2);
+    expect(lines[0]!.text()).toContain("flat (heiban)");
+    expect(lines[0]!.text().replace(/\s/g, "")).toContain("てがみ");
+    expect(lines[1]!.text()).toContain("middle-high (nakadaka)");
+    expect(lines[1]!.text()).toContain("falls after mora 2");
+    expect(lines[1]!.text()).toContain("↓");
+    expect(render().find('[data-testid="word-pitch"]').exists()).toBe(false);
+  });
+
   it("marks a common word", () => {
     expect(
       render({ priority: ["ichi1", "news1"] })

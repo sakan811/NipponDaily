@@ -5,7 +5,7 @@
  * The plan holds the ONLY hand-written text — per day: the date, the word and
  * its one-line headline. Everything else (reading, meaning, level, part of
  * speech, layer, processes, morphemes, the Wiktionary lines, the dump they came from,
- * the example sentences) is derived from the committed sources by scripts/lib/word-entry.mjs. Output is
+ * the example sentences, the pitch accent) is derived from the committed sources by scripts/lib/word-entry.mjs. Output is
  * deterministic; test/content/word-generation.test.ts re-runs this in CI.
  *
  *   node scripts/generate-word-entries.mjs            write every month
@@ -37,11 +37,16 @@ export function loadContext(root = ROOT) {
   }
   const snapshot = loadEtymologySnapshot(root);
   const sentences = loadSentenceSnapshot(root);
+  const pitchFile = join(root, "data/reference/pitch.json");
+  const pitch = existsSync(pitchFile)
+    ? JSON.parse(readFileSync(pitchFile, "utf8"))
+    : { entries: {} };
   return {
     vocab: (term) => vocab.filter((v) => v.term === term),
     kanji,
     snapshot,
     sentences,
+    pitch,
   };
 }
 

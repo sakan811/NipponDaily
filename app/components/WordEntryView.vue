@@ -19,6 +19,39 @@
           {{ entry.kana }}
         </p>
       </div>
+      <ul
+        v-if="pitches.length"
+        data-testid="word-pitch"
+        aria-label="Pitch accent"
+        class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xl font-serif text-stone-800 dark:text-stone-200"
+      >
+        <li
+          v-for="p in pitches"
+          :key="p.accent"
+          :title="p.hint"
+          class="flex items-center gap-3"
+        >
+          <span aria-hidden="true" class="flex">
+            <span
+              v-for="(mora, i) in p.morae"
+              :key="i"
+              class="border-t-2 px-0.5"
+              :class="
+                p.contour[i] ? 'border-primary-500' : 'border-transparent'
+              "
+              >{{ mora
+              }}<span
+                v-if="i + 1 === p.accent"
+                class="text-primary-600 dark:text-primary-400"
+                >↓</span
+              ></span
+            >
+          </span>
+          <span class="text-xs font-sans text-stone-600 dark:text-stone-400">{{
+            p.description
+          }}</span>
+        </li>
+      </ul>
       <p
         data-testid="word-meaning"
         class="text-lg sm:text-xl text-stone-700 dark:text-stone-300 font-body-serif"
@@ -360,6 +393,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { formatLongDate } from "../utils/date";
+import { PITCH_TYPES, moraeOf, pitchContour, pitchType } from "../utils/pitch";
 import { kanjiPath, partPath } from "../utils/seo";
 import { sentencePieces } from "../utils/sentence";
 import {
@@ -391,6 +425,24 @@ const kanjiChars = computed(() => [
 ]);
 
 const common = computed(() => frequencyOf(props.entry.priority) === "common");
+
+/** The pitch accent(s) of the word, laid over its own kana. */
+const pitches = computed(() => {
+  const morae = moraeOf(props.entry.kana);
+  return (props.entry.pitch ?? []).map((accent) => {
+    const type = pitchType(morae.length, accent);
+    return {
+      accent,
+      morae,
+      contour: pitchContour(morae.length, accent),
+      hint: PITCH_TYPES[type].hint,
+      description:
+        accent === 0
+          ? PITCH_TYPES[type].label
+          : `${PITCH_TYPES[type].label}: falls after mora ${accent}`,
+    };
+  });
+});
 
 /** JMdict's register, field and dialect tags for the word, as badges. */
 const notes = computed(() => {

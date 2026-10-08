@@ -961,6 +961,13 @@ export function buildEntry(plan, ctx) {
   // a word with none simply shows none.
   const examples = ctx.sentences?.entries?.[plan.term] ?? [];
 
+  // The pitch accent the pinned list gives this spelling and reading
+  // (data:pitch); a word it does not list simply shows none.
+  const pitch = ctx.pitch?.entries?.[plan.term];
+  const accents =
+    pitch && toHiragana(pitch.kana) === toHiragana(word.kana)
+      ? pitch.accents
+      : [];
 
   return {
     date: plan.date,
@@ -973,6 +980,7 @@ export function buildEntry(plan, ctx) {
     ...(registerOf(word).length ? { register: registerOf(word) } : {}),
     ...(fieldOf(word).length ? { field: fieldOf(word) } : {}),
     ...(dialectOf(word).length ? { dialect: dialectOf(word) } : {}),
+    ...(accents.length ? { pitch: accents } : {}),
     ...(stratum ? { stratum } : {}),
     processes: processesOf(text, morphemes, facts),
     headline: plan.headline,
