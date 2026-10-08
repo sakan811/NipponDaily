@@ -50,7 +50,7 @@
     </p>
 
     <h2>Principles</h2>
-    <p>Every new feature is checked against these six.</p>
+    <p>Every new feature is checked against these seven.</p>
     <ol>
       <li>
         <strong>No reader data.</strong> No accounts, no progress, no streaks.
@@ -83,6 +83,15 @@
         tables scroll inside their own box instead of widening the page, and
         nothing important hides behind hover, so touch, keyboard and
         screen-reader readers get the same pages.
+      </li>
+      <li>
+        <strong>Nothing leaves the app.</strong> Everything the app offers is
+        read in the app. It exports nothing (no download, no file for another
+        tool), sends nothing to another service (no analytics, no sign-in, no
+        form, no third-party script, font or embed), and keeps the data it shows
+        committed beside the code. A link to a source is a citation the reader
+        may follow, not something the app sends. A page that other sites preview
+        is still served by the app, and no one is told who read it.
       </li>
     </ol>
 
