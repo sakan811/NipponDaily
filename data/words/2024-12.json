@@ -7,6 +7,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レース covers “race” and “lace”, and the source borrows both from English.",
@@ -29,9 +30,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [3],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ストライキ is borrowed from English strike, a doublet of ストライク.",
@@ -81,6 +84,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Genso is 元 (gen, “element”) plus 素 (so, “element”), and a calque of Dutch hoofdstof.",
@@ -142,6 +146,7 @@
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "spec1"],
+    "pitch": [3, 0],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Munashii is むな (muna, “cavity, void, open space”) plus the adjective-forming suffix しい (shii).",
@@ -207,6 +212,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "パジャマ is from American English pajamas, treating the s as a plural.",
@@ -256,6 +262,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Genshu is from the Middle Chinese compound 元首, literally “first, prime + head”.",
@@ -284,11 +291,9 @@
     "kana": "うそつき",
     "meaning": "liar",
     "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "adjectival nouns or quasi-adjectives (keiyodoshi)"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Usotsuki is 嘘 (uso, “a lie”) plus つく (tsuku, “to tell (a lie)”), literally “lie teller”.",
@@ -335,6 +340,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["news2", "nf30"],
+    "pitch": [1],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Ikuta is a literal reading of 幾多 (ikusobaku).",
@@ -403,8 +409,13 @@
     "kana": "きょうわ",
     "meaning": "republicanism, cooperation",
     "level": "N1",
-    "pos": ["noun or verb acting prenominally"],
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
     "priority": ["news1", "nf03"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kyōwa is from Middle Chinese 共和, and Mitsukuri Shōgo later used it for the United States.",
@@ -440,6 +451,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Dō, “trunk”, is from Middle Chinese 胴 (MC duwngH).",
@@ -481,6 +493,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Nengō is from the Middle Chinese compound 年號, literally “year + call”.",
@@ -515,6 +528,7 @@
       "noun or participle which takes the aux. verb suru"
     ],
     "priority": ["ichi1"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "Odoodo shifted from earlier おづおづ (ozuozu), a reduplication of Old Japanese 怖づ (“to be intimidated, to hesitate”).",
@@ -562,6 +576,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["news1", "nf19"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "sound-change"],
     "headline": "Jari may be a shift from the sazare of 細石 (sazareishi, “gravel, pebble”), but jari is cited to 1619 and zari only to 1677.",
@@ -603,9 +618,11 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [0],
     "processes": ["compound", "sound-change", "ateji"],
     "headline": "Uwaki is 上 (uwa, “over”) plus 気 (ki, “spirit”), with 浮 an example of jukujikun.",
     "morphemes": [],
@@ -653,6 +670,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [3, 4],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kokoroe is the continuative stem of the verb 心得る (kokoroeru, “to know, understand”).",
@@ -709,6 +727,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["gai1"],
+    "pitch": [5],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "インターナショナル is from English international.",
@@ -734,9 +753,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Ninshiki is a compound 認識, literally “know, recognize; know, remember”, which the source compares to Mandarin rènshi.",
@@ -804,6 +825,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Tobira is 戸 (to, “door”) plus 片 (hira, “broad, flat thing”), with hira voiced to bira by rendaku.",
@@ -855,6 +877,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2, 0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Fudōsan was coined by Mitsukuri Rinsho as a translation of French immobilier.",
@@ -930,6 +953,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf32"],
+    "pitch": [3, 0],
     "stratum": "wago",
     "processes": [],
     "headline": "Horobiru is a shift from the Classical Japanese verb 滅ぶ (horobu).",
@@ -994,6 +1018,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [2],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カテゴリー is from German Kategorie.",
@@ -1085,9 +1110,10 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "nouns which may take the genitive case particle 'no'"
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In bōgai, 害 is a daiyōji replacing 碍.",
@@ -1156,6 +1182,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "メディア is an internationalism, pointing to English media.",
@@ -1208,6 +1235,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
     "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Fukeiki is 不 (fu-) plus 景気 (keiki).",
@@ -1277,6 +1305,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Heishi is 兵 (hei, “soldier”) plus 士 (shi, “warrior”).",
@@ -1330,6 +1359,7 @@
     "meaning": "new student, first-year student, freshman",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shin'nyūsei is 新入 (shinnyū, “newly-entered”) plus 生 (-sei, “student”), first cited to 1899.",
@@ -1391,9 +1421,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chūsen is 抽 (chū, “to draw, to pull out”) plus 籤 (sen, “lots”), with 選 a daiyōji replacing 籤.",
@@ -1426,6 +1458,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Bunsho is from the Middle Chinese compound 文書, in the kan'on reading, now the most common one.",
@@ -1461,6 +1494,7 @@
     "level": "N1",
     "pos": ["adverb (fukushi)", "adverb taking the 'to' particle"],
     "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Marumaru is a reduplication of 丸 (maru).",
@@ -1516,6 +1550,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バッジ is from English badge.",

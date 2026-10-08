@@ -7,6 +7,7 @@
     "level": "N4",
     "pos": ["Godan verb with 'gu' ending", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Sawagu shifted from older sawaku, a verbalization of さわ (sawa), the root of さわさわ (sawasawa, “noisily; rustling”).",
@@ -44,6 +45,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [2, 0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Koya is 小 (ko-, “little”) plus 屋 (ya, “house, dwelling”).",
@@ -74,6 +76,8 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf19"],
+    "field": ["food, cooking"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mochi shifted from older mochii, historical mochihi; the page compares モモンガ (momonga) for a similar shift.",
@@ -137,6 +141,7 @@
     "level": "N3",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["sound-change"],
     "headline": "Seizei is a shift from 精誠 (seizei).",
@@ -184,6 +189,7 @@
     "level": "N2",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsutomeru, “to serve”, is a doublet of 勤める (tsutomeru).",
@@ -233,8 +239,9 @@
     "kana": "れい",
     "meaning": "expression of gratitude; bow",
     "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
+    "pos": ["noun (common) (futsuumeishi)", "counter"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1, 0],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Rei, “gratitude; bow”, is from Middle Chinese 禮 (MC lejX).",
@@ -303,6 +310,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Honmono is 本 (hon, “actual”) plus 物 (mono, “thing”).",
@@ -323,35 +331,6 @@
         "quote": "Compound of 本(ほん) (hon, “actual”) + 物(もの) (mono, “thing”)."
       }
     ],
-    "examples": [
-      {
-        "id": 81459,
-        "ja": "本物を追求しろ。",
-        "en": "Make it real.",
-        "enId": 322256,
-        "form": "本物",
-        "furigana": [
-          ["本物", "ほんもの"],
-          ["を"],
-          ["追求", "ついきゅう"],
-          ["しろ。"]
-        ]
-      },
-      {
-        "id": 207048,
-        "ja": "その品物は本物だ。",
-        "en": "The article is genuine.",
-        "enId": 44298,
-        "form": "本物",
-        "furigana": [
-          ["その"],
-          ["品物", "しなもの"],
-          ["は"],
-          ["本物", "ほんもの"],
-          ["だ。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -363,9 +342,11 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "nouns which may take the genitive case particle 'no'"
+      "transitive verb",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In rengō, 連 is a daiyōji replacing 聯.",
@@ -435,6 +416,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["borrowing"],
     "headline": "Kari was the stem of classical 借る (karu, “to borrow”), and is now also the stem of 借りる (kariru).",
@@ -484,6 +466,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf39"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Todana is 戸 (to, “door”) plus 棚 (tana, “shelf”), with tana voiced to dana.",
@@ -551,6 +534,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shomotsu is first attested in the 1920s.",
@@ -618,6 +602,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Inochi is probably 息 (i, “breath”) plus の (no) plus 霊 (chi, “spirit, force, soul”).",
@@ -670,6 +655,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Nuno is from Old Japanese, from Proto-Japonic *nono.",
@@ -692,6 +678,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kion appeared in the Seimi Kaisō of 1837-1847.",
@@ -753,11 +740,9 @@
     "kana": "から",
     "meaning": "empty",
     "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["prefix"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Kara, “empty”, is cognate with 殻 (kara, “shell”).",
@@ -801,9 +786,12 @@
     "level": "N3",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Soshiki is Middle Chinese 組織, “to weave threads together; to form from smaller components”.",
@@ -864,6 +852,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsubu is not attested until a Muromachi-period text, and an earlier form tsubi may have preceded it.",
@@ -886,6 +875,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Teki is from Middle Chinese 敵 (MC dek), first cited in Japanese in the early 1200s.",
@@ -937,6 +927,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [0],
     "stratum": "gairaigo",
     "processes": ["borrowing", "sound-change"],
     "headline": "Arukōru began as arukohoru, borrowed from Dutch alcohol with a phonetic kanji spelling.",
@@ -995,9 +986,11 @@
     "level": "N3",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0, 1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sōzoku is Middle Chinese 相續, literally “successively, one after another + to succeed, to continue”, first attested in Japanese in 820.",
@@ -1107,6 +1100,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Shokyū began as shokipu, from the Middle Chinese compound 初級, literally “beginning + level, grade”.",
@@ -1164,6 +1158,7 @@
     "level": "N2",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf36"],
+    "pitch": [0, 3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Miageru is 見る (miru, “to see, look”) plus 上げる (ageru, “to raise”).",
@@ -1226,9 +1221,11 @@
     "level": "N3",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Bunseki is Literary Chinese 分析 (fēnxī, “to separate, divide or split apart”).",
@@ -1293,6 +1290,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Hōkō is from Middle Chinese 方向 (MC pjang xjangH).",
@@ -1358,9 +1356,11 @@
     "level": "N2",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Okawari is 御 (o-) plus 代わり (kawari, “compensation”).",
@@ -1416,6 +1416,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Kumu, “to draw”, is likely the same word as 斟む (kumu, “to consider people's feelings”) and 酌む (kumu, “to serve sake”).",
@@ -1468,6 +1469,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Ureru is the potential form of 売る (uru, “to sell”).",
@@ -1518,6 +1520,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": [],
     "headline": "Yowameru is 弱 (yowa, root of 弱い, “weak”) plus -meru, “-en, -ify”.",
@@ -1577,6 +1580,7 @@
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Arai, “coarse”, is cognate with 荒い (arai).",
@@ -1632,6 +1636,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Mijikai was mizikasi in Old Japanese, first attested in c. 759 in the Man'yōshū; its constituent parts remain obscure.",
@@ -1648,36 +1653,6 @@
       },
       {
         "quote": "Appears to be derived as a compound, but the constituent parts remain obscure. The stem みじか (mijika) is also found in compounds, and in the now-obsolete adjective forms 短(みじか)やか (mijikayaka) and 短(みじか)らか (mijikaraka), indicating that the か (ka) is not the adjectivizing suffix か (-ka) (as in 静(しず)か (shizuka)), but rather part of the root."
-      }
-    ],
-    "examples": [
-      {
-        "id": 94068,
-        "ja": "彼女の髪は短い。",
-        "en": "She has short hair.",
-        "enId": 309638,
-        "form": "短い",
-        "furigana": [
-          ["彼女", "かのじょ"],
-          ["の"],
-          ["髪", "かみ"],
-          ["は"],
-          ["短", "みじか"],
-          ["い。"]
-        ]
-      },
-      {
-        "id": 144034,
-        "ja": "人生なんて短い。",
-        "en": "How short life is!",
-        "enId": 486263,
-        "form": "短い",
-        "furigana": [
-          ["人生", "じんせい"],
-          ["なんて"],
-          ["短", "みじか"],
-          ["い。"]
-        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"

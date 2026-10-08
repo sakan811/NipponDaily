@@ -7,6 +7,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Sueru is from the classical lower bigrade verb 据う (suu), and the source compares 座る (suwaru, “sit”).",
@@ -54,6 +55,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Haji goes back to Proto-Japonic.",
@@ -73,6 +75,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf10"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Kō, “1st in rank”, is from Middle Chinese 甲.",
@@ -128,6 +131,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Danna is from Middle Chinese 旦那 and 檀那, both used as transliterations of a Sanskrit word for “generosity, giving, donating”.",
@@ -154,43 +158,6 @@
         "quote": "Attested in Japanese sinophone sources since at least the 1000s and in vernacular Japanese sources since at least 1287."
       }
     ],
-    "examples": [
-      {
-        "id": 127373,
-        "ja": "旦那様をしっかり捕まえていなさい。",
-        "en": "Hold onto your husband.",
-        "enId": 276716,
-        "form": "旦那",
-        "furigana": [
-          ["旦那", "だんな"],
-          ["様", "さま"],
-          ["をしっかり"],
-          ["捕", "つか"],
-          ["まえていなさい。"]
-        ]
-      },
-      {
-        "id": 127374,
-        "ja": "旦那も子供の引き取り権を望んでいた。",
-        "en": "Her husband also wanted custody of the children.",
-        "enId": 276715,
-        "form": "旦那",
-        "furigana": [
-          ["旦那", "だんな"],
-          ["も"],
-          ["子供", "こども"],
-          ["の"],
-          ["引", "ひ"],
-          ["き"],
-          ["取", "と"],
-          ["り"],
-          ["権", "けん"],
-          ["を"],
-          ["望", "のぞ"],
-          ["んでいた。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -202,9 +169,12 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun, used as a suffix",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アップ is borrowed from English up.",
@@ -263,6 +233,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Fū, “seal”, is derived from Middle Chinese 封 (MC pjowng|pjowngH).",
@@ -319,6 +290,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf11"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kyōka is 教 (kyō, “to teach”) plus 科 (ka, “section; department”).",
@@ -379,6 +351,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [4],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "インフォメーション is borrowed from English information.",
@@ -403,7 +376,8 @@
     "meaning": "to seclude oneself, to be confined in",
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
-    "priority": ["ichi1", "spec1"],
+    "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Komoru is from Old Japanese 隠る (komoru), and its stem relates to “fill, filling”, so it is likely cognate with 込む (komu, “to be crowded, be packed”).",
@@ -470,6 +444,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shūgiin is 衆議 (shūgi, “general consultation, general conference”) plus 院 (-in, “parliamentary chamber”).",
@@ -520,6 +495,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jinkaku is said to be coined by Inoue Tetsujirō as a translation of English personality.",
@@ -588,6 +564,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "サイズ is from English size.",
@@ -630,6 +607,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "キャリア is from English career, though its pitch accent suggests English carrier.",
@@ -658,6 +636,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "ネガ is a shortening of ネガティブ (negatibu), from English negative.",
@@ -683,6 +662,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf38", "nf42", "spec2"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Kokorogake is the nominative form of 心掛ける (kokorokakeru, “try, endeavor”).",
@@ -714,11 +694,9 @@
     "kana": "ちょうへん",
     "meaning": "long (e.g., novel, film)",
     "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf15"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In chōhen, 編 is a daiyōji replacing 篇.",
@@ -771,10 +749,7 @@
     "kana": "パチンコ",
     "meaning": "pachinko (Japanese pinball)",
     "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "stratum": "gairaigo",
     "processes": ["compound", "derivation"],
@@ -831,6 +806,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf40"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Miharashi is the continuative stem of the verb 見晴らす (miharasu, “to overlook, look out over”).",
@@ -887,6 +863,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf44"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Sasageru is from Old Japanese 捧ぐ (sasagu), a contraction of 差し上ぐ (sasiagu), whence modern 差し上げる (sashiageru).",
@@ -946,11 +923,9 @@
     "kana": "どうてき",
     "meaning": "dynamic, kinetic",
     "level": "N1",
-    "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
-    "priority": ["news2", "nf35"],
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["news2", "nf35", "spec2"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Dōteki is 動 (dō) plus 的 (-teki).",
@@ -983,6 +958,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Nagisa is from Old Japanese, possibly 凪ぎ (nagi, “calming, dying down”) plus 磯 (sa, “rocky shore, pebble beach”).",
@@ -1028,6 +1004,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In muchi, 知 is a daiyōji replacing 智.",
@@ -1085,9 +1062,12 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Hikan is from the Buddhist Middle Chinese term 悲觀 (“compassionate view”), later reanalyzed as 悲 (“sadness”) plus 観 (“outlook”).",
@@ -1150,6 +1130,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Bi, “beauty”, is from Middle Chinese 美 (MC mijX).",
@@ -1201,6 +1182,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["news1", "nf21"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Oshikiru is 押し (oshi, the stem of 押す (osu)) plus 切る (kiru, “to cut”).",
@@ -1231,9 +1213,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["news2", "nf44"],
+    "pitch": [1, 0],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Sekkai is 切 (setsu, “cut”) plus 開 (kai, “open”).",
@@ -1271,6 +1255,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shinjitsu is from Middle Chinese 真實 (MC tsyin zyit).",
@@ -1306,6 +1291,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["news2", "nf30"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Onaidoshi is an alteration of 同じ年.",
@@ -1359,6 +1345,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [1, 2],
     "processes": ["compound", "sound-change"],
     "headline": "Kurōto is 玄 (kuro, “deep, profound”) plus 人 (-uto, “person”), an old root form of 人 (hito).",
     "morphemes": [
@@ -1395,6 +1382,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shiyōnin is 使用 (shiyō) plus 人 (-nin).",
@@ -1470,7 +1458,9 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
     "priority": ["ichi1"],
     "stratum": "wago",

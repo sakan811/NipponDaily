@@ -5,11 +5,9 @@
     "kana": "しょくよく",
     "meaning": "appetite (for food)",
     "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0, 2],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In shokuyoku, 欲 is a daiyōji replacing 慾.",
@@ -71,6 +69,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Misaki is attested in the Nihon Shoki of 720, analyzable as み (mi) plus 先 (saki, “tip, point; promontory”).",
@@ -140,6 +139,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf33"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Wasuremono is wasure, the stem of 忘れる (wasureru), plus 物 (-mono).",
@@ -162,30 +162,6 @@
         "quote": "忘(わす)れ (wasure, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 忘(わす)れる (wasureru)) + 物(もの) (-mono)"
       }
     ],
-    "examples": [
-      {
-        "id": 82540,
-        "ja": "忘れ物ない？",
-        "en": "Do you have everything?",
-        "enId": 321176,
-        "form": "忘れ物",
-        "furigana": [["忘", "わす"], ["れ"], ["物", "もの"], ["ない？"]]
-      },
-      {
-        "id": 171417,
-        "ja": "今日忘れ物をした。",
-        "en": "I left behind something today.",
-        "enId": 243057,
-        "form": "忘れ物",
-        "furigana": [
-          ["今日", "きょう"],
-          ["忘", "わす"],
-          ["れ"],
-          ["物", "もの"],
-          ["をした。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -196,6 +172,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kawa went from kapa through kaɸa to kawa, from Proto-Japonic *kapa.",
@@ -250,6 +227,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Tamaru is cognate with 堪る (tamaru, “to restrain oneself”).",
@@ -305,6 +283,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Mune is from Proto-Japonic *munai, with the same apophony as 神 (kamu, kami).",
@@ -339,6 +318,7 @@
       "noun or participle which takes the aux. verb suru"
     ],
     "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "unclear"],
     "headline": "Gyōretsu is attested from 749 as a line or procession; the date of its mathematical sense, “matrix”, is uncertain.",
@@ -417,6 +397,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Keito is 毛 (ke, “fur, hair”) plus 糸 (ito, “thread, string”).",
@@ -481,6 +462,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Haka has no known origin; the final ka may be 処 (-ka, suffix denoting place), as in 住み処 (sumika).",
@@ -535,6 +517,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "unclear"],
     "headline": "Nendo is uncertain, possibly from Middle Chinese 年度.",
@@ -589,6 +572,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Tama, “ball”, is the same word as 玉 (tama).",
@@ -608,6 +592,8 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "field": ["chemistry"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sansei is 酸 (san, “acid”) plus 性 (-sei, “-ity”).",
@@ -654,6 +640,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Todoku is a shift from tozuku.",
@@ -698,6 +685,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Yuderu is from the shimo nidan verb 茹づ (yuzu).",
@@ -717,6 +705,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Norimono is 乗り (nori) plus 物 (-mono).",
@@ -785,6 +774,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [2],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Kasetto is from English cassette, ultimately from French cassette.",
@@ -839,6 +829,7 @@
     "meaning": "arbitrarily,",
     "level": "N2",
     "pos": ["adverb (fukushi)"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Katte ni is 勝手 (katte) plus に (ni).",
@@ -883,6 +874,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Hō was once はふ (fafu) in kan'on and ほふ (fofu) in goon, reportedly used in general and Buddhist senses respectively.",
@@ -894,33 +886,38 @@
     ],
     "examples": [
       {
-        "id": 100044,
-        "ja": "彼は法を犯した。",
-        "en": "He broke the law.",
-        "enId": 303653,
+        "id": 214428,
+        "ja": "すべての人は法の前に平等です。",
+        "en": "Everybody is equal before the law.",
+        "enId": 51719,
         "form": "法",
         "furigana": [
-          ["彼", "かれ"],
+          ["すべての"],
+          ["人", "ひと"],
           ["は"],
           ["法", "ほう"],
-          ["を"],
-          ["犯", "おか"],
-          ["した。"]
+          ["の"],
+          ["前", "まえ"],
+          ["に"],
+          ["平等", "びょうどう"],
+          ["です。"]
         ]
       },
       {
-        "id": 145332,
-        "ja": "新しい法が成立した。",
-        "en": "A new law has come into existence.",
-        "enId": 269231,
+        "id": 218237,
+        "ja": "これは生物の学習法としてはあまりよくないと思う。",
+        "en": "I don't think this is a good approach to biology.",
+        "enId": 55550,
         "form": "法",
         "furigana": [
-          ["新", "あたら"],
-          ["しい"],
+          ["これは"],
+          ["生物", "せいぶつ"],
+          ["の"],
+          ["学習", "がくしゅう"],
           ["法", "ほう"],
-          ["が"],
-          ["成立", "せいりつ"],
-          ["した。"]
+          ["としてはあまりよくないと"],
+          ["思", "おも"],
+          ["う。"]
         ]
       }
     ],
@@ -934,6 +931,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Ittai is 一 (ichi, “one”) plus 体 (-tai, counter for bodies and humanoid objects).",
@@ -985,6 +983,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [3, 2],
     "stratum": "wago",
     "processes": [],
     "headline": "Nakaba is compared to なか (naka, “middle, inside”), likely ultimately from Proto-Japonic *naka.",
@@ -1037,6 +1036,8 @@
     "level": "N4",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "register": ["familiar language"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["borrowing", "sound-change"],
     "headline": "Kimi is possibly a borrowing from the Sillan word for king, written 今 (kum), whose morpheme survives in Korean 임금 (imgeum).",
@@ -1077,9 +1078,11 @@
     "level": "N3",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In shōgai, 害 is a daiyōji replacing 碍.",
@@ -1102,6 +1105,42 @@
         "quote": "害 is a daiyōji replacing 碍."
       }
     ],
+    "examples": [
+      {
+        "id": 155265,
+        "ja": "私は多くの障害に直面した。",
+        "en": "I was confronted with many difficulties.",
+        "enId": 259271,
+        "form": "障害",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["多", "おお"],
+          ["くの"],
+          ["障害", "しょうがい"],
+          ["に"],
+          ["直面", "ちょくめん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 99204,
+        "ja": "彼は予期せぬ障害に出会った。",
+        "en": "He met an unexpected obstacle.",
+        "enId": 304495,
+        "form": "障害",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["予期", "よき"],
+          ["せぬ"],
+          ["障害", "しょうがい"],
+          ["に"],
+          ["出会", "であ"],
+          ["った。"]
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1112,6 +1151,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kotonaru is 異 (koto, “difference”) plus なる (naru).",
@@ -1167,6 +1207,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf45"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Hanasu, “to set free”, is a doublet of 離す (hanasu, “to separate”).",
@@ -1204,6 +1245,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Suna is attested in the Myōgoki (1275), and one theory shortens it from 砂子 (sunago).",
@@ -1223,6 +1265,7 @@
     "level": "N2",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["news2", "nf26", "spec2"],
+    "pitch": [0, 3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Minareru is 見る (miru, “to see, look”) plus 慣れる (nareru, “to get used to”).",
@@ -1285,6 +1328,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chie is Middle Chinese 智慧, with 知 and 恵 as daiyōji replacing 智 and 慧.",
@@ -1345,6 +1389,7 @@
     "level": "N2",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Akogareru is from 憧る (akugaru), originally 所 (aku) plus 離る (karu), a cognate of 枯れる (kareru).",
@@ -1405,6 +1450,7 @@
       "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Isogu appears to be a root iso (“earnest? industrious?”) plus -gu, first attested as isogi in the Man'yōshū of 759.",
@@ -1445,6 +1491,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Genryō is a Middle Chinese compound: 原 (gen, “original”) plus 料 (ryō, “material”).",

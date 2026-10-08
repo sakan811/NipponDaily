@@ -7,6 +7,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [0, 1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "バンド is the English word “band” in katakana.",
@@ -107,6 +108,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "カー is the English word “car”, borrowed as it is.",
@@ -167,7 +169,8 @@
     "meaning": "delay, lag",
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf04", "news2", "nf25"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "遅れ, “delay, lag”, is the continuative stem of the verb 遅れる (okureru), with examples from at least the 1300s.",
@@ -247,6 +250,7 @@
     "meaning": "here and there, little by little",
     "level": "N2",
     "pos": ["adverb (fukushi)", "adverb taking the 'to' particle"],
+    "pitch": [0, 3],
     "stratum": "kango",
     "processes": ["derivation"],
     "headline": "点々 is a reduplication of 点.",
@@ -275,24 +279,6 @@
           ["浮", "う"],
           ["かんでいた。"]
         ]
-      },
-      {
-        "id": 126851,
-        "ja": "地図上のこの点々は何を表しているのですか。",
-        "en": "What do these dots represent on the map?",
-        "enId": 277239,
-        "form": "点々",
-        "furigana": [
-          ["地図", "ちず"],
-          ["上", "じょう"],
-          ["のこの"],
-          ["点々", "てんてん"],
-          ["は"],
-          ["何", "なに"],
-          ["を"],
-          ["表", "あらわ"],
-          ["しているのですか。"]
-        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -305,6 +291,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [3],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コンクール, “contest”, is from French “concours”.",
@@ -363,6 +350,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "processes": ["compound", "borrowing"],
     "headline": "“This year” is spelled with 今, “now” — but the word began with 此, “this”.",
     "morphemes": [],
@@ -403,6 +391,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "A tip and a chip share one katakana spelling but two different English words.",
@@ -425,6 +414,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf43"],
+    "pitch": [0],
     "processes": ["borrowing", "ateji"],
     "headline": "A pun or witticism is the stem of a verb for “stylish” — spelled with kanji that were fitted to the sound.",
     "morphemes": [],
@@ -479,6 +469,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "pitch": [3],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku"],
     "headline": "Kana orthography is “kana use” — and the つかい voices to づかい.",
@@ -513,6 +504,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound", "reread"],
     "headline": "Coal is “rock charcoal” — a native word that was later re-read in Chinese sounds.",
@@ -545,6 +537,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "To permit is to make something “loose”.",
@@ -589,6 +582,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf31", "spec1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "To notice is for awareness to “stick” — つく voiced to づく.",
@@ -612,27 +606,23 @@
     ],
     "examples": [
       {
-        "id": 135911,
-        "ja": "誰も彼に気づかなかった。",
-        "en": "No one took notice of him.",
-        "enId": 276658,
-        "form": "気づかなかった",
+        "id": 84834,
+        "ja": "父と私の葛藤に、彼は気付いていないようです。",
+        "en": "He seems not to be aware of the conflict between my father and me.",
+        "enId": 318880,
+        "form": "気付いていない",
         "furigana": [
-          ["誰", "だれ"],
-          ["も"],
+          ["父", "ちち"],
+          ["と"],
+          ["私", "わたし"],
+          ["の"],
+          ["葛藤", "かっとう"],
+          ["に、"],
           ["彼", "かれ"],
-          ["に"],
-          ["気", "き"],
-          ["づかなかった。"]
+          ["は"],
+          ["気付", "きづ"],
+          ["いていないようです。"]
         ]
-      },
-      {
-        "id": 205662,
-        "ja": "それには気付かなかった。",
-        "en": "I didn't notice it.",
-        "enId": 42907,
-        "form": "気付かなかった",
-        "furigana": [["それには"], ["気付", "きづ"], ["かなかった。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -645,6 +635,7 @@
     "level": "N4",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "“To move” may start from the sound of something wriggling.",
@@ -688,6 +679,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "“Skilful” is, in Chinese, “top hand” — and this reading mixes two layers of Chinese sounds.",
@@ -754,11 +746,9 @@
     "kana": "チョーク",
     "meaning": "chalk",
     "level": "N2",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Chalk has a Japanese twin in チャコ.",
@@ -784,6 +774,7 @@
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf40"],
+    "pitch": [4],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Pale is “blue-white” — and the しろい voices to じろい on the way in.",
@@ -848,6 +839,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Twenty years old is an Old Japanese “twenty items” — read as a single old word, not as nijū + sai.",
@@ -908,6 +900,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Time” is the moon (or month) and the sun (or day), side by side.",
@@ -985,6 +978,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0, 1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "“Abundance” arrived from written Chinese, and is first attested in Japanese in the 1830s.",
@@ -1047,6 +1041,7 @@
     "level": "N3",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Again” is “two” plus a counter for “times”.",
@@ -1103,6 +1098,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "To protect is to “watch over”, and its first syllable is an old word for “eye”.",
@@ -1146,6 +1142,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "A glove is a “hand bag”, with ふくろ voiced to ぶくろ.",
@@ -1207,6 +1204,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "“A.M.” is “before noon”.",
@@ -1271,6 +1269,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "A lens may have come through Dutch or English — Wiktionary says it can't be sure which.",
@@ -1316,6 +1315,7 @@
     "level": "N2",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["spec1", "ichi1", "news2", "nf44"],
+    "pitch": [3, 4],
     "stratum": "wago",
     "processes": ["rendaku"],
     "headline": "To be revived is, literally, to “return from the land of the dead”.",
@@ -1372,8 +1372,9 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news2", "nf32"],
+    "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "sound-change"],
+    "processes": ["compound", "sound-change", "ateji"],
     "headline": "An actor's lines may be a “calling out” — and the kanji came from a different, Chinese-derived word.",
     "morphemes": [],
     "sources": [
@@ -1429,6 +1430,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "“Possible” is “may” plus “able” — borrowed whole from Middle Chinese.",
@@ -1490,6 +1492,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A memory is a “thought” that has “come out”.",
@@ -1510,40 +1513,6 @@
         "quote": "Compound of 思(おも)い (omoi, “thought”) + 出(で) (de, “something coming out”)."
       }
     ],
-    "examples": [
-      {
-        "id": 192907,
-        "ja": "良い思い出になりました。",
-        "en": "It was a good memory.",
-        "enId": 12455092,
-        "form": "思い出",
-        "furigana": [
-          ["良", "い"],
-          ["い"],
-          ["思", "おも"],
-          ["い"],
-          ["出", "で"],
-          ["になりました。"]
-        ]
-      },
-      {
-        "id": 121734,
-        "ja": "納豆には嫌な思い出があってね。",
-        "en": "Natto reminds me of a bad experience.",
-        "enId": 282271,
-        "form": "思い出",
-        "furigana": [
-          ["納豆", "なっとう"],
-          ["には"],
-          ["嫌", "いや"],
-          ["な"],
-          ["思", "おも"],
-          ["い"],
-          ["出", "で"],
-          ["があってね。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1554,6 +1523,8 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news2", "nf28", "spec1"],
+    "register": ["polite (teineigo) language"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Lunch, or noon, is a beautified “daytime”.",

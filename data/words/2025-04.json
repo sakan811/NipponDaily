@@ -5,12 +5,9 @@
     "kana": "あつかい",
     "meaning": "treatment, service",
     "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun, used as a suffix",
-      "noun or participle which takes the aux. verb suru"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf04"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Atsukai is the continuative stem of the verb 扱う (atsukau, “to handle”).",
@@ -64,6 +61,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Tsunami is 津 (tsu, “cove, inlet, outlet”) plus 波 (nami, “wave”), named so because tsunamis do more damage to sea ports.",
@@ -130,9 +128,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kōri is 小 (ko-, “little”) plus 売り (uri, “selling”).",
@@ -166,6 +166,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ソロ is borrowed from Italian solo.",
@@ -218,6 +219,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news2", "nf31"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Hidarikiki is 左 (hidari, “left”) plus 利き (kiki, “effective”), with kiki voiced to giki by rendaku.",
@@ -278,6 +280,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf27"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Someru is from Old Japanese 染む (somu), a lower bigrade verb.",
@@ -340,7 +343,7 @@
     "meaning": "at once, first of all, for the time being",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
-    "priority": ["ichi1", "ichi2", "spec1"],
+    "priority": ["ichi1"],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Toriaezu is 取り (tori, “taking”) plus 敢えず (aezu), from the negative form of 敢ふ (afu, “to bear, endure”).",
@@ -360,6 +363,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ホール covers “hall”, “hole” and “whole”, and the source borrows all three from English.",
@@ -385,6 +389,7 @@
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf47"],
+    "pitch": [5],
     "stratum": "wago",
     "processes": ["rendaku"],
     "headline": "Ichijirushii began as ichishirushi, 逸 (ichi-, “very”) plus 著し (shirushi), and shirushi was voiced to jirushi by rendaku in the Muromachi period.",
@@ -400,39 +405,6 @@
         "quote": "The modern form is from いちじるしき (ichijirushiki), the 連体形 (rentaikei, “attributive form”) of the Late Middle Japanese shiku-adjective いちじるし (ichijirushi), with the medial /-k-/ falling out."
       }
     ],
-    "examples": [
-      {
-        "id": 186864,
-        "ja": "科学は著しく進歩した。",
-        "en": "Science has made remarkable progress.",
-        "enId": 24001,
-        "form": "著しく",
-        "furigana": [
-          ["科学", "かがく"],
-          ["は"],
-          ["著", "いちじる"],
-          ["しく"],
-          ["進歩", "しんぽ"],
-          ["した。"]
-        ]
-      },
-      {
-        "id": 142784,
-        "ja": "生産高が著しく増加した。",
-        "en": "Production has remarkably increased.",
-        "enId": 271785,
-        "form": "著しく",
-        "furigana": [
-          ["生産", "せいさん"],
-          ["高", "だか"],
-          ["が"],
-          ["著", "いちじる"],
-          ["しく"],
-          ["増加", "ぞうか"],
-          ["した。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -444,9 +416,10 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "nouns which may take the genitive case particle 'no'"
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In sōgō, 総 is a daiyōji replacing 綜.",
@@ -494,6 +467,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [3, 0],
     "stratum": "wago",
     "processes": [],
     "headline": "Sashidasu is 差す (sasu) plus 出す (dasu).",
@@ -549,6 +523,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ゲスト is from English guest.",
@@ -590,6 +565,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
     "priority": ["ichi1"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Toku, “to unfasten”, is a doublet of 説く (toku) and 溶く (toku).",
@@ -642,6 +618,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf35"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ayatsuru may be 綾 (aya, “thread”) plus 取る (toru, “to take”).",
@@ -697,6 +674,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Eki, “liquid”, is from Middle Chinese 液 (yek, “liquid”).",
@@ -716,6 +694,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0, 4],
     "stratum": "wago",
     "processes": [],
     "headline": "Kokoromi is the continuative stem of the verb 試みる (kokoromiru, “to try, attempt”).",
@@ -769,6 +748,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [3],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ノイローゼ is from German Neurose.",
@@ -811,6 +791,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Tomi is the continuative stem of the verb 富む (tomu, “to be rich”).",
@@ -855,6 +836,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound", "unclear"],
     "headline": "Sazukeru derives from the classical verb 授く (sazuku), and a surface analysis suggests さ (sa) plus 付ける (tsukeru).",
@@ -913,9 +895,12 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1"],
+    "field": ["chemistry"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kagō is 化 (ka, “change into”) plus 合 (gō, “combine”).",
@@ -946,9 +931,12 @@
     "level": "N2",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [2, 0],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スタート is borrowed from English start.",
@@ -1002,11 +990,11 @@
     "meaning": "normalcy, normality, normal",
     "level": "N1",
     "pos": [
-      "noun (common) (futsuumeishi)",
       "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "nouns which may take the genitive case particle 'no'"
+      "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Seijō is from Middle Chinese 正常.",
@@ -1071,6 +1059,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf05"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shujinkō is from Middle Chinese 主人公 (MC tsyuX nyin kuwng).",
@@ -1146,9 +1135,12 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
     "priority": ["gai1"],
+    "pitch": [3],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アンコール is borrowed from English encore.",
@@ -1208,6 +1200,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0, 3],
     "stratum": "wago",
     "processes": [],
     "headline": "Uttae is the continuative stem of the verb 訴える (uttaeru).",
@@ -1261,9 +1254,10 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "nouns which may take the genitive case particle 'no'"
+      "transitive verb"
     ],
     "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Chokkan is cognate with 直観.",
@@ -1333,6 +1327,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Neiro is 音 (ne, “tone; sound”) plus 色 (iro, “colour”), and the source compares German Klangfarbe, “sound-color”.",
@@ -1363,6 +1358,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In rikutsu, 屈 is a daiyōji replacing 窟, and the source traces it to Liu Yiqing's A New Account of the Tales of the World.",
@@ -1430,6 +1426,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf40"],
+    "pitch": [0, 3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Nomikomu is 飲み (nomi, the stem of 飲む (nomu, “to drink; to swallow”)) plus 込む (komu, “to go into”).",
@@ -1493,9 +1490,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In tokushū, 集 is a daiyōji replacing 輯.",

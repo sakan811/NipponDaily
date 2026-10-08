@@ -7,6 +7,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "プラン is borrowed from English plan.",
@@ -55,6 +56,7 @@
     "level": "N1",
     "pos": ["conjunction", "adverb (fukushi)"],
     "priority": ["spec1"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Katsu has a Heian accent that implies it is the conclusive form of 勝つ (katsu, “to win”), and it is possibly related to 片 (kata, “one of a pair”).",
@@ -108,9 +110,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1"],
+    "pitch": [2, 3],
     "processes": ["compound"],
     "headline": "Yosomi is 余所 (yoso, “elsewhere; others”) plus 見 (mi, “looking”).",
     "morphemes": [
@@ -138,11 +142,9 @@
     "kana": "いるい",
     "meaning": "clothes, clothing, garments",
     "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Irui is 衣 (i, “clothing; clothes”) plus 類 (rui, “kind; category; group”).",
@@ -202,6 +204,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "unclear"],
     "headline": "Dōkō is uncertain: first attested in 1929, it may be a borrowing from written Chinese, or a coinage from 動 (dō, “moving, movement”) plus 向 (kō, “facing, direction”).",
@@ -269,6 +272,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["unclear"],
     "headline": "Hōmuru is often taken as from Old Japanese 葬る (haburu), though the epenthesis of う is uncertain.",
@@ -288,6 +292,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf19"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Gakushi is from Middle Chinese 學士.",
@@ -320,9 +325,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["news1", "nf12"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In mosaku, 模 is a daiyōji replacing 摸.",
@@ -354,6 +361,7 @@
     "meaning": "collected things, gathering place, arrears",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Tamari is the continuative stem of the verb 溜まる (tamaru, “to gather, to accumulate”).",
@@ -373,6 +381,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing", "sound-change"],
     "headline": "Ōgon is from Middle Chinese 黃金 (MC hwang kim, “yellow + metal”).",
@@ -431,6 +440,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ダウン is from English down.",
@@ -484,6 +494,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["news2", "nf42", "spec2"],
+    "pitch": [4],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Uwamawaru is the bound form 上 (uwa-) of 上 (ue, “up; top”) plus 回る (mawaru, “to go around; to prevail”).",
@@ -504,42 +515,6 @@
         "quote": "Compound of 上(うわ) (uwa-, the 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 上(うえ) (ue, “up; top”)) + 回(まわ)る (mawaru, “to go around; to prevail”)."
       }
     ],
-    "examples": [
-      {
-        "id": 116984,
-        "ja": "彼の出費は収入をはるかに上回っている。",
-        "en": "His expenses exceed his income by far.",
-        "enId": 286473,
-        "form": "上回っている",
-        "furigana": [
-          ["彼", "かれ"],
-          ["の"],
-          ["出費", "しゅっぴ"],
-          ["は"],
-          ["収入", "しゅうにゅう"],
-          ["をはるかに"],
-          ["上回", "うわまわ"],
-          ["っている。"]
-        ]
-      },
-      {
-        "id": 117192,
-        "ja": "彼の支出は収入をはるかに上回っている。",
-        "en": "His expenses exceed his income by far.",
-        "enId": 286473,
-        "form": "上回っている",
-        "furigana": [
-          ["彼", "かれ"],
-          ["の"],
-          ["支出", "ししゅつ"],
-          ["は"],
-          ["収入", "しゅうにゅう"],
-          ["をはるかに"],
-          ["上回", "うわまわ"],
-          ["っている。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -550,6 +525,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "フォーム covers “form” and “foam”, and the source takes both from English.",
@@ -573,9 +549,10 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "nouns which may take the genitive case particle 'no'"
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sentō is from Middle Chinese 戰鬪, and the source compares Mandarin 戰鬥 (zhàndòu).",
@@ -641,6 +618,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1"],
+    "pitch": [1],
     "processes": [],
     "headline": "Kiza is short for 気障り (kizawari, “disagreeable”).",
     "morphemes": [],
@@ -658,6 +636,7 @@
     "meaning": "virus",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ビールス is a learned borrowing from Latin virus.",
@@ -675,8 +654,13 @@
     "kana": "モニター",
     "meaning": "(computer) monitor",
     "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "モニター is from English monitor.",
@@ -728,6 +712,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news2", "nf32"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Muimi is 無 (mu-, “without”) plus 意味 (imi, “meaning”).",
@@ -776,6 +761,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [3, 4],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Zeimusho is, by surface analysis, 税務 (zeimu) plus 署 (-sho).",
@@ -849,6 +835,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Chō, “butterfly”, is from Middle Chinese 蝶 (MC thep|dep) and passed through tepu, tefu, tewu and teu.",
@@ -905,6 +892,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Akaji is 赤 (aka, “red”) plus 字 (ji, “characters”), and its “deficit” sense, attested since the Taishō period, comes from marking negative sums in red ink.",
@@ -963,6 +951,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Sanbutsu is from the Middle Chinese compound 產物, literally “produce + thing”.",
@@ -1031,8 +1020,9 @@
     "kana": "すう",
     "meaning": "number, figure",
     "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Sū, “number”, is from Middle Chinese 數.",
@@ -1087,9 +1077,12 @@
     "level": "N2",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [2],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ストップ is borrowed from English stop.",
@@ -1148,6 +1141,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [0, 1],
     "stratum": "gairaigo",
     "processes": ["wasei"],
     "headline": "タレント is a wasei eigo (pseudo-anglicism) derived from English talent.",
@@ -1192,6 +1186,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Yurumeru is 緩 (yuru, “loose”) plus める (-meru, “-ify”).",
@@ -1258,6 +1253,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Ōkata is the classical stem 大 (ofo) plus 方 (kata, “direction, way, side”).",
@@ -1309,9 +1305,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kyūshoku is ultimately from Middle Chinese 給食, literally “to give, to supply + food, meal”, sourced from the Records of the Grand Historian.",
@@ -1373,6 +1371,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Juku is originally from Middle Chinese 塾 (MC dzyuwk).",
@@ -1428,6 +1427,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In ishō, 装 is a daiyōji replacing 裳.",
@@ -1487,6 +1487,7 @@
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Nadakai is 名 (na, “name”) plus 高い (takai, “high, lofty”), with takai voiced to dakai by rendaku.",

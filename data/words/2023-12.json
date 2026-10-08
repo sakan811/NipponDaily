@@ -7,6 +7,7 @@
     "level": "N5",
     "pos": ["numeric"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Hachi is from Middle Chinese 八 (MC peat).",
@@ -44,6 +45,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Kuroi is Old Japanese, first attested in the Kojiki of 712 CE.",
@@ -95,6 +97,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Kyaku is from Middle Chinese 客 (MC khaek).",
@@ -118,6 +121,7 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["ateji"],
     "headline": "Betsu is from Ainu ペッ (pet, “water, river”), and its kanji spelling is an example of ateji.",
@@ -169,6 +173,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Ongaku is from Middle Chinese 音樂.",
@@ -228,6 +233,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Teinei is from Middle Chinese 叮嚀, which originally meant a musical instrument used to signal caution.",
@@ -281,6 +287,7 @@
     "level": "N5",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
     "priority": ["ichi1", "spec1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Kiku first appears in the Kojiki of 712, spelled in phonetic man'yōgana as 岐加受 (kikazu).",
@@ -327,6 +334,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Shiroi was shiroshi, and its medial k went through voicing, spirantization and gliding until it disappeared.",
@@ -380,6 +388,7 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Dareka is 誰 (dare, “who”) plus か (ka, indefinite particle).",
@@ -428,6 +437,7 @@
     "level": "N5",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [1],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Daisuki is 大 (dai-, “very; much”) plus 好き (suki, “liking”).",
@@ -476,6 +486,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01", "spec1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "derivation", "rendaku"],
     "headline": "Kodomo was exclusively plural in Old Japanese: 子 (ko, “child”) plus 共 (-domo, plural suffix).",
@@ -537,6 +548,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1, 3],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Nesshin is 熱 (netsu, “showing intense feeling”) plus 心 (shin, “heart”).",
@@ -601,11 +613,12 @@
     "meaning": "old days; past",
     "level": "N4",
     "pos": [
-      "nouns which may take the genitive case particle 'no'",
       "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'",
       "adverb (fukushi)"
     ],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Mukashi is muka, from the verb 向く (muku, “to face opposite”), plus a direction suffix し (shi): “that which stands opposite from the present”.",
@@ -617,20 +630,37 @@
     ],
     "examples": [
       {
-        "id": 142393,
-        "ja": "昔はよくした。",
-        "en": "I used to a lot.",
-        "enId": 272177,
+        "id": 191177,
+        "ja": "昔、地球は平らなものだと考えられていた。",
+        "en": "It used to be thought that the earth was flat.",
+        "enId": 28337,
         "form": "昔",
-        "furigana": [["昔", "むかし"], ["はよくした。"]]
+        "furigana": [
+          ["昔", "むかし"],
+          ["、"],
+          ["地球", "ちきゅう"],
+          ["は"],
+          ["平", "たい"],
+          ["らなものだと"],
+          ["考", "かんが"],
+          ["えられていた。"]
+        ]
       },
       {
-        "id": 142395,
-        "ja": "昔はよかった。",
-        "en": "I've seen better days.",
-        "enId": 272175,
-        "form": "昔",
-        "furigana": [["昔", "むかし"], ["はよかった。"]]
+        "id": 235536,
+        "ja": "２つの土手の間に、むかし橋がかかっていた。",
+        "en": "There used to be a bridge between two river banks.",
+        "enId": 72915,
+        "form": "むかし",
+        "furigana": [
+          ["２つの"],
+          ["土手", "どて"],
+          ["の"],
+          ["間", "あいだ"],
+          ["に、むかし"],
+          ["橋", "はし"],
+          ["がかかっていた。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -643,6 +673,7 @@
     "level": "N5",
     "pos": ["numeric"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Sen is from Middle Chinese 千 (MC tshen).",
@@ -702,6 +733,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf16", "news2", "nf31"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Hayai is first attested in the Kojiki of 712, reconstructed as ultimately from Proto-Japonic *paya.",
@@ -713,20 +745,20 @@
     ],
     "examples": [
       {
-        "id": 140581,
-        "ja": "早かったね。",
-        "en": "You are early.",
-        "enId": 273992,
-        "form": "早かった",
-        "furigana": [["早", "はや"], ["かったね。"]]
-      },
-      {
         "id": 81043,
         "ja": "脈がはやいです。",
         "en": "My pulse is fast.",
         "enId": 322672,
         "form": "はやい",
         "furigana": [["脈", "みゃく"], ["がはやいです。"]]
+      },
+      {
+        "id": 115417,
+        "ja": "彼は動作がはやい。",
+        "en": "He acts quickly.",
+        "enId": 288254,
+        "form": "はやい",
+        "furigana": [["彼", "かれ"], ["は"], ["動作", "どうさ"], ["がはやい。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -739,6 +771,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf30"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Wakai is Old Japanese, from Proto-Japonic *waka.",
@@ -775,6 +808,8 @@
     "meaning": "a bath",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Ofuro is 御 (o-, “honorific prefix”) plus 風呂 (furo, “bath”).",
@@ -823,6 +858,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Natsuyasumi is 夏 (natsu, “summer”) plus 休み (yasumi, “vacation; holiday”).",
@@ -876,6 +912,7 @@
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb", "auxiliary verb"],
     "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Hajimeru is from Proto-Japonic *pansimay (“to begin”, transitive).",
@@ -926,6 +963,7 @@
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Oshieru is considered related to 愛しむ (oshimu), though the source calls that morphologically problematic.",
@@ -969,7 +1007,8 @@
     "meaning": "to stand (something) up, to erect (something)",
     "level": "N4",
     "pos": ["Ichidan verb", "transitive verb"],
-    "priority": ["ichi1"],
+    "priority": ["ichi1", "spec1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Tateru is Old Japanese 立つ (tatu), made explicitly transitive with the lower bigrade pattern.",
@@ -1026,6 +1065,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Futari has three proposed derivations, one a shift from futa tari through put̚tari.",
@@ -1098,6 +1138,7 @@
     "level": "N5",
     "pos": ["Godan verb with 'tsu' ending", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Tatsu is a doublet of 建つ (tatsu), 勃つ (tatsu) and 発つ (tatsu, “to depart”).",
@@ -1138,6 +1179,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Hana “nose” is also from Proto-Japonic *pana; its pronoun sense comes from pointing to one's nose to refer to oneself.",
@@ -1175,6 +1217,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hito went pi1to2 → fito → hito → çito, from Proto-Japonic *pitə.",
@@ -1218,6 +1261,7 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Nani is Old Japanese, from Proto-Japonic *n-anu-.",
@@ -1259,7 +1303,8 @@
     "meaning": "lonely, lonesome",
     "level": "N4",
     "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news2", "nf33", "spec1"],
+    "priority": ["ichi1", "news2", "nf33"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Sabishii was sabusi in the Man'yōshū, and dialect shifts from b to m created samishi.",
@@ -1308,6 +1353,7 @@
     "meaning": "sake; alcohol",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "register": ["polite (teineigo) language"],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Osake is 御 (o-, honorific prefix) plus 酒 (sake, “alcoholic beverage, (especially) wine”).",
@@ -1328,6 +1374,30 @@
         "quote": "御 (o-, honorific prefix) + 酒 (sake, “alcoholic beverage, (especially) wine”)."
       }
     ],
+    "examples": [
+      {
+        "id": 227035,
+        "ja": "お酒を飲もうよ。",
+        "en": "Let's have sake.",
+        "enId": 64382,
+        "form": "お酒",
+        "furigana": [["お"], ["酒", "さけ"], ["を"], ["飲", "の"], ["もうよ。"]]
+      },
+      {
+        "id": 227039,
+        "ja": "お酒は飲みますか。",
+        "en": "Do you drink alcohol?",
+        "enId": 64387,
+        "form": "お酒",
+        "furigana": [
+          ["お"],
+          ["酒", "さけ"],
+          ["は"],
+          ["飲", "の"],
+          ["みますか。"]
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1338,6 +1408,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Untenshu is 運転 (unten) plus 手 (-shu).",
@@ -1408,11 +1479,10 @@
     "kana": "おいわい",
     "meaning": "congratulation, celebration",
     "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
-    ],
+    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "register": ["honorific or respectful (sonkeigo) language"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Oiwai is 御 (o-, polite prefix) plus 祝い (iwai, “celebration, a gift or present”).",
@@ -1476,6 +1546,7 @@
     "level": "N4",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kanarazu is literally “not temporary”: 仮ならず (kari narazu), shifted via karunarazu.",

@@ -7,9 +7,11 @@
     "level": "N3",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Tsūyaku is from Sinitic 通譯 (tōngyì).",
@@ -77,6 +79,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Kazan is Middle Chinese 火山, literally “flaming mountain”.",
@@ -148,6 +151,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": [],
     "headline": "Wakare is the continuative stem of 別れる (wakareru, “to separate, to part ways, to bid farewell”).",
@@ -217,6 +221,8 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf12"],
+    "field": ["linguistics"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ku, “phrase”, is from Middle Chinese 句 (kjuᴴ, “phrase”).",
@@ -286,6 +292,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Shina is simply from Old Japanese.",
@@ -327,6 +334,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Jōhō is a contraction of 情況報告 (jōkyō hōkoku, “situation report”).",
@@ -419,7 +427,8 @@
     "meaning": "tape recorder",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1", "ichi1"],
+    "priority": ["ichi2"],
+    "pitch": [5],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Tēpurekōdā is borrowed from English tape recorder.",
@@ -469,9 +478,11 @@
     "level": "N3",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Tsūkin was coined after 通う (kayou, “to regularly visit”) and 勤め (tsutome), with the kanji shifted to on'yomi in the compound.",
@@ -533,6 +544,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsukue, “desk”, is simply listed as inherited from Old Japanese.",
@@ -555,6 +567,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Reigai is 例 (rei, “usual practice”) plus 外 (gai, “outside”): outside the usual practice.",
@@ -610,6 +623,7 @@
     "level": "N3",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Mā is onomatopoeic.",
@@ -647,6 +661,7 @@
     "level": "N3",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Omowazu is the negative continuative of 思う.",
@@ -698,6 +713,7 @@
     "level": "N4",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Zenzen is an orthographic borrowing from Chinese 全然 (quánrán) in the early 1800s, at first with furigana reading it まったく (mattaku).",
@@ -725,20 +741,25 @@
     ],
     "examples": [
       {
-        "id": 191240,
-        "ja": "案は全然ない。",
-        "en": "I have no plans whatever.",
-        "enId": 28401,
-        "form": "全然",
-        "furigana": [["案", "あん"], ["は"], ["全然", "ぜんぜん"], ["ない。"]]
+        "id": 213986,
+        "ja": "ぜんぜん気にしない。",
+        "en": "I don't care a bean.",
+        "enId": 51273,
+        "form": "ぜんぜん",
+        "furigana": [["ぜんぜん"], ["気", "き"], ["にしない。"]]
       },
       {
-        "id": 140787,
-        "ja": "全然わかりません。",
-        "en": "I have no idea.",
-        "enId": 273786,
-        "form": "全然",
-        "furigana": [["全然", "ぜんぜん"], ["わかりません。"]]
+        "id": 113275,
+        "ja": "彼はぜんぜん幸福ではない。",
+        "en": "He isn't happy at all.",
+        "enId": 290399,
+        "form": "ぜんぜん",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はぜんぜん"],
+          ["幸福", "こうふく"],
+          ["ではない。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -751,6 +772,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chōmiryō is 調味 (chōmi, “seasoning”) plus 料 (-ryō, “material”).",
@@ -781,6 +803,7 @@
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsukeru is from Old Japanese 付く (tuku), following the lower bigrade conjugation.",
@@ -801,20 +824,34 @@
     ],
     "examples": [
       {
-        "id": 194932,
-        "ja": "みんな仕事につけ。",
-        "en": "Get to work, everybody.",
-        "enId": 32107,
-        "form": "つけ",
-        "furigana": [["みんな"], ["仕事", "しごと"], ["につけ。"]]
+        "id": 121596,
+        "ja": "馬鹿につける薬なし。",
+        "en": "No medicine can cure folly.",
+        "enId": 282409,
+        "form": "つける",
+        "furigana": [
+          ["馬鹿", "ばか"],
+          ["につける"],
+          ["薬", "くすり"],
+          ["なし。"]
+        ]
       },
       {
-        "id": 110348,
-        "ja": "彼はラジオをつけた。",
-        "en": "He turned on the radio.",
-        "enId": 293339,
-        "form": "つけた",
-        "furigana": [["彼", "かれ"], ["はラジオをつけた。"]]
+        "id": 136862,
+        "ja": "誰が猫の首に鈴をつけるか。",
+        "en": "Who will bell the cat?",
+        "enId": 276374,
+        "form": "つける",
+        "furigana": [
+          ["誰", "だれ"],
+          ["が"],
+          ["猫", "ねこ"],
+          ["の"],
+          ["首", "くび"],
+          ["に"],
+          ["鈴", "すず"],
+          ["をつけるか。"]
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -826,11 +863,11 @@
     "meaning": "today, present-day",
     "level": "N3",
     "pos": [
-      "nouns which may take the genitive case particle 'no'",
-      "adverb (fukushi)",
-      "noun (common) (futsuumeishi)"
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Gendai is 現 (gen, “current, now”) plus 代 (dai, “age, period”).",
@@ -851,37 +888,6 @@
         "quote": "From 現(げん) (gen, “current, now”) + 代(だい) (dai, “age, period”)"
       }
     ],
-    "examples": [
-      {
-        "id": 107607,
-        "ja": "彼は現代のバッハだ。",
-        "en": "He's the Bach of today.",
-        "enId": 296078,
-        "form": "現代の",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["現代", "げんだい"],
-          ["のバッハだ。"]
-        ]
-      },
-      {
-        "id": 107604,
-        "ja": "彼は現代音楽が好きだ。",
-        "en": "He has a liking for modern music.",
-        "enId": 296081,
-        "form": "現代",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["現代", "げんだい"],
-          ["音楽", "おんがく"],
-          ["が"],
-          ["好", "す"],
-          ["きだ。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -892,6 +898,7 @@
     "level": "N2",
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf31"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsukkomu is 突く (tsuku, “to poke”) plus 込む (komu, “to put into”).",
@@ -899,40 +906,6 @@
     "sources": [
       {
         "quote": "突(つ)く (tsuku, “to poke”) + 込(こ)む (komu, “to put into”)"
-      }
-    ],
-    "examples": [
-      {
-        "id": 148988,
-        "ja": "車は木に突っ込んだ。",
-        "en": "The car ran into a tree.",
-        "enId": 265450,
-        "form": "突っ込んだ",
-        "furigana": [
-          ["車", "くるま"],
-          ["は"],
-          ["木", "き"],
-          ["に"],
-          ["突", "つ"],
-          ["っ"],
-          ["込", "こ"],
-          ["んだ。"]
-        ]
-      },
-      {
-        "id": 99911,
-        "ja": "彼は本を鞄につっこんだ。",
-        "en": "He stuck the book in his bag.",
-        "enId": 303786,
-        "form": "つっこんだ",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["本", "ほん"],
-          ["を"],
-          ["鞄", "かばん"],
-          ["につっこんだ。"]
-        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -945,6 +918,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Hyōhon is Literary Chinese 標本 (biāoběn), “the uppermost branches and the root”.",
@@ -1010,6 +984,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Murasaki is possibly 群 (mura, “gathering, group”) plus 咲き (saki, “blooming”).",
@@ -1022,39 +997,6 @@
         "quote": "Possibly a compound of 群 (mura, “gathering, group”) + 咲き (saki, “blooming”, the 連用形 (ren'yōkei, “stem or continuative form”) of verb 咲く (saku), “to bloom”)."
       }
     ],
-    "examples": [
-      {
-        "id": 142221,
-        "ja": "赤と青を混ぜると紫になる。",
-        "en": "Red and blue paint mixed together give us purple.",
-        "enId": 272349,
-        "form": "紫",
-        "furigana": [
-          ["赤", "あか"],
-          ["と"],
-          ["青", "あお"],
-          ["を"],
-          ["混", "ま"],
-          ["ぜると"],
-          ["紫", "むらさき"],
-          ["になる。"]
-        ]
-      },
-      {
-        "id": 208891,
-        "ja": "その色はピンクというより紫だ。",
-        "en": "The color is purple rather than pink.",
-        "enId": 46151,
-        "form": "紫",
-        "furigana": [
-          ["その"],
-          ["色", "いろ"],
-          ["はピンクというより"],
-          ["紫", "むらさき"],
-          ["だ。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1065,6 +1007,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Jun, “order”, is from Middle Chinese 順 (MC zywinH).",
@@ -1084,6 +1027,7 @@
     "level": "N4",
     "pos": ["Godan verb - -aru special class", "transitive verb"],
     "priority": ["ichi1"],
+    "register": ["honorific or respectful (sonkeigo) language"],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Nasaru is 成す (nasu, “to do”) plus a classical る suffix, irregularly evolved to godan conjugation.",
@@ -1103,6 +1047,7 @@
     "level": "N3",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Kawaku, “to be thirsty”, is related to 乾く (kawaku, “dry”).",
@@ -1140,6 +1085,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Kushi, “comb”, is cognate with 串 (kushi, “skewer”).",
@@ -1184,6 +1130,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kaisūken is 回数 (kaisū, “number of times”) plus 券 (ken, “ticket”).",
@@ -1233,6 +1180,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kaigai is Middle Chinese 海外, literally “sea + outside, beyond”.",
@@ -1296,6 +1244,7 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Hara is often compared to Korean 배 (bae, “stomach”), but Vovin rejects this.",
@@ -1347,6 +1296,7 @@
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf36"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": [],
     "headline": "Koishii is inherited from Old Japanese 恋し (koishi).",

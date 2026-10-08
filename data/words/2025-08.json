@@ -7,6 +7,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [1, 0],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Dōjō is from Middle Chinese 道場, literally “way + place”, itself originally a translation of a Sanskrit term for “seat of wisdom”.",
@@ -40,6 +41,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [4],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ベストセラー is from English bestseller.",
@@ -99,6 +101,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf05"],
+    "pitch": [1, 3],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kanten is 観 (kan, “to view”) plus 点 (ten, “point”).",
@@ -167,6 +170,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "headline": "Nae is from Old Japanese and is an apophonic form of 苗 (nawa, “seedling”).",
@@ -225,6 +229,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["news1", "nf16"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": [],
     "headline": "Majieru is from Old Japanese 交ふ (mazifu), a lower bigrade verb.",
@@ -240,42 +245,6 @@
         "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
       }
     ],
-    "examples": [
-      {
-        "id": 88480,
-        "ja": "彼女は身振りを交えて話をした。",
-        "en": "She accompanied her words with gestures.",
-        "enId": 315224,
-        "form": "交えて",
-        "furigana": [
-          ["彼女", "かのじょ"],
-          ["は"],
-          ["身振", "みぶ"],
-          ["りを"],
-          ["交", "まじ"],
-          ["えて"],
-          ["話", "はなし"],
-          ["をした。"]
-        ]
-      },
-      {
-        "id": 88479,
-        "ja": "彼女は身振りを交えながら演説した。",
-        "en": "She accompanied her speech with gestures.",
-        "enId": 315228,
-        "form": "交え",
-        "furigana": [
-          ["彼女", "かのじょ"],
-          ["は"],
-          ["身振", "みぶ"],
-          ["りを"],
-          ["交", "まじ"],
-          ["えながら"],
-          ["演説", "えんぜつ"],
-          ["した。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -286,6 +255,7 @@
     "level": "N1",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Onozukara was originally 己 (ono, “oneself”) plus つ (tsu, possessive particle) plus 柄 (kara, “quality, characteristic”).",
@@ -330,6 +300,8 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news2", "nf25", "spec1"],
+    "register": ["familiar language"],
+    "pitch": [0, 1],
     "processes": ["sound-change", "ateji"],
     "headline": "Oyaji is perhaps 親 (oya, “parent”) plus 父 (chichi, “father”), altered from an earlier form, oyachichi.",
     "morphemes": [],
@@ -374,6 +346,7 @@
     "meaning": "to become emotionally attached",
     "level": "N1",
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
     "headline": "Natsuku is from 馴れ付く (naretsuku, literally “to be attached intimately”).",
@@ -431,6 +404,7 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "priority": ["news1", "nf06"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Koji is from Middle Chinese 孤兒 (MC ku nye|ngej).",
@@ -463,6 +437,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [2, 0],
     "stratum": "wago",
     "processes": [],
     "headline": "Masaru, “to excel”, is a doublet of 増さる (masaru, “to increase”).",
@@ -514,6 +489,7 @@
     "level": "N1",
     "pos": ["conjunction"],
     "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [0, 1],
     "stratum": "wago",
     "processes": [],
     "headline": "Oyobi is the continuative stem of the verb 及ぶ (oyobu, “to reach”).",
@@ -577,6 +553,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hinomaru is 日 (hi, “sun”) plus の (no, attributive particle) plus 丸 (maru, “circle”).",
@@ -645,9 +622,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
     "priority": ["ichi1", "news2", "nf46"],
+    "pitch": [3, 0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Shitashirabe is 下 (shita-, “preliminary”) plus 調べ (shirabe), the stem of 調べる (shiraberu, “to investigate”).",
@@ -696,6 +675,7 @@
     "level": "N1",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Awasu is a doublet of 合わせる (awaseru), its conjugation shifted irregularly from the bigrade pattern.",
@@ -740,6 +720,7 @@
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Setsunai is 切 (setsu, “urgent, pressing, close”) plus ない (-nai, adjectivizing suffix).",
@@ -770,6 +751,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf41"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "Muko is found in the Nihon Shoki of 720 CE with the spelling 聟, and may be from Proto-Japonic *moko.",
@@ -798,6 +780,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "processes": ["sound-change", "meaning-shift", "ateji"],
     "headline": "Shareru may be a semantic shift from 曝れる (shareru), or derive from the classical verb 戯る (saru), and is first cited to a text from 1660.",
     "morphemes": [],
@@ -850,6 +833,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": [],
     "headline": "Sakaeru is cognate with 盛る (sakaru, “to become frisky, to flourish”), ultimately deriving from 咲く (saku, “to bloom”).",
@@ -901,9 +885,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["news1", "nf10"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shozai is from Middle Chinese 所在 (MC srjoX dzojH).",
@@ -962,6 +948,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ジャンパー is borrowed from English jumper.",
@@ -990,6 +977,7 @@
       "noun (common) (futsuumeishi)"
     ],
     "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "wasei", "borrowing"],
     "headline": "Enman is from Chinese 圓滿 (yuánmǎn), a calque of a Sanskrit word.",
@@ -1047,6 +1035,7 @@
     "level": "N1",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "Hareru is from Old Japanese, appears in the Man'yōshū of 759 CE, and is originally from the realis form of 張る (haru, “to become taut or tense”).",
@@ -1087,9 +1076,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [0],
     "stratum": "gairaigo",
     "processes": ["wasei", "borrowing"],
     "headline": "カンニング is a wasei eigo (pseudo-anglicism) derived from cunning.",
@@ -1140,9 +1131,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kaseki is 化 (ka, “to change into”) plus 石 (seki, “stone”).",
@@ -1206,6 +1199,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Torii is 鳥 (tori, “bird”) plus 居 (i, “abode”), from old legends of birds sitting on tree branches, and is first cited to a text from 922 CE.",
@@ -1259,8 +1253,9 @@
     "meaning": "not enough, too quick (short, long, etc.)",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "pitch": [4],
     "stratum": "hybrid",
-    "processes": [],
+    "processes": ["ateji"],
     "headline": "Akkenai is from 飽く気なし (aku ke nashi).",
     "morphemes": [],
     "sources": [
@@ -1306,9 +1301,11 @@
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jishu appeared in a pocket dictionary of English and Japanese from 1862.",
@@ -1341,6 +1338,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [3, 0],
     "stratum": "wago",
     "processes": [],
     "headline": "Ayamachi is the continuative stem of the verb 過つ (ayamatsu, “to err, make a mistake”).",
@@ -1394,6 +1392,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf30"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "wasei", "borrowing"],
     "headline": "Kisen was probably coined in Japan from 汽 (ki, “steam”) plus 船 (sen, “boat, ship”).",
@@ -1457,6 +1456,7 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news2", "nf46"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Mochikiri is the continuative stem of the verb 持ち切る (mochikiru).",
@@ -1520,6 +1520,8 @@
     "meaning": "transitive verb (direct object)",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "field": ["grammar"],
+    "pitch": [2],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Tadōshi is 他動 (tadō, “other-moving, other-acting”) plus 詞 (shi, “word; part of speech”).",

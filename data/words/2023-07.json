@@ -7,6 +7,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [3],
     "stratum": "gairaigo",
     "processes": ["compound", "derivation", "wasei", "borrowing", "clipping"],
     "headline": "Often called “fake English”, サラリーマン may be real English with a letter dropped.",
@@ -57,7 +58,8 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf13", "spec1"],
-    "processes": ["compound", "rendaku", "borrowing"],
+    "pitch": [1],
+    "processes": ["compound", "rendaku", "borrowing", "ateji"],
     "headline": "めがね was “eye metal” first; the kanji came from Chinese later.",
     "morphemes": [],
     "sources": [
@@ -103,7 +105,8 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf11"],
-    "processes": ["compound", "rendaku"],
+    "pitch": [0],
+    "processes": ["compound", "rendaku", "ateji"],
     "headline": "The kanji say “soil” and “produce”; the likely origin is a shrine's “small box”.",
     "morphemes": [],
     "sources": [
@@ -157,6 +160,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
     "processes": ["compound", "borrowing", "sound-change", "ateji", "unclear"],
     "headline": "いなか began as “winaka”, and its kanji came from a Chinese word.",
     "morphemes": [],
@@ -209,6 +213,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Brothers have two readings, and they come from two waves of Chinese.",
@@ -263,6 +268,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf31"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Soy sauce is “thick paste + oil”, and its sound has smoothed from /ɕauju/ to /ɕoːju/.",
@@ -299,6 +305,8 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf43"],
+    "field": ["food, cooking"],
+    "pitch": [1],
     "processes": [
       "compound",
       "derivation",
@@ -373,9 +381,11 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "nouns which may take the genitive case particle 'no'"
+      "transitive verb",
+      "intransitive verb"
     ],
     "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "A Japanese-made word, built from Chinese parts, to name the telephone.",
@@ -427,6 +437,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05", "spec1"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "derivation", "rendaku"],
     "headline": "“Friend” is built as “friends”: an old plural that took over the singular.",
@@ -448,35 +459,6 @@
         "quote": "From 友(とも) (tomo, “friend”) + 達(たち) (-tachi, pluralizing suffix). Originally plural, but also used in the singular sense in modern Japanese."
       }
     ],
-    "examples": [
-      {
-        "id": 79294,
-        "ja": "友達は留守だった。",
-        "en": "The friend was absent.",
-        "enId": 324423,
-        "form": "友達",
-        "furigana": [
-          ["友達", "ともだち"],
-          ["は"],
-          ["留守", "るす"],
-          ["だった。"]
-        ]
-      },
-      {
-        "id": 79326,
-        "ja": "友達が今晩来ます。",
-        "en": "A friend of mine is coming this evening.",
-        "enId": 324391,
-        "form": "友達",
-        "furigana": [
-          ["友達", "ともだち"],
-          ["が"],
-          ["今晩", "こんばん"],
-          ["来", "き"],
-          ["ます。"]
-        ]
-      }
-    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -487,6 +469,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Hand + paper gives “letter” in Japanese, but the identical characters in Chinese are an unrelated false friend.",
@@ -539,6 +522,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Japanese パン is Portuguese pão, and behind that, Latin pānis.",
@@ -564,6 +548,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
     "stratum": "kango",
     "processes": ["borrowing", "ateji"],
     "headline": "The spelling you know isn't the original, and the sources disagree about why it works.",
@@ -578,38 +563,20 @@
     ],
     "examples": [
       {
-        "id": 180291,
-        "ja": "教会の塔の時計が９時を打った。",
-        "en": "The clock in the church tower struck nine.",
-        "enId": 19088,
+        "id": 150479,
+        "ja": "時計を盗まれた。",
+        "en": "I had my watch stolen.",
+        "enId": 258135,
         "form": "時計",
-        "furigana": [
-          ["教会", "きょうかい"],
-          ["の"],
-          ["塔", "とう"],
-          ["の"],
-          ["時計", "とけい"],
-          ["が９"],
-          ["時", "じ"],
-          ["を"],
-          ["打", "う"],
-          ["った。"]
-        ]
+        "furigana": [["時計", "とけい"], ["を"], ["盗", "ぬす"], ["まれた。"]]
       },
       {
-        "id": 164146,
-        "ja": "私のとけいは時間が正確ではありません。",
-        "en": "My watch doesn't keep good time.",
-        "enId": 250364,
-        "form": "とけい",
-        "furigana": [
-          ["私", "わたし"],
-          ["のとけいは"],
-          ["時間", "じかん"],
-          ["が"],
-          ["正確", "せいかく"],
-          ["ではありません。"]
-        ]
+        "id": 150511,
+        "ja": "時計が止まった。",
+        "en": "A clock stopped.",
+        "enId": 264046,
+        "form": "時計",
+        "furigana": [["時計", "とけい"], ["が"], ["止", "と"], ["まった。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -622,6 +589,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [4],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "新しい was once “aratashi”: two syllables swapped places about a thousand years ago.",
@@ -684,6 +652,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Stuck flesh”: nobody is sure why a verb for sticking names sliced fish.",
@@ -714,9 +683,11 @@
     "level": "N4",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
     "priority": ["gai1", "ichi1"],
+    "pitch": [3],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "The Japanese word for a part-time job is German.",
@@ -742,6 +713,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "A teacher is, literally, someone “born earlier”.",
@@ -792,7 +764,8 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf05"],
-    "processes": ["borrowing", "sound-change"],
+    "pitch": [3],
+    "processes": ["borrowing", "sound-change", "ateji"],
     "headline": "“Tomorrow” was originally “next morning”, and the kanji came afterwards.",
     "morphemes": [],
     "sources": [
@@ -839,6 +812,7 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "pitch": [1, 3],
     "stratum": "gairaigo",
     "processes": ["wasei", "clipping"],
     "headline": "It sounds like English “consent” but it is “concentric plug”, shortened.",
@@ -868,6 +842,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "“Go out” + “mouth”: an exit is a door with a voiced mouth.",
@@ -961,6 +936,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [2],
     "processes": ["compound", "sound-change", "ateji"],
     "headline": "Fruit is literally “tree's thing”, with a lost possessive hiding in the middle.",
     "morphemes": [],
@@ -1003,6 +979,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [3],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "unclear"],
     "headline": "Typhoon is a borrowing that was later dressed in Chinese-looking kanji.",
@@ -1072,6 +1049,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": [],
     "headline": "A tatami is, at heart, something you fold.",
@@ -1129,7 +1107,8 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1"],
-    "processes": ["derivation"],
+    "pitch": [0, 3],
+    "processes": ["derivation", "ateji"],
     "headline": "Delicious began as an honorific: “o-” + “ishii”.",
     "morphemes": [],
     "sources": [
@@ -1164,7 +1143,8 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf17"],
-    "processes": ["clipping"],
+    "pitch": [0],
+    "processes": ["clipping", "ateji"],
     "headline": "ゆかた is the front half of a longer word, and the kanji say “bathing garment”.",
     "morphemes": [],
     "sources": [
@@ -1182,6 +1162,7 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [3],
     "stratum": "wago",
     "processes": [
       "compound",
@@ -1246,6 +1227,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
     "stratum": "wago",
     "processes": ["compound", "sound-change", "meaning-shift"],
     "headline": "A kimono was once just “a wearing-thing”: any clothing at all.",
@@ -1304,6 +1286,7 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [2, 0],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "A “self-rolling vehicle”, coined in Japan in 1870 for a tricycle.",
@@ -1342,6 +1325,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "reread"],
     "headline": "A fire was once “the matter of fire”, a native phrase later re-read in Chinese sounds.",
@@ -1399,6 +1383,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "“Dream” began as “sleep-eye”: sight seen while asleep.",
@@ -1442,6 +1427,7 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [1],
     "processes": [],
     "headline": "けしき was spelled another way first; 景 was swapped in for the sense.",
     "morphemes": [],
