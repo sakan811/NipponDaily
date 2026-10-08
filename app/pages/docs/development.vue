@@ -68,7 +68,7 @@ pnpm dev          # http://localhost:3000</code></pre>
     </p>
 
     <h2>Tests</h2>
-    <p>Vitest, three projects (<code>vitest.config.ts</code>).</p>
+    <p>Vitest, four projects (<code>vitest.config.ts</code>).</p>
     <ul>
       <li>
         <strong><code>test/unit</code></strong> (happy-dom): components and
@@ -92,12 +92,26 @@ pnpm dev          # http://localhost:3000</code></pre>
           >Data integrity</NuxtLink
         >).
       </li>
+      <li>
+        <strong><code>test/integration</code></strong> (node, about half a
+        minute): builds Nuxt into a throwaway directory, starts the built server
+        and requests every route over HTTP. It checks that the home page and a
+        day's page hold their word in the HTML, that every part, kanji and
+        chapter page answers, that a day that has not arrived is a
+        <code>404</code> and the removed routes redirect, that the share image
+        is a PNG, and that the cache header is on an answer and not on an error.
+        It has no setup file, because <code>test/setup.ts</code> replaces the
+        global <code>fetch</code> with a mock. To run it alone:
+        <code>pnpm exec vitest run --project integration</code>.
+      </li>
     </ul>
     <p>
-      There are no integration tests. <code>pnpm test:run</code> passing does
-      not prove the app builds: pages with no test are only exercised by
-      <code>pnpm build</code>, so run it after deleting or renaming a component.
-      CI (<code>.github/workflows/webpage-test.yml</code>) runs
+      There are no browser tests: nothing runs the client in a real browser, so
+      hydration and interactions (the filters, the season button, the music) are
+      covered only by their unit tests. The integration test builds the app, so
+      <code>pnpm test:run</code> passing does prove it builds and serves; run
+      <code>pnpm build</code> on its own only to see the build's output. CI
+      (<code>.github/workflows/webpage-test.yml</code>) runs
       <code>pnpm run test</code> on pushes to <code>main</code> and on pull
       requests targeting it, on Node 25 with pnpm 10.
     </p>
