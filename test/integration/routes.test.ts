@@ -1,5 +1,6 @@
+import { rm } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { describe, it, expect } from "vitest";
+import { afterAll, describe, it, expect } from "vitest";
 import { $fetch, fetch, setup } from "@nuxt/test-utils/e2e";
 import { DOC_CHAPTERS, docPath } from "~~/shared/docs";
 
@@ -11,8 +12,17 @@ import { DOC_CHAPTERS, docPath } from "~~/shared/docs";
  * answers the wrong status) is caught here and nowhere else.
  */
 
+// @nuxt/test-utils names a new build directory on every run and, once the
+// build has made it, never removes it, so a fixed one is used and removed here.
+// This hook is registered first so it runs last, after the server has stopped.
+const buildDir = fileURLToPath(
+  new URL("../../.nuxt/integration", import.meta.url),
+);
+afterAll(() => rm(buildDir, { recursive: true, force: true }));
+
 await setup({
   rootDir: fileURLToPath(new URL("../..", import.meta.url)),
+  buildDir,
   server: true,
   browser: false,
 });
