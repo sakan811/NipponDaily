@@ -283,7 +283,7 @@ const commands = [
   },
   {
     cmd: "pnpm data:pitch",
-    does: "Pick each word's pitch accent from the pinned Kanjium list into `data/reference/pitch.json`.",
+    does: "Pick each word's pitch accent from the pinned Kanjium list, keep those UniDic gives too, into `data/reference/pitch.json`.",
   },
   {
     cmd: "pnpm data:words",

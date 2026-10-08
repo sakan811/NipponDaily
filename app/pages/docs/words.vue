@@ -276,7 +276,7 @@ const fields = [
   {
     name: "pitch?",
     meaning:
-      "The mora after which the pitch falls, as the pinned Kanjium accent list gives it for this exact spelling and reading (`0`: it never falls, `1`: after the first mora…); several when the list gives several. Left out when the list has none.",
+      "The mora after which the pitch falls, as the pinned Kanjium accent list gives it for this exact spelling and reading (`0`: it never falls, `1`: after the first mora…) and UniDic gives it too; several when both give several. Left out when they share none.",
   },
   {
     name: "stratum?",

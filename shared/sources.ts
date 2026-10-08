@@ -178,8 +178,8 @@ export const SOURCES = {
     holder: "National Institute for Japanese Language and Linguistics (NINJAL)",
     holderShort: "NINJAL",
     via: { name: "Lindera", url: LINDERA_URL },
-    use: "A second, independent reading of example sentences, to check Tatoeba's furigana",
-    credit: `It is then checked against a second analyser, ${link("Lindera", LINDERA_URL)} (${LICENCES.mit.name}) with the ${link("UniDic", UNIDIC_URL)} dictionary of the National Institute for Japanese Language and Linguistics (${LICENCES.unidic.name}). The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.`,
+    use: "A second, independent reading of example sentences, to check Tatoeba's furigana, and a second witness for the pitch accent",
+    credit: `It is then checked against a second analyser, ${link("Lindera", LINDERA_URL)} (${LICENCES.mit.name}) with the ${link("UniDic", UNIDIC_URL)} dictionary of the National Institute for Japanese Language and Linguistics (${LICENCES.unidic.name}). The same dictionary's accent types check the pitch accents: one is kept only where UniDic gives it too. The analyser and the dictionary are used only when the data is built; nothing of them is sent to or shipped to a reader.`,
   },
   kanjium: {
     id: "kanjium",
@@ -189,7 +189,7 @@ export const SOURCES = {
     licence: LICENCES.ccBySa4,
     holder: "Kanjium contributors",
     use: "Pitch accent of the words",
-    credit: `Pitch accents are from the accent list of ${link("Kanjium", KANJIUM_URL)}, under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, which credits its accent data to Uros O.'s free database. A word is shown an accent only where the list gives that exact spelling and reading.`,
+    credit: `Pitch accents are from the accent list of ${link("Kanjium", KANJIUM_URL)}, under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, which credits its accent data to Uros O.'s free database. A word is shown an accent only where the list gives that exact spelling and reading and ${link("UniDic", UNIDIC_URL)} gives the same accent.`,
   },
   kanjivg: {
     id: "kanjivg",

@@ -83,7 +83,7 @@ const features = computed(() => [
   {
     title: "How It Is Said",
     description:
-      "Where the pinned Kanjium accent list gives a word's exact spelling and reading, the entry shows its pitch accent: the reading with a line over the high morae and a ↓ after the one where the pitch falls, named flat (heiban), head-high (atamadaka), middle-high (nakadaka) or tail-high (odaka). A word the list does not give shows none, and where it gives several accents they are all shown.",
+      "Where the pinned Kanjium accent list gives a word's exact spelling and reading and UniDic gives the same accent, the entry shows its pitch accent: the reading with a line over the high morae and a ↓ after the one where the pitch falls, named flat (heiban), head-high (atamadaka), middle-high (nakadaka) or tail-high (odaka). A word the two do not agree on shows none, and where both give several accents they are all shown.",
   },
   {
     title: "Which Layer, Which Process",

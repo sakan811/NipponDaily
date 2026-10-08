@@ -10,9 +10,9 @@
       The laps, the multi-select and any/all filters in Explore, the
       part-of-speech and how-common groups, the “not stated” layer, the larger
       combinations in Patterns, the kanji pages with their stroke order, the
-      example sentences with their furigana, the pitch accent, JMdict's
-      register, field and dialect tags, the JMdict cross-check and the share
-      image are built and described in
+      example sentences with their furigana, the pitch accent and its check
+      against a second dictionary, JMdict's register, field and dialect tags,
+      the JMdict cross-check and the share image are built and described in
       <NuxtLink to="/docs/core-theme">Core theme</NuxtLink> and
       <NuxtLink to="/docs/words">Daily words</NuxtLink>. What is left is a list
       of ideas, not a promise. Any of them follows the
@@ -34,14 +34,6 @@
         the sentence (一日 as 月 + 立ち), so each would need a human check for a
         very small gain. Reading them would also need the templates pinned
         beside each section.
-      </li>
-      <li>
-        <strong>A second source for the pitch accent.</strong> The accent list
-        is one source, so nothing checks it the way KANJIDIC2 and a second
-        analyser check the furigana. An independent open accent dictionary would
-        let the app show an accent only where two agree, and name the words they
-        disagree on. It would need its own pinned file, a check and an entry in
-        <code>shared/sources.ts</code>.
       </li>
     </ul>
 
@@ -91,14 +83,20 @@
         at present.
       </li>
       <li>
-        <strong>Pitch accent is one list's, not a recording.</strong> It comes
-        from Kanjium's accent list, which credits an individual's free database
-        and does not say whose speech it records, and a word is shown an accent
-        only where the list gives that exact spelling and reading, so some words
-        show none. The number is the mora after which the pitch falls; how it
-        changes in a compound, with a particle or in a sentence is not shown.
-        Where the list gives several accents all are shown, without saying which
-        is more usual.
+        <strong>Pitch accent is two lists' agreement, not a recording.</strong>
+        It comes from Kanjium's accent list, which credits an individual's free
+        database and does not say whose speech it records, and an accent is
+        shown only where UniDic's own accent type for the same spelling and
+        reading gives it too. That drops the accents UniDic contradicts and
+        every one of a word it is silent on (its lexicon does not hold many
+        compounds, and it reads some words otherwise), so some words show none;
+        the snapshot names each word that lost one. The two are not proven
+        independent: both may rest on the same older accent dictionaries, and
+        agreeing does not make an accent right. A word is shown an accent only
+        where the list gives that exact spelling and reading. The number is the
+        mora after which the pitch falls; how it changes in a compound, with a
+        particle or in a sentence is not shown. Where both give several accents
+        all are shown, without saying which is more usual.
       </li>
       <li>
         <strong>Stroke order is KanjiVG's drawing.</strong> It is shown only
