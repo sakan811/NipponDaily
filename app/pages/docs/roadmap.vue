@@ -170,8 +170,11 @@
         address.
       </li>
       <li>
-        <strong>No integration tests.</strong> Pages with no test are only
-        exercised by <code>pnpm build</code>.
+        <strong>No browser tests.</strong> The integration test requests every
+        route of the built app, so a page that fails to render or answers the
+        wrong status is caught. Nothing runs the client in a browser, so
+        hydration problems and interactions are checked only by their unit
+        tests.
       </li>
       <li>
         <strong>Contrast is held, not met everywhere.</strong> Text on colour
