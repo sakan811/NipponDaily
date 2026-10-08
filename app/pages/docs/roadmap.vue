@@ -174,9 +174,13 @@
         exercised by <code>pnpm build</code>.
       </li>
       <li>
-        <strong>Contrast is a target, not a guarantee.</strong> Text on colour
-        aims for WCAG AA, but nothing enforces it in a test and a few pairings
-        fall short.
+        <strong>Contrast is held, not met everywhere.</strong> Text on colour
+        aims for WCAG AA. A test (<code>contrast</code>) measures every pair the
+        UI uses in every season and mode and lists those below 4.5:1: the error
+        button in spring, summer and winter, the autumn primary button, and much
+        of the coloured text, mostly secondary, success and warning on the light
+        canvas and autumn's primary. The list stops a pair getting worse; it
+        does not fix one, which needs a new palette value.
       </li>
     </ul>
   </DocsBook>
