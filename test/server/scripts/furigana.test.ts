@@ -13,6 +13,7 @@ const { furiganaFor } = lib as {
       jmdictReadings: (s: string) => string[];
       kanjiReadings?: (k: string) => string[];
       transcription?: { text: string; human: boolean };
+      unidicTokens?: Token[];
     },
   ) => string[][] | undefined;
 };
@@ -191,6 +192,58 @@ describe("furiganaFor", () => {
       ]);
       expect(
         furiganaFor("手紙", "手紙", differ, sources(text, false)),
+      ).toBeUndefined();
+    });
+
+    it("trusts software where UniDic hears the same, though kuromoji does not", () => {
+      const kuromoji = [tok("手紙", "シュシ")];
+      const unidic = [tok("手紙", "テガミ")];
+      expect(
+        furiganaFor("手紙", "手紙", kuromoji, {
+          ...sources("[手紙|て|がみ]", false),
+          unidicTokens: unidic,
+        }),
+      ).toEqual([["手紙", "てがみ"]]);
+      // UniDic hearing something else is no support.
+      expect(
+        furiganaFor("手紙", "手紙", kuromoji, {
+          ...sources("[手紙|て|がみ]", false),
+          unidicTokens: [tok("手紙", "シュシ")],
+        }),
+      ).toBeUndefined();
+    });
+
+    it("lets UniDic correct software that kuromoji repeats", () => {
+      // The software and kuromoji both say いが; JMdict gives 歪む one reading,
+      // ゆがむ, which UniDic hears and so confirms.
+      const tokens = [tok("歪ん", "イガン", "歪む"), tok("だ", "ダ")];
+      const unidic = [tok("歪ん", "ユガン", "歪む"), tok("だ", "ダ")];
+      expect(
+        furiganaFor("歪んだ", "歪んだ", tokens, {
+          ...sources("[歪|いが]んだ", false, { jmdict: { 歪む: ["ゆがむ"] } }),
+          unidicTokens: unidic,
+        }),
+      ).toEqual([["歪", "ゆが"], ["んだ"]]);
+    });
+
+    it("lets UniDic read a run the transcription left bare", () => {
+      const tokens = [tok("手紙", "シュシ")];
+      expect(
+        furiganaFor("手紙", "手紙", tokens, {
+          indexReadings: none,
+          jmdictReadings: jmdict({ 手紙: ["てがみ"] }),
+          unidicTokens: [tok("手紙", "テガミ")],
+        }),
+      ).toEqual([["手紙", "てがみ"]]);
+    });
+
+    it("ignores UniDic tokens that do not spell the sentence", () => {
+      expect(
+        furiganaFor("手紙", "手紙", [tok("手紙", "シュシ")], {
+          indexReadings: none,
+          jmdictReadings: jmdict({ 手紙: ["てがみ"] }),
+          unidicTokens: [tok("手", "テ"), tok("書", "ガキ")],
+        }),
       ).toBeUndefined();
     });
 
