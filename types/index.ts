@@ -114,6 +114,10 @@ export interface WordEntry {
   /** The dialect JMdict marks that sense with (Kansai-ben…), verbatim; left
    *  out when JMdict gives none. */
   dialect?: string[];
+  /** The mora after which the pitch falls, as the pinned accent list gives it
+   *  for this spelling and reading (0: it never falls, 1: after the first
+   *  mora…); several when the list gives several. Left out when it has none. */
+  pitch?: number[];
   /** The layer of the vocabulary — present only when KANJIDIC2's readings
    *  (or the evidence) establish it; irregular spellings leave it out. */
   stratum?: WordStratum;
