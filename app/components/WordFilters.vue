@@ -176,7 +176,7 @@
       <button
         type="button"
         data-testid="explore-clear-part"
-        class="underline hover:text-primary-500"
+        class="underline hover:text-primary-600 dark:hover:text-primary-400"
         @click="removePart"
       >
         Remove

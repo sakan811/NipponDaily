@@ -135,7 +135,8 @@ pnpm dev          # http://localhost:3000</code></pre>
       </li>
       <li>
         <code>contrast</code>: text on colour in every season and mode against
-        WCAG AA, with the pairs that fall short listed so none gets worse.
+        WCAG AA (fills, and shaded text on the canvas and on its tint), and that
+        no class sets text in a 500 step.
       </li>
       <li><code>docs-sync</code>: the docs against the code (see below).</li>
     </ul>

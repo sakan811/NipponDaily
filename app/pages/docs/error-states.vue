@@ -14,7 +14,7 @@
         v-for="item in sections"
         :key="item.id"
         :href="`#${item.id}`"
-        class="text-xs font-mono px-2.5 py-1 season-chip bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-primary-500 no-underline"
+        class="text-xs font-mono px-2.5 py-1 season-chip bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-primary-600 dark:hover:text-primary-400 no-underline"
       >
         {{ item.label }}
       </a>
@@ -107,7 +107,9 @@
             <p class="text-xs text-stone-500">13</p>
             <p class="mt-1 text-2xl font-serif font-bold">例</p>
             <p class="text-xs text-stone-500">れい</p>
-            <p class="kicker text-primary-500 mt-1">today</p>
+            <p class="kicker text-primary-600 dark:text-primary-400 mt-1">
+              today
+            </p>
           </div>
           <div
             class="min-h-[6rem] border border-dashed border-stone-300/70 dark:border-stone-800 p-2.5 text-xs text-stone-400 dark:text-stone-600"
@@ -147,7 +149,9 @@
         <div
           class="border border-stone-300 dark:border-stone-800 season-box bg-[#FDFBF7] dark:bg-[#0B0E14] px-4 py-12 text-center"
         >
-          <h1 class="text-6xl font-serif font-bold text-primary-500 mb-4">
+          <h1
+            class="text-6xl font-serif font-bold text-primary-600 dark:text-primary-400 mb-4"
+          >
             404
           </h1>
           <h2 class="text-2xl font-bold mb-3">Page Not Found</h2>
@@ -176,7 +180,9 @@
           <div
             class="season-box border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
           >
-            <p class="text-xs font-mono font-bold text-error-500 mb-2">
+            <p
+              class="text-xs font-mono font-bold text-error-600 dark:text-error-400 mb-2"
+            >
               400 Bad Request
             </p>
             <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
@@ -194,7 +200,9 @@
           <div
             class="season-box border border-stone-300 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4"
           >
-            <p class="text-xs font-mono font-bold text-error-500 mb-2">
+            <p
+              class="text-xs font-mono font-bold text-error-600 dark:text-error-400 mb-2"
+            >
               404 Not Found
             </p>
             <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">

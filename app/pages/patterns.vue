@@ -81,9 +81,10 @@
                 class="group block"
               >
                 <span class="flex items-baseline justify-between gap-3 text-sm">
-                  <span class="group-hover:text-primary-500">{{
-                    layerName(s.value)
-                  }}</span>
+                  <span
+                    class="group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                    >{{ layerName(s.value) }}</span
+                  >
                   <span class="tabular-nums text-stone-500 dark:text-stone-400"
                     >{{ s.count }} ·
                     {{ percent(s.count, patterns.total) }}</span
@@ -121,9 +122,10 @@
                 class="group block"
               >
                 <span class="flex items-baseline justify-between gap-3 text-sm">
-                  <span class="font-semibold group-hover:text-primary-500">{{
-                    row.value
-                  }}</span>
+                  <span
+                    class="font-semibold group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                    >{{ row.value }}</span
+                  >
                   <span class="tabular-nums text-stone-500 dark:text-stone-400"
                     >{{ row.count }} words</span
                   >
@@ -172,9 +174,10 @@
                 class="group block"
               >
                 <span class="flex items-baseline justify-between gap-3 text-sm">
-                  <span class="group-hover:text-primary-500">{{
-                    WORD_PROCESSES[row.value].label
-                  }}</span>
+                  <span
+                    class="group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                    >{{ WORD_PROCESSES[row.value].label }}</span
+                  >
                   <span
                     class="tabular-nums text-stone-500 dark:text-stone-400"
                     >{{ row.count }}</span
@@ -283,7 +286,7 @@
               <p class="flex items-baseline justify-between gap-3">
                 <NuxtLink
                   :to="combinationPath(combo)"
-                  class="font-semibold hover:text-primary-500"
+                  class="font-semibold hover:text-primary-600 dark:hover:text-primary-400"
                   >{{ combinationLabel(combo) }}</NuxtLink
                 >
                 <span

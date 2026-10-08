@@ -175,13 +175,14 @@
         tests.
       </li>
       <li>
-        <strong>Contrast is held, not met everywhere.</strong> Text on colour
-        aims for WCAG AA. A test (<code>contrast</code>) measures every pair the
-        UI uses in every season and mode and lists those below 4.5:1: the error
-        button in spring, summer and winter, the autumn primary button, and much
-        of the coloured text, mostly secondary, success and warning on the light
-        canvas and autumn's primary. The list stops a pair getting worse; it
-        does not fix one, which needs a new palette value.
+        <strong>Contrast is measured on the pairs the UI uses.</strong> Text on
+        colour meets WCAG AA (4.5:1) in every season and mode: fills and their
+        text, and the shaded text (the 600 step in light, the 400 in dark) on
+        the canvas and on the tint soft buttons and badges draw. A test
+        (<code>contrast</code>) holds this. The 500 step is a fill, never a text
+        colour, and a solid button lifts on hover instead of darkening, because
+        its text colour was picked for the 500 step. Colour that is not text
+        (borders, focus rings, the seasonal backdrops) is not measured.
       </li>
     </ul>
   </DocsBook>

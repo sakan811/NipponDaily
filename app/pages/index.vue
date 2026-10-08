@@ -20,7 +20,10 @@
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
           Every word has<br class="hidden sm:inline" />
-          <span class="text-primary-500 italic font-normal">a story.</span>
+          <span
+            class="text-primary-600 dark:text-primary-400 italic font-normal"
+            >a story.</span
+          >
         </h1>
 
         <p
@@ -80,7 +83,7 @@
           <div class="mt-3 flex flex-wrap items-end gap-x-5 gap-y-1">
             <span
               data-testid="today-term"
-              class="text-5xl sm:text-6xl font-serif font-bold text-stone-900 dark:text-white group-hover:text-primary-500 transition-colors leading-none"
+              class="text-5xl sm:text-6xl font-serif font-bold text-stone-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-none"
               >{{ payload.entry.term }}</span
             >
             <span
@@ -158,12 +161,12 @@
             class="group season-box flex items-start gap-4 p-5 border border-stone-200 dark:border-stone-800 bg-white/70 dark:bg-stone-900/50 hover:border-primary-500/40 transition-colors duration-200"
           >
             <span
-              class="font-serif text-2xl text-stone-300 dark:text-stone-700 group-hover:text-primary-500 transition-colors duration-200 leading-none pt-0.5"
+              class="font-serif text-2xl text-stone-300 dark:text-stone-700 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 leading-none pt-0.5"
               >{{ String(idx + 1).padStart(2, "0") }}</span
             >
             <div class="space-y-1">
               <h3
-                class="text-lg font-serif font-bold text-stone-900 dark:text-white group-hover:text-primary-500 transition-colors duration-200"
+                class="text-lg font-serif font-bold text-stone-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200"
               >
                 {{ part.title }}
               </h3>
@@ -229,7 +232,7 @@
           <li v-for="chapter in DOC_CHAPTERS" :key="chapter.slug">
             <NuxtLink
               :to="docPath(chapter.slug)"
-              class="flex items-baseline gap-3 py-1 no-underline hover:text-primary-500 transition-colors"
+              class="flex items-baseline gap-3 py-1 no-underline hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
               <span class="kicker text-stone-400 dark:text-stone-500">{{
                 chapterNumber(chapter.slug).toString().padStart(2, "0")
@@ -241,7 +244,7 @@
         <p class="text-center">
           <NuxtLink
             to="/docs"
-            class="kicker text-stone-500 dark:text-stone-400 hover:text-primary-500 transition-colors"
+            class="kicker text-stone-500 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >Open the book</NuxtLink
           >
         </p>

@@ -63,11 +63,15 @@ const VARIANTS: Record<Variant, Record<Tone, string>> = {
     gray: "bg-stone-500/10 text-stone-600 dark:text-stone-400 border border-stone-500/20",
   },
   outline: {
-    primary: "border border-primary-500/50 text-primary-500",
-    secondary: "border border-secondary-500/50 text-secondary-500",
-    success: "border border-success-500/50 text-success-500",
-    warning: "border border-warning-500/50 text-warning-500",
-    error: "border border-error-500/50 text-error-500",
+    primary:
+      "border border-primary-500/50 text-primary-600 dark:text-primary-400",
+    secondary:
+      "border border-secondary-500/50 text-secondary-600 dark:text-secondary-400",
+    success:
+      "border border-success-500/50 text-success-600 dark:text-success-400",
+    warning:
+      "border border-warning-500/50 text-warning-600 dark:text-warning-400",
+    error: "border border-error-500/50 text-error-600 dark:text-error-400",
     gray: "border border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-400",
   },
   solid: {

@@ -135,7 +135,7 @@
   --secondary-300: #c3cdc0;
   --secondary-400: #a1b29e;
   --secondary-500: #7e957a;
-  --secondary-600: #61775e;
+  --secondary-600: #5d725a;
   --secondary-700: #4b5c49;
   --secondary-800: #394637;
   --secondary-900: #273026;
@@ -147,7 +147,7 @@
   --success-300: #a9d3a4;
   --success-400: #7cba75;
   --success-500: #559e4e;
-  --success-600: #40803a;
+  --success-600: #3d7a37;
   --success-700: #33662e;
   --success-800: #295025;
   --success-900: #21401e;
@@ -159,7 +159,7 @@
   --warning-300: #eec57b;
   --warning-400: #e5a84d;
   --warning-500: #d88b27;
-  --warning-600: #bc711d;
+  --warning-600: #9d5e19;
   --warning-700: #9b5818;
   --warning-800: #7c4514;
   --warning-900: #633711;
@@ -193,7 +193,7 @@
   --on-primary: #ffffff;
   --on-secondary: #2e231c;
   --on-success: #2e231c;
-  --on-error: #2e231c;
+  --on-error: #0b0e14;
 }
 
 .dark {
@@ -272,7 +272,7 @@
 
   /* WCAG-picked per *-500 above (see contrast note on --color-on-primary) */
   --on-primary: #0b0e14;
-  --on-secondary: #0b0e14;
+  --on-secondary: #ffffff;
   --on-success: #0b0e14;
   --on-error: #0b0e14;
 }
@@ -301,7 +301,7 @@
   --primary-300: #ffc5a8;
   --primary-400: #f2a27a;
   --primary-500: #d26b38;
-  --primary-600: #b8592a;
+  --primary-600: #ab5327;
   --primary-700: #9c491f;
   --primary-800: #7e3916;
   --primary-900: #612a0f;
@@ -314,7 +314,7 @@
   --secondary-300: #f2c467;
   --secondary-400: #e9aa3d;
   --secondary-500: #d1911f;
-  --secondary-600: #ac7517;
+  --secondary-600: #936414;
   --secondary-700: #895c14;
   --secondary-800: #684611;
   --secondary-900: #4a330d;
@@ -329,7 +329,7 @@
   --success-300: #bed6ae;
   --success-400: #9ec582;
   --success-500: #6da446;
-  --success-600: #5a873a;
+  --success-600: #4f7733;
   --success-700: #486c2e;
   --success-800: #3a5725;
   --success-900: #2f471e;
@@ -344,7 +344,7 @@
   --warning-300: #e7c29d;
   --warning-400: #e1a365;
   --warning-500: #cc751e;
-  --warning-600: #a76019;
+  --warning-600: #9f5c18;
   --warning-700: #874d14;
   --warning-800: #6c3e10;
   --warning-900: #58320d;
@@ -365,7 +365,7 @@
   --error-950: #32090e;
 
   /* Momiji red-orange is lighter than the default rose — flips to dark text */
-  --on-primary: #2e231c;
+  --on-primary: #1f1712;
   /* success-500/error-500 above are both light enough for dark text too
      (contrast-checked at ~5.1:1 and ~5.2:1 against #ffffff respectively —
      error pairs with white, not bark brown, since it reads too magenta for
@@ -444,6 +444,7 @@
 
   /* Ember orange is lighter than the default dark-mode teal — flips back to light text */
   --on-primary: #ffffff;
+  --on-secondary: #0b0e14;
   /* success-500/warning-500 above are both bright enough for dark text
      (contrast-checked at ~6.2:1 and ~8.0:1 against #0b0e14); error-500 is
      too dark/saturated for that, so it pairs with white instead (~5.4:1) */
@@ -542,7 +543,7 @@
   --secondary-300: #c6c3e3;
   --secondary-400: #afacd4;
   --secondary-500: #938fba;
-  --secondary-600: #77739b;
+  --secondary-600: #6d698e;
   --secondary-700: #5d597c;
   --secondary-800: #43405d;
   --secondary-900: #2b2940;

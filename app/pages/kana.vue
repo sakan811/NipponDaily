@@ -276,13 +276,13 @@
             :href="SOURCES.wanakana.url"
             target="_blank"
             rel="noopener"
-            class="underline hover:text-primary-500"
+            class="underline hover:text-primary-600 dark:hover:text-primary-400"
             >{{ SOURCES.wanakana.name }}</a
           >
           ({{ SOURCES.wanakana.licence.name }}) —
           <NuxtLink
             to="/docs/data-integrity#data-attribution"
-            class="underline hover:text-primary-500"
+            class="underline hover:text-primary-600 dark:hover:text-primary-400"
             >full attribution</NuxtLink
           >
         </p>

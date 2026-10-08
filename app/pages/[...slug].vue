@@ -5,7 +5,11 @@
     <AppHeader />
 
     <main class="container mx-auto px-4 py-16 text-center max-w-lg">
-      <h1 class="text-6xl font-serif font-bold text-primary-500 mb-4">404</h1>
+      <h1
+        class="text-6xl font-serif font-bold text-primary-600 dark:text-primary-400 mb-4"
+      >
+        404
+      </h1>
       <h2 class="text-2xl font-bold mb-3">Page Not Found</h2>
       <p class="text-stone-600 dark:text-stone-400 mb-6">
         The page or resource you are looking for does not exist or has been

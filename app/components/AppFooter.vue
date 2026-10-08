@@ -15,7 +15,7 @@
           :href="SOURCES.wiktionary.url"
           target="_blank"
           rel="noopener"
-          class="underline hover:text-primary-500"
+          class="underline hover:text-primary-600 dark:hover:text-primary-400"
           >{{ SOURCES.wiktionary.short }}</a
         >
         ({{ SOURCES.wiktionary.licence.name }}) via
@@ -23,14 +23,14 @@
           :href="SOURCES.wiktionary.via.url"
           target="_blank"
           rel="noopener"
-          class="underline hover:text-primary-500"
+          class="underline hover:text-primary-600 dark:hover:text-primary-400"
           >{{ SOURCES.wiktionary.via.name }}</a
         >; meanings &amp; kanji from {{ SOURCES.edrdg.short }} ({{
           SOURCES.edrdg.holderShort
         }}, {{ SOURCES.edrdg.licence.name }}) —
         <NuxtLink
           to="/docs/data-integrity"
-          class="underline hover:text-primary-500"
+          class="underline hover:text-primary-600 dark:hover:text-primary-400"
           >how we check it</NuxtLink
         >
       </p>

@@ -79,27 +79,29 @@ const SOLID_SHADOW = "shadow-sm hover:shadow-md";
 // Tailwind's source scanner can see every utility.
 const VARIANTS: Record<Variant, Record<Tone, string>> = {
   solid: {
-    primary: `bg-primary-500 hover:bg-primary-600 text-on-primary ${SOLID_SHADOW}`,
-    secondary: `bg-secondary-500 hover:bg-secondary-600 text-on-secondary ${SOLID_SHADOW}`,
-    success: `bg-success-500 hover:bg-success-600 text-on-success ${SOLID_SHADOW}`,
-    error: `bg-error-500 hover:bg-error-600 text-on-error ${SOLID_SHADOW}`,
+    primary: `bg-primary-500 text-on-primary ${SOLID_SHADOW}`,
+    secondary: `bg-secondary-500 text-on-secondary ${SOLID_SHADOW}`,
+    success: `bg-success-500 text-on-success ${SOLID_SHADOW}`,
+    error: `bg-error-500 text-on-error ${SOLID_SHADOW}`,
     gray: `bg-stone-800 dark:bg-stone-200 hover:bg-stone-900 dark:hover:bg-white text-white dark:text-stone-950 ${SOLID_SHADOW}`,
   },
   outline: {
     primary:
-      "border border-primary-500 text-primary-500 hover:bg-primary-500/10",
+      "border border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-500/10",
     secondary:
-      "border border-secondary-500 text-secondary-500 hover:bg-secondary-500/10",
+      "border border-secondary-500 text-secondary-600 dark:text-secondary-400 hover:bg-secondary-500/10",
     success:
-      "border border-success-500 text-success-500 hover:bg-success-500/10",
-    error: "border border-error-500 text-error-500 hover:bg-error-500/10",
+      "border border-success-500 text-success-600 dark:text-success-400 hover:bg-success-500/10",
+    error:
+      "border border-error-500 text-error-600 dark:text-error-400 hover:bg-error-500/10",
     gray: "border border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/50",
   },
   ghost: {
-    primary: "text-primary-500 hover:bg-primary-500/10",
-    secondary: "text-secondary-500 hover:bg-secondary-500/10",
-    success: "text-success-500 hover:bg-success-500/10",
-    error: "text-error-500 hover:bg-error-500/10",
+    primary: "text-primary-600 dark:text-primary-400 hover:bg-primary-500/10",
+    secondary:
+      "text-secondary-600 dark:text-secondary-400 hover:bg-secondary-500/10",
+    success: "text-success-600 dark:text-success-400 hover:bg-success-500/10",
+    error: "text-error-600 dark:text-error-400 hover:bg-error-500/10",
     gray: "text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50",
   },
   soft: {

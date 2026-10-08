@@ -9,7 +9,7 @@
       <div class="max-w-md mx-auto space-y-4">
         <!-- Error Icon -->
         <div
-          class="w-14 h-14 mx-auto rounded-full bg-error-500/10 dark:bg-error-500/20 text-error-500 flex items-center justify-center"
+          class="w-14 h-14 mx-auto rounded-full bg-error-500/10 dark:bg-error-500/20 text-error-600 dark:text-error-400 flex items-center justify-center"
         >
           <UIcon
             name="i-heroicons-cloud-arrow-down"

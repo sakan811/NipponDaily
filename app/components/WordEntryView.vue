@@ -272,14 +272,14 @@
               :href="tatoebaSentenceUrl(ex.id)"
               target="_blank"
               rel="noopener"
-              class="underline hover:text-primary-500"
+              class="underline hover:text-primary-600 dark:hover:text-primary-400"
               >Tatoeba #{{ ex.id }}</a
             >,
             <a
               :href="tatoebaSentenceUrl(ex.enId)"
               target="_blank"
               rel="noopener"
-              class="underline hover:text-primary-500"
+              class="underline hover:text-primary-600 dark:hover:text-primary-400"
               >translation #{{ ex.enId }}</a
             >
           </p>
@@ -291,14 +291,14 @@
           :href="SOURCES.tatoeba.url"
           target="_blank"
           rel="noopener"
-          class="underline hover:text-primary-500"
+          class="underline hover:text-primary-600 dark:hover:text-primary-400"
           >{{ SOURCES.tatoeba.name }}</a
         >
         (<a
           :href="SOURCES.tatoeba.licence.url"
           target="_blank"
           rel="noopener"
-          class="underline hover:text-primary-500"
+          class="underline hover:text-primary-600 dark:hover:text-primary-400"
           >{{ SOURCES.tatoeba.licence.name }}</a
         >), picked by fixed rules from a dated export and shown unchanged.
         Nobody has reviewed them one by one.
@@ -353,14 +353,14 @@
           :href="wiktionaryUrl"
           target="_blank"
           rel="noopener"
-          class="underline hover:text-primary-500"
+          class="underline hover:text-primary-600 dark:hover:text-primary-400"
           >Wiktionary: {{ entry.term }} (dump of {{ entry.wiktionaryDump }})</a
         >, available under
         <a
           :href="SOURCES.wiktionary.licence.url"
           target="_blank"
           rel="noopener"
-          class="underline hover:text-primary-500"
+          class="underline hover:text-primary-600 dark:hover:text-primary-400"
           >{{ SOURCES.wiktionary.licence.name }}</a
         >. Reading, meaning and part of speech from JMdict, and kanji readings
         from KANJIDIC2 ({{ SOURCES.edrdg.holderShort }}).

@@ -171,7 +171,7 @@
             v-if="!monthMatches && earlierMatch"
             type="button"
             data-testid="calendar-earlier-match"
-            class="underline hover:text-primary-500"
+            class="underline hover:text-primary-600 dark:hover:text-primary-400"
             @click="go(earlierMatch)"
           >
             Earlier match: {{ formatMonthYear(earlierMatch) }}
@@ -180,7 +180,7 @@
             v-if="!monthMatches && laterMatch"
             type="button"
             data-testid="calendar-later-match"
-            class="underline hover:text-primary-500"
+            class="underline hover:text-primary-600 dark:hover:text-primary-400"
             @click="go(laterMatch)"
           >
             Later match: {{ formatMonthYear(laterMatch) }}
@@ -246,7 +246,7 @@
                 />
               </span>
               <span
-                class="mt-1 block text-lg sm:text-2xl font-serif font-bold leading-tight text-stone-900 dark:text-white group-hover:text-primary-500 break-all"
+                class="mt-1 block text-lg sm:text-2xl font-serif font-bold leading-tight text-stone-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 break-all"
               >
                 {{ cell.day.term }}
               </span>
