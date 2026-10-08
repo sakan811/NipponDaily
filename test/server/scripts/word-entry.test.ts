@@ -13,6 +13,10 @@ const {
   stratumOf,
   posOf,
   priorityOf,
+  registerOf,
+  fieldOf,
+  dialectOf,
+  REGISTER_TAGS,
   jmdictFactsOf,
 } = lib as Record<string, (...args: any[]) => any>;
 
@@ -569,5 +573,49 @@ describe("posOf", () => {
 
   it("is empty when JMdict has no entry", () => {
     expect(posOf({ ...vocab, jmdict: [] })).toEqual([]);
+  });
+});
+
+describe("JMdict notes: register, field, dialect", () => {
+  const sense = (extra: object) => ({
+    pos: ["noun (common) (futsuumeishi)"],
+    glosses: ["battery"],
+    ...extra,
+  });
+  const vocab = (senses: object[]) => ({
+    term: "電池",
+    kana: "でんち",
+    meaning: "battery",
+    jmdict: [{ kanji: ["電池"], readings: ["でんち"], senses }],
+  });
+
+  it("keeps register tags verbatim and drops the rest of misc", () => {
+    const v = vocab([sense({ misc: ["colloquial", "abbreviation", "slang"] })]);
+    expect(registerOf(v)).toEqual(["colloquial", "slang"]);
+  });
+
+  it("reads the field and dialect of the sense", () => {
+    const v = vocab([sense({ field: ["physics"], dialect: ["Kansai-ben"] })]);
+    expect(fieldOf(v)).toEqual(["physics"]);
+    expect(dialectOf(v)).toEqual(["Kansai-ben"]);
+  });
+
+  it("states a tag only when every matched sense carries it", () => {
+    const v = vocab([
+      sense({ field: ["baseball"], misc: ["colloquial"] }),
+      sense({ misc: ["colloquial"] }),
+    ]);
+    expect(fieldOf(v)).toEqual([]);
+    expect(registerOf(v)).toEqual(["colloquial"]);
+  });
+
+  it("is empty when JMdict has no entry or gives no tags", () => {
+    expect(fieldOf({ ...vocab([]), jmdict: [] })).toEqual([]);
+    expect(registerOf(vocab([sense({})]))).toEqual([]);
+  });
+
+  it("names register tags as JMdict words them", () => {
+    expect(REGISTER_TAGS.has("colloquial")).toBe(true);
+    expect(REGISTER_TAGS.has("abbreviation")).toBe(false);
   });
 });

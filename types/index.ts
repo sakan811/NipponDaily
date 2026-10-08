@@ -104,6 +104,16 @@ export interface WordEntry {
   /** JMdict's priority codes for this spelling and reading, verbatim (ichi1,
    *  news1, gai1, nf05…); left out when JMdict tags neither. */
   priority?: string[];
+  /** How JMdict says the word is used by speaker and setting (colloquial,
+   *  polite (teineigo) language, slang…) for the sense the meaning came from,
+   *  verbatim; left out when JMdict gives none. */
+  register?: string[];
+  /** The field JMdict puts that sense in (medicine, baseball…), verbatim; left
+   *  out when JMdict gives none. */
+  field?: string[];
+  /** The dialect JMdict marks that sense with (Kansai-ben…), verbatim; left
+   *  out when JMdict gives none. */
+  dialect?: string[];
   /** The layer of the vocabulary — present only when KANJIDIC2's readings
    *  (or the evidence) establish it; irregular spellings leave it out. */
   stratum?: WordStratum;
