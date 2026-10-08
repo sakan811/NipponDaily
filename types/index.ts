@@ -275,6 +275,10 @@ export interface KanjiDetail {
   words: PartWordRef[];
   /** Whether some open word shows it as a part, so /parts/<char> exists. */
   isPart: boolean;
+  /** KanjiVG's strokes in the order they are drawn, as SVG path data on a
+   *  109 by 109 square; left out where KanjiVG and KANJIDIC2 count the
+   *  strokes differently. */
+  strokes?: string[];
 }
 
 // --- EXPLORE (browse and filter) ---
