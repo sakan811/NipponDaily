@@ -33,6 +33,10 @@ export const LICENCES = {
   mit: { name: "MIT licence" },
   // NINJAL offers UniDic under any one of these.
   unidic: { name: "BSD, LGPL or GPL" },
+  ccBySa3: {
+    name: "CC BY-SA 3.0",
+    url: "https://creativecommons.org/licenses/by-sa/3.0/",
+  },
   ofl11: {
     name: "SIL Open Font License 1.1",
     url: "https://openfontlicense.org/",
@@ -47,6 +51,8 @@ export interface DataSource {
     | "jlpt-word-list"
     | "wanakana"
     | "unidic"
+    | "kanjium"
+    | "kanjivg"
     | "og-fonts";
   /** Display name. */
   name: string;
@@ -70,10 +76,6 @@ export interface DataSource {
 const link = (text: string, url: string) => `[${text}](${url})`;
 
 const EDRDG_URL = "https://www.edrdg.org/";
-const JAMDICT = {
-  name: "jamdict-data",
-  url: "https://pypi.org/project/jamdict-data/",
-} as const;
 const WIKTIONARY_URL = "https://en.wiktionary.org";
 const KAIKKI = { name: "Kaikki.org", url: "https://kaikki.org/" } as const;
 // Kaikki.org asks that work using its data cite this paper and link the site.
@@ -88,6 +90,8 @@ const TANOS = {
   url: "https://www.tanos.co.uk/jlpt/",
 } as const;
 const WANAKANA_URL = "https://github.com/WaniKani/WanaKana";
+const KANJIUM_URL = "https://github.com/mifunetoshiro/kanjium";
+const KANJIVG_URL = "https://kanjivg.tagaini.net";
 const UNIDIC_URL = "https://clrd.ninjal.ac.jp/unidic/";
 const LINDERA_URL = "https://github.com/lindera/lindera";
 const ZEN_OLD_MINCHO_URL =
@@ -106,9 +110,8 @@ export const SOURCES = {
     licence: LICENCES.ccBySa4,
     holder: EDRDG_NAME,
     holderShort: "EDRDG",
-    via: JAMDICT,
-    use: "Readings, meanings, parts of speech and kanji readings",
-    credit: `JMdict and KANJIDIC2 are property of the ${link(EDRDG_NAME, EDRDG_URL)}, used under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)} via the ${link(JAMDICT.name, JAMDICT.url)} release.`,
+    use: "Readings, meanings, parts of speech, priority, register, field, dialect and kanji readings",
+    credit: `JMdict and KANJIDIC2 are property of the ${link(EDRDG_NAME, EDRDG_URL)}, used under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, from the dated files the group publishes.`,
   },
   wiktionary: {
     id: "wiktionary",
@@ -161,6 +164,26 @@ export const SOURCES = {
     use: "A second, independent reading of example sentences, to check Tatoeba's furigana",
     credit: `Tatoeba's furigana is checked against a second analyser, ${link("Lindera", LINDERA_URL)} (${LICENCES.mit.name}) with the ${link("UniDic", UNIDIC_URL)} dictionary of the National Institute for Japanese Language and Linguistics (${LICENCES.unidic.name}). The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.`,
   },
+  kanjium: {
+    id: "kanjium",
+    name: "Kanjium",
+    short: "Kanjium",
+    url: KANJIUM_URL,
+    licence: LICENCES.ccBySa4,
+    holder: "Kanjium contributors",
+    use: "Pitch accent of the words",
+    credit: `Pitch accents are from the accent list of ${link("Kanjium", KANJIUM_URL)}, under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, which credits its accent data to Uros O.'s free database. A word is shown an accent only where the list gives that exact spelling and reading.`,
+  },
+  kanjivg: {
+    id: "kanjivg",
+    name: "KanjiVG",
+    short: "KanjiVG",
+    url: KANJIVG_URL,
+    licence: LICENCES.ccBySa3,
+    holder: "Ulrich Apel",
+    use: "Stroke order of the kanji",
+    credit: `Stroke order is from ${link("KanjiVG", KANJIVG_URL)}, copyright Ulrich Apel, under ${link(LICENCES.ccBySa3.name, LICENCES.ccBySa3.url)}. A kanji is drawn only where KanjiVG and KANJIDIC2 count the same number of strokes.`,
+  },
   "og-fonts": {
     id: "og-fonts",
     name: "Zen Old Mincho, Outfit and Noto Serif JP",
@@ -180,6 +203,8 @@ export const DATA_SOURCES: readonly DataSource[] = [
   SOURCES["jlpt-word-list"],
   SOURCES.wanakana,
   SOURCES.unidic,
+  SOURCES.kanjium,
+  SOURCES.kanjivg,
   SOURCES["og-fonts"],
 ];
 

@@ -70,7 +70,8 @@ describe("data sources", () => {
   it("links the CC BY-SA licence text", () => {
     expect(LICENCES.ccBySa4.url).toContain("creativecommons.org");
     expect(SOURCES.wiktionary.credit).toContain(LICENCES.ccBySa4.url);
-    expect(SOURCES.edrdg.credit).toContain(SOURCES.edrdg.via.url);
+    expect(SOURCES.edrdg.credit).toContain(LICENCES.ccBySa4.url);
+    expect(SOURCES.kanjivg.credit).toContain(LICENCES.ccBySa3.url);
   });
 
   it("builds a Wiktionary page link", () => {
