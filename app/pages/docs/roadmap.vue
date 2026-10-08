@@ -23,13 +23,16 @@
       <li>
         <strong>More breakdowns.</strong> A KANJIDIC2 split now covers words
         written with kanji and their okurigana (手続き, 言い出す), marked as
-        derived. What is left without one is mostly a single kanji, or a single
+        derived. Most entries still without one are a single kanji, or a single
         kanji with okurigana (抱く), where the only split is the word itself.
         The rest are words written only in kana, loanwords whose text names no
-        one source, irregular spellings (為替, 足袋) and words where
-        Wiktionary's structured templates may give a derivation that its prose
-        words differently. Reading the templates would need them pinned beside
-        each section.
+        one source, irregular spellings (為替, 足袋) and words whose page has no
+        clean split. Wiktionary's structured templates (compound, affix) were
+        checked as a source: only a handful of the remaining entries have one
+        whose parts spell the word, and some of those say something other than
+        the sentence (一日 as 月 + 立ち), so each would need a human check for a
+        very small gain. Reading them would also need the templates pinned
+        beside each section.
       </li>
       <li>
         <strong>A newer JMdict.</strong> The checks against JMdict use the
@@ -45,17 +48,6 @@
         check and an entry in <code>shared/sources.ts</code>.
       </li>
       <li>
-        <strong>A second analyser for the furigana.</strong> kuromoji uses the
-        IPADIC dictionary and Tatoeba's software is MeCab, so their mistakes may
-        agree. An analyser built on a different dictionary (MeCab with UniDic,
-        or Sudachi) would check Tatoeba's machine-made readings independently
-        and settle some of the few kanji still left bare.
-      </li>
-      <li>
-        <strong>An export for flash-card tools</strong> of the open words, with
-        the licences they carry.
-      </li>
-      <li>
         <strong>More words.</strong> See the limit below: the supply is finite.
       </li>
     </ul>
@@ -67,10 +59,11 @@
         readings are Tatoeba's. Fewer than half were written by a contributor
         and the rest by software that Tatoeba says sometimes errs, so a reading
         is shown only if it passes a check against KANJIDIC2 or JMdict and a
-        contributor, kuromoji or Tatoeba's index stands behind it. A reading the
-        sources cannot settle, a number with its counter (３月) and a name stay
-        bare, so a bare kanji means “unsure”, not “easy”. A contributor can
-        still be wrong, and so can software and kuromoji together.
+        contributor, kuromoji, UniDic or Tatoeba's index stands behind it. A
+        reading the sources cannot settle, a number with its counter (３月) and
+        a name stay bare, so a bare kanji means “unsure”, not “easy”. A
+        contributor can still be wrong, and so can the analysers together: two
+        of them reading 光 as ひかり in 光ファイバー agree, and are wrong.
       </li>
       <li>
         <strong>Example sentences are picked, not reviewed.</strong> They come
