@@ -12,7 +12,7 @@
 
 ## Features
 
-One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · four seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT N5–N1 vocabulary, and only from words whose Wiktionary page has an Etymology section; only each headline is hand-written.
+One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 with KanjiVG stroke order · pitch accent · JMdict's register, field and dialect tags · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · four seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT N5–N1 vocabulary, and only from words whose Wiktionary page has an Etymology section; only each headline is hand-written.
 
 ## Quick start
 
@@ -35,7 +35,7 @@ The documentation is a short book inside the app, at [`/docs`](app/pages/docs/in
 
 <!-- docs:begin attribution -->
 
-JMdict and KANJIDIC2 are property of the [Electronic Dictionary Research and Development Group](https://www.edrdg.org/), used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) via the [jamdict-data](https://pypi.org/project/jamdict-data/) release.
+JMdict and KANJIDIC2 are property of the [Electronic Dictionary Research and Development Group](https://www.edrdg.org/), used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), from the dated files the group publishes.
 
 Etymology text is quoted from [English Wiktionary](https://en.wiktionary.org) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), as extracted by wiktextract and distributed by [Kaikki.org](https://kaikki.org/), which is maintained by Tatu Ylonen. See Ylonen, [Wiktextract: Wiktionary as Machine-Readable Structured Data](https://aclanthology.org/2022.lrec-1.140/), Proceedings of the 13th Conference on Language Resources and Evaluation (LREC), 2022, pp. 1317–1325. Each entry names the dated dump it quotes, links the page and quotes it verbatim; the one-line headline is NipponDaily's own.
 
@@ -46,6 +46,10 @@ The word lists come from the community list originally compiled at [tanos.co.uk]
 Kana conversion in the data scripts and checks uses [wanakana](https://github.com/WaniKani/WanaKana) (MIT licence).
 
 Tatoeba's furigana is checked against a second analyser, [Lindera](https://github.com/lindera/lindera) (MIT licence) with the [UniDic](https://clrd.ninjal.ac.jp/unidic/) dictionary of the National Institute for Japanese Language and Linguistics (BSD, LGPL or GPL). The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.
+
+Pitch accents are from the accent list of [Kanjium](https://github.com/mifunetoshiro/kanjium), under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), which credits its accent data to Uros O.'s free database. A word is shown an accent only where the list gives that exact spelling and reading.
+
+Stroke order is from [KanjiVG](https://kanjivg.tagaini.net), copyright Ulrich Apel, under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). A kanji is drawn only where KanjiVG and KANJIDIC2 count the same number of strokes.
 
 The site is set in [Zen Old Mincho](https://github.com/google/fonts/tree/main/ofl/zenoldmincho), [Outfit](https://github.com/google/fonts/tree/main/ofl/outfit) and [Noto Serif JP](https://github.com/google/fonts/tree/main/ofl/notoserifjp), served from the app by way of the `@fontsource` packages, and the share images are drawn in the first two; all are under the [SIL Open Font License 1.1](https://openfontlicense.org/). The share-image licences ship beside the font files in `server/assets/og/`.
 <!-- docs:end attribution -->
