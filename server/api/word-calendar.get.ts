@@ -1,10 +1,7 @@
 import { z } from "zod";
-import { safeGetQuery } from "../utils/http-query";
-import {
-  exploreFilterShape,
-  filtersOf,
-  rejectQuery,
-} from "../utils/explore-filters";
+import { notFound, ok } from "../utils/api-response";
+import { exploreFilterShape, filtersOf } from "../utils/explore-filters";
+import { parseQuery } from "../utils/http-query";
 import { exploreCalendar } from "~~/shared/explore";
 import { isValidMonth, monthsWithEntries, todayJst } from "~~/shared/words";
 
@@ -19,15 +16,9 @@ const wordCalendarQuerySchema = z.object({
 });
 
 export default defineEventHandler((event) => {
-  let requestedMonth: string | undefined;
-  let filters: ReturnType<typeof filtersOf>;
-  try {
-    const query = wordCalendarQuerySchema.parse(safeGetQuery(event));
-    requestedMonth = query.month;
-    filters = filtersOf(query);
-  } catch (error) {
-    return rejectQuery(error);
-  }
+  const query = parseQuery(event, wordCalendarQuerySchema);
+  const requestedMonth = query.month;
+  const filters = filtersOf(query);
 
   const today = todayJst();
   const months = monthsWithEntries(today);
@@ -37,18 +28,9 @@ export default defineEventHandler((event) => {
     requestedMonth ??
     (months.includes(today.slice(0, 7)) ? today.slice(0, 7) : months.at(-1));
 
-  if (!month || !months.includes(month)) {
-    throw createError({
-      statusCode: 404,
-      statusMessage: "Not Found",
-      data: { error: `There are no words for ${month ?? "that month"}.` },
-    });
-  }
+  if (!month || !months.includes(month))
+    throw notFound(`There are no words for ${month ?? "that month"}.`);
 
-  return {
-    success: true,
-    // Only open days are ever matched, so an upcoming word cannot be found early.
-    data: exploreCalendar(month, filters, today),
-    timestamp: new Date().toISOString(),
-  };
+  // Only open days are ever matched, so an upcoming word cannot be found early.
+  return ok(exploreCalendar(month, filters, today));
 });

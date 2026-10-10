@@ -1,8 +1,5 @@
+import { ok } from "../utils/api-response";
 import { patternsFor } from "~~/shared/patterns";
 import { todayJst } from "~~/shared/words";
 
-export default defineEventHandler(() => ({
-  success: true,
-  data: patternsFor(todayJst()),
-  timestamp: new Date().toISOString(),
-}));
+export default defineEventHandler(() => ok(patternsFor(todayJst())));
