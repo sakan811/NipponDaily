@@ -108,10 +108,10 @@
         <strong>Choose the words</strong> (a person or a model may do this).
         They must be pool words ({{ JLPT_RANGE }}). Prefer words whose
         Wiktionary page has an Etymology section; the generator will tell you if
-        one doesn't. Nearly every pool word the pinned dump can back is already
-        planned (about thirty were left out by hand because the page's text was
-        thin or about another sense), so a further month needs a newer dump or a
-        corrected pool.
+        one doesn't. Most pool words have none, and most of those that do are
+        already planned. The ones still unplanned are listed in the
+        <NuxtLink to="/docs/roadmap">Roadmap</NuxtLink>; beyond them a further
+        month needs a newer dump.
       </li>
       <li>
         <strong>Write the plan</strong>

@@ -103,8 +103,8 @@ export const DOC_CHAPTERS: readonly DocChapter[] = [
   {
     slug: "roadmap",
     part: "Working on it",
-    title: "Roadmap and limits",
-    summary: "What is not built yet, and what the app cannot promise.",
+    title: "Roadmap",
+    summary: "What is left to build or fix.",
   },
 ];
 
