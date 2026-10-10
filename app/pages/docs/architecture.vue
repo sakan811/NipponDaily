@@ -50,7 +50,7 @@ server/     api/ (handlers), routes/ (sitemap, robots, share images), middleware
 scripts/    data builders run with node: reference snapshots, etymology pins, example sentences, pitch accents, kanji records, strokes, entry generator
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
-test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots)
+test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots), integration/ (the built app over HTTP)
 e2e/        Playwright browser tests of the built app</code></pre>
 
     <h2>The shared modules</h2>
@@ -100,7 +100,7 @@ e2e/        Playwright browser tests of the built app</code></pre>
         <code>/parts/&lt;text&gt;</code>, <code>/kanji</code>,
         <code>/kanji/&lt;character&gt;</code>, <code>/kana</code>,
         <code>/docs/*</code> (this book) and a catch-all that answers a real
-        <code>404</code> and is <code>noindex</code>. The removed
+        <code>404</code> and is <code>noindex</code>. Old links to
         <code>/game</code>, <code>/learn/**</code> and
         <code>/vocab/**</code> redirect to <code>/</code> (<code
           >routeRules</code
@@ -168,7 +168,9 @@ e2e/        Playwright browser tests of the built app</code></pre>
       <code>shared/endpoints.ts</code> and the
       <NuxtLink to="/docs/api">API</NuxtLink>
       chapter. The season is applied in the browser, never in the HTML, which is
-      why a cached page is safe.
+      why a cached page is safe. Without a CDN that honours
+      <code>s-maxage</code> every request runs the app, which is correct but
+      slower.
     </p>
     <p>
       This saves invocations, not computation: with every entry in memory a
