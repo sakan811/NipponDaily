@@ -36,7 +36,9 @@
       a ↓ after the one the pitch falls on, named heiban, atamadaka, nakadaka or
       odaka (<code>app/utils/pitch.ts</code> only lays the number over the
       word's own kana), with a short note under the line saying how to read it.
-      Neither adds a claim.
+      The accent is the word's own: how it changes in a compound, with a
+      particle or in a sentence is not shown, and where several accents are kept
+      all are shown, without saying which is more usual. Neither adds a claim.
     </p>
     <p>
       A hedge in a quoted line (“probably”, “unknown”…) is detected when the
@@ -133,19 +135,20 @@
       katakana folded to hiragana), <code>level</code>, <code>stratum</code>,
       <code>process</code>, <code>pos</code>, <code>frequency</code> and
       <code>part</code>, newest first. Different filters always narrow together.
-      Within <code>level</code>, <code>stratum</code>, <code>process</code> and
-      <code>pos</code> several choices are joined by commas
-      (<code>?process=rendaku,compound</code>), and <code>match</code> says how
-      they combine: by default a word needs <em>any</em> of them, with
-      <code>match=all</code> it needs <em>every</em> process and every part of
-      speech. A word has one level, one layer and one frequency group, so those
-      always read as “any”. <code>/words</code> (the calendar) takes the same
-      filters beside <code>month</code>:
-      <code>GET /api/word-calendar</code> marks each open day of the month
-      <code>match</code> or not and returns the same counts, plus how many words
-      match in every month. Both endpoints read the filters through
-      <code>server/utils/explore-filters.ts</code>, so a filter means the same
-      thing in each; the page shares one form, <code>WordFilters</code>.
+      Within <code>level</code>, <code>stratum</code>, <code>process</code>,
+      <code>pos</code> and <code>frequency</code> several choices are joined by
+      commas (<code>?process=rendaku,compound</code>), and
+      <code>match</code> says how they combine: by default a word needs
+      <em>any</em> of them, with <code>match=all</code> it needs
+      <em>every</em> process and every part of speech. A word has one level, one
+      layer and one frequency group, so those always read as “any”.
+      <code>/words</code> (the calendar) takes the same filters beside
+      <code>month</code>: <code>GET /api/word-calendar</code> marks each open
+      day of the month <code>match</code> or not and returns the same counts,
+      plus how many words match in every month. Both endpoints read the filters
+      through <code>server/utils/explore-filters.ts</code>, so a filter means
+      the same thing in each; the page shares one form,
+      <code>WordFilters</code>.
     </p>
     <p>
       The layer <code>unstated</code> picks the words with no stated layer.
@@ -180,7 +183,10 @@
       ず count, being the merged voiced sounds), a reading ending in っ, or
       other. The page says the counts describe these entries (a JLPT
       {{ JLPT_RANGE }}
-      sample, parser-derived tags), not the language.
+      sample, parser-derived tags), not the language. The years are lopsided,
+      too: katakana spellings are nearly half of 2022, and 2025 and 2026 are
+      almost all N1 (no word before 2024 is), so the counts show more of each
+      than the language would.
     </p>
 
     <h3>Related words</h3>
