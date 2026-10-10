@@ -6,7 +6,9 @@
     </template>
 
     <h2>Setup</h2>
-    <p>Node 22.19, 24.11 or 26 and newer (Nuxt's supported range) and pnpm.</p>
+    <p>
+      Node 22.22.3, 24.15 or 26 and newer (Nuxt's supported range) and pnpm.
+    </p>
     <pre><code>pnpm install
 cp .env.example .env
 pnpm dev          # http://localhost:3000</code></pre>
@@ -103,9 +105,9 @@ pnpm dev          # http://localhost:3000</code></pre>
         and requests every route over HTTP. It checks that the home page and a
         day's page hold their word in the HTML, that every part, kanji and
         chapter page answers, that a day that has not arrived is a
-        <code>404</code> and the removed routes redirect, that the share image
-        is a PNG, and that the cache header is on an answer and not on an error.
-        It has no setup file, because <code>test/setup.ts</code> replaces the
+        <code>404</code> and the old links redirect, that the share image is a
+        PNG, and that the cache header is on an answer and not on an error. It
+        has no setup file, because <code>test/setup.ts</code> replaces the
         global <code>fetch</code> with a mock. To run it alone:
         <code>pnpm exec vitest run --project integration</code>.
       </li>
@@ -156,8 +158,11 @@ pnpm dev          # http://localhost:3000</code></pre>
       </li>
       <li>
         <code>contrast</code>: text on colour in every season and mode against
-        WCAG AA (fills, and shaded text on the canvas and on its tint), and that
-        no class sets text in a 500 step.
+        WCAG AA (fills, and shaded text on the canvas and on its tint), that no
+        class sets text in a 500 step, that the focus ring, the search box's
+        border and a pressed chip's border reach 3:1 and that the classes
+        shipping are the ones measured, and that text reaches AA under each
+        seasonal backdrop wash.
       </li>
       <li>
         <code>single-source</code>: a fact owned by one module (Japan's offset,
@@ -188,10 +193,8 @@ pnpm dev          # http://localhost:3000</code></pre>
       </li>
       <li>
         <strong>A major opens with a Breaking or Pivot line</strong> saying what
-        was removed and which earlier tag still has it. The app has been a news
-        reader, an N5 learning game and now a daily word; each of those is still
-        reachable at its last tag, and the tags are the archive, not long-lived
-        branches.
+        was removed and which earlier tag still has it. The tags are the
+        archive, not long-lived branches.
       </li>
       <li>
         <strong>Published tags are never moved or deleted.</strong> Fix a
