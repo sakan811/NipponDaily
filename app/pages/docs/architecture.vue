@@ -221,8 +221,33 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
     <p>
       A fact is written once, in code, and everything else reads it. Prose that
       explains something stays hand-written, once per audience, and points here
-      instead of restating the fact.
+      instead of restating the fact. The rule (often called DRY) applies in four
+      places:
     </p>
+    <ul>
+      <li>
+        <strong>Code.</strong> One implementation per job, and a constant the
+        rules turn on lives in the <code>shared/</code> module that owns it (see
+        <em>One implementation</em> above).
+      </li>
+      <li>
+        <strong>Data.</strong> Entries in <code>data/words/</code> and
+        <code>data/reference/</code> are generated, never edited by hand. A
+        wrong value is fixed in its source or in the parser, then regenerated
+        (<NuxtLink to="/docs/authoring">Adding and fixing words</NuxtLink>), and
+        a test fails when a committed entry differs from what the generator
+        derives (<NuxtLink to="/docs/data-integrity">Data integrity</NuxtLink>).
+      </li>
+      <li>
+        <strong>Facts the pages state.</strong> Sources, routes, seasons and the
+        word range are read from code or data when the page renders, as the
+        table below shows.
+      </li>
+      <li>
+        <strong>Docs.</strong> One chapter owns each topic and the others link
+        to it (<NuxtLink to="/docs/development#docs">Development</NuxtLink>).
+      </li>
+    </ul>
     <div class="table-wrap">
       <table>
         <thead>
