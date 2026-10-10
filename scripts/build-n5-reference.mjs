@@ -28,8 +28,7 @@ import {
   readdirSync,
   writeFileSync,
 } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import kuromoji from "kuromoji";
 import { parseN5Csv, slugify } from "./lib/word-list.mjs";
 import { WORD_LIST_SOURCE } from "./word-list-source.mjs";
@@ -40,9 +39,11 @@ import {
   spellingReadings,
 } from "./lib/jmdict.mjs";
 import { servedVocab } from "../shared/meanings.ts";
+import { referenceFile } from "../shared/jlpt.ts";
+import { SOURCES } from "../shared/sources.ts";
+import { ROOT } from "./lib/cli.mjs";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const OUT_FILE = join(ROOT, "data/reference/n5-reference.json");
+const OUT_FILE = join(ROOT, referenceFile("N5"));
 
 export { WORD_LIST_SOURCE, JMDICT_SOURCE };
 
@@ -193,7 +194,7 @@ async function main() {
       sources: {
         jmdict: {
           ...JMDICT_SOURCE,
-          licence: "JMdict/KANJIDIC2 © EDRDG, CC BY-SA 4.0",
+          licence: `JMdict/KANJIDIC2 © ${SOURCES.edrdg.holderShort}, ${SOURCES.edrdg.licence.name}`,
         },
         wordList: { ...WORD_LIST_SOURCE, licence: "MIT" },
       },

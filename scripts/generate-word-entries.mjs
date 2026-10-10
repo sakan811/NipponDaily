@@ -13,24 +13,20 @@
  *   node scripts/generate-word-entries.mjs --keep-going   write the months that built, list the failures
  */
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { JLPT_LEVELS, referenceFile } from "../shared/jlpt.ts";
+import { ROOT, args } from "./lib/cli.mjs";
 import { buildEntry } from "./lib/word-entry.mjs";
 import { loadEtymologySnapshot } from "./lib/etymology-snapshot.mjs";
 import { loadSentenceSnapshot } from "./lib/sentence-snapshot.mjs";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const args = process.argv.slice(2);
-
 export function loadContext(root = ROOT) {
   const vocab = [];
   const kanji = {};
-  for (const level of ["N5", "N4", "N3", "N2", "N1"]) {
+  for (const level of JLPT_LEVELS) {
     const ref = JSON.parse(
-      readFileSync(
-        join(root, `data/reference/${level.toLowerCase()}-reference.json`),
-        "utf8",
-      ),
+      readFileSync(join(root, referenceFile(level)), "utf8"),
     );
     for (const v of ref.vocab) vocab.push({ ...v, level });
     Object.assign(kanji, ref.kanji);

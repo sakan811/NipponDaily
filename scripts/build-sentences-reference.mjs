@@ -24,9 +24,11 @@
  */
 import { existsSync } from "node:fs";
 import { createRequire } from "node:module";
-import { dirname, join, resolve } from "node:path";
+import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import kuromoji from "kuromoji";
+import { LICENCES, SOURCES } from "../shared/sources.ts";
+import { ROOT, args, flagValue } from "./lib/cli.mjs";
 import { toHiragana } from "wanakana";
 import {
   TATOEBA_EXPORT,
@@ -47,21 +49,15 @@ import {
   writeSentenceSnapshot,
 } from "./lib/sentence-snapshot.mjs";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const KUROMOJI_VERSION = createRequire(import.meta.url)(
   "kuromoji/package.json",
 ).version;
-const args = process.argv.slice(2);
-const flagValue = (name) => {
-  const i = args.indexOf(name);
-  return i === -1 ? undefined : args[i + 1];
-};
 
 /** The meta every snapshot carries. */
 export function snapshotMeta() {
   return {
-    source: `Tatoeba (https://tatoeba.org), sentences with an English translation, read from the export of ${TATOEBA_EXPORT.date}`,
-    license: "CC BY 2.0 FR — https://creativecommons.org/licenses/by/2.0/fr/",
+    source: `${SOURCES.tatoeba.name} (${SOURCES.tatoeba.url}), sentences with an English translation, read from the export of ${TATOEBA_EXPORT.date}`,
+    license: `${LICENCES.ccBy2Fr.name} — ${LICENCES.ccBy2Fr.url}`,
     export: TATOEBA_EXPORT.date,
     files: Object.fromEntries(
       Object.entries(TATOEBA_EXPORT.files).map(([name, f]) => [name, f.sha256]),

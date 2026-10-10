@@ -23,17 +23,13 @@
  *
  *   node scripts/build-pitch-reference.mjs [--file <path>] [--unidic <sys.dic>] [--check]
  */
-import { createHash } from "node:crypto";
-import {
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  statSync,
-  writeFileSync,
-} from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { toHiragana } from "wanakana";
+import { LICENCES, SOURCES } from "../shared/sources.ts";
+import { ROOT, args, flagValue } from "./lib/cli.mjs";
+import { pinnedFile } from "./lib/pinned-file.mjs";
 import { poolWords } from "./lib/pool-words.mjs";
 import { moraeOf } from "../app/utils/pitch.ts";
 import {
@@ -44,7 +40,6 @@ import {
   unidicAccents,
 } from "./lib/unidic-accent.mjs";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_FILE = "data/reference/pitch.json";
 const CACHE_DIR = join(ROOT, "node_modules/.cache/pitch");
 
@@ -56,21 +51,15 @@ export const PITCH_SOURCE = {
   path: "data/source_files/raw/accents.txt",
   bytes: 3226405,
   sha256: "8bd0dd127dab32ceec94cb03ab1ba6b68858ea73421dfa1731af2f373deb4f20",
-  licence: "CC BY-SA 4.0",
+  licence: LICENCES.ccBySa4.name,
 };
 const URL = `https://raw.githubusercontent.com/${PITCH_SOURCE.repo}/${PITCH_SOURCE.commit}/${PITCH_SOURCE.path}`;
-
-const args = process.argv.slice(2);
-const flagValue = (name) => {
-  const i = args.indexOf(name);
-  return i === -1 ? undefined : args[i + 1];
-};
 
 /** The meta the snapshot carries. */
 export function snapshotMeta() {
   return {
-    source: `${PITCH_SOURCE.name} (https://github.com/${PITCH_SOURCE.repo}), commit ${PITCH_SOURCE.commit} of ${PITCH_SOURCE.committed}`,
-    licence: `${PITCH_SOURCE.licence} — https://creativecommons.org/licenses/by-sa/4.0/`,
+    source: `${PITCH_SOURCE.name} (${SOURCES.kanjium.url}), commit ${PITCH_SOURCE.commit} of ${PITCH_SOURCE.committed}`,
+    licence: `${LICENCES.ccBySa4.name} — ${LICENCES.ccBySa4.url}`,
     file: {
       path: PITCH_SOURCE.path,
       bytes: PITCH_SOURCE.bytes,
@@ -92,23 +81,14 @@ export function snapshotMeta() {
 
 /** The list's text, downloaded to the cache if need be and verified. */
 async function accentText(path) {
-  let file = path;
-  if (!file) {
-    file = join(CACHE_DIR, "accents.txt");
-    if (!existsSync(file)) {
-      mkdirSync(CACHE_DIR, { recursive: true });
-      console.log(`Downloading ${PITCH_SOURCE.name}…`);
-      const res = await fetch(URL);
-      if (!res.ok) throw new Error(`GET ${URL} → ${res.status}`);
-      writeFileSync(file, Buffer.from(await res.arrayBuffer()));
-    }
-  }
-  const data = readFileSync(file);
-  const sha = createHash("sha256").update(data).digest("hex");
-  if (statSync(file).size !== PITCH_SOURCE.bytes || sha !== PITCH_SOURCE.sha256)
-    throw new Error(
-      `${file} is not the pinned accents.txt (expected ${PITCH_SOURCE.bytes} bytes and sha256 ${PITCH_SOURCE.sha256}, got ${statSync(file).size} and ${sha})`,
-    );
+  const data = await pinnedFile({
+    path,
+    cacheFile: join(CACHE_DIR, "accents.txt"),
+    url: URL,
+    label: PITCH_SOURCE.name,
+    what: "accents.txt",
+    pin: PITCH_SOURCE,
+  });
   return data.toString("utf8");
 }
 

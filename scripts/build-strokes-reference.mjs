@@ -13,19 +13,14 @@
  *
  *   node scripts/build-strokes-reference.mjs [--file <path>] [--check]
  */
-import { createHash } from "node:crypto";
-import {
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  statSync,
-  writeFileSync,
-} from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gunzipSync } from "node:zlib";
+import { LICENCES, SOURCES } from "../shared/sources.ts";
+import { ROOT, args, flagValue } from "./lib/cli.mjs";
+import { pinnedFile } from "./lib/pinned-file.mjs";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_FILE = "data/reference/strokes.json";
 const CACHE_DIR = join(ROOT, "node_modules/.cache/strokes");
 
@@ -36,20 +31,14 @@ export const STROKES_SOURCE = {
   url: "https://github.com/KanjiVG/kanjivg/releases/download/r20260714/kanjivg-20260714.xml.gz",
   bytes: 3608635,
   sha256: "d4a8e5e11533fe6a5d81a158b2c153964322641d2982c90a919461f3c06dca6b",
-  licence: "CC BY-SA 3.0",
-};
-
-const args = process.argv.slice(2);
-const flagValue = (name) => {
-  const i = args.indexOf(name);
-  return i === -1 ? undefined : args[i + 1];
+  licence: LICENCES.ccBySa3.name,
 };
 
 /** The meta the snapshot carries. */
 export function snapshotMeta() {
   return {
-    source: `${STROKES_SOURCE.name} ${STROKES_SOURCE.release} (https://kanjivg.tagaini.net), copyright Ulrich Apel`,
-    licence: `${STROKES_SOURCE.licence} — https://creativecommons.org/licenses/by-sa/3.0/`,
+    source: `${STROKES_SOURCE.name} ${STROKES_SOURCE.release} (${SOURCES.kanjivg.url}), copyright ${SOURCES.kanjivg.holder}`,
+    licence: `${LICENCES.ccBySa3.name} — ${LICENCES.ccBySa3.url}`,
     file: {
       name: STROKES_SOURCE.file,
       url: STROKES_SOURCE.url,
@@ -63,28 +52,14 @@ export function snapshotMeta() {
 
 /** The release's text, downloaded to the cache if need be and verified. */
 async function releaseText(path) {
-  let file = path;
-  if (!file) {
-    file = join(CACHE_DIR, STROKES_SOURCE.file);
-    if (!existsSync(file)) {
-      mkdirSync(CACHE_DIR, { recursive: true });
-      console.log(
-        `Downloading ${STROKES_SOURCE.name} ${STROKES_SOURCE.release}…`,
-      );
-      const res = await fetch(STROKES_SOURCE.url);
-      if (!res.ok) throw new Error(`GET ${STROKES_SOURCE.url} → ${res.status}`);
-      writeFileSync(file, Buffer.from(await res.arrayBuffer()));
-    }
-  }
-  const data = readFileSync(file);
-  const sha = createHash("sha256").update(data).digest("hex");
-  if (
-    statSync(file).size !== STROKES_SOURCE.bytes ||
-    sha !== STROKES_SOURCE.sha256
-  )
-    throw new Error(
-      `${file} is not the pinned ${STROKES_SOURCE.file} (expected ${STROKES_SOURCE.bytes} bytes and sha256 ${STROKES_SOURCE.sha256}, got ${statSync(file).size} and ${sha})`,
-    );
+  const data = await pinnedFile({
+    path,
+    cacheFile: join(CACHE_DIR, STROKES_SOURCE.file),
+    url: STROKES_SOURCE.url,
+    label: `${STROKES_SOURCE.name} ${STROKES_SOURCE.release}`,
+    what: STROKES_SOURCE.file,
+    pin: STROKES_SOURCE,
+  });
   return gunzipSync(data).toString("utf8");
 }
 
