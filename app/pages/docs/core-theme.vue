@@ -20,9 +20,9 @@
 
     <h3>The vocabulary is the JLPT lists, on purpose</h3>
     <p>
-      Every word comes from the community JLPT N5–N1 lists, and from nowhere
-      else. The lists are a trusted, widely used starting point, and the app
-      keeps to them rather than widen the pool to find more words. A word is
+      Every word comes from the community JLPT {{ JLPT_RANGE }} lists, and from
+      nowhere else. The lists are a trusted, widely used starting point, and the
+      app keeps to them rather than widen the pool to find more words. A word is
       added only if it is on a list and the pinned dump has an Etymology section
       for its reading, so when no more such words can be built the catalogue is
       complete, not short.
@@ -128,6 +128,7 @@
 import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import type { DiagramSpec } from "../../utils/diagram";
+import { JLPT_RANGE } from "~~/shared/jlpt";
 
 const clocks: Required<DiagramSpec> = {
   nodes: [

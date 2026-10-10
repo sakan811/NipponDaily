@@ -106,12 +106,12 @@
     <ol>
       <li>
         <strong>Choose the words</strong> (a person or a model may do this).
-        They must be pool words (N5–N1). Prefer words whose Wiktionary page has
-        an Etymology section; the generator will tell you if one doesn't. Nearly
-        every pool word the pinned dump can back is already planned (about
-        thirty were left out by hand because the page's text was thin or about
-        another sense), so a further month needs a newer dump or a corrected
-        pool.
+        They must be pool words ({{ JLPT_RANGE }}). Prefer words whose
+        Wiktionary page has an Etymology section; the generator will tell you if
+        one doesn't. Nearly every pool word the pinned dump can back is already
+        planned (about thirty were left out by hand because the page's text was
+        thin or about another sense), so a further month needs a newer dump or a
+        corrected pool.
       </li>
       <li>
         <strong>Write the plan</strong>
@@ -198,8 +198,8 @@
         <code>id</code> stays unchanged.
       </li>
       <li>
-        Rebuild: <code>pnpm data:reference</code> (N5) or
-        <code>pnpm data:reference:jlpt</code> (N4–N1), then
+        Rebuild: <code>pnpm data:reference</code> ({{ firstLevel }}) or
+        <code>pnpm data:reference:jlpt</code> ({{ otherLevels }}), then
         <code>pnpm data:words</code>, and commit the diffs.
       </li>
     </ol>
@@ -278,11 +278,16 @@ import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
+import { JLPT_LEVELS, REFERENCE_FILES, referenceFile } from "~~/shared/jlpt";
 import { SOURCES } from "~~/shared/sources";
+
+// build-n5-reference.mjs builds the first level, build-jlpt-reference.mjs the rest.
+const [firstLevel, ...rest] = JLPT_LEVELS;
+const otherLevels = `${rest[0]}–${rest[rest.length - 1]}`;
 
 const pieces = [
   {
-    path: "data/reference/n{5,4,3,2,1}-reference.json",
+    path: REFERENCE_FILES,
     what: "JMdict and KANJIDIC2 snapshots of every pool word. Generated.",
   },
   {
@@ -322,11 +327,11 @@ const pieces = [
 const commands = [
   {
     cmd: "pnpm data:reference",
-    does: "Rebuilds `n5-reference.json` from pinned sources (the checksum-verified JMdict and KANJIDIC2 files in the repo root and a word list at a fixed commit).",
+    does: `Rebuilds \`${referenceFile(firstLevel)}\` from pinned sources (the checksum-verified JMdict and KANJIDIC2 files in the repo root and a word list at a fixed commit).`,
   },
   {
     cmd: "pnpm data:reference:jlpt",
-    does: "Rebuilds the N4, N3, N2 and N1 files, reusing the N5 builder's helpers.",
+    does: `Rebuilds the ${otherLevels} files, reusing the ${firstLevel} builder's helpers.`,
   },
   {
     cmd: "pnpm data:etymology",

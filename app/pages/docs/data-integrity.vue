@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>JLPT vocabulary (N5–N1)</td>
+            <td>JLPT vocabulary ({{ JLPT_RANGE }})</td>
             <td>
               <a
                 :href="SOURCES['jlpt-word-list'].url"
@@ -423,6 +423,7 @@ import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
+import { JLPT_RANGE } from "~~/shared/jlpt";
 import { DATA_SOURCES, SOURCES } from "~~/shared/sources";
 
 const provenance = [

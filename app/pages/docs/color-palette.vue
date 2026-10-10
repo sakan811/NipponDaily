@@ -47,7 +47,7 @@
       <h3>
         {{ season.glyph.light }} {{ season.label }}
         <small
-          ><code>{{ season.id }}</code> · {{ monthRange(season.months) }}</small
+          ><code>{{ season.id }}</code> · {{ monthsText(season.months) }}</small
         >
       </h3>
       <div v-for="mode in MODES" :key="mode" class="palette-row">
@@ -118,31 +118,14 @@ import DocsBook from "../../components/DocsBook.vue";
 import ColorSwatchBadge from "../../components/ColorSwatchBadge.vue";
 import {
   NEUTRALS,
+  monthsText,
   PALETTE_ROLES,
   SEASON_IDS,
   SEASONS,
 } from "~~/shared/seasons";
 
 const MODES = ["light", "dark"] as const;
-const MONTH_NAMES = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
 const seasons = SEASON_IDS.map((id) => SEASONS[id]);
-
-const monthRange = (months: readonly number[]) =>
-  `${MONTH_NAMES[months[0]! - 1]}–${MONTH_NAMES[months[months.length - 1]! - 1]}`;
 </script>
 
 <style scoped>

@@ -21,6 +21,7 @@ import DocsBook from "../../components/DocsBook.vue";
 import RichText from "../../components/RichText.vue";
 import { useCatalogue } from "../../composables/useCatalogue";
 import { rangeMonthsText } from "~~/shared/catalogue";
+import { JLPT_RANGE } from "~~/shared/jlpt";
 import { LICENCES } from "~~/shared/sources";
 
 // The word range and count come from GET /api/catalogue, never typed here.
@@ -28,7 +29,9 @@ const { catalogue } = useCatalogue();
 
 const wordsFeature = computed(() => {
   const base =
-    "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT N5–N1 vocabulary, and only words with a Wiktionary Etymology section.";
+    "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT " +
+    JLPT_RANGE +
+    " vocabulary, and only words with a Wiktionary Etymology section.";
   const c = catalogue.value;
   return c
     ? `${base} ${c.total} words are written, ${rangeMonthsText(c)}, and ${c.open} have opened so far.`

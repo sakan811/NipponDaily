@@ -63,12 +63,14 @@ pnpm dev          # http://localhost:3000</code></pre>
       </table>
     </div>
     <p>
-      The <code>data:*</code> commands are explained in
-      <NuxtLink to="/docs/authoring">Adding and fixing words</NuxtLink>.
+      The <code>data:*</code> commands and <code>pnpm assets:og-font</code> are
+      listed once, with what they read and write, in
+      <NuxtLink to="/docs/authoring">Adding and fixing words</NuxtLink>. A test
+      fails if a script in <code>package.json</code> is in neither table.
     </p>
 
     <h2>Tests</h2>
-    <p>Vitest, four projects (<code>vitest.config.ts</code>).</p>
+    <p>Vitest, in the projects <code>vitest.config.ts</code> defines.</p>
     <ul>
       <li>
         <strong><code>test/unit</code></strong> (happy-dom): components and
@@ -111,9 +113,9 @@ pnpm dev          # http://localhost:3000</code></pre>
       covered only by their unit tests. The integration test builds the app, so
       <code>pnpm test:run</code> passing does prove it builds and serves; run
       <code>pnpm build</code> on its own only to see the build's output. CI
-      (<code>.github/workflows/webpage-test.yml</code>) runs
-      <code>pnpm run test</code> on pushes to <code>main</code> and on pull
-      requests targeting it, on Node 25 with pnpm 10.
+      (<code>.github/workflows/webpage-test.yml</code>, which also names its
+      Node and pnpm versions) runs <code>pnpm run test</code> on pushes to
+      <code>main</code> and on pull requests targeting it.
     </p>
     <p>Tests that guard against drift:</p>
     <ul>
@@ -137,6 +139,11 @@ pnpm dev          # http://localhost:3000</code></pre>
         <code>contrast</code>: text on colour in every season and mode against
         WCAG AA (fills, and shaded text on the canvas and on its tint), and that
         no class sets text in a 500 step.
+      </li>
+      <li>
+        <code>single-source</code>: a fact owned by one module (Japan's offset,
+        the <code>localStorage</code> keys, the JSON envelope, the JLPT levels,
+        the page chrome) is not written out again beside it.
       </li>
       <li><code>docs-sync</code>: the docs against the code (see below).</li>
     </ul>
@@ -223,8 +230,9 @@ pnpm dev          # http://localhost:3000</code></pre>
         commit. <code>test/server/docs-sync.test.ts</code> catches a hand-typed
         range or count, a source URL or licence, a route that doesn't exist, a
         <code>pnpm</code> command that isn't a script, a path in
-        <code>&lt;code&gt;</code> that isn't in the repo, and a chapter list
-        that disagrees with the page files.
+        <code>&lt;code&gt;</code> that isn't in the repo, a chapter list that
+        disagrees with the page files, a script, environment variable or
+        composable the book does not mention.
       </li>
       <li>
         Wrap every command, path and identifier in <code>&lt;code&gt;</code>
@@ -270,38 +278,6 @@ const commands = [
     does: "ESLint and Prettier (both rewrite files: `--fix`, `--write`), and `tsc --noEmit`.",
   },
   { cmd: "pnpm check-qa", does: "Lint, format, type-check, build and test." },
-  {
-    cmd: "pnpm data:reference / data:reference:jlpt",
-    does: "Rebuild the JMdict and KANJIDIC2 snapshots for N5, and for N4 to N1, from the pinned EDRDG files in the repo root.",
-  },
-  {
-    cmd: "pnpm data:etymology",
-    does: "Read Etymology sections from the pinned Wiktionary dump.",
-  },
-  {
-    cmd: "pnpm data:sentences",
-    does: "Pick each word's example sentences from the pinned Tatoeba export.",
-  },
-  {
-    cmd: "pnpm data:pitch",
-    does: "Pick each word's pitch accent from the pinned Kanjium list, keep those UniDic gives too, into `data/reference/pitch.json`.",
-  },
-  {
-    cmd: "pnpm data:words",
-    does: "Generate `data/words/` from the plan and the committed sources.",
-  },
-  {
-    cmd: "pnpm data:kanji",
-    does: "Copy KANJIDIC2's record of every kanji the entries use into `data/reference/kanji.json`.",
-  },
-  {
-    cmd: "pnpm data:strokes",
-    does: "Copy KanjiVG's strokes for those kanji into `data/reference/strokes.json`, where its count matches KANJIDIC2's.",
-  },
-  {
-    cmd: "pnpm assets:og-font",
-    does: "Rebuild the share-image fonts in `server/assets/og/` (see Adding and fixing words).",
-  },
   {
     cmd: "pnpm docs:sync / docs:check",
     does: "Fill, or verify, the README's generated attribution.",

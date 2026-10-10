@@ -259,6 +259,39 @@ describe("commands and paths named in the docs", () => {
     expect(missing, `${file} points at missing paths`).toEqual([]);
   });
 
+  it("every pnpm script is in a command table of the book", () => {
+    // A row's `cmd` is "pnpm a / b / c": the scripts it covers.
+    const documented = new Set(
+      DOC_PAGES.flatMap((file) =>
+        [...read(file).matchAll(/cmd: "pnpm ([^"]+)"/g)].flatMap((m) =>
+          m[1]!.split(" / "),
+        ),
+      ),
+    );
+    // Runs by itself after `pnpm install`; nobody types it.
+    const NOT_COMMANDS = new Set(["postinstall"]);
+    const missing = scripts.filter(
+      (name) => !NOT_COMMANDS.has(name) && !documented.has(name),
+    );
+    expect(missing, "scripts with no row in a docs table").toEqual([]);
+  });
+
+  it("every .env.example variable is in the Environment table", () => {
+    const names = [...read(".env.example").matchAll(/^([A-Z][A-Z0-9_]*)=/gm)];
+    expect(names.length).toBeGreaterThan(0);
+    const page = read("app/pages/docs/development.vue");
+    for (const [, name] of names)
+      expect(page, `${name} is in .env.example`).toContain(`name: "${name}"`);
+  });
+
+  it("every composable is named in the Architecture chapter", () => {
+    const page = read("app/pages/docs/architecture.vue");
+    for (const file of walk("app/composables", [".ts"])) {
+      for (const m of read(file).matchAll(/export function (use\w+)/g))
+        expect(page, `${m[1]} (${file})`).toContain(`<code>${m[1]}</code>`);
+    }
+  });
+
   it("every in-book link points at a real chapter", () => {
     for (const file of DOC_PAGES) {
       for (const m of read(file).matchAll(/to="(\/docs[^"#]*)(?:#[^"]*)?"/g)) {

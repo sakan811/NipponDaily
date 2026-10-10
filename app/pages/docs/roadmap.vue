@@ -125,8 +125,8 @@
       </li>
       <li>
         <strong>The counts describe these entries.</strong> They are a JLPT
-        N5–N1 sample with parser-derived tags, not the language. Coverage of
-        parts is bounded by the parsers.
+        {{ JLPT_RANGE }} sample with parser-derived tags, not the language.
+        Coverage of parts is bounded by the parsers.
       </li>
       <li>
         <strong>Laps repeat the same entries.</strong> By design (<NuxtLink
@@ -190,4 +190,5 @@
 
 <script setup lang="ts">
 import DocsBook from "../../components/DocsBook.vue";
+import { JLPT_RANGE } from "~~/shared/jlpt";
 </script>
