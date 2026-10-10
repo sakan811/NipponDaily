@@ -168,11 +168,15 @@
         address.
       </li>
       <li>
-        <strong>No browser tests.</strong> The integration test requests every
-        route of the built app, so a page that fails to render or answers the
-        wrong status is caught. Nothing runs the client in a browser, so
-        hydration problems and interactions are checked only by their unit
-        tests.
+        <strong>Browser tests cover one browser and the main paths.</strong>
+        They run the built app in Chromium, at a desktop and a phone width, over
+        the pages, the colour and season picks, Explore, the calendar and the
+        stroke frames. Firefox and Safari are not run, the music and the
+        seasonal animations are not exercised, and a production build reports no
+        hydration mismatch, so one shows only as a failed interaction (<NuxtLink
+          to="/docs/development"
+          >Development</NuxtLink
+        >).
       </li>
       <li>
         <strong>Contrast is measured on the pairs the UI uses.</strong> Text on

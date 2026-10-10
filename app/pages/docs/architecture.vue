@@ -50,7 +50,8 @@ server/     api/ (handlers), routes/ (sitemap, robots, share images), middleware
 scripts/    data builders run with node: reference snapshots, etymology pins, example sentences, pitch accents, kanji records, strokes, entry generator
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
-test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots)</code></pre>
+test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots)
+e2e/        Playwright browser tests of the built app</code></pre>
 
     <h2>The shared modules</h2>
     <div class="table-wrap">
@@ -66,7 +67,7 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
             <td>
               <code>{{ m.file }}</code
               ><template v-if="m.serverOnly"
-                ><br /><em>server and tests only</em></template
+                ><br ><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>

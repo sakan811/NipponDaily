@@ -70,7 +70,10 @@ pnpm dev          # http://localhost:3000</code></pre>
     </p>
 
     <h2>Tests</h2>
-    <p>Vitest, in the projects <code>vitest.config.ts</code> defines.</p>
+    <p>
+      Vitest, in the projects <code>vitest.config.ts</code> defines, and
+      Playwright for the browser tests in <code>e2e/</code>.
+    </p>
     <ul>
       <li>
         <strong><code>test/unit</code></strong> (happy-dom): components and
@@ -106,16 +109,32 @@ pnpm dev          # http://localhost:3000</code></pre>
         global <code>fetch</code> with a mock. To run it alone:
         <code>pnpm exec vitest run --project integration</code>.
       </li>
+      <li>
+        <strong><code>e2e</code></strong> (Playwright, desktop and phone
+        widths): <code>pnpm test:e2e</code> builds the app, starts it on its own
+        port and drives it in Chromium. It checks that every page renders with
+        no uncaught error or console error and cannot be scrolled sideways, that
+        today's word opens from the home page, that the colour mode and season
+        picks change the page and are remembered, that the Explore chips narrow
+        the list and write the URL, that any/all agrees with the API, that the
+        calendar moves between months and that a kanji page draws one frame per
+        stroke. A production build does not report hydration mismatches, so a
+        page that hydrates wrongly shows up only through an interaction that
+        fails. Playwright needs its browser (<code
+          >pnpm exec playwright install chromium</code
+        >) and the system libraries behind it; it is not part of
+        <code>pnpm check-qa</code>. The API is rate limited per address and
+        every test comes from one, so keep the tests few.
+      </li>
     </ul>
     <p>
-      There are no browser tests: nothing runs the client in a real browser, so
-      hydration and interactions (the filters, the season button, the music) are
-      covered only by their unit tests. The integration test builds the app, so
-      <code>pnpm test:run</code> passing does prove it builds and serves; run
-      <code>pnpm build</code> on its own only to see the build's output. CI
+      The integration test builds the app, so <code>pnpm test:run</code> passing
+      does prove it builds and serves; run <code>pnpm build</code> on its own
+      only to see the build's output. CI
       (<code>.github/workflows/webpage-test.yml</code>, which also names its
-      Node and pnpm versions) runs <code>pnpm run test</code> on pushes to
-      <code>main</code> and on pull requests targeting it.
+      Node and pnpm versions) runs <code>pnpm run test</code> and
+      <code>pnpm test:e2e</code> as two jobs on pushes to <code>main</code> and
+      on pull requests targeting it.
     </p>
     <p>Tests that guard against drift:</p>
     <ul>
@@ -276,6 +295,10 @@ const commands = [
   {
     cmd: "pnpm lint / format / type-check",
     does: "ESLint and Prettier (both rewrite files: `--fix`, `--write`), and `tsc --noEmit`.",
+  },
+  {
+    cmd: "pnpm test:e2e",
+    does: "Build, then run the Playwright browser tests in `e2e/`.",
   },
   { cmd: "pnpm check-qa", does: "Lint, format, type-check, build and test." },
   {
