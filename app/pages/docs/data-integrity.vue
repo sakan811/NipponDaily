@@ -386,6 +386,11 @@
         choosing a winner.
       </p>
       <p>
+        Furigana is likewise the sources' agreement, not a proof: a contributor
+        can be wrong, and so can the dictionaries and analysers it is checked
+        against. A kanji left without a reading means “unsure”, not “easy”.
+      </p>
+      <p>
         The dump is machine-extracted, and two of its faults are known. It drops
         Wiktionary's “etymology incomplete” banners, so a word the page marks
         incomplete may not be flagged unclear. And it can attach one reading's
