@@ -24,7 +24,7 @@
         <p class="flex flex-wrap items-baseline gap-x-3">
           <NuxtLink
             :to="`/words/${w.date}`"
-            class="text-2xl font-serif font-bold text-stone-900 dark:text-white hover:text-primary-500"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400"
             >{{ w.term }}</NuxtLink
           >
           <span class="text-primary-600 dark:text-primary-400">{{

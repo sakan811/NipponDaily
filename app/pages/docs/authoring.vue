@@ -77,19 +77,24 @@
       it, because it reads the entries' spellings.
     </p>
     <p>
-      <code>data:pitch</code> and <code>data:strokes</code> each download one
-      pinned file the first time (Kanjium's accent list at a fixed commit,
+      <code>data:pitch</code> and <code>data:strokes</code> download their
+      pinned files the first time (Kanjium's accent list at a fixed commit,
+      UniDic's release, whose compiled dictionary checks the accents, and
       KanjiVG's release; size and checksum are in
-      <code>scripts/build-pitch-reference.mjs</code> and
-      <code>scripts/build-strokes-reference.mjs</code>), cache it under
-      <code>node_modules/.cache/</code>, and are offline after that. Like
+      <code>scripts/build-pitch-reference.mjs</code>,
+      <code>scripts/lib/unidic-accent.mjs</code> and
+      <code>scripts/build-strokes-reference.mjs</code>), cache them under
+      <code>node_modules/.cache/</code>, and are offline after that. The UniDic
+      archive is about half a gigabyte; only its dictionary file is kept. Like
       <code>data:sentences</code>, <code>data:pitch</code> reads the word plans
       and the level snapshots, so it runs before <code>data:words</code>;
       <code>data:strokes</code> reads <code>data/reference/kanji.json</code>, so
       it runs after <code>data:kanji</code>. Neither guesses: a word the accent
-      list does not give for that exact spelling and reading shows no pitch, and
-      a kanji whose stroke count KanjiVG and KANJIDIC2 disagree on shows no
-      strokes.
+      list does not give for that exact spelling and reading shows no pitch, an
+      accent UniDic does not give for it too is not shown (UniDic is silent on
+      some words, and the snapshot's <code>heldBack</code> names each one with
+      what the two said), and a kanji whose stroke count KanjiVG and KANJIDIC2
+      disagree on shows no strokes.
     </p>
 
     <h2>Adding a month</h2>
@@ -101,12 +106,12 @@
     <ol>
       <li>
         <strong>Choose the words</strong> (a person or a model may do this).
-        They must be pool words (N5–N1). Prefer words whose Wiktionary page has
-        an Etymology section; the generator will tell you if one doesn't. Nearly
-        every pool word the pinned dump can back is already planned (about
-        thirty were left out by hand because the page's text was thin or about
-        another sense), so a further month needs a newer dump or a corrected
-        pool.
+        They must be pool words ({{ JLPT_RANGE }}). Prefer words whose
+        Wiktionary page has an Etymology section; the generator will tell you if
+        one doesn't. Nearly every pool word the pinned dump can back is already
+        planned (about thirty were left out by hand because the page's text was
+        thin or about another sense), so a further month needs a newer dump or a
+        corrected pool.
       </li>
       <li>
         <strong>Write the plan</strong>
@@ -193,8 +198,8 @@
         <code>id</code> stays unchanged.
       </li>
       <li>
-        Rebuild: <code>pnpm data:reference</code> (N5) or
-        <code>pnpm data:reference:jlpt</code> (N4–N1), then
+        Rebuild: <code>pnpm data:reference</code> ({{ firstLevel }}) or
+        <code>pnpm data:reference:jlpt</code> ({{ otherLevels }}), then
         <code>pnpm data:words</code>, and commit the diffs.
       </li>
     </ol>
@@ -229,11 +234,11 @@
         then <code>pnpm data:words</code>.
       </li>
       <li>
-        <strong>Kanjium and KanjiVG:</strong> change the commit or release, size
-        and checksum in <code>PITCH_SOURCE</code> or
-        <code>STROKES_SOURCE</code>, run <code>pnpm data:pitch</code> and
-        <code>pnpm data:words</code>, or <code>pnpm data:strokes</code>, and
-        review the diff.
+        <strong>Kanjium, UniDic and KanjiVG:</strong> change the commit or
+        release, size and checksum in <code>PITCH_SOURCE</code>,
+        <code>UNIDIC_ACCENT_SOURCE</code> or <code>STROKES_SOURCE</code>, run
+        <code>pnpm data:pitch</code> and <code>pnpm data:words</code>, or
+        <code>pnpm data:strokes</code>, and review the diff.
       </li>
       <li>
         Dropped a word? <code>pnpm data:etymology --prune</code> removes pins
@@ -273,11 +278,16 @@ import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
+import { JLPT_LEVELS, REFERENCE_FILES, referenceFile } from "~~/shared/jlpt";
 import { SOURCES } from "~~/shared/sources";
+
+// build-n5-reference.mjs builds the first level, build-jlpt-reference.mjs the rest.
+const [firstLevel, ...rest] = JLPT_LEVELS;
+const otherLevels = `${rest[0]}–${rest[rest.length - 1]}`;
 
 const pieces = [
   {
-    path: "data/reference/n{5,4,3,2,1}-reference.json",
+    path: REFERENCE_FILES,
     what: "JMdict and KANJIDIC2 snapshots of every pool word. Generated.",
   },
   {
@@ -294,7 +304,7 @@ const pieces = [
   },
   {
     path: "data/reference/pitch.json",
-    what: "The pitch accent the pinned Kanjium list gives each word, for its exact spelling and reading. Generated.",
+    what: "The pitch accent the pinned Kanjium list gives each word for its exact spelling and reading, kept where UniDic gives it too, and the words that lost one. Generated.",
   },
   {
     path: "data/reference/strokes.json",
@@ -317,11 +327,11 @@ const pieces = [
 const commands = [
   {
     cmd: "pnpm data:reference",
-    does: "Rebuilds `n5-reference.json` from pinned sources (the checksum-verified JMdict and KANJIDIC2 files in the repo root and a word list at a fixed commit).",
+    does: `Rebuilds \`${referenceFile(firstLevel)}\` from pinned sources (the checksum-verified JMdict and KANJIDIC2 files in the repo root and a word list at a fixed commit).`,
   },
   {
     cmd: "pnpm data:reference:jlpt",
-    does: "Rebuilds the N4, N3, N2 and N1 files, reusing the N5 builder's helpers.",
+    does: `Rebuilds the ${otherLevels} files, reusing the ${firstLevel} builder's helpers.`,
   },
   {
     cmd: "pnpm data:etymology",
@@ -337,7 +347,7 @@ const commands = [
   },
   {
     cmd: "pnpm data:pitch",
-    does: "Picks each word's pitch accent from the pinned Kanjium list into `data/reference/pitch.json` (`--file <path>` names the list, `--check` fails if the snapshot is out of date).",
+    does: "Picks each word's pitch accent from the pinned Kanjium list, keeps those UniDic gives too, and writes them and the words that lost one into `data/reference/pitch.json` (`--file <path>` names the list, `--unidic <path>` the dictionary file, `--check` fails if the snapshot is out of date).",
   },
   {
     cmd: "pnpm data:strokes",

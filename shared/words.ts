@@ -11,6 +11,7 @@
  * `pnpm data:sentences`, run `pnpm data:words` to generate
  * data/words/YYYY-MM.json, then `pnpm data:kanji`, and add its import below.
  */
+import { DAY_MS, toJst } from "./jst";
 import type {
   DailyWordPayload,
   WordCalendarDay,
@@ -239,12 +240,10 @@ export function isValidMonth(value: string): boolean {
   return /^\d{4}-(0[1-9]|1[0-2])$/.test(value);
 }
 
-/** Today's date in Japan (JST, UTC+9) — a new word opens at midnight there,
+/** Today's date in Japan (JST) — a new word opens at midnight there,
  *  the same calendar the seasonal theme follows. */
 export function todayJst(now: Date = new Date()): string {
-  return new Date(now.getTime() + 9 * 60 * 60 * 1000)
-    .toISOString()
-    .slice(0, 10);
+  return toJst(now).toISOString().slice(0, 10);
 }
 
 export function entryForDate(date: string): WordEntry | undefined {
@@ -257,8 +256,6 @@ export function entryForDate(date: string): WordEntry | undefined {
 export function latestEntryOnOrBefore(date: string): WordEntry | undefined {
   return [...WORD_ENTRIES].reverse().find((e) => e.date <= date);
 }
-
-const DAY_MS = 24 * 60 * 60 * 1000;
 
 /** Whole days from `from` to `to` (both YYYY-MM-DD). */
 function daysBetween(from: string, to: string): number {

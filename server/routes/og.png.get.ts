@@ -1,6 +1,8 @@
-import { safeGetQuery } from "../utils/http-query";
+import { notFound } from "../utils/api-response";
+import { openDateSchema, safeGetQuery } from "../utils/http-query";
 import { renderOgImage, type OgAssets } from "../utils/og-image";
-import { entryForDate, isValidIsoDate, todayJst } from "~~/shared/words";
+import { OG_CACHE_CONTROL } from "~~/shared/endpoints";
+import { entryForDate } from "~~/shared/words";
 
 const ASSET_KEYS = {
   japanese: "og:zen-old-mincho-bold.ttf",
@@ -40,29 +42,20 @@ function ogAssets(): Promise<OgAssets> {
   return assetsPromise;
 }
 
-const notFound = (date: string) =>
-  createError({
-    statusCode: 404,
-    statusMessage: "Not Found",
-    data: { error: `There is no share image for ${date}.` },
-  });
+const noImage = (date: string) =>
+  notFound(`There is no share image for ${date}.`);
 
 export default defineEventHandler(async (event) => {
   const date = String(safeGetQuery(event).date ?? "");
 
   // An upcoming or unknown day is a 404 either way, so the image cannot be
   // used to learn a word before its day.
-  if (!isValidIsoDate(date) || date > todayJst()) throw notFound(date);
+  if (!openDateSchema.safeParse(date).success) throw noImage(date);
   const entry = entryForDate(date);
-  if (!entry) throw notFound(date);
+  if (!entry) throw noImage(date);
 
   const png = await renderOgImage(entry, await ogAssets());
   setHeader(event, "content-type", "image/png");
-  // A day's card never changes once the day has opened.
-  setHeader(
-    event,
-    "cache-control",
-    "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400",
-  );
+  setHeader(event, "cache-control", OG_CACHE_CONTROL);
   return Buffer.from(png);
 });

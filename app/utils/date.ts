@@ -26,12 +26,3 @@ export function formatLongDate(isoDate: string): string {
     day: "numeric",
   });
 }
-
-/** "October 2026" for a YYYY-MM month. */
-export function formatMonthYear(month: string): string {
-  return new Date(`${month}-01T00:00:00Z`).toLocaleDateString("en-US", {
-    timeZone: "UTC",
-    year: "numeric",
-    month: "long",
-  });
-}

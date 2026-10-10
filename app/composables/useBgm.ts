@@ -1,5 +1,6 @@
 import { computed, effectScope, ref, watch } from "vue";
 import type { SeasonId } from "~~/types/index";
+import { STORAGE_KEYS } from "~~/shared/storage-keys";
 import { useSiteTheme } from "./useSiteTheme";
 
 /**
@@ -17,7 +18,7 @@ export const BGM_TRACKS: Record<SeasonId, string> = {
 /** Slider position (0-100) a first-time listener starts at — background level. */
 export const DEFAULT_VOLUME = 50;
 
-const VOLUME_KEY = "bgm-volume";
+const VOLUME_KEY = STORAGE_KEYS.bgmVolume;
 /** Loudest the slider can make the track (the master is already near full scale). */
 const MAX_GAIN = 0.6;
 /** Fade for switching the music on or off. */

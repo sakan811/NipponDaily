@@ -6,10 +6,9 @@
  * exactly at the moment the cached copy expires.
  */
 
-const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
-const DAY_MS = 24 * 60 * 60 * 1000;
+import { DAY_MS, JST_OFFSET_MS } from "~~/shared/jst";
 
-/** Whole seconds from `now` to the next midnight in Japan (15:00 UTC), at least 1. */
+/** Whole seconds from `now` to the next midnight in Japan, at least 1. */
 export function secondsUntilJstMidnight(now: number = Date.now()): number {
   const nextMidnight =
     (Math.floor((now + JST_OFFSET_MS) / DAY_MS) + 1) * DAY_MS;

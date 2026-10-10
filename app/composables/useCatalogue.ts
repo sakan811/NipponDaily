@@ -1,8 +1,6 @@
 import { computed } from "vue";
-import { useAsyncData } from "#app";
-import type { ApiResponse } from "~~/types/index";
 import type { CatalogueSummary } from "~~/shared/catalogue";
-import { fetchPage } from "./useDailyWord";
+import { useApiData } from "./useApiData";
 
 /**
  * GET /api/catalogue — the written word range and count, so a page never
@@ -10,13 +8,11 @@ import { fetchPage } from "./useDailyWord";
  * back to wording that states no number.
  */
 export function useCatalogue() {
-  const { data } = useAsyncData("catalogue", (nuxtApp) =>
-    fetchPage<CatalogueSummary>(
-      nuxtApp,
-      () => $fetch<ApiResponse<CatalogueSummary>>("/api/catalogue"),
-      "catalogue",
-    ),
-  );
+  const { data } = useApiData<CatalogueSummary>({
+    key: "catalogue",
+    path: "/api/catalogue",
+    label: "catalogue",
+  });
 
   return {
     catalogue: computed(() =>

@@ -7,11 +7,10 @@ import { WORD_PROCESSES, WORD_STRATA, isHedged } from "~~/shared/word-labels";
 import { JLPT_LEVELS } from "~~/shared/jlpt";
 import type { Morpheme, WordEntry } from "~~/types/index";
 import { loadReference, type RefKanji } from "./reference";
-import {
-  loadEtymologySnapshot,
-  planMonths,
-  // @ts-expect-error — untyped .mjs script helper
-} from "../../scripts/lib/etymology-snapshot.mjs";
+// @ts-expect-error — untyped .mjs script helper
+import { loadEtymologySnapshot } from "../../scripts/lib/etymology-snapshot.mjs";
+// @ts-expect-error — untyped .mjs script helper
+import { planMonths } from "../../scripts/lib/month-shards.mjs";
 // @ts-expect-error — untyped .mjs script helper
 import { WIKTIONARY_DUMP } from "../../scripts/lib/wiktionary-dump.mjs";
 

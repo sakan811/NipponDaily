@@ -9,20 +9,9 @@
  * deterministic. A term with no sentence has no key. Readers get the merged
  * `{ meta, entries }` back from loadSentenceSnapshot().
  */
-import {
-  existsSync,
-  mkdirSync,
-  readdirSync,
-  readFileSync,
-  rmSync,
-  writeFileSync,
-} from "node:fs";
-import { join } from "node:path";
-import { planMonths } from "./etymology-snapshot.mjs";
+import { loadShards, writeShards } from "./month-shards.mjs";
 
 export const SENTENCES_DIR = "data/reference/sentences";
-
-const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 
 /** One space of indent, except that a sentence's `furigana` parts stay on one
  *  line, so a diff of the snapshot shows a sentence, not a column of pieces. */
@@ -36,41 +25,9 @@ function stringify(data) {
 }
 
 /** Every shard merged: `{ meta, entries }`; empty `entries` if none exists. */
-export function loadSentenceSnapshot(root) {
-  const dir = join(root, SENTENCES_DIR);
-  if (!existsSync(dir)) return { meta: undefined, entries: {} };
-  const entries = {};
-  for (const file of readdirSync(dir).sort()) {
-    if (!file.endsWith(".json") || file === "meta.json") continue;
-    Object.assign(entries, readJson(join(dir, file)));
-  }
-  const metaPath = join(dir, "meta.json");
-  return {
-    meta: existsSync(metaPath) ? readJson(metaPath) : undefined,
-    entries,
-  };
-}
+export const loadSentenceSnapshot = (root) => loadShards(root, SENTENCES_DIR);
 
 /** Write `entries` into their month shards (and `meta.json`), removing shards
  *  that no longer hold anything. A term no plan names goes in "unplanned". */
-export function writeSentenceSnapshot(root, meta, entries) {
-  const dir = join(root, SENTENCES_DIR);
-  mkdirSync(dir, { recursive: true });
-  const months = planMonths(root);
-  const shards = {};
-  for (const term of Object.keys(entries).sort())
-    (shards[months[term] ?? "unplanned"] ??= {})[term] = entries[term];
-
-  const write = (name, data) => writeFileSync(join(dir, name), stringify(data));
-  write("meta.json", meta);
-  for (const [name, shard] of Object.entries(shards))
-    write(`${name}.json`, shard);
-  for (const file of readdirSync(dir))
-    if (
-      file.endsWith(".json") &&
-      file !== "meta.json" &&
-      !(file.slice(0, -".json".length) in shards)
-    )
-      rmSync(join(dir, file));
-  return Object.keys(shards).length;
-}
+export const writeSentenceSnapshot = (root, meta, entries) =>
+  writeShards(root, SENTENCES_DIR, meta, entries, stringify);

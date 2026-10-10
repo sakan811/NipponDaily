@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
-  >
-    <div class="season-backdrop" />
-
-    <AppHeader />
-
+  <AppShell>
     <main
       class="relative z-10 container mx-auto px-4 max-w-6xl py-8 sm:py-12 flex-1 lg:grid lg:grid-cols-[13.5rem_minmax(0,1fr)] lg:gap-12"
     >
@@ -63,15 +57,12 @@
         </footer>
       </article>
     </main>
-
-    <AppFooter />
-  </div>
+  </AppShell>
 </template>
 
 <script setup lang="ts">
+import AppShell from "./AppShell.vue";
 import { computed } from "vue";
-import AppHeader from "./AppHeader.vue";
-import AppFooter from "./AppFooter.vue";
 import DocsContents from "./DocsContents.vue";
 import { usePageSeo } from "../composables/usePageSeo";
 import {

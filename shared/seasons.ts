@@ -1,4 +1,6 @@
 import type { SeasonId } from "../types/index";
+import { MONTH_NAMES } from "./catalogue";
+import { toJst } from "./jst";
 
 /**
  * Single source of truth for NipponDaily's seasonal presets — shared by the
@@ -160,10 +162,20 @@ export function isSeasonId(value: unknown): value is SeasonId {
   );
 }
 
-/** Month (1-12) of the given instant in Japan Standard Time (UTC+9, no DST). */
+/** Month (1-12) of the given instant in Japan Standard Time. */
 function jstMonth(date: Date): number {
-  return new Date(date.getTime() + 9 * 60 * 60 * 1000).getUTCMonth() + 1;
+  return toJst(date).getUTCMonth() + 1;
 }
+
+/** "Mar–May": the first and last of a season's months, three letters each. */
+export function monthsText(months: readonly number[]): string {
+  const abbr = (m: number | undefined) =>
+    (MONTH_NAMES[(m ?? 1) - 1] ?? "").slice(0, 3);
+  return `${abbr(months[0])}–${abbr(months[months.length - 1])}`;
+}
+
+/** Where the site's season is kept in Redis (`server/services/site-theme.ts`). */
+export const SITE_THEME_REDIS_KEY = "n5:site_theme";
 
 const SEASON_BY_MONTH = new Map<number, SeasonId>(
   SEASON_IDS.flatMap((id) => SEASONS[id].months.map((m) => [m, id] as const)),

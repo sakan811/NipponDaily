@@ -13,19 +13,12 @@ import type {
   WordProcess,
   WordStratum,
 } from "~~/types/index";
+import {
+  RELATED_LIMIT,
+  RELATED_MIN_SCORE,
+  RELATED_PART_WEIGHT,
+} from "./limits";
 import { WORD_ENTRIES, todayJst } from "./words";
-
-/** How many words the row offers. */
-export const RELATED_LIMIT = 6;
-
-/** A shared part is a specific link; a shared process or layer counts for
- *  less the more words carry it (nearly every word is a compound). */
-const PART_WEIGHT = 3;
-
-/** Sharing a couple of very common tags (most words are compounds, many are
- *  borrowings) is not a resemblance, so a word needs this much in common to be
- *  offered at all: a part, or several tags that are rare between them. */
-const MIN_SCORE = 1.5;
 
 /** The open words closest to `entry`, closest first, never the entry itself. */
 export function relatedWords(
@@ -57,12 +50,12 @@ export function relatedWords(
             : undefined,
       };
       const score =
-        shared.parts.length * PART_WEIGHT +
+        shared.parts.length * RELATED_PART_WEIGHT +
         shared.processes.reduce((n, p) => n + 1 - processShare(p), 0) +
         (shared.stratum ? 1 - stratumShare(shared.stratum) : 0);
       return { e, shared, score };
     })
-    .filter(({ score }) => score >= MIN_SCORE);
+    .filter(({ score }) => score >= RELATED_MIN_SCORE);
 
   // Closest first; among equals, the newest.
   scored.sort((a, b) => b.score - a.score || b.e.date.localeCompare(a.e.date));

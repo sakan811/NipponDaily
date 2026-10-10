@@ -211,3 +211,9 @@ GEMINI.md
 # scripts/lib/jmdict.mjs.
 /JMdict_e.gz
 /kanjidic2.xml.gz
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

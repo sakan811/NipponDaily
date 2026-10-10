@@ -30,8 +30,7 @@
  * the snapshot keeps each page's link so the attribution stays traceable.
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join, resolve } from "node:path";
 import {
   WIKTIONARY_DUMP,
   readSections,
@@ -39,17 +38,12 @@ import {
 } from "./lib/wiktionary-dump.mjs";
 import {
   loadEtymologySnapshot,
-  planMonths,
   writeEtymologySnapshot,
 } from "./lib/etymology-snapshot.mjs";
+import { LICENCES, SOURCES, wiktionaryPageUrl } from "../shared/sources.ts";
+import { ROOT, args, flagValue } from "./lib/cli.mjs";
+import { planMonths } from "./lib/month-shards.mjs";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-
-const args = process.argv.slice(2);
-const flagValue = (name) => {
-  const i = args.indexOf(name);
-  return i === -1 ? undefined : args[i + 1];
-};
 const listFlag = (name) => (flagValue(name) ?? "").split(",").filter(Boolean);
 
 function entryTerms() {
@@ -105,14 +99,14 @@ for (const term of terms) {
     continue;
   }
   entries[term] = {
-    url: `https://en.wiktionary.org/wiki/${encodeURIComponent(term)}`,
+    url: wiktionaryPageUrl(term),
     etymologies,
   };
 }
 
 const meta = {
-  source: `English Wiktionary (https://en.wiktionary.org), Japanese Etymology sections, read from the ${WIKTIONARY_DUMP.dump} dump as extracted by wiktextract on ${WIKTIONARY_DUMP.extracted} (Kaikki.org)`,
-  license: "CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/",
+  source: `${SOURCES.wiktionary.name} (${SOURCES.wiktionary.url}), Japanese Etymology sections, read from the ${WIKTIONARY_DUMP.dump} dump as extracted by wiktextract on ${WIKTIONARY_DUMP.extracted} (${SOURCES.wiktionary.via.name})`,
+  license: `${LICENCES.ccBySa4.name} — ${LICENCES.ccBySa4.url}`,
   dump: WIKTIONARY_DUMP.dump,
   extracted: WIKTIONARY_DUMP.extracted,
   file: WIKTIONARY_DUMP.file,

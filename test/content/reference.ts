@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { toKatakana } from "wanakana";
+import { referenceFile } from "~~/shared/jlpt";
 import { meaningsOverlap } from "~~/shared/meanings";
 
 /**
@@ -50,17 +51,14 @@ export interface Reference {
 
 const ROOT = resolve(import.meta.dirname, "../..");
 
-/** Loads a level's committed reference snapshot (data/reference/{level}-reference.json).
+/** Loads a level's committed reference snapshot (`referenceFile(level)`).
  *  Cached per level since several test files each import it. */
 const referenceCache = new Map<string, Reference>();
 export function loadReference(level: string): Reference {
   const cached = referenceCache.get(level);
   if (cached) return cached;
   const ref: Reference = JSON.parse(
-    readFileSync(
-      resolve(ROOT, `data/reference/${level.toLowerCase()}-reference.json`),
-      "utf8",
-    ),
+    readFileSync(resolve(ROOT, referenceFile(level)), "utf8"),
   );
   referenceCache.set(level, ref);
   return ref;

@@ -1,14 +1,16 @@
 import { timingSafeEqual } from "node:crypto";
 import type { H3Event } from "h3";
 import { siteThemeService } from "../../services/site-theme";
+import { ok } from "../../utils/api-response";
 import { getEnvOrConfig } from "../../utils/config";
 import { seasonForDate } from "~~/shared/seasons";
 import type { SiteTheme } from "~~/types/index";
 
 /**
  * Vercel Cron target (see vercel.json) that sets the site-wide season to the
- * one whose months cover today's date in Japan. It runs at 15:00 UTC, which
- * is midnight JST. Vercel sends `Authorization: Bearer $CRON_SECRET` on
+ * one whose months cover today's date in Japan. It runs at midnight JST
+ * (`test/server/cron-schedule.test.ts` holds vercel.json to that). Vercel
+ * sends `Authorization: Bearer $CRON_SECRET` on
  * scheduled requests when CRON_SECRET is configured; anything else gets 401.
  *
  * Idempotent: it only writes when the season actually changes.
@@ -43,9 +45,5 @@ export default defineEventHandler(async (event) => {
     await siteThemeService.saveActiveTheme(theme);
   }
 
-  return {
-    success: true,
-    data: { season, previousSeason: previous?.season ?? null, changed },
-    timestamp: new Date().toISOString(),
-  };
+  return ok({ season, previousSeason: previous?.season ?? null, changed });
 });

@@ -4,13 +4,13 @@
   >
     <div
       v-if="icon"
-      class="flex items-center justify-center w-8 h-8 rounded-(--shape-button) bg-stone-100 dark:bg-stone-800 text-primary-500 group-hover:bg-primary-500 group-hover:text-on-primary transition-colors duration-300"
+      class="flex items-center justify-center w-8 h-8 rounded-(--shape-button) bg-stone-100 dark:bg-stone-800 text-primary-600 dark:text-primary-400 group-hover:bg-primary-500 group-hover:text-on-primary dark:group-hover:text-on-primary transition-colors duration-300"
     >
       <UIcon :name="icon" class="w-4 h-4" />
     </div>
     <div class="space-y-1">
       <h3
-        class="font-serif font-bold text-base text-stone-900 dark:text-white group-hover:text-primary-500 transition-colors duration-200"
+        class="font-serif font-bold text-base text-stone-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200"
       >
         {{ title }}
       </h3>

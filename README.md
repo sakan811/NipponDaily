@@ -47,9 +47,9 @@ Kana conversion in the data scripts and checks uses [wanakana](https://github.co
 
 Tatoeba's furigana is first checked against [kuromoji](https://github.com/takuyaa/kuromoji.js) (Apache licence 2.0) with its IPADIC dictionary, copyright Nara Institute of Science and Technology, which permits its use and distribution. The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.
 
-It is then checked against a second analyser, [Lindera](https://github.com/lindera/lindera) (MIT licence) with the [UniDic](https://clrd.ninjal.ac.jp/unidic/) dictionary of the National Institute for Japanese Language and Linguistics (BSD, LGPL or GPL). The analyser runs only when the data is built; nothing of it is sent to or shipped to a reader.
+It is then checked against a second analyser, [Lindera](https://github.com/lindera/lindera) (MIT licence) with the [UniDic](https://clrd.ninjal.ac.jp/unidic/) dictionary of the National Institute for Japanese Language and Linguistics (BSD, LGPL or GPL). The same dictionary's accent types check the pitch accents: one is kept only where UniDic gives it too. The analyser and the dictionary are used only when the data is built; nothing of them is sent to or shipped to a reader.
 
-Pitch accents are from the accent list of [Kanjium](https://github.com/mifunetoshiro/kanjium), under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), which credits its accent data to Uros O.'s free database. A word is shown an accent only where the list gives that exact spelling and reading.
+Pitch accents are from the accent list of [Kanjium](https://github.com/mifunetoshiro/kanjium), under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), which credits its accent data to Uros O.'s free database. A word is shown an accent only where the list gives that exact spelling and reading and [UniDic](https://clrd.ninjal.ac.jp/unidic/) gives the same accent.
 
 Stroke order is from [KanjiVG](https://kanjivg.tagaini.net), copyright Ulrich Apel, under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). A kanji is drawn only where KanjiVG and KANJIDIC2 count the same number of strokes.
 

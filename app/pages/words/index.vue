@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
-  >
-    <div class="season-backdrop" />
-
-    <AppHeader />
-
+  <AppShell>
     <main class="relative z-10 container mx-auto px-4 max-w-5xl py-16 flex-1">
       <div class="max-w-2xl space-y-4">
         <p class="kicker text-primary-600 dark:text-primary-400">
@@ -91,7 +85,7 @@
             data-testid="calendar-month"
             class="text-lg min-[400px]:text-2xl sm:text-3xl font-serif font-bold text-center text-stone-900 dark:text-white"
           >
-            {{ formatMonthYear(calendar.month) }}
+            {{ monthLabel(calendar.month) }}
           </h2>
           <UButton
             data-testid="calendar-next"
@@ -161,7 +155,7 @@
               monthMatches
             }}</strong>
             {{ monthMatches === 1 ? "word" : "words" }} in
-            {{ formatMonthYear(calendar.month) }} match;
+            {{ monthLabel(calendar.month) }} match;
             <span data-testid="calendar-total-matches">{{
               calendar.count
             }}</span>
@@ -171,19 +165,19 @@
             v-if="!monthMatches && earlierMatch"
             type="button"
             data-testid="calendar-earlier-match"
-            class="underline hover:text-primary-500"
+            class="underline hover:text-primary-600 dark:hover:text-primary-400"
             @click="go(earlierMatch)"
           >
-            Earlier match: {{ formatMonthYear(earlierMatch) }}
+            Earlier match: {{ monthLabel(earlierMatch) }}
           </button>
           <button
             v-if="!monthMatches && laterMatch"
             type="button"
             data-testid="calendar-later-match"
-            class="underline hover:text-primary-500"
+            class="underline hover:text-primary-600 dark:hover:text-primary-400"
             @click="go(laterMatch)"
           >
-            Later match: {{ formatMonthYear(laterMatch) }}
+            Later match: {{ monthLabel(laterMatch) }}
           </button>
         </div>
 
@@ -191,7 +185,7 @@
         <div
           class="grid grid-cols-7 gap-1.5 sm:gap-2"
           role="grid"
-          :aria-label="`Words for ${formatMonthYear(calendar.month)}`"
+          :aria-label="`Words for ${monthLabel(calendar.month)}`"
         >
           <div
             v-for="d in WEEKDAYS"
@@ -246,7 +240,7 @@
                 />
               </span>
               <span
-                class="mt-1 block text-lg sm:text-2xl font-serif font-bold leading-tight text-stone-900 dark:text-white group-hover:text-primary-500 break-all"
+                class="mt-1 block text-lg sm:text-2xl font-serif font-bold leading-tight text-stone-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 break-all"
               >
                 {{ cell.day.term }}
               </span>
@@ -312,21 +306,19 @@
         <USkeleton class="h-96 w-full" />
       </div>
     </main>
-
-    <AppFooter />
-  </div>
+  </AppShell>
 </template>
 
 <script setup lang="ts">
+import AppShell from "../../components/AppShell.vue";
 import { computed, ref } from "vue";
 import { useRoute, useRouter } from "#app";
-import AppHeader from "../../components/AppHeader.vue";
-import AppFooter from "../../components/AppFooter.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import WordFilters from "../../components/WordFilters.vue";
 import { useWordCalendar } from "../../composables/useDailyWord";
 import { usePageSeo } from "../../composables/usePageSeo";
-import { formatLongDate, formatMonthYear } from "../../utils/date";
+import { formatLongDate } from "../../utils/date";
+import { monthLabel } from "~~/shared/catalogue";
 import { WORD_STRATA } from "~~/shared/word-labels";
 import { filtersFromQuery, queryFromFilters } from "~~/shared/explore-query";
 import { STRATUM_DOT } from "../../utils/stratum";
@@ -365,7 +357,7 @@ const showFilters = ref(filtersActive.value);
 usePageSeo({
   title: () =>
     calendar.value
-      ? `Words for ${formatMonthYear(calendar.value.month)}`
+      ? `Words for ${monthLabel(calendar.value.month)}`
       : "The word calendar",
   description:
     "Every Japanese word NipponDaily has taken apart so far, one per day, in a month-by-month calendar you can filter by level, layer, process and part of speech.",
@@ -414,7 +406,7 @@ const monthChoices = computed(() =>
     return {
       key,
       short,
-      label: formatMonthYear(key),
+      label: monthLabel(key),
       exists: months.value.includes(key),
       count: calendar.value?.monthCounts[key] ?? 0,
     };

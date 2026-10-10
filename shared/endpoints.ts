@@ -1,11 +1,24 @@
 /**
- * Every HTTP route the server answers, written once. The API chapter of the
- * docs (`/docs/api`) reads this list, and `test/server/docs-sync.test.ts`
- * fails if it and the files under `server/api` and `server/routes` disagree.
+ * Every HTTP route the server answers, and the limits it answers them under,
+ * written once. The API chapter of the docs (`/docs/api`) reads this list, and
+ * `test/server/docs-sync.test.ts` fails if it and the files under `server/api`
+ * and `server/routes` disagree.
  *
  * Data-free, import-free, plain erasable TypeScript. `returns` is
  * "markdown-light": `code` spans only.
  */
+
+/** What the rate limiter allows one address, per window (`server/utils/rate-limit.ts`). */
+export const RATE_LIMIT = { limit: 120, windowMs: 60_000 } as const;
+
+/** The site's season changes a few times a year and every page load fetches it,
+ *  so the CDN absorbs that; a cron write shows within about a minute. */
+export const SITE_THEME_CACHE_CONTROL =
+  "public, max-age=0, s-maxage=60, stale-while-revalidate=600";
+
+/** A day's share image never changes once the day has opened. */
+export const OG_CACHE_CONTROL =
+  "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400";
 
 export interface ApiEndpoint {
   /** Always GET today. */
@@ -87,8 +100,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
   {
     method: "GET",
     path: "/api/site-theme",
-    returns:
-      'The site `SiteTheme`, `{ season, updatedAt, source }`, where `source` is `"cron"` or `"fallback"`. CDN-cached for 60 seconds (`s-maxage=60, stale-while-revalidate=600`).',
+    returns: `The site \`SiteTheme\`, \`{ season, updatedAt, source }\`, where \`source\` is \`"cron"\` or \`"fallback"\`. CDN-cached: \`cache-control: ${SITE_THEME_CACHE_CONTROL}\`.`,
   },
   {
     method: "GET",

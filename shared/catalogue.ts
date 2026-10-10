@@ -16,7 +16,7 @@ export interface CatalogueSummary {
   open: number;
 }
 
-const MONTH_NAMES = [
+export const MONTH_NAMES = [
   "January",
   "February",
   "March",

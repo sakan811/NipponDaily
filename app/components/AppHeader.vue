@@ -48,14 +48,16 @@
             v-for="link in NAV_LINKS"
             :key="link.to"
             :to="link.to"
-            class="hover:text-primary-500 transition-colors"
+            class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >{{ link.label }}</NuxtLink
           >
         </nav>
         <div class="flex items-center gap-1">
           <BgmControl />
           <SeasonButton />
-          <UColorModeButton class="hover:text-primary-500 transition-colors" />
+          <UColorModeButton
+            class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+          />
         </div>
       </div>
     </template>
@@ -69,7 +71,7 @@
           v-for="link in NAV_LINKS"
           :key="link.to"
           :to="link.to"
-          class="py-2.5 hover:text-primary-500 transition-colors"
+          class="py-2.5 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           @click="menuOpen = false"
           >{{ link.label }}</NuxtLink
         >

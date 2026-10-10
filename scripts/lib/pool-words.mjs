@@ -6,17 +6,14 @@
  */
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { JLPT_LEVELS, referenceFile } from "../../shared/jlpt.ts";
 
 export function poolWords(root) {
   const vocab = [];
-  for (const level of ["n5", "n4", "n3", "n2", "n1"])
+  for (const level of JLPT_LEVELS)
     vocab.push(
-      ...JSON.parse(
-        readFileSync(
-          join(root, `data/reference/${level}-reference.json`),
-          "utf8",
-        ),
-      ).vocab,
+      ...JSON.parse(readFileSync(join(root, referenceFile(level)), "utf8"))
+        .vocab,
     );
   const words = [];
   const dir = join(root, "data/word-plan");

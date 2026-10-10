@@ -11,22 +11,15 @@
  * gloss in review.
  */
 import { readFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
+import { referenceFile } from "../../shared/jlpt.ts";
 import { meaningWords } from "../../shared/meanings.ts";
+import { ROOT } from "./cli.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-export const ROOT = resolve(__dirname, "..", "..");
-
-export const LEVELS = ["N5", "N4", "N3", "N2", "N1"];
+export { ROOT };
 
 export function loadReference(level) {
-  return JSON.parse(
-    readFileSync(
-      join(ROOT, "data", "reference", `${level.toLowerCase()}-reference.json`),
-      "utf-8",
-    ),
-  );
+  return JSON.parse(readFileSync(join(ROOT, referenceFile(level)), "utf-8"));
 }
 
 /** Katakana -> hiragana, so a reading compares equal however it was written. */

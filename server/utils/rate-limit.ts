@@ -6,7 +6,7 @@
  * client, not a quota.
  */
 
-export const RATE_LIMIT = { limit: 120, windowMs: 60_000 } as const;
+import { RATE_LIMIT } from "~~/shared/endpoints";
 
 /** What the limiter guards: the JSON API and the share images, the two places
  *  a request does real work. Pages are cached by the CDN; the cron has its own

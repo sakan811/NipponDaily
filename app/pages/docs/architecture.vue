@@ -50,7 +50,8 @@ server/     api/ (handlers), routes/ (sitemap, robots, share images), middleware
 scripts/    data builders run with node: reference snapshots, etymology pins, example sentences, pitch accents, kanji records, strokes, entry generator
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
-test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots)</code></pre>
+test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots)
+e2e/        Playwright browser tests of the built app</code></pre>
 
     <h2>The shared modules</h2>
     <div class="table-wrap">
@@ -66,7 +67,7 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
             <td>
               <code>{{ m.file }}</code
               ><template v-if="m.serverOnly"
-                ><br /><em>server and tests only</em></template
+                ><br ><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>
@@ -108,20 +109,25 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
       </li>
       <li>
         <strong>Composables</strong> are <code>useAsyncData</code>-based, so the
-        server renders with data: <code>useDailyWord</code>,
+        server renders with data. <code>useApiData</code> is the one place that
+        fetches, turns a failure into a message and, on the server, into a
+        <code>404</code>; <code>useDailyWord</code>,
         <code>useWordCalendar</code>, <code>usePartsIndex</code>,
         <code>usePart</code>, <code>useKanjiIndex</code>, <code>useKanji</code>,
-        <code>useRelatedWords</code>, <code>useExplore</code>,
-        <code>usePatterns</code>, <code>useCatalogue</code>, plus
-        <code>usePageSeo</code>, <code>useSiteTheme</code> and
-        <code>useBgm</code>.
+        <code>useExplore</code>, <code>usePatterns</code> and
+        <code>useCatalogue</code> are each a call to it.
+        <code>useRelatedWords</code> alone fetches by itself, because its
+        failure must never make the page a <code>404</code>. Besides these are
+        <code>usePageSeo</code> (with <code>useSiteUrl</code>, the canonical
+        origin), <code>useSiteTheme</code> and <code>useBgm</code>.
       </li>
       <li>
         <strong>Components:</strong> <code>WordEntryView</code> (one entry, with
         its pitch accent), <code>KanjiStrokes</code> (a kanji's strokes, one
         frame each), <code>RelatedWords</code>, <code>WordFilters</code> (the
         filter form shared by Explore and the calendar), <code>AppHeader</code>,
-        <code>AppFooter</code>, <code>DocsBook</code> (a docs page),
+        <code>AppFooter</code>, <code>AppShell</code> (the header, backdrop and
+        footer every page sits in), <code>DocsBook</code> (a docs page),
         <code>DocDiagram</code>, <code>SeasonButton</code>,
         <code>BgmControl</code>, <code>SeasonalEffects</code>,
         <code>TrendingFallback</code> (the generic fetch-error card), the
@@ -156,11 +162,13 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
       running the app and the copy expires at the moment a new word opens. It
       sets no <code>stale-while-revalidate</code>, which would show yesterday's
       word after the day had turned, and it never marks an error. The exceptions
-      are <code>/api/site-theme</code> (60 seconds, in
+      are <code>/api/site-theme</code> (a short rule of its own in
       <code>nuxt.config.ts</code>), the cron, and the share image, which never
-      changes once its day has opened and keeps for a week. The season is
-      applied in the browser, never in the HTML, which is why a cached page is
-      safe.
+      changes once its day has opened and so keeps longer; both rules are in
+      <code>shared/endpoints.ts</code> and the
+      <NuxtLink to="/docs/api">API</NuxtLink>
+      chapter. The season is applied in the browser, never in the HTML, which is
+      why a cached page is safe.
     </p>
     <p>
       This saves invocations, not computation: with every entry in memory a
@@ -190,9 +198,22 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
       <li>
         <strong>State</strong> is local (<code>ref</code>,
         <code>computed</code>); there is no global store. Only
-        <code>color-theme</code>, <code>season-choice</code>,
-        <code>site-theme-season</code> and <code>bgm-volume</code> ever sit in a
-        reader's <code>localStorage</code>.
+        <template v-for="(key, i) in storageKeys" :key="key"
+          >{{ i ? ", " : "" }}<code>{{ key }}</code></template
+        >
+        ever sit in a reader's <code>localStorage</code>.
+      </li>
+      <li>
+        <strong>One implementation.</strong> Before writing a second copy of a
+        handler, composable, page shell or script step, use or extend the helper
+        that already does it: <code>ok</code>, <code>notFound</code> and
+        <code>parseQuery</code> for API answers (<code>server/utils/</code>),
+        <code>useApiData</code> for fetching, <code>AppShell</code> for a page's
+        header, backdrop and footer, and <code>scripts/lib/</code> for the data
+        scripts. A number or name the rules turn on goes in the
+        <code>shared/</code> module that owns it (see below).
+        <code>test/server/single-source.test.ts</code> fails when one of those
+        facts is typed again beside its owner.
       </li>
       <li><strong>Package manager</strong> is pnpm only.</li>
     </ul>
@@ -201,8 +222,33 @@ test/       unit/ (happy-dom), server/ (node), content/ (offline, against the sn
     <p>
       A fact is written once, in code, and everything else reads it. Prose that
       explains something stays hand-written, once per audience, and points here
-      instead of restating the fact.
+      instead of restating the fact. The rule (often called DRY) applies in four
+      places:
     </p>
+    <ul>
+      <li>
+        <strong>Code.</strong> One implementation per job, and a constant the
+        rules turn on lives in the <code>shared/</code> module that owns it (see
+        <em>One implementation</em> above).
+      </li>
+      <li>
+        <strong>Data.</strong> Entries in <code>data/words/</code> and
+        <code>data/reference/</code> are generated, never edited by hand. A
+        wrong value is fixed in its source or in the parser, then regenerated
+        (<NuxtLink to="/docs/authoring">Adding and fixing words</NuxtLink>), and
+        a test fails when a committed entry differs from what the generator
+        derives (<NuxtLink to="/docs/data-integrity">Data integrity</NuxtLink>).
+      </li>
+      <li>
+        <strong>Facts the pages state.</strong> Sources, routes, seasons and the
+        word range are read from code or data when the page renders, as the
+        table below shows.
+      </li>
+      <li>
+        <strong>Docs.</strong> One chapter owns each topic and the others link
+        to it (<NuxtLink to="/docs/development#docs">Development</NuxtLink>).
+      </li>
+    </ul>
     <div class="table-wrap">
       <table>
         <thead>
@@ -242,6 +288,9 @@ import DocDiagram from "../../components/DocDiagram.vue";
 import CatalogueRange from "../../components/CatalogueRange.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
+import { STORAGE_KEYS } from "~~/shared/storage-keys";
+
+const storageKeys = Object.values(STORAGE_KEYS);
 
 const system: Required<DiagramSpec> = {
   nodes: [
@@ -274,7 +323,7 @@ const system: Required<DiagramSpec> = {
     {
       id: "cron",
       label: "Vercel cron",
-      sub: "15:00 UTC daily",
+      sub: "midnight JST daily",
       col: 1,
       row: 2.4,
       kind: "actor",
@@ -360,12 +409,23 @@ const sharedModules = [
     role: "The seasonal presets: `SEASONS`, `SEASON_IDS`, `DEFAULT_SEASON`, `seasonForDate()`.",
   },
   { file: "sources.ts", role: "Data sources, licences and credit lines." },
-  { file: "endpoints.ts", role: "The route list." },
+  {
+    file: "endpoints.ts",
+    role: "The route list, the rate limit and the CDN cache rules.",
+  },
   { file: "docs.ts", role: "The chapters of this book." },
   { file: "jlpt.ts", role: "`JLPT_LEVELS`." },
   {
-    file: "part-limits.ts",
-    role: "`MAX_PART_LENGTH`, the longest part text the API accepts.",
+    file: "limits.ts",
+    role: "The numbers the rules turn on: `MAX_PART_LENGTH`, the related-words limit, weight and minimum score, `MAX_EXAMPLES`.",
+  },
+  {
+    file: "jst.ts",
+    role: "Japan's calendar: `JST_OFFSET_MS`, `DAY_MS`, `toJst()`.",
+  },
+  {
+    file: "storage-keys.ts",
+    role: "`STORAGE_KEYS`, the only keys in a reader's `localStorage`.",
   },
 ];
 
@@ -390,6 +450,36 @@ const sources = [
     fact: "Season palettes, months, motifs",
     file: "shared/seasons.ts",
     readers: "The CSS (a test keeps it in step), Seasons, Colour and shape",
+  },
+  {
+    fact: "Japan's calendar: the offset and the length of a day",
+    file: "shared/jst.ts",
+    readers:
+      "`todayJst()`, `seasonForDate()`, the cache lifetime in `server/utils/day-cache.ts`",
+  },
+  {
+    fact: "The rate limit and the CDN cache rules",
+    file: "shared/endpoints.ts",
+    readers:
+      "The rate limiter, `nuxt.config.ts`, the share-image route, the API and Seasons chapters",
+  },
+  {
+    fact: "The numbers the rules turn on (related words, examples, part length)",
+    file: "shared/limits.ts",
+    readers:
+      "The code that applies them, the tests and the Daily words chapter",
+  },
+  {
+    fact: "The `localStorage` keys",
+    file: "shared/storage-keys.ts",
+    readers:
+      "The buttons and composables that write them, the inline script in `nuxt.config.ts`, the docs",
+  },
+  {
+    fact: "The JLPT levels",
+    file: "shared/jlpt.ts",
+    readers:
+      "The Explore filters, the data scripts, every chapter that names the range",
   },
   {
     fact: "Chapters, titles, summaries, order",

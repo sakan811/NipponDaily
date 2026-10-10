@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
-  >
-    <div class="season-backdrop" />
-
-    <AppHeader />
-
+  <AppShell>
     <main class="relative z-10 container mx-auto px-4 max-w-5xl py-16 flex-1">
       <div class="max-w-2xl space-y-4">
         <p class="kicker text-primary-600 dark:text-primary-400">The Parts</p>
@@ -108,15 +102,12 @@
         <USkeleton class="h-48 w-full" />
       </div>
     </main>
-
-    <AppFooter />
-  </div>
+  </AppShell>
 </template>
 
 <script setup lang="ts">
+import AppShell from "../../components/AppShell.vue";
 import { computed } from "vue";
-import AppHeader from "../../components/AppHeader.vue";
-import AppFooter from "../../components/AppFooter.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import { usePageSeo } from "../../composables/usePageSeo";
 import { usePartsIndex } from "../../composables/useParts";

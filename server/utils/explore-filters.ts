@@ -5,7 +5,7 @@ import {
   STRATUM_KEY_IDS,
   splitList,
 } from "~~/shared/explore-query";
-import { MAX_PART_LENGTH } from "~~/shared/part-limits";
+import { MAX_PART_LENGTH } from "~~/shared/limits";
 import { JLPT_LEVELS } from "~~/shared/jlpt";
 import { FREQUENCY_IDS, POS_GROUP_IDS } from "~~/shared/word-labels";
 import type { ExploreFilters } from "~~/types/index";
@@ -55,21 +55,3 @@ export const filtersOf = (parsed: Record<string, unknown>): ExploreFilters =>
       .filter((key) => parsed[key] !== undefined)
       .map((key) => [key, parsed[key]]),
   ) as ExploreFilters;
-
-/** Turns a failed query parse into the `400` every endpoint answers with. */
-export function rejectQuery(error: unknown): never {
-  if (error instanceof z.ZodError) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: "Bad Request",
-      data: {
-        error: "Invalid query parameters",
-        details: error.issues.map((e) => ({
-          path: e.path.join("."),
-          message: e.message,
-        })),
-      },
-    });
-  }
-  throw error;
-}

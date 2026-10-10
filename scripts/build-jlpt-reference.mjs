@@ -29,8 +29,7 @@
  * Usage: pnpm data:reference:jlpt
  */
 import { mkdirSync, writeFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import { dedupeAcrossLevels, parseJlptCsv, slugify } from "./lib/word-list.mjs";
 import { WORD_LIST_SOURCES, wordListUrl } from "./word-list-source.mjs";
 import {
@@ -46,10 +45,13 @@ import {
   contentKanji,
   contentSentences,
 } from "./build-n5-reference.mjs";
+import { JLPT_LEVELS, referenceFile } from "../shared/jlpt.ts";
 import { servedVocab } from "../shared/meanings.ts";
+import { SOURCES } from "../shared/sources.ts";
+import { ROOT } from "./lib/cli.mjs";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const LEVELS = ["N4", "N3", "N2", "N1"];
+// N5 has its own builder (build-n5-reference.mjs); these are the rest.
+const LEVELS = JLPT_LEVELS.slice(1);
 
 const KANJI_RE = /[㐀-䶿一-鿿々]/;
 const KANJI_RE_G = /[㐀-䶿一-鿿]/gu;
@@ -148,7 +150,7 @@ function buildLevelReference(level, entries, dict, shared) {
       sources: {
         jmdict: {
           ...JMDICT_SOURCE,
-          licence: "JMdict/KANJIDIC2 © EDRDG, CC BY-SA 4.0",
+          licence: `JMdict/KANJIDIC2 © ${SOURCES.edrdg.holderShort}, ${SOURCES.edrdg.licence.name}`,
         },
         wordList: { ...WORD_LIST_SOURCES[level], licence: "MIT" },
       },
@@ -241,10 +243,7 @@ async function main() {
     }
     const reference = buildLevelReference(level, entries, dict, shared);
 
-    const outFile = join(
-      ROOT,
-      `data/reference/${level.toLowerCase()}-reference.json`,
-    );
+    const outFile = join(ROOT, referenceFile(level));
     mkdirSync(dirname(outFile), { recursive: true });
     writeFileSync(outFile, `${JSON.stringify(reference, null, 1)}\n`);
     console.log(

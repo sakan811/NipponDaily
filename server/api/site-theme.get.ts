@@ -1,4 +1,5 @@
 import { siteThemeService } from "../services/site-theme";
+import { ok } from "../utils/api-response";
 import { seasonForDate } from "~~/shared/seasons";
 import type { SiteTheme } from "~~/types/index";
 
@@ -16,11 +17,7 @@ export default defineEventHandler(async () => {
       await siteThemeService.saveActiveTheme(theme, { onlyIfAbsent: true });
     }
 
-    return {
-      success: true,
-      data: theme,
-      timestamp: new Date().toISOString(),
-    };
+    return ok(theme);
   } catch (error) {
     console.error("Site theme API error:", error);
 

@@ -47,19 +47,20 @@
 
     <h2>When a day opens</h2>
     <p>
-      Dates are JST. <code>todayJst()</code> shifts UTC by +9 hours, so a new
-      word opens at 15:00 UTC. With no <code>date</code>,
-      <code>GET /api/daily-word</code> serves today's word. Once the catalogue
-      has run out it starts a new lap (<code>lapEntryForDate()</code>): the day
-      after the last word shows the first, the next day the second, and so on,
-      round again after the last. Until the last written day it serves the
-      newest word that is open, on lap 1. The payload's <code>lap</code> says
-      which one (1 until then), and the home page names the lap from 2 on. A
-      word shown on a later lap has always opened already, so nothing leaks; an
-      explicit <code>date</code> is always lap 1. The calendar fills those days
-      too: <code>calendarForMonth()</code> gives each open day after the last
-      entry the lap word, linked to that word's own page. The page is never
-      empty, and before the first day it is a <code>404</code>.
+      Dates are JST (<code>shared/jst.ts</code>). <code>todayJst()</code> shifts
+      UTC to Japan's calendar, so a new word opens at midnight there. With no
+      <code>date</code>, <code>GET /api/daily-word</code> serves today's word.
+      Once the catalogue has run out it starts a new lap
+      (<code>lapEntryForDate()</code>): the day after the last word shows the
+      first, the next day the second, and so on, round again after the last.
+      Until the last written day it serves the newest word that is open, on lap
+      1. The payload's <code>lap</code> says which one (1 until then), and the
+      home page names the lap from 2 on. A word shown on a later lap has always
+      opened already, so nothing leaks; an explicit <code>date</code> is always
+      lap 1. The calendar fills those days too:
+      <code>calendarForMonth()</code> gives each open day after the last entry
+      the lap word, linked to that word's own page. The page is never empty, and
+      before the first day it is a <code>404</code>.
     </p>
 
     <DocDiagram
@@ -177,17 +178,19 @@
       recorded <code>base</code> differs from its <code>reading</code>, classed
       from the two spellings as a voiced first kana (ひ → び; ち → じ and つ →
       ず count, being the merged voiced sounds), a reading ending in っ, or
-      other. The page says the counts describe these entries (a JLPT N5–N1
+      other. The page says the counts describe these entries (a JLPT
+      {{ JLPT_RANGE }}
       sample, parser-derived tags), not the language.
     </p>
 
     <h3>Related words</h3>
     <p>
-      Under an entry on <code>/words/&lt;date&gt;</code>: up to six other open
-      words, scored 3 per shared part plus
-      <code>1 − (fraction of open words carrying it)</code> for each shared
-      process and for a shared layer. Below 1.5 a word is not offered. Each card
-      names what is shared and links to <code>/parts/&lt;text&gt;</code> or
+      Under an entry on <code>/words/&lt;date&gt;</code>: up to
+      {{ RELATED_LIMIT }} other open words, scored {{ RELATED_PART_WEIGHT }} per
+      shared part plus <code>1 − (fraction of open words carrying it)</code> for
+      each shared process and for a shared layer. Below
+      {{ RELATED_MIN_SCORE }} a word is not offered. Each card names what is
+      shared and links to <code>/parts/&lt;text&gt;</code> or
       <code>/explore</code>. The row is hidden when the fetch fails or nothing
       clears the minimum.
     </p>
@@ -197,15 +200,16 @@
       <strong>The share image</strong>, <code>GET /og.png?date=…</code>, is what
       a shared link shows as its preview. The app serves it and sends nothing to
       anyone. It is derived from fields the entry already has, reads open days
-      only and adds no claim. It is a 1200 by 630 PNG of the word, its reading,
-      meaning, level, layer and headline, in the palette of the season its day
-      falls in. The page's Open Graph and Twitter tags point at it, so a shared
-      link unfolds into the card. It is drawn on the server by satori and resvg
-      (<code>shared/og-card.ts</code>, <code>server/utils/og-image.ts</code>)
-      and is served outside <code>/api/</code> so that
-      <code>robots.txt</code> does not stop a link preview from fetching it. A
-      future, malformed or unknown date is a <code>404</code> rather than a
-      <code>400</code>, so the image cannot be used to learn a word early.
+      only and adds no claim. It is a {{ OG_WIDTH }} by {{ OG_HEIGHT }} PNG of
+      the word, its reading, meaning, level, layer and headline, in the palette
+      of the season its day falls in. The page's Open Graph and Twitter tags
+      point at it, so a shared link unfolds into the card. It is drawn on the
+      server by satori and resvg (<code>shared/og-card.ts</code>,
+      <code>server/utils/og-image.ts</code>) and is served outside
+      <code>/api/</code> so that <code>robots.txt</code> does not stop a link
+      preview from fetching it. A future, malformed or unknown date is a
+      <code>404</code> rather than a <code>400</code>, so the image cannot be
+      used to learn a word early.
     </p>
     <p>
       The card draws Japanese in Zen Old Mincho and Latin in Outfit, the site's
@@ -221,11 +225,10 @@
 
     <h2>The word pool</h2>
     <p>
-      The pool is the community JLPT lists (one CSV per level, N5 to N1),
-      cross-referenced against JMdict and KANJIDIC2. It exists only as the
-      committed
-      <code>data/reference/n{5,4,3,2,1}-reference.json</code> snapshots; there
-      is no Redis pool. <code>scripts/lib/word-list.mjs</code> holds the
+      The pool is the community JLPT lists (one CSV per level,
+      {{ JLPT_RANGE }}), cross-referenced against JMdict and KANJIDIC2. It
+      exists only as the committed <code>{{ REFERENCE_FILES }}</code> snapshots;
+      there is no Redis pool. <code>scripts/lib/word-list.mjs</code> holds the
       parsing, the reading and meaning overrides and the gloss cross-check.
     </p>
     <p>
@@ -250,6 +253,14 @@ import DocDiagram from "../../components/DocDiagram.vue";
 import CatalogueRange from "../../components/CatalogueRange.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
+import { JLPT_RANGE, REFERENCE_FILES } from "~~/shared/jlpt";
+import {
+  MAX_EXAMPLES,
+  RELATED_LIMIT,
+  RELATED_MIN_SCORE,
+  RELATED_PART_WEIGHT,
+} from "~~/shared/limits";
+import { OG_HEIGHT, OG_WIDTH } from "~~/shared/og-card";
 
 const fields = [
   { name: "date", meaning: "`YYYY-MM-DD`, JST." },
@@ -276,7 +287,7 @@ const fields = [
   {
     name: "pitch?",
     meaning:
-      "The mora after which the pitch falls, as the pinned Kanjium accent list gives it for this exact spelling and reading (`0`: it never falls, `1`: after the first mora…); several when the list gives several. Left out when the list has none.",
+      "The mora after which the pitch falls, as the pinned Kanjium accent list gives it for this exact spelling and reading (`0`: it never falls, `1`: after the first mora…) and UniDic gives it too; several when both give several. Left out when they share none.",
   },
   {
     name: "stratum?",
@@ -302,7 +313,9 @@ const fields = [
   {
     name: "examples[]?",
     meaning:
-      "`{ id, ja, en, enId, form, furigana? }`: up to two example sentences from the pinned Tatoeba export, with their translations, unchanged. `id` and `enId` are Tatoeba's numbers and `form` is the word as the sentence writes it. `furigana` cuts `ja` into parts that join back to it, `[text]` or `[kanji, reading]`, and is left out when no kanji got a verified reading; a kanji whose reading the sources cannot settle stays bare in it. The whole field is left out when no sentence qualifies.",
+      "`{ id, ja, en, enId, form, furigana? }`: up to " +
+      MAX_EXAMPLES +
+      " example sentences from the pinned Tatoeba export, with their translations, unchanged. `id` and `enId` are Tatoeba's numbers and `form` is the word as the sentence writes it. `furigana` cuts `ja` into parts that join back to it, `[text]` or `[kanji, reading]`, and is left out when no kanji got a verified reading; a kanji whose reading the sources cannot settle stays bare in it. The whole field is left out when no sentence qualifies.",
   },
   { name: "wiktionaryDump", meaning: "Date of the pinned Wiktionary dump." },
 ];

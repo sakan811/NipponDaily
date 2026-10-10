@@ -10,9 +10,9 @@
       The laps, the multi-select and any/all filters in Explore, the
       part-of-speech and how-common groups, the “not stated” layer, the larger
       combinations in Patterns, the kanji pages with their stroke order, the
-      example sentences with their furigana, the pitch accent, JMdict's
-      register, field and dialect tags, the JMdict cross-check and the share
-      image are built and described in
+      example sentences with their furigana, the pitch accent and its check
+      against a second dictionary, JMdict's register, field and dialect tags,
+      the JMdict cross-check and the share image are built and described in
       <NuxtLink to="/docs/core-theme">Core theme</NuxtLink> and
       <NuxtLink to="/docs/words">Daily words</NuxtLink>. What is left is a list
       of ideas, not a promise. Any of them follows the
@@ -34,14 +34,6 @@
         the sentence (一日 as 月 + 立ち), so each would need a human check for a
         very small gain. Reading them would also need the templates pinned
         beside each section.
-      </li>
-      <li>
-        <strong>A second source for the pitch accent.</strong> The accent list
-        is one source, so nothing checks it the way KANJIDIC2 and a second
-        analyser check the furigana. An independent open accent dictionary would
-        let the app show an accent only where two agree, and name the words they
-        disagree on. It would need its own pinned file, a check and an entry in
-        <code>shared/sources.ts</code>.
       </li>
     </ul>
 
@@ -91,14 +83,20 @@
         at present.
       </li>
       <li>
-        <strong>Pitch accent is one list's, not a recording.</strong> It comes
-        from Kanjium's accent list, which credits an individual's free database
-        and does not say whose speech it records, and a word is shown an accent
-        only where the list gives that exact spelling and reading, so some words
-        show none. The number is the mora after which the pitch falls; how it
-        changes in a compound, with a particle or in a sentence is not shown.
-        Where the list gives several accents all are shown, without saying which
-        is more usual.
+        <strong>Pitch accent is two lists' agreement, not a recording.</strong>
+        It comes from Kanjium's accent list, which credits an individual's free
+        database and does not say whose speech it records, and an accent is
+        shown only where UniDic's own accent type for the same spelling and
+        reading gives it too. That drops the accents UniDic contradicts and
+        every one of a word it is silent on (its lexicon does not hold many
+        compounds, and it reads some words otherwise), so some words show none;
+        the snapshot names each word that lost one. The two are not proven
+        independent: both may rest on the same older accent dictionaries, and
+        agreeing does not make an accent right. A word is shown an accent only
+        where the list gives that exact spelling and reading. The number is the
+        mora after which the pitch falls; how it changes in a compound, with a
+        particle or in a sentence is not shown. Where both give several accents
+        all are shown, without saying which is more usual.
       </li>
       <li>
         <strong>Stroke order is KanjiVG's drawing.</strong> It is shown only
@@ -127,8 +125,8 @@
       </li>
       <li>
         <strong>The counts describe these entries.</strong> They are a JLPT
-        N5–N1 sample with parser-derived tags, not the language. Coverage of
-        parts is bounded by the parsers.
+        {{ JLPT_RANGE }} sample with parser-derived tags, not the language.
+        Coverage of parts is bounded by the parsers.
       </li>
       <li>
         <strong>Laps repeat the same entries.</strong> By design (<NuxtLink
@@ -170,20 +168,25 @@
         address.
       </li>
       <li>
-        <strong>No browser tests.</strong> The integration test requests every
-        route of the built app, so a page that fails to render or answers the
-        wrong status is caught. Nothing runs the client in a browser, so
-        hydration problems and interactions are checked only by their unit
-        tests.
+        <strong>Browser tests cover one browser and the main paths.</strong>
+        They run the built app in Chromium, at a desktop and a phone width, over
+        the pages, the colour and season picks, Explore, the calendar and the
+        stroke frames. Firefox and Safari are not run, the music and the
+        seasonal animations are not exercised, and a production build reports no
+        hydration mismatch, so one shows only as a failed interaction (<NuxtLink
+          to="/docs/development"
+          >Development</NuxtLink
+        >).
       </li>
       <li>
-        <strong>Contrast is held, not met everywhere.</strong> Text on colour
-        aims for WCAG AA. A test (<code>contrast</code>) measures every pair the
-        UI uses in every season and mode and lists those below 4.5:1: the error
-        button in spring, summer and winter, the autumn primary button, and much
-        of the coloured text, mostly secondary, success and warning on the light
-        canvas and autumn's primary. The list stops a pair getting worse; it
-        does not fix one, which needs a new palette value.
+        <strong>Contrast is measured on the pairs the UI uses.</strong> Text on
+        colour meets WCAG AA (4.5:1) in every season and mode: fills and their
+        text, and the shaded text (the 600 step in light, the 400 in dark) on
+        the canvas and on the tint soft buttons and badges draw. A test
+        (<code>contrast</code>) holds this. The 500 step is a fill, never a text
+        colour, and a solid button lifts on hover instead of darkening, because
+        its text colour was picked for the 500 step. Colour that is not text
+        (borders, focus rings, the seasonal backdrops) is not measured.
       </li>
     </ul>
   </DocsBook>
@@ -191,4 +194,5 @@
 
 <script setup lang="ts">
 import DocsBook from "../../components/DocsBook.vue";
+import { JLPT_RANGE } from "~~/shared/jlpt";
 </script>

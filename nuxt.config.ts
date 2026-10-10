@@ -1,6 +1,8 @@
 import { createRequire } from "node:module";
 import tailwindcss from "@tailwindcss/vite";
+import { SITE_THEME_CACHE_CONTROL } from "./shared/endpoints";
 import { SEASON_IDS } from "./shared/seasons";
+import { STORAGE_KEYS } from "./shared/storage-keys";
 
 // The site's faces, served from the app itself (@fontsource ships each as
 // unicode-range slices, so a page downloads only the slices its text needs).
@@ -47,7 +49,7 @@ export default defineNuxtConfig({
         {
           innerHTML: `(function() {
             try {
-              const theme = localStorage.getItem('color-theme');
+              const theme = localStorage.getItem(${JSON.stringify(STORAGE_KEYS.colorTheme)});
               const isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
               const folder = isDark ? 'dark' : 'light';
               if (isDark) {
@@ -56,8 +58,8 @@ export default defineNuxtConfig({
                 document.documentElement.classList.remove('dark');
               }
               const seasons = ${JSON.stringify(SEASON_IDS)};
-              const choice = localStorage.getItem('season-choice');
-              const cachedSeason = localStorage.getItem('site-theme-season');
+              const choice = localStorage.getItem(${JSON.stringify(STORAGE_KEYS.seasonChoice)});
+              const cachedSeason = localStorage.getItem(${JSON.stringify(STORAGE_KEYS.siteThemeSeason)});
               const season = seasons.indexOf(choice) !== -1 ? choice : cachedSeason;
               if (seasons.indexOf(season) !== -1) {
                 document.documentElement.setAttribute('data-season', season);
@@ -117,14 +119,9 @@ export default defineNuxtConfig({
   },
   nitro: { externals: { traceInclude: [HARFBUZZ_WASM] } },
   routeRules: {
-    // The active season changes a few times a year, and every page load
-    // fetches it — let the CDN absorb that. A cron write shows up within
-    // about a minute.
+    // The active season: its CDN rule is SITE_THEME_CACHE_CONTROL.
     "/api/site-theme": {
-      headers: {
-        "cache-control":
-          "public, max-age=0, s-maxage=60, stale-while-revalidate=600",
-      },
+      headers: { "cache-control": SITE_THEME_CACHE_CONTROL },
     },
     // The daily game and the lesson/vocabulary pages were replaced by the
     // daily-word calendar. Temporary (not 301) redirects, so old bookmarks and

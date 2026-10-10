@@ -21,8 +21,7 @@
  * caller can say), then the shortest, then the lowest id.
  */
 import { toHiragana } from "wanakana";
-
-export const MAX_EXAMPLES = 2;
+import { MAX_EXAMPLES } from "../../shared/limits.ts";
 /** Sentence length, in characters, a card can show. */
 export const SENTENCE_LENGTH = { min: 6, max: 40 };
 

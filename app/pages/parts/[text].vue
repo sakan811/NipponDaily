@@ -1,17 +1,11 @@
 <template>
-  <div
-    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
-  >
-    <div class="season-backdrop" />
-
-    <AppHeader />
-
+  <AppShell>
     <main
       class="relative z-10 container mx-auto px-4 max-w-4xl py-12 sm:py-16 flex-1"
     >
       <NuxtLink
         to="/parts"
-        class="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-primary-500 mb-8"
+        class="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 mb-8"
       >
         <UIcon name="i-heroicons-arrow-left" class="w-4 h-4" />
         All parts
@@ -69,7 +63,7 @@
               >
                 <NuxtLink
                   :to="`/words/${use.word.date}`"
-                  class="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 hover:text-primary-500 transition-colors"
+                  class="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 >
                   <span class="text-2xl font-serif font-bold">{{
                     use.word.term
@@ -92,7 +86,7 @@
                     <NuxtLink
                       v-else
                       :to="partPath(p)"
-                      class="hover:text-primary-500 underline decoration-dotted"
+                      class="hover:text-primary-600 dark:hover:text-primary-400 underline decoration-dotted"
                       >{{ p }}</NuxtLink
                     >
                   </template>
@@ -149,16 +143,13 @@
         <USkeleton class="h-64 w-full" />
       </div>
     </main>
-
-    <AppFooter />
-  </div>
+  </AppShell>
 </template>
 
 <script setup lang="ts">
+import AppShell from "../../components/AppShell.vue";
 import { computed } from "vue";
 import { useRoute } from "#app";
-import AppHeader from "../../components/AppHeader.vue";
-import AppFooter from "../../components/AppFooter.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import { usePageSeo } from "../../composables/usePageSeo";
 import { usePart } from "../../composables/useParts";

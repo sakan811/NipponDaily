@@ -32,13 +32,12 @@
       A successful answer is cached until midnight in Japan (<NuxtLink
         to="/docs/architecture#caching"
         >Caching</NuxtLink
-      >). An address that asks an endpoint or the share image more than 120
-      times a minute gets a <code>429</code> with
-      <code>Retry-After</code> (counted in memory per server instance, never
-      stored). A day's words are served only once it is open (<NuxtLink
-        to="/docs/words"
-        >Daily words</NuxtLink
-      >); what each failure looks like on a page is in
+      >). An address that asks an endpoint or the share image more than
+      {{ RATE_LIMIT.limit }} times in {{ RATE_LIMIT.windowMs / 1000 }} seconds
+      gets a <code>429</code> with <code>Retry-After</code> (counted in memory
+      per server instance, never stored). A day's words are served only once it
+      is open (<NuxtLink to="/docs/words">Daily words</NuxtLink>); what each
+      failure looks like on a page is in
       <NuxtLink to="/docs/error-states">Error and fallback states</NuxtLink>.
     </p>
 
@@ -51,7 +50,7 @@
 <script setup lang="ts">
 import DocsBook from "../../components/DocsBook.vue";
 import RichText from "../../components/RichText.vue";
-import { API_ENDPOINTS } from "~~/shared/endpoints";
+import { API_ENDPOINTS, RATE_LIMIT } from "~~/shared/endpoints";
 
 const example = `{
   "success": true,

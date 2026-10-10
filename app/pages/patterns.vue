@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
-  >
-    <div class="season-backdrop" />
-
-    <AppHeader />
-
+  <AppShell>
     <main class="relative z-10 container mx-auto px-4 max-w-5xl py-16 flex-1">
       <div class="max-w-2xl space-y-4">
         <p class="kicker text-primary-600 dark:text-primary-400">Patterns</p>
@@ -81,9 +75,10 @@
                 class="group block"
               >
                 <span class="flex items-baseline justify-between gap-3 text-sm">
-                  <span class="group-hover:text-primary-500">{{
-                    layerName(s.value)
-                  }}</span>
+                  <span
+                    class="group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                    >{{ layerName(s.value) }}</span
+                  >
                   <span class="tabular-nums text-stone-500 dark:text-stone-400"
                     >{{ s.count }} ·
                     {{ percent(s.count, patterns.total) }}</span
@@ -121,9 +116,10 @@
                 class="group block"
               >
                 <span class="flex items-baseline justify-between gap-3 text-sm">
-                  <span class="font-semibold group-hover:text-primary-500">{{
-                    row.value
-                  }}</span>
+                  <span
+                    class="font-semibold group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                    >{{ row.value }}</span
+                  >
                   <span class="tabular-nums text-stone-500 dark:text-stone-400"
                     >{{ row.count }} words</span
                   >
@@ -172,9 +168,10 @@
                 class="group block"
               >
                 <span class="flex items-baseline justify-between gap-3 text-sm">
-                  <span class="group-hover:text-primary-500">{{
-                    WORD_PROCESSES[row.value].label
-                  }}</span>
+                  <span
+                    class="group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                    >{{ WORD_PROCESSES[row.value].label }}</span
+                  >
                   <span
                     class="tabular-nums text-stone-500 dark:text-stone-400"
                     >{{ row.count }}</span
@@ -283,7 +280,7 @@
               <p class="flex items-baseline justify-between gap-3">
                 <NuxtLink
                   :to="combinationPath(combo)"
-                  class="font-semibold hover:text-primary-500"
+                  class="font-semibold hover:text-primary-600 dark:hover:text-primary-400"
                   >{{ combinationLabel(combo) }}</NuxtLink
                 >
                 <span
@@ -437,15 +434,12 @@
         <USkeleton class="h-48 w-full" />
       </div>
     </main>
-
-    <AppFooter />
-  </div>
+  </AppShell>
 </template>
 
 <script setup lang="ts">
+import AppShell from "../components/AppShell.vue";
 import { computed } from "vue";
-import AppHeader from "../components/AppHeader.vue";
-import AppFooter from "../components/AppFooter.vue";
 import TrendingFallback from "../components/TrendingFallback.vue";
 import { usePatterns } from "../composables/useExplore";
 import { usePageSeo } from "../composables/usePageSeo";

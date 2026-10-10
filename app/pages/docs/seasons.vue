@@ -29,7 +29,7 @@
               <code>{{ s.id }}</code
               ><template v-if="s.id === DEFAULT_SEASON"> (default)</template>
             </td>
-            <td>{{ monthRange(s.months) }}</td>
+            <td>{{ monthsText(s.months) }}</td>
           </tr>
         </tbody>
       </table>
@@ -45,8 +45,8 @@
     <ul>
       <li>
         <strong>Cron.</strong> <code>vercel.json</code> runs
-        <code>GET /api/cron/update-season</code> at <code>0 15 * * *</code> UTC
-        (midnight in Japan). It checks
+        <code>GET /api/cron/update-season</code> at
+        <code>{{ cron.schedule }}</code> UTC (midnight in Japan). It checks
         <code>Authorization: Bearer &lt;CRON_SECRET&gt;</code> in constant time
         (a missing or wrong token, or no secret, is a <code>401</code>),
         computes <code>seasonForDate()</code> and saves a
@@ -56,41 +56,41 @@
       </li>
       <li>
         <strong>Site theme.</strong> <code>GET /api/site-theme</code> reads the
-        single record (<code>n5:site_theme</code>) from Redis, or builds one for
-        today's season (<code>source: "fallback"</code>) and saves it with Redis
-        <code>NX</code>, so a concurrent cron write is never clobbered, and the
-        site is never unstyled. Responses carry
-        <code
-          >cache-control: public, max-age=0, s-maxage=60,
-          stale-while-revalidate=600</code
-        >
-        (a <code>routeRules</code> entry in <code>nuxt.config.ts</code>).
+        single record (<code>{{ SITE_THEME_REDIS_KEY }}</code
+        >) from Redis, or builds one for today's season (<code
+          >source: "fallback"</code
+        >) and saves it with Redis <code>NX</code>, so a concurrent cron write
+        is never clobbered, and the site is never unstyled. Responses carry
+        <code>cache-control: {{ SITE_THEME_CACHE_CONTROL }}</code> (a
+        <code>routeRules</code> entry in <code>nuxt.config.ts</code>).
       </li>
       <li>
         <strong>Applying it.</strong> <code>useSiteTheme()</code> sets
         <code>data-season</code> on <code>&lt;html&gt;</code>; the reader's
-        <code>season-choice</code> wins over the site's season. An inline script
-        in <code>nuxt.config.ts</code> applies <code>season-choice</code>, else
-        the cached <code>site-theme-season</code>, before paint, so a repeat
-        visit never flashes the default.
+        <code>{{ STORAGE_KEYS.seasonChoice }}</code> wins over the site's
+        season. An inline script in <code>nuxt.config.ts</code> applies
+        <code>{{ STORAGE_KEYS.seasonChoice }}</code
+        >, else the cached <code>{{ STORAGE_KEYS.siteThemeSeason }}</code
+        >, before paint, so a repeat visit never flashes the default.
       </li>
       <li>
         <strong>Season button.</strong> <code>SeasonButton.vue</code> lets a
         reader pick any season or “Follow the calendar”. The pick lives only in
-        <code>localStorage</code> (<code>season-choice</code>).
+        <code>localStorage</code> (<code>{{ STORAGE_KEYS.seasonChoice }}</code
+        >).
       </li>
       <li>
         <strong>Music.</strong> <code>BgmControl.vue</code> and
         <code>useBgm.ts</code> play a looping track for each season, all encoded
         to the same integrated loudness (−16 LUFS, measured on the MP3s) so a
         season change never changes the level. It is off on every load; only the
-        volume (<code>bgm-volume</code>) is remembered. Looping is gapless
-        through a decoded audio buffer and a <code>GainNode</code> (iOS ignores
-        <code>element.volume</code>); a browser without Web Audio falls back to
-        a plain looping audio element, with no crossfade. When the season
-        changes mid-song the old track keeps playing until the new one has
-        loaded, then the two crossfade over two seconds. The music pauses while
-        the tab is hidden.
+        volume (<code>{{ STORAGE_KEYS.bgmVolume }}</code
+        >) is remembered. Looping is gapless through a decoded audio buffer and
+        a <code>GainNode</code> (iOS ignores <code>element.volume</code>); a
+        browser without Web Audio falls back to a plain looping audio element,
+        with no crossfade. When the season changes mid-song the old track keeps
+        playing until the new one has loaded, then the two crossfade over two
+        seconds. The music pauses while the tab is hidden.
       </li>
     </ul>
 
@@ -105,34 +105,27 @@
 import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import type { DiagramSpec } from "../../utils/diagram";
-import { DEFAULT_SEASON, SEASON_IDS, SEASONS } from "~~/shared/seasons";
+import vercel from "~~/vercel.json";
+import { SITE_THEME_CACHE_CONTROL } from "~~/shared/endpoints";
+import {
+  DEFAULT_SEASON,
+  monthsText,
+  SEASON_IDS,
+  SEASONS,
+  SITE_THEME_REDIS_KEY,
+} from "~~/shared/seasons";
+import { STORAGE_KEYS } from "~~/shared/storage-keys";
 
-const MONTH_NAMES = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
+const cron = vercel.crons.find((c) => c.path === "/api/cron/update-season")!;
 
 const seasons = SEASON_IDS.map((id) => SEASONS[id]);
-
-const monthRange = (months: readonly number[]) =>
-  `${MONTH_NAMES[months[0]! - 1]}–${MONTH_NAMES[months[months.length - 1]! - 1]}`;
 
 const flow: Required<DiagramSpec> = {
   nodes: [
     {
       id: "cron",
       label: "Vercel cron",
-      sub: "00:00 JST",
+      sub: "midnight JST",
       col: 0,
       row: 0,
       kind: "actor",
@@ -140,7 +133,7 @@ const flow: Required<DiagramSpec> = {
     {
       id: "redis",
       label: "Redis",
-      sub: "n5:site_theme",
+      sub: SITE_THEME_REDIS_KEY,
       col: 1,
       row: 0,
       kind: "store",

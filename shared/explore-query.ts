@@ -6,7 +6,7 @@
  */
 import type { ExploreFilters, ExploreMatch } from "~~/types/index";
 import { JLPT_LEVELS } from "./jlpt";
-import { MAX_PART_LENGTH } from "./part-limits";
+import { MAX_PART_LENGTH } from "./limits";
 import {
   FREQUENCY_IDS,
   POS_GROUP_IDS,

@@ -21,6 +21,7 @@ import DocsBook from "../../components/DocsBook.vue";
 import RichText from "../../components/RichText.vue";
 import { useCatalogue } from "../../composables/useCatalogue";
 import { rangeMonthsText } from "~~/shared/catalogue";
+import { JLPT_RANGE } from "~~/shared/jlpt";
 import { LICENCES } from "~~/shared/sources";
 
 // The word range and count come from GET /api/catalogue, never typed here.
@@ -28,7 +29,9 @@ const { catalogue } = useCatalogue();
 
 const wordsFeature = computed(() => {
   const base =
-    "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT N5–N1 vocabulary, and only words with a Wiktionary Etymology section.";
+    "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT " +
+    JLPT_RANGE +
+    " vocabulary, and only words with a Wiktionary Etymology section.";
   const c = catalogue.value;
   return c
     ? `${base} ${c.total} words are written, ${rangeMonthsText(c)}, and ${c.open} have opened so far.`
@@ -83,7 +86,7 @@ const features = computed(() => [
   {
     title: "How It Is Said",
     description:
-      "Where the pinned Kanjium accent list gives a word's exact spelling and reading, the entry shows its pitch accent: the reading with a line over the high morae and a ↓ after the one where the pitch falls, named flat (heiban), head-high (atamadaka), middle-high (nakadaka) or tail-high (odaka). A word the list does not give shows none, and where it gives several accents they are all shown.",
+      "Where the pinned Kanjium accent list gives a word's exact spelling and reading and UniDic gives the same accent, the entry shows its pitch accent: the reading with a line over the high morae and a ↓ after the one where the pitch falls, named flat (heiban), head-high (atamadaka), middle-high (nakadaka) or tail-high (odaka). A word the two do not agree on shows none, and where both give several accents they are all shown.",
   },
   {
     title: "Which Layer, Which Process",
