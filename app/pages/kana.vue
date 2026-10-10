@@ -1,12 +1,5 @@
 <template>
-  <div
-    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-stone-900 dark:text-stone-100 selection:bg-primary-500/20 flex flex-col"
-  >
-    <!-- Season-patterned backdrop (shoji grid / ripples / hishi lattice / snow) -->
-    <div class="season-backdrop" />
-
-    <AppHeader />
-
+  <AppShell>
     <main class="relative z-10 container mx-auto px-4 max-w-5xl py-16 flex-1">
       <!-- Intro -->
       <div class="max-w-2xl space-y-4">
@@ -144,85 +137,45 @@
 
       <div class="rule-double my-16" />
 
-      <!-- Dakuten / handakuten -->
-      <section class="space-y-6">
-        <div class="text-center max-w-lg mx-auto space-y-3">
-          <h2
-            class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
-          >
-            Voicing Marks
-          </h2>
-          <div class="rule-double max-w-[120px] mx-auto" />
-          <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
-            Small marks that turn a base kana into a related sound — no new
-            shapes to memorize.
-          </p>
-        </div>
+      <template v-for="section in kanaSections" :key="section.title">
+        <section class="space-y-6">
+          <div class="text-center max-w-lg mx-auto space-y-3">
+            <h2
+              class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
+            >
+              {{ section.title }}
+            </h2>
+            <div class="rule-double max-w-[120px] mx-auto" />
+            <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
+              {{ section.blurb }}
+            </p>
+          </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <EmaPlaque
-            v-for="(group, groupIndex) in dakutenGroups"
-            :key="group.title"
-            :index="groupIndex"
-          >
-            <div class="space-y-2">
-              <h3 class="font-serif font-bold text-stone-900 dark:text-white">
-                {{ group.title }}
-              </h3>
-              <p
-                class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
-              >
-                {{ group.description }}
-              </p>
-              <p class="text-xs text-stone-600 dark:text-stone-400 italic">
-                {{ group.example }}
-              </p>
-            </div>
-          </EmaPlaque>
-        </div>
-      </section>
+          <div class="grid grid-cols-1 gap-6" :class="section.columns">
+            <EmaPlaque
+              v-for="(group, groupIndex) in section.groups"
+              :key="group.title"
+              :index="groupIndex"
+            >
+              <div class="space-y-2">
+                <h3 class="font-serif font-bold text-stone-900 dark:text-white">
+                  {{ group.title }}
+                </h3>
+                <p
+                  class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
+                >
+                  {{ group.description }}
+                </p>
+                <p class="text-xs text-stone-600 dark:text-stone-400 italic">
+                  {{ group.example }}
+                </p>
+              </div>
+            </EmaPlaque>
+          </div>
+        </section>
 
-      <div class="rule-double my-16" />
-
-      <!-- Digraphs / small kana -->
-      <section class="space-y-6">
-        <div class="text-center max-w-lg mx-auto space-y-3">
-          <h2
-            class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
-          >
-            Combos &amp; Small Kana
-          </h2>
-          <div class="rule-double max-w-[120px] mx-auto" />
-          <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
-            The remaining pieces that let kana spell out any sound in the
-            language.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <EmaPlaque
-            v-for="(group, groupIndex) in digraphGroups"
-            :key="group.title"
-            :index="groupIndex"
-          >
-            <div class="space-y-2">
-              <h3 class="font-serif font-bold text-stone-900 dark:text-white">
-                {{ group.title }}
-              </h3>
-              <p
-                class="text-sm leading-relaxed text-stone-600 dark:text-stone-400"
-              >
-                {{ group.description }}
-              </p>
-              <p class="text-xs text-stone-600 dark:text-stone-400 italic">
-                {{ group.example }}
-              </p>
-            </div>
-          </EmaPlaque>
-        </div>
-      </section>
-
-      <div class="rule-double my-16" />
+        <div class="rule-double my-16" />
+      </template>
 
       <!-- CTA -->
       <section class="space-y-6 max-w-2xl mx-auto text-center">
@@ -259,49 +212,34 @@
         </div>
       </section>
     </main>
-
-    <UFooter
-      class="relative z-10 border-t border-stone-200 dark:border-stone-800 bg-[#FDFBF7] dark:bg-[#0B0E14]"
-    >
-      <template #left>
-        <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          &copy; 2025 - {{ new Date().getFullYear() }} NipponDaily. Released
-          under the Apache-2.0 License.
-        </p>
-      </template>
-      <template #right>
-        <p class="text-xs text-stone-500 dark:text-stone-400 font-sans">
-          Romaji via
-          <a
-            :href="SOURCES.wanakana.url"
-            target="_blank"
-            rel="noopener"
-            class="underline hover:text-primary-600 dark:hover:text-primary-400"
-            >{{ SOURCES.wanakana.name }}</a
-          >
-          ({{ SOURCES.wanakana.licence.name }}) —
-          <NuxtLink
-            to="/docs/data-integrity#data-attribution"
-            class="underline hover:text-primary-600 dark:hover:text-primary-400"
-            >full attribution</NuxtLink
-          >
-        </p>
-      </template>
-    </UFooter>
-  </div>
+  </AppShell>
 </template>
 
 <script setup lang="ts">
+import AppShell from "../components/AppShell.vue";
 import { usePageSeo } from "../composables/usePageSeo";
-import AppHeader from "../components/AppHeader.vue";
 import EmaPlaque from "../components/EmaPlaque.vue";
 import OmamoriCharm from "../components/OmamoriCharm.vue";
-import { SOURCES } from "~~/shared/sources";
 import { KANA_ROWS, DAKUTEN_GROUPS, DIGRAPH_GROUPS } from "../data/kana-guide";
 
 const kanaRows = KANA_ROWS;
-const dakutenGroups = DAKUTEN_GROUPS;
-const digraphGroups = DIGRAPH_GROUPS;
+// Two sections of the same shape: a heading, a line, and a grid of plaques.
+const kanaSections = [
+  {
+    title: "Voicing Marks",
+    blurb:
+      "Small marks that turn a base kana into a related sound — no new shapes to memorize.",
+    groups: DAKUTEN_GROUPS,
+    columns: "sm:grid-cols-2",
+  },
+  {
+    title: "Combos & Small Kana",
+    blurb:
+      "The remaining pieces that let kana spell out any sound in the language.",
+    groups: DIGRAPH_GROUPS,
+    columns: "sm:grid-cols-3",
+  },
+];
 
 usePageSeo({
   title: "Hiragana & Katakana",

@@ -1,9 +1,10 @@
 import { ref } from "vue";
 import type { SeasonId, SiteTheme } from "~~/types/index";
 import { isSeasonId, seasonForDate } from "~~/shared/seasons";
+import { STORAGE_KEYS } from "~~/shared/storage-keys";
 
-const SEASON_STORAGE_KEY = "site-theme-season";
-const CHOICE_STORAGE_KEY = "season-choice";
+const SEASON_STORAGE_KEY = STORAGE_KEYS.siteThemeSeason;
+const CHOICE_STORAGE_KEY = STORAGE_KEYS.seasonChoice;
 
 // Shared by every caller (app.vue fetches, the header's season button picks).
 // Only ever written client-side, so nothing leaks between server requests.

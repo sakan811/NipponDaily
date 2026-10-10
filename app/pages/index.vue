@@ -1,12 +1,5 @@
 <template>
-  <div
-    class="min-h-screen bg-[#FDFBF7] dark:bg-[#0B0E14] text-[#1F2022] dark:text-[#E2E4E9] selection:bg-primary-500/20 flex flex-col"
-  >
-    <!-- Season-patterned backdrop (shoji grid / ripples / hishi lattice / snow) -->
-    <div class="season-backdrop" />
-
-    <AppHeader />
-
+  <AppShell>
     <main
       class="relative z-10 container mx-auto px-4 max-w-6xl py-16 sm:py-24 flex-1"
     >
@@ -250,14 +243,11 @@
         </p>
       </section>
     </main>
-
-    <AppFooter />
-  </div>
+  </AppShell>
 </template>
 
 <script setup lang="ts">
-import AppHeader from "../components/AppHeader.vue";
-import AppFooter from "../components/AppFooter.vue";
+import AppShell from "../components/AppShell.vue";
 import TrendingFallback from "../components/TrendingFallback.vue";
 import { useDailyWord } from "../composables/useDailyWord";
 import { usePageSeo } from "../composables/usePageSeo";
