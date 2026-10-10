@@ -16,8 +16,6 @@ import type {
 } from "~~/types/index";
 import { WORD_ENTRIES, todayJst } from "./words";
 
-export { MAX_PART_LENGTH } from "./part-limits";
-
 const HAN = /\p{Script=Han}/u;
 
 const openEntries = (today: string): WordEntry[] =>

@@ -1,15 +1,13 @@
 import { Redis } from "@upstash/redis";
 import type { SiteTheme } from "~~/types/index";
 import { getEnvOrConfig } from "../utils/config";
-import { isSeasonId } from "~~/shared/seasons";
+import { SITE_THEME_REDIS_KEY, isSeasonId } from "~~/shared/seasons";
 
 /**
  * Redis read/write for NipponDaily's single active SiteTheme record — the
  * site-wide season, kept current by the daily cron
  * (server/api/cron/update-season.get.ts).
  */
-const SITE_THEME_KEY = "n5:site_theme";
-
 class SiteThemeService {
   private client: Redis | null = null;
   private memoryTheme: SiteTheme | null = null;
@@ -47,7 +45,7 @@ class SiteThemeService {
 
     if (redis) {
       try {
-        theme = await redis.get<SiteTheme>(SITE_THEME_KEY);
+        theme = await redis.get<SiteTheme>(SITE_THEME_REDIS_KEY);
       } catch (e) {
         console.error("Error getting site theme from Redis:", e);
       }
@@ -71,7 +69,7 @@ class SiteThemeService {
 
     try {
       await redis.set(
-        SITE_THEME_KEY,
+        SITE_THEME_REDIS_KEY,
         JSON.stringify(theme),
         onlyIfAbsent ? { nx: true } : undefined,
       );
