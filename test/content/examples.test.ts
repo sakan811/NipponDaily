@@ -9,11 +9,9 @@ import {
 import { TATOEBA_EXPORT } from "../../scripts/lib/tatoeba-export.mjs";
 // @ts-expect-error — untyped .mjs script helper
 import { snapshotMeta } from "../../scripts/build-sentences-reference.mjs";
+import { MAX_EXAMPLES } from "~~/shared/limits";
 // @ts-expect-error — untyped .mjs script helper
-import {
-  MAX_EXAMPLES,
-  SENTENCE_LENGTH,
-} from "../../scripts/lib/example-sentences.mjs";
+import { SENTENCE_LENGTH } from "../../scripts/lib/example-sentences.mjs";
 
 /**
  * The example sentences each entry shows (data/reference/sentences/, picked

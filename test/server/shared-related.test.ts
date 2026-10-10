@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { RELATED_LIMIT, relatedWords } from "~~/shared/related";
+import { RELATED_LIMIT } from "~~/shared/limits";
+import { relatedWords } from "~~/shared/related";
 import { WORD_ENTRIES } from "~~/shared/words";
 
 const TODAY = "2023-10-07";

@@ -1,9 +1,6 @@
 import { describe, it, expect } from "vitest";
-import {
-  createRateLimiter,
-  isRateLimited,
-  RATE_LIMIT,
-} from "~/server/utils/rate-limit";
+import { createRateLimiter, isRateLimited } from "~/server/utils/rate-limit";
+import { RATE_LIMIT } from "~~/shared/endpoints";
 
 describe("isRateLimited", () => {
   it("guards the API and the share images", () => {
