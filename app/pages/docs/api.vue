@@ -32,12 +32,15 @@
       A successful answer is cached until midnight in Japan (<NuxtLink
         to="/docs/architecture#caching"
         >Caching</NuxtLink
-      >). An address that asks an endpoint or the share image more than
-      {{ RATE_LIMIT.limit }} times in {{ RATE_LIMIT.windowMs / 1000 }} seconds
-      gets a <code>429</code> with <code>Retry-After</code> (counted in memory
-      per server instance, never stored). A day's words are served only once it
-      is open (<NuxtLink to="/docs/words">Daily words</NuxtLink>); what each
-      failure looks like on a page is in
+      >). An address that asks an <code>/api/</code> endpoint (the cron aside)
+      or the share image more than {{ RATE_LIMIT.limit }} times in
+      {{ RATE_LIMIT.windowMs / 1000 }} seconds gets a <code>429</code> with
+      <code>Retry-After</code>. The count is kept in memory, never stored, so
+      each server instance counts alone, and a client behind a proxy that does
+      not set <code>X-Forwarded-For</code> is counted by the proxy's address. A
+      day's words are served only once it is open (<NuxtLink to="/docs/words"
+        >Daily words</NuxtLink
+      >); what each failure looks like on a page is in
       <NuxtLink to="/docs/error-states">Error and fallback states</NuxtLink>.
     </p>
 
