@@ -15,7 +15,7 @@
         maxlength="50"
         autocomplete="off"
         placeholder="Search a word, its reading, or its meaning"
-        class="flex-1 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-2.5 font-body-serif text-base focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30"
+        class="flex-1 border border-stone-500 bg-white dark:bg-stone-900/50 px-4 py-2.5 font-body-serif text-base focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30"
         @input="onType"
       />
       <UButton
