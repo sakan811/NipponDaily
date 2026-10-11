@@ -6,9 +6,7 @@
     </template>
 
     <h2>Setup</h2>
-    <p>
-      Node 22.22.3, 24.15 or 26 and newer (Nuxt's supported range) and pnpm.
-    </p>
+    <p>Node {{ stack.node }} (Nuxt's supported range) and pnpm.</p>
     <pre><code>pnpm install
 cp .env.example .env
 pnpm dev          # http://localhost:3000</code></pre>
@@ -188,6 +186,15 @@ pnpm dev          # http://localhost:3000</code></pre>
         the page chrome) is not written out again beside it.
       </li>
       <li><code>docs-sync</code>: the docs against the code (see below).</li>
+      <li>
+        <code>docs-claims</code>: the figures the docs quote against their
+        source: the Node range against Nuxt's, the loudness in
+        <code>shared/audio.ts</code> against ffmpeg's measure of the tracks
+        (skipped without ffmpeg), the download sizes in Adding and fixing words
+        against the pins, the statements about the years against the data, a
+        chapter that lists the same backers as another, a link to the Roadmap
+        while it is empty, and a word written twice.
+      </li>
     </ul>
 
     <h2 id="releases">Releases</h2>
@@ -254,16 +261,27 @@ pnpm dev          # http://localhost:3000</code></pre>
         <strong>Facts live in code.</strong> Attribution is
         <code>shared/sources.ts</code>, routes are
         <code>shared/endpoints.ts</code>, seasons are
-        <code>shared/seasons.ts</code>, and the word range comes from
+        <code>shared/seasons.ts</code>, the limits are
+        <code>shared/limits.ts</code>, the Node range and framework versions are
+        <code>package.json</code>, and the word range comes from
         <code>data/words/</code> (<code>GET /api/catalogue</code>). The pages
-        read them; never type a source URL, a licence name, a route list or a
-        word count into a chapter.
+        read them. Never type a source URL, a licence name, a route list, a word
+        count, a version, a limit or a size into a chapter or the README. When a
+        chapter needs a fact, in this order: <strong>read it</strong> from the
+        module that owns it (move the constant into <code>shared/</code> first
+        if it is private, and use <code>countWord()</code> for a count in
+        words); <strong>generate it</strong> where the page is Markdown, with a
+        <code>pnpm docs:sync</code> region; and only when the owner cannot be
+        imported (a pin in a script, a measurement of a file) type it once and
+        add a case to <code>test/server/docs-claims.test.ts</code> that checks
+        it against the owner.
       </li>
       <li>
-        <strong><code>pnpm docs:sync</code></strong> fills the one generated
-        region left in the repo, the attribution in the README (between
-        <code>&lt;!-- docs:begin … --&gt;</code> markers, never edited by hand).
-        <code>pnpm docs:check</code> fails if it is stale.
+        <strong><code>pnpm docs:sync</code></strong> fills the generated regions
+        of the README (the attribution, the Node range, the stack line and the
+        JLPT levels, between <code>&lt;!-- docs:begin … --&gt;</code> markers,
+        never edited by hand). <code>pnpm docs:check</code> fails if it is
+        stale.
       </li>
       <li>
         <strong>Change a behaviour, change its chapter</strong> in the same
@@ -286,6 +304,10 @@ pnpm dev          # http://localhost:3000</code></pre>
 <script setup lang="ts">
 import DocsBook from "../../components/DocsBook.vue";
 import RichText from "../../components/RichText.vue";
+import pkg from "~~/package.json";
+import { stackOf } from "~~/shared/stack";
+
+const stack = stackOf(pkg);
 
 const env = [
   {
@@ -319,7 +341,7 @@ const commands = [
   { cmd: "pnpm check-qa", does: "Lint, format, type-check, build and test." },
   {
     cmd: "pnpm docs:sync / docs:check",
-    does: "Fill, or verify, the README's generated attribution.",
+    does: "Fill, or verify, the README's generated regions.",
   },
 ];
 </script>

@@ -3,6 +3,8 @@
  * source of truth, so the attribution is written once:
  *
  *   shared/sources.ts    attribution (names, URLs, licences, credit lines)
+ *   package.json         the Node range and the framework versions (shared/stack.ts)
+ *   shared/jlpt.ts       the JLPT levels
  *
  * The documentation itself is the book under `app/pages/docs/`, which reads
  * `shared/sources.ts`, `shared/endpoints.ts`, `shared/seasons.ts` and
@@ -20,7 +22,9 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as prettier from "prettier";
+import { JLPT_RANGE } from "../shared/jlpt.ts";
 import { DATA_SOURCES } from "../shared/sources.ts";
+import { stackOf } from "../shared/stack.ts";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 
@@ -31,8 +35,15 @@ export function docFiles() {
 
 /** The renderers, by region id. */
 export function renderers() {
+  const stack = stackOf(
+    JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")),
+  );
   return {
     attribution: () => `\n${DATA_SOURCES.map((s) => s.credit).join("\n\n")}\n`,
+    node: () => stack.node,
+    levels: () => JLPT_RANGE,
+    stack: () =>
+      `Built with [Nuxt ${stack.nuxt}](https://nuxt.com/) (Vue ${stack.vue}, TypeScript), [Tailwind CSS ${stack.tailwind}](https://tailwindcss.com/) and [Vitest](https://vitest.dev/).`,
   };
 }
 
