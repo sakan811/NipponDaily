@@ -84,8 +84,12 @@ const today = async (page: import("@playwright/test").Page) => {
 
 /**
  * Runs `search` (types into the box) and waits for the URL to carry the query.
- * If it does not, the failure says what the page and the API did meanwhile: the
- * Firefox runs in CI failed here and nothing else showed why.
+ *
+ * The page renders every matching word, so on a slow runner (Firefox in CI) the
+ * first render keeps the browser busy for seconds and the 250 ms debounce runs
+ * late; the wait is long for that reason, not because the app is expected to
+ * take that long. If the URL still does not change, the failure says what the
+ * page and the API did meanwhile.
  */
 async function searchReachesUrl(
   page: import("@playwright/test").Page,
@@ -95,12 +99,16 @@ async function searchReachesUrl(
   const t0 = Date.now();
   const at = () => `${Date.now() - t0}ms`;
   page.on("response", (r) => {
-    if (r.url().includes("/api/"))
-      seen.push(`${at()} ${r.status()} ${new URL(r.url()).pathname}`);
+    if (r.url().includes("/api/")) {
+      const { pathname, search: query } = new URL(r.url());
+      seen.push(
+        `${at()} ${r.status()} ${pathname}${decodeURIComponent(query).slice(0, 30)}`,
+      );
+    }
   });
   page.on("console", (m) => {
-    if (m.type() !== "log")
-      seen.push(`${at()} console.${m.type()}: ${m.text().slice(0, 100)}`);
+    if (m.type() === "error")
+      seen.push(`${at()} console.error: ${m.text().slice(0, 100)}`);
   });
   page.on("pageerror", (e) =>
     seen.push(`${at()} pageerror: ${e.message.slice(0, 100)}`),
@@ -108,30 +116,34 @@ async function searchReachesUrl(
 
   await search();
   try {
-    await expect(page).toHaveURL(/[?&]q=/);
+    await expect(page).toHaveURL(/[?&]q=/, { timeout: 20_000 });
   } catch (error) {
     const box = page.getByTestId("explore-search");
     throw new Error(
       `the search never reached the URL: ${JSON.stringify({
         url: page.url(),
         value: await box.inputValue().catch(() => "?"),
-        activeIsBox: await box
-          .evaluate((el) => el === document.activeElement)
-          .catch(() => "?"),
-        recent: seen.slice(-14),
+        recent: seen.slice(-10),
       })}`,
       { cause: error },
     );
   }
 }
 
+/** Opens Explore and waits until its first list of words is on the page. */
+async function openExplore(page: import("@playwright/test").Page) {
+  await page.goto("/explore");
+  await hydrated(page);
+  await expect(page.getByTestId("explore-count")).toBeVisible();
+}
+
 test("searching finds a word by its meaning", async ({ page }) => {
+  test.setTimeout(60_000);
   // Typed with fill(), in plain Latin letters: every engine delivers those.
   const { term, meaning } = await today(page);
   const query = /[\x20-\x7e]{3,40}/.exec(meaning)![0].trim();
 
-  await page.goto("/explore");
-  await hydrated(page);
+  await openExplore(page);
   await searchReachesUrl(page, () =>
     page.getByTestId("explore-search").fill(query),
   );
@@ -141,11 +153,11 @@ test("searching finds a word by its meaning", async ({ page }) => {
 });
 
 test("searching finds a word by its Japanese term", async ({ page }) => {
+  test.setTimeout(60_000);
   // The same with today's Japanese term, typed as a keystroke would deliver it.
   const { term } = await today(page);
 
-  await page.goto("/explore");
-  await hydrated(page);
+  await openExplore(page);
   await searchReachesUrl(page, () =>
     page.getByTestId("explore-search").fill(term),
   );
