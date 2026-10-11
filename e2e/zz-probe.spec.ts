@@ -1,77 +1,60 @@
-import { test } from "./fixtures";
-import { hydrated } from "./fixtures";
+import { test, hydrated } from "./fixtures";
 
-// TEMPORARY: reports what the Explore search box does in each engine, as the
-// message of a failing test, so it can be read from the CI log. Removed once
-// the Firefox failure is understood.
-test("probe: explore search box", async ({ page }, info) => {
-  test.skip(!["desktop", "firefox", "webkit"].includes(info.project.name));
+// TEMPORARY: how long the Explore search takes to reach the URL, per value and
+// engine, as the message of a failing test (read it in the CI log). Removed
+// once the Firefox failure is understood.
+test("probe: explore search latency", async ({ page }, info) => {
+  test.skip(!["desktop", "firefox"].includes(info.project.name));
+  test.setTimeout(120_000);
   const logs: string[] = [];
-  page.on("console", (m) =>
-    logs.push(`${m.type()}: ${m.text().slice(0, 160)}`),
-  );
   page.on("pageerror", (e) =>
-    logs.push(`pageerror: ${e.message.slice(0, 160)}`),
+    logs.push(`pageerror: ${e.message.slice(0, 140)}`),
   );
-
-  await page.goto("/explore");
-  await hydrated(page);
-  const input = page.getByTestId("explore-search");
-  const probe = () =>
-    input.evaluate((el) => {
-      const e = el as HTMLInputElement & {
-        _vei?: Record<string, unknown>;
-        _assign?: unknown;
-      };
-      return {
-        value: e.value,
-        connected: e.isConnected,
-        count: document.querySelectorAll('[data-testid="explore-search"]')
-          .length,
-        vei: Object.keys(e._vei ?? {}),
-        assign: typeof e._assign,
-        url: location.href,
-      };
-    });
-
-  const out: Record<string, unknown> = { before: await probe() };
-
-  await input.evaluate((el) => {
-    const w = window as unknown as { __ev: string[] };
-    w.__ev = [];
-    for (const t of [
-      "input",
-      "change",
-      "compositionstart",
-      "compositionend",
-      "keydown",
-    ])
-      el.addEventListener(
-        t,
-        (e) => w.__ev.push(`${t}:${(e as InputEvent).isComposing ?? ""}`),
-        true,
+  page.on("console", (m) => {
+    if (m.type() !== "log") logs.push(`${m.type()}: ${m.text().slice(0, 120)}`);
+  });
+  const api: string[] = [];
+  const t0 = Date.now();
+  page.on("response", (r) => {
+    if (r.url().includes("/api/explore"))
+      api.push(
+        `${Date.now() - t0}ms ${r.status()} ${decodeURIComponent(r.url()).slice(-40)}`,
       );
   });
 
-  await input.fill("hello");
-  await page.waitForTimeout(1200);
-  out.afterFill = await probe();
-  out.eventsAfterFill = await page.evaluate(
-    () => (window as unknown as { __ev: string[] }).__ev,
-  );
+  const body = await (await page.request.get("/api/daily-word")).json();
+  const { term, meaning } = body.data.entry as {
+    term: string;
+    meaning: string;
+  };
+  const latin = /[\x20-\x7e]{3,40}/.exec(meaning)![0].trim();
 
-  await input.evaluate((el) => {
-    const e = el as HTMLInputElement;
-    e.value = "world";
-    e.dispatchEvent(new Event("input", { bubbles: true }));
-  });
-  await page.waitForTimeout(1200);
-  out.afterDispatch = await probe();
-
-  await input.pressSequentially("ab", { delay: 50 });
-  await page.waitForTimeout(1200);
-  out.afterTyping = await probe();
-  out.logs = logs.slice(0, 12);
-
-  throw new Error(`PROBE ${info.project.name} ${JSON.stringify(out)}`);
+  const out: Record<string, unknown> = { term, meaning };
+  for (const [name, value] of [
+    ["hello", "hello"],
+    ["latin", latin],
+    ["term", term],
+  ] as const) {
+    await page.goto("/explore");
+    await hydrated(page);
+    const start = Date.now();
+    await page.getByTestId("explore-search").fill(value);
+    const fillMs = Date.now() - start;
+    let urlMs: number | string = "never (10s)";
+    while (Date.now() - start < 10_000) {
+      if (/[?&]q=/.test(page.url())) {
+        urlMs = Date.now() - start;
+        break;
+      }
+      await page.waitForTimeout(100);
+    }
+    out[name] = {
+      fillMs,
+      urlMs,
+      value: await page.getByTestId("explore-search").inputValue(),
+    };
+  }
+  out.api = api.slice(-10);
+  out.logs = logs.slice(-12);
+  throw new Error(`PROBE3 ${info.project.name} ${JSON.stringify(out)}`);
 });
