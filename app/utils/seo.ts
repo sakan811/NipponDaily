@@ -1,5 +1,6 @@
 import type { ExploreFilters, WordEntry } from "~~/types/index";
 import { queryFromFilters } from "~~/shared/explore-query";
+import { ROUTES } from "~~/shared/routes";
 
 /** Cuts `text` to at most `max` characters at a word boundary, with an ellipsis. */
 export function truncate(text: string, max = 160): string {
@@ -11,7 +12,7 @@ export function truncate(text: string, max = 160): string {
 
 /** The path to a word's share image (`GET /og.png`). */
 export function shareImagePath(date: string): string {
-  return `/og.png?date=${date}`;
+  return `${ROUTES.shareImage}?date=${date}`;
 }
 
 /** The tab title for a word: the word, its reading, its meaning. */

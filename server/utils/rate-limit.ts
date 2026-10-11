@@ -6,11 +6,12 @@
  */
 
 import { RATE_LIMIT } from "~~/shared/endpoints";
+import { API_PREFIX, ROUTES } from "~~/shared/routes";
 
 /** What the limiter guards: the JSON API and the share images, the two places
  *  a request does real work. Pages are cached by the CDN. */
 export function isRateLimited(path: string): boolean {
-  return path.startsWith("/api/") || path === "/og.png";
+  return path.startsWith(API_PREFIX) || path === ROUTES.shareImage;
 }
 
 export interface RateVerdict {

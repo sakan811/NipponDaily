@@ -7,12 +7,13 @@ import type {
   RelatedPayload,
 } from "~~/types/index";
 import { useApiData } from "./useApiData";
+import { ROUTES } from "~~/shared/routes";
 
 /** GET /api/parts — every morpheme shown by an open word. */
 export function usePartsIndex() {
   const { data, ...rest } = useApiData<PartsIndexPayload>({
     key: "parts-index",
-    path: "/api/parts",
+    path: ROUTES.parts,
     label: "parts index",
     failed: "Failed to load the parts. Please try again.",
   });
@@ -23,7 +24,7 @@ export function usePartsIndex() {
 export function usePart(text: MaybeRefOrGetter<string>) {
   const { data, ...rest } = useApiData<PartDetail>({
     key: () => `part:${toValue(text)}`,
-    path: "/api/part",
+    path: ROUTES.part,
     query: () => ({ text: toValue(text) }),
     label: "part",
     failed: "Failed to load this part. Please try again.",
@@ -41,7 +42,7 @@ export function useRelatedWords(date: MaybeRefOrGetter<string>) {
       // Not fetchPage: a failure here must never turn the whole page into a 404.
       try {
         const response = await $fetch<ApiResponse<RelatedPayload>>(
-          "/api/related",
+          ROUTES.related,
           { query: { date: toValue(date) } },
         );
         return response?.data ?? null;

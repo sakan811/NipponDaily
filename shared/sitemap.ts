@@ -6,6 +6,7 @@
 import { DOC_PATHS } from "./docs";
 import { kanjiIndex } from "./kanji";
 import { partsIndex } from "./parts";
+import { API_PREFIX, ROUTES } from "./routes";
 import { WORD_ENTRIES, todayJst } from "./words";
 
 const STATIC_PATHS = [
@@ -49,5 +50,5 @@ export function sitemapXml(origin: string, today: string = todayJst()): string {
 }
 
 export function robotsTxt(origin: string): string {
-  return `User-agent: *\nDisallow: /api/\n\nSitemap: ${origin}/sitemap.xml\n`;
+  return `User-agent: *\nDisallow: ${API_PREFIX}\n\nSitemap: ${origin}${ROUTES.sitemap}\n`;
 }
