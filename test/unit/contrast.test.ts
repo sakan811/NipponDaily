@@ -336,9 +336,11 @@ describe("non-text contrast", () => {
     );
     expect(wrong).toEqual([]);
 
-    // The unpressed chip draws its border in that step too, in both builders.
-    const chips = files.filter(({ text }) => /const chip = \(/.test(text));
-    expect(chips.length).toBe(2);
+    // The unpressed chip draws its border in that step too, in its one builder.
+    const chips = appFiles(/\.ts$/).filter(({ text }) =>
+      /const chipClass = \(/.test(text),
+    );
+    expect(chips.length).toBe(1);
     for (const { path, text } of chips) {
       const off = /: "(border-[^"]*hover:border-primary-500)"/.exec(text)?.[1];
       expect(off, path).toBeDefined();

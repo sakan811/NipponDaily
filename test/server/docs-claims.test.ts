@@ -1,13 +1,13 @@
 import { spawnSync } from "node:child_process";
-import { readdirSync, readFileSync } from "node:fs";
+import { readdirSync } from "node:fs";
 import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { BGM_LOUDNESS_LUFS } from "~~/shared/audio";
 import { OG_HEIGHT, OG_WIDTH } from "~~/shared/og-card";
 import { API_ENDPOINTS } from "~~/shared/endpoints";
 import { countWord } from "~~/shared/count";
 import { nodeRangeText, stackOf } from "~~/shared/stack";
+import { ROOT, read } from "../helpers/repo";
 
 /**
  * Guards the claims in the docs that a figure outside them can contradict:
@@ -18,8 +18,6 @@ import { nodeRangeText, stackOf } from "~~/shared/stack";
  * two in step; do not loosen the check.
  */
 
-const ROOT = fileURLToPath(new URL("../../", import.meta.url));
-const read = (p: string) => readFileSync(join(ROOT, p), "utf8");
 const DOCS_DIR = "app/pages/docs";
 const DOC_PAGES = readdirSync(join(ROOT, DOCS_DIR))
   .filter((f) => f.endsWith(".vue"))
@@ -57,6 +55,21 @@ describe("stack versions the docs name", () => {
         typed.push(`${file}: ${m[0]}`);
     expect(typed).toEqual([]);
     expect(stackOf(pkg).nuxt).toBeGreaterThan(0);
+  });
+});
+
+describe("counts the code can give", () => {
+  // The seasons, the layers and the principles are lists in code or in a
+  // chapter; a number or a name typed beside them goes stale when one is added.
+  it("are not typed in the docs, the README or the chapter summaries", () => {
+    const typed: string[] = [];
+    const files = [...DOC_FILES, "shared/docs.ts"];
+    for (const file of files)
+      for (const m of prose(read(file)).matchAll(
+        /\b(?:one|two|three|four|five|six|seven|eight|\d+) (?:seasons?|seasonal palettes?|principles|layers|chapters)\b/gi,
+      ))
+        typed.push(`${file}: ${m[0]}`);
+    expect(typed).toEqual([]);
   });
 });
 

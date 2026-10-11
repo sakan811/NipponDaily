@@ -1,26 +1,12 @@
-import { readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { STORAGE_KEYS } from "~~/shared/storage-keys";
+import { read, walk } from "../helpers/repo";
 
 /**
  * Facts that live in one module must not be typed again beside it. Each case
  * names the module that owns the fact and fails when the same thing is written
  * out in the code that should read it.
  */
-
-const ROOT = fileURLToPath(new URL("../../", import.meta.url));
-const read = (p: string) => readFileSync(join(ROOT, p), "utf8");
-
-const walk = (dir: string, exts: string[]): string[] =>
-  readdirSync(join(ROOT, dir), { withFileTypes: true }).flatMap((d) =>
-    d.isDirectory()
-      ? walk(join(dir, d.name), exts)
-      : exts.some((e) => d.name.endsWith(e))
-        ? [join(dir, d.name)]
-        : [],
-  );
 
 /** Source that runs in the app, the server or the build, in the given folders. */
 const sources = (dirs: string[], exts = [".ts", ".vue", ".mjs"]) =>
@@ -75,6 +61,28 @@ describe("one owner per fact", () => {
     ).toEqual([]);
   });
 
+  it("route paths are quoted only in shared/routes.ts", () => {
+    // The composables, the limiter, the cache rule and robots.txt read ROUTES.
+    // Comments may name a route; only code that quotes one is a second copy.
+    const quoted =
+      /["'`]\/(?:api\/[a-z-]*|og\.png|sitemap\.xml|robots\.txt)["'`?]/;
+    const inCode = (f: string) =>
+      read(f)
+        .split("\n")
+        .some(
+          (line) => !/^\s*(?:\*|\/\/|\/\*)/.test(line) && quoted.test(line),
+        );
+    expect(
+      [
+        ...sources(["app", "server", "shared"], [".ts", ".vue"]),
+        "nuxt.config.ts",
+      ].filter(
+        (f) =>
+          !["shared/routes.ts", "shared/endpoints.ts"].includes(f) && inCode(f),
+      ),
+    ).toEqual([]);
+  });
+
   it("the JSON envelope and the 400 are built only in server/utils", () => {
     const handlers = sources(["server/api", "server/routes"], [".ts"]);
     expect(typedOutside(handlers, [], /success:\s*true/)).toEqual([]);
@@ -82,6 +90,19 @@ describe("one owner per fact", () => {
     expect(typedOutside(handlers, [], /statusMessage:\s*"Not Found"/)).toEqual(
       [],
     );
+  });
+
+  it("the kanji range and the katakana fold are written only in shared/japanese.ts", () => {
+    const files = [
+      ...sources(["app", "server", "shared", "scripts"]),
+      "nuxt.config.ts",
+    ];
+    expect(
+      typedOutside(files, ["shared/japanese.ts"], /㐀-䶿|u4e00-\\u9fff/i),
+    ).toEqual([]);
+    expect(
+      typedOutside(files, ["shared/japanese.ts"], /charCodeAt\(0\) - 0x60/),
+    ).toEqual([]);
   });
 
   it("the JLPT levels are listed only in shared/jlpt.ts", () => {
