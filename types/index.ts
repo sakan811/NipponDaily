@@ -302,8 +302,8 @@ export type PosGroup =
   "noun" | "verb" | "adjective" | "adverb" | "affix" | "other" | "unstated";
 
 /** How common JMdict says a word is, read from its priority codes: "common"
- *  when it carries one of the lists JMdict counts as common (ichi1, news1,
- *  spec1, spec2, gai1), "less" when it carries only other codes (news2, ichi2,
+ *  when it carries one of the lists JMdict counts as common
+ *  (COMMON_PRIORITY_CODES in shared/word-labels.ts), "less" when it carries only other codes (news2, ichi2,
  *  gai2, nf…), "unlisted" when it carries none. */
 export type FrequencyGroup = "common" | "less" | "unlisted";
 

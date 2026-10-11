@@ -101,7 +101,7 @@
         </UBadge>
         <UBadge
           v-if="entry.stratum"
-          :color="STRATUM_COLOR[entry.stratum]"
+          :color="STRATUM_BADGE[entry.stratum]"
           variant="soft"
         >
           {{ WORD_STRATA[entry.stratum].native }} ·
@@ -406,6 +406,7 @@ import { formatLongDate } from "../utils/date";
 import { PITCH_TYPES, moraeOf, pitchContour, pitchType } from "../utils/pitch";
 import { kanjiPath, partPath } from "../utils/seo";
 import { sentencePieces } from "../utils/sentence";
+import { STRATUM_BADGE } from "../utils/stratum";
 import {
   FREQUENCY_GROUPS,
   WORD_PROCESSES,
@@ -418,21 +419,13 @@ import {
   tatoebaSentenceUrl,
   wiktionaryPageUrl,
 } from "~~/shared/sources";
-import type { WordEntry, WordStratum } from "~~/types/index";
+import { distinctKanji } from "~~/shared/japanese";
+import type { WordEntry } from "~~/types/index";
 
 const props = defineProps<{ entry: WordEntry }>();
 
-const STRATUM_COLOR: Record<WordStratum, string> = {
-  wago: "primary",
-  kango: "secondary",
-  gairaigo: "warning",
-  hybrid: "gray",
-};
-
 /** The distinct kanji of the term (the same range the kanji pages cover). */
-const kanjiChars = computed(() => [
-  ...new Set(props.entry.term.match(/[㐀-䶿一-鿿]/gu) ?? []),
-]);
+const kanjiChars = computed(() => distinctKanji(props.entry.term));
 
 const common = computed(() => frequencyOf(props.entry.priority) === "common");
 
