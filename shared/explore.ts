@@ -23,6 +23,7 @@ import type {
   WordCalendarPayload,
   WordSummary,
 } from "~~/types/index";
+import { katakanaToHiragana } from "./japanese";
 import { JLPT_LEVELS } from "./jlpt";
 import {
   FREQUENCY_IDS,
@@ -39,8 +40,6 @@ import {
   todayJst,
 } from "./words";
 
-export { MAX_QUERY_LENGTH } from "./explore-query";
-
 export const STRATUM_IDS = Object.keys(WORD_STRATA) as WordStratum[];
 export const PROCESS_IDS = Object.keys(WORD_PROCESSES) as WordProcess[];
 /** The layers Explore offers: the four, then the words with none stated. */
@@ -48,11 +47,7 @@ export const STRATUM_KEYS: StratumKey[] = [...STRATUM_IDS, "unstated"];
 
 /** Lower-case, with katakana folded to hiragana, so ラジオ is found by らじお. */
 export function foldForSearch(text: string): string {
-  return text
-    .normalize("NFKC")
-    .toLowerCase()
-    .replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60))
-    .trim();
+  return katakanaToHiragana(text.normalize("NFKC").toLowerCase()).trim();
 }
 
 const summaryOf = (e: WordEntry): WordSummary => ({

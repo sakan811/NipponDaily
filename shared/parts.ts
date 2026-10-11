@@ -21,7 +21,7 @@ const HAN = /\p{Script=Han}/u;
 const openEntries = (today: string): WordEntry[] =>
   WORD_ENTRIES.filter((e) => e.date <= today);
 
-const refOf = (e: WordEntry): PartWordRef => ({
+export const refOf = (e: WordEntry): PartWordRef => ({
   date: e.date,
   term: e.term,
   kana: e.kana,

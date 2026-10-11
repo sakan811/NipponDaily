@@ -11,15 +11,11 @@
  * function takes `today` and looks only at open days, so a kanji used only by
  * an upcoming word is not listed and has no page.
  */
-import type {
-  KanjiDetail,
-  KanjiSummary,
-  PartWordRef,
-  WordEntry,
-} from "~~/types/index";
+import type { KanjiDetail, KanjiSummary } from "~~/types/index";
 import kanjiReference from "~~/data/reference/kanji.json";
 import strokeReference from "~~/data/reference/strokes.json";
-import { partDetail } from "./parts";
+import { distinctKanji as kanjiOf } from "./japanese";
+import { partDetail, refOf } from "./parts";
 import { WORD_ENTRIES, todayJst } from "./words";
 
 interface KanjiRecord {
@@ -33,20 +29,6 @@ interface KanjiRecord {
 
 const RECORDS = kanjiReference.kanji as Record<string, KanjiRecord>;
 const STROKES = strokeReference.strokes as Record<string, string[]>;
-
-/** The same range the reference builders read kanji by (no 々 or 〆). */
-const HAN = /[㐀-䶿一-鿿]/gu;
-
-const refOf = (e: WordEntry): PartWordRef => ({
-  date: e.date,
-  term: e.term,
-  kana: e.kana,
-  meaning: e.meaning,
-  stratum: e.stratum,
-});
-
-/** The distinct kanji of a term. */
-const kanjiOf = (term: string): string[] => [...new Set(term.match(HAN) ?? [])];
 
 /** Every kanji an open word is written with: most-used first, then by grade
  *  (earlier grades first, the ungraded last), then by character. */
