@@ -76,13 +76,39 @@ test("any/all gives the counts the API gives for two processes", async ({
   expect(all).toBeLessThanOrEqual(await total(`process=${process}`));
 });
 
-test("searching finds a word by its term", async ({ page }) => {
-  await page.goto("/");
-  const term = (await page.getByTestId("today-term").textContent())!.trim();
+/** Today's word, as the API serves it. */
+const today = async (page: import("@playwright/test").Page) => {
+  const body = await (await page.request.get("/api/daily-word")).json();
+  return body.data.entry as { term: string; meaning: string };
+};
+
+test("searching finds a word by its meaning", async ({ page }) => {
+  // Typed with fill(), in plain Latin letters: every engine delivers those.
+  const { term, meaning } = await today(page);
+  const query = /[\x20-\x7e]{3,40}/.exec(meaning)![0].trim();
 
   await page.goto("/explore");
   await hydrated(page);
-  await page.getByTestId("explore-search").fill(term);
+  await page.getByTestId("explore-search").fill(query);
+  await expect(page).toHaveURL(/[?&]q=/);
+  await expect(
+    page.getByTestId("explore-word").filter({ hasText: term }).first(),
+  ).toBeVisible();
+});
+
+test("searching finds a word by its Japanese term", async ({ page }) => {
+  // fill() of Japanese text did not start the search on Firefox in CI, where
+  // the same field answers to Latin text. This sends the input event a
+  // keystroke would, so what is checked is the page's reaction to it.
+  const { term } = await today(page);
+
+  await page.goto("/explore");
+  await hydrated(page);
+  await page.getByTestId("explore-search").evaluate((el, value) => {
+    const input = el as HTMLInputElement;
+    input.value = value;
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+  }, term);
   await expect(page).toHaveURL(/[?&]q=/);
   await expect(
     page.getByTestId("explore-word").filter({ hasText: term }).first(),
