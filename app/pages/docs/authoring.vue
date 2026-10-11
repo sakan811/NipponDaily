@@ -109,9 +109,8 @@
         They must be pool words ({{ JLPT_RANGE }}). Prefer words whose
         Wiktionary page has an Etymology section; the generator will tell you if
         one doesn't. Most pool words have none, and most of those that do are
-        already planned. The ones still unplanned are listed in the
-        <NuxtLink to="/docs/roadmap">Roadmap</NuxtLink>; beyond them a further
-        month needs a newer dump.
+        already planned. Some may still be unplanned (the generator says which
+        have a section); beyond those a further month needs a newer dump.
       </li>
       <li>
         <strong>Write the plan</strong>

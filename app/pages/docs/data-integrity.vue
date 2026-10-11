@@ -479,7 +479,7 @@ const provenance = [
   {
     field: "examples[]",
     source:
-      "Tatoeba sentences the pinned export indexes under the word, as picked by `scripts/lib/example-sentences.mjs`: with a translation, short, the word's own form in the text. Quoted unchanged. `furigana` is Tatoeba's own transcription of the sentence, kept by `scripts/lib/furigana.mjs` only where each kanji's reading is one KANJIDIC2 (or JMdict, for the whole word) gives it and a contributor wrote it, or kuromoji or Tatoeba's index agrees. Where the older checks (the index, JMdict) disagree with a contributor, the contributor's reading is used; where they disagree with Tatoeba's software, theirs is.",
+      "Tatoeba sentences the pinned export indexes under the word, as picked by `scripts/lib/example-sentences.mjs`: with a translation, short, the word's own form in the text. Quoted unchanged. `furigana` is Tatoeba's own transcription of the sentence, kept by `scripts/lib/furigana.mjs` only where each kanji's reading is one KANJIDIC2 (or JMdict, for the whole word) gives it and a contributor wrote it, or kuromoji, UniDic or Tatoeba's index agrees. Where the older checks (the index, JMdict) disagree with a contributor, the contributor's reading is used; where they disagree with Tatoeba's software, theirs is.",
   },
   { field: "wiktionaryDump", source: "The snapshot's `dump` date." },
   { field: "headline", source: "Hand-written (`data/word-plan/`)." },
