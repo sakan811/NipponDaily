@@ -1,11 +1,10 @@
 import { z } from "zod";
 import {
-  MAX_QUERY_LENGTH,
   PROCESS_KEY_IDS,
   STRATUM_KEY_IDS,
   splitList,
 } from "~~/shared/explore-query";
-import { MAX_PART_LENGTH } from "~~/shared/limits";
+import { MAX_PART_LENGTH, MAX_QUERY_LENGTH } from "~~/shared/limits";
 import { JLPT_LEVELS } from "~~/shared/jlpt";
 import { FREQUENCY_IDS, POS_GROUP_IDS } from "~~/shared/word-labels";
 import type { ExploreFilters } from "~~/types/index";

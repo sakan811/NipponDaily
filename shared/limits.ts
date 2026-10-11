@@ -5,6 +5,9 @@
  * use it.
  */
 
+/** The longest search text Explore accepts. */
+export const MAX_QUERY_LENGTH = 50;
+
 /** The longest part text the API accepts (the longest in the data is far shorter). */
 export const MAX_PART_LENGTH = 12;
 

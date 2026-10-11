@@ -6,16 +6,13 @@
  */
 import type { ExploreFilters, ExploreMatch } from "~~/types/index";
 import { JLPT_LEVELS } from "./jlpt";
-import { MAX_PART_LENGTH } from "./limits";
+import { MAX_PART_LENGTH, MAX_QUERY_LENGTH } from "./limits";
 import {
   FREQUENCY_IDS,
   POS_GROUP_IDS,
   WORD_PROCESSES,
   WORD_STRATA,
 } from "./word-labels";
-
-/** The longest search text the API accepts. */
-export const MAX_QUERY_LENGTH = 50;
 
 export const STRATUM_KEY_IDS = [...Object.keys(WORD_STRATA), "unstated"];
 export const PROCESS_KEY_IDS = Object.keys(WORD_PROCESSES);
