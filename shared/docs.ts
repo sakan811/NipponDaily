@@ -29,7 +29,7 @@ export const DOC_CHAPTERS: readonly DocChapter[] = [
     part: "The idea",
     title: "Core theme",
     summary:
-      "What the app is, why time is its theme, and the seven principles every feature is checked against.",
+      "What the app is, why time is its theme, and the principles every feature is checked against.",
   },
   {
     slug: "features",
@@ -70,7 +70,7 @@ export const DOC_CHAPTERS: readonly DocChapter[] = [
     part: "How it is built",
     title: "Colour and shape",
     summary:
-      "The four seasonal palettes, named, and the shape language each season gives the UI.",
+      "The seasonal palettes, named, and the shape language each season gives the UI.",
   },
   {
     slug: "error-states",
@@ -122,6 +122,10 @@ export const DOC_PATHS: readonly string[] = [
   "/docs",
   ...DOC_CHAPTERS.map((c) => docPath(c.slug)),
 ];
+
+/** The chapters of one part of the book, in order. */
+export const chaptersOf = (part: DocPart): DocChapter[] =>
+  DOC_CHAPTERS.filter((c) => c.part === part);
 
 export const chapterBySlug = (slug: string): DocChapter | undefined =>
   DOC_CHAPTERS.find((c) => c.slug === slug);

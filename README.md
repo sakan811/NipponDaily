@@ -6,13 +6,13 @@
   <img src="./public/dark/android-chrome-512x512.png" width="256" height="256" alt="logo dark" />
 </p>
 
-**A Japanese word a day, taken apart.** Each day opens one word and shows how it is built: its morphemes, its layer of the vocabulary (和語 native, 漢語 Sino-Japanese, 外来語 loanword, 混種語 hybrid), the processes that shaped it, and the Wiktionary lines behind every claim. A calendar lets you look back through every word so far. No accounts, no tracking.
+**A Japanese word a day, taken apart.** Each day opens one word and shows how it is built: its morphemes, its layer of the vocabulary (<!-- docs:begin strata -->和語 Native Japanese, 漢語 Sino-Japanese, 外来語 Loanword, 混種語 Hybrid<!-- docs:end strata -->), the processes that shaped it, and the Wiktionary lines behind every claim. A calendar lets you look back through every word so far. No accounts, no tracking.
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
 ## Features
 
-One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 with KanjiVG stroke order · pitch accent · JMdict's register, field and dialect tags · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · four seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> vocabulary, and only from words whose Wiktionary page has an Etymology section; only each headline is hand-written.
+One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 with KanjiVG stroke order · pitch accent · JMdict's register, field and dialect tags · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> vocabulary, and only from words whose Wiktionary page has an Etymology section; only each headline is hand-written.
 
 ## Quick start
 
@@ -29,7 +29,7 @@ pnpm check-qa          # lint, format, type-check, build and test
 
 ## Documentation
 
-The documentation is a short book inside the app, at [`/docs`](app/pages/docs/index.vue) once it is running. Its chapters are the pages under [`app/pages/docs/`](app/pages/docs/), listed in [`shared/docs.ts`](shared/docs.ts): core theme, features, architecture, daily words, API, seasons, colour and shape, error states, data integrity, adding and fixing words, development, and the roadmap. Setup, environment variables, every command and the test layout are in the Development chapter.
+The documentation is a short book inside the app, at [`/docs`](app/pages/docs/index.vue) once it is running. Its chapters are the pages under [`app/pages/docs/`](app/pages/docs/), listed in [`shared/docs.ts`](shared/docs.ts): <!-- docs:begin chapters -->Core theme, Core features, Architecture, Daily words, API, Seasons, Colour and shape, Error and fallback states, Data integrity, Adding and fixing words, Development and Roadmap<!-- docs:end chapters -->. Setup, environment variables, every command and the test layout are in the Development chapter.
 
 ## Data & Attribution
 

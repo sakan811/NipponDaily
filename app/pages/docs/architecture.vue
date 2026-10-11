@@ -49,7 +49,7 @@ server/     api/ (handlers), routes/ (sitemap, robots, share images), middleware
 scripts/    data builders run with node: reference snapshots, etymology pins, example sentences, pitch accents, kanji records, strokes, entry generator
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
-test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots), integration/ (the built app over HTTP)
+test/       the Vitest projects (see Development)
 e2e/        Playwright browser tests of the built app
 e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pre>
 
@@ -119,7 +119,9 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
         <code>useRelatedWords</code> alone fetches by itself, because its
         failure must never make the page a <code>404</code>. Besides these are
         <code>usePageSeo</code> (with <code>useSiteUrl</code>, the canonical
-        origin), <code>useSiteTheme</code> and <code>useBgm</code>.
+        origin), <code>useSiteTheme</code>, <code>useBgm</code> and
+        <code>useDropdown</code> (the open state of the header's season and
+        music panels).
       </li>
       <li>
         <strong>Components:</strong> <code>WordEntryView</code> (one entry, with
@@ -220,7 +222,7 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
       instead of restating the fact. A number, a version, a count, a size or a
       list of names in prose is a fact, so it is generated, not typed (the
       <NuxtLink to="/docs/development#docs">Development</NuxtLink> chapter says
-      how). The rule (often called DRY) applies in four places:
+      how). The rule (often called DRY) applies in these places:
     </p>
     <ul>
       <li>
@@ -275,7 +277,8 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
       appears in Data integrity and the README. The footer names only the two
       sources whose licence calls for a visible credit, so add a line there by
       hand if a new one needs it. To add an endpoint, add the handler under
-      <code>server/api/</code> (or <code>server/routes/</code>) and an entry in
+      <code>server/api/</code> (or <code>server/routes/</code>), its path in
+      <code>shared/routes.ts</code> and an entry in
       <code>shared/endpoints.ts</code>; a test fails until both exist. How the
       docs are kept in step is in
       <NuxtLink to="/docs/development#docs">Development</NuxtLink>.
@@ -397,10 +400,18 @@ const sharedModules = [
   },
   { file: "sources.ts", role: "Data sources, licences and credit lines." },
   {
+    file: "routes.ts",
+    role: "`ROUTES` and `API_PREFIX`: every path the server answers, for the composables, the rate limiter, the cache rule and `robots.txt`.",
+  },
+  {
     file: "endpoints.ts",
-    role: "The route list, the rate limit and the CDN cache rules.",
+    role: "What each route returns, the rate limit and the CDN cache rules.",
   },
   { file: "docs.ts", role: "The chapters of this book." },
+  {
+    file: "japanese.ts",
+    role: "What counts as a kanji (`KANJI_CHARS`, `kanjiIn()`, `hasKanji()`) and `katakanaToHiragana()`, for the kanji records, the search and the data scripts.",
+  },
   { file: "jlpt.ts", role: "`JLPT_LEVELS`." },
   {
     file: "stack.ts",
@@ -408,7 +419,7 @@ const sharedModules = [
   },
   {
     file: "count.ts",
-    role: "`countWord()`: a count as prose says it (“four”), so a chapter can say how many without typing it.",
+    role: "`countWord()` and `andList()`: a count (“four”) and a list of names as prose says them, so a chapter can say how many, and which, without typing them.",
   },
   {
     file: "audio.ts",
@@ -416,7 +427,7 @@ const sharedModules = [
   },
   {
     file: "limits.ts",
-    role: "The numbers the rules turn on: `MAX_PART_LENGTH`, the related-words limit, weight and minimum score, `MAX_EXAMPLES`, `STROKE_SQUARE`.",
+    role: "The numbers the rules turn on: `MAX_PART_LENGTH`, `MAX_QUERY_LENGTH`, the related-words limit, weight and minimum score, `MAX_EXAMPLES`, `STROKE_SQUARE`.",
   },
   {
     file: "jst.ts",
@@ -435,7 +446,13 @@ const sources = [
     readers: "The footer, each entry's citation, Data integrity, the README",
   },
   {
-    fact: "HTTP routes",
+    fact: "HTTP routes: the paths",
+    file: "shared/routes.ts",
+    readers:
+      "The composables, the rate limiter, the cache rule, `robots.txt`, the share-image link and `shared/endpoints.ts`",
+  },
+  {
+    fact: "HTTP routes: what each returns",
     file: "shared/endpoints.ts",
     readers: "The API chapter",
   },

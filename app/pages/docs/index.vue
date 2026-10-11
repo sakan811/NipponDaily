@@ -20,15 +20,7 @@
 
 <script setup lang="ts">
 import DocsBook from "../../components/DocsBook.vue";
-import {
-  DOC_CHAPTERS,
-  DOC_PARTS,
-  chapterNumber,
-  docPath,
-} from "~~/shared/docs";
-
-const chaptersOf = (part: string) =>
-  DOC_CHAPTERS.filter((c) => c.part === part);
+import { DOC_PARTS, chapterNumber, chaptersOf, docPath } from "~~/shared/docs";
 </script>
 
 <style scoped>

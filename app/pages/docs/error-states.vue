@@ -131,10 +131,13 @@
         <div
           class="border border-stone-300 dark:border-stone-800 season-box p-5 bg-white dark:bg-stone-900 flex flex-wrap gap-2"
         >
-          <UBadge color="primary" variant="soft">和語 · Native Japanese</UBadge>
-          <UBadge color="secondary" variant="soft">漢語 · Sino-Japanese</UBadge>
-          <UBadge color="warning" variant="soft">外来語 · Loanword</UBadge>
-          <UBadge color="gray" variant="soft">混種語 · Hybrid</UBadge>
+          <UBadge
+            v-for="(stratum, id) in WORD_STRATA"
+            :key="id"
+            :color="STRATUM_BADGE[id]"
+            variant="soft"
+            >{{ stratum.native }} · {{ stratum.label }}</UBadge
+          >
         </div>
       </section>
 
@@ -226,6 +229,8 @@ import DocsBook from "../../components/DocsBook.vue";
 import ErrorStateHeading from "../../components/ErrorStateHeading.vue";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import WordEntryView from "../../components/WordEntryView.vue";
+import { WORD_STRATA } from "~~/shared/word-labels";
+import { STRATUM_BADGE } from "../../utils/stratum";
 import type { WordEntry } from "~~/types/index";
 
 const noop = () => {};
