@@ -1,9 +1,10 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import { API_ENDPOINTS } from "~~/shared/endpoints";
 import { DOC_CHAPTERS, docPath } from "~~/shared/docs";
 import { DATA_SOURCES } from "~~/shared/sources";
 import { SEASONS, SEASON_IDS } from "~~/shared/seasons";
+import { JLPT_RANGE } from "~~/shared/jlpt";
 
 const pages = import.meta.glob("~/app/pages/docs/*.vue", {
   eager: true,
@@ -48,6 +49,27 @@ describe("every chapter", () => {
           .find(`nav[aria-label="Contents"] a[href="${docPath(slug)}"]`)
           .classes(),
       ).toContain("is-current");
+    },
+  );
+
+  it.each(DOC_CHAPTERS.map((c) => c.slug))(
+    "%s renders with no Vue warning",
+    async (slug) => {
+      // A template that names something its script never defines still renders
+      // (as nothing), so only Vue's own warning says a value went missing.
+      const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+      try {
+        await render(slug);
+        const vue = warn.mock.calls
+          .map((args) => String(args[0]))
+          .filter((m) => m.includes("[Vue warn]"))
+          // The unit environment has no Nuxt auto-import, so the app shell's
+          // own components (the music and season buttons) never resolve here.
+          .filter((m) => !m.includes("Failed to resolve component"));
+        expect(vue).toEqual([]);
+      } finally {
+        warn.mockRestore();
+      }
     },
   );
 
@@ -176,6 +198,12 @@ describe("the chapters' content", () => {
     expect(text).toContain("data/reference/etymology/");
     expect(text).toContain("verbatim");
     expect(wrapper.findAll("figure svg")).toHaveLength(2);
+  });
+
+  it("authoring names the pool's JLPT range, from shared/jlpt.ts", async () => {
+    expect((await render("authoring")).text()).toContain(
+      `pool words (${JLPT_RANGE})`,
+    );
   });
 
   it("authoring walks through adding a month with a diagram", async () => {

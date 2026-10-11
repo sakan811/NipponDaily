@@ -52,7 +52,8 @@ scripts/    data builders run with node: reference snapshots, etymology pins, ex
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
 test/       unit/ (happy-dom), server/ (node), content/ (offline, against the snapshots), integration/ (the built app over HTTP)
-e2e/        Playwright browser tests of the built app</code></pre>
+e2e/        Playwright browser tests of the built app
+e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pre>
 
     <h2>The shared modules</h2>
     <div class="table-wrap">

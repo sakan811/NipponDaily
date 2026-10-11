@@ -62,8 +62,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install Chromium
-        run: pnpm exec playwright install --with-deps chromium
+      - name: Install the browsers
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
 
       - name: Build and run the browser tests
         run: pnpm test:e2e
@@ -73,5 +73,42 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
+          path: playwright-report/
+          retention-days: 14
+
+  # `nuxt dev` reports what a production build keeps quiet: a Vue warning, a
+  # hydration mismatch. Chromium only; the page compiles on first visit.
+  e2e-dev:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 25
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run the app in dev mode and fail on a Vue warning
+        run: pnpm test:e2e:dev
+
+      - name: Upload the Playwright report
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report-dev
           path: playwright-report/
           retention-days: 14

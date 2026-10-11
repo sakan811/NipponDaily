@@ -111,21 +111,38 @@ pnpm dev          # http://localhost:3000</code></pre>
         <code>pnpm exec vitest run --project integration</code>.
       </li>
       <li>
-        <strong><code>e2e</code></strong> (Playwright, desktop and phone
-        widths): <code>pnpm test:e2e</code> builds the app, starts it on its own
-        port and drives it in Chromium. It checks that every page renders with
-        no uncaught error or console error and cannot be scrolled sideways, that
+        <strong><code>e2e</code></strong> (Playwright; Chromium, Firefox and
+        WebKit at a desktop width, Chromium on an Android phone and WebKit on an
+        iPhone): <code>pnpm test:e2e</code> builds the app, starts it on its own
+        port and drives it in each. It checks that every page renders with no
+        uncaught error or console error and cannot be scrolled sideways, that
         today's word opens from the home page, that the colour mode and season
         picks change the page and are remembered, that the Explore chips narrow
         the list and write the URL, that any/all agrees with the API, that the
         calendar moves between months and that a kanji page draws one frame per
-        stroke. A production build does not report hydration mismatches, so a
-        page that hydrates wrongly shows up only through an interaction that
-        fails. Playwright needs its browser (<code
-          >pnpm exec playwright install chromium</code
-        >) and the system libraries behind it; it is not part of
+        stroke. The music switch is driven too: it never starts by itself, asks
+        for the season's track (and the next one when the season changes), and
+        keeps the volume in the browser; the tracks are served as a short tone
+        so no browser's codecs matter. Each season's falling or rising
+        particles, glyphs and corner graphic are read back as the browser
+        computes them, in light and dark, and are gone under reduced motion.
+        Playwright needs its browsers (<code
+          >pnpm exec playwright install chromium firefox webkit</code
+        >) and the system libraries behind them; it is not part of
         <code>pnpm check-qa</code>. The API is rate limited per address and
         every test comes from one, so keep the tests few.
+      </li>
+      <li>
+        <strong><code>e2e-dev</code></strong> (Playwright, Chromium):
+        <code>pnpm test:e2e:dev</code> starts <code>nuxt dev</code> and visits
+        every page, a word, a kanji and a part, and each season in dark mode,
+        failing on any Vue warning, hydration mismatch, console error or
+        uncaught exception. A production build prints none of these, so this is
+        where a template naming something its script never defines is found. The
+        <code>hints:hydration</code> notes from <code>@nuxt/hints</code> are not
+        counted: they also flag what the app changes on purpose once mounted.
+        The unit test for the docs chapters makes the same check without a
+        browser.
       </li>
     </ul>
     <p>
@@ -134,8 +151,8 @@ pnpm dev          # http://localhost:3000</code></pre>
       only to see the build's output. CI
       (<code>.github/workflows/webpage-test.yml</code>, which also names its
       Node and pnpm versions) runs <code>pnpm run test</code> and
-      <code>pnpm test:e2e</code> as two jobs on pushes to <code>main</code> and
-      on pull requests targeting it.
+      <code>pnpm test:e2e</code> and <code>pnpm test:e2e:dev</code> as three
+      jobs on pushes to <code>main</code> and on pull requests targeting it.
     </p>
     <p>Tests that guard against drift:</p>
     <ul>
@@ -293,7 +310,11 @@ const commands = [
   },
   {
     cmd: "pnpm test:e2e",
-    does: "Build, then run the Playwright browser tests in `e2e/`.",
+    does: "Build, then run the Playwright browser tests in `e2e/` in Chromium, Firefox and WebKit.",
+  },
+  {
+    cmd: "pnpm test:e2e:dev",
+    does: "Run the app with `nuxt dev` and fail on a Vue warning (`e2e-dev/`).",
   },
   { cmd: "pnpm check-qa", does: "Lint, format, type-check, build and test." },
   {
