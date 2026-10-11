@@ -82,6 +82,49 @@ const today = async (page: import("@playwright/test").Page) => {
   return body.data.entry as { term: string; meaning: string };
 };
 
+/**
+ * Runs `search` (types into the box) and waits for the URL to carry the query.
+ * If it does not, the failure says what the page and the API did meanwhile: the
+ * Firefox runs in CI failed here and nothing else showed why.
+ */
+async function searchReachesUrl(
+  page: import("@playwright/test").Page,
+  search: () => Promise<void>,
+) {
+  const seen: string[] = [];
+  const t0 = Date.now();
+  const at = () => `${Date.now() - t0}ms`;
+  page.on("response", (r) => {
+    if (r.url().includes("/api/"))
+      seen.push(`${at()} ${r.status()} ${new URL(r.url()).pathname}`);
+  });
+  page.on("console", (m) => {
+    if (m.type() !== "log")
+      seen.push(`${at()} console.${m.type()}: ${m.text().slice(0, 100)}`);
+  });
+  page.on("pageerror", (e) =>
+    seen.push(`${at()} pageerror: ${e.message.slice(0, 100)}`),
+  );
+
+  await search();
+  try {
+    await expect(page).toHaveURL(/[?&]q=/);
+  } catch (error) {
+    const box = page.getByTestId("explore-search");
+    throw new Error(
+      `the search never reached the URL: ${JSON.stringify({
+        url: page.url(),
+        value: await box.inputValue().catch(() => "?"),
+        activeIsBox: await box
+          .evaluate((el) => el === document.activeElement)
+          .catch(() => "?"),
+        recent: seen.slice(-14),
+      })}`,
+      { cause: error },
+    );
+  }
+}
+
 test("searching finds a word by its meaning", async ({ page }) => {
   // Typed with fill(), in plain Latin letters: every engine delivers those.
   const { term, meaning } = await today(page);
@@ -89,27 +132,23 @@ test("searching finds a word by its meaning", async ({ page }) => {
 
   await page.goto("/explore");
   await hydrated(page);
-  await page.getByTestId("explore-search").fill(query);
-  await expect(page).toHaveURL(/[?&]q=/);
+  await searchReachesUrl(page, () =>
+    page.getByTestId("explore-search").fill(query),
+  );
   await expect(
     page.getByTestId("explore-word").filter({ hasText: term }).first(),
   ).toBeVisible();
 });
 
 test("searching finds a word by its Japanese term", async ({ page }) => {
-  // fill() of Japanese text did not start the search on Firefox in CI, where
-  // the same field answers to Latin text. This sends the input event a
-  // keystroke would, so what is checked is the page's reaction to it.
+  // The same with today's Japanese term, typed as a keystroke would deliver it.
   const { term } = await today(page);
 
   await page.goto("/explore");
   await hydrated(page);
-  await page.getByTestId("explore-search").evaluate((el, value) => {
-    const input = el as HTMLInputElement;
-    input.value = value;
-    input.dispatchEvent(new Event("input", { bubbles: true }));
-  }, term);
-  await expect(page).toHaveURL(/[?&]q=/);
+  await searchReachesUrl(page, () =>
+    page.getByTestId("explore-search").fill(term),
+  );
   await expect(
     page.getByTestId("explore-word").filter({ hasText: term }).first(),
   ).toBeVisible();
