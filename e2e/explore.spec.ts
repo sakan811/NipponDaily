@@ -1,4 +1,4 @@
-import { test, expect } from "./fixtures";
+import { test, expect, hydrated } from "./fixtures";
 
 const count = async (page: import("@playwright/test").Page) => {
   const text = await page.getByTestId("explore-count").textContent();
@@ -9,6 +9,7 @@ test("a level chip narrows the list, writes the URL, and Clear undoes it", async
   page,
 }) => {
   await page.goto("/explore");
+  await hydrated(page);
   await expect(page.getByTestId("explore-count")).toBeVisible();
   const all = await count(page);
 
@@ -32,6 +33,7 @@ test("a level chip narrows the list, writes the URL, and Clear undoes it", async
 
 test("a filter in the URL is applied on load", async ({ page }) => {
   await page.goto("/explore?level=N1");
+  await hydrated(page);
   await expect(
     page.getByTestId("facet-level").getByRole("button", { name: /N1/ }),
   ).toHaveAttribute("aria-pressed", "true");
@@ -50,6 +52,7 @@ test("any/all gives the counts the API gives for two processes", async ({
     (await (await request.get(`/api/explore?${query}`)).json()).data.count;
 
   await page.goto("/explore");
+  await hydrated(page);
   await expect(page.getByTestId("explore-count")).toBeVisible();
   const chips = page
     .getByTestId("facet-process")
@@ -78,6 +81,7 @@ test("searching finds a word by its term", async ({ page }) => {
   const term = (await page.getByTestId("today-term").textContent())!.trim();
 
   await page.goto("/explore");
+  await hydrated(page);
   await page.getByTestId("explore-search").fill(term);
   await expect(page).toHaveURL(/[?&]q=/);
   await expect(
