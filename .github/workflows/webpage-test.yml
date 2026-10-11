@@ -45,11 +45,11 @@ jobs:
 
       - name: Upload the Playwright report
         uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
+        if: failure()
         with:
           name: playwright-report
           path: playwright-report/
-          retention-days: 14
+          retention-days: 7
 
   # `nuxt dev` reports what a production build keeps quiet: a Vue warning, a
   # hydration mismatch. Chromium only; the page compiles on first visit.
@@ -72,8 +72,8 @@ jobs:
 
       - name: Upload the Playwright report
         uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
+        if: failure()
         with:
           name: playwright-report-dev
           path: playwright-report/
-          retention-days: 14
+          retention-days: 7
