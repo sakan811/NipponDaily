@@ -22,18 +22,18 @@ import type {
   WordStratum,
 } from "~~/types/index";
 import { JLPT_LEVELS } from "./jlpt";
+import {
+  PATTERN_EXAMPLE_LIMIT,
+  PATTERN_MAX_COMBINATION,
+  PATTERN_MIN_COMBINATION,
+} from "./limits";
 import { PROCESS_IDS, STRATUM_IDS } from "./explore";
 import { WORD_ENTRIES, todayJst } from "./words";
 
-/** How many pairs and larger combinations to list, and how many example words
- *  each carries. */
+/** How many pairs and larger combinations to list. */
 const PAIR_LIMIT = 10;
 const COMBINATION_LIMIT = 10;
-/** Combinations are sets of this many tags (processes plus the layer) up to
- *  MAX_COMBINATION; a pair is already listed on its own. */
-const MIN_COMBINATION = 3;
-const MAX_COMBINATION = 4;
-const EXAMPLE_LIMIT = 3;
+// Combination sizes and the example limit are in shared/limits.ts.
 
 const STRATUM_KEYS: StratumKey[] = [...STRATUM_IDS, "unstated"];
 
@@ -126,7 +126,7 @@ function rendakuFor(open: WordEntry[]): RendakuPayload {
         change: classifyChange(m.base, m.reading),
       };
       slot.reading.count++;
-      if (slot.reading.examples.length < EXAMPLE_LIMIT) {
+      if (slot.reading.examples.length < PATTERN_EXAMPLE_LIMIT) {
         slot.reading.examples.push({ date: e.date, term: e.term });
       }
       readings.set(key, slot);
@@ -196,7 +196,11 @@ function combinationsFor(open: WordEntry[]): TagCombination[] {
         PROCESS_IDS.indexOf(b as WordProcess),
     );
     if (e.stratum) tags.push(e.stratum);
-    for (let size = MIN_COMBINATION; size <= MAX_COMBINATION; size++) {
+    for (
+      let size = PATTERN_MIN_COMBINATION;
+      size <= PATTERN_MAX_COMBINATION;
+      size++
+    ) {
       for (const set of choose(tags, size)) {
         const key = set.join("|");
         const slot = found.get(key) ?? {
@@ -209,7 +213,7 @@ function combinationsFor(open: WordEntry[]): TagCombination[] {
           examples: [],
         };
         slot.count++;
-        if (slot.examples.length < EXAMPLE_LIMIT) {
+        if (slot.examples.length < PATTERN_EXAMPLE_LIMIT) {
           slot.examples.push({ date: e.date, term: e.term });
         }
         found.set(key, slot);
@@ -222,7 +226,7 @@ function combinationsFor(open: WordEntry[]): TagCombination[] {
   const biggerByCount = new Map<number, string[][]>();
   for (const [key, c] of found) {
     const tags = key.split("|");
-    if (tags.length <= MIN_COMBINATION) continue;
+    if (tags.length <= PATTERN_MIN_COMBINATION) continue;
     const bucket = biggerByCount.get(c.count) ?? [];
     bucket.push(tags);
     biggerByCount.set(c.count, bucket);
@@ -273,7 +277,7 @@ export function patternsFor(today: string = todayJst()): PatternsPayload {
         const key = `${a}|${b}`;
         const pair = pairs.get(key) ?? { a, b, count: 0, examples: [] };
         pair.count++;
-        if (pair.examples.length < EXAMPLE_LIMIT) {
+        if (pair.examples.length < PATTERN_EXAMPLE_LIMIT) {
           pair.examples.push({ date: e.date, term: e.term });
         }
         pairs.set(key, pair);

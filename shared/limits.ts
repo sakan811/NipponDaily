@@ -22,3 +22,14 @@ export const RELATED_MIN_SCORE = 1.5;
 
 /** The most example sentences an entry carries. */
 export const MAX_EXAMPLES = 2;
+
+/** The side of the square KanjiVG draws every kanji on, which the stroke
+ *  snapshot, the API and the page's viewBox all use. */
+export const STROKE_SQUARE = 109;
+
+/** Patterns lists sets of this many tags (processes plus the layer) up to the
+ *  maximum; a pair is already listed on its own. */
+export const PATTERN_MIN_COMBINATION = 3;
+export const PATTERN_MAX_COMBINATION = 4;
+/** How many example words a Patterns row carries. */
+export const PATTERN_EXAMPLE_LIMIT = 3;

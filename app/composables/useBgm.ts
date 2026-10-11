@@ -1,11 +1,12 @@
 import { computed, effectScope, ref, watch } from "vue";
 import type { SeasonId } from "~~/types/index";
+import { BGM_CROSSFADE_MS as CROSSFADE_MS } from "~~/shared/audio";
 import { STORAGE_KEYS } from "~~/shared/storage-keys";
 import { useSiteTheme } from "./useSiteTheme";
 
 /**
  * The background track each season plays. All four are mastered to the same
- * integrated loudness (-16 LUFS, measured on the MP3s), so changing season
+ * integrated loudness (`BGM_LOUDNESS_LUFS`, measured on the MP3s), so changing season
  * never changes how loud the music is.
  */
 export const BGM_TRACKS: Record<SeasonId, string> = {
@@ -23,8 +24,6 @@ const VOLUME_KEY = STORAGE_KEYS.bgmVolume;
 const MAX_GAIN = 0.6;
 /** Fade for switching the music on or off. */
 const FADE_MS = 700;
-/** One track fading out as the next fades in, when the season changes. */
-const CROSSFADE_MS = 2000;
 const CURVE_STEPS = 64;
 /** Equal-power quarter sine: two unrelated tracks keep a steady loudness. */
 const CURVE = Float32Array.from({ length: CURVE_STEPS }, (_, i) =>

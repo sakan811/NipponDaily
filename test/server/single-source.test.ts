@@ -55,6 +55,26 @@ describe("one owner per fact", () => {
     },
   );
 
+  it("the stroke square is written only in shared/limits.ts", () => {
+    expect(
+      typedOutside(
+        [...sources(["app", "server", "shared", "scripts"]), "nuxt.config.ts"],
+        ["shared/limits.ts"],
+        /\b109\b/,
+      ),
+    ).toEqual([]);
+  });
+
+  it("the music's crossfade and loudness are written only in shared/audio.ts", () => {
+    expect(
+      typedOutside(
+        sources(["app", "server", "shared"]),
+        ["shared/audio.ts"],
+        /CROSSFADE_MS\s*=|-16 LUFS/,
+      ),
+    ).toEqual([]);
+  });
+
   it("the JSON envelope and the 400 are built only in server/utils", () => {
     const handlers = sources(["server/api", "server/routes"], [".ts"]);
     expect(typedOutside(handlers, [], /success:\s*true/)).toEqual([]);
