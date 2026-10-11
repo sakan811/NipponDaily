@@ -1,0 +1,19 @@
+name: Set up
+description: pnpm, the Node.js version package.json's engines allow, and the dependencies. Every job starts here, so each version is named once.
+
+runs:
+  using: composite
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10
+
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: package.json
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install

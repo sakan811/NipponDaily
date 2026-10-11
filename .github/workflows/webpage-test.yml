@@ -14,29 +14,14 @@ permissions:
 
 jobs:
   test:
-    strategy:
-      matrix:
-        node-version:
-          - 25
-
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 25
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Set up pnpm, Node.js and the dependencies
+        uses: ./.github/actions/setup
 
       - name: Run unit tests
         run: pnpm run test
@@ -49,18 +34,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 25
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Set up pnpm, Node.js and the dependencies
+        uses: ./.github/actions/setup
 
       - name: Install the browsers
         run: pnpm exec playwright install --with-deps chromium firefox webkit
@@ -86,18 +61,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 25
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Set up pnpm, Node.js and the dependencies
+        uses: ./.github/actions/setup
 
       - name: Install Chromium
         run: pnpm exec playwright install --with-deps chromium
