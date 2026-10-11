@@ -15,32 +15,16 @@
  * `pnpm data:reference`/`pnpm data:reference:jlpt` together and review the
  * diffs.
  */
+const REPO = "elzup/jlpt-word-list";
+const COMMIT = "13aa3c54b27115be72d8a62cd4071077c68d2171";
+const source = (file) => ({ repo: REPO, commit: COMMIT, path: `src/${file}` });
+
 export const WORD_LIST_SOURCES = {
-  N1: {
-    repo: "elzup/jlpt-word-list",
-    commit: "13aa3c54b27115be72d8a62cd4071077c68d2171",
-    path: "src/n1.csv",
-  },
-  N5: {
-    repo: "elzup/jlpt-word-list",
-    commit: "13aa3c54b27115be72d8a62cd4071077c68d2171",
-    path: "src/n5.csv",
-  },
-  N4: {
-    repo: "elzup/jlpt-word-list",
-    commit: "13aa3c54b27115be72d8a62cd4071077c68d2171",
-    path: "src/n4.csv",
-  },
-  N3: {
-    repo: "elzup/jlpt-word-list",
-    commit: "13aa3c54b27115be72d8a62cd4071077c68d2171",
-    path: "src/n3.csv",
-  },
-  N2: {
-    repo: "elzup/jlpt-word-list",
-    commit: "13aa3c54b27115be72d8a62cd4071077c68d2171",
-    path: "src/n2.csv",
-  },
+  N1: source("n1.csv"),
+  N5: source("n5.csv"),
+  N4: source("n4.csv"),
+  N3: source("n3.csv"),
+  N2: source("n2.csv"),
 };
 
 export function wordListUrl(level) {
@@ -48,7 +32,9 @@ export function wordListUrl(level) {
   return `https://raw.githubusercontent.com/${repo}/${commit}/${path}`;
 }
 
-/** Kept for the existing N5-only call sites (scripts/build-n5-reference.mjs,
- *  test imports) — identical to wordListUrl("N5"). */
-export const WORD_LIST_SOURCE = WORD_LIST_SOURCES.N5;
-export const N5_CSV_URL = wordListUrl("N5");
+/** A level's CSV at the pinned commit, as text. */
+export async function fetchWordListText(level) {
+  const res = await fetch(wordListUrl(level));
+  if (!res.ok) throw new Error(`GET ${wordListUrl(level)} → ${res.status}`);
+  return res.text();
+}

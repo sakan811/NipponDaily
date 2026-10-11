@@ -13,6 +13,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { referenceFile } from "../../shared/jlpt.ts";
+import { kanjiIn, katakanaToHiragana } from "../../shared/japanese.ts";
 import { meaningWords } from "../../shared/meanings.ts";
 import { ROOT } from "./cli.mjs";
 
@@ -23,8 +24,7 @@ export function loadReference(level) {
 }
 
 /** Katakana -> hiragana, so a reading compares equal however it was written. */
-export const toHiragana = (s) =>
-  s.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+export const toHiragana = katakanaToHiragana;
 
 /** Drops the ～/〜 affix markers and whitespace the word lists put around
  *  prefixes/suffixes/counters. */
@@ -198,14 +198,17 @@ export function homophoneGroups(vocab) {
     byKana.get(key).push(v);
   }
   return [...byKana.entries()]
-    .map(([kana, words]) => [kana, words.filter((w) => /[一-鿿]/.test(w.term))])
+    .map(([kana, words]) => [
+      kana,
+      words.filter((w) => kanjiIn(w.term).length > 0),
+    ])
     .filter(([, words]) => new Set(words.map((w) => w.term)).size >= 2)
     .sort((a, b) => (a[0] < b[0] ? -1 : 1));
 }
 
 /** The first CJK ideograph in a term, or "" for a kana-only word. */
 export function firstKanji(term) {
-  return term.match(/[一-鿿]/)?.[0] ?? "";
+  return kanjiIn(term)[0] ?? "";
 }
 
 /**

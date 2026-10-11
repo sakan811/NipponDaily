@@ -31,7 +31,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { dedupeAcrossLevels, parseJlptCsv, slugify } from "./lib/word-list.mjs";
-import { WORD_LIST_SOURCES, wordListUrl } from "./word-list-source.mjs";
+import { fetchWordListText, WORD_LIST_SOURCES } from "./word-list-source.mjs";
 import {
   JMDICT_SOURCE,
   ensureJmdictFiles,
@@ -46,6 +46,7 @@ import {
   contentSentences,
 } from "./build-n5-reference.mjs";
 import { JLPT_LEVELS, referenceFile } from "../shared/jlpt.ts";
+import { hasKanji, JAPANESE_CHARS, kanjiIn } from "../shared/japanese.ts";
 import { servedVocab } from "../shared/meanings.ts";
 import { SOURCES } from "../shared/sources.ts";
 import { ROOT } from "./lib/cli.mjs";
@@ -53,20 +54,16 @@ import { ROOT } from "./lib/cli.mjs";
 // N5 has its own builder (build-n5-reference.mjs); these are the rest.
 const LEVELS = JLPT_LEVELS.slice(1);
 
-const KANJI_RE = /[㐀-䶿一-鿿々]/;
-const KANJI_RE_G = /[㐀-䶿一-鿿]/gu;
-
 async function fetchWordList(level) {
-  const res = await fetch(wordListUrl(level));
-  if (!res.ok) throw new Error(`GET ${wordListUrl(level)} → ${res.status}`);
-  return parseJlptCsv(await res.text(), level);
+  return parseJlptCsv(await fetchWordListText(level), level);
 }
 
 /** Tokens of a kana/kanji phrase when the tokenizer splits it into two or
  *  more real words with nothing it couldn't place — evidence that a set
  *  phrase JMdict doesn't list is at least made of real words. Null otherwise. */
 function phraseTokens(tokenizer, term) {
-  if (!tokenizer || !/^[぀-ヿ一-鿿々ー]+$/.test(term)) return null;
+  if (!tokenizer || !new RegExp(`^[${JAPANESE_CHARS}]+$`, "u").test(term))
+    return null;
   const tokens = tokenizer.tokenize(term);
   if (tokens.length < 2 || tokens.some((t) => t.word_type === "UNKNOWN")) {
     return null;
@@ -120,8 +117,7 @@ function buildLevelReference(level, entries, dict, shared) {
   });
 
   const kanjiChars = new Set(shared.contentKanjiChars);
-  for (const v of vocab)
-    for (const c of v.term.match(KANJI_RE_G) ?? []) kanjiChars.add(c);
+  for (const v of vocab) for (const c of kanjiIn(v.term)) kanjiChars.add(c);
   const kanji = {};
   for (const c of [...kanjiChars].sort()) {
     const info = dict.kanji(c);
@@ -133,9 +129,7 @@ function buildLevelReference(level, entries, dict, shared) {
   // reference (see build-n5-reference.mjs), so a level with hand-authored
   // lesson content (e.g. N4's app/data/vocab-guide-n4.ts) can gate its
   // example-sentence rōmaji the same way N5 does.
-  const surfaces = new Set(
-    vocab.map((v) => v.term).filter((t) => KANJI_RE.test(t)),
-  );
+  const surfaces = new Set(vocab.map((v) => v.term).filter((t) => hasKanji(t)));
   for (const s of shared.contentSurfaces) surfaces.add(s);
   const readings = {};
   for (const s of [...surfaces].sort()) {
@@ -184,7 +178,7 @@ async function buildSharedContentEvidence(dict, tokenizer) {
       let span = "";
       for (let j = i; j < Math.min(tokens.length, i + MAX_SPAN_TOKENS); j++) {
         span += tokens[j];
-        if (KANJI_RE.test(span)) contentSurfaces.add(span);
+        if (hasKanji(span)) contentSurfaces.add(span);
       }
     }
   }

@@ -12,16 +12,14 @@ import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { JLPT_LEVELS, referenceFile } from "../shared/jlpt.ts";
+import { kanjiIn } from "../shared/japanese.ts";
 import { SOURCES } from "../shared/sources.ts";
 import { ROOT } from "./lib/cli.mjs";
 import { JMDICT_SOURCE } from "./lib/jmdict.mjs";
+import { readJson as readJsonAt } from "./lib/month-shards.mjs";
 
 const OUT_FILE = "data/reference/kanji.json";
-// The same range the reference builders read kanji by (no 々 or 〆).
-const HAN = /[㐀-䶿一-鿿]/gu;
-
-const readJson = (root, path) =>
-  JSON.parse(readFileSync(join(root, path), "utf8"));
+const readJson = (root, path) => readJsonAt(join(root, path));
 
 /** The kanji record for every character the entries' terms are written with. */
 export function buildKanjiReference(root = ROOT) {
@@ -29,7 +27,7 @@ export function buildKanjiReference(root = ROOT) {
   const wordsDir = join(root, "data/words");
   for (const file of readdirSync(wordsDir).filter((f) => f.endsWith(".json")))
     for (const { term } of readJson(root, `data/words/${file}`))
-      for (const c of term.match(HAN) ?? []) used.add(c);
+      for (const c of kanjiIn(term)) used.add(c);
 
   const known = {};
   for (const level of JLPT_LEVELS)

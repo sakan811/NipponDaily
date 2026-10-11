@@ -14,6 +14,11 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { gunzipSync } from "node:zlib";
+import {
+  hasKanji,
+  KANJI_CHARS,
+  katakanaToHiragana,
+} from "../../shared/japanese.ts";
 
 export const JMDICT_SOURCE = {
   jmdict: {
@@ -64,14 +69,12 @@ export async function ensureJmdictFiles(root) {
   };
 }
 
-const KANJI_RE = /[㐀-䶿一-鿿々]/;
-
 /** Every reading JMdict gives a written form, when it gives more than one
  *  (今日: きょう, こんにち, こんじつ). A sentence corpus that indexes the bare
  *  spelling cannot say which of them it means, so the sentence builder reads
  *  this to refuse such an index entry. */
 export function spellingReadings(dict, term) {
-  if (!KANJI_RE.test(term)) return undefined;
+  if (!hasKanji(term)) return undefined;
   const readings = dict.readingsOf(term);
   return readings.length > 1 ? readings : undefined;
 }
@@ -294,7 +297,7 @@ export function openDictionary({ jmdict, kanjidic2 }) {
     /** lookupWord's core, on an already-normalized term/kana pair. */
     lookupNormalized(term, kana) {
       const withKana = new Set(idsOf(byKana, kana));
-      const ids = KANJI_RE.test(term)
+      const ids = hasKanji(term)
         ? idsOf(byKanji, term).filter((id) => withKana.has(id))
         : [...withKana].filter(
             (id) =>
@@ -309,7 +312,7 @@ export function openDictionary({ jmdict, kanjidic2 }) {
       // Morse-code dot, これ = "hey!", コップ = "cop"). Both belong in the
       // evidence, otherwise a word's own meaning has nothing to be checked
       // against.
-      if (!KANJI_RE.test(term) && ids.length > 0) {
+      if (!hasKanji(term) && ids.length > 0) {
         for (const id of withKana) {
           if (ids.includes(id)) continue;
           const usuallyKana = entries
@@ -322,8 +325,7 @@ export function openDictionary({ jmdict, kanjidic2 }) {
           if (usuallyKana) ids.push(id);
         }
       }
-      const chosen =
-        ids.length > 0 || KANJI_RE.test(term) ? ids : [...withKana];
+      const chosen = ids.length > 0 || hasKanji(term) ? ids : [...withKana];
       const particle = term.endsWith("と")
         ? "と"
         : term.endsWith("に")
@@ -355,7 +357,9 @@ export function openDictionary({ jmdict, kanjidic2 }) {
      */
     boundKanjiAttested(rawTerm, rawKana) {
       const term = rawTerm.replace(/[～〜~\s]/g, "");
-      const m = term.match(/^([㐀-䶿一-鿿々])([\u3040-\u309f]*)$/);
+      const m = term.match(
+        new RegExp(`^([${KANJI_CHARS}々])([\u3040-\u309f]*)$`, "u"),
+      );
       if (!m) return false;
       const info = this.kanji(m[1]);
       if (!info) return false;
@@ -365,10 +369,6 @@ export function openDictionary({ jmdict, kanjidic2 }) {
         if (!reading.endsWith(okuri)) return false;
         reading = reading.slice(0, -okuri.length);
       }
-      const hira = (str) =>
-        str.replace(/[ァ-ヶ]/g, (c) =>
-          String.fromCharCode(c.charCodeAt(0) - 0x60),
-        );
       const unvoice = (str) =>
         [...str]
           .map((c) => {
@@ -378,10 +378,10 @@ export function openDictionary({ jmdict, kanjidic2 }) {
           .join("");
       const candidates = new Set(
         [...info.on, ...info.kun].map((r) =>
-          hira(r.replace(/-/g, "").split(".")[0]),
+          katakanaToHiragana(r.replace(/-/g, "").split(".")[0]),
         ),
       );
-      const target = hira(reading);
+      const target = katakanaToHiragana(reading);
       return candidates.has(target) || candidates.has(unvoice(target));
     },
     /** True when JMdict has an entry written or read as `word`. */

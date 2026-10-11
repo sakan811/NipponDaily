@@ -31,7 +31,7 @@ import {
 import { dirname, join } from "node:path";
 import kuromoji from "kuromoji";
 import { parseN5Csv, slugify } from "./lib/word-list.mjs";
-import { WORD_LIST_SOURCE } from "./word-list-source.mjs";
+import { fetchWordListText, WORD_LIST_SOURCES } from "./word-list-source.mjs";
 import {
   JMDICT_SOURCE,
   ensureJmdictFiles,
@@ -40,26 +40,20 @@ import {
 } from "./lib/jmdict.mjs";
 import { servedVocab } from "../shared/meanings.ts";
 import { referenceFile } from "../shared/jlpt.ts";
+import { hasKanji, JAPANESE_CHARS, kanjiIn } from "../shared/japanese.ts";
 import { SOURCES } from "../shared/sources.ts";
 import { ROOT } from "./lib/cli.mjs";
 
 const OUT_FILE = join(ROOT, referenceFile("N5"));
 
-export { WORD_LIST_SOURCE, JMDICT_SOURCE };
+export { JMDICT_SOURCE };
 
 /** Max adjacent tokens joined when looking up multi-token words (三日,
  *  二十日, 日曜日 …) that the tokenizer splits into pieces. */
 export const MAX_SPAN_TOKENS = 3;
 
-const KANJI_RE = /[㐀-䶿一-鿿々]/;
-const KANJI_RE_G = /[㐀-䶿一-鿿]/gu;
-
 async function fetchWordList() {
-  const { repo, commit, path } = WORD_LIST_SOURCE;
-  const url = `https://raw.githubusercontent.com/${repo}/${commit}/${path}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`GET ${url} → ${res.status}`);
-  return parseN5Csv(await res.text());
+  return parseN5Csv(await fetchWordListText("N5"));
 }
 
 export function buildTokenizer() {
@@ -87,7 +81,7 @@ export function contentJapanese() {
   const out = [];
   for (const file of readdirSync(dir).filter((f) => f.endsWith(".ts"))) {
     const text = readFileSync(join(dir, file), "utf8");
-    for (const m of text.matchAll(/[\u3040-\u30ff\u4e00-\u9fff々ー]+/gu))
+    for (const m of text.matchAll(new RegExp(`[${JAPANESE_CHARS}]+`, "gu")))
       out.push(m[0]);
   }
   return out;
@@ -101,8 +95,7 @@ export function contentKanji() {
     if (!existsSync(abs)) continue;
     for (const file of readdirSync(abs)) {
       if (!/\.(ts|vue)$/.test(file)) continue;
-      for (const c of readFileSync(join(abs, file), "utf8").match(KANJI_RE_G) ??
-        [])
+      for (const c of kanjiIn(readFileSync(join(abs, file), "utf8")))
         chars.add(c);
     }
   }
@@ -146,16 +139,14 @@ async function main() {
   // Readings for every kanji-bearing word or 2–3 token span in the example
   // sentences, so the rōmaji check accepts any reading JMdict lists (e.g.
   // 三日 みっか, 七 しち/なな) — not just the tokenizer's single guess.
-  const surfaces = new Set(
-    vocab.map((v) => v.term).filter((t) => KANJI_RE.test(t)),
-  );
+  const surfaces = new Set(vocab.map((v) => v.term).filter((t) => hasKanji(t)));
   for (const sentence of contentSentences()) {
     const tokens = tokenizer.tokenize(sentence).map((t) => t.surface_form);
     for (let i = 0; i < tokens.length; i++) {
       let span = "";
       for (let j = i; j < Math.min(tokens.length, i + MAX_SPAN_TOKENS); j++) {
         span += tokens[j];
-        if (KANJI_RE.test(span)) surfaces.add(span);
+        if (hasKanji(span)) surfaces.add(span);
       }
     }
   }
@@ -179,8 +170,7 @@ async function main() {
 
   // Kanji — every character in N5 terms or anywhere in the content.
   const kanjiChars = contentKanji();
-  for (const v of vocab)
-    for (const c of v.term.match(KANJI_RE_G) ?? []) kanjiChars.add(c);
+  for (const v of vocab) for (const c of kanjiIn(v.term)) kanjiChars.add(c);
   const kanji = {};
   for (const c of [...kanjiChars].sort()) {
     const info = dict.kanji(c);
@@ -196,7 +186,7 @@ async function main() {
           ...JMDICT_SOURCE,
           licence: `JMdict/KANJIDIC2 © ${SOURCES.edrdg.holderShort}, ${SOURCES.edrdg.licence.name}`,
         },
-        wordList: { ...WORD_LIST_SOURCE, licence: "MIT" },
+        wordList: { ...WORD_LIST_SOURCES.N5, licence: "MIT" },
       },
       counts: {
         vocab: vocab.length,
