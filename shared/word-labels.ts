@@ -175,6 +175,18 @@ export function posGroupsOf(pos: readonly string[]): PosGroup[] {
   return POS_GROUP_IDS.filter((g) => found.has(g));
 }
 
+/** The first-tier codes JMdict treats as marking a common word. */
+export const COMMON_PRIORITY_CODES = [
+  "ichi1",
+  "news1",
+  "spec1",
+  "spec2",
+  "gai1",
+] as const;
+
+/** `ichi1, news1, spec1, spec2 or gai1`, as prose names the codes. */
+export const COMMON_PRIORITY_TEXT = `${COMMON_PRIORITY_CODES.slice(0, -1).join(", ")} or ${COMMON_PRIORITY_CODES[COMMON_PRIORITY_CODES.length - 1]}`;
+
 /** How common a word is, from JMdict's own priority codes. The codes stay
  *  verbatim on each entry; a group only says which codes fall under it. */
 export const FREQUENCY_GROUPS: Record<
@@ -183,8 +195,7 @@ export const FREQUENCY_GROUPS: Record<
 > = {
   common: {
     label: "Common",
-    description:
-      "JMdict counts the word as common: its spelling or reading is in the first tier of a frequency list (ichi1, news1, spec1, spec2 or gai1).",
+    description: `JMdict counts the word as common: its spelling or reading is in the first tier of a frequency list (${COMMON_PRIORITY_TEXT}).`,
   },
   less: {
     label: "Less common",
@@ -200,12 +211,10 @@ export const FREQUENCY_GROUPS: Record<
 
 export const FREQUENCY_IDS = Object.keys(FREQUENCY_GROUPS) as FrequencyGroup[];
 
-/** The first-tier codes JMdict treats as marking a common word. */
-const COMMON_PRIORITY = /^(?:ichi1|news1|spec1|spec2|gai1)$/;
-
 /** Which group an entry's priority codes fall under. */
 export function frequencyOf(priority: readonly string[] = []): FrequencyGroup {
-  if (priority.some((p) => COMMON_PRIORITY.test(p))) return "common";
+  if (priority.some((p) => COMMON_PRIORITY_CODES.some((c) => c === p)))
+    return "common";
   return priority.length ? "less" : "unlisted";
 }
 
