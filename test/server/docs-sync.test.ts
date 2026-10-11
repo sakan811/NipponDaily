@@ -1,6 +1,5 @@
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { syncDocs } from "../../scripts/sync-docs.mjs";
 import { API_ENDPOINTS } from "~~/shared/endpoints";
@@ -8,6 +7,7 @@ import { DATA_SOURCES, LICENCES } from "~~/shared/sources";
 import { monthLabel } from "~~/shared/catalogue";
 import { DOC_CHAPTERS, DOC_PARTS, DOC_PATHS } from "~~/shared/docs";
 import { sitemapPaths } from "~~/shared/sitemap";
+import { ROOT, read, walk } from "../helpers/repo";
 
 /**
  * Guards the single sources of truth (the Architecture chapter, "Single
@@ -20,22 +20,9 @@ import { sitemapPaths } from "~~/shared/sitemap";
  * command or file that is gone.
  */
 
-const ROOT = fileURLToPath(new URL("../../", import.meta.url));
-const read = (p: string) => readFileSync(join(ROOT, p), "utf8");
-
 const MD_FILES = ["README.md"];
 const REGION = /<!-- docs:begin ([\w-]+) -->[\s\S]*?<!-- docs:end \1 -->/g;
 const withoutRegions = (text: string) => text.replace(REGION, "");
-
-/** Every file under `dir` with one of the extensions, as repo-relative paths. */
-const walk = (dir: string, exts: string[]): string[] =>
-  readdirSync(join(ROOT, dir), { withFileTypes: true }).flatMap((d) =>
-    d.isDirectory()
-      ? walk(join(dir, d.name), exts)
-      : exts.some((e) => d.name.endsWith(e))
-        ? [join(dir, d.name)]
-        : [],
-  );
 
 /** The book: every page under app/pages/docs/. */
 const DOC_PAGES = walk("app/pages/docs", [".vue"]);
