@@ -46,15 +46,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { onMounted } from "vue";
 import { SEASON_IDS, SEASONS } from "~~/shared/seasons";
 import type { SeasonId } from "~~/types/index";
+import { useDropdown } from "../composables/useDropdown";
 import { useSiteTheme } from "../composables/useSiteTheme";
 
 const { choice, syncFromStorage, chooseSeason } = useSiteTheme();
 
-const isOpen = ref(false);
-const container = ref<HTMLElement | null>(null);
+const { isOpen, container } = useDropdown();
 
 const itemClasses = (selected: boolean) =>
   [
@@ -69,18 +69,5 @@ const pick = (season: SeasonId | null) => {
   isOpen.value = false;
 };
 
-const handleClickOutside = (event: MouseEvent) => {
-  if (container.value && !container.value.contains(event.target as Node)) {
-    isOpen.value = false;
-  }
-};
-
-onMounted(() => {
-  syncFromStorage();
-  document.addEventListener("click", handleClickOutside);
-});
-
-onUnmounted(() => {
-  document.removeEventListener("click", handleClickOutside);
-});
+onMounted(syncFromStorage);
 </script>

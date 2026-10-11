@@ -83,34 +83,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted } from "vue";
-import { SEASONS } from "~~/shared/seasons";
+import { computed } from "vue";
+import { seasonName } from "~~/shared/seasons";
 import { useBgm } from "../composables/useBgm";
+import { useDropdown } from "../composables/useDropdown";
 
 const { enabled, volume, available, activeSeason, toggle, setVolume } =
   useBgm();
 
-const isOpen = ref(false);
-const container = ref<HTMLElement | null>(null);
+const { isOpen, container } = useDropdown();
 
 // "Autumn (koyo)" -> "Autumn": the romanised name is too long for the panel.
 const seasonLabel = computed(() =>
-  activeSeason.value
-    ? SEASONS[activeSeason.value].label.replace(/\s*\(.*\)$/, "")
-    : "Season",
+  activeSeason.value ? seasonName(activeSeason.value) : "Season",
 );
-
-const handleClickOutside = (event: MouseEvent) => {
-  if (container.value && !container.value.contains(event.target as Node)) {
-    isOpen.value = false;
-  }
-};
-
-onMounted(() => {
-  document.addEventListener("click", handleClickOutside);
-});
-
-onUnmounted(() => {
-  document.removeEventListener("click", handleClickOutside);
-});
 </script>
