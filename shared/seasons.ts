@@ -1,5 +1,5 @@
 import type { SeasonId } from "../types/index";
-import { MONTH_NAMES } from "./catalogue";
+import { MONTH_SHORT } from "./catalogue";
 import { JST_OFFSET_MS, toJst } from "./jst";
 
 /**
@@ -170,10 +170,13 @@ function jstMonth(date: Date): number {
   return toJst(date).getUTCMonth() + 1;
 }
 
+/** "Autumn (koyo)" -> "Autumn": the name without its romanised gloss. */
+export const seasonName = (id: SeasonId): string =>
+  SEASONS[id].label.replace(/\s*\(.*\)$/, "");
+
 /** "Mar–May": the first and last of a season's months, three letters each. */
 export function monthsText(months: readonly number[]): string {
-  const abbr = (m: number | undefined) =>
-    (MONTH_NAMES[(m ?? 1) - 1] ?? "").slice(0, 3);
+  const abbr = (m: number | undefined) => MONTH_SHORT[(m ?? 1) - 1] ?? "";
   return `${abbr(months[0])}–${abbr(months[months.length - 1])}`;
 }
 

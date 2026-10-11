@@ -317,28 +317,15 @@ import TrendingFallback from "../../components/TrendingFallback.vue";
 import WordFilters from "../../components/WordFilters.vue";
 import { useWordCalendar } from "../../composables/useDailyWord";
 import { usePageSeo } from "../../composables/usePageSeo";
+import { chipClass as chip } from "../../utils/chip";
 import { formatLongDate } from "../../utils/date";
-import { monthLabel } from "~~/shared/catalogue";
+import { MONTH_SHORT, monthLabel } from "~~/shared/catalogue";
 import { WORD_STRATA } from "~~/shared/word-labels";
 import { filtersFromQuery, queryFromFilters } from "~~/shared/explore-query";
 import { STRATUM_DOT } from "../../utils/stratum";
 import type { ExploreFilters, WordCalendarDay } from "~~/types/index";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const MONTH_SHORT = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
 
 const route = useRoute();
 const router = useRouter();
@@ -467,15 +454,6 @@ const cells = computed(() => {
     return { date, dayOfMonth, day: byDate.get(date) };
   });
 });
-
-const chip = (pressed: boolean, empty: boolean): string =>
-  [
-    "season-chip inline-flex items-center gap-1.5 border px-3 py-1 text-sm transition-colors",
-    pressed
-      ? "border-primary-500 bg-primary-500/10 text-primary-700 dark:text-primary-300"
-      : "border-stone-500 bg-white dark:bg-stone-900/50 hover:border-primary-500",
-    empty && !pressed ? "opacity-40 cursor-not-allowed" : "cursor-pointer",
-  ].join(" ");
 </script>
 
 <style scoped>

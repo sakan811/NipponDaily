@@ -31,6 +31,9 @@ export const MONTH_NAMES = [
   "December",
 ];
 
+/** "Jan"…"Dec": the first three letters of each month. */
+export const MONTH_SHORT = MONTH_NAMES.map((name) => name.slice(0, 3));
+
 export function summariseCatalogue(
   dates: readonly string[],
   today: string,
