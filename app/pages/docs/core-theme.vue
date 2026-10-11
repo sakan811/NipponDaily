@@ -8,10 +8,10 @@
 
     <h2>What the app is</h2>
     <p>
-      The layers are 和語 (native), 漢語 (Sino-Japanese), 外来語 (loanword) and
-      混種語 (hybrid); the processes are compounding, rendaku, clipping, ateji
-      and the like. Reading <em>across</em> the words, by counting and grouping
-      what the entries already say, shows the patterns in the language itself.
+      The layers are {{ strataText }}; the processes are compounding, rendaku,
+      clipping, ateji and the like. Reading <em>across</em> the words, by
+      counting and grouping what the entries already say, shows the patterns in
+      the language itself.
     </p>
     <p>
       A wrong reading, meaning or origin is a bug, so every claim comes from a
@@ -55,8 +55,8 @@
 
     <h3>The year clock: the {{ countWord(SEASON_IDS.length) }} seasons</h3>
     <p>
-      The look of the site follows the Japanese calendar: spring, summer, autumn
-      and winter. It repeats every year, so it never runs out. See
+      The look of the site follows the Japanese calendar: {{ seasonsText }}. It
+      repeats every year, so it never runs out. See
       <NuxtLink to="/docs/seasons">Seasons</NuxtLink>.
     </p>
 
@@ -139,9 +139,17 @@
 import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import type { DiagramSpec } from "../../utils/diagram";
-import { countWord } from "~~/shared/count";
+import { andList, countWord } from "~~/shared/count";
 import { JLPT_RANGE } from "~~/shared/jlpt";
-import { SEASON_IDS } from "~~/shared/seasons";
+import { SEASON_IDS, seasonName } from "~~/shared/seasons";
+import { WORD_STRATA } from "~~/shared/word-labels";
+
+const strataText = andList(
+  Object.values(WORD_STRATA).map((s) => `${s.native} (${s.label})`),
+);
+const seasonsText = andList(
+  SEASON_IDS.map((id) => seasonName(id).toLowerCase()),
+);
 
 const clocks: Required<DiagramSpec> = {
   nodes: [

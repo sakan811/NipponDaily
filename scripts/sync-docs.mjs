@@ -5,6 +5,8 @@
  *   shared/sources.ts    attribution (names, URLs, licences, credit lines)
  *   package.json         the Node range and the framework versions (shared/stack.ts)
  *   shared/jlpt.ts       the JLPT levels
+ *   shared/docs.ts       the chapter titles
+ *   shared/word-labels.ts the vocabulary layers
  *
  * The documentation itself is the book under `app/pages/docs/`, which reads
  * `shared/sources.ts`, `shared/endpoints.ts`, `shared/seasons.ts` and
@@ -22,9 +24,12 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as prettier from "prettier";
+import { andList } from "../shared/count.ts";
+import { DOC_CHAPTERS } from "../shared/docs.ts";
 import { JLPT_RANGE } from "../shared/jlpt.ts";
 import { DATA_SOURCES } from "../shared/sources.ts";
 import { stackOf } from "../shared/stack.ts";
+import { WORD_STRATA } from "../shared/word-labels.ts";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 
@@ -42,6 +47,11 @@ export function renderers() {
     attribution: () => `\n${DATA_SOURCES.map((s) => s.credit).join("\n\n")}\n`,
     node: () => stack.node,
     levels: () => JLPT_RANGE,
+    strata: () =>
+      Object.values(WORD_STRATA)
+        .map((s) => `${s.native} ${s.label}`)
+        .join(", "),
+    chapters: () => andList(DOC_CHAPTERS.map((c) => c.title)),
     stack: () =>
       `Built with [Nuxt ${stack.nuxt}](https://nuxt.com/) (Vue ${stack.vue}, TypeScript), [Tailwind CSS ${stack.tailwind}](https://tailwindcss.com/) and [Vitest](https://vitest.dev/).`,
   };

@@ -56,7 +56,7 @@
         <code>nuxt.config.ts</code> (built by <code>seasonBootScript()</code>)
         sets <code>data-season</code> on <code>&lt;html&gt;</code>: the reader's
         <code>{{ STORAGE_KEYS.seasonChoice }}</code> if there is one, else the
-        season for this month in Japan, read from a twelve-entry table embedded
+        season for this month in Japan, read from a table of the months embedded
         in the script. A first visit therefore never flashes the default
         palette, and blocked storage cannot stop it. The season is applied in
         the browser, never in the HTML, which is why a page cached for everyone

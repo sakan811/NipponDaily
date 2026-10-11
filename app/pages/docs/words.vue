@@ -159,16 +159,16 @@
       word can fall in more than one group. <code>frequency</code> filters on
       how common JMdict says a word is, from the priority codes its entry keeps
       (<code>FREQUENCY_GROUPS</code>): <em>common</em> when its spelling or
-      reading is in the first tier of a list JMdict draws on
-      (<code>ichi1</code>, <code>news1</code>, <code>spec1</code>,
-      <code>spec2</code>, <code>gai1</code>, the codes JMdict itself counts as
-      common), <em>less common</em> when it has only other codes
-      (<code>news2</code>, <code>ichi2</code>, <code>nf01</code>…), and
-      <em>not ranked</em> when it has none, which says the word is outside those
-      lists and not that it is rare. Each facet's counts are taken over the
-      words the <em>other</em> filters leave, so an option never promises a
-      count it can't deliver. Filters live in the URL; an unknown value in a
-      hand-edited URL is dropped, while the API answers <code>400</code>.
+      reading is in the first tier of a list JMdict draws on (<code>{{
+        COMMON_PRIORITY_TEXT
+      }}</code
+      >, the codes JMdict itself counts as common), <em>less common</em> when it
+      has only other codes, <em>not ranked</em> when it has none, which says the
+      word is outside those lists and not that it is rare. Each facet's counts
+      are taken over the words the <em>other</em> filters leave, so an option
+      never promises a count it can't deliver. Filters live in the URL; an
+      unknown value in a hand-edited URL is dropped, while the API answers
+      <code>400</code>.
     </p>
 
     <h3>Patterns</h3>
@@ -263,6 +263,7 @@ import CatalogueRange from "../../components/CatalogueRange.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
 import { JLPT_RANGE, REFERENCE_FILES } from "~~/shared/jlpt";
+import { COMMON_PRIORITY_TEXT } from "~~/shared/word-labels";
 import { countWord } from "~~/shared/count";
 import {
   MAX_EXAMPLES,

@@ -109,14 +109,14 @@ pnpm dev          # http://localhost:3000</code></pre>
         <code>pnpm exec vitest run --project integration</code>.
       </li>
       <li>
-        <strong><code>e2e</code></strong> (Playwright; Chromium, Firefox and
-        WebKit at a desktop width, Chromium on an Android phone and WebKit on an
-        iPhone): <code>pnpm test:e2e</code> builds the app, starts it on its own
-        port and drives it in each. It checks that every page renders with no
-        uncaught error or console error and cannot be scrolled sideways, that
-        today's word opens from the home page, that the colour mode and season
-        picks change the page and are remembered, that the Explore chips narrow
-        the list and write the URL, that any/all agrees with the API, that the
+        <strong><code>e2e</code></strong> (Playwright; the desktop browsers and
+        phones <code>playwright.config.ts</code> lists):
+        <code>pnpm test:e2e</code> builds the app, starts it on its own port and
+        drives it in each. It checks that every page renders with no uncaught
+        error or console error and cannot be scrolled sideways, that today's
+        word opens from the home page, that the colour mode and season picks
+        change the page and are remembered, that the Explore chips narrow the
+        list and write the URL, that any/all agrees with the API, that the
         calendar moves between months and that a kanji page draws one frame per
         stroke. The music switch is driven too: it never starts by itself, asks
         for the season's track (and the next one when the season changes), and
@@ -147,9 +147,11 @@ pnpm dev          # http://localhost:3000</code></pre>
       The integration test builds the app, so <code>pnpm test:run</code> passing
       does prove it builds and serves; run <code>pnpm build</code> on its own
       only to see the build's output. CI
-      (<code>.github/workflows/webpage-test.yml</code>, which also names its
-      Node and pnpm versions) runs <code>pnpm run test</code> and
-      <code>pnpm test:e2e</code> and <code>pnpm test:e2e:dev</code> as three
+      (<code>.github/workflows/webpage-test.yml</code>; every job sets up
+      through <code>.github/actions/setup</code>, which names the pnpm version
+      once and takes Node's from <code>engines</code> in
+      <code>package.json</code>) runs <code>pnpm run test</code>,
+      <code>pnpm test:e2e</code> and <code>pnpm test:e2e:dev</code> as separate
       jobs on pushes to <code>main</code> and on pull requests targeting it.
     </p>
     <p>Tests that guard against drift:</p>
@@ -278,10 +280,10 @@ pnpm dev          # http://localhost:3000</code></pre>
       </li>
       <li>
         <strong><code>pnpm docs:sync</code></strong> fills the generated regions
-        of the README (the attribution, the Node range, the stack line and the
-        JLPT levels, between <code>&lt;!-- docs:begin … --&gt;</code> markers,
-        never edited by hand). <code>pnpm docs:check</code> fails if it is
-        stale.
+        of the README (the attribution, the Node range, the stack line, the JLPT
+        levels, the vocabulary layers and the chapter titles, between
+        <code>&lt;!-- docs:begin … --&gt;</code> markers, never edited by hand).
+        <code>pnpm docs:check</code> fails if it is stale.
       </li>
       <li>
         <strong>Change a behaviour, change its chapter</strong> in the same

@@ -22,17 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import {
-  DOC_CHAPTERS,
-  DOC_PARTS,
-  chapterNumber,
-  docPath,
-} from "~~/shared/docs";
+import { DOC_PARTS, chapterNumber, chaptersOf, docPath } from "~~/shared/docs";
 
 defineProps<{ current?: string }>();
-
-const chaptersOf = (part: string) =>
-  DOC_CHAPTERS.filter((c) => c.part === part);
 </script>
 
 <style scoped>

@@ -7,6 +7,12 @@
     </template>
 
     <h2>Where things live</h2>
+    <p>
+      The generated evidence under <code>data/reference/</code> is listed, with
+      its sources, in
+      <NuxtLink to="/docs/data-integrity">Data integrity</NuxtLink>. The files
+      you write, correct or regenerate are these:
+    </p>
     <div class="table-wrap">
       <table>
         <thead>
@@ -277,12 +283,7 @@ import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
-import {
-  JLPT_LEVELS,
-  JLPT_RANGE,
-  REFERENCE_FILES,
-  referenceFile,
-} from "~~/shared/jlpt";
+import { JLPT_LEVELS, JLPT_RANGE, referenceFile } from "~~/shared/jlpt";
 import { SOURCES } from "~~/shared/sources";
 
 // build-n5-reference.mjs builds the first level, build-jlpt-reference.mjs the rest.
@@ -290,30 +291,6 @@ const [firstLevel, ...rest] = JLPT_LEVELS;
 const otherLevels = `${rest[0]}–${rest[rest.length - 1]}`;
 
 const pieces = [
-  {
-    path: REFERENCE_FILES,
-    what: "JMdict and KANJIDIC2 snapshots of every pool word. Generated.",
-  },
-  {
-    path: "data/reference/etymology/",
-    what: "Plain text of each word's Wiktionary Etymology section, read from the pinned dump, one file per month of the plan. Generated.",
-  },
-  {
-    path: "data/reference/sentences/",
-    what: "The example sentences the pinned Tatoeba export gives each word, with their translations, one file per month of the plan. Generated.",
-  },
-  {
-    path: "data/reference/kanji.json",
-    what: "KANJIDIC2's record of every kanji the entries are written with, for the kanji pages. Generated.",
-  },
-  {
-    path: "data/reference/pitch.json",
-    what: "The pitch accent the pinned Kanjium list gives each word for its exact spelling and reading, kept where UniDic gives it too, and the words that lost one. Generated.",
-  },
-  {
-    path: "data/reference/strokes.json",
-    what: "KanjiVG's strokes for each kanji the entries are written with, where its count matches KANJIDIC2's. Generated.",
-  },
   {
     path: "data/word-plan/YYYY-MM.json",
     what: "The only hand-written content: `{ date, term, headline }` per day (`kana` when a spelling has several pool words).",

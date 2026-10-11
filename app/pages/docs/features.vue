@@ -22,14 +22,18 @@ import RichText from "../../components/RichText.vue";
 import { useCatalogue } from "../../composables/useCatalogue";
 import { rangeMonthsText } from "~~/shared/catalogue";
 import { JLPT_RANGE } from "~~/shared/jlpt";
-import { CountWord, countWord } from "~~/shared/count";
+import { andList, CountWord, countWord } from "~~/shared/count";
 import {
   MAX_EXAMPLES,
   PATTERN_MAX_COMBINATION,
   PATTERN_MIN_COMBINATION,
 } from "~~/shared/limits";
-import { SEASON_IDS } from "~~/shared/seasons";
+import { SEASON_IDS, seasonName } from "~~/shared/seasons";
 import { LICENCES } from "~~/shared/sources";
+
+const seasonsText = andList(
+  SEASON_IDS.map((id) => seasonName(id).toLowerCase()),
+);
 
 // The word range and count come from GET /api/catalogue, never typed here.
 const { catalogue } = useCatalogue();
@@ -127,8 +131,7 @@ const features = computed(() => [
   },
   {
     title: `${CountWord(SEASON_IDS.length)} Seasons`,
-    description:
-      "The site follows the Japanese calendar: spring (sakura), summer, autumn and winter. The browser works the season out from the date in Japan and checks again at every midnight. Each one changes the palette, the shapes of cards, buttons and badges, and the falling petals, bubbles and fireflies, leaves or snow.",
+    description: `The site follows the Japanese calendar: ${seasonsText}. The browser works the season out from the date in Japan and checks again at every midnight. Each one changes the palette, the shapes of cards, buttons and badges, and the falling petals, bubbles and fireflies, leaves or snow.`,
   },
   {
     title: "Pick Your Season",

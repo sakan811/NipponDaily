@@ -146,9 +146,10 @@
       word lists;
       <code>pnpm data:pitch</code> and <code>pnpm data:strokes</code> download
       their pinned files the first time and cache them (the UniDic archive is
-      large, about half a gigabyte, and only its dictionary file is kept);
-      <code>pnpm data:sentences</code> reuses the same JMdict and KANJIDIC2
-      files to check furigana, and every other step, from
+      large, and only its dictionary file is kept;
+      <NuxtLink to="/docs/authoring">Adding and fixing words</NuxtLink> says how
+      much); <code>pnpm data:sentences</code> reuses the same JMdict and
+      KANJIDIC2 files to check furigana, and every other step, from
       <code>pnpm data:etymology</code> to <code>pnpm data:kanji</code>,
       <code>pnpm data:words</code> and the tests, reads only local files. The
       running site reads none of these sources: the data is committed and served
