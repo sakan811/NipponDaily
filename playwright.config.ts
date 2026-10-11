@@ -5,6 +5,12 @@ import { defineConfig, devices } from "@playwright/test";
  * what the unit tests (mocked composables) and the integration test (HTTP
  * only) cannot: hydration, clicks, the URL and `localStorage`. Run with
  * `pnpm test:e2e`, which builds first.
+ *
+ * Every test runs in three engines (Chromium, Firefox, WebKit) at a desktop
+ * width, and in Chromium on an Android phone and WebKit on an iPhone, since
+ * the engines disagree about CSS, audio and form controls and a reader on any
+ * of them gets the same pages. `playwright.dev.config.ts` is the separate run
+ * against `nuxt dev` that fails on a Vue warning.
  */
 const PORT = 3100;
 
@@ -23,8 +29,12 @@ export default defineConfig({
   },
   projects: [
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },
-    // Principle 6: the same pages on a narrow touch screen.
+    { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+    { name: "webkit", use: { ...devices["Desktop Safari"] } },
+    // Principle 6: the same pages on a narrow touch screen, in the two
+    // engines phones ship.
     { name: "mobile", use: { ...devices["Pixel 7"] } },
+    { name: "mobile-safari", use: { ...devices["iPhone 15"] } },
   ],
   webServer: {
     command: "pnpm start",

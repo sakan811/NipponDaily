@@ -278,7 +278,12 @@ import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
-import { JLPT_LEVELS, REFERENCE_FILES, referenceFile } from "~~/shared/jlpt";
+import {
+  JLPT_LEVELS,
+  JLPT_RANGE,
+  REFERENCE_FILES,
+  referenceFile,
+} from "~~/shared/jlpt";
 import { SOURCES } from "~~/shared/sources";
 
 // build-n5-reference.mjs builds the first level, build-jlpt-reference.mjs the rest.

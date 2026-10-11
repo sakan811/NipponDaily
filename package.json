@@ -13,6 +13,7 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "pnpm build && playwright test",
+    "test:e2e:dev": "playwright test -c playwright.dev.config.ts",
     "lint": "eslint . --fix",
     "format": "pnpm exec prettier . --write",
     "type-check": "tsc --noEmit",

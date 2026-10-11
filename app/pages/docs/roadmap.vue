@@ -46,18 +46,6 @@
         never by editing the sentence.
       </li>
     </ul>
-
-    <h2>Tests and tooling</h2>
-    <ul>
-      <li>
-        <strong>Wider browser tests.</strong>
-        <code>playwright.config.ts</code> runs Chromium only, at a desktop and a
-        phone width. Add Firefox and WebKit, tests for the music switch and the
-        seasonal animations (neither is exercised), and a run against
-        <code>pnpm dev</code> that fails on a Vue warning, because a production
-        build reports no hydration mismatch.
-      </li>
-    </ul>
   </DocsBook>
 </template>
 
