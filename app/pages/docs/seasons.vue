@@ -7,7 +7,7 @@
       every midnight, so nothing about it is stored or fetched.
     </template>
 
-    <h2>The four seasons</h2>
+    <h2>The {{ countWord(SEASON_IDS.length) }} seasons</h2>
     <p>
       <code>SeasonId</code> is a closed union in <code>types/index.ts</code>,
       and <code>shared/seasons.ts</code> lists the ids and presets. A season may
@@ -80,15 +80,20 @@
       <li>
         <strong>Music.</strong> <code>BgmControl.vue</code> and
         <code>useBgm.ts</code> play a looping track for each season, all encoded
-        to the same integrated loudness (−16 LUFS, measured on the MP3s) so a
-        season change never changes the level. It is off on every load; only the
-        volume (<code>{{ STORAGE_KEYS.bgmVolume }}</code
+        to the same integrated loudness (−{{
+          Math.abs(BGM_LOUDNESS_LUFS)
+        }}
+        LUFS, measured on the MP3s) so a season change never changes the level.
+        It is off on every load; only the volume (<code>{{
+          STORAGE_KEYS.bgmVolume
+        }}</code
         >) is remembered. Looping is gapless through a decoded audio buffer and
         a <code>GainNode</code> (iOS ignores <code>element.volume</code>); a
         browser without Web Audio falls back to a plain looping audio element,
         with no crossfade. When the season changes mid-song the old track keeps
-        playing until the new one has loaded, then the two crossfade over two
-        seconds. The music pauses while the tab is hidden.
+        playing until the new one has loaded, then the two crossfade over
+        {{ BGM_CROSSFADE_MS / 1000 }} seconds. The music pauses while the tab is
+        hidden.
       </li>
     </ul>
 
@@ -109,6 +114,8 @@ import {
   SEASON_IDS,
   SEASONS,
 } from "~~/shared/seasons";
+import { BGM_CROSSFADE_MS, BGM_LOUDNESS_LUFS } from "~~/shared/audio";
+import { countWord } from "~~/shared/count";
 import { STORAGE_KEYS } from "~~/shared/storage-keys";
 
 const seasons = SEASON_IDS.map((id) => SEASONS[id]);

@@ -1,9 +1,10 @@
 <template>
   <DocsBook slug="color-palette">
     <template #lede>
-      The site's colours are always one of four seasonal presets, applied
-      through a <code>data-season</code> attribute on <code>&lt;html&gt;</code>.
-      A season also changes the shape of the UI. The swatches below come from
+      The site's colours are always one of
+      {{ countWord(SEASON_IDS.length) }} seasonal presets, applied through a
+      <code>data-season</code> attribute on <code>&lt;html&gt;</code>. A season
+      also changes the shape of the UI. The swatches below come from
       <code>shared/seasons.ts</code>, which a test keeps in step with the CSS in
       <code class="break-all">app/assets/css/tailwind.css</code>.
     </template>
@@ -116,6 +117,7 @@
 <script setup lang="ts">
 import DocsBook from "../../components/DocsBook.vue";
 import ColorSwatchBadge from "../../components/ColorSwatchBadge.vue";
+import { countWord } from "~~/shared/count";
 import {
   NEUTRALS,
   monthsText,

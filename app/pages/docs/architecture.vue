@@ -1,22 +1,20 @@
 <template>
   <DocsBook slug="architecture">
     <template #lede>
-      NipponDaily is a Nuxt 4 app (Vue 3, TypeScript, pnpm) with a small Nitro
-      API. The words are JSON in the repo, served by date and never before their
-      day arrives; the pages are rendered on the server, so the HTML a crawler
-      gets already holds the word.
+      NipponDaily is a Nuxt {{ stack.nuxt }} app (Vue {{ stack.vue }},
+      TypeScript, pnpm) with a small Nitro API. The words are JSON in the repo,
+      served by date and never before their day arrives; the pages are rendered
+      on the server, so the HTML a crawler gets already holds the word.
     </template>
 
     <h2>Overview</h2>
     <ul>
       <li>
         <strong>The entries are in-repo data</strong>:
-        <code>data/words/YYYY-MM.json</code>, one entry per day, no day missing
-        in a month, running <CatalogueRange />. Only the headline is
-        hand-written; everything else is generated from sources (<NuxtLink
-          to="/docs/data-integrity"
-          >Data integrity</NuxtLink
-        >).
+        <code>data/words/YYYY-MM.json</code>, one entry per day, no gap between
+        the first day and the last, running <CatalogueRange />. Only the
+        headline is hand-written; everything else is generated from sources
+        (<NuxtLink to="/docs/data-integrity">Data integrity</NuxtLink>).
       </li>
       <li>
         <strong>A day is open once midnight in Japan has passed.</strong> The
@@ -163,7 +161,7 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
       then (<code>server/utils/day-cache.ts</code>), so a CDN serves it without
       running the app and the copy expires at the moment a new word opens. It
       sets no <code>stale-while-revalidate</code>, which would show yesterday's
-      word after the day had turned, and it never marks an error. The exceptions
+      word after the day had turned, and it never marks an error. The exception
       is the share image, which never changes once its day has opened and so
       keeps longer; its rule is in <code>shared/endpoints.ts</code> and the
       <NuxtLink to="/docs/api">API</NuxtLink>
@@ -219,8 +217,10 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
     <p>
       A fact is written once, in code, and everything else reads it. Prose that
       explains something stays hand-written, once per audience, and points here
-      instead of restating the fact. The rule (often called DRY) applies in four
-      places:
+      instead of restating the fact. A number, a version, a count, a size or a
+      list of names in prose is a fact, so it is generated, not typed (the
+      <NuxtLink to="/docs/development#docs">Development</NuxtLink> chapter says
+      how). The rule (often called DRY) applies in four places:
     </p>
     <ul>
       <li>
@@ -237,9 +237,13 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
         derives (<NuxtLink to="/docs/data-integrity">Data integrity</NuxtLink>).
       </li>
       <li>
-        <strong>Facts the pages state.</strong> Sources, routes, seasons and the
-        word range are read from code or data when the page renders, as the
-        table below shows.
+        <strong>Facts the pages state.</strong> Sources, routes, seasons, the
+        word range, the Node range and framework versions, the limits and the
+        music's loudness are read from code or data when the page renders, or
+        when <code>pnpm docs:sync</code> fills the README, as the table below
+        shows. A figure whose owner cannot be imported, such as a download size
+        pinned in a script, is typed once and checked against that owner by a
+        test.
       </li>
       <li>
         <strong>Docs.</strong> One chapter owns each topic and the others link
@@ -285,7 +289,11 @@ import DocDiagram from "../../components/DocDiagram.vue";
 import CatalogueRange from "../../components/CatalogueRange.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
+import pkg from "~~/package.json";
+import { stackOf } from "~~/shared/stack";
 import { STORAGE_KEYS } from "~~/shared/storage-keys";
+
+const stack = stackOf(pkg);
 
 const storageKeys = Object.values(STORAGE_KEYS);
 
@@ -395,8 +403,20 @@ const sharedModules = [
   { file: "docs.ts", role: "The chapters of this book." },
   { file: "jlpt.ts", role: "`JLPT_LEVELS`." },
   {
+    file: "stack.ts",
+    role: "`stackOf()`: the Node range and framework versions, read from `package.json`.",
+  },
+  {
+    file: "count.ts",
+    role: "`countWord()`: a count as prose says it (“four”), so a chapter can say how many without typing it.",
+  },
+  {
+    file: "audio.ts",
+    role: "The music's loudness and crossfade: `BGM_LOUDNESS_LUFS`, `BGM_CROSSFADE_MS`.",
+  },
+  {
     file: "limits.ts",
-    role: "The numbers the rules turn on: `MAX_PART_LENGTH`, the related-words limit, weight and minimum score, `MAX_EXAMPLES`.",
+    role: "The numbers the rules turn on: `MAX_PART_LENGTH`, the related-words limit, weight and minimum score, `MAX_EXAMPLES`, `STROKE_SQUARE`.",
   },
   {
     file: "jst.ts",
@@ -453,6 +473,17 @@ const sources = [
     file: "shared/storage-keys.ts",
     readers:
       "The buttons and composables that write them, the inline script in `nuxt.config.ts`, the docs",
+  },
+  {
+    fact: "The Node range and the framework versions",
+    file: "package.json (read through `shared/stack.ts`)",
+    readers: "The Architecture and Development chapters, the README",
+  },
+  {
+    fact: "The music's loudness and crossfade",
+    file: "shared/audio.ts",
+    readers:
+      "The player, the Seasons chapter, the test that measures the tracks",
   },
   {
     fact: "The JLPT levels",

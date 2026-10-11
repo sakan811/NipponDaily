@@ -174,14 +174,17 @@
     <h3>Patterns</h3>
     <p>
       <code>/patterns</code>: counts by layer, level and process; level × layer;
-      process × layer; process pairs and, beyond them, sets of three or four
-      tags (processes plus the layer, such as rendaku, compound and native) with
-      up to three example words each, linking into Explore with
-      <code>match=all</code>; and a rendaku section. It lists every part whose
-      recorded <code>base</code> differs from its <code>reading</code>, classed
-      from the two spellings as a voiced first kana (ひ → び; ち → じ and つ →
-      ず count, being the merged voiced sounds), a reading ending in っ, or
-      other. The page says the counts describe these entries (a JLPT
+      process × layer; process pairs and, beyond them, sets of
+      {{ countWord(PATTERN_MIN_COMBINATION) }} to
+      {{ countWord(PATTERN_MAX_COMBINATION) }} tags (processes plus the layer,
+      such as rendaku, compound and native) with up to
+      {{ countWord(PATTERN_EXAMPLE_LIMIT) }} example words each, linking into
+      Explore with <code>match=all</code>; and a rendaku section. It lists every
+      part whose recorded <code>base</code> differs from its
+      <code>reading</code>, classed from the two spellings as a voiced first
+      kana (ひ → び; ち → じ and つ → ず count, being the merged voiced sounds),
+      a reading ending in っ, or other. The page says the counts describe these
+      entries (a JLPT
       {{ JLPT_RANGE }}
       sample, parser-derived tags), not the language. The years are lopsided,
       too: katakana spellings are nearly half of 2022, and 2025 and 2026 are
@@ -260,8 +263,12 @@ import CatalogueRange from "../../components/CatalogueRange.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
 import { JLPT_RANGE, REFERENCE_FILES } from "~~/shared/jlpt";
+import { countWord } from "~~/shared/count";
 import {
   MAX_EXAMPLES,
+  PATTERN_EXAMPLE_LIMIT,
+  PATTERN_MAX_COMBINATION,
+  PATTERN_MIN_COMBINATION,
   RELATED_LIMIT,
   RELATED_MIN_SCORE,
   RELATED_PART_WEIGHT,

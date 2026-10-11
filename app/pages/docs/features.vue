@@ -22,6 +22,13 @@ import RichText from "../../components/RichText.vue";
 import { useCatalogue } from "../../composables/useCatalogue";
 import { rangeMonthsText } from "~~/shared/catalogue";
 import { JLPT_RANGE } from "~~/shared/jlpt";
+import { CountWord, countWord } from "~~/shared/count";
+import {
+  MAX_EXAMPLES,
+  PATTERN_MAX_COMBINATION,
+  PATTERN_MIN_COMBINATION,
+} from "~~/shared/limits";
+import { SEASON_IDS } from "~~/shared/seasons";
 import { LICENCES } from "~~/shared/sources";
 
 // The word range and count come from GET /api/catalogue, never typed here.
@@ -56,7 +63,11 @@ const features = computed(() => [
   {
     title: "Patterns Across the Vocabulary",
     description:
-      "`/patterns` counts the same entries across words: how the vocabulary splits by layer, how each JLPT level's mix differs, which processes are most common and which turn up together, in pairs and in sets of three or four. Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language. It also lists which sounds voice inside a word (ひ → び, か → が…), with the parts and words that show each change — a small, parser-derived sample, not a rule of the language.",
+      "`/patterns` counts the same entries across words: how the vocabulary splits by layer, how each JLPT level's mix differs, which processes are most common and which turn up together, in pairs and in sets of " +
+      countWord(PATTERN_MIN_COMBINATION) +
+      " to " +
+      countWord(PATTERN_MAX_COMBINATION) +
+      ". Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language. It also lists which sounds voice inside a word (ひ → び, か → が…), with the parts and words that show each change — a small, parser-derived sample, not a rule of the language.",
   },
   {
     title: "The Parts, Across Words",
@@ -71,7 +82,9 @@ const features = computed(() => [
   {
     title: "In a Sentence",
     description:
-      "Most entries show a sentence or two that use the word, with their English translations, from Tatoeba's community collection. They are picked by fixed rules from one dated export, quoted unchanged, linked to their Tatoeba pages, and credited. Furigana is Tatoeba's own, drawn over a kanji only where it passes a check against the dictionaries and a contributor or a second source stands behind it; a word is shown in a sentence whose kanji are all read where one exists, and a reading that cannot be settled is left bare, not guessed. Nobody has reviewed them one by one, and the page says so.",
+      "Most entries show up to " +
+      countWord(MAX_EXAMPLES) +
+      " sentences that use the word, with their English translations, from Tatoeba's community collection. They are picked by fixed rules from one dated export, quoted unchanged, linked to their Tatoeba pages, and credited. Furigana is Tatoeba's own, drawn over a kanji only where it passes a check against the dictionaries and a contributor or a second source stands behind it; a word is shown in a sentence whose kanji are all read where one exists, and a reading that cannot be settled is left bare, not guessed. Nobody has reviewed them one by one, and the page says so.",
   },
   {
     title: "More Like This",
@@ -113,7 +126,7 @@ const features = computed(() => [
       "Every entry is regenerated from JMdict, KANJIDIC2 and the pinned Wiktionary snapshot and compared, and checked independently: reading, level and meaning against the pool, part of speech, register, field and dialect against JMdict, morphemes against KANJIDIC2 or the cited text, priority, loan and ateji claims against JMdict, each pitch accent against the committed accent snapshot and the word's count of morae, each kanji's strokes against KANJIDIC2's stroke count, each example sentence against the committed export snapshot, and every quote against the section for its own reading.",
   },
   {
-    title: "Four Seasons",
+    title: `${CountWord(SEASON_IDS.length)} Seasons`,
     description:
       "The site follows the Japanese calendar: spring (sakura), summer, autumn and winter. The browser works the season out from the date in Japan and checks again at every midnight. Each one changes the palette, the shapes of cards, buttons and badges, and the falling petals, bubbles and fireflies, leaves or snow.",
   },
@@ -125,7 +138,7 @@ const features = computed(() => [
   {
     title: "Season Music",
     description:
-      "The header's music button plays a looping background track for the season on screen. All four tracks are mastered to the same loudness, and changing season while the music plays crossfades into the new track. It is off every time the page loads, and the volume you choose is remembered in this browser.",
+      "The header's music button plays a looping background track for the season on screen. Every track is mastered to the same loudness, and changing season while the music plays crossfades into the new track. It is off every time the page loads, and the volume you choose is remembered in this browser.",
   },
   {
     title: "Kana Reference",
@@ -135,7 +148,7 @@ const features = computed(() => [
   {
     title: "Nothing Stored About You",
     description:
-      "No accounts, no tracking. The site fetches words, the month grid, the counts and the season, and sends nothing about you back. Only your color mode, season choice, the site's season and music volume are remembered, in your own browser.",
+      "No accounts, no tracking. The site fetches words, the month grid, the counts and the season, and sends nothing about you back. Only your color mode, season choice and music volume are remembered, in your own browser.",
   },
   {
     title: "Dark Mode & Fallbacks",

@@ -12,11 +12,11 @@
 
 ## Features
 
-One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 with KanjiVG stroke order · pitch accent · JMdict's register, field and dialect tags · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · four seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT N5–N1 vocabulary, and only from words whose Wiktionary page has an Etymology section; only each headline is hand-written.
+One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 with KanjiVG stroke order · pitch accent · JMdict's register, field and dialect tags · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · four seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> vocabulary, and only from words whose Wiktionary page has an Etymology section; only each headline is hand-written.
 
 ## Quick start
 
-Node 22.19, 24.11 or 26 and newer (Nuxt's supported range) and [pnpm](https://pnpm.io/).
+Node <!-- docs:begin node -->22.22.3, 24.15 or 26 and newer<!-- docs:end node --> (Nuxt's supported range) and [pnpm](https://pnpm.io/).
 
 ```bash
 pnpm install
@@ -25,7 +25,7 @@ pnpm dev               # http://localhost:3000
 pnpm check-qa          # lint, format, type-check, build and test
 ```
 
-Built with [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/) and [Vitest](https://vitest.dev/).
+<!-- docs:begin stack -->Built with [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/) and [Vitest](https://vitest.dev/).<!-- docs:end stack -->
 
 ## Documentation
 

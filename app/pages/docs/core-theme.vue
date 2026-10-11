@@ -18,6 +18,19 @@
       cited source and none is written from memory.
     </p>
 
+    <h3>Automation and citation</h3>
+    <p>
+      The app is meant to be checked, not trusted. <strong>Automation:</strong>
+      every reading, meaning and origin is built by scripts from the sources and
+      verified by tests, so none depends on what a person remembers.
+      <strong>Source citation:</strong> every claim about a word names where it
+      came from (only the one-line headline is written by hand, and it is a
+      hook, not a claim), so a reader can follow the link and check it, and
+      where a source cannot back a claim the app shows nothing rather than
+      guess. It was made by someone still learning Japanese, which is why it
+      works this way.
+    </p>
+
     <h3>The vocabulary is the JLPT lists, on purpose</h3>
     <p>
       Every word comes from the community JLPT {{ JLPT_RANGE }} lists, and from
@@ -40,7 +53,7 @@
       :groups="clocks.groups"
     />
 
-    <h3>The year clock: the four seasons</h3>
+    <h3>The year clock: the {{ countWord(SEASON_IDS.length) }} seasons</h3>
     <p>
       The look of the site follows the Japanese calendar: spring, summer, autumn
       and winter. It repeats every year, so it never runs out. See
@@ -126,7 +139,9 @@
 import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import type { DiagramSpec } from "../../utils/diagram";
+import { countWord } from "~~/shared/count";
 import { JLPT_RANGE } from "~~/shared/jlpt";
+import { SEASON_IDS } from "~~/shared/seasons";
 
 const clocks: Required<DiagramSpec> = {
   nodes: [
