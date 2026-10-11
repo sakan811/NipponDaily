@@ -5,7 +5,7 @@
     >
       <NuxtLink
         to="/parts"
-        class="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 mb-8"
+        class="inline-flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 mb-8"
       >
         <UIcon name="i-heroicons-arrow-left" class="w-4 h-4" />
         All parts
@@ -50,7 +50,7 @@
           >
             {{ group.reading }}
             <span
-              class="text-sm font-sans font-normal text-stone-500 dark:text-stone-400"
+              class="text-sm font-sans font-normal text-stone-600 dark:text-stone-400"
               >{{ group.uses.length }}
               {{ group.uses.length === 1 ? "word" : "words" }}</span
             >
@@ -76,7 +76,7 @@
                   }}</span>
                 </NuxtLink>
                 <p
-                  class="mt-1 flex flex-wrap items-center gap-x-1.5 text-sm text-stone-500 dark:text-stone-400"
+                  class="mt-1 flex flex-wrap items-center gap-x-1.5 text-sm text-stone-600 dark:text-stone-400"
                 >
                   <template v-for="(p, i) in use.parts" :key="i">
                     <span v-if="i > 0" aria-hidden="true">+</span>
@@ -128,7 +128,7 @@
                 class="season-chip inline-block border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-3 py-1 hover:border-primary-500 transition-colors"
               >
                 <span class="font-serif text-lg">{{ w.term }}</span>
-                <span class="ml-2 text-xs text-stone-500 dark:text-stone-400">{{
+                <span class="ml-2 text-xs text-stone-600 dark:text-stone-400">{{
                   w.kana
                 }}</span>
               </NuxtLink>

@@ -51,7 +51,7 @@
                     class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
                     >{{ part.text }}</span
                   >
-                  <span class="text-xs text-stone-500 dark:text-stone-400"
+                  <span class="text-xs text-stone-600 dark:text-stone-400"
                     >{{ part.count }} words</span
                   >
                 </span>
@@ -90,7 +90,7 @@
           </ul>
         </section>
 
-        <p class="mt-12 text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
+        <p class="mt-12 text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
           Only words whose Wiktionary text gives a split that spells the word
           and joins to its reading are broken into parts, so some words are
           missing here by design.

@@ -102,7 +102,7 @@ const VARIANTS: Record<Variant, Record<Tone, string>> = {
       "text-secondary-600 dark:text-secondary-400 hover:bg-secondary-500/10",
     success: "text-success-600 dark:text-success-400 hover:bg-success-500/10",
     error: "text-error-600 dark:text-error-400 hover:bg-error-500/10",
-    gray: "text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50",
+    gray: "text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-900/50",
   },
   soft: {
     primary:

@@ -38,7 +38,7 @@
         <span
           :class="[
             'relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors motion-reduce:transition-none',
-            enabled ? 'bg-primary-500' : 'bg-stone-300 dark:bg-stone-600',
+            enabled ? 'bg-primary-500' : 'bg-stone-500',
           ]"
           aria-hidden="true"
         >
@@ -54,7 +54,7 @@
       <div class="mt-2 flex items-center gap-2.5">
         <UIcon
           name="i-heroicons-speaker-x-mark"
-          class="w-4 h-4 text-stone-500 dark:text-stone-400"
+          class="w-4 h-4 text-stone-600 dark:text-stone-400"
         />
         <input
           type="range"
@@ -70,10 +70,10 @@
         />
         <UIcon
           name="i-heroicons-speaker-wave"
-          class="w-4 h-4 text-stone-500 dark:text-stone-400"
+          class="w-4 h-4 text-stone-600 dark:text-stone-400"
         />
         <span
-          class="w-9 text-right text-xs tabular-nums text-stone-500 dark:text-stone-400"
+          class="w-9 text-right text-xs tabular-nums text-stone-600 dark:text-stone-400"
           aria-hidden="true"
           >{{ volume }}%</span
         >

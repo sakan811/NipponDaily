@@ -140,7 +140,7 @@
             Inside Every Entry
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
-          <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
+          <p class="text-sm text-stone-600 dark:text-stone-400 font-sans">
             A word a day, read slowly — about as long as a cup of tea.
           </p>
         </div>
@@ -154,7 +154,7 @@
             class="group season-box flex items-start gap-4 p-5 border border-stone-200 dark:border-stone-800 bg-white/70 dark:bg-stone-900/50 hover:border-primary-500/40 transition-colors duration-200"
           >
             <span
-              class="font-serif text-2xl text-stone-300 dark:text-stone-700 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 leading-none pt-0.5"
+              class="font-serif text-2xl text-stone-600 dark:text-stone-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 leading-none pt-0.5"
               >{{ String(idx + 1).padStart(2, "0") }}</span
             >
             <div class="space-y-1">
@@ -164,7 +164,7 @@
                 {{ part.title }}
               </h3>
               <p
-                class="text-xs leading-relaxed text-stone-500 dark:text-stone-400 font-sans"
+                class="text-xs leading-relaxed text-stone-600 dark:text-stone-400 font-sans"
               >
                 {{ part.description }}
               </p>
@@ -205,14 +205,14 @@
       <!-- Documentation -->
       <section id="docs" class="space-y-10">
         <div class="text-center max-w-lg mx-auto space-y-3">
-          <p class="kicker text-stone-400 dark:text-stone-500">Documentation</p>
+          <p class="kicker text-stone-600 dark:text-stone-400">Documentation</p>
           <h2
             class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
           >
             How NipponDaily Works
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
-          <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
+          <p class="text-sm text-stone-600 dark:text-stone-400 font-sans">
             A short book on everything behind the front page: the idea, how the
             site is built, how every entry is made and checked, and how to work
             on it.
@@ -227,7 +227,7 @@
               :to="docPath(chapter.slug)"
               class="flex items-baseline gap-3 py-1 no-underline hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
-              <span class="kicker text-stone-400 dark:text-stone-500">{{
+              <span class="kicker text-stone-600 dark:text-stone-400">{{
                 chapterNumber(chapter.slug).toString().padStart(2, "0")
               }}</span>
               {{ chapter.title }}
@@ -237,7 +237,7 @@
         <p class="text-center">
           <NuxtLink
             to="/docs"
-            class="kicker text-stone-500 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            class="kicker text-stone-600 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >Open the book</NuxtLink
           >
         </p>

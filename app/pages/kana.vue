@@ -76,14 +76,14 @@
             The 46 Base Sounds
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
-          <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
+          <p class="text-sm text-stone-600 dark:text-stone-400 font-sans">
             Grouped by row (gojūon order) — the same order dictionaries and
             phone-typing use.
           </p>
         </div>
 
         <div v-for="group in kanaRows" :key="group.row" class="space-y-4">
-          <p class="kicker text-stone-400 dark:text-stone-500">
+          <p class="kicker text-stone-600 dark:text-stone-400">
             {{ group.row }}-row
           </p>
           <div
@@ -108,7 +108,7 @@
                     >{{ entry.hiragana }}</span
                   >
                   <p
-                    class="text-xs leading-relaxed text-stone-500 dark:text-stone-400"
+                    class="text-xs leading-relaxed text-stone-600 dark:text-stone-400"
                   >
                     {{ entry.hiraganaMnemonic }}
                   </p>
@@ -124,7 +124,7 @@
                     >{{ entry.katakana }}</span
                   >
                   <p
-                    class="text-xs leading-relaxed text-stone-500 dark:text-stone-400"
+                    class="text-xs leading-relaxed text-stone-600 dark:text-stone-400"
                   >
                     {{ entry.katakanaMnemonic }}
                   </p>
@@ -146,7 +146,7 @@
               {{ section.title }}
             </h2>
             <div class="rule-double max-w-[120px] mx-auto" />
-            <p class="text-sm text-stone-500 dark:text-stone-400 font-sans">
+            <p class="text-sm text-stone-600 dark:text-stone-400 font-sans">
               {{ section.blurb }}
             </p>
           </div>

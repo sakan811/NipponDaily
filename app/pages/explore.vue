@@ -38,7 +38,7 @@
       <section v-else-if="result" class="mt-10 space-y-4" aria-live="polite">
         <p
           data-testid="explore-count"
-          class="text-sm text-stone-500 dark:text-stone-400"
+          class="text-sm text-stone-600 dark:text-stone-400"
         >
           {{ result.count }} of {{ result.total }}
           {{ result.total === 1 ? "word" : "words" }}
@@ -61,7 +61,7 @@
                   >{{ w.term }}</span
                 >
                 <span
-                  class="flex items-center gap-1.5 text-xs text-stone-500 dark:text-stone-400 shrink-0"
+                  class="flex items-center gap-1.5 text-xs text-stone-600 dark:text-stone-400 shrink-0"
                 >
                   <span
                     v-if="w.stratum"
@@ -83,7 +83,7 @@
                 >{{ w.meaning }}</span
               >
               <span
-                class="mt-1 block text-xs text-stone-400 dark:text-stone-500"
+                class="mt-1 block text-xs text-stone-600 dark:text-stone-400"
                 >{{ formatLongDate(w.date) }}</span
               >
             </NuxtLink>
@@ -98,7 +98,7 @@
           the search.
         </p>
 
-        <p class="pt-6 text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
+        <p class="pt-6 text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
           Only words that have opened are searched. A layer is shown only when
           KANJIDIC2 or the cited text establishes it; the words with none are
           under “Not stated”. Parts of speech are groups of JMdict's tags (see

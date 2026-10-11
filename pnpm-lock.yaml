@@ -53,7 +53,7 @@ importers:
         version: 1.1.4(@upstash/redis@1.39.0)(@vitest/expect@4.1.11)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1)(magicast@0.5.5)(rolldown@1.2.12)(rollup@4.64.0)(srvx@1.0.5)(typescript@6.0.3)(vite@8.3.3(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vitest@4.1.11)(vue@3.5.43(typescript@6.0.3))
       '@nuxt/test-utils':
         specifier: ^4.3.3
-        version: 4.3.3(9950aa9c69fb8c4cded729db5ced470a)
+        version: 4.3.3(68fbe9e13b78370a981a643f665e3739)
       '@playwright/test':
         specifier: ^1.64.0
         version: 1.64.0
@@ -79,8 +79,8 @@ importers:
         specifier: ^10.12.0
         version: 10.12.0(jiti@2.7.0)
       h3:
-        specifier: ^2.0.1
-        version: 2.0.1(crossws@0.4.12(srvx@1.0.5))
+        specifier: ^1.15.11
+        version: 1.15.11
       happy-dom:
         specifier: ^20.14.5
         version: 20.14.5
@@ -6217,7 +6217,7 @@ snapshots:
       rc9: 3.1.0
       std-env: 4.3.0
 
-  '@nuxt/test-utils@4.3.3(9950aa9c69fb8c4cded729db5ced470a)':
+  '@nuxt/test-utils@4.3.3(68fbe9e13b78370a981a643f665e3739)':
     dependencies:
       '@clack/prompts': 1.8.1
       '@nuxt/devtools-kit': 3.4.2(magic-string@1.4.2)(magicast@0.5.5)(oxc-parser@0.140.0)(rolldown@1.2.12)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.12)(rollup@4.64.0)(vite@8.3.3(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(vite@8.3.3(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))
@@ -6238,12 +6238,12 @@ snapshots:
       tinyexec: 1.3.1
       ufo: 1.6.4
       unplugin: 3.4.0(esbuild@0.28.2)(rolldown@1.2.12)(rollup@4.64.0)(vite@8.3.3(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))
-      vitest-environment-nuxt: 2.0.0(9950aa9c69fb8c4cded729db5ced470a)
+      vitest-environment-nuxt: 2.0.0(68fbe9e13b78370a981a643f665e3739)
       vue: 3.5.43(typescript@6.0.3)
     optionalDependencies:
       '@playwright/test': 1.64.0
       '@vue/test-utils': 2.5.1(@vue/compiler-dom@3.5.43)(@vue/server-renderer@3.5.43)(vue@3.5.43(typescript@6.0.3))
-      h3: 2.0.1(crossws@0.4.12(srvx@1.0.5))
+      h3: 1.15.11
       happy-dom: 20.14.5
       nuxt: 4.6.0(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@oxc-project/types@0.152.0)(@types/node@26.6.4)(@upstash/redis@1.39.0)(@vitejs/devtools-kit@0.4.10(cac@7.0.0)(srvx@1.0.5)(typescript@6.0.3)(vite@8.3.3(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(acorn@8.18.0)(confbox@0.3.1)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.28.2)(eslint@10.12.0(jiti@2.7.0))(giget@3.3.1)(ioredis@5.11.1)(lightningcss@1.33.0)(magicast@0.5.5)(mlly@1.8.2)(optionator@0.9.4)(oxc-parser@0.140.0)(rolldown@1.2.12)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.12)(rollup@4.64.0))(rollup@4.64.0)(srvx@1.0.5)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.3(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(yaml@2.9.1)
       playwright-core: 1.64.0
@@ -10357,9 +10357,9 @@ snapshots:
       terser: 5.51.2
       yaml: 2.9.1
 
-  vitest-environment-nuxt@2.0.0(9950aa9c69fb8c4cded729db5ced470a):
+  vitest-environment-nuxt@2.0.0(68fbe9e13b78370a981a643f665e3739):
     dependencies:
-      '@nuxt/test-utils': 4.3.3(9950aa9c69fb8c4cded729db5ced470a)
+      '@nuxt/test-utils': 4.3.3(68fbe9e13b78370a981a643f665e3739)
     transitivePeerDependencies:
       - '@cucumber/cucumber'
       - '@farmfe/core'

@@ -2,7 +2,7 @@
   <UHeader v-model:open="menuOpen">
     <template #top>
       <div
-        class="min-h-8 flex items-center justify-between text-stone-500 dark:text-stone-400"
+        class="min-h-8 flex items-center justify-between text-stone-600 dark:text-stone-400"
       >
         <span class="kicker"
           ><span class="season-glyph" aria-hidden="true" /> {{ dateline }}</span

@@ -14,6 +14,10 @@ import { css, resolveVars } from "../helpers/css-tokens";
  *  - tinted: the same text on `bg-<role>-500/10`, as soft buttons and badges
  *            draw it (the canvas with a tenth of the fill mixed in)
  *
+ *  - muted:  the neutral text of captions and labels, `text-stone-600` on the
+ *            light surfaces and `dark:text-stone-400` on the dark ones (the
+ *            canvas, a white or dark card, a stone tint, a badge's tint)
+ *
  * Every pair reaches AA. The 500 step is a fill, not a text colour: it cannot
  * be both light enough for dark text on a button and dark enough for text on
  * the canvas, so the last test fails if a class sets text in it. A solid
@@ -22,7 +26,8 @@ import { css, resolveVars } from "../helpers/css-tokens";
  *
  * Colour that is not text is measured too (WCAG 1.4.11, 3:1), where it is the
  * only thing that shows a control or its state: the focus indicator, the
- * search box's border, the pressed state of a chip. The seasonal backdrops are
+ * search box's border, the unpressed border of a chip, the off track of the
+ * music switch, the pressed state of a chip. The seasonal backdrops are
  * decoration and need no ratio of their own, but they sit under the text, so
  * the text must still reach AA on the canvas with every backdrop tint stacked
  * on it. Borders of cards and dividers are decoration and are not measured.
@@ -118,7 +123,38 @@ function pairsOf(season: string, mode: Mode): Pair[] {
   return out;
 }
 
+/** The neutral step captions and labels are set in: 600 on the light surfaces,
+ *  400 on the dark ones. The 500 and 400 steps of the light scale, and the 500
+ *  of the dark one, are for borders and fills; they fall below AA as text. */
+const MUTED_STEP = { light: 600, dark: 400 } as const;
+
+/** The surfaces muted text sits on, per mode: the canvas, a card (`bg-white`,
+ *  `dark:bg-stone-900/50`), a stone tint (`bg-stone-100`, `dark:bg-stone-800`)
+ *  and a grey badge's wash (`bg-stone-500/10`). */
+function surfacesOf(vars: Record<string, string>, mode: Mode) {
+  const canvas = NEUTRALS[mode][0]!.hex;
+  return {
+    canvas,
+    card: fieldFill(vars, mode, canvas),
+    tint: colour(vars, mode === "light" ? "--neutral-100" : "--neutral-800"),
+    badge: over(colour(vars, "--neutral-500"), canvas, 0.1),
+  };
+}
+
+function mutedPairsOf(season: string, mode: Mode): Pair[] {
+  const vars = resolveVars(season, mode);
+  const text = colour(vars, `--neutral-${MUTED_STEP[mode]}`);
+  return Object.entries(surfacesOf(vars, mode)).map(([name, bg]) => ({
+    key: `${season} ${mode} muted text on ${name}`,
+    ratio: contrast(text, bg),
+  }));
+}
+
 const all = SEASON_IDS.flatMap((id) => MODES.flatMap((m) => pairsOf(id, m)));
+
+const muted = SEASON_IDS.flatMap((id) =>
+  MODES.flatMap((m) => mutedPairsOf(id, m)),
+);
 
 describe("text contrast", () => {
   it("measures every season, mode and pair", () => {
@@ -140,6 +176,27 @@ describe("text contrast", () => {
       .filter((p) => p.ratio < AA)
       .map((p) => `${p.key}: ${p.ratio.toFixed(2)}`);
     expect(bad).toEqual([]);
+  });
+
+  it("muted neutral text reaches AA on every surface it sits on", () => {
+    // 4 seasons x 2 modes x (canvas, card, tint, badge)
+    expect(muted).toHaveLength(4 * 2 * 4);
+    const bad = muted
+      .filter((p) => p.ratio < AA)
+      .map((p) => `${p.key}: ${p.ratio.toFixed(2)}`);
+    expect(bad).toEqual([]);
+  });
+
+  it("no class sets text in a neutral step that falls below AA", () => {
+    // Light: 600 is the lightest neutral that reads as text; 500 and below are
+    // for borders and fills. Dark: 400 is the darkest; 500 and up are not.
+    const light =
+      /(?<![\w:\-[\]&])text-(?:stone|neutral|gray)-(?:[1-5]00|50)(?![\w/-])/;
+    const dark = /dark:text-(?:stone|neutral|gray)-(?:500|600|700)(?![\w/-])/;
+    const found = appFiles(/\.(vue|ts)$/)
+      .filter(({ text }) => light.test(text) || dark.test(text))
+      .map(({ path }) => path);
+    expect(found).toEqual([]);
   });
 
   it("no class sets text in a 500 step or darkens a solid fill on hover", () => {
@@ -206,6 +263,15 @@ function nonTextPairsOf(season: string, mode: Mode): Pair[] {
     { key: key("focus border on the field"), ratio: contrast(accent, fill) },
     { key: key("field border on the canvas"), ratio: contrast(border, canvas) },
     { key: key("field border on its fill"), ratio: contrast(border, fill) },
+    // an unpressed chip: the same step, since the border is what shows it is a
+    // control (its state is the accent against this grey)
+    { key: key("chip border on the canvas"), ratio: contrast(border, canvas) },
+    { key: key("chip border on its fill"), ratio: contrast(border, fill) },
+    // the music switch's off track, `bg-stone-500`, against the canvas
+    {
+      key: key("switch off track on the canvas"),
+      ratio: contrast(colour(vars, "--neutral-500"), canvas),
+    },
     // a pressed chip: its border in the accent, on the accent's tint
     {
       key: key("pressed chip border on its tint"),
@@ -220,10 +286,10 @@ const nonText = SEASON_IDS.flatMap((id) =>
 
 describe("non-text contrast", () => {
   it("measures every season, mode and pair", () => {
-    expect(nonText).toHaveLength(4 * 2 * 5);
+    expect(nonText).toHaveLength(4 * 2 * 8);
   });
 
-  it("every focus indicator, field border and pressed state reaches 3:1", () => {
+  it("every focus indicator, field border, chip border, switch track and pressed state reaches 3:1", () => {
     const bad = nonText
       .filter((p) => p.ratio < NON_TEXT)
       .map((p) => `${p.key}: ${p.ratio.toFixed(2)}`);
@@ -269,6 +335,24 @@ describe("non-text contrast", () => {
         ) || /(^|\s)(dark:)?border-stone-(?!500)\d+/.test(c),
     );
     expect(wrong).toEqual([]);
+
+    // The unpressed chip draws its border in that step too, in both builders.
+    const chips = files.filter(({ text }) => /const chip = \(/.test(text));
+    expect(chips.length).toBe(2);
+    for (const { path, text } of chips) {
+      const off = /: "(border-[^"]*hover:border-primary-500)"/.exec(text)?.[1];
+      expect(off, path).toBeDefined();
+      expect(off, path).toMatch(
+        new RegExp(`(^|\\s)border-stone-${FIELD_BORDER_STEP}(\\s|$)`),
+      );
+      expect(off, path).not.toMatch(/dark:border-stone/);
+    }
+
+    // The switch's off track is the measured step.
+    const bgm = files.find(({ path }) => path.endsWith("BgmControl.vue"))!;
+    expect(bgm.text).toContain(
+      `enabled ? 'bg-primary-500' : 'bg-stone-${FIELD_BORDER_STEP}'`,
+    );
   });
 });
 
@@ -393,7 +477,7 @@ describe("text over the seasonal backdrops", () => {
     }
   });
 
-  it("body and shaded text reach AA under each wash on the canvas", () => {
+  it("body, muted and shaded text reach AA under each wash on the canvas", () => {
     const bad: string[] = [];
     for (const { season, mode } of cases) {
       const vars = resolveVars(season, mode);
@@ -401,6 +485,7 @@ describe("text over the seasonal backdrops", () => {
       const shade = mode === "light" ? 600 : 400;
       const texts: [string, string][] = [
         ["body", NEUTRALS[mode][1]!.hex],
+        ["muted", colour(vars, `--neutral-${MUTED_STEP[mode]}`)],
         ...TEXT_ROLES.map((r): [string, string] => [
           `${r}-${shade}`,
           colour(vars, `--${r}-${shade}`),
