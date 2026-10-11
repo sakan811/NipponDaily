@@ -50,7 +50,7 @@
                   class="block text-4xl font-serif font-bold text-stone-900 dark:text-white"
                   >{{ k.char }}</span
                 >
-                <span class="block text-xs text-stone-500 dark:text-stone-400"
+                <span class="block text-xs text-stone-600 dark:text-stone-400"
                   >{{ k.count }} words</span
                 >
               </NuxtLink>
@@ -84,7 +84,7 @@
           </ul>
         </section>
 
-        <p class="mt-12 text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
+        <p class="mt-12 text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
           Readings, meanings, grades and frequency ranks are KANJIDIC2's own
           (<RichText :text="SOURCES.edrdg.credit" />). They describe the
           character, not each word it appears in.

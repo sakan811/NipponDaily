@@ -47,41 +47,8 @@
       </li>
     </ul>
 
-    <h2>Accessibility</h2>
-    <ul>
-      <li>
-        <strong>Grey text that reaches AA.</strong> Most captions and labels are
-        <code>text-stone-500</code>, about 3.3:1 on the light canvas (and 3.9:1
-        on the dark one wherever no <code>dark:</code> colour overrides it), and
-        some are <code>text-stone-400</code>, about 2.3:1 in light mode. Body
-        text needs 4.5:1. Darken them a step in light mode, then extend the
-        <code>contrast</code> test to neutral text so it cannot slip back. The
-        test now covers only text on the season colours, the focus ring, the
-        search box's border and a pressed chip's border (<NuxtLink
-          to="/docs/development"
-          >Development</NuxtLink
-        >).
-      </li>
-      <li>
-        <strong>Controls that colour alone shows.</strong> An unpressed filter
-        chip's border is about 1.6:1 against the page in both modes, and the off
-        track of the music switch about 1.6:1 in light mode and 2.3:1 in dark.
-        Raise them to 3:1 or show the state another way, and measure them in the
-        same test.
-      </li>
-    </ul>
-
     <h2>Tests and tooling</h2>
     <ul>
-      <li>
-        <strong>A passing <code>pnpm type-check</code>.</strong> The
-        <code>h3</code> devDependency is at 2.0.1 while Nitro's server types use
-        h3 1.15.11, so every server file that takes an
-        <code>H3Event</code> fails to type-check, and
-        <code>pnpm check-qa</code> fails with it. CI runs only
-        <code>pnpm run test</code>, so it has not shown there. Pin
-        <code>h3</code> back to <code>^1.15.11</code>.
-      </li>
       <li>
         <strong>Wider browser tests.</strong>
         <code>playwright.config.ts</code> runs Chromium only, at a desktop and a

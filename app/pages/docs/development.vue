@@ -157,11 +157,13 @@ pnpm dev          # http://localhost:3000</code></pre>
       </li>
       <li>
         <code>contrast</code>: text on colour in every season and mode against
-        WCAG AA (fills, and shaded text on the canvas and on its tint), that no
-        class sets text in a 500 step, that the focus ring, the search box's
-        border and a pressed chip's border reach 3:1 and that the classes
-        shipping are the ones measured, and that text reaches AA under each
-        seasonal backdrop wash.
+        WCAG AA (fills, shaded text and the muted grey of captions and labels,
+        on the canvas, a card, a tint and a badge), that no class sets text in a
+        500 step or in a neutral step below AA, that the focus ring, the search
+        box's border, a chip's border, the music switch's off track and a
+        pressed chip's border reach 3:1 and that the classes shipping are the
+        ones measured, and that text reaches AA under each seasonal backdrop
+        wash.
       </li>
       <li>
         <code>single-source</code>: a fact owned by one module (Japan's offset,

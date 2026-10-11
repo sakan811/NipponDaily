@@ -63,13 +63,13 @@
         />
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div class="space-y-3" aria-busy="true">
-            <p class="kicker text-stone-400">Word page</p>
+            <p class="kicker text-stone-600 dark:text-stone-400">Word page</p>
             <USkeleton class="h-6 w-48" />
             <USkeleton class="h-20 w-72" />
             <USkeleton class="h-40 w-full" />
           </div>
           <div class="space-y-3" aria-busy="true">
-            <p class="kicker text-stone-400">Calendar</p>
+            <p class="kicker text-stone-600 dark:text-stone-400">Calendar</p>
             <USkeleton class="h-10 w-64" />
             <USkeleton class="h-40 w-full" />
           </div>
@@ -88,31 +88,31 @@
           <div
             class="season-box min-h-[6rem] border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 p-2.5 opacity-35"
           >
-            <p class="text-xs text-stone-500">11</p>
+            <p class="text-xs text-stone-600 dark:text-stone-400">11</p>
             <p class="mt-1 text-2xl font-serif font-bold">例</p>
-            <p class="text-xs text-stone-500">れい</p>
-            <p class="kicker text-stone-400 mt-1">faded</p>
+            <p class="text-xs text-stone-600 dark:text-stone-400">れい</p>
+            <p class="kicker text-stone-600 dark:text-stone-400 mt-1">faded</p>
           </div>
           <div
             class="season-box min-h-[6rem] border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 p-2.5"
           >
-            <p class="text-xs text-stone-500">12</p>
+            <p class="text-xs text-stone-600 dark:text-stone-400">12</p>
             <p class="mt-1 text-2xl font-serif font-bold">例</p>
-            <p class="text-xs text-stone-500">れい</p>
-            <p class="kicker text-stone-400 mt-1">open</p>
+            <p class="text-xs text-stone-600 dark:text-stone-400">れい</p>
+            <p class="kicker text-stone-600 dark:text-stone-400 mt-1">open</p>
           </div>
           <div
             class="season-box min-h-[6rem] border border-primary-500 ring-2 ring-primary-500/30 bg-white dark:bg-stone-900/50 p-2.5"
           >
-            <p class="text-xs text-stone-500">13</p>
+            <p class="text-xs text-stone-600 dark:text-stone-400">13</p>
             <p class="mt-1 text-2xl font-serif font-bold">例</p>
-            <p class="text-xs text-stone-500">れい</p>
+            <p class="text-xs text-stone-600 dark:text-stone-400">れい</p>
             <p class="kicker text-primary-600 dark:text-primary-400 mt-1">
               today
             </p>
           </div>
           <div
-            class="min-h-[6rem] border border-dashed border-stone-300/70 dark:border-stone-800 p-2.5 text-xs text-stone-400 dark:text-stone-600"
+            class="min-h-[6rem] border border-dashed border-stone-300/70 dark:border-stone-800 p-2.5 text-xs text-stone-600 dark:text-stone-400"
           >
             14
             <p class="kicker mt-6">upcoming</p>
@@ -185,7 +185,7 @@
             >
               400 Bad Request
             </p>
-            <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
+            <p class="text-xs text-stone-600 dark:text-stone-400 mb-2">
               ?date= is not a real calendar date, or is a day that hasn't
               arrived yet in Japan (an upcoming word is never served early). On
               /api/word-calendar, ?month= is not a real YYYY-MM; /api/explore
@@ -205,7 +205,7 @@
             >
               404 Not Found
             </p>
-            <p class="text-xs text-stone-500 dark:text-stone-400 mb-2">
+            <p class="text-xs text-stone-600 dark:text-stone-400 mb-2">
               A valid past date (or month) the catalogue doesn't cover, or a
               part or kanji no open word shows. With no ?date=, /api/daily-word
               serves today's word (starting a new lap once the words run out),

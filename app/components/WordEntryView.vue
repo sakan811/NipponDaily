@@ -55,7 +55,7 @@
       <p
         v-if="pitches.length"
         data-testid="word-pitch-help"
-        class="text-xs text-stone-500 dark:text-stone-400 max-w-3xl"
+        class="text-xs text-stone-600 dark:text-stone-400 max-w-3xl"
       >
         How to read it: a line over a kana means the voice is high there, and ↓
         marks where it drops. A kana with no line is low. With no ↓ the pitch
@@ -142,7 +142,7 @@
           <li
             v-if="i > 0"
             aria-hidden="true"
-            class="self-center text-2xl font-serif text-stone-400 dark:text-stone-600"
+            class="self-center text-2xl font-serif text-stone-600 dark:text-stone-400"
           >
             +
           </li>
@@ -163,7 +163,7 @@
                 {{ m.reading }}
                 <span
                   v-if="m.base && m.base !== m.reading"
-                  class="text-stone-500 dark:text-stone-400"
+                  class="text-stone-600 dark:text-stone-400"
                   >(from {{ m.base }})</span
                 >
               </p>
@@ -176,14 +176,14 @@
       </ol>
       <p
         v-if="entry.morphemes.length"
-        class="text-xs text-stone-500 dark:text-stone-400"
+        class="text-xs text-stone-600 dark:text-stone-400"
       >
         Select a part to see every word so far that is taken apart with it.
       </p>
       <p
         v-if="fromKanjidic"
         data-testid="word-kanjidic-note"
-        class="text-xs text-stone-500 dark:text-stone-400 max-w-3xl"
+        class="text-xs text-stone-600 dark:text-stone-400 max-w-3xl"
       >
         Wiktionary's text doesn't split this word, so each part is one of its
         kanji (with the okurigana written after it), with the reading and the
@@ -267,7 +267,7 @@
           >
             {{ ex.en }}
           </p>
-          <p class="text-xs text-stone-500 dark:text-stone-400">
+          <p class="text-xs text-stone-600 dark:text-stone-400">
             <a
               :href="tatoebaSentenceUrl(ex.id)"
               target="_blank"
@@ -285,7 +285,7 @@
           </p>
         </li>
       </ul>
-      <p class="text-xs text-stone-500 dark:text-stone-400 max-w-3xl">
+      <p class="text-xs text-stone-600 dark:text-stone-400 max-w-3xl">
         Sentences are from
         <a
           :href="SOURCES.tatoeba.url"
@@ -347,7 +347,7 @@
           >“{{ s.quote }}”
         </li>
       </ul>
-      <p class="text-xs text-stone-500 dark:text-stone-400">
+      <p class="text-xs text-stone-600 dark:text-stone-400">
         Source:
         <a
           :href="wiktionaryUrl"
@@ -375,7 +375,7 @@
     >
       <h2
         id="labels-heading"
-        class="text-sm font-sans font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400"
+        class="text-sm font-sans font-semibold uppercase tracking-wide text-stone-600 dark:text-stone-400"
       >
         What the labels mean
       </h2>

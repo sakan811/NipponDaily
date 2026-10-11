@@ -21,7 +21,7 @@
         </p>
         <p
           data-testid="calendar-first-opened-note"
-          class="text-sm text-stone-500 dark:text-stone-400 font-sans"
+          class="text-sm text-stone-600 dark:text-stone-400 font-sans"
         >
           A word sits on the day it was first opened. Once every word has had
           its day, they come round again: those days are marked
@@ -191,7 +191,7 @@
             v-for="d in WEEKDAYS"
             :key="d"
             role="columnheader"
-            class="kicker text-center text-stone-400 dark:text-stone-500 pb-1"
+            class="kicker text-center text-stone-600 dark:text-stone-400 pb-1"
           >
             {{ d }}
           </div>
@@ -220,7 +220,7 @@
               ]"
             >
               <span
-                class="flex items-start justify-between text-[11px] sm:text-xs text-stone-500 dark:text-stone-400"
+                class="flex items-start justify-between text-[11px] sm:text-xs text-stone-600 dark:text-stone-400"
               >
                 {{ cell.dayOfMonth }}
                 <span
@@ -245,7 +245,7 @@
                 {{ cell.day.term }}
               </span>
               <span
-                class="hidden sm:block text-xs text-stone-500 dark:text-stone-400 truncate"
+                class="hidden sm:block text-xs text-stone-600 dark:text-stone-400 truncate"
               >
                 {{ cell.day.kana }}
               </span>
@@ -256,7 +256,7 @@
               role="gridcell"
               data-testid="calendar-day-closed"
               :aria-label="`${formatLongDate(cell.date)}: not yet open`"
-              class="min-h-[4.5rem] sm:min-h-[6rem] border border-dashed border-stone-300/70 dark:border-stone-800 p-1.5 sm:p-2.5 text-[11px] sm:text-xs text-stone-400 dark:text-stone-600"
+              class="min-h-[4.5rem] sm:min-h-[6rem] border border-dashed border-stone-300/70 dark:border-stone-800 p-1.5 sm:p-2.5 text-[11px] sm:text-xs text-stone-600 dark:text-stone-400"
             >
               {{ cell.dayOfMonth }}
             </div>
@@ -266,7 +266,7 @@
               role="gridcell"
               data-testid="calendar-day-empty"
               :aria-label="`${formatLongDate(cell.date)}: no word`"
-              class="min-h-[4.5rem] sm:min-h-[6rem] p-1.5 sm:p-2.5 text-[11px] sm:text-xs text-stone-300 dark:text-stone-700"
+              class="min-h-[4.5rem] sm:min-h-[6rem] p-1.5 sm:p-2.5 text-[11px] sm:text-xs text-stone-600 dark:text-stone-400"
             >
               {{ cell.dayOfMonth }}
             </div>
@@ -275,7 +275,7 @@
 
         <!-- Legend -->
         <ul
-          class="flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-500 dark:text-stone-400"
+          class="flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-600 dark:text-stone-400"
           aria-label="Word layers"
         >
           <li
@@ -473,7 +473,7 @@ const chip = (pressed: boolean, empty: boolean): string =>
     "season-chip inline-flex items-center gap-1.5 border px-3 py-1 text-sm transition-colors",
     pressed
       ? "border-primary-500 bg-primary-500/10 text-primary-700 dark:text-primary-300"
-      : "border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 hover:border-primary-500",
+      : "border-stone-500 bg-white dark:bg-stone-900/50 hover:border-primary-500",
     empty && !pressed ? "opacity-40 cursor-not-allowed" : "cursor-pointer",
   ].join(" ");
 </script>

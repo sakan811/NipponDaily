@@ -30,7 +30,7 @@
     </div>
 
     <fieldset class="space-y-2">
-      <legend class="kicker text-stone-500 dark:text-stone-400">
+      <legend class="kicker text-stone-600 dark:text-stone-400">
         JLPT level
       </legend>
       <div class="flex flex-wrap gap-2" data-testid="facet-level">
@@ -50,7 +50,7 @@
     </fieldset>
 
     <fieldset class="space-y-2">
-      <legend class="kicker text-stone-500 dark:text-stone-400">
+      <legend class="kicker text-stone-600 dark:text-stone-400">
         Layer of the vocabulary
       </legend>
       <div class="flex flex-wrap gap-2" data-testid="facet-stratum">
@@ -76,7 +76,7 @@
     </fieldset>
 
     <fieldset class="space-y-2">
-      <legend class="kicker text-stone-500 dark:text-stone-400">Process</legend>
+      <legend class="kicker text-stone-600 dark:text-stone-400">Process</legend>
       <div class="flex flex-wrap gap-2" data-testid="facet-process">
         <button
           v-for="f in facets?.process ?? []"
@@ -95,7 +95,7 @@
     </fieldset>
 
     <fieldset class="space-y-2">
-      <legend class="kicker text-stone-500 dark:text-stone-400">
+      <legend class="kicker text-stone-600 dark:text-stone-400">
         Part of speech
       </legend>
       <div class="flex flex-wrap gap-2" data-testid="facet-pos">
@@ -116,7 +116,7 @@
     </fieldset>
 
     <fieldset class="space-y-2">
-      <legend class="kicker text-stone-500 dark:text-stone-400">
+      <legend class="kicker text-stone-600 dark:text-stone-400">
         How common (JMdict)
       </legend>
       <div class="flex flex-wrap gap-2" data-testid="facet-frequency">
@@ -137,7 +137,7 @@
     </fieldset>
 
     <fieldset class="space-y-2">
-      <legend class="kicker text-stone-500 dark:text-stone-400">
+      <legend class="kicker text-stone-600 dark:text-stone-400">
         When you pick several
       </legend>
       <div
@@ -157,7 +157,7 @@
             {{ m.label }}
           </button>
         </div>
-        <p class="text-xs text-stone-500 dark:text-stone-400 max-w-md">
+        <p class="text-xs text-stone-600 dark:text-stone-400 max-w-md">
           {{ matchHelp }}
         </p>
       </div>
@@ -305,7 +305,7 @@ const chip = (pressed: boolean, empty: boolean): string =>
     "season-chip inline-flex items-center gap-1.5 border px-3 py-1 text-sm transition-colors",
     pressed
       ? "border-primary-500 bg-primary-500/10 text-primary-700 dark:text-primary-300"
-      : "border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 hover:border-primary-500",
+      : "border-stone-500 bg-white dark:bg-stone-900/50 hover:border-primary-500",
     empty && !pressed ? "opacity-40 cursor-not-allowed" : "cursor-pointer",
   ].join(" ");
 </script>

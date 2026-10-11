@@ -1,7 +1,9 @@
 <template>
   <div class="border-l-2 border-primary-500 pl-4">
     <div class="flex items-baseline gap-2 flex-wrap">
-      <span class="text-xs font-mono text-stone-400">{{ index }}</span>
+      <span class="text-xs font-mono text-stone-600 dark:text-stone-400">{{
+        index
+      }}</span>
       <h3 class="!m-0">
         {{ title }}
       </h3>
@@ -11,7 +13,7 @@
     >
       {{ component }}
     </p>
-    <p class="text-xs text-stone-500 dark:text-stone-400 m-0 max-w-2xl">
+    <p class="text-xs text-stone-600 dark:text-stone-400 m-0 max-w-2xl">
       <span class="font-semibold">Trigger:</span>
       <!-- eslint-disable-next-line vue/no-v-html -->
       <span v-html="trigger" />

@@ -5,7 +5,7 @@
     >
       <NuxtLink
         to="/words"
-        class="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 mb-8"
+        class="inline-flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 mb-8"
       >
         <UIcon name="i-heroicons-arrow-left" class="w-4 h-4" />
         All words

@@ -37,7 +37,7 @@
             :key="stat.label"
             class="season-box border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3"
           >
-            <dt class="kicker text-stone-500 dark:text-stone-400">
+            <dt class="kicker text-stone-600 dark:text-stone-400">
               {{ stat.label }}
             </dt>
             <dd class="text-3xl font-serif font-bold">{{ stat.value }}</dd>
@@ -45,7 +45,7 @@
         </dl>
 
         <ul
-          class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-500 dark:text-stone-400"
+          class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-600 dark:text-stone-400"
           aria-label="Word layers"
         >
           <li
@@ -79,7 +79,7 @@
                     class="group-hover:text-primary-600 dark:group-hover:text-primary-400"
                     >{{ layerName(s.value) }}</span
                   >
-                  <span class="tabular-nums text-stone-500 dark:text-stone-400"
+                  <span class="tabular-nums text-stone-600 dark:text-stone-400"
                     >{{ s.count }} ·
                     {{ percent(s.count, patterns.total) }}</span
                   >
@@ -120,7 +120,7 @@
                     class="font-semibold group-hover:text-primary-600 dark:group-hover:text-primary-400"
                     >{{ row.value }}</span
                   >
-                  <span class="tabular-nums text-stone-500 dark:text-stone-400"
+                  <span class="tabular-nums text-stone-600 dark:text-stone-400"
                     >{{ row.count }} words</span
                   >
                 </span>
@@ -138,7 +138,7 @@
                   />
                 </span>
                 <span
-                  class="mt-1 block text-xs text-stone-500 dark:text-stone-400"
+                  class="mt-1 block text-xs text-stone-600 dark:text-stone-400"
                   >{{ shares(row.byStratum, row.count) }}</span
                 >
               </NuxtLink>
@@ -173,7 +173,7 @@
                     >{{ WORD_PROCESSES[row.value].label }}</span
                   >
                   <span
-                    class="tabular-nums text-stone-500 dark:text-stone-400"
+                    class="tabular-nums text-stone-600 dark:text-stone-400"
                     >{{ row.count }}</span
                   >
                 </span>
@@ -194,7 +194,7 @@
                   />
                 </span>
                 <span
-                  class="mt-0.5 block text-xs text-stone-500 dark:text-stone-400"
+                  class="mt-0.5 block text-xs text-stone-600 dark:text-stone-400"
                   >{{ WORD_PROCESSES[row.value].description }}</span
                 >
               </NuxtLink>
@@ -229,7 +229,7 @@
                   {{ WORD_PROCESSES[pair.b].label }}</span
                 >
                 <span
-                  class="tabular-nums text-sm text-stone-500 dark:text-stone-400"
+                  class="tabular-nums text-sm text-stone-600 dark:text-stone-400"
                   >{{ pair.count }} words</span
                 >
               </p>
@@ -284,7 +284,7 @@
                   >{{ combinationLabel(combo) }}</NuxtLink
                 >
                 <span
-                  class="tabular-nums text-sm text-stone-500 dark:text-stone-400"
+                  class="tabular-nums text-sm text-stone-600 dark:text-stone-400"
                   >{{ combo.count }} words</span
                 >
               </p>
@@ -338,7 +338,7 @@
                   >{{ sound.from }} → {{ sound.to }}</span
                 >
                 <span
-                  class="tabular-nums text-sm text-stone-500 dark:text-stone-400"
+                  class="tabular-nums text-sm text-stone-600 dark:text-stone-400"
                   >{{ sound.count }}
                   {{ sound.count === 1 ? "word" : "words" }}</span
                 >
@@ -363,7 +363,7 @@
                   {{ r.base }} → {{ r.reading }}
                   <span
                     v-if="r.position === 'first'"
-                    class="text-stone-500 dark:text-stone-400"
+                    class="text-stone-600 dark:text-stone-400"
                     >(the first part)</span
                   >
                   ·
@@ -375,7 +375,7 @@
                     ><span v-if="i < r.examples.length - 1">、</span></template
                   ><span
                     v-if="moreCount(r) > 0"
-                    class="text-stone-500 dark:text-stone-400"
+                    class="text-stone-600 dark:text-stone-400"
                   >
                     and {{ moreCount(r) }} more</span
                   >
@@ -410,7 +410,7 @@
                   ><span v-if="i < r.examples.length - 1">、</span></template
                 ><span
                   v-if="moreCount(r) > 0"
-                  class="text-stone-500 dark:text-stone-400"
+                  class="text-stone-600 dark:text-stone-400"
                 >
                   and {{ moreCount(r) }} more</span
                 >
@@ -419,7 +419,7 @@
           </div>
         </section>
 
-        <p class="mt-12 text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
+        <p class="mt-12 text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
           These count the tags on the entries so far — what KANJIDIC2 and the
           quoted Wiktionary text establish for each word — not the Japanese
           language as a whole. The words are drawn from the JLPT N5–N1 lists,

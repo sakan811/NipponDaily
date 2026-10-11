@@ -5,7 +5,7 @@
     >
       <NuxtLink
         to="/kanji"
-        class="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 mb-8"
+        class="inline-flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-primary-600 dark:hover:text-primary-400 mb-8"
       >
         <UIcon name="i-heroicons-arrow-left" class="w-4 h-4" />
         All kanji
@@ -77,7 +77,7 @@
             >
               {{ kanji.on.join("、") }}
             </p>
-            <p v-else class="text-stone-500 dark:text-stone-400">
+            <p v-else class="text-stone-600 dark:text-stone-400">
               None listed.
             </p>
           </div>
@@ -94,12 +94,12 @@
             >
               {{ kanji.kun.join("、") }}
             </p>
-            <p v-else class="text-stone-500 dark:text-stone-400">
+            <p v-else class="text-stone-600 dark:text-stone-400">
               None listed.
             </p>
             <p
               v-if="kanji.kun.some((r) => r.includes('.'))"
-              class="text-xs text-stone-500 dark:text-stone-400"
+              class="text-xs text-stone-600 dark:text-stone-400"
             >
               A dot marks where the okurigana begin.
             </p>
@@ -118,7 +118,7 @@
             Stroke order
           </h2>
           <KanjiStrokes :strokes="kanji.strokes" />
-          <p class="text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
+          <p class="text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
             <RichText :text="SOURCES.kanjivg.credit" />
           </p>
         </section>
@@ -130,7 +130,7 @@
           >
             Written with {{ kanji.char }}
             <span
-              class="text-sm font-sans font-normal text-stone-500 dark:text-stone-400"
+              class="text-sm font-sans font-normal text-stone-600 dark:text-stone-400"
               >{{ kanji.count }}
               {{ kanji.count === 1 ? "word" : "words" }}</span
             >
@@ -167,7 +167,7 @@
           </p>
         </section>
 
-        <p class="text-xs text-stone-500 dark:text-stone-400 max-w-2xl">
+        <p class="text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
           <RichText :text="SOURCES.edrdg.credit" /> A word does not always use
           every reading or meaning listed for its kanji.
         </p>

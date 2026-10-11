@@ -32,7 +32,7 @@
         </div>
 
         <p
-          class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed font-sans"
+          class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed font-sans"
         >
           {{ detail }}
         </p>
