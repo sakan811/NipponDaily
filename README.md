@@ -20,12 +20,12 @@ Node 22.19, 24.11 or 26 and newer (Nuxt's supported range) and [pnpm](https://pn
 
 ```bash
 pnpm install
-cp .env.example .env   # optional: Redis only stores the site's season
+cp .env.example .env   # optional: only sets the site's public URL
 pnpm dev               # http://localhost:3000
 pnpm check-qa          # lint, format, type-check, build and test
 ```
 
-Built with [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/), [Upstash Redis](https://upstash.com/) and [Vitest](https://vitest.dev/).
+Built with [Nuxt 4](https://nuxt.com/) (Vue 3, TypeScript), [Tailwind CSS 4](https://tailwindcss.com/) and [Vitest](https://vitest.dev/).
 
 ## Documentation
 

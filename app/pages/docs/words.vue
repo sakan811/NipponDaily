@@ -233,9 +233,9 @@
     <p>
       The pool is the community JLPT lists (one CSV per level,
       {{ JLPT_RANGE }}), cross-referenced against JMdict and KANJIDIC2. It
-      exists only as the committed <code>{{ REFERENCE_FILES }}</code> snapshots;
-      there is no Redis pool. <code>scripts/lib/word-list.mjs</code> holds the
-      parsing, the reading and meaning overrides and the gloss cross-check.
+      exists only as the committed <code>{{ REFERENCE_FILES }}</code> snapshots.
+      <code>scripts/lib/word-list.mjs</code> holds the parsing, the reading and
+      meaning overrides and the gloss cross-check.
     </p>
     <p>
       A handful of words appear at more than one level with the same reading;

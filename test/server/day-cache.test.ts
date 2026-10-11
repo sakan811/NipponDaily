@@ -57,10 +57,8 @@ describe("isDayCacheable", () => {
       expect(isDayCacheable(path), path).toBe(true);
   });
 
-  it("leaves out what changes within a day and what is not ours", () => {
+  it("leaves out what is not ours", () => {
     for (const path of [
-      "/api/site-theme",
-      "/api/cron/update-season",
       "/_nuxt/entry.abc123.js",
       "/favicon-light.ico",
       "/light/site.webmanifest",
@@ -123,7 +121,7 @@ describe("the day-cache Nitro plugin", () => {
 
   it("leaves other methods and uncacheable paths alone", async () => {
     await run(ok("/api/explore", "POST"));
-    await run(ok("/api/site-theme"));
+    await run(ok("/favicon-light.ico"));
     expect(headers.size).toBe(0);
   });
 

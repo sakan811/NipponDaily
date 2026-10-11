@@ -1,7 +1,6 @@
 /**
  * A fixed-window request limiter, kept in process memory only: a client's
- * address is held for one window and then forgotten, never written to Redis or
- * anywhere else. Each server instance counts for itself, so on a platform that
+ * address is held for one window and then forgotten, never written anywhere. Each server instance counts for itself, so on a platform that
  * runs several instances the limit is per instance. It is a brake on a runaway
  * client, not a quota.
  */
@@ -9,10 +8,8 @@
 import { RATE_LIMIT } from "~~/shared/endpoints";
 
 /** What the limiter guards: the JSON API and the share images, the two places
- *  a request does real work. Pages are cached by the CDN; the cron has its own
- *  secret. */
+ *  a request does real work. Pages are cached by the CDN. */
 export function isRateLimited(path: string): boolean {
-  if (/^\/api\/cron(\/|$)/.test(path)) return false;
   return path.startsWith("/api/") || path === "/og.png";
 }
 

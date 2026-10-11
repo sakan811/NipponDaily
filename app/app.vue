@@ -7,15 +7,18 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onBeforeUnmount, onMounted } from "vue";
 import { useSiteTheme } from "./composables/useSiteTheme";
 import { useBgm } from "./composables/useBgm";
 
-const { fetchTheme } = useSiteTheme();
+const { startSeasonCheck } = useSiteTheme();
 const { init: initBgm } = useBgm();
 
+let stopSeasonCheck: (() => void) | undefined;
+onBeforeUnmount(() => stopSeasonCheck?.());
+
 onMounted(() => {
-  fetchTheme();
+  stopSeasonCheck = startSeasonCheck();
   initBgm();
 
   const updateFavicons = (isDark: boolean) => {

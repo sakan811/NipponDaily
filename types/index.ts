@@ -485,15 +485,3 @@ export interface RelatedPayload {
  * only belongs in this union once it has a matching CSS preset.
  */
 export type SeasonId = "sakura" | "summer" | "autumn" | "winter";
-
-/**
- * NipponDaily's site-wide season — persisted at n5:site_theme and served by
- * GET /api/site-theme. Applied as a data-season attribute on <html>, which
- * the [data-season] blocks in tailwind.css key off of.
- */
-export interface SiteTheme {
-  season: SeasonId;
-  updatedAt: number;
-  /** Who wrote it: the daily season cron, or GET /api/site-theme's fallback. */
-  source: "cron" | "fallback";
-}

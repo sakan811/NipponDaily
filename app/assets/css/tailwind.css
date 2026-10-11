@@ -278,9 +278,10 @@
 }
 
 /* Seasonal design presets, applied as a data-season attribute on <html> —
-   see app/composables/useSiteTheme.ts. The site season is set by the daily
-   cron (server/api/cron/update-season.get.ts); a reader can override it with
-   the header's season button. Each season below resolves to a complete
+   see app/composables/useSiteTheme.ts. The season is the one for today's date
+   in Japan (shared/seasons.ts seasonForDate), worked out in the browser and
+   re-checked every midnight; a reader can override it with the header's season
+   button. Each season below resolves to a complete
    palette — primary, secondary, success, warning, and error, each with its
    own on-* text pairing — so switching seasons never lands on a half-applied
    combination. Only neutral (canvas backgrounds, body text, borders) stays

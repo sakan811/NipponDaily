@@ -115,7 +115,7 @@ const features = computed(() => [
   {
     title: "Four Seasons",
     description:
-      "The site follows the Japanese calendar: spring (sakura), summer, autumn and winter. A daily cron sets the season for the date in Japan. Each one changes the palette, the shapes of cards, buttons and badges, and the falling petals, bubbles and fireflies, leaves or snow.",
+      "The site follows the Japanese calendar: spring (sakura), summer, autumn and winter. The browser works the season out from the date in Japan and checks again at every midnight. Each one changes the palette, the shapes of cards, buttons and badges, and the falling petals, bubbles and fireflies, leaves or snow.",
   },
   {
     title: "Pick Your Season",

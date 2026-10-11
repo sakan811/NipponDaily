@@ -1,12 +1,15 @@
 import type { SeasonId } from "../types/index";
 import { MONTH_NAMES } from "./catalogue";
-import { toJst } from "./jst";
+import { JST_OFFSET_MS, toJst } from "./jst";
 
 /**
  * Single source of truth for NipponDaily's seasonal presets — shared by the
- * season cron, GET /api/site-theme, the season button, the pre-hydration
- * script in nuxt.config.ts, and the Color Palette docs page. The actual CSS values live in app/assets/css/tailwind.css;
- * test/unit/seasons-css-sync.test.ts fails if a swatch below drifts from it.
+ * season check in the browser (`useSiteTheme`), the season button, the
+ * pre-hydration script in nuxt.config.ts, and the Color Palette docs page. The
+ * season is a pure function of the date in Japan (`seasonForDate`), so nothing
+ * is stored or fetched for it. The actual CSS values live in
+ * app/assets/css/tailwind.css; test/unit/seasons-css-sync.test.ts fails if a
+ * swatch below drifts from it.
  *
  * To add a season: add its [data-season="..."] palette + shape blocks to
  * tailwind.css, then add it here (and to the SeasonId union).
@@ -174,16 +177,40 @@ export function monthsText(months: readonly number[]): string {
   return `${abbr(months[0])}–${abbr(months[months.length - 1])}`;
 }
 
-/** Where the site's season is kept in Redis (`server/services/site-theme.ts`). */
-export const SITE_THEME_REDIS_KEY = "n5:site_theme";
-
 const SEASON_BY_MONTH = new Map<number, SeasonId>(
   SEASON_IDS.flatMap((id) => SEASONS[id].months.map((m) => [m, id] as const)),
+);
+
+/** The season of each month, January first (index 0) to December (index 11).
+ *  The pre-hydration script embeds this, so the page's first paint already has
+ *  the right season without a request. */
+export const SEASON_BY_MONTH_INDEX: readonly SeasonId[] = Array.from(
+  { length: 12 },
+  (_, i) => SEASON_BY_MONTH.get(i + 1) ?? DEFAULT_SEASON,
 );
 
 /** The preset whose months cover `date` in JST. */
 export function seasonForDate(date: Date = new Date()): SeasonId {
   return SEASON_BY_MONTH.get(jstMonth(date)) ?? DEFAULT_SEASON;
+}
+
+/**
+ * Plain JavaScript (an IIFE body) that sets `data-season` on <html> before
+ * first paint: the reader's own pick if `localStorage[choiceKey]` names a
+ * season, else the one for this month in Japan. It needs no request and
+ * survives blocked storage. `nuxt.config.ts` inlines it into <head>;
+ * `test/unit/season-boot.test.ts` runs it. Everything it uses is embedded, so
+ * it must stay free of imports.
+ */
+export function seasonBootScript(choiceKey: string): string {
+  return `try {
+  const seasons = ${JSON.stringify(SEASON_IDS)};
+  const byMonth = ${JSON.stringify(SEASON_BY_MONTH_INDEX)};
+  let choice = null;
+  try { choice = localStorage.getItem(${JSON.stringify(choiceKey)}); } catch (_) {}
+  const month = new Date(Date.now() + ${JST_OFFSET_MS}).getUTCMonth();
+  document.documentElement.setAttribute('data-season', seasons.indexOf(choice) !== -1 ? choice : byMonth[month]);
+} catch (_) {}`;
 }
 
 /** The neutral family is the shared canvas — identical in every season. */
