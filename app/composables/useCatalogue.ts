@@ -1,6 +1,7 @@
 import { computed } from "vue";
 import type { CatalogueSummary } from "~~/shared/catalogue";
 import { useApiData } from "./useApiData";
+import { ROUTES } from "~~/shared/routes";
 
 /**
  * GET /api/catalogue — the written word range and count, so a page never
@@ -10,7 +11,7 @@ import { useApiData } from "./useApiData";
 export function useCatalogue() {
   const { data } = useApiData<CatalogueSummary>({
     key: "catalogue",
-    path: "/api/catalogue",
+    path: ROUTES.catalogue,
     label: "catalogue",
   });
 

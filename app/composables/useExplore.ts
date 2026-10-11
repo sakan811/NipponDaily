@@ -6,12 +6,13 @@ import type {
 } from "~~/types/index";
 import { queryFromFilters } from "~~/shared/explore-query";
 import { useApiData } from "./useApiData";
+import { ROUTES } from "~~/shared/routes";
 
 /** GET /api/explore — the open words matching `filters`; refetches when they change. */
 export function useExplore(filters: MaybeRefOrGetter<ExploreFilters>) {
   const { data, ...rest } = useApiData<ExplorePayload>({
     key: () => `explore:${JSON.stringify(toValue(filters))}`,
-    path: "/api/explore",
+    path: ROUTES.explore,
     query: () => queryFromFilters(toValue(filters)),
     label: "explore",
     failed: "Failed to load the words. Please try again.",
@@ -27,7 +28,7 @@ export function useExplore(filters: MaybeRefOrGetter<ExploreFilters>) {
 export function usePatterns() {
   const { data, ...rest } = useApiData<PatternsPayload>({
     key: "patterns",
-    path: "/api/patterns",
+    path: ROUTES.patterns,
     label: "patterns",
     failed: "Failed to load the patterns. Please try again.",
   });

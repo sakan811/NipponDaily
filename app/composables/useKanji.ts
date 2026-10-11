@@ -1,12 +1,13 @@
 import { toValue, type MaybeRefOrGetter } from "vue";
 import type { KanjiDetail, KanjiIndexPayload } from "~~/types/index";
 import { useApiData } from "./useApiData";
+import { ROUTES } from "~~/shared/routes";
 
 /** GET /api/kanji — every kanji an open word is written with. */
 export function useKanjiIndex() {
   const { data, ...rest } = useApiData<KanjiIndexPayload>({
     key: "kanji-index",
-    path: "/api/kanji",
+    path: ROUTES.kanji,
     label: "kanji index",
     failed: "Failed to load the kanji. Please try again.",
   });
@@ -17,7 +18,7 @@ export function useKanjiIndex() {
 export function useKanji(char: MaybeRefOrGetter<string>) {
   const { data, ...rest } = useApiData<KanjiDetail>({
     key: () => `kanji:${toValue(char)}`,
-    path: "/api/kanji-detail",
+    path: ROUTES.kanjiDetail,
     query: () => ({ char: toValue(char) }),
     label: "kanji",
     failed: "Failed to load this kanji. Please try again.",

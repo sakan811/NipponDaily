@@ -6,6 +6,7 @@ import type {
 } from "~~/types/index";
 import { queryFromFilters } from "~~/shared/explore-query";
 import { useApiData } from "./useApiData";
+import { ROUTES } from "~~/shared/routes";
 
 /**
  * GET /api/daily-word — the home page's word of the day (no date) and the
@@ -14,7 +15,7 @@ import { useApiData } from "./useApiData";
 export function useDailyWord(date?: MaybeRefOrGetter<string | undefined>) {
   const { data, ...rest } = useApiData<DailyWordPayload>({
     key: () => `daily-word:${toValue(date) || "today"}`,
-    path: "/api/daily-word",
+    path: ROUTES.dailyWord,
     query: () => (toValue(date) ? { date: toValue(date) } : {}),
     label: "daily word",
     failed: "Failed to load the word. Please try again.",
@@ -35,7 +36,7 @@ export function useWordCalendar(
   const { data, ...rest } = useApiData<WordCalendarPayload>({
     key: () =>
       `word-calendar:${toValue(month) || "current"}:${JSON.stringify(toValue(filters) ?? {})}`,
-    path: "/api/word-calendar",
+    path: ROUTES.wordCalendar,
     query: () => ({
       ...(toValue(month) ? { month: toValue(month) } : {}),
       ...queryFromFilters(toValue(filters) ?? {}),

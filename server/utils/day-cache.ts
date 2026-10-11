@@ -7,6 +7,7 @@
  */
 
 import { msUntilJstMidnight } from "~~/shared/jst";
+import { API_PREFIX, ROUTES } from "~~/shared/routes";
 
 /** Whole seconds from `now` to the next midnight in Japan, at least 1. */
 export function secondsUntilJstMidnight(now: number = Date.now()): number {
@@ -26,7 +27,8 @@ const NEVER = [/^\/_/];
 /** A page, an API answer, the sitemap or robots.txt, as opposed to a file. */
 export function isDayCacheable(path: string): boolean {
   if (NEVER.some((re) => re.test(path))) return false;
-  if (path.startsWith("/api/")) return true;
-  if (["/sitemap.xml", "/robots.txt"].includes(path)) return true;
+  if (path.startsWith(API_PREFIX)) return true;
+  if ([ROUTES.sitemap, ROUTES.robots].some((route) => route === path))
+    return true;
   return !/\.[A-Za-z0-9]+$/.test(path);
 }
