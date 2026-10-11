@@ -1,7 +1,6 @@
 import { createRequire } from "node:module";
 import tailwindcss from "@tailwindcss/vite";
-import { SITE_THEME_CACHE_CONTROL } from "./shared/endpoints";
-import { SEASON_IDS } from "./shared/seasons";
+import { seasonBootScript } from "./shared/seasons";
 import { STORAGE_KEYS } from "./shared/storage-keys";
 
 // The site's faces, served from the app itself (@fontsource ships each as
@@ -48,6 +47,7 @@ export default defineNuxtConfig({
       script: [
         {
           innerHTML: `(function() {
+            ${seasonBootScript(STORAGE_KEYS.seasonChoice)}
             try {
               const theme = localStorage.getItem(${JSON.stringify(STORAGE_KEYS.colorTheme)});
               const isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -56,13 +56,6 @@ export default defineNuxtConfig({
                 document.documentElement.classList.add('dark');
               } else {
                 document.documentElement.classList.remove('dark');
-              }
-              const seasons = ${JSON.stringify(SEASON_IDS)};
-              const choice = localStorage.getItem(${JSON.stringify(STORAGE_KEYS.seasonChoice)});
-              const cachedSeason = localStorage.getItem(${JSON.stringify(STORAGE_KEYS.siteThemeSeason)});
-              const season = seasons.indexOf(choice) !== -1 ? choice : cachedSeason;
-              if (seasons.indexOf(season) !== -1) {
-                document.documentElement.setAttribute('data-season', season);
               }
               const updateLinkPaths = function() {
                 const links = document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"], link[rel="manifest"]');
@@ -119,10 +112,6 @@ export default defineNuxtConfig({
   },
   nitro: { externals: { traceInclude: [HARFBUZZ_WASM] } },
   routeRules: {
-    // The active season: its CDN rule is SITE_THEME_CACHE_CONTROL.
-    "/api/site-theme": {
-      headers: { "cache-control": SITE_THEME_CACHE_CONTROL },
-    },
     // The daily game and the lesson/vocabulary pages were replaced by the
     // daily-word calendar. Temporary (not 301) redirects, so old bookmarks and
     // links land on the front page without a browser caching the move forever.
@@ -131,9 +120,6 @@ export default defineNuxtConfig({
     "/vocab/**": { redirect: { to: "/", statusCode: 302 } },
   },
   runtimeConfig: {
-    upstashRedisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
-    upstashRedisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
-    cronSecret: process.env.CRON_SECRET,
     public: {
       // The site's canonical origin, for absolute canonical/Open Graph URLs and
       // the sitemap. Optional: without it the origin of the request is used.

@@ -7,10 +7,8 @@
 export const STORAGE_KEYS = {
   /** `"light"` or `"dark"`, set by the colour-mode button. */
   colorTheme: "color-theme",
-  /** The reader's own season pick; wins over the site's season. */
+  /** The reader's own season pick; wins over the calendar's season. */
   seasonChoice: "season-choice",
-  /** The site's season as last fetched, applied before paint on a repeat visit. */
-  siteThemeSeason: "site-theme-season",
   /** The music slider, 0 to 100. */
   bgmVolume: "bgm-volume",
 } as const;

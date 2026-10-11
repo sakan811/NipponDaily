@@ -9,11 +9,10 @@ describe("isRateLimited", () => {
     expect(isRateLimited("/og.png")).toBe(true);
   });
 
-  it("leaves pages, files and the cron alone", () => {
+  it("leaves pages and files alone", () => {
     expect(isRateLimited("/")).toBe(false);
     expect(isRateLimited("/docs/api")).toBe(false);
     expect(isRateLimited("/sitemap.xml")).toBe(false);
-    expect(isRateLimited("/api/cron/update-season")).toBe(false);
   });
 });
 

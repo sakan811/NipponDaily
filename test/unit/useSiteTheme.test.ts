@@ -1,12 +1,17 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
-
-const fetchMock = (global as any).$fetch as ReturnType<typeof vi.fn>;
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 let useSiteTheme: typeof import("~/app/composables/useSiteTheme").useSiteTheme;
 
+const season = () => document.documentElement.getAttribute("data-season");
+
+/** The clock, fixed to an instant (UTC); the season follows the date in Japan. */
+const at = (iso: string) => {
+  vi.useFakeTimers();
+  vi.setSystemTime(new Date(iso));
+};
+
 describe("useSiteTheme", () => {
   beforeEach(async () => {
-    fetchMock.mockReset();
     document.documentElement.removeAttribute("data-season");
     localStorage.clear();
     // The composable keeps shared module-level state; start each test fresh.
@@ -14,153 +19,150 @@ describe("useSiteTheme", () => {
     ({ useSiteTheme } = await import("~/app/composables/useSiteTheme"));
   });
 
-  it("applies and caches a known season", async () => {
-    fetchMock.mockResolvedValue({
-      success: true,
-      data: { season: "winter", updatedAt: 1, source: "cron" },
-    });
-    const { theme, fetchTheme, loading } = useSiteTheme();
-
-    await fetchTheme();
-
-    expect(document.documentElement.getAttribute("data-season")).toBe("winter");
-    expect(localStorage.getItem("site-theme-season")).toBe("winter");
-    expect(theme.value?.season).toBe("winter");
-    expect(loading.value).toBe(false);
+  afterEach(() => {
+    vi.useRealTimers();
   });
 
-  it("ignores a season this build doesn't implement", async () => {
-    document.documentElement.setAttribute("data-season", "sakura");
-    fetchMock.mockResolvedValue({
-      success: true,
-      data: { season: "monsoon", updatedAt: 1, source: "cron" },
-    });
-    const { theme, fetchTheme } = useSiteTheme();
+  describe("the daily season check", () => {
+    it("applies the season for today's date in Japan", () => {
+      at("2026-07-15T00:00:00Z");
+      const { startSeasonCheck, activeSeason } = useSiteTheme();
 
-    await fetchTheme();
+      const stop = startSeasonCheck();
 
-    expect(document.documentElement.getAttribute("data-season")).toBe("sakura");
-    expect(theme.value).toBeNull();
-  });
-
-  it("skips the storage write when the season is already cached", async () => {
-    document.documentElement.setAttribute("data-season", "autumn");
-    localStorage.setItem("site-theme-season", "autumn");
-    const setItem = vi.spyOn(localStorage, "setItem");
-    fetchMock.mockResolvedValue({
-      success: true,
-      data: { season: "autumn", updatedAt: 1, source: "cron" },
+      expect(season()).toBe("summer");
+      expect(activeSeason.value).toBe("summer");
+      stop();
     });
 
-    await useSiteTheme().fetchTheme();
+    it("reads the date in Japan, not UTC, at a month boundary", () => {
+      // 2026-02-28 20:00 UTC is already 1 March, 05:00 in Japan: spring.
+      at("2026-02-28T20:00:00Z");
+      const stop = useSiteTheme().startSeasonCheck();
 
-    expect(setItem).not.toHaveBeenCalled();
-    setItem.mockRestore();
-  });
-
-  it("still applies the season when storage is blocked", async () => {
-    const setItem = vi.spyOn(localStorage, "setItem").mockImplementation(() => {
-      throw new Error("blocked");
-    });
-    fetchMock.mockResolvedValue({
-      success: true,
-      data: { season: "summer", updatedAt: 1, source: "cron" },
+      expect(season()).toBe("sakura");
+      stop();
     });
 
-    await useSiteTheme().fetchTheme();
+    it("turns with the calendar at midnight in Japan, with no reload", () => {
+      // 31 Aug 23:59:00 JST (14:59 UTC): the last minute of summer.
+      at("2026-08-31T14:59:00Z");
+      const stop = useSiteTheme().startSeasonCheck();
+      expect(season()).toBe("summer");
 
-    expect(document.documentElement.getAttribute("data-season")).toBe("summer");
-    setItem.mockRestore();
+      vi.advanceTimersByTime(30_000);
+      expect(season()).toBe("summer");
+
+      // Past midnight (and the one second of slack the check allows).
+      vi.advanceTimersByTime(32_000);
+      expect(season()).toBe("autumn");
+      stop();
+    });
+
+    it("keeps checking every midnight after the first", () => {
+      at("2026-11-30T14:59:00Z");
+      const stop = useSiteTheme().startSeasonCheck();
+      expect(season()).toBe("autumn");
+
+      vi.advanceTimersByTime(62_000);
+      expect(season()).toBe("winter");
+
+      // Another day on: still winter, and the timer is still armed.
+      vi.advanceTimersByTime(24 * 60 * 60 * 1000);
+      expect(season()).toBe("winter");
+      expect(vi.getTimerCount()).toBe(1);
+      stop();
+    });
+
+    it("catches up when a tab that slept becomes visible again", () => {
+      at("2026-08-31T14:00:00Z");
+      const stop = useSiteTheme().startSeasonCheck();
+      expect(season()).toBe("summer");
+
+      // The tab slept through midnight: no timer fired.
+      vi.setSystemTime(new Date("2026-09-01T03:00:00Z"));
+      document.dispatchEvent(new Event("visibilitychange"));
+
+      expect(season()).toBe("autumn");
+      stop();
+    });
+
+    it("stops checking when told to", () => {
+      at("2026-08-31T14:59:00Z");
+      const stop = useSiteTheme().startSeasonCheck();
+
+      stop();
+      expect(vi.getTimerCount()).toBe(0);
+
+      vi.advanceTimersByTime(5 * 60_000);
+      expect(season()).toBe("summer");
+      vi.setSystemTime(new Date("2026-09-02T00:00:00Z"));
+      document.dispatchEvent(new Event("visibilitychange"));
+      expect(season()).toBe("summer");
+    });
+
+    it("makes no request: the season comes from the date alone", () => {
+      const fetchMock = (global as any).$fetch as ReturnType<typeof vi.fn>;
+      fetchMock.mockClear();
+      at("2026-10-10T00:00:00Z");
+
+      useSiteTheme().startSeasonCheck()();
+
+      expect(fetchMock).not.toHaveBeenCalled();
+    });
   });
 
-  it("records an error when the request fails", async () => {
-    vi.spyOn(console, "error").mockImplementation(() => {});
-    fetchMock.mockRejectedValue(new Error("offline"));
-    const { error, loading, fetchTheme } = useSiteTheme();
-
-    await fetchTheme();
-
-    expect(error.value).toBe("Failed to load the site theme.");
-    expect(loading.value).toBe(false);
-  });
   describe("reader's season choice", () => {
-    const serverSays = (season: string) =>
-      fetchMock.mockResolvedValue({
-        success: true,
-        data: { season, updatedAt: 1, source: "cron" },
-      });
-
     it("applies and remembers a picked season", () => {
       const { chooseSeason, choice, activeSeason } = useSiteTheme();
 
       chooseSeason("winter");
 
-      expect(document.documentElement.getAttribute("data-season")).toBe(
-        "winter",
-      );
+      expect(season()).toBe("winter");
       expect(localStorage.getItem("season-choice")).toBe("winter");
       expect(choice.value).toBe("winter");
       expect(activeSeason.value).toBe("winter");
     });
 
-    it("keeps the reader's pick over the site's season after a fetch", async () => {
-      localStorage.setItem("season-choice", "summer");
-      serverSays("autumn");
-      const { fetchTheme, theme, activeSeason } = useSiteTheme();
+    it("keeps the reader's pick over the calendar, including at midnight", () => {
+      at("2026-08-31T14:59:00Z");
+      localStorage.setItem("season-choice", "winter");
+      const { startSeasonCheck, activeSeason } = useSiteTheme();
 
-      await fetchTheme();
+      const stop = startSeasonCheck();
+      expect(season()).toBe("winter");
 
-      expect(document.documentElement.getAttribute("data-season")).toBe(
-        "summer",
-      );
-      expect(activeSeason.value).toBe("summer");
-      // The site's season is still tracked and cached.
-      expect(theme.value?.season).toBe("autumn");
-      expect(localStorage.getItem("site-theme-season")).toBe("autumn");
+      vi.advanceTimersByTime(62_000); // summer turns to autumn in Japan
+      expect(season()).toBe("winter");
+      expect(activeSeason.value).toBe("winter");
+      stop();
     });
 
-    it("ignores a saved pick naming a season this build doesn't have", async () => {
+    it("ignores a saved pick naming a season this build doesn't have", () => {
+      at("2026-10-10T00:00:00Z");
       localStorage.setItem("season-choice", "monsoon");
-      serverSays("autumn");
-      const { fetchTheme, choice } = useSiteTheme();
+      const { startSeasonCheck, choice } = useSiteTheme();
 
-      await fetchTheme();
+      const stop = startSeasonCheck();
 
       expect(choice.value).toBeNull();
-      expect(document.documentElement.getAttribute("data-season")).toBe(
-        "autumn",
-      );
+      expect(season()).toBe("autumn");
+      stop();
     });
 
-    it("going back to following the site restores the site's season", async () => {
-      serverSays("autumn");
-      const { fetchTheme, chooseSeason, choice } = useSiteTheme();
-      await fetchTheme();
+    it("going back to following the calendar restores today's season", () => {
+      at("2026-10-10T00:00:00Z");
+      const { startSeasonCheck, chooseSeason, choice } = useSiteTheme();
+      const stop = startSeasonCheck();
 
       chooseSeason("winter");
-      expect(document.documentElement.getAttribute("data-season")).toBe(
-        "winter",
-      );
+      expect(season()).toBe("winter");
 
       chooseSeason(null);
       expect(choice.value).toBeNull();
       expect(localStorage.getItem("season-choice")).toBeNull();
-      expect(document.documentElement.getAttribute("data-season")).toBe(
-        "autumn",
-      );
-    });
-
-    it("follows the calendar when the site's season is unknown", () => {
-      vi.useFakeTimers();
-      vi.setSystemTime(new Date("2026-07-15T00:00:00Z"));
-      const { chooseSeason } = useSiteTheme();
-
-      chooseSeason(null);
-
-      expect(document.documentElement.getAttribute("data-season")).toBe(
-        "summer",
-      );
-      vi.useRealTimers();
+      expect(season()).toBe("autumn");
+      stop();
     });
 
     it("still applies a pick when storage is blocked", () => {
@@ -173,10 +175,23 @@ describe("useSiteTheme", () => {
 
       chooseSeason("autumn");
 
-      expect(document.documentElement.getAttribute("data-season")).toBe(
-        "autumn",
-      );
+      expect(season()).toBe("autumn");
       setItem.mockRestore();
+    });
+
+    it("follows the calendar when storage cannot be read", () => {
+      at("2026-07-15T00:00:00Z");
+      const getItem = vi
+        .spyOn(localStorage, "getItem")
+        .mockImplementation(() => {
+          throw new Error("blocked");
+        });
+
+      const stop = useSiteTheme().startSeasonCheck();
+
+      expect(season()).toBe("summer");
+      getItem.mockRestore();
+      stop();
     });
   });
 });

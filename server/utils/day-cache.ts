@@ -6,13 +6,11 @@
  * exactly at the moment the cached copy expires.
  */
 
-import { DAY_MS, JST_OFFSET_MS } from "~~/shared/jst";
+import { msUntilJstMidnight } from "~~/shared/jst";
 
 /** Whole seconds from `now` to the next midnight in Japan, at least 1. */
 export function secondsUntilJstMidnight(now: number = Date.now()): number {
-  const nextMidnight =
-    (Math.floor((now + JST_OFFSET_MS) / DAY_MS) + 1) * DAY_MS;
-  return Math.max(1, Math.ceil((nextMidnight - JST_OFFSET_MS - now) / 1000));
+  return Math.max(1, Math.ceil(msUntilJstMidnight(now) / 1000));
 }
 
 /** `s-maxage` only: shared caches keep it until midnight, a browser still
@@ -22,9 +20,8 @@ export function dayCacheControl(now: number = Date.now()): string {
   return `public, max-age=0, s-maxage=${secondsUntilJstMidnight(now)}`;
 }
 
-/** Paths that change within a day, or are not ours to cache: the season (own
- *  rule in `nuxt.config.ts`), the cron, and the build's hashed assets. */
-const NEVER = [/^\/api\/site-theme$/, /^\/api\/cron(\/|$)/, /^\/_/];
+/** Paths that are not ours to cache: the build's hashed assets. */
+const NEVER = [/^\/_/];
 
 /** A page, an API answer, the sitemap or robots.txt, as opposed to a file. */
 export function isDayCacheable(path: string): boolean {

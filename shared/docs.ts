@@ -63,7 +63,7 @@ export const DOC_CHAPTERS: readonly DocChapter[] = [
     part: "How it is built",
     title: "Seasons",
     summary:
-      "How the year clock works: the cron, the site theme and the reader's own pick.",
+      "How the year clock works: the date in Japan, the daily check and the reader's own pick.",
   },
   {
     slug: "color-palette",

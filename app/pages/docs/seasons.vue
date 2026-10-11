@@ -2,8 +2,9 @@
   <DocsBook slug="seasons">
     <template #lede>
       The year clock. A season sets the site's colours and shapes through a
-      <code>data-season</code> attribute on <code>&lt;html&gt;</code>, and a
-      daily cron keeps it in step with the calendar in Japan.
+      <code>data-season</code> attribute on <code>&lt;html&gt;</code>. The
+      browser works the season out from the date in Japan and checks again at
+      every midnight, so nothing about it is stored or fetched.
     </template>
 
     <h2>The four seasons</h2>
@@ -37,41 +38,38 @@
 
     <h2>How a season reaches the page</h2>
     <DocDiagram
-      label="The cron writes the site's season; the reader's own pick wins over it"
+      label="The date in Japan gives the season; the reader's own pick wins over it"
       :nodes="flow.nodes"
       :edges="flow.edges"
       :groups="flow.groups"
     />
     <ul>
       <li>
-        <strong>Cron.</strong> <code>vercel.json</code> runs
-        <code>GET /api/cron/update-season</code> at
-        <code>{{ cron.schedule }}</code> UTC (midnight in Japan). It checks
-        <code>Authorization: Bearer &lt;CRON_SECRET&gt;</code> in constant time
-        (a missing or wrong token, or no secret, is a <code>401</code>),
-        computes <code>seasonForDate()</code> and saves a
-        <code>SiteTheme</code> with <code>source: "cron"</code> only if it
-        differs from the stored one. It returns
-        <code>{ season, previousSeason, changed }</code>.
+        <strong>The calendar.</strong> <code>seasonForDate()</code> in
+        <code>shared/seasons.ts</code> maps the month in Japan (UTC+9, no
+        daylight saving) to a season. It is a pure function of the date, which
+        is why no server, cron or datastore is involved: the same answer is
+        worked out anywhere, and it cannot go stale.
       </li>
       <li>
-        <strong>Site theme.</strong> <code>GET /api/site-theme</code> reads the
-        single record (<code>{{ SITE_THEME_REDIS_KEY }}</code
-        >) from Redis, or builds one for today's season (<code
-          >source: "fallback"</code
-        >) and saves it with Redis <code>NX</code>, so a concurrent cron write
-        is never clobbered, and the site is never unstyled. Responses carry
-        <code>cache-control: {{ SITE_THEME_CACHE_CONTROL }}</code> (a
-        <code>routeRules</code> entry in <code>nuxt.config.ts</code>).
+        <strong>Before first paint.</strong> An inline script in
+        <code>nuxt.config.ts</code> (built by <code>seasonBootScript()</code>)
+        sets <code>data-season</code> on <code>&lt;html&gt;</code>: the reader's
+        <code>{{ STORAGE_KEYS.seasonChoice }}</code> if there is one, else the
+        season for this month in Japan, read from a twelve-entry table embedded
+        in the script. A first visit therefore never flashes the default
+        palette, and blocked storage cannot stop it. The season is applied in
+        the browser, never in the HTML, which is why a page cached for everyone
+        is safe.
       </li>
       <li>
-        <strong>Applying it.</strong> <code>useSiteTheme()</code> sets
-        <code>data-season</code> on <code>&lt;html&gt;</code>; the reader's
-        <code>{{ STORAGE_KEYS.seasonChoice }}</code> wins over the site's
-        season. An inline script in <code>nuxt.config.ts</code> applies
-        <code>{{ STORAGE_KEYS.seasonChoice }}</code
-        >, else the cached <code>{{ STORAGE_KEYS.siteThemeSeason }}</code
-        >, before paint, so a repeat visit never flashes the default.
+        <strong>The daily check.</strong> Once the page is up,
+        <code>useSiteTheme()</code> (started from <code>app.vue</code>) applies
+        the season again, then checks at the next midnight in Japan and at every
+        midnight after, and whenever the tab becomes visible again. A page left
+        open past the turn of a month therefore changes season without a reload,
+        and a hidden tab, whose timers sleep, catches up the moment it returns.
+        The check does nothing while the reader has picked a season.
       </li>
       <li>
         <strong>Season button.</strong> <code>SeasonButton.vue</code> lets a
@@ -105,53 +103,38 @@
 import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import type { DiagramSpec } from "../../utils/diagram";
-import vercel from "~~/vercel.json";
-import { SITE_THEME_CACHE_CONTROL } from "~~/shared/endpoints";
 import {
   DEFAULT_SEASON,
   monthsText,
   SEASON_IDS,
   SEASONS,
-  SITE_THEME_REDIS_KEY,
 } from "~~/shared/seasons";
 import { STORAGE_KEYS } from "~~/shared/storage-keys";
-
-const cron = vercel.crons.find((c) => c.path === "/api/cron/update-season")!;
 
 const seasons = SEASON_IDS.map((id) => SEASONS[id]);
 
 const flow: Required<DiagramSpec> = {
   nodes: [
     {
-      id: "cron",
-      label: "Vercel cron",
-      sub: "midnight JST",
+      id: "date",
+      label: "Date\n(Japan, JST)",
       col: 0,
       row: 0,
       kind: "actor",
     },
     {
-      id: "redis",
-      label: "Redis",
-      sub: SITE_THEME_REDIS_KEY,
+      id: "season",
+      label: "A season",
+      sub: "seasonForDate()",
       col: 1,
       row: 0,
-      kind: "store",
     },
     {
-      id: "theme",
-      label: "GET /api/site-theme",
-      sub: "fallback: today's",
+      id: "script",
+      label: "Inline script",
+      sub: "applies it before paint",
       col: 2,
       row: 0,
-    },
-    {
-      id: "hook",
-      label: "useSiteTheme()",
-      sub: "data-season on <html>",
-      col: 2,
-      row: 1.5,
-      kind: "check",
     },
     {
       id: "pick",
@@ -162,20 +145,31 @@ const flow: Required<DiagramSpec> = {
       kind: "actor",
     },
     {
-      id: "script",
-      label: "Inline script",
-      sub: "applies it before paint",
+      id: "hook",
+      label: "useSiteTheme()",
+      sub: "checks every midnight",
       col: 1,
       row: 1.5,
     },
+    {
+      id: "html",
+      label: "The site's look",
+      sub: "data-season on <html>",
+      col: 2,
+      row: 1.5,
+      kind: "check",
+    },
   ],
   edges: [
-    { from: "cron", to: "redis", label: "if changed" },
-    { from: "theme", to: "redis", label: "reads" },
-    { from: "theme", to: "hook" },
-    { from: "pick", to: "script", label: "wins" },
-    { from: "script", to: "hook", kind: "dashed" },
+    { from: "date", to: "season" },
+    { from: "season", to: "script" },
+    { from: "script", to: "html", out: "b", into: "t" },
+    { from: "season", to: "hook", label: "daily check" },
+    { from: "pick", to: "hook", label: "wins" },
+    { from: "hook", to: "html" },
   ],
-  groups: [{ label: "Server", ids: ["cron", "redis", "theme"] }],
+  groups: [
+    { label: "In the browser", ids: ["season", "script", "hook", "html"] },
+  ],
 };
 </script>

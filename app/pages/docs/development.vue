@@ -13,8 +13,8 @@
 cp .env.example .env
 pnpm dev          # http://localhost:3000</code></pre>
     <p>
-      The daily words need no configuration. Redis is only used for the site's
-      season; without it the season is kept in process memory. The data scripts
+      The site needs no configuration: the daily words are in-repo data and the
+      season is worked out in the browser from the date. The data scripts
       (<code>scripts/build-*.mjs</code>) run through the
       <code>data:*</code> commands under plain <code>node</code> and need no
       credentials.
@@ -22,9 +22,8 @@ pnpm dev          # http://localhost:3000</code></pre>
 
     <h2>Environment</h2>
     <p>
-      See <code>.env.example</code>. Redis and cron settings go through
-      <code>getEnvOrConfig</code> in <code>server/utils/config.ts</code>; the
-      site URL is read from <code>runtimeConfig.public</code>.
+      See <code>.env.example</code>. There is one optional variable; the site
+      URL is read from <code>runtimeConfig.public</code>.
     </p>
     <div class="table-wrap">
       <table>
@@ -270,15 +269,6 @@ import DocsBook from "../../components/DocsBook.vue";
 import RichText from "../../components/RichText.vue";
 
 const env = [
-  {
-    name: "UPSTASH_REDIS_REST_URL",
-    use: "Upstash Redis REST URL, storing the active site theme. Not needed for the words.",
-  },
-  { name: "UPSTASH_REDIS_REST_TOKEN", use: "Upstash Redis REST token." },
-  {
-    name: "CRON_SECRET",
-    use: "Bearer token `GET /api/cron/update-season` requires (Vercel sends it on cron requests). Generate with `openssl rand -hex 32`. Unset, the endpoint answers `401`.",
-  },
   {
     name: "NUXT_PUBLIC_SITE_URL",
     use: "Optional canonical origin for canonical and Open Graph URLs and the sitemap; otherwise each request's own origin.",

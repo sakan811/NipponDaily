@@ -135,14 +135,16 @@ describe("the chapters' content", () => {
     expect(text).toContain("429");
   });
 
-  it("seasons lists the presets and the cron, from the registry", async () => {
+  it("seasons lists the presets and the daily check, from the registry", async () => {
     const text = (await render("seasons")).text();
     for (const id of SEASON_IDS) {
       expect(text).toContain(SEASONS[id].label);
       expect(text).toContain(id);
     }
-    expect(text).toContain("/api/cron/update-season");
-    expect(text).toContain("CRON_SECRET");
+    expect(text).toContain("seasonForDate()");
+    expect(text).toContain("The daily check");
+    // Nothing is stored or fetched for the season any more.
+    expect(text).not.toMatch(/Redis|CRON_SECRET|\/api\/site-theme/);
   });
 
   it("colour and shape names every season's palette", async () => {
@@ -187,12 +189,9 @@ describe("the chapters' content", () => {
 
   it("development lists the environment and how the docs are kept true", async () => {
     const wrapper = await render("development");
-    for (const name of [
-      "UPSTASH_REDIS_REST_URL",
-      "CRON_SECRET",
-      "NUXT_PUBLIC_SITE_URL",
-    ]) {
-      expect(wrapper.text()).toContain(name);
+    expect(wrapper.text()).toContain("NUXT_PUBLIC_SITE_URL");
+    for (const gone of ["UPSTASH_REDIS_REST_URL", "CRON_SECRET"]) {
+      expect(wrapper.text()).not.toContain(gone);
     }
     expect(wrapper.find("#docs").exists()).toBe(true);
   });

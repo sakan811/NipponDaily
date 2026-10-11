@@ -11,11 +11,6 @@
 /** What the rate limiter allows one address, per window (`server/utils/rate-limit.ts`). */
 export const RATE_LIMIT = { limit: 120, windowMs: 60_000 } as const;
 
-/** The site's season changes a few times a year and every page load fetches it,
- *  so the CDN absorbs that; a cron write shows within about a minute. */
-export const SITE_THEME_CACHE_CONTROL =
-  "public, max-age=0, s-maxage=60, stale-while-revalidate=600";
-
 /** A day's share image never changes once the day has opened. */
 export const OG_CACHE_CONTROL =
   "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400";
@@ -96,17 +91,6 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     path: "/api/catalogue",
     returns:
       "`{ first, last, total, open }`: the first and last day of the written catalogue, how many words it holds and how many have opened. The word range quoted in the docs comes from this.",
-  },
-  {
-    method: "GET",
-    path: "/api/site-theme",
-    returns: `The site \`SiteTheme\`, \`{ season, updatedAt, source }\`, where \`source\` is \`"cron"\` or \`"fallback"\`. CDN-cached: \`cache-control: ${SITE_THEME_CACHE_CONTROL}\`.`,
-  },
-  {
-    method: "GET",
-    path: "/api/cron/update-season",
-    returns:
-      "Called by the cron. Needs `Authorization: Bearer <CRON_SECRET>` (else `401`). Returns `{ season, previousSeason, changed }`.",
   },
   {
     method: "GET",

@@ -23,8 +23,9 @@
         API, the sitemap and every derived page read only open days.
       </li>
       <li>
-        <strong>Redis holds only the site's season.</strong> Without Redis the
-        season is kept in process memory; the words need no configuration.
+        <strong>The server stores nothing.</strong> The words are in-repo data
+        and the season is worked out from the date in the browser, so the app
+        needs no datastore and no configuration.
       </li>
       <li>
         <strong
@@ -46,7 +47,7 @@
     <h2>Layout</h2>
     <pre><code>app/        pages/, components/, composables/, utils/, data/, assets/css/tailwind.css
 shared/     code imported by both app/ and server/ (the ~~/shared alias); not auto-imported
-server/     api/ (handlers), routes/ (sitemap, robots, share images), middleware/ (rate limit), plugins/ (caching), services/ (Redis), utils/, assets/og/ (share-image fonts)
+server/     api/ (handlers), routes/ (sitemap, robots, share images), middleware/ (rate limit), plugins/ (caching), utils/, assets/og/ (share-image fonts)
 scripts/    data builders run with node: reference snapshots, etymology pins, example sentences, pitch accents, kanji records, strokes, entry generator
 data/       word-plan/ (hand-written), words/ (generated), reference/ (generated evidence)
 types/      shared TypeScript shapes (index.ts)
@@ -67,7 +68,7 @@ e2e/        Playwright browser tests of the built app</code></pre>
             <td>
               <code>{{ m.file }}</code
               ><template v-if="m.serverOnly"
-                ><br ><em>server and tests only</em></template
+                ><br /><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>
@@ -162,10 +163,8 @@ e2e/        Playwright browser tests of the built app</code></pre>
       running the app and the copy expires at the moment a new word opens. It
       sets no <code>stale-while-revalidate</code>, which would show yesterday's
       word after the day had turned, and it never marks an error. The exceptions
-      are <code>/api/site-theme</code> (a short rule of its own in
-      <code>nuxt.config.ts</code>), the cron, and the share image, which never
-      changes once its day has opened and so keeps longer; both rules are in
-      <code>shared/endpoints.ts</code> and the
+      is the share image, which never changes once its day has opened and so
+      keeps longer; its rule is in <code>shared/endpoints.ts</code> and the
       <NuxtLink to="/docs/api">API</NuxtLink>
       chapter. The season is applied in the browser, never in the HTML, which is
       why a cached page is safe. Without a CDN that honours
@@ -181,20 +180,15 @@ e2e/        Playwright browser tests of the built app</code></pre>
     <h2>Conventions</h2>
     <ul>
       <li>
-        <strong>Service layer.</strong> Storage and external calls live in
-        <code>server/services/</code>; each exports the class and a singleton
-        (<code>siteThemeService</code>). The daily words deliberately have no
-        service: they are in-repo data.
+        <strong>No service layer.</strong> The server holds no state of its own
+        and calls nothing outside the process: the daily words are in-repo data,
+        so handlers read them through <code>shared/</code>.
       </li>
       <li>
-        <strong>Configuration</strong> (Redis credentials, the cron secret) goes
-        through <code>server/utils/config.ts</code>'s
-        <code>getEnvOrConfig(configKey, envKey)</code>, which prefers Nuxt
-        <code>runtimeConfig</code> and falls back to <code>process.env</code>,
-        so it also works outside a request. The public site URL is read from
-        <code>runtimeConfig.public</code> by <code>siteOrigin()</code> in
-        <code>server/utils/site-url.ts</code>. The data scripts run under plain
-        <code>node</code> and need no Redis credentials.
+        <strong>Configuration</strong> is one optional setting, the public site
+        URL, read from <code>runtimeConfig.public</code> by
+        <code>siteOrigin()</code> in <code>server/utils/site-url.ts</code>. The
+        data scripts run under plain <code>node</code> and need no credentials.
       </li>
       <li><strong>Types</strong> live in <code>types/index.ts</code>.</li>
       <li>
@@ -314,30 +308,12 @@ const system: Required<DiagramSpec> = {
       row: 2.4,
       kind: "store",
     },
-    {
-      id: "redis",
-      label: "Redis",
-      sub: "the site's season",
-      col: 2,
-      row: 2.4,
-      kind: "store",
-    },
-    {
-      id: "cron",
-      label: "Vercel cron",
-      sub: "midnight JST daily",
-      col: 1,
-      row: 2.4,
-      kind: "actor",
-    },
   ],
   edges: [
     { from: "reader", to: "pages", label: "HTML" },
     { from: "pages", to: "api", label: "$fetch\nin-process" },
     { from: "api", to: "shared" },
     { from: "shared", to: "words", label: "open days only" },
-    { from: "api", to: "redis", out: "b", into: "t", label: "season" },
-    { from: "cron", to: "redis", label: "writes" },
     {
       from: "pages",
       to: "shared",
@@ -347,7 +323,7 @@ const system: Required<DiagramSpec> = {
       label: "never imports",
     },
   ],
-  groups: [{ label: "Server only", ids: ["api", "shared", "words", "redis"] }],
+  groups: [{ label: "Server only", ids: ["api", "shared", "words"] }],
 };
 
 const sharedModules = [

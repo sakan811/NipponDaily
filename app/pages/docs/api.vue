@@ -32,8 +32,8 @@
       A successful answer is cached until midnight in Japan (<NuxtLink
         to="/docs/architecture#caching"
         >Caching</NuxtLink
-      >). An address that asks an <code>/api/</code> endpoint (the cron aside)
-      or the share image more than {{ RATE_LIMIT.limit }} times in
+      >). An address that asks an <code>/api/</code> endpoint or the share image
+      more than {{ RATE_LIMIT.limit }} times in
       {{ RATE_LIMIT.windowMs / 1000 }} seconds gets a <code>429</code> with
       <code>Retry-After</code>. The count is kept in memory, never stored, so
       each server instance counts alone, and a client behind a proxy that does
