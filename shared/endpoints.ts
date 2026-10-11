@@ -4,9 +4,10 @@
  * `test/server/docs-sync.test.ts` fails if it and the files under `server/api`
  * and `server/routes` disagree.
  *
- * Data-free, import-free, plain erasable TypeScript. `returns` is
- * "markdown-light": `code` spans only.
+ * Data-free, plain erasable TypeScript, importing only the other number
+ * modules. `returns` is "markdown-light": `code` spans only.
  */
+import { STROKE_SQUARE } from "./limits";
 
 /** What the rate limiter allows one address, per window (`server/utils/rate-limit.ts`). */
 export const RATE_LIMIT = { limit: 120, windowMs: 60_000 } as const;
@@ -64,7 +65,11 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     path: "/api/kanji-detail",
     query: "?char=日",
     returns:
-      "KANJIDIC2's record of one kanji with the open words written with it: `{ char, strokeCount, grade?, freq?, on, kun, meanings, count, words, isPart, strokes? }`, where `strokes` is KanjiVG's stroke paths in drawing order on a 109 by 109 square, left out when KanjiVG and KANJIDIC2 count the strokes differently. Only days that have arrived count, so a kanji used only by an upcoming word is a `404`. A missing value or more than one character is a `400`.",
+      "KANJIDIC2's record of one kanji with the open words written with it: `{ char, strokeCount, grade?, freq?, on, kun, meanings, count, words, isPart, strokes? }`, where `strokes` is KanjiVG's stroke paths in drawing order on a " +
+      STROKE_SQUARE +
+      " by " +
+      STROKE_SQUARE +
+      " square, left out when KanjiVG and KANJIDIC2 count the strokes differently. Only days that have arrived count, so a kanji used only by an upcoming word is a `404`. A missing value or more than one character is a `400`.",
   },
   {
     method: "GET",
