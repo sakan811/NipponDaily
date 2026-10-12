@@ -28,8 +28,8 @@ const query = (value: Record<string, string>) =>
 describe("GET /api/related", () => {
   beforeEach(() => {
     vi.useFakeTimers();
-    at("2026-03-08T12:00:00Z");
-    query({ date: "2026-03-02" });
+    at("2012-10-09T12:00:00Z");
+    query({ date: "2012-10-03" });
   });
   afterEach(() => vi.useRealTimers());
 
@@ -37,16 +37,16 @@ describe("GET /api/related", () => {
     const result = (await getRelated())({} as any);
 
     expect(result.success).toBe(true);
-    expect(result.data.date).toBe("2026-03-02");
+    expect(result.data.date).toBe("2012-10-03");
     expect(result.data.words.length).toBeGreaterThan(0);
     for (const w of result.data.words) {
-      expect(w.date).not.toBe("2026-03-02");
-      expect(w.date <= "2026-03-08").toBe(true);
+      expect(w.date).not.toBe("2012-10-03");
+      expect(w.date <= "2012-10-09").toBe(true);
     }
   });
 
   it("rejects a day that has not arrived", async () => {
-    query({ date: "2026-03-09" });
+    query({ date: "2012-10-10" });
     const handler = await getRelated();
 
     expect(thrownBy(() => handler({} as any))?.statusCode).toBe(400);
