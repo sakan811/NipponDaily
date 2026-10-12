@@ -1,0 +1,1109 @@
+[
+  {
+    "date": "2014-08-01",
+    "term": "折れる",
+    "kana": "おれる",
+    "meaning": "to break, to be folded, to give in; to turn (a corner)",
+    "level": "N4",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 142062,
+        "ja": "折れるより曲がれ。",
+        "en": "Better to bend than break.",
+        "enId": 272507,
+        "form": "折れる",
+        "furigana": [["折", "お"], ["れるより"], ["曲", "ま"], ["がれ。"]]
+      },
+      {
+        "id": 202669,
+        "ja": "ついにバス会社が折れた。",
+        "en": "At last, the bus company gave in.",
+        "enId": 39903,
+        "form": "折れた",
+        "furigana": [
+          ["ついにバス"],
+          ["会社", "かいしゃ"],
+          ["が"],
+          ["折", "お"],
+          ["れた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-02",
+    "term": "産業",
+    "kana": "さんぎょう",
+    "meaning": "industry",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 169324,
+        "ja": "産業の伸び率には驚きだ。",
+        "en": "I'm amazed by the rate at which industries grow.",
+        "enId": 245163,
+        "form": "産業",
+        "furigana": [
+          ["産業", "さんぎょう"],
+          ["の"],
+          ["伸", "の"],
+          ["び"],
+          ["率", "りつ"],
+          ["には"],
+          ["驚", "おどろ"],
+          ["きだ。"]
+        ]
+      },
+      {
+        "id": 98340,
+        "ja": "彼らは、産業を勉強します。",
+        "en": "They study industry.",
+        "enId": 305362,
+        "form": "産業",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは、"],
+          ["産業", "さんぎょう"],
+          ["を"],
+          ["勉強", "べんきょう"],
+          ["します。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-03",
+    "term": "伝える",
+    "kana": "つたえる",
+    "meaning": "to convey (a message); to tell, to report",
+    "level": "N4",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 213766,
+        "ja": "そう伝えます。",
+        "en": "I'll tell him that.",
+        "enId": 51053,
+        "form": "伝えます",
+        "furigana": [["そう"], ["伝", "つた"], ["えます。"]]
+      },
+      {
+        "id": 125242,
+        "ja": "鉄は熱をよく伝える。",
+        "en": "Iron transmits heat well.",
+        "enId": 278751,
+        "form": "伝える",
+        "furigana": [
+          ["鉄", "てつ"],
+          ["は"],
+          ["熱", "ねつ"],
+          ["をよく"],
+          ["伝", "つた"],
+          ["える。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-04",
+    "term": "お金持ち",
+    "kana": "おかねもち",
+    "meaning": "rich person",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 201588,
+        "ja": "どうしたらお金持ちになれるのかしら？",
+        "en": "How can I become rich?",
+        "enId": 38798,
+        "form": "お金持ち",
+        "furigana": [
+          ["どうしたらお"],
+          ["金持", "かねも"],
+          ["ちになれるのかしら？"]
+        ]
+      },
+      {
+        "id": 227567,
+        "ja": "叔母は非常なお金持ちだからといって、それだけ幸せというわけではない。",
+        "en": "My aunt is none the happier for her great wealth.",
+        "enId": 64920,
+        "form": "お金持ち",
+        "furigana": [
+          ["叔母", "おば"],
+          ["は"],
+          ["非常", "ひじょう"],
+          ["なお"],
+          ["金持", "かねも"],
+          ["ちだからといって、それだけ"],
+          ["幸", "しあわ"],
+          ["せというわけではない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-05",
+    "term": "説明",
+    "kana": "せつめい",
+    "meaning": "explanation",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 142049,
+        "ja": "説明しましょうか。",
+        "en": "Would you like me to explain it?",
+        "enId": 272521,
+        "form": "説明",
+        "furigana": [["説明", "せつめい"], ["しましょうか。"]]
+      },
+      {
+        "id": 142050,
+        "ja": "説明してください。",
+        "en": "Please explain it.",
+        "enId": 272520,
+        "form": "説明",
+        "furigana": [["説明", "せつめい"], ["してください。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-06",
+    "term": "道具",
+    "kana": "どうぐ",
+    "meaning": "tool",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123550,
+        "ja": "道具を粗末に使うな。",
+        "en": "Don't handle these tools roughly.",
+        "enId": 280446,
+        "form": "道具",
+        "furigana": [
+          ["道具", "どうぐ"],
+          ["を"],
+          ["粗末", "そまつ"],
+          ["に"],
+          ["使", "つか"],
+          ["うな。"]
+        ]
+      },
+      {
+        "id": 123551,
+        "ja": "道具を乱暴に扱うな。",
+        "en": "Don't handle the tools roughly.",
+        "enId": 280447,
+        "form": "道具",
+        "furigana": [
+          ["道具", "どうぐ"],
+          ["を"],
+          ["乱暴", "らんぼう"],
+          ["に"],
+          ["扱", "あつか"],
+          ["うな。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-07",
+    "term": "滑る",
+    "kana": "すべる",
+    "meaning": "to slide, to slip",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 100619,
+        "ja": "彼は氷の上ですべった。",
+        "en": "He slipped on the ice.",
+        "enId": 303079,
+        "form": "すべった",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["氷", "こおり"],
+          ["の"],
+          ["上", "うえ"],
+          ["ですべった。"]
+        ]
+      },
+      {
+        "id": 160499,
+        "ja": "滑って足首を捻挫した。",
+        "en": "I slipped and twisted my ankle.",
+        "enId": 254022,
+        "form": "滑って",
+        "furigana": [
+          ["滑", "すべ"],
+          ["って"],
+          ["足首", "あしくび"],
+          ["を"],
+          ["捻挫", "ねんざ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-08",
+    "term": "それほど",
+    "kana": "それほど",
+    "meaning": "to that degree; extent",
+    "level": "N4",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-08-09",
+    "term": "～まま",
+    "kana": "～まま",
+    "meaning": "as it is",
+    "level": "N4",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-08-10",
+    "term": "特急",
+    "kana": "とっきゅう",
+    "meaning": "limited express (train faster than an express)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123466,
+        "ja": "特急のホームは何番ですか。",
+        "en": "What's the track for the limited express?",
+        "enId": 280531,
+        "form": "特急",
+        "furigana": [
+          ["特急", "とっきゅう"],
+          ["のホームは"],
+          ["何", "なん"],
+          ["番", "ばん"],
+          ["ですか。"]
+        ]
+      },
+      {
+        "id": 150518,
+        "ja": "時計がおくれていたので、私は特急にのりそこねた。",
+        "en": "As my watch was slow, I missed the special express.",
+        "enId": 264039,
+        "form": "特急",
+        "furigana": [
+          ["時計", "とけい"],
+          ["がおくれていたので、"],
+          ["私", "わたし"],
+          ["は"],
+          ["特急", "とっきゅう"],
+          ["にのりそこねた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-11",
+    "term": "によると",
+    "kana": "によると",
+    "meaning": "according to ~",
+    "level": "N4",
+    "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-08-12",
+    "term": "具合",
+    "kana": "ぐあい",
+    "meaning": "condition, state, health",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 226810,
+        "ja": "お天気はどういうぐあいですか。",
+        "en": "How is the weather?",
+        "enId": 64158,
+        "form": "ぐあい",
+        "furigana": [["お"], ["天気", "てんき"], ["はどういうぐあいですか。"]]
+      },
+      {
+        "id": 149426,
+        "ja": "実をいうと、それはこんなぐあいに起こったのです。",
+        "en": "To tell the truth, this is how it happened.",
+        "enId": 265097,
+        "form": "ぐあい",
+        "furigana": [
+          ["実", "み"],
+          ["をいうと、それはこんなぐあいに"],
+          ["起", "お"],
+          ["こったのです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-13",
+    "term": "堅い",
+    "kana": "かたい",
+    "meaning": "solid, hard, firm",
+    "level": "N4",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf29", "nf33", "nf46"],
+    "pitch": [0, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "This word was derived from ancient Japanese origin かたし (katashi, “hard”) and applied the meaning of Chinese letter 堅／坚 that means keeping its physical shape or behavior by its excellent quality."
+      },
+      {
+        "quote": "In turn, from Old Japanese kata, from Proto-Japonic *kata."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2014-08-14",
+    "term": "危険",
+    "kana": "きけん",
+    "meaning": "danger, risk, hazard",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 186733,
+        "ja": "火は常に危険だ。",
+        "en": "Fire is always dangerous.",
+        "enId": 23869,
+        "form": "危険",
+        "furigana": [
+          ["火", "ひ"],
+          ["は"],
+          ["常", "つね"],
+          ["に"],
+          ["危険", "きけん"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 208501,
+        "ja": "その川は危険だ。",
+        "en": "The river is dangerous.",
+        "enId": 45760,
+        "form": "危険",
+        "furigana": [
+          ["その"],
+          ["川", "かわ"],
+          ["は"],
+          ["危険", "きけん"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-15",
+    "term": "間",
+    "kana": "あいだ",
+    "meaning": "space, interval",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 78431,
+        "ja": "嵐の間停電した。",
+        "en": "The electricity failed during the storm.",
+        "enId": 325285,
+        "form": "間",
+        "furigana": [
+          ["嵐", "あらし"],
+          ["の"],
+          ["間", "あいだ"],
+          ["停電", "ていでん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 79727,
+        "ja": "夜の間に雨が降った。",
+        "en": "It rained during the night.",
+        "enId": 323990,
+        "form": "間",
+        "furigana": [
+          ["夜", "よる"],
+          ["の"],
+          ["間", "あいだ"],
+          ["に"],
+          ["雨", "あめ"],
+          ["が"],
+          ["降", "ふ"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-16",
+    "term": "卒業",
+    "kana": "そつぎょう",
+    "meaning": "graduation",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 184351,
+        "ja": "学校を卒業した。",
+        "en": "I graduated from the school.",
+        "enId": 21479,
+        "form": "卒業",
+        "furigana": [
+          ["学校", "がっこう"],
+          ["を"],
+          ["卒業", "そつぎょう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 228660,
+        "ja": "いつ高校を卒業したの？",
+        "en": "When did you graduate from high school?",
+        "enId": 66018,
+        "form": "卒業",
+        "furigana": [
+          ["いつ"],
+          ["高校", "こうこう"],
+          ["を"],
+          ["卒業", "そつぎょう"],
+          ["したの？"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-17",
+    "term": "それで",
+    "kana": "それで",
+    "meaning": "and (conj.), thereupon, because of that",
+    "level": "N4",
+    "pos": ["conjunction"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-08-18",
+    "term": "専門",
+    "kana": "せんもん",
+    "meaning": "major; speciality",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 151164,
+        "ja": "詩は彼の専門ではない。",
+        "en": "Poetry is not in his line.",
+        "enId": 263392,
+        "form": "専門",
+        "furigana": [
+          ["詩", "し"],
+          ["は"],
+          ["彼", "かれ"],
+          ["の"],
+          ["専門", "せんもん"],
+          ["ではない。"]
+        ]
+      },
+      {
+        "id": 215874,
+        "ja": "ジャズは私の専門ではない。",
+        "en": "Jazz is not my speciality.",
+        "enId": 53175,
+        "form": "専門",
+        "furigana": [
+          ["ジャズは"],
+          ["私", "わたし"],
+          ["の"],
+          ["専門", "せんもん"],
+          ["ではない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-19",
+    "term": "そろそろ",
+    "kana": "そろそろ",
+    "meaning": "gradually, soon",
+    "level": "N4",
+    "pos": ["adverb (fukushi)", "adverb taking the 'to' particle"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 204456,
+        "ja": "そろそろ時間だ。",
+        "en": "It's about time.",
+        "enId": 41699,
+        "form": "そろそろ",
+        "furigana": [["そろそろ"], ["時間", "じかん"], ["だ。"]]
+      },
+      {
+        "id": 204463,
+        "ja": "そろそろ行こうか。",
+        "en": "Let's be going now.",
+        "enId": 41705,
+        "form": "そろそろ",
+        "furigana": [["そろそろ"], ["行", "い"], ["こうか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-20",
+    "term": "送る",
+    "kana": "おくる",
+    "meaning": "to send, to dispatch",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 136739,
+        "ja": "誰に送るの？",
+        "en": "Who are they for?",
+        "enId": 276497,
+        "form": "送る",
+        "furigana": [["誰", "だれ"], ["に"], ["送", "おく"], ["るの？"]]
+      },
+      {
+        "id": 75859,
+        "ja": "敵に塩を送る。",
+        "en": "I'll help an enemy instead of capitalizing on their distress.",
+        "enId": 11210909,
+        "form": "送る",
+        "furigana": [
+          ["敵", "てき"],
+          ["に"],
+          ["塩", "しお"],
+          ["を"],
+          ["送", "おく"],
+          ["る。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-21",
+    "term": "政治",
+    "kana": "せいじ",
+    "meaning": "politics",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 143171,
+        "ja": "政治情勢が変わった。",
+        "en": "The political situation has changed.",
+        "enId": 271397,
+        "form": "政治",
+        "furigana": [
+          ["政治", "せいじ"],
+          ["情勢", "じょうせい"],
+          ["が"],
+          ["変", "か"],
+          ["わった。"]
+        ]
+      },
+      {
+        "id": 155571,
+        "ja": "私は政治が大嫌いだ。",
+        "en": "I abhor politics.",
+        "enId": 258967,
+        "form": "政治",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["政治", "せいじ"],
+          ["が"],
+          ["大嫌", "だいきら"],
+          ["いだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-22",
+    "term": "市民",
+    "kana": "しみん",
+    "meaning": "citizen",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 156677,
+        "ja": "私は札幌市民です。",
+        "en": "I am a citizen of Sapporo.",
+        "enId": 257857,
+        "form": "市民",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["札幌", "さっぽろ"],
+          ["市民", "しみん"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 140911,
+        "ja": "善良な市民は法律に従う。",
+        "en": "A good citizen obeys the laws.",
+        "enId": 273660,
+        "form": "市民",
+        "furigana": [
+          ["善良", "ぜんりょう"],
+          ["な"],
+          ["市民", "しみん"],
+          ["は"],
+          ["法律", "ほうりつ"],
+          ["に"],
+          ["従", "したが"],
+          ["う。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-23",
+    "term": "見つける",
+    "kana": "みつける",
+    "meaning": "to discover, to find (v.t.)",
+    "level": "N4",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf37"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 171187,
+        "ja": "僕は君をみつけた。",
+        "en": "I found you.",
+        "enId": 243290,
+        "form": "みつけた",
+        "furigana": [["僕", "ぼく"], ["は"], ["君", "きみ"], ["をみつけた。"]]
+      },
+      {
+        "id": 175181,
+        "ja": "見つけられますか。",
+        "en": "Can you find it?",
+        "enId": 239285,
+        "form": "見つけられます",
+        "furigana": [["見", "み"], ["つけられますか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-24",
+    "term": "講義",
+    "kana": "こうぎ",
+    "meaning": "a lecture",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83678,
+        "ja": "文学の講義をする。",
+        "en": "I will lecture on literature.",
+        "enId": 4632231,
+        "form": "講義",
+        "furigana": [
+          ["文学", "ぶんがく"],
+          ["の"],
+          ["講義", "こうぎ"],
+          ["をする。"]
+        ]
+      },
+      {
+        "id": 107314,
+        "ja": "彼は講義を終わらせた。",
+        "en": "He brought his speech to an end.",
+        "enId": 296372,
+        "form": "講義",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["講義", "こうぎ"],
+          ["を"],
+          ["終", "お"],
+          ["わらせた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-25",
+    "term": "そんなに",
+    "kana": "そんなに",
+    "meaning": "so much, like that",
+    "level": "N4",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 204251,
+        "ja": "そんなに騒ぐな。",
+        "en": "Don't make so much noise.",
+        "enId": 41493,
+        "form": "そんなに",
+        "furigana": [["そんなに"], ["騒", "さわ"], ["ぐな。"]]
+      },
+      {
+        "id": 8612406,
+        "ja": "そんなに怒るなよ。",
+        "en": "Don't be so angry.",
+        "enId": 41478,
+        "form": "そんなに",
+        "furigana": [["そんなに"], ["怒", "おこ"], ["るなよ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-26",
+    "term": "昼休み",
+    "kana": "ひるやすみ",
+    "meaning": "lunch break, noon recess",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-08-27",
+    "term": "訳",
+    "kana": "わけ",
+    "meaning": "reason; explanation",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 201111,
+        "ja": "どう言うわけで？",
+        "en": "On what account?",
+        "enId": 38317,
+        "form": "わけ",
+        "furigana": [["どう"], ["言", "い"], ["うわけで？"]]
+      },
+      {
+        "id": 191997,
+        "ja": "わけは聞かないで。",
+        "en": "Don't ask me why.",
+        "enId": 29159,
+        "form": "わけ",
+        "furigana": [["わけは"], ["聞", "き"], ["かないで。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-28",
+    "term": "日記",
+    "kana": "にっき",
+    "meaning": "diary, journal",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 218119,
+        "ja": "これは彼女がつけた日記です。",
+        "en": "This is the diary which she kept.",
+        "enId": 55430,
+        "form": "日記",
+        "furigana": [
+          ["これは"],
+          ["彼女", "かのじょ"],
+          ["がつけた"],
+          ["日記", "にっき"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 92605,
+        "ja": "彼女はそのことを日記に書いた。",
+        "en": "She wrote about it in her diary.",
+        "enId": 311105,
+        "form": "日記",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はそのことを"],
+          ["日記", "にっき"],
+          ["に"],
+          ["書", "か"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-29",
+    "term": "似る",
+    "kana": "にる",
+    "meaning": "to resemble, to be similar",
+    "level": "N4",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81367,
+        "ja": "妹は母に似ている。",
+        "en": "My sister resembles my mother.",
+        "enId": 322348,
+        "form": "似ている",
+        "furigana": [
+          ["妹", "いもうと"],
+          ["は"],
+          ["母", "はは"],
+          ["に"],
+          ["似", "に"],
+          ["ている。"]
+        ]
+      },
+      {
+        "id": 86747,
+        "ja": "彼女は母親似です。",
+        "en": "She takes after her mother.",
+        "enId": 310643,
+        "form": "似",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["母親", "ははおや"],
+          ["似", "に"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-08-30",
+    "term": "～おわる",
+    "kana": "～おわる",
+    "meaning": "to finish doing ~",
+    "level": "N4",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-08-31",
+    "term": "暖房",
+    "kana": "だんぼう",
+    "meaning": "heating",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 127290,
+        "ja": "暖房を消しましたか。",
+        "en": "Did you turn off the heater?",
+        "enId": 276799,
+        "form": "暖房",
+        "furigana": [
+          ["暖房", "だんぼう"],
+          ["を"],
+          ["消", "け"],
+          ["しましたか。"]
+        ]
+      },
+      {
+        "id": 127292,
+        "ja": "暖房が壊れています。",
+        "en": "The heater is broken.",
+        "enId": 276797,
+        "form": "暖房",
+        "furigana": [
+          ["暖房", "だんぼう"],
+          ["が"],
+          ["壊", "こわ"],
+          ["れています。"]
+        ]
+      }
+    ]
+  }
+]

@@ -1,1565 +1,1271 @@
 [
   {
     "date": "2025-09-01",
-    "term": "システム",
-    "kana": "システム",
-    "meaning": "system",
+    "term": "噴出",
+    "kana": "ふんしゅつ",
+    "meaning": "spewing, gushing, spouting",
     "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1", "ichi1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "システム is from English system.",
-    "morphemes": [
-      {
-        "text": "システム",
-        "reading": "システム",
-        "meaning": "English system"
-      }
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
-    "sources": [
-      {
-        "quote": "From English system."
-      }
-    ],
+    "priority": ["news1", "nf17"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 216182,
-        "ja": "システムが作動しない場合がある。",
-        "en": "There are cases where the system doesn't go.",
-        "enId": 53485,
-        "form": "システム",
+        "id": 183709,
+        "ja": "間欠泉は２時間毎に湯を噴出する。",
+        "en": "The geyser sends up a column of hot water every two hours.",
+        "enId": 20832,
+        "form": "噴出",
         "furigana": [
-          ["システムが"],
-          ["作動", "さどう"],
-          ["しない"],
-          ["場合", "ばあい"],
-          ["がある。"]
+          ["間欠泉", "かんけつせん"],
+          ["は２"],
+          ["時間", "じかん"],
+          ["毎", "ごと"],
+          ["に"],
+          ["湯", "ゆ"],
+          ["を"],
+          ["噴出", "ふんしゅつ"],
+          ["する。"]
         ]
       },
       {
-        "id": 223714,
-        "ja": "このシステムには明らかな欠陥がある。",
-        "en": "This system has obvious defects.",
-        "enId": 61050,
-        "form": "システム",
+        "id": 212192,
+        "ja": "その煙突は真っ黒い煙を噴出している。",
+        "en": "The chimney is belching black smoke.",
+        "enId": 49471,
+        "form": "噴出",
         "furigana": [
-          ["このシステムには"],
-          ["明", "あき"],
-          ["らかな"],
-          ["欠陥", "けっかん"],
-          ["がある。"]
+          ["その"],
+          ["煙突", "えんとつ"],
+          ["は"],
+          ["真", "ま"],
+          ["っ"],
+          ["黒", "くろ"],
+          ["い"],
+          ["煙", "けむり"],
+          ["を"],
+          ["噴出", "ふんしゅつ"],
+          ["している。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-09-02",
-    "term": "火花",
-    "kana": "ひばな",
-    "meaning": "spark",
+    "term": "紛争",
+    "kana": "ふんそう",
+    "meaning": "dispute, trouble, strife",
     "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf17"],
-    "pitch": [1],
-    "stratum": "wago",
-    "processes": ["compound", "rendaku"],
-    "headline": "Hibana is 火 (hi, “fire”) plus 花 (hana, “flower”).",
-    "morphemes": [
-      {
-        "text": "火",
-        "reading": "ひ",
-        "meaning": "fire"
-      },
-      {
-        "text": "花",
-        "reading": "ばな",
-        "base": "はな",
-        "meaning": "flower"
-      }
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
-    "sources": [
-      {
-        "quote": "火 (hi, “fire”) + 花 (hana, “flower”)"
-      }
-    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 389691,
-        "ja": "小さな火花はしばしば大きな炎を起こす。",
-        "en": "A small spark often kindles a large flame.",
-        "enId": 389365,
-        "form": "火花",
+        "id": 97857,
+        "ja": "彼らはその紛争を終わらせた。",
+        "en": "They brought the trouble to an end.",
+        "enId": 305847,
+        "form": "紛争",
         "furigana": [
-          ["小", "ちい"],
-          ["さな"],
-          ["火花", "ひばな"],
-          ["はしばしば"],
-          ["大", "おお"],
-          ["きな"],
-          ["炎", "ほのお"],
+          ["彼", "かれ"],
+          ["らはその"],
+          ["紛争", "ふんそう"],
           ["を"],
-          ["起", "お"],
-          ["こす。"]
+          ["終", "お"],
+          ["わらせた。"]
+        ]
+      },
+      {
+        "id": 83697,
+        "ja": "紛争のない人間社会はありえない。",
+        "en": "There can be no human society without conflict.",
+        "enId": 320019,
+        "form": "紛争",
+        "furigana": [
+          ["紛争", "ふんそう"],
+          ["のない"],
+          ["人間", "にんげん"],
+          ["社会", "しゃかい"],
+          ["はありえない。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-09-03",
-    "term": "染みる",
-    "kana": "しみる",
-    "meaning": "to soak; pierce",
+    "term": "分担",
+    "kana": "ぶんたん",
+    "meaning": "apportionment, sharing",
     "level": "N1",
-    "pos": ["Ichidan verb", "intransitive verb"],
-    "priority": ["ichi1", "news2", "nf40"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Shimiru is from Old Japanese 染む (“to dye”), an upper bigrade verb that became upper monograde.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "From Old Japanese 染む (“to dye”)."
-      },
-      {
-        "quote": "Development"
-      },
-      {
-        "quote": "Natural progression from Old and Classical Japanese 上(かみ)二(に)段(だん)活(かつ)用(よう) (kami nidan katsuyō, “upper bigrade conjugation”) verbs ending in -u to modern Japanese 上(かみ)一(いち)段(だん)活(かつ)用(よう) (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
-      }
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
     ],
-    "wiktionaryDump": "2026-09-02"
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 203693,
+        "ja": "タクシー代は君と分担しよう。",
+        "en": "I will share the cost of the taxi with you.",
+        "enId": 40931,
+        "form": "分担",
+        "furigana": [
+          ["タクシー"],
+          ["代", "だい"],
+          ["は"],
+          ["君", "きみ"],
+          ["と"],
+          ["分担", "ぶんたん"],
+          ["しよう。"]
+        ]
+      },
+      {
+        "id": 180574,
+        "ja": "協力を望むなら責任を分担しなさい。",
+        "en": "When you want cooperation, share the work among many hands.",
+        "enId": 19241,
+        "form": "分担",
+        "furigana": [
+          ["協力", "きょうりょく"],
+          ["を"],
+          ["望", "のぞ"],
+          ["むなら"],
+          ["責任", "せきにん"],
+          ["を"],
+          ["分担", "ぶんたん"],
+          ["しなさい。"]
+        ]
+      }
+    ]
   },
   {
     "date": "2025-09-04",
-    "term": "ゼリー",
-    "kana": "ゼリー",
-    "meaning": "jelly",
+    "term": "奮闘",
+    "kana": "ふんとう",
+    "meaning": "hard struggle, strenuous effort",
     "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "ゼリー is from English jelly.",
-    "morphemes": [
-      {
-        "text": "ゼリー",
-        "reading": "ゼリー",
-        "meaning": "English jelly"
-      }
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
-    "sources": [
-      {
-        "quote": "From English jelly."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-05",
-    "term": "ジャズ",
-    "kana": "ジャズ",
-    "meaning": "jazz",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1", "ichi1"],
-    "field": ["music"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "ジャズ is borrowed from English jazz.",
-    "morphemes": [
-      {
-        "text": "ジャズ",
-        "reading": "ジャズ",
-        "meaning": "English jazz"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Borrowed from English jazz."
-      }
-    ],
-    "examples": [
-      {
-        "id": 82084,
-        "ja": "僕はジャズが好きだ。",
-        "en": "I like jazz.",
-        "enId": 321631,
-        "form": "ジャズ",
-        "furigana": [["僕", "ぼく"], ["はジャズが"], ["好", "す"], ["きだ。"]]
-      },
-      {
-        "id": 113539,
-        "ja": "彼はジャズに夢中だ。",
-        "en": "He is keen on jazz.",
-        "enId": 290134,
-        "form": "ジャズ",
-        "furigana": [
-          ["彼", "かれ"],
-          ["はジャズに"],
-          ["夢中", "むちゅう"],
-          ["だ。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-06",
-    "term": "盛り上がる",
-    "kana": "もりあがる",
-    "meaning": "to rouse, to swell, to rise",
-    "level": "N1",
-    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
-    "priority": ["ichi1", "news2", "nf29"],
-    "pitch": [4, 0],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "Moriagaru is 盛る (moru) plus 上がる (agaru).",
-    "morphemes": [
-      {
-        "text": "盛り",
-        "reading": "もり",
-        "meaning": "boom",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "上がる",
-        "reading": "あがる",
-        "meaning": "above",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "盛(も)る (moru) + 上(あ)がる (agaru)"
-      }
-    ],
-    "examples": [
-      {
-        "id": 183815,
-        "ja": "観客は盛り上がっているよ。",
-        "en": "The audience is really charged up.",
-        "enId": 20938,
-        "form": "盛り上がっている",
-        "furigana": [
-          ["観客", "かんきゃく"],
-          ["は"],
-          ["盛", "も"],
-          ["り"],
-          ["上", "あ"],
-          ["がっているよ。"]
-        ]
-      },
-      {
-        "id": 225285,
-        "ja": "ゲームで一段と盛り上がった。",
-        "en": "The game added to the fun.",
-        "enId": 62623,
-        "form": "盛り上がった",
-        "furigana": [
-          ["ゲームで"],
-          ["一段", "いちだん"],
-          ["と"],
-          ["盛", "も"],
-          ["り"],
-          ["上", "あ"],
-          ["がった。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-07",
-    "term": "助動詞",
-    "kana": "じょどうし",
-    "meaning": "auxiliary verb",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "field": ["grammar"],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Jodōshi is 助 (“to help”) plus 動詞 (“verb”), literally “helping verb”.",
-    "morphemes": [
-      {
-        "text": "助",
-        "reading": "じょ",
-        "meaning": "to help"
-      },
-      {
-        "text": "動詞",
-        "reading": "どうし",
-        "meaning": "verb"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "助 (“to help”) + 動詞 (“verb”), literally “helping verb”"
-      }
-    ],
-    "examples": [
-      {
-        "id": 75172,
-        "ja": "canは助動詞ですので、疑問文では文頭に持ってきます。",
-        "en": "'can' is an auxiliary verb, so in question sentences it is brought to the start of the phrase.",
-        "enId": 328547,
-        "form": "助動詞",
-        "furigana": [
-          ["canは"],
-          ["助動詞", "じょどうし"],
-          ["ですので、"],
-          ["疑問", "ぎもん"],
-          ["文", "ぶん"],
-          ["では"],
-          ["文頭", "ぶんとう"],
-          ["に"],
-          ["持", "も"],
-          ["ってきます。"]
-        ]
-      },
-      {
-        "id": 75202,
-        "ja": "この文は現在完了形です。haveは動詞ではなく、助動詞。",
-        "en": "This sentence is in the present perfect. 'have' is not a verb, but an auxiliary verb.",
-        "enId": 328517,
-        "form": "助動詞",
-        "furigana": [
-          ["この"],
-          ["文", "ぶん"],
-          ["は"],
-          ["現在", "げんざい"],
-          ["完了", "かんりょう"],
-          ["形", "がた"],
-          ["です。haveは"],
-          ["動詞", "どうし"],
-          ["ではなく、"],
-          ["助動詞", "じょどうし"],
-          ["。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-08",
-    "term": "心掛ける",
-    "kana": "こころがける",
-    "meaning": "to bear in mind, to aim to do",
-    "level": "N1",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "priority": ["ichi1", "news2", "nf40", "spec1"],
-    "pitch": [5],
-    "stratum": "wago",
-    "processes": ["compound", "rendaku"],
-    "headline": "Kokorogakeru is 心 (kokoro, “attention, mind”) plus 掛ける (kakeru, “latch onto”).",
-    "morphemes": [
-      {
-        "text": "心",
-        "reading": "こころ",
-        "meaning": "attention, mind"
-      },
-      {
-        "text": "掛ける",
-        "reading": "がける",
-        "base": "かける",
-        "meaning": "latch onto"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From 心 (kokoro, “attention, mind”) + 掛ける (kakeru, “latch onto”)."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-09",
-    "term": "デコレーション",
-    "kana": "デコレーション",
-    "meaning": "decoration",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1"],
-    "pitch": [3],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "デコレーション is borrowed from English decoration.",
-    "morphemes": [
-      {
-        "text": "デコレーション",
-        "reading": "デコレーション",
-        "meaning": "English decoration"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Borrowed from English decoration."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-10",
-    "term": "台本",
-    "kana": "だいほん",
-    "meaning": "libretto, scenario",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["news1", "nf11"],
+    "priority": ["news1", "nf22"],
     "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Daihon is from Sinitic 臺本 (táiběn).",
-    "morphemes": [
-      {
-        "text": "台",
-        "reading": "だい",
-        "meaning": "pedestal",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "本",
-        "reading": "ほん",
-        "meaning": "book",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From Sinitic 臺本／台本 (táiběn)."
-      }
-    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 137772,
-        "ja": "台本に目を通しておいてください。",
-        "en": "Please go over the script.",
-        "enId": 275464,
-        "form": "台本",
+        "id": 83186,
+        "ja": "暮らしのために奮闘している。",
+        "en": "She struggles for her living.",
+        "enId": 320530,
+        "form": "奮闘",
         "furigana": [
-          ["台本", "だいほん"],
-          ["に"],
-          ["目", "め"],
-          ["を"],
-          ["通", "とお"],
-          ["しておいてください。"]
+          ["暮", "く"],
+          ["らしのために"],
+          ["奮闘", "ふんとう"],
+          ["している。"]
         ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-11",
-    "term": "長官",
-    "kana": "ちょうかん",
-    "meaning": "chief, (government) secretary",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["news1", "nf01"],
-    "pitch": [0],
-    "stratum": "kango",
-    "processes": ["compound", "wasei", "borrowing"],
-    "headline": "Chōkan is 長 (chō, “chief, leader”) plus 官 (kan, “government official”), either a wasei kango or from Middle Chinese 長官.",
-    "morphemes": [
-      {
-        "text": "長",
-        "reading": "ちょう",
-        "meaning": "chief, leader"
       },
       {
-        "text": "官",
-        "reading": "かん",
-        "meaning": "government official"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "By surface analysis, 長 (chō, “chief, leader”) + 官 (kan, “government official”). Either a wasei kango from these on'yomi readings, or from Middle Chinese 長官 (sum-of-parts reading: /ɖɨɐŋ kuɑn/)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 125890,
-        "ja": "長官は彼に全権を委任した。",
-        "en": "The governor invested him with full authority.",
-        "enId": 278102,
-        "form": "長官",
+        "id": 144062,
+        "ja": "人々は貧困に向かって奮闘した。",
+        "en": "People struggled against poverty.",
+        "enId": 270504,
+        "form": "奮闘",
         "furigana": [
-          ["長官", "ちょうかん"],
+          ["人々", "ひとびと"],
           ["は"],
-          ["彼", "かれ"],
+          ["貧困", "ひんこん"],
           ["に"],
-          ["全権", "ぜんけん"],
-          ["を"],
-          ["委任", "いにん"],
+          ["向", "む"],
+          ["かって"],
+          ["奮闘", "ふんとう"],
           ["した。"]
         ]
       }
+    ]
+  },
+  {
+    "date": "2025-09-05",
+    "term": "分配",
+    "kana": "ぶんぱい",
+    "meaning": "division, sharing",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
-    "wiktionaryDump": "2026-09-02"
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 96048,
+        "ja": "彼らは利益を公平に分配した。",
+        "en": "They allotted the profits fairly.",
+        "enId": 307657,
+        "form": "分配",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["利益", "りえき"],
+          ["を"],
+          ["公平", "こうへい"],
+          ["に"],
+          ["分配", "ぶんぱい"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 170227,
+        "ja": "財産は３人兄弟の間で分配された。",
+        "en": "The fortune was divided among the three brothers.",
+        "enId": 244257,
+        "form": "分配",
+        "furigana": [
+          ["財産", "ざいさん"],
+          ["は３"],
+          ["人", "にん"],
+          ["兄弟", "きょうだい"],
+          ["の"],
+          ["間", "あいだ"],
+          ["で"],
+          ["分配", "ぶんぱい"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-06",
+    "term": "分母",
+    "kana": "ぶんぼ",
+    "meaning": "denominator",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf40"],
+    "field": ["mathematics"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-09-07",
+    "term": "粉末",
+    "kana": "ふんまつ",
+    "meaning": "fine powder",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 74253,
+        "ja": "アルミニウム、マグネシウム、シリコンなどの粉末が爆発する。",
+        "en": "Powders of aluminium, magnesium, silicon, etc. explode.",
+        "enId": 329467,
+        "form": "粉末",
+        "furigana": [
+          ["アルミニウム、マグネシウム、シリコンなどの"],
+          ["粉末", "ふんまつ"],
+          ["が"],
+          ["爆発", "ばくはつ"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-08",
+    "term": "分離",
+    "kana": "ぶんり",
+    "meaning": "separation, detachment, segregation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 170534,
+        "ja": "最高裁が人種分離教育を攻撃。",
+        "en": "The Supreme Court attacks school segregation.",
+        "enId": 243947,
+        "form": "分離",
+        "furigana": [
+          ["最高裁", "さいこうさい"],
+          ["が"],
+          ["人種", "じんしゅ"],
+          ["分離", "ぶんり"],
+          ["教育", "きょういく"],
+          ["を"],
+          ["攻撃", "こうげき"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 195190,
+        "ja": "マヨネーズの油は分離することがある。",
+        "en": "The oil in mayonnaise sometimes separates from the other ingredients.",
+        "enId": 32364,
+        "form": "分離",
+        "furigana": [
+          ["マヨネーズの"],
+          ["油", "あぶら"],
+          ["は"],
+          ["分離", "ぶんり"],
+          ["することがある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-09",
+    "term": "分裂",
+    "kana": "ぶんれつ",
+    "meaning": "split, division, break up",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 124397,
+        "ja": "党派は二つに分裂した。",
+        "en": "The party was split up into two.",
+        "enId": 279597,
+        "form": "分裂",
+        "furigana": [
+          ["党派", "とうは"],
+          ["は"],
+          ["二", "ふた"],
+          ["つに"],
+          ["分裂", "ぶんれつ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 123219,
+        "ja": "内部分裂した家は倒れる。",
+        "en": "A house divided against itself can't stand.",
+        "enId": 280780,
+        "form": "分裂",
+        "furigana": [
+          ["内部", "ないぶ"],
+          ["分裂", "ぶんれつ"],
+          ["した"],
+          ["家", "いえ"],
+          ["は"],
+          ["倒", "たお"],
+          ["れる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-10",
+    "term": "兵器",
+    "kana": "へいき",
+    "meaning": "arms, weapons, ordinance",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 122401,
+        "ja": "日本は兵器にあまりお金を使うべきではない。",
+        "en": "Japan should not spend much money on weapons.",
+        "enId": 281602,
+        "form": "兵器",
+        "furigana": [
+          ["日本", "にっぽん"],
+          ["は"],
+          ["兵器", "へいき"],
+          ["にあまりお"],
+          ["金", "かね"],
+          ["を"],
+          ["使", "つか"],
+          ["うべきではない。"]
+        ]
+      },
+      {
+        "id": 184591,
+        "ja": "核兵器を全面的に禁止して初めて、兵器競争を止めさせることができる。",
+        "en": "Only by prohibiting nuclear weapons altogether can we stop the arms race.",
+        "enId": 21719,
+        "form": "兵器",
+        "furigana": [
+          ["核", "かく"],
+          ["兵器", "へいき"],
+          ["を"],
+          ["全面", "ぜんめん"],
+          ["的", "てき"],
+          ["に"],
+          ["禁止", "きんし"],
+          ["して"],
+          ["初", "はじ"],
+          ["めて、"],
+          ["兵器", "へいき"],
+          ["競争", "きょうそう"],
+          ["を"],
+          ["止", "と"],
+          ["めさせることができる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-11",
+    "term": "閉口",
+    "kana": "へいこう",
+    "meaning": "shut mouth",
+    "level": "N1",
+    "pos": [
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb",
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "priority": ["ichi1", "news2", "nf33"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 178476,
+        "ja": "君のわがままには閉口する。",
+        "en": "I'm annoyed at your selfishness.",
+        "enId": 17329,
+        "form": "閉口",
+        "furigana": [
+          ["君", "きみ"],
+          ["のわがままには"],
+          ["閉口", "へいこう"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 112376,
+        "ja": "彼はその問題で閉口していた。",
+        "en": "He was stumped by the problem.",
+        "enId": 291301,
+        "form": "閉口",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はその"],
+          ["問題", "もんだい"],
+          ["で"],
+          ["閉口", "へいこう"],
+          ["していた。"]
+        ]
+      }
+    ]
   },
   {
     "date": "2025-09-12",
-    "term": "再会",
-    "kana": "さいかい",
-    "meaning": "meeting again, reunion",
+    "term": "閉鎖",
+    "kana": "へいさ",
+    "meaning": "closing, closure, shutdown",
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "intransitive verb"
+      "transitive verb"
     ],
-    "priority": ["ichi1", "news1", "nf14"],
+    "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Saikai is 再 (“re-”) plus 会 (“meeting”).",
-    "morphemes": [
-      {
-        "text": "再",
-        "reading": "さい",
-        "meaning": "re-"
-      },
-      {
-        "text": "会",
-        "reading": "かい",
-        "meaning": "meeting"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "再 (“re-”) + 会 (“meeting”)"
-      }
-    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 214788,
-        "ja": "すぐ再会できるだろう。",
-        "en": "It will not be long before we meet again.",
-        "enId": 20894,
-        "form": "再会",
-        "furigana": [["すぐ"], ["再会", "さいかい"], ["できるだろう。"]]
+        "id": 173729,
+        "ja": "工場の閉鎖が決まった。",
+        "en": "They decided to shut down the factory.",
+        "enId": 240741,
+        "form": "閉鎖",
+        "furigana": [
+          ["工場", "こうじょう"],
+          ["の"],
+          ["閉鎖", "へいさ"],
+          ["が"],
+          ["決", "き"],
+          ["まった。"]
+        ]
       },
       {
-        "id": 142417,
-        "ja": "昔の恋人に再会してみたい。",
-        "en": "I would love to see my old flame again.",
-        "enId": 272153,
-        "form": "再会",
+        "id": 210669,
+        "ja": "その鉱山は閉鎖している。",
+        "en": "That mine has shut down.",
+        "enId": 47939,
+        "form": "閉鎖",
         "furigana": [
-          ["昔", "むかし"],
-          ["の"],
-          ["恋人", "こいびと"],
-          ["に"],
-          ["再会", "さいかい"],
-          ["してみたい。"]
+          ["その"],
+          ["鉱山", "こうざん"],
+          ["は"],
+          ["閉鎖", "へいさ"],
+          ["している。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-09-13",
-    "term": "麻痺",
-    "kana": "まひ",
-    "meaning": "paralysis, palsy, numbness",
+    "term": "並列",
+    "kana": "へいれつ",
+    "meaning": "arrangement, parallel, abreast",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news2", "nf27"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-09-14",
+    "term": "辟易",
+    "kana": "へきえき",
+    "meaning": "wince, shrink back, succumbing to, being frightened",
+    "level": "N1",
+    "pos": [
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb",
+      "noun (common) (futsuumeishi)"
+    ],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-09-15",
+    "term": "へりくだる",
+    "kana": "へりくだる",
+    "meaning": "to deprecate oneself and praise the listener",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-09-16",
+    "term": "弁解",
+    "kana": "べんかい",
+    "meaning": "explanation, justification, excuse",
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
-      "intransitive verb"
+      "transitive verb"
     ],
-    "priority": ["ichi1", "news2", "nf47"],
-    "pitch": [1, 0],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "In mahi, 麻 is a daiyōji replacing 痲.",
-    "morphemes": [
-      {
-        "text": "麻",
-        "reading": "ま",
-        "meaning": "hemp",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "痺",
-        "reading": "ひ",
-        "meaning": "palsy",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "麻 is a daiyōji replacing 痲."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-14",
-    "term": "心情",
-    "kana": "しんじょう",
-    "meaning": "mentality",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["news1", "nf11"],
+    "priority": ["ichi1", "news1", "nf21"],
     "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Shinjō is 心 (shin, “heart”) plus 情 (jō, “emotion”).",
-    "morphemes": [
-      {
-        "text": "心",
-        "reading": "しん",
-        "meaning": "heart"
-      },
-      {
-        "text": "情",
-        "reading": "じょう",
-        "meaning": "emotion"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From 心 (shin, “heart”) + 情 (jō, “emotion”)."
-      }
-    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 149550,
-        "ja": "嫉妬心くらい強く人間の心情に巣食う情熱はない。",
-        "en": "There is not a passion so strongly rooted in the human heart as envy.",
-        "enId": 265008,
-        "form": "心情",
+        "id": 83286,
+        "ja": "弁解しても無駄だ。",
+        "en": "It is no use excusing yourself.",
+        "enId": 320430,
+        "form": "弁解",
         "furigana": [
-          ["嫉妬", "しっと"],
-          ["心", "しん"],
-          ["くらい"],
-          ["強", "つよ"],
-          ["く"],
-          ["人間", "にんげん"],
-          ["の"],
-          ["心情", "しんじょう"],
-          ["に"],
-          ["巣食", "すく"],
-          ["う"],
-          ["情熱", "じょうねつ"],
-          ["はない。"]
+          ["弁解", "べんかい"],
+          ["しても"],
+          ["無駄", "むだ"],
+          ["だ。"]
         ]
       },
       {
-        "id": 186370,
-        "ja": "我々が真理を知るのは、理知によるだけではなく、また心情によって知るのである。",
-        "en": "We know the truth, not only by reason, but also at heart.",
-        "enId": 23506,
-        "form": "心情",
+        "id": 187889,
+        "ja": "何か弁解する事があるか。",
+        "en": "What have you got to say for yourself?",
+        "enId": 25028,
+        "form": "弁解",
         "furigana": [
-          ["我々", "われわれ"],
-          ["が"],
-          ["真理", "しんり"],
-          ["を"],
-          ["知", "し"],
-          ["るのは、"],
-          ["理知", "りち"],
-          ["によるだけではなく、また"],
-          ["心情", "しんじょう"],
-          ["によって"],
-          ["知", "し"],
-          ["るのである。"]
+          ["何", "なに"],
+          ["か"],
+          ["弁解", "べんかい"],
+          ["する"],
+          ["事", "こと"],
+          ["があるか。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-15",
-    "term": "怪獣",
-    "kana": "かいじゅう",
-    "meaning": "monster",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["news1", "nf19"],
-    "pitch": [0],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Kaijū is 怪 (kai, “mysterious”) plus 獣 (jū, “beast”).",
-    "morphemes": [
-      {
-        "text": "怪",
-        "reading": "かい",
-        "meaning": "mysterious"
-      },
-      {
-        "text": "獣",
-        "reading": "じゅう",
-        "meaning": "beast"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "怪(かい) (kai, “mysterious”) + 獣(じゅう) (jū, “beast”)"
-      },
-      {
-        "quote": "Comparable terms in other languages: Swedish vidunder, odjur"
-      }
-    ],
-    "examples": [
-      {
-        "id": 150274,
-        "ja": "次の瞬間ヘラクレスは怪獣を捕まえた。",
-        "en": "The next instant Hercules caught hold of the monster.",
-        "enId": 264283,
-        "form": "怪獣",
-        "furigana": [
-          ["次", "つぎ"],
-          ["の"],
-          ["瞬間", "しゅんかん"],
-          ["ヘラクレスは"],
-          ["怪獣", "かいじゅう"],
-          ["を"],
-          ["捕", "つか"],
-          ["まえた。"]
-        ]
-      },
-      {
-        "id": 145731,
-        "ja": "信じられないだろうけど、その洞窟から怪獣が現れたんだ。",
-        "en": "Believe it or not, a monster emerged from the cave.",
-        "enId": 268831,
-        "form": "怪獣",
-        "furigana": [
-          ["信", "しん"],
-          ["じられないだろうけど、その"],
-          ["洞窟", "どうくつ"],
-          ["から"],
-          ["怪獣", "かいじゅう"],
-          ["が"],
-          ["現", "あらわ"],
-          ["れたんだ。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-16",
-    "term": "心細い",
-    "kana": "こころぼそい",
-    "meaning": "helpless, hopeless, discouraging",
-    "level": "N1",
-    "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news2", "nf45"],
-    "pitch": [5],
-    "stratum": "wago",
-    "processes": ["compound", "rendaku"],
-    "headline": "Kokorobosoi is 心 (kokoro, “heart, feelings”) plus 細い (hosoi, “slender”), with hosoi voiced to bosoi by rendaku.",
-    "morphemes": [
-      {
-        "text": "心",
-        "reading": "こころ",
-        "meaning": "heart, feelings"
-      },
-      {
-        "text": "細い",
-        "reading": "ぼそい",
-        "base": "ほそい",
-        "meaning": "slender"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From 心 (kokoro, “heart, feelings”) + 細い (hosoi, “slender”)."
-      },
-      {
-        "quote": "The hosoi changes to bosoi as an instance of rendaku (連濁)."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-09-17",
-    "term": "メーカー",
-    "kana": "メーカー",
-    "meaning": "manufacturer",
+    "term": "変革",
+    "kana": "へんかく",
+    "meaning": "change, reform(the) Reformation",
     "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1", "ichi1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "メーカー is from English maker.",
-    "morphemes": [
-      {
-        "text": "メーカー",
-        "reading": "メーカー",
-        "meaning": "English maker"
-      }
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
-    "sources": [
-      {
-        "quote": "From English maker."
-      }
-    ],
+    "priority": ["news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 212941,
-        "ja": "そのテレビのメーカーは日本の企業である。",
-        "en": "The manufacturer of the television set is a Japanese company.",
-        "enId": 50226,
-        "form": "メーカー",
+        "id": 2305137,
+        "ja": "社会の変革が急務である。",
+        "en": "There is an urgent need for social change.",
+        "enId": 903708,
+        "form": "変革",
         "furigana": [
-          ["そのテレビのメーカーは"],
-          ["日本", "にっぽん"],
+          ["社会", "しゃかい"],
           ["の"],
-          ["企業", "きぎょう"],
+          ["変革", "へんかく"],
+          ["が"],
+          ["急務", "きゅうむ"],
           ["である。"]
         ]
       },
       {
-        "id": 76395,
-        "ja": "メーカーの謳い文句を迂闊に信じてはいけない。",
-        "en": "You mustn't carelessly believe the maker's motto.",
-        "enId": 327325,
-        "form": "メーカー",
+        "id": 143096,
+        "ja": "政府は根本的な変革をしなければならない。",
+        "en": "The government must make fundamental changes.",
+        "enId": 271472,
+        "form": "変革",
         "furigana": [
-          ["メーカーの"],
-          ["謳", "うた"],
-          ["い"],
-          ["文句", "もんく"],
-          ["を"],
-          ["迂闊", "うかつ"],
-          ["に"],
-          ["信", "しん"],
-          ["じてはいけない。"]
+          ["政府", "せいふ"],
+          ["は"],
+          ["根本", "こんぽん"],
+          ["的", "てき"],
+          ["な"],
+          ["変革", "へんかく"],
+          ["をしなければならない。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-09-18",
-    "term": "望ましい",
-    "kana": "のぞましい",
-    "meaning": "desirable, hoped for",
-    "level": "N1",
-    "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news1", "nf19"],
-    "pitch": [4],
-    "stratum": "wago",
-    "processes": ["compound", "derivation"],
-    "headline": "Nozomashii is 望ま (nozoma), the irrealis of 望む (nozomu, “to wish, to hope, to want, to desire”), plus しい (-shī, adjective-forming suffix).",
-    "morphemes": [
-      {
-        "text": "望ま",
-        "reading": "のぞま",
-        "meaning": "to wish, to hope, to want, to desire"
-      },
-      {
-        "text": "しい",
-        "reading": "しい",
-        "meaning": "adjective-forming suffix"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From 望(のぞ)ま (nozoma, 未(み)然(ぜん)形(けい) (mizenkei, “irrealis form”) of the verb 望(のぞ)む (nozomu, “to wish, to hope, to want, to desire”)) + しい (-shī, adjective-forming suffix)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 91634,
-        "ja": "彼女はひとりでやるのが望ましい。",
-        "en": "It is preferable that she do it alone.",
-        "enId": 312079,
-        "form": "望ましい",
-        "furigana": [
-          ["彼女", "かのじょ"],
-          ["はひとりでやるのが"],
-          ["望", "のぞ"],
-          ["ましい。"]
-        ]
-      },
-      {
-        "id": 136608,
-        "ja": "誰もけがをしないことが望ましい。",
-        "en": "It is desirable that nobody should be hurt.",
-        "enId": 276573,
-        "form": "望ましい",
-        "furigana": [
-          ["誰", "だれ"],
-          ["もけがをしないことが"],
-          ["望", "のぞ"],
-          ["ましい。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-19",
-    "term": "ベース",
-    "kana": "ベース",
-    "meaning": "base, bass",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "ベース covers “base” and “bass”, and the source borrows both from English.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "Borrowed from English base."
-      },
-      {
-        "quote": "Borrowed from English bass."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-20",
-    "term": "アクセル",
-    "kana": "アクセル",
-    "meaning": "(abbr.) accelerator",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing", "clipping"],
-    "headline": "アクセル is a clipping of アクセラレータ (akuserarēta), from English accelerator.",
-    "morphemes": [
-      {
-        "text": "アクセル",
-        "reading": "アクセル",
-        "meaning": "English accelerator"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Clipping of アクセラレータ (akuserarēta), from English accelerator."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-21",
-    "term": "大筋",
-    "kana": "おおすじ",
-    "meaning": "outline, summary",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["news1", "nf09"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "Ōsuji is 大 (ō-, “big”) plus 筋 (suji, “thread”).",
-    "morphemes": [
-      {
-        "text": "大",
-        "reading": "おお",
-        "meaning": "big"
-      },
-      {
-        "text": "筋",
-        "reading": "すじ",
-        "meaning": "thread"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "大(おお) (ō-, “big”) + 筋(すじ) (suji, “thread”)"
-      }
-    ],
-    "examples": [
-      {
-        "id": 211274,
-        "ja": "その計画に大すじで賛成していただけませんか。",
-        "en": "Would you agree to the plan in principle?",
-        "enId": 48548,
-        "form": "大すじ",
-        "furigana": [
-          ["その"],
-          ["計画", "けいかく"],
-          ["に"],
-          ["大", "おお"],
-          ["すじで"],
-          ["賛成", "さんせい"],
-          ["していただけませんか。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-22",
-    "term": "意気込む",
-    "kana": "いきごむ",
-    "meaning": "to be enthusiastic about",
-    "level": "N1",
-    "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
-    "priority": ["news1", "nf17"],
-    "stratum": "hybrid",
-    "processes": ["compound", "rendaku"],
-    "headline": "Ikigomu is 意気 (iki, “spirits, enthusiasm”) plus 込む (komu, “to go into; to be full of, to have a lot of”), with komu voiced to gomu by rendaku.",
-    "morphemes": [
-      {
-        "text": "意気",
-        "reading": "いき",
-        "meaning": "spirits, enthusiasm"
-      },
-      {
-        "text": "込む",
-        "reading": "ごむ",
-        "base": "こむ",
-        "meaning": "to go into; to be full of, to have a lot of"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Compound of 意気(いき) (iki, “spirits, enthusiasm”) + 込(こ)む (komu, “to go into; to be full of, to have a lot of”). The komu changes to gomu as an instance of rendaku (連濁)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 147567,
-        "ja": "初めから意気込みすぎると、途中で息切れするぞ。",
-        "en": "You have to pace yourself or you'll choke halfway through.",
-        "enId": 266993,
-        "form": "意気込み",
-        "furigana": [
-          ["初", "はじ"],
-          ["めから"],
-          ["意気込", "いきご"],
-          ["みすぎると、"],
-          ["途中", "とちゅう"],
-          ["で"],
-          ["息切", "いきぎ"],
-          ["れするぞ。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-23",
-    "term": "概略",
-    "kana": "がいりゃく",
-    "meaning": "outline, summary, gist",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
-    "priority": ["news2", "nf40", "spec2"],
-    "pitch": [0],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing"],
-    "headline": "Gairyaku is likely from the Middle Chinese compound 概略, literally “generally, approximately + brief, abbreviated”.",
-    "morphemes": [
-      {
-        "text": "概",
-        "reading": "がい",
-        "meaning": "generally, approximately"
-      },
-      {
-        "text": "略",
-        "reading": "りゃく",
-        "meaning": "brief, abbreviated"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Likely from Middle Chinese compound 概略 (gə̀i lɨɐk̚, literally “generally, approximately + brief, abbreviated”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 118614,
-        "ja": "彼に計画の概略を述べてもらおう。",
-        "en": "Ask him to sketch out his plan.",
-        "enId": 285049,
-        "form": "概略",
-        "furigana": [
-          ["彼", "かれ"],
-          ["に"],
-          ["計画", "けいかく"],
-          ["の"],
-          ["概略", "がいりゃく"],
-          ["を"],
-          ["述", "の"],
-          ["べてもらおう。"]
-        ]
-      },
-      {
-        "id": 184623,
-        "ja": "各種の性格類型が概略図の形で図１に示されている。",
-        "en": "The different character typologies are represented schematically in figure one.",
-        "enId": 21751,
-        "form": "概略",
-        "furigana": [
-          ["各種", "かくしゅ"],
-          ["の"],
-          ["性格", "せいかく"],
-          ["類型", "るいけい"],
-          ["が"],
-          ["概略", "がいりゃく"],
-          ["図", "ず"],
-          ["の"],
-          ["形", "かたち"],
-          ["で"],
-          ["図", "ず"],
-          ["１に"],
-          ["示", "しめ"],
-          ["されている。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-24",
-    "term": "協定",
-    "kana": "きょうてい",
-    "meaning": "arrangement, pact, agreement",
+    "term": "返還",
+    "kana": "へんかん",
+    "meaning": "return, restoration",
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru"
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
-    "priority": ["news1", "nf01"],
+    "priority": ["ichi1", "news1", "nf03"],
     "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "sound-change"],
-    "headline": "Kyōtei is ultimately traceable to Middle Chinese 協定, but may be a recent Japanese term, attested only since 1877.",
-    "morphemes": [
-      {
-        "text": "協",
-        "reading": "きょう",
-        "meaning": "cooperation",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "定",
-        "reading": "てい",
-        "meaning": "determine",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "/keputei/ → /kefuteː/ → /keuteː/ → /kjoːteː/"
-      },
-      {
-        "quote": "Ultimately traceable back to Middle Chinese 協定 (MC hep dengH). However, this might be a much more recent term in Japanese, attested only since 1877, suggesting that this word may have been adopted as part of the modernization and internationalization efforts of the Meiji era (1868–1912)."
-      }
-    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-09-19",
+    "term": "便宜",
+    "kana": "べんぎ",
+    "meaning": "convenience, accommodation",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-09-20",
+    "term": "偏見",
+    "kana": "へんけん",
+    "meaning": "prejudice, narrow view",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 108396,
-        "ja": "彼は協定を破ることがよくある。",
-        "en": "He often offends against our agreement.",
-        "enId": 295291,
-        "form": "協定",
+        "id": 96186,
+        "ja": "彼らは偏見と戦った。",
+        "en": "They contended against prejudice.",
+        "enId": 307519,
+        "form": "偏見",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["偏見", "へんけん"],
+          ["と"],
+          ["戦", "たたか"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 83392,
+        "ja": "偏見は持つべきではない。",
+        "en": "We shouldn't have any prejudice.",
+        "enId": 320324,
+        "form": "偏見",
+        "furigana": [
+          ["偏見", "へんけん"],
+          ["は"],
+          ["持", "も"],
+          ["つべきではない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-21",
+    "term": "弁護",
+    "kana": "べんご",
+    "meaning": "defense, pleading, advocacy",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 136716,
+        "ja": "誰もあなたを弁護しないだろう。",
+        "en": "No one will speak for you.",
+        "enId": 276520,
+        "form": "弁護",
+        "furigana": [
+          ["誰", "だれ"],
+          ["もあなたを"],
+          ["弁護", "べんご"],
+          ["しないだろう。"]
+        ]
+      },
+      {
+        "id": 88636,
+        "ja": "彼女は常に自分の信念を弁護している。",
+        "en": "She always stands up for her convictions.",
+        "enId": 310444,
+        "form": "弁護",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["常", "つね"],
+          ["に"],
+          ["自分", "じぶん"],
+          ["の"],
+          ["信念", "しんねん"],
+          ["を"],
+          ["弁護", "べんご"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-22",
+    "term": "返済",
+    "kana": "へんさい",
+    "meaning": "repayment",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 152998,
+        "ja": "私は父の借金返済を免除された。",
+        "en": "I was absolved from paying my father's debt.",
+        "enId": 261547,
+        "form": "返済",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["父", "ちち"],
+          ["の"],
+          ["借金", "しゃっきん"],
+          ["返済", "へんさい"],
+          ["を"],
+          ["免除", "めんじょ"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 100129,
+        "ja": "彼は返済能力がないと宣告された。",
+        "en": "He was declared insolvent.",
+        "enId": 303568,
+        "form": "返済",
         "furigana": [
           ["彼", "かれ"],
           ["は"],
-          ["協定", "きょうてい"],
-          ["を"],
-          ["破", "やぶ"],
-          ["ることがよくある。"]
-        ]
-      },
-      {
-        "id": 172171,
-        "ja": "今度の協定を三社で承認しあった。",
-        "en": "This agreement was confirmed by three companies.",
-        "enId": 242303,
-        "form": "協定",
-        "furigana": [
-          ["今度", "こんど"],
-          ["の"],
-          ["協定", "きょうてい"],
-          ["を"],
-          ["三", "さん"],
-          ["社", "しゃ"],
-          ["で"],
-          ["承認", "しょうにん"],
-          ["しあった。"]
+          ["返済", "へんさい"],
+          ["能力", "のうりょく"],
+          ["がないと"],
+          ["宣告", "せんこく"],
+          ["された。"]
         ]
       }
+    ]
+  },
+  {
+    "date": "2025-09-23",
+    "term": "弁償",
+    "kana": "べんしょう",
+    "meaning": "compensation, reparation, reimbursement",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
-    "wiktionaryDump": "2026-09-02"
+    "priority": ["ichi1", "news2", "nf43"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83255,
+        "ja": "弁償させてくれよ。",
+        "en": "I'd like to replace it.",
+        "enId": 320461,
+        "form": "弁償",
+        "furigana": [["弁償", "べんしょう"], ["させてくれよ。"]]
+      },
+      {
+        "id": 94776,
+        "ja": "彼女に弁償させたら？",
+        "en": "Let her replace it.",
+        "enId": 308930,
+        "form": "弁償",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["に"],
+          ["弁償", "べんしょう"],
+          ["させたら？"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-24",
+    "term": "変遷",
+    "kana": "へんせん",
+    "meaning": "change, transition, vicissitudes",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["news1", "nf16"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 85357,
+        "ja": "表面上、本書の大部分は一連の事例の変遷を記録したものである。",
+        "en": "On the surface the book consists mostly of a series of case histories.",
+        "enId": 318356,
+        "form": "変遷",
+        "furigana": [
+          ["表面", "ひょうめん"],
+          ["上", "じょう"],
+          ["、"],
+          ["本書", "ほんしょ"],
+          ["の"],
+          ["大", "だい"],
+          ["部分", "ぶぶん"],
+          ["は"],
+          ["一連", "いちれん"],
+          ["の"],
+          ["事例", "じれい"],
+          ["の"],
+          ["変遷", "へんせん"],
+          ["を"],
+          ["記録", "きろく"],
+          ["したものである。"]
+        ]
+      }
+    ]
   },
   {
     "date": "2025-09-25",
-    "term": "迅速",
-    "kana": "じんそく",
-    "meaning": "quick, fast, prompt",
+    "term": "返答",
+    "kana": "へんとう",
+    "meaning": "reply",
     "level": "N1",
     "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "noun (common) (futsuumeishi)"
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
     ],
-    "priority": ["news1", "nf12"],
-    "pitch": [0],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [3, 0],
     "stratum": "kango",
-    "processes": ["compound", "borrowing"],
-    "headline": "Jinsoku is from Middle Chinese 迅速 (MC swinH suwk).",
-    "morphemes": [
-      {
-        "text": "迅",
-        "reading": "じん",
-        "meaning": "fast",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "速",
-        "reading": "そく",
-        "meaning": "quick",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From Middle Chinese 迅速 (MC swinH suwk)."
-      }
-    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 112747,
-        "ja": "彼はその事態に迅速に対応した。",
-        "en": "He promptly coped with the situation.",
-        "enId": 290929,
-        "form": "迅速に",
+        "id": 86802,
+        "ja": "彼女は返答しなかった。",
+        "en": "She didn't reply.",
+        "enId": 316909,
+        "form": "返答",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["返答", "へんとう"],
+          ["しなかった。"]
+        ]
+      },
+      {
+        "id": 116176,
+        "ja": "彼の返答は拒絶も同然だ。",
+        "en": "His answer amounts to a refusal.",
+        "enId": 287493,
+        "form": "返答",
         "furigana": [
           ["彼", "かれ"],
-          ["はその"],
-          ["事態", "じたい"],
+          ["の"],
+          ["返答", "へんとう"],
+          ["は"],
+          ["拒絶", "きょぜつ"],
+          ["も"],
+          ["同然", "どうぜん"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-26",
+    "term": "変動",
+    "kana": "へんどう",
+    "meaning": "change, fluctuation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 144215,
+        "ja": "人口は変動しないでいる。",
+        "en": "The population remains stationary.",
+        "enId": 270350,
+        "form": "変動",
+        "furigana": [
+          ["人口", "じんこう"],
+          ["は"],
+          ["変動", "へんどう"],
+          ["しないでいる。"]
+        ]
+      },
+      {
+        "id": 179750,
+        "ja": "金の価格は日ごとに変動する。",
+        "en": "The price of gold fluctuates daily.",
+        "enId": 18609,
+        "form": "変動",
+        "furigana": [
+          ["金", "きん"],
+          ["の"],
+          ["価格", "かかく"],
+          ["は"],
+          ["日", "ひ"],
+          ["ごとに"],
+          ["変動", "へんどう"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-27",
+    "term": "弁論",
+    "kana": "べんろん",
+    "meaning": "discussion, debate, argument",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 111816,
+        "ja": "彼はテニスと弁論の代表チームの一員である。",
+        "en": "He is on the varsity in tennis and in debating.",
+        "enId": 291862,
+        "form": "弁論",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はテニスと"],
+          ["弁論", "べんろん"],
+          ["の"],
+          ["代表", "だいひょう"],
+          ["チームの"],
+          ["一員", "いちいん"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 211641,
+        "ja": "その学生は、自分の弁論に対して審査員が批判的に述べたことをひどく気にした。",
+        "en": "The student took to heart the judge's critical comments on his speech.",
+        "enId": 48918,
+        "form": "弁論",
+        "furigana": [
+          ["その"],
+          ["学生", "がくせい"],
+          ["は、"],
+          ["自分", "じぶん"],
+          ["の"],
+          ["弁論", "べんろん"],
           ["に"],
-          ["迅速", "じんそく"],
+          ["対", "たい"],
+          ["して"],
+          ["審査", "しんさ"],
+          ["員", "いん"],
+          ["が"],
+          ["批判", "ひはん"],
+          ["的", "てき"],
           ["に"],
-          ["対応", "たいおう"],
+          ["述", "の"],
+          ["べたことをひどく"],
+          ["気", "き"],
+          ["にした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-28",
+    "term": "保育",
+    "kana": "ほいく",
+    "meaning": "nursing, nurturing, rearing",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-09-29",
+    "term": "法案",
+    "kana": "ほうあん",
+    "meaning": "bill (law)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 82687,
+        "ja": "法案は両院を通った。",
+        "en": "The bill passed both Houses.",
+        "enId": 321029,
+        "form": "法案",
+        "furigana": [
+          ["法案", "ほうあん"],
+          ["は"],
+          ["両院", "りょういん"],
+          ["を"],
+          ["通", "とお"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 206764,
+        "ja": "その法案に反対です。",
+        "en": "I'm against the bill.",
+        "enId": 44011,
+        "form": "法案",
+        "furigana": [
+          ["その"],
+          ["法案", "ほうあん"],
+          ["に"],
+          ["反対", "はんたい"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-09-30",
+    "term": "防衛",
+    "kana": "ぼうえい",
+    "meaning": "defense, protection, self-defense",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 173038,
+        "ja": "国内は防衛問題で沸騰した。",
+        "en": "The country seethed over the issue of national defense.",
+        "enId": 241436,
+        "form": "防衛",
+        "furigana": [
+          ["国内", "こくない"],
+          ["は"],
+          ["防衛", "ぼうえい"],
+          ["問題", "もんだい"],
+          ["で"],
+          ["沸騰", "ふっとう"],
           ["した。"]
         ]
       },
       {
-        "id": 233148,
-        "ja": "あなたの迅速な返事が是非とも必要です。",
-        "en": "Your prompt reply is urgently required.",
-        "enId": 70518,
-        "form": "迅速な",
-        "furigana": [
-          ["あなたの"],
-          ["迅速", "じんそく"],
-          ["な"],
-          ["返事", "へんじ"],
-          ["が"],
-          ["是非", "ぜひ"],
-          ["とも"],
-          ["必要", "ひつよう"],
-          ["です。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-26",
-    "term": "国連",
-    "kana": "こくれん",
-    "meaning": "U.N., United Nations",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf01"],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "In kokuren, 連 is a daiyōji replacing 聯.",
-    "morphemes": [
-      {
-        "text": "国",
-        "reading": "こく",
-        "meaning": "country",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "連",
-        "reading": "れん",
-        "meaning": "take along",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "連 is a daiyōji replacing 聯."
-      }
-    ],
-    "examples": [
-      {
-        "id": 234788,
-        "ja": "ＵＮは「国連」を表します。",
-        "en": "UN stands for the United Nations.",
-        "enId": 72165,
-        "form": "国連",
-        "furigana": [
-          ["ＵＮは「"],
-          ["国連", "こくれん"],
-          ["」を"],
-          ["表", "あらわ"],
-          ["します。"]
-        ]
-      },
-      {
-        "id": 210596,
-        "ja": "その国は国連に援助を求めた。",
-        "en": "The country appealed to the United Nations for help.",
-        "enId": 47866,
-        "form": "国連",
+        "id": 208044,
+        "ja": "その男は自己防衛を口実にした。",
+        "en": "The man pleaded self-defence.",
+        "enId": 45301,
+        "form": "防衛",
         "furigana": [
           ["その"],
-          ["国", "くに"],
+          ["男", "おとこ"],
           ["は"],
-          ["国連", "こくれん"],
-          ["に"],
-          ["援助", "えんじょ"],
+          ["自己", "じこ"],
+          ["防衛", "ぼうえい"],
           ["を"],
-          ["求", "もと"],
-          ["めた。"]
+          ["口実", "こうじつ"],
+          ["にした。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-27",
-    "term": "夕暮れ",
-    "kana": "ゆうぐれ",
-    "meaning": "evening, (evening) twilight",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf21"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": ["compound", "rendaku"],
-    "headline": "Yūgure is 夕 (yū, “evening”) plus 暮れ (kure, “dusk, nightfall”), with kure voiced to gure by rendaku.",
-    "morphemes": [
-      {
-        "text": "夕",
-        "reading": "ゆう",
-        "meaning": "evening"
-      },
-      {
-        "text": "暮れ",
-        "reading": "ぐれ",
-        "base": "くれ",
-        "meaning": "dusk, nightfall"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "夕(ゆう) (yū, “evening”) + 暮(く)れ (kure, “dusk, nightfall”)."
-      },
-      {
-        "quote": "The kure changes to gure as an instance of rendaku (連濁)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 79057,
-        "ja": "夕暮れが谷間に迫っていた。",
-        "en": "Evening was closing in on the valley.",
-        "enId": 324660,
-        "form": "夕暮れ",
-        "furigana": [
-          ["夕暮", "ゆうぐ"],
-          ["れが"],
-          ["谷間", "たにま"],
-          ["に"],
-          ["迫", "せま"],
-          ["っていた。"]
-        ]
-      },
-      {
-        "id": 74955,
-        "ja": "或る夕暮私はこの丘の上に立ったことがある。",
-        "en": "There was a time, one evening, when I stood on top of that hill.",
-        "enId": 328764,
-        "form": "夕暮",
-        "furigana": [
-          ["或", "ある"],
-          ["る"],
-          ["夕暮", "ゆうぐれ"],
-          ["私", "わたし"],
-          ["はこの"],
-          ["丘", "おか"],
-          ["の"],
-          ["上", "うえ"],
-          ["に"],
-          ["立", "た"],
-          ["ったことがある。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-28",
-    "term": "尽きる",
-    "kana": "つきる",
-    "meaning": "to be used up, to be run out",
-    "level": "N1",
-    "pos": ["Ichidan verb", "intransitive verb"],
-    "priority": ["ichi1", "news2", "nf35"],
-    "pitch": [2],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Tsukiru is from Old Japanese, found in the Man'yōshū and spelled phonetically as 都奇 and, in the Nihonshoki kayō, as 豆紀.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "From Old Japanese tuki₂. Found in the Man'yōshū, completed some time after 759 CE, spelled phonetically in man'yōgana as 都奇, and in the Nihonshoki kayō (completed 720 CE) under the phonetic man'yōgana 豆紀."
-      }
-    ],
-    "examples": [
-      {
-        "id": 77810,
-        "ja": "力が尽きた。",
-        "en": "My strength is all gone.",
-        "enId": 325907,
-        "form": "尽きた",
-        "furigana": [["力", "ちから"], ["が"], ["尽", "つ"], ["きた。"]]
-      },
-      {
-        "id": 137960,
-        "ja": "体力が尽きた。",
-        "en": "I am exhausted.",
-        "enId": 275276,
-        "form": "尽きた",
-        "furigana": [["体力", "たいりょく"], ["が"], ["尽", "つ"], ["きた。"]]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-29",
-    "term": "演じる",
-    "kana": "えんじる",
-    "meaning": "to perform, to play (a part), to act",
-    "level": "N1",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "priority": ["ichi1", "news2", "nf29"],
-    "stratum": "kango",
-    "processes": ["sound-change"],
-    "headline": "Enjiru is a shift from the verb 演ずる (enzuru), as -uru verbs moved to the -iru pattern.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "Shift from verb 演(えん)ずる (enzuru), by natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
-      }
-    ],
-    "examples": [
-      {
-        "id": 100319,
-        "ja": "彼は舞台で演じた。",
-        "en": "He acted on the stage.",
-        "enId": 303378,
-        "form": "演じた",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["舞台", "ぶたい"],
-          ["で"],
-          ["演", "えん"],
-          ["じた。"]
-        ]
-      },
-      {
-        "id": 147958,
-        "ja": "重要な役を演じる。",
-        "en": "I play an important part.",
-        "enId": 266602,
-        "form": "演じる",
-        "furigana": [
-          ["重要", "じゅうよう"],
-          ["な"],
-          ["役", "やく"],
-          ["を"],
-          ["演", "えん"],
-          ["じる。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-09-30",
-    "term": "金槌",
-    "kana": "かなづち",
-    "meaning": "(iron) hammer",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1"],
-    "pitch": [3, 4],
-    "stratum": "wago",
-    "processes": ["compound", "rendaku"],
-    "headline": "Kanazuchi is 金 (kana, “metal”) plus 槌 (tsuchi, “hammer, mallet”), with tsuchi voiced to zuchi by rendaku.",
-    "morphemes": [
-      {
-        "text": "金",
-        "reading": "かな",
-        "meaning": "metal"
-      },
-      {
-        "text": "槌",
-        "reading": "づち",
-        "base": "つち",
-        "meaning": "hammer, mallet"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Compound of 金 (kana, “metal”) + 槌 (tsuchi, “hammer, mallet”). The tsuchi changes to zuchi as an instance of rendaku (連濁)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 161191,
-        "ja": "私はカナヅチ同様に泳げない。",
-        "en": "I can no more swim than a hammer can.",
-        "enId": 253327,
-        "form": "カナヅチ",
-        "furigana": [
-          ["私", "わたし"],
-          ["はカナヅチ"],
-          ["同様", "どうよう"],
-          ["に"],
-          ["泳", "およ"],
-          ["げない。"]
-        ]
-      },
-      {
-        "id": 226286,
-        "ja": "かなづちと同様に彼は泳げない。",
-        "en": "He cannot swim any more than a hammer can.",
-        "enId": 63626,
-        "form": "かなづち",
-        "furigana": [
-          ["かなづちと"],
-          ["同様", "どうよう"],
-          ["に"],
-          ["彼", "かれ"],
-          ["は"],
-          ["泳", "およ"],
-          ["げない。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   }
 ]

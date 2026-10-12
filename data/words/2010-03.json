@@ -1,0 +1,1557 @@
+[
+  {
+    "date": "2010-03-01",
+    "term": "火事",
+    "kana": "かじ",
+    "meaning": "fire",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["compound", "reread"],
+    "headline": "A fire was once “the matter of fire”, a native phrase later re-read in Chinese sounds.",
+    "morphemes": [
+      {
+        "text": "火",
+        "reading": "か",
+        "meaning": "fire",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "事",
+        "reading": "じ",
+        "meaning": "matter",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Old Japanese 火事 (pi₂ no₂ ko₂to₂) (now spelled as 火の事 (hi no koto)), later read with 音読み (on'yomi)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 187144,
+        "ja": "家が火事だ。",
+        "en": "The house is on fire!",
+        "enId": 24281,
+        "form": "火事",
+        "furigana": [["家", "いえ"], ["が"], ["火事", "かじ"], ["だ。"]]
+      },
+      {
+        "id": 124353,
+        "ja": "冬は火事が多い。",
+        "en": "We often have fires in winter.",
+        "enId": 279641,
+        "form": "火事",
+        "furigana": [
+          ["冬", "ふゆ"],
+          ["は"],
+          ["火事", "かじ"],
+          ["が"],
+          ["多", "おお"],
+          ["い。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-02",
+    "term": "夢",
+    "kana": "ゆめ",
+    "meaning": "a dream",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["compound", "sound-change"],
+    "headline": "“Dream” began as “sleep-eye”: sight seen while asleep.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨i me₂⟩ → */jiməɨ/ → /jɨme/ → /jume/"
+      },
+      {
+        "quote": "Shift from Old Japanese 夢 (ime₂), itself a compound of 寝 (i, “sleep, sleeping”, obsolete) + 目 (me, “eye; sight, vision”)."
+      },
+      {
+        "quote": "Appears in texts from the 900s."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80950,
+        "ja": "夢をつかめ！",
+        "en": "Get the dream.",
+        "enId": 322764,
+        "form": "夢",
+        "furigana": [["夢", "ゆめ"], ["をつかめ！"]]
+      },
+      {
+        "id": 80952,
+        "ja": "夢みたいだ。",
+        "en": "It's like a dream come true.",
+        "enId": 322763,
+        "form": "夢",
+        "furigana": [["夢", "ゆめ"], ["みたいだ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-03",
+    "term": "景色",
+    "kana": "けしき",
+    "meaning": "scenery, landscape",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [1],
+    "processes": [],
+    "headline": "けしき was spelled another way first; 景 was swapped in for the sense.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Derived from 気(け)色(しき) (keshiki)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-04",
+    "term": "開ける",
+    "kana": "あける",
+    "meaning": "to open (v.t.)",
+    "level": "N5",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Open, dawn and empty are three spellings of one sound: あける.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Cognate with Japanese 明(あ)ける (akeru, “to dawn”) and 空(あ)ける (akeru, “to empty”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 140363,
+        "ja": "窓を開けて。",
+        "en": "Open the window.",
+        "enId": 274210,
+        "form": "開けて",
+        "furigana": [["窓", "まど"], ["を"], ["開", "あ"], ["けて。"]]
+      },
+      {
+        "id": 184930,
+        "ja": "開けてくれ。",
+        "en": "Open up.",
+        "enId": 22061,
+        "form": "開けて",
+        "furigana": [["開", "あ"], ["けてくれ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-05",
+    "term": "空気",
+    "kana": "くうき",
+    "meaning": "air, atmosphere",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "A word with a known inventor and year, and little else on record.",
+    "morphemes": [
+      {
+        "text": "空",
+        "reading": "くう",
+        "meaning": "empty",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "気",
+        "reading": "き",
+        "meaning": "air",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Coined by Maeno Ryōtaku in 1777."
+      }
+    ],
+    "examples": [
+      {
+        "id": 126225,
+        "ja": "朝は空気が新鮮だ。",
+        "en": "The air is fresh in the morning.",
+        "enId": 277766,
+        "form": "空気",
+        "furigana": [
+          ["朝", "あさ"],
+          ["は"],
+          ["空気", "くうき"],
+          ["が"],
+          ["新鮮", "しんせん"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 175663,
+        "ja": "月には空気がない。",
+        "en": "There is no air on the moon.",
+        "enId": 238802,
+        "form": "空気",
+        "furigana": [["月", "つき"], ["には"], ["空気", "くうき"], ["がない。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-06",
+    "term": "布団",
+    "kana": "ふとん",
+    "meaning": "futon",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing", "ateji"],
+    "headline": "A futon began as a Zen meditation cushion made of bulrush, not cloth.",
+    "morphemes": [
+      {
+        "text": "布",
+        "reading": "ふ",
+        "meaning": "cloth",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "団",
+        "reading": "とん",
+        "meaning": "group",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from Literary Chinese, possibly early Mandarin 蒲團／蒲团 (pútuán), likely as part of the importation of Zen Buddhism, for which practice these were originally used. First cited in Japanese to a text from the early-mid 1200s with the \"meditation cushion\" sense."
+      },
+      {
+        "quote": "Originally referred literally to a 蒲 (pú, “bulrush, cattail”) 團／团 (tuán, “ball”), from the way these were round cushions made from woven bulrush leaves."
+      },
+      {
+        "quote": "After the term was borrowed, the usage and construction of these cushions changed and the connection with bulrushes was weakened, leading to the simpler character 布 (fu, “cloth”) being used as a replacement for 蒲 (fu, “bulrush, cattail”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84914,
+        "ja": "布団をはがされた。",
+        "en": "My futon was peeled away.",
+        "enId": 318799,
+        "form": "布団",
+        "furigana": [["布団", "ふとん"], ["をはがされた。"]]
+      },
+      {
+        "id": 84915,
+        "ja": "布団をたたみなさい。",
+        "en": "Fold up your bedding.",
+        "enId": 318798,
+        "form": "布団",
+        "furigana": [["布団", "ふとん"], ["をたたみなさい。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-07",
+    "term": "皮肉",
+    "kana": "ひにく",
+    "meaning": "cynicism, sarcasm",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "“Skin and flesh” became “sarcasm” through a Zen test of understanding.",
+    "morphemes": [
+      {
+        "text": "皮",
+        "reading": "ひ",
+        "meaning": "skin",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "肉",
+        "reading": "にく",
+        "meaning": "meat",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 皮肉 (MC bje nyuwk), literally “skin and meat”."
+      },
+      {
+        "quote": "Originally a Buddhist term from the Zen expression 皮肉骨髄 (“skin, flesh, bones, and marrow”) used to evaluate disciples’ understanding, where “bones and marrow” represent the core truth, and “skin and meat” symbolize the superficial understanding."
+      },
+      {
+        "quote": "As a result, it came to refer to shallow criticism (pointing out faults without addressing the essence) and irony in modern Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 114537,
+        "ja": "彼はいつも私に皮肉を言う。",
+        "en": "He always makes cynical remarks to me.",
+        "enId": 289136,
+        "form": "皮肉",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はいつも"],
+          ["私", "わたし"],
+          ["に"],
+          ["皮肉", "ひにく"],
+          ["を"],
+          ["言", "い"],
+          ["う。"]
+        ]
+      },
+      {
+        "id": 88677,
+        "ja": "彼女は少し皮肉っぽく話した。",
+        "en": "She spoke with a suggestion of sarcasm in her voice.",
+        "enId": 315030,
+        "form": "皮肉",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["少", "すこ"],
+          ["し"],
+          ["皮肉", "ひにく"],
+          ["っぽく"],
+          ["話", "はな"],
+          ["した。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-08",
+    "term": "地震",
+    "kana": "じしん",
+    "meaning": "earthquake",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing", "sound-change"],
+    "headline": "One spelling, two unrelated words: a Chinese compound and a lost native one.",
+    "morphemes": [
+      {
+        "text": "地",
+        "reading": "じ",
+        "base": "ち",
+        "meaning": "ground",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "震",
+        "reading": "しん",
+        "meaning": "quake",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "/di t͡ɕin/ → /d͡ʑiɕiɴ/"
+      },
+      {
+        "quote": "From Old Japanese, in turn from Middle Chinese compound 地震 (MC dijH tsyinH). First cited to a text from 734."
+      }
+    ],
+    "examples": [
+      {
+        "id": 126907,
+        "ja": "地震がその地域を襲った。",
+        "en": "The earthquake shook the area.",
+        "enId": 277183,
+        "form": "地震",
+        "furigana": [
+          ["地震", "じしん"],
+          ["がその"],
+          ["地域", "ちいき"],
+          ["を"],
+          ["襲", "おそ"],
+          ["った。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-09",
+    "term": "梅雨",
+    "kana": "つゆ",
+    "meaning": "rainy season",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "processes": ["derivation", "borrowing", "ateji", "unclear"],
+    "headline": "“Plum rain” on paper, つゆ in speech, and no certain origin for the sound.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "First attested in the mid-Muromachi period."
+      },
+      {
+        "quote": "Derivation unclear, likely theories include:"
+      },
+      {
+        "quote": "* May be cognate with 露 (tsuyu, “dew, dewdrop”), from the way the rainy season causes everything to be covered in drops that may look like dew. However, the pitch accent differs, as 露 (tsuyu) has either an 頭高型 (atamadaka-gata) or 尾高型 (odaka-gata) pattern, while 梅雨 (tsuyu) has a 平板型 (heiban-gata) pattern."
+      },
+      {
+        "quote": "* Alternatively, may be cognate with classical verb 熟ゆ (tsuyu, modern 熟える (tsueru), “to become ripe”), as plums ripen during the rainy season. In light of the pitch accent and semantics, this derivation appears more likely."
+      },
+      {
+        "quote": "The spelling is an orthographic borrowing from Chinese 梅雨."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-10",
+    "term": "都合",
+    "kana": "つごう",
+    "meaning": "circumstances, convenience",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing", "sound-change", "meaning-shift"],
+    "headline": "From “adding it all up” to “is that convenient for you?”",
+    "morphemes": [
+      {
+        "text": "都",
+        "reading": "つ",
+        "meaning": "metropolis",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "合",
+        "reading": "ごう",
+        "meaning": "fit",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 都合 (MC tu kòp, “to sum up; altogether”). First attested in Japan in the 正倉院文書 (Shōsōin Monjo) of 734 CE in the literal sense of “totaling” or “summing up.”"
+      },
+      {
+        "quote": "Over time, the meaning shifted from the “total sum of things” to the “general state of affairs” (circumstances) in the Middle Japanese period, eventually leading to the modern sense of “convenience.”"
+      }
+    ],
+    "examples": [
+      {
+        "id": 190505,
+        "ja": "一身上の都合です。",
+        "en": "For personal reasons.",
+        "enId": 27666,
+        "form": "都合",
+        "furigana": [
+          ["一身上", "いっしんじょう"],
+          ["の"],
+          ["都合", "つごう"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 187776,
+        "ja": "何とか都合して来てください。",
+        "en": "Will you try to come?",
+        "enId": 24914,
+        "form": "都合",
+        "furigana": [
+          ["何", "なん"],
+          ["とか"],
+          ["都合", "つごう"],
+          ["して"],
+          ["来", "き"],
+          ["てください。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-11",
+    "term": "秋",
+    "kana": "あき",
+    "meaning": "fall (season)",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change", "unclear"],
+    "headline": "Autumn may be kin to “bright”, “red” and “full up” — though Wiktionary says the exact relationship remains unclear.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨aki₁⟩ → */akʲi/ → /aki/"
+      },
+      {
+        "quote": "From Old Japanese."
+      },
+      {
+        "quote": "Likely cognate with 明き (aki, “bright”), 赤 (aka, “red”), 飽きる (akiru, “to become full up”, possibly in reference to the harvest), 空く (aku, “to become empty”), 開く (aku, “to open up”). However, the exact relationship of these terms remains unclear."
+      }
+    ],
+    "examples": [
+      {
+        "id": 127166,
+        "ja": "男心と秋の空。",
+        "en": "Man is as fickle as autumn weather.",
+        "enId": 276923,
+        "form": "秋",
+        "furigana": [
+          ["男心", "おとこごころ"],
+          ["と"],
+          ["秋", "あき"],
+          ["の"],
+          ["空", "そら"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 147279,
+        "ja": "女心と秋の空。",
+        "en": "A woman's mind and winter wind change often.",
+        "enId": 267243,
+        "form": "秋",
+        "furigana": [
+          ["女心", "おんなごころ"],
+          ["と"],
+          ["秋", "あき"],
+          ["の"],
+          ["空", "そら"],
+          ["。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-12",
+    "term": "霧",
+    "kana": "きり",
+    "meaning": "fog, mist",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Fog is a verb turned noun: kiri is the stem of kiru, “to become foggy”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 霧(き)る (kiru, “to become foggy”)."
+      },
+      {
+        "quote": "First attested in 712 CE in the Kojiki, in the sense \"breath expelled from a person\"."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80868,
+        "ja": "霧がはれた。",
+        "en": "The fog has lifted.",
+        "enId": 322847,
+        "form": "霧",
+        "furigana": [["霧", "きり"], ["がはれた。"]]
+      },
+      {
+        "id": 80863,
+        "ja": "霧が立ち込めた。",
+        "en": "The fog closed in.",
+        "enId": 322852,
+        "form": "霧",
+        "furigana": [
+          ["霧", "きり"],
+          ["が"],
+          ["立", "た"],
+          ["ち"],
+          ["込", "こ"],
+          ["めた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-13",
+    "term": "露",
+    "kana": "つゆ",
+    "meaning": "dew",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1, 2],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Dew is tsuyu, and Wiktionary can trace it no further back than Old Japanese.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨tuyu⟩ → /t͡suju/"
+      },
+      {
+        "quote": "From Old Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 225260,
+        "ja": "今朝は露が降りた。",
+        "en": "The dew fell this morning.",
+        "enId": 62596,
+        "form": "露",
+        "furigana": [
+          ["今朝", "けさ"],
+          ["は"],
+          ["露", "つゆ"],
+          ["が"],
+          ["降", "お"],
+          ["りた。"]
+        ]
+      },
+      {
+        "id": 216133,
+        "ja": "芝生に露が降りている。",
+        "en": "Dew has formed on the lawn.",
+        "enId": 53435,
+        "form": "露",
+        "furigana": [
+          ["芝生", "しばふ"],
+          ["に"],
+          ["露", "つゆ"],
+          ["が"],
+          ["降", "お"],
+          ["りている。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-14",
+    "term": "霜",
+    "kana": "しも",
+    "meaning": "frost",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Frost may be the “low” word: shimo is thought to be cognate with, or derived from, 下 (“bottom, lower part”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨simo₁⟩ → /simo/ → /ɕimo/"
+      },
+      {
+        "quote": "From Old Japanese, first attested in the Harima Fudoki of 715 CE, in turn from Proto-Japonic *simo."
+      },
+      {
+        "quote": "Thought to be cognate with or derived from 下(しも) (⟨simo₁⟩ → shimo, “bottom, lower part”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 140270,
+        "ja": "霜で花が傷んだ。",
+        "en": "Frost touched the flowers.",
+        "enId": 274303,
+        "form": "霜",
+        "furigana": [
+          ["霜", "しも"],
+          ["で"],
+          ["花", "はな"],
+          ["が"],
+          ["傷", "いた"],
+          ["んだ。"]
+        ]
+      },
+      {
+        "id": 79132,
+        "ja": "ゆうべ霜が降りた。",
+        "en": "It frosted last night.",
+        "enId": 324585,
+        "form": "霜",
+        "furigana": [
+          ["ゆうべ"],
+          ["霜", "しも"],
+          ["が"],
+          ["降", "お"],
+          ["りた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-15",
+    "term": "木",
+    "kana": "き",
+    "meaning": "tree, wood, timber",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Tree is ki, with a Ryukyuan cousin *ke, and it is first attested in the Kojiki of 712 CE.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨ki₂⟩ → */kɨ/ → /ki/"
+      },
+      {
+        "quote": "From Old Japanese 木 (ki₂), from Proto-Japonic *kəi. Cognate with Proto-Ryukyuan *ke. For the vowel alternation, see Wiktionary:About Proto-Japonic § Standalone forms and combining forms."
+      },
+      {
+        "quote": "First attested in the Kojiki of 712 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80081,
+        "ja": "木を折るな。",
+        "en": "Don't break the branches.",
+        "enId": 246310,
+        "form": "木",
+        "furigana": [["木", "き"], ["を"], ["折", "お"], ["るな。"]]
+      },
+      {
+        "id": 80140,
+        "ja": "木が燃える。",
+        "en": "Wood burns.",
+        "enId": 323576,
+        "form": "木",
+        "furigana": [["木", "き"], ["が"], ["燃", "も"], ["える。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-16",
+    "term": "葉",
+    "kana": "は",
+    "meaning": "leaf",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Leaf, feather, tooth, blade: Wiktionary lists them as possible kin, then notes that their pitch accents disagree.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/pa/ → /ɸa/ → /ha/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *pa."
+      },
+      {
+        "quote": "Probably cognate with Old Japanese verb 生(は)ゆ (hayu, “to sprout, to grow”) → modern 生(は)える (haeru), and with 羽(は) (ha, “feather; wing”)."
+      },
+      {
+        "quote": "Suggested in some sources as possibly cognate with 歯(は) (ha, “tooth”), from the way that both sprout and then later fall, and with 刃(は) (ha, “blade”) from similarities in shape (cf. English blade). However, the pitch accent patterns are different; 葉 and 羽 are both unaccented, while 歯 and 刃 are both accented. This may reflect two disparate *pa roots in the ancient language."
+      },
+      {
+        "quote": "First attested in the Kojiki of 712 CE with the phonetic spelling 波."
+      },
+      {
+        "quote": "Cognate with Okinawan 葉 (fā)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 78836,
+        "ja": "葉が落ちた。",
+        "en": "The leaves fell.",
+        "enId": 324880,
+        "form": "葉",
+        "furigana": [["葉", "は"], ["が"], ["落", "お"], ["ちた。"]]
+      },
+      {
+        "id": 148206,
+        "ja": "秋には葉が散る。",
+        "en": "The leaves fall in autumn.",
+        "enId": 5165604,
+        "form": "葉",
+        "furigana": [
+          ["秋", "あき"],
+          ["には"],
+          ["葉", "は"],
+          ["が"],
+          ["散", "ち"],
+          ["る。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-17",
+    "term": "森",
+    "kana": "もり",
+    "meaning": "forest",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "A forest as a heap: mori is probably cognate with 盛り (“heap, pile”), from how woods look from a distance.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, first attested in the Man'yōshū (c. 759 CE)."
+      },
+      {
+        "quote": "Probably cognate with 盛り (mori, “heap, pile”), the 連用形 (ren'yōkei, “continuative or stem form”) of verb 盛る (moru, “to heap up, to build up into a significant amount”), from the way a forest can look like a heap or mound from a distance."
+      }
+    ],
+    "examples": [
+      {
+        "id": 103742,
+        "ja": "彼は森で迷った。",
+        "en": "He lost his way in the woods.",
+        "enId": 269482,
+        "form": "森",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["森", "もり"],
+          ["で"],
+          ["迷", "まよ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 175660,
+        "ja": "月には森も無い。",
+        "en": "Nor are there any woods on the moon.",
+        "enId": 238804,
+        "form": "森",
+        "furigana": [
+          ["月", "つき"],
+          ["には"],
+          ["森", "もり"],
+          ["も"],
+          ["無", "な"],
+          ["い。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-18",
+    "term": "林",
+    "kana": "はやし",
+    "meaning": "woods, forest",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [3, 0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "A hayashi may have been a deliberately planted grove: the word derives from the transitive verb 生やす (“to grow”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First mentioned in the Man'yōshū, completed in 759 CE."
+      },
+      {
+        "quote": "Derives from the 連用形 (ren'yōkei, “stem or continuative form”) of verb 生やす (hayasu, “to grow”). The root verb is in the transitive form, suggesting that the original sense of hayashi may have indicated a deliberately planted or managed grove."
+      }
+    ],
+    "examples": [
+      {
+        "id": 75660,
+        "ja": "林に竹が目立つ。",
+        "en": "Bamboo stands out in the woods.",
+        "enId": 328058,
+        "form": "林",
+        "furigana": [
+          ["林", "はやし"],
+          ["に"],
+          ["竹", "たけ"],
+          ["が"],
+          ["目立", "めだ"],
+          ["つ。"]
+        ]
+      },
+      {
+        "id": 77793,
+        "ja": "林の中でいっぱい虫にさされた。",
+        "en": "I got a lot of insect bites in the woods.",
+        "enId": 325925,
+        "form": "林",
+        "furigana": [
+          ["林", "はやし"],
+          ["の"],
+          ["中", "なか"],
+          ["でいっぱい"],
+          ["虫", "むし"],
+          ["にさされた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-19",
+    "term": "山",
+    "kana": "やま",
+    "meaning": "mountain",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "counter"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Mountain and forest in one: Proto-Japonic *yama meant “mountain; forest”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 山 (yama). First attested in the Kojiki of 712 CE."
+      },
+      {
+        "quote": "Reconstructed as deriving in turn from Proto-Japonic *yama (“mountain; forest”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 156658,
+        "ja": "私は山にいく。",
+        "en": "I go to the mountain.",
+        "enId": 257876,
+        "form": "山",
+        "furigana": [["私", "わたし"], ["は"], ["山", "やま"], ["にいく。"]]
+      },
+      {
+        "id": 169434,
+        "ja": "山に顔があるよ。",
+        "en": "There are big faces on it.",
+        "enId": 245052,
+        "form": "山",
+        "furigana": [["山", "やま"], ["に"], ["顔", "かお"], ["があるよ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-20",
+    "term": "川",
+    "kana": "かわ",
+    "meaning": "river",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "suffix"],
+    "priority": ["ichi1", "news1", "nf03", "nf10"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Rivers once had a p: Old Japanese kapa is the ancestor of kawa.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 川 (kapa), from Proto-Japonic *kapa."
+      },
+      {
+        "quote": "First attested in the Kojiki of 712 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 3234745,
+        "ja": "川はうねるように平野を流れている。",
+        "en": "The river meanders across the plain.",
+        "enId": 3234749,
+        "form": "川",
+        "furigana": [
+          ["川", "かわ"],
+          ["はうねるように"],
+          ["平野", "へいや"],
+          ["を"],
+          ["流", "なが"],
+          ["れている。"]
+        ]
+      },
+      {
+        "id": 179488,
+        "ja": "空から見ると川は巨大な蛇のように見えた。",
+        "en": "Seen from the sky, the river looked like a huge snake.",
+        "enId": 18346,
+        "form": "川",
+        "furigana": [
+          ["空", "そら"],
+          ["から"],
+          ["見", "み"],
+          ["ると"],
+          ["川", "かわ"],
+          ["は"],
+          ["巨大", "きょだい"],
+          ["な"],
+          ["蛇", "へび"],
+          ["のように"],
+          ["見", "み"],
+          ["えた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-21",
+    "term": "橋",
+    "kana": "はし",
+    "meaning": "bridge",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "A bridge is “the space between”: hashi is cognate with words for stairs, narrow gaps and squeezing.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/pasi/ → /ɸasi/ → /hasi/"
+      },
+      {
+        "quote": "From Old Japanese, originally indicating either the area between two things, or a connection between two things."
+      },
+      {
+        "quote": "Cognate with 階 (hashi, “stairs from a garden up to the house”), both cognate with root hasa indicating the narrow area between two things, as in 狭間 (classical hasama, modern hazama, “narrow gap between two things”) or 挟む (hasamu, “to put between two things that are close together, to squeeze between two things”). Cognate also with root hoso indicating the narrowness of a thing itself, as in 細い (hosoi, “narrow, slender”), 細める (hosomeru, “to narrow something, to make something narrow”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 180117,
+        "ja": "橋は石造りだ。",
+        "en": "The bridge is made of stone.",
+        "enId": 18977,
+        "form": "橋",
+        "furigana": [["橋", "はし"], ["は"], ["石造", "いしづく"], ["りだ。"]]
+      },
+      {
+        "id": 180119,
+        "ja": "橋は修理中です。",
+        "en": "The bridge is being repaired.",
+        "enId": 18979,
+        "form": "橋",
+        "furigana": [
+          ["橋", "はし"],
+          ["は"],
+          ["修理", "しゅうり"],
+          ["中", "ちゅう"],
+          ["です。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-22",
+    "term": "床屋",
+    "kana": "とこや",
+    "meaning": "barber's (shop)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "A barber’s is a “raised-floor shop”: barbershops were historically often 床店, stalls on a raised floor.",
+    "morphemes": [
+      {
+        "text": "床",
+        "reading": "とこ",
+        "meaning": "raised floor"
+      },
+      {
+        "text": "屋",
+        "reading": "や",
+        "meaning": "shop"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 床(とこ) (toko, “raised floor”) + 屋(や) (-ya, “shop”), due to how barbershops were historically often 床店(とこみせ) (tokomise, “stall with a raised floor used as a store”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 146458,
+        "ja": "床屋に行きなさい。",
+        "en": "Go to the barber.",
+        "enId": 268104,
+        "form": "床屋",
+        "furigana": [["床屋", "とこや"], ["に"], ["行", "い"], ["きなさい。"]]
+      },
+      {
+        "id": 146459,
+        "ja": "床屋に行きなさいよ。",
+        "en": "Why don't you get a haircut?",
+        "enId": 268103,
+        "form": "床屋",
+        "furigana": [["床屋", "とこや"], ["に"], ["行", "い"], ["きなさいよ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-23",
+    "term": "町",
+    "kana": "まち",
+    "meaning": "town; city",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["borrowing"],
+    "headline": "Machi first meant a “plot of land”, and Vovin argues it was borrowed from a Korean ancestor word for “field”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, with the original meaning of “plot of land”. Vovin argues it is likely borrowed from an ancestor to Middle Korean 맡 (math, “field”) , but all Japanese etymological theories base the etymology on the meaning of “town; section of a castle town”, typically using 道(ち) (chi), 道(みち) (michi, “road”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 126106,
+        "ja": "町は眠っていた。",
+        "en": "The town slept.",
+        "enId": 277886,
+        "form": "町",
+        "furigana": [["町", "まち"], ["は"], ["眠", "ねむ"], ["っていた。"]]
+      },
+      {
+        "id": 85939,
+        "ja": "悲劇が町を襲った。",
+        "en": "Tragedy fell over the town.",
+        "enId": 317772,
+        "form": "町",
+        "furigana": [
+          ["悲劇", "ひげき"],
+          ["が"],
+          ["町", "まち"],
+          ["を"],
+          ["襲", "おそ"],
+          ["った。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-24",
+    "term": "村",
+    "kana": "むら",
+    "meaning": "village",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "A village is either “a gathering” (from 群れる) or a word from Old Korean — the source does not pick.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *mura."
+      },
+      {
+        "quote": "Either formed from the nominalization of 群れる (mureru, “to gather”), or from Old Korean. In Old Korean toponyms, this appears with the phonetic spelling 牟羅 (*mura). Compare Korean 무리 (muri, “group, crowd”), also possibly cognate with 群れる (mureru, “to gather”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 210867,
+        "ja": "その湖がむらに水を供給している。",
+        "en": "The lake supplies water to the village.",
+        "enId": 48138,
+        "form": "むら",
+        "furigana": [
+          ["その"],
+          ["湖", "みずうみ"],
+          ["がむらに"],
+          ["水", "みず"],
+          ["を"],
+          ["供給", "きょうきゅう"],
+          ["している。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-25",
+    "term": "駅",
+    "kana": "えき",
+    "meaning": "station",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "A station began as a relay post where horses were changed.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 驛 (yek, “relay station (a place for changing horses in pre-modern times)”). First attested in Japanese in 718."
+      }
+    ],
+    "examples": [
+      {
+        "id": 881837,
+        "ja": "東京駅なう。",
+        "en": "I'm at Tokyo Station now.",
+        "enId": 881854,
+        "form": "駅",
+        "furigana": [["東京", "とうきょう"], ["駅", "えき"], ["なう。"]]
+      },
+      {
+        "id": 158266,
+        "ja": "駅に着いたよ。",
+        "en": "I arrived at the station.",
+        "enId": 256264,
+        "form": "駅",
+        "furigana": [["駅", "えき"], ["に"], ["着", "つ"], ["いたよ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-26",
+    "term": "電車",
+    "kana": "でんしゃ",
+    "meaning": "electric train",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Literally an “electric vehicle”: 電 (den) + 車 (sha).",
+    "morphemes": [
+      {
+        "text": "電",
+        "reading": "でん",
+        "meaning": "electric"
+      },
+      {
+        "text": "車",
+        "reading": "しゃ",
+        "meaning": "vehicle"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "電(でん) (den, “electric”) + 車(しゃ) (sha, “vehicle”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124815,
+        "ja": "電車で行こう。",
+        "en": "Let's take a train.",
+        "enId": 279178,
+        "form": "電車",
+        "furigana": [["電車", "でんしゃ"], ["で"], ["行", "い"], ["こう。"]]
+      },
+      {
+        "id": 124806,
+        "ja": "電車に傘を忘れた。",
+        "en": "I left my umbrella on the train.",
+        "enId": 279187,
+        "form": "電車",
+        "furigana": [
+          ["電車", "でんしゃ"],
+          ["に"],
+          ["傘", "かさ"],
+          ["を"],
+          ["忘", "わす"],
+          ["れた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-27",
+    "term": "傘",
+    "kana": "かさ",
+    "meaning": "umbrella, parasol",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Before it meant “umbrella”, 傘 was a rain hat made of bundled reeds or sedges.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. Attested in a gloss of the Nihon Shoki (720) and Man'yōshū (759) in the ideographic spelling 笠. In turn, from reconstructed Proto-Japonic *kasa (“rain hat”). Possibly related to 重なる (kasanaru, “to overlap, to be layered”, intransitive), 重ねる (kasaneru, “to overlap, to layer”, transitive),."
+      },
+      {
+        "quote": "The term originally refers to a bundle of reeds or sedges used as a rain hat. Following the spread of folding umbrellas in the 900s after their introduction from Baekje or China, the sense gradually shifted to also mean \"umbrella\"."
+      }
+    ],
+    "examples": [
+      {
+        "id": 169455,
+        "ja": "傘を閉じました。",
+        "en": "I closed my umbrella.",
+        "enId": 245030,
+        "form": "傘",
+        "furigana": [["傘", "かさ"], ["を"], ["閉", "と"], ["じました。"]]
+      },
+      {
+        "id": 169458,
+        "ja": "傘を置き忘れた。",
+        "en": "I left an umbrella behind.",
+        "enId": 245027,
+        "form": "傘",
+        "furigana": [
+          ["傘", "かさ"],
+          ["を"],
+          ["置", "お"],
+          ["き"],
+          ["忘", "わす"],
+          ["れた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-28",
+    "term": "雨",
+    "kana": "あめ",
+    "meaning": "rain",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Rain and candy are both ame today, but Wiktionary keeps them as distinct Old Japanese words, ame2 and ame1.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨ame₂⟩ → */aməɨ/ → /ame/"
+      },
+      {
+        "quote": "From Old Japanese, ultimately from Proto-Japonic *amay."
+      },
+      {
+        "quote": "Cognate with 天 (ame, unbound apophonic of ama, “sky”), as in the location of clouds where water precipitates from."
+      },
+      {
+        "quote": "Distinct from 飴 (⟨ame₁⟩ → ame, “candy”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 189544,
+        "ja": "雨は止んだ。",
+        "en": "It has stopped raining.",
+        "enId": 26695,
+        "form": "雨",
+        "furigana": [["雨", "あめ"], ["は"], ["止", "や"], ["んだ。"]]
+      },
+      {
+        "id": 189682,
+        "ja": "雨が止んだ。",
+        "en": "It has stopped raining.",
+        "enId": 26695,
+        "form": "雨",
+        "furigana": [["雨", "あめ"], ["が"], ["止", "や"], ["んだ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-29",
+    "term": "飴",
+    "kana": "あめ",
+    "meaning": "(hard) candy",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf44"],
+    "field": ["food, cooking"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "The candy ame is its own word, kept apart from 雨 (“rain”) as ⟨ame1⟩.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨ame₁⟩ → */amʲe/ → /ame/"
+      },
+      {
+        "quote": "From Old Japanese."
+      },
+      {
+        "quote": "Distinct from 雨 (⟨ame₂⟩ → ame, “rain”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 139909,
+        "ja": "息子は箱から飴を一つ取った。",
+        "en": "My son took a candy from the box.",
+        "enId": 274440,
+        "form": "飴",
+        "furigana": [
+          ["息子", "むすこ"],
+          ["は"],
+          ["箱", "はこ"],
+          ["から"],
+          ["飴", "あめ"],
+          ["を"],
+          ["一", "ひと"],
+          ["つ"],
+          ["取", "と"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 229358,
+        "ja": "いい子にしていたら、あめをあげよう。",
+        "en": "If you are a good girl, you shall have candy.",
+        "enId": 66716,
+        "form": "あめ",
+        "furigana": [["いい"], ["子", "こ"], ["にしていたら、あめをあげよう。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-30",
+    "term": "風",
+    "kana": "かぜ",
+    "meaning": "wind, breeze",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Reconstructed as Proto-Japonic *kansai — with an n that modern kaze no longer has.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *kansai."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84036,
+        "ja": "風が凪いだ。",
+        "en": "The wind has fallen.",
+        "enId": 319680,
+        "form": "風",
+        "furigana": [["風", "かぜ"], ["が"], ["凪", "な"], ["いだ。"]]
+      },
+      {
+        "id": 84005,
+        "ja": "風は南へ吹く。",
+        "en": "The wind blows south.",
+        "enId": 319710,
+        "form": "風",
+        "furigana": [
+          ["風", "かぜ"],
+          ["は"],
+          ["南", "みなみ"],
+          ["へ"],
+          ["吹", "ふ"],
+          ["く。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2010-03-31",
+    "term": "雲",
+    "kana": "くも",
+    "meaning": "cloud",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Cloud is kumo: attested in the Kojiki of 712 CE and reconstructed back to Proto-Japonic *kumo.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨kumo₁⟩ → */kumʷo/ → /kumo/"
+      },
+      {
+        "quote": "From Old Japanese, ultimately from Proto-Japonic *kumo."
+      },
+      {
+        "quote": "First attested in the Kojiki of 712 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 179466,
+        "ja": "空には雲がない。",
+        "en": "There are no clouds in the sky.",
+        "enId": 425820,
+        "form": "雲",
+        "furigana": [["空", "そら"], ["には"], ["雲", "くも"], ["がない。"]]
+      },
+      {
+        "id": 189369,
+        "ja": "雲が流れていく。",
+        "en": "The clouds are rolling away.",
+        "enId": 26521,
+        "form": "雲",
+        "furigana": [["雲", "くも"], ["が"], ["流", "なが"], ["れていく。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]

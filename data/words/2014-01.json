@@ -1,0 +1,1035 @@
+[
+  {
+    "date": "2014-01-01",
+    "term": "四つ",
+    "kana": "よっつ",
+    "meaning": "four things",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-01-02",
+    "term": "呼ぶ",
+    "kana": "よぶ",
+    "meaning": "to call (one's name); to invite",
+    "level": "N5",
+    "pos": ["Godan verb with 'bu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 5120,
+        "ja": "警察を呼んで！",
+        "en": "Call the police!",
+        "enId": 1718,
+        "form": "呼んで",
+        "furigana": [["警察", "けいさつ"], ["を"], ["呼", "よ"], ["んで！"]]
+      },
+      {
+        "id": 77725,
+        "ja": "類は友を呼ぶ。",
+        "en": "Birds of a feather flock together.",
+        "enId": 280288,
+        "form": "呼ぶ",
+        "furigana": [
+          ["類", "るい"],
+          ["は"],
+          ["友", "とも"],
+          ["を"],
+          ["呼", "よ"],
+          ["ぶ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-03",
+    "term": "読む",
+    "kana": "よむ",
+    "meaning": "to read",
+    "level": "N5",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101592,
+        "ja": "彼は読めません。",
+        "en": "He can't read it.",
+        "enId": 302101,
+        "form": "読めません",
+        "furigana": [["彼", "かれ"], ["は"], ["読", "よ"], ["めません。"]]
+      },
+      {
+        "id": 123362,
+        "ja": "本を読み続けた。",
+        "en": "I continued reading the book.",
+        "enId": 2170697,
+        "form": "読み",
+        "furigana": [
+          ["本", "ほん"],
+          ["を"],
+          ["読", "よ"],
+          ["み"],
+          ["続", "つづ"],
+          ["けた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-04",
+    "term": "来年",
+    "kana": "らいねん",
+    "meaning": "next year",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 86330,
+        "ja": "彼女は来年結婚する。",
+        "en": "She'll be getting married next year.",
+        "enId": 317381,
+        "form": "来年",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["来年", "らいねん"],
+          ["結婚", "けっこん"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 152388,
+        "ja": "来年外国へ行きます。",
+        "en": "I will go abroad next year.",
+        "enId": 262162,
+        "form": "来年",
+        "furigana": [
+          ["来年", "らいねん"],
+          ["外国", "がいこく"],
+          ["へ"],
+          ["行", "い"],
+          ["きます。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-05",
+    "term": "りっぱ",
+    "kana": "りっぱ",
+    "meaning": "splendid, fine",
+    "level": "N5",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-01-06",
+    "term": "両親",
+    "kana": "りょうしん",
+    "meaning": "parents (lit., both parents)",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 1113044,
+        "ja": "両親は彼を落ち着かせることに成功した。",
+        "en": "The parents succeeded in calming him down.",
+        "enId": 325724,
+        "form": "両親",
+        "furigana": [
+          ["両親", "りょうしん"],
+          ["は"],
+          ["彼", "かれ"],
+          ["を"],
+          ["落", "お"],
+          ["ち"],
+          ["着", "つ"],
+          ["かせることに"],
+          ["成功", "せいこう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-07",
+    "term": "料理",
+    "kana": "りょうり",
+    "meaning": "cooking; cuisine",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 77955,
+        "ja": "料理うまいね。",
+        "en": "You are a good cook, aren't you?",
+        "enId": 325763,
+        "form": "料理",
+        "furigana": [["料理", "りょうり"], ["うまいね。"]]
+      },
+      {
+        "id": 77923,
+        "ja": "料理は得意です。",
+        "en": "I'm a good cook.",
+        "enId": 325794,
+        "form": "料理",
+        "furigana": [
+          ["料理", "りょうり"],
+          ["は"],
+          ["得意", "とくい"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-08",
+    "term": "練習",
+    "kana": "れんしゅう (する)",
+    "meaning": "(to) practice",
+    "level": "N5",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 77422,
+        "ja": "練習は熟達の道。",
+        "en": "Practice makes perfect.",
+        "enId": 266400,
+        "form": "練習",
+        "furigana": [
+          ["練習", "れんしゅう"],
+          ["は"],
+          ["熟達", "じゅくたつ"],
+          ["の"],
+          ["道", "みち"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 77424,
+        "ja": "練習が完成を生む。",
+        "en": "Practice makes perfect.",
+        "enId": 266400,
+        "form": "練習",
+        "furigana": [
+          ["練習", "れんしゅう"],
+          ["が"],
+          ["完成", "かんせい"],
+          ["を"],
+          ["生", "う"],
+          ["む。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-09",
+    "term": "廊下",
+    "kana": "ろうか",
+    "meaning": "corridor",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 179278,
+        "ja": "偶然、廊下でいじめを目撃した。",
+        "en": "I happened to witness the bullying in the corridor.",
+        "enId": 18136,
+        "form": "廊下",
+        "furigana": [
+          ["偶然", "ぐうぜん"],
+          ["、"],
+          ["廊下", "ろうか"],
+          ["でいじめを"],
+          ["目撃", "もくげき"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 77345,
+        "ja": "廊下の突き当たりで火事が起きました。",
+        "en": "There's a fire down the hall.",
+        "enId": 326374,
+        "form": "廊下",
+        "furigana": [
+          ["廊下", "ろうか"],
+          ["の"],
+          ["突", "つ"],
+          ["き"],
+          ["当", "あ"],
+          ["たりで"],
+          ["火事", "かじ"],
+          ["が"],
+          ["起", "お"],
+          ["きました。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-10",
+    "term": "分かる",
+    "kana": "わかる",
+    "meaning": "to understand; to know, to find out",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf39", "spec1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 172754,
+        "ja": "今にわかる。",
+        "en": "You'll see.",
+        "enId": 241719,
+        "form": "わかる",
+        "furigana": [["今", "いま"], ["にわかる。"]]
+      },
+      {
+        "id": 433471,
+        "ja": "分かってる。",
+        "en": "I know.",
+        "enId": 319990,
+        "form": "分かってる",
+        "furigana": [["分", "わ"], ["かってる。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-11",
+    "term": "渡す",
+    "kana": "わたす",
+    "meaning": "to hand (something) over (v.t.); to get across",
+    "level": "N5",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 226147,
+        "ja": "彼に財布を渡して。",
+        "en": "Just give him the wallet.",
+        "enId": 63487,
+        "form": "渡して",
+        "furigana": [
+          ["彼", "かれ"],
+          ["に"],
+          ["財布", "さいふ"],
+          ["を"],
+          ["渡", "わた"],
+          ["して。"]
+        ]
+      },
+      {
+        "id": 174442,
+        "ja": "顧客候補に渡します。",
+        "en": "We will take it to the potential customers.",
+        "enId": 240027,
+        "form": "渡します",
+        "furigana": [
+          ["顧客", "こきゃく"],
+          ["候補", "こうほ"],
+          ["に"],
+          ["渡", "わた"],
+          ["します。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-12",
+    "term": "踏む",
+    "kana": "ふむ",
+    "meaning": "to step on, to tread on",
+    "level": "N4",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 111042,
+        "ja": "彼はブレーキを踏んだ。",
+        "en": "He pressed the brake pedal.",
+        "enId": 292645,
+        "form": "踏んだ",
+        "furigana": [["彼", "かれ"], ["はブレーキを"], ["踏", "ふ"], ["んだ。"]]
+      },
+      {
+        "id": 184110,
+        "ja": "割れたガラスを踏むな。",
+        "en": "Don't step on the broken glass.",
+        "enId": 21238,
+        "form": "踏む",
+        "furigana": [["割", "わ"], ["れたガラスを"], ["踏", "ふ"], ["むな。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-13",
+    "term": "～区",
+    "kana": "～く",
+    "meaning": "~ district, ~ ward, ~ borough",
+    "level": "N4",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-01-14",
+    "term": "すっと",
+    "kana": "すっと",
+    "meaning": "straight, quickly",
+    "level": "N4",
+    "pos": [
+      "adverb (fukushi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 75794,
+        "ja": "彼の首筋を血がすっと伝った。",
+        "en": "A trickle of blood ran down his neck.",
+        "enId": 327924,
+        "form": "すっと",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["首筋", "くびすじ"],
+          ["を"],
+          ["血", "ち"],
+          ["がすっと"],
+          ["伝", "つた"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 76795,
+        "ja": "カタツムリがすっと角を出した。",
+        "en": "The snail shot out its horns.",
+        "enId": 326925,
+        "form": "すっと",
+        "furigana": [["カタツムリがすっと角を"], ["出", "だ"], ["した。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-15",
+    "term": "盗む",
+    "kana": "ぬすむ",
+    "meaning": "to steal; to rob",
+    "level": "N4",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 150479,
+        "ja": "時計を盗まれた。",
+        "en": "I had my watch stolen.",
+        "enId": 258135,
+        "form": "盗まれた",
+        "furigana": [["時計", "とけい"], ["を"], ["盗", "ぬす"], ["まれた。"]]
+      },
+      {
+        "id": 174935,
+        "ja": "現金を盗まれた。",
+        "en": "Someone stole my cash.",
+        "enId": 239532,
+        "form": "盗まれた",
+        "furigana": [["現金", "げんきん"], ["を"], ["盗", "ぬす"], ["まれた。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-16",
+    "term": "大抵",
+    "kana": "たいてい",
+    "meaning": "generally, usually",
+    "level": "N4",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "adverb (fukushi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 112099,
+        "ja": "彼はたいてい成功した。",
+        "en": "He usually succeeded.",
+        "enId": 291578,
+        "form": "たいてい",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はたいてい"],
+          ["成功", "せいこう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 155184,
+        "ja": "私は大抵朝早く起きる。",
+        "en": "I usually get up early in the morning.",
+        "enId": 259355,
+        "form": "大抵",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["大抵", "たいてい"],
+          ["朝", "あさ"],
+          ["早", "はや"],
+          ["く"],
+          ["起", "お"],
+          ["きる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-17",
+    "term": "とうとう",
+    "kana": "とうとう",
+    "meaning": "finally, at last",
+    "level": "N4",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-01-18",
+    "term": "しっかり",
+    "kana": "しっかり",
+    "meaning": "firmly, steady",
+    "level": "N4",
+    "pos": [
+      "adverb (fukushi)",
+      "adverb taking the 'to' particle",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-01-19",
+    "term": "沸く",
+    "kana": "わく",
+    "meaning": "to boil, to grow hot",
+    "level": "N4",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 226694,
+        "ja": "お風呂沸いてる？",
+        "en": "Is the bath ready?",
+        "enId": 64038,
+        "form": "沸いてる",
+        "furigana": [["お"], ["風呂", "ふろ"], ["沸", "わ"], ["いてる？"]]
+      },
+      {
+        "id": 226695,
+        "ja": "お風呂沸いたわよ。",
+        "en": "The bath is ready.",
+        "enId": 64039,
+        "form": "沸いた",
+        "furigana": [["お"], ["風呂", "ふろ"], ["沸", "わ"], ["いたわよ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-20",
+    "term": "意見",
+    "kana": "いけん",
+    "meaning": "opinion, view, idea",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 94639,
+        "ja": "彼女の意見は正しい。",
+        "en": "She is right in her opinions.",
+        "enId": 309067,
+        "form": "意見",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["意見", "いけん"],
+          ["は"],
+          ["正", "ただ"],
+          ["しい。"]
+        ]
+      },
+      {
+        "id": 118142,
+        "ja": "彼の意見は問題外だ。",
+        "en": "His proposal is out of the question.",
+        "enId": 16971,
+        "form": "意見",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["意見", "いけん"],
+          ["は"],
+          ["問題", "もんだい"],
+          ["外", "がい"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-21",
+    "term": "折る",
+    "kana": "おる",
+    "meaning": "to snap, to break; to bend",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf37"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 80081,
+        "ja": "木を折るな。",
+        "en": "Don't break the branches.",
+        "enId": 246310,
+        "form": "折る",
+        "furigana": [["木", "き"], ["を"], ["折", "お"], ["るな。"]]
+      },
+      {
+        "id": 137245,
+        "ja": "大木は風に折らる。",
+        "en": "Tall trees catch much wind.",
+        "enId": 275991,
+        "form": "折らる",
+        "furigana": [
+          ["大木", "たいぼく"],
+          ["は"],
+          ["風", "かぜ"],
+          ["に"],
+          ["折", "お"],
+          ["らる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-22",
+    "term": "～会",
+    "kana": "～かい",
+    "meaning": "~ meeting",
+    "level": "N4",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-01-23",
+    "term": "うかがう",
+    "kana": "うかがう",
+    "meaning": "to ask",
+    "level": "N4",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
+    "register": ["humble (kenjougo) language"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-01-24",
+    "term": "壊す",
+    "kana": "こわす",
+    "meaning": "to break, to break down",
+    "level": "N4",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 76253,
+        "ja": "既成概念を壊そう！",
+        "en": "Let's break stereotypes!",
+        "enId": 327467,
+        "form": "壊そう",
+        "furigana": [
+          ["既成", "きせい"],
+          ["概念", "がいねん"],
+          ["を"],
+          ["壊", "こわ"],
+          ["そう！"]
+        ]
+      },
+      {
+        "id": 112451,
+        "ja": "彼はその箱を壊した。",
+        "en": "He crushed the box.",
+        "enId": 291225,
+        "form": "壊した",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はその"],
+          ["箱", "はこ"],
+          ["を"],
+          ["壊", "こわ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-25",
+    "term": "怒る",
+    "kana": "おこる",
+    "meaning": "to get angry; to scold angrily",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101836,
+        "ja": "彼は怒った。",
+        "en": "He got angry.",
+        "enId": 507233,
+        "form": "怒った",
+        "furigana": [["彼", "かれ"], ["は"], ["怒", "おこ"], ["った。"]]
+      },
+      {
+        "id": 87752,
+        "ja": "彼女は怒った。",
+        "en": "She got angry.",
+        "enId": 315955,
+        "form": "怒った",
+        "furigana": [["彼女", "かのじょ"], ["は"], ["怒", "おこ"], ["った。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-26",
+    "term": "運動",
+    "kana": "うんどうする",
+    "meaning": "exercise",
+    "level": "N4",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 143687,
+        "ja": "水泳はよい運動だ。",
+        "en": "Swimming is good exercise.",
+        "enId": 270878,
+        "form": "運動",
+        "furigana": [
+          ["水泳", "すいえい"],
+          ["はよい"],
+          ["運動", "うんどう"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 169325,
+        "ja": "散歩は良い運動だ。",
+        "en": "Walking is good exercise.",
+        "enId": 245158,
+        "form": "運動",
+        "furigana": [
+          ["散歩", "さんぽ"],
+          ["は"],
+          ["良", "い"],
+          ["い"],
+          ["運動", "うんどう"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-27",
+    "term": "止む",
+    "kana": "やむ",
+    "meaning": "to cease, to stop",
+    "level": "N4",
+    "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 189544,
+        "ja": "雨は止んだ。",
+        "en": "It has stopped raining.",
+        "enId": 26695,
+        "form": "止んだ",
+        "furigana": [["雨", "あめ"], ["は"], ["止", "や"], ["んだ。"]]
+      },
+      {
+        "id": 189682,
+        "ja": "雨が止んだ。",
+        "en": "It has stopped raining.",
+        "enId": 26695,
+        "form": "止んだ",
+        "furigana": [["雨", "あめ"], ["が"], ["止", "や"], ["んだ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-28",
+    "term": "予習",
+    "kana": "よしゅう",
+    "meaning": "preparation of lessons (for class)",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf36"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99201,
+        "ja": "彼は予習した。",
+        "en": "He prepared his lessons.",
+        "enId": 304498,
+        "form": "予習",
+        "furigana": [["彼", "かれ"], ["は"], ["予習", "よしゅう"], ["した。"]]
+      },
+      {
+        "id": 176829,
+        "ja": "君は予習をするべきだ。",
+        "en": "You should prepare your lessons.",
+        "enId": 237632,
+        "form": "予習",
+        "furigana": [
+          ["君", "きみ"],
+          ["は"],
+          ["予習", "よしゅう"],
+          ["をするべきだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-29",
+    "term": "非常に",
+    "kana": "ひじょうに",
+    "meaning": "extremely; very",
+    "level": "N4",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 100717,
+        "ja": "彼は非常に親切だ。",
+        "en": "He is a very decent fellow.",
+        "enId": 302980,
+        "form": "非常に",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["非常", "ひじょう"],
+          ["に"],
+          ["親切", "しんせつ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 171514,
+        "ja": "今日は非常に暑い。",
+        "en": "Today is extremely hot.",
+        "enId": 242962,
+        "form": "非常に",
+        "furigana": [
+          ["今日", "きょう"],
+          ["は"],
+          ["非常", "ひじょう"],
+          ["に"],
+          ["暑", "あつ"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-30",
+    "term": "拾う",
+    "kana": "ひろう",
+    "meaning": "to pick up (something), to find",
+    "level": "N4",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf39"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 76034,
+        "ja": "拾った者が持ち主。",
+        "en": "Finders keepers.",
+        "enId": 327684,
+        "form": "拾った",
+        "furigana": [
+          ["拾", "ひろ"],
+          ["った"],
+          ["者", "もの"],
+          ["が"],
+          ["持", "も"],
+          ["ち"],
+          ["主", "ぬし"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 123618,
+        "ja": "道で一ドルを拾った。",
+        "en": "I found a dollar in the street.",
+        "enId": 259720,
+        "form": "拾った",
+        "furigana": [
+          ["道", "みち"],
+          ["で"],
+          ["一", "いち"],
+          ["ドルを"],
+          ["拾", "ひろ"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-01-31",
+    "term": "～ございます",
+    "kana": "～ございます",
+    "meaning": "to be (polite), to exist",
+    "level": "N4",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

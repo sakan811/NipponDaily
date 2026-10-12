@@ -1,0 +1,1429 @@
+[
+  {
+    "date": "2005-10-01",
+    "term": "十",
+    "kana": "じゅう",
+    "meaning": "ten",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing", "sound-change"],
+    "headline": "Jū, “ten”, is from Middle Chinese 十 (MC dzyip), with a literary Hokkien cousin, si̍p.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/ʑipʉ/ → /ʑiɸu/ → /ʑɨu/ → /ʑuː//ʑiʔ/ → /ʑi~̚/"
+      },
+      {
+        "quote": "From Middle Chinese 十 (MC dzyip). Compare literary Hokkien 十 (si̍p)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 193977,
+        "ja": "もう夜の十時だ。",
+        "en": "It's already ten o'clock at night.",
+        "enId": 31145,
+        "form": "十",
+        "furigana": [
+          ["もう"],
+          ["夜", "よる"],
+          ["の"],
+          ["十", "じゅう"],
+          ["時", "じ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 236037,
+        "ja": "十時半の電車に乗ります。",
+        "en": "I'm going to take the 10:30 train.",
+        "enId": 73418,
+        "form": "十",
+        "furigana": [
+          ["十", "じゅう"],
+          ["時半", "じはん"],
+          ["の"],
+          ["電車", "でんしゃ"],
+          ["に"],
+          ["乗", "の"],
+          ["ります。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-02",
+    "term": "今に",
+    "kana": "いまに",
+    "meaning": "before long, soon",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Ima ni is 今 (ima, “now”) plus に (ni).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "今(いま) (ima, “now”) + に (ni)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 172754,
+        "ja": "今にわかる。",
+        "en": "You'll see.",
+        "enId": 241719,
+        "form": "今に",
+        "furigana": [["今", "いま"], ["にわかる。"]]
+      },
+      {
+        "id": 172755,
+        "ja": "今に後悔するぞ。",
+        "en": "You will yet regret it.",
+        "enId": 241720,
+        "form": "今に",
+        "furigana": [["今", "いま"], ["に"], ["後悔", "こうかい"], ["するぞ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-03",
+    "term": "足袋",
+    "kana": "たび",
+    "meaning": "Japanese socks (with split toe)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf37", "spec2"],
+    "pitch": [1],
+    "processes": ["compound", "sound-change"],
+    "headline": "The old spelling of tabi, 単皮, means a single (単) hide (皮): originally a leather shoe.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/taɴbi/ → /tabi/"
+      },
+      {
+        "quote": "Shift in pronunciation from tanbi, the expected regular goon compound reading for the 単皮 spelling, which appears in the Wamyō Ruijushō of 938 CE."
+      },
+      {
+        "quote": "Originally referred to a leather shoe, which could be made from a single (単) animal hide (皮). As footwear in Japan developed, so too did the sense of tabi. The modern sense of a split-toed sock arose from at least the late Kamakura period, around the late 1200s, early 1300s. However, the leather shoe sense was still in use in 1603, as evidenced by the relevant entry in the Nippo Jisho."
+      },
+      {
+        "quote": "The shift in reading was possibly influenced by the regular kun'yomi tabi of the term 旅 (tabi, “travel, voyage, trip”), as the tabi footwear was often worn for travel."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-04",
+    "term": "九",
+    "kana": "く",
+    "meaning": "nine",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Ku, “nine”, is from Early Middle Chinese 九, the goon reading, so likely the initial borrowing.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Early Middle Chinese 九 (MC kjuwX). The goon reading, so likely the initial borrowing. Compare vernacular Hokkien 九 (káu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 108121,
+        "ja": "彼は「九時だ」と言った。",
+        "en": "He said, \"It's nine o'clock.\"",
+        "enId": 295564,
+        "form": "九",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は「"],
+          ["九", "く"],
+          ["時", "じ"],
+          ["だ」と"],
+          ["言", "い"],
+          ["った。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-05",
+    "term": "ホテル",
+    "kana": "ホテル",
+    "meaning": "hotel",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "Hoteru is borrowed from English hotel, itself from French hôtel.",
+    "morphemes": [
+      {
+        "text": "ホテル",
+        "reading": "ホテル",
+        "meaning": "English hotel"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English hotel, from French hôtel."
+      }
+    ],
+    "examples": [
+      {
+        "id": 196180,
+        "ja": "ホテルは全焼した。",
+        "en": "The hotel was burned to the ground.",
+        "enId": 33355,
+        "form": "ホテル",
+        "furigana": [["ホテルは"], ["全焼", "ぜんしょう"], ["した。"]]
+      },
+      {
+        "id": 196217,
+        "ja": "ホテルが見えてきた。",
+        "en": "The hotel was in sight.",
+        "enId": 33394,
+        "form": "ホテル",
+        "furigana": [["ホテルが"], ["見", "み"], ["えてきた。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-06",
+    "term": "言い出す",
+    "kana": "いいだす",
+    "meaning": "to start talking, to suggest",
+    "level": "N2",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf47"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Iidasu is ii, the stem of 言う (iu), plus 出す (dasu).",
+    "morphemes": [
+      {
+        "text": "言い",
+        "reading": "いい",
+        "meaning": "say",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "出す",
+        "reading": "だす",
+        "meaning": "exit",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 言(い)い (ii, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 言(い)う (iu)) + 出(だ)す (dasu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 218583,
+        "ja": "これはだれかの言い出したことかい。",
+        "en": "Was this somebody else's idea?",
+        "enId": 55897,
+        "form": "言い出した",
+        "furigana": [
+          ["これはだれかの"],
+          ["言", "い"],
+          ["い"],
+          ["出", "だ"],
+          ["したことかい。"]
+        ]
+      },
+      {
+        "id": 204102,
+        "ja": "そんな事言い出すとは思わなかったよ。",
+        "en": "I didn't expect that to come from you.",
+        "enId": 41344,
+        "form": "言い出す",
+        "furigana": [
+          ["そんな"],
+          ["事", "こと"],
+          ["言", "い"],
+          ["い"],
+          ["出", "だ"],
+          ["すとは"],
+          ["思", "おも"],
+          ["わなかったよ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-07",
+    "term": "遡る",
+    "kana": "さかのぼる",
+    "meaning": "to go back, to date back; ascend",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "“To go back” is likely 逆 (saka, “reverse”) plus 上る (noboru, “ascend, go up”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Likely from Old Japanese, compound of 逆(さか) (saka, “reverse”) + 上(のぼ)る (noboru, “ascend, go up”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 117946,
+        "ja": "彼の家系は１７世紀にさかのぼる。",
+        "en": "His family dates back to the seventeenth century.",
+        "enId": 285718,
+        "form": "さかのぼる",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["家系", "かけい"],
+          ["は１７"],
+          ["世紀", "せいき"],
+          ["にさかのぼる。"]
+        ]
+      },
+      {
+        "id": 206051,
+        "ja": "その話は１６世紀までさかのぼる。",
+        "en": "The story goes back to the sixteenth century.",
+        "enId": 43298,
+        "form": "さかのぼる",
+        "furigana": [
+          ["その"],
+          ["話", "はなし"],
+          ["は１６"],
+          ["世紀", "せいき"],
+          ["までさかのぼる。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-08",
+    "term": "局",
+    "kana": "きょく",
+    "meaning": "office, bureau, station(TV, radio)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Kyoku, “office”, is from Middle Chinese 局.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 局 (MC gjowk)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 220593,
+        "ja": "この地区では三局受信できます。",
+        "en": "We can get three stations in this area.",
+        "enId": 57915,
+        "form": "局",
+        "furigana": [
+          ["この"],
+          ["地区", "ちく"],
+          ["では"],
+          ["三", "さん"],
+          ["局", "きょく"],
+          ["受信", "じゅしん"],
+          ["できます。"]
+        ]
+      },
+      {
+        "id": 188962,
+        "ja": "疫病管理局の報告では、罹患率は１０パーセントだった。",
+        "en": "The office for disease control reported a 10 percent spread.",
+        "enId": 26109,
+        "form": "局",
+        "furigana": [
+          ["疫病"],
+          ["管理", "かんり"],
+          ["局", "きょく"],
+          ["の"],
+          ["報告", "ほうこく"],
+          ["では、"],
+          ["罹患", "りかん"],
+          ["率", "りつ"],
+          ["は１０パーセントだった。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-09",
+    "term": "天気予報",
+    "kana": "てんきよほう",
+    "meaning": "weather forecast",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Tenki yohō is 天気 (tenki, “weather”) plus 予報 (yohō, “forecast”).",
+    "morphemes": [
+      {
+        "text": "天気",
+        "reading": "てんき",
+        "meaning": "weather"
+      },
+      {
+        "text": "予報",
+        "reading": "よほう",
+        "meaning": "forecast"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "天気 (tenki, “weather”) + 予報 (yohō, “forecast”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 125101,
+        "ja": "天気予報が当たったよ。",
+        "en": "The weather forecast was right.",
+        "enId": 278892,
+        "form": "天気予報",
+        "furigana": [
+          ["天気", "てんき"],
+          ["予報", "よほう"],
+          ["が"],
+          ["当", "あ"],
+          ["たったよ。"]
+        ]
+      },
+      {
+        "id": 125072,
+        "ja": "天気予報を信じてないの？",
+        "en": "Don't you trust the weathermen?",
+        "enId": 278921,
+        "form": "天気予報",
+        "furigana": [
+          ["天気", "てんき"],
+          ["予報", "よほう"],
+          ["を"],
+          ["信", "しん"],
+          ["じてないの？"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-10",
+    "term": "繋ぐ",
+    "kana": "つなぐ",
+    "meaning": "to tie, to fasten, to connect",
+    "level": "N3",
+    "pos": ["Godan verb with 'gu' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tsunagu is a verbalization of 綱 (tsuna, “rope”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Verbalization of 綱(つな) (tsuna, “rope”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 107704,
+        "ja": "彼は犬を木につないだ。",
+        "en": "He tied the dog to a tree.",
+        "enId": 295981,
+        "form": "つないだ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["犬", "いぬ"],
+          ["を"],
+          ["木", "き"],
+          ["につないだ。"]
+        ]
+      },
+      {
+        "id": 121588,
+        "ja": "馬車を馬の前につなぐな。",
+        "en": "Don't put the cart before the horse.",
+        "enId": 282376,
+        "form": "つなぐ",
+        "furigana": [
+          ["馬車", "ばしゃ"],
+          ["を"],
+          ["馬", "うま"],
+          ["の"],
+          ["前", "まえ"],
+          ["につなぐな。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-11",
+    "term": "大臣",
+    "kana": "だいじん",
+    "meaning": "cabinet minister",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Daijin is from Middle Chinese 大臣 (MC dajH dzyin).",
+    "morphemes": [
+      {
+        "text": "大",
+        "reading": "だい",
+        "meaning": "large",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "臣",
+        "reading": "じん",
+        "base": "しん",
+        "meaning": "retainer",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 大臣 (MC dajH dzyin)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 155193,
+        "ja": "私は大臣自身と話した。",
+        "en": "I spoke to the minister himself.",
+        "enId": 259346,
+        "form": "大臣",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["大臣", "だいじん"],
+          ["自身", "じしん"],
+          ["と"],
+          ["話", "はな"],
+          ["した。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-12",
+    "term": "去る",
+    "kana": "さる",
+    "meaning": "to leave, to go away",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Saru is from Old Japanese, from Proto-Japonic *sar-.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *sar-."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124350,
+        "ja": "冬は去った。",
+        "en": "Winter has gone.",
+        "enId": 279644,
+        "form": "去った",
+        "furigana": [["冬", "ふゆ"], ["は"], ["去", "さ"], ["った。"]]
+      },
+      {
+        "id": 137786,
+        "ja": "台風は去った。",
+        "en": "The typhoon is gone.",
+        "enId": 275450,
+        "form": "去った",
+        "furigana": [["台風", "たいふう"], ["は"], ["去", "さ"], ["った。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-13",
+    "term": "幅",
+    "kana": "はば",
+    "meaning": "width, breadth",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Haba resembles Greater Central Philippine *habaʔ (“long (object)”), but the page says that is likely coincidental.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Note similarities to Greater Central Philippine *habaʔ (“long (object)”), whence Tagalog habà (“length”), though this is likely coincidental."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-14",
+    "term": "承認",
+    "kana": "しょうにん",
+    "meaning": "recognition, approval",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Shōnin is 承 (shō, “agree to”) plus 認 (nin, “recognize”).",
+    "morphemes": [
+      {
+        "text": "承",
+        "reading": "しょう",
+        "meaning": "agree to"
+      },
+      {
+        "text": "認",
+        "reading": "にん",
+        "meaning": "recognize"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 承 (shō, “agree to”) + 認 (nin, “recognize”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 104058,
+        "ja": "彼は承認を保留した。",
+        "en": "He withheld his consent.",
+        "enId": 299634,
+        "form": "承認",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["承認", "しょうにん"],
+          ["を"],
+          ["保留", "ほりゅう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 191079,
+        "ja": "委員会は予算を承認した。",
+        "en": "The committee approved the budget.",
+        "enId": 28239,
+        "form": "承認",
+        "furigana": [
+          ["委員", "いいん"],
+          ["会", "かい"],
+          ["は"],
+          ["予算", "よさん"],
+          ["を"],
+          ["承認", "しょうにん"],
+          ["した。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-15",
+    "term": "谷",
+    "kana": "たに",
+    "meaning": "valley",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tani, “valley”, is simply listed as from Old Japanese.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 80860,
+        "ja": "霧で谷が見えなかった。",
+        "en": "The valley was hidden from view in the mist.",
+        "enId": 322855,
+        "form": "谷",
+        "furigana": [
+          ["霧", "きり"],
+          ["で"],
+          ["谷", "たに"],
+          ["が"],
+          ["見", "み"],
+          ["えなかった。"]
+        ]
+      },
+      {
+        "id": 137143,
+        "ja": "谷は滝の音を反響する。",
+        "en": "The valley echoes the sound of the waterfall.",
+        "enId": 276093,
+        "form": "谷",
+        "furigana": [
+          ["谷", "たに"],
+          ["は"],
+          ["滝", "たき"],
+          ["の"],
+          ["音", "おと"],
+          ["を"],
+          ["反響", "はんきょう"],
+          ["する。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-16",
+    "term": "頬",
+    "kana": "ほほ",
+    "meaning": "cheek (of face)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf32"],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Hoho went from popo to fofo to hoho, and appears in the Wamyō Ruijushō of 938 CE.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/popo/ → /fofo/ → /hoho/"
+      },
+      {
+        "quote": "From Old Japanese. Appears in the mid-Heian period dictionary Wamyō Ruijushō (938 CE)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-17",
+    "term": "理想",
+    "kana": "りそう",
+    "meaning": "ideal",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Risō may be a Japanese coinage from 理 (ri, “reason, principle”) plus 想 (sō, “thought, thinking”), first cited in an 1877 translation of Mill's Utilitarianism.",
+    "morphemes": [
+      {
+        "text": "理",
+        "reading": "り",
+        "meaning": "reason, principle"
+      },
+      {
+        "text": "想",
+        "reading": "そう",
+        "meaning": "thought, thinking"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "May be a coinage in Japanese from Chinese-based roots as a compound of 理(り) (ri, “reason, principle”) + 想(そう) (sō, “thought, thinking”)."
+      },
+      {
+        "quote": "First cited in Japanese to the 1877 translation of John Stuart Mill's Utilitarianism, 利学 (Rigaku) by 西周 (“Nishi Amane”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 105674,
+        "ja": "彼は私の理想の人よ。",
+        "en": "He is my Mr Right.",
+        "enId": 298013,
+        "form": "理想",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["私", "わたし"],
+          ["の"],
+          ["理想", "りそう"],
+          ["の"],
+          ["人", "ひと"],
+          ["よ。"]
+        ]
+      },
+      {
+        "id": 86693,
+        "ja": "彼女は僕の理想の人です。",
+        "en": "She is my dream girl.",
+        "enId": 317018,
+        "form": "理想",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["僕", "ぼく"],
+          ["の"],
+          ["理想", "りそう"],
+          ["の"],
+          ["人", "ひと"],
+          ["です。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-18",
+    "term": "返事",
+    "kana": "へんじ",
+    "meaning": "reply, answer",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": ["compound", "reread"],
+    "headline": "Henji is a Sinicization of 返り事 (kaerigoto), from Old Japanese kaferigoto, “reply, response”.",
+    "morphemes": [
+      {
+        "text": "返",
+        "reading": "へん",
+        "meaning": "answer",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "事",
+        "reading": "じ",
+        "meaning": "matter",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Sinicization of 返(かえ)り事(ごと) (kaerigoto), from Old Japanese 返(かへ)り事(ごと) (kaferigoto, “reply, response”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 226662,
+        "ja": "お返事ください。",
+        "en": "Please respond.",
+        "enId": 64007,
+        "form": "返事",
+        "furigana": [["お"], ["返事", "へんじ"], ["ください。"]]
+      },
+      {
+        "id": 83346,
+        "ja": "返事に困っている？",
+        "en": "Can't think of an answer?",
+        "enId": 320370,
+        "form": "返事",
+        "furigana": [["返事", "へんじ"], ["に"], ["困", "こま"], ["っている？"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-19",
+    "term": "湖",
+    "kana": "みずうみ",
+    "meaning": "lake",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Mizuumi, “lake”, is 水 (mizu, “water”) plus 海 (umi, “sea”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From 水(みず) (mizu, “water”) + 海(うみ) (umi, “sea”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 222027,
+        "ja": "この湖は深い。",
+        "en": "This lake is deep.",
+        "enId": 59351,
+        "form": "湖",
+        "furigana": [
+          ["この"],
+          ["湖", "みずうみ"],
+          ["は"],
+          ["深", "ふか"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 174484,
+        "ja": "湖は凍っていた。",
+        "en": "The lake was frozen.",
+        "enId": 239985,
+        "form": "湖",
+        "furigana": [["湖", "みずうみ"], ["は"], ["凍", "こお"], ["っていた。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-20",
+    "term": "植物",
+    "kana": "しょくぶつ",
+    "meaning": "plant, vegetation",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [2],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Shokubutsu is from Middle Chinese 植物 (MC dzyik mjut).",
+    "morphemes": [
+      {
+        "text": "植",
+        "reading": "しょく",
+        "meaning": "plant",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "物",
+        "reading": "ぶつ",
+        "meaning": "thing",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 植物 (MC dzyik mjut)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 145999,
+        "ja": "植物が生える。",
+        "en": "Plants grow.",
+        "enId": 268563,
+        "form": "植物",
+        "furigana": [["植物", "しょくぶつ"], ["が"], ["生", "は"], ["える。"]]
+      },
+      {
+        "id": 145986,
+        "ja": "植物は土壌で育つ。",
+        "en": "Plants are nourished by earth.",
+        "enId": 268576,
+        "form": "植物",
+        "furigana": [
+          ["植物", "しょくぶつ"],
+          ["は"],
+          ["土壌", "どじょう"],
+          ["で"],
+          ["育", "そだ"],
+          ["つ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-21",
+    "term": "ヨーロッパ",
+    "kana": "ヨーロッパ",
+    "meaning": "Europe",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing", "sound-change"],
+    "headline": "Yōroppa is from Portuguese Europa; some sources say Dutch, but Dutch phonology makes that less likely.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/europpa/ [jeuɾoppa] → /joːroppa/"
+      },
+      {
+        "quote": "From Portuguese Europa."
+      },
+      {
+        "quote": "Some references source this from Dutch Europa; however, Dutch phonology makes this less likely, as the ⟨eu⟩ vowel combination has apparently been pronounced as the monophthongs /œː/ or /øː/ since the time of Middle Dutch. Meanwhile, in Portuguese, the ⟨eu⟩ vowel combination has been pronounced as the diphthong /ew/, a closer match for the borrowed Japanese pronunciation."
+      },
+      {
+        "quote": "Although this term is a 外来語 (gairaigo, “word of non-native or non-Middle Chinese origin”), it was borrowed early enough to be subject to the sound change from /eu/ to /joː/ during Late Middle Japanese. Compare similar developments in English (/ɛu̯/ → /juː/; /jʊ/, /jɔː/, /jɜː/ before /r/) during the Great Vowel Shift, which yields the modern English pronunciation of Europe."
+      },
+      {
+        "quote": "Alternatively, it is merely a historical kana orthography-induced spelling pronunciation; compare 要(えう) (yō), as well as アルコール (arukōru)."
+      },
+      {
+        "quote": "Doublet of エウローペー (Eurōpē, “Europa”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-22",
+    "term": "それぞれ",
+    "kana": "それぞれ",
+    "meaning": "each, every, respectively",
+    "level": "N3",
+    "pos": [
+      "adverb (fukushi)",
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": ["derivation", "rendaku"],
+    "headline": "Sorezore is a reduplication of それ (sore, “that”), with sore voiced to zore by rendaku.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Reduplication of それ (sore, “that”). The sore changes to zore as an instance of rendaku (連濁)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-23",
+    "term": "姓",
+    "kana": "せい",
+    "meaning": "surname, family name",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "Sei, “surname”, is from Middle Chinese 姓, the kan'on reading, so likely a later borrowing.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 姓 (MC sjengH). The kan'on, so likely a later borrowing. Compare modern Min Nan reading sèⁿ."
+      }
+    ],
+    "examples": [
+      {
+        "id": 90277,
+        "ja": "彼女は結婚前スミス姓だった。",
+        "en": "She was a Smith before her marriage.",
+        "enId": 313437,
+        "form": "姓",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["結婚", "けっこん"],
+          ["前", "まえ"],
+          ["スミス"],
+          ["姓", "せい"],
+          ["だった。"]
+        ]
+      },
+      {
+        "id": 233669,
+        "ja": "あなたの姓が聞き取れなかった。",
+        "en": "I didn't get your last name.",
+        "enId": 71042,
+        "form": "姓",
+        "furigana": [
+          ["あなたの"],
+          ["姓", "せい"],
+          ["が"],
+          ["聞", "き"],
+          ["き"],
+          ["取", "と"],
+          ["れなかった。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-24",
+    "term": "境",
+    "kana": "さかい",
+    "meaning": "border, boundary, mental state",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Sakai, “border”, is the stem of the obsolete verb 境う (sakau, “to divide, to form a boundary between things”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/sakapi/ → /sakaɸi/ → /sakahi/ → /sakai/"
+      },
+      {
+        "quote": "The 連用形 (ren'yōkei, “continuative or stem form”) of obsolete verb 境う (sakau, “to divide, to form a boundary between things”)."
+      },
+      {
+        "quote": "Some sources further derive the verb as Old Japanese element 境 (saka, “division, border, boundary”) + auxiliary verb ふ (fu) indicating repetition or ongoing state. However, given the semantics, this could also be analyzed as the repetitive or ongoing aspect of Old Japanese-derived verb saku with an underlying meaning of “to split apart, to separate, to put distance between”, spelled variously as 割(さ)く, 裂(さ)く, 離(さ)く, or 放(さ)く, and cognate with 咲(さ)く (saku, “to bloom”, from the idea of the blooms splitting open), 栄(さか)える (sakaeru, “to prosper”, extended from the bloom sense), and 盛(さか)る (sakaru, “to be in prime condition, to prosper, to flourish”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-25",
+    "term": "温める",
+    "kana": "あたためる",
+    "meaning": "to warm, to heat",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Atatameru is the root of 暖か (atataka, “warm”) plus -meru, “-en, -ify”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From あたた (atata, root of the adjective 暖(あたた)か (atataka, “warm”)) + める (-meru, “-en, -ify”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 85374,
+        "ja": "氷を温めるととける。",
+        "en": "If you heat ice, it melts.",
+        "enId": 318339,
+        "form": "温める",
+        "furigana": [
+          ["氷", "こおり"],
+          ["を"],
+          ["温", "あたた"],
+          ["めるととける。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-26",
+    "term": "大小",
+    "kana": "だいしょう",
+    "meaning": "size",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Daishō is 大 (dai, “big, large”) plus 小 (shō, “small, little”): size as “big-small”.",
+    "morphemes": [
+      {
+        "text": "大",
+        "reading": "だい",
+        "meaning": "big, large"
+      },
+      {
+        "text": "小",
+        "reading": "しょう",
+        "meaning": "small, little"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 大(だい) (dai, “big, large”) + 小(しょう) (shō, “small, little”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 123497,
+        "ja": "道路上の大小の石に気をつけなさい。",
+        "en": "Watch out for big and small stones on the road!",
+        "enId": 280500,
+        "form": "大小の",
+        "furigana": [
+          ["道路", "どうろ"],
+          ["上", "じょう"],
+          ["の"],
+          ["大小", "だいしょう"],
+          ["の"],
+          ["石", "いし"],
+          ["に"],
+          ["気", "き"],
+          ["をつけなさい。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-27",
+    "term": "勘定",
+    "kana": "かんじょう",
+    "meaning": "calculation, counting, consideration",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "headline": "Kanjō is probably a Middle Chinese compound, literally “investigate + to make something settled”.",
+    "morphemes": [
+      {
+        "text": "勘",
+        "reading": "かん",
+        "meaning": "investigate"
+      },
+      {
+        "text": "定",
+        "reading": "じょう",
+        "meaning": "to make something settled"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Probably from Middle Chinese compound 勘定 (khom? dengᴴ, literally “investigate + to make something settled”). Compare modern Mandarin 勘定 (kāndìng, “to demarcate, to examine”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 183984,
+        "ja": "勘定は勘定。",
+        "en": "Business is business.",
+        "enId": 21110,
+        "form": "勘定",
+        "furigana": [
+          ["勘定", "かんじょう"],
+          ["は"],
+          ["勘定", "かんじょう"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 227362,
+        "ja": "お勘定です。",
+        "en": "Here is your bill.",
+        "enId": 64716,
+        "form": "勘定",
+        "furigana": [["お"], ["勘定", "かんじょう"], ["です。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-28",
+    "term": "算盤",
+    "kana": "そろばん",
+    "meaning": "abacus",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": ["compound", "borrowing"],
+    "headline": "The abacus reached Japan from China in the Muromachi period (1336–1573), and soroban is first attested in a 1595 trilingual dictionary.",
+    "morphemes": [
+      {
+        "text": "算",
+        "reading": "そろ",
+        "meaning": "abacus",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "盤",
+        "reading": "ばん",
+        "meaning": "tray",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Japanese sources consistently describe the abacus itself as being imported to Japan from China some time during the Muromachi period (1336–1573), although there is some disagreement as to whether this happened early in the period, or late."
+      },
+      {
+        "quote": "First attested with the reading soroban in the 1595 trilingual Latin-Portuguese-Japanese dictionary Dictionarium Latino Lusitanicum, Ac Iaponicum, also 羅葡日対訳辞書 (Ra-Ho-Nichi Taiyaku Jisho, “Latin-Portuguese-Japanese Translation Dictionary”) based on work originally by Ambrogio Calepino, corroborated in the Nippo Jisho of 1603."
+      },
+      {
+        "quote": "Japanese sources generally describe the soroban reading as a shift or corruption from the reading swanpan, the 唐音 (tōon, literally \"Tang sound\", referring to the Chinese-derived kanji readings that were borrowed into Japanese during the Tang dynasty or later) for the kanji spelling. However, this is problematic on phonological grounds:"
+      },
+      {
+        "quote": "* There is no known phonological process whereby swan would become soro in Japanese."
+      },
+      {
+        "quote": "* Middle Chinese swan consistently became Japanese san in all other known instances of the Chinese reading swan for any kanji character."
+      },
+      {
+        "quote": "* The character 算 appearing as the first character in 算盤 (soroban) is also read as san, and san is similarly listed as a synonym for soroban in the 1595 dictionary entry."
+      },
+      {
+        "quote": "An alternative, albeit speculative, explanation is that this soro- is some other morpheme unrelated to the Chinese. If so, this might be native root soro-, as seen in adverb そろそろ (sorosoro, “quietly and calmly”), そろり (sorori) and そろっと (sorotto, “quietly and smoothly; slidingly, glidingly”), verb 揃う (sorou, “to be in alignment; to be in order; to match, to go together”)."
+      },
+      {
+        "quote": "Notably, this term appears historically with the alternative kanji spelling 三羅盤. Given the expected Japanese readings of these characters, this may have been read as saraban. Root sara- -- and also root suru- -- also appear in various terms related to senses of smooth, gliding, sliding."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-29",
+    "term": "夜",
+    "kana": "よ",
+    "meaning": "evening, night",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Yo was spelled with the phonetic 用 in the Kojiki of 712 CE, and has since taken on a more literary sense.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨yo₁⟩ → /jʷo/ → /jo/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *yo."
+      },
+      {
+        "quote": "First attested in the Kojiki of 712 CE with the phonetic spelling 用."
+      },
+      {
+        "quote": "In modern development, this term has taken on a more literary sense."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-30",
+    "term": "杉",
+    "kana": "すぎ",
+    "meaning": "Japanese cedar",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["ateji"],
+    "headline": "Sugi's kanji 杉 is an ateji (当て字), and the word is first attested in the Kojiki of 712 CE.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 杉 (sugi₂), which Miyake (1997) (apud Schuessler, 2007) associates with Old Chinese 松 (OC *sɢloŋ). Ultimately comes from reconstructed Proto-Japonic *sunkOi."
+      },
+      {
+        "quote": "First attested in the Kojiki of 712 CE."
+      },
+      {
+        "quote": "This kanji is an ateji (当(あ)て字(じ))."
+      }
+    ],
+    "examples": [
+      {
+        "id": 142433,
+        "ja": "昔そこにはスギの大木があった。",
+        "en": "There used to be a large cedar tree there.",
+        "enId": 272136,
+        "form": "スギ",
+        "furigana": [
+          ["昔", "むかし"],
+          ["そこにはスギの"],
+          ["大木", "たいぼく"],
+          ["があった。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2005-10-31",
+    "term": "島",
+    "kana": "しま",
+    "meaning": "island",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Shima, “island”, is possibly related to Baekje 斯麻 (*syema, “island”) and Middle Korean 셤 (syem).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/sima/ → /ɕima/"
+      },
+      {
+        "quote": "From Old Japanese, ultimately from Proto-Japonic *sima."
+      },
+      {
+        "quote": "Possibly related to Baekje 斯麻 (*syema, “island”) and Middle Korean 셤 (syem), whence modern Korean 섬 (seom, “island”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124323,
+        "ja": "島が見えてきた。",
+        "en": "An island came in sight.",
+        "enId": 279671,
+        "form": "島",
+        "furigana": [["島", "しま"], ["が"], ["見", "み"], ["えてきた。"]]
+      },
+      {
+        "id": 188680,
+        "ja": "遠くに島が見えた。",
+        "en": "We saw an island in the distance.",
+        "enId": 25826,
+        "form": "島",
+        "furigana": [
+          ["遠", "とお"],
+          ["くに"],
+          ["島", "しま"],
+          ["が"],
+          ["見", "み"],
+          ["えた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]

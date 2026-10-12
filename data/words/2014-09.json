@@ -1,0 +1,1061 @@
+[
+  {
+    "date": "2014-09-01",
+    "term": "留守",
+    "kana": "るす",
+    "meaning": "absence; not at home",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 82839,
+        "ja": "母は留守です。",
+        "en": "Mother is away from home.",
+        "enId": 320877,
+        "form": "留守",
+        "furigana": [["母", "はは"], ["は"], ["留守", "るす"], ["です。"]]
+      },
+      {
+        "id": 182944,
+        "ja": "鬼の留守に洗濯。",
+        "en": "When the cat is away, the mice will play.",
+        "enId": 20065,
+        "form": "留守",
+        "furigana": [
+          ["鬼", "おに"],
+          ["の"],
+          ["留守", "るす"],
+          ["に"],
+          ["洗濯", "せんたく"],
+          ["。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-02",
+    "term": "割合",
+    "kana": "わりあい",
+    "meaning": "rate, ratio, percentage",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 98294,
+        "ja": "彼らは１時間３マイルの割合で歩いた。",
+        "en": "They walked at the rate of three miles an hour.",
+        "enId": 305408,
+        "form": "割合",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは１"],
+          ["時間", "じかん"],
+          ["３マイルの"],
+          ["割合", "わりあい"],
+          ["で"],
+          ["歩", "ある"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 144702,
+        "ja": "針は中心を一時間に１０回転の割合で回る。",
+        "en": "The hand on its axis turns at 10 revolutions per hour.",
+        "enId": 269862,
+        "form": "割合",
+        "furigana": [
+          ["針", "はり"],
+          ["は"],
+          ["中心", "ちゅうしん"],
+          ["を"],
+          ["一", "いち"],
+          ["時間", "じかん"],
+          ["に１０"],
+          ["回転", "かいてん"],
+          ["の"],
+          ["割合", "わりあい"],
+          ["で"],
+          ["回", "まわ"],
+          ["る。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-03",
+    "term": "なるほど",
+    "kana": "なるほど",
+    "meaning": "I see; I now understand",
+    "level": "N4",
+    "pos": ["interjection (kandoushi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-09-04",
+    "term": "くださる",
+    "kana": "くださる",
+    "meaning": "(hon.) to give, to confer",
+    "level": "N4",
+    "pos": ["Godan verb - -aru special class", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "register": ["honorific or respectful (sonkeigo) language"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-09-05",
+    "term": "お子さん",
+    "kana": "おこさん",
+    "meaning": "(someone else's) child (polite)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "register": ["honorific or respectful (sonkeigo) language"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 227118,
+        "ja": "お子さんがおありですか。",
+        "en": "Do you have any children?",
+        "enId": 64467,
+        "form": "お子さん",
+        "furigana": [["お"], ["子", "こ"], ["さんがおありですか。"]]
+      },
+      {
+        "id": 226897,
+        "ja": "お宅のお子さんは丈夫ですね。",
+        "en": "Your children look healthy.",
+        "enId": 64244,
+        "form": "お子さん",
+        "furigana": [
+          ["お"],
+          ["宅", "たく"],
+          ["のお"],
+          ["子", "こ"],
+          ["さんは"],
+          ["丈夫", "じょうぶ"],
+          ["ですね。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-06",
+    "term": "会場",
+    "kana": "かいじょう",
+    "meaning": "venue, meeting place",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 166008,
+        "ja": "私たちは会場の後ろに座った。",
+        "en": "We sat at the back of the hall.",
+        "enId": 248496,
+        "form": "会場",
+        "furigana": [
+          ["私", "わたし"],
+          ["たちは"],
+          ["会場", "かいじょう"],
+          ["の"],
+          ["後", "うし"],
+          ["ろに"],
+          ["座", "すわ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 185220,
+        "ja": "会場は聴衆でいっぱいだった。",
+        "en": "This hall was full of people.",
+        "enId": 22351,
+        "form": "会場",
+        "furigana": [
+          ["会場", "かいじょう"],
+          ["は"],
+          ["聴衆", "ちょうしゅう"],
+          ["でいっぱいだった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-07",
+    "term": "運ぶ",
+    "kana": "はこぶ",
+    "meaning": "to transport, to carry",
+    "level": "N4",
+    "pos": ["Godan verb with 'bu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 84010,
+        "ja": "風は種を遠くへ運ぶ。",
+        "en": "The wind carries seeds for great distances.",
+        "enId": 319707,
+        "form": "運ぶ",
+        "furigana": [
+          ["風", "かぜ"],
+          ["は"],
+          ["種", "たね"],
+          ["を"],
+          ["遠", "とお"],
+          ["くへ"],
+          ["運", "はこ"],
+          ["ぶ。"]
+        ]
+      },
+      {
+        "id": 101254,
+        "ja": "彼は箱を２階へ運んだ。",
+        "en": "He carried the box upstairs.",
+        "enId": 302442,
+        "form": "運んだ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["箱", "はこ"],
+          ["を２"],
+          ["階", "かい"],
+          ["へ"],
+          ["運", "はこ"],
+          ["んだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-08",
+    "term": "文学",
+    "kana": "ぶんがく",
+    "meaning": "literature",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83678,
+        "ja": "文学の講義をする。",
+        "en": "I will lecture on literature.",
+        "enId": 4632231,
+        "form": "文学",
+        "furigana": [
+          ["文学", "ぶんがく"],
+          ["の"],
+          ["講義", "こうぎ"],
+          ["をする。"]
+        ]
+      },
+      {
+        "id": 100198,
+        "ja": "彼は文学者である。",
+        "en": "He is a man of letters.",
+        "enId": 303499,
+        "form": "文学",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["文学", "ぶんがく"],
+          ["者", "しゃ"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-09",
+    "term": "お見舞い",
+    "kana": "おみまい",
+    "meaning": "calling on someone who is ill, visit",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 94734,
+        "ja": "彼女のお見舞いに行こうよ。",
+        "en": "Why don't we go and see her in the hospital?",
+        "enId": 308972,
+        "form": "お見舞い",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["のお"],
+          ["見舞", "みま"],
+          ["いに"],
+          ["行", "い"],
+          ["こうよ。"]
+        ]
+      },
+      {
+        "id": 141483,
+        "ja": "先日、私たちは彼のお兄さんをお見舞いにいった。",
+        "en": "The other day we went to ask after his brother.",
+        "enId": 273087,
+        "form": "お見舞い",
+        "furigana": [
+          ["先日", "せんじつ"],
+          ["、"],
+          ["私", "わたし"],
+          ["たちは"],
+          ["彼", "かれ"],
+          ["のお"],
+          ["兄", "にい"],
+          ["さんをお"],
+          ["見舞", "みま"],
+          ["いにいった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-10",
+    "term": "席",
+    "kana": "せき",
+    "meaning": "a seat",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 142472,
+        "ja": "席にもどりなさい。",
+        "en": "Go back to your seat.",
+        "enId": 17013,
+        "form": "席",
+        "furigana": [["席", "せき"], ["にもどりなさい。"]]
+      },
+      {
+        "id": 95083,
+        "ja": "彼女と席をかわった。",
+        "en": "I exchanged seats with her.",
+        "enId": 308623,
+        "form": "席",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["と"],
+          ["席", "せき"],
+          ["をかわった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-11",
+    "term": "～様",
+    "kana": "～さま",
+    "meaning": "Mr., Mrs., Ms.",
+    "level": "N4",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-09-12",
+    "term": "ご存じ",
+    "kana": "ごぞんじ",
+    "meaning": "knowing, acquaintance",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1", "ichi1", "news1", "nf13"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 95964,
+        "ja": "彼をご存知だった？",
+        "en": "Did you know him?",
+        "enId": 307741,
+        "form": "ご存知",
+        "furigana": [["彼", "かれ"], ["をご"], ["存知", "ぞんじ"], ["だった？"]]
+      },
+      {
+        "id": 123549,
+        "ja": "道順はご存知ですか。",
+        "en": "Do you know how to get there?",
+        "enId": 280448,
+        "form": "ご存知",
+        "furigana": [
+          ["道順", "みちじゅん"],
+          ["はご"],
+          ["存知", "ぞんじ"],
+          ["ですか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-13",
+    "term": "下る",
+    "kana": "さがる",
+    "meaning": "to descend, to drop, to fall",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-09-14",
+    "term": "最も",
+    "kana": "もっとも",
+    "meaning": "most",
+    "level": "N4",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 178922,
+        "ja": "君が怒るのももっともだ。",
+        "en": "You have good reason to be angry.",
+        "enId": 17776,
+        "form": "もっとも",
+        "furigana": [
+          ["君", "きみ"],
+          ["が"],
+          ["怒", "おこ"],
+          ["るのももっともだ。"]
+        ]
+      },
+      {
+        "id": 213804,
+        "ja": "そう言うのももっともだ。",
+        "en": "You have every reason to say so.",
+        "enId": 51091,
+        "form": "もっとも",
+        "furigana": [["そう"], ["言", "い"], ["うのももっともだ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-15",
+    "term": "～代",
+    "kana": "～だい",
+    "meaning": "~ age; period",
+    "level": "N4",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-09-16",
+    "term": "最後",
+    "kana": "さいご",
+    "meaning": "last, end",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 205733,
+        "ja": "それで最後だ！",
+        "en": "That's the last straw!",
+        "enId": 42979,
+        "form": "最後",
+        "furigana": [["それで"], ["最後", "さいご"], ["だ！"]]
+      },
+      {
+        "id": 89937,
+        "ja": "彼女は最後にきた。",
+        "en": "She came last.",
+        "enId": 313778,
+        "form": "最後",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["最後", "さいご"],
+          ["にきた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-17",
+    "term": "退院",
+    "kana": "たいいんする",
+    "meaning": "leaving hospital",
+    "level": "N4",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 183930,
+        "ja": "患者は退院した。",
+        "en": "The patient was discharged from hospital.",
+        "enId": 21056,
+        "form": "退院",
+        "furigana": [
+          ["患者", "かんじゃ"],
+          ["は"],
+          ["退院", "たいいん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 93617,
+        "ja": "彼女は１時間前に退院しました。",
+        "en": "She left the hospital an hour ago.",
+        "enId": 310090,
+        "form": "退院",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は１"],
+          ["時間", "じかん"],
+          ["前", "まえ"],
+          ["に"],
+          ["退院", "たいいん"],
+          ["しました。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-18",
+    "term": "汽車",
+    "kana": "きしゃ",
+    "meaning": "train (steam)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 183146,
+        "ja": "汽車が脱線した。",
+        "en": "The train was derailed.",
+        "enId": 20268,
+        "form": "汽車",
+        "furigana": [
+          ["汽車", "きしゃ"],
+          ["が"],
+          ["脱線", "だっせん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 234771,
+        "ja": "あ、汽車が来た。",
+        "en": "Here comes the train!",
+        "enId": 72148,
+        "form": "汽車",
+        "furigana": [
+          ["あ、"],
+          ["汽車", "きしゃ"],
+          ["が"],
+          ["来", "き"],
+          ["た。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-19",
+    "term": "遅れる",
+    "kana": "おくれる",
+    "meaning": "to (be) become late",
+    "level": "N4",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf47"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 126695,
+        "ja": "遅れるなよ。",
+        "en": "Don't be late.",
+        "enId": 277394,
+        "form": "遅れる",
+        "furigana": [["遅", "おく"], ["れるなよ。"]]
+      },
+      {
+        "id": 126727,
+        "ja": "遅れたかな？",
+        "en": "I'm late, aren't I?",
+        "enId": 259431,
+        "form": "遅れた",
+        "furigana": [["遅", "おく"], ["れたかな？"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-20",
+    "term": "見つかる",
+    "kana": "みつかる",
+    "meaning": "to be found (v.i.), to be discovered",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175068,
+        "ja": "鍵が見つからない。",
+        "en": "I can't find my key.",
+        "enId": 239398,
+        "form": "見つからない",
+        "furigana": [["鍵", "かぎ"], ["が"], ["見", "み"], ["つからない。"]]
+      },
+      {
+        "id": 146145,
+        "ja": "乗車券が見つからない。",
+        "en": "I can't find my ticket.",
+        "enId": 268417,
+        "form": "見つからない",
+        "furigana": [
+          ["乗車", "じょうしゃ"],
+          ["券", "けん"],
+          ["が"],
+          ["見", "み"],
+          ["つからない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-21",
+    "term": "太る",
+    "kana": "ふとる",
+    "meaning": "to gain weight",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 146355,
+        "ja": "笑って太れ。",
+        "en": "Laugh and be fat.",
+        "enId": 268207,
+        "form": "太れ",
+        "furigana": [["笑", "わら"], ["って"], ["太", "ふと"], ["れ。"]]
+      },
+      {
+        "id": 138220,
+        "ja": "太らないように。",
+        "en": "Stay thin.",
+        "enId": 275014,
+        "form": "太らない",
+        "furigana": [["太", "ふと"], ["らないように。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-22",
+    "term": "注射",
+    "kana": "ちゅうしゃ",
+    "meaning": "injection",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 126332,
+        "ja": "注射をしましょう。",
+        "en": "I'll give you a shot.",
+        "enId": 277659,
+        "form": "注射",
+        "furigana": [["注射", "ちゅうしゃ"], ["をしましょう。"]]
+      },
+      {
+        "id": 81438,
+        "ja": "麻酔の注射をします。",
+        "en": "I'll give you anaesthesia.",
+        "enId": 322277,
+        "form": "注射",
+        "furigana": [
+          ["麻酔", "ますい"],
+          ["の"],
+          ["注射", "ちゅうしゃ"],
+          ["をします。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-23",
+    "term": "～おき",
+    "kana": "～おき",
+    "meaning": "after every ~",
+    "level": "N4",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-09-24",
+    "term": "御～",
+    "kana": "ご～",
+    "meaning": "honorable ~",
+    "level": "N4",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-09-25",
+    "term": "直る",
+    "kana": "なおる",
+    "meaning": "to be fixed",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 210240,
+        "ja": "その子は悪い癖が直った。",
+        "en": "He was cured of his bad habits.",
+        "enId": 47505,
+        "form": "直った",
+        "furigana": [
+          ["その"],
+          ["子", "こ"],
+          ["は"],
+          ["悪", "わる"],
+          ["い"],
+          ["癖", "くせ"],
+          ["が"],
+          ["直", "なお"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 113308,
+        "ja": "彼はスポーツのおかげで劣等感が直った。",
+        "en": "Sports cured him of his inferiority complex.",
+        "enId": 290366,
+        "form": "直った",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はスポーツのおかげで"],
+          ["劣等", "れっとう"],
+          ["感", "かん"],
+          ["が"],
+          ["直", "なお"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-26",
+    "term": "約束",
+    "kana": "やくそく",
+    "meaning": "arrangement, appointment, promise",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79531,
+        "ja": "約束は約束。",
+        "en": "A promise is a promise.",
+        "enId": 324187,
+        "form": "約束",
+        "furigana": [["約束", "やくそく"], ["は"], ["約束", "やくそく"], ["。"]]
+      },
+      {
+        "id": 99392,
+        "ja": "彼は約束を果たす。",
+        "en": "He always fulfills his promises.",
+        "enId": 304306,
+        "form": "約束",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["約束", "やくそく"],
+          ["を"],
+          ["果", "は"],
+          ["たす。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-27",
+    "term": "近所",
+    "kana": "きんじょ",
+    "meaning": "neighborhood",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 120461,
+        "ja": "彼が近所に越してきた。",
+        "en": "He moved into my neighborhood.",
+        "enId": 283548,
+        "form": "近所",
+        "furigana": [
+          ["彼", "かれ"],
+          ["が"],
+          ["近所", "きんじょ"],
+          ["に"],
+          ["越", "こ"],
+          ["してきた。"]
+        ]
+      },
+      {
+        "id": 179815,
+        "ja": "近所で火事が起こった。",
+        "en": "A fire broke out near my house.",
+        "enId": 18674,
+        "form": "近所",
+        "furigana": [
+          ["近所", "きんじょ"],
+          ["で"],
+          ["火事", "かじ"],
+          ["が"],
+          ["起", "お"],
+          ["こった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-28",
+    "term": "将来",
+    "kana": "しょうらい",
+    "meaning": "(in the) future; prospects",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1, 0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147084,
+        "ja": "将来、何になりたいの？",
+        "en": "What do you want to be in the future?",
+        "enId": 267477,
+        "form": "将来",
+        "furigana": [
+          ["将来", "しょうらい"],
+          ["、"],
+          ["何", "なん"],
+          ["になりたいの？"]
+        ]
+      },
+      {
+        "id": 155907,
+        "ja": "私は将来の事を考えた。",
+        "en": "I thought about the future.",
+        "enId": 258628,
+        "form": "将来",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["将来", "しょうらい"],
+          ["の"],
+          ["事", "こと"],
+          ["を"],
+          ["考", "かんが"],
+          ["えた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-29",
+    "term": "習慣",
+    "kana": "しゅうかん",
+    "meaning": "custom (in reference to culture)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 96461,
+        "ja": "彼らは同じ習慣をもつ。",
+        "en": "They have the same habits.",
+        "enId": 307245,
+        "form": "習慣",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["同", "おな"],
+          ["じ"],
+          ["習慣", "しゅうかん"],
+          ["をもつ。"]
+        ]
+      },
+      {
+        "id": 173112,
+        "ja": "国の数だけ習慣がある。",
+        "en": "So many countries, so many customs.",
+        "enId": 241358,
+        "form": "習慣",
+        "furigana": [
+          ["国", "くに"],
+          ["の"],
+          ["数", "かず"],
+          ["だけ"],
+          ["習慣", "しゅうかん"],
+          ["がある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-09-30",
+    "term": "点く",
+    "kana": "つく",
+    "meaning": "to be started, to be switched on",
+    "level": "N4",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [1, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 124124,
+        "ja": "灯りが点いた。",
+        "en": "The light went on.",
+        "enId": 279870,
+        "form": "点いた",
+        "furigana": [["灯", "あか"], ["りが"], ["点", "つ"], ["いた。"]]
+      },
+      {
+        "id": 124858,
+        "ja": "電気がつきません。",
+        "en": "The light doesn't work.",
+        "enId": 279135,
+        "form": "つきません",
+        "furigana": [["電気", "でんき"], ["がつきません。"]]
+      }
+    ]
+  }
+]

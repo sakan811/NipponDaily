@@ -1,0 +1,1076 @@
+[
+  {
+    "date": "2014-06-01",
+    "term": "今夜",
+    "kana": "こんや",
+    "meaning": "this evening, tonight",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 171112,
+        "ja": "今夜は外食だ。",
+        "en": "I'm eating out this evening.",
+        "enId": 243367,
+        "form": "今夜",
+        "furigana": [
+          ["今夜", "こんや"],
+          ["は"],
+          ["外食", "がいしょく"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 171122,
+        "ja": "今夜は暇です。",
+        "en": "I'm free tonight.",
+        "enId": 243357,
+        "form": "今夜",
+        "furigana": [["今夜", "こんや"], ["は"], ["暇", "ひま"], ["です。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-02",
+    "term": "おつり",
+    "kana": "おつり",
+    "meaning": "change; balance of money returned to the purchaser",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "register": ["polite (teineigo) language"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-06-03",
+    "term": "チェックする",
+    "kana": "チェックする",
+    "meaning": "check",
+    "level": "N4",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-06-04",
+    "term": "会話",
+    "kana": "かいわ",
+    "meaning": "conversation",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185209,
+        "ja": "会話に加われば？",
+        "en": "Why don't you join in the conversation?",
+        "enId": 22341,
+        "form": "会話",
+        "furigana": [["会話", "かいわ"], ["に"], ["加", "くわ"], ["われば？"]]
+      },
+      {
+        "id": 98540,
+        "ja": "彼らの会話は続いた。",
+        "en": "Their conversation went on.",
+        "enId": 305160,
+        "form": "会話",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らの"],
+          ["会話", "かいわ"],
+          ["は"],
+          ["続", "つづ"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-05",
+    "term": "ワープロ",
+    "kana": "ワープロ",
+    "meaning": "word processor",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "field": ["computing"],
+    "pitch": [0],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 192077,
+        "ja": "ワープロを買いたい。",
+        "en": "I want to buy a word processor.",
+        "enId": 29239,
+        "form": "ワープロ",
+        "furigana": [["ワープロを"], ["買", "か"], ["いたい。"]]
+      },
+      {
+        "id": 236903,
+        "ja": "このワープロは大変便利だ。",
+        "en": "This word-processor is very convenient.",
+        "enId": 49691,
+        "form": "ワープロ",
+        "furigana": [
+          ["このワープロは"],
+          ["大変", "たいへん"],
+          ["便利", "べんり"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-06",
+    "term": "喜ぶ",
+    "kana": "よろこぶ",
+    "meaning": "to rejoice, to be delighted, to be glad",
+    "level": "N4",
+    "pos": [
+      "Godan verb with 'bu' ending",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 140533,
+        "ja": "早まって喜ぶな。",
+        "en": "He who laughs last laughs best.",
+        "enId": 274040,
+        "form": "喜ぶ",
+        "furigana": [["早", "はや"], ["まって"], ["喜", "よろこ"], ["ぶな。"]]
+      },
+      {
+        "id": 112285,
+        "ja": "彼はその話に喜んだ。",
+        "en": "He was delighted at the story.",
+        "enId": 291393,
+        "form": "喜んだ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はその"],
+          ["話", "はなし"],
+          ["に"],
+          ["喜", "よろこ"],
+          ["んだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-07",
+    "term": "急行",
+    "kana": "きゅうこう",
+    "meaning": "express train or bus",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "nouns which may take the genitive case particle 'no'",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 218451,
+        "ja": "これは急行ですか。",
+        "en": "Is this an express?",
+        "enId": 55761,
+        "form": "急行",
+        "furigana": [["これは"], ["急行", "きゅうこう"], ["ですか。"]]
+      },
+      {
+        "id": 182438,
+        "ja": "急行の料金は幾らですか。",
+        "en": "How much is the express?",
+        "enId": 19611,
+        "form": "急行",
+        "furigana": [
+          ["急行", "きゅうこう"],
+          ["の"],
+          ["料金", "りょうきん"],
+          ["は"],
+          ["幾", "いく"],
+          ["らですか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-08",
+    "term": "皆",
+    "kana": "みな",
+    "meaning": "everyone",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "pronoun", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 182785,
+        "ja": "客はみな帰った。",
+        "en": "The guests are all gone.",
+        "enId": 19903,
+        "form": "みな",
+        "furigana": [["客", "きゃく"], ["はみな"], ["帰", "かえ"], ["った。"]]
+      },
+      {
+        "id": 199631,
+        "ja": "どれもみな正しい。",
+        "en": "The answers are all right.",
+        "enId": 36833,
+        "form": "みな",
+        "furigana": [["どれもみな"], ["正", "ただ"], ["しい。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-09",
+    "term": "ごちそう",
+    "kana": "ごちそう",
+    "meaning": "feast, treating (someone)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-06-10",
+    "term": "踊り",
+    "kana": "おどり",
+    "meaning": "dance",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 78796,
+        "ja": "踊りに行きませんか。",
+        "en": "Let's go dancing, shall we?",
+        "enId": 324920,
+        "form": "踊り",
+        "furigana": [["踊", "おど"], ["りに"], ["行", "い"], ["きませんか。"]]
+      },
+      {
+        "id": 115910,
+        "ja": "彼の踊りは堂に入ってる。",
+        "en": "His dance is excellent.",
+        "enId": 287759,
+        "form": "踊り",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["踊", "おど"],
+          ["りは"],
+          ["堂", "どう"],
+          ["に"],
+          ["入", "はい"],
+          ["ってる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-11",
+    "term": "興味",
+    "kana": "きょうみ",
+    "meaning": "interest (in something)",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 163850,
+        "ja": "私の興味が増した。",
+        "en": "My interest quickened.",
+        "enId": 250660,
+        "form": "興味",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["興味", "きょうみ"],
+          ["が"],
+          ["増", "ま"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 151041,
+        "ja": "試合の興味が薄れた。",
+        "en": "Interest in the game has dropped off.",
+        "enId": 263515,
+        "form": "興味",
+        "furigana": [
+          ["試合", "しあい"],
+          ["の"],
+          ["興味", "きょうみ"],
+          ["が"],
+          ["薄", "うす"],
+          ["れた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-12",
+    "term": "引っ越す",
+    "kana": "ひっこす",
+    "meaning": "to move to a new place of residence",
+    "level": "N4",
+    "pos": ["Godan verb with 'su' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 145289,
+        "ja": "新居へ引っ越した。",
+        "en": "We moved into a new house.",
+        "enId": 269274,
+        "form": "引っ越した",
+        "furigana": [
+          ["新居", "しんきょ"],
+          ["へ"],
+          ["引", "ひ"],
+          ["っ"],
+          ["越", "こ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 101776,
+        "ja": "彼は東京に引っ越した。",
+        "en": "He moved to Tokyo.",
+        "enId": 301917,
+        "form": "引っ越した",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["東京", "とうきょう"],
+          ["に"],
+          ["引", "ひ"],
+          ["っ"],
+          ["越", "こ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-13",
+    "term": "冷房",
+    "kana": "れいぼう",
+    "meaning": "cooling, air conditioning",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 219975,
+        "ja": "この部屋は冷房してある。",
+        "en": "This room is air-conditioned.",
+        "enId": 57295,
+        "form": "冷房",
+        "furigana": [
+          ["この"],
+          ["部屋", "へや"],
+          ["は"],
+          ["冷房", "れいぼう"],
+          ["してある。"]
+        ]
+      },
+      {
+        "id": 143869,
+        "ja": "図書館の冷房は効きすぎている。",
+        "en": "The air-conditioning in the library is too strong.",
+        "enId": 270697,
+        "form": "冷房",
+        "furigana": [
+          ["図書館", "としょかん"],
+          ["の"],
+          ["冷房", "れいぼう"],
+          ["は"],
+          ["効", "き"],
+          ["きすぎている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-14",
+    "term": "遠慮",
+    "kana": "えんりょする",
+    "meaning": "restraint, reserve, hesitate",
+    "level": "N4",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 188646,
+        "ja": "遠慮しないで。",
+        "en": "Don't hold back.",
+        "enId": 25791,
+        "form": "遠慮",
+        "furigana": [["遠慮", "えんりょ"], ["しないで。"]]
+      },
+      {
+        "id": 188637,
+        "ja": "遠慮無く話せよ。",
+        "en": "Go ahead and talk.",
+        "enId": 25783,
+        "form": "遠慮",
+        "furigana": [
+          ["遠慮", "えんりょ"],
+          ["無", "な"],
+          ["く"],
+          ["話", "はな"],
+          ["せよ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-15",
+    "term": "はっきり",
+    "kana": "はっきり",
+    "meaning": "clearly, distinctly",
+    "level": "N4",
+    "pos": ["adverb (fukushi)", "adverb taking the 'to' particle"],
+    "priority": ["ichi1", "spec1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185138,
+        "ja": "海がはっきりしない。",
+        "en": "The sea is not clear.",
+        "enId": 22268,
+        "form": "はっきり",
+        "furigana": [["海", "うみ"], ["がはっきりしない。"]]
+      },
+      {
+        "id": 197976,
+        "ja": "はっきり話しなさい。",
+        "en": "Speak clearly.",
+        "enId": 433849,
+        "form": "はっきり",
+        "furigana": [["はっきり"], ["話", "はな"], ["しなさい。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-16",
+    "term": "差し上げる",
+    "kana": "さしあげる",
+    "meaning": "-- humble expression for あげる --",
+    "level": "N4",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf32"],
+    "pitch": [0, 4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 203640,
+        "ja": "ただで差し上げます。",
+        "en": "You may have it for nothing.",
+        "enId": 40878,
+        "form": "差し上げます",
+        "furigana": [
+          ["ただで"],
+          ["差", "さ"],
+          ["し"],
+          ["上", "あ"],
+          ["げます。"]
+        ]
+      },
+      {
+        "id": 217692,
+        "ja": "これは差し上げます。",
+        "en": "This is for you.",
+        "enId": 55752,
+        "form": "差し上げます",
+        "furigana": [
+          ["これは"],
+          ["差", "さ"],
+          ["し"],
+          ["上", "あ"],
+          ["げます。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-17",
+    "term": "気持ち",
+    "kana": "きもち",
+    "meaning": "feeling, sensation, mood",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108565,
+        "ja": "彼は気持ちが若い。",
+        "en": "He is young at heart.",
+        "enId": 295121,
+        "form": "気持ち",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["気持", "きも"],
+          ["ちが"],
+          ["若", "わか"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 183194,
+        "ja": "気持ちは分かるよ。",
+        "en": "I know how you feel.",
+        "enId": 20318,
+        "form": "気持ち",
+        "furigana": [["気持", "きも"], ["ちは"], ["分", "わ"], ["かるよ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-18",
+    "term": "予約",
+    "kana": "よやく",
+    "meaning": "reservation",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 78990,
+        "ja": "予約してある。",
+        "en": "I have a reservation.",
+        "enId": 324726,
+        "form": "予約",
+        "furigana": [["予約", "よやく"], ["してある。"]]
+      },
+      {
+        "id": 78979,
+        "ja": "予約はできますか。",
+        "en": "Could I make a reservation?",
+        "enId": 324737,
+        "form": "予約",
+        "furigana": [["予約", "よやく"], ["はできますか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-19",
+    "term": "凄い",
+    "kana": "すごい",
+    "meaning": "terrific, great",
+    "level": "N4",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "spec1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 214720,
+        "ja": "スゴイ量だね！",
+        "en": "That's a lot!",
+        "enId": 52014,
+        "form": "スゴイ",
+        "furigana": [["スゴイ"], ["量", "りょう"], ["だね！"]]
+      },
+      {
+        "id": 214724,
+        "ja": "すごい花火だ！",
+        "en": "These fireworks are spectacular!",
+        "enId": 52018,
+        "form": "すごい",
+        "furigana": [["すごい"], ["花火", "はなび"], ["だ！"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-20",
+    "term": "入学",
+    "kana": "にゅうがくする",
+    "meaning": "entry to school or university",
+    "level": "N4",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99068,
+        "ja": "彼は裏口入学した。",
+        "en": "He bought his way into college.",
+        "enId": 304631,
+        "form": "入学",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["裏口", "うらぐち"],
+          ["入学", "にゅうがく"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 87608,
+        "ja": "彼女は入学を申し込んだ。",
+        "en": "She made out the application for admission.",
+        "enId": 316100,
+        "form": "入学",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["入学", "にゅうがく"],
+          ["を"],
+          ["申", "もう"],
+          ["し"],
+          ["込", "こ"],
+          ["んだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-21",
+    "term": "片付ける",
+    "kana": "かたづける",
+    "meaning": "to (clean) tidy up (v.t.), to put away",
+    "level": "N4",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf37"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 204475,
+        "ja": "それ片づけて。",
+        "en": "Pick it up.",
+        "enId": 41717,
+        "form": "片づけて",
+        "furigana": [["それ"], ["片", "かた"], ["づけて。"]]
+      },
+      {
+        "id": 84098,
+        "ja": "部屋を片づけて。",
+        "en": "Clean up the room.",
+        "enId": 319618,
+        "form": "片づけて",
+        "furigana": [["部屋", "へや"], ["を"], ["片", "かた"], ["づけて。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-22",
+    "term": "パソコン",
+    "kana": "パソコン",
+    "meaning": "(personal) computer",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [0],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 159109,
+        "ja": "私はパソコンが欲しい。",
+        "en": "I want a personal computer.",
+        "enId": 255416,
+        "form": "パソコン",
+        "furigana": [
+          ["私", "わたし"],
+          ["はパソコンが"],
+          ["欲", "ほ"],
+          ["しい。"]
+        ]
+      },
+      {
+        "id": 170673,
+        "ja": "最近パソコンを始めた。",
+        "en": "I started using PCs recently.",
+        "enId": 243809,
+        "form": "パソコン",
+        "furigana": [
+          ["最近", "さいきん"],
+          ["パソコンを"],
+          ["始", "はじ"],
+          ["めた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-23",
+    "term": "部長",
+    "kana": "ぶちょう",
+    "meaning": "department (division) manager",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 109784,
+        "ja": "彼は営業部の部長です。",
+        "en": "He is the manager of the marketing department.",
+        "enId": 293906,
+        "form": "部長",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["営業", "えいぎょう"],
+          ["部", "ぶ"],
+          ["の"],
+          ["部長", "ぶちょう"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 120285,
+        "ja": "彼が私のところの部長です。",
+        "en": "He is the chief of my department.",
+        "enId": 283724,
+        "form": "部長",
+        "furigana": [
+          ["彼", "かれ"],
+          ["が"],
+          ["私", "わたし"],
+          ["のところの"],
+          ["部長", "ぶちょう"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-24",
+    "term": "足す",
+    "kana": "たす",
+    "meaning": "to add (numbers)",
+    "level": "N4",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf40"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 169510,
+        "ja": "三に二を足すと五になる。",
+        "en": "Add two to three, and you get five.",
+        "enId": 244976,
+        "form": "足す",
+        "furigana": [
+          ["三", "さん"],
+          ["に"],
+          ["二", "に"],
+          ["を"],
+          ["足", "た"],
+          ["すと"],
+          ["五", "ご"],
+          ["になる。"]
+        ]
+      },
+      {
+        "id": 170873,
+        "ja": "砂糖を少し足して下さい。",
+        "en": "Add a bit of sugar, please.",
+        "enId": 243607,
+        "form": "足して",
+        "furigana": [
+          ["砂糖", "さとう"],
+          ["を"],
+          ["少", "すこ"],
+          ["し"],
+          ["足", "た"],
+          ["して"],
+          ["下", "くだ"],
+          ["さい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-25",
+    "term": "教会",
+    "kana": "きょうかい",
+    "meaning": "church",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81289,
+        "ja": "毎日教会へ行きます。",
+        "en": "I go to church every day.",
+        "enId": 507914,
+        "form": "教会",
+        "furigana": [
+          ["毎日", "まいにち"],
+          ["教会", "きょうかい"],
+          ["へ"],
+          ["行", "い"],
+          ["きます。"]
+        ]
+      },
+      {
+        "id": 180298,
+        "ja": "教会のそばを通ろう。",
+        "en": "Let's pass by the church.",
+        "enId": 19094,
+        "form": "教会",
+        "furigana": [
+          ["教会", "きょうかい"],
+          ["のそばを"],
+          ["通", "とお"],
+          ["ろう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-26",
+    "term": "男性",
+    "kana": "だんせい",
+    "meaning": "man; male",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 127145,
+        "ja": "男性より女性が先。",
+        "en": "Ladies before gentlemen.",
+        "enId": 276944,
+        "form": "男性",
+        "furigana": [
+          ["男性", "だんせい"],
+          ["より"],
+          ["女性", "じょせい"],
+          ["が"],
+          ["先", "さき"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 235286,
+        "ja": "３人の男性がいた。",
+        "en": "There were three men.",
+        "enId": 72664,
+        "form": "男性",
+        "furigana": [
+          ["３"],
+          ["人", "にん"],
+          ["の"],
+          ["男性", "だんせい"],
+          ["がいた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-06-27",
+    "term": "理由",
+    "kana": "りゆう",
+    "meaning": "reason",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-06-28",
+    "term": "おもちゃ",
+    "kana": "おもちゃ",
+    "meaning": "a toy",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-06-29",
+    "term": "～ちゃん",
+    "kana": "～ちゃん",
+    "meaning": "suffix for familiar (female) person",
+    "level": "N4",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-06-30",
+    "term": "教育",
+    "kana": "きょういく",
+    "meaning": "education",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108343,
+        "ja": "彼は教育畑で育った。",
+        "en": "He has had a long teaching career.",
+        "enId": 295343,
+        "form": "教育",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["教育", "きょういく"],
+          ["畑", "はたけ"],
+          ["で"],
+          ["育", "そだ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 108353,
+        "ja": "彼は教育のある人だ。",
+        "en": "He is a man of education.",
+        "enId": 295333,
+        "form": "教育",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["教育", "きょういく"],
+          ["のある"],
+          ["人", "ひと"],
+          ["だ。"]
+        ]
+      }
+    ]
+  }
+]

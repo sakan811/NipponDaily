@@ -1,0 +1,924 @@
+[
+  {
+    "date": "2014-02-01",
+    "term": "ほとんど",
+    "kana": "ほとんど",
+    "meaning": "mostly, almost",
+    "level": "N4",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-02-02",
+    "term": "郊外",
+    "kana": "こうがい",
+    "meaning": "suburb, outskirts",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 163959,
+        "ja": "私の家は郊外にある。",
+        "en": "My house is in the suburbs.",
+        "enId": 250551,
+        "form": "郊外",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["家", "いえ"],
+          ["は"],
+          ["郊外", "こうがい"],
+          ["にある。"]
+        ]
+      },
+      {
+        "id": 94604,
+        "ja": "彼女の家は郊外にある。",
+        "en": "Her home is in the suburbs.",
+        "enId": 309101,
+        "form": "郊外",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["家", "いえ"],
+          ["は"],
+          ["郊外", "こうがい"],
+          ["にある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-03",
+    "term": "だめ",
+    "kana": "だめ",
+    "meaning": "useless, no good, hopeless",
+    "level": "N4",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf24"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-02-04",
+    "term": "規則",
+    "kana": "きそく",
+    "meaning": "rule, regulation",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [2, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 183108,
+        "ja": "規則に逆らうな。",
+        "en": "Don't go against the rules.",
+        "enId": 20230,
+        "form": "規則",
+        "furigana": [["規則", "きそく"], ["に"], ["逆", "さか"], ["らうな。"]]
+      },
+      {
+        "id": 177366,
+        "ja": "君は規則を破った。",
+        "en": "You broke the rule.",
+        "enId": 16216,
+        "form": "規則",
+        "furigana": [
+          ["君", "きみ"],
+          ["は"],
+          ["規則", "きそく"],
+          ["を"],
+          ["破", "やぶ"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-05",
+    "term": "発音",
+    "kana": "はつおん",
+    "meaning": "pronunciation",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 220639,
+        "ja": "この単語は発音しにくい。",
+        "en": "This word is difficult to pronounce.",
+        "enId": 57961,
+        "form": "発音",
+        "furigana": [
+          ["この"],
+          ["単語", "たんご"],
+          ["は"],
+          ["発音", "はつおん"],
+          ["しにくい。"]
+        ]
+      },
+      {
+        "id": 220643,
+        "ja": "この単語はどう発音するの？",
+        "en": "How do you pronounce this word?",
+        "enId": 57963,
+        "form": "発音",
+        "furigana": [
+          ["この"],
+          ["単語", "たんご"],
+          ["はどう"],
+          ["発音", "はつおん"],
+          ["するの？"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-06",
+    "term": "屋上",
+    "kana": "おくじょう",
+    "meaning": "rooftop",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 188422,
+        "ja": "屋上からは、何マイルも見渡せる。",
+        "en": "You can see for miles from the roof.",
+        "enId": 25565,
+        "form": "屋上",
+        "furigana": [
+          ["屋上", "おくじょう"],
+          ["からは、"],
+          ["何", "なん"],
+          ["マイルも"],
+          ["見渡", "みわた"],
+          ["せる。"]
+        ]
+      },
+      {
+        "id": 142578,
+        "ja": "青空を見たくなったら、屋上に行きます。",
+        "en": "I go up to the rooftop when I want to see the blue sky.",
+        "enId": 271992,
+        "form": "屋上",
+        "furigana": [
+          ["青空", "あおぞら"],
+          ["を"],
+          ["見", "み"],
+          ["たくなったら、"],
+          ["屋上", "おくじょう"],
+          ["に"],
+          ["行", "い"],
+          ["きます。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-07",
+    "term": "ごみ",
+    "kana": "ごみ",
+    "meaning": "trash, garbage",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1", "ichi1", "news2", "nf36"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-02-08",
+    "term": "今度",
+    "kana": "こんど",
+    "meaning": "now, this time, near future, one of these days, next time",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 195544,
+        "ja": "また、今度な！",
+        "en": "Maybe next time!",
+        "enId": 32718,
+        "form": "今度な",
+        "furigana": [["また、"], ["今度", "こんど"], ["な！"]]
+      },
+      {
+        "id": 172084,
+        "ja": "今度また誘ってよ。",
+        "en": "How about a rain check?",
+        "enId": 242390,
+        "form": "今度",
+        "furigana": [["今度", "こんど"], ["また"], ["誘", "さそ"], ["ってよ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-09",
+    "term": "機会",
+    "kana": "きかい",
+    "meaning": "chance, opportunity",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2, 0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83420,
+        "ja": "別の機会を待て。",
+        "en": "Wait for a second chance.",
+        "enId": 320296,
+        "form": "機会",
+        "furigana": [
+          ["別", "べつ"],
+          ["の"],
+          ["機会", "きかい"],
+          ["を"],
+          ["待", "ま"],
+          ["て。"]
+        ]
+      },
+      {
+        "id": 83421,
+        "ja": "別の機会に誘ってね。",
+        "en": "Give me a rain-check.",
+        "enId": 320295,
+        "form": "機会",
+        "furigana": [
+          ["別", "べつ"],
+          ["の"],
+          ["機会", "きかい"],
+          ["に"],
+          ["誘", "さそ"],
+          ["ってね。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-10",
+    "term": "建てる",
+    "kana": "たてる",
+    "meaning": "to build",
+    "level": "N4",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 136919,
+        "ja": "誰が建てたんですか？",
+        "en": "Who built it?",
+        "enId": 276317,
+        "form": "建てた",
+        "furigana": [["誰", "だれ"], ["が"], ["建", "た"], ["てたんですか？"]]
+      },
+      {
+        "id": 100616,
+        "ja": "彼は氷の上に家をたてた。",
+        "en": "He made a house on the ice.",
+        "enId": 303082,
+        "form": "たてた",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["氷", "こおり"],
+          ["の"],
+          ["上", "うえ"],
+          ["に"],
+          ["家", "いえ"],
+          ["をたてた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-11",
+    "term": "複雑",
+    "kana": "ふくざつ",
+    "meaning": "complexity, complication",
+    "level": "N4",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121722,
+        "ja": "脳の構造は複雑だ。",
+        "en": "The structure of the brain is complicated.",
+        "enId": 282283,
+        "form": "複雑",
+        "furigana": [
+          ["脳", "のう"],
+          ["の"],
+          ["構造", "こうぞう"],
+          ["は"],
+          ["複雑", "ふくざつ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 144250,
+        "ja": "人間は複雑な有機体だ。",
+        "en": "Man is a complex organism.",
+        "enId": 270315,
+        "form": "複雑な",
+        "furigana": [
+          ["人間", "にんげん"],
+          ["は"],
+          ["複雑", "ふくざつ"],
+          ["な"],
+          ["有", "ゆう"],
+          ["機体", "きたい"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-12",
+    "term": "大事",
+    "kana": "だいじ",
+    "meaning": "important, valuable, serious matter",
+    "level": "N4",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83291,
+        "ja": "勉強も遊びも大事だ。",
+        "en": "Both work and play are important.",
+        "enId": 320425,
+        "form": "大事",
+        "furigana": [
+          ["勉強", "べんきょう"],
+          ["も"],
+          ["遊", "あそ"],
+          ["びも"],
+          ["大事", "だいじ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 144721,
+        "ja": "辛抱こそ大事なんだ。",
+        "en": "It's patience that counts.",
+        "enId": 269842,
+        "form": "大事",
+        "furigana": [
+          ["辛抱", "しんぼう"],
+          ["こそ"],
+          ["大事", "だいじ"],
+          ["なんだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-13",
+    "term": "泥棒",
+    "kana": "どろぼう",
+    "meaning": "thief; burglar",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 199616,
+        "ja": "どろぼうは逃げた。",
+        "en": "The thief ran away.",
+        "enId": 36818,
+        "form": "どろぼう",
+        "furigana": [["どろぼうは"], ["逃", "に"], ["げた。"]]
+      },
+      {
+        "id": 199617,
+        "ja": "どろぼうは手足を縛られた。",
+        "en": "The thief was bound hand and foot.",
+        "enId": 36819,
+        "form": "どろぼう",
+        "furigana": [
+          ["どろぼうは"],
+          ["手足", "てあし"],
+          ["を"],
+          ["縛", "しば"],
+          ["られた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-14",
+    "term": "～製",
+    "kana": "～せい",
+    "meaning": "made in ~",
+    "level": "N4",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-02-15",
+    "term": "注意",
+    "kana": "ちゅうい",
+    "meaning": "caution, attention",
+    "level": "N4",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 80167,
+        "ja": "猛犬に注意！",
+        "en": "Beware of the dog!",
+        "enId": 323550,
+        "form": "注意",
+        "furigana": [["猛犬", "もうけん"], ["に"], ["注意", "ちゅうい"], ["！"]]
+      },
+      {
+        "id": 214114,
+        "ja": "スリに注意。",
+        "en": "Beware of pickpockets.",
+        "enId": 51404,
+        "form": "注意",
+        "furigana": [["スリに"], ["注意", "ちゅうい"], ["。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-16",
+    "term": "～軒",
+    "kana": "～けん",
+    "meaning": "counter for houses",
+    "level": "N4",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-02-17",
+    "term": "通る",
+    "kana": "とおる",
+    "meaning": "to pass (by), to go through",
+    "level": "N4",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 212389,
+        "ja": "その案は通った。",
+        "en": "The proposal went through.",
+        "enId": 49671,
+        "form": "通った",
+        "furigana": [
+          ["その"],
+          ["案", "あん"],
+          ["は"],
+          ["通", "とお"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 116685,
+        "ja": "彼の声はよく通る。",
+        "en": "His voice carries very well.",
+        "enId": 286983,
+        "form": "通る",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["声", "こえ"],
+          ["はよく"],
+          ["通", "とお"],
+          ["る。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-18",
+    "term": "必要",
+    "kana": "ひつよう",
+    "meaning": "necessary",
+    "level": "N4",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 178881,
+        "ja": "君が必要だ。",
+        "en": "I need you.",
+        "enId": 17735,
+        "form": "必要",
+        "furigana": [["君", "きみ"], ["が"], ["必要", "ひつよう"], ["だ。"]]
+      },
+      {
+        "id": 148228,
+        "ja": "修理が必要だ。",
+        "en": "I think it needs a tune-up.",
+        "enId": 266331,
+        "form": "必要",
+        "furigana": [
+          ["修理", "しゅうり"],
+          ["が"],
+          ["必要", "ひつよう"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-19",
+    "term": "課長",
+    "kana": "かちょう",
+    "meaning": "section manager",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 109179,
+        "ja": "彼は課長に昇進した。",
+        "en": "He was promoted to section chief.",
+        "enId": 294511,
+        "form": "課長",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["課長", "かちょう"],
+          ["に"],
+          ["昇進", "しょうしん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 157978,
+        "ja": "私は課長に任命された。",
+        "en": "I was appointed to section chief.",
+        "enId": 256552,
+        "form": "課長",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["課長", "かちょう"],
+          ["に"],
+          ["任命", "にんめい"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-20",
+    "term": "～学部",
+    "kana": "～がくぶ",
+    "meaning": "department of a university",
+    "level": "N4",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-02-21",
+    "term": "人口",
+    "kana": "じんこう",
+    "meaning": "population",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 207789,
+        "ja": "その町は人口が多い。",
+        "en": "The city has a large population.",
+        "enId": 45043,
+        "form": "人口",
+        "furigana": [
+          ["その"],
+          ["町", "まち"],
+          ["は"],
+          ["人口", "じんこう"],
+          ["が"],
+          ["多", "おお"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 228369,
+        "ja": "インドは人口が多い。",
+        "en": "India is populous.",
+        "enId": 65725,
+        "form": "人口",
+        "furigana": [
+          ["インドは"],
+          ["人口", "じんこう"],
+          ["が"],
+          ["多", "おお"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-22",
+    "term": "ちっとも",
+    "kana": "ちっとも",
+    "meaning": "not at all (neg. verb)",
+    "level": "N4",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-02-23",
+    "term": "壊れる",
+    "kana": "こわれる",
+    "meaning": "to be broken, to break",
+    "level": "N4",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 205298,
+        "ja": "それは壊れた。",
+        "en": "It came apart.",
+        "enId": 42541,
+        "form": "壊れた",
+        "furigana": [["それは"], ["壊", "こわ"], ["れた。"]]
+      },
+      {
+        "id": 146001,
+        "ja": "錠が壊れている。",
+        "en": "The lock is broken.",
+        "enId": 268561,
+        "form": "壊れている",
+        "furigana": [["錠", "じょう"], ["が"], ["壊", "こわ"], ["れている。"]]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-24",
+    "term": "落る",
+    "kana": "おちる",
+    "meaning": "to fall, to drop",
+    "level": "N4",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-02-25",
+    "term": "できるだけ",
+    "kana": "できるだけ",
+    "meaning": "if at all possible, as much as possible",
+    "level": "N4",
+    "pos": [
+      "expressions (phrases, clauses, etc.)",
+      "adverb (fukushi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf18"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2014-02-26",
+    "term": "中学校",
+    "kana": "ちゅうがっこう",
+    "meaning": "junior high school pupil",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102166,
+        "ja": "彼は中学校に入った。",
+        "en": "He entered junior high school.",
+        "enId": 301528,
+        "form": "中学校",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["中学校", "ちゅうがっこう"],
+          ["に"],
+          ["入", "はい"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 222763,
+        "ja": "この歌を聞くと私の中学校時代を思い出します。",
+        "en": "This song reminds me of my junior high school days.",
+        "enId": 60093,
+        "form": "中学校",
+        "furigana": [
+          ["この"],
+          ["歌", "うた"],
+          ["を"],
+          ["聞", "き"],
+          ["くと"],
+          ["私", "わたし"],
+          ["の"],
+          ["中学校", "ちゅうがっこう"],
+          ["時代", "じだい"],
+          ["を"],
+          ["思", "おも"],
+          ["い"],
+          ["出", "だ"],
+          ["します。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-27",
+    "term": "起こす",
+    "kana": "おこす",
+    "meaning": "to wake (someone) up",
+    "level": "N4",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 234935,
+        "ja": "８時に起こして。",
+        "en": "Get me up at eight.",
+        "enId": 72312,
+        "form": "起こして",
+        "furigana": [["８"], ["時", "じ"], ["に"], ["起", "お"], ["こして。"]]
+      },
+      {
+        "id": 98821,
+        "ja": "彼は癇癪を起こした。",
+        "en": "He got his dander up.",
+        "enId": 304879,
+        "form": "起こした",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["癇癪", "かんしゃく"],
+          ["を"],
+          ["起", "お"],
+          ["こした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2014-02-28",
+    "term": "浅い",
+    "kana": "あさい",
+    "meaning": "shallow, superficial",
+    "level": "N4",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf45"],
+    "pitch": [0, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 80981,
+        "ja": "眠りが浅いんだ。",
+        "en": "I'm a light sleeper.",
+        "enId": 322734,
+        "form": "浅い",
+        "furigana": [["眠", "ねむ"], ["りが"], ["浅", "あさ"], ["いんだ。"]]
+      },
+      {
+        "id": 147609,
+        "ja": "春はまだ浅かった。",
+        "en": "The spring was still young.",
+        "enId": 266951,
+        "form": "浅かった",
+        "furigana": [["春", "はる"], ["はまだ"], ["浅", "あさ"], ["かった。"]]
+      }
+    ]
+  }
+]

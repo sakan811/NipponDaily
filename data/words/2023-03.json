@@ -1,1479 +1,1049 @@
 [
   {
     "date": "2023-03-01",
-    "term": "財布",
-    "kana": "さいふ",
-    "meaning": "wallet",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf10"],
+    "term": "頑丈",
+    "kana": "がんじょう",
+    "meaning": "solid, firm, strong",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news2", "nf30"],
     "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "wasei"],
-    "headline": "A wallet is “wealth” plus “cloth” — a Japanese coinage found in texts from 1675.",
-    "morphemes": [
-      {
-        "text": "財",
-        "reading": "さい",
-        "meaning": "wealth, money"
-      },
-      {
-        "text": "布",
-        "reading": "ふ",
-        "meaning": "cloth [pouch]"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Appears to be a Japanese coinage based on Middle Chinese-derived roots, as a compound of 財 (sai, “wealth, money”) + 布 (fu, “cloth [pouch]”). Found in texts starting from 1675."
-      }
-    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 195947,
-        "ja": "ほら財布だ。",
-        "en": "Here's my wallet.",
-        "enId": 33122,
-        "form": "財布",
-        "furigana": [["ほら"], ["財布", "さいふ"], ["だ。"]]
+        "id": 223215,
+        "ja": "このベッドは頑丈そうです。",
+        "en": "This bed looks solid.",
+        "enId": 60547,
+        "form": "頑丈",
+        "furigana": [["このベッドは"], ["頑丈", "がんじょう"], ["そうです。"]]
       },
       {
-        "id": 226147,
-        "ja": "彼に財布を渡して。",
-        "en": "Just give him the wallet.",
-        "enId": 63487,
-        "form": "財布",
+        "id": 108699,
+        "ja": "彼は頑丈で健康そうに見える。",
+        "en": "He appears to be strong and healthy.",
+        "enId": 294990,
+        "form": "頑丈",
         "furigana": [
           ["彼", "かれ"],
-          ["に"],
-          ["財布", "さいふ"],
-          ["を"],
-          ["渡", "わた"],
-          ["して。"]
+          ["は"],
+          ["頑丈", "がんじょう"],
+          ["で"],
+          ["健康", "けんこう"],
+          ["そうに"],
+          ["見", "み"],
+          ["える。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2023-03-02",
-    "term": "冷たい",
-    "kana": "つめたい",
-    "meaning": "cold (things, people)",
-    "level": "N5",
-    "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news2", "nf28"],
-    "pitch": [0, 3],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "“Cold” may be “claw” plus “painful”, with a missing i.",
+    "term": "感触",
+    "kana": "かんしょく",
+    "meaning": "sense of touch, feeling, sensation",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
     "morphemes": [],
-    "sources": [
+    "sources": [],
+    "examples": [
       {
-        "quote": "Compound of 爪 (tsume, “claw”) + 痛い (itai, “painful”), with the medial /-i-/ falling out."
+        "id": 218606,
+        "ja": "これはシルクの感触だ。",
+        "en": "This feels like silk.",
+        "enId": 55920,
+        "form": "感触",
+        "furigana": [["これはシルクの"], ["感触", "かんしょく"], ["だ。"]]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2023-03-03",
-    "term": "水素",
-    "kana": "すいそ",
-    "meaning": "hydrogen",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf11"],
-    "pitch": [1],
+    "term": "肝腎",
+    "kana": "かんじん",
+    "meaning": "essential, fundamental, crucial",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "wasei"],
-    "headline": "Hydrogen is “water element” — a word-for-word copy of Dutch, coined in 1834.",
-    "morphemes": [
-      {
-        "text": "水",
-        "reading": "すい",
-        "meaning": "water"
-      },
-      {
-        "text": "素",
-        "reading": "そ",
-        "meaning": "element"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Calque of Dutch waterstof (literally “waterstuff”), equivalent to 水 (sui, “water”) + 素 (so, “element”). Compare German Wasserstoff, Luxembourgish Waasserstoff."
-      },
-      {
-        "quote": "Coined by Japanese scientist Udagawa Yōan in 1834 in his book 遠西医方名物考補遺 (“水素”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 143750,
-        "ja": "水は水素と酸素を含む。",
-        "en": "Water contains hydrogen and oxygen.",
-        "enId": 270816,
-        "form": "水素",
-        "furigana": [
-          ["水", "みず"],
-          ["は"],
-          ["水素", "すいそ"],
-          ["と"],
-          ["酸素", "さんそ"],
-          ["を"],
-          ["含", "ふく"],
-          ["む。"]
-        ]
-      },
-      {
-        "id": 143667,
-        "ja": "水素の原子番号は１である。",
-        "en": "The atomic number for hydrogen is 1.",
-        "enId": 270900,
-        "form": "水素",
-        "furigana": [
-          ["水素", "すいそ"],
-          ["の"],
-          ["原子", "げんし"],
-          ["番号", "ばんごう"],
-          ["は１である。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    "processes": [],
+    "morphemes": [],
+    "sources": []
   },
   {
     "date": "2023-03-04",
-    "term": "末っ子",
-    "kana": "すえっこ",
-    "meaning": "youngest child",
-    "level": "N2",
+    "term": "関税",
+    "kana": "かんぜい",
+    "meaning": "customs, duty, tariff",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news2", "nf25"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": ["sound-change"],
-    "headline": "The youngest child is the “end child” — with a little clipped-off pause in the middle.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "Shift from earlier 末(すえ)子(こ) (sueko), from 末 (sue, “end”) + 子 (ko, “child”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 99765,
-        "ja": "彼は末っ子だ。",
-        "en": "He is the baby of the family.",
-        "enId": 303932,
-        "form": "末っ子",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["末", "すえ"],
-          ["っ"],
-          ["子", "こ"],
-          ["だ。"]
-        ]
-      },
-      {
-        "id": 152679,
-        "ja": "私は末っ子です。",
-        "en": "I'm the youngest in the family.",
-        "enId": 261870,
-        "form": "末っ子",
-        "furigana": [
-          ["私", "わたし"],
-          ["は"],
-          ["末", "すえ"],
-          ["っ"],
-          ["子", "こ"],
-          ["です。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-05",
-    "term": "伯母",
-    "kana": "おば",
-    "meaning": "(humble) aunt (older than one's parent)",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news2", "nf30", "news1", "nf20"],
-    "pitch": [0],
-    "processes": ["ateji"],
-    "headline": "The word for an aunt is a “little mother” — and the kanji don't spell it that way.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "From 小 (o, “little”) + 母 (ha, “mother”). The kanji is jukujikun (熟(じゅく)字(じ)訓(くん)). Compare 小母 (oba)."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-06",
-    "term": "人間",
-    "kana": "にんげん",
-    "meaning": "human being, person",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf01"],
+    "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "rendaku", "borrowing"],
-    "headline": "A human being is, in Chinese, “people” plus “among”.",
-    "morphemes": [
-      {
-        "text": "人",
-        "reading": "にん",
-        "meaning": "person",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "間",
-        "reading": "げん",
-        "base": "けん",
-        "meaning": "space",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From Middle Chinese 人間 (MC nyin kean|keanH). Analyzable as a compound of \"people\" + \"among; space\"."
-      },
-      {
-        "quote": "First cited to a text from 984. The kanji spelling is cited earlier in a kanbun passage in the Shoku Nihongi of 756, listed in some references with the reading jinkan. However, the extant copies of this work that include phonetic guides are centuries younger than this first date, raising the possibility that the ningen reading might itself date from 756."
-      }
-    ],
-    "examples": [
-      {
-        "id": 188359,
-        "ja": "俺は人間だ。",
-        "en": "I am a man.",
-        "enId": 386704,
-        "form": "人間",
-        "furigana": [["俺", "おれ"], ["は"], ["人間", "にんげん"], ["だ。"]]
-      },
-      {
-        "id": 115462,
-        "ja": "彼は、人間です。",
-        "en": "He is human.",
-        "enId": 288208,
-        "form": "人間",
-        "furigana": [["彼", "かれ"], ["は、"], ["人間", "にんげん"], ["です。"]]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-07",
-    "term": "断る",
-    "kana": "ことわる",
-    "meaning": "to refuse, to decline, to dismiss",
-    "level": "N3",
-    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
-    "priority": ["ichi1", "news1", "nf10"],
-    "pitch": [3],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "To refuse was originally to “split words”.",
+    "processes": [],
     "morphemes": [],
-    "sources": [
-      {
-        "quote": "Originally a compound of 言 (koto, “words”) + 割る (waru, “split”)."
-      }
-    ],
+    "sources": [],
     "examples": [
       {
-        "id": 110205,
-        "ja": "彼は握手を断った。",
-        "en": "He refused to shake hands.",
-        "enId": 293483,
-        "form": "断った",
+        "id": 82731,
+        "ja": "宝石の関税を払った。",
+        "en": "We paid customs on jewels.",
+        "enId": 320985,
+        "form": "関税",
         "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["握手", "あくしゅ"],
+          ["宝石", "ほうせき"],
+          ["の"],
+          ["関税", "かんぜい"],
           ["を"],
-          ["断", "ことわ"],
+          ["払", "はら"],
           ["った。"]
         ]
       },
       {
-        "id": 105250,
-        "ja": "彼は治療を断られた。",
-        "en": "He was refused medical treatment.",
-        "enId": 298439,
-        "form": "断られた",
+        "id": 183696,
+        "ja": "関税を下げることを望む。",
+        "en": "We hope to lower the tariff.",
+        "enId": 20819,
+        "form": "関税",
         "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["治療", "ちりょう"],
+          ["関税", "かんぜい"],
           ["を"],
-          ["断", "ことわ"],
-          ["られた。"]
+          ["下", "さ"],
+          ["げることを"],
+          ["望", "のぞ"],
+          ["む。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
-    "date": "2023-03-08",
-    "term": "人形",
-    "kana": "にんぎょう",
-    "meaning": "doll, figure",
-    "level": "N4",
+    "date": "2023-03-05",
+    "term": "岩石",
+    "kana": "がんせき",
+    "meaning": "rock",
+    "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf05"],
-    "pitch": [0],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing"],
-    "headline": "A doll is a “person shape”, and a native reading, built from hito and kata, says the same thing.",
-    "morphemes": [
-      {
-        "text": "人",
-        "reading": "にん",
-        "meaning": "person",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "形",
-        "reading": "ぎょう",
-        "meaning": "shape",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From Middle Chinese compound 人形 (nyin heng, literally “person shape”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 122581,
-        "ja": "日本の人形です。",
-        "en": "This is a Japanese doll.",
-        "enId": 281422,
-        "form": "人形",
-        "furigana": [
-          ["日本", "にっぽん"],
-          ["の"],
-          ["人形", "にんぎょう"],
-          ["です。"]
-        ]
-      },
-      {
-        "id": 205051,
-        "ja": "それは人形です。",
-        "en": "That's a doll.",
-        "enId": 42293,
-        "form": "人形",
-        "furigana": [["それは"], ["人形", "にんぎょう"], ["です。"]]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-09",
-    "term": "御飯",
-    "kana": "ごはん",
-    "meaning": "rice (cooked); meal",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news2", "nf47"],
+    "priority": ["news1", "nf21"],
     "pitch": [1],
     "stratum": "kango",
-    "processes": ["compound", "derivation"],
-    "headline": "A meal, or cooked rice, with an honorific on the front.",
-    "morphemes": [
-      {
-        "text": "御",
-        "reading": "ご",
-        "meaning": "honorific prefix"
-      },
-      {
-        "text": "飯",
-        "reading": "はん",
-        "meaning": "cooked rice"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Compound of 御 (go-, honorific prefix) + 飯 (han, “cooked rice”)."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-10",
-    "term": "静か",
-    "kana": "しずか",
-    "meaning": "quiet, calm",
-    "level": "N5",
-    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
-    "priority": ["ichi1", "news1", "nf05"],
-    "pitch": [1],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "“Quiet” is a bound root meaning “quietness”, plus a か that makes na-adjectives.",
+    "processes": [],
     "morphemes": [],
-    "sources": [
-      {
-        "quote": "Compound of 静 (shizu, bound morpheme indicating “quietness” or “calmness”) + か (-ka, suffixing element used to form na adjectives). The shizu portion is cognate with the shizu in 静まる (shizumaru, “to become quiet”) and 沈む (shizumu, “to sink; to set (such as the sun or moon); to become depressed”). This shizu might also be related to 下 (shita, “down; below”)."
-      },
-      {
-        "quote": "First attested in the Nihon Shoki of 720 CE."
-      }
-    ],
+    "sources": [],
     "examples": [
       {
-        "id": 142521,
-        "ja": "静かにしてくれ。",
-        "en": "Keep quiet.",
-        "enId": 272043,
-        "form": "静か",
-        "furigana": [["静", "しず"], ["かにしてくれ。"]]
+        "id": 74615,
+        "ja": "この板状の固い岩石の層をプレートと呼ぶ。",
+        "en": "We call these slabs of the solid-rock layer 'plates'.",
+        "enId": 329104,
+        "form": "岩石",
+        "furigana": [
+          ["この"],
+          ["板", "いた"],
+          ["状", "じょう"],
+          ["の"],
+          ["固", "かた"],
+          ["い"],
+          ["岩石", "がんせき"],
+          ["の"],
+          ["層", "そう"],
+          ["をプレートと"],
+          ["呼", "よ"],
+          ["ぶ。"]
+        ]
       },
       {
-        "id": 176741,
-        "ja": "君静かにしろよ。",
-        "en": "You be quiet.",
-        "enId": 237721,
-        "form": "静か",
-        "furigana": [["君", "きみ"], ["静", "しず"], ["かにしろよ。"]]
+        "id": 183661,
+        "ja": "岩石や鉱物はいろいろな面で私たちに有益である。",
+        "en": "Rocks and minerals are useful for us in many ways.",
+        "enId": 20784,
+        "form": "岩石",
+        "furigana": [
+          ["岩石", "がんせき"],
+          ["や"],
+          ["鉱物", "こうぶつ"],
+          ["はいろいろな"],
+          ["面", "めん"],
+          ["で"],
+          ["私", "わたし"],
+          ["たちに"],
+          ["有益", "ゆうえき"],
+          ["である。"]
+        ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
-    "date": "2023-03-11",
-    "term": "弟子",
-    "kana": "でし",
-    "meaning": "pupil, disciple, apprentice",
-    "level": "N2",
+    "date": "2023-03-06",
+    "term": "幹線",
+    "kana": "かんせん",
+    "meaning": "main line, trunk line",
+    "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
-    "priority": ["ichi1", "news1", "nf10"],
-    "pitch": [2],
+    "priority": ["news1", "nf13"],
+    "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "sound-change"],
-    "headline": "The usual reading of “disciple”, でし, is a shift from the older Chinese-derived ていし.",
-    "morphemes": [
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-07",
+    "term": "簡素",
+    "kana": "かんそ",
+    "meaning": "simplicity, plain",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["news1", "nf09"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
       {
-        "text": "弟",
-        "reading": "で",
-        "meaning": "younger brother",
-        "glossSource": "kanjidic2"
+        "id": 209672,
+        "ja": "その式典は簡素だった。",
+        "en": "The ceremony was simple.",
+        "enId": 46934,
+        "form": "簡素",
+        "furigana": [
+          ["その"],
+          ["式典", "しきてん"],
+          ["は"],
+          ["簡素", "かんそ"],
+          ["だった。"]
+        ]
       },
       {
-        "text": "子",
-        "reading": "し",
-        "meaning": "child",
-        "glossSource": "kanjidic2"
+        "id": 108750,
+        "ja": "彼は簡素な生活を送った。",
+        "en": "He lived a simple life.",
+        "enId": 294939,
+        "form": "簡素な",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["簡素", "かんそ"],
+          ["な"],
+          ["生活", "せいかつ"],
+          ["を"],
+          ["送", "おく"],
+          ["った。"]
+        ]
       }
+    ]
+  },
+  {
+    "date": "2023-03-08",
+    "term": "感度",
+    "kana": "かんど",
+    "meaning": "sensitivity, severity (quake)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf23"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-09",
+    "term": "元年",
+    "kana": "がんねん",
+    "meaning": "first year (of a specific reign)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf09"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-10",
+    "term": "完ぺき",
+    "kana": "かんぺき",
+    "meaning": "perfection, completeness, flawless",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
     ],
-    "sources": [
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-11",
+    "term": "勘弁",
+    "kana": "かんべん",
+    "meaning": "pardon, forgiveness, forbearance",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news2", "nf46", "spec2"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
       {
-        "quote": "Appears to be a shift from teishi above. This is now the most common reading for the disciple, apprentice sense."
+        "id": 183971,
+        "ja": "勘弁してくれ。",
+        "en": "Give me a break.",
+        "enId": 21097,
+        "form": "勘弁",
+        "furigana": [["勘弁", "かんべん"], ["してくれ。"]]
+      },
+      {
+        "id": 194240,
+        "ja": "もう勘弁してくれよ！",
+        "en": "Give me a break.",
+        "enId": 21097,
+        "form": "勘弁",
+        "furigana": [["もう"], ["勘弁", "かんべん"], ["してくれよ！"]]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2023-03-12",
-    "term": "明明後日",
-    "kana": "しあさって",
-    "meaning": "two days after tomorrow",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
-    "priority": ["ichi1"],
-    "pitch": [3],
-    "processes": ["compound", "derivation", "sound-change", "unclear"],
-    "headline": "Three days out has its own word, and nobody is sure what its first syllable is.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "Compound of し (shi, of uncertain derivation) + 明後日 (asatte, “the day after tomorrow”)."
-      },
-      {
-        "quote": "The initial shi element is uncertain. Speculatively, this might be related to, or a shift from, intensifying prefix ひ (hi) found in some adjectives, such as ひ弱(よわ)い (hiyowai, “delicate, very weak”)."
-      },
-      {
-        "quote": "First cited to a text from 1275."
-      }
+    "term": "勧誘",
+    "kana": "かんゆう",
+    "meaning": "invitation, canvassing, inducement",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
-    "wiktionaryDump": "2026-09-02"
+    "priority": ["news1", "nf13"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 84083,
+        "ja": "部活の勧誘にももう慣れた。",
+        "en": "I'm already used to invitations to participate in club activities.",
+        "enId": 319633,
+        "form": "勧誘",
+        "furigana": [
+          ["部活", "ぶかつ"],
+          ["の"],
+          ["勧誘", "かんゆう"],
+          ["にももう"],
+          ["慣", "な"],
+          ["れた。"]
+        ]
+      },
+      {
+        "id": 106318,
+        "ja": "彼は私たちに投票を勧誘した。",
+        "en": "He solicited our votes.",
+        "enId": 297368,
+        "form": "勧誘",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["私", "わたし"],
+          ["たちに"],
+          ["投票", "とうひょう"],
+          ["を"],
+          ["勧誘", "かんゆう"],
+          ["した。"]
+        ]
+      }
+    ]
   },
   {
     "date": "2023-03-13",
-    "term": "サイン",
-    "kana": "サイン",
-    "meaning": "autograph; sign; sine",
-    "level": "N3",
+    "term": "関与",
+    "kana": "かんよ",
+    "meaning": "participation, taking part in",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["news1", "nf05"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 196044,
+        "ja": "ボブはその計画には関与しなかった。",
+        "en": "Bob wasn't in on the plan.",
+        "enId": 33220,
+        "form": "関与",
+        "furigana": [
+          ["ボブはその"],
+          ["計画", "けいかく"],
+          ["には"],
+          ["関与", "かんよ"],
+          ["しなかった。"]
+        ]
+      },
+      {
+        "id": 9162054,
+        "ja": "彼は自分の関与をぬけぬけと否定した。",
+        "en": "He had the impudence to deny his involvement.",
+        "enId": 9162057,
+        "form": "関与",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["自分", "じぶん"],
+          ["の"],
+          ["関与", "かんよ"],
+          ["をぬけぬけと"],
+          ["否定", "ひてい"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2023-03-14",
+    "term": "寛容",
+    "kana": "かんよう",
+    "meaning": "forbearance, tolerance, generosity, involvement",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf16"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-15",
+    "term": "元来",
+    "kana": "がんらい",
+    "meaning": "originally, naturally",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-16",
+    "term": "観覧",
+    "kana": "かんらん",
+    "meaning": "viewing",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news2", "nf25", "spec2"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-17",
+    "term": "慣例",
+    "kana": "かんれい",
+    "meaning": "custom, precedent, of convention",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-18",
+    "term": "緩和",
+    "kana": "かんわ",
+    "meaning": "relief, mitigation",
+    "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
       "transitive verb",
       "intransitive verb"
     ],
-    "priority": ["gai1", "ichi1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "An autograph, a sign and a sine all land on one katakana spelling.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "Borrowed from English sine."
-      },
-      {
-        "quote": "Borrowed from English sign."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-14",
-    "term": "美人",
-    "kana": "びじん",
-    "meaning": "beautiful person (woman)",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf11"],
-    "pitch": [1, 0],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing"],
-    "headline": "A “beautiful person” has a native twin spelled the same way: “good-faced person”.",
-    "morphemes": [
-      {
-        "text": "美",
-        "reading": "び",
-        "meaning": "beautiful (especially feminine)"
-      },
-      {
-        "text": "人",
-        "reading": "じん",
-        "meaning": "person"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From Middle Chinese 美人 (MC mijX nyin, literally “beautiful (especially feminine) + person”). Compare modern Min Nan reading bí-jîn."
-      },
-      {
-        "quote": "The kan'on reading, so likely a later borrowing."
-      }
-    ],
-    "examples": [
-      {
-        "id": 85541,
-        "ja": "美人だなあ。",
-        "en": "She is beautiful.",
-        "enId": 410244,
-        "form": "美人",
-        "furigana": [["美人", "びじん"], ["だなあ。"]]
-      },
-      {
-        "id": 85538,
-        "ja": "美人でもある。",
-        "en": "She's also a beauty.",
-        "enId": 318174,
-        "form": "美人",
-        "furigana": [["美人", "びじん"], ["でもある。"]]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-15",
-    "term": "基づく",
-    "kana": "もとづく",
-    "meaning": "to be grounded on, to be based on",
-    "level": "N3",
-    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
-    "priority": ["ichi1", "news2", "nf33"],
-    "pitch": [3],
-    "stratum": "wago",
-    "processes": ["rendaku"],
-    "headline": "To be based on something is to “attach” to a “foundation”.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "From 基(もと) (moto, “base, foundation”) + 付(つ)く (tsuku). The tsuku changes to zuku as an instance of rendaku (連濁)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 142481,
-        "ja": "税金は収入に基づく。",
-        "en": "Taxation is based on income.",
-        "enId": 272089,
-        "form": "基づく",
-        "furigana": [
-          ["税金", "ぜいきん"],
-          ["は"],
-          ["収入", "しゅうにゅう"],
-          ["に"],
-          ["基", "もと"],
-          ["づく。"]
-        ]
-      },
-      {
-        "id": 115899,
-        "ja": "彼の理論は事実に基づく。",
-        "en": "His theory is based on fact.",
-        "enId": 287770,
-        "form": "基づく",
-        "furigana": [
-          ["彼", "かれ"],
-          ["の"],
-          ["理論", "りろん"],
-          ["は"],
-          ["事実", "じじつ"],
-          ["に"],
-          ["基", "もと"],
-          ["づく。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-16",
-    "term": "自由",
-    "kana": "じゆう",
-    "meaning": "freedom",
-    "level": "N4",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "adjectival nouns or quasi-adjectives (keiyodoshi)"
-    ],
-    "priority": ["ichi1", "news1", "nf01"],
-    "pitch": [2],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing", "sound-change", "meaning-shift"],
-    "headline": "“Freedom” is an old Chinese word that Fukuzawa Yukichi repurposed in the 1860s.",
-    "morphemes": [
-      {
-        "text": "自",
-        "reading": "じ",
-        "meaning": "oneself",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "由",
-        "reading": "ゆう",
-        "meaning": "wherefore",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "/d͡ʑiːu/ → /d͡ʑijuː/"
-      },
-      {
-        "quote": "Apparently first imported from Middle Chinese 自由 (MC dzijH yuw) with an original meaning of roughly “arising from oneself”. Repurposed in the 1860s by Fukuzawa Yukichi as a translation of English freedom or liberty, as an extension of the original meaning: “freedom to act according to one's own thoughts, without restriction”. However, Li (2014) proposes that since the Han dynasty 自由 already meant “to be free”, from earlier “to follow oneself.”"
-      }
-    ],
-    "examples": [
-      {
-        "id": 168252,
-        "ja": "思想は自由だ。",
-        "en": "Thought is free.",
-        "enId": 246240,
-        "form": "自由",
-        "furigana": [["思想", "しそう"], ["は"], ["自由", "じゆう"], ["だ。"]]
-      },
-      {
-        "id": 188361,
-        "ja": "俺は自由な男。",
-        "en": "I'm a free man.",
-        "enId": 25504,
-        "form": "自由な",
-        "furigana": [
-          ["俺", "おれ"],
-          ["は"],
-          ["自由", "じゆう"],
-          ["な"],
-          ["男", "おとこ"],
-          ["。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-17",
-    "term": "今晩",
-    "kana": "こんばん",
-    "meaning": "tonight, this evening",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
-    "priority": ["ichi1", "news2", "nf29"],
-    "pitch": [1],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing", "sound-change"],
-    "headline": "“Tonight” was /kʲəm bʉan/ in its Chinese-derived reading, and became /kombaɴ/.",
-    "morphemes": [
-      {
-        "text": "今",
-        "reading": "こん",
-        "meaning": "now",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "晩",
-        "reading": "ばん",
-        "meaning": "nightfall",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "*/kʲəm bʉan/ → /kombaɴ/"
-      },
-      {
-        "quote": "From Middle Chinese compound 今晚 (MC kim mjonX)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 171215,
-        "ja": "今晩暇かな？",
-        "en": "Are you free tonight?",
-        "enId": 243262,
-        "form": "今晩",
-        "furigana": [["今晩", "こんばん"], ["暇", "ひま"], ["かな？"]]
-      },
-      {
-        "id": 79326,
-        "ja": "友達が今晩来ます。",
-        "en": "A friend of mine is coming this evening.",
-        "enId": 324391,
-        "form": "今晩",
-        "furigana": [
-          ["友達", "ともだち"],
-          ["が"],
-          ["今晩", "こんばん"],
-          ["来", "き"],
-          ["ます。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-18",
-    "term": "面白い",
-    "kana": "おもしろい",
-    "meaning": "interesting, amusing",
-    "level": "N5",
-    "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news1", "nf19"],
-    "pitch": [4],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "“Interesting” is literally “face-white”, with cousins in Okinawan and Miyako.",
-    "morphemes": [
-      {
-        "text": "面",
-        "reading": "おも",
-        "meaning": "face"
-      },
-      {
-        "text": "白い",
-        "reading": "しろい",
-        "meaning": "white"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From 面 (omo, “face”) + 白い (shiroi, “white”)."
-      },
-      {
-        "quote": "Cognate with Okinawan うむっさん (umussan) and Miyako うむっし (umusshi)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 175785,
-        "ja": "結構面白い。",
-        "en": "It's so exciting.",
-        "enId": 238680,
-        "form": "面白い",
-        "furigana": [["結構", "けっこう"], ["面白", "おもしろ"], ["い。"]]
-      },
-      {
-        "id": 80191,
-        "ja": "面白いですね。",
-        "en": "It's interesting.",
-        "enId": 323525,
-        "form": "面白い",
-        "furigana": [["面白", "おもしろ"], ["いですね。"]]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-19",
-    "term": "御中",
-    "kana": "おんちゅう",
-    "meaning": "Messrs.",
-    "level": "N2",
-    "pos": ["noun, used as a suffix"],
-    "priority": ["ichi1"],
-    "pitch": [1],
-    "stratum": "hybrid",
-    "processes": ["compound", "derivation"],
-    "headline": "The “Messrs.” you write on a company envelope is an honorific stuck on the word for “inside”.",
-    "morphemes": [
-      {
-        "text": "御",
-        "reading": "おん",
-        "meaning": "honorific prefix"
-      },
-      {
-        "text": "中",
-        "reading": "ちゅう",
-        "meaning": "inside; middle"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Compound of 御 (on-, honorific prefix) + 中 (chū, “inside; middle”)."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-20",
-    "term": "お休み",
-    "kana": "おやすみ",
-    "meaning": "holiday, absence; (exp.) Good night",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)", "interjection (kandoushi)"],
-    "priority": ["ichi1"],
-    "stratum": "wago",
-    "processes": ["compound", "derivation", "clipping"],
-    "headline": "Good night is a polite “rest” — and the verb for rest began as an adjective meaning “easy”.",
-    "morphemes": [
-      {
-        "text": "お",
-        "reading": "お",
-        "meaning": "honorific prefix"
-      },
-      {
-        "text": "休み",
-        "reading": "やすみ",
-        "meaning": "rest, a break, a holiday"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Compound of 御(お) (o-, honorific prefix) + 休(やす)み (yasumi, “rest, a break, a holiday”), the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 休(やす)む (yasumu), itself from adjective 安(やす)い (yasui, “easygoing; easy”) + verbalizing suffix む (-mu)."
-      },
-      {
-        "quote": "Ultimately derived the same as above, but generally regarded as a shortening of the longer phrase お休みなさい (oyasumi nasai, “good night”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 227481,
-        "ja": "おやすみ、よく眠れ。",
-        "en": "Good night, sleep tight.",
-        "enId": 64834,
-        "form": "おやすみ",
-        "furigana": [["おやすみ、よく"], ["眠", "ねむ"], ["れ。"]]
-      },
-      {
-        "id": 153402,
-        "ja": "私は彼女におやすみといった。",
-        "en": "I bade good night to her.",
-        "enId": 261141,
-        "form": "おやすみ",
-        "furigana": [
-          ["私", "わたし"],
-          ["は"],
-          ["彼女", "かのじょ"],
-          ["におやすみといった。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-21",
-    "term": "カード",
-    "kana": "カード",
-    "meaning": "card, curd",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1", "ichi1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "The card has two Japanese cousins: カルタ and カルテ.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "Borrowed from English card."
-      },
-      {
-        "quote": "Doublet of カルタ (karuta, “traditional Japanese playing cards”) and カルテ (karute, “patient card”)."
-      },
-      {
-        "quote": "From English curd."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-22",
-    "term": "国語",
-    "kana": "こくご",
-    "meaning": "national language",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf08"],
-    "pitch": [0],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "“National language” also means Mandarin — but only in a Taiwanese sense.",
-    "morphemes": [
-      {
-        "text": "国",
-        "reading": "こく",
-        "meaning": "nation"
-      },
-      {
-        "text": "語",
-        "reading": "ご",
-        "meaning": "language"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From 国 (koku, “nation”) + 語 (go, “language”). The sense of \"Mandarin\" is derived from Taiwanese usage of the identical Chinese word 國語／国语 (guóyǔ)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 107254,
-        "ja": "彼は国語が好きだし得意だ。",
-        "en": "He likes Japanese, and he's good at it.",
-        "enId": 296432,
-        "form": "国語",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["国語", "こくご"],
-          ["が"],
-          ["好", "す"],
-          ["きだし"],
-          ["得意", "とくい"],
-          ["だ。"]
-        ]
-      },
-      {
-        "id": 157095,
-        "ja": "私は国語のテストに受かった。",
-        "en": "I passed a test in Japanese.",
-        "enId": 257439,
-        "form": "国語",
-        "furigana": [
-          ["私", "わたし"],
-          ["は"],
-          ["国語", "こくご"],
-          ["のテストに"],
-          ["受", "う"],
-          ["かった。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-23",
-    "term": "幼い",
-    "kana": "おさない",
-    "meaning": "very young, childish",
-    "level": "N3",
-    "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news2", "nf44"],
-    "pitch": [3],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "“Very young” may once have meant “without a chief”.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "Possibly from Old Japanese. Japanese dictionaries cite the word to the Nihon Shoki (720), but only where kana glosses read 不賢 (literally “not mature; not capable”) as ヲサナシ (wosanasi). The first actual phonetic attestation is in the Shinsen Jikyō (898-901), as 乎佐奈志."
-      },
-      {
-        "quote": "Compound of 長 (osa, “chief, senior”) + 無い (nai, “not”, from classical 無し (nashi))."
-      }
-    ],
-    "examples": [
-      {
-        "id": 117447,
-        "ja": "彼の考えはとても幼い。",
-        "en": "His way of thinking is very childish.",
-        "enId": 286217,
-        "form": "幼い",
-        "furigana": [
-          ["彼", "かれ"],
-          ["の"],
-          ["考", "かんが"],
-          ["えはとても"],
-          ["幼", "おさな"],
-          ["い。"]
-        ]
-      },
-      {
-        "id": 78920,
-        "ja": "幼い子供は語彙が少ない。",
-        "en": "A young child has a small vocabulary.",
-        "enId": 324796,
-        "form": "幼い",
-        "furigana": [
-          ["幼", "おさな"],
-          ["い"],
-          ["子供", "こども"],
-          ["は"],
-          ["語彙", "ごい"],
-          ["が"],
-          ["少", "すく"],
-          ["ない。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-24",
-    "term": "祖母",
-    "kana": "そぼ",
-    "meaning": "grandmother",
-    "level": "N4",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf10"],
-    "pitch": [1],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing", "sound-change"],
-    "headline": "“Grandmother” came from Chinese — but the ぼ in it is a change that happened inside Japanese.",
-    "morphemes": [
-      {
-        "text": "祖",
-        "reading": "そ",
-        "meaning": "ancestor",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "母",
-        "reading": "ぼ",
-        "meaning": "mother",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From Middle Chinese 祖母 (MC tsuX muwX). Uses the kan'yōon for the 母 character, indicating a sound change within the Japanese language."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-25",
-    "term": "英語",
-    "kana": "えいご",
-    "meaning": "English (language)",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "wasei", "borrowing"],
-    "headline": "“English” came from Chinese, or was assembled in Japan from “England” and “language”.",
-    "morphemes": [
-      {
-        "text": "英",
-        "reading": "えい",
-        "meaning": "England"
-      },
-      {
-        "text": "語",
-        "reading": "ご",
-        "meaning": "language"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Borrowed from Chinese 英語 /英语 (Yīngyǔ), or a compound coined in Japan of 英(えい) (ei, “England”) + 語(ご) (-go, “language”)."
-      }
-    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 109664,
-        "ja": "彼は英語を教える。",
-        "en": "He teaches English.",
-        "enId": 294025,
-        "form": "英語",
+        "id": 148314,
+        "ja": "需給関係が緩和している。",
+        "en": "The supply-demand balance is relaxing.",
+        "enId": 266245,
+        "form": "緩和",
         "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["英語", "えいご"],
-          ["を"],
-          ["教", "おし"],
-          ["える。"]
-        ]
-      },
-      {
-        "id": 109745,
-        "ja": "彼は英語が苦手だ。",
-        "en": "He is weak in English.",
-        "enId": 293945,
-        "form": "英語",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["英語", "えいご"],
+          ["需給", "じゅきゅう"],
+          ["関係", "かんけい"],
           ["が"],
-          ["苦手", "にがて"],
-          ["だ。"]
+          ["緩和", "かんわ"],
+          ["している。"]
         ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-26",
-    "term": "一人",
-    "kana": "ひとり",
-    "meaning": "one person",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf02", "nf16", "spec1"],
-    "pitch": [2],
-    "stratum": "wago",
-    "processes": ["compound", "sound-change"],
-    "headline": "“One person” has a look-alike in Old Japanese: pi1dari, which became hidari.",
-    "morphemes": [
-      {
-        "text": "一",
-        "reading": "ひと",
-        "meaning": "one, 1"
       },
       {
-        "text": "人",
-        "reading": "り",
-        "meaning": "counter for persons"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From Old Japanese."
-      },
-      {
-        "quote": "Derived from 一 (hito, “one, 1”) + 人 (-ri, counter for persons)."
-      },
-      {
-        "quote": "Compare Old Japanese 一人 (pi₁dari → hidari)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 101147,
-        "ja": "彼は彼らのひとり息子です。",
-        "en": "He is the only child they have.",
-        "enId": 302549,
-        "form": "ひとり",
+        "id": 122844,
+        "ja": "日米間の摩擦は緩和の方向に向かっています。",
+        "en": "Frictions between Japan and the U.S. are easing up for a change.",
+        "enId": 281158,
+        "form": "緩和",
         "furigana": [
-          ["彼", "かれ"],
+          ["日", "にち"],
+          ["米", "べい"],
+          ["間", "かん"],
+          ["の"],
+          ["摩擦", "まさつ"],
           ["は"],
-          ["彼", "かれ"],
-          ["らのひとり"],
-          ["息子", "むすこ"],
-          ["です。"]
-        ]
-      },
-      {
-        "id": 86884,
-        "ja": "彼女は部屋にひとりにされた。",
-        "en": "She was left alone in the room.",
-        "enId": 316826,
-        "form": "ひとり",
-        "furigana": [
-          ["彼女", "かのじょ"],
-          ["は"],
-          ["部屋", "へや"],
-          ["にひとりにされた。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-27",
-    "term": "女房",
-    "kana": "にょうぼう",
-    "meaning": "wife",
-    "level": "N2",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf10"],
-    "pitch": [1],
-    "stratum": "kango",
-    "processes": ["compound", "borrowing", "clipping", "sound-change"],
-    "headline": "“Wife” began, in Chinese, as a woman of the “room, chamber”.",
-    "morphemes": [
-      {
-        "text": "女",
-        "reading": "にょう",
-        "meaning": "woman",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "房",
-        "reading": "ぼう",
-        "meaning": "room",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Probably ultimately from Middle Chinese 女房 (MC nrjoX bjang), with an initial meaning in line with the spelling: 女 (woman) + 房 (“room, chamber”). First cited to 985."
-      },
-      {
-        "quote": "* /njoːboː/ → /njoːbo/"
-      },
-      {
-        "quote": "Shortening of the final vowel in 女房 (nyōbō)."
-      },
-      {
-        "quote": "First cited to 1752."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-28",
-    "term": "缶詰",
-    "kana": "かんづめ",
-    "meaning": "canning, canned goods,",
-    "level": "N2",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'"
-    ],
-    "priority": ["ichi1", "news1", "nf14"],
-    "pitch": [3, 4],
-    "stratum": "hybrid",
-    "processes": ["compound", "rendaku"],
-    "headline": "Canned food is a “can stuffing”, with the つめ voicing to づめ.",
-    "morphemes": [
-      {
-        "text": "缶",
-        "reading": "かん",
-        "meaning": "can"
-      },
-      {
-        "text": "詰",
-        "reading": "づめ",
-        "base": "つめ",
-        "meaning": "to stuff"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From 缶(かん) (kan, “can”) + 詰(つ)め (tsume, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 詰(つ)める (tsumeru, “to stuff”).). The tsume changes to zume as an instance of rendaku (連濁)."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-29",
-    "term": "マスター",
-    "kana": "マスター",
-    "meaning": "bar owner, master (e.g., arts, science)",
-    "level": "N3",
-    "pos": [
-      "noun or participle which takes the aux. verb suru",
-      "transitive verb"
-    ],
-    "priority": ["gai1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "A bar owner and a master of arts are the same English word — with an Italian twin.",
-    "morphemes": [
-      {
-        "text": "マスター",
-        "reading": "マスター",
-        "meaning": "English master"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Borrowed from English master. Doublet of マエストロ (maesutoro)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 189091,
-        "ja": "英語をマスターすることは難しい。",
-        "en": "To master English is difficult.",
-        "enId": 26238,
-        "form": "マスター",
-        "furigana": [
-          ["英語", "えいご"],
-          ["をマスターすることは"],
-          ["難", "むずか"],
-          ["しい。"]
-        ]
-      },
-      {
-        "id": 189089,
-        "ja": "英語をマスターする事は簡単でない。",
-        "en": "English isn't easy to master.",
-        "enId": 26236,
-        "form": "マスター",
-        "furigana": [
-          ["英語", "えいご"],
-          ["をマスターする"],
-          ["事", "こと"],
-          ["は"],
-          ["簡単", "かんたん"],
-          ["でない。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-30",
-    "term": "温度",
-    "kana": "おんど",
-    "meaning": "temperature",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf06"],
-    "pitch": [1],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "“Temperature” is “warm” plus “degree”, and it appears in a text of 1837–1847.",
-    "morphemes": [
-      {
-        "text": "温",
-        "reading": "おん",
-        "meaning": "warm"
-      },
-      {
-        "text": "度",
-        "reading": "ど",
-        "meaning": "degree"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Compound of 温(おん) (on, “warm”) + 度(ど) (do, “degree”)."
-      },
-      {
-        "quote": "Appeared in 舎密開宗 (Seimi Kaisō) of 1837-1847."
-      }
-    ],
-    "examples": [
-      {
-        "id": 188328,
-        "ja": "温度が下がる。",
-        "en": "The temperature falls.",
-        "enId": 25471,
-        "form": "温度",
-        "furigana": [["温度", "おんど"], ["が"], ["下", "さ"], ["がる。"]]
-      },
-      {
-        "id": 188325,
-        "ja": "温度は七十度です。",
-        "en": "The thermometer stands at 70.",
-        "enId": 25468,
-        "form": "温度",
-        "furigana": [
-          ["温度", "おんど"],
-          ["は"],
-          ["七", "なな"],
-          ["十", "じゅう"],
-          ["度", "ど"],
-          ["です。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2023-03-31",
-    "term": "小包",
-    "kana": "こづつみ",
-    "meaning": "parcel, package",
-    "level": "N3",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf22"],
-    "pitch": [2],
-    "stratum": "wago",
-    "processes": ["compound", "rendaku"],
-    "headline": "A parcel is a “little package”, with つつみ voiced to づつみ.",
-    "morphemes": [
-      {
-        "text": "小",
-        "reading": "こ",
-        "meaning": "little"
-      },
-      {
-        "text": "包",
-        "reading": "づつみ",
-        "base": "つつみ",
-        "meaning": "package"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Compound of 小(こ) (ko, “little”) + 包(つつ)み (tsutsumi, “package”). The tsutsumi changes to zutsumi as an instance of rendaku (連濁)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 118566,
-        "ja": "彼に小包を送った。",
-        "en": "I mailed a parcel to him.",
-        "enId": 285097,
-        "form": "小包",
-        "furigana": [
-          ["彼", "かれ"],
+          ["緩和", "かんわ"],
+          ["の"],
+          ["方向", "ほうこう"],
           ["に"],
-          ["小包", "こづつみ"],
+          ["向", "む"],
+          ["かっています。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2023-03-19",
+    "term": "議案",
+    "kana": "ぎあん",
+    "meaning": "legislative bill",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf16"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 191099,
+        "ja": "委員会はその議案を可決した。",
+        "en": "The committee passed the bill.",
+        "enId": 28259,
+        "form": "議案",
+        "furigana": [
+          ["委員", "いいん"],
+          ["会", "かい"],
+          ["はその"],
+          ["議案", "ぎあん"],
           ["を"],
-          ["送", "おく"],
+          ["可決", "かけつ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 182903,
+        "ja": "議案は圧倒的多数で可決された。",
+        "en": "The bill was passed by an overwhelming majority.",
+        "enId": 20024,
+        "form": "議案",
+        "furigana": [
+          ["議案", "ぎあん"],
+          ["は"],
+          ["圧倒的", "あっとうてき"],
+          ["多数", "たすう"],
+          ["で"],
+          ["可決", "かけつ"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2023-03-20",
+    "term": "危害",
+    "kana": "きがい",
+    "meaning": "injury, harm, danger",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf22"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175261,
+        "ja": "犬は主人を危害から守った。",
+        "en": "The dog defended his master from harm.",
+        "enId": 239205,
+        "form": "危害",
+        "furigana": [
+          ["犬", "いぬ"],
+          ["は"],
+          ["主人", "しゅじん"],
+          ["を"],
+          ["危害", "きがい"],
+          ["から"],
+          ["守", "まも"],
           ["った。"]
         ]
       },
       {
-        "id": 221140,
-        "ja": "この小包は君宛てだ。",
-        "en": "This parcel is addressed to you.",
-        "enId": 58462,
-        "form": "小包",
+        "id": 205305,
+        "ja": "それは我々に危害を及ぼすだろう。",
+        "en": "It will do harm to us.",
+        "enId": 42549,
+        "form": "危害",
         "furigana": [
-          ["この"],
-          ["小包", "こづつみ"],
-          ["は"],
-          ["君", "きみ"],
-          ["宛", "あ"],
-          ["てだ。"]
+          ["それは"],
+          ["我々", "われわれ"],
+          ["に"],
+          ["危害", "きがい"],
+          ["を"],
+          ["及", "およ"],
+          ["ぼすだろう。"]
         ]
       }
+    ]
+  },
+  {
+    "date": "2023-03-21",
+    "term": "規格",
+    "kana": "きかく",
+    "meaning": "standard, norm",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-22",
+    "term": "着飾る",
+    "kana": "きかざる",
+    "meaning": "to dress up",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 96738,
+        "ja": "彼らは晴れ着で着飾っている。",
+        "en": "They are decked out in their Sunday clothes.",
+        "enId": 306966,
+        "form": "着飾っている",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["晴", "は"],
+          ["れ"],
+          ["着", "ぎ"],
+          ["で"],
+          ["着飾", "きかざ"],
+          ["っている。"]
+        ]
+      },
+      {
+        "id": 78794,
+        "ja": "踊り子たちは美しく着飾っていた。",
+        "en": "The dancers were beautifully got up.",
+        "enId": 324922,
+        "form": "着飾っていた",
+        "furigana": [
+          ["踊", "おど"],
+          ["り"],
+          ["子", "こ"],
+          ["たちは"],
+          ["美", "うつく"],
+          ["しく"],
+          ["着飾", "きかざ"],
+          ["っていた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2023-03-23",
+    "term": "気兼ね",
+    "kana": "きがね",
+    "meaning": "hesitance, diffidence, feeling constraint",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
-    "wiktionaryDump": "2026-09-02"
+    "priority": ["ichi1", "news2", "nf35"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-24",
+    "term": "気軽",
+    "kana": "きがる",
+    "meaning": "cheerful, buoyant, lighthearted",
+    "level": "N1",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 183213,
+        "ja": "気軽にいこう。",
+        "en": "Take it easy!",
+        "enId": 20335,
+        "form": "気軽に",
+        "furigana": [["気軽", "きがる"], ["にいこう。"]]
+      },
+      {
+        "id": 201350,
+        "ja": "どうぞお気軽に。",
+        "en": "Please don't stand on ceremony.",
+        "enId": 38484,
+        "form": "気軽に",
+        "furigana": [["どうぞお"], ["気軽", "きがる"], ["に。"]]
+      }
+    ]
+  },
+  {
+    "date": "2023-03-25",
+    "term": "危機",
+    "kana": "きき",
+    "meaning": "crisis",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1, 2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 91385,
+        "ja": "彼女はもう危機をのがれた。",
+        "en": "She was now out of danger.",
+        "enId": 312328,
+        "form": "危機",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はもう"],
+          ["危機", "きき"],
+          ["をのがれた。"]
+        ]
+      },
+      {
+        "id": 192013,
+        "ja": "わが国は危機に陥っている。",
+        "en": "Our country is in a crisis.",
+        "enId": 29175,
+        "form": "危機",
+        "furigana": [
+          ["わが"],
+          ["国", "くに"],
+          ["は"],
+          ["危機", "きき"],
+          ["に"],
+          ["陥", "おちい"],
+          ["っている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2023-03-26",
+    "term": "聞き取り",
+    "kana": "ききとり",
+    "meaning": "listening comprehension",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-27",
+    "term": "効き目",
+    "kana": "ききめ",
+    "meaning": "effect, virtue, efficacy",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 206315,
+        "ja": "その薬の効きめが現れた。",
+        "en": "The medicine took effect.",
+        "enId": 43560,
+        "form": "効きめ",
+        "furigana": [
+          ["その"],
+          ["薬", "くすり"],
+          ["の"],
+          ["効", "き"],
+          ["きめが"],
+          ["現", "あらわ"],
+          ["れた。"]
+        ]
+      },
+      {
+        "id": 79490,
+        "ja": "薬の効き目を調べてみます。",
+        "en": "I will find out how the medicine works.",
+        "enId": 324229,
+        "form": "効き目",
+        "furigana": [
+          ["薬", "くすり"],
+          ["の"],
+          ["効", "き"],
+          ["き"],
+          ["目", "め"],
+          ["を"],
+          ["調", "しら"],
+          ["べてみます。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2023-03-28",
+    "term": "帰京",
+    "kana": "ききょう",
+    "meaning": "returning to Tokyo",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2023-03-29",
+    "term": "戯曲",
+    "kana": "ぎきょく",
+    "meaning": "play, drama",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 114686,
+        "ja": "彼はいくつかの戯曲を韻文で書いた。",
+        "en": "He wrote several plays in verse.",
+        "enId": 288985,
+        "form": "戯曲",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はいくつかの"],
+          ["戯曲", "ぎきょく"],
+          ["を"],
+          ["韻文", "いんぶん"],
+          ["で"],
+          ["書", "か"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 211480,
+        "ja": "その戯曲はうまく舞台にのらなかった。",
+        "en": "The play was not well acted.",
+        "enId": 48756,
+        "form": "戯曲",
+        "furigana": [
+          ["その"],
+          ["戯曲", "ぎきょく"],
+          ["はうまく"],
+          ["舞台", "ぶたい"],
+          ["にのらなかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2023-03-30",
+    "term": "基金",
+    "kana": "ききん",
+    "meaning": "fund, foundation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news1", "nf02"],
+    "pitch": [2, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 174566,
+        "ja": "孤児を助けるために基金が設立された。",
+        "en": "The fund was set up to help orphans.",
+        "enId": 239903,
+        "form": "基金",
+        "furigana": [
+          ["孤児", "こじ"],
+          ["を"],
+          ["助", "たす"],
+          ["けるために"],
+          ["基金", "ききん"],
+          ["が"],
+          ["設立", "せつりつ"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 101549,
+        "ja": "彼は難民救済基金に１万ドルを寄付した。",
+        "en": "He donated $10000 to the refugee fund.",
+        "enId": 302145,
+        "form": "基金",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["難民", "なんみん"],
+          ["救済", "きゅうさい"],
+          ["基金", "ききん"],
+          ["に１"],
+          ["万", "まん"],
+          ["ドルを"],
+          ["寄付", "きふ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2023-03-31",
+    "term": "喜劇",
+    "kana": "きげき",
+    "meaning": "comedy, funny show",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185943,
+        "ja": "我々は皆その喜劇を楽しんだ。",
+        "en": "We were all amused with the comedy.",
+        "enId": 23075,
+        "form": "喜劇",
+        "furigana": [
+          ["我々", "われわれ"],
+          ["は"],
+          ["皆", "みな"],
+          ["その"],
+          ["喜劇", "きげき"],
+          ["を"],
+          ["楽", "たの"],
+          ["しんだ。"]
+        ]
+      },
+      {
+        "id": 231104,
+        "ja": "あの喜劇役者は大変こっけいだ。",
+        "en": "That comedian is very funny.",
+        "enId": 68471,
+        "form": "喜劇",
+        "furigana": [
+          ["あの"],
+          ["喜劇", "きげき"],
+          ["役者", "やくしゃ"],
+          ["は"],
+          ["大変", "たいへん"],
+          ["こっけいだ。"]
+        ]
+      }
+    ]
   }
 ]

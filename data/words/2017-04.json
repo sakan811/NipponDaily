@@ -1,0 +1,1143 @@
+[
+  {
+    "date": "2017-04-01",
+    "term": "著者",
+    "kana": "ちょしゃ",
+    "meaning": "author, writer",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 219748,
+        "ja": "この本の著者は誰ですか。",
+        "en": "Who is the author of this book?",
+        "enId": 57068,
+        "form": "著者",
+        "furigana": [
+          ["この"],
+          ["本", "ほん"],
+          ["の"],
+          ["著者", "ちょしゃ"],
+          ["は"],
+          ["誰", "だれ"],
+          ["ですか。"]
+        ]
+      },
+      {
+        "id": 219749,
+        "ja": "この本の著者はまだ若い。",
+        "en": "The author of this book is still young.",
+        "enId": 57069,
+        "form": "著者",
+        "furigana": [
+          ["この"],
+          ["本", "ほん"],
+          ["の"],
+          ["著者", "ちょしゃ"],
+          ["はまだ"],
+          ["若", "わか"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-02",
+    "term": "散らす",
+    "kana": "ちらす",
+    "meaning": "to scatter, to disperse, to distribute",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf47"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 77979,
+        "ja": "両替人の金を散らし、その台を倒した。",
+        "en": "He scattered the coins of the money-changers and overturned their table.",
+        "enId": 325739,
+        "form": "散らし",
+        "furigana": [
+          ["両替", "りょうがえ"],
+          ["人", "じん"],
+          ["の"],
+          ["金", "かね"],
+          ["を"],
+          ["散", "ち"],
+          ["らし、その"],
+          ["台", "だい"],
+          ["を"],
+          ["倒", "たお"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-03",
+    "term": "遂に",
+    "kana": "ついに",
+    "meaning": "finally, at last",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 111901,
+        "ja": "彼はついに現れた。",
+        "en": "He appeared at last.",
+        "enId": 291777,
+        "form": "ついに",
+        "furigana": [["彼", "かれ"], ["はついに"], ["現", "あらわ"], ["れた。"]]
+      },
+      {
+        "id": 125320,
+        "ja": "敵はついに降参した。",
+        "en": "The enemy finally gave in.",
+        "enId": 278673,
+        "form": "ついに",
+        "furigana": [
+          ["敵", "てき"],
+          ["はついに"],
+          ["降参", "こうさん"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-04",
+    "term": "通過",
+    "kana": "つうか",
+    "meaning": "passage through, passing",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79020,
+        "ja": "予算案は上院を通過した。",
+        "en": "The budget passed the Upper House.",
+        "enId": 324697,
+        "form": "通過",
+        "furigana": [
+          ["予算", "よさん"],
+          ["案", "あん"],
+          ["は"],
+          ["上院", "じょういん"],
+          ["を"],
+          ["通過", "つうか"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 206746,
+        "ja": "その法律は議会を通過した。",
+        "en": "The law has gone through parliament.",
+        "enId": 43994,
+        "form": "通過",
+        "furigana": [
+          ["その"],
+          ["法律", "ほうりつ"],
+          ["は"],
+          ["議会", "ぎかい"],
+          ["を"],
+          ["通過", "つうか"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-05",
+    "term": "通貨",
+    "kana": "つうか",
+    "meaning": "currency",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 122666,
+        "ja": "日本の円は安定した通貨だ。",
+        "en": "The Japanese yen is a stable currency.",
+        "enId": 281336,
+        "form": "通貨",
+        "furigana": [
+          ["日本", "にっぽん"],
+          ["の"],
+          ["円", "えん"],
+          ["は"],
+          ["安定", "あんてい"],
+          ["した"],
+          ["通貨", "つうか"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 188511,
+        "ja": "欧州通貨はドルに対して弱くなった。",
+        "en": "European currencies weakened against the dollar.",
+        "enId": 25655,
+        "form": "通貨",
+        "furigana": [
+          ["欧州", "おうしゅう"],
+          ["通貨", "つうか"],
+          ["はドルに"],
+          ["対", "たい"],
+          ["して"],
+          ["弱", "よわ"],
+          ["くなった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-06",
+    "term": "通学",
+    "kana": "つうがく",
+    "meaning": "commuting to school",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101873,
+        "ja": "彼は徒歩通学だ。",
+        "en": "He goes to school on foot.",
+        "enId": 288249,
+        "form": "通学",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["徒歩", "とほ"],
+          ["通学", "つうがく"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 100086,
+        "ja": "彼は歩いて通学する。",
+        "en": "He walks to school.",
+        "enId": 303609,
+        "form": "通学",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["歩", "ある"],
+          ["いて"],
+          ["通学", "つうがく"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-07",
+    "term": "通行",
+    "kana": "つうこう",
+    "meaning": "passage, passing",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 176696,
+        "ja": "群集が通行を妨げた。",
+        "en": "The crowd obstructed the passage.",
+        "enId": 237766,
+        "form": "通行",
+        "furigana": [
+          ["群集", "ぐんしゅう"],
+          ["が"],
+          ["通行", "つうこう"],
+          ["を"],
+          ["妨", "さまた"],
+          ["げた。"]
+        ]
+      },
+      {
+        "id": 189899,
+        "ja": "右側通行をしなさい。",
+        "en": "Keep to the right.",
+        "enId": 456283,
+        "form": "通行",
+        "furigana": [
+          ["右側", "みぎがわ"],
+          ["通行", "つうこう"],
+          ["をしなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-08",
+    "term": "通信",
+    "kana": "つうしん",
+    "meaning": "correspondence, communications",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 115376,
+        "ja": "彼は、無電で通信を送った。",
+        "en": "He sent a message by wireless.",
+        "enId": 288295,
+        "form": "通信",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は、"],
+          ["無電", "むでん"],
+          ["で"],
+          ["通信", "つうしん"],
+          ["を"],
+          ["送", "おく"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 137801,
+        "ja": "台風で本土との通信が絶えた。",
+        "en": "All communication with the mainland was cut off by the typhoon.",
+        "enId": 275435,
+        "form": "通信",
+        "furigana": [
+          ["台風", "たいふう"],
+          ["で"],
+          ["本土", "ほんど"],
+          ["との"],
+          ["通信", "つうしん"],
+          ["が"],
+          ["絶", "た"],
+          ["えた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-09",
+    "term": "付合う",
+    "kana": "つきあう",
+    "meaning": "to associate with, to keep company with, to get on with",
+    "level": "N3",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-04-10",
+    "term": "付く",
+    "kana": "つく",
+    "meaning": "to adjoin, to be attached, to adhere",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["spec1"],
+    "pitch": [1, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123484,
+        "ja": "得手に鼻がつく。",
+        "en": "Good swimmers are oftenest drowned.",
+        "enId": 280513,
+        "form": "つく",
+        "furigana": [["得手", "えて"], ["に"], ["鼻", "はな"], ["がつく。"]]
+      },
+      {
+        "id": 183785,
+        "ja": "貫禄がついたね。",
+        "en": "You look very dignified.",
+        "enId": 20907,
+        "form": "ついた",
+        "furigana": [["貫禄", "かんろく"], ["がついたね。"]]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-11",
+    "term": "就く",
+    "kana": "つく",
+    "meaning": "to settle in (place), to take (seat position), to study (under teacher)",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [1, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108319,
+        "ja": "彼は教職に就いた。",
+        "en": "He went into teaching.",
+        "enId": 295366,
+        "form": "就いた",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["教職", "きょうしょく"],
+          ["に"],
+          ["就", "つ"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 184626,
+        "ja": "各自の部署に就け。",
+        "en": "Go to your posts.",
+        "enId": 21754,
+        "form": "就け",
+        "furigana": [
+          ["各自", "かくじ"],
+          ["の"],
+          ["部署", "ぶしょ"],
+          ["に"],
+          ["就", "つ"],
+          ["け。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-12",
+    "term": "突く",
+    "kana": "つく",
+    "meaning": "to thrust, to strike; to poke",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0, 1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 74816,
+        "ja": "珍客も３日いれば鼻につく。",
+        "en": "Even a rare guest wears out his welcome after three days.",
+        "enId": 328903,
+        "form": "つく",
+        "furigana": [
+          ["珍客", "ちんきゃく"],
+          ["も３"],
+          ["日", "にち"],
+          ["いれば"],
+          ["鼻", "はな"],
+          ["につく。"]
+        ]
+      },
+      {
+        "id": 144706,
+        "ja": "針で親指を突いてしまった。",
+        "en": "I pricked my thumb with a needle.",
+        "enId": 269858,
+        "form": "突いて",
+        "furigana": [
+          ["針", "はり"],
+          ["で"],
+          ["親指", "おやゆび"],
+          ["を"],
+          ["突", "つ"],
+          ["いてしまった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-13",
+    "term": "次ぐ",
+    "kana": "つぐ",
+    "meaning": "to rank next to, to come after",
+    "level": "N3",
+    "pos": ["Godan verb with 'gu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 225735,
+        "ja": "きれい好きは敬神に次ぐ美徳。",
+        "en": "Cleanliness is next to godliness.",
+        "enId": 63073,
+        "form": "次ぐ",
+        "furigana": [
+          ["きれい"],
+          ["好", "す"],
+          ["きは"],
+          ["敬神", "けいしん"],
+          ["に"],
+          ["次", "つ"],
+          ["ぐ"],
+          ["美徳", "びとく"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 91270,
+        "ja": "彼女はロング氏に次ぐ最高のピアニストです。",
+        "en": "She is our next best pianist after Mr Long.",
+        "enId": 312444,
+        "form": "次ぐ",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はロング"],
+          ["氏", "し"],
+          ["に"],
+          ["次", "つ"],
+          ["ぐ"],
+          ["最高", "さいこう"],
+          ["のピアニストです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-14",
+    "term": "着ける",
+    "kana": "つける",
+    "meaning": "to put on, to wear; to draw up",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-04-15",
+    "term": "伝わる",
+    "kana": "つたわる",
+    "meaning": "to be handed down, to be transmitted",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 188317,
+        "ja": "音はとても早く伝わる。",
+        "en": "Sound travels very quickly.",
+        "enId": 25459,
+        "form": "伝わる",
+        "furigana": [
+          ["音", "おと"],
+          ["はとても"],
+          ["早", "はや"],
+          ["く"],
+          ["伝", "つた"],
+          ["わる。"]
+        ]
+      },
+      {
+        "id": 77742,
+        "ja": "涙がほおを伝わり落ちた。",
+        "en": "Tears rolled down his cheeks.",
+        "enId": 325976,
+        "form": "伝わり",
+        "furigana": [
+          ["涙", "なみだ"],
+          ["がほおを"],
+          ["伝", "つた"],
+          ["わり"],
+          ["落", "お"],
+          ["ちた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-16",
+    "term": "包み",
+    "kana": "つつみ",
+    "meaning": "bundle, package",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 82766,
+        "ja": "包みを開けて下さい。",
+        "en": "Please undo the package.",
+        "enId": 320950,
+        "form": "包み",
+        "furigana": [
+          ["包", "つつ"],
+          ["みを"],
+          ["開", "あ"],
+          ["けて"],
+          ["下", "くだ"],
+          ["さい。"]
+        ]
+      },
+      {
+        "id": 206799,
+        "ja": "その包みは昨日配達された。",
+        "en": "The package was delivered yesterday.",
+        "enId": 44048,
+        "form": "包み",
+        "furigana": [
+          ["その"],
+          ["包", "つつ"],
+          ["みは"],
+          ["昨日", "きのう"],
+          ["配達", "はいたつ"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-17",
+    "term": "務め",
+    "kana": "つとめ",
+    "meaning": "duty",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-04-18",
+    "term": "繋がる",
+    "kana": "つながる",
+    "meaning": "to be connected to, to be related to",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "spec1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 124753,
+        "ja": "電話がつながったよ。",
+        "en": "The call has come through.",
+        "enId": 279241,
+        "form": "つながった",
+        "furigana": [["電話", "でんわ"], ["がつながったよ。"]]
+      },
+      {
+        "id": 97255,
+        "ja": "彼らは血がつながっている。",
+        "en": "They are related by blood.",
+        "enId": 306447,
+        "form": "つながっている",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["血", "ち"],
+          ["がつながっている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-19",
+    "term": "繋げる",
+    "kana": "つなげる",
+    "meaning": "to connect",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 164153,
+        "ja": "私のテープレコーダーは君のアンプにもつなげられる。",
+        "en": "My tape recorder is compatible with your amplifier.",
+        "enId": 250357,
+        "form": "つなげられる",
+        "furigana": [
+          ["私", "わたし"],
+          ["のテープレコーダーは"],
+          ["君", "きみ"],
+          ["のアンプにもつなげられる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-20",
+    "term": "つまり",
+    "kana": "つまり",
+    "meaning": "namely; in other words; in short",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news2", "nf31"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-04-21",
+    "term": "罪",
+    "kana": "つみ",
+    "meaning": "crime, fault, indiscretion",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 197360,
+        "ja": "ビルはその罪を犯していなかった。",
+        "en": "Bill did not commit the crime.",
+        "enId": 34546,
+        "form": "罪",
+        "furigana": [
+          ["ビルはその"],
+          ["罪", "つみ"],
+          ["を"],
+          ["犯", "おか"],
+          ["していなかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-22",
+    "term": "積む",
+    "kana": "つむ",
+    "meaning": "to pile up, to stack",
+    "level": "N3",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141161,
+        "ja": "船は２日で船荷を積んだ。",
+        "en": "The ship loaded in two days.",
+        "enId": 273411,
+        "form": "積んだ",
+        "furigana": [
+          ["船", "ふね"],
+          ["は２"],
+          ["日", "にち"],
+          ["で"],
+          ["船荷", "ふなに"],
+          ["を"],
+          ["積", "つ"],
+          ["んだ。"]
+        ]
+      },
+      {
+        "id": 100250,
+        "ja": "彼は幅広い経験を積んでいる人だ。",
+        "en": "He is a man of wide experience.",
+        "enId": 303447,
+        "form": "積んでいる",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["幅広", "はばひろ"],
+          ["い"],
+          ["経験", "けいけん"],
+          ["を"],
+          ["積", "つ"],
+          ["んでいる"],
+          ["人", "ひと"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-23",
+    "term": "詰める",
+    "kana": "つめる",
+    "meaning": "to pack, to shorten, to work out (details)",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 146857,
+        "ja": "少しつめてください。",
+        "en": "Would you just move along a bit, please?",
+        "enId": 267703,
+        "form": "つめて",
+        "furigana": [["少", "すこ"], ["しつめてください。"]]
+      },
+      {
+        "id": 111113,
+        "ja": "彼はびんに水を詰めた。",
+        "en": "He filled the bottle with water.",
+        "enId": 292573,
+        "form": "詰めた",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はびんに"],
+          ["水", "みず"],
+          ["を"],
+          ["詰", "つ"],
+          ["めた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-24",
+    "term": "積もる",
+    "kana": "つもる",
+    "meaning": "to pile up",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf35"],
+    "pitch": [2, 0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 142021,
+        "ja": "雪が深くつもっていた。",
+        "en": "The snow lay deep.",
+        "enId": 272549,
+        "form": "つもっていた",
+        "furigana": [
+          ["雪", "ゆき"],
+          ["が"],
+          ["深", "ふか"],
+          ["くつもっていた。"]
+        ]
+      },
+      {
+        "id": 143903,
+        "ja": "塵も積もれば山となる。",
+        "en": "Many a little makes a mickle.",
+        "enId": 39937,
+        "form": "積もれば",
+        "furigana": [
+          ["塵", "ちり"],
+          ["も"],
+          ["積", "つ"],
+          ["もれば"],
+          ["山", "やま"],
+          ["となる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-25",
+    "term": "釣",
+    "kana": "つり",
+    "meaning": "fishing",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-04-26",
+    "term": "出会い",
+    "kana": "であい",
+    "meaning": "meeting, rendezvous, encounter",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf08", "nf16"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 95117,
+        "ja": "彼女との出会いが始まった。",
+        "en": "I began a meeting with her.",
+        "enId": 308589,
+        "form": "出会い",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["との"],
+          ["出会", "であ"],
+          ["いが"],
+          ["始", "はじ"],
+          ["まった。"]
+        ]
+      },
+      {
+        "id": 205261,
+        "ja": "それは偶然の出会いだった。",
+        "en": "It was a casual meeting.",
+        "enId": 42503,
+        "form": "出会い",
+        "furigana": [
+          ["それは"],
+          ["偶然", "ぐうぜん"],
+          ["の"],
+          ["出会", "であ"],
+          ["いだった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-27",
+    "term": "出合い",
+    "kana": "であい",
+    "meaning": "an encounter",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf16", "nf08"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-04-28",
+    "term": "出会う",
+    "kana": "であう",
+    "meaning": "to meet by chance, to come across, to happen to encounter",
+    "level": "N3",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 95097,
+        "ja": "彼女と偶然出会う。",
+        "en": "I bump into her.",
+        "enId": 308609,
+        "form": "出会う",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["と"],
+          ["偶然", "ぐうぜん"],
+          ["出会", "であ"],
+          ["う。"]
+        ]
+      },
+      {
+        "id": 188949,
+        "ja": "駅で偶然出会った。",
+        "en": "We ran into each other at the station.",
+        "enId": 26095,
+        "form": "出会った",
+        "furigana": [
+          ["駅", "えき"],
+          ["で"],
+          ["偶然", "ぐうぜん"],
+          ["出会", "であ"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-29",
+    "term": "提案",
+    "kana": "ていあん",
+    "meaning": "proposal, proposition, suggestion",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125416,
+        "ja": "提案があります。",
+        "en": "I have a suggestion.",
+        "enId": 278579,
+        "form": "提案",
+        "furigana": [["提案", "ていあん"], ["があります。"]]
+      },
+      {
+        "id": 175399,
+        "ja": "建設的な提案だよ。",
+        "en": "That's a constructive suggestion!",
+        "enId": 239066,
+        "form": "提案",
+        "furigana": [
+          ["建設", "けんせつ"],
+          ["的", "てき"],
+          ["な"],
+          ["提案", "ていあん"],
+          ["だよ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-04-30",
+    "term": "定期",
+    "kana": "ていき",
+    "meaning": "fixed term",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 96516,
+        "ja": "彼らは定期旅客船に乗り込んだ。",
+        "en": "They went on board a liner.",
+        "enId": 307189,
+        "form": "定期",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["定期", "ていき"],
+          ["旅客船", "りょかくせん"],
+          ["に"],
+          ["乗", "の"],
+          ["り"],
+          ["込", "こ"],
+          ["んだ。"]
+        ]
+      },
+      {
+        "id": 125543,
+        "ja": "定期雑誌類は閲覧室より帯出禁止。",
+        "en": "Periodicals may not be removed from the reading room.",
+        "enId": 278449,
+        "form": "定期",
+        "furigana": [
+          ["定期", "ていき"],
+          ["雑誌", "ざっし"],
+          ["類", "るい"],
+          ["は"],
+          ["閲覧", "えつらん"],
+          ["室", "しつ"],
+          ["より"],
+          ["帯出", "たいしゅつ"],
+          ["禁止", "きんし"],
+          ["。"]
+        ]
+      }
+    ]
+  }
+]

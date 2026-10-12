@@ -1,0 +1,1391 @@
+[
+  {
+    "date": "2016-01-01",
+    "term": "機関",
+    "kana": "きかん",
+    "meaning": "engine; institution, organization",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1, 2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 126024,
+        "ja": "調査機関がその効果を調べた。",
+        "en": "A research organization investigated the effect.",
+        "enId": 277968,
+        "form": "機関",
+        "furigana": [
+          ["調査", "ちょうさ"],
+          ["機関", "きかん"],
+          ["がその"],
+          ["効果", "こうか"],
+          ["を"],
+          ["調", "しら"],
+          ["べた。"]
+        ]
+      },
+      {
+        "id": 173076,
+        "ja": "国会は日本の主要統治機関である。",
+        "en": "The Diet is the chief organ of government in Japan.",
+        "enId": 241396,
+        "form": "機関",
+        "furigana": [
+          ["国会", "こっかい"],
+          ["は"],
+          ["日本", "にっぽん"],
+          ["の"],
+          ["主要", "しゅよう"],
+          ["統治", "とうち"],
+          ["機関", "きかん"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-02",
+    "term": "企業",
+    "kana": "きぎょう",
+    "meaning": "industry, business, undertaking",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147111,
+        "ja": "商法は企業法といえる。",
+        "en": "Commercial Code can be called an enterprise method.",
+        "enId": 267450,
+        "form": "企業",
+        "furigana": [
+          ["商法", "しょうほう"],
+          ["は"],
+          ["企業", "きぎょう"],
+          ["法", "ほう"],
+          ["といえる。"]
+        ]
+      },
+      {
+        "id": 211822,
+        "ja": "その会社は一流企業です。",
+        "en": "That company is one of the best in the business.",
+        "enId": 49099,
+        "form": "企業",
+        "furigana": [
+          ["その"],
+          ["会社", "かいしゃ"],
+          ["は"],
+          ["一流", "いちりゅう"],
+          ["企業", "きぎょう"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-03",
+    "term": "効く",
+    "kana": "きく",
+    "meaning": "to be effective",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79499,
+        "ja": "薬が効いた。",
+        "en": "The medicine has worked.",
+        "enId": 324220,
+        "form": "効いた",
+        "furigana": [["薬", "くすり"], ["が"], ["効", "き"], ["いた。"]]
+      },
+      {
+        "id": 79487,
+        "ja": "薬はすぐ効いた。",
+        "en": "The medicine had an immediate effect.",
+        "enId": 43556,
+        "form": "効いた",
+        "furigana": [["薬", "くすり"], ["はすぐ"], ["効", "き"], ["いた。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-04",
+    "term": "期限",
+    "kana": "きげん",
+    "meaning": "deadline, term",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 170522,
+        "ja": "最終期限が近づいている。",
+        "en": "The deadline is drawing near.",
+        "enId": 243960,
+        "form": "期限",
+        "furigana": [
+          ["最終", "さいしゅう"],
+          ["期限", "きげん"],
+          ["が"],
+          ["近", "ちか"],
+          ["づいている。"]
+        ]
+      },
+      {
+        "id": 178031,
+        "ja": "君の免許証は期限が過ぎている。",
+        "en": "Your driver's license has expired.",
+        "enId": 16883,
+        "form": "期限",
+        "furigana": [
+          ["君", "きみ"],
+          ["の"],
+          ["免許", "めんきょ"],
+          ["証", "しょう"],
+          ["は"],
+          ["期限", "きげん"],
+          ["が"],
+          ["過", "す"],
+          ["ぎている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-05",
+    "term": "機嫌",
+    "kana": "きげん",
+    "meaning": "humor, temper, mood",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108601,
+        "ja": "彼は機嫌をそこねている。",
+        "en": "He is in an angry mood.",
+        "enId": 295086,
+        "form": "機嫌",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["機嫌", "きげん"],
+          ["をそこねている。"]
+        ]
+      },
+      {
+        "id": 108602,
+        "ja": "彼の機嫌を取るのは難しい。",
+        "en": "He is hard to please.",
+        "enId": 295084,
+        "form": "機嫌",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["機嫌", "きげん"],
+          ["を"],
+          ["取", "と"],
+          ["るのは"],
+          ["難", "むずか"],
+          ["しい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-06",
+    "term": "気候",
+    "kana": "きこう",
+    "meaning": "climate",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 183205,
+        "ja": "気候は快適です。",
+        "en": "I really enjoy the climate.",
+        "enId": 20327,
+        "form": "気候",
+        "furigana": [
+          ["気候", "きこう"],
+          ["は"],
+          ["快適", "かいてき"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 197543,
+        "ja": "ひどい気候です。",
+        "en": "This is a terrible climate.",
+        "enId": 34729,
+        "form": "気候",
+        "furigana": [["ひどい"], ["気候", "きこう"], ["です。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-07",
+    "term": "岸",
+    "kana": "きし",
+    "meaning": "bank, coast, shore",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141134,
+        "ja": "船は岸と並行に進んだ。",
+        "en": "The ship was abreast of the shore.",
+        "enId": 273438,
+        "form": "岸",
+        "furigana": [
+          ["船", "ふね"],
+          ["は"],
+          ["岸", "きし"],
+          ["と"],
+          ["並行", "へいこう"],
+          ["に"],
+          ["進", "すす"],
+          ["んだ。"]
+        ]
+      },
+      {
+        "id": 96675,
+        "ja": "彼らは船を岸に引き上げた。",
+        "en": "They drew their boat on the beach.",
+        "enId": 307030,
+        "form": "岸",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["船", "ふね"],
+          ["を"],
+          ["岸", "きし"],
+          ["に"],
+          ["引", "ひ"],
+          ["き"],
+          ["上", "あ"],
+          ["げた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-08",
+    "term": "技師",
+    "kana": "ぎし",
+    "meaning": "engineer, technician",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 163803,
+        "ja": "私の兄は技師です。",
+        "en": "My brother is an engineer.",
+        "enId": 250706,
+        "form": "技師",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["兄", "あに"],
+          ["は"],
+          ["技師", "ぎし"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 99259,
+        "ja": "彼は有能な技師です。",
+        "en": "He is an able engineer.",
+        "enId": 304441,
+        "form": "技師",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["有能", "ゆうのう"],
+          ["な"],
+          ["技師", "ぎし"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-09",
+    "term": "記者",
+    "kana": "きしゃ",
+    "meaning": "reporter",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1, 2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 112081,
+        "ja": "彼はタイム誌の記者です。",
+        "en": "He is a reporter for Time magazine.",
+        "enId": 291598,
+        "form": "記者",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はタイム"],
+          ["誌", "し"],
+          ["の"],
+          ["記者", "きしゃ"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 104158,
+        "ja": "彼は将来有望な記者だと思う。",
+        "en": "I think of him as a promising journalist.",
+        "enId": 299533,
+        "form": "記者",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["将来", "しょうらい"],
+          ["有望", "ゆうぼう"],
+          ["な"],
+          ["記者", "きしゃ"],
+          ["だと"],
+          ["思", "おも"],
+          ["う。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-10",
+    "term": "期待",
+    "kana": "きたい",
+    "meaning": "expectation, anticipation, hope",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 170402,
+        "ja": "最善を期待しよう。",
+        "en": "Let's hope for the best.",
+        "enId": 244081,
+        "form": "期待",
+        "furigana": [
+          ["最善", "さいぜん"],
+          ["を"],
+          ["期待", "きたい"],
+          ["しよう。"]
+        ]
+      },
+      {
+        "id": 183393,
+        "ja": "期待しているから。",
+        "en": "I'm sure you'll whip us up something really good.",
+        "enId": 20516,
+        "form": "期待",
+        "furigana": [["期待", "きたい"], ["しているから。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-11",
+    "term": "貴重",
+    "kana": "きちょう",
+    "meaning": "precious, valuable",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 179720,
+        "ja": "金は鉄よりも貴重だ。",
+        "en": "Gold is more precious than iron.",
+        "enId": 18579,
+        "form": "貴重",
+        "furigana": [
+          ["金", "きん"],
+          ["は"],
+          ["鉄", "てつ"],
+          ["よりも"],
+          ["貴重", "きちょう"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 150568,
+        "ja": "時間ほど貴重な物はない。",
+        "en": "Nothing is so precious as time.",
+        "enId": 263989,
+        "form": "貴重な",
+        "furigana": [
+          ["時間", "じかん"],
+          ["ほど"],
+          ["貴重", "きちょう"],
+          ["な"],
+          ["物", "もの"],
+          ["はない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-12",
+    "term": "きちんと",
+    "kana": "きちんと",
+    "meaning": "precisely, accurately",
+    "level": "N3",
+    "pos": [
+      "adverb (fukushi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 226047,
+        "ja": "きちんと座りなさい。",
+        "en": "Sit up straight.",
+        "enId": 63388,
+        "form": "きちんと",
+        "furigana": [["きちんと"], ["座", "すわ"], ["りなさい。"]]
+      },
+      {
+        "id": 226049,
+        "ja": "きちんと戸を閉めなさい。",
+        "en": "Shut the door tight.",
+        "enId": 63389,
+        "form": "きちんと",
+        "furigana": [
+          ["きちんと"],
+          ["戸", "と"],
+          ["を"],
+          ["閉", "し"],
+          ["めなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-13",
+    "term": "きつい",
+    "kana": "きつい",
+    "meaning": "tight, close, intense",
+    "level": "N3",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
+    "pitch": [0, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 226045,
+        "ja": "キツイなあ。",
+        "en": "Don't be so hard on me.",
+        "enId": 63385,
+        "form": "キツイ"
+      },
+      {
+        "id": 202841,
+        "ja": "ちょっときついです。",
+        "en": "They're a little tight.",
+        "enId": 40075,
+        "form": "きつい"
+      }
+    ]
+  },
+  {
+    "date": "2016-01-14",
+    "term": "気に入る",
+    "kana": "きにいる",
+    "meaning": "to like, to be please",
+    "level": "N3",
+    "pos": [
+      "expressions (phrases, clauses, etc.)",
+      "Godan verb with 'ru' ending"
+    ],
+    "priority": ["ichi1", "news2", "nf42"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 183266,
+        "ja": "気に入った？",
+        "en": "You like it, huh?",
+        "enId": 20389,
+        "form": "気に入った",
+        "furigana": [["気", "き"], ["に"], ["入", "い"], ["った？"]]
+      },
+      {
+        "id": 183263,
+        "ja": "気に入ってる？",
+        "en": "Do you like it?",
+        "enId": 433500,
+        "form": "気に入ってる",
+        "furigana": [["気", "き"], ["に"], ["入", "い"], ["ってる？"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-15",
+    "term": "記念",
+    "kana": "きねん",
+    "meaning": "commemoration, memory",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 235582,
+        "ja": "２０周年記念に乾杯。",
+        "en": "A toast to your 20th Anniversary!",
+        "enId": 72962,
+        "form": "記念",
+        "furigana": [
+          ["２０"],
+          ["周年", "しゅうねん"],
+          ["記念", "きねん"],
+          ["に"],
+          ["乾杯", "かんぱい"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 175615,
+        "ja": "月着陸は記念すべき偉業であった。",
+        "en": "The moon landing was a monumental achievement.",
+        "enId": 238850,
+        "form": "記念",
+        "furigana": [
+          ["月", "つき"],
+          ["着陸", "ちゃくりく"],
+          ["は"],
+          ["記念", "きねん"],
+          ["すべき"],
+          ["偉業", "いぎょう"],
+          ["であった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-16",
+    "term": "機能",
+    "kana": "きのう",
+    "meaning": "function, faculty",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 173006,
+        "ja": "国連は一つの国際的機能である。",
+        "en": "The United Nations is an international organization.",
+        "enId": 241467,
+        "form": "機能",
+        "furigana": [
+          ["国連", "こくれん"],
+          ["は"],
+          ["一", "ひと"],
+          ["つの"],
+          ["国際", "こくさい"],
+          ["的", "てき"],
+          ["機能", "きのう"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 211527,
+        "ja": "その機能は働かなくなるだろう。",
+        "en": "Its mechanism will cease to work.",
+        "enId": 48804,
+        "form": "機能",
+        "furigana": [
+          ["その"],
+          ["機能", "きのう"],
+          ["は"],
+          ["働", "はたら"],
+          ["かなくなるだろう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-17",
+    "term": "気の毒",
+    "kana": "きのどく",
+    "meaning": "pitiful, a pity",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [3, 4],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 140891,
+        "ja": "全く気の毒だ。",
+        "en": "What a pity!",
+        "enId": 24885,
+        "form": "気の毒",
+        "furigana": [
+          ["全", "まった"],
+          ["く"],
+          ["気", "き"],
+          ["の"],
+          ["毒", "どく"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 183258,
+        "ja": "気の毒ですね。",
+        "en": "That's too bad.",
+        "enId": 433625,
+        "form": "気の毒",
+        "furigana": [["気", "き"], ["の"], ["毒", "どく"], ["ですね。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-18",
+    "term": "寄付",
+    "kana": "きふ",
+    "meaning": "contribution, donation",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 115434,
+        "ja": "彼は大金を寄付した。",
+        "en": "He kicked in a lot of money.",
+        "enId": 288236,
+        "form": "寄付",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["大金", "たいきん"],
+          ["を"],
+          ["寄付", "きふ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 88278,
+        "ja": "彼女は赤十字に寄付した。",
+        "en": "She contributed to the Red Cross.",
+        "enId": 315432,
+        "form": "寄付",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["赤十字", "せきじゅうじ"],
+          ["に"],
+          ["寄付", "きふ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-19",
+    "term": "希望",
+    "kana": "きぼう",
+    "meaning": "hope, wish, aspiration",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "morphemes": [
+      {
+        "text": "希",
+        "reading": "き",
+        "meaning": "hope",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "望",
+        "reading": "ぼう",
+        "meaning": "hope",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Various nanori and irregular readings."
+      }
+    ],
+    "examples": [
+      {
+        "id": 230333,
+        "ja": "あまり希望がない。",
+        "en": "There is not much hope.",
+        "enId": 67698,
+        "form": "希望",
+        "furigana": [["あまり"], ["希望", "きぼう"], ["がない。"]]
+      },
+      {
+        "id": 80758,
+        "ja": "命ある限り希望あり。",
+        "en": "While there is life, there is hope.",
+        "enId": 271725,
+        "form": "希望",
+        "furigana": [
+          ["命", "いのち"],
+          ["ある"],
+          ["限", "かぎ"],
+          ["り"],
+          ["希望", "きぼう"],
+          ["あり。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2016-01-20",
+    "term": "基本",
+    "kana": "きほん",
+    "meaning": "basic, basis",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 218460,
+        "ja": "これは基本です。",
+        "en": "These are the ABCs.",
+        "enId": 55770,
+        "form": "基本",
+        "furigana": [["これは"], ["基本", "きほん"], ["です。"]]
+      },
+      {
+        "id": 190983,
+        "ja": "衣食住は生活の基本です。",
+        "en": "Food, clothing and shelter are the basis of life.",
+        "enId": 28143,
+        "form": "基本",
+        "furigana": [
+          ["衣食住", "いしょくじゅう"],
+          ["は"],
+          ["生活", "せいかつ"],
+          ["の"],
+          ["基本", "きほん"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-21",
+    "term": "気味",
+    "kana": "きみ",
+    "meaning": "-like, -looking, -looked",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 209975,
+        "ja": "その事件には何となく気味の悪いところがあった。",
+        "en": "There was something weird about the incident.",
+        "enId": 47238,
+        "form": "気味",
+        "furigana": [
+          ["その"],
+          ["事件", "じけん"],
+          ["には"],
+          ["何", "なん"],
+          ["となく"],
+          ["気味", "きみ"],
+          ["の"],
+          ["悪", "わる"],
+          ["いところがあった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-22",
+    "term": "奇妙",
+    "kana": "きみょう",
+    "meaning": "strange, queer, curious",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 90603,
+        "ja": "彼女は奇妙な夢を見た。",
+        "en": "She dreamed a strange dream.",
+        "enId": 313109,
+        "form": "奇妙な",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["奇妙", "きみょう"],
+          ["な"],
+          ["夢", "ゆめ"],
+          ["を"],
+          ["見", "み"],
+          ["た。"]
+        ]
+      },
+      {
+        "id": 117368,
+        "ja": "彼の行動は時々奇妙だ。",
+        "en": "His behavior is sometimes strange.",
+        "enId": 286296,
+        "form": "奇妙",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["行動", "こうどう"],
+          ["は"],
+          ["時々", "ときどき"],
+          ["奇妙", "きみょう"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-23",
+    "term": "義務",
+    "kana": "ぎむ",
+    "meaning": "duty, obligation, responsibility",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108528,
+        "ja": "彼は義務を怠った。",
+        "en": "He neglected his duties.",
+        "enId": 535249,
+        "form": "義務",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["義務", "ぎむ"],
+          ["を"],
+          ["怠", "おこた"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 108529,
+        "ja": "彼は義務を固く守る。",
+        "en": "He is very observant of his duties.",
+        "enId": 295157,
+        "form": "義務",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["義務", "ぎむ"],
+          ["を"],
+          ["固", "かた"],
+          ["く"],
+          ["守", "まも"],
+          ["る。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-24",
+    "term": "休暇",
+    "kana": "きゅうか",
+    "meaning": "vacation, holiday, day off",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 77889,
+        "ja": "良い休暇を。",
+        "en": "Have a nice vacation.",
+        "enId": 21299,
+        "form": "休暇",
+        "furigana": [["良", "よ"], ["い"], ["休暇", "きゅうか"], ["を。"]]
+      },
+      {
+        "id": 184172,
+        "ja": "楽しい休暇をね。",
+        "en": "Have a nice vacation.",
+        "enId": 21299,
+        "form": "休暇",
+        "furigana": [["楽", "たの"], ["しい"], ["休暇", "きゅうか"], ["をね。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-25",
+    "term": "休憩",
+    "kana": "きゅうけい",
+    "meaning": "rest, break, intermission",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 182641,
+        "ja": "休憩しましょうか。",
+        "en": "Shall we take a rest?",
+        "enId": 19775,
+        "form": "休憩",
+        "furigana": [["休憩", "きゅうけい"], ["しましょうか。"]]
+      },
+      {
+        "id": 235993,
+        "ja": "１０分休憩しよう。",
+        "en": "Let's take a 10-minute break.",
+        "enId": 61583,
+        "form": "休憩",
+        "furigana": [
+          ["１０"],
+          ["分", "ぷん"],
+          ["休憩", "きゅうけい"],
+          ["しよう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-26",
+    "term": "急激",
+    "kana": "きゅうげき",
+    "meaning": "sudden, precipitous, radical",
+    "level": "N3",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 207526,
+        "ja": "その党は急激にのびた。",
+        "en": "The party gained ground rapidly.",
+        "enId": 44779,
+        "form": "急激に",
+        "furigana": [
+          ["その"],
+          ["党", "とう"],
+          ["は"],
+          ["急激", "きゅうげき"],
+          ["にのびた。"]
+        ]
+      },
+      {
+        "id": 184087,
+        "ja": "株価の急激な下落があった。",
+        "en": "There was a rapid decline in stock prices.",
+        "enId": 21215,
+        "form": "急激な",
+        "furigana": [
+          ["株価", "かぶか"],
+          ["の"],
+          ["急激", "きゅうげき"],
+          ["な"],
+          ["下落", "げらく"],
+          ["があった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-27",
+    "term": "吸収",
+    "kana": "きゅうしゅう",
+    "meaning": "absorption, suction",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 84908,
+        "ja": "敷物は音を吸収する。",
+        "en": "Rugs absorb sound.",
+        "enId": 318805,
+        "form": "吸収",
+        "furigana": [
+          ["敷物", "しきもの"],
+          ["は"],
+          ["音", "おと"],
+          ["を"],
+          ["吸収", "きゅうしゅう"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 172989,
+        "ja": "黒い布は光を吸収する。",
+        "en": "Black cloth absorbs light.",
+        "enId": 241482,
+        "form": "吸収",
+        "furigana": [
+          ["黒", "くろ"],
+          ["い"],
+          ["布", "ぬの"],
+          ["は"],
+          ["光", "ひかり"],
+          ["を"],
+          ["吸収", "きゅうしゅう"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-28",
+    "term": "救助",
+    "kana": "きゅうじょ",
+    "meaning": "relief, aid, rescue",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 146131,
+        "ja": "乗組員全員が救助された。",
+        "en": "The whole crew was saved.",
+        "enId": 268432,
+        "form": "救助",
+        "furigana": [
+          ["乗組", "のりくみ"],
+          ["員", "いん"],
+          ["全員", "ぜんいん"],
+          ["が"],
+          ["救助", "きゅうじょ"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 98614,
+        "ja": "彼らには臨時救助が必要だ。",
+        "en": "They require extra help.",
+        "enId": 305086,
+        "form": "救助",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らには"],
+          ["臨時", "りんじ"],
+          ["救助", "きゅうじょ"],
+          ["が"],
+          ["必要", "ひつよう"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-29",
+    "term": "急速",
+    "kana": "きゅうそく",
+    "meaning": "rapid (e.g., progress)",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 126147,
+        "ja": "潮が急速に満ちてくる。",
+        "en": "The tide is rising fast.",
+        "enId": 277845,
+        "form": "急速に",
+        "furigana": [
+          ["潮", "しお"],
+          ["が"],
+          ["急速", "きゅうそく"],
+          ["に"],
+          ["満", "み"],
+          ["ちてくる。"]
+        ]
+      },
+      {
+        "id": 122371,
+        "ja": "日本経済は急速に成長した。",
+        "en": "The Japanese economy developed rapidly.",
+        "enId": 281632,
+        "form": "急速に",
+        "furigana": [
+          ["日本", "にっぽん"],
+          ["経済", "けいざい"],
+          ["は"],
+          ["急速", "きゅうそく"],
+          ["に"],
+          ["成長", "せいちょう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-30",
+    "term": "休息",
+    "kana": "きゅうそく",
+    "meaning": "rest, relief, relaxation",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 97145,
+        "ja": "彼らは今休息している。",
+        "en": "They are now at rest.",
+        "enId": 306559,
+        "form": "休息",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["今", "いま"],
+          ["休息", "きゅうそく"],
+          ["している。"]
+        ]
+      },
+      {
+        "id": 177356,
+        "ja": "休息をとったほうがいいよ。",
+        "en": "I think you had better take a rest.",
+        "enId": 16206,
+        "form": "休息",
+        "furigana": [["休息", "きゅうそく"], ["をとったほうがいいよ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-01-31",
+    "term": "給料",
+    "kana": "きゅうりょう",
+    "meaning": "salary, wages",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 117777,
+        "ja": "彼の給料はいい。",
+        "en": "He is well paid.",
+        "enId": 285887,
+        "form": "給料",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["給料", "きゅうりょう"],
+          ["はいい。"]
+        ]
+      },
+      {
+        "id": 163855,
+        "ja": "私の給料は週給です。",
+        "en": "I am paid by the week.",
+        "enId": 250654,
+        "form": "給料",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["給料", "きゅうりょう"],
+          ["は"],
+          ["週給", "しゅうきゅう"],
+          ["です。"]
+        ]
+      }
+    ]
+  }
+]
