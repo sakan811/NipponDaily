@@ -110,7 +110,10 @@ export default defineNuxtConfig({
       ],
     },
   },
-  nitro: { externals: { traceInclude: [HARFBUZZ_WASM] } },
+  // The entries are bundled into the server, and mapping them as well ran the
+  // build out of memory at the default heap size; nothing reads the maps.
+  sourcemap: { server: false },
+  nitro: { sourceMap: false, externals: { traceInclude: [HARFBUZZ_WASM] } },
   routeRules: {
     // The daily game and the lesson/vocabulary pages were replaced by the
     // daily-word calendar. Temporary (not 301) redirects, so old bookmarks and
