@@ -2,8 +2,11 @@
   <DocsBook slug="core-theme">
     <template #lede>
       NipponDaily teaches Japanese through linguistics and data. Each day opens
-      one word, taken apart: its morphemes, its layer of the vocabulary, the
-      processes that shaped it and the Wiktionary lines that back every claim.
+      one word from the JLPT {{ JLPT_RANGE }} lists with what its sources say:
+      its reading, meaning, pitch accent, example sentences and kanji and, where
+      a dictionary records how it was built, its morphemes, its layer of the
+      vocabulary, the processes that shaped it and the Wiktionary lines that
+      back every claim.
     </template>
 
     <h2>What the app is</h2>
@@ -44,6 +47,35 @@
       nothing for says <em>we don't have the data for this section</em> instead
       of guessing or disappearing.
     </p>
+
+    <h3>What every word has, and what only some do</h3>
+    <p>
+      Every word has a reading, a meaning and a JLPT level. Everything else
+      appears only where a source holds it, so each part of an entry reaches a
+      different share of the words. The app began as an etymology app and the
+      vocabulary grew past what the etymology sources cover, which is why it
+      leads with the first group and treats the origin as a depth, not a
+      promise. The counts are those of the words that have opened, read from the
+      API.
+    </p>
+    <div v-if="coverageRows.length" class="table-wrap">
+      <table data-testid="coverage-table">
+        <thead>
+          <tr>
+            <th>Part of an entry</th>
+            <th>Where it comes from</th>
+            <th>Words that have it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row in coverageRows" :key="row.part">
+            <td>{{ row.part }}</td>
+            <td>{{ row.source }}</td>
+            <td>{{ row.count }} of {{ row.words }} ({{ row.percent }})</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <h2>Time is the theme</h2>
     <p>
@@ -146,12 +178,43 @@
 <script setup lang="ts">
 import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
+import { computed } from "vue";
+import { useCatalogue } from "../../composables/useCatalogue";
 import type { DiagramSpec } from "../../utils/diagram";
+import { percentText } from "~~/shared/catalogue";
 import { andList, countWord } from "~~/shared/count";
 import { RATE_LIMIT } from "~~/shared/endpoints";
 import { JLPT_RANGE } from "~~/shared/jlpt";
 import { SEASON_IDS, seasonName } from "~~/shared/seasons";
 import { WORD_STRATA } from "~~/shared/word-labels";
+
+// The counts come from GET /api/catalogue, never typed here. With no answer
+// there is no table, rather than a table of invented numbers.
+const { catalogue } = useCatalogue();
+
+const coverageRows = computed(() => {
+  const c = catalogue.value?.coverage;
+  if (!c) return [];
+  const rows: [part: string, source: string, count: number][] = [
+    [
+      "Layer of the vocabulary",
+      "KANJIDIC2 readings or JMdict's loan source",
+      c.layer,
+    ],
+    ["Pitch accent", "Kanjium's accent list, where UniDic agrees", c.pitch],
+    ["Example sentences", "Tatoeba", c.examples],
+    ["Processes", "Wiktionary's text or JMdict", c.processes],
+    ["Parts (morphemes)", "Wiktionary's text, or KANJIDIC2 for kanji", c.parts],
+    ["Quoted origin", "Wiktionary's Etymology section", c.origin],
+  ];
+  return rows.map(([part, source, count]) => ({
+    part,
+    source,
+    count,
+    words: c.words,
+    percent: percentText(count, c.words),
+  }));
+});
 
 const strataText = andList(
   Object.values(WORD_STRATA).map((s) => `${s.native} (${s.label})`),
