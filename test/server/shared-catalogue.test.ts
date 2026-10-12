@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import {
+  coverageOf,
   monthLabel,
+  percentText,
   rangeMonthsText,
   rangeText,
   summariseCatalogue,
@@ -53,6 +55,46 @@ describe("summariseCatalogue", () => {
     );
     expect(s.total).toBe(WORD_ENTRIES.length);
     expect(s.open).toBe(s.total);
+  });
+});
+
+describe("coverageOf", () => {
+  const bare = { morphemes: [], processes: [], sources: [] };
+
+  it("counts the words that carry each part", () => {
+    const c = coverageOf([
+      { ...bare, stratum: "wago", pitch: [0], examples: [{}] },
+      { ...bare, morphemes: [{}], processes: ["compound"], sources: [{}] },
+      { ...bare, pitch: [], examples: [] },
+    ]);
+    expect(c).toEqual({
+      words: 3,
+      layer: 1,
+      pitch: 1,
+      examples: 1,
+      parts: 1,
+      processes: 1,
+      origin: 1,
+    });
+  });
+
+  it("agrees with the real catalogue", () => {
+    const c = coverageOf(WORD_ENTRIES);
+    expect(c.words).toBe(WORD_ENTRIES.length);
+    expect(c.parts).toBe(WORD_ENTRIES.filter((e) => e.morphemes.length).length);
+    expect(c.parts).toBeLessThanOrEqual(c.words);
+  });
+
+  it("copes with no words", () => {
+    expect(coverageOf([]).words).toBe(0);
+  });
+});
+
+describe("percentText", () => {
+  it("rounds to a whole percent and says nothing for no words", () => {
+    expect(percentText(1, 3)).toBe("33%");
+    expect(percentText(2, 3)).toBe("67%");
+    expect(percentText(0, 0)).toBe("");
   });
 });
 

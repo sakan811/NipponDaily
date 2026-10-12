@@ -108,7 +108,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     method: "GET",
     path: ROUTES.catalogue,
     returns:
-      "`{ first, last, total, open }`: the first and last day of the written catalogue, how many words it holds and how many have opened. The word range quoted in the docs comes from this.",
+      "`{ first, last, total, open, coverage }`: the first and last day of the written catalogue, how many words it holds and how many have opened, and in `coverage` how many of the open words carry a layer, a pitch accent, example sentences, parts, processes and a quoted origin. The word range and the coverage table quoted in the docs come from this.",
   },
   {
     method: "GET",

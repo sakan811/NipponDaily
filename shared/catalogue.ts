@@ -14,6 +14,53 @@ export interface CatalogueSummary {
   total: number;
   /** Words whose day (JST) has arrived. */
   open: number;
+  /** How much of each part of an entry the open words carry. Sent by
+   *  `GET /api/catalogue`; absent from a bare `summariseCatalogue()`. */
+  coverage?: Coverage;
+}
+
+/** How many words carry each part of an entry. Reading, meaning and level are
+ *  on every word, so they have no count. */
+export interface Coverage {
+  /** The words counted: every open word. */
+  words: number;
+  layer: number;
+  pitch: number;
+  examples: number;
+  parts: number;
+  processes: number;
+  /** Words with at least one quoted Wiktionary line about their origin. */
+  origin: number;
+}
+
+/** The parts of an entry `coverageOf` looks at (a `WordEntry` has them all). */
+interface CoverageEntry {
+  stratum?: string;
+  pitch?: readonly number[];
+  examples?: readonly unknown[];
+  morphemes: readonly unknown[];
+  processes: readonly unknown[];
+  sources: readonly unknown[];
+}
+
+/** Counts, over `entries`, the words that carry each part of an entry. */
+export function coverageOf(entries: readonly CoverageEntry[]): Coverage {
+  const count = (has: (e: CoverageEntry) => boolean): number =>
+    entries.filter(has).length;
+  return {
+    words: entries.length,
+    layer: count((e) => Boolean(e.stratum)),
+    pitch: count((e) => Boolean(e.pitch?.length)),
+    examples: count((e) => Boolean(e.examples?.length)),
+    parts: count((e) => e.morphemes.length > 0),
+    processes: count((e) => e.processes.length > 0),
+    origin: count((e) => e.sources.length > 0),
+  };
+}
+
+/** "73%": `n` of `total`, rounded to a whole percent; "" when there are no words. */
+export function percentText(n: number, total: number): string {
+  return total > 0 ? `${Math.round((100 * n) / total)}%` : "";
 }
 
 export const MONTH_NAMES = [
