@@ -51,6 +51,10 @@ describe("one owner per fact", () => {
     ).toEqual([]);
   });
 
+  it("the search length is read from shared/limits.ts, never typed as a maxlength", () => {
+    expect(typedOutside(sources(["app"]), [], /\bmaxlength="\d+"/)).toEqual([]);
+  });
+
   it("the music's crossfade and loudness are written only in shared/audio.ts", () => {
     expect(
       typedOutside(
