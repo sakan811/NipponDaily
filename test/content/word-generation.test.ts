@@ -37,7 +37,7 @@ describe("generated word entries", () => {
     ).toEqual([]);
   });
 
-  it("has a hand-written headline for every day, and nothing else hand-written", async () => {
+  it("has only a date, a word, a reading where needed and a headline in the plan", async () => {
     const { readFileSync, readdirSync } = await import("node:fs");
     const { join } = await import("node:path");
     const dir = join(import.meta.dirname, "../../data/word-plan");
@@ -46,11 +46,13 @@ describe("generated word entries", () => {
         // `kana` only names the reading when a spelling has several pool words.
         expect(
           Object.keys(p)
-            .filter((k) => k !== "kana")
+            .filter((k) => !["kana", "headline"].includes(k))
             .sort(),
           `${f} ${p.date}`,
-        ).toEqual(["date", "headline", "term"]);
-        expect(p.headline.length, `${p.date} headline`).toBeGreaterThan(10);
+        ).toEqual(["date", "term"]);
+        // A word with no hook has no headline at all, never an empty one.
+        if ("headline" in p)
+          expect(p.headline.length, `${p.date} headline`).toBeGreaterThan(10);
       }
     }
   });

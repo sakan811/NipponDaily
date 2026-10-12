@@ -8,13 +8,39 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { JLPT_LEVELS, referenceFile } from "../../shared/jlpt.ts";
 
-export function poolWords(root) {
+const snapshots = new Map();
+const snapshotOf = (root, level) => {
+  const path = join(root, referenceFile(level));
+  if (!snapshots.has(path))
+    snapshots.set(path, JSON.parse(readFileSync(path, "utf8")));
+  return snapshots.get(path);
+};
+
+/** Every list word once, with the level of the easiest list that holds it (a
+ *  word on two lists, or twice on one, is one pool word). */
+export function poolVocab(root) {
+  const seen = new Set();
   const vocab = [];
   for (const level of JLPT_LEVELS)
-    vocab.push(
-      ...JSON.parse(readFileSync(join(root, referenceFile(level)), "utf8"))
-        .vocab,
-    );
+    for (const v of snapshotOf(root, level).vocab) {
+      const key = `${v.term} ${v.kana}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      vocab.push({ ...v, level });
+    }
+  return vocab;
+}
+
+/** KANJIDIC2's record of every kanji the level snapshots hold. */
+export function poolKanji(root) {
+  const kanji = {};
+  for (const level of JLPT_LEVELS)
+    Object.assign(kanji, snapshotOf(root, level).kanji);
+  return kanji;
+}
+
+export function poolWords(root) {
+  const vocab = poolVocab(root);
   const words = [];
   const dir = join(root, "data/word-plan");
   for (const f of readdirSync(dir)

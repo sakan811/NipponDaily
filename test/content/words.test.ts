@@ -83,7 +83,7 @@ function readingFits(char: string, reading: string): boolean {
 }
 
 function entryText(e: WordEntry): string {
-  return e.headline;
+  return e.headline ?? "";
 }
 
 describe("the daily-word catalogue", () => {
@@ -197,6 +197,33 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
 
     it("quotes only Wiktionary lines from the section for its own reading", () => {
       const snap = snapshot.entries[term];
+      if (entry.sources.length === 0) {
+        // No origin is shown only where the dump has no section for the
+        // reading (or one that opens "From Middle Chinese" for a native word,
+        // which the generator refuses as another reading's), and then nothing
+        // is said about the word's origin or the dump.
+        expect(entry.wiktionaryDump).toBeUndefined();
+        expect(entry.morphemes).toEqual([]);
+        expect(entry.headline, "a headline promises an origin").toBeUndefined();
+        const hira = toHiragana(entry.kana);
+        const declared = (snap?.etymologies ?? []).filter(
+          (e) =>
+            e.readings.some(
+              (r) =>
+                r === hira ||
+                (r.length >= 2 &&
+                  hira.startsWith(r) &&
+                  hira.length - r.length <= 2),
+            ) ||
+            (snap?.etymologies.length === 1 && e.readings.length === 0),
+        );
+        if (!declared.some((e) => /(^|\n)From Middle Chinese\b/.test(e.text)))
+          expect(
+            declared,
+            "the dump has a section for this reading, but the entry shows none",
+          ).toEqual([]);
+        return;
+      }
       expect(
         snap,
         `no snapshot for ${term} — run pnpm data:etymology`,
@@ -242,8 +269,12 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
         (v) => v.term === entry.term && v.kana === entry.kana,
       )!;
       const hira = toHiragana(entry.kana);
-      const own = vocab.jmdict.filter((j) =>
-        j.readings.some((r) => toHiragana(r) === hira),
+      // A list writes an affix with its tilde (～観); JMdict spells it without.
+      const spelling = entry.term.replace(/[～〜]/g, "");
+      const own = vocab.jmdict.filter(
+        (j) =>
+          j.readings.some((r) => toHiragana(r) === hira) &&
+          (j.kanji.includes(spelling) || toHiragana(spelling) === hira),
       );
       const allowed = new Set(
         own.flatMap((j) => j.senses.flatMap((s) => s.pos)),
@@ -285,6 +316,16 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
 );
 
 describe("data/reference/etymology/", () => {
+  it("has a pin only for a word an entry shows an origin for, or a word the dump has none usable for", () => {
+    const quoted = new Set(
+      WORD_ENTRIES.filter((e) => e.sources.length).map((e) => e.term),
+    );
+    for (const e of WORD_ENTRIES)
+      if (e.sources.length)
+        expect(snapshot.entries[e.term], e.term).toBeDefined();
+    expect(quoted.size).toBeGreaterThan(0);
+  });
+
   it("has no pins for words that are not in the catalogue", () => {
     const used = new Set(WORD_ENTRIES.map((e) => e.term));
     const orphans = Object.keys(snapshot.entries).filter((t) => !used.has(t));

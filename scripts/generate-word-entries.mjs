@@ -15,22 +15,15 @@
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { JLPT_LEVELS, referenceFile } from "../shared/jlpt.ts";
 import { ROOT, args } from "./lib/cli.mjs";
 import { buildEntry } from "./lib/word-entry.mjs";
+import { poolKanji, poolVocab } from "./lib/pool-words.mjs";
 import { loadEtymologySnapshot } from "./lib/etymology-snapshot.mjs";
 import { loadSentenceSnapshot } from "./lib/sentence-snapshot.mjs";
 
 export function loadContext(root = ROOT) {
-  const vocab = [];
-  const kanji = {};
-  for (const level of JLPT_LEVELS) {
-    const ref = JSON.parse(
-      readFileSync(join(root, referenceFile(level)), "utf8"),
-    );
-    for (const v of ref.vocab) vocab.push({ ...v, level });
-    Object.assign(kanji, ref.kanji);
-  }
+  const vocab = poolVocab(root);
+  const kanji = poolKanji(root);
   const snapshot = loadEtymologySnapshot(root);
   const sentences = loadSentenceSnapshot(root);
   const pitchFile = join(root, "data/reference/pitch.json");
