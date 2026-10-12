@@ -12,7 +12,7 @@
         v-model="text"
         data-testid="explore-search"
         type="search"
-        maxlength="50"
+        :maxlength="MAX_QUERY_LENGTH"
         autocomplete="off"
         placeholder="Search a word, its reading, or its meaning"
         class="flex-1 border border-stone-500 bg-white dark:bg-stone-900/50 px-4 py-2.5 font-body-serif text-base focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30"
@@ -190,6 +190,7 @@ import { computed, onBeforeUnmount, ref, watch } from "vue";
 import { chipClass as chip } from "../utils/chip";
 import { partPath } from "../utils/seo";
 import { STRATUM_DOT } from "../utils/stratum";
+import { MAX_QUERY_LENGTH } from "~~/shared/limits";
 import {
   FREQUENCY_GROUPS,
   POS_GROUPS,
