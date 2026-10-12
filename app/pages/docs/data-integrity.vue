@@ -128,9 +128,11 @@
       upstream data for the same level. The Wiktionary dump's date and checksum
       are pinned in <code>scripts/lib/wiktionary-dump.mjs</code>; the dump
       itself is too large to commit, so only the sections the entries quote are.
-      A pool word with no Etymology section for its reading cannot become an
-      entry (<NuxtLink to="/docs/words">Daily words</NuxtLink>). The Tatoeba
-      export is pinned the same way, by size and checksum in
+      A pool word with no Etymology section for its reading is still an entry,
+      but it quotes nothing and is taken apart into nothing (<NuxtLink
+        to="/docs/words"
+        >Daily words</NuxtLink
+      >). The Tatoeba export is pinned the same way, by size and checksum in
       <code>scripts/lib/tatoeba-export.mjs</code>, and is too large to commit,
       so only the sentences the entries show are. The accent list, the UniDic
       archive that checks it and the KanjiVG release are pinned by size and
@@ -302,6 +304,11 @@
             大人 has one section per reading);
           </li>
           <li>
+            an entry with no <code>sources</code> has no headline, no parts and
+            no dump date, and the dump has no section for its reading (or only
+            one that opens “From Middle Chinese” for a native word);
+          </li>
+          <li>
             the morphemes literally spell the word and join to
             <code>kana</code>; each non-<code>irregular</code> single-kanji
             morpheme has a reading KANJIDIC2 lists and a gloss KANJIDIC2 or the
@@ -465,7 +472,7 @@ const provenance = [
   {
     field: "sources[]",
     source:
-      "The lines of Wiktionary's Etymology section for this reading, verbatim.",
+      "The lines of Wiktionary's Etymology section for this reading, verbatim. Empty where the dump has none, or has the section of another reading.",
   },
   {
     field: "morphemes[]",
@@ -482,8 +489,15 @@ const provenance = [
     source:
       "Tatoeba sentences the pinned export indexes under the word, as picked by `scripts/lib/example-sentences.mjs`: with a translation, short, the word's own form in the text. Quoted unchanged. `furigana` is Tatoeba's own transcription of the sentence, kept by `scripts/lib/furigana.mjs` only where each kanji's reading is one KANJIDIC2 (or JMdict, for the whole word) gives it and a contributor wrote it, or kuromoji, UniDic or Tatoeba's index agrees. Where the older checks (the index, JMdict) disagree with a contributor, the contributor's reading is used; where they disagree with Tatoeba's software, theirs is.",
   },
-  { field: "wiktionaryDump", source: "The snapshot's `dump` date." },
-  { field: "headline", source: "Hand-written (`data/word-plan/`)." },
+  {
+    field: "wiktionaryDump?",
+    source: "The snapshot's `dump` date, when the entry quotes it.",
+  },
+  {
+    field: "headline?",
+    source:
+      "Hand-written (`data/word-plan/`); a word without one has no origin to hook.",
+  },
 ];
 
 const build: Required<Pick<DiagramSpec, "nodes" | "edges">> = {

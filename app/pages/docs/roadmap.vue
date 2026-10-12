@@ -12,7 +12,15 @@
       only, derive rather than claim, and store nothing about a reader.
     </p>
 
-    <p><strong>Nothing is open right now.</strong></p>
+    <ul>
+      <li>
+        <strong>One spelling, several readings.</strong> The origin pins, the
+        sentences, the pitch accents and the uniqueness check are keyed by
+        spelling, so a pool word whose spelling another word already holds (後
+        ご next to 後 あと) is not planned. Keying them by spelling and reading
+        would let every pool word in.
+      </li>
+    </ul>
   </DocsBook>
 </template>
 

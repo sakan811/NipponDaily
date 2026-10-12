@@ -149,7 +149,7 @@ describe("the download sizes the Adding words chapter quotes", () => {
 });
 
 describe("the claims the Patterns text makes about the years", () => {
-  // The Daily words chapter says: no word before 2024 is N1, 2025 and 2026 are
+  // The Daily words chapter says: no word before 2024 is N1, 2025 is
   // almost all N1, and katakana spellings are nearly half of 2022.
   const entries = readdirSync(join(ROOT, "data/words"))
     .filter((f) => f.endsWith(".json"))
@@ -173,7 +173,7 @@ describe("the claims the Patterns text makes about the years", () => {
     );
   });
 
-  it.each([2025, 2026])("%i is almost all N1", (y) => {
+  it.each([2025])("%i is almost all N1", (y) => {
     expect(share(year(y), (e) => e.level === "N1")).toBeGreaterThan(0.9);
   });
 

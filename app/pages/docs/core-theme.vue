@@ -26,7 +26,7 @@
       <strong>Source citation:</strong> every claim about a word names where it
       came from (only the one-line headline is written by hand, and it is a
       hook, not a claim), so a reader can follow the link and check it, and
-      where a source cannot back a claim the app shows nothing rather than
+      where a source cannot back a claim the app says it has no data rather than
       guess. It was made by someone still learning Japanese, which is why it
       works this way.
     </p>
@@ -35,10 +35,14 @@
     <p>
       Every word comes from the community JLPT {{ JLPT_RANGE }} lists, and from
       nowhere else. The lists are a trusted, widely used starting point, and the
-      app keeps to them rather than widen the pool to find more words. A word is
-      added only if it is on a list and the pinned dump has an Etymology section
-      for its reading, so when no more such words can be built the catalogue is
-      complete, not short.
+      app keeps to them rather than widen the pool to find more words. Every
+      list word is planned, one a day, easiest list first. What an entry shows
+      depends on what the sources hold: an origin only where the pinned dump has
+      an Etymology section for the word's reading, a pitch accent only where the
+      accent list and a second dictionary agree, and so on. A section the
+      sources have nothing for says
+      <em>we don't have the data for this section</em> instead of guessing or
+      disappearing.
     </p>
 
     <h2>Time is the theme</h2>
