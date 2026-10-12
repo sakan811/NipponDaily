@@ -1,10 +1,11 @@
 <template>
   <DocsBook slug="features">
     <template #lede>
-      NipponDaily opens one Japanese word a day and takes it apart: its
-      morphemes, its layer of the vocabulary, the processes that shaped it and
-      the evidence behind every claim, with a calendar to look back through
-      every word so far.
+      NipponDaily opens one Japanese word a day with what its sources say: the
+      reading, meaning, pitch accent and example sentences and, where they
+      record it, its morphemes, its layer of the vocabulary, the processes that
+      shaped it and the evidence behind every claim, with a calendar to look
+      back through every word so far.
     </template>
 
     <h2>What a reader gets</h2>

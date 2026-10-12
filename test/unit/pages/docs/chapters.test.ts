@@ -126,6 +126,36 @@ describe("the chapters' content", () => {
     expect(wrapper.find("figure svg").exists()).toBe(true);
   });
 
+  it("core theme tabulates the coverage it is sent, and none when it is not", async () => {
+    (global as any).$fetch.mockResolvedValue({
+      success: true,
+      data: {
+        first: "2026-01-01",
+        last: "2026-01-10",
+        total: 10,
+        open: 10,
+        coverage: {
+          words: 10,
+          layer: 9,
+          pitch: 8,
+          examples: 7,
+          parts: 2,
+          processes: 3,
+          origin: 4,
+        },
+      },
+    });
+    const wrapper = await render("core-theme");
+    const rows = wrapper.findAll('[data-testid="coverage-table"] tbody tr');
+    expect(rows).toHaveLength(6);
+    expect(wrapper.text()).toContain("2 of 10 (20%)");
+    expect(wrapper.text()).toContain("9 of 10 (90%)");
+
+    (global as any).$fetch.mockRejectedValue(new Error("offline"));
+    const offline = await render("core-theme");
+    expect(offline.find('[data-testid="coverage-table"]').exists()).toBe(false);
+  });
+
   it("architecture draws the import rule and states it", async () => {
     const wrapper = await render("architecture");
     expect(wrapper.find("figure svg .dg-edge-never").exists()).toBe(true);
