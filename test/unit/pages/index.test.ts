@@ -47,8 +47,9 @@ describe("Index Page (Landing)", () => {
   it("renders the hero pitch", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("a story.");
-    expect(wrapper.text()).toContain("takes it apart");
+    expect(wrapper.text()).toContain("with its sources.");
+    expect(wrapper.text()).toContain("shows what its sources say");
+    expect(wrapper.text()).toContain("the page says so");
     expect(wrapper.text()).toContain("The calendar keeps every word");
   });
 
@@ -129,11 +130,12 @@ describe("Index Page (Landing)", () => {
     expect(wrapper.text()).not.toContain("Play Today's Game");
   });
 
-  it("renders the six parts of every entry", () => {
+  it("renders the basics and the six parts that appear where recorded", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("Inside Every Entry");
+    expect(wrapper.text()).toContain("Inside an Entry");
     for (const title of [
+      "The Basics",
       "Taken Apart",
       "Which Layer",
       "The Process",

@@ -6,7 +6,7 @@
   <img src="./public/dark/android-chrome-512x512.png" width="256" height="256" alt="logo dark" />
 </p>
 
-**A Japanese word a day, taken apart.** Each day opens one word and shows how it is built: its morphemes, its layer of the vocabulary (<!-- docs:begin strata -->和語 Native Japanese, 漢語 Sino-Japanese, 外来語 Loanword, 混種語 Hybrid<!-- docs:end strata -->), the processes that shaped it, and the Wiktionary lines behind every claim. A calendar lets you look back through every word so far. No accounts, no tracking.
+**A Japanese word a day, with the sources behind it.** Each day opens one word from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> lists and shows what its sources say: the reading, meaning, pitch accent, example sentences and kanji. Where a dictionary records how the word was built, the entry shows that too: its morphemes, its layer of the vocabulary (<!-- docs:begin strata -->和語 Native Japanese, 漢語 Sino-Japanese, 外来語 Loanword, 混種語 Hybrid<!-- docs:end strata -->), the processes that shaped it, and the Wiktionary lines behind every claim. A calendar lets you look back through every word so far. No accounts, no tracking.
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 

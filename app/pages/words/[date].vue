@@ -90,7 +90,7 @@ usePageSeo({
   description: () =>
     payload.value
       ? wordDescription(payload.value.entry)
-      : "One Japanese word, taken apart: its parts, its layer and the evidence for where it comes from.",
+      : "One Japanese word from the JLPT lists, with its reading, meaning, pitch accent and examples and, where the sources record it, its origin.",
   path: () => `/words/${date.value}`,
   type: "article",
   // A word opens at midnight in Japan.

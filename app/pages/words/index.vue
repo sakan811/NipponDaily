@@ -347,7 +347,7 @@ usePageSeo({
       ? `Words for ${monthLabel(calendar.value.month)}`
       : "The word calendar",
   description:
-    "Every Japanese word NipponDaily has taken apart so far, one per day, in a month-by-month calendar you can filter by level, layer, process and part of speech.",
+    "Every Japanese word NipponDaily has opened so far, one per day, in a month-by-month calendar you can filter by level, layer, process and part of speech.",
   // Filtered views are the same page seen through a filter, so they point
   // search engines at the plain month.
   path: () =>

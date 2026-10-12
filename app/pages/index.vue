@@ -6,25 +6,29 @@
       <!-- Hero -->
       <div class="text-center max-w-3xl mx-auto space-y-6">
         <p class="kicker text-primary-600 dark:text-primary-400">
-          One Word, Taken Apart, Every Day
+          One Word a Day, With Its Sources
         </p>
 
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          Every word has<br class="hidden sm:inline" />
+          One word a day,<br class="hidden sm:inline" >
           <span
             class="text-primary-600 dark:text-primary-400 italic font-normal"
-            >a story.</span
+            >with its sources.</span
           >
         </h1>
 
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-body-serif"
         >
-          Each day NipponDaily opens one Japanese word and takes it apart: its
-          morphemes, the layer of the language it belongs to, the sound changes
-          and borrowings that made it, and the evidence behind every claim.
+          Each day NipponDaily opens one word from the JLPT {{ JLPT_RANGE }}
+          lists and shows what its sources say: the reading, meaning and pitch
+          accent, example sentences, and the kanji it is written with. Where a
+          dictionary records how the word was built, such as its parts, its
+          layer of the vocabulary and the sound changes behind it, that is shown
+          too, quoted and linked. Where the sources are silent, the page says so
+          instead of guessing.
         </p>
       </div>
 
@@ -138,11 +142,12 @@
           <h2
             class="text-3xl font-serif font-bold text-stone-900 dark:text-white"
           >
-            Inside Every Entry
+            Inside an Entry
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
           <p class="text-sm text-stone-600 dark:text-stone-400 font-sans">
-            A word a day, read slowly — about as long as a cup of tea.
+            A word a day, read slowly — about as long as a cup of tea. Every
+            entry has the basics; the rest appears where the sources record it.
           </p>
         </div>
 
@@ -152,7 +157,10 @@
           <div
             v-for="(part, idx) in entryParts"
             :key="idx"
-            class="group season-box flex items-start gap-4 p-5 border border-stone-200 dark:border-stone-800 bg-white/70 dark:bg-stone-900/50 hover:border-primary-500/40 transition-colors duration-200"
+            :class="[
+              'group season-box flex items-start gap-4 p-5 border border-stone-200 dark:border-stone-800 bg-white/70 dark:bg-stone-900/50 hover:border-primary-500/40 transition-colors duration-200',
+              part.wide && 'md:col-span-2',
+            ]"
           >
             <span
               class="font-serif text-2xl text-stone-600 dark:text-stone-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 leading-none pt-0.5"
@@ -193,11 +201,11 @@
           quote isn't really in it. Readings, meanings and parts of speech come
           from JMdict, and kanji readings from KANJIDIC2. When the sources
           disagree — or nobody knows — the entry says so instead of picking a
-          winner. The words are the JLPT N5–N1 vocabulary, and a section with no
-          source behind it says so instead of guessing. The site's colors and
-          shapes follow the seasons — spring, summer, autumn and winter — and
-          the season button in the header lets you pick your own. Nothing about
-          you is sent or saved on a server.
+          winner. The words are the JLPT {{ JLPT_RANGE }} vocabulary, and a
+          section with no source behind it says so instead of guessing. The
+          site's colors and shapes follow the seasons — spring, summer, autumn
+          and winter — and the season button in the header lets you pick your
+          own. Nothing about you is sent or saved on a server.
         </p>
       </section>
 
@@ -254,17 +262,18 @@ import { useDailyWord } from "../composables/useDailyWord";
 import { usePageSeo } from "../composables/usePageSeo";
 import { shareImagePath, wordTitle } from "../utils/seo";
 import { formatLongDate } from "../utils/date";
+import { JLPT_RANGE } from "~~/shared/jlpt";
 import { LICENCES } from "~~/shared/sources";
 import { DOC_CHAPTERS, chapterNumber, docPath } from "~~/shared/docs";
 
 const { payload, loading, error, refresh } = useDailyWord();
 
 usePageSeo({
-  title: "One Japanese word a day, taken apart",
+  title: "One Japanese word a day, with its sources",
   description: () =>
     payload.value
-      ? `Today: ${wordTitle(payload.value.entry)}. Each day NipponDaily takes one Japanese word apart — its parts, its layer of the vocabulary, how it came to be — with the Wiktionary lines behind every claim.`
-      : "Each day NipponDaily takes one Japanese word apart — its parts, its layer of the vocabulary, how it came to be — with the Wiktionary lines behind every claim.",
+      ? `Today: ${wordTitle(payload.value.entry)}. Each day NipponDaily opens one word from the JLPT lists with its reading, meaning, pitch accent and examples and, where its sources record it, its parts, layer and origin, quoted from Wiktionary.`
+      : "Each day NipponDaily opens one word from the JLPT lists with its reading, meaning, pitch accent and examples and, where its sources record it, its parts, layer and origin, quoted from Wiktionary.",
   path: "/",
   // The word shown may be on a later lap, but its own day has always opened.
   image: () =>
@@ -278,8 +287,8 @@ const howItWorks = [
     text: "A new word opens every day at midnight in Japan. Today's is below.",
   },
   {
-    title: "2 · Read it apart",
-    text: "Open it to see its parts, its origin and the sources, in plain steps.",
+    title: "2 · Read what is known",
+    text: "Open it to see its reading, pitch and examples and, where the sources record it, its parts and origin.",
   },
   {
     title: "3 · Miss a day? Fine",
@@ -289,24 +298,30 @@ const howItWorks = [
 
 const entryParts = [
   {
+    title: "The Basics",
+    wide: true,
+    description:
+      "On every word: its reading, meaning, JLPT level and part of speech, from JMdict. Where the sources have them, a pitch accent, example sentences from Tatoeba and the kanji it is written with. The rest of the entry is shown only where a source records it.",
+  },
+  {
     title: "Taken Apart",
     description:
-      "The word split into its parts, each with its reading and the meaning Wiktionary gives it — shown only when the source's own split spells the word and joins to its reading. If it doesn't, no split is shown.",
+      "Where recorded, the word split into its parts, each with its reading and the meaning Wiktionary gives it — shown only when the source's own split spells the word and joins to its reading. If it doesn't, no split is shown.",
   },
   {
     title: "Which Layer",
     description:
-      "Native 和語, Sino-Japanese 漢語, loanword 外来語 or a hybrid: the layer of the vocabulary a word belongs to, read from its kanji's KANJIDIC2 readings, alongside the part of speech from JMdict.",
+      "Native 和語, Sino-Japanese 漢語, loanword 外来語 or a hybrid: the layer of the vocabulary a word belongs to, where its kanji's KANJIDIC2 readings or JMdict's loan source establish it.",
   },
   {
     title: "The Process",
     description:
-      "Compounding, rendaku, clipping, ateji, borrowing, sound change: each entry names the processes its Wiktionary text mentions and defines them.",
+      "Compounding, rendaku, clipping, ateji, borrowing, sound change: where an entry's Wiktionary text or JMdict mentions one, it is named and defined.",
   },
   {
     title: "The Story",
     description:
-      "Where the word comes from, in Wiktionary's own words: its Etymology lines for this reading, quoted verbatim and never paraphrased.",
+      "Where Wiktionary has an Etymology section for this reading, the word's origin in its own words, quoted verbatim and never paraphrased.",
   },
   {
     title: "What's Not Settled",
