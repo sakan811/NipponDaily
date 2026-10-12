@@ -132,9 +132,6 @@ vi.mock("h3", () => ({
   getQuery: vi.fn(() => ({})),
   getHeader: vi.fn(() => undefined),
   getRouterParam: vi.fn(() => null),
-  getCookie: vi.fn(() => null),
-  setCookie: vi.fn(),
-  deleteCookie: vi.fn(),
   setResponseHeaders: vi.fn(),
   readBody: vi.fn(() => ({})),
   createError: vi.fn((error) => ({
