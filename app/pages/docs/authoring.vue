@@ -303,7 +303,7 @@ const pieces = [
   },
   {
     path: "shared/meanings.ts",
-    what: "Where to correct or enrich what a pool word says (`VOCAB_FORM_CORRECTIONS`, `VOCAB_MEANING_ENRICHMENTS`), keyed by `term kana` and applied by `servedVocab()` when a snapshot is built. Three rows the source list itself has wrong are fixed in `scripts/lib/word-list.mjs` (`VOCAB_MEANING_OVERRIDES`, `VOCAB_READING_OVERRIDES`).",
+    what: "Where to correct or enrich what a pool word says (`VOCAB_FORM_CORRECTIONS`, `VOCAB_MEANING_ENRICHMENTS`), keyed by `term kana` and applied by `servedVocab()` when a snapshot is built. The few rows the source list itself has wrong are fixed in `scripts/lib/word-list.mjs` (`VOCAB_MEANING_OVERRIDES`, `VOCAB_READING_OVERRIDES`).",
   },
 ];
 

@@ -85,9 +85,10 @@ pnpm dev          # http://localhost:3000</code></pre>
       <li>
         <strong><code>test/server</code></strong> (node; no project name, so
         scope by path: <code>pnpm exec vitest run test/server</code>): API
-        handlers, the <code>shared/</code> modules, the data scripts and
-        services. The word endpoints need no mock because they read in-repo
-        data; their tests freeze the clock with <code>vi.useFakeTimers()</code>.
+        handlers, the <code>shared/</code> modules, the data scripts and the
+        server utilities. The word endpoints need no mock because they read
+        in-repo data; their tests freeze the clock with
+        <code>vi.useFakeTimers()</code>.
       </li>
       <li>
         <strong><code>test/content</code></strong> (fully offline): every entry
@@ -97,15 +98,15 @@ pnpm dev          # http://localhost:3000</code></pre>
         >).
       </li>
       <li>
-        <strong><code>test/integration</code></strong> (node, about half a
-        minute): builds Nuxt into a throwaway directory, starts the built server
-        and requests every route over HTTP. It checks that the home page and a
-        day's page hold their word in the HTML, that every part, kanji and
-        chapter page answers, that a day that has not arrived is a
-        <code>404</code> and the old links redirect, that the share image is a
-        PNG, and that the cache header is on an answer and not on an error. It
-        has no setup file, because <code>test/setup.ts</code> replaces the
-        global <code>fetch</code> with a mock. To run it alone:
+        <strong><code>test/integration</code></strong> (node): builds Nuxt into
+        a throwaway directory, starts the built server and requests every route
+        over HTTP. It checks that the home page and a day's page hold their word
+        in the HTML, that every part, kanji and chapter page answers, that a day
+        that has not arrived is a <code>404</code> and the old links redirect,
+        that the share image is a PNG, and that the cache header is on an answer
+        and not on an error. It has no setup file, because
+        <code>test/setup.ts</code> replaces the global <code>fetch</code> with a
+        mock. To run it alone:
         <code>pnpm exec vitest run --project integration</code>.
       </li>
       <li>
@@ -187,15 +188,30 @@ pnpm dev          # http://localhost:3000</code></pre>
         the <code>localStorage</code> keys, the JSON envelope, the JLPT levels,
         the page chrome) is not written out again beside it.
       </li>
-      <li><code>docs-sync</code>: the docs against the code (see below).</li>
+      <li>
+        <code>principles</code>: the principles no other test sees. Nothing
+        leaves the app (no other origin, script, frame, download, beacon or
+        server write) and no reader data (no cookie, no storage but the named
+        <code>localStorage</code> keys, no address read but by the rate
+        limiter).
+      </li>
+      <li>
+        <code>server-only-modules</code>: the import rule's list in
+        <code>shared/server-only.ts</code> against the imports, so a new module
+        that reads the entries cannot go unlisted.
+      </li>
+      <li>
+        <code>docs-sync</code>: the docs against the code (see below), including
+        the Architecture chapter's lists of modules, components, pages and
+        redirects.
+      </li>
       <li>
         <code>docs-claims</code>: the figures the docs quote against their
         source: the Node range against Nuxt's, the loudness in
         <code>shared/audio.ts</code> against ffmpeg's measure of the tracks
         (skipped without ffmpeg), the download sizes in Adding and fixing words
-        against the pins, the statements about the years against the data, a
-        chapter that lists the same backers as another, a link to the Roadmap
-        while it is empty, and a word written twice.
+        against the pins, a chapter that lists the same backers as another, a
+        link to the Roadmap while it is empty, and a word written twice.
       </li>
     </ul>
 
@@ -323,7 +339,6 @@ const commands = [
     cmd: "pnpm dev / build / start / preview",
     does: "Dev server, production build, run the build, preview it.",
   },
-  { cmd: "pnpm generate", does: "Static site generation." },
   {
     cmd: "pnpm test / test:run / test:coverage",
     does: "Vitest in watch mode, once, or with coverage.",
