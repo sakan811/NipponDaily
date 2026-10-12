@@ -18,7 +18,7 @@
    },
    "licence": "KANJIDIC2 © EDRDG, CC BY-SA 4.0"
   },
-  "count": 1340
+  "count": 1978
  },
  "kanji": {
   "一": {
@@ -214,6 +214,31 @@
     "clumsy"
    ]
   },
+  "与": {
+   "strokeCount": 3,
+   "grade": 8,
+   "freq": 308,
+   "on": [
+    "ヨ"
+   ],
+   "kun": [
+    "あた.える",
+    "あずか.る",
+    "くみ.する",
+    "ともに"
+   ],
+   "meanings": [
+    "bestow",
+    "participate in",
+    "give",
+    "award",
+    "impart",
+    "provide",
+    "cause",
+    "gift",
+    "godsend"
+   ]
+  },
   "且": {
    "strokeCount": 5,
    "grade": 8,
@@ -248,6 +273,39 @@
     "world",
     "society",
     "public"
+   ]
+  },
+  "丘": {
+   "strokeCount": 5,
+   "grade": 8,
+   "freq": 1405,
+   "on": [
+    "キュウ"
+   ],
+   "kun": [
+    "おか"
+   ],
+   "meanings": [
+    "hill",
+    "knoll"
+   ]
+  },
+  "両": {
+   "strokeCount": 6,
+   "grade": 3,
+   "freq": 247,
+   "on": [
+    "リョウ"
+   ],
+   "kun": [
+    "てる",
+    "ふたつ"
+   ],
+   "meanings": [
+    "both",
+    "old Japanese coin",
+    "counter for carriages (e.g., in a train)",
+    "two"
    ]
   },
   "並": {
@@ -361,6 +419,28 @@
     "bowl of food"
    ]
   },
+  "乃": {
+   "strokeCount": 2,
+   "grade": 9,
+   "freq": 1978,
+   "on": [
+    "ナイ",
+    "ダイ",
+    "ノ",
+    "アイ"
+   ],
+   "kun": [
+    "の",
+    "すなわ.ち",
+    "なんじ"
+   ],
+   "meanings": [
+    "from",
+    "possessive particle",
+    "whereupon",
+    "accordingly"
+   ]
+  },
   "久": {
    "strokeCount": 3,
    "grade": 5,
@@ -375,6 +455,23 @@
    "meanings": [
     "long time",
     "old story"
+   ]
+  },
+  "乏": {
+   "strokeCount": 4,
+   "grade": 8,
+   "freq": 1646,
+   "on": [
+    "ボウ"
+   ],
+   "kun": [
+    "とぼ.しい",
+    "とも.しい"
+   ],
+   "meanings": [
+    "destitution",
+    "scarce",
+    "limited"
    ]
   },
   "乗": {
@@ -700,6 +797,27 @@
     "coming & going"
    ]
   },
+  "享": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1893,
+   "on": [
+    "キョウ",
+    "コウ"
+   ],
+   "kun": [
+    "う.ける"
+   ],
+   "meanings": [
+    "enjoy",
+    "receive",
+    "undergo",
+    "answer (phone)",
+    "take",
+    "get",
+    "catch"
+   ]
+  },
   "京": {
    "strokeCount": 8,
    "grade": 2,
@@ -879,6 +997,22 @@
     "fee"
    ]
   },
+  "令": {
+   "strokeCount": 5,
+   "grade": 4,
+   "freq": 804,
+   "on": [
+    "レイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "orders",
+    "laws",
+    "command",
+    "decree",
+    "good"
+   ]
+  },
   "以": {
    "strokeCount": 5,
    "grade": 4,
@@ -916,6 +1050,31 @@
     "informal"
    ]
   },
+  "仰": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 1573,
+   "on": [
+    "ギョウ",
+    "コウ"
+   ],
+   "kun": [
+    "あお.ぐ",
+    "おお.せ",
+    "お.っしゃる",
+    "おっしゃ.る"
+   ],
+   "meanings": [
+    "face-up",
+    "look up",
+    "depend",
+    "seek",
+    "respect",
+    "revere",
+    "drink",
+    "take"
+   ]
+  },
   "仲": {
    "strokeCount": 6,
    "grade": 4,
@@ -929,6 +1088,23 @@
    "meanings": [
     "go-between",
     "relationship"
+   ]
+  },
+  "件": {
+   "strokeCount": 6,
+   "grade": 5,
+   "freq": 212,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "くだん"
+   ],
+   "meanings": [
+    "affair",
+    "case",
+    "matter",
+    "item"
    ]
   },
   "任": {
@@ -967,6 +1143,25 @@
     "design",
     "attempt",
     "plan"
+   ]
+  },
+  "伏": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 1604,
+   "on": [
+    "フク"
+   ],
+   "kun": [
+    "ふ.せる",
+    "ふ.す"
+   ],
+   "meanings": [
+    "prostrated",
+    "bend down",
+    "bow",
+    "cover",
+    "lay (pipes)"
    ]
   },
   "休": {
@@ -1008,6 +1203,21 @@
     "association",
     "interview",
     "join"
+   ]
+  },
+  "伜": {
+   "strokeCount": 6,
+   "on": [
+    "サイ",
+    "ソツ",
+    "ソチ"
+   ],
+   "kun": [
+    "せがれ"
+   ],
+   "meanings": [
+    "son",
+    "my son"
    ]
   },
   "伝": {
@@ -1109,6 +1319,25 @@
     "inquire",
     "question",
     "implore"
+   ]
+  },
+  "似": {
+   "strokeCount": 7,
+   "grade": 5,
+   "freq": 923,
+   "on": [
+    "ジ"
+   ],
+   "kun": [
+    "に.る",
+    "ひ.る"
+   ],
+   "meanings": [
+    "becoming",
+    "resemble",
+    "counterfeit",
+    "imitate",
+    "suitable"
    ]
   },
   "但": {
@@ -1263,6 +1492,23 @@
     "build"
    ]
   },
+  "併": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 966,
+   "on": [
+    "ヘイ"
+   ],
+   "kun": [
+    "あわ.せる"
+   ],
+   "meanings": [
+    "join",
+    "get together",
+    "unite",
+    "collective"
+   ]
+  },
   "使": {
    "strokeCount": 8,
    "grade": 3,
@@ -1345,6 +1591,25 @@
     "accompany"
    ]
   },
+  "依": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 906,
+   "on": [
+    "イ",
+    "エ"
+   ],
+   "kun": [
+    "よ.る"
+   ],
+   "meanings": [
+    "reliant",
+    "depend on",
+    "consequently",
+    "therefore",
+    "due to"
+   ]
+  },
   "価": {
    "strokeCount": 8,
    "grade": 5,
@@ -1359,6 +1624,24 @@
    "meanings": [
     "value",
     "price"
+   ]
+  },
+  "侮": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 2004,
+   "on": [
+    "ブ"
+   ],
+   "kun": [
+    "あなど.る",
+    "あなず.る"
+   ],
+   "meanings": [
+    "scorn",
+    "despise",
+    "make light of",
+    "contempt"
    ]
   },
   "侵": {
@@ -1399,6 +1682,75 @@
     "chance"
    ]
   },
+  "係": {
+   "strokeCount": 9,
+   "grade": 3,
+   "freq": 232,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [
+    "かか.る",
+    "かかり",
+    "-がかり",
+    "かか.わる"
+   ],
+   "meanings": [
+    "person in charge",
+    "connection",
+    "duty",
+    "concern oneself"
+   ]
+  },
+  "促": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 998,
+   "on": [
+    "ソク"
+   ],
+   "kun": [
+    "うなが.す"
+   ],
+   "meanings": [
+    "stimulate",
+    "urge",
+    "press",
+    "demand",
+    "incite"
+   ]
+  },
+  "俄": {
+   "strokeCount": 9,
+   "grade": 9,
+   "on": [
+    "ガ"
+   ],
+   "kun": [
+    "にわか"
+   ],
+   "meanings": [
+    "sudden",
+    "abrupt",
+    "improvised"
+   ]
+  },
+  "俗": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1610,
+   "on": [
+    "ゾク"
+   ],
+   "kun": [],
+   "meanings": [
+    "vulgar",
+    "customs",
+    "manners",
+    "worldliness",
+    "mundane things"
+   ]
+  },
   "保": {
    "strokeCount": 9,
    "grade": 5,
@@ -1434,6 +1786,55 @@
     "trust"
    ]
   },
+  "修": {
+   "strokeCount": 10,
+   "grade": 5,
+   "freq": 603,
+   "on": [
+    "シュウ",
+    "シュ"
+   ],
+   "kun": [
+    "おさ.める",
+    "おさ.まる"
+   ],
+   "meanings": [
+    "discipline",
+    "conduct oneself well",
+    "study",
+    "master"
+   ]
+  },
+  "俳": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 1137,
+   "on": [
+    "ハイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "haiku",
+    "actor"
+   ]
+  },
+  "俵": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 1481,
+   "on": [
+    "ヒョウ"
+   ],
+   "kun": [
+    "たわら"
+   ],
+   "meanings": [
+    "bag",
+    "bale",
+    "sack",
+    "counter for bags"
+   ]
+  },
   "俺": {
    "strokeCount": 10,
    "grade": 8,
@@ -1450,6 +1851,24 @@
     "myself"
    ]
   },
+  "倉": {
+   "strokeCount": 10,
+   "grade": 4,
+   "freq": 1114,
+   "on": [
+    "ソウ"
+   ],
+   "kun": [
+    "くら"
+   ],
+   "meanings": [
+    "godown",
+    "warehouse",
+    "storehouse",
+    "cellar",
+    "treasury"
+   ]
+  },
   "個": {
    "strokeCount": 10,
    "grade": 5,
@@ -1462,6 +1881,21 @@
    "meanings": [
     "individual",
     "counter for articles"
+   ]
+  },
+  "倍": {
+   "strokeCount": 10,
+   "grade": 3,
+   "freq": 714,
+   "on": [
+    "バイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "double",
+    "twice",
+    "times",
+    "fold"
    ]
   },
   "倒": {
@@ -1485,6 +1919,24 @@
     "collapse",
     "drop",
     "break down"
+   ]
+  },
+  "候": {
+   "strokeCount": 10,
+   "grade": 4,
+   "freq": 510,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "そうろう"
+   ],
+   "meanings": [
+    "climate",
+    "season",
+    "weather",
+    "wait for",
+    "expect"
    ]
   },
   "借": {
@@ -1534,6 +1986,60 @@
     "value"
    ]
   },
+  "倹": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 2479,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "つま.しい",
+    "つづまやか"
+   ],
+   "meanings": [
+    "frugal",
+    "economy",
+    "thrifty"
+   ]
+  },
+  "偉": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1639,
+   "on": [
+    "イ"
+   ],
+   "kun": [
+    "えら.い"
+   ],
+   "meanings": [
+    "admirable",
+    "greatness",
+    "remarkable",
+    "conceited",
+    "famous",
+    "excellent"
+   ]
+  },
+  "偏": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1340,
+   "on": [
+    "ヘン"
+   ],
+   "kun": [
+    "かたよ.る"
+   ],
+   "meanings": [
+    "partial",
+    "side",
+    "left-side radical",
+    "inclining",
+    "biased"
+   ]
+  },
   "停": {
    "strokeCount": 11,
    "grade": 5,
@@ -1567,6 +2073,25 @@
     "persistence"
    ]
   },
+  "側": {
+   "strokeCount": 11,
+   "grade": 4,
+   "freq": 216,
+   "on": [
+    "ソク"
+   ],
+   "kun": [
+    "かわ",
+    "がわ",
+    "そば"
+   ],
+   "meanings": [
+    "side",
+    "lean",
+    "oppose",
+    "regret"
+   ]
+  },
   "偶": {
    "strokeCount": 11,
    "grade": 8,
@@ -1583,6 +2108,66 @@
     "couple",
     "man & wife",
     "same kind"
+   ]
+  },
+  "偽": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1171,
+   "on": [
+    "ギ",
+    "カ"
+   ],
+   "kun": [
+    "いつわ.る",
+    "にせ",
+    "いつわ.り"
+   ],
+   "meanings": [
+    "falsehood",
+    "lie",
+    "deceive",
+    "pretend",
+    "counterfeit",
+    "forgery"
+   ]
+  },
+  "傍": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1660,
+   "on": [
+    "ボウ"
+   ],
+   "kun": [
+    "かたわ.ら",
+    "わき",
+    "おか-",
+    "はた",
+    "そば"
+   ],
+   "meanings": [
+    "bystander",
+    "side",
+    "besides",
+    "while",
+    "nearby",
+    "third person"
+   ]
+  },
+  "傑": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1926,
+   "on": [
+    "ケツ"
+   ],
+   "kun": [
+    "すぐ.れる"
+   ],
+   "meanings": [
+    "greatness",
+    "excellence"
    ]
   },
   "傘": {
@@ -1615,6 +2200,37 @@
     "equip",
     "provision",
     "preparation"
+   ]
+  },
+  "催": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 536,
+   "on": [
+    "サイ"
+   ],
+   "kun": [
+    "もよう.す",
+    "もよお.す"
+   ],
+   "meanings": [
+    "sponsor",
+    "hold (a meeting)",
+    "give (a dinner)"
+   ]
+  },
+  "債": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 728,
+   "on": [
+    "サイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "bond",
+    "loan",
+    "debt"
    ]
   },
   "傷": {
@@ -1665,6 +2281,20 @@
     "sink",
     "ruin",
     "bias"
+   ]
+  },
+  "僅": {
+   "strokeCount": 12,
+   "grade": 8,
+   "on": [
+    "キン",
+    "ゴン"
+   ],
+   "kun": [
+    "わず.か"
+   ],
+   "meanings": [
+    "a wee bit"
    ]
   },
   "働": {
@@ -1771,6 +2401,23 @@
     "10**8"
    ]
   },
+  "償": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 854,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "つぐな.う"
+   ],
+   "meanings": [
+    "reparation",
+    "make up for",
+    "recompense",
+    "redeem"
+   ]
+  },
   "優": {
    "strokeCount": 17,
    "grade": 6,
@@ -1844,6 +2491,22 @@
     "big brother"
    ]
   },
+  "充": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 949,
+   "on": [
+    "ジュウ"
+   ],
+   "kun": [
+    "あ.てる",
+    "み.たす"
+   ],
+   "meanings": [
+    "allot",
+    "fill"
+   ]
+  },
   "兆": {
    "strokeCount": 6,
    "grade": 4,
@@ -1899,6 +2562,22 @@
     "light"
    ]
   },
+  "克": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1333,
+   "on": [
+    "コク"
+   ],
+   "kun": [
+    "か.つ"
+   ],
+   "meanings": [
+    "overcome",
+    "kindly",
+    "skillfully"
+   ]
+  },
   "免": {
    "strokeCount": 8,
    "grade": 8,
@@ -1948,6 +2627,23 @@
     "newborn babe",
     "child",
     "young of animals"
+   ]
+  },
+  "党": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 39,
+   "on": [
+    "トウ"
+   ],
+   "kun": [
+    "なかま",
+    "むら"
+   ],
+   "meanings": [
+    "party",
+    "faction",
+    "clique"
    ]
   },
   "入": {
@@ -2108,6 +2804,25 @@
     "counter for armor, suits, sets of furniture"
    ]
   },
+  "典": {
+   "strokeCount": 8,
+   "grade": 4,
+   "freq": 1055,
+   "on": [
+    "テン",
+    "デン"
+   ],
+   "kun": [
+    "ふみ",
+    "のり"
+   ],
+   "meanings": [
+    "code",
+    "ceremony",
+    "law",
+    "rule"
+   ]
+  },
   "兼": {
    "strokeCount": 10,
    "grade": 8,
@@ -2164,6 +2879,23 @@
     "circle",
     "yen",
     "round"
+   ]
+  },
+  "冊": {
+   "strokeCount": 5,
+   "grade": 6,
+   "freq": 1313,
+   "on": [
+    "サツ",
+    "サク"
+   ],
+   "kun": [
+    "ふみ"
+   ],
+   "meanings": [
+    "tome",
+    "counter for books",
+    "volume"
    ]
   },
   "再": {
@@ -2233,6 +2965,22 @@
     "copy",
     "be photographed",
     "describe"
+   ]
+  },
+  "冠": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1503,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "かんむり"
+   ],
+   "meanings": [
+    "crown",
+    "best",
+    "peerless"
    ]
   },
   "冬": {
@@ -2312,6 +3060,26 @@
     "horrible"
    ]
   },
+  "凌": {
+   "strokeCount": 10,
+   "grade": 9,
+   "freq": 2423,
+   "on": [
+    "リョウ"
+   ],
+   "kun": [
+    "しの.ぐ"
+   ],
+   "meanings": [
+    "endure",
+    "keep (rain)out",
+    "stave off",
+    "tide over",
+    "defy",
+    "slight",
+    "surpass"
+   ]
+  },
   "凍": {
    "strokeCount": 10,
    "grade": 8,
@@ -2332,6 +3100,41 @@
     "refrigerate"
    ]
   },
+  "凝": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1712,
+   "on": [
+    "ギョウ"
+   ],
+   "kun": [
+    "こ.る",
+    "こ.らす",
+    "こご.らす",
+    "こご.らせる",
+    "こご.る"
+   ],
+   "meanings": [
+    "congeal",
+    "freeze",
+    "stiff",
+    "be absorbed in"
+   ]
+  },
+  "几": {
+   "strokeCount": 2,
+   "on": [
+    "キ"
+   ],
+   "kun": [
+    "きにょう"
+   ],
+   "meanings": [
+    "table",
+    "table enclosure",
+    "table or windy radical (no. 16)"
+   ]
+  },
   "凡": {
    "strokeCount": 3,
    "grade": 8,
@@ -2349,6 +3152,60 @@
     "commonplace",
     "ordinary",
     "mediocre"
+   ]
+  },
+  "処": {
+   "strokeCount": 5,
+   "grade": 6,
+   "freq": 547,
+   "on": [
+    "ショ"
+   ],
+   "kun": [
+    "ところ",
+    "-こ",
+    "お.る"
+   ],
+   "meanings": [
+    "dispose",
+    "manage",
+    "deal with",
+    "sentence",
+    "condemn",
+    "act",
+    "behave",
+    "place"
+   ]
+  },
+  "凶": {
+   "strokeCount": 4,
+   "grade": 8,
+   "freq": 1673,
+   "on": [
+    "キョウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "villain",
+    "evil",
+    "bad luck",
+    "disaster"
+   ]
+  },
+  "凸": {
+   "strokeCount": 5,
+   "grade": 8,
+   "freq": 2143,
+   "on": [
+    "トツ"
+   ],
+   "kun": [
+    "でこ"
+   ],
+   "meanings": [
+    "convex",
+    "beetle brow",
+    "uneven"
    ]
   },
   "凹": {
@@ -2488,6 +3345,54 @@
     "be sharp"
    ]
   },
+  "刈": {
+   "strokeCount": 4,
+   "grade": 8,
+   "freq": 1738,
+   "on": [
+    "ガイ",
+    "カイ"
+   ],
+   "kun": [
+    "か.る"
+   ],
+   "meanings": [
+    "reap",
+    "cut",
+    "clip",
+    "trim",
+    "prune"
+   ]
+  },
+  "刊": {
+   "strokeCount": 5,
+   "grade": 5,
+   "freq": 855,
+   "on": [
+    "カン"
+   ],
+   "kun": [],
+   "meanings": [
+    "publish",
+    "carve",
+    "engrave"
+   ]
+  },
+  "刑": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 864,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "punish",
+    "penalty",
+    "sentence",
+    "punishment"
+   ]
+  },
   "列": {
    "strokeCount": 6,
    "grade": 3,
@@ -2582,6 +3487,57 @@
     "benefit"
    ]
   },
+  "到": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1032,
+   "on": [
+    "トウ"
+   ],
+   "kun": [
+    "いた.る"
+   ],
+   "meanings": [
+    "arrival",
+    "proceed",
+    "reach",
+    "attain",
+    "result in"
+   ]
+  },
+  "制": {
+   "strokeCount": 8,
+   "grade": 5,
+   "freq": 108,
+   "on": [
+    "セイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "system",
+    "law",
+    "rule"
+   ]
+  },
+  "刷": {
+   "strokeCount": 8,
+   "grade": 4,
+   "freq": 1352,
+   "on": [
+    "サツ"
+   ],
+   "kun": [
+    "す.る",
+    "-ず.り",
+    "-ずり",
+    "は.く"
+   ],
+   "meanings": [
+    "printing",
+    "print",
+    "brush"
+   ]
+  },
   "券": {
    "strokeCount": 8,
    "grade": 6,
@@ -2615,6 +3571,27 @@
     "prick",
     "sting",
     "calling card"
+   ]
+  },
+  "刻": {
+   "strokeCount": 8,
+   "grade": 6,
+   "freq": 866,
+   "on": [
+    "コク"
+   ],
+   "kun": [
+    "きざ.む",
+    "きざ.み"
+   ],
+   "meanings": [
+    "engrave",
+    "cut fine",
+    "chop",
+    "hash",
+    "mince",
+    "time",
+    "carving"
    ]
   },
   "剃": {
@@ -2652,6 +3629,26 @@
     "model after"
    ]
   },
+  "削": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 814,
+   "on": [
+    "サク"
+   ],
+   "kun": [
+    "けず.る",
+    "はつ.る",
+    "そ.ぐ"
+   ],
+   "meanings": [
+    "plane",
+    "sharpen",
+    "whittle",
+    "pare",
+    "shave"
+   ]
+  },
   "前": {
    "strokeCount": 9,
    "grade": 2,
@@ -2666,6 +3663,18 @@
    "meanings": [
     "in front",
     "before"
+   ]
+  },
+  "剖": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1918,
+   "on": [
+    "ボウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "divide"
    ]
   },
   "剣": {
@@ -2683,6 +3692,82 @@
     "sword",
     "blade",
     "clock hand"
+   ]
+  },
+  "剤": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1151,
+   "on": [
+    "ザイ",
+    "スイ",
+    "セイ"
+   ],
+   "kun": [
+    "かる",
+    "けず.る"
+   ],
+   "meanings": [
+    "dose",
+    "medicine",
+    "drug"
+   ]
+  },
+  "剥": {
+   "strokeCount": 10,
+   "freq": 2383,
+   "on": [
+    "ハク",
+    "ホク"
+   ],
+   "kun": [
+    "へ.ぐ",
+    "へず.る",
+    "む.く",
+    "む.ける",
+    "は.がれる",
+    "は.ぐ",
+    "は.げる",
+    "は.がす"
+   ],
+   "meanings": [
+    "come off",
+    "peel",
+    "fade",
+    "discolor"
+   ]
+  },
+  "副": {
+   "strokeCount": 11,
+   "grade": 4,
+   "freq": 360,
+   "on": [
+    "フク"
+   ],
+   "kun": [],
+   "meanings": [
+    "vice-",
+    "assistant",
+    "aide",
+    "duplicate",
+    "copy"
+   ]
+  },
+  "剰": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1448,
+   "on": [
+    "ジョウ"
+   ],
+   "kun": [
+    "あまつさえ",
+    "あま.り",
+    "あま.る"
+   ],
+   "meanings": [
+    "surplus",
+    "besides"
    ]
   },
   "割": {
@@ -2895,6 +3980,25 @@
     "trouble"
    ]
   },
+  "効": {
+   "strokeCount": 8,
+   "grade": 5,
+   "freq": 538,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "き.く",
+    "ききめ",
+    "なら.う"
+   ],
+   "meanings": [
+    "merit",
+    "efficacy",
+    "efficiency",
+    "benefit"
+   ]
+  },
   "勇": {
    "strokeCount": 9,
    "grade": 4,
@@ -2911,6 +4015,25 @@
     "be in high spirits",
     "bravery",
     "heroism"
+   ]
+  },
+  "勉": {
+   "strokeCount": 10,
+   "grade": 3,
+   "freq": 1066,
+   "on": [
+    "ベン"
+   ],
+   "kun": [
+    "つと.める"
+   ],
+   "meanings": [
+    "exertion",
+    "endeavour",
+    "encourage",
+    "strive",
+    "make effort",
+    "diligent"
    ]
   },
   "動": {
@@ -2985,6 +4108,24 @@
     "excel"
    ]
   },
+  "募": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 809,
+   "on": [
+    "ボ"
+   ],
+   "kun": [
+    "つの.る"
+   ],
+   "meanings": [
+    "recruit",
+    "campaign",
+    "gather (contributions)",
+    "enlist",
+    "grow violent"
+   ]
+  },
   "勢": {
    "strokeCount": 13,
    "grade": 5,
@@ -3040,6 +4181,24 @@
     "advise",
     "encourage",
     "offer"
+   ]
+  },
+  "匂": {
+   "strokeCount": 4,
+   "grade": 8,
+   "freq": 2213,
+   "on": [],
+   "kun": [
+    "にお.う",
+    "にお.い",
+    "にお.わせる"
+   ],
+   "meanings": [
+    "fragrant",
+    "stink",
+    "glow",
+    "insinuate",
+    "(kokuji)"
    ]
   },
   "包": {
@@ -3107,6 +4266,23 @@
    ],
    "meanings": [
     "spoon"
+   ]
+  },
+  "匹": {
+   "strokeCount": 4,
+   "grade": 8,
+   "freq": 1384,
+   "on": [
+    "ヒツ"
+   ],
+   "kun": [
+    "ひき"
+   ],
+   "meanings": [
+    "equal",
+    "head",
+    "counter for small animals",
+    "roll of cloth"
    ]
   },
   "区": {
@@ -3228,6 +4404,43 @@
     "despise"
    ]
   },
+  "卒": {
+   "strokeCount": 8,
+   "grade": 4,
+   "freq": 772,
+   "on": [
+    "ソツ",
+    "シュツ"
+   ],
+   "kun": [
+    "そっ.する",
+    "お.える",
+    "お.わる",
+    "ついに",
+    "にわか"
+   ],
+   "meanings": [
+    "graduate",
+    "soldier",
+    "private",
+    "die"
+   ]
+  },
+  "卓": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1348,
+   "on": [
+    "タク"
+   ],
+   "kun": [],
+   "meanings": [
+    "eminent",
+    "table",
+    "desk",
+    "high"
+   ]
+  },
   "協": {
    "strokeCount": 8,
    "grade": 4,
@@ -3314,6 +4527,91 @@
     "take"
    ]
   },
+  "印": {
+   "strokeCount": 6,
+   "grade": 4,
+   "freq": 682,
+   "on": [
+    "イン"
+   ],
+   "kun": [
+    "しるし",
+    "-じるし",
+    "しる.す"
+   ],
+   "meanings": [
+    "stamp",
+    "seal",
+    "mark",
+    "imprint",
+    "symbol",
+    "emblem",
+    "trademark",
+    "evidence",
+    "souvenir",
+    "India"
+   ]
+  },
+  "危": {
+   "strokeCount": 6,
+   "grade": 6,
+   "freq": 606,
+   "on": [
+    "キ"
+   ],
+   "kun": [
+    "あぶ.ない",
+    "あや.うい",
+    "あや.ぶむ"
+   ],
+   "meanings": [
+    "dangerous",
+    "fear",
+    "uneasy"
+   ]
+  },
+  "即": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1167,
+   "on": [
+    "ソク"
+   ],
+   "kun": [
+    "つ.く",
+    "つ.ける",
+    "すなわ.ち"
+   ],
+   "meanings": [
+    "instant",
+    "namely",
+    "as is",
+    "conform",
+    "agree",
+    "adapt"
+   ]
+  },
+  "却": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 959,
+   "on": [
+    "キャク"
+   ],
+   "kun": [
+    "かえ.って",
+    "しりぞ.く",
+    "しりぞ.ける"
+   ],
+   "meanings": [
+    "instead",
+    "on the contrary",
+    "rather",
+    "step back",
+    "withdraw",
+    "retreat"
+   ]
+  },
   "卵": {
    "strokeCount": 7,
    "grade": 6,
@@ -3329,6 +4627,37 @@
     "ovum",
     "spawn",
     "roe"
+   ]
+  },
+  "卸": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1520,
+   "on": [
+    "シャ"
+   ],
+   "kun": [
+    "おろ.す",
+    "おろし",
+    "おろ.し"
+   ],
+   "meanings": [
+    "wholesale"
+   ]
+  },
+  "厄": {
+   "strokeCount": 4,
+   "grade": 8,
+   "freq": 2123,
+   "on": [
+    "ヤク"
+   ],
+   "kun": [],
+   "meanings": [
+    "unlucky",
+    "misfortune",
+    "bad luck",
+    "disaster"
    ]
   },
   "厚": {
@@ -3662,6 +4991,22 @@
     "criticize"
    ]
   },
+  "只": {
+   "strokeCount": 5,
+   "grade": 9,
+   "freq": 2288,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "ただ"
+   ],
+   "meanings": [
+    "only",
+    "free",
+    "in addition"
+   ]
+  },
   "叫": {
    "strokeCount": 6,
    "grade": 8,
@@ -3738,6 +5083,35 @@
     "counter for machines and vehicles"
    ]
   },
+  "叱": {
+   "strokeCount": 5,
+   "freq": 2255,
+   "on": [
+    "シツ",
+    "シチ",
+    "カ"
+   ],
+   "kun": [
+    "しか.る"
+   ],
+   "meanings": [
+    "scold",
+    "reprove"
+   ]
+  },
+  "史": {
+   "strokeCount": 5,
+   "grade": 5,
+   "freq": 511,
+   "on": [
+    "シ"
+   ],
+   "kun": [],
+   "meanings": [
+    "history",
+    "chronicle"
+   ]
+  },
   "右": {
    "strokeCount": 5,
    "grade": 1,
@@ -3751,6 +5125,22 @@
    ],
    "meanings": [
     "right"
+   ]
+  },
+  "叶": {
+   "strokeCount": 5,
+   "grade": 9,
+   "freq": 2312,
+   "on": [
+    "キョウ"
+   ],
+   "kun": [
+    "かな.える",
+    "かな.う"
+   ],
+   "meanings": [
+    "grant",
+    "answer"
    ]
   },
   "号": {
@@ -3833,6 +5223,39 @@
     "suit",
     "join",
     "0.1"
+   ]
+  },
+  "吉": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 711,
+   "on": [
+    "キチ",
+    "キツ"
+   ],
+   "kun": [
+    "よし"
+   ],
+   "meanings": [
+    "good luck",
+    "joy",
+    "congratulations"
+   ]
+  },
+  "吊": {
+   "strokeCount": 6,
+   "freq": 2475,
+   "on": [
+    "チョウ"
+   ],
+   "kun": [
+    "つ.る",
+    "つる.す"
+   ],
+   "meanings": [
+    "suspend",
+    "hang",
+    "wear (sword)"
    ]
   },
   "同": {
@@ -3937,6 +5360,20 @@
     "male name suffix"
    ]
   },
+  "吟": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1956,
+   "on": [
+    "ギン"
+   ],
+   "kun": [],
+   "meanings": [
+    "versify",
+    "singing",
+    "recital"
+   ]
+  },
   "吠": {
    "strokeCount": 7,
    "on": [
@@ -3951,6 +5388,46 @@
     "bark",
     "howl",
     "cry"
+   ]
+  },
+  "否": {
+   "strokeCount": 7,
+   "grade": 6,
+   "freq": 561,
+   "on": [
+    "ヒ"
+   ],
+   "kun": [
+    "いな",
+    "いや"
+   ],
+   "meanings": [
+    "negate",
+    "no",
+    "noes",
+    "refuse",
+    "decline",
+    "deny"
+   ]
+  },
+  "含": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 466,
+   "on": [
+    "ガン"
+   ],
+   "kun": [
+    "ふく.む",
+    "ふく.める"
+   ],
+   "meanings": [
+    "contain",
+    "include",
+    "hold in the mouth",
+    "bear in mind",
+    "understand",
+    "cherish"
    ]
   },
   "吸": {
@@ -4020,6 +5497,83 @@
     "be amazed",
     "disgusted",
     "shocked"
+   ]
+  },
+  "呈": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1571,
+   "on": [
+    "テイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "display",
+    "offer",
+    "present",
+    "send",
+    "exhibit"
+   ]
+  },
+  "告": {
+   "strokeCount": 7,
+   "grade": 5,
+   "freq": 188,
+   "on": [
+    "コク"
+   ],
+   "kun": [
+    "つ.げる"
+   ],
+   "meanings": [
+    "revelation",
+    "tell",
+    "inform",
+    "announce"
+   ]
+  },
+  "呑": {
+   "strokeCount": 7,
+   "freq": 2362,
+   "on": [
+    "トン",
+    "ドン"
+   ],
+   "kun": [
+    "の.む"
+   ],
+   "meanings": [
+    "drink"
+   ]
+  },
+  "呟": {
+   "strokeCount": 8,
+   "on": [
+    "ゲン"
+   ],
+   "kun": [
+    "つぶや.く"
+   ],
+   "meanings": [
+    "mutter",
+    "grumble",
+    "murmur"
+   ]
+  },
+  "周": {
+   "strokeCount": 8,
+   "grade": 4,
+   "freq": 562,
+   "on": [
+    "シュウ"
+   ],
+   "kun": [
+    "まわ.り"
+   ],
+   "meanings": [
+    "circumference",
+    "circuit",
+    "lap"
    ]
   },
   "味": {
@@ -4232,6 +5786,41 @@
     "lips"
    ]
   },
+  "唯": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1292,
+   "on": [
+    "ユイ",
+    "イ"
+   ],
+   "kun": [
+    "ただ"
+   ],
+   "meanings": [
+    "solely",
+    "only",
+    "merely",
+    "simply"
+   ]
+  },
+  "唱": {
+   "strokeCount": 11,
+   "grade": 4,
+   "freq": 1123,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "とな.える"
+   ],
+   "meanings": [
+    "chant",
+    "recite",
+    "call upon",
+    "yell"
+   ]
+  },
   "唾": {
    "strokeCount": 11,
    "grade": 8,
@@ -4283,6 +5872,23 @@
     "problem"
    ]
   },
+  "啓": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1403,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [
+    "ひら.く",
+    "さと.す"
+   ],
+   "meanings": [
+    "disclose",
+    "open",
+    "say"
+   ]
+  },
   "善": {
    "strokeCount": 12,
    "grade": 6,
@@ -4315,6 +5921,24 @@
    "meanings": [
     "throat",
     "voice"
+   ]
+  },
+  "喋": {
+   "strokeCount": 12,
+   "grade": 9,
+   "freq": 2403,
+   "on": [
+    "チョウ",
+    "トウ"
+   ],
+   "kun": [
+    "しゃべ.る",
+    "ついば.む"
+   ],
+   "meanings": [
+    "talk",
+    "chat",
+    "chatter"
    ]
   },
   "喜": {
@@ -4351,6 +5975,24 @@
     "receive (a blow)"
    ]
   },
+  "営": {
+   "strokeCount": 12,
+   "grade": 5,
+   "freq": 303,
+   "on": [
+    "エイ"
+   ],
+   "kun": [
+    "いとな.む",
+    "いとな.み"
+   ],
+   "meanings": [
+    "camp",
+    "perform",
+    "build",
+    "conduct (business)"
+   ]
+  },
   "嗅": {
    "strokeCount": 13,
    "grade": 8,
@@ -4365,6 +6007,24 @@
     "smell",
     "sniff",
     "scent"
+   ]
+  },
+  "嗜": {
+   "strokeCount": 13,
+   "freq": 2465,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "たしな.む",
+    "たしな.み",
+    "この.む",
+    "この.み"
+   ],
+   "meanings": [
+    "like",
+    "taste",
+    "modest"
    ]
   },
   "嘆": {
@@ -4384,6 +6044,34 @@
     "moan",
     "grieve",
     "sigh of admiration"
+   ]
+  },
+  "嘗": {
+   "strokeCount": 14,
+   "grade": 9,
+   "on": [
+    "ショウ",
+    "ジョウ"
+   ],
+   "kun": [
+    "かつ.て",
+    "こころ.みる",
+    "な.める"
+   ],
+   "meanings": [
+    "once",
+    "before",
+    "formerly",
+    "ever",
+    "never",
+    "ex-",
+    "lick",
+    "lap up",
+    "burn up",
+    "taste",
+    "undergo",
+    "underrate",
+    "despise"
    ]
   },
   "嘘": {
@@ -4501,6 +6189,23 @@
     "set"
    ]
   },
+  "噴": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1270,
+   "on": [
+    "フン"
+   ],
+   "kun": [
+    "ふ.く"
+   ],
+   "meanings": [
+    "erupt",
+    "spout",
+    "emit",
+    "flush out"
+   ]
+  },
   "囁": {
    "strokeCount": 21,
    "on": [
@@ -4594,6 +6299,22 @@
     "association"
    ]
   },
+  "困": {
+   "strokeCount": 7,
+   "grade": 6,
+   "freq": 843,
+   "on": [
+    "コン"
+   ],
+   "kun": [
+    "こま.る"
+   ],
+   "meanings": [
+    "quandary",
+    "become distressed",
+    "annoyed"
+   ]
+  },
   "囲": {
    "strokeCount": 7,
    "grade": 5,
@@ -4669,6 +6390,23 @@
    ],
    "meanings": [
     "country"
+   ]
+  },
+  "圏": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1216,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "かこ.い"
+   ],
+   "meanings": [
+    "sphere",
+    "circle",
+    "radius",
+    "range"
    ]
   },
   "園": {
@@ -4760,6 +6498,37 @@
     "earth"
    ]
   },
+  "坂": {
+   "strokeCount": 7,
+   "grade": 3,
+   "freq": 865,
+   "on": [
+    "ハン"
+   ],
+   "kun": [
+    "さか"
+   ],
+   "meanings": [
+    "slope",
+    "incline",
+    "hill"
+   ]
+  },
+  "均": {
+   "strokeCount": 7,
+   "grade": 5,
+   "freq": 715,
+   "on": [
+    "キン"
+   ],
+   "kun": [
+    "なら.す"
+   ],
+   "meanings": [
+    "level",
+    "average"
+   ]
+  },
   "坊": {
    "strokeCount": 7,
    "grade": 8,
@@ -4773,6 +6542,27 @@
     "boy",
     "priest's residence",
     "priest"
+   ]
+  },
+  "垂": {
+   "strokeCount": 8,
+   "grade": 6,
+   "freq": 1720,
+   "on": [
+    "スイ"
+   ],
+   "kun": [
+    "た.れる",
+    "た.らす",
+    "た.れ",
+    "-た.れ",
+    "なんなんと.す"
+   ],
+   "meanings": [
+    "droop",
+    "suspend",
+    "hang",
+    "slouch"
    ]
   },
   "型": {
@@ -4792,6 +6582,38 @@
     "model"
    ]
   },
+  "垢": {
+   "strokeCount": 9,
+   "on": [
+    "コウ",
+    "ク"
+   ],
+   "kun": [
+    "あか",
+    "はじ"
+   ],
+   "meanings": [
+    "dirt",
+    "grime",
+    "earwax"
+   ]
+  },
+  "垣": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1539,
+   "on": [
+    "エン"
+   ],
+   "kun": [
+    "かき"
+   ],
+   "meanings": [
+    "hedge",
+    "fence",
+    "wall"
+   ]
+  },
   "埃": {
    "strokeCount": 10,
    "on": [
@@ -4803,6 +6625,27 @@
    ],
    "meanings": [
     "dust"
+   ]
+  },
+  "埋": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1110,
+   "on": [
+    "マイ"
+   ],
+   "kun": [
+    "う.める",
+    "う.まる",
+    "う.もれる",
+    "うず.める",
+    "うず.まる",
+    "い.ける"
+   ],
+   "meanings": [
+    "bury",
+    "be filled up",
+    "embedded"
    ]
   },
   "城": {
@@ -4818,6 +6661,55 @@
    ],
    "meanings": [
     "castle"
+   ]
+  },
+  "域": {
+   "strokeCount": 11,
+   "grade": 6,
+   "freq": 396,
+   "on": [
+    "イキ"
+   ],
+   "kun": [],
+   "meanings": [
+    "range",
+    "region",
+    "limits",
+    "stage",
+    "level"
+   ]
+  },
+  "執": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 800,
+   "on": [
+    "シツ",
+    "シュウ"
+   ],
+   "kun": [
+    "と.る"
+   ],
+   "meanings": [
+    "tenacious",
+    "take hold",
+    "grasp",
+    "take to heart"
+   ]
+  },
+  "培": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1431,
+   "on": [
+    "バイ"
+   ],
+   "kun": [
+    "つちか.う"
+   ],
+   "meanings": [
+    "cultivate",
+    "foster"
    ]
   },
   "基": {
@@ -4867,6 +6759,26 @@
     "hall"
    ]
   },
+  "堅": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1049,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "かた.い",
+    "-がた.い"
+   ],
+   "meanings": [
+    "strict",
+    "hard",
+    "solid",
+    "tough",
+    "tight",
+    "reliable"
+   ]
+  },
   "堤": {
    "strokeCount": 12,
    "grade": 8,
@@ -4881,6 +6793,27 @@
     "dike",
     "bank",
     "embankment"
+   ]
+  },
+  "堪": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1953,
+   "on": [
+    "カン",
+    "タン"
+   ],
+   "kun": [
+    "た.える",
+    "たま.る",
+    "こら.える",
+    "こた.える"
+   ],
+   "meanings": [
+    "withstand",
+    "endure",
+    "support",
+    "resist"
    ]
   },
   "報": {
@@ -4931,6 +6864,26 @@
     "(kokuji)"
    ]
   },
+  "塊": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1800,
+   "on": [
+    "カイ",
+    "ケ"
+   ],
+   "kun": [
+    "かたまり",
+    "つちくれ"
+   ],
+   "meanings": [
+    "clod",
+    "lump",
+    "chunk",
+    "clot",
+    "mass"
+   ]
+  },
   "塔": {
    "strokeCount": 12,
    "grade": 8,
@@ -4965,6 +6918,26 @@
     "coating"
    ]
   },
+  "塞": {
+   "strokeCount": 13,
+   "grade": 8,
+   "on": [
+    "ソク",
+    "サイ"
+   ],
+   "kun": [
+    "ふさ.ぐ",
+    "とりで",
+    "み.ちる"
+   ],
+   "meanings": [
+    "close",
+    "shut",
+    "cover",
+    "block",
+    "obstruct"
+   ]
+  },
   "塩": {
    "strokeCount": 13,
    "grade": 4,
@@ -4977,6 +6950,22 @@
    ],
    "meanings": [
     "salt"
+   ]
+  },
+  "塵": {
+   "strokeCount": 14,
+   "on": [
+    "チン",
+    "ジン"
+   ],
+   "kun": [
+    "ちり",
+    "ごみ"
+   ],
+   "meanings": [
+    "dust",
+    "trash",
+    "garbage"
    ]
   },
   "塾": {
@@ -5045,6 +7034,22 @@
     "promote"
    ]
   },
+  "墜": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1466,
+   "on": [
+    "ツイ"
+   ],
+   "kun": [
+    "お.ちる",
+    "お.つ"
+   ],
+   "meanings": [
+    "crash",
+    "fall (down)"
+   ]
+  },
   "墨": {
    "strokeCount": 14,
    "grade": 8,
@@ -5076,6 +7081,22 @@
     "wall",
     "lining (stomach)",
     "fence"
+   ]
+  },
+  "壇": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1512,
+   "on": [
+    "ダン",
+    "タン"
+   ],
+   "kun": [],
+   "meanings": [
+    "podium",
+    "stage",
+    "rostrum",
+    "terrace"
    ]
   },
   "壊": {
@@ -5159,6 +7180,22 @@
    ],
    "meanings": [
     "sell"
+   ]
+  },
+  "壷": {
+   "strokeCount": 11,
+   "freq": 2197,
+   "on": [
+    "コ"
+   ],
+   "kun": [
+    "つぼ"
+   ],
+   "meanings": [
+    "jar",
+    "pot",
+    "hinge knuckle",
+    "one's aim"
    ]
   },
   "変": {
@@ -5385,6 +7422,45 @@
     "loss"
    ]
   },
+  "奇": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1367,
+   "on": [
+    "キ"
+   ],
+   "kun": [
+    "く.しき",
+    "あや.しい",
+    "くし",
+    "めずら.しい"
+   ],
+   "meanings": [
+    "strange",
+    "strangeness",
+    "curiosity"
+   ]
+  },
+  "奉": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1624,
+   "on": [
+    "ホウ",
+    "ブ"
+   ],
+   "kun": [
+    "たてまつ.る",
+    "まつ.る",
+    "ほう.ずる"
+   ],
+   "meanings": [
+    "observance",
+    "offer",
+    "present",
+    "dedicate"
+   ]
+  },
   "奏": {
    "strokeCount": 9,
    "grade": 6,
@@ -5399,6 +7475,22 @@
     "play music",
     "speak to a ruler",
     "complete"
+   ]
+  },
+  "契": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 898,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [
+    "ちぎ.る"
+   ],
+   "meanings": [
+    "pledge",
+    "promise",
+    "vow"
    ]
   },
   "奢": {
@@ -5502,6 +7594,24 @@
     "female"
    ]
   },
+  "奴": {
+   "strokeCount": 5,
+   "grade": 8,
+   "freq": 1932,
+   "on": [
+    "ド"
+   ],
+   "kun": [
+    "やつ",
+    "やっこ"
+   ],
+   "meanings": [
+    "guy",
+    "slave",
+    "manservant",
+    "fellow"
+   ]
+  },
   "好": {
    "strokeCount": 6,
    "grade": 4,
@@ -5519,6 +7629,43 @@
     "fond",
     "pleasing",
     "like something"
+   ]
+  },
+  "如": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 1704,
+   "on": [
+    "ジョ",
+    "ニョ"
+   ],
+   "kun": [
+    "ごと.し"
+   ],
+   "meanings": [
+    "likeness",
+    "like",
+    "such as",
+    "as if",
+    "better",
+    "best",
+    "equal"
+   ]
+  },
+  "妊": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1413,
+   "on": [
+    "ニン",
+    "ジン"
+   ],
+   "kun": [
+    "はら.む",
+    "みごも.る"
+   ],
+   "meanings": [
+    "pregnancy"
    ]
   },
   "妙": {
@@ -5543,6 +7690,21 @@
     "charming"
    ]
   },
+  "妥": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1102,
+   "on": [
+    "ダ"
+   ],
+   "kun": [],
+   "meanings": [
+    "gentle",
+    "peace",
+    "satisfactory",
+    "appropriate"
+   ]
+  },
   "妨": {
    "strokeCount": 7,
    "grade": 8,
@@ -5558,6 +7720,24 @@
     "prevent",
     "hamper",
     "obstruct"
+   ]
+  },
+  "妬": {
+   "strokeCount": 8,
+   "grade": 8,
+   "on": [
+    "ト",
+    "ツ"
+   ],
+   "kun": [
+    "ねた.む",
+    "そね.む",
+    "つも.る",
+    "ふさ.ぐ"
+   ],
+   "meanings": [
+    "jealous",
+    "envy"
    ]
   },
   "妹": {
@@ -5634,6 +7814,24 @@
     "surname"
    ]
   },
+  "委": {
+   "strokeCount": 8,
+   "grade": 3,
+   "freq": 187,
+   "on": [
+    "イ"
+   ],
+   "kun": [
+    "ゆだ.ねる"
+   ],
+   "meanings": [
+    "committee",
+    "entrust to",
+    "leave to",
+    "devote",
+    "discard"
+   ]
+  },
   "姪": {
    "strokeCount": 9,
    "grade": 9,
@@ -5668,6 +7866,26 @@
     "shape"
    ]
   },
+  "威": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1103,
+   "on": [
+    "イ"
+   ],
+   "kun": [
+    "おど.す",
+    "おど.し",
+    "おど.かす"
+   ],
+   "meanings": [
+    "intimidate",
+    "dignity",
+    "majesty",
+    "menace",
+    "threaten"
+   ]
+  },
   "娘": {
    "strokeCount": 10,
    "grade": 8,
@@ -5684,6 +7902,19 @@
     "girl"
    ]
   },
+  "娠": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1623,
+   "on": [
+    "シン"
+   ],
+   "kun": [],
+   "meanings": [
+    "with child",
+    "pregnancy"
+   ]
+  },
   "娯": {
    "strokeCount": 10,
    "grade": 8,
@@ -5695,6 +7926,19 @@
    "meanings": [
     "recreation",
     "pleasure"
+   ]
+  },
+  "婉": {
+   "strokeCount": 11,
+   "on": [
+    "エン"
+   ],
+   "kun": [
+    "うつく.しい",
+    "したが.う"
+   ],
+   "meanings": [
+    "graceful"
    ]
   },
   "婚": {
@@ -5757,6 +8001,23 @@
    "meanings": [
     "marry into",
     "bride"
+   ]
+  },
+  "嫉": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 2317,
+   "on": [
+    "シツ"
+   ],
+   "kun": [
+    "そね.む",
+    "ねた.む",
+    "にく.む"
+   ],
+   "meanings": [
+    "jealous",
+    "envy"
    ]
   },
   "嫌": {
@@ -5874,6 +8135,32 @@
     "feel"
    ]
   },
+  "孝": {
+   "strokeCount": 7,
+   "grade": 6,
+   "freq": 1030,
+   "on": [
+    "コウ",
+    "キョウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "filial piety",
+    "child's respect"
+   ]
+  },
+  "季": {
+   "strokeCount": 8,
+   "grade": 4,
+   "freq": 842,
+   "on": [
+    "キ"
+   ],
+   "kun": [],
+   "meanings": [
+    "seasons"
+   ]
+  },
   "孤": {
    "strokeCount": 9,
    "grade": 8,
@@ -5934,6 +8221,21 @@
     "my husband"
    ]
   },
+  "宇": {
+   "strokeCount": 6,
+   "grade": 6,
+   "freq": 883,
+   "on": [
+    "ウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "eaves",
+    "roof",
+    "house",
+    "heaven"
+   ]
+  },
   "守": {
    "strokeCount": 6,
    "grade": 3,
@@ -5977,6 +8279,20 @@
     "rested",
     "contented",
     "peaceful"
+   ]
+  },
+  "完": {
+   "strokeCount": 7,
+   "grade": 4,
+   "freq": 595,
+   "on": [
+    "カン"
+   ],
+   "kun": [],
+   "meanings": [
+    "perfect",
+    "completion",
+    "end"
    ]
   },
   "宗": {
@@ -6050,6 +8366,40 @@
     "decide"
    ]
   },
+  "宛": {
+   "strokeCount": 8,
+   "grade": 8,
+   "on": [
+    "エン"
+   ],
+   "kun": [
+    "あ.てる",
+    "-あて",
+    "-づつ",
+    "あたか.も"
+   ],
+   "meanings": [
+    "address",
+    "just like",
+    "fortunately"
+   ]
+  },
+  "宜": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1766,
+   "on": [
+    "ギ"
+   ],
+   "kun": [
+    "よろ.しい",
+    "よろ.しく"
+   ],
+   "meanings": [
+    "best regards",
+    "good"
+   ]
+  },
   "宝": {
    "strokeCount": 8,
    "grade": 6,
@@ -6105,6 +8455,22 @@
     "client"
    ]
   },
+  "宣": {
+   "strokeCount": 9,
+   "grade": 6,
+   "freq": 695,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "のたま.う"
+   ],
+   "meanings": [
+    "proclaim",
+    "say",
+    "announce"
+   ]
+  },
   "室": {
    "strokeCount": 9,
    "grade": 2,
@@ -6123,6 +8489,26 @@
     "cellar"
    ]
   },
+  "宮": {
+   "strokeCount": 10,
+   "grade": 3,
+   "freq": 367,
+   "on": [
+    "キュウ",
+    "グウ",
+    "ク",
+    "クウ"
+   ],
+   "kun": [
+    "みや"
+   ],
+   "meanings": [
+    "Shinto shrine",
+    "constellations",
+    "palace",
+    "princess"
+   ]
+  },
   "害": {
    "strokeCount": 10,
    "grade": 4,
@@ -6134,6 +8520,22 @@
    "meanings": [
     "harm",
     "injury"
+   ]
+  },
+  "宴": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1675,
+   "on": [
+    "エン"
+   ],
+   "kun": [
+    "うたげ"
+   ],
+   "meanings": [
+    "banquet",
+    "feast",
+    "party"
    ]
   },
   "家": {
@@ -6290,6 +8692,28 @@
     "cold"
    ]
   },
+  "寛": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1377,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "くつろ.ぐ",
+    "ひろ.い",
+    "ゆる.やか"
+   ],
+   "meanings": [
+    "tolerant",
+    "leniency",
+    "generosity",
+    "relax",
+    "feel at home",
+    "be at ease",
+    "broadminded"
+   ]
+  },
   "寝": {
    "strokeCount": 13,
    "grade": 8,
@@ -6312,6 +8736,22 @@
     "remain unsold"
    ]
   },
+  "察": {
+   "strokeCount": 14,
+   "grade": 4,
+   "freq": 477,
+   "on": [
+    "サツ"
+   ],
+   "kun": [],
+   "meanings": [
+    "guess",
+    "presume",
+    "surmise",
+    "judge",
+    "understand"
+   ]
+  },
   "寧": {
    "strokeCount": 14,
    "grade": 8,
@@ -6330,6 +8770,23 @@
     "tranquility"
    ]
   },
+  "審": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 412,
+   "on": [
+    "シン"
+   ],
+   "kun": [
+    "つまび.らか",
+    "つぶさ.に"
+   ],
+   "meanings": [
+    "hearing",
+    "judge",
+    "trial"
+   ]
+  },
   "寮": {
    "strokeCount": 15,
    "grade": 8,
@@ -6343,6 +8800,21 @@
     "hostel",
     "villa",
     "tea pavillion"
+   ]
+  },
+  "寸": {
+   "strokeCount": 3,
+   "grade": 6,
+   "freq": 1669,
+   "on": [
+    "スン"
+   ],
+   "kun": [],
+   "meanings": [
+    "measurement",
+    "tenth of a shaku",
+    "a little",
+    "small"
    ]
   },
   "寺": {
@@ -6385,6 +8857,26 @@
     "compare"
    ]
   },
+  "寿": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1245,
+   "on": [
+    "ジュ",
+    "ス",
+    "シュウ"
+   ],
+   "kun": [
+    "ことぶき",
+    "ことぶ.く",
+    "ことほ.ぐ"
+   ],
+   "meanings": [
+    "longevity",
+    "congratulations",
+    "one's natural life"
+   ]
+  },
   "封": {
    "strokeCount": 9,
    "grade": 8,
@@ -6397,6 +8889,23 @@
    "meanings": [
     "seal",
     "closing"
+   ]
+  },
+  "専": {
+   "strokeCount": 9,
+   "grade": 6,
+   "freq": 506,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "もっぱ.ら"
+   ],
+   "meanings": [
+    "specialty",
+    "exclusive",
+    "mainly",
+    "solely"
    ]
   },
   "射": {
@@ -6532,6 +9041,84 @@
    "meanings": [
     "few",
     "little"
+   ]
+  },
+  "尖": {
+   "strokeCount": 6,
+   "grade": 9,
+   "freq": 2133,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "とが.る",
+    "さき",
+    "するど.い"
+   ],
+   "meanings": [
+    "be pointed",
+    "sharp",
+    "taper",
+    "displeased",
+    "angry",
+    "edgy"
+   ]
+  },
+  "尚": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1531,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "なお"
+   ],
+   "meanings": [
+    "esteem",
+    "furthermore",
+    "still",
+    "yet"
+   ]
+  },
+  "尤": {
+   "strokeCount": 4,
+   "grade": 9,
+   "on": [
+    "ユウ"
+   ],
+   "kun": [
+    "もっと.も",
+    "とが.める"
+   ],
+   "meanings": [
+    "reasonable",
+    "just",
+    "natural",
+    "superb",
+    "outstanding",
+    "plausible"
+   ]
+  },
+  "就": {
+   "strokeCount": 12,
+   "grade": 6,
+   "freq": 624,
+   "on": [
+    "シュウ",
+    "ジュ"
+   ],
+   "kun": [
+    "つ.く",
+    "つ.ける"
+   ],
+   "meanings": [
+    "concerning",
+    "settle",
+    "take position",
+    "depart",
+    "study",
+    "per"
    ]
   },
   "尻": {
@@ -6707,6 +9294,38 @@
     "seller"
    ]
   },
+  "屎": {
+   "strokeCount": 9,
+   "on": [
+    "シ",
+    "キ"
+   ],
+   "kun": [
+    "くそ"
+   ],
+   "meanings": [
+    "shit",
+    "excrement"
+   ]
+  },
+  "屑": {
+   "strokeCount": 10,
+   "grade": 9,
+   "on": [
+    "セツ"
+   ],
+   "kun": [
+    "くず",
+    "いさぎよ.い"
+   ],
+   "meanings": [
+    "rubbish",
+    "junk",
+    "trash",
+    "waste",
+    "scraps"
+   ]
+  },
   "展": {
    "strokeCount": 10,
    "grade": 6,
@@ -6823,6 +9442,36 @@
     "promontory"
    ]
   },
+  "岳": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1334,
+   "on": [
+    "ガク"
+   ],
+   "kun": [
+    "たけ"
+   ],
+   "meanings": [
+    "point",
+    "peak",
+    "mountain"
+   ]
+  },
+  "岸": {
+   "strokeCount": 8,
+   "grade": 3,
+   "freq": 556,
+   "on": [
+    "ガン"
+   ],
+   "kun": [
+    "きし"
+   ],
+   "meanings": [
+    "beach"
+   ]
+  },
   "峠": {
    "strokeCount": 9,
    "grade": 8,
@@ -6837,6 +9486,22 @@
     "climax",
     "crest",
     "(kokuji)"
+   ]
+  },
+  "峡": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1833,
+   "on": [
+    "キョウ",
+    "コウ"
+   ],
+   "kun": [
+    "はざま"
+   ],
+   "meanings": [
+    "gorge",
+    "ravine"
    ]
   },
   "峰": {
@@ -6867,6 +9532,23 @@
    ],
    "meanings": [
     "island"
+   ]
+  },
+  "崇": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1970,
+   "on": [
+    "スウ"
+   ],
+   "kun": [
+    "あが.める"
+   ],
+   "meanings": [
+    "adore",
+    "respect",
+    "revere",
+    "worship"
    ]
   },
   "崖": {
@@ -6954,6 +9636,23 @@
     "province"
    ]
   },
+  "巡": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 1262,
+   "on": [
+    "ジュン"
+   ],
+   "kun": [
+    "めぐ.る",
+    "めぐ.り"
+   ],
+   "meanings": [
+    "patrol",
+    "go around",
+    "circumference"
+   ]
+  },
   "巣": {
    "strokeCount": 11,
    "grade": 4,
@@ -6971,6 +9670,22 @@
     "hive",
     "cobweb",
     "den"
+   ]
+  },
+  "工": {
+   "strokeCount": 3,
+   "grade": 2,
+   "freq": 299,
+   "on": [
+    "コウ",
+    "ク",
+    "グ"
+   ],
+   "kun": [],
+   "meanings": [
+    "craft",
+    "construction",
+    "katakana e radical (no. 48)"
    ]
   },
   "左": {
@@ -7006,6 +9721,21 @@
     "ingenuity"
    ]
   },
+  "巨": {
+   "strokeCount": 5,
+   "grade": 8,
+   "freq": 892,
+   "on": [
+    "キョ"
+   ],
+   "kun": [],
+   "meanings": [
+    "gigantic",
+    "big",
+    "large",
+    "great"
+   ]
+  },
   "差": {
    "strokeCount": 10,
    "grade": 4,
@@ -7024,6 +9754,67 @@
     "discrepancy",
     "margin",
     "balance"
+   ]
+  },
+  "己": {
+   "strokeCount": 3,
+   "grade": 6,
+   "freq": 1098,
+   "on": [
+    "コ",
+    "キ"
+   ],
+   "kun": [
+    "おのれ",
+    "つちのと",
+    "な"
+   ],
+   "meanings": [
+    "self"
+   ]
+  },
+  "巻": {
+   "strokeCount": 9,
+   "grade": 6,
+   "freq": 944,
+   "on": [
+    "カン",
+    "ケン"
+   ],
+   "kun": [
+    "ま.く",
+    "まき",
+    "ま.き"
+   ],
+   "meanings": [
+    "scroll",
+    "volume",
+    "book",
+    "part",
+    "roll up",
+    "wind up",
+    "tie",
+    "coil",
+    "counter for texts (or book scrolls)"
+   ]
+  },
+  "巾": {
+   "strokeCount": 3,
+   "grade": 8,
+   "on": [
+    "キン",
+    "フク"
+   ],
+   "kun": [
+    "おお.い",
+    "ちきり",
+    "きれ"
+   ],
+   "meanings": [
+    "towel",
+    "hanging scroll",
+    "width",
+    "cloth radical (no. 50)"
    ]
   },
   "市": {
@@ -7060,6 +9851,31 @@
     "cloth",
     "spread",
     "distribute"
+   ]
+  },
+  "希": {
+   "strokeCount": 7,
+   "grade": 4,
+   "freq": 896,
+   "on": [
+    "キ",
+    "ケ"
+   ],
+   "kun": [
+    "まれ",
+    "こいねが.う"
+   ],
+   "meanings": [
+    "hope",
+    "beg",
+    "request",
+    "pray",
+    "beseech",
+    "Greece",
+    "dilute (acid)",
+    "rare",
+    "few",
+    "phenomenal"
    ]
   },
   "師": {
@@ -7180,6 +9996,23 @@
     "long-lasting"
    ]
   },
+  "帽": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1742,
+   "on": [
+    "ボウ",
+    "モウ"
+   ],
+   "kun": [
+    "ずきん",
+    "おお.う"
+   ],
+   "meanings": [
+    "cap",
+    "headgear"
+   ]
+  },
   "幅": {
    "strokeCount": 12,
    "grade": 8,
@@ -7210,6 +10043,26 @@
     "curtain",
     "bunting",
     "act of play"
+   ]
+  },
+  "幣": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1803,
+   "on": [
+    "ヘイ"
+   ],
+   "kun": [
+    "ぬさ"
+   ],
+   "meanings": [
+    "cash",
+    "bad habit",
+    "humble prefix",
+    "gift",
+    "Shinto offerings of cloth",
+    "rope",
+    "cut paper"
    ]
   },
   "干": {
@@ -7365,6 +10218,21 @@
     "several"
    ]
   },
+  "庁": {
+   "strokeCount": 5,
+   "grade": 6,
+   "freq": 793,
+   "on": [
+    "チョウ",
+    "テイ"
+   ],
+   "kun": [
+    "やくしょ"
+   ],
+   "meanings": [
+    "government office"
+   ]
+  },
   "広": {
    "strokeCount": 5,
    "grade": 2,
@@ -7383,6 +10251,27 @@
     "wide",
     "broad",
     "spacious"
+   ]
+  },
+  "庇": {
+   "strokeCount": 7,
+   "grade": 9,
+   "on": [
+    "ヒ"
+   ],
+   "kun": [
+    "ひさし",
+    "おお.う",
+    "かば.う"
+   ],
+   "meanings": [
+    "protect",
+    "shield",
+    "defend",
+    "eaves",
+    "canopy",
+    "penthouse",
+    "visor"
    ]
   },
   "床": {
@@ -7425,6 +10314,26 @@
     "incidentally"
    ]
   },
+  "底": {
+   "strokeCount": 8,
+   "grade": 4,
+   "freq": 867,
+   "on": [
+    "テイ"
+   ],
+   "kun": [
+    "そこ"
+   ],
+   "meanings": [
+    "bottom",
+    "sole",
+    "depth",
+    "bottom price",
+    "base",
+    "kind",
+    "sort"
+   ]
+  },
   "店": {
    "strokeCount": 8,
    "grade": 2,
@@ -7439,6 +10348,22 @@
    "meanings": [
     "store",
     "shop"
+   ]
+  },
+  "府": {
+   "strokeCount": 8,
+   "grade": 4,
+   "freq": 170,
+   "on": [
+    "フ"
+   ],
+   "kun": [],
+   "meanings": [
+    "borough",
+    "urban prefecture",
+    "govt office",
+    "representative body",
+    "storehouse"
    ]
   },
   "度": {
@@ -7513,6 +10438,66 @@
     "yard"
    ]
   },
+  "庶": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1558,
+   "on": [
+    "ショ"
+   ],
+   "kun": [],
+   "meanings": [
+    "commoner",
+    "all",
+    "bastard"
+   ]
+  },
+  "康": {
+   "strokeCount": 11,
+   "grade": 4,
+   "freq": 760,
+   "on": [
+    "コウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "ease",
+    "peace"
+   ]
+  },
+  "廃": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 698,
+   "on": [
+    "ハイ"
+   ],
+   "kun": [
+    "すた.れる",
+    "すた.る"
+   ],
+   "meanings": [
+    "abolish",
+    "obsolete",
+    "cessation",
+    "discarding",
+    "abandon"
+   ]
+  },
+  "廊": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1598,
+   "on": [
+    "ロウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "corridor",
+    "hall",
+    "tower"
+   ]
+  },
   "延": {
    "strokeCount": 8,
    "grade": 6,
@@ -7529,6 +10514,20 @@
    "meanings": [
     "prolong",
     "stretching"
+   ]
+  },
+  "廷": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1439,
+   "on": [
+    "テイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "courts",
+    "imperial court",
+    "government office"
    ]
   },
   "建": {
@@ -7576,6 +10575,25 @@
     "conical cap"
    ]
   },
+  "式": {
+   "strokeCount": 6,
+   "grade": 3,
+   "freq": 251,
+   "on": [
+    "シキ"
+   ],
+   "kun": [],
+   "meanings": [
+    "style",
+    "ceremony",
+    "rite",
+    "function",
+    "method",
+    "system",
+    "form",
+    "expression"
+   ]
+  },
   "弓": {
    "strokeCount": 3,
    "grade": 2,
@@ -7612,6 +10630,26 @@
     "refer to"
    ]
   },
+  "弛": {
+   "strokeCount": 6,
+   "grade": 9,
+   "freq": 2497,
+   "on": [
+    "チ",
+    "シ"
+   ],
+   "kun": [
+    "たる.む",
+    "たる.める",
+    "たゆ.む",
+    "ゆる.む",
+    "ゆる.み"
+   ],
+   "meanings": [
+    "slacken",
+    "relax"
+   ]
+  },
   "弟": {
    "strokeCount": 7,
    "grade": 2,
@@ -7627,6 +10665,20 @@
    "meanings": [
     "younger brother",
     "faithful service to elders"
+   ]
+  },
+  "弧": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 2371,
+   "on": [
+    "コ"
+   ],
+   "kun": [],
+   "meanings": [
+    "arc",
+    "arch",
+    "bow"
    ]
   },
   "弱": {
@@ -7769,6 +10821,22 @@
     "style"
    ]
   },
+  "彩": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1251,
+   "on": [
+    "サイ"
+   ],
+   "kun": [
+    "いろど.る"
+   ],
+   "meanings": [
+    "coloring",
+    "paint",
+    "makeup"
+   ]
+  },
   "彫": {
    "strokeCount": 11,
    "grade": 8,
@@ -7862,6 +10930,20 @@
     "formerly"
    ]
   },
+  "征": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1578,
+   "on": [
+    "セイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "subjugate",
+    "attack the rebellious",
+    "collect taxes"
+   ]
+  },
   "径": {
    "strokeCount": 8,
    "grade": 4,
@@ -7897,6 +10979,24 @@
     "depend on"
    ]
   },
+  "律": {
+   "strokeCount": 9,
+   "grade": 6,
+   "freq": 992,
+   "on": [
+    "リツ",
+    "リチ",
+    "レツ"
+   ],
+   "kun": [],
+   "meanings": [
+    "rhythm",
+    "law",
+    "regulation",
+    "gauge",
+    "control"
+   ]
+  },
   "後": {
    "strokeCount": 9,
    "grade": 2,
@@ -7916,6 +11016,23 @@
     "behind",
     "back",
     "later"
+   ]
+  },
+  "徐": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1470,
+   "on": [
+    "ジョ"
+   ],
+   "kun": [
+    "おもむ.ろに"
+   ],
+   "meanings": [
+    "gradually",
+    "slowly",
+    "deliberately",
+    "gently"
    ]
   },
   "徒": {
@@ -8029,6 +11146,19 @@
     "resume"
    ]
   },
+  "循": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1699,
+   "on": [
+    "ジュン"
+   ],
+   "kun": [],
+   "meanings": [
+    "sequential",
+    "follow"
+   ]
+  },
   "微": {
    "strokeCount": 13,
    "grade": 8,
@@ -8043,6 +11173,21 @@
     "delicate",
     "minuteness",
     "insignificance"
+   ]
+  },
+  "徳": {
+   "strokeCount": 14,
+   "grade": 4,
+   "freq": 1091,
+   "on": [
+    "トク"
+   ],
+   "kun": [],
+   "meanings": [
+    "benevolence",
+    "virtue",
+    "goodness",
+    "commanding respect"
    ]
   },
   "徴": {
@@ -8065,6 +11210,22 @@
     "seek",
     "refer to",
     "question"
+   ]
+  },
+  "徹": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 968,
+   "on": [
+    "テツ"
+   ],
+   "kun": [],
+   "meanings": [
+    "penetrate",
+    "clear",
+    "pierce",
+    "strike home",
+    "sit up (all night)"
    ]
   },
   "心": {
@@ -8180,6 +11341,20 @@
     "accept"
    ]
   },
+  "忠": {
+   "strokeCount": 8,
+   "grade": 6,
+   "freq": 1113,
+   "on": [
+    "チュウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "loyalty",
+    "fidelity",
+    "faithfulness"
+   ]
+  },
   "快": {
    "strokeCount": 7,
    "grade": 5,
@@ -8266,6 +11441,22 @@
    ],
    "meanings": [
     "think"
+   ]
+  },
+  "怠": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1703,
+   "on": [
+    "タイ"
+   ],
+   "kun": [
+    "おこた.る",
+    "なま.ける"
+   ],
+   "meanings": [
+    "neglect",
+    "laziness"
    ]
   },
   "急": {
@@ -8420,6 +11611,24 @@
     "hatred"
    ]
   },
+  "恩": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 1418,
+   "on": [
+    "オン"
+   ],
+   "kun": [],
+   "meanings": [
+    "grace",
+    "kindness",
+    "goodness",
+    "favor",
+    "mercy",
+    "blessing",
+    "benefit"
+   ]
+  },
   "息": {
    "strokeCount": 10,
    "grade": 3,
@@ -8473,6 +11682,56 @@
    "meanings": [
     "repent",
     "regret"
+   ]
+  },
+  "悟": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1411,
+   "on": [
+    "ゴ"
+   ],
+   "kun": [
+    "さと.る"
+   ],
+   "meanings": [
+    "enlightenment",
+    "perceive",
+    "discern",
+    "realize",
+    "understand"
+   ]
+  },
+  "悠": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1921,
+   "on": [
+    "ユウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "permanence",
+    "distant",
+    "long time",
+    "leisure"
+   ]
+  },
+  "患": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 796,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "わずら.う"
+   ],
+   "meanings": [
+    "afflicted",
+    "disease",
+    "suffer from",
+    "be ill"
    ]
   },
   "悩": {
@@ -8578,6 +11837,63 @@
     "perplexity"
    ]
   },
+  "惚": {
+   "strokeCount": 11,
+   "grade": 9,
+   "freq": 2486,
+   "on": [
+    "コツ"
+   ],
+   "kun": [
+    "ほけ.る",
+    "ぼ.ける",
+    "ほ.れる"
+   ],
+   "meanings": [
+    "fall in love with",
+    "admire",
+    "grow senile"
+   ]
+  },
+  "惜": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1641,
+   "on": [
+    "セキ"
+   ],
+   "kun": [
+    "お.しい",
+    "お.しむ"
+   ],
+   "meanings": [
+    "pity",
+    "be sparing of",
+    "frugal",
+    "stingy",
+    "regret"
+   ]
+  },
+  "惨": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1463,
+   "on": [
+    "サン",
+    "ザン"
+   ],
+   "kun": [
+    "みじ.め",
+    "いた.む",
+    "むご.い"
+   ],
+   "meanings": [
+    "wretched",
+    "disaster",
+    "cruelty",
+    "harsh"
+   ]
+  },
   "想": {
    "strokeCount": 13,
    "grade": 3,
@@ -8594,6 +11910,41 @@
     "thought",
     "conception",
     "think"
+   ]
+  },
+  "愁": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 2171,
+   "on": [
+    "シュウ"
+   ],
+   "kun": [
+    "うれ.える",
+    "うれ.い"
+   ],
+   "meanings": [
+    "distress",
+    "grieve",
+    "lament",
+    "be anxious"
+   ]
+  },
+  "愉": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1974,
+   "on": [
+    "ユ"
+   ],
+   "kun": [
+    "たの.しい",
+    "たの.しむ"
+   ],
+   "meanings": [
+    "pleasure",
+    "happy",
+    "rejoice"
    ]
   },
   "意": {
@@ -8613,6 +11964,23 @@
     "desire",
     "care",
     "liking"
+   ]
+  },
+  "愚": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1551,
+   "on": [
+    "グ"
+   ],
+   "kun": [
+    "おろ.か"
+   ],
+   "meanings": [
+    "foolish",
+    "folly",
+    "absurdity",
+    "stupid"
    ]
   },
   "愛": {
@@ -8649,6 +12017,91 @@
     "sensation"
    ]
   },
+  "態": {
+   "strokeCount": 14,
+   "grade": 5,
+   "freq": 353,
+   "on": [
+    "タイ"
+   ],
+   "kun": [
+    "わざ.と"
+   ],
+   "meanings": [
+    "attitude",
+    "condition",
+    "figure",
+    "appearance",
+    "voice (of verbs)"
+   ]
+  },
+  "慌": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1826,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "あわ.てる",
+    "あわ.ただしい"
+   ],
+   "meanings": [
+    "disconcerted",
+    "be confused",
+    "lose one's head"
+   ]
+  },
+  "慎": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 999,
+   "on": [
+    "シン"
+   ],
+   "kun": [
+    "つつし.む",
+    "つつ.ましい",
+    "つつし",
+    "つつし.み"
+   ],
+   "meanings": [
+    "humility",
+    "be careful",
+    "discreet",
+    "prudent"
+   ]
+  },
+  "慕": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 2100,
+   "on": [
+    "ボ"
+   ],
+   "kun": [
+    "した.う"
+   ],
+   "meanings": [
+    "pining",
+    "yearn for",
+    "love dearly",
+    "adore"
+   ]
+  },
+  "慢": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1368,
+   "on": [
+    "マン"
+   ],
+   "kun": [],
+   "meanings": [
+    "ridicule",
+    "laziness"
+   ]
+  },
   "慣": {
    "strokeCount": 14,
    "grade": 5,
@@ -8664,6 +12117,81 @@
     "accustomed",
     "get used to",
     "become experienced"
+   ]
+  },
+  "慨": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1875,
+   "on": [
+    "ガイ"
+   ],
+   "kun": [
+    "なげ.く"
+   ],
+   "meanings": [
+    "rue",
+    "be sad",
+    "sigh",
+    "lament"
+   ]
+  },
+  "慮": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 916,
+   "on": [
+    "リョ"
+   ],
+   "kun": [
+    "おもんぱく.る",
+    "おもんぱか.る"
+   ],
+   "meanings": [
+    "prudence",
+    "thought",
+    "concern",
+    "consider",
+    "deliberate",
+    "fear"
+   ]
+  },
+  "慰": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1158,
+   "on": [
+    "イ"
+   ],
+   "kun": [
+    "なぐさ.める",
+    "なぐさ.む"
+   ],
+   "meanings": [
+    "consolation",
+    "amusement",
+    "seduce",
+    "cheer",
+    "make sport of",
+    "comfort",
+    "console"
+   ]
+  },
+  "慶": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1300,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [
+    "よろこ.び"
+   ],
+   "meanings": [
+    "jubilation",
+    "congratulate",
+    "rejoice",
+    "be happy"
    ]
   },
   "憂": {
@@ -8706,6 +12234,23 @@
     "detest"
    ]
   },
+  "憤": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1863,
+   "on": [
+    "フン"
+   ],
+   "kun": [
+    "いきどお.る"
+   ],
+   "meanings": [
+    "aroused",
+    "resent",
+    "be indignant",
+    "anger"
+   ]
+  },
   "憧": {
    "strokeCount": 15,
    "grade": 8,
@@ -8724,6 +12269,51 @@
     "aspire to",
     "admire",
     "adore"
+   ]
+  },
+  "憩": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1731,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [
+    "いこ.い",
+    "いこ.う"
+   ],
+   "meanings": [
+    "recess",
+    "rest",
+    "relax",
+    "repose"
+   ]
+  },
+  "憲": {
+   "strokeCount": 16,
+   "grade": 6,
+   "freq": 551,
+   "on": [
+    "ケン"
+   ],
+   "kun": [],
+   "meanings": [
+    "constitution",
+    "law"
+   ]
+  },
+  "憶": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1324,
+   "on": [
+    "オク"
+   ],
+   "kun": [],
+   "meanings": [
+    "recollection",
+    "think",
+    "remember"
    ]
   },
   "懐": {
@@ -8753,6 +12343,25 @@
     "bosom",
     "breast",
     "pocket"
+   ]
+  },
+  "懲": {
+   "strokeCount": 18,
+   "grade": 8,
+   "freq": 1303,
+   "on": [
+    "チョウ"
+   ],
+   "kun": [
+    "こ.りる",
+    "こ.らす",
+    "こ.らしめる"
+   ],
+   "meanings": [
+    "penal",
+    "chastise",
+    "punish",
+    "discipline"
    ]
   },
   "懸": {
@@ -8819,6 +12428,59 @@
     "oneself"
    ]
   },
+  "戒": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1062,
+   "on": [
+    "カイ"
+   ],
+   "kun": [
+    "いまし.める"
+   ],
+   "meanings": [
+    "commandment"
+   ]
+  },
+  "或": {
+   "strokeCount": 8,
+   "grade": 9,
+   "freq": 2378,
+   "on": [
+    "ワク",
+    "コク",
+    "イキ"
+   ],
+   "kun": [
+    "あ.る",
+    "あるい",
+    "あるいは"
+   ],
+   "meanings": [
+    "some",
+    "one",
+    "or",
+    "possibly",
+    "a certain"
+   ]
+  },
+  "戚": {
+   "strokeCount": 11,
+   "grade": 8,
+   "on": [
+    "ソク",
+    "セキ"
+   ],
+   "kun": [
+    "いた.む",
+    "うれ.える",
+    "みうち"
+   ],
+   "meanings": [
+    "grieve",
+    "relatives"
+   ]
+  },
   "戦": {
    "strokeCount": 13,
    "grade": 4,
@@ -8837,6 +12499,25 @@
     "war",
     "battle",
     "match"
+   ]
+  },
+  "戯": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1880,
+   "on": [
+    "ギ",
+    "ゲ"
+   ],
+   "kun": [
+    "たわむ.れる",
+    "ざ.れる",
+    "じゃ.れる"
+   ],
+   "meanings": [
+    "frolic",
+    "play",
+    "sport"
    ]
   },
   "戸": {
@@ -8963,6 +12644,20 @@
     "hand"
    ]
   },
+  "才": {
+   "strokeCount": 3,
+   "grade": 2,
+   "freq": 1497,
+   "on": [
+    "サイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "genius",
+    "years old",
+    "cubic shaku"
+   ]
+  },
   "打": {
    "strokeCount": 5,
    "grade": 3,
@@ -9027,6 +12722,35 @@
     "strip"
    ]
   },
+  "扶": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1879,
+   "on": [
+    "フ"
+   ],
+   "kun": [
+    "たす.ける"
+   ],
+   "meanings": [
+    "aid",
+    "help",
+    "assist"
+   ]
+  },
+  "批": {
+   "strokeCount": 7,
+   "grade": 6,
+   "freq": 568,
+   "on": [
+    "ヒ"
+   ],
+   "kun": [],
+   "meanings": [
+    "criticism",
+    "strike"
+   ]
+  },
   "承": {
    "strokeCount": 8,
    "grade": 6,
@@ -9068,6 +12792,44 @@
     "arts"
    ]
   },
+  "把": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1569,
+   "on": [
+    "ハ",
+    "ワ"
+   ],
+   "kun": [],
+   "meanings": [
+    "grasp",
+    "faggot",
+    "bunch",
+    "counter for bundles"
+   ]
+  },
+  "抑": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 834,
+   "on": [
+    "ヨク"
+   ],
+   "kun": [
+    "おさ.える"
+   ],
+   "meanings": [
+    "repress",
+    "well",
+    "now",
+    "in the first place",
+    "push",
+    "shove",
+    "press",
+    "seal",
+    "do in spite of"
+   ]
+  },
   "投": {
    "strokeCount": 7,
    "grade": 3,
@@ -9089,6 +12851,47 @@
     "hurl",
     "give up",
     "sell at a loss"
+   ]
+  },
+  "抗": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 666,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "あらが.う"
+   ],
+   "meanings": [
+    "confront",
+    "resist",
+    "defy",
+    "oppose"
+   ]
+  },
+  "折": {
+   "strokeCount": 7,
+   "grade": 4,
+   "freq": 962,
+   "on": [
+    "セツ",
+    "シャク"
+   ],
+   "kun": [
+    "お.る",
+    "おり",
+    "お.り",
+    "-お.り",
+    "お.れる"
+   ],
+   "meanings": [
+    "fold",
+    "break",
+    "fracture",
+    "bend",
+    "yield",
+    "submit"
    ]
   },
   "抜": {
@@ -9118,6 +12921,23 @@
     "omit"
    ]
   },
+  "択": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 847,
+   "on": [
+    "タク"
+   ],
+   "kun": [
+    "えら.ぶ"
+   ],
+   "meanings": [
+    "choose",
+    "select",
+    "elect",
+    "prefer"
+   ]
+  },
   "抱": {
    "strokeCount": 8,
    "grade": 8,
@@ -9134,6 +12954,20 @@
     "embrace",
     "hug",
     "hold in arms"
+   ]
+  },
+  "抵": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1182,
+   "on": [
+    "テイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "resist",
+    "reach",
+    "touch"
    ]
   },
   "押": {
@@ -9199,6 +13033,72 @@
     "bear"
    ]
   },
+  "拍": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1373,
+   "on": [
+    "ハク",
+    "ヒョウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "clap",
+    "beat (music)"
+   ]
+  },
+  "拒": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 863,
+   "on": [
+    "キョ",
+    "ゴ"
+   ],
+   "kun": [
+    "こば.む"
+   ],
+   "meanings": [
+    "repel",
+    "refuse",
+    "reject",
+    "decline"
+   ]
+  },
+  "拓": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1526,
+   "on": [
+    "タク"
+   ],
+   "kun": [
+    "ひら.く"
+   ],
+   "meanings": [
+    "clear (the land)",
+    "open",
+    "break up (land)"
+   ]
+  },
+  "拘": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1336,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "かか.わる"
+   ],
+   "meanings": [
+    "arrest",
+    "seize",
+    "concerned",
+    "adhere to",
+    "despite"
+   ]
+  },
   "招": {
    "strokeCount": 8,
    "grade": 5,
@@ -9233,6 +13133,24 @@
     "pray to"
    ]
   },
+  "拠": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 858,
+   "on": [
+    "キョ",
+    "コ"
+   ],
+   "kun": [
+    "よ.る"
+   ],
+   "meanings": [
+    "foothold",
+    "based on",
+    "follow",
+    "therefore"
+   ]
+  },
   "拡": {
    "strokeCount": 8,
    "grade": 6,
@@ -9253,6 +13171,23 @@
     "enlarge"
    ]
   },
+  "括": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1026,
+   "on": [
+    "カツ"
+   ],
+   "kun": [
+    "くく.る"
+   ],
+   "meanings": [
+    "fasten",
+    "tie up",
+    "arrest",
+    "constrict"
+   ]
+  },
   "拭": {
    "strokeCount": 9,
    "grade": 8,
@@ -9269,6 +13204,39 @@
     "wipe",
     "mop",
     "swab"
+   ]
+  },
+  "拶": {
+   "strokeCount": 9,
+   "grade": 8,
+   "on": [
+    "サツ"
+   ],
+   "kun": [
+    "せま.る"
+   ],
+   "meanings": [
+    "be imminent",
+    "draw close"
+   ]
+  },
+  "拾": {
+   "strokeCount": 9,
+   "grade": 3,
+   "freq": 1479,
+   "on": [
+    "シュウ",
+    "ジュウ"
+   ],
+   "kun": [
+    "ひろ.う"
+   ],
+   "meanings": [
+    "pick up",
+    "gather",
+    "find",
+    "go on foot",
+    "ten"
    ]
   },
   "持": {
@@ -9309,6 +13277,42 @@
     "measure (ruler)"
    ]
   },
+  "挑": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 989,
+   "on": [
+    "チョウ"
+   ],
+   "kun": [
+    "いど.む"
+   ],
+   "meanings": [
+    "challenge",
+    "contend for",
+    "make love to"
+   ]
+  },
+  "挙": {
+   "strokeCount": 10,
+   "grade": 4,
+   "freq": 257,
+   "on": [
+    "キョ"
+   ],
+   "kun": [
+    "あ.げる",
+    "あ.がる",
+    "こぞ.る"
+   ],
+   "meanings": [
+    "raise",
+    "plan",
+    "project",
+    "behavior",
+    "actions"
+   ]
+  },
   "挟": {
    "strokeCount": 9,
    "grade": 8,
@@ -9326,6 +13330,22 @@
    "meanings": [
     "pinch",
     "between"
+   ]
+  },
+  "挨": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 2258,
+   "on": [
+    "アイ"
+   ],
+   "kun": [
+    "ひら.く"
+   ],
+   "meanings": [
+    "approach",
+    "draw near",
+    "push open"
    ]
   },
   "振": {
@@ -9386,6 +13406,38 @@
     "capture"
    ]
   },
+  "捗": {
+   "strokeCount": 10,
+   "grade": 8,
+   "on": [
+    "チョク",
+    "ホ"
+   ],
+   "kun": [
+    "はかど.る"
+   ],
+   "meanings": [
+    "make progress"
+   ]
+  },
+  "捜": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 592,
+   "on": [
+    "ソウ",
+    "シュ",
+    "シュウ"
+   ],
+   "kun": [
+    "さが.す"
+   ],
+   "meanings": [
+    "search",
+    "look for",
+    "locate"
+   ]
+  },
   "捧": {
    "strokeCount": 11,
    "grade": 9,
@@ -9424,6 +13476,25 @@
     "sacrifice"
    ]
   },
+  "捩": {
+   "strokeCount": 10,
+   "on": [
+    "レイ",
+    "レツ"
+   ],
+   "kun": [
+    "よじ.る",
+    "ね.じる",
+    "ねじ.れる",
+    "もじ.る"
+   ],
+   "meanings": [
+    "screw",
+    "twist",
+    "wrench",
+    "distort"
+   ]
+  },
   "据": {
    "strokeCount": 11,
    "grade": 8,
@@ -9442,6 +13513,65 @@
     "equip",
     "squat down",
     "sit down"
+   ]
+  },
+  "捲": {
+   "strokeCount": 11,
+   "grade": 9,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "ま.く",
+    "ま.くる",
+    "まく.る",
+    "めく.る",
+    "まく.れる"
+   ],
+   "meanings": [
+    "roll",
+    "wind",
+    "coil",
+    "turn pages",
+    "roll up sleeves",
+    "strip off",
+    "be turned",
+    "be rolled up"
+   ]
+  },
+  "捻": {
+   "strokeCount": 11,
+   "grade": 8,
+   "on": [
+    "ネン",
+    "ジョウ"
+   ],
+   "kun": [
+    "ね.じる",
+    "ねじ.る",
+    "ひね.くる",
+    "ひね.る"
+   ],
+   "meanings": [
+    "twirl",
+    "twist",
+    "play with"
+   ]
+  },
+  "掃": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1255,
+   "on": [
+    "ソウ",
+    "シュ"
+   ],
+   "kun": [
+    "は.く"
+   ],
+   "meanings": [
+    "sweep",
+    "brush"
    ]
   },
   "授": {
@@ -9478,6 +13608,23 @@
     "rule",
     "administer",
     "conduct"
+   ]
+  },
+  "排": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1047,
+   "on": [
+    "ハイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "repudiate",
+    "exclude",
+    "expel",
+    "reject",
+    "line up",
+    "arrange"
    ]
   },
   "掘": {
@@ -9527,6 +13674,23 @@
     "pour"
    ]
   },
+  "採": {
+   "strokeCount": 11,
+   "grade": 5,
+   "freq": 607,
+   "on": [
+    "サイ"
+   ],
+   "kun": [
+    "と.る"
+   ],
+   "meanings": [
+    "pick",
+    "take",
+    "fetch",
+    "take up"
+   ]
+  },
   "探": {
    "strokeCount": 11,
    "grade": 6,
@@ -9542,6 +13706,81 @@
     "grope",
     "search",
     "look for"
+   ]
+  },
+  "接": {
+   "strokeCount": 11,
+   "grade": 5,
+   "freq": 523,
+   "on": [
+    "セツ",
+    "ショウ"
+   ],
+   "kun": [
+    "つ.ぐ"
+   ],
+   "meanings": [
+    "touch",
+    "contact",
+    "adjoin",
+    "piece together"
+   ]
+  },
+  "控": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1000,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "ひか.える",
+    "ひか.え"
+   ],
+   "meanings": [
+    "withdraw",
+    "draw in",
+    "hold back",
+    "refrain from",
+    "be moderate"
+   ]
+  },
+  "推": {
+   "strokeCount": 11,
+   "grade": 6,
+   "freq": 507,
+   "on": [
+    "スイ"
+   ],
+   "kun": [
+    "お.す"
+   ],
+   "meanings": [
+    "conjecture",
+    "infer",
+    "guess",
+    "suppose",
+    "support",
+    "push (for)"
+   ]
+  },
+  "措": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 818,
+   "on": [
+    "ソ"
+   ],
+   "kun": [
+    "お.く"
+   ],
+   "meanings": [
+    "set aside",
+    "give up",
+    "suspend",
+    "discontinue",
+    "lay aside",
+    "except"
    ]
   },
   "掬": {
@@ -9616,6 +13855,45 @@
     "behead"
    ]
   },
+  "揃": {
+   "strokeCount": 12,
+   "grade": 9,
+   "freq": 2412,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "そろ.える",
+    "そろ.う",
+    "そろ.い",
+    "き.る"
+   ],
+   "meanings": [
+    "be complete",
+    "uniform",
+    "all present"
+   ]
+  },
+  "揉": {
+   "strokeCount": 12,
+   "on": [
+    "ジュウ"
+   ],
+   "kun": [
+    "も.む",
+    "も.める"
+   ],
+   "meanings": [
+    "rub",
+    "massage",
+    "shampoo",
+    "debate vigorously",
+    "train",
+    "coach",
+    "worry",
+    "get in trouble"
+   ]
+  },
   "描": {
    "strokeCount": 11,
    "grade": 8,
@@ -9633,6 +13911,45 @@
     "write",
     "draw",
     "paint"
+   ]
+  },
+  "提": {
+   "strokeCount": 12,
+   "grade": 5,
+   "freq": 254,
+   "on": [
+    "テイ",
+    "チョウ",
+    "ダイ"
+   ],
+   "kun": [
+    "さ.げる"
+   ],
+   "meanings": [
+    "propose",
+    "take along",
+    "carry in hand"
+   ]
+  },
+  "揚": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1316,
+   "on": [
+    "ヨウ"
+   ],
+   "kun": [
+    "あ.げる",
+    "-あ.げ",
+    "あ.がる"
+   ],
+   "meanings": [
+    "raise",
+    "elevate",
+    "hoist",
+    "praise",
+    "extol",
+    "fry in deep fat"
    ]
   },
   "換": {
@@ -9671,6 +13988,38 @@
     "hold",
     "mould sushi",
     "bribe"
+   ]
+  },
+  "揮": {
+   "strokeCount": 12,
+   "grade": 6,
+   "freq": 946,
+   "on": [
+    "キ"
+   ],
+   "kun": [
+    "ふる.う"
+   ],
+   "meanings": [
+    "brandish",
+    "wave",
+    "wag",
+    "swing",
+    "shake"
+   ]
+  },
+  "援": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 312,
+   "on": [
+    "エン"
+   ],
+   "kun": [],
+   "meanings": [
+    "abet",
+    "help",
+    "save"
    ]
   },
   "揺": {
@@ -9721,6 +14070,38 @@
     "injure"
    ]
   },
+  "搬": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1664,
+   "on": [
+    "ハン"
+   ],
+   "kun": [],
+   "meanings": [
+    "conveyor",
+    "carry",
+    "transport"
+   ]
+  },
+  "携": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1017,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [
+    "たずさ.える",
+    "たずさ.わる"
+   ],
+   "meanings": [
+    "portable",
+    "carry (in hand)",
+    "armed with",
+    "bring along"
+   ]
+  },
   "摘": {
    "strokeCount": 14,
    "grade": 8,
@@ -9760,6 +14141,39 @@
     "scrape"
    ]
   },
+  "撃": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 473,
+   "on": [
+    "ゲキ"
+   ],
+   "kun": [
+    "う.つ"
+   ],
+   "meanings": [
+    "beat",
+    "attack",
+    "defeat",
+    "conquer"
+   ]
+  },
+  "撒": {
+   "strokeCount": 15,
+   "grade": 9,
+   "on": [
+    "サン",
+    "サツ"
+   ],
+   "kun": [
+    "ま.く"
+   ],
+   "meanings": [
+    "scatter",
+    "sprinkle",
+    "give them the slip"
+   ]
+  },
   "撫": {
    "strokeCount": 15,
    "grade": 9,
@@ -9775,6 +14189,23 @@
     "stroke",
     "pat",
     "smooth down"
+   ]
+  },
+  "撮": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1023,
+   "on": [
+    "サツ"
+   ],
+   "kun": [
+    "と.る",
+    "つま.む",
+    "-ど.り"
+   ],
+   "meanings": [
+    "snapshot",
+    "take pictures"
    ]
   },
   "撲": {
@@ -9837,6 +14268,19 @@
     "scrape",
     "chafe",
     "scour"
+   ]
+  },
+  "攫": {
+   "strokeCount": 23,
+   "on": [
+    "カク"
+   ],
+   "kun": [
+    "さら.う",
+    "つか.む"
+   ],
+   "meanings": [
+    "abduct"
    ]
   },
   "支": {
@@ -9922,6 +14366,23 @@
     "liberate"
    ]
   },
+  "政": {
+   "strokeCount": 9,
+   "grade": 5,
+   "freq": 17,
+   "on": [
+    "セイ",
+    "ショウ"
+   ],
+   "kun": [
+    "まつりごと",
+    "まん"
+   ],
+   "meanings": [
+    "politics",
+    "government"
+   ]
+  },
   "故": {
    "strokeCount": 9,
    "grade": 5,
@@ -9978,6 +14439,22 @@
     "help",
     "rescue",
     "reclaim"
+   ]
+  },
+  "敗": {
+   "strokeCount": 11,
+   "grade": 4,
+   "freq": 516,
+   "on": [
+    "ハイ"
+   ],
+   "kun": [
+    "やぶ.れる"
+   ],
+   "meanings": [
+    "failure",
+    "defeat",
+    "reversal"
    ]
   },
   "教": {
@@ -10042,6 +14519,24 @@
     "squander"
    ]
   },
+  "敬": {
+   "strokeCount": 12,
+   "grade": 6,
+   "freq": 1078,
+   "on": [
+    "ケイ",
+    "キョウ"
+   ],
+   "kun": [
+    "うやま.う"
+   ],
+   "meanings": [
+    "awe",
+    "respect",
+    "honor",
+    "revere"
+   ]
+  },
   "数": {
    "strokeCount": 13,
    "grade": 2,
@@ -10066,6 +14561,26 @@
     "fate",
     "law",
     "figures"
+   ]
+  },
+  "整": {
+   "strokeCount": 16,
+   "grade": 3,
+   "freq": 478,
+   "on": [
+    "セイ"
+   ],
+   "kun": [
+    "ととの.える",
+    "ととの.う"
+   ],
+   "meanings": [
+    "organize",
+    "arranging",
+    "tune",
+    "tone",
+    "meter",
+    "key (music)"
    ]
   },
   "敵": {
@@ -10127,6 +14642,28 @@
     "literary radical (no. 67)"
    ]
   },
+  "斉": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1209,
+   "on": [
+    "セイ",
+    "サイ"
+   ],
+   "kun": [
+    "そろ.う",
+    "ひと.しい",
+    "ひと.しく",
+    "あたる",
+    "はやい"
+   ],
+   "meanings": [
+    "adjusted",
+    "alike",
+    "equal",
+    "similar variety of"
+   ]
+  },
   "斎": {
    "strokeCount": 11,
    "grade": 8,
@@ -10165,6 +14702,24 @@
     "patterned"
    ]
   },
+  "斑": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 2165,
+   "on": [
+    "ハン"
+   ],
+   "kun": [
+    "ふ",
+    "まだら"
+   ],
+   "meanings": [
+    "spot",
+    "blemish",
+    "speck",
+    "patches"
+   ]
+  },
   "料": {
    "strokeCount": 10,
    "grade": 4,
@@ -10176,6 +14731,60 @@
    "meanings": [
     "fee",
     "materials"
+   ]
+  },
+  "斜": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1504,
+   "on": [
+    "シャ"
+   ],
+   "kun": [
+    "なな.め",
+    "はす"
+   ],
+   "meanings": [
+    "diagonal",
+    "slanting",
+    "oblique"
+   ]
+  },
+  "斡": {
+   "strokeCount": 14,
+   "grade": 9,
+   "on": [
+    "アツ",
+    "カン",
+    "ワツ"
+   ],
+   "kun": [
+    "めぐ.る",
+    "めぐ.らす"
+   ],
+   "meanings": [
+    "go around",
+    "rule",
+    "administer"
+   ]
+  },
+  "斬": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 2132,
+   "on": [
+    "ザン",
+    "サン",
+    "セン",
+    "ゼン"
+   ],
+   "kun": [
+    "き.る"
+   ],
+   "meanings": [
+    "beheading",
+    "kill",
+    "murder"
    ]
   },
   "断": {
@@ -10238,6 +14847,27 @@
     "alternative"
    ]
   },
+  "於": {
+   "strokeCount": 8,
+   "grade": 9,
+   "freq": 2113,
+   "on": [
+    "オ",
+    "ヨ"
+   ],
+   "kun": [
+    "おい.て",
+    "お.ける",
+    "ああ",
+    "より"
+   ],
+   "meanings": [
+    "at",
+    "in",
+    "on",
+    "as for"
+   ]
+  },
   "施": {
    "strokeCount": 9,
    "grade": 8,
@@ -10269,6 +14899,22 @@
    "meanings": [
     "trip",
     "travel"
+   ]
+  },
+  "旋": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1801,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "め.ぐる",
+    "いばり"
+   ],
+   "meanings": [
+    "rotation",
+    "go around"
    ]
   },
   "族": {
@@ -10375,6 +15021,27 @@
     "ex-"
    ]
   },
+  "旨": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 1166,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "むね",
+    "うま.い"
+   ],
+   "meanings": [
+    "delicious",
+    "relish",
+    "show a liking for",
+    "purport",
+    "will",
+    "clever",
+    "expert"
+   ]
+  },
   "早": {
    "strokeCount": 6,
    "grade": 1,
@@ -10394,6 +15061,49 @@
    "meanings": [
     "early",
     "fast"
+   ]
+  },
+  "旬": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 1162,
+   "on": [
+    "ジュン",
+    "シュン"
+   ],
+   "kun": [],
+   "meanings": [
+    "decameron",
+    "ten-day period",
+    "season (for specific products)"
+   ]
+  },
+  "昆": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1688,
+   "on": [
+    "コン"
+   ],
+   "kun": [],
+   "meanings": [
+    "descendants",
+    "elder brother",
+    "insect"
+   ]
+  },
+  "昇": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 826,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "のぼ.る"
+   ],
+   "meanings": [
+    "rise up"
    ]
   },
   "明": {
@@ -10525,6 +15235,26 @@
     "previous"
    ]
   },
+  "是": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1045,
+   "on": [
+    "ゼ",
+    "シ"
+   ],
+   "kun": [
+    "これ",
+    "この",
+    "ここ"
+   ],
+   "meanings": [
+    "just so",
+    "this",
+    "right",
+    "justice"
+   ]
+  },
   "昼": {
    "strokeCount": 9,
    "grade": 2,
@@ -10618,6 +15348,20 @@
     "clear up"
    ]
   },
+  "晶": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1613,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "sparkle",
+    "clear",
+    "crystal"
+   ]
+  },
   "暇": {
    "strokeCount": 13,
    "grade": 8,
@@ -10651,6 +15395,24 @@
     "sultry",
     "hot",
     "summer heat"
+   ]
+  },
+  "暖": {
+   "strokeCount": 13,
+   "grade": 6,
+   "freq": 1371,
+   "on": [
+    "ダン",
+    "ノン"
+   ],
+   "kun": [
+    "あたた.か",
+    "あたた.かい",
+    "あたた.まる",
+    "あたた.める"
+   ],
+   "meanings": [
+    "warmth"
    ]
   },
   "暗": {
@@ -10759,6 +15521,57 @@
     "weekday"
    ]
   },
+  "曲": {
+   "strokeCount": 6,
+   "grade": 3,
+   "freq": 810,
+   "on": [
+    "キョク"
+   ],
+   "kun": [
+    "ま.がる",
+    "ま.げる",
+    "くま"
+   ],
+   "meanings": [
+    "bend",
+    "music",
+    "melody",
+    "composition",
+    "pleasure",
+    "injustice",
+    "fault",
+    "curve",
+    "crooked",
+    "perverse",
+    "lean"
+   ]
+  },
+  "更": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 861,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "さら",
+    "さら.に",
+    "ふ.ける",
+    "ふ.かす"
+   ],
+   "meanings": [
+    "grow late",
+    "night watch",
+    "sit up late",
+    "of course",
+    "renew",
+    "renovate",
+    "again",
+    "more and more",
+    "further"
+   ]
+  },
   "書": {
    "strokeCount": 10,
    "grade": 2,
@@ -10863,6 +15676,25 @@
     "discharge"
    ]
   },
+  "朗": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 1374,
+   "on": [
+    "ロウ"
+   ],
+   "kun": [
+    "ほが.らか",
+    "あき.らか"
+   ],
+   "meanings": [
+    "melodious",
+    "clear",
+    "bright",
+    "serene",
+    "cheerful"
+   ]
+  },
   "望": {
    "strokeCount": 11,
    "grade": 4,
@@ -10901,6 +15733,22 @@
     "epoch",
     "period",
     "(North) Korea"
+   ]
+  },
+  "期": {
+   "strokeCount": 12,
+   "grade": 3,
+   "freq": 117,
+   "on": [
+    "キ",
+    "ゴ"
+   ],
+   "kun": [],
+   "meanings": [
+    "period",
+    "time",
+    "date",
+    "term"
    ]
   },
   "木": {
@@ -11003,6 +15851,25 @@
     "bid"
    ]
   },
+  "朴": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 1626,
+   "on": [
+    "ボク"
+   ],
+   "kun": [
+    "ほう",
+    "ほお",
+    "えのき"
+   ],
+   "meanings": [
+    "crude",
+    "simple",
+    "plain",
+    "docile"
+   ]
+  },
   "机": {
    "strokeCount": 6,
    "grade": 6,
@@ -11016,6 +15883,22 @@
    "meanings": [
     "desk",
     "table"
+   ]
+  },
+  "朽": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 1891,
+   "on": [
+    "キュウ"
+   ],
+   "kun": [
+    "く.ちる"
+   ],
+   "meanings": [
+    "decay",
+    "rot",
+    "remain in seclusion"
    ]
   },
   "杉": {
@@ -11102,6 +15985,29 @@
     "govern",
     "manage",
     "control"
+   ]
+  },
+  "条": {
+   "strokeCount": 7,
+   "grade": 5,
+   "freq": 363,
+   "on": [
+    "ジョウ",
+    "チョウ",
+    "デキ"
+   ],
+   "kun": [
+    "えだ",
+    "すじ"
+   ],
+   "meanings": [
+    "article",
+    "clause",
+    "counter for articles, clauses, paragraphs, etc.",
+    "twig",
+    "item",
+    "stripe",
+    "streak"
    ]
   },
   "来": {
@@ -11237,6 +16143,20 @@
     "forest"
    ]
   },
+  "枚": {
+   "strokeCount": 8,
+   "grade": 6,
+   "freq": 911,
+   "on": [
+    "マイ",
+    "バイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "sheet of...",
+    "counter for flat thin objects or sheets"
+   ]
+  },
   "果": {
    "strokeCount": 8,
    "grade": 4,
@@ -11296,6 +16216,63 @@
     "spool",
     "bounding-box",
     "(kokuji)"
+   ]
+  },
+  "枢": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1791,
+   "on": [
+    "スウ",
+    "シュ"
+   ],
+   "kun": [
+    "とぼそ",
+    "からくり"
+   ],
+   "meanings": [
+    "hinge",
+    "pivot",
+    "door",
+    "center of things"
+   ]
+  },
+  "枯": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1749,
+   "on": [
+    "コ"
+   ],
+   "kun": [
+    "か.れる",
+    "か.らす"
+   ],
+   "meanings": [
+    "wither",
+    "die",
+    "dry up",
+    "be seasoned"
+   ]
+  },
+  "架": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1555,
+   "on": [
+    "カ"
+   ],
+   "kun": [
+    "か.ける",
+    "か.かる"
+   ],
+   "meanings": [
+    "erect",
+    "frame",
+    "mount",
+    "support",
+    "shelf",
+    "construct"
    ]
   },
   "柄": {
@@ -11437,6 +16414,22 @@
     "splendor"
    ]
   },
+  "栓": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 2199,
+   "on": [
+    "セン"
+   ],
+   "kun": [],
+   "meanings": [
+    "plug",
+    "bolt",
+    "cork",
+    "bung",
+    "stopper"
+   ]
+  },
   "校": {
    "strokeCount": 10,
    "grade": 1,
@@ -11522,6 +16515,35 @@
     "case (law, grammar)"
    ]
   },
+  "栽": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1496,
+   "on": [
+    "サイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "plantation",
+    "planting"
+   ]
+  },
+  "桁": {
+   "strokeCount": 10,
+   "grade": 8,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "けた"
+   ],
+   "meanings": [
+    "beam",
+    "girder",
+    "spar",
+    "unit or column (accounting)"
+   ]
+  },
   "案": {
    "strokeCount": 10,
    "grade": 4,
@@ -11561,6 +16583,25 @@
     "cherry"
    ]
   },
+  "桟": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 2093,
+   "on": [
+    "サン",
+    "セン"
+   ],
+   "kun": [
+    "かけはし"
+   ],
+   "meanings": [
+    "scaffold",
+    "cleat",
+    "frame",
+    "jetty",
+    "bolt (door)"
+   ]
+  },
   "梅": {
    "strokeCount": 10,
    "grade": 4,
@@ -11588,6 +16629,23 @@
    "meanings": [
     "treetops",
     "twig"
+   ]
+  },
+  "梯": {
+   "strokeCount": 11,
+   "grade": 9,
+   "freq": 2218,
+   "on": [
+    "テイ",
+    "タイ"
+   ],
+   "kun": [
+    "はしご"
+   ],
+   "meanings": [
+    "ladder",
+    "stairs",
+    "insatiable drinking"
    ]
   },
   "械": {
@@ -11679,6 +16737,22 @@
     "trellis"
    ]
   },
+  "棟": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1406,
+   "on": [
+    "トウ"
+   ],
+   "kun": [
+    "むね",
+    "むな-"
+   ],
+   "meanings": [
+    "ridgepole",
+    "ridge"
+   ]
+  },
   "森": {
    "strokeCount": 12,
    "grade": 1,
@@ -11692,6 +16766,19 @@
    "meanings": [
     "forest",
     "woods"
+   ]
+  },
+  "椀": {
+   "strokeCount": 12,
+   "grade": 9,
+   "on": [
+    "ワン"
+   ],
+   "kun": [
+    "はち"
+   ],
+   "meanings": [
+    "wooden or lacquered bowl"
    ]
   },
   "椅": {
@@ -11731,6 +16818,34 @@
    ],
    "meanings": [
     "Japanese pepper tree"
+   ]
+  },
+  "検": {
+   "strokeCount": 12,
+   "grade": 5,
+   "freq": 290,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "しら.べる"
+   ],
+   "meanings": [
+    "examination",
+    "investigate"
+   ]
+  },
+  "楕": {
+   "strokeCount": 13,
+   "grade": 9,
+   "freq": 2476,
+   "on": [
+    "ダ",
+    "タ"
+   ],
+   "kun": [],
+   "meanings": [
+    "ellipse"
    ]
   },
   "業": {
@@ -11912,6 +17027,25 @@
     "mock"
    ]
   },
+  "権": {
+   "strokeCount": 15,
+   "grade": 6,
+   "freq": 156,
+   "on": [
+    "ケン",
+    "ゴン"
+   ],
+   "kun": [
+    "おもり",
+    "かり",
+    "はか.る"
+   ],
+   "meanings": [
+    "authority",
+    "power",
+    "rights"
+   ]
+  },
   "横": {
    "strokeCount": 15,
    "grade": 3,
@@ -11930,6 +17064,41 @@
     "woof",
     "unreasonable",
     "perverse"
+   ]
+  },
+  "樹": {
+   "strokeCount": 16,
+   "grade": 6,
+   "freq": 988,
+   "on": [
+    "ジュ"
+   ],
+   "kun": [
+    "き"
+   ],
+   "meanings": [
+    "timber",
+    "trees",
+    "wood",
+    "establish",
+    "set up"
+   ]
+  },
+  "橇": {
+   "strokeCount": 16,
+   "on": [
+    "キョウ",
+    "ゼイ",
+    "セイ"
+   ],
+   "kun": [
+    "そり",
+    "かんじき"
+   ],
+   "meanings": [
+    "sled",
+    "sleigh",
+    "snowshoes"
    ]
   },
   "橋": {
@@ -11967,6 +17136,23 @@
     "occasion"
    ]
   },
+  "檻": {
+   "strokeCount": 19,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "おり",
+    "おばしま",
+    "てすり"
+   ],
+   "meanings": [
+    "pen",
+    "corral",
+    "cell",
+    "jail"
+   ]
+  },
   "櫛": {
    "strokeCount": 17,
    "grade": 9,
@@ -11980,6 +17166,23 @@
    ],
    "meanings": [
     "comb"
+   ]
+  },
+  "欄": {
+   "strokeCount": 20,
+   "grade": 8,
+   "freq": 1523,
+   "on": [
+    "ラン"
+   ],
+   "kun": [
+    "てすり"
+   ],
+   "meanings": [
+    "column",
+    "handrail",
+    "blank",
+    "space"
    ]
   },
   "欠": {
@@ -12017,6 +17220,21 @@
     "next",
     "order",
     "sequence"
+   ]
+  },
+  "欧": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 421,
+   "on": [
+    "オウ"
+   ],
+   "kun": [
+    "うた.う",
+    "は.く"
+   ],
+   "meanings": [
+    "Europe"
    ]
   },
   "欲": {
@@ -12069,6 +17287,21 @@
    "meanings": [
     "song",
     "sing"
+   ]
+  },
+  "歓": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1065,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "よろこ.ぶ"
+   ],
+   "meanings": [
+    "delight",
+    "joy"
    ]
   },
   "止": {
@@ -12215,6 +17448,21 @@
     "opportunity"
    ]
   },
+  "歴": {
+   "strokeCount": 14,
+   "grade": 5,
+   "freq": 632,
+   "on": [
+    "レキ",
+    "レッキ"
+   ],
+   "kun": [],
+   "meanings": [
+    "curriculum",
+    "continuation",
+    "passage of time"
+   ]
+  },
   "死": {
    "strokeCount": 6,
    "grade": 3,
@@ -12229,6 +17477,22 @@
    "meanings": [
     "death",
     "die"
+   ]
+  },
+  "殊": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1361,
+   "on": [
+    "シュ"
+   ],
+   "kun": [
+    "こと"
+   ],
+   "meanings": [
+    "particularly",
+    "especially",
+    "exceptionally"
    ]
   },
   "残": {
@@ -12267,6 +17531,23 @@
     "increase",
     "multiply",
     "raise"
+   ]
+  },
+  "殴": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1622,
+   "on": [
+    "オウ"
+   ],
+   "kun": [
+    "なぐ.る"
+   ],
+   "meanings": [
+    "assault",
+    "hit",
+    "beat",
+    "thrash"
    ]
   },
   "段": {
@@ -12519,6 +17800,57 @@
     "congeal"
    ]
   },
+  "永": {
+   "strokeCount": 5,
+   "grade": 5,
+   "freq": 846,
+   "on": [
+    "エイ"
+   ],
+   "kun": [
+    "なが.い"
+   ],
+   "meanings": [
+    "eternity",
+    "long",
+    "lengthy"
+   ]
+  },
+  "氾": {
+   "strokeCount": 5,
+   "grade": 8,
+   "on": [
+    "ハン"
+   ],
+   "kun": [
+    "ひろ.がる"
+   ],
+   "meanings": [
+    "spread out",
+    "wide"
+   ]
+  },
+  "汁": {
+   "strokeCount": 5,
+   "grade": 8,
+   "freq": 1843,
+   "on": [
+    "ジュウ"
+   ],
+   "kun": [
+    "しる",
+    "-しる",
+    "つゆ"
+   ],
+   "meanings": [
+    "soup",
+    "juice",
+    "broth",
+    "sap",
+    "gravy",
+    "pus"
+   ]
+  },
   "求": {
    "strokeCount": 7,
    "grade": 4,
@@ -12553,6 +17885,29 @@
     "perspire"
    ]
   },
+  "汚": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 908,
+   "on": [
+    "オ"
+   ],
+   "kun": [
+    "けが.す",
+    "けが.れる",
+    "けが.らわしい",
+    "よご.す",
+    "よご.れる",
+    "きたな.い"
+   ],
+   "meanings": [
+    "dirty",
+    "pollute",
+    "disgrace",
+    "rape",
+    "defile"
+   ]
+  },
   "池": {
    "strokeCount": 6,
    "grade": 2,
@@ -12568,6 +17923,26 @@
     "cistern",
     "pool",
     "reservoir"
+   ]
+  },
+  "汰": {
+   "strokeCount": 7,
+   "grade": 8,
+   "on": [
+    "タ",
+    "タイ"
+   ],
+   "kun": [
+    "おご.る",
+    "にご.る",
+    "よな.げる"
+   ],
+   "meanings": [
+    "washing",
+    "sieving",
+    "filtering",
+    "weeding out",
+    "luxury"
    ]
   },
   "汲": {
@@ -12639,6 +18014,63 @@
     "aloes"
    ]
   },
+  "沖": {
+   "strokeCount": 7,
+   "grade": 4,
+   "freq": 929,
+   "on": [
+    "チュウ"
+   ],
+   "kun": [
+    "おき",
+    "おきつ",
+    "ちゅう.する",
+    "わく"
+   ],
+   "meanings": [
+    "open sea",
+    "offing",
+    "rise high into sky"
+   ]
+  },
+  "沙": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1897,
+   "on": [
+    "サ",
+    "シャ"
+   ],
+   "kun": [
+    "すな",
+    "よなげる"
+   ],
+   "meanings": [
+    "sand"
+   ]
+  },
+  "没": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1385,
+   "on": [
+    "ボツ",
+    "モツ"
+   ],
+   "kun": [
+    "おぼ.れる",
+    "しず.む",
+    "ない"
+   ],
+   "meanings": [
+    "drown",
+    "sink",
+    "hide",
+    "fall into",
+    "disappear",
+    "die"
+   ]
+  },
   "沢": {
    "strokeCount": 7,
    "grade": 8,
@@ -12671,6 +18103,25 @@
    ],
    "meanings": [
     "river"
+   ]
+  },
+  "沸": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1709,
+   "on": [
+    "フツ"
+   ],
+   "kun": [
+    "わ.く",
+    "わ.かす"
+   ],
+   "meanings": [
+    "seethe",
+    "boil",
+    "ferment",
+    "uproar",
+    "breed"
    ]
   },
   "油": {
@@ -12750,6 +18201,23 @@
     "follow along",
     "run along",
     "lie along"
+   ]
+  },
+  "況": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 490,
+   "on": [
+    "キョウ"
+   ],
+   "kun": [
+    "まし.て",
+    "いわ.んや",
+    "おもむき"
+   ],
+   "meanings": [
+    "condition",
+    "situation"
    ]
   },
   "泉": {
@@ -12853,6 +18321,27 @@
     "cry",
     "weep",
     "moan"
+   ]
+  },
+  "泥": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1589,
+   "on": [
+    "デイ",
+    "ナイ",
+    "デ",
+    "ニ"
+   ],
+   "kun": [
+    "どろ",
+    "なず.む"
+   ],
+   "meanings": [
+    "mud",
+    "mire",
+    "adhere to",
+    "be attached to"
    ]
   },
   "注": {
@@ -12959,6 +18448,20 @@
     "ferry"
    ]
   },
+  "洪": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1778,
+   "on": [
+    "コウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "deluge",
+    "flood",
+    "vast"
+   ]
+  },
   "活": {
    "strokeCount": 9,
    "grade": 2,
@@ -13050,6 +18553,22 @@
     "seashore"
    ]
   },
+  "浪": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1508,
+   "on": [
+    "ロウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "wandering",
+    "waves",
+    "billows",
+    "reckless",
+    "unrestrained"
+   ]
+  },
   "浮": {
    "strokeCount": 10,
    "grade": 8,
@@ -13099,6 +18618,28 @@
    "meanings": [
     "sea",
     "ocean"
+   ]
+  },
+  "浸": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1447,
+   "on": [
+    "シン"
+   ],
+   "kun": [
+    "ひた.す",
+    "ひた.る",
+    "つ.かる"
+   ],
+   "meanings": [
+    "immersed",
+    "soak",
+    "dip",
+    "steep",
+    "moisten",
+    "wet",
+    "dunk"
    ]
   },
   "消": {
@@ -13189,6 +18730,22 @@
     "nice and cool"
    ]
   },
+  "淑": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1922,
+   "on": [
+    "シュク"
+   ],
+   "kun": [
+    "しと.やか"
+   ],
+   "meanings": [
+    "graceful",
+    "gentle",
+    "pure"
+   ]
+  },
   "淡": {
    "strokeCount": 11,
    "grade": 8,
@@ -13247,6 +18804,52 @@
     "confuse"
    ]
   },
+  "添": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1501,
+   "on": [
+    "テン"
+   ],
+   "kun": [
+    "そ.える",
+    "そ.う"
+   ],
+   "meanings": [
+    "annexed",
+    "accompany",
+    "marry",
+    "suit",
+    "meet",
+    "satisfy",
+    "attach",
+    "append",
+    "garnish",
+    "imitate"
+   ]
+  },
+  "清": {
+   "strokeCount": 11,
+   "grade": 4,
+   "freq": 705,
+   "on": [
+    "セイ",
+    "ショウ",
+    "シン"
+   ],
+   "kun": [
+    "きよ.い",
+    "きよ.まる",
+    "きよ.める"
+   ],
+   "meanings": [
+    "pure",
+    "purify",
+    "cleanse",
+    "exorcise",
+    "Manchu dynasty"
+   ]
+  },
   "渇": {
    "strokeCount": 11,
    "grade": 8,
@@ -13290,6 +18893,45 @@
     "come to an end",
     "excusable",
     "need not"
+   ]
+  },
+  "渉": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 499,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "わた.る"
+   ],
+   "meanings": [
+    "ford",
+    "go cross",
+    "transit",
+    "ferry",
+    "import",
+    "involve"
+   ]
+  },
+  "渋": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1011,
+   "on": [
+    "ジュウ",
+    "シュウ"
+   ],
+   "kun": [
+    "しぶ",
+    "しぶ.い",
+    "しぶ.る"
+   ],
+   "meanings": [
+    "astringent",
+    "hesitate",
+    "reluctant",
+    "have diarrhea"
    ]
   },
   "渚": {
@@ -13385,6 +19027,23 @@
     "warm"
    ]
   },
+  "測": {
+   "strokeCount": 12,
+   "grade": 5,
+   "freq": 761,
+   "on": [
+    "ソク"
+   ],
+   "kun": [
+    "はか.る"
+   ],
+   "meanings": [
+    "fathom",
+    "plan",
+    "scheme",
+    "measure"
+   ]
+  },
   "港": {
    "strokeCount": 12,
    "grade": 3,
@@ -13413,6 +19072,26 @@
     "lake"
    ]
   },
+  "湧": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 2070,
+   "on": [
+    "ユウ",
+    "ヨウ",
+    "ユ"
+   ],
+   "kun": [
+    "わ.く"
+   ],
+   "meanings": [
+    "boil",
+    "ferment",
+    "seethe",
+    "uproar",
+    "breed"
+   ]
+  },
   "湯": {
    "strokeCount": 12,
    "grade": 3,
@@ -13427,6 +19106,42 @@
     "hot water",
     "bath",
     "hot spring"
+   ]
+  },
+  "湾": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 545,
+   "on": [
+    "ワン"
+   ],
+   "kun": [
+    "いりえ"
+   ],
+   "meanings": [
+    "gulf",
+    "bay",
+    "inlet"
+   ]
+  },
+  "湿": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1517,
+   "on": [
+    "シツ",
+    "シュウ"
+   ],
+   "kun": [
+    "しめ.る",
+    "しめ.す",
+    "うるお.う",
+    "うるお.す"
+   ],
+   "meanings": [
+    "damp",
+    "wet",
+    "moist"
    ]
   },
   "満": {
@@ -13508,6 +19223,24 @@
     "be in arrears"
    ]
   },
+  "溝": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1736,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "みぞ"
+   ],
+   "meanings": [
+    "gutter",
+    "ditch",
+    "sewer",
+    "drain",
+    "10**32"
+   ]
+  },
   "溶": {
    "strokeCount": 13,
    "grade": 8,
@@ -13524,6 +19257,23 @@
     "melt",
     "dissolve",
     "thaw"
+   ]
+  },
+  "溺": {
+   "strokeCount": 13,
+   "grade": 8,
+   "on": [
+    "デキ",
+    "ジョウ",
+    "ニョウ"
+   ],
+   "kun": [
+    "いばり",
+    "おぼ.れる"
+   ],
+   "meanings": [
+    "drown",
+    "indulge"
    ]
   },
   "滅": {
@@ -13545,6 +19295,25 @@
     "perish"
    ]
   },
+  "滑": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1238,
+   "on": [
+    "カツ",
+    "コツ"
+   ],
+   "kun": [
+    "すべ.る",
+    "なめ.らか"
+   ],
+   "meanings": [
+    "slippery",
+    "slide",
+    "slip",
+    "fail exam"
+   ]
+  },
   "滝": {
    "strokeCount": 13,
    "grade": 8,
@@ -13560,6 +19329,53 @@
     "waterfall",
     "rapids",
     "cascade"
+   ]
+  },
+  "滞": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1107,
+   "on": [
+    "タイ",
+    "テイ"
+   ],
+   "kun": [
+    "とどこお.る"
+   ],
+   "meanings": [
+    "stagnate",
+    "be delayed",
+    "overdue",
+    "arrears"
+   ]
+  },
+  "滲": {
+   "strokeCount": 14,
+   "on": [
+    "シン"
+   ],
+   "kun": [
+    "し.みる",
+    "にじ.む"
+   ],
+   "meanings": [
+    "imbued with"
+   ]
+  },
+  "滴": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 2019,
+   "on": [
+    "テキ"
+   ],
+   "kun": [
+    "しずく",
+    "したた.る"
+   ],
+   "meanings": [
+    "drip",
+    "drop"
    ]
   },
   "漁": {
@@ -13591,6 +19407,37 @@
    "meanings": [
     "drift",
     "float (on liquid)"
+   ]
+  },
+  "漏": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1298,
+   "on": [
+    "ロウ"
+   ],
+   "kun": [
+    "も.る",
+    "も.れる",
+    "も.らす"
+   ],
+   "meanings": [
+    "leak",
+    "escape",
+    "time"
+   ]
+  },
+  "漑": {
+   "strokeCount": 15,
+   "on": [
+    "ガイ",
+    "カイ"
+   ],
+   "kun": [
+    "そそ.ぐ"
+   ],
+   "meanings": [
+    "pour"
    ]
   },
   "演": {
@@ -13656,6 +19503,86 @@
     "corrupt"
    ]
   },
+  "漬": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1818,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "つ.ける",
+    "つ.かる",
+    "-づ.け",
+    "-づけ"
+   ],
+   "meanings": [
+    "pickling",
+    "soak",
+    "moisten",
+    "steep"
+   ]
+  },
+  "漸": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 2115,
+   "on": [
+    "ゼン"
+   ],
+   "kun": [
+    "ようや.く",
+    "やや",
+    "ようよ.う",
+    "すす.む"
+   ],
+   "meanings": [
+    "steadily",
+    "gradually advancing",
+    "finally",
+    "barely"
+   ]
+  },
+  "潔": {
+   "strokeCount": 15,
+   "grade": 5,
+   "freq": 1595,
+   "on": [
+    "ケツ"
+   ],
+   "kun": [
+    "いさぎよ.い"
+   ],
+   "meanings": [
+    "undefiled",
+    "pure",
+    "clean",
+    "righteous",
+    "gallant"
+   ]
+  },
+  "潜": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1329,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "ひそ.む",
+    "もぐ.る",
+    "かく.れる",
+    "くぐ.る",
+    "ひそ.める"
+   ],
+   "meanings": [
+    "submerge",
+    "conceal",
+    "hide",
+    "lower (voice)",
+    "hush"
+   ]
+  },
   "潤": {
    "strokeCount": 15,
    "grade": 8,
@@ -13695,6 +19622,47 @@
     "opportunity"
    ]
   },
+  "潰": {
+   "strokeCount": 15,
+   "grade": 8,
+   "on": [
+    "カイ",
+    "エ"
+   ],
+   "kun": [
+    "つぶ.す",
+    "つぶ.れる",
+    "つい.える"
+   ],
+   "meanings": [
+    "crush",
+    "smash",
+    "break",
+    "dissipate"
+   ]
+  },
+  "澄": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1722,
+   "on": [
+    "チョウ"
+   ],
+   "kun": [
+    "す.む",
+    "す.ます",
+    "-す.ます"
+   ],
+   "meanings": [
+    "lucidity",
+    "be clear",
+    "clear",
+    "clarify",
+    "settle",
+    "strain",
+    "look grave"
+   ]
+  },
   "激": {
    "strokeCount": 16,
    "grade": 6,
@@ -13713,6 +19681,43 @@
     "incite"
    ]
   },
+  "濁": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1883,
+   "on": [
+    "ダク",
+    "ジョク"
+   ],
+   "kun": [
+    "にご.る",
+    "にご.す"
+   ],
+   "meanings": [
+    "voiced",
+    "uncleanness",
+    "wrong",
+    "nigori",
+    "impurity"
+   ]
+  },
+  "濃": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1200,
+   "on": [
+    "ノウ"
+   ],
+   "kun": [
+    "こ.い"
+   ],
+   "meanings": [
+    "concentrated",
+    "thick",
+    "dark",
+    "undiluted"
+   ]
+  },
   "濠": {
    "strokeCount": 17,
    "on": [
@@ -13727,6 +19732,45 @@
     "ditch",
     "canal",
     "Australia"
+   ]
+  },
+  "濡": {
+   "strokeCount": 17,
+   "grade": 9,
+   "freq": 2260,
+   "on": [
+    "ジュ",
+    "ニュ"
+   ],
+   "kun": [
+    "ぬれ.る",
+    "ぬら.す",
+    "ぬ.れる",
+    "ぬ.らす",
+    "うるお.い",
+    "うるお.う",
+    "うるお.す"
+   ],
+   "meanings": [
+    "get wet",
+    "damp",
+    "make love"
+   ]
+  },
+  "濫": {
+   "strokeCount": 18,
+   "grade": 8,
+   "on": [
+    "ラン"
+   ],
+   "kun": [
+    "みだ.りに",
+    "みだ.りがましい"
+   ],
+   "meanings": [
+    "excessive",
+    "overflow",
+    "spread out"
    ]
   },
   "濯": {
@@ -13747,6 +19791,19 @@
     "rinse"
    ]
   },
+  "濾": {
+   "strokeCount": 18,
+   "on": [
+    "ロ",
+    "リョ"
+   ],
+   "kun": [
+    "こ.す"
+   ],
+   "meanings": [
+    "filter"
+   ]
+  },
   "瀬": {
    "strokeCount": 19,
    "grade": 8,
@@ -13763,6 +19820,18 @@
     "torrent",
     "shallows",
     "shoal"
+   ]
+  },
+  "灌": {
+   "strokeCount": 20,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "そそ.ぐ"
+   ],
+   "meanings": [
+    "pour"
    ]
   },
   "火": {
@@ -13834,6 +19903,22 @@
     "woe",
     "curse",
     "evil"
+   ]
+  },
+  "炊": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1777,
+   "on": [
+    "スイ"
+   ],
+   "kun": [
+    "た.く",
+    "-だ.き"
+   ],
+   "meanings": [
+    "cook",
+    "boil"
    ]
   },
   "炎": {
@@ -13940,6 +20025,25 @@
     "good",
     "advantage",
     "as a result of"
+   ]
+  },
+  "烈": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1397,
+   "on": [
+    "レツ"
+   ],
+   "kun": [
+    "はげ.しい"
+   ],
+   "meanings": [
+    "ardent",
+    "violent",
+    "vehement",
+    "furious",
+    "severe",
+    "extreme"
    ]
   },
   "焚": {
@@ -14049,6 +20153,56 @@
     "burning"
    ]
   },
+  "煉": {
+   "strokeCount": 12,
+   "grade": 9,
+   "on": [
+    "レン"
+   ],
+   "kun": [
+    "ね.る"
+   ],
+   "meanings": [
+    "refine metals",
+    "kneading over fire"
+   ]
+  },
+  "煌": {
+   "strokeCount": 13,
+   "grade": 9,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "きらめ.く",
+    "きら.めく",
+    "かがや.く"
+   ],
+   "meanings": [
+    "glitter",
+    "gleam",
+    "twinkle"
+   ]
+  },
+  "煎": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 2458,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "せん.じる",
+    "い.る",
+    "に.る"
+   ],
+   "meanings": [
+    "broil",
+    "parch",
+    "roast",
+    "boil"
+   ]
+  },
   "煙": {
    "strokeCount": 13,
    "grade": 8,
@@ -14109,6 +20263,41 @@
     "irksome"
    ]
   },
+  "煮": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1565,
+   "on": [
+    "シャ"
+   ],
+   "kun": [
+    "に.る",
+    "-に",
+    "に.える",
+    "に.やす"
+   ],
+   "meanings": [
+    "boil",
+    "cook"
+   ]
+  },
+  "熟": {
+   "strokeCount": 15,
+   "grade": 6,
+   "freq": 1415,
+   "on": [
+    "ジュク"
+   ],
+   "kun": [
+    "う.れる"
+   ],
+   "meanings": [
+    "mellow",
+    "ripen",
+    "mature",
+    "acquire skill"
+   ]
+  },
   "熱": {
    "strokeCount": 15,
    "grade": 4,
@@ -14143,6 +20332,21 @@
     "burn",
     "blaze",
     "glow"
+   ]
+  },
+  "燥": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 1819,
+   "on": [
+    "ソウ"
+   ],
+   "kun": [
+    "はしゃ.ぐ"
+   ],
+   "meanings": [
+    "parch",
+    "dry up"
    ]
   },
   "爆": {
@@ -14211,6 +20415,22 @@
     "right-side kata radical (no. 91)"
    ]
   },
+  "版": {
+   "strokeCount": 8,
+   "grade": 5,
+   "freq": 802,
+   "on": [
+    "ハン"
+   ],
+   "kun": [],
+   "meanings": [
+    "printing block",
+    "printing plate",
+    "edition",
+    "impression",
+    "label"
+   ]
+  },
   "牛": {
    "strokeCount": 4,
    "grade": 2,
@@ -14223,6 +20443,24 @@
    ],
    "meanings": [
     "cow"
+   ]
+  },
+  "牧": {
+   "strokeCount": 8,
+   "grade": 4,
+   "freq": 1360,
+   "on": [
+    "ボク"
+   ],
+   "kun": [
+    "まき"
+   ],
+   "meanings": [
+    "breed",
+    "care for",
+    "shepherd",
+    "feed",
+    "pasture"
    ]
   },
   "物": {
@@ -14243,6 +20481,19 @@
     "matter"
    ]
   },
+  "牲": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1274,
+   "on": [
+    "セイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "animal sacrifice",
+    "offering"
+   ]
+  },
   "特": {
    "strokeCount": 10,
    "grade": 4,
@@ -14253,6 +20504,21 @@
    "kun": [],
    "meanings": [
     "special"
+   ]
+  },
+  "犠": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 1189,
+   "on": [
+    "ギ",
+    "キ"
+   ],
+   "kun": [
+    "いけにえ"
+   ],
+   "meanings": [
+    "sacrifice"
    ]
   },
   "犬": {
@@ -14303,6 +20569,25 @@
     "appearance"
    ]
   },
+  "狂": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 1425,
+   "on": [
+    "キョウ"
+   ],
+   "kun": [
+    "くる.う",
+    "くる.おしい",
+    "くるお.しい"
+   ],
+   "meanings": [
+    "lunatic",
+    "insane",
+    "crazy",
+    "confuse"
+   ]
+  },
   "狙": {
    "strokeCount": 8,
    "grade": 8,
@@ -14320,6 +20605,62 @@
     "sight",
     "shadow",
     "stalk"
+   ]
+  },
+  "狡": {
+   "strokeCount": 9,
+   "on": [
+    "コウ",
+    "キョウ"
+   ],
+   "kun": [
+    "ずる.い",
+    "こす.い",
+    "わるがしこ.い"
+   ],
+   "meanings": [
+    "cunning",
+    "sly",
+    "crafty",
+    "miserly",
+    "mean",
+    "stingy"
+   ]
+  },
+  "狩": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1785,
+   "on": [
+    "シュ"
+   ],
+   "kun": [
+    "か.る",
+    "か.り",
+    "-が.り"
+   ],
+   "meanings": [
+    "hunt",
+    "raid",
+    "gather"
+   ]
+  },
+  "独": {
+   "strokeCount": 9,
+   "grade": 5,
+   "freq": 365,
+   "on": [
+    "ドク",
+    "トク"
+   ],
+   "kun": [
+    "ひと.り"
+   ],
+   "meanings": [
+    "single",
+    "alone",
+    "spontaneously",
+    "Germany"
    ]
   },
   "狭": {
@@ -14343,6 +20684,23 @@
     "tight"
    ]
   },
+  "猛": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1301,
+   "on": [
+    "モウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "fierce",
+    "rave",
+    "rush",
+    "become furious",
+    "wildness",
+    "strength"
+   ]
+  },
   "猫": {
    "strokeCount": 11,
    "grade": 8,
@@ -14355,6 +20713,24 @@
    ],
    "meanings": [
     "cat"
+   ]
+  },
+  "献": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 637,
+   "on": [
+    "ケン",
+    "コン"
+   ],
+   "kun": [
+    "たてまつ.る"
+   ],
+   "meanings": [
+    "offering",
+    "counter for drinks",
+    "present",
+    "offer"
    ]
   },
   "猿": {
@@ -14398,6 +20774,27 @@
    "meanings": [
     "animal",
     "beast"
+   ]
+  },
+  "獲": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 964,
+   "on": [
+    "カク"
+   ],
+   "kun": [
+    "え.る"
+   ],
+   "meanings": [
+    "seize",
+    "get",
+    "find",
+    "earn",
+    "acquire",
+    "can",
+    "may",
+    "able to"
    ]
   },
   "玄": {
@@ -14509,6 +20906,37 @@
     "strange"
    ]
   },
+  "珠": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1711,
+   "on": [
+    "シュ"
+   ],
+   "kun": [
+    "たま"
+   ],
+   "meanings": [
+    "pearl",
+    "gem",
+    "jewel"
+   ]
+  },
+  "班": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 1592,
+   "on": [
+    "ハン"
+   ],
+   "kun": [],
+   "meanings": [
+    "squad",
+    "corps",
+    "unit",
+    "group"
+   ]
+  },
   "現": {
    "strokeCount": 11,
    "grade": 5,
@@ -14575,6 +21003,22 @@
    "meanings": [
     "harp",
     "koto"
+   ]
+  },
+  "環": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 409,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "わ"
+   ],
+   "meanings": [
+    "ring",
+    "circle",
+    "loop"
    ]
   },
   "瓦": {
@@ -15003,6 +21447,28 @@
     "do away with"
    ]
   },
+  "疎": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1572,
+   "on": [
+    "ソ",
+    "ショ"
+   ],
+   "kun": [
+    "うと.い",
+    "うと.む",
+    "まば.ら"
+   ],
+   "meanings": [
+    "alienate",
+    "rough",
+    "neglect",
+    "shun",
+    "sparse",
+    "penetrate"
+   ]
+  },
   "疑": {
    "strokeCount": 14,
    "grade": 6,
@@ -15089,6 +21555,50 @@
     "bruise"
    ]
   },
+  "痢": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 2037,
+   "on": [
+    "リ"
+   ],
+   "kun": [],
+   "meanings": [
+    "diarrhea"
+   ]
+  },
+  "痩": {
+   "strokeCount": 12,
+   "grade": 8,
+   "on": [
+    "ソウ",
+    "チュウ",
+    "シュウ",
+    "シュ"
+   ],
+   "kun": [
+    "や.せる"
+   ],
+   "meanings": [
+    "get thin"
+   ]
+  },
+  "痴": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1663,
+   "on": [
+    "チ"
+   ],
+   "kun": [
+    "し.れる",
+    "おろか"
+   ],
+   "meanings": [
+    "stupid",
+    "foolish"
+   ]
+  },
   "痺": {
    "strokeCount": 13,
    "on": [
@@ -15103,6 +21613,19 @@
     "paralysed"
    ]
   },
+  "療": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 600,
+   "on": [
+    "リョウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "heal",
+    "cure"
+   ]
+  },
   "癌": {
    "strokeCount": 17,
    "freq": 2233,
@@ -15113,6 +21636,26 @@
    "meanings": [
     "cancer",
     "cancerous evil"
+   ]
+  },
+  "癖": {
+   "strokeCount": 18,
+   "grade": 8,
+   "freq": 1973,
+   "on": [
+    "ヘキ"
+   ],
+   "kun": [
+    "くせ",
+    "くせ.に"
+   ],
+   "meanings": [
+    "mannerism",
+    "habit",
+    "vice",
+    "trait",
+    "fault",
+    "kink"
    ]
   },
   "発": {
@@ -15138,6 +21681,26 @@
     "start from",
     "disclose",
     "counter for gunshots"
+   ]
+  },
+  "登": {
+   "strokeCount": 12,
+   "grade": 3,
+   "freq": 566,
+   "on": [
+    "トウ",
+    "ト",
+    "ドウ",
+    "ショウ",
+    "チョウ"
+   ],
+   "kun": [
+    "のぼ.る",
+    "あ.がる"
+   ],
+   "meanings": [
+    "ascend",
+    "climb up"
    ]
   },
   "白": {
@@ -15267,6 +21830,41 @@
     "tray"
    ]
   },
+  "益": {
+   "strokeCount": 10,
+   "grade": 5,
+   "freq": 674,
+   "on": [
+    "エキ",
+    "ヤク"
+   ],
+   "kun": [
+    "ま.す"
+   ],
+   "meanings": [
+    "benefit",
+    "gain",
+    "profit",
+    "advantage"
+   ]
+  },
+  "盗": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1051,
+   "on": [
+    "トウ"
+   ],
+   "kun": [
+    "ぬす.む",
+    "ぬす.み"
+   ],
+   "meanings": [
+    "steal",
+    "rob",
+    "pilfer"
+   ]
+  },
   "盛": {
    "strokeCount": 11,
    "grade": 6,
@@ -15297,6 +21895,22 @@
    "meanings": [
     "alliance",
     "oath"
+   ]
+  },
+  "監": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 408,
+   "on": [
+    "カン"
+   ],
+   "kun": [],
+   "meanings": [
+    "oversee",
+    "official",
+    "govt office",
+    "rule",
+    "administer"
    ]
   },
   "盤": {
@@ -15337,6 +21951,22 @@
     "experience",
     "care",
     "favor"
+   ]
+  },
+  "盲": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1767,
+   "on": [
+    "モウ"
+   ],
+   "kun": [
+    "めくら"
+   ],
+   "meanings": [
+    "blind",
+    "blind man",
+    "ignoramus"
    ]
   },
   "直": {
@@ -15403,6 +22033,24 @@
     "pretext"
    ]
   },
+  "省": {
+   "strokeCount": 9,
+   "grade": 4,
+   "freq": 548,
+   "on": [
+    "セイ",
+    "ショウ"
+   ],
+   "kun": [
+    "かえり.みる",
+    "はぶ.く"
+   ],
+   "meanings": [
+    "government ministry",
+    "conserve",
+    "omit"
+   ]
+  },
   "眉": {
    "strokeCount": 9,
    "grade": 8,
@@ -15431,6 +22079,20 @@
    "meanings": [
     "watch over",
     "see"
+   ]
+  },
+  "県": {
+   "strokeCount": 9,
+   "grade": 3,
+   "freq": 140,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "か.ける"
+   ],
+   "meanings": [
+    "prefecture"
    ]
   },
   "真": {
@@ -15521,6 +22183,77 @@
     "arrive",
     "wear",
     "counter for suits of clothing"
+   ]
+  },
+  "睡": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1739,
+   "on": [
+    "スイ"
+   ],
+   "kun": [
+    "ねむ.る",
+    "ねむ.い"
+   ],
+   "meanings": [
+    "drowsy",
+    "sleep",
+    "die"
+   ]
+  },
+  "督": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 534,
+   "on": [
+    "トク"
+   ],
+   "kun": [],
+   "meanings": [
+    "coach",
+    "command",
+    "urge",
+    "lead",
+    "supervise"
+   ]
+  },
+  "睨": {
+   "strokeCount": 13,
+   "on": [
+    "ゲイ"
+   ],
+   "kun": [
+    "にら.む",
+    "にら.み"
+   ],
+   "meanings": [
+    "glaring at",
+    "authority",
+    "power",
+    "scowl at"
+   ]
+  },
+  "瞑": {
+   "strokeCount": 15,
+   "freq": 2326,
+   "on": [
+    "メイ",
+    "ベン",
+    "ミョウ",
+    "ミン",
+    "メン"
+   ],
+   "kun": [
+    "めい.する",
+    "つぶ.る",
+    "つむ.る",
+    "くら.い"
+   ],
+   "meanings": [
+    "sleep",
+    "dark",
+    "close eyes"
    ]
   },
   "瞬": {
@@ -15681,6 +22414,38 @@
     "sharpen"
    ]
   },
+  "砕": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1579,
+   "on": [
+    "サイ"
+   ],
+   "kun": [
+    "くだ.く",
+    "くだ.ける"
+   ],
+   "meanings": [
+    "smash",
+    "break",
+    "crush",
+    "familiar",
+    "popular"
+   ]
+  },
+  "砲": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1268,
+   "on": [
+    "ホウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "cannon",
+    "gun"
+   ]
+  },
   "破": {
    "strokeCount": 10,
    "grade": 5,
@@ -15718,6 +22483,33 @@
     "hard"
    ]
   },
+  "碁": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1609,
+   "on": [
+    "ゴ"
+   ],
+   "kun": [],
+   "meanings": [
+    "Go"
+   ]
+  },
+  "碑": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1792,
+   "on": [
+    "ヒ"
+   ],
+   "kun": [
+    "いしぶみ"
+   ],
+   "meanings": [
+    "tombstone",
+    "monument"
+   ]
+  },
   "碗": {
    "strokeCount": 13,
    "grade": 9,
@@ -15753,6 +22545,72 @@
     "confirm",
     "clear",
     "evident"
+   ]
+  },
+  "磁": {
+   "strokeCount": 14,
+   "grade": 6,
+   "freq": 1686,
+   "on": [
+    "ジ"
+   ],
+   "kun": [],
+   "meanings": [
+    "magnet",
+    "porcelain"
+   ]
+  },
+  "磨": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1608,
+   "on": [
+    "マ"
+   ],
+   "kun": [
+    "みが.く",
+    "す.る"
+   ],
+   "meanings": [
+    "grind",
+    "polish",
+    "scour",
+    "improve",
+    "brush (teeth)"
+   ]
+  },
+  "礎": {
+   "strokeCount": 18,
+   "grade": 8,
+   "freq": 1224,
+   "on": [
+    "ソ"
+   ],
+   "kun": [
+    "いしずえ"
+   ],
+   "meanings": [
+    "cornerstone",
+    "foundation stone"
+   ]
+  },
+  "示": {
+   "strokeCount": 5,
+   "grade": 5,
+   "freq": 237,
+   "on": [
+    "ジ",
+    "シ"
+   ],
+   "kun": [
+    "しめ.す"
+   ],
+   "meanings": [
+    "show",
+    "indicate",
+    "point out",
+    "express",
+    "display"
    ]
   },
   "礼": {
@@ -15803,6 +22661,19 @@
    "meanings": [
     "pray",
     "wish"
+   ]
+  },
+  "祉": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1063,
+   "on": [
+    "シ"
+   ],
+   "kun": [],
+   "meanings": [
+    "welfare",
+    "happiness"
    ]
   },
   "祖": {
@@ -15955,6 +22826,23 @@
     "wealth"
    ]
   },
+  "秀": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 848,
+   "on": [
+    "シュウ"
+   ],
+   "kun": [
+    "ひい.でる"
+   ],
+   "meanings": [
+    "excel",
+    "excellence",
+    "beauty",
+    "surpass"
+   ]
+  },
   "私": {
    "strokeCount": 7,
    "grade": 6,
@@ -16001,6 +22889,35 @@
     "section"
    ]
   },
+  "秒": {
+   "strokeCount": 9,
+   "grade": 3,
+   "freq": 1015,
+   "on": [
+    "ビョウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "second (1/60 minute)"
+   ]
+  },
+  "秘": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 862,
+   "on": [
+    "ヒ"
+   ],
+   "kun": [
+    "ひ.める",
+    "ひそ.か",
+    "かく.す"
+   ],
+   "meanings": [
+    "secret",
+    "conceal"
+   ]
+  },
   "秤": {
    "strokeCount": 10,
    "grade": 9,
@@ -16016,6 +22933,45 @@
     "balances",
     "scales",
     "steelyard"
+   ]
+  },
+  "秩": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1275,
+   "on": [
+    "チツ"
+   ],
+   "kun": [],
+   "meanings": [
+    "regularity",
+    "salary",
+    "order"
+   ]
+  },
+  "称": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 985,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "たた.える",
+    "とな.える",
+    "あ.げる",
+    "かな.う",
+    "はか.り",
+    "はか.る",
+    "ほめ.る"
+   ],
+   "meanings": [
+    "appellation",
+    "praise",
+    "admire",
+    "name",
+    "title",
+    "fame"
    ]
   },
   "移": {
@@ -16036,6 +22992,24 @@
     "drift",
     "catch (cold, fire)",
     "pass into"
+   ]
+  },
+  "稀": {
+   "strokeCount": 12,
+   "grade": 9,
+   "freq": 2232,
+   "on": [
+    "キ",
+    "ケ"
+   ],
+   "kun": [
+    "まれ",
+    "まばら"
+   ],
+   "meanings": [
+    "rare",
+    "phenomenal",
+    "dilute (acid)"
    ]
   },
   "程": {
@@ -16126,6 +23100,69 @@
     "rice plant"
    ]
   },
+  "稼": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1264,
+   "on": [
+    "カ"
+   ],
+   "kun": [
+    "かせ.ぐ"
+   ],
+   "meanings": [
+    "earnings",
+    "work",
+    "earn money"
+   ]
+  },
+  "稽": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 2372,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [
+    "かんが.える",
+    "とど.める"
+   ],
+   "meanings": [
+    "think",
+    "consider"
+   ]
+  },
+  "稿": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1400,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "わら",
+    "したがき"
+   ],
+   "meanings": [
+    "draft",
+    "copy",
+    "manuscript",
+    "straw"
+   ]
+  },
+  "穀": {
+   "strokeCount": 14,
+   "grade": 6,
+   "freq": 1744,
+   "on": [
+    "コク"
+   ],
+   "kun": [],
+   "meanings": [
+    "cereals",
+    "grain"
+   ]
+  },
   "穂": {
    "strokeCount": 15,
    "grade": 8,
@@ -16165,6 +23202,35 @@
     "stack",
     "load",
     "amass"
+   ]
+  },
+  "穏": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1535,
+   "on": [
+    "オン"
+   ],
+   "kun": [
+    "おだ.やか"
+   ],
+   "meanings": [
+    "calm",
+    "quiet",
+    "moderation"
+   ]
+  },
+  "穫": {
+   "strokeCount": 18,
+   "grade": 8,
+   "freq": 1642,
+   "on": [
+    "カク"
+   ],
+   "kun": [],
+   "meanings": [
+    "harvest",
+    "reap"
    ]
   },
   "穴": {
@@ -16247,6 +23313,19 @@
     "sudden"
    ]
   },
+  "窒": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1776,
+   "on": [
+    "チツ"
+   ],
+   "kun": [],
+   "meanings": [
+    "plug up",
+    "obstruct"
+   ]
+  },
   "窓": {
    "strokeCount": 11,
    "grade": 6,
@@ -16263,6 +23342,28 @@
    "meanings": [
     "window",
     "pane"
+   ]
+  },
+  "窮": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1756,
+   "on": [
+    "キュウ",
+    "キョウ"
+   ],
+   "kun": [
+    "きわ.める",
+    "きわ.まる",
+    "きわ.まり",
+    "きわ.み"
+   ],
+   "meanings": [
+    "hard up",
+    "destitute",
+    "suffer",
+    "perplexed",
+    "cornered"
    ]
   },
   "立": {
@@ -16293,6 +23394,37 @@
     "erect"
    ]
   },
+  "章": {
+   "strokeCount": 11,
+   "grade": 3,
+   "freq": 990,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "badge",
+    "chapter",
+    "composition",
+    "poem",
+    "design"
+   ]
+  },
+  "童": {
+   "strokeCount": 12,
+   "grade": 3,
+   "freq": 1138,
+   "on": [
+    "ドウ"
+   ],
+   "kun": [
+    "わらべ"
+   ],
+   "meanings": [
+    "juvenile",
+    "child"
+   ]
+  },
   "端": {
    "strokeCount": 14,
    "grade": 8,
@@ -16317,6 +23449,29 @@
     "cape"
    ]
   },
+  "競": {
+   "strokeCount": 20,
+   "grade": 4,
+   "freq": 610,
+   "on": [
+    "キョウ",
+    "ケイ"
+   ],
+   "kun": [
+    "きそ.う",
+    "せ.る",
+    "くら.べる"
+   ],
+   "meanings": [
+    "emulate",
+    "compete with",
+    "bid",
+    "sell at auction",
+    "bout",
+    "contest",
+    "race"
+   ]
+  },
   "竹": {
    "strokeCount": 6,
    "grade": 1,
@@ -16329,6 +23484,23 @@
    ],
    "meanings": [
     "bamboo"
+   ]
+  },
+  "竿": {
+   "strokeCount": 9,
+   "grade": 9,
+   "freq": 2416,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "さお"
+   ],
+   "meanings": [
+    "pole",
+    "rod",
+    "scale beam",
+    "violin neck"
    ]
   },
   "笑": {
@@ -16381,6 +23553,20 @@
     "charm"
    ]
   },
+  "第": {
+   "strokeCount": 11,
+   "grade": 3,
+   "freq": 160,
+   "on": [
+    "ダイ",
+    "テイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "No.",
+    "residence"
+   ]
+  },
   "筆": {
    "strokeCount": 12,
    "grade": 3,
@@ -16396,6 +23582,24 @@
     "writing",
     "painting brush",
     "handwriting"
+   ]
+  },
+  "筈": {
+   "strokeCount": 12,
+   "grade": 9,
+   "on": [
+    "カツ"
+   ],
+   "kun": [
+    "はず",
+    "やはず"
+   ],
+   "meanings": [
+    "notch of an arrow",
+    "ought",
+    "must",
+    "should be",
+    "expected"
    ]
   },
   "等": {
@@ -16457,6 +23661,22 @@
     "sleeve"
    ]
   },
+  "答": {
+   "strokeCount": 12,
+   "grade": 2,
+   "freq": 486,
+   "on": [
+    "トウ"
+   ],
+   "kun": [
+    "こた.える",
+    "こた.え"
+   ],
+   "meanings": [
+    "solution",
+    "answer"
+   ]
+  },
   "策": {
    "strokeCount": 12,
    "grade": 6,
@@ -16471,6 +23691,34 @@
     "policy",
     "step",
     "means"
+   ]
+  },
+  "箇": {
+   "strokeCount": 14,
+   "grade": 8,
+   "on": [
+    "カ",
+    "コ"
+   ],
+   "kun": [],
+   "meanings": [
+    "counter for articles"
+   ]
+  },
+  "箋": {
+   "strokeCount": 14,
+   "grade": 8,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "ふだ"
+   ],
+   "meanings": [
+    "paper",
+    "label",
+    "letter",
+    "composition"
    ]
   },
   "箒": {
@@ -16586,6 +23834,20 @@
     "melody"
    ]
   },
+  "範": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1088,
+   "on": [
+    "ハン"
+   ],
+   "kun": [],
+   "meanings": [
+    "pattern",
+    "example",
+    "model"
+   ]
+  },
   "築": {
    "strokeCount": 16,
    "grade": 5,
@@ -16600,6 +23862,36 @@
     "fabricate",
     "build",
     "construct"
+   ]
+  },
+  "簡": {
+   "strokeCount": 18,
+   "grade": 6,
+   "freq": 983,
+   "on": [
+    "カン",
+    "ケン"
+   ],
+   "kun": [
+    "えら.ぶ",
+    "ふだ"
+   ],
+   "meanings": [
+    "simplicity",
+    "brevity"
+   ]
+  },
+  "簿": {
+   "strokeCount": 19,
+   "grade": 8,
+   "freq": 1358,
+   "on": [
+    "ボ"
+   ],
+   "kun": [],
+   "meanings": [
+    "register",
+    "record book"
    ]
   },
   "籍": {
@@ -16636,6 +23928,20 @@
     "cage",
     "coop",
     "implied"
+   ]
+  },
+  "籤": {
+   "strokeCount": 23,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "くじ",
+    "かずとり"
+   ],
+   "meanings": [
+    "lottery",
+    "raffle"
    ]
   },
   "米": {
@@ -16675,6 +23981,27 @@
     "dust"
    ]
   },
+  "粋": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1768,
+   "on": [
+    "スイ"
+   ],
+   "kun": [
+    "いき"
+   ],
+   "meanings": [
+    "chic",
+    "style",
+    "purity",
+    "essence",
+    "pith",
+    "cream",
+    "elite",
+    "choice"
+   ]
+  },
   "粒": {
    "strokeCount": 11,
    "grade": 8,
@@ -16708,6 +24035,23 @@
     "rugged"
    ]
   },
+  "粘": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1410,
+   "on": [
+    "ネン"
+   ],
+   "kun": [
+    "ねば.る"
+   ],
+   "meanings": [
+    "sticky",
+    "glutinous",
+    "greasy",
+    "persevere"
+   ]
+  },
   "粥": {
    "strokeCount": 12,
    "grade": 9,
@@ -16724,6 +24068,19 @@
    ],
    "meanings": [
     "rice gruel"
+   ]
+  },
+  "粧": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1545,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "cosmetics",
+    "adorn (one's person)"
    ]
   },
   "精": {
@@ -16750,6 +24107,23 @@
     "skill"
    ]
   },
+  "糊": {
+   "strokeCount": 15,
+   "grade": 9,
+   "on": [
+    "コ",
+    "ゴ",
+    "コツ"
+   ],
+   "kun": [
+    "のり"
+   ],
+   "meanings": [
+    "paste",
+    "glue",
+    "sizing"
+   ]
+  },
   "糖": {
    "strokeCount": 16,
    "grade": 6,
@@ -16760,6 +24134,23 @@
    "kun": [],
    "meanings": [
     "sugar"
+   ]
+  },
+  "糧": {
+   "strokeCount": 18,
+   "grade": 8,
+   "freq": 1354,
+   "on": [
+    "リョウ",
+    "ロウ"
+   ],
+   "kun": [
+    "かて"
+   ],
+   "meanings": [
+    "provisions",
+    "food",
+    "bread"
    ]
   },
   "糸": {
@@ -16774,6 +24165,19 @@
    ],
    "meanings": [
     "thread"
+   ]
+  },
+  "系": {
+   "strokeCount": 7,
+   "grade": 6,
+   "freq": 567,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "lineage",
+    "system"
    ]
   },
   "紀": {
@@ -16793,6 +24197,24 @@
     "geologic period"
    ]
   },
+  "約": {
+   "strokeCount": 9,
+   "grade": 4,
+   "freq": 94,
+   "on": [
+    "ヤク"
+   ],
+   "kun": [
+    "つづ.まる",
+    "つづ.める",
+    "つづま.やか"
+   ],
+   "meanings": [
+    "promise",
+    "approximately",
+    "shrink"
+   ]
+  },
   "紅": {
    "strokeCount": 9,
    "grade": 6,
@@ -16809,6 +24231,66 @@
    "meanings": [
     "crimson",
     "deep red"
+   ]
+  },
+  "納": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 987,
+   "on": [
+    "ノウ",
+    "ナッ",
+    "ナ",
+    "ナン",
+    "トウ"
+   ],
+   "kun": [
+    "おさ.める",
+    "-おさ.める",
+    "おさ.まる"
+   ],
+   "meanings": [
+    "settlement",
+    "obtain",
+    "reap",
+    "pay",
+    "supply",
+    "store"
+   ]
+  },
+  "紐": {
+   "strokeCount": 10,
+   "grade": 9,
+   "on": [
+    "チュウ",
+    "ジュウ"
+   ],
+   "kun": [
+    "ひも"
+   ],
+   "meanings": [
+    "string",
+    "cord",
+    "braid",
+    "lace",
+    "tape",
+    "strap",
+    "ribbon"
+   ]
+  },
+  "純": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 1044,
+   "on": [
+    "ジュン"
+   ],
+   "kun": [],
+   "meanings": [
+    "genuine",
+    "purity",
+    "innocence",
+    "net (profit)"
    ]
   },
   "紙": {
@@ -16839,6 +24321,27 @@
     "grade"
    ]
   },
+  "紛": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 994,
+   "on": [
+    "フン"
+   ],
+   "kun": [
+    "まぎ.れる",
+    "-まぎ.れ",
+    "まぎ.らす",
+    "まぎ.らわす",
+    "まぎ.らわしい"
+   ],
+   "meanings": [
+    "distract",
+    "be mistaken for",
+    "go astray",
+    "divert"
+   ]
+  },
   "素": {
    "strokeCount": 10,
    "grade": 5,
@@ -16855,6 +24358,20 @@
     "principle",
     "naked",
     "uncovered"
+   ]
+  },
+  "紡": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1876,
+   "on": [
+    "ボウ"
+   ],
+   "kun": [
+    "つむ.ぐ"
+   ],
+   "meanings": [
+    "spinning"
    ]
   },
   "索": {
@@ -16908,6 +24425,47 @@
     "narrow",
     "detailed",
     "precise"
+   ]
+  },
+  "紳": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1790,
+   "on": [
+    "シン"
+   ],
+   "kun": [],
+   "meanings": [
+    "sire",
+    "good belt",
+    "gentleman"
+   ]
+  },
+  "紹": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 963,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "introduce",
+    "inherit",
+    "help"
+   ]
+  },
+  "紺": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1825,
+   "on": [
+    "コン"
+   ],
+   "kun": [],
+   "meanings": [
+    "dark blue",
+    "navy"
    ]
   },
   "終": {
@@ -16998,6 +24556,41 @@
     "organize",
     "do up hair",
     "fasten"
+   ]
+  },
+  "絞": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1288,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "しぼ.る",
+    "し.める",
+    "し.まる"
+   ],
+   "meanings": [
+    "strangle",
+    "constrict",
+    "wring"
+   ]
+  },
+  "絡": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 806,
+   "on": [
+    "ラク"
+   ],
+   "kun": [
+    "から.む",
+    "から.まる"
+   ],
+   "meanings": [
+    "entwine",
+    "coil around",
+    "get caught in"
    ]
   },
   "給": {
@@ -17093,6 +24686,25 @@
     "silk"
    ]
   },
+  "継": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 743,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [
+    "つ.ぐ",
+    "まま-"
+   ],
+   "meanings": [
+    "inherit",
+    "succeed",
+    "continue",
+    "patch",
+    "graft (tree)"
+   ]
+  },
   "続": {
    "strokeCount": 13,
    "grade": 4,
@@ -17112,6 +24724,20 @@
     "continue",
     "series",
     "sequel"
+   ]
+  },
+  "維": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 643,
+   "on": [
+    "イ"
+   ],
+   "kun": [],
+   "meanings": [
+    "fiber",
+    "tie",
+    "rope"
    ]
   },
   "綱": {
@@ -17147,6 +24773,29 @@
     "network"
    ]
   },
+  "綴": {
+   "strokeCount": 14,
+   "grade": 9,
+   "freq": 2149,
+   "on": [
+    "テイ",
+    "テツ",
+    "テチ",
+    "ゲツ"
+   ],
+   "kun": [
+    "と.じる",
+    "つづ.る",
+    "つづり",
+    "すみ.やか"
+   ],
+   "meanings": [
+    "compose",
+    "spell",
+    "write",
+    "bind (books)"
+   ]
+  },
   "綺": {
    "strokeCount": 14,
    "grade": 9,
@@ -17162,6 +24811,24 @@
     "beautiful"
    ]
   },
+  "綻": {
+   "strokeCount": 14,
+   "grade": 8,
+   "on": [
+    "タン"
+   ],
+   "kun": [
+    "ほころ.びる"
+   ],
+   "meanings": [
+    "be rent",
+    "ripped",
+    "unravel",
+    "run",
+    "begin to open",
+    "smile"
+   ]
+  },
   "綿": {
    "strokeCount": 14,
    "grade": 5,
@@ -17174,6 +24841,25 @@
    ],
    "meanings": [
     "cotton"
+   ]
+  },
+  "緊": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 677,
+   "on": [
+    "キン"
+   ],
+   "kun": [
+    "し.める",
+    "し.まる"
+   ],
+   "meanings": [
+    "tense",
+    "solid",
+    "hard",
+    "reliable",
+    "tight"
    ]
   },
   "総": {
@@ -17314,6 +25000,45 @@
     "ease"
    ]
   },
+  "緯": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1430,
+   "on": [
+    "イ"
+   ],
+   "kun": [
+    "よこいと",
+    "ぬき"
+   ],
+   "meanings": [
+    "horizontal",
+    "woof",
+    "left & right",
+    "(parallels of) latitude",
+    "prediction"
+   ]
+  },
+  "練": {
+   "strokeCount": 14,
+   "grade": 3,
+   "freq": 788,
+   "on": [
+    "レン"
+   ],
+   "kun": [
+    "ね.る",
+    "ね.り"
+   ],
+   "meanings": [
+    "practice",
+    "gloss",
+    "train",
+    "drill",
+    "polish",
+    "refine"
+   ]
+  },
   "縁": {
    "strokeCount": 15,
    "grade": 8,
@@ -17356,6 +25081,57 @@
     "cord"
    ]
   },
+  "縛": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1764,
+   "on": [
+    "バク"
+   ],
+   "kun": [
+    "しば.る"
+   ],
+   "meanings": [
+    "truss",
+    "arrest",
+    "bind",
+    "tie",
+    "restrain"
+   ]
+  },
+  "縞": {
+   "strokeCount": 16,
+   "grade": 9,
+   "freq": 2491,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "しま",
+    "しろぎぬ"
+   ],
+   "meanings": [
+    "stripe"
+   ]
+  },
+  "縦": {
+   "strokeCount": 16,
+   "grade": 6,
+   "freq": 1258,
+   "on": [
+    "ジュウ"
+   ],
+   "kun": [
+    "たて"
+   ],
+   "meanings": [
+    "vertical",
+    "length",
+    "height",
+    "self-indulgent",
+    "wayward"
+   ]
+  },
   "縫": {
    "strokeCount": 16,
    "grade": 8,
@@ -17394,6 +25170,20 @@
     "reduce"
    ]
   },
+  "績": {
+   "strokeCount": 17,
+   "grade": 5,
+   "freq": 820,
+   "on": [
+    "セキ"
+   ],
+   "kun": [],
+   "meanings": [
+    "exploits",
+    "achievements",
+    "unreeling cocoons"
+   ]
+  },
   "繁": {
    "strokeCount": 16,
    "grade": 8,
@@ -17414,6 +25204,20 @@
     "trouble"
    ]
   },
+  "繊": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 1451,
+   "on": [
+    "セン"
+   ],
+   "kun": [],
+   "meanings": [
+    "slender",
+    "fine",
+    "thin kimono"
+   ]
+  },
   "繋": {
    "strokeCount": 17,
    "on": [
@@ -17430,6 +25234,19 @@
     "chain",
     "tether",
     "connect"
+   ]
+  },
+  "繍": {
+   "strokeCount": 17,
+   "on": [
+    "シュウ"
+   ],
+   "kun": [
+    "ぬいとり"
+   ],
+   "meanings": [
+    "sew",
+    "figured cloth"
    ]
   },
   "織": {
@@ -17490,6 +25307,28 @@
     "refer to"
    ]
   },
+  "纏": {
+   "strokeCount": 21,
+   "grade": 9,
+   "on": [
+    "テン",
+    "デン"
+   ],
+   "kun": [
+    "まつ.わる",
+    "まと.う",
+    "まと.める",
+    "まと.まる",
+    "まと.い"
+   ],
+   "meanings": [
+    "wear",
+    "wrap",
+    "tie",
+    "follow around",
+    "collect"
+   ]
+  },
   "缶": {
    "strokeCount": 6,
    "grade": 8,
@@ -17506,6 +25345,80 @@
     "jar radical (no. 121)"
    ]
   },
+  "罅": {
+   "strokeCount": 17,
+   "on": [
+    "カ",
+    "ケ"
+   ],
+   "kun": [
+    "ひび",
+    "すき"
+   ],
+   "meanings": [
+    "fissure",
+    "crack",
+    "hole"
+   ]
+  },
+  "罪": {
+   "strokeCount": 13,
+   "grade": 5,
+   "freq": 732,
+   "on": [
+    "ザイ"
+   ],
+   "kun": [
+    "つみ"
+   ],
+   "meanings": [
+    "guilt",
+    "sin",
+    "crime",
+    "fault",
+    "blame",
+    "offense"
+   ]
+  },
+  "置": {
+   "strokeCount": 13,
+   "grade": 4,
+   "freq": 277,
+   "on": [
+    "チ"
+   ],
+   "kun": [
+    "お.く",
+    "-お.き"
+   ],
+   "meanings": [
+    "placement",
+    "put",
+    "set",
+    "deposit",
+    "leave behind",
+    "keep",
+    "employ",
+    "pawn"
+   ]
+  },
+  "罰": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1220,
+   "on": [
+    "バツ",
+    "バチ",
+    "ハツ"
+   ],
+   "kun": [
+    "ばっ.する"
+   ],
+   "meanings": [
+    "penalty",
+    "punishment"
+   ]
+  },
   "署": {
    "strokeCount": 13,
    "grade": 6,
@@ -17518,6 +25431,35 @@
     "signature",
     "govt office",
     "police station"
+   ]
+  },
+  "罵": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 2467,
+   "on": [
+    "バ"
+   ],
+   "kun": [
+    "ののし.る"
+   ],
+   "meanings": [
+    "abuse",
+    "insult"
+   ]
+  },
+  "罹": {
+   "strokeCount": 16,
+   "on": [
+    "リ",
+    "ラ"
+   ],
+   "kun": [
+    "かか.る"
+   ],
+   "meanings": [
+    "catch",
+    "get"
    ]
   },
   "羊": {
@@ -17623,6 +25565,19 @@
     "counter for birds, rabbits"
    ]
   },
+  "翌": {
+   "strokeCount": 11,
+   "grade": 6,
+   "freq": 1070,
+   "on": [
+    "ヨク"
+   ],
+   "kun": [],
+   "meanings": [
+    "the following",
+    "next"
+   ]
+  },
   "習": {
    "strokeCount": 11,
    "grade": 3,
@@ -17637,6 +25592,26 @@
    ],
    "meanings": [
     "learn"
+   ]
+  },
+  "翻": {
+   "strokeCount": 18,
+   "grade": 8,
+   "freq": 1465,
+   "on": [
+    "ホン",
+    "ハン"
+   ],
+   "kun": [
+    "ひるがえ.る",
+    "ひるがえ.す"
+   ],
+   "meanings": [
+    "flip",
+    "turn over",
+    "wave",
+    "flutter",
+    "change (mind)"
    ]
   },
   "翼": {
@@ -17703,6 +25678,21 @@
     "person"
    ]
   },
+  "耐": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1295,
+   "on": [
+    "タイ"
+   ],
+   "kun": [
+    "た.える"
+   ],
+   "meanings": [
+    "-proof",
+    "enduring"
+   ]
+  },
   "耕": {
    "strokeCount": 10,
    "grade": 5,
@@ -17719,6 +25709,18 @@
     "cultivate"
    ]
   },
+  "耗": {
+   "strokeCount": 10,
+   "grade": 8,
+   "on": [
+    "モウ",
+    "コウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "decrease"
+   ]
+  },
   "耳": {
    "strokeCount": 6,
    "grade": 1,
@@ -17731,6 +25733,20 @@
    ],
    "meanings": [
     "ear"
+   ]
+  },
+  "耽": {
+   "strokeCount": 10,
+   "grade": 9,
+   "on": [
+    "タン"
+   ],
+   "kun": [
+    "ふけ.る"
+   ],
+   "meanings": [
+    "addicted",
+    "absorbed in"
    ]
   },
   "聖": {
@@ -17768,6 +25784,19 @@
     "hear",
     "ask",
     "listen"
+   ]
+  },
+  "聳": {
+   "strokeCount": 17,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "そび.える"
+   ],
+   "meanings": [
+    "rise",
+    "tower"
    ]
   },
   "聴": {
@@ -17882,6 +25911,20 @@
     "crotch"
    ]
   },
+  "肩": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1215,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "かた"
+   ],
+   "meanings": [
+    "shoulder"
+   ]
+  },
   "肪": {
    "strokeCount": 8,
    "grade": 8,
@@ -17893,6 +25936,22 @@
    "meanings": [
     "obese",
     "fat"
+   ]
+  },
+  "肯": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1813,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "がえんじ.る"
+   ],
+   "meanings": [
+    "agreement",
+    "consent",
+    "comply with"
    ]
   },
   "育": {
@@ -17942,6 +26001,23 @@
     "craw"
    ]
   },
+  "胆": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1449,
+   "on": [
+    "タン"
+   ],
+   "kun": [
+    "きも"
+   ],
+   "meanings": [
+    "gall bladder",
+    "courage",
+    "pluck",
+    "nerve"
+   ]
+  },
   "背": {
    "strokeCount": 9,
    "grade": 6,
@@ -17964,6 +26040,20 @@
     "defy",
     "go back on",
     "rebel"
+   ]
+  },
+  "胞": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1379,
+   "on": [
+    "ホウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "placenta",
+    "sac",
+    "sheath"
    ]
   },
   "胡": {
@@ -18072,6 +26162,25 @@
     "coerce"
    ]
   },
+  "脆": {
+   "strokeCount": 10,
+   "on": [
+    "ゼイ",
+    "セイ",
+    "セツ"
+   ],
+   "kun": [
+    "もろ.い",
+    "よわい"
+   ],
+   "meanings": [
+    "brittle",
+    "fragile",
+    "easy to beat",
+    "sentimental",
+    "susceptible"
+   ]
+  },
   "脇": {
    "strokeCount": 10,
    "grade": 8,
@@ -18127,6 +26236,26 @@
     "base"
    ]
   },
+  "脱": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 782,
+   "on": [
+    "ダツ"
+   ],
+   "kun": [
+    "ぬ.ぐ",
+    "ぬ.げる"
+   ],
+   "meanings": [
+    "undress",
+    "removing",
+    "escape from",
+    "get rid of",
+    "be left out",
+    "take off"
+   ]
+  },
   "脳": {
    "strokeCount": 11,
    "grade": 6,
@@ -18141,6 +26270,18 @@
    "meanings": [
     "brain",
     "memory"
+   ]
+  },
+  "腎": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1755,
+   "on": [
+    "ジン"
+   ],
+   "kun": [],
+   "meanings": [
+    "kidney"
    ]
   },
   "腐": {
@@ -18216,6 +26357,24 @@
     "low wainscoting"
    ]
   },
+  "腸": {
+   "strokeCount": 13,
+   "grade": 6,
+   "freq": 1807,
+   "on": [
+    "チョウ"
+   ],
+   "kun": [
+    "はらわた",
+    "わた"
+   ],
+   "meanings": [
+    "intestines",
+    "guts",
+    "bowels",
+    "viscera"
+   ]
+  },
   "腹": {
    "strokeCount": 13,
    "grade": 6,
@@ -18230,6 +26389,19 @@
     "abdomen",
     "belly",
     "stomach"
+   ]
+  },
+  "腿": {
+   "strokeCount": 13,
+   "on": [
+    "タイ"
+   ],
+   "kun": [
+    "もも"
+   ],
+   "meanings": [
+    "thigh",
+    "femur"
    ]
   },
   "膚": {
@@ -18248,6 +26420,18 @@
     "grain",
     "texture",
     "disposition"
+   ]
+  },
+  "膜": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1804,
+   "on": [
+    "マク"
+   ],
+   "kun": [],
+   "meanings": [
+    "membrane"
    ]
   },
   "膝": {
@@ -18282,6 +26466,43 @@
     "thick"
    ]
   },
+  "膳": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 2120,
+   "on": [
+    "ゼン",
+    "セン"
+   ],
+   "kun": [
+    "かしわ",
+    "すす.める",
+    "そな.える"
+   ],
+   "meanings": [
+    "small low table",
+    "tray"
+   ]
+  },
+  "臆": {
+   "strokeCount": 17,
+   "grade": 8,
+   "on": [
+    "オク",
+    "ヨク"
+   ],
+   "kun": [
+    "むね",
+    "おくする"
+   ],
+   "meanings": [
+    "timidity",
+    "heart",
+    "mind",
+    "fear",
+    "cowardly"
+   ]
+  },
   "臓": {
    "strokeCount": 19,
    "grade": 6,
@@ -18310,6 +26531,25 @@
    "meanings": [
     "retainer",
     "subject"
+   ]
+  },
+  "臨": {
+   "strokeCount": 18,
+   "grade": 6,
+   "freq": 722,
+   "on": [
+    "リン"
+   ],
+   "kun": [
+    "のぞ.む"
+   ],
+   "meanings": [
+    "look to",
+    "face",
+    "meet",
+    "confront",
+    "attend",
+    "call on"
    ]
   },
   "自": {
@@ -18353,6 +26593,25 @@
     "stink",
     "glow",
     "be bright"
+   ]
+  },
+  "至": {
+   "strokeCount": 6,
+   "grade": 6,
+   "freq": 996,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "いた.る"
+   ],
+   "meanings": [
+    "climax",
+    "arrive",
+    "proceed",
+    "reach",
+    "attain",
+    "result in"
    ]
   },
   "致": {
@@ -18431,6 +26690,20 @@
     "mansion"
    ]
   },
+  "舗": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1412,
+   "on": [
+    "ホ"
+   ],
+   "kun": [],
+   "meanings": [
+    "shop",
+    "store",
+    "pave"
+   ]
+  },
   "舞": {
    "strokeCount": 15,
    "grade": 8,
@@ -18450,6 +26723,38 @@
     "wheel"
    ]
   },
+  "舟": {
+   "strokeCount": 6,
+   "grade": 8,
+   "freq": 1786,
+   "on": [
+    "シュウ"
+   ],
+   "kun": [
+    "ふね",
+    "ふな-",
+    "-ぶね"
+   ],
+   "meanings": [
+    "boat",
+    "ship"
+   ]
+  },
+  "航": {
+   "strokeCount": 10,
+   "grade": 5,
+   "freq": 665,
+   "on": [
+    "コウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "navigate",
+    "sail",
+    "cruise",
+    "fly"
+   ]
+  },
   "般": {
    "strokeCount": 10,
    "grade": 8,
@@ -18467,6 +26772,19 @@
     "kind"
    ]
   },
+  "舶": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1753,
+   "on": [
+    "ハク"
+   ],
+   "kun": [],
+   "meanings": [
+    "liner",
+    "ship"
+   ]
+  },
   "船": {
    "strokeCount": 11,
    "grade": 2,
@@ -18481,6 +26799,32 @@
    "meanings": [
     "ship",
     "boat"
+   ]
+  },
+  "艘": {
+   "strokeCount": 16,
+   "on": [
+    "ショウ",
+    "シュウ",
+    "ソウ"
+   ],
+   "kun": [
+    "ふね"
+   ],
+   "meanings": [
+    "counter for small boats"
+   ]
+  },
+  "艦": {
+   "strokeCount": 21,
+   "grade": 8,
+   "freq": 1363,
+   "on": [
+    "カン"
+   ],
+   "kun": [],
+   "meanings": [
+    "warship"
    ]
   },
   "良": {
@@ -18606,6 +26950,23 @@
     "stunt"
    ]
   },
+  "芽": {
+   "strokeCount": 8,
+   "grade": 4,
+   "freq": 1691,
+   "on": [
+    "ガ"
+   ],
+   "kun": [
+    "め"
+   ],
+   "meanings": [
+    "bud",
+    "sprout",
+    "spear",
+    "germ"
+   ]
+  },
   "苗": {
    "strokeCount": 8,
    "grade": 8,
@@ -18690,6 +27051,22 @@
     "hero",
     "outstanding",
     "calyx"
+   ]
+  },
+  "茂": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 1188,
+   "on": [
+    "モ"
+   ],
+   "kun": [
+    "しげ.る"
+   ],
+   "meanings": [
+    "overgrown",
+    "grow thick",
+    "be luxuriant"
    ]
   },
   "茎": {
@@ -18779,6 +27156,83 @@
     "wild"
    ]
   },
+  "荘": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1489,
+   "on": [
+    "ソウ",
+    "ショウ",
+    "チャン"
+   ],
+   "kun": [
+    "ほうき",
+    "おごそ.か"
+   ],
+   "meanings": [
+    "villa",
+    "inn",
+    "cottage",
+    "feudal manor",
+    "solemn",
+    "dignified"
+   ]
+  },
+  "荷": {
+   "strokeCount": 10,
+   "grade": 3,
+   "freq": 1230,
+   "on": [
+    "カ"
+   ],
+   "kun": [
+    "に"
+   ],
+   "meanings": [
+    "baggage",
+    "shoulder-pole load",
+    "bear (a burden)",
+    "shoulder (a gun)",
+    "load",
+    "cargo",
+    "freight"
+   ]
+  },
+  "莫": {
+   "strokeCount": 10,
+   "grade": 9,
+   "on": [
+    "バク",
+    "ボ",
+    "マク",
+    "モ",
+    "ナイ"
+   ],
+   "kun": [
+    "くれ",
+    "なか.れ",
+    "なし"
+   ],
+   "meanings": [
+    "must not",
+    "do not",
+    "be not"
+   ]
+  },
+  "菌": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1586,
+   "on": [
+    "キン"
+   ],
+   "kun": [],
+   "meanings": [
+    "germ",
+    "fungus",
+    "bacteria"
+   ]
+  },
   "菓": {
    "strokeCount": 11,
    "grade": 8,
@@ -18791,6 +27245,22 @@
     "candy",
     "cakes",
     "fruit"
+   ]
+  },
+  "菜": {
+   "strokeCount": 11,
+   "grade": 4,
+   "freq": 1327,
+   "on": [
+    "サイ"
+   ],
+   "kun": [
+    "な"
+   ],
+   "meanings": [
+    "vegetable",
+    "side dish",
+    "greens"
    ]
   },
   "華": {
@@ -18814,6 +27284,25 @@
     "showy",
     "gay",
     "gorgeous"
+   ]
+  },
+  "萎": {
+   "strokeCount": 11,
+   "grade": 8,
+   "on": [
+    "イ"
+   ],
+   "kun": [
+    "な",
+    "しお.れる",
+    "しな.びる",
+    "しぼ.む",
+    "な.える"
+   ],
+   "meanings": [
+    "wither",
+    "droop",
+    "lame"
    ]
   },
   "落": {
@@ -18914,6 +27403,22 @@
     "shelve"
    ]
   },
+  "蒔": {
+   "strokeCount": 13,
+   "grade": 9,
+   "freq": 2368,
+   "on": [
+    "シ",
+    "ジ"
+   ],
+   "kun": [
+    "う.える",
+    "ま.く"
+   ],
+   "meanings": [
+    "sow (seeds)"
+   ]
+  },
   "蒸": {
    "strokeCount": 13,
    "grade": 6,
@@ -18933,6 +27438,23 @@
     "sultry",
     "foment",
     "get musty"
+   ]
+  },
+  "蓄": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1260,
+   "on": [
+    "チク"
+   ],
+   "kun": [
+    "たくわ.える"
+   ],
+   "meanings": [
+    "amass",
+    "raise",
+    "hoard",
+    "store"
    ]
   },
   "蓋": {
@@ -18955,6 +27477,26 @@
     "cover",
     "lid",
     "flap"
+   ]
+  },
+  "蔑": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 2483,
+   "on": [
+    "ベツ"
+   ],
+   "kun": [
+    "ないがしろ",
+    "なみ.する",
+    "くらい",
+    "さげす.む"
+   ],
+   "meanings": [
+    "ignore",
+    "despise",
+    "neglect",
+    "ridicule"
    ]
   },
   "蔵": {
@@ -18991,6 +27533,19 @@
     "buckwheat"
    ]
   },
+  "蕾": {
+   "strokeCount": 16,
+   "grade": 9,
+   "on": [
+    "ライ"
+   ],
+   "kun": [
+    "つぼみ"
+   ],
+   "meanings": [
+    "bud (plants, mushrooms not yet opened)"
+   ]
+  },
   "薄": {
    "strokeCount": 16,
    "grade": 8,
@@ -19014,6 +27569,24 @@
     "thin",
     "weak (tea)",
     "pampas grass"
+   ]
+  },
+  "薦": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1082,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "すす.める"
+   ],
+   "meanings": [
+    "recommend",
+    "mat",
+    "advise",
+    "encourage",
+    "offer"
    ]
   },
   "薬": {
@@ -19081,6 +27654,45 @@
     "drunkard"
    ]
   },
+  "虚": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1454,
+   "on": [
+    "キョ",
+    "コ"
+   ],
+   "kun": [
+    "むな.しい",
+    "うつ.ろ"
+   ],
+   "meanings": [
+    "void",
+    "emptiness",
+    "unpreparedness",
+    "crack",
+    "fissure",
+    "untruth"
+   ]
+  },
+  "虜": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1678,
+   "on": [
+    "リョ",
+    "ロ"
+   ],
+   "kun": [
+    "とりこ",
+    "とりく"
+   ],
+   "meanings": [
+    "captive",
+    "barbarian",
+    "low epithet for the enemy"
+   ]
+  },
   "虫": {
    "strokeCount": 6,
    "grade": 1,
@@ -19124,6 +27736,25 @@
    ],
    "meanings": [
     "mosquito"
+   ]
+  },
+  "蛇": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1721,
+   "on": [
+    "ジャ",
+    "ダ",
+    "イ",
+    "ヤ"
+   ],
+   "kun": [
+    "へび"
+   ],
+   "meanings": [
+    "snake",
+    "serpent",
+    "hard drinker"
    ]
   },
   "蛋": {
@@ -19194,6 +27825,22 @@
    "kun": [],
    "meanings": [
     "butterfly"
+   ]
+  },
+  "融": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 481,
+   "on": [
+    "ユウ"
+   ],
+   "kun": [
+    "と.ける",
+    "と.かす"
+   ],
+   "meanings": [
+    "dissolve",
+    "melt"
    ]
   },
   "血": {
@@ -19278,6 +27925,23 @@
     "magic"
    ]
   },
+  "街": {
+   "strokeCount": 12,
+   "grade": 4,
+   "freq": 891,
+   "on": [
+    "ガイ",
+    "カイ"
+   ],
+   "kun": [
+    "まち"
+   ],
+   "meanings": [
+    "boulevard",
+    "street",
+    "town"
+   ]
+  },
   "衛": {
    "strokeCount": 16,
    "grade": 5,
@@ -19290,6 +27954,41 @@
    "meanings": [
     "defense",
     "protection"
+   ]
+  },
+  "衝": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 972,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "つ.く"
+   ],
+   "meanings": [
+    "collide",
+    "brunt",
+    "highway",
+    "opposition (astronomy)",
+    "thrust",
+    "pierce",
+    "stab",
+    "prick"
+   ]
+  },
+  "衡": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1847,
+   "on": [
+    "コウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "equilibrium",
+    "measuring rod",
+    "scale"
    ]
   },
   "衣": {
@@ -19346,6 +28045,21 @@
     "decline",
     "wane",
     "weaken"
+   ]
+  },
+  "衷": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 2229,
+   "on": [
+    "チュウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "inmost",
+    "heart",
+    "mind",
+    "inside"
    ]
   },
   "袋": {
@@ -19407,6 +28121,42 @@
     "receiving"
    ]
   },
+  "裁": {
+   "strokeCount": 12,
+   "grade": 6,
+   "freq": 297,
+   "on": [
+    "サイ"
+   ],
+   "kun": [
+    "た.つ",
+    "さば.く"
+   ],
+   "meanings": [
+    "tailor",
+    "judge",
+    "decision",
+    "cut out (pattern)"
+   ]
+  },
+  "裂": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1041,
+   "on": [
+    "レツ"
+   ],
+   "kun": [
+    "さ.く",
+    "さ.ける",
+    "-ぎ.れ"
+   ],
+   "meanings": [
+    "split",
+    "rend",
+    "tear"
+   ]
+  },
   "装": {
    "strokeCount": 12,
    "grade": 6,
@@ -19450,6 +28200,20 @@
     "wrong side"
    ]
   },
+  "裕": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1048,
+   "on": [
+    "ユウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "abundant",
+    "rich",
+    "fertile"
+   ]
+  },
   "補": {
    "strokeCount": 12,
    "grade": 6,
@@ -19487,6 +28251,51 @@
     "partially clothed"
    ]
   },
+  "製": {
+   "strokeCount": 14,
+   "grade": 5,
+   "freq": 488,
+   "on": [
+    "セイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "made in...",
+    "manufacture"
+   ]
+  },
+  "裾": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 2334,
+   "on": [
+    "キョ",
+    "コ"
+   ],
+   "kun": [
+    "すそ"
+   ],
+   "meanings": [
+    "cuff",
+    "hem",
+    "foot of mountain"
+   ]
+  },
+  "複": {
+   "strokeCount": 14,
+   "grade": 5,
+   "freq": 915,
+   "on": [
+    "フク"
+   ],
+   "kun": [],
+   "meanings": [
+    "duplicate",
+    "double",
+    "compound",
+    "multiple"
+   ]
+  },
   "褒": {
    "strokeCount": 15,
    "grade": 8,
@@ -19502,6 +28311,21 @@
     "extol"
    ]
   },
+  "褪": {
+   "strokeCount": 15,
+   "on": [
+    "タイ",
+    "トン"
+   ],
+   "kun": [
+    "あ.せる",
+    "ぬ.ぐ"
+   ],
+   "meanings": [
+    "fade",
+    "discolour"
+   ]
+  },
   "襖": {
    "strokeCount": 17,
    "grade": 9,
@@ -19514,6 +28338,42 @@
    ],
    "meanings": [
     "opaque sliding door"
+   ]
+  },
+  "襟": {
+   "strokeCount": 18,
+   "grade": 8,
+   "freq": 2030,
+   "on": [
+    "キン"
+   ],
+   "kun": [
+    "えり"
+   ],
+   "meanings": [
+    "collar",
+    "neck",
+    "lapel",
+    "one's inner feelings"
+   ]
+  },
+  "襲": {
+   "strokeCount": 22,
+   "grade": 8,
+   "freq": 1130,
+   "on": [
+    "シュウ"
+   ],
+   "kun": [
+    "おそ.う",
+    "かさ.ね"
+   ],
+   "meanings": [
+    "attack",
+    "advance on",
+    "succeed to",
+    "pile",
+    "heap"
    ]
   },
   "西": {
@@ -19605,6 +28465,38 @@
    "meanings": [
     "standard",
     "measure"
+   ]
+  },
+  "視": {
+   "strokeCount": 11,
+   "grade": 6,
+   "freq": 362,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "み.る"
+   ],
+   "meanings": [
+    "inspection",
+    "regard as",
+    "see",
+    "look at"
+   ]
+  },
+  "覗": {
+   "strokeCount": 12,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "のぞ.く",
+    "うかが.う"
+   ],
+   "meanings": [
+    "peep",
+    "peek",
+    "come in sight"
    ]
   },
   "覚": {
@@ -19735,6 +28627,28 @@
     "minute"
    ]
   },
+  "触": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 904,
+   "on": [
+    "ショク"
+   ],
+   "kun": [
+    "ふ.れる",
+    "さわ.る",
+    "さわ"
+   ],
+   "meanings": [
+    "contact",
+    "touch",
+    "feel",
+    "hit",
+    "proclaim",
+    "announce",
+    "conflict"
+   ]
+  },
   "言": {
    "strokeCount": 7,
    "grade": 2,
@@ -19750,6 +28664,22 @@
    "meanings": [
     "say",
     "word"
+   ]
+  },
+  "訂": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1690,
+   "on": [
+    "テイ"
+   ],
+   "kun": [
+    "ただ.す"
+   ],
+   "meanings": [
+    "revise",
+    "correct",
+    "decide"
    ]
   },
   "計": {
@@ -19770,6 +28700,64 @@
     "measure"
    ]
   },
+  "討": {
+   "strokeCount": 10,
+   "grade": 6,
+   "freq": 528,
+   "on": [
+    "トウ"
+   ],
+   "kun": [
+    "う.つ"
+   ],
+   "meanings": [
+    "chastise",
+    "attack",
+    "defeat",
+    "destroy",
+    "conquer"
+   ]
+  },
+  "訓": {
+   "strokeCount": 10,
+   "grade": 4,
+   "freq": 1134,
+   "on": [
+    "クン",
+    "キン"
+   ],
+   "kun": [
+    "おし.える",
+    "よ.む",
+    "くん.ずる"
+   ],
+   "meanings": [
+    "instruction",
+    "Japanese character reading",
+    "explanation",
+    "read"
+   ]
+  },
+  "託": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1021,
+   "on": [
+    "タク"
+   ],
+   "kun": [
+    "かこつ.ける",
+    "かこ.つ",
+    "かこ.つける"
+   ],
+   "meanings": [
+    "consign",
+    "requesting",
+    "entrusting with",
+    "pretend",
+    "hint"
+   ]
+  },
   "記": {
    "strokeCount": 10,
    "grade": 2,
@@ -19784,6 +28772,19 @@
     "scribe",
     "account",
     "narrative"
+   ]
+  },
+  "訟": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1061,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "sue",
+    "accuse"
    ]
   },
   "訪": {
@@ -19886,6 +28887,53 @@
     "seeing",
     "diagnose",
     "examine"
+   ]
+  },
+  "証": {
+   "strokeCount": 12,
+   "grade": 5,
+   "freq": 306,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "あかし"
+   ],
+   "meanings": [
+    "evidence",
+    "proof",
+    "certificate"
+   ]
+  },
+  "詐": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1511,
+   "on": [
+    "サ"
+   ],
+   "kun": [
+    "いつわ.る"
+   ],
+   "meanings": [
+    "lie",
+    "falsehood",
+    "deceive",
+    "pretend"
+   ]
+  },
+  "評": {
+   "strokeCount": 12,
+   "grade": 5,
+   "freq": 454,
+   "on": [
+    "ヒョウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "evaluate",
+    "criticism",
+    "comment"
    ]
   },
   "詞": {
@@ -19996,6 +29044,20 @@
     "talk"
    ]
   },
+  "該": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1648,
+   "on": [
+    "ガイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "above-stated",
+    "the said",
+    "that specific"
+   ]
+  },
   "詳": {
    "strokeCount": 13,
    "grade": 8,
@@ -20030,6 +29092,24 @@
     "be proud",
     "pride",
     "triumphantly"
+   ]
+  },
+  "誉": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1064,
+   "on": [
+    "ヨ"
+   ],
+   "kun": [
+    "ほま.れ",
+    "ほ.める"
+   ],
+   "meanings": [
+    "reputation",
+    "praise",
+    "honor",
+    "glory"
    ]
   },
   "誌": {
@@ -20095,6 +29175,28 @@
     "declension",
     "lie",
     "be arbitrary"
+   ]
+  },
+  "誘": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 993,
+   "on": [
+    "ユウ"
+   ],
+   "kun": [
+    "さそ.う",
+    "いざな.う"
+   ],
+   "meanings": [
+    "entice",
+    "lead",
+    "tempt",
+    "invite",
+    "ask",
+    "call for",
+    "seduce",
+    "allure"
    ]
   },
   "語": {
@@ -20204,6 +29306,23 @@
     "somebody"
    ]
   },
+  "課": {
+   "strokeCount": 15,
+   "grade": 4,
+   "freq": 455,
+   "on": [
+    "カ"
+   ],
+   "kun": [],
+   "meanings": [
+    "chapter",
+    "lesson",
+    "section",
+    "department",
+    "division",
+    "counter for chapters (of a book)"
+   ]
+  },
   "調": {
    "strokeCount": 15,
    "grade": 3,
@@ -20297,6 +29416,37 @@
     "give up"
    ]
   },
+  "諮": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1345,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "はか.る"
+   ],
+   "meanings": [
+    "consult with"
+   ]
+  },
+  "諸": {
+   "strokeCount": 15,
+   "grade": 6,
+   "freq": 658,
+   "on": [
+    "ショ"
+   ],
+   "kun": [
+    "もろ"
+   ],
+   "meanings": [
+    "various",
+    "many",
+    "several",
+    "together"
+   ]
+  },
   "諺": {
    "strokeCount": 16,
    "grade": 9,
@@ -20322,6 +29472,56 @@
     "consent",
     "assent",
     "agreement"
+   ]
+  },
+  "謎": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 2021,
+   "on": [
+    "メイ",
+    "ベイ"
+   ],
+   "kun": [
+    "なぞ"
+   ],
+   "meanings": [
+    "riddle",
+    "puzzle",
+    "enigma",
+    "hint",
+    "tip"
+   ]
+  },
+  "謙": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 1582,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "へりくだ.る"
+   ],
+   "meanings": [
+    "self-effacing",
+    "humble oneself",
+    "condescend",
+    "be modest"
+   ]
+  },
+  "講": {
+   "strokeCount": 17,
+   "grade": 5,
+   "freq": 653,
+   "on": [
+    "コウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "lecture",
+    "club",
+    "association"
    ]
   },
   "謝": {
@@ -20358,6 +29558,22 @@
     "noh chanting"
    ]
   },
+  "謹": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 2068,
+   "on": [
+    "キン"
+   ],
+   "kun": [
+    "つつし.む"
+   ],
+   "meanings": [
+    "discreet",
+    "reverently",
+    "humbly"
+   ]
+  },
   "識": {
    "strokeCount": 19,
    "grade": 5,
@@ -20373,6 +29589,23 @@
     "discriminating",
     "know",
     "write"
+   ]
+  },
+  "譜": {
+   "strokeCount": 19,
+   "grade": 8,
+   "freq": 1919,
+   "on": [
+    "フ"
+   ],
+   "kun": [],
+   "meanings": [
+    "musical score",
+    "music",
+    "note",
+    "staff",
+    "table",
+    "genealogy"
    ]
   },
   "警": {
@@ -20403,6 +29636,23 @@
     "consultation",
     "debate",
     "consideration"
+   ]
+  },
+  "譲": {
+   "strokeCount": 20,
+   "grade": 8,
+   "freq": 984,
+   "on": [
+    "ジョウ"
+   ],
+   "kun": [
+    "ゆず.る"
+   ],
+   "meanings": [
+    "defer",
+    "turnover",
+    "transfer",
+    "convey"
    ]
   },
   "護": {
@@ -20469,6 +29719,21 @@
     "bountiful",
     "excellent",
     "rich"
+   ]
+  },
+  "豚": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1864,
+   "on": [
+    "トン"
+   ],
+   "kun": [
+    "ぶた"
+   ],
+   "meanings": [
+    "pork",
+    "pig"
    ]
   },
   "象": {
@@ -20564,6 +29829,23 @@
     "assets"
    ]
   },
+  "貢": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 956,
+   "on": [
+    "コウ",
+    "ク"
+   ],
+   "kun": [
+    "みつ.ぐ"
+   ],
+   "meanings": [
+    "tribute",
+    "support",
+    "finance"
+   ]
+  },
   "貧": {
    "strokeCount": 11,
    "grade": 5,
@@ -20578,6 +29860,36 @@
    "meanings": [
     "poverty",
     "poor"
+   ]
+  },
+  "貨": {
+   "strokeCount": 11,
+   "grade": 4,
+   "freq": 822,
+   "on": [
+    "カ"
+   ],
+   "kun": [
+    "たから"
+   ],
+   "meanings": [
+    "freight",
+    "goods",
+    "property"
+   ]
+  },
+  "販": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 627,
+   "on": [
+    "ハン"
+   ],
+   "kun": [],
+   "meanings": [
+    "marketing",
+    "sell",
+    "trade"
    ]
   },
   "貫": {
@@ -20613,6 +29925,25 @@
     "blame",
     "condemn",
     "censure"
+   ]
+  },
+  "貯": {
+   "strokeCount": 12,
+   "grade": 5,
+   "freq": 1100,
+   "on": [
+    "チョ"
+   ],
+   "kun": [
+    "た.める",
+    "たくわ.える"
+   ],
+   "meanings": [
+    "savings",
+    "store",
+    "lay in",
+    "keep",
+    "wear mustache"
    ]
   },
   "貴": {
@@ -20685,6 +30016,67 @@
     "waste"
    ]
   },
+  "貼": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 2444,
+   "on": [
+    "テン",
+    "チョウ"
+   ],
+   "kun": [
+    "は.る",
+    "つ.く"
+   ],
+   "meanings": [
+    "stick",
+    "paste",
+    "apply"
+   ]
+  },
+  "貿": {
+   "strokeCount": 12,
+   "grade": 5,
+   "freq": 652,
+   "on": [
+    "ボウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "trade",
+    "exchange"
+   ]
+  },
+  "賀": {
+   "strokeCount": 12,
+   "grade": 4,
+   "freq": 1056,
+   "on": [
+    "ガ"
+   ],
+   "kun": [],
+   "meanings": [
+    "congratulations",
+    "joy"
+   ]
+  },
+  "賃": {
+   "strokeCount": 13,
+   "grade": 6,
+   "freq": 961,
+   "on": [
+    "チン"
+   ],
+   "kun": [],
+   "meanings": [
+    "fare",
+    "fee",
+    "hire",
+    "rent",
+    "wages",
+    "charge"
+   ]
+  },
   "賄": {
    "strokeCount": 13,
    "grade": 8,
@@ -20700,6 +30092,42 @@
     "board",
     "supply",
     "finance"
+   ]
+  },
+  "資": {
+   "strokeCount": 13,
+   "grade": 5,
+   "freq": 179,
+   "on": [
+    "シ"
+   ],
+   "kun": [],
+   "meanings": [
+    "assets",
+    "resources",
+    "capital",
+    "funds",
+    "data",
+    "be conducive to",
+    "contribute to"
+   ]
+  },
+  "賑": {
+   "strokeCount": 14,
+   "grade": 9,
+   "on": [
+    "シン"
+   ],
+   "kun": [
+    "にぎ.わい",
+    "にぎ.やか",
+    "にぎ.わす",
+    "にぎ.わう"
+   ],
+   "meanings": [
+    "flourish",
+    "be bustling",
+    "prosperity"
    ]
   },
   "賛": {
@@ -20719,6 +30147,88 @@
     "title or inscription on picture",
     "assist",
     "agree with"
+   ]
+  },
+  "賜": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 2190,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "たまわ.る",
+    "たま.う",
+    "たも.う"
+   ],
+   "meanings": [
+    "grant",
+    "gift",
+    "boon",
+    "results"
+   ]
+  },
+  "賞": {
+   "strokeCount": 15,
+   "grade": 5,
+   "freq": 426,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "ほ.める"
+   ],
+   "meanings": [
+    "prize",
+    "reward",
+    "praise"
+   ]
+  },
+  "賠": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1243,
+   "on": [
+    "バイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "compensation",
+    "indemnify"
+   ]
+  },
+  "賢": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1159,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "かしこ.い"
+   ],
+   "meanings": [
+    "intelligent",
+    "wise",
+    "wisdom",
+    "cleverness"
+   ]
+  },
+  "賦": {
+   "strokeCount": 15,
+   "grade": 8,
+   "on": [
+    "フ",
+    "ブ"
+   ],
+   "kun": [],
+   "meanings": [
+    "levy",
+    "ode",
+    "prose",
+    "poem",
+    "tribute",
+    "installment"
    ]
   },
   "質": {
@@ -20773,6 +30283,20 @@
     "buy"
    ]
   },
+  "贅": {
+   "strokeCount": 18,
+   "freq": 2386,
+   "on": [
+    "ゼイ",
+    "セイ"
+   ],
+   "kun": [
+    "いぼ"
+   ],
+   "meanings": [
+    "luxury"
+   ]
+  },
   "贈": {
    "strokeCount": 18,
    "grade": 8,
@@ -20810,6 +30334,20 @@
    ],
    "meanings": [
     "red"
+   ]
+  },
+  "走": {
+   "strokeCount": 7,
+   "grade": 2,
+   "freq": 626,
+   "on": [
+    "ソウ"
+   ],
+   "kun": [
+    "はし.る"
+   ],
+   "meanings": [
+    "run"
    ]
   },
   "赴": {
@@ -20966,6 +30504,48 @@
     "distance"
    ]
   },
+  "跳": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1716,
+   "on": [
+    "チョウ"
+   ],
+   "kun": [
+    "は.ねる",
+    "と.ぶ",
+    "-と.び"
+   ],
+   "meanings": [
+    "hop",
+    "leap up",
+    "spring",
+    "jerk",
+    "prance",
+    "buck",
+    "splash",
+    "sputter",
+    "snap"
+   ]
+  },
+  "践": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1570,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "ふ.む"
+   ],
+   "meanings": [
+    "tread",
+    "step on",
+    "trample",
+    "practice",
+    "carry through"
+   ]
+  },
   "踊": {
    "strokeCount": 14,
    "grade": 8,
@@ -21017,6 +30597,22 @@
     "kick"
    ]
   },
+  "躍": {
+   "strokeCount": 21,
+   "grade": 8,
+   "freq": 900,
+   "on": [
+    "ヤク"
+   ],
+   "kun": [
+    "おど.る"
+   ],
+   "meanings": [
+    "leap",
+    "dance",
+    "skip"
+   ]
+  },
   "身": {
    "strokeCount": 7,
    "grade": 3,
@@ -21059,6 +30655,22 @@
     "car"
    ]
   },
+  "軌": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1480,
+   "on": [
+    "キ"
+   ],
+   "kun": [],
+   "meanings": [
+    "rut",
+    "wheel",
+    "track",
+    "model",
+    "way of doing"
+   ]
+  },
   "軍": {
    "strokeCount": 9,
    "grade": 4,
@@ -21075,6 +30687,37 @@
     "troops",
     "war",
     "battle"
+   ]
+  },
+  "軒": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1416,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "のき"
+   ],
+   "meanings": [
+    "flats",
+    "counter for houses",
+    "eaves"
+   ]
+  },
+  "軟": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1269,
+   "on": [
+    "ナン"
+   ],
+   "kun": [
+    "やわ.らか",
+    "やわ.らかい"
+   ],
+   "meanings": [
+    "soft"
    ]
   },
   "転": {
@@ -21284,6 +30927,40 @@
     "expression"
    ]
   },
+  "辟": {
+   "strokeCount": 13,
+   "on": [
+    "ヘキ",
+    "ヒ"
+   ],
+   "kun": [
+    "きみ",
+    "ひら.く",
+    "め.す"
+   ],
+   "meanings": [
+    "false",
+    "punish",
+    "crime",
+    "law"
+   ]
+  },
+  "辱": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1769,
+   "on": [
+    "ジョク"
+   ],
+   "kun": [
+    "はずかし.める"
+   ],
+   "meanings": [
+    "embarrass",
+    "humiliate",
+    "shame"
+   ]
+  },
   "農": {
    "strokeCount": 13,
    "grade": 3,
@@ -21336,6 +31013,21 @@
     "(kokuji)"
    ]
   },
+  "辿": {
+   "strokeCount": 6,
+   "grade": 9,
+   "on": [
+    "テン"
+   ],
+   "kun": [
+    "たど.る",
+    "たどり"
+   ],
+   "meanings": [
+    "follow (road)",
+    "pursue"
+   ]
+  },
   "迅": {
    "strokeCount": 6,
    "grade": 8,
@@ -21347,6 +31039,22 @@
    "meanings": [
     "swift",
     "fast"
+   ]
+  },
+  "迎": {
+   "strokeCount": 7,
+   "grade": 8,
+   "freq": 625,
+   "on": [
+    "ゲイ"
+   ],
+   "kun": [
+    "むか.える"
+   ],
+   "meanings": [
+    "welcome",
+    "meet",
+    "greet"
    ]
   },
   "近": {
@@ -21458,6 +31166,31 @@
     "meanwhile"
    ]
   },
+  "退": {
+   "strokeCount": 9,
+   "grade": 6,
+   "freq": 424,
+   "on": [
+    "タイ"
+   ],
+   "kun": [
+    "しりぞ.く",
+    "しりぞ.ける",
+    "ひ.く",
+    "の.く",
+    "の.ける",
+    "ど.く"
+   ],
+   "meanings": [
+    "retreat",
+    "withdraw",
+    "retire",
+    "resign",
+    "repel",
+    "expel",
+    "reject"
+   ]
+  },
   "送": {
    "strokeCount": 9,
    "grade": 3,
@@ -21512,6 +31245,43 @@
     "reverse",
     "opposite",
     "wicked"
+   ]
+  },
+  "透": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1035,
+   "on": [
+    "トウ"
+   ],
+   "kun": [
+    "す.く",
+    "す.かす",
+    "す.ける",
+    "とう.る",
+    "とう.す"
+   ],
+   "meanings": [
+    "transparent",
+    "permeate",
+    "filter",
+    "penetrate"
+   ]
+  },
+  "途": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 717,
+   "on": [
+    "ト"
+   ],
+   "kun": [
+    "みち"
+   ],
+   "meanings": [
+    "route",
+    "way",
+    "road"
    ]
   },
   "這": {
@@ -21620,6 +31390,19 @@
     "clique"
    ]
   },
+  "逮": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 766,
+   "on": [
+    "タイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "apprehend",
+    "chase"
+   ]
+  },
   "週": {
    "strokeCount": 11,
    "grade": 2,
@@ -21650,6 +31433,47 @@
     "promote"
    ]
   },
+  "逸": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1524,
+   "on": [
+    "イツ"
+   ],
+   "kun": [
+    "そ.れる",
+    "そ.らす",
+    "はぐ.れる"
+   ],
+   "meanings": [
+    "deviate",
+    "idleness",
+    "leisure",
+    "miss the mark",
+    "evade",
+    "elude",
+    "parry",
+    "diverge"
+   ]
+  },
+  "遂": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1423,
+   "on": [
+    "スイ"
+   ],
+   "kun": [
+    "と.げる",
+    "つい.に"
+   ],
+   "meanings": [
+    "consummate",
+    "accomplish",
+    "attain",
+    "commit (suicide)"
+   ]
+  },
   "遅": {
    "strokeCount": 12,
    "grade": 8,
@@ -21667,6 +31491,26 @@
     "late",
     "back",
     "later"
+   ]
+  },
+  "遇": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1343,
+   "on": [
+    "グウ"
+   ],
+   "kun": [
+    "あ.う"
+   ],
+   "meanings": [
+    "meet",
+    "encounter",
+    "interview",
+    "treat",
+    "entertain",
+    "receive",
+    "deal with"
    ]
   },
   "遊": {
@@ -21704,6 +31548,23 @@
     "transport",
     "progress",
     "advance"
+   ]
+  },
+  "遍": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1845,
+   "on": [
+    "ヘン"
+   ],
+   "kun": [
+    "あまね.く"
+   ],
+   "meanings": [
+    "everywhere",
+    "times",
+    "widely",
+    "generally"
    ]
   },
   "過": {
@@ -21788,6 +31649,22 @@
     "differ"
    ]
   },
+  "遜": {
+   "strokeCount": 13,
+   "grade": 8,
+   "on": [
+    "ソン"
+   ],
+   "kun": [
+    "したが.う",
+    "へりくだ.る",
+    "ゆず.る"
+   ],
+   "meanings": [
+    "humble",
+    "modest"
+   ]
+  },
   "遠": {
    "strokeCount": 13,
    "grade": 2,
@@ -21843,6 +31720,22 @@
     "undertake"
    ]
   },
+  "遥": {
+   "strokeCount": 12,
+   "grade": 9,
+   "freq": 2376,
+   "on": [
+    "ヨウ"
+   ],
+   "kun": [
+    "はる.か"
+   ],
+   "meanings": [
+    "far off",
+    "distant",
+    "long ago"
+   ]
+  },
   "適": {
    "strokeCount": 14,
    "grade": 5,
@@ -21861,6 +31754,26 @@
     "capable"
    ]
   },
+  "遭": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1554,
+   "on": [
+    "ソウ"
+   ],
+   "kun": [
+    "あ.う",
+    "あ.わせる"
+   ],
+   "meanings": [
+    "encounter",
+    "meet",
+    "party",
+    "association",
+    "interview",
+    "join"
+   ]
+  },
   "遮": {
    "strokeCount": 14,
    "grade": 8,
@@ -21875,6 +31788,24 @@
     "intercept",
     "interrupt",
     "obstruct"
+   ]
+  },
+  "遷": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1937,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "うつ.る",
+    "うつ.す",
+    "みやこがえ"
+   ],
+   "meanings": [
+    "transition",
+    "move",
+    "change"
    ]
   },
   "選": {
@@ -21894,6 +31825,23 @@
     "select",
     "choose",
     "prefer"
+   ]
+  },
+  "遺": {
+   "strokeCount": 15,
+   "grade": 6,
+   "freq": 647,
+   "on": [
+    "イ",
+    "ユイ"
+   ],
+   "kun": [
+    "のこ.す"
+   ],
+   "meanings": [
+    "bequeath",
+    "leave behind",
+    "reserve"
    ]
   },
   "避": {
@@ -21978,6 +31926,35 @@
     "wicked",
     "injustice",
     "wrong"
+   ]
+  },
+  "邸": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 905,
+   "on": [
+    "テイ"
+   ],
+   "kun": [
+    "やしき"
+   ],
+   "meanings": [
+    "residence",
+    "mansion"
+   ]
+  },
+  "郊": {
+   "strokeCount": 9,
+   "grade": 8,
+   "freq": 1304,
+   "on": [
+    "コウ"
+   ],
+   "kun": [],
+   "meanings": [
+    "outskirts",
+    "suburbs",
+    "rural area"
    ]
   },
   "郡": {
@@ -22138,6 +32115,73 @@
     "spellbound"
    ]
   },
+  "酢": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1955,
+   "on": [
+    "サク"
+   ],
+   "kun": [
+    "す"
+   ],
+   "meanings": [
+    "vinegar",
+    "sour",
+    "acid",
+    "tart"
+   ]
+  },
+  "酪": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 2012,
+   "on": [
+    "ラク"
+   ],
+   "kun": [],
+   "meanings": [
+    "dairy products",
+    "whey",
+    "broth",
+    "fruit juice"
+   ]
+  },
+  "酬": {
+   "strokeCount": 13,
+   "grade": 8,
+   "freq": 1515,
+   "on": [
+    "シュウ",
+    "シュ",
+    "トウ"
+   ],
+   "kun": [
+    "むく.いる"
+   ],
+   "meanings": [
+    "repay",
+    "reward",
+    "retribution"
+   ]
+  },
+  "酷": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1596,
+   "on": [
+    "コク"
+   ],
+   "kun": [
+    "ひど.い"
+   ],
+   "meanings": [
+    "cruel",
+    "severe",
+    "atrocious",
+    "unjust"
+   ]
+  },
   "酸": {
    "strokeCount": 14,
    "grade": 5,
@@ -22184,6 +32228,40 @@
    ],
    "meanings": [
     "a kind of miso"
+   ]
+  },
+  "釈": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1097,
+   "on": [
+    "シャク",
+    "セキ"
+   ],
+   "kun": [
+    "とく",
+    "す.てる",
+    "ゆる.す"
+   ],
+   "meanings": [
+    "explanation"
+   ]
+  },
+  "里": {
+   "strokeCount": 7,
+   "grade": 2,
+   "freq": 1096,
+   "on": [
+    "リ"
+   ],
+   "kun": [
+    "さと"
+   ],
+   "meanings": [
+    "ri",
+    "village",
+    "parent's home",
+    "league"
    ]
   },
   "重": {
@@ -22288,6 +32366,22 @@
     "peg"
    ]
   },
+  "釜": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1761,
+   "on": [
+    "フ"
+   ],
+   "kun": [
+    "かま"
+   ],
+   "meanings": [
+    "kettle",
+    "cauldron",
+    "iron pot"
+   ]
+  },
   "針": {
    "strokeCount": 10,
    "grade": 6,
@@ -22323,6 +32417,27 @@
     "catch",
     "allure",
     "ensnare"
+   ]
+  },
+  "鈍": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1574,
+   "on": [
+    "ドン"
+   ],
+   "kun": [
+    "にぶ.い",
+    "にぶ.る",
+    "にぶ-",
+    "なま.る",
+    "なまく.ら"
+   ],
+   "meanings": [
+    "dull",
+    "slow",
+    "foolish",
+    "blunt"
    ]
   },
   "鈴": {
@@ -22385,6 +32500,21 @@
     "crown"
    ]
   },
+  "鉱": {
+   "strokeCount": 13,
+   "grade": 5,
+   "freq": 1376,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "あらがね"
+   ],
+   "meanings": [
+    "mineral",
+    "ore"
+   ]
+  },
   "銀": {
    "strokeCount": 14,
    "grade": 3,
@@ -22399,6 +32529,21 @@
     "silver"
    ]
   },
+  "銃": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1013,
+   "on": [
+    "ジュウ"
+   ],
+   "kun": [
+    "つつ"
+   ],
+   "meanings": [
+    "gun",
+    "arms"
+   ]
+  },
   "銅": {
    "strokeCount": 14,
    "grade": 5,
@@ -22411,6 +32556,19 @@
    ],
    "meanings": [
     "copper"
+   ]
+  },
+  "銘": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1394,
+   "on": [
+    "メイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "inscription",
+    "signature (of artisan)"
    ]
   },
   "銭": {
@@ -22429,6 +32587,39 @@
     "coin",
     ".01 yen",
     "money"
+   ]
+  },
+  "鋭": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1395,
+   "on": [
+    "エイ"
+   ],
+   "kun": [
+    "するど.い"
+   ],
+   "meanings": [
+    "pointed",
+    "sharpness",
+    "edge",
+    "weapon",
+    "sharp",
+    "violent"
+   ]
+  },
+  "鋼": {
+   "strokeCount": 16,
+   "grade": 6,
+   "freq": 1246,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "はがね"
+   ],
+   "meanings": [
+    "steel"
    ]
   },
   "錆": {
@@ -22461,6 +32652,36 @@
     "shackles"
    ]
   },
+  "錯": {
+   "strokeCount": 16,
+   "grade": 8,
+   "freq": 1740,
+   "on": [
+    "サク",
+    "シャク"
+   ],
+   "kun": [],
+   "meanings": [
+    "confused",
+    "mix",
+    "be in disorder"
+   ]
+  },
+  "録": {
+   "strokeCount": 16,
+   "grade": 4,
+   "freq": 546,
+   "on": [
+    "ロク"
+   ],
+   "kun": [
+    "しる.す",
+    "と.る"
+   ],
+   "meanings": [
+    "record"
+   ]
+  },
   "鍋": {
    "strokeCount": 17,
    "grade": 8,
@@ -22475,6 +32696,36 @@
     "pot",
     "pan",
     "kettle"
+   ]
+  },
+  "鍛": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 1793,
+   "on": [
+    "タン"
+   ],
+   "kun": [
+    "きた.える"
+   ],
+   "meanings": [
+    "forge",
+    "discipline",
+    "train"
+   ]
+  },
+  "鍵": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 2029,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "かぎ"
+   ],
+   "meanings": [
+    "key"
    ]
   },
   "鎖": {
@@ -22510,6 +32761,39 @@
     "speculum",
     "barrel-head",
     "round rice-cake offering"
+   ]
+  },
+  "鐘": {
+   "strokeCount": 20,
+   "grade": 8,
+   "freq": 1681,
+   "on": [
+    "ショウ"
+   ],
+   "kun": [
+    "かね"
+   ],
+   "meanings": [
+    "bell",
+    "gong",
+    "chimes"
+   ]
+  },
+  "鑑": {
+   "strokeCount": 23,
+   "grade": 8,
+   "freq": 1391,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "かんが.みる",
+    "かがみ"
+   ],
+   "meanings": [
+    "specimen",
+    "take warning from",
+    "learn from"
    ]
   },
   "長": {
@@ -22626,6 +32910,36 @@
     "concerning"
    ]
   },
+  "閣": {
+   "strokeCount": 14,
+   "grade": 6,
+   "freq": 444,
+   "on": [
+    "カク"
+   ],
+   "kun": [],
+   "meanings": [
+    "tower",
+    "tall building",
+    "palace"
+   ]
+  },
+  "閲": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1855,
+   "on": [
+    "エツ"
+   ],
+   "kun": [
+    "けみ.する"
+   ],
+   "meanings": [
+    "review",
+    "inspection",
+    "revision"
+   ]
+  },
   "闇": {
    "strokeCount": 17,
    "grade": 8,
@@ -22696,6 +33010,24 @@
     "impede"
    ]
   },
+  "附": {
+   "strokeCount": 8,
+   "grade": 8,
+   "freq": 2396,
+   "on": [
+    "フ"
+   ],
+   "kun": [
+    "つ.ける",
+    "つ.く"
+   ],
+   "meanings": [
+    "affixed",
+    "attach",
+    "refer to",
+    "append"
+   ]
+  },
   "降": {
    "strokeCount": 10,
    "grade": 6,
@@ -22753,6 +33085,23 @@
     "school"
    ]
   },
+  "陣": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 828,
+   "on": [
+    "ジン"
+   ],
+   "kun": [],
+   "meanings": [
+    "camp",
+    "battle array",
+    "ranks",
+    "position",
+    "sudden",
+    "brief time"
+   ]
+  },
   "除": {
    "strokeCount": 10,
    "grade": 6,
@@ -22772,6 +33121,25 @@
     "abolish",
     "cancel",
     "except"
+   ]
+  },
+  "陥": {
+   "strokeCount": 10,
+   "grade": 8,
+   "freq": 1154,
+   "on": [
+    "カン"
+   ],
+   "kun": [
+    "おちい.る",
+    "おとしい.れる"
+   ],
+   "meanings": [
+    "collapse",
+    "fall into",
+    "cave in",
+    "fall (castle)",
+    "slide into"
    ]
   },
   "陰": {
@@ -22794,6 +33162,55 @@
     "shadow"
    ]
   },
+  "陳": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1323,
+   "on": [
+    "チン"
+   ],
+   "kun": [
+    "ひ.ねる"
+   ],
+   "meanings": [
+    "exhibit",
+    "state",
+    "relate",
+    "explain"
+   ]
+  },
+  "陵": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1746,
+   "on": [
+    "リョウ"
+   ],
+   "kun": [
+    "みささぎ"
+   ],
+   "meanings": [
+    "mausoleum",
+    "imperial tomb",
+    "mound",
+    "hill"
+   ]
+  },
+  "陶": {
+   "strokeCount": 11,
+   "grade": 8,
+   "freq": 1680,
+   "on": [
+    "トウ"
+   ],
+   "kun": [
+    "すえ"
+   ],
+   "meanings": [
+    "pottery",
+    "porcelain"
+   ]
+  },
   "陸": {
    "strokeCount": 11,
    "grade": 4,
@@ -22808,6 +33225,24 @@
    "meanings": [
     "land",
     "six"
+   ]
+  },
+  "険": {
+   "strokeCount": 11,
+   "grade": 5,
+   "freq": 707,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "けわ.しい"
+   ],
+   "meanings": [
+    "precipitous",
+    "inaccessible place",
+    "impregnable position",
+    "steep place",
+    "sharp eyes"
    ]
   },
   "陽": {
@@ -22827,6 +33262,77 @@
     "male",
     "heaven",
     "daytime"
+   ]
+  },
+  "隅": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1601,
+   "on": [
+    "グウ"
+   ],
+   "kun": [
+    "すみ"
+   ],
+   "meanings": [
+    "corner",
+    "nook"
+   ]
+  },
+  "隊": {
+   "strokeCount": 12,
+   "grade": 4,
+   "freq": 605,
+   "on": [
+    "タイ"
+   ],
+   "kun": [],
+   "meanings": [
+    "regiment",
+    "party",
+    "company",
+    "squad"
+   ]
+  },
+  "階": {
+   "strokeCount": 12,
+   "grade": 3,
+   "freq": 513,
+   "on": [
+    "カイ"
+   ],
+   "kun": [
+    "きざはし"
+   ],
+   "meanings": [
+    "storey",
+    "stair",
+    "counter for storeys of a building"
+   ]
+  },
+  "随": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 1396,
+   "on": [
+    "ズイ"
+   ],
+   "kun": [
+    "まにま.に",
+    "したが.う"
+   ],
+   "meanings": [
+    "follow",
+    "though",
+    "notwithstanding",
+    "while",
+    "during",
+    "both",
+    "all",
+    "obey",
+    "submit to",
+    "comply",
+    "at the mercy of (the waves)"
    ]
   },
   "隔": {
@@ -22870,6 +33376,29 @@
     "leisure"
    ]
   },
+  "際": {
+   "strokeCount": 14,
+   "grade": 5,
+   "freq": 183,
+   "on": [
+    "サイ"
+   ],
+   "kun": [
+    "きわ",
+    "-ぎわ"
+   ],
+   "meanings": [
+    "occasion",
+    "side",
+    "edge",
+    "verge",
+    "dangerous",
+    "adventurous",
+    "indecent",
+    "time",
+    "when"
+   ]
+  },
   "障": {
    "strokeCount": 14,
    "grade": 6,
@@ -22884,6 +33413,26 @@
     "hinder",
     "hurt",
     "harm"
+   ]
+  },
+  "隠": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1089,
+   "on": [
+    "イン",
+    "オン"
+   ],
+   "kun": [
+    "かく.す",
+    "かく.し",
+    "かく.れる",
+    "よ.る"
+   ],
+   "meanings": [
+    "conceal",
+    "hide",
+    "cover"
    ]
   },
   "隣": {
@@ -22940,6 +33489,21 @@
     "congregate",
     "swarm",
     "flock"
+   ]
+  },
+  "雇": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 975,
+   "on": [
+    "コ"
+   ],
+   "kun": [
+    "やと.う"
+   ],
+   "meanings": [
+    "employ",
+    "hire"
    ]
   },
   "雌": {
@@ -23329,6 +33893,24 @@
     "quiet"
    ]
   },
+  "非": {
+   "strokeCount": 8,
+   "grade": 5,
+   "freq": 472,
+   "on": [
+    "ヒ"
+   ],
+   "kun": [
+    "あら.ず"
+   ],
+   "meanings": [
+    "un-",
+    "mistake",
+    "negative",
+    "injustice",
+    "non-"
+   ]
+  },
   "面": {
    "strokeCount": 9,
    "grade": 3,
@@ -23380,6 +33962,20 @@
     "shoes"
    ]
   },
+  "鞠": {
+   "strokeCount": 17,
+   "grade": 9,
+   "on": [
+    "キク",
+    "キュウ"
+   ],
+   "kun": [
+    "まり"
+   ],
+   "meanings": [
+    "ball"
+   ]
+  },
   "音": {
    "strokeCount": 9,
    "grade": 1,
@@ -23416,6 +34012,26 @@
     "vibrate"
    ]
   },
+  "頂": {
+   "strokeCount": 11,
+   "grade": 6,
+   "freq": 1350,
+   "on": [
+    "チョウ"
+   ],
+   "kun": [
+    "いただ.く",
+    "いただき"
+   ],
+   "meanings": [
+    "place on the head",
+    "receive",
+    "top of head",
+    "top",
+    "summit",
+    "peak"
+   ]
+  },
   "頃": {
    "strokeCount": 11,
    "grade": 8,
@@ -23435,6 +34051,24 @@
     "toward"
    ]
   },
+  "項": {
+   "strokeCount": 12,
+   "grade": 8,
+   "freq": 884,
+   "on": [
+    "コウ"
+   ],
+   "kun": [
+    "うなじ"
+   ],
+   "meanings": [
+    "paragraph",
+    "nape of neck",
+    "clause",
+    "item",
+    "term (expression)"
+   ]
+  },
   "順": {
    "strokeCount": 12,
    "grade": 4,
@@ -23450,6 +34084,24 @@
     "right",
     "docility",
     "occasion"
+   ]
+  },
+  "預": {
+   "strokeCount": 13,
+   "grade": 6,
+   "freq": 981,
+   "on": [
+    "ヨ"
+   ],
+   "kun": [
+    "あず.ける",
+    "あず.かる"
+   ],
+   "meanings": [
+    "deposit",
+    "custody",
+    "leave with",
+    "entrust to"
    ]
   },
   "頑": {
@@ -23521,6 +34173,21 @@
     "counter for large animals"
    ]
   },
+  "頻": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 1590,
+   "on": [
+    "ヒン"
+   ],
+   "kun": [
+    "しき.りに"
+   ],
+   "meanings": [
+    "repeatedly",
+    "recur"
+   ]
+  },
   "頼": {
    "strokeCount": 16,
    "grade": 8,
@@ -23571,6 +34238,22 @@
     "volume"
    ]
   },
+  "顎": {
+   "strokeCount": 18,
+   "grade": 8,
+   "on": [
+    "ガク"
+   ],
+   "kun": [
+    "あご",
+    "あぎと"
+   ],
+   "meanings": [
+    "jaw",
+    "chin",
+    "gill"
+   ]
+  },
   "顔": {
    "strokeCount": 18,
    "grade": 2,
@@ -23584,6 +34267,22 @@
    "meanings": [
     "face",
     "expression"
+   ]
+  },
+  "顕": {
+   "strokeCount": 18,
+   "grade": 8,
+   "freq": 1536,
+   "on": [
+    "ケン"
+   ],
+   "kun": [
+    "あきらか",
+    "あらわ.れる"
+   ],
+   "meanings": [
+    "appear",
+    "existing"
    ]
   },
   "願": {
@@ -23759,6 +34458,23 @@
     "candy"
    ]
   },
+  "飼": {
+   "strokeCount": 13,
+   "grade": 5,
+   "freq": 1392,
+   "on": [
+    "シ"
+   ],
+   "kun": [
+    "か.う"
+   ],
+   "meanings": [
+    "domesticate",
+    "raise",
+    "keep",
+    "feed"
+   ]
+  },
   "飽": {
    "strokeCount": 13,
    "grade": 8,
@@ -23831,6 +34547,27 @@
     "nurture"
    ]
   },
+  "餌": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 2277,
+   "on": [
+    "ジ",
+    "ニ"
+   ],
+   "kun": [
+    "え",
+    "えば",
+    "えさ",
+    "もち"
+   ],
+   "meanings": [
+    "food",
+    "bait",
+    "prey",
+    "tempting profit"
+   ]
+  },
   "館": {
    "strokeCount": 16,
    "grade": 3,
@@ -23876,6 +34613,25 @@
     "counter for songs and poems"
    ]
   },
+  "香": {
+   "strokeCount": 9,
+   "grade": 4,
+   "freq": 859,
+   "on": [
+    "コウ",
+    "キョウ"
+   ],
+   "kun": [
+    "か",
+    "かお.り",
+    "かお.る"
+   ],
+   "meanings": [
+    "incense",
+    "smell",
+    "perfume"
+   ]
+  },
   "馬": {
    "strokeCount": 10,
    "grade": 2,
@@ -23893,6 +34649,25 @@
    ],
    "meanings": [
     "horse"
+   ]
+  },
+  "馴": {
+   "strokeCount": 13,
+   "grade": 9,
+   "on": [
+    "ジュン",
+    "シュン",
+    "クン"
+   ],
+   "kun": [
+    "な.れる",
+    "な.らす",
+    "したが.う"
+   ],
+   "meanings": [
+    "get used to",
+    "experienced",
+    "tamed"
    ]
   },
   "駄": {
@@ -23923,6 +34698,26 @@
    "kun": [],
    "meanings": [
     "station"
+   ]
+  },
+  "駆": {
+   "strokeCount": 14,
+   "grade": 8,
+   "freq": 1033,
+   "on": [
+    "ク"
+   ],
+   "kun": [
+    "か.ける",
+    "か.る"
+   ],
+   "meanings": [
+    "drive",
+    "run",
+    "gallop",
+    "advance",
+    "inspire",
+    "impel"
    ]
   },
   "駐": {
@@ -23957,6 +34752,76 @@
     "clamor",
     "disturb",
     "excite"
+   ]
+  },
+  "験": {
+   "strokeCount": 18,
+   "grade": 4,
+   "freq": 410,
+   "on": [
+    "ケン",
+    "ゲン"
+   ],
+   "kun": [
+    "あかし",
+    "しるし",
+    "ため.す",
+    "ためし"
+   ],
+   "meanings": [
+    "verification",
+    "effect",
+    "testing"
+   ]
+  },
+  "騙": {
+   "strokeCount": 19,
+   "on": [
+    "ヘン"
+   ],
+   "kun": [
+    "かた.る",
+    "だま.す"
+   ],
+   "meanings": [
+    "deceive"
+   ]
+  },
+  "騰": {
+   "strokeCount": 20,
+   "grade": 8,
+   "freq": 1420,
+   "on": [
+    "トウ"
+   ],
+   "kun": [
+    "あが.る",
+    "のぼ.る"
+   ],
+   "meanings": [
+    "leaping up",
+    "jumping up",
+    "rising",
+    "advancing",
+    "going"
+   ]
+  },
+  "驚": {
+   "strokeCount": 22,
+   "grade": 8,
+   "freq": 1141,
+   "on": [
+    "キョウ"
+   ],
+   "kun": [
+    "おどろ.く",
+    "おどろ.かす"
+   ],
+   "meanings": [
+    "wonder",
+    "be surprised",
+    "frightened",
+    "amazed"
    ]
   },
   "骨": {
@@ -24104,6 +34969,38 @@
     "fish"
    ]
   },
+  "鮮": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 355,
+   "on": [
+    "セン"
+   ],
+   "kun": [
+    "あざ.やか"
+   ],
+   "meanings": [
+    "fresh",
+    "vivid",
+    "clear",
+    "brilliant",
+    "Korea"
+   ]
+  },
+  "鯨": {
+   "strokeCount": 19,
+   "grade": 8,
+   "freq": 1486,
+   "on": [
+    "ゲイ"
+   ],
+   "kun": [
+    "くじら"
+   ],
+   "meanings": [
+    "whale"
+   ]
+  },
   "鳥": {
    "strokeCount": 11,
    "grade": 2,
@@ -24141,6 +35038,21 @@
     "honk"
    ]
   },
+  "鶏": {
+   "strokeCount": 19,
+   "grade": 8,
+   "freq": 1901,
+   "on": [
+    "ケイ"
+   ],
+   "kun": [
+    "にわとり",
+    "とり"
+   ],
+   "meanings": [
+    "chicken"
+   ]
+  },
   "鹸": {
    "strokeCount": 19,
    "on": [
@@ -24168,6 +35080,20 @@
    ],
    "meanings": [
     "deer"
+   ]
+  },
+  "麓": {
+   "strokeCount": 19,
+   "grade": 8,
+   "freq": 2366,
+   "on": [
+    "ロク"
+   ],
+   "kun": [
+    "ふもと"
+   ],
+   "meanings": [
+    "foot of a mountain"
    ]
   },
   "麗": {
@@ -24252,6 +35178,25 @@
     "black"
    ]
   },
+  "黙": {
+   "strokeCount": 15,
+   "grade": 8,
+   "freq": 1338,
+   "on": [
+    "モク",
+    "ボク"
+   ],
+   "kun": [
+    "だま.る",
+    "もだ.す"
+   ],
+   "meanings": [
+    "silence",
+    "become silent",
+    "stop speaking",
+    "leave as is"
+   ]
+  },
   "鼓": {
    "strokeCount": 13,
    "grade": 8,
@@ -24298,6 +35243,21 @@
    "meanings": [
     "nose",
     "snout"
+   ]
+  },
+  "齢": {
+   "strokeCount": 17,
+   "grade": 8,
+   "freq": 770,
+   "on": [
+    "レイ"
+   ],
+   "kun": [
+    "よわい",
+    "とし"
+   ],
+   "meanings": [
+    "age"
    ]
   }
  }
