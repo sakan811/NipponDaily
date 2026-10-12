@@ -161,3 +161,64 @@ describe("buildEntry: the dump attaching another reading's etymology", () => {
     expect(built.wiktionaryDump).toBe("2026-09-02");
   });
 });
+
+describe("buildEntry: a word the dump has no usable section for", () => {
+  const vocab = {
+    term: "道",
+    kana: "みち",
+    meaning: "road",
+    level: "N5",
+    jmdict: [],
+  };
+  const kanji = { 道: { on: ["ドウ"], kun: ["みち"], meanings: ["road"] } };
+  const ctx = (entries: Record<string, unknown>) => ({
+    vocab: () => [vocab],
+    kanji,
+    snapshot: { meta: { dump: "2026-09-02" }, entries },
+  });
+  const swapped = {
+    道: {
+      etymologies: [
+        {
+          heading: "Etymology",
+          text: "From Middle Chinese 道 (MC dawX).",
+          readings: ["みち"],
+        },
+      ],
+    },
+  };
+  const otherReading = {
+    道: {
+      etymologies: [
+        { heading: "Etymology", text: "A.", readings: ["どう"] },
+        { heading: "Etymology", text: "B.", readings: ["とう"] },
+      ],
+    },
+  };
+
+  it("builds without a headline, with no origin, parts or dump", () => {
+    for (const entries of [{}, swapped, otherReading]) {
+      const built = buildEntry(
+        { date: "2026-11-12", term: "道" },
+        ctx(entries),
+      );
+      expect(built.sources).toEqual([]);
+      expect(built.morphemes).toEqual([]);
+      expect("headline" in built).toBe(false);
+      expect("wiktionaryDump" in built).toBe(false);
+      expect(built.stratum).toBe("wago");
+    }
+  });
+
+  it("still refuses when the plan promises an origin with a headline", () => {
+    expect(() =>
+      buildEntry({ date: "2026-11-12", term: "道", headline: "x" }, ctx({})),
+    ).toThrow(/no pinned Wiktionary page/);
+    expect(() =>
+      buildEntry(
+        { date: "2026-11-12", term: "道", headline: "x" },
+        ctx(otherReading),
+      ),
+    ).toThrow(/none for/);
+  });
+});

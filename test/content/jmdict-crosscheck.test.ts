@@ -66,10 +66,12 @@ function jmdictOf(entry: (typeof WORD_ENTRIES)[number]) {
     (v) => v.term === entry.term && v.kana === entry.kana,
   )!;
   const hira = toHiragana(entry.kana);
+  // A list writes an affix with its tilde (～観); JMdict spells it without.
+  const spelling = entry.term.replace(/[～〜]/g, "");
   const own = (vocab.jmdict as JmEntry[]).filter(
     (j) =>
       j.readings.some((r) => toHiragana(r) === hira) &&
-      (j.kanji.includes(entry.term) || toHiragana(entry.term) === hira),
+      (j.kanji.includes(spelling) || toHiragana(spelling) === hira),
   );
   const meaning = new Set(
     entry.meaning.split(/[,;]/).map(norm).filter(Boolean),

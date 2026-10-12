@@ -141,10 +141,12 @@ const norm = (s) =>
  *  next to また "again") never lends its tags. */
 function matchedJmdict(vocab) {
   const hira = toHiragana(vocab.kana);
+  // A list writes an affix with its tilde (～観, お～); JMdict spells it without.
+  const spelling = vocab.term.replace(/[～〜]/g, "");
   const entries = (vocab.jmdict ?? []).filter(
     (j) =>
       j.readings.some((r) => toHiragana(r) === hira) &&
-      (j.kanji.includes(vocab.term) || toHiragana(vocab.term) === hira),
+      (j.kanji.includes(spelling) || toHiragana(spelling) === hira),
   );
   const pool = new Set(vocab.meaning.split(/[,;]/).map(norm).filter(Boolean));
   for (const entry of entries) {
@@ -908,7 +910,34 @@ function flagIrregular(morphemes, kanji) {
   });
 }
 
-/** plan: { date, term, headline }.  ctx: { vocab(term) → [{...ref vocab, level}], kanji, snapshot } */
+/** The Wiktionary origin of a word: its section's lines and the dump they
+ *  came from, or null when the dump has none for its reading. A word with a
+ *  headline promises an origin, so for it any gap is an error; a word without
+ *  one (a list word the dump has no usable section for) just has no origin. */
+function originOf(plan, word, ctx) {
+  try {
+    const snap = ctx.snapshot.entries[plan.term];
+    if (!snap) throw new Error(`${plan.term}: no pinned Wiktionary page`);
+    const dump = ctx.snapshot.meta?.dump;
+    if (!dump)
+      throw new Error(
+        "the Etymology snapshot does not name its Wiktionary dump",
+      );
+    const sections = pickSections(snap, word.kana, plan.term, word.meaning);
+    const lines = evidenceLines(sections);
+    if (lines.length === 0)
+      throw new Error(`${plan.term}: matched section has no text`);
+    return { lines, dump };
+  } catch (e) {
+    if (plan.headline !== undefined) throw e;
+    return null;
+  }
+}
+
+/** plan: { date, term, kana?, headline? }.  ctx: { vocab(term) → [{...ref vocab, level}], kanji, snapshot }
+ *  A word with no usable Etymology section is still built: it has no sources
+ *  and no morphemes (nothing says how it is put together), and its layer and
+ *  processes come from KANJIDIC2 and JMdict alone. */
 export function buildEntry(plan, ctx) {
   const candidates = ctx
     .vocab(plan.term)
@@ -918,42 +947,58 @@ export function buildEntry(plan, ctx) {
       `${plan.term}: ${candidates.length} pool words with that spelling${plan.kana ? ` and reading ${plan.kana}` : " — name the reading as `kana` in the plan"}`,
     );
   const word = candidates[0];
-  const snap = ctx.snapshot.entries[plan.term];
-  if (!snap) throw new Error(`${plan.term}: no pinned Wiktionary page`);
-  const dump = ctx.snapshot.meta?.dump;
-  if (!dump)
-    throw new Error("the Etymology snapshot does not name its Wiktionary dump");
-  const sections = pickSections(snap, word.kana, plan.term, word.meaning);
-  const lines = evidenceLines(sections);
-  if (lines.length === 0)
-    throw new Error(`${plan.term}: matched section has no text`);
-  const text = lines.join("\n");
-
-  let morphemes = parseMorphemes(lines, plan.term, word.kana);
-  if (morphemes.length === 0)
-    morphemes = parseLiteral(lines, plan.term, word.kana, ctx.kanji);
-  if (morphemes.length === 0) morphemes = parseLoan(lines, plan.term);
-  if (morphemes.length === 0)
-    morphemes = parseKanji(plan.term, word.kana, ctx.kanji, text, word.meaning);
-  morphemes = flagIrregular(morphemes, ctx.kanji);
-
   const facts = jmdictFactsOf(word);
-  const stratum = stratumOf(
-    plan.term,
-    word.kana,
-    morphemes,
-    text,
-    ctx.kanji,
-    facts,
-  );
+
+  /** What the origin (or its absence) gives: the parts, the layer, the text. */
+  const derive = (origin) => {
+    const lines = origin?.lines ?? [];
+    const text = lines.join("\n");
+    let morphemes = [];
+    if (origin) {
+      morphemes = parseMorphemes(lines, plan.term, word.kana);
+      if (morphemes.length === 0)
+        morphemes = parseLiteral(lines, plan.term, word.kana, ctx.kanji);
+      if (morphemes.length === 0) morphemes = parseLoan(lines, plan.term);
+      if (morphemes.length === 0)
+        morphemes = parseKanji(
+          plan.term,
+          word.kana,
+          ctx.kanji,
+          text,
+          word.meaning,
+        );
+    }
+    morphemes = flagIrregular(morphemes, ctx.kanji);
+    const stratum = stratumOf(
+      plan.term,
+      word.kana,
+      morphemes,
+      text,
+      ctx.kanji,
+      facts,
+    );
+    return { lines, text, morphemes, stratum };
+  };
+
+  let origin = originOf(plan, word, ctx);
+  let derived = derive(origin);
   // The Wiktionary dump sometimes attaches one reading's etymology to another
   // (道 みち received the Middle Chinese section of どう, and its own is
   // missing). KANJIDIC2 is independent of the dump, so a word it reads as
-  // native whose section opens "From Middle Chinese" is refused, not guessed.
-  if (stratum === "wago" && lines.some((l) => /^From Middle Chinese\b/.test(l)))
-    throw new Error(
-      `${plan.term}: KANJIDIC2 reads ${word.kana} as native but its section says it is from Middle Chinese; the dump may have attached another reading's etymology`,
-    );
+  // native whose section opens "From Middle Chinese" is refused, not guessed:
+  // an error for a word with a headline, no origin for one without.
+  if (
+    derived.stratum === "wago" &&
+    derived.lines.some((l) => /^From Middle Chinese\b/.test(l))
+  ) {
+    if (plan.headline !== undefined)
+      throw new Error(
+        `${plan.term}: KANJIDIC2 reads ${word.kana} as native but its section says it is from Middle Chinese; the dump may have attached another reading's etymology`,
+      );
+    origin = null;
+    derived = derive(null);
+  }
+  const { lines, text, morphemes, stratum } = derived;
   // The layer is only stated when KANJIDIC2 (or the evidence) establishes it;
   // irregular spellings (今年, 田舎) leave it out rather than guess.
 
@@ -983,10 +1028,10 @@ export function buildEntry(plan, ctx) {
     ...(accents.length ? { pitch: accents } : {}),
     ...(stratum ? { stratum } : {}),
     processes: processesOf(text, morphemes, facts),
-    headline: plan.headline,
+    ...(plan.headline !== undefined ? { headline: plan.headline } : {}),
     morphemes,
     sources: lines.map((quote) => ({ quote })),
     ...(examples.length ? { examples } : {}),
-    wiktionaryDump: dump,
+    ...(origin ? { wiktionaryDump: origin.dump } : {}),
   };
 }
