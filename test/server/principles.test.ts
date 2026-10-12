@@ -20,6 +20,19 @@ const SHIPPED = [
 const SERVER = walk("server", [".ts"]);
 const APP = walk("app", [".vue", ".ts"]);
 
+/** Text with every `open … close` span removed (an unterminated opener stays). */
+const dropSpans = (text: string, open: string, close: string) => {
+  let out = "";
+  let at = 0;
+  for (;;) {
+    const start = text.indexOf(open, at);
+    const end = start < 0 ? -1 : text.indexOf(close, start + open.length);
+    if (end < 0) return out + text.slice(at);
+    out += text.slice(at, start);
+    at = end + close.length;
+  }
+};
+
 /** A file's code: comments dropped, since prose may name what code must not do. */
 const code = (file: string) => {
   // Repeat until stable so a comment opener rebuilt by a removal (`<!<!---->--`)
@@ -27,8 +40,7 @@ const code = (file: string) => {
   let text = read(file);
   for (let prev = ""; prev !== text;) {
     prev = text;
-    text = text
-      .replace(/<!--[\s\S]*?-->/g, "")
+    text = dropSpans(text, "<!--", "-->")
       .replace(/\/\*[\s\S]*?\*\//g, "")
       .replace(/(^|[^:"'`\\])\/\/.*$/gm, "$1");
   }
