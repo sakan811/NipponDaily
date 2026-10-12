@@ -45,7 +45,7 @@
     </p>
 
     <h2>Example</h2>
-    <p><code>GET /api/daily-word?date=2026-10-01</code>, abridged</p>
+    <p><code>GET /api/daily-word?date=2013-05-04</code>, abridged</p>
     <pre><code>{{ example }}</code></pre>
   </DocsBook>
 </template>
@@ -59,7 +59,7 @@ const example = `{
   "success": true,
   "data": {
     "entry": {
-      "date": "2026-10-01",
+      "date": "2013-05-04",
       "term": "サンキュー",
       "kana": "サンキュー",
       "meaning": "thank you",
@@ -78,8 +78,8 @@ const example = `{
       "wiktionaryDump": "2026-09-02"
     },
     "lap": 1,
-    "prev": { "date": "2026-09-30", "term": "免れる" },
-    "next": { "date": "2026-10-02", "term": "霞む" }
+    "prev": { "date": "2013-05-03", "term": "免れる" },
+    "next": { "date": "2013-05-05", "term": "霞む" }
   },
   "timestamp": "2026-10-07T00:00:00.000Z"
 }`;
