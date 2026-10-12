@@ -1,0 +1,1205 @@
+[
+  {
+    "date": "2037-08-01",
+    "term": "陣",
+    "kana": "じん",
+    "meaning": "battle formation, camp, encampment",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf27"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-08-02",
+    "term": "進化",
+    "kana": "しんか",
+    "meaning": "evolution, progress",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141928,
+        "ja": "絶滅は進化の一部である。",
+        "en": "Extinction is part of evolution.",
+        "enId": 272642,
+        "form": "進化",
+        "furigana": [
+          ["絶滅", "ぜつめつ"],
+          ["は"],
+          ["進化", "しんか"],
+          ["の"],
+          ["一部", "いちぶ"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 144716,
+        "ja": "進化とは快適な悪疫である。",
+        "en": "Progress is a comfortable disease.",
+        "enId": 269848,
+        "form": "進化",
+        "furigana": [
+          ["進化", "しんか"],
+          ["とは"],
+          ["快適", "かいてき"],
+          ["な"],
+          ["悪疫", "あくえき"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-03",
+    "term": "審議",
+    "kana": "しんぎ",
+    "meaning": "deliberation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 206408,
+        "ja": "その問題は審議中です。",
+        "en": "That question is under discussion.",
+        "enId": 43656,
+        "form": "審議",
+        "furigana": [
+          ["その"],
+          ["問題", "もんだい"],
+          ["は"],
+          ["審議", "しんぎ"],
+          ["中", "ちゅう"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 85353,
+        "ja": "評決は公平な審議の証拠である。",
+        "en": "The verdict is a tribute to their fairness.",
+        "enId": 318360,
+        "form": "審議の",
+        "furigana": [
+          ["評決", "ひょうけつ"],
+          ["は"],
+          ["公平", "こうへい"],
+          ["な"],
+          ["審議", "しんぎ"],
+          ["の"],
+          ["証拠", "しょうこ"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-04",
+    "term": "新婚",
+    "kana": "しんこん",
+    "meaning": "newly-wed",
+    "level": "N1",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 208835,
+        "ja": "その新婚夫婦は手をつないで歩いた。",
+        "en": "The newly married couple walked hand in hand.",
+        "enId": 46094,
+        "form": "新婚",
+        "furigana": [
+          ["その"],
+          ["新婚", "しんこん"],
+          ["夫婦", "ふうふ"],
+          ["は"],
+          ["手", "て"],
+          ["をつないで"],
+          ["歩", "ある"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 208834,
+        "ja": "その新婚夫婦は新婚旅行でハワイに出かけて行った。",
+        "en": "The new couple have gone off to Hawaii on their honeymoon.",
+        "enId": 46093,
+        "form": "新婚",
+        "furigana": [
+          ["その"],
+          ["新婚", "しんこん"],
+          ["夫婦", "ふうふ"],
+          ["は"],
+          ["新婚", "しんこん"],
+          ["旅行", "りょこう"],
+          ["でハワイに"],
+          ["出", "で"],
+          ["かけて"],
+          ["行", "い"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-05",
+    "term": "審査",
+    "kana": "しんさ",
+    "meaning": "judging, inspection, examination",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 76640,
+        "ja": "そして、入国審査官の審査を受けて上陸許可を受けなければなりません。",
+        "en": "They must then go through a landing examination conducted by inspection officers before they can obtain landing permission.",
+        "enId": 327080,
+        "form": "審査",
+        "furigana": [
+          ["そして、"],
+          ["入国", "にゅうこく"],
+          ["審査", "しんさ"],
+          ["官", "かん"],
+          ["の"],
+          ["審査", "しんさ"],
+          ["を"],
+          ["受", "う"],
+          ["けて"],
+          ["上陸", "じょうりく"],
+          ["許可", "きょか"],
+          ["を"],
+          ["受", "う"],
+          ["けなければなりません。"]
+        ]
+      },
+      {
+        "id": 77031,
+        "ja": "「じゃあ、チェックしちゃいますね」「審査宜しく。頑張ったつもりだぜ」",
+        "en": "\"Right, I'll check your work, OK?\" \"Please go ahead and inspect. I think I gave it a good go.\"",
+        "enId": 326688,
+        "form": "審査",
+        "furigana": [
+          ["「じゃあ、チェックしちゃいますね」「"],
+          ["審査", "しんさ"],
+          ["宜", "よろ"],
+          ["しく。"],
+          ["頑張", "がんば"],
+          ["ったつもりだぜ」"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-06",
+    "term": "人材",
+    "kana": "じんざい",
+    "meaning": "man of talent",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 109063,
+        "ja": "彼は会社にとって重要な人材だ。",
+        "en": "He is a valuable acquisition to our company.",
+        "enId": 294627,
+        "form": "人材",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["会社", "かいしゃ"],
+          ["にとって"],
+          ["重要", "じゅうよう"],
+          ["な"],
+          ["人材", "じんざい"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 173287,
+        "ja": "購買部にとって重要な人材になられると思います。",
+        "en": "She will be an asset to the Purchasing Department.",
+        "enId": 241184,
+        "form": "人材",
+        "furigana": [
+          ["購買", "こうばい"],
+          ["部", "ぶ"],
+          ["にとって"],
+          ["重要", "じゅうよう"],
+          ["な"],
+          ["人材", "じんざい"],
+          ["になられると"],
+          ["思", "おも"],
+          ["います。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-07",
+    "term": "紳士",
+    "kana": "しんし",
+    "meaning": "gentleman",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "morphemes": [
+      {
+        "text": "紳",
+        "reading": "しん",
+        "meaning": "gentleman",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "士",
+        "reading": "し",
+        "meaning": "gentleman",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "; “(male) pervert”"
+      },
+      {
+        "quote": ":仮(かり)に変態(へんたい)だとしても変態(へんたい)という名(な)の紳士(しんし)だよ。"
+      },
+      {
+        "quote": "Kari ni hentai da to shite mo hentai toiu na no shinshi da yo."
+      },
+      {
+        "quote": "Even if I'm a pervert, I'm only a gentleman in name of a pervert."
+      }
+    ],
+    "examples": [
+      {
+        "id": 103691,
+        "ja": "彼は紳士である。",
+        "en": "He is a gentleman.",
+        "enId": 300002,
+        "form": "紳士",
+        "furigana": [["彼", "かれ"], ["は"], ["紳士", "しんし"], ["である。"]]
+      },
+      {
+        "id": 99865,
+        "ja": "彼は本当の紳士だ。",
+        "en": "He is every inch a gentleman.",
+        "enId": 292909,
+        "form": "紳士",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["本当", "ほんとう"],
+          ["の"],
+          ["紳士", "しんし"],
+          ["だ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2037-08-08",
+    "term": "信者",
+    "kana": "しんじゃ",
+    "meaning": "believer, devotee",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 225758,
+        "ja": "キリスト教の信者だったことはない。",
+        "en": "I was never a believer of Christianity.",
+        "enId": 63096,
+        "form": "信者",
+        "furigana": [
+          ["キリスト"],
+          ["教", "きょう"],
+          ["の"],
+          ["信者", "しんじゃ"],
+          ["だったことはない。"]
+        ]
+      },
+      {
+        "id": 387781,
+        "ja": "彼は最近改宗したカトリック信者です。",
+        "en": "He is a recent convert to Catholicism.",
+        "enId": 387711,
+        "form": "信者",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["最近", "さいきん"],
+          ["改宗", "かいしゅう"],
+          ["したカトリック"],
+          ["信者", "しんじゃ"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-09",
+    "term": "真珠",
+    "kana": "しんじゅ",
+    "meaning": "pearl",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 103704,
+        "ja": "彼は真珠を探すのをやめた。",
+        "en": "He stopped looking for the pearl.",
+        "enId": 299989,
+        "form": "真珠",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["真珠", "しんじゅ"],
+          ["を"],
+          ["探", "さが"],
+          ["すのをやめた。"]
+        ]
+      },
+      {
+        "id": 144972,
+        "ja": "真珠の収穫高は少なかった。",
+        "en": "The harvest of pearls was small.",
+        "enId": 269591,
+        "form": "真珠",
+        "furigana": [
+          ["真珠", "しんじゅ"],
+          ["の"],
+          ["収穫", "しゅうかく"],
+          ["高", "だか"],
+          ["は"],
+          ["少", "すく"],
+          ["なかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-10",
+    "term": "進出",
+    "kana": "しんしゅつ",
+    "meaning": "advancement",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 151904,
+        "ja": "私達は決勝戦に進出した。",
+        "en": "We advanced to the finals.",
+        "enId": 262650,
+        "form": "進出",
+        "furigana": [
+          ["私", "わたし"],
+          ["達", "たち"],
+          ["は"],
+          ["決勝", "けっしょう"],
+          ["戦", "せん"],
+          ["に"],
+          ["進出", "しんしゅつ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 176658,
+        "ja": "軍隊は川のところまで進出した。",
+        "en": "The army has advanced to the river.",
+        "enId": 237804,
+        "form": "進出",
+        "furigana": [
+          ["軍隊", "ぐんたい"],
+          ["は"],
+          ["川", "かわ"],
+          ["のところまで"],
+          ["進出", "しんしゅつ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-11",
+    "term": "新人",
+    "kana": "しんじん",
+    "meaning": "new face, newcomer",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 145257,
+        "ja": "新人は我々の期待に及ばなかった。",
+        "en": "The newcomer fell short of our expectation.",
+        "enId": 269306,
+        "form": "新人",
+        "furigana": [
+          ["新人", "しんじん"],
+          ["は"],
+          ["我々", "われわれ"],
+          ["の"],
+          ["期待", "きたい"],
+          ["に"],
+          ["及", "およ"],
+          ["ばなかった。"]
+        ]
+      },
+      {
+        "id": 93165,
+        "ja": "彼女はうちの部署に来た久々の大型新人です。",
+        "en": "This is the first time in a while that someone we had such high hopes for came to our department.",
+        "enId": 310544,
+        "form": "新人",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はうちの"],
+          ["部署", "ぶしょ"],
+          ["に"],
+          ["来", "き"],
+          ["た"],
+          ["久々", "ひさびさ"],
+          ["の"],
+          ["大型", "おおがた"],
+          ["新人", "しんじん"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-12",
+    "term": "親善",
+    "kana": "しんぜん",
+    "meaning": "friendship",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-08-13",
+    "term": "真相",
+    "kana": "しんそう",
+    "meaning": "truth, real situation",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 205056,
+        "ja": "それは真相ではない。",
+        "en": "That is not the case.",
+        "enId": 42297,
+        "form": "真相",
+        "furigana": [["それは"], ["真相", "しんそう"], ["ではない。"]]
+      },
+      {
+        "id": 82275,
+        "ja": "僕に真相を話してくれ。",
+        "en": "Tell me the truth.",
+        "enId": 321441,
+        "form": "真相",
+        "furigana": [
+          ["僕", "ぼく"],
+          ["に"],
+          ["真相", "しんそう"],
+          ["を"],
+          ["話", "はな"],
+          ["してくれ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-14",
+    "term": "人体",
+    "kana": "じんたい",
+    "meaning": "human body",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 143936,
+        "ja": "人体は無数の細胞からなっている。",
+        "en": "A human body consists of a countless number of cells.",
+        "enId": 270630,
+        "form": "人体",
+        "furigana": [
+          ["人体", "じんたい"],
+          ["は"],
+          ["無数", "むすう"],
+          ["の"],
+          ["細胞", "さいぼう"],
+          ["からなっている。"]
+        ]
+      },
+      {
+        "id": 143937,
+        "ja": "人体は何十億という小さな細胞から構成されている。",
+        "en": "The human body is composed of billions of small cells.",
+        "enId": 270629,
+        "form": "人体",
+        "furigana": [
+          ["人体", "じんたい"],
+          ["は"],
+          ["何十", "なんじゅう"],
+          ["億", "おく"],
+          ["という"],
+          ["小", "ちい"],
+          ["さな"],
+          ["細胞", "さいぼう"],
+          ["から"],
+          ["構成", "こうせい"],
+          ["されている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-15",
+    "term": "新築",
+    "kana": "しんちく",
+    "meaning": "new building, new construction",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 186978,
+        "ja": "家を新築中です。",
+        "en": "I'm getting a new house built.",
+        "enId": 24115,
+        "form": "新築",
+        "furigana": [
+          ["家", "いえ"],
+          ["を"],
+          ["新築", "しんちく"],
+          ["中", "ちゅう"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 140156,
+        "ja": "息子に家を新築してあげた。",
+        "en": "I built my son a new house.",
+        "enId": 274396,
+        "form": "新築",
+        "furigana": [
+          ["息子", "むすこ"],
+          ["に"],
+          ["家", "いえ"],
+          ["を"],
+          ["新築", "しんちく"],
+          ["してあげた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-16",
+    "term": "進呈",
+    "kana": "しんてい",
+    "meaning": "presentation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news2", "nf34", "spec2"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-08-17",
+    "term": "進展",
+    "kana": "しんてん",
+    "meaning": "progress, development",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 198593,
+        "ja": "ネット経済は急進展している。",
+        "en": "The net economy is booming.",
+        "enId": 35786,
+        "form": "進展",
+        "furigana": [
+          ["ネット"],
+          ["経済", "けいざい"],
+          ["は"],
+          ["急", "きゅう"],
+          ["進展", "しんてん"],
+          ["している。"]
+        ]
+      },
+      {
+        "id": 174179,
+        "ja": "交渉はほとんど進展しなかった。",
+        "en": "The negotiations made little progress.",
+        "enId": 240291,
+        "form": "進展",
+        "furigana": [
+          ["交渉", "こうしょう"],
+          ["はほとんど"],
+          ["進展", "しんてん"],
+          ["しなかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-18",
+    "term": "神殿",
+    "kana": "しんでん",
+    "meaning": "temple, sacred place",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf22"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 221011,
+        "ja": "この神殿を壊してみなさい。",
+        "en": "Destroy this temple.",
+        "enId": 58333,
+        "form": "神殿",
+        "furigana": [
+          ["この"],
+          ["神殿", "しんでん"],
+          ["を"],
+          ["壊", "こわ"],
+          ["してみなさい。"]
+        ]
+      },
+      {
+        "id": 221012,
+        "ja": "この神殿は建てるのに４６年かかりました。",
+        "en": "It has taken forty-six years to build this temple.",
+        "enId": 58334,
+        "form": "神殿",
+        "furigana": [
+          ["この"],
+          ["神殿", "しんでん"],
+          ["は"],
+          ["建", "た"],
+          ["てるのに４６"],
+          ["年", "ねん"],
+          ["かかりました。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-19",
+    "term": "進度",
+    "kana": "しんど",
+    "meaning": "progress",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-08-20",
+    "term": "振動",
+    "kana": "しんどう",
+    "meaning": "oscillation, vibration",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-08-21",
+    "term": "信任",
+    "kana": "しんにん",
+    "meaning": "trust, confidence, credence",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-08-22",
+    "term": "神秘",
+    "kana": "しんぴ",
+    "meaning": "mystery",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [1],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 189877,
+        "ja": "宇宙は神秘に満ちている。",
+        "en": "Space is full of mystery.",
+        "enId": 27033,
+        "form": "神秘に",
+        "furigana": [
+          ["宇宙", "うちゅう"],
+          ["は"],
+          ["神秘", "しんぴ"],
+          ["に"],
+          ["満", "み"],
+          ["ちている。"]
+        ]
+      },
+      {
+        "id": 206585,
+        "ja": "その夢は私には神秘だった。",
+        "en": "The dream was a mystery to me.",
+        "enId": 43833,
+        "form": "神秘",
+        "furigana": [
+          ["その"],
+          ["夢", "ゆめ"],
+          ["は"],
+          ["私", "わたし"],
+          ["には"],
+          ["神秘", "しんぴ"],
+          ["だった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-23",
+    "term": "辛抱",
+    "kana": "しんぼう",
+    "meaning": "patience, endurance",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf31"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 194132,
+        "ja": "もう少しの辛抱だ。",
+        "en": "Just a little more patience.",
+        "enId": 31299,
+        "form": "辛抱",
+        "furigana": [
+          ["もう"],
+          ["少", "すこ"],
+          ["しの"],
+          ["辛抱", "しんぼう"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 144721,
+        "ja": "辛抱こそ大事なんだ。",
+        "en": "It's patience that counts.",
+        "enId": 269842,
+        "form": "辛抱",
+        "furigana": [
+          ["辛抱", "しんぼう"],
+          ["こそ"],
+          ["大事", "だいじ"],
+          ["なんだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-24",
+    "term": "診療",
+    "kana": "しんりょう",
+    "meaning": "medical examination and treatment",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 144756,
+        "ja": "診療予約を取ってもらえますか。",
+        "en": "Can I make an appointment to have a medical examination?",
+        "enId": 269808,
+        "form": "診療",
+        "furigana": [
+          ["診療", "しんりょう"],
+          ["予約", "よやく"],
+          ["を"],
+          ["取", "と"],
+          ["ってもらえますか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-25",
+    "term": "水源",
+    "kana": "すいげん",
+    "meaning": "source of river",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf14"],
+    "pitch": [0, 3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141377,
+        "ja": "川の始まるところが、水源である。",
+        "en": "The place where a river starts is its source.",
+        "enId": 273195,
+        "form": "水源",
+        "furigana": [
+          ["川", "かわ"],
+          ["の"],
+          ["始", "はじ"],
+          ["まるところが、"],
+          ["水源", "すいげん"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-26",
+    "term": "推進",
+    "kana": "すいしん",
+    "meaning": "propulsion, driving force",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 82686,
+        "ja": "法案通過を推進しているロビイストは、運動資金に賄賂の金をまぎれこませました。",
+        "en": "Lobbyists for the bill funneled bribes into a campaign fund.",
+        "enId": 321030,
+        "form": "推進",
+        "furigana": [
+          ["法案", "ほうあん"],
+          ["通過", "つうか"],
+          ["を"],
+          ["推進", "すいしん"],
+          ["しているロビイストは、"],
+          ["運動", "うんどう"],
+          ["資金", "しきん"],
+          ["に"],
+          ["賄賂", "わいろ"],
+          ["の"],
+          ["金", "かね"],
+          ["をまぎれこませました。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-27",
+    "term": "吹奏",
+    "kana": "すいそう",
+    "meaning": "playing wind instruments",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-08-28",
+    "term": "推測",
+    "kana": "すいそく",
+    "meaning": "guess, conjecture",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 94226,
+        "ja": "彼女の推測は当たった。",
+        "en": "She guessed right.",
+        "enId": 309479,
+        "form": "推測",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["推測", "すいそく"],
+          ["は"],
+          ["当", "あ"],
+          ["たった。"]
+        ]
+      },
+      {
+        "id": 178178,
+        "ja": "君の推測は的はずれだ。",
+        "en": "You're wide of the mark.",
+        "enId": 17029,
+        "form": "推測",
+        "furigana": [
+          ["君", "きみ"],
+          ["の"],
+          ["推測", "すいそく"],
+          ["は"],
+          ["的", "まと"],
+          ["はずれだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-29",
+    "term": "水田",
+    "kana": "すいでん",
+    "meaning": "(water-filled) paddy field",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-08-30",
+    "term": "推理",
+    "kana": "すいり",
+    "meaning": "reasoning, inference, mystery or detective genre",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 231811,
+        "ja": "あなたは推理が当たった。",
+        "en": "You guessed right.",
+        "enId": 69179,
+        "form": "推理",
+        "furigana": [
+          ["あなたは"],
+          ["推理", "すいり"],
+          ["が"],
+          ["当", "あ"],
+          ["たった。"]
+        ]
+      },
+      {
+        "id": 233147,
+        "ja": "あなたの推理があたった。",
+        "en": "You guessed right.",
+        "enId": 69179,
+        "form": "推理",
+        "furigana": [["あなたの"], ["推理", "すいり"], ["があたった。"]]
+      }
+    ]
+  },
+  {
+    "date": "2037-08-31",
+    "term": "数詞",
+    "kana": "すうし",
+    "meaning": "numeral",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "field": ["grammar"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

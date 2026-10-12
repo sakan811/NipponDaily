@@ -1,0 +1,1001 @@
+[
+  {
+    "date": "2034-02-01",
+    "term": "部品",
+    "kana": "ぶひん",
+    "meaning": "parts, accessories",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 211533,
+        "ja": "その機械は部品が足りない。",
+        "en": "The machine has some of its parts missing.",
+        "enId": 48810,
+        "form": "部品",
+        "furigana": [
+          ["その"],
+          ["機械", "きかい"],
+          ["は"],
+          ["部品", "ぶひん"],
+          ["が"],
+          ["足", "た"],
+          ["りない。"]
+        ]
+      },
+      {
+        "id": 174614,
+        "ja": "古い部品を新しいのと交換しなさい。",
+        "en": "Exchange the old part for a new one.",
+        "enId": 239855,
+        "form": "部品",
+        "furigana": [
+          ["古", "ふる"],
+          ["い"],
+          ["部品", "ぶひん"],
+          ["を"],
+          ["新", "あたら"],
+          ["しいのと"],
+          ["交換", "こうかん"],
+          ["しなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-02",
+    "term": "父母",
+    "kana": "ふぼ",
+    "meaning": "father and mother, parents",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-03",
+    "term": "麓",
+    "kana": "ふもと",
+    "meaning": "the foot, the bottom, the base (of a mountain)",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 180290,
+        "ja": "教会は丘のふもとにある。",
+        "en": "The church is at the foot of the hill.",
+        "enId": 19085,
+        "form": "ふもと",
+        "furigana": [
+          ["教会", "きょうかい"],
+          ["は"],
+          ["丘", "おか"],
+          ["のふもとにある。"]
+        ]
+      },
+      {
+        "id": 204884,
+        "ja": "それは富士山の麓にある。",
+        "en": "It is located at the foot of Mt. Fuji.",
+        "enId": 42126,
+        "form": "麓",
+        "furigana": [
+          ["それは"],
+          ["富士山", "ふじさん"],
+          ["の"],
+          ["麓", "ふもと"],
+          ["にある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-04",
+    "term": "ぶらさげる",
+    "kana": "ぶらさげる",
+    "meaning": "to hang, to suspend, to swing",
+    "level": "N2",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-05",
+    "term": "～振り",
+    "kana": "～ぶり",
+    "meaning": "after an interval of ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-06",
+    "term": "振り向く",
+    "kana": "ふりむく",
+    "meaning": "to turn one's face, to turn around",
+    "level": "N2",
+    "pos": [
+      "Godan verb with 'ku' ending",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 87666,
+        "ja": "彼女は突然振り向いた。",
+        "en": "She turned around suddenly.",
+        "enId": 316042,
+        "form": "振り向いた",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["突然", "とつぜん"],
+          ["振", "ふ"],
+          ["り"],
+          ["向", "む"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 90169,
+        "ja": "彼女は後ろを振り向いた。",
+        "en": "She looked behind.",
+        "enId": 313545,
+        "form": "振り向いた",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["後", "うし"],
+          ["ろを"],
+          ["振", "ふ"],
+          ["り"],
+          ["向", "む"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-07",
+    "term": "古～",
+    "kana": "ふる～",
+    "meaning": "old ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-08",
+    "term": "古里",
+    "kana": "ふるさと",
+    "meaning": "home town, birthplace",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-09",
+    "term": "振舞う",
+    "kana": "ふるまう",
+    "meaning": "to behave, to conduct",
+    "level": "N2",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf44"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-10",
+    "term": "風呂敷",
+    "kana": "ふろしき",
+    "meaning": "wrapping cloth, cloth wrapper",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 100254,
+        "ja": "彼は風呂敷を十分に活用した。",
+        "en": "He took full advantage of the wrapper.",
+        "enId": 303443,
+        "form": "風呂敷",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["風呂敷", "ふろしき"],
+          ["を"],
+          ["十分", "じゅうぶん"],
+          ["に"],
+          ["活用", "かつよう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-11",
+    "term": "噴火",
+    "kana": "ふんか",
+    "meaning": "eruption",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 144061,
+        "ja": "人々は噴火で大損害を受けた。",
+        "en": "People suffered heavy losses in the eruptions.",
+        "enId": 270505,
+        "form": "噴火",
+        "furigana": [
+          ["人々", "ひとびと"],
+          ["は"],
+          ["噴火", "ふんか"],
+          ["で"],
+          ["大", "だい"],
+          ["損害", "そんがい"],
+          ["を"],
+          ["受", "う"],
+          ["けた。"]
+        ]
+      },
+      {
+        "id": 211958,
+        "ja": "その火山は今年２度噴火した。",
+        "en": "The volcano has erupted twice this year.",
+        "enId": 49236,
+        "form": "噴火",
+        "furigana": [
+          ["その"],
+          ["火山", "かざん"],
+          ["は"],
+          ["今年", "ことし"],
+          ["２"],
+          ["度", "ど"],
+          ["噴火", "ふんか"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-12",
+    "term": "文芸",
+    "kana": "ぶんげい",
+    "meaning": "literature, art and literature",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-13",
+    "term": "文献",
+    "kana": "ぶんけん",
+    "meaning": "literature, books (reference)",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141416,
+        "ja": "専門の図書館が芸術に関する文献を収集している。",
+        "en": "Specialized libraries collect writings about art.",
+        "enId": 273155,
+        "form": "文献",
+        "furigana": [
+          ["専門", "せんもん"],
+          ["の"],
+          ["図書館", "としょかん"],
+          ["が"],
+          ["芸術", "げいじゅつ"],
+          ["に"],
+          ["関", "かん"],
+          ["する"],
+          ["文献", "ぶんけん"],
+          ["を"],
+          ["収集", "しゅうしゅう"],
+          ["している。"]
+        ]
+      },
+      {
+        "id": 209797,
+        "ja": "その事実は古い文献のいくつかに見出される。",
+        "en": "The facts are buried in a few old books.",
+        "enId": 47060,
+        "form": "文献",
+        "furigana": [
+          ["その"],
+          ["事実", "じじつ"],
+          ["は"],
+          ["古", "ふる"],
+          ["い"],
+          ["文献", "ぶんけん"],
+          ["のいくつかに見出される。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-14",
+    "term": "噴水",
+    "kana": "ふんすい",
+    "meaning": "water fountain",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf27"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 188907,
+        "ja": "駅の前に噴水があります。",
+        "en": "There is a fountain in front of the station.",
+        "enId": 26054,
+        "form": "噴水",
+        "furigana": [
+          ["駅", "えき"],
+          ["の"],
+          ["前", "まえ"],
+          ["に"],
+          ["噴水", "ふんすい"],
+          ["があります。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-15",
+    "term": "分数",
+    "kana": "ぶんすう",
+    "meaning": "fraction (in math)",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1"],
+    "field": ["mathematics"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-16",
+    "term": "文体",
+    "kana": "ぶんたい",
+    "meaning": "literary style",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 231005,
+        "ja": "あの作家の文体は優れている。",
+        "en": "The writer has an excellent style.",
+        "enId": 68374,
+        "form": "文体",
+        "furigana": [
+          ["あの"],
+          ["作家", "さっか"],
+          ["の"],
+          ["文体", "ぶんたい"],
+          ["は"],
+          ["優", "すぐ"],
+          ["れている。"]
+        ]
+      },
+      {
+        "id": 210522,
+        "ja": "その作家の文体は挿入語句が多い。",
+        "en": "The writer has a parenthetic style.",
+        "enId": 47790,
+        "form": "文体",
+        "furigana": [
+          ["その"],
+          ["作家", "さっか"],
+          ["の"],
+          ["文体", "ぶんたい"],
+          ["は"],
+          ["挿入", "そうにゅう"],
+          ["語句", "ごく"],
+          ["が"],
+          ["多", "おお"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-17",
+    "term": "分布",
+    "kana": "ぶんぷ",
+    "meaning": "distribution",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 221287,
+        "ja": "この種の昆虫は日本に広く分布している。",
+        "en": "These insects are widely distributed throughout Japan.",
+        "enId": 631749,
+        "form": "分布",
+        "furigana": [
+          ["この"],
+          ["種", "しゅ"],
+          ["の"],
+          ["昆虫", "こんちゅう"],
+          ["は"],
+          ["日本", "にほん"],
+          ["に"],
+          ["広", "ひろ"],
+          ["く"],
+          ["分布", "ぶんぷ"],
+          ["している。"]
+        ]
+      },
+      {
+        "id": 224068,
+        "ja": "この２つの子音は相補分布をなしていそうである。",
+        "en": "It is likely that these two consonants are in complementary distribution.",
+        "enId": 61404,
+        "form": "分布",
+        "furigana": [
+          ["この２つの"],
+          ["子音", "しいん"],
+          ["は"],
+          ["相補", "そうほ"],
+          ["分布", "ぶんぷ"],
+          ["をなしていそうである。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-18",
+    "term": "文脈",
+    "kana": "ぶんみゃく",
+    "meaning": "context",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 174696,
+        "ja": "言葉の意味は文脈によって変わりうる。",
+        "en": "The meaning of words can change according to their context.",
+        "enId": 239772,
+        "form": "文脈",
+        "furigana": [
+          ["言葉", "ことば"],
+          ["の"],
+          ["意味", "いみ"],
+          ["は"],
+          ["文脈", "ぶんみゃく"],
+          ["によって"],
+          ["変", "か"],
+          ["わりうる。"]
+        ]
+      },
+      {
+        "id": 127432,
+        "ja": "単語の意味はそれが使われている文脈で決まる。",
+        "en": "The meaning of a word is determined by the context where it is used.",
+        "enId": 276694,
+        "form": "文脈",
+        "furigana": [
+          ["単語", "たんご"],
+          ["の"],
+          ["意味", "いみ"],
+          ["はそれが"],
+          ["使", "つか"],
+          ["われている"],
+          ["文脈", "ぶんみゃく"],
+          ["で"],
+          ["決", "き"],
+          ["まる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-19",
+    "term": "分量",
+    "kana": "ぶんりょう",
+    "meaning": "amount, quantity",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 210527,
+        "ja": "その作り方の分量は六人分です。",
+        "en": "The recipe serves six people.",
+        "enId": 47795,
+        "form": "分量",
+        "furigana": [
+          ["その"],
+          ["作", "つく"],
+          ["り"],
+          ["方", "かた"],
+          ["の"],
+          ["分量", "ぶんりょう"],
+          ["は"],
+          ["六", "ろく"],
+          ["人", "にん"],
+          ["分", "ぶん"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-20",
+    "term": "分類",
+    "kana": "ぶんるい",
+    "meaning": "classification",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 104253,
+        "ja": "彼は書類の分類を終えた。",
+        "en": "He finished sorting the papers.",
+        "enId": 299438,
+        "form": "分類",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["書類", "しょるい"],
+          ["の"],
+          ["分類", "ぶんるい"],
+          ["を"],
+          ["終", "お"],
+          ["えた。"]
+        ]
+      },
+      {
+        "id": 176003,
+        "ja": "鯨は哺乳類に分類される。",
+        "en": "Whales are classified as mammals.",
+        "enId": 238462,
+        "form": "分類",
+        "furigana": [
+          ["鯨", "くじら"],
+          ["は"],
+          ["哺乳類", "ほにゅうるい"],
+          ["に"],
+          ["分類", "ぶんるい"],
+          ["される。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-21",
+    "term": "閉会",
+    "kana": "へいかい",
+    "meaning": "closure",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 173082,
+        "ja": "国会は現在閉会中である。",
+        "en": "The Diet is now in recess in session.",
+        "enId": 241390,
+        "form": "閉会",
+        "furigana": [
+          ["国会", "こっかい"],
+          ["は"],
+          ["現在", "げんざい"],
+          ["閉会", "へいかい"],
+          ["中", "ちゅう"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 173075,
+        "ja": "国会は閉会して夏休みに入った。",
+        "en": "The Diet rose for summer recess.",
+        "enId": 241397,
+        "form": "閉会",
+        "furigana": [
+          ["国会", "こっかい"],
+          ["は"],
+          ["閉会", "へいかい"],
+          ["して"],
+          ["夏休", "なつやす"],
+          ["みに"],
+          ["入", "はい"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-22",
+    "term": "平気",
+    "kana": "へいき",
+    "meaning": "coolness, calmness, unconcern",
+    "level": "N2",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news2", "nf30"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79694,
+        "ja": "夜更かしなど平気だ。",
+        "en": "Staying up late nights is nothing to me.",
+        "enId": 324024,
+        "form": "平気",
+        "furigana": [
+          ["夜", "よ"],
+          ["更", "ふ"],
+          ["かしなど"],
+          ["平気", "へいき"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 100177,
+        "ja": "彼は平気でうそをつく。",
+        "en": "He has no scruples about lying.",
+        "enId": 303521,
+        "form": "平気",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["平気", "へいき"],
+          ["でうそをつく。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-23",
+    "term": "並行",
+    "kana": "へいこう",
+    "meaning": "(going) side by side, concurrent, at the same time",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-24",
+    "term": "兵隊",
+    "kana": "へいたい",
+    "meaning": "soldier",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83583,
+        "ja": "兵隊が橋を見張っていた。",
+        "en": "The soldiers were guarding the bridge.",
+        "enId": 320133,
+        "form": "兵隊",
+        "furigana": [
+          ["兵隊", "へいたい"],
+          ["が"],
+          ["橋", "はし"],
+          ["を"],
+          ["見張", "みは"],
+          ["っていた。"]
+        ]
+      },
+      {
+        "id": 83582,
+        "ja": "兵隊が町への道を封鎖した。",
+        "en": "Soldiers barred the way to the city.",
+        "enId": 320134,
+        "form": "兵隊",
+        "furigana": [
+          ["兵隊", "へいたい"],
+          ["が"],
+          ["町", "まち"],
+          ["への"],
+          ["道", "みち"],
+          ["を"],
+          ["封鎖", "ふうさ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-25",
+    "term": "平野",
+    "kana": "へいや",
+    "meaning": "plain, open field",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 3234745,
+        "ja": "川はうねるように平野を流れている。",
+        "en": "The river meanders across the plain.",
+        "enId": 3234749,
+        "form": "平野",
+        "furigana": [
+          ["川", "かわ"],
+          ["はうねるように"],
+          ["平野", "へいや"],
+          ["を"],
+          ["流", "なが"],
+          ["れている。"]
+        ]
+      },
+      {
+        "id": 165746,
+        "ja": "私たちは山の上から平野を見下ろした。",
+        "en": "We looked down on the plain from the hilltop.",
+        "enId": 248759,
+        "form": "平野",
+        "furigana": [
+          ["私", "わたし"],
+          ["たちは"],
+          ["山", "やま"],
+          ["の"],
+          ["上", "うえ"],
+          ["から"],
+          ["平野", "へいや"],
+          ["を"],
+          ["見下", "みお"],
+          ["ろした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-26",
+    "term": "へそ",
+    "kana": "へそ",
+    "meaning": "navel, belly-button",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2034-02-27",
+    "term": "隔てる",
+    "kana": "へだてる",
+    "meaning": "to separate, to isolate; to interpose",
+    "level": "N2",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123161,
+        "ja": "二つの町は川で隔てられている。",
+        "en": "The two towns are separated by a river.",
+        "enId": 280839,
+        "form": "隔てられている",
+        "furigana": [
+          ["二", "ふた"],
+          ["つの"],
+          ["町", "まち"],
+          ["は"],
+          ["川", "かわ"],
+          ["で"],
+          ["隔", "へだ"],
+          ["てられている。"]
+        ]
+      },
+      {
+        "id": 122375,
+        "ja": "日本海は日本とアジア大陸を隔てている。",
+        "en": "The Japan Sea separates Japan from the Asian Continent.",
+        "enId": 281628,
+        "form": "隔てている",
+        "furigana": [
+          ["日本海", "にほんかい"],
+          ["は"],
+          ["日本", "にっぽん"],
+          ["とアジア"],
+          ["大陸", "たいりく"],
+          ["を"],
+          ["隔", "へだ"],
+          ["てている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2034-02-28",
+    "term": "別荘",
+    "kana": "べっそう",
+    "meaning": "villa; vacation home; summer cottage",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83395,
+        "ja": "別荘は海岸にある。",
+        "en": "His cottage is on the coast.",
+        "enId": 320320,
+        "form": "別荘",
+        "furigana": [
+          ["別荘", "べっそう"],
+          ["は"],
+          ["海岸", "かいがん"],
+          ["にある。"]
+        ]
+      },
+      {
+        "id": 219890,
+        "ja": "この別荘の持ち主は誰ですか。",
+        "en": "Who owns this villa?",
+        "enId": 57210,
+        "form": "別荘",
+        "furigana": [
+          ["この"],
+          ["別荘", "べっそう"],
+          ["の"],
+          ["持", "も"],
+          ["ち"],
+          ["主", "ぬし"],
+          ["は"],
+          ["誰", "だれ"],
+          ["ですか。"]
+        ]
+      }
+    ]
+  }
+]

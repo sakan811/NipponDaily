@@ -1,0 +1,813 @@
+[
+  {
+    "date": "2027-01-01",
+    "term": "さあ",
+    "kana": "さあ",
+    "meaning": "come now, well",
+    "level": "N5",
+    "pos": ["interjection (kandoushi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 216878,
+        "ja": "さあ仕事だ。",
+        "en": "Let's get down to business.",
+        "enId": 54185,
+        "form": "さあ",
+        "furigana": [["さあ"], ["仕事", "しごと"], ["だ。"]]
+      },
+      {
+        "id": 216867,
+        "ja": "さあ着いたぞ。",
+        "en": "Here we are!",
+        "enId": 54174,
+        "form": "さあ",
+        "furigana": [["さあ"], ["着", "つ"], ["いたぞ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-02",
+    "term": "～歳",
+    "kana": "～さい",
+    "meaning": "~ years old",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-03",
+    "term": "作文",
+    "kana": "さくぶん",
+    "meaning": "essay; composition",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 89912,
+        "ja": "彼女は作文が優秀だ。",
+        "en": "She is excellent in composition.",
+        "enId": 313803,
+        "form": "作文",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["作文", "さくぶん"],
+          ["が"],
+          ["優秀", "ゆうしゅう"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 100056,
+        "ja": "彼は報告書を作文した。",
+        "en": "He wrote the report.",
+        "enId": 520064,
+        "form": "作文",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["報告", "ほうこく"],
+          ["書", "しょ"],
+          ["を"],
+          ["作文", "さくぶん"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-04",
+    "term": "差す",
+    "kana": "さす",
+    "meaning": "to raise (stretch out) hands, to raise (e.g., umbrella)",
+    "level": "N5",
+    "pos": ["Godan verb with 'su' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf41"],
+    "pitch": [1],
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Cognate with 刺(さ)す (sasu)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 189484,
+        "ja": "噂をすれば影がさす。",
+        "en": "Speak of angels and you hear their wings.",
+        "enId": 26635,
+        "form": "さす",
+        "furigana": [
+          ["噂", "うわさ"],
+          ["をすれば"],
+          ["影", "かげ"],
+          ["がさす。"]
+        ]
+      },
+      {
+        "id": 174952,
+        "ja": "玄関で傘をささないように。",
+        "en": "Don't open your umbrella in the hall.",
+        "enId": 239515,
+        "form": "ささない",
+        "furigana": [
+          ["玄関", "げんかん"],
+          ["で"],
+          ["傘", "かさ"],
+          ["をささないように。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-05",
+    "term": "～冊",
+    "kana": "～さつ",
+    "meaning": "counter for books",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-06",
+    "term": "さ来年",
+    "kana": "さらいねん",
+    "meaning": "year after next",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news2", "nf26"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-07",
+    "term": "～さん",
+    "kana": "～さん",
+    "meaning": "Mr. ~, Ms. ~",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-08",
+    "term": "散歩",
+    "kana": "さんぽ (する)",
+    "meaning": "walk, stroll",
+    "level": "N5",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 169326,
+        "ja": "散歩をした。",
+        "en": "I took a walk.",
+        "enId": 245159,
+        "form": "散歩",
+        "furigana": [["散歩", "さんぽ"], ["をした。"]]
+      },
+      {
+        "id": 169327,
+        "ja": "散歩しましょう。",
+        "en": "Let's take a walk.",
+        "enId": 245138,
+        "form": "散歩",
+        "furigana": [["散歩", "さんぽ"], ["しましょう。"]]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-09",
+    "term": "～時",
+    "kana": "～じ",
+    "meaning": "~ o'clock (time)",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-10",
+    "term": "～時間",
+    "kana": "～じかん",
+    "meaning": "~ hours",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-11",
+    "term": "字引",
+    "kana": "じびき",
+    "meaning": "dictionary",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-12",
+    "term": "自分",
+    "kana": "じぶん",
+    "meaning": "myself, oneself",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149820,
+        "ja": "自分の事をしろ。",
+        "en": "Mind your own business!",
+        "enId": 16996,
+        "form": "自分",
+        "furigana": [["自分", "じぶん"], ["の"], ["事", "こと"], ["をしろ。"]]
+      },
+      {
+        "id": 149940,
+        "ja": "自分で話してこい。",
+        "en": "Go tell him yourself.",
+        "enId": 264618,
+        "form": "自分",
+        "furigana": [["自分", "じぶん"], ["で"], ["話", "はな"], ["してこい。"]]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-13",
+    "term": "閉まる",
+    "kana": "しまる",
+    "meaning": "to close, to be closed",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf42", "nf45"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 75591,
+        "ja": "元栓、しまってる。",
+        "en": "The main tap is turned off.",
+        "enId": 1165794,
+        "form": "しまってる",
+        "furigana": [["元栓", "もとせん"], ["、しまってる。"]]
+      },
+      {
+        "id": 124992,
+        "ja": "店は７時に閉まる。",
+        "en": "The shop closes at seven.",
+        "enId": 279001,
+        "form": "閉まる",
+        "furigana": [
+          ["店", "みせ"],
+          ["は７"],
+          ["時", "じ"],
+          ["に"],
+          ["閉", "し"],
+          ["まる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-14",
+    "term": "閉める",
+    "kana": "しめる",
+    "meaning": "to close, to shut",
+    "level": "N5",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 140336,
+        "ja": "窓を閉めて。",
+        "en": "Close the window.",
+        "enId": 274237,
+        "form": "閉め",
+        "furigana": [["窓", "まど"], ["を"], ["閉", "し"], ["めて。"]]
+      },
+      {
+        "id": 174533,
+        "ja": "戸を閉めろ。",
+        "en": "Shut the door.",
+        "enId": 38992,
+        "form": "閉めろ",
+        "furigana": [["戸", "と"], ["を"], ["閉", "し"], ["めろ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-15",
+    "term": "締める",
+    "kana": "しめる",
+    "meaning": "to tie, to fasten, to tighten",
+    "level": "N5",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 189454,
+        "ja": "運転者はシートベルトをしめるように指導された。",
+        "en": "The driver advised us to fasten our seat belts.",
+        "enId": 26605,
+        "form": "しめる",
+        "furigana": [
+          ["運転", "うんてん"],
+          ["者", "しゃ"],
+          ["はシートベルトをしめるように"],
+          ["指導", "しどう"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-16",
+    "term": "じゃ",
+    "kana": "じゃ",
+    "meaning": "well, well then",
+    "level": "N5",
+    "pos": ["conjunction"],
+    "priority": ["spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 215733,
+        "ja": "じゃ下ろす。",
+        "en": "Good. Now go down with it.",
+        "enId": 53034,
+        "form": "じゃ",
+        "furigana": [["じゃ"], ["下", "お"], ["ろす。"]]
+      },
+      {
+        "id": 215731,
+        "ja": "じゃ、少しだけ。",
+        "en": "Maybe just a short one.",
+        "enId": 53032,
+        "form": "じゃ",
+        "furigana": [["じゃ、"], ["少", "すこ"], ["しだけ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-17",
+    "term": "写真",
+    "kana": "しゃしん",
+    "meaning": "a picture; a photograph",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 221437,
+        "ja": "この写真大好き。",
+        "en": "I love this picture.",
+        "enId": 58760,
+        "form": "写真",
+        "furigana": [
+          ["この"],
+          ["写真", "しゃしん"],
+          ["大好", "だいす"],
+          ["き。"]
+        ]
+      },
+      {
+        "id": 229669,
+        "ja": "あれは僕の写真？",
+        "en": "Is that a picture of me?",
+        "enId": 67030,
+        "form": "写真",
+        "furigana": [
+          ["あれは"],
+          ["僕", "ぼく"],
+          ["の"],
+          ["写真", "しゃしん"],
+          ["？"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-18",
+    "term": "～中",
+    "kana": "～じゅう",
+    "meaning": "during, while",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-19",
+    "term": "～週間",
+    "kana": "～しゅうかん",
+    "meaning": "~ weeks",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-20",
+    "term": "授業",
+    "kana": "じゅぎょう",
+    "meaning": "a class (of school)",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 148343,
+        "ja": "授業に遅れるよ。",
+        "en": "We'll be late for class.",
+        "enId": 266216,
+        "form": "授業",
+        "furigana": [
+          ["授業", "じゅぎょう"],
+          ["に"],
+          ["遅", "おく"],
+          ["れるよ。"]
+        ]
+      },
+      {
+        "id": 104408,
+        "ja": "彼は授業を休んだ。",
+        "en": "He absented himself from classes.",
+        "enId": 299283,
+        "form": "授業",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["授業", "じゅぎょう"],
+          ["を"],
+          ["休", "やす"],
+          ["んだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-21",
+    "term": "宿題",
+    "kana": "しゅくだい",
+    "meaning": "homework",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147872,
+        "ja": "宿題で忙しい。",
+        "en": "I'm busy with my homework.",
+        "enId": 258541,
+        "form": "宿題",
+        "furigana": [
+          ["宿題", "しゅくだい"],
+          ["で"],
+          ["忙", "いそが"],
+          ["しい。"]
+        ]
+      },
+      {
+        "id": 163312,
+        "ja": "宿題手伝って。",
+        "en": "Help me with my homework.",
+        "enId": 251200,
+        "form": "宿題",
+        "furigana": [["宿題", "しゅくだい"], ["手伝", "てつだ"], ["って。"]]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-22",
+    "term": "丈夫",
+    "kana": "じょうぶ",
+    "meaning": "strong, solid, durable",
+    "level": "N5",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 192170,
+        "ja": "ロバは丈夫な動物だ。",
+        "en": "Donkeys are tough animals.",
+        "enId": 29333,
+        "form": "丈夫な",
+        "furigana": [
+          ["ロバは"],
+          ["丈夫", "じょうぶ"],
+          ["な"],
+          ["動物", "どうぶつ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 220909,
+        "ja": "この生地は丈夫です。",
+        "en": "This cloth wears well.",
+        "enId": 57389,
+        "form": "丈夫",
+        "furigana": [
+          ["この"],
+          ["生地", "きじ"],
+          ["は"],
+          ["丈夫", "じょうぶ"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-23",
+    "term": "～人",
+    "kana": "～じん",
+    "meaning": "counter for people",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-24",
+    "term": "～すぎ",
+    "kana": "～すぎ",
+    "meaning": "past; to exceed, ~ too much",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-25",
+    "term": "すぐに",
+    "kana": "すぐに",
+    "meaning": "immediately, soon",
+    "level": "N5",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-26",
+    "term": "～ずつ",
+    "kana": "～ずつ",
+    "meaning": "at a time",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-27",
+    "term": "住む",
+    "kana": "すむ",
+    "meaning": "to reside, to live in",
+    "level": "N5",
+    "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf47"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 145071,
+        "ja": "森は僕の住む家だ。",
+        "en": "The woods are my home.",
+        "enId": 269492,
+        "form": "住む",
+        "furigana": [
+          ["森", "もり"],
+          ["は"],
+          ["僕", "ぼく"],
+          ["の"],
+          ["住", "す"],
+          ["む"],
+          ["家", "いえ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 150735,
+        "ja": "寺の隣に鬼が住む。",
+        "en": "The devil lurks behind the cross.",
+        "enId": 263823,
+        "form": "住む",
+        "furigana": [
+          ["寺", "てら"],
+          ["の"],
+          ["隣", "となり"],
+          ["に"],
+          ["鬼", "おに"],
+          ["が"],
+          ["住", "す"],
+          ["む。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-28",
+    "term": "背",
+    "kana": "せい",
+    "meaning": "(one's) height, stature",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-29",
+    "term": "生徒",
+    "kana": "せいと",
+    "meaning": "student; pupil",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 199875,
+        "ja": "トムは生徒です。",
+        "en": "Tom is a student.",
+        "enId": 37077,
+        "form": "生徒",
+        "furigana": [["トムは"], ["生徒", "せいと"], ["です。"]]
+      },
+      {
+        "id": 110462,
+        "ja": "彼はよい生徒です。",
+        "en": "He is a good student.",
+        "enId": 293224,
+        "form": "生徒",
+        "furigana": [["彼", "かれ"], ["はよい"], ["生徒", "せいと"], ["です。"]]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-30",
+    "term": "先月",
+    "kana": "せんげつ",
+    "meaning": "last month",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185297,
+        "ja": "会合は先月あった。",
+        "en": "The meeting was last month.",
+        "enId": 22429,
+        "form": "先月",
+        "furigana": [
+          ["会合", "かいごう"],
+          ["は"],
+          ["先月", "せんげつ"],
+          ["あった。"]
+        ]
+      },
+      {
+        "id": 82902,
+        "ja": "母は先月から病気だ。",
+        "en": "My mother has been sick since last month.",
+        "enId": 320814,
+        "form": "先月",
+        "furigana": [
+          ["母", "はは"],
+          ["は"],
+          ["先月", "せんげつ"],
+          ["から"],
+          ["病気", "びょうき"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-31",
+    "term": "洗濯",
+    "kana": "せんたく",
+    "meaning": "washing, laundry",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

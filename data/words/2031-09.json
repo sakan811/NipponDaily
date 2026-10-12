@@ -1,0 +1,993 @@
+[
+  {
+    "date": "2031-09-01",
+    "term": "純粋",
+    "kana": "じゅんすい",
+    "meaning": "pure, genuine, unmixed",
+    "level": "N2",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 104277,
+        "ja": "彼は純粋の貴族だ。",
+        "en": "He's a genuine aristocrat.",
+        "enId": 299414,
+        "form": "純粋",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["純粋", "じゅんすい"],
+          ["の"],
+          ["貴族", "きぞく"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 210208,
+        "ja": "その子は純粋な心を持っていた。",
+        "en": "The child had a pure heart.",
+        "enId": 47473,
+        "form": "純粋な",
+        "furigana": [
+          ["その"],
+          ["子", "こ"],
+          ["は"],
+          ["純粋", "じゅんすい"],
+          ["な"],
+          ["心", "こころ"],
+          ["を"],
+          ["持", "も"],
+          ["っていた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-02",
+    "term": "初～",
+    "kana": "しょ～",
+    "meaning": "first ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-03",
+    "term": "諸～",
+    "kana": "しょ～",
+    "meaning": "various ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-04",
+    "term": "～所",
+    "kana": "～しょ",
+    "meaning": "place",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-05",
+    "term": "女～",
+    "kana": "じょ～",
+    "meaning": "things done by women",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-06",
+    "term": "～女",
+    "kana": "～じょ",
+    "meaning": "count for sisters",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-07",
+    "term": "省～",
+    "kana": "しょう～",
+    "meaning": "economizing ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-08",
+    "term": "～省",
+    "kana": "～しょう",
+    "meaning": "kind of ministry",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-09",
+    "term": "～商",
+    "kana": "～しょう",
+    "meaning": "merchant, business",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-10",
+    "term": "～勝",
+    "kana": "～しょう",
+    "meaning": "count for victory",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-11",
+    "term": "～条",
+    "kana": "～じょう",
+    "meaning": "counter for article",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-12",
+    "term": "～場",
+    "kana": "～じょう",
+    "meaning": "kind of field, ground",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-13",
+    "term": "～畳",
+    "kana": "～じょう",
+    "meaning": "count for tatami, mat",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-14",
+    "term": "蒸気",
+    "kana": "じょうき",
+    "meaning": "steam, vapor",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf10"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 143756,
+        "ja": "水は蒸気に変わる。",
+        "en": "Water changes into steam.",
+        "enId": 270810,
+        "form": "蒸気",
+        "furigana": [
+          ["水", "みず"],
+          ["は"],
+          ["蒸気", "じょうき"],
+          ["に"],
+          ["変", "か"],
+          ["わる。"]
+        ]
+      },
+      {
+        "id": 121887,
+        "ja": "熱は水を蒸気に変える。",
+        "en": "Heat turns water into steam.",
+        "enId": 282117,
+        "form": "蒸気",
+        "furigana": [
+          ["熱", "ねつ"],
+          ["は"],
+          ["水", "みず"],
+          ["を"],
+          ["蒸気", "じょうき"],
+          ["に"],
+          ["変", "か"],
+          ["える。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-15",
+    "term": "定規",
+    "kana": "じょうぎ",
+    "meaning": "(measuring) ruler",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf36"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125538,
+        "ja": "定規は直線を引くのに役立つ。",
+        "en": "A ruler helps one to draw a straight line.",
+        "enId": 278454,
+        "form": "定規",
+        "furigana": [
+          ["定規", "じょうぎ"],
+          ["は"],
+          ["直線", "ちょくせん"],
+          ["を"],
+          ["引", "ひ"],
+          ["くのに"],
+          ["役立", "やくだ"],
+          ["つ。"]
+        ]
+      },
+      {
+        "id": 152794,
+        "ja": "私は本を買い、彼は定規を買った。",
+        "en": "I bought a book and he a ruler.",
+        "enId": 261754,
+        "form": "定規",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["本", "ほん"],
+          ["を"],
+          ["買", "か"],
+          ["い、"],
+          ["彼", "かれ"],
+          ["は"],
+          ["定規", "じょうぎ"],
+          ["を"],
+          ["買", "か"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-16",
+    "term": "上級",
+    "kana": "じょうきゅう",
+    "meaning": "advanced level, high grade, senior",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 221500,
+        "ja": "この辞書は初級者に、いやそれどころか上級者にも役に立つ。",
+        "en": "This dictionary is useful to beginners, yes, and to advanced learners.",
+        "enId": 58824,
+        "form": "上級",
+        "furigana": [
+          ["この"],
+          ["辞書", "じしょ"],
+          ["は"],
+          ["初級", "しょきゅう"],
+          ["者", "しゃ"],
+          ["に、いやそれどころか"],
+          ["上級", "じょうきゅう"],
+          ["者", "しゃ"],
+          ["にも"],
+          ["役", "やく"],
+          ["に"],
+          ["立", "た"],
+          ["つ。"]
+        ]
+      },
+      {
+        "id": 75247,
+        "ja": "上級者が英語力（特に読解力）をつけたければ、語彙を増やすのが王道ですね。",
+        "en": "If the more advanced want to improve English ability (especially reading comprehension) increasing vocabulary is the way to go.",
+        "enId": 328472,
+        "form": "上級",
+        "furigana": [
+          ["上級", "じょうきゅう"],
+          ["者", "しゃ"],
+          ["が"],
+          ["英語", "えいご"],
+          ["力", "りょく"],
+          ["（"],
+          ["特", "とく"],
+          ["に"],
+          ["読解", "どっかい"],
+          ["力", "りょく"],
+          ["）をつけたければ、"],
+          ["語彙", "ごい"],
+          ["を"],
+          ["増", "ふ"],
+          ["やすのが"],
+          ["王道", "おうどう"],
+          ["ですね。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-17",
+    "term": "商業",
+    "kana": "しょうぎょう",
+    "meaning": "commerce, trade, business",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 104198,
+        "ja": "彼は商業に従事している。",
+        "en": "He is in business.",
+        "enId": 299493,
+        "form": "商業",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["商業", "しょうぎょう"],
+          ["に"],
+          ["従事", "じゅうじ"],
+          ["している。"]
+        ]
+      },
+      {
+        "id": 189118,
+        "ja": "英語は商業において役立つ。",
+        "en": "English is useful in commerce.",
+        "enId": 26265,
+        "form": "商業",
+        "furigana": [
+          ["英語", "えいご"],
+          ["は"],
+          ["商業", "しょうぎょう"],
+          ["において"],
+          ["役立", "やくだ"],
+          ["つ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-18",
+    "term": "賞金",
+    "kana": "しょうきん",
+    "meaning": "prize, monetary award",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 104028,
+        "ja": "彼は賞金を銀行に預金した。",
+        "en": "He deposited the prize money in the bank.",
+        "enId": 299664,
+        "form": "賞金",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["賞金", "しょうきん"],
+          ["を"],
+          ["銀行", "ぎんこう"],
+          ["に"],
+          ["預金", "よきん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 180573,
+        "ja": "協力者に対しては賞金が出ます。",
+        "en": "You'll get a reward for your cooperation.",
+        "enId": 19240,
+        "form": "賞金",
+        "furigana": [
+          ["協力", "きょうりょく"],
+          ["者", "しゃ"],
+          ["に"],
+          ["対", "たい"],
+          ["しては"],
+          ["賞金", "しょうきん"],
+          ["が"],
+          ["出", "で"],
+          ["ます。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-19",
+    "term": "障子",
+    "kana": "しょうじ",
+    "meaning": "paper sliding door",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83460,
+        "ja": "壁に耳あり障子に目あり。",
+        "en": "Walls have ears, shouji have eyes.",
+        "enId": 320256,
+        "form": "障子",
+        "furigana": [
+          ["壁", "かべ"],
+          ["に"],
+          ["耳", "みみ"],
+          ["あり"],
+          ["障子", "しょうじ"],
+          ["に"],
+          ["目", "め"],
+          ["あり。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-20",
+    "term": "商社",
+    "kana": "しょうしゃ",
+    "meaning": "trading company",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 155923,
+        "ja": "私は商社で働いています。",
+        "en": "I work for a trading company.",
+        "enId": 258613,
+        "form": "商社",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["商社", "しょうしゃ"],
+          ["で"],
+          ["働", "はたら"],
+          ["いています。"]
+        ]
+      },
+      {
+        "id": 164250,
+        "ja": "私のおじは商社を経営しています。",
+        "en": "My uncle manages a firm.",
+        "enId": 250259,
+        "form": "商社",
+        "furigana": [
+          ["私", "わたし"],
+          ["のおじは"],
+          ["商社", "しょうしゃ"],
+          ["を"],
+          ["経営", "けいえい"],
+          ["しています。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-21",
+    "term": "乗車",
+    "kana": "じょうしゃ",
+    "meaning": "taking a train, entraining",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 217121,
+        "ja": "ご乗車ありがとうございます。",
+        "en": "Welcome aboard!",
+        "enId": 54349,
+        "form": "乗車",
+        "furigana": [["ご"], ["乗車", "じょうしゃ"], ["ありがとうございます。"]]
+      },
+      {
+        "id": 77548,
+        "ja": "列車に乗車した後で、私は財布を家に置き忘れてきたことに気が付いた。",
+        "en": "After I got on board a train, I found I had left my wallet behind at home.",
+        "enId": 326171,
+        "form": "乗車",
+        "furigana": [
+          ["列車", "れっしゃ"],
+          ["に"],
+          ["乗車", "じょうしゃ"],
+          ["した"],
+          ["後", "あと"],
+          ["で、"],
+          ["私", "わたし"],
+          ["は"],
+          ["財布", "さいふ"],
+          ["を"],
+          ["家", "いえ"],
+          ["に"],
+          ["置", "お"],
+          ["き"],
+          ["忘", "わす"],
+          ["れてきたことに"],
+          ["気", "き"],
+          ["が"],
+          ["付", "つ"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-22",
+    "term": "上旬",
+    "kana": "じょうじゅん",
+    "meaning": "first 10 days of month",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 234994,
+        "ja": "７月の上旬は、海に行くのは早いかな？",
+        "en": "I wonder if the first week or so of July is too early to go to the beach.",
+        "enId": 72371,
+        "form": "上旬",
+        "furigana": [
+          ["７月の"],
+          ["上旬", "じょうじゅん"],
+          ["は、"],
+          ["海", "うみ"],
+          ["に"],
+          ["行", "い"],
+          ["くのは"],
+          ["早", "はや"],
+          ["いかな？"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-23",
+    "term": "生ずる",
+    "kana": "しょうずる",
+    "meaning": "to cause, to arise, to be generated",
+    "level": "N2",
+    "pos": [
+      "Ichidan verb - zuru verb (alternative form of -jiru verbs)",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [0, 3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 170810,
+        "ja": "再開発によって地域に便益が生ずる。",
+        "en": "Benefits accrue to the community from reconstruction.",
+        "enId": 243670,
+        "form": "生ずる",
+        "furigana": [
+          ["再", "さい"],
+          ["開発", "かいはつ"],
+          ["によって"],
+          ["地域", "ちいき"],
+          ["に"],
+          ["便益", "べんえき"],
+          ["が"],
+          ["生", "しょう"],
+          ["ずる。"]
+        ]
+      },
+      {
+        "id": 221980,
+        "ja": "この構成において、三角形の代わりに長方形を用いても類似の困難が生ずる。",
+        "en": "We encounter similar difficulties when we substitute rectangles for triangles in this configuration.",
+        "enId": 59306,
+        "form": "生ずる",
+        "furigana": [
+          ["この"],
+          ["構成", "こうせい"],
+          ["において、"],
+          ["三角", "さんかく"],
+          ["形の"],
+          ["代", "か"],
+          ["わりに"],
+          ["長方形", "ちょうほうけい"],
+          ["を"],
+          ["用", "もち"],
+          ["いても"],
+          ["類似", "るいじ"],
+          ["の"],
+          ["困難", "こんなん"],
+          ["が"],
+          ["生", "しょう"],
+          ["ずる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-24",
+    "term": "商店",
+    "kana": "しょうてん",
+    "meaning": "shop, business firm",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 220598,
+        "ja": "この地域は商店が多い。",
+        "en": "There are many stores in this area.",
+        "enId": 57921,
+        "form": "商店",
+        "furigana": [
+          ["この"],
+          ["地域", "ちいき"],
+          ["は"],
+          ["商店", "しょうてん"],
+          ["が"],
+          ["多", "おお"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 162817,
+        "ja": "私の父は商店を経営している。",
+        "en": "My father manages a store.",
+        "enId": 251696,
+        "form": "商店",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["父", "ちち"],
+          ["は"],
+          ["商店", "しょうてん"],
+          ["を"],
+          ["経営", "けいえい"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-25",
+    "term": "焦点",
+    "kana": "しょうてん",
+    "meaning": "focus, point",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 94570,
+        "ja": "彼女の顔に焦点があっている。",
+        "en": "Her face is in focus.",
+        "enId": 309136,
+        "form": "焦点",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["顔", "かお"],
+          ["に"],
+          ["焦点", "しょうてん"],
+          ["があっている。"]
+        ]
+      },
+      {
+        "id": 175051,
+        "ja": "顕微鏡の焦点を合わせなさい。",
+        "en": "Adjust the microscope's focus.",
+        "enId": 239416,
+        "form": "焦点",
+        "furigana": [
+          ["顕微鏡", "けんびきょう"],
+          ["の"],
+          ["焦点", "しょうてん"],
+          ["を"],
+          ["合", "あ"],
+          ["わせなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-26",
+    "term": "消毒",
+    "kana": "しょうどく",
+    "meaning": "disinfection",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-09-27",
+    "term": "勝敗",
+    "kana": "しょうはい",
+    "meaning": "victory or defeat, issue (of battle)",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147173,
+        "ja": "勝敗は問題ではない。",
+        "en": "It doesn't matter whether you win or not.",
+        "enId": 267364,
+        "form": "勝敗",
+        "furigana": [
+          ["勝敗", "しょうはい"],
+          ["は"],
+          ["問題", "もんだい"],
+          ["ではない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-28",
+    "term": "蒸発",
+    "kana": "じょうはつ",
+    "meaning": "evaporation; unexplained disappearance",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 226798,
+        "ja": "お湯が沸騰して蒸発した。",
+        "en": "The water has boiled away.",
+        "enId": 64145,
+        "form": "蒸発",
+        "furigana": [
+          ["お"],
+          ["湯", "ゆ"],
+          ["が"],
+          ["沸騰", "ふっとう"],
+          ["して"],
+          ["蒸発", "じょうはつ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 147468,
+        "ja": "暑い日に水は早く蒸発する。",
+        "en": "In hot weather, water evaporates quickly.",
+        "enId": 1440715,
+        "form": "蒸発",
+        "furigana": [
+          ["暑", "あつ"],
+          ["い"],
+          ["日", "ひ"],
+          ["に"],
+          ["水", "みず"],
+          ["は"],
+          ["早", "はや"],
+          ["く"],
+          ["蒸発", "じょうはつ"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-29",
+    "term": "上品",
+    "kana": "じょうひん",
+    "meaning": "refined, elegant, well-mannered",
+    "level": "N2",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news2", "nf46"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 87125,
+        "ja": "彼女は非常に上品な女性です。",
+        "en": "She is a very refined lady.",
+        "enId": 316583,
+        "form": "上品な",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["非常", "ひじょう"],
+          ["に"],
+          ["上品", "じょうひん"],
+          ["な"],
+          ["女性", "じょせい"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 88645,
+        "ja": "彼女は上品な態度をしています。",
+        "en": "She has an elegant manner.",
+        "enId": 315062,
+        "form": "上品な",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["上品", "じょうひん"],
+          ["な"],
+          ["態度", "たいど"],
+          ["をしています。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-09-30",
+    "term": "勝負",
+    "kana": "しょうぶ",
+    "meaning": "victory or defeat, game",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147172,
+        "ja": "勝負は問題ではない。",
+        "en": "It doesn't matter whether you win or not.",
+        "enId": 267364,
+        "form": "勝負",
+        "furigana": [
+          ["勝負", "しょうぶ"],
+          ["は"],
+          ["問題", "もんだい"],
+          ["ではない。"]
+        ]
+      },
+      {
+        "id": 147171,
+        "ja": "勝負は預かりとなった。",
+        "en": "The match ended in a draw.",
+        "enId": 267390,
+        "form": "勝負",
+        "furigana": [
+          ["勝負", "しょうぶ"],
+          ["は"],
+          ["預", "あず"],
+          ["かりとなった。"]
+        ]
+      }
+    ]
+  }
+]

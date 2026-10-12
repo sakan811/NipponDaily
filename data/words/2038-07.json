@@ -1,0 +1,991 @@
+[
+  {
+    "date": "2038-07-01",
+    "term": "手遅れ",
+    "kana": "ておくれ",
+    "meaning": "being (too); belated treatment",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 194172,
+        "ja": "もう手遅れだ。",
+        "en": "The damage is done.",
+        "enId": 31341,
+        "form": "手遅れ",
+        "furigana": [["もう"], ["手遅", "ておく"], ["れだ。"]]
+      },
+      {
+        "id": 148595,
+        "ja": "手後れにならないうちに、必要な措置を取るべきです。",
+        "en": "We should take the necessary steps before it's too late.",
+        "enId": 265964,
+        "form": "手後れ",
+        "furigana": [
+          ["手後", "ておく"],
+          ["れにならないうちに、"],
+          ["必要", "ひつよう"],
+          ["な"],
+          ["措置", "そち"],
+          ["を"],
+          ["取", "と"],
+          ["るべきです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-02",
+    "term": "手掛かり",
+    "kana": "てがかり",
+    "meaning": "hint, clue, key",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12", "spec1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 221338,
+        "ja": "この手紙が、謎を解く唯一の手掛かりだ。",
+        "en": "This letter is the only key to the mystery.",
+        "enId": 58662,
+        "form": "手掛かり",
+        "furigana": [
+          ["この"],
+          ["手紙", "てがみ"],
+          ["が、"],
+          ["謎", "なぞ"],
+          ["を"],
+          ["解", "と"],
+          ["く"],
+          ["唯一", "ゆいいつ"],
+          ["の"],
+          ["手掛", "てが"],
+          ["かりだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-03",
+    "term": "手掛ける",
+    "kana": "てがける",
+    "meaning": "to handle, to manage, to work with",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["news2", "nf28", "news1", "nf24"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-04",
+    "term": "手数",
+    "kana": "てかず",
+    "meaning": "trouble, labor, handling",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf30"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-05",
+    "term": "適応",
+    "kana": "てきおう",
+    "meaning": "adaptation, accommodation, conformity",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 145404,
+        "ja": "新しい仕事に適応できますか。",
+        "en": "Can you adapt yourself to the new job?",
+        "enId": 269159,
+        "form": "適応",
+        "furigana": [
+          ["新", "あたら"],
+          ["しい"],
+          ["仕事", "しごと"],
+          ["に"],
+          ["適応", "てきおう"],
+          ["できますか。"]
+        ]
+      },
+      {
+        "id": 126764,
+        "ja": "遅かれ早かれ皆生活に適応する。",
+        "en": "Sooner or later everybody becomes adjusted to life.",
+        "enId": 277326,
+        "form": "適応",
+        "furigana": [
+          ["遅", "おそ"],
+          ["かれ"],
+          ["早", "はや"],
+          ["かれ"],
+          ["皆", "かい"],
+          ["生活", "せいかつ"],
+          ["に"],
+          ["適応", "てきおう"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-06",
+    "term": "適宜",
+    "kana": "てきぎ",
+    "meaning": "suitability",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-07",
+    "term": "適性",
+    "kana": "てきせい",
+    "meaning": "aptitude",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125034,
+        "ja": "天才とは忍耐に堪え得る偉大な適性に外ならぬ。",
+        "en": "Genius is nothing but a great aptitude for patience.",
+        "enId": 278959,
+        "form": "適性",
+        "furigana": [
+          ["天才", "てんさい"],
+          ["とは"],
+          ["忍耐", "にんたい"],
+          ["に"],
+          ["堪", "こた"],
+          ["え"],
+          ["得", "え"],
+          ["る"],
+          ["偉大", "いだい"],
+          ["な"],
+          ["適性", "てきせい"],
+          ["に"],
+          ["外", "そと"],
+          ["ならぬ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-08",
+    "term": "できもの",
+    "kana": "できもの",
+    "meaning": "boil, rash",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-09",
+    "term": "手際",
+    "kana": "てぎわ",
+    "meaning": "performance, skill, tact",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-10",
+    "term": "出くわす",
+    "kana": "でくわす",
+    "meaning": "to happen to meet, to come across",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "intransitive verb"],
+    "priority": ["news2", "nf31"],
+    "pitch": [0, 3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 182332,
+        "ja": "旧友に出くわした。",
+        "en": "I ran into an old friend.",
+        "enId": 19512,
+        "form": "出くわした",
+        "furigana": [
+          ["旧友", "きゅうゆう"],
+          ["に"],
+          ["出", "で"],
+          ["くわした。"]
+        ]
+      },
+      {
+        "id": 158267,
+        "ja": "私は駅で彼に出くわした。",
+        "en": "I bumped into him at the station.",
+        "enId": 256263,
+        "form": "出くわした",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["駅", "えき"],
+          ["で"],
+          ["彼", "かれ"],
+          ["に"],
+          ["出", "で"],
+          ["くわした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-11",
+    "term": "手近",
+    "kana": "てぢか",
+    "meaning": "near, handy, familiar",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news2", "nf33"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-12",
+    "term": "てっきり",
+    "kana": "てっきり",
+    "meaning": "surely, certainly, beyond doubt",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 202233,
+        "ja": "てっきりあなたが我々といっしょに来られるものと思っていました。",
+        "en": "I took it for granted that you would come with us.",
+        "enId": 39446,
+        "form": "てっきり",
+        "furigana": [
+          ["てっきりあなたが"],
+          ["我々", "われわれ"],
+          ["といっしょに"],
+          ["来", "きた"],
+          ["られるものと"],
+          ["思", "おも"],
+          ["っていました。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-13",
+    "term": "鉄鋼",
+    "kana": "てっこう",
+    "meaning": "iron and steel",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125236,
+        "ja": "鉄鋼は基幹産業である。",
+        "en": "Steel is a key industry.",
+        "enId": 278757,
+        "form": "鉄鋼",
+        "furigana": [
+          ["鉄鋼", "てっこう"],
+          ["は"],
+          ["基幹", "きかん"],
+          ["産業", "さんぎょう"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 125237,
+        "ja": "鉄鋼の特性の１つは硬いことだ。",
+        "en": "One of the qualities of steel is hardness.",
+        "enId": 278756,
+        "form": "鉄鋼",
+        "furigana": [
+          ["鉄鋼", "てっこう"],
+          ["の"],
+          ["特性", "とくせい"],
+          ["の１つは"],
+          ["硬", "かた"],
+          ["いことだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-14",
+    "term": "徹する",
+    "kana": "てっする",
+    "meaning": "to devote oneself, to believe in",
+    "level": "N1",
+    "pos": ["suru verb - special class", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0, 3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 74433,
+        "ja": "夜を徹するか否か。",
+        "en": "Should I stay up all night or not?",
+        "enId": 8492831,
+        "form": "徹する",
+        "furigana": [
+          ["夜", "よ"],
+          ["を"],
+          ["徹", "てっ"],
+          ["するか"],
+          ["否", "いな"],
+          ["か。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-15",
+    "term": "鉄棒",
+    "kana": "てつぼう",
+    "meaning": "iron rod, crowbar, horizontal bar (gymnastics)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 237373,
+        "ja": "体操競技の中では、鉄棒の大車輪が好きです。",
+        "en": "I like to see a gymnast do the giant swing on the high bar.",
+        "enId": 275267,
+        "form": "鉄棒",
+        "furigana": [
+          ["体操", "たいそう"],
+          ["競技", "きょうぎ"],
+          ["の"],
+          ["中", "なか"],
+          ["では、"],
+          ["鉄棒", "てつぼう"],
+          ["の"],
+          ["大車輪", "だいしゃりん"],
+          ["が"],
+          ["好", "す"],
+          ["きです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-16",
+    "term": "出直し",
+    "kana": "でなおし",
+    "meaning": "adjustment, touch up",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["news1", "nf13"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-17",
+    "term": "手配",
+    "kana": "てはい",
+    "meaning": "arrangement, search (by police)",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [1],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175426,
+        "ja": "券の手配しとくよ。",
+        "en": "I'll see about getting the tickets.",
+        "enId": 239039,
+        "form": "手配",
+        "furigana": [["券", "けん"], ["の"], ["手配", "てはい"], ["しとくよ。"]]
+      },
+      {
+        "id": 142103,
+        "ja": "切符の手配は君に任せよう。",
+        "en": "I'll leave it to you to buy the tickets.",
+        "enId": 272467,
+        "form": "手配",
+        "furigana": [
+          ["切符", "きっぷ"],
+          ["の"],
+          ["手配", "てはい"],
+          ["は"],
+          ["君", "きみ"],
+          ["に"],
+          ["任", "まか"],
+          ["せよう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-18",
+    "term": "手筈",
+    "kana": "てはず",
+    "meaning": "arrangement, plan, program",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 187214,
+        "ja": "夏の旅行の手はずはついていると父はほのめかした。",
+        "en": "My father implied our summer trip was arranged.",
+        "enId": 24351,
+        "form": "手はず",
+        "furigana": [
+          ["夏", "なつ"],
+          ["の"],
+          ["旅行", "りょこう"],
+          ["の"],
+          ["手", "て"],
+          ["はずはついていると"],
+          ["父", "ちち"],
+          ["はほのめかした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-19",
+    "term": "手引",
+    "kana": "てびき",
+    "meaning": "guidance, guide, introduction",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-20",
+    "term": "手本",
+    "kana": "てほん",
+    "meaning": "model, pattern",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [2],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 95865,
+        "ja": "彼を手本にしなさい。",
+        "en": "Follow his example.",
+        "enId": 307840,
+        "form": "手本",
+        "furigana": [
+          ["彼", "かれ"],
+          ["を"],
+          ["手本", "てほん"],
+          ["にしなさい。"]
+        ]
+      },
+      {
+        "id": 152850,
+        "ja": "私は母を手本にした。",
+        "en": "I followed my mother's example.",
+        "enId": 261697,
+        "form": "手本",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["母", "はは"],
+          ["を"],
+          ["手本", "てほん"],
+          ["にした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-21",
+    "term": "手元",
+    "kana": "てもと",
+    "meaning": "(money) on hand or at home, one's purse; usual skill",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 148597,
+        "ja": "手元に気をつけて！",
+        "en": "Watch your fingers!",
+        "enId": 265962,
+        "form": "手元",
+        "furigana": [["手元", "てもと"], ["に"], ["気", "き"], ["をつけて！"]]
+      },
+      {
+        "id": 163397,
+        "ja": "私の手元に辞書がない。",
+        "en": "I haven't my dictionary at hand.",
+        "enId": 251116,
+        "form": "手元",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["手元", "てもと"],
+          ["に"],
+          ["辞書", "じしょ"],
+          ["がない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-22",
+    "term": "照り返す",
+    "kana": "てりかえす",
+    "meaning": "to reflect, to throw back light",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "intransitive verb"],
+    "pitch": [0, 3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 138131,
+        "ja": "太陽の照り返しが強い。",
+        "en": "There's a lot of glare.",
+        "enId": 275104,
+        "form": "照り返し",
+        "furigana": [
+          ["太陽", "たいよう"],
+          ["の"],
+          ["照", "て"],
+          ["り"],
+          ["返", "かえ"],
+          ["しが"],
+          ["強", "つよ"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-23",
+    "term": "テレックス",
+    "kana": "テレックス",
+    "meaning": "telex, teletypewriter exchange",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
+    "pitch": [2],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 202064,
+        "ja": "テレックスでご返事ください。",
+        "en": "Please answer by telex.",
+        "enId": 39276,
+        "form": "テレックス",
+        "furigana": [["テレックスでご"], ["返事", "へんじ"], ["ください。"]]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-24",
+    "term": "手分け",
+    "kana": "てわけ",
+    "meaning": "division of labor",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 190954,
+        "ja": "医学生が手分けして勉強することはまれである。",
+        "en": "Shared studying among premeds is rare.",
+        "enId": 28114,
+        "form": "手分け",
+        "furigana": [
+          ["医学", "いがく"],
+          ["生", "せい"],
+          ["が"],
+          ["手分", "てわ"],
+          ["けして"],
+          ["勉強", "べんきょう"],
+          ["することはまれである。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-25",
+    "term": "田園",
+    "kana": "でんえん",
+    "meaning": "country, rural districts",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-26",
+    "term": "転回",
+    "kana": "てんかい",
+    "meaning": "revolution, rotation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["news2", "nf45"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-27",
+    "term": "連帯",
+    "kana": "れんたい",
+    "meaning": "solidarity",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 77418,
+        "ja": "連帯責任は無責任。",
+        "en": "Everybody's business is nobody's business.",
+        "enId": 326300,
+        "form": "連帯",
+        "furigana": [
+          ["連帯", "れんたい"],
+          ["責任", "せきにん"],
+          ["は"],
+          ["無責任", "むせきにん"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 98082,
+        "ja": "彼らはこの計画に連帯してあたった。",
+        "en": "They worked jointly on this project.",
+        "enId": 305620,
+        "form": "連帯",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らはこの"],
+          ["計画", "けいかく"],
+          ["に"],
+          ["連帯", "れんたい"],
+          ["してあたった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-28",
+    "term": "連中",
+    "kana": "れんちゅう",
+    "meaning": "colleagues, company, a lot",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2038-07-29",
+    "term": "老衰",
+    "kana": "ろうすい",
+    "meaning": "senility, senile decay",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 75654,
+        "ja": "老衰するな！老成せよ！",
+        "en": "Don't grow old, grow wise!",
+        "enId": 328064,
+        "form": "老衰",
+        "furigana": [
+          ["老衰", "ろうすい"],
+          ["するな！"],
+          ["老成", "ろうせい"],
+          ["せよ！"]
+        ]
+      },
+      {
+        "id": 98869,
+        "ja": "彼は老衰で二年前に亡くなった。",
+        "en": "He died of old age two years ago.",
+        "enId": 304831,
+        "form": "老衰",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["老衰", "ろうすい"],
+          ["で"],
+          ["二", "に"],
+          ["年", "ねん"],
+          ["前", "まえ"],
+          ["に"],
+          ["亡", "な"],
+          ["くなった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-30",
+    "term": "朗読",
+    "kana": "ろうどく",
+    "meaning": "reading aloud, recitation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141582,
+        "ja": "先生は私の朗読にいくつかの誤りを指摘した。",
+        "en": "The teacher noted several mistakes in my recitation.",
+        "enId": 272988,
+        "form": "朗読",
+        "furigana": [
+          ["先生", "せんせい"],
+          ["は"],
+          ["私", "わたし"],
+          ["の"],
+          ["朗読", "ろうどく"],
+          ["にいくつかの"],
+          ["誤", "あやま"],
+          ["りを"],
+          ["指摘", "してき"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 112803,
+        "ja": "彼はその詩を一本調子で朗読した。",
+        "en": "He read the poem in a monotone.",
+        "enId": 290873,
+        "form": "朗読",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はその"],
+          ["詩", "し"],
+          ["を一本"],
+          ["調子", "ちょうし"],
+          ["で"],
+          ["朗読", "ろうどく"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2038-07-31",
+    "term": "浪費",
+    "kana": "ろうひ",
+    "meaning": "waste, extravagance",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 77340,
+        "ja": "浪費は欠乏のもと。",
+        "en": "Waste makes want.",
+        "enId": 326379,
+        "form": "浪費",
+        "furigana": [
+          ["浪費", "ろうひ"],
+          ["は"],
+          ["欠乏", "けつぼう"],
+          ["のもと。"]
+        ]
+      },
+      {
+        "id": 187806,
+        "ja": "何という水の浪費だ。",
+        "en": "What a waste of water!",
+        "enId": 24945,
+        "form": "浪費",
+        "furigana": [
+          ["何", "なに"],
+          ["という"],
+          ["水", "みず"],
+          ["の"],
+          ["浪費", "ろうひ"],
+          ["だ。"]
+        ]
+      }
+    ]
+  }
+]

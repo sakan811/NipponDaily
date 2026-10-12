@@ -1,0 +1,1135 @@
+[
+  {
+    "date": "2035-10-01",
+    "term": "にも関わらず",
+    "kana": "にもかかわらず",
+    "meaning": "in spite of, nevertheless",
+    "level": "N1",
+    "pos": ["expressions (phrases, clauses, etc.)", "conjunction"],
+    "priority": ["spec1", "ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 189622,
+        "ja": "雨にもかかわらず出発した。",
+        "en": "He started in spite of the rain.",
+        "enId": 26775,
+        "form": "にもかかわらず",
+        "furigana": [
+          ["雨", "あめ"],
+          ["にもかかわらず"],
+          ["出発", "しゅっぱつ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 121851,
+        "ja": "年にもかかわらず彼は健康だ。",
+        "en": "He is in good health in spite of his age.",
+        "enId": 282153,
+        "form": "にもかかわらず",
+        "furigana": [
+          ["年", "とし"],
+          ["にもかかわらず"],
+          ["彼", "かれ"],
+          ["は"],
+          ["健康", "けんこう"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-02",
+    "term": "入手",
+    "kana": "にゅうしゅ",
+    "meaning": "obtaining, coming to hand",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 124591,
+        "ja": "登録用紙は無料で入手できます。",
+        "en": "I am able to obtain a registration form for free.",
+        "enId": 279402,
+        "form": "入手",
+        "furigana": [
+          ["登録", "とうろく"],
+          ["用紙", "ようし"],
+          ["は"],
+          ["無料", "むりょう"],
+          ["で"],
+          ["入手", "にゅうしゅ"],
+          ["できます。"]
+        ]
+      },
+      {
+        "id": 154536,
+        "ja": "私は彼から直接その情報を入手した。",
+        "en": "I got the information from him directly.",
+        "enId": 260004,
+        "form": "入手",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["彼", "かれ"],
+          ["から"],
+          ["直接", "ちょくせつ"],
+          ["その"],
+          ["情報", "じょうほう"],
+          ["を"],
+          ["入手", "にゅうしゅ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-03",
+    "term": "入賞",
+    "kana": "にゅうしょう",
+    "meaning": "winning a prize or place (in a contest",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 178914,
+        "ja": "君が入賞したのには驚いた。",
+        "en": "It is amazing that you won the prize.",
+        "enId": 17768,
+        "form": "入賞",
+        "furigana": [
+          ["君", "きみ"],
+          ["が"],
+          ["入賞", "にゅうしょう"],
+          ["したのには"],
+          ["驚", "おどろ"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 87604,
+        "ja": "彼女は入賞の目的を達成した。",
+        "en": "She achieved the goal of winning the prize.",
+        "enId": 316104,
+        "form": "入賞",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["入賞", "にゅうしょう"],
+          ["の"],
+          ["目的", "もくてき"],
+          ["を"],
+          ["達成", "たっせい"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-04",
+    "term": "入浴",
+    "kana": "にゅうよく",
+    "meaning": "bathe, bathing",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99812,
+        "ja": "彼は毎朝入浴します。",
+        "en": "He takes a bath every morning.",
+        "enId": 1200147,
+        "form": "入浴",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["毎朝", "まいあさ"],
+          ["入浴", "にゅうよく"],
+          ["します。"]
+        ]
+      },
+      {
+        "id": 84331,
+        "ja": "父は夕食前に入浴する。",
+        "en": "My father takes a bath before supper.",
+        "enId": 319384,
+        "form": "入浴",
+        "furigana": [
+          ["父", "ちち"],
+          ["は"],
+          ["夕", "ゆう"],
+          ["食前", "しょくぜん"],
+          ["に"],
+          ["入浴", "にゅうよく"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-05",
+    "term": "妊娠",
+    "kana": "にんしん",
+    "meaning": "conception, pregnancy",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["compound", "clipping"],
+    "morphemes": [
+      {
+        "text": "妊",
+        "reading": "にん",
+        "meaning": "pregnancy",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "娠",
+        "reading": "しん",
+        "meaning": "pregnancy",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Shortening of 任天堂(にんてんどう) (Nintendō, “Nintendo”) + 信者(しんじゃ) (shinja, “fanatic”), written with the kanji 妊娠 for \"pregnancy\" to carry an infantile nuance."
+      }
+    ],
+    "examples": [
+      {
+        "id": 122033,
+        "ja": "妊娠中ですか。",
+        "en": "Are you pregnant?",
+        "enId": 281970,
+        "form": "妊娠",
+        "furigana": [["妊娠", "にんしん"], ["中", "ちゅう"], ["ですか。"]]
+      },
+      {
+        "id": 122038,
+        "ja": "妊娠しています。",
+        "en": "I'm expecting.",
+        "enId": 281965,
+        "form": "妊娠",
+        "furigana": [["妊娠", "にんしん"], ["しています。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2035-10-06",
+    "term": "任務",
+    "kana": "にんむ",
+    "meaning": "duty, mission, task",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101400,
+        "ja": "彼は任務を成し遂げた。",
+        "en": "He accomplished his mission.",
+        "enId": 302296,
+        "form": "任務",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["任務", "にんむ"],
+          ["を"],
+          ["成", "な"],
+          ["し"],
+          ["遂", "と"],
+          ["げた。"]
+        ]
+      },
+      {
+        "id": 86142,
+        "ja": "彼女をその任務に就けよう。",
+        "en": "Let's put her in charge of that.",
+        "enId": 317569,
+        "form": "任務",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["をその"],
+          ["任務", "にんむ"],
+          ["に"],
+          ["就", "つ"],
+          ["けよう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-07",
+    "term": "抜かす",
+    "kana": "ぬかす",
+    "meaning": "to omit, to leave out",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 154769,
+        "ja": "私は二つの文を抜かした。",
+        "en": "I left out two sentences.",
+        "enId": 259770,
+        "form": "抜かした",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["二", "ふた"],
+          ["つの"],
+          ["文", "ぶん"],
+          ["を"],
+          ["抜", "ぬ"],
+          ["かした。"]
+        ]
+      },
+      {
+        "id": 89221,
+        "ja": "彼女は試験で四問目をぬかしてしまった。",
+        "en": "She left out the fourth question on the examination.",
+        "enId": 314486,
+        "form": "ぬかして",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["試験", "しけん"],
+          ["で"],
+          ["四", "よん"],
+          ["問", "もん"],
+          ["目", "め"],
+          ["をぬかしてしまった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-08",
+    "term": "寝かせる",
+    "kana": "ねかせる",
+    "meaning": "to put to bed, to lay down, to ferment",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf40"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 142149,
+        "ja": "赤ん坊を寝かせなさい。",
+        "en": "Put the baby to sleep.",
+        "enId": 272421,
+        "form": "寝かせ",
+        "furigana": [
+          ["赤", "あか"],
+          ["ん"],
+          ["坊", "ぼう"],
+          ["を"],
+          ["寝", "ね"],
+          ["かせなさい。"]
+        ]
+      },
+      {
+        "id": 168403,
+        "ja": "子供達を寝かせなさい。",
+        "en": "Send the kids to bed.",
+        "enId": 246089,
+        "form": "寝かせ",
+        "furigana": [
+          ["子供", "こども"],
+          ["達", "たち"],
+          ["を"],
+          ["寝", "ね"],
+          ["かせなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-09",
+    "term": "ねじまわし",
+    "kana": "ねじまわし",
+    "meaning": "screwdriver",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-10-10",
+    "term": "捩れる",
+    "kana": "ねじれる",
+    "meaning": "twist, strain",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi2"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-10-11",
+    "term": "妬む",
+    "kana": "ねたむ",
+    "meaning": "to be jealous, to be envious",
+    "level": "N1",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101140,
+        "ja": "彼は彼らの幸せを妬んでいた。",
+        "en": "He was jealous of their happiness.",
+        "enId": 302556,
+        "form": "妬んでいた",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["彼", "かれ"],
+          ["らの"],
+          ["幸", "しあわ"],
+          ["せを"],
+          ["妬", "ねた"],
+          ["んでいた。"]
+        ]
+      },
+      {
+        "id": 108045,
+        "ja": "彼は君の成功をねたんでいる。",
+        "en": "He begrudges you your success.",
+        "enId": 295642,
+        "form": "ねたんでいる",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["君", "きみ"],
+          ["の"],
+          ["成功", "せいこう"],
+          ["をねたんでいる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-12",
+    "term": "ねだる",
+    "kana": "ねだる",
+    "meaning": "to nag, to demand",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-10-13",
+    "term": "熱意",
+    "kana": "ねつい",
+    "meaning": "zeal, enthusiasm",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101390,
+        "ja": "彼は熱意に燃えている。",
+        "en": "He is alive with enthusiasm.",
+        "enId": 302306,
+        "form": "熱意",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["熱意", "ねつい"],
+          ["に"],
+          ["燃", "も"],
+          ["えている。"]
+        ]
+      },
+      {
+        "id": 96410,
+        "ja": "彼らは熱意で燃えていた。",
+        "en": "They were burning with enthusiasm.",
+        "enId": 307295,
+        "form": "熱意",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["熱意", "ねつい"],
+          ["で"],
+          ["燃", "も"],
+          ["えていた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-14",
+    "term": "熱湯",
+    "kana": "ねっとう",
+    "meaning": "boiling water",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121862,
+        "ja": "熱湯が突然吹き出した。",
+        "en": "Hot water burst out.",
+        "enId": 282142,
+        "form": "熱湯",
+        "furigana": [
+          ["熱湯", "ねっとう"],
+          ["が"],
+          ["突然", "とつぜん"],
+          ["吹", "ふ"],
+          ["き"],
+          ["出", "だ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 121861,
+        "ja": "熱湯でやけどをしました。",
+        "en": "I burned myself with boiling water.",
+        "enId": 282143,
+        "form": "熱湯",
+        "furigana": [["熱湯", "ねっとう"], ["でやけどをしました。"]]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-15",
+    "term": "粘り",
+    "kana": "ねばり",
+    "meaning": "stickiness, viscosity",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-10-16",
+    "term": "粘る",
+    "kana": "ねばる",
+    "meaning": "to be sticky, to be adhesive, to persist, to stick to",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-10-17",
+    "term": "根回し",
+    "kana": "ねまわし",
+    "meaning": "making necessary arrangements",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 137330,
+        "ja": "大統領は辞任する前にお金に困らないように根回しした。",
+        "en": "The president made certain that he lined his pockets before he resigned.",
+        "enId": 275906,
+        "form": "根回し",
+        "furigana": [
+          ["大統領", "だいとうりょう"],
+          ["は"],
+          ["辞任", "じにん"],
+          ["する"],
+          ["前", "まえ"],
+          ["にお"],
+          ["金", "かね"],
+          ["に"],
+          ["困", "こま"],
+          ["らないように"],
+          ["根回", "ねまわ"],
+          ["しした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-18",
+    "term": "練る",
+    "kana": "ねる",
+    "meaning": "to knead, to work over, to polish up",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf33"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 177056,
+        "ja": "君は胆力を練る必要がある。",
+        "en": "You must build up your courage.",
+        "enId": 15905,
+        "form": "練る",
+        "furigana": [
+          ["君", "きみ"],
+          ["は"],
+          ["胆力", "たんりょく"],
+          ["を"],
+          ["練", "ね"],
+          ["る"],
+          ["必要", "ひつよう"],
+          ["がある。"]
+        ]
+      },
+      {
+        "id": 203888,
+        "ja": "タイムをとって作戦を練ろう。",
+        "en": "Let's take time out to elaborate a strategy.",
+        "enId": 41129,
+        "form": "練ろう",
+        "furigana": [
+          ["タイムをとって"],
+          ["作戦", "さくせん"],
+          ["を"],
+          ["練", "ね"],
+          ["ろう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-19",
+    "term": "念",
+    "kana": "ねん",
+    "meaning": "sense, feeling, desire",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf06"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108299,
+        "ja": "彼は驚異の念で一杯だった。",
+        "en": "He was filled with wonder.",
+        "enId": 295387,
+        "form": "念",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["驚異", "きょうい"],
+          ["の"],
+          ["念", "ねん"],
+          ["で"],
+          ["一", "いっ"],
+          ["杯", "ぱい"],
+          ["だった。"]
+        ]
+      },
+      {
+        "id": 94514,
+        "ja": "彼女の胸に感謝の念があふれた。",
+        "en": "Her heart flowed with gratitude.",
+        "enId": 309192,
+        "form": "念",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["胸", "むね"],
+          ["に"],
+          ["感謝", "かんしゃ"],
+          ["の"],
+          ["念", "ねん"],
+          ["があふれた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-20",
+    "term": "年賀",
+    "kana": "ねんが",
+    "meaning": "New Year's greetings, New Year's card",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-10-21",
+    "term": "念願",
+    "kana": "ねんがん",
+    "meaning": "one's heart's desire, earnest petition",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101335,
+        "ja": "彼は念願を果たした。",
+        "en": "He realized his wishes.",
+        "enId": 302362,
+        "form": "念願",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["念願", "ねんがん"],
+          ["を"],
+          ["果", "は"],
+          ["たした。"]
+        ]
+      },
+      {
+        "id": 107248,
+        "ja": "彼は国民の幸福を念願した。",
+        "en": "He had national welfare at heart.",
+        "enId": 296438,
+        "form": "念願",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["国民", "こくみん"],
+          ["の"],
+          ["幸福", "こうふく"],
+          ["を"],
+          ["念願", "ねんがん"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-22",
+    "term": "燃焼",
+    "kana": "ねんしょう",
+    "meaning": "burning, combustion",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 221296,
+        "ja": "この種の汚染物質は主として自動車エンジンの燃焼から生まれる。",
+        "en": "Pollutants like this derive mainly from the combustion of fuel in car engines.",
+        "enId": 58620,
+        "form": "燃焼",
+        "furigana": [
+          ["この"],
+          ["種", "たね"],
+          ["の"],
+          ["汚染", "おせん"],
+          ["物質", "ぶっしつ"],
+          ["は"],
+          ["主", "しゅ"],
+          ["として"],
+          ["自動車", "じどうしゃ"],
+          ["エンジンの"],
+          ["燃焼", "ねんしょう"],
+          ["から"],
+          ["生", "う"],
+          ["まれる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-23",
+    "term": "年長",
+    "kana": "ねんちょう",
+    "meaning": "seniority",
+    "level": "N1",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121798,
+        "ja": "年長の息子たちは今は父親からまったく独立している。",
+        "en": "The elder sons are now quite independent of their father.",
+        "enId": 282207,
+        "form": "年長",
+        "furigana": [
+          ["年長", "ねんちょう"],
+          ["の"],
+          ["息子", "むすこ"],
+          ["たちは"],
+          ["今", "いま"],
+          ["は"],
+          ["父親", "ちちおや"],
+          ["からまったく"],
+          ["独立", "どくりつ"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-24",
+    "term": "燃料",
+    "kana": "ねんりょう",
+    "meaning": "fuel",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121764,
+        "ja": "燃料が不足していた。",
+        "en": "There was a shortage of fuel.",
+        "enId": 282241,
+        "form": "燃料",
+        "furigana": [
+          ["燃料", "ねんりょう"],
+          ["が"],
+          ["不足", "ふそく"],
+          ["していた。"]
+        ]
+      },
+      {
+        "id": 121763,
+        "ja": "首都圏でも燃料が不足している。",
+        "en": "There's a fuel shortage even in the Tokyo area.",
+        "enId": 282242,
+        "form": "燃料",
+        "furigana": [
+          ["首都", "しゅと"],
+          ["圏", "けん"],
+          ["でも"],
+          ["燃料", "ねんりょう"],
+          ["が"],
+          ["不足", "ふそく"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-25",
+    "term": "年輪",
+    "kana": "ねんりん",
+    "meaning": "annual tree ring",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-10-26",
+    "term": "農耕",
+    "kana": "のうこう",
+    "meaning": "farming, agriculture",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-10-27",
+    "term": "農場",
+    "kana": "のうじょう",
+    "meaning": "farm",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0, 3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 154640,
+        "ja": "私は農場で働いた。",
+        "en": "I worked on a farm.",
+        "enId": 259900,
+        "form": "農場",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["農場", "のうじょう"],
+          ["で"],
+          ["働", "はたら"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 101320,
+        "ja": "彼は農場で働いている。",
+        "en": "He is employed on the farm.",
+        "enId": 302376,
+        "form": "農場",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["農場", "のうじょう"],
+          ["で"],
+          ["働", "はたら"],
+          ["いている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-28",
+    "term": "農地",
+    "kana": "のうち",
+    "meaning": "agricultural land",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 186772,
+        "ja": "河川の盆地には普通肥沃な農地がある。",
+        "en": "The basin of a river usually has rich farmland.",
+        "enId": 23908,
+        "form": "農地",
+        "furigana": [
+          ["河川", "かせん"],
+          ["の"],
+          ["盆地", "ぼんち"],
+          ["には"],
+          ["普通", "ふつう"],
+          ["肥沃", "ひよく"],
+          ["な"],
+          ["農地", "のうち"],
+          ["がある。"]
+        ]
+      },
+      {
+        "id": 107305,
+        "ja": "彼は高い農地代を払わなければならなかった。",
+        "en": "He had to pay a high rent for his farm.",
+        "enId": 296382,
+        "form": "農地",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["高", "たか"],
+          ["い"],
+          ["農地", "のうち"],
+          ["代", "だい"],
+          ["を"],
+          ["払", "はら"],
+          ["わなければならなかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-29",
+    "term": "納入",
+    "kana": "のうにゅう",
+    "meaning": "payment, supply",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-10-30",
+    "term": "逃れる",
+    "kana": "のがれる",
+    "meaning": "to escape",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 199966,
+        "ja": "トムは危険から逃れた。",
+        "en": "Tom escaped from the danger.",
+        "enId": 37167,
+        "form": "逃れた",
+        "furigana": [
+          ["トムは"],
+          ["危険", "きけん"],
+          ["から"],
+          ["逃", "のが"],
+          ["れた。"]
+        ]
+      },
+      {
+        "id": 151832,
+        "ja": "私達はかろうじて逃れた。",
+        "en": "We had a narrow escape.",
+        "enId": 262723,
+        "form": "逃れた",
+        "furigana": [
+          ["私", "わたし"],
+          ["達", "たち"],
+          ["はかろうじて"],
+          ["逃", "のが"],
+          ["れた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-10-31",
+    "term": "軒並",
+    "kana": "のきなみ",
+    "meaning": "row of houses; uniformly",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf31"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

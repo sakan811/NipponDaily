@@ -1,0 +1,1001 @@
+[
+  {
+    "date": "2037-05-01",
+    "term": "荒っぽい",
+    "kana": "あらっぽい",
+    "meaning": "rough, rude",
+    "level": "N1",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [4, 0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 196405,
+        "ja": "ボクシングは必ずしも荒っぽいスポーツではない。",
+        "en": "Boxing is not always a rough sport.",
+        "enId": 33584,
+        "form": "荒っぽい",
+        "furigana": [
+          ["ボクシングは"],
+          ["必", "かなら"],
+          ["ずしも"],
+          ["荒", "あら"],
+          ["っぽいスポーツではない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-02",
+    "term": "有り様",
+    "kana": "ありさま",
+    "meaning": "state, condition",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [2, 0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-03",
+    "term": "ありのまま",
+    "kana": "ありのまま",
+    "meaning": "the truth, as it is, frankly",
+    "level": "N1",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adverb (fukushi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf23"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-04",
+    "term": "ありふれる",
+    "kana": "ありふれる",
+    "meaning": "common, ordinary, routine",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-05",
+    "term": "アルミ",
+    "kana": "アルミ",
+    "meaning": "aluminum (Al, aluminum)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [0],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-06",
+    "term": "アワー",
+    "kana": "アワー",
+    "meaning": "hour",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-07",
+    "term": "暗殺",
+    "kana": "あんさつ",
+    "meaning": "assassination",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-08",
+    "term": "暗算",
+    "kana": "あんざん",
+    "meaning": "mental arithmetic",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news2", "nf48"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 110180,
+        "ja": "彼は暗算をするほど頭が良くない。",
+        "en": "He doesn't have enough brains to do sums in his head.",
+        "enId": 293508,
+        "form": "暗算",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["暗算", "あんざん"],
+          ["をするほど"],
+          ["頭", "あたま"],
+          ["が"],
+          ["良", "よ"],
+          ["くない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-09",
+    "term": "暗示",
+    "kana": "あんじ",
+    "meaning": "hint, suggestion",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf35"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 117509,
+        "ja": "彼の言葉は何を暗示しているのか。",
+        "en": "What do his words imply?",
+        "enId": 286155,
+        "form": "暗示",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["言葉", "ことば"],
+          ["は"],
+          ["何", "なに"],
+          ["を"],
+          ["暗示", "あんじ"],
+          ["しているのか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-10",
+    "term": "案じる",
+    "kana": "あんじる",
+    "meaning": "to be anxious, to ponder",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["news2", "nf40"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 82946,
+        "ja": "母は私の将来を案じている。",
+        "en": "Mother is anxious about my future.",
+        "enId": 320770,
+        "form": "案じている",
+        "furigana": [
+          ["母", "はは"],
+          ["は"],
+          ["私", "わたし"],
+          ["の"],
+          ["将来", "しょうらい"],
+          ["を"],
+          ["案", "あん"],
+          ["じている。"]
+        ]
+      },
+      {
+        "id": 102717,
+        "ja": "彼は息子の将来をとても案じている。",
+        "en": "He is very much concerned about the future of his son.",
+        "enId": 300977,
+        "form": "案じている",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["息子", "むすこ"],
+          ["の"],
+          ["将来", "しょうらい"],
+          ["をとても"],
+          ["案", "あん"],
+          ["じている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-11",
+    "term": "安静",
+    "kana": "あんせい",
+    "meaning": "rest",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 191326,
+        "ja": "安静にしていてください。",
+        "en": "Stay quiet and rest.",
+        "enId": 28488,
+        "form": "安静",
+        "furigana": [["安静", "あんせい"], ["にしていてください。"]]
+      },
+      {
+        "id": 191325,
+        "ja": "安静にして寝ていてください。",
+        "en": "You should stay in bed.",
+        "enId": 28487,
+        "form": "安静",
+        "furigana": [
+          ["安静", "あんせい"],
+          ["にして"],
+          ["寝", "ね"],
+          ["ていてください。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-12",
+    "term": "案の定",
+    "kana": "あんのじょう",
+    "meaning": "sure enough, as usual",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 191243,
+        "ja": "案の定、彼は第一位になった。",
+        "en": "As was to be expected, he took the first place.",
+        "enId": 28404,
+        "form": "案の定",
+        "furigana": [
+          ["案", "あん"],
+          ["の"],
+          ["定", "じょう"],
+          ["、"],
+          ["彼", "かれ"],
+          ["は"],
+          ["第", "だい"],
+          ["一", "いち"],
+          ["位", "い"],
+          ["になった。"]
+        ]
+      },
+      {
+        "id": 191244,
+        "ja": "案の定、彼は疑念を抱いていた。",
+        "en": "Sure enough, he entertained doubts.",
+        "enId": 28405,
+        "form": "案の定",
+        "furigana": [
+          ["案", "あん"],
+          ["の"],
+          ["定", "じょう"],
+          ["、"],
+          ["彼", "かれ"],
+          ["は"],
+          ["疑念", "ぎねん"],
+          ["を"],
+          ["抱", "いだ"],
+          ["いていた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-13",
+    "term": "言い訳",
+    "kana": "いいわけ",
+    "meaning": "excuse, explanation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 107594,
+        "ja": "彼は言い訳を始めた。",
+        "en": "He began to make excuses.",
+        "enId": 296091,
+        "form": "言い訳",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["言", "い"],
+          ["い"],
+          ["訳", "わけ"],
+          ["を"],
+          ["始", "はじ"],
+          ["めた。"]
+        ]
+      },
+      {
+        "id": 107597,
+        "ja": "彼は言い訳がうまい。",
+        "en": "He is clever at making excuses.",
+        "enId": 296088,
+        "form": "言い訳",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["言", "い"],
+          ["い"],
+          ["訳", "わけ"],
+          ["がうまい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-14",
+    "term": "イェス",
+    "kana": "イェス",
+    "meaning": "yes; Jesus",
+    "level": "N1",
+    "pos": ["interjection (kandoushi)"],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-15",
+    "term": "生かす",
+    "kana": "いかす",
+    "meaning": "to keep something alive; to make use of",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 5214282,
+        "ja": "生かしてはおかぬ。",
+        "en": "He must not live.",
+        "enId": 271710,
+        "form": "生かして",
+        "furigana": [["生", "い"], ["かしてはおかぬ。"]]
+      },
+      {
+        "id": 174556,
+        "ja": "己も生き他も生かせ。",
+        "en": "Live and let live.",
+        "enId": 239913,
+        "form": "生かせ",
+        "furigana": [
+          ["己", "おのれ"],
+          ["も"],
+          ["生", "い"],
+          ["き"],
+          ["他", "ほか"],
+          ["も"],
+          ["生", "い"],
+          ["かせ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-16",
+    "term": "いかに",
+    "kana": "いかに",
+    "meaning": "how, in what way",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-17",
+    "term": "異議",
+    "kana": "いぎ",
+    "meaning": "objection, dissent, protest",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf10"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 116135,
+        "ja": "彼の方には異議がなかった。",
+        "en": "There was no objection on his part.",
+        "enId": 285418,
+        "form": "異議",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["方", "ほう"],
+          ["には"],
+          ["異議", "いぎ"],
+          ["がなかった。"]
+        ]
+      },
+      {
+        "id": 118246,
+        "ja": "彼のほうには異議はなかった。",
+        "en": "There was no objection on his part.",
+        "enId": 285418,
+        "form": "異議",
+        "furigana": [
+          ["彼", "かれ"],
+          ["のほうには"],
+          ["異議", "いぎ"],
+          ["はなかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-18",
+    "term": "育成",
+    "kana": "いくせい",
+    "meaning": "rearing, training, cultivation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 74317,
+        "ja": "ワインにはいろいろなタイプがあり、それによって育成の仕方もさまざまです。",
+        "en": "There are various types of wines and the way they are matured varies accordingly.",
+        "enId": 329403,
+        "form": "育成",
+        "furigana": [
+          ["ワインにはいろいろなタイプがあり、それによって"],
+          ["育成", "いくせい"],
+          ["の"],
+          ["仕方", "しかた"],
+          ["もさまざまです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-19",
+    "term": "活ける",
+    "kana": "いける",
+    "meaning": "to arrange (flowers)",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["news2", "nf39", "spec2"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-20",
+    "term": "異見",
+    "kana": "いけん",
+    "meaning": "different opinion, objection",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-21",
+    "term": "移行",
+    "kana": "いこう",
+    "meaning": "switching over to",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121694,
+        "ja": "農場生活から都市の生活への移行は困難なことが多い。",
+        "en": "The transition from farm life to city life is often difficult.",
+        "enId": 282311,
+        "form": "移行",
+        "furigana": [
+          ["農場", "のうじょう"],
+          ["生活", "せいかつ"],
+          ["から"],
+          ["都市", "とし"],
+          ["の"],
+          ["生活", "せいかつ"],
+          ["への"],
+          ["移行", "いこう"],
+          ["は"],
+          ["困難", "こんなん"],
+          ["なことが"],
+          ["多", "おお"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 189003,
+        "ja": "英国は、１９７１年にその貨幣制度を１０進法に移行させた。",
+        "en": "In 1971 the United Kingdom changed its currency to the decimal system.",
+        "enId": 26150,
+        "form": "移行",
+        "furigana": [
+          ["英国", "えいこく"],
+          ["は、１９７１"],
+          ["年", "ねん"],
+          ["にその"],
+          ["貨幣", "かへい"],
+          ["制度", "せいど"],
+          ["を１０"],
+          ["進", "しん"],
+          ["法", "ほう"],
+          ["に"],
+          ["移行", "いこう"],
+          ["させた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-22",
+    "term": "いざ",
+    "kana": "いざ",
+    "meaning": "now, come (now), crucial moment",
+    "level": "N1",
+    "pos": ["adverb (fukushi)", "interjection (kandoushi)"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 229133,
+        "ja": "いざ投票という時、彼は棄権した。",
+        "en": "When it was time to vote, he abstained.",
+        "enId": 66491,
+        "form": "いざ",
+        "furigana": [
+          ["いざ"],
+          ["投票", "とうひょう"],
+          ["という"],
+          ["時", "とき"],
+          ["、"],
+          ["彼", "かれ"],
+          ["は"],
+          ["棄権", "きけん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 229132,
+        "ja": "いざ踊るとなるとマイケルジャクソンの右にでるものはいない。",
+        "en": "When it comes to dancing, nobody can move like Michael Jackson.",
+        "enId": 66490,
+        "form": "いざ",
+        "furigana": [
+          ["いざ"],
+          ["踊", "おど"],
+          ["るとなるとマイケルジャクソンの"],
+          ["右", "みぎ"],
+          ["にでるものはいない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-23",
+    "term": "移住",
+    "kana": "いじゅう",
+    "meaning": "migration, immigration",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 98220,
+        "ja": "彼らはアメリカに移住するつもりです。",
+        "en": "They are going to emigrate to America.",
+        "enId": 305482,
+        "form": "移住",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らはアメリカに"],
+          ["移住", "いじゅう"],
+          ["するつもりです。"]
+        ]
+      },
+      {
+        "id": 94631,
+        "ja": "彼女の一家はブラジルへ移住して行った。",
+        "en": "Her family moved to Brazil.",
+        "enId": 309075,
+        "form": "移住",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["一家", "いっか"],
+          ["はブラジルへ"],
+          ["移住", "いじゅう"],
+          ["して"],
+          ["行", "い"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-24",
+    "term": "いじる",
+    "kana": "いじる",
+    "meaning": "to touch, to tamper with",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-25",
+    "term": "異性",
+    "kana": "いせい",
+    "meaning": "the opposite sex",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-26",
+    "term": "遺跡",
+    "kana": "いせき",
+    "meaning": "historic ruins",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 142342,
+        "ja": "石器時代の遺跡が発見された。",
+        "en": "The Stone Age ruins were discovered.",
+        "enId": 272228,
+        "form": "遺跡",
+        "furigana": [
+          ["石器", "せっき"],
+          ["時代", "じだい"],
+          ["の"],
+          ["遺跡", "いせき"],
+          ["が"],
+          ["発見", "はっけん"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 192244,
+        "ja": "ローマは至る所に遺跡がある。",
+        "en": "Rome abounds with relics.",
+        "enId": 29409,
+        "form": "遺跡",
+        "furigana": [
+          ["ローマは"],
+          ["至", "いた"],
+          ["る"],
+          ["所", "ところ"],
+          ["に"],
+          ["遺跡", "いせき"],
+          ["がある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-27",
+    "term": "依存",
+    "kana": "いぞん",
+    "meaning": "dependence, dependent, reliance",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-28",
+    "term": "委託",
+    "kana": "いたく",
+    "meaning": "consign (goods (for sale) to a firm), entrust",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 82144,
+        "ja": "僕は、有り金をすべて彼に委託した。",
+        "en": "I trusted him with all the money I had.",
+        "enId": 321571,
+        "form": "委託",
+        "furigana": [
+          ["僕", "ぼく"],
+          ["は、"],
+          ["有", "あ"],
+          ["り"],
+          ["金", "がね"],
+          ["をすべて"],
+          ["彼", "かれ"],
+          ["に"],
+          ["委託", "いたく"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 196612,
+        "ja": "ベンは日記を弁護士が管理するよう委託した。",
+        "en": "Ben committed his diary to the lawyer's care.",
+        "enId": 33791,
+        "form": "委託",
+        "furigana": [
+          ["ベンは"],
+          ["日記", "にっき"],
+          ["を"],
+          ["弁護士", "べんごし"],
+          ["が"],
+          ["管理", "かんり"],
+          ["するよう"],
+          ["委託", "いたく"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-29",
+    "term": "いたって",
+    "kana": "いたって",
+    "meaning": "very much, exceedingly, extremely",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["news1", "nf07"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-05-30",
+    "term": "出世",
+    "kana": "しゅっせ",
+    "meaning": "promotion, successful career, eminence",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99022,
+        "ja": "彼は立派に出世した。",
+        "en": "He succeeded in life fine.",
+        "enId": 304678,
+        "form": "出世",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["立派", "りっぱ"],
+          ["に"],
+          ["出世", "しゅっせ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 100719,
+        "ja": "彼は非常に出世した。",
+        "en": "He achieved great success in life.",
+        "enId": 302978,
+        "form": "出世",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["非常", "ひじょう"],
+          ["に"],
+          ["出世", "しゅっせ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-05-31",
+    "term": "出題",
+    "kana": "しゅつだい",
+    "meaning": "proposing a question",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 76531,
+        "ja": "どういった時事が公務員試験で出題されるのか。",
+        "en": "What sort of current affairs appear in the civil service examination?",
+        "enId": 327189,
+        "form": "出題",
+        "furigana": [
+          ["どういった"],
+          ["時事", "じじ"],
+          ["が"],
+          ["公務員", "こうむいん"],
+          ["試験", "しけん"],
+          ["で"],
+          ["出題", "しゅつだい"],
+          ["されるのか。"]
+        ]
+      },
+      {
+        "id": 170518,
+        "ja": "最終試験でボブは全くひどい目にあった。出題範囲が講義の全てにわたっていたのだ。",
+        "en": "At his final exam, Bob was really put through the wringer; the test covered everything that was in the course.",
+        "enId": 243964,
+        "form": "出題",
+        "furigana": [
+          ["最終", "さいしゅう"],
+          ["試験", "しけん"],
+          ["でボブは"],
+          ["全", "まった"],
+          ["くひどい"],
+          ["目", "め"],
+          ["にあった。"],
+          ["出題", "しゅつだい"],
+          ["範囲", "はんい"],
+          ["が"],
+          ["講義", "こうぎ"],
+          ["の"],
+          ["全", "すべ"],
+          ["てにわたっていたのだ。"]
+        ]
+      }
+    ]
+  }
+]

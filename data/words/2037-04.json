@@ -1,0 +1,1160 @@
+[
+  {
+    "date": "2037-04-01",
+    "term": "顎",
+    "kana": "あご",
+    "meaning": "chin",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "See あぎ (agi)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 118439,
+        "ja": "彼のあごを殴ってやった。",
+        "en": "I hit him on the chin.",
+        "enId": 285224,
+        "form": "あご",
+        "furigana": [
+          ["彼", "かれ"],
+          ["のあごを"],
+          ["殴", "なぐ"],
+          ["ってやった。"]
+        ]
+      },
+      {
+        "id": 89409,
+        "ja": "彼女は私の顎をひっぱたいた。",
+        "en": "She slapped me on the chin.",
+        "enId": 314302,
+        "form": "顎",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["私", "わたし"],
+          ["の"],
+          ["顎", "あご"],
+          ["をひっぱたいた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2037-04-02",
+    "term": "あざ",
+    "kana": "あざ",
+    "meaning": "birthmark, bruise",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-04-03",
+    "term": "鮮やか",
+    "kana": "あざやか",
+    "meaning": "vivid, clear",
+    "level": "N1",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125489,
+        "ja": "庭は花で色鮮やかである。",
+        "en": "The garden is bright with flowers.",
+        "enId": 278503,
+        "form": "鮮やか",
+        "furigana": [
+          ["庭", "にわ"],
+          ["は"],
+          ["花", "はな"],
+          ["で"],
+          ["色", "いろ"],
+          ["鮮", "あざ"],
+          ["やかである。"]
+        ]
+      },
+      {
+        "id": 175638,
+        "ja": "月は鮮やかに輝いていた。",
+        "en": "The moon was shining brightly.",
+        "enId": 238828,
+        "form": "鮮やかに",
+        "furigana": [
+          ["月", "つき"],
+          ["は"],
+          ["鮮", "あざ"],
+          ["やかに"],
+          ["輝", "かがや"],
+          ["いていた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-04",
+    "term": "悪しからず",
+    "kana": "あしからず",
+    "meaning": "don't take me wrong, but..., I'm sorry",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-04-05",
+    "term": "味わい",
+    "kana": "あじわい",
+    "meaning": "flavor, relish",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news1", "nf12"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 221266,
+        "ja": "この酒には独特の味わいがある。",
+        "en": "This liquor has a taste all of its own.",
+        "enId": 58589,
+        "form": "味わい",
+        "furigana": [
+          ["この"],
+          ["酒", "さけ"],
+          ["には"],
+          ["独特", "どくとく"],
+          ["の"],
+          ["味", "あじ"],
+          ["わいがある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-06",
+    "term": "焦る",
+    "kana": "あせる",
+    "meaning": "to be in a hurry, to be impatient",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 146376,
+        "ja": "焦らなくてもいいですよ。",
+        "en": "You don't have to hurry.",
+        "enId": 19655,
+        "form": "焦らなくてもいい",
+        "furigana": [["焦", "あせ"], ["らなくてもいいですよ。"]]
+      },
+      {
+        "id": 102186,
+        "ja": "彼は遅れを取り戻そうと焦っている。",
+        "en": "He's desperately trying to make up for the delay.",
+        "enId": 301508,
+        "form": "焦っている",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["遅", "おく"],
+          ["れを"],
+          ["取", "と"],
+          ["り"],
+          ["戻", "もど"],
+          ["そうと"],
+          ["焦", "あせ"],
+          ["っている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-07",
+    "term": "褪せる",
+    "kana": "あせる",
+    "meaning": "to fade, to discolor",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2, 0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 122883,
+        "ja": "日光で看板の文字があせた。",
+        "en": "The sun had faded the lettering on the sign.",
+        "enId": 281119,
+        "form": "あせた",
+        "furigana": [
+          ["日光", "にっこう"],
+          ["で"],
+          ["看板", "かんばん"],
+          ["の"],
+          ["文字", "もじ"],
+          ["があせた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-08",
+    "term": "値する",
+    "kana": "あたいする",
+    "meaning": "to be worth, to deserve",
+    "level": "N1",
+    "pos": ["suru verb - included", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 112643,
+        "ja": "彼はその賞に値する。",
+        "en": "He deserves the prize.",
+        "enId": 291033,
+        "form": "値する",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はその"],
+          ["賞", "しょう"],
+          ["に"],
+          ["値", "あたい"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 117282,
+        "ja": "彼の罪は死刑に値する。",
+        "en": "His crime deserves the death penalty.",
+        "enId": 979435,
+        "form": "値する",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["罪", "つみ"],
+          ["は"],
+          ["死刑", "しけい"],
+          ["に"],
+          ["値", "あたい"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-09",
+    "term": "悪化",
+    "kana": "あっか",
+    "meaning": "deterioration, worsen",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 191429,
+        "ja": "悪化したのですか。",
+        "en": "Is it getting worse?",
+        "enId": 28590,
+        "form": "悪化",
+        "furigana": [["悪化", "あっか"], ["したのですか。"]]
+      },
+      {
+        "id": 115924,
+        "ja": "彼の容体が悪化した。",
+        "en": "His condition changed for the worse.",
+        "enId": 287745,
+        "form": "悪化",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["容体", "ようだい"],
+          ["が"],
+          ["悪化", "あっか"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-10",
+    "term": "あっさり",
+    "kana": "あっさり",
+    "meaning": "easily, readily, quickly",
+    "level": "N1",
+    "pos": [
+      "adverb (fukushi)",
+      "adverb taking the 'to' particle",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 93456,
+        "ja": "彼女はあっさりと答えた。",
+        "en": "She answered easily.",
+        "enId": 310252,
+        "form": "あっさりと",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はあっさりと"],
+          ["答", "こた"],
+          ["えた。"]
+        ]
+      },
+      {
+        "id": 114945,
+        "ja": "彼はあっさり罪を白状した。",
+        "en": "He confessed his crime frankly.",
+        "enId": 288726,
+        "form": "あっさり",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はあっさり"],
+          ["罪", "つみ"],
+          ["を"],
+          ["白状", "はくじょう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-11",
+    "term": "斡旋",
+    "kana": "あっせん",
+    "meaning": "kind offices, mediation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf41"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99312,
+        "ja": "彼は友人のあっせんでその仕事についた。",
+        "en": "He obtained the job through the good offices of his friend.",
+        "enId": 304387,
+        "form": "あっせん",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["友人", "ゆうじん"],
+          ["のあっせんでその"],
+          ["仕事", "しごと"],
+          ["についた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-12",
+    "term": "圧倒",
+    "kana": "あっとう",
+    "meaning": "overwhelm, overpower",
+    "level": "N1",
+    "pos": [
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 103468,
+        "ja": "彼は数に圧倒された。",
+        "en": "He was overcome by numbers.",
+        "enId": 300225,
+        "form": "圧倒",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["数", "かず"],
+          ["に"],
+          ["圧倒", "あっとう"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 100939,
+        "ja": "彼は彼女の愛情の強さに圧倒された。",
+        "en": "He was overwhelmed by the intensity of her love.",
+        "enId": 302758,
+        "form": "圧倒",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["愛情", "あいじょう"],
+          ["の"],
+          ["強", "つよ"],
+          ["さに"],
+          ["圧倒", "あっとう"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-13",
+    "term": "圧迫",
+    "kana": "あっぱく",
+    "meaning": "pressure, coercion, oppression",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 208677,
+        "ja": "その政府は国民を圧迫した。",
+        "en": "The government oppressed the people.",
+        "enId": 45936,
+        "form": "圧迫",
+        "furigana": [
+          ["その"],
+          ["政府", "せいふ"],
+          ["は"],
+          ["国民", "こくみん"],
+          ["を"],
+          ["圧迫", "あっぱく"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 83800,
+        "ja": "物価の高騰が家計を圧迫している。",
+        "en": "The rise in prices is pressing our family budget.",
+        "enId": 319916,
+        "form": "圧迫",
+        "furigana": [
+          ["物価", "ぶっか"],
+          ["の"],
+          ["高騰", "こうとう"],
+          ["が"],
+          ["家計", "かけい"],
+          ["を"],
+          ["圧迫", "あっぱく"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-14",
+    "term": "あつらえる",
+    "kana": "あつらえる",
+    "meaning": "to give an order, to place an order",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi2"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-04-15",
+    "term": "当て",
+    "kana": "あて",
+    "meaning": "expectations; depend",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 177690,
+        "ja": "君はそれを当てにできる。",
+        "en": "You can bank on that.",
+        "enId": 16542,
+        "form": "当て",
+        "furigana": [
+          ["君", "きみ"],
+          ["はそれを"],
+          ["当", "あ"],
+          ["てにできる。"]
+        ]
+      },
+      {
+        "id": 118084,
+        "ja": "彼の援助は当てに出来ない。",
+        "en": "You cannot rely on his help.",
+        "enId": 285580,
+        "form": "当て",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["援助", "えんじょ"],
+          ["は"],
+          ["当", "あ"],
+          ["てに"],
+          ["出来", "でき"],
+          ["ない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-16",
+    "term": "～宛",
+    "kana": "～あて",
+    "meaning": "for…(e.g., In a letter)",
+    "level": "N1",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-04-17",
+    "term": "当て字",
+    "kana": "あてじ",
+    "meaning": "phonetic-equivalent character, substitute character",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-04-18",
+    "term": "跡継ぎ",
+    "kana": "あとつぎ",
+    "meaning": "heir, successor",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf34", "spec2"],
+    "pitch": [2, 3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-04-19",
+    "term": "後回し",
+    "kana": "あとまわし",
+    "meaning": "putting off, postponing",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 145831,
+        "ja": "食事は後回しにしよう。",
+        "en": "Let dinner wait.",
+        "enId": 268731,
+        "form": "後回し",
+        "furigana": [
+          ["食事", "しょくじ"],
+          ["は"],
+          ["後回", "あとまわ"],
+          ["しにしよう。"]
+        ]
+      },
+      {
+        "id": 211101,
+        "ja": "その結論は後回しにした。",
+        "en": "I put off the conclusion.",
+        "enId": 48375,
+        "form": "後回し",
+        "furigana": [
+          ["その"],
+          ["結論", "けつろん"],
+          ["は"],
+          ["後回", "あとまわ"],
+          ["しにした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-20",
+    "term": "あべこべ",
+    "kana": "あべこべ",
+    "meaning": "contrary, opposite, inverse",
+    "level": "N1",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 232676,
+        "ja": "あなたはシャツをあべこべに着ている。",
+        "en": "You are wearing your shirt inside out.",
+        "enId": 70045,
+        "form": "あべこべに",
+        "furigana": [["あなたはシャツをあべこべに"], ["着", "き"], ["ている。"]]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-21",
+    "term": "甘える",
+    "kana": "あまえる",
+    "meaning": "to behave like a spoiled child, to fawn on",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf37"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 146675,
+        "ja": "少女は母親に甘えた。",
+        "en": "The girl played the baby to her mother.",
+        "enId": 267886,
+        "form": "甘えた",
+        "furigana": [
+          ["少女", "しょうじょ"],
+          ["は"],
+          ["母親", "ははおや"],
+          ["に"],
+          ["甘", "あま"],
+          ["えた。"]
+        ]
+      },
+      {
+        "id": 210178,
+        "ja": "その子は母親に甘えた。",
+        "en": "The child played the baby to his mother.",
+        "enId": 47441,
+        "form": "甘えた",
+        "furigana": [
+          ["その"],
+          ["子", "こ"],
+          ["は"],
+          ["母親", "ははおや"],
+          ["に"],
+          ["甘", "あま"],
+          ["えた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-22",
+    "term": "雨具",
+    "kana": "あまぐ",
+    "meaning": "rain gear",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf46"],
+    "pitch": [2],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 109815,
+        "ja": "彼は雨具を用意して出かけた。",
+        "en": "He went out prepared for rain.",
+        "enId": 293876,
+        "form": "雨具",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["雨具", "あまぐ"],
+          ["を"],
+          ["用意", "ようい"],
+          ["して"],
+          ["出", "で"],
+          ["かけた。"]
+        ]
+      },
+      {
+        "id": 189528,
+        "ja": "雨具をお持ちになりましたか。",
+        "en": "Do you have rain gear with you?",
+        "enId": 26680,
+        "form": "雨具",
+        "furigana": [
+          ["雨具", "あまぐ"],
+          ["をお"],
+          ["持", "も"],
+          ["ちになりましたか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-23",
+    "term": "甘口",
+    "kana": "あまくち",
+    "meaning": "sweet flavor",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["news2", "nf37"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 76592,
+        "ja": "そんな甘口には乗らないよ。",
+        "en": "That sort of flattery will get you nowhere.",
+        "enId": 327128,
+        "form": "甘口",
+        "furigana": [
+          ["そんな"],
+          ["甘口", "あまくち"],
+          ["には"],
+          ["乗", "の"],
+          ["らないよ。"]
+        ]
+      },
+      {
+        "id": 463670,
+        "ja": "「ドイツワインは甘口が多く料理に合わない」というイメージが広まっている。",
+        "en": "The impression that many German wines are sweet, and don't go well with food, is widespread.",
+        "enId": 507203,
+        "form": "甘口",
+        "furigana": [
+          ["「ドイツワインは"],
+          ["甘口", "あまくち"],
+          ["が"],
+          ["多", "おお"],
+          ["く"],
+          ["料理", "りょうり"],
+          ["に"],
+          ["合", "あ"],
+          ["わない」というイメージが"],
+          ["広", "ひろ"],
+          ["まっている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-24",
+    "term": "危ぶむ",
+    "kana": "あやぶむ",
+    "meaning": "to fear, to have misgivings, to be doubtful",
+    "level": "N1",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["news1", "nf15"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 153846,
+        "ja": "私は彼の成功を危ぶむ。",
+        "en": "I am doubtful of his success.",
+        "enId": 260697,
+        "form": "危ぶむ",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["彼", "かれ"],
+          ["の"],
+          ["成功", "せいこう"],
+          ["を"],
+          ["危", "あや"],
+          ["ぶむ。"]
+        ]
+      },
+      {
+        "id": 106454,
+        "ja": "彼は死んでいるのではないかと危ぶまれている。",
+        "en": "They fear that he may be dead.",
+        "enId": 297232,
+        "form": "危ぶまれている",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["死", "し"],
+          ["んでいるのではないかと"],
+          ["危", "あや"],
+          ["ぶまれている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-25",
+    "term": "あやふや",
+    "kana": "あやふや",
+    "meaning": "uncertain, vague, ambiguous",
+    "level": "N1",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 230082,
+        "ja": "あやふやな手つきで一枚の紙を動かした。",
+        "en": "She fumbled with a piece of paper.",
+        "enId": 67447,
+        "form": "あやふやな",
+        "furigana": [
+          ["あやふやな"],
+          ["手", "て"],
+          ["つきで"],
+          ["一", "いち"],
+          ["枚", "まい"],
+          ["の"],
+          ["紙", "かみ"],
+          ["を"],
+          ["動", "うご"],
+          ["かした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-26",
+    "term": "歩み",
+    "kana": "あゆみ",
+    "meaning": "step, progress, history",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf11"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 187812,
+        "ja": "何て歩みののろいやつだろう。",
+        "en": "How slow you are!",
+        "enId": 24951,
+        "form": "歩み",
+        "furigana": [
+          ["何", "なん"],
+          ["て"],
+          ["歩", "あゆ"],
+          ["みののろいやつだろう。"]
+        ]
+      },
+      {
+        "id": 122065,
+        "ja": "入試制度の改革、カリキュラムの改革は着々と進んでいるが、歩みは遅い。",
+        "en": "The reform of both entrance examination system and curriculum makes slow progress.",
+        "enId": 281938,
+        "form": "歩み",
+        "furigana": [
+          ["入試", "にゅうし"],
+          ["制度", "せいど"],
+          ["の"],
+          ["改革", "かいかく"],
+          ["、カリキュラムの"],
+          ["改革", "かいかく"],
+          ["は"],
+          ["着々", "ちゃくちゃく"],
+          ["と"],
+          ["進", "すす"],
+          ["んでいるが、"],
+          ["歩", "あゆ"],
+          ["みは"],
+          ["遅", "おそ"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-27",
+    "term": "歩む",
+    "kana": "あゆむ",
+    "meaning": "to walk",
+    "level": "N1",
+    "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf46"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 179801,
+        "ja": "近代医学の進歩は長い道程を歩んだ。",
+        "en": "The advancement of modern medicine was a long process.",
+        "enId": 18660,
+        "form": "歩んだ",
+        "furigana": [
+          ["近代", "きんだい"],
+          ["医学", "いがく"],
+          ["の"],
+          ["進歩", "しんぽ"],
+          ["は"],
+          ["長", "なが"],
+          ["い"],
+          ["道程", "どうてい"],
+          ["を"],
+          ["歩", "あゆ"],
+          ["んだ。"]
+        ]
+      },
+      {
+        "id": 103057,
+        "ja": "彼は先人と同じ道を歩むことを名誉だと信じている。",
+        "en": "He believes it to be an honor to follow in his predecessor's footsteps.",
+        "enId": 300636,
+        "form": "歩む",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["先人", "せんじん"],
+          ["と"],
+          ["同", "おな"],
+          ["じ"],
+          ["道", "みち"],
+          ["を"],
+          ["歩", "あゆ"],
+          ["むことを"],
+          ["名誉", "めいよ"],
+          ["だと"],
+          ["信", "しん"],
+          ["じている。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2037-04-28",
+    "term": "予め",
+    "kana": "あらかじめ",
+    "meaning": "in advance, previously",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 75268,
+        "ja": "休暇の計画を予め立てている。",
+        "en": "We are making advance plans for our holidays.",
+        "enId": 328451,
+        "form": "予め",
+        "furigana": [
+          ["休暇", "きゅうか"],
+          ["の"],
+          ["計画", "けいかく"],
+          ["を"],
+          ["予", "あらかじ"],
+          ["め"],
+          ["立", "た"],
+          ["てている。"]
+        ]
+      },
+      {
+        "id": 230071,
+        "ja": "あらかじめ計画をお知らせください。",
+        "en": "Please let me know the schedule beforehand.",
+        "enId": 67437,
+        "form": "あらかじめ",
+        "furigana": [
+          ["あらかじめ"],
+          ["計画", "けいかく"],
+          ["をお"],
+          ["知", "し"],
+          ["らせください。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-04-29",
+    "term": "荒らす",
+    "kana": "あらす",
+    "meaning": "to damage; to invade",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First attested in the Nihon Shoki of 720 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 125481,
+        "ja": "庭を荒らしたのは誰だ。",
+        "en": "Who destroyed the garden?",
+        "enId": 278513,
+        "form": "荒らした",
+        "furigana": [
+          ["庭", "にわ"],
+          ["を"],
+          ["荒", "あ"],
+          ["らしたのは"],
+          ["誰", "だれ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 97010,
+        "ja": "彼らは私の果実園を荒らした。",
+        "en": "They robbed my orchard.",
+        "enId": 306694,
+        "form": "荒らした",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["私", "わたし"],
+          ["の"],
+          ["果実", "かじつ"],
+          ["園", "えん"],
+          ["を"],
+          ["荒", "あ"],
+          ["らした。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2037-04-30",
+    "term": "改まる",
+    "kana": "あらたまる",
+    "meaning": "to be renewed; to be formal",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf43"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125860,
+        "ja": "長年の習慣はなかなか改まらない。",
+        "en": "Old habits die hard.",
+        "enId": 278132,
+        "form": "改まらない",
+        "furigana": [
+          ["長年", "ながねん"],
+          ["の"],
+          ["習慣", "しゅうかん"],
+          ["はなかなか"],
+          ["改", "あらた"],
+          ["まらない。"]
+        ]
+      }
+    ]
+  }
+]

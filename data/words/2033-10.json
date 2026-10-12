@@ -1,0 +1,1136 @@
+[
+  {
+    "date": "2033-10-01",
+    "term": "憎む",
+    "kana": "にくむ",
+    "meaning": "to hate, to detest",
+    "level": "N2",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf43"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102780,
+        "ja": "彼は憎めない奴だ。",
+        "en": "You can't hate the guy.",
+        "enId": 300914,
+        "form": "憎めない",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["憎", "にく"],
+          ["めない"],
+          ["奴", "やつ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 152818,
+        "ja": "私たちは暴力を憎む。",
+        "en": "We abhor violence.",
+        "enId": 249371,
+        "form": "憎む",
+        "furigana": [
+          ["私", "わたし"],
+          ["たちは"],
+          ["暴力", "ぼうりょく"],
+          ["を"],
+          ["憎", "にく"],
+          ["む。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-02",
+    "term": "憎らしい",
+    "kana": "にくらしい",
+    "meaning": "odious, hateful",
+    "level": "N2",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 111367,
+        "ja": "彼はにくらしげに彼女をにらんだ。",
+        "en": "He stared at her with hatred.",
+        "enId": 292316,
+        "form": "にくらしげ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はにくらしげに"],
+          ["彼女", "かのじょ"],
+          ["をにらんだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-03",
+    "term": "濁る",
+    "kana": "にごる",
+    "meaning": "to become muddy, to get cloudy",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141358,
+        "ja": "川は泥で濁っていた。",
+        "en": "The river was cloudy with silt.",
+        "enId": 273213,
+        "form": "濁っていた",
+        "furigana": [
+          ["川", "かわ"],
+          ["は"],
+          ["泥", "どろ"],
+          ["で"],
+          ["濁", "にご"],
+          ["っていた。"]
+        ]
+      },
+      {
+        "id": 122047,
+        "ja": "尿の色が濁っています。",
+        "en": "My urine is cloudy.",
+        "enId": 281956,
+        "form": "濁っています",
+        "furigana": [
+          ["尿", "にょう"],
+          ["の"],
+          ["色", "いろ"],
+          ["が"],
+          ["濁", "にご"],
+          ["っています。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-04",
+    "term": "日時",
+    "kana": "にちじ",
+    "meaning": "date and time",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 151498,
+        "ja": "私達は試合の日時を決めた。",
+        "en": "We set the time and date for the game.",
+        "enId": 263058,
+        "form": "日時",
+        "furigana": [
+          ["私", "わたし"],
+          ["達", "たち"],
+          ["は"],
+          ["試合", "しあい"],
+          ["の"],
+          ["日時", "にちじ"],
+          ["を"],
+          ["決", "き"],
+          ["めた。"]
+        ]
+      },
+      {
+        "id": 185314,
+        "ja": "会合の日時はおってお知らせします。",
+        "en": "We will let you know the time and date of the meeting soon.",
+        "enId": 22446,
+        "form": "日時",
+        "furigana": [
+          ["会合", "かいごう"],
+          ["の"],
+          ["日時", "にちじ"],
+          ["はおってお"],
+          ["知", "し"],
+          ["らせします。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-05",
+    "term": "日課",
+    "kana": "にっか",
+    "meaning": "daily work, daily routine",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 126175,
+        "ja": "朝食前に新聞を読むのが私の日課です。",
+        "en": "My routine is to read the newspaper before breakfast.",
+        "enId": 277817,
+        "form": "日課",
+        "furigana": [
+          ["朝食"],
+          ["前", "まえ"],
+          ["に"],
+          ["新聞", "しんぶん"],
+          ["を"],
+          ["読", "よ"],
+          ["むのが"],
+          ["私", "わたし"],
+          ["の"],
+          ["日課", "にっか"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-06",
+    "term": "日程",
+    "kana": "にってい",
+    "meaning": "schedule",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 115229,
+        "ja": "彼は１日ごとに日程を変える。",
+        "en": "He changes his schedule from day to day.",
+        "enId": 288442,
+        "form": "日程",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は１"],
+          ["日", "にち"],
+          ["ごとに"],
+          ["日程", "にってい"],
+          ["を"],
+          ["変", "か"],
+          ["える。"]
+        ]
+      },
+      {
+        "id": 185648,
+        "ja": "我々は日程を考慮に入れるべきだった。",
+        "en": "We should have taken the schedule into consideration.",
+        "enId": 22780,
+        "form": "日程",
+        "furigana": [
+          ["我々", "われわれ"],
+          ["は"],
+          ["日程", "にってい"],
+          ["を"],
+          ["考慮", "こうりょ"],
+          ["に"],
+          ["入", "い"],
+          ["れるべきだった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-07",
+    "term": "鈍い",
+    "kana": "にぶい",
+    "meaning": "dull (e.g., a knife), thickheaded, slow (opposite of fast), stupid",
+    "level": "N2",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf30"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101658,
+        "ja": "彼は動作が鈍い。",
+        "en": "He is slow in action.",
+        "enId": 302035,
+        "form": "鈍い",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["動作", "どうさ"],
+          ["が"],
+          ["鈍", "にぶ"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 108775,
+        "ja": "彼は感覚が鈍い。",
+        "en": "He has dull senses.",
+        "enId": 294914,
+        "form": "鈍い",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["感覚", "かんかく"],
+          ["が"],
+          ["鈍", "にぶ"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-08",
+    "term": "入社",
+    "kana": "にゅうしゃ",
+    "meaning": "entry to a company",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 107282,
+        "ja": "彼は高校卒業直後に入社した。",
+        "en": "He joined the company right after he got through high school.",
+        "enId": 296404,
+        "form": "入社",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["高校", "こうこう"],
+          ["卒業", "そつぎょう"],
+          ["直後", "ちょくご"],
+          ["に"],
+          ["入社", "にゅうしゃ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 230583,
+        "ja": "あの男鳴り物入りで入社したけど、実力のほど看板に偽りなしだったね。",
+        "en": "He came on board this company with a lot of fanfare and he turns out to have the skill and talent to live up to it.",
+        "enId": 67950,
+        "form": "入社",
+        "furigana": [
+          ["あの"],
+          ["男", "おとこ"],
+          ["鳴", "な"],
+          ["り"],
+          ["物入", "ものい"],
+          ["りで"],
+          ["入社", "にゅうしゃ"],
+          ["したけど、"],
+          ["実力", "じつりょく"],
+          ["のほど"],
+          ["看板", "かんばん"],
+          ["に"],
+          ["偽", "いつわ"],
+          ["りなしだったね。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-09",
+    "term": "睨む",
+    "kana": "にらむ",
+    "meaning": "to glare at, to stare; to keep an eye on",
+    "level": "N2",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 105605,
+        "ja": "彼は私をにらんだ。",
+        "en": "He stared at me.",
+        "enId": 298083,
+        "form": "にらんだ",
+        "furigana": [["彼", "かれ"], ["は"], ["私", "わたし"], ["をにらんだ。"]]
+      },
+      {
+        "id": 87744,
+        "ja": "彼女は怒って私をにらんだ。",
+        "en": "She stared me down with anger.",
+        "enId": 315963,
+        "form": "にらんだ",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["怒", "おこ"],
+          ["って"],
+          ["私", "わたし"],
+          ["をにらんだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-10",
+    "term": "俄",
+    "kana": "にわか",
+    "meaning": "sudden, abrupt, unexpected",
+    "level": "N2",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "spec2"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 198672,
+        "ja": "にわか仕込みの知識ではその問題は解けなかった。",
+        "en": "Hastily acquired knowledge was not enough to solve the problem.",
+        "enId": 35865,
+        "form": "にわか",
+        "furigana": [
+          ["にわか"],
+          ["仕込", "じこ"],
+          ["みの"],
+          ["知識", "ちしき"],
+          ["ではその"],
+          ["問題", "もんだい"],
+          ["は"],
+          ["解", "と"],
+          ["けなかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-11",
+    "term": "ねじ",
+    "kana": "ねじ",
+    "meaning": "(a) screw",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1", "ichi2"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-10-12",
+    "term": "捩る",
+    "kana": "ねじる",
+    "meaning": "to twist",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi2"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 209521,
+        "ja": "その取っ手を右にねじると箱は開きます。",
+        "en": "Twist that knob to the right and the box will open.",
+        "enId": 46783,
+        "form": "ねじる",
+        "furigana": [
+          ["その"],
+          ["取", "と"],
+          ["っ"],
+          ["手", "て"],
+          ["を"],
+          ["右", "みぎ"],
+          ["にねじると"],
+          ["箱", "はこ"],
+          ["は"],
+          ["開", "ひら"],
+          ["きます。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-13",
+    "term": "熱する",
+    "kana": "ねっする",
+    "meaning": "to heat",
+    "level": "N2",
+    "pos": [
+      "suru verb - special class",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [0, 3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121896,
+        "ja": "熱しやすいものは冷めやすい。",
+        "en": "Soon hot, soon cold.",
+        "enId": 282107,
+        "form": "熱し",
+        "furigana": [
+          ["熱", "ねっ"],
+          ["しやすいものは"],
+          ["冷", "さ"],
+          ["めやすい。"]
+        ]
+      },
+      {
+        "id": 143735,
+        "ja": "水は熱せられると蒸気になる。",
+        "en": "Water changes into vapor when it is heated.",
+        "enId": 270831,
+        "form": "熱せられる",
+        "furigana": [
+          ["水", "みず"],
+          ["は"],
+          ["熱", "ねっ"],
+          ["せられると"],
+          ["蒸気", "じょうき"],
+          ["になる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-14",
+    "term": "寝巻",
+    "kana": "ねまき",
+    "meaning": "sleep-wear, pajamas",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-10-15",
+    "term": "狙う",
+    "kana": "ねらう",
+    "meaning": "to aim at",
+    "level": "N2",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 104125,
+        "ja": "彼は小鳥を狙った。",
+        "en": "He aimed at the bird.",
+        "enId": 299567,
+        "form": "狙った",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["小鳥", "ことり"],
+          ["を"],
+          ["狙", "ねら"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 104054,
+        "ja": "彼は昇進をねらっている。",
+        "en": "He is out for promotion.",
+        "enId": 299638,
+        "form": "ねらっている",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["昇進", "しょうしん"],
+          ["をねらっている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-16",
+    "term": "～年生",
+    "kana": "～ねんせい",
+    "meaning": "counter for school year",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-10-17",
+    "term": "農産物",
+    "kana": "のうさんぶつ",
+    "meaning": "agricultural produce",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf06"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 192022,
+        "ja": "わが国の主な農産物は米である。",
+        "en": "The chief crop of our country is rice.",
+        "enId": 29184,
+        "form": "農産物",
+        "furigana": [
+          ["わが"],
+          ["国", "くに"],
+          ["の"],
+          ["主", "おも"],
+          ["な"],
+          ["農産物", "のうさんぶつ"],
+          ["は"],
+          ["米", "こめ"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 171360,
+        "ja": "今年の農産物の出来は思ったより良い。",
+        "en": "The farm production of this year is better than we expected.",
+        "enId": 243115,
+        "form": "農産物",
+        "furigana": [
+          ["今年", "ことし"],
+          ["の"],
+          ["農産物", "のうさんぶつ"],
+          ["の"],
+          ["出来", "でき"],
+          ["は"],
+          ["思", "おも"],
+          ["ったより"],
+          ["良", "よ"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-18",
+    "term": "農村",
+    "kana": "のうそん",
+    "meaning": "agricultural community",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-10-19",
+    "term": "濃度",
+    "kana": "のうど",
+    "meaning": "concentration, density",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf07"],
+    "field": ["chemistry"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-10-20",
+    "term": "農薬",
+    "kana": "のうやく",
+    "meaning": "agricultural chemicals",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 97453,
+        "ja": "彼らは果樹に農薬を散布している。",
+        "en": "They are spraying the fruit trees.",
+        "enId": 306249,
+        "form": "農薬",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["果樹", "かじゅ"],
+          ["に"],
+          ["農薬", "のうやく"],
+          ["を"],
+          ["散布", "さんぷ"],
+          ["している。"]
+        ]
+      },
+      {
+        "id": 465641,
+        "ja": "無農薬栽培とは、農薬を使わずに穀物、野菜、果物などの植物を栽培する方法です。",
+        "en": "Organic cultivation is a method of growing plants (grains, vegetables, fruit, etc.) without using agricultural chemicals.",
+        "enId": 506783,
+        "form": "農薬",
+        "furigana": [
+          ["無", "む"],
+          ["農薬", "のうやく"],
+          ["栽培", "さいばい"],
+          ["とは、"],
+          ["農薬", "のうやく"],
+          ["を"],
+          ["使", "つか"],
+          ["わずに"],
+          ["穀物", "こくもつ"],
+          ["、"],
+          ["野菜", "やさい"],
+          ["、"],
+          ["果物", "くだもの"],
+          ["などの"],
+          ["植物", "しょくぶつ"],
+          ["を"],
+          ["栽培", "さいばい"],
+          ["する"],
+          ["方法", "ほうほう"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-21",
+    "term": "能率",
+    "kana": "のうりつ",
+    "meaning": "efficiency",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 213859,
+        "ja": "そうすれば能率が上がりますよ。",
+        "en": "That makes for efficiency.",
+        "enId": 51145,
+        "form": "能率",
+        "furigana": [
+          ["そうすれば"],
+          ["能率", "のうりつ"],
+          ["が"],
+          ["上", "あ"],
+          ["がりますよ。"]
+        ]
+      },
+      {
+        "id": 147133,
+        "ja": "商売では能率のよさということが最も重要な考えである。",
+        "en": "Efficiency is the dominant idea in business.",
+        "enId": 267428,
+        "form": "能率",
+        "furigana": [
+          ["商売", "しょうばい"],
+          ["では"],
+          ["能率", "のうりつ"],
+          ["のよさということが"],
+          ["最", "もっと"],
+          ["も"],
+          ["重要", "じゅうよう"],
+          ["な"],
+          ["考", "かんが"],
+          ["えである。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-22",
+    "term": "のこぎり",
+    "kana": "のこぎり",
+    "meaning": "saw",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf40"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-10-23",
+    "term": "上り",
+    "kana": "のぼり",
+    "meaning": "up-train (going to Tokyo), ascent",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123591,
+        "ja": "道はずっとのぼりだ。",
+        "en": "The road is uphill all the way.",
+        "enId": 280406,
+        "form": "のぼり",
+        "furigana": [["道", "みち"], ["はずっとのぼりだ。"]]
+      },
+      {
+        "id": 123524,
+        "ja": "道路はそこから急な上りになる。",
+        "en": "The road ascends steeply from that point.",
+        "enId": 280473,
+        "form": "上り",
+        "furigana": [
+          ["道路", "どうろ"],
+          ["はそこから"],
+          ["急", "きゅう"],
+          ["な"],
+          ["上", "のぼ"],
+          ["りになる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-24",
+    "term": "糊",
+    "kana": "のり",
+    "meaning": "glue, paste, starch",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf33"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 110646,
+        "ja": "彼はメモをドアに糊で貼った。",
+        "en": "He pasted the notice on the door.",
+        "enId": 293040,
+        "form": "糊",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はメモをドアに"],
+          ["糊", "のり"],
+          ["で"],
+          ["貼", "は"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 159169,
+        "ja": "私はのりで二枚の紙を貼り合わせた。",
+        "en": "I stuck two sheets of paper together with paste.",
+        "enId": 255356,
+        "form": "のり",
+        "furigana": [
+          ["私", "わたし"],
+          ["はのりで"],
+          ["二", "に"],
+          ["枚", "まい"],
+          ["の"],
+          ["紙", "かみ"],
+          ["を"],
+          ["貼", "は"],
+          ["り"],
+          ["合", "あ"],
+          ["わせた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-25",
+    "term": "乗換",
+    "kana": "のりかえ",
+    "meaning": "a transfer (e.g., trains, buses)",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["spec1", "ichi1", "news1", "nf20"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-10-26",
+    "term": "乗り越し",
+    "kana": "のりこし",
+    "meaning": "riding past (one's station)",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-10-27",
+    "term": "のろのろ",
+    "kana": "のろのろ",
+    "meaning": "slowly, sluggishly",
+    "level": "N2",
+    "pos": [
+      "adverb (fukushi)",
+      "adverb taking the 'to' particle",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 182630,
+        "ja": "休日で車は街道をのろのろと動いた。",
+        "en": "The holiday traffic crawled along the highway.",
+        "enId": 19764,
+        "form": "のろのろと",
+        "furigana": [
+          ["休日", "きゅうじつ"],
+          ["で"],
+          ["車", "くるま"],
+          ["は"],
+          ["街道", "かいどう"],
+          ["をのろのろと"],
+          ["動", "うご"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 203713,
+        "ja": "タクシーはカタツムリと同じくらいのろのろ進んでいるように思えた。",
+        "en": "The taxi seemed to go as slowly as a snail.",
+        "enId": 40952,
+        "form": "のろのろ",
+        "furigana": [
+          ["タクシーはカタツムリと"],
+          ["同", "おな"],
+          ["じくらいのろのろ"],
+          ["進", "すす"],
+          ["んでいるように"],
+          ["思", "おも"],
+          ["えた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-28",
+    "term": "呑気",
+    "kana": "のんき",
+    "meaning": "carefree, optimistic, careless",
+    "level": "N2",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "processes": ["ateji"],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-10-29",
+    "term": "俳句",
+    "kana": "はいく",
+    "meaning": "haiku poetry",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121586,
+        "ja": "俳句は季節と関連が深い。",
+        "en": "Haiku are closely related to the seasons of the year.",
+        "enId": 282419,
+        "form": "俳句",
+        "furigana": [
+          ["俳句", "はいく"],
+          ["は"],
+          ["季節", "きせつ"],
+          ["と"],
+          ["関連", "かんれん"],
+          ["が"],
+          ["深", "ふか"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 218151,
+        "ja": "これは芭蕉の非常に有名な俳句です。",
+        "en": "This is a very famous haiku by Basho.",
+        "enId": 55463,
+        "form": "俳句",
+        "furigana": [
+          ["これは"],
+          ["芭蕉", "ばしょう"],
+          ["の"],
+          ["非常", "ひじょう"],
+          ["に"],
+          ["有名", "ゆうめい"],
+          ["な"],
+          ["俳句", "はいく"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-30",
+    "term": "売店",
+    "kana": "ばいてん",
+    "meaning": "shop, stand",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 85326,
+        "ja": "病院売店はどこにありますか。",
+        "en": "Where is the hospital shop?",
+        "enId": 318387,
+        "form": "売店",
+        "furigana": [
+          ["病院", "びょういん"],
+          ["売店", "ばいてん"],
+          ["はどこにありますか。"]
+        ]
+      },
+      {
+        "id": 108872,
+        "ja": "彼は学校の売店で文房具を買った。",
+        "en": "He bought some stationery at the school store.",
+        "enId": 294817,
+        "form": "売店",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["学校", "がっこう"],
+          ["の"],
+          ["売店", "ばいてん"],
+          ["で"],
+          ["文房具", "ぶんぼうぐ"],
+          ["を"],
+          ["買", "か"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-10-31",
+    "term": "売買",
+    "kana": "ばいばい",
+    "meaning": "trade, buying and selling",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108903,
+        "ja": "彼は革製品の売買をしている。",
+        "en": "He buys and sells leather goods.",
+        "enId": 294789,
+        "form": "売買",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["革製品", "かわせいひん"],
+          ["の"],
+          ["売買", "ばいばい"],
+          ["をしている。"]
+        ]
+      }
+    ]
+  }
+]

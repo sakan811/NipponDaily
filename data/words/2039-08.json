@@ -1,0 +1,1002 @@
+[
+  {
+    "date": "2039-08-01",
+    "term": "名誉",
+    "kana": "めいよ",
+    "meaning": "honor, credit, prestige",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 88028,
+        "ja": "彼女は大学の名誉だ。",
+        "en": "She is an honor to our college.",
+        "enId": 315678,
+        "form": "名誉",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["大学", "だいがく"],
+          ["の"],
+          ["名誉", "めいよ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 90706,
+        "ja": "彼女は学校の名誉です。",
+        "en": "She is an honor to our school.",
+        "enId": 313006,
+        "form": "名誉",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["学校", "がっこう"],
+          ["の"],
+          ["名誉", "めいよ"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-02",
+    "term": "明朗",
+    "kana": "めいろう",
+    "meaning": "bright, clear, cheerful",
+    "level": "N1",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99566,
+        "ja": "彼は明朗快活な青年だ。",
+        "en": "He is a cheerful young man.",
+        "enId": 304131,
+        "form": "明朗",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["明朗", "めいろう"],
+          ["快活", "かいかつ"],
+          ["な"],
+          ["青年", "せいねん"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-03",
+    "term": "目方",
+    "kana": "めかた",
+    "meaning": "weight",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 188604,
+        "ja": "塩は目方で売られる。",
+        "en": "Salt is sold by weight.",
+        "enId": 25749,
+        "form": "目方",
+        "furigana": [
+          ["塩", "しお"],
+          ["は"],
+          ["目方", "めかた"],
+          ["で"],
+          ["売", "う"],
+          ["られる。"]
+        ]
+      },
+      {
+        "id": 86497,
+        "ja": "彼女は目方がふえつつある。",
+        "en": "She is gaining in weight.",
+        "enId": 317214,
+        "form": "目方",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["目方", "めかた"],
+          ["がふえつつある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-04",
+    "term": "恵み",
+    "kana": "めぐみ",
+    "meaning": "blessing",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf19"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 144928,
+        "ja": "神の恵みのあらんことを！",
+        "en": "God bless you!",
+        "enId": 269618,
+        "form": "恵み",
+        "furigana": [
+          ["神", "かみ"],
+          ["の"],
+          ["恵", "めぐ"],
+          ["みのあらんことを！"]
+        ]
+      },
+      {
+        "id": 144929,
+        "ja": "神の恵みがありますように。",
+        "en": "May God bless you.",
+        "enId": 269634,
+        "form": "恵み",
+        "furigana": [
+          ["神", "かみ"],
+          ["の"],
+          ["恵", "めぐ"],
+          ["みがありますように。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-05",
+    "term": "恵む",
+    "kana": "めぐむ",
+    "meaning": "to bless, to show mercy to",
+    "level": "N1",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 208051,
+        "ja": "その男は私に金を恵んでくれと頼んだ。",
+        "en": "The man begged me for money.",
+        "enId": 45308,
+        "form": "恵んで",
+        "furigana": [
+          ["その"],
+          ["男", "おとこ"],
+          ["は"],
+          ["私", "わたし"],
+          ["に"],
+          ["金", "かね"],
+          ["を"],
+          ["恵", "めぐ"],
+          ["んでくれと"],
+          ["頼", "たの"],
+          ["んだ。"]
+        ]
+      },
+      {
+        "id": 206124,
+        "ja": "その老人は私にお金を恵んでくれと言った。",
+        "en": "The old man begged me for money.",
+        "enId": 43369,
+        "form": "恵んで",
+        "furigana": [
+          ["その"],
+          ["老人", "ろうじん"],
+          ["は"],
+          ["私", "わたし"],
+          ["にお"],
+          ["金", "かね"],
+          ["を"],
+          ["恵", "めぐ"],
+          ["んでくれと"],
+          ["言", "い"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-06",
+    "term": "目覚しい",
+    "kana": "めざましい",
+    "meaning": "brilliant, remarkable",
+    "level": "N1",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf39"],
+    "pitch": [4],
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-07",
+    "term": "目覚める",
+    "kana": "めざめる",
+    "meaning": "to wake up",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf33"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 86530,
+        "ja": "彼女は目ざめた。",
+        "en": "She woke from her slumber.",
+        "enId": 317181,
+        "form": "目ざめた",
+        "furigana": [["彼女", "かのじょ"], ["は"], ["目", "め"], ["ざめた。"]]
+      },
+      {
+        "id": 212163,
+        "ja": "その音で目覚めた。",
+        "en": "The noise woke me.",
+        "enId": 49442,
+        "form": "目覚めた",
+        "furigana": [
+          ["その"],
+          ["音", "おと"],
+          ["で"],
+          ["目覚", "めざ"],
+          ["めた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-08",
+    "term": "目付き",
+    "kana": "めつき",
+    "meaning": "look, expression of the eyes, eyes",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf44"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 230593,
+        "ja": "あの男は目つきが悪い。",
+        "en": "He has an unpleasant look in his eyes.",
+        "enId": 67960,
+        "form": "目つき",
+        "furigana": [
+          ["あの"],
+          ["男", "おとこ"],
+          ["は"],
+          ["目", "め"],
+          ["つきが"],
+          ["悪", "わる"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 93897,
+        "ja": "彼女の目つきは陰気になった。",
+        "en": "Her eyes darkened.",
+        "enId": 309810,
+        "form": "目つき",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["目", "め"],
+          ["つきは"],
+          ["陰気", "いんき"],
+          ["になった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-09",
+    "term": "滅亡",
+    "kana": "めつぼう",
+    "meaning": "downfall, collapse, destruction",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 143906,
+        "ja": "人類は滅亡するだろう。",
+        "en": "Man would perish.",
+        "enId": 270660,
+        "form": "滅亡",
+        "furigana": [
+          ["人類", "じんるい"],
+          ["は"],
+          ["滅亡", "めつぼう"],
+          ["するだろう。"]
+        ]
+      },
+      {
+        "id": 184599,
+        "ja": "核戦争は人類を滅亡させるだろう。",
+        "en": "A nuclear war will bring about the destruction of mankind.",
+        "enId": 21727,
+        "form": "滅亡",
+        "furigana": [
+          ["核", "かく"],
+          ["戦争", "せんそう"],
+          ["は"],
+          ["人類", "じんるい"],
+          ["を"],
+          ["滅亡", "めつぼう"],
+          ["させるだろう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-10",
+    "term": "目途",
+    "kana": "めど",
+    "meaning": "goal, outlook",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-11",
+    "term": "目盛",
+    "kana": "めもり",
+    "meaning": "scale, gradations",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [0, 3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-12",
+    "term": "メロディー",
+    "kana": "メロディー",
+    "meaning": "melody",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 110644,
+        "ja": "彼はメロディーを口笛で吹き始めた。",
+        "en": "He began to whistle a tune.",
+        "enId": 293042,
+        "form": "メロディー",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はメロディーを"],
+          ["口笛", "くちぶえ"],
+          ["で"],
+          ["吹", "ふ"],
+          ["き"],
+          ["始", "はじ"],
+          ["めた。"]
+        ]
+      },
+      {
+        "id": 161581,
+        "ja": "私はあの歌のメロディーが思い出せない。",
+        "en": "I can't remember the tune of that song.",
+        "enId": 252935,
+        "form": "メロディー",
+        "furigana": [
+          ["私", "わたし"],
+          ["はあの"],
+          ["歌", "うた"],
+          ["のメロディーが"],
+          ["思", "おも"],
+          ["い"],
+          ["出", "だ"],
+          ["せない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-13",
+    "term": "面会",
+    "kana": "めんかい",
+    "meaning": "interview",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 118475,
+        "ja": "彼に面会するのはたやすい。",
+        "en": "He is easy to reach.",
+        "enId": 284699,
+        "form": "面会",
+        "furigana": [
+          ["彼", "かれ"],
+          ["に"],
+          ["面会", "めんかい"],
+          ["するのはたやすい。"]
+        ]
+      },
+      {
+        "id": 106599,
+        "ja": "彼は仕事中なので面会は出来ません。",
+        "en": "You can't see him because he is engaged.",
+        "enId": 297087,
+        "form": "面会",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["仕事", "しごと"],
+          ["中", "ちゅう"],
+          ["なので"],
+          ["面会", "めんかい"],
+          ["は"],
+          ["出来", "でき"],
+          ["ません。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-14",
+    "term": "面目",
+    "kana": "めんぼく",
+    "meaning": "face, honor, reputation",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-15",
+    "term": "～網",
+    "kana": "～もう",
+    "meaning": "~ network",
+    "level": "N1",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-16",
+    "term": "設ける",
+    "kana": "もうける",
+    "meaning": "to create, to establish",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 188999,
+        "ja": "英国は多くの植民地を設けた。",
+        "en": "England established many colonies.",
+        "enId": 26146,
+        "form": "設けた",
+        "furigana": [
+          ["英国", "えいこく"],
+          ["は"],
+          ["多", "おお"],
+          ["くの"],
+          ["植民", "しょくみん"],
+          ["地", "ち"],
+          ["を"],
+          ["設", "もう"],
+          ["けた。"]
+        ]
+      },
+      {
+        "id": 229240,
+        "ja": "イギリスは多くの植民地を設けた。",
+        "en": "Britain established many colonies.",
+        "enId": 66598,
+        "form": "設けた",
+        "furigana": [
+          ["イギリスは"],
+          ["多", "おお"],
+          ["くの"],
+          ["植民", "しょくみん"],
+          ["地", "ち"],
+          ["を"],
+          ["設", "もう"],
+          ["けた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-17",
+    "term": "申し入れる",
+    "kana": "もうしいれる",
+    "meaning": "to propose, to suggest",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["news1", "nf22"],
+    "pitch": [5, 0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 74064,
+        "ja": "同じ頃、事務員・有村夏恵は、今月を限りに退職する旨を五鬼上に申し入れた。",
+        "en": "At the same time, the clerk Natsue Arimura told Gokijo of her intent to resign after this month.",
+        "enId": 329656,
+        "form": "申し入れた",
+        "furigana": [
+          ["同", "おな"],
+          ["じ"],
+          ["頃", "ころ"],
+          ["、"],
+          ["事務", "じむ"],
+          ["員", "いん"],
+          ["・有村"],
+          ["夏", "なつ"],
+          ["恵は、"],
+          ["今月", "こんげつ"],
+          ["を"],
+          ["限", "かぎ"],
+          ["りに"],
+          ["退職", "たいしょく"],
+          ["する"],
+          ["旨", "むね"],
+          ["を"],
+          ["五", "ご"],
+          ["鬼", "おに"],
+          ["上", "じょう"],
+          ["に"],
+          ["申", "もう"],
+          ["し"],
+          ["入", "い"],
+          ["れた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-18",
+    "term": "申込",
+    "kana": "もうしこみ",
+    "meaning": "application, request, proposal",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-19",
+    "term": "申出",
+    "kana": "もうしで",
+    "meaning": "request, claim, report",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf11"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-20",
+    "term": "申し出る",
+    "kana": "もうしでる",
+    "meaning": "to report to, to tell, to suggest",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108589,
+        "ja": "彼は帰国を申し出た。",
+        "en": "He made a request to return to his home country.",
+        "enId": 295096,
+        "form": "申し出た",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["帰国", "きこく"],
+          ["を"],
+          ["申", "もう"],
+          ["し"],
+          ["出", "で"],
+          ["た。"]
+        ]
+      },
+      {
+        "id": 97506,
+        "ja": "彼らは援助を申し出た。",
+        "en": "They offered assistance.",
+        "enId": 306197,
+        "form": "申し出た",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["援助", "えんじょ"],
+          ["を"],
+          ["申", "もう"],
+          ["し"],
+          ["出", "で"],
+          ["た。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-21",
+    "term": "申し分",
+    "kana": "もうしぶん",
+    "meaning": "objection, shortcomings",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf25"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 117231,
+        "ja": "彼の仕事は申し分がない。",
+        "en": "His work leaves nothing to be desired.",
+        "enId": 286434,
+        "form": "申し分",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["仕事", "しごと"],
+          ["は"],
+          ["申", "もう"],
+          ["し"],
+          ["分", "ぶん"],
+          ["がない。"]
+        ]
+      },
+      {
+        "id": 118100,
+        "ja": "彼の英語は申し分がない。",
+        "en": "His English leaves nothing to be desired.",
+        "enId": 285564,
+        "form": "申し分",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["英語", "えいご"],
+          ["は"],
+          ["申", "もう"],
+          ["し"],
+          ["分", "ぶん"],
+          ["がない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-22",
+    "term": "盲点",
+    "kana": "もうてん",
+    "meaning": "blind spot",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [1, 3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-23",
+    "term": "猛烈",
+    "kana": "もうれつ",
+    "meaning": "violent, vehement, rage",
+    "level": "N1",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 80162,
+        "ja": "猛烈な暑さだ。",
+        "en": "The heat is intense.",
+        "enId": 19176,
+        "form": "猛烈な",
+        "furigana": [["猛烈", "もうれつ"], ["な"], ["暑", "あつ"], ["さだ。"]]
+      },
+      {
+        "id": 99548,
+        "ja": "彼は猛烈に毒ついた。",
+        "en": "He didn't half swear.",
+        "enId": 304149,
+        "form": "猛烈",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["猛烈", "もうれつ"],
+          ["に"],
+          ["毒", "どく"],
+          ["ついた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-24",
+    "term": "もがく",
+    "kana": "もがく",
+    "meaning": "to struggle, to wriggle, to be impatient",
+    "level": "N1",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-25",
+    "term": "目録",
+    "kana": "もくろく",
+    "meaning": "catalogue, catalog, list",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 145298,
+        "ja": "新刊書の目録を作って欲しいと思います。",
+        "en": "I wish you would make a list of the newly published books.",
+        "enId": 269265,
+        "form": "目録",
+        "furigana": [
+          ["新刊", "しんかん"],
+          ["書", "しょ"],
+          ["の"],
+          ["目録", "もくろく"],
+          ["を"],
+          ["作", "つく"],
+          ["って"],
+          ["欲", "ほ"],
+          ["しいと"],
+          ["思", "おも"],
+          ["います。"]
+        ]
+      },
+      {
+        "id": 235001,
+        "ja": "７月２２日付けのお手紙につきまして私共の最新の目録を同封します。",
+        "en": "With regard to your letter of July 22nd, I enclose our most recent catalogue.",
+        "enId": 72378,
+        "form": "目録",
+        "furigana": [
+          ["７月２２"],
+          ["日", "にち"],
+          ["付", "づ"],
+          ["けのお"],
+          ["手紙", "てがみ"],
+          ["につきまして"],
+          ["私", "わたし"],
+          ["共", "ども"],
+          ["の"],
+          ["最新", "さいしん"],
+          ["の"],
+          ["目録", "もくろく"],
+          ["を"],
+          ["同封", "どうふう"],
+          ["します。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-26",
+    "term": "もしくは",
+    "kana": "もしくは",
+    "meaning": "or, otherwise",
+    "level": "N1",
+    "pos": ["conjunction"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-27",
+    "term": "もたらす",
+    "kana": "もたらす",
+    "meaning": "to bring, to take, to bring about",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-28",
+    "term": "専ら",
+    "kana": "もっぱら",
+    "meaning": "wholly, solely, entirely",
+    "level": "N1",
+    "pos": [
+      "adverb (fukushi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news2", "nf27"],
+    "pitch": [0, 1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 162308,
+        "ja": "私は、もっぱら推理小説を読む。",
+        "en": "I read detective stories exclusively.",
+        "enId": 252206,
+        "form": "もっぱら",
+        "furigana": [
+          ["私", "わたし"],
+          ["は、もっぱら"],
+          ["推理", "すいり"],
+          ["小説", "しょうせつ"],
+          ["を"],
+          ["読", "よ"],
+          ["む。"]
+        ]
+      },
+      {
+        "id": 163232,
+        "ja": "私の成功はもっぱら幸運の賜物だ。",
+        "en": "My success was largely due to luck.",
+        "enId": 251280,
+        "form": "もっぱら",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["成功", "せいこう"],
+          ["はもっぱら"],
+          ["幸運", "こううん"],
+          ["の"],
+          ["賜物", "たまもの"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2039-08-29",
+    "term": "もてなす",
+    "kana": "もてなす",
+    "meaning": "to entertain, to make welcome",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-30",
+    "term": "もてる",
+    "kana": "もてる",
+    "meaning": "to be well liked, to be popular",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2039-08-31",
+    "term": "物好き",
+    "kana": "ものずき",
+    "meaning": "(idle) curiosity",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "priority": ["ichi1", "news2", "nf45"],
+    "pitch": [3, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]
