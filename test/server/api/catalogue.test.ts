@@ -22,6 +22,16 @@ describe("GET /api/catalogue", () => {
     );
   });
 
+  it("reports how many open words carry each part of an entry", async () => {
+    vi.setSystemTime(new Date("2026-03-08T12:00:00Z"));
+    const { coverage } = (await getCatalogue())({} as any).data;
+    const open = WORD_ENTRIES.filter((e) => e.date <= "2026-03-08");
+
+    expect(coverage.words).toBe(open.length);
+    expect(coverage.parts).toBe(open.filter((e) => e.morphemes.length).length);
+    expect(coverage.origin).toBe(open.filter((e) => e.sources.length).length);
+  });
+
   it("opens a new day at midnight in Japan, not UTC", async () => {
     vi.setSystemTime(new Date("2026-03-08T14:59:00Z"));
     const before = (await getCatalogue())({} as any).data.open;
