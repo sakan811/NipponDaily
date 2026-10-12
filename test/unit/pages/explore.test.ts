@@ -5,12 +5,12 @@ import ExplorePage from "~/app/pages/explore.vue";
 import { exploreWords } from "~~/shared/explore";
 import { filtersFromQuery } from "~~/shared/explore-query";
 
-const TODAY = "2026-03-08";
+const TODAY = "2012-10-09";
 
 const respond = (data: unknown) => ({
   success: true,
   data,
-  timestamp: "2026-03-08T00:00:00Z",
+  timestamp: "2012-10-09T00:00:00Z",
 });
 
 /** Answers each request the way the API would, from the real entries. */
@@ -45,7 +45,7 @@ describe("Explore Page (/explore)", () => {
       `${total} of ${total} words`,
     );
     const first = wrapper.find('[data-testid="explore-word"]');
-    expect(first.attributes("href")).toBe("/words/2026-03-08");
+    expect(first.attributes("href")).toBe("/words/2012-10-09");
   });
 
   it("starts from the filters in the URL and ignores values the API would refuse", async () => {

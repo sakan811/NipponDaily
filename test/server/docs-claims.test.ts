@@ -149,8 +149,8 @@ describe("the download sizes the Adding words chapter quotes", () => {
 });
 
 describe("the claims the Patterns text makes about the years", () => {
-  // The Daily words chapter says: no word before 2024 is N1, 2025 is
-  // almost all N1, and katakana spellings are nearly half of 2022.
+  // The Daily words chapter says: no word before 2011 is N1, 2012 is
+  // almost all N1, and katakana spellings are over a third of 2008.
   const entries = readdirSync(join(ROOT, "data/words"))
     .filter((f) => f.endsWith(".json"))
     .flatMap(
@@ -167,20 +167,20 @@ describe("the claims the Patterns text makes about the years", () => {
     test: (e: (typeof entries)[0]) => boolean,
   ) => list.filter(test).length / list.length;
 
-  it("no word before 2024 is N1", () => {
-    expect(entries.filter((e) => e.date < "2024" && e.level === "N1")).toEqual(
+  it("no word before 2011 is N1", () => {
+    expect(entries.filter((e) => e.date < "2011" && e.level === "N1")).toEqual(
       [],
     );
   });
 
-  it.each([2025])("%i is almost all N1", (y) => {
+  it.each([2012])("%i is almost all N1", (y) => {
     expect(share(year(y), (e) => e.level === "N1")).toBeGreaterThan(0.9);
   });
 
-  it("katakana spellings are nearly half of 2022", () => {
-    const kata = share(year(2022), (e) => /^[\u30A0-\u30FF]+$/.test(e.term));
-    expect(kata).toBeGreaterThan(0.4);
-    expect(kata).toBeLessThan(0.5);
+  it("katakana spellings are over a third of 2008", () => {
+    const kata = share(year(2008), (e) => /^[\u30A0-\u30FF]+$/.test(e.term));
+    expect(kata).toBeGreaterThan(1 / 3);
+    expect(kata).toBeLessThan(0.4);
   });
 });
 

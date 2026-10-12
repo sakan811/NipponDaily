@@ -3,22 +3,22 @@ import { RELATED_LIMIT } from "~~/shared/limits";
 import { relatedWords } from "~~/shared/related";
 import { WORD_ENTRIES } from "~~/shared/words";
 
-const TODAY = "2023-10-07";
+const TODAY = "2010-05-10";
 const entry = (date: string) => WORD_ENTRIES.find((e) => e.date === date)!;
 
 describe("relatedWords", () => {
   it("offers at most a handful of other words, never the entry itself", () => {
-    const words = relatedWords(entry("2022-12-07"), TODAY);
+    const words = relatedWords(entry("2009-07-10"), TODAY);
 
     expect(words.length).toBeGreaterThan(0);
     expect(words.length).toBeLessThanOrEqual(RELATED_LIMIT);
-    expect(words.map((w) => w.date)).not.toContain("2022-12-07");
+    expect(words.map((w) => w.date)).not.toContain("2009-07-10");
     expect(new Set(words.map((w) => w.date)).size).toBe(words.length);
   });
 
   it("ranks words that share a part first, and says which part", () => {
     // 月曜日 is 月 + 曜 + 日; the other weekdays share 曜 and 日.
-    const words = relatedWords(entry("2022-12-07"), TODAY);
+    const words = relatedWords(entry("2009-07-10"), TODAY);
 
     expect(words[0]!.shared.parts.length).toBeGreaterThan(0);
     const partsShared = words.map((w) => w.shared.parts.length);
@@ -27,7 +27,7 @@ describe("relatedWords", () => {
       const own = new Set(entry(w.date).morphemes.map((m) => m.text));
       for (const part of w.shared.parts) {
         expect(own.has(part)).toBe(true);
-        expect(entry("2022-12-07").morphemes.map((m) => m.text)).toContain(
+        expect(entry("2009-07-10").morphemes.map((m) => m.text)).toContain(
           part,
         );
       }
@@ -35,7 +35,7 @@ describe("relatedWords", () => {
   });
 
   it("only reports sharing that is really there", () => {
-    const base = entry("2023-07-10"); // 手紙
+    const base = entry("2010-02-10"); // 手紙
     for (const w of relatedWords(base, TODAY)) {
       const other = entry(w.date);
       for (const p of w.shared.processes) {
@@ -55,11 +55,11 @@ describe("relatedWords", () => {
   it("does not pad the row with words that share only a very common tag", () => {
     // 今年 has no parts and no stated layer; every other open word sharing its
     // "compound" and "borrowing" tags is a weak match, so none is offered.
-    expect(relatedWords(entry("2022-10-08"), TODAY)).toEqual([]);
+    expect(relatedWords(entry("2009-05-11"), TODAY)).toEqual([]);
   });
 
   it("carries the fields the card shows", () => {
-    const [w] = relatedWords(entry("2023-07-10"), TODAY);
+    const [w] = relatedWords(entry("2010-02-10"), TODAY);
     const e = entry(w!.date);
 
     expect(w).toMatchObject({
@@ -71,18 +71,18 @@ describe("relatedWords", () => {
   });
 
   it("never offers a word that has not opened", () => {
-    // On 2022-12-13 only the first 67 days are open.
-    const words = relatedWords(entry("2022-12-07"), "2022-12-13");
+    // On 2009-07-16 only the first 67 days are open.
+    const words = relatedWords(entry("2009-07-10"), "2009-07-16");
 
     expect(words.length).toBeGreaterThan(0);
-    for (const w of words) expect(w.date <= "2022-12-13").toBe(true);
+    for (const w of words) expect(w.date <= "2009-07-16").toBe(true);
     // Same entry, an earlier "today": nothing from after it can appear either.
-    for (const w of relatedWords(entry("2022-10-11"), "2022-10-17")) {
-      expect(w.date <= "2022-10-17").toBe(true);
+    for (const w of relatedWords(entry("2009-05-14"), "2009-05-20")) {
+      expect(w.date <= "2009-05-20").toBe(true);
     }
   });
 
   it("is empty when no other word has opened", () => {
-    expect(relatedWords(entry("2022-10-08"), "2022-10-08")).toEqual([]);
+    expect(relatedWords(entry("2009-05-11"), "2009-05-11")).toEqual([]);
   });
 });

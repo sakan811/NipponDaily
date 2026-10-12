@@ -93,7 +93,7 @@ describe("pages", () => {
 describe("what must not be served", () => {
   it("a day that has not arrived is a 404, as is the day before the first", async () => {
     expect(await status("/words/2999-01-01")).toBe(404);
-    expect(await status("/words/2018-10-07")).toBe(404);
+    expect(await status("/words/2005-05-10")).toBe(404);
   });
 
   it("an unknown page is a real 404 and noindex", async () => {

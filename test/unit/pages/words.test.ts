@@ -9,10 +9,10 @@ import { WORD_ENTRIES } from "~~/shared/words";
 const respond = (data: unknown) => ({
   success: true,
   data,
-  timestamp: "2023-07-08T00:00:00Z",
+  timestamp: "2010-02-08T00:00:00Z",
 });
 
-const MONTH = "2023-07";
+const MONTH = "2010-02";
 const monthEntries = WORD_ENTRIES.filter((e) => e.date.startsWith(MONTH));
 
 /** A calendar holding only one full month, as the API would answer it. */
@@ -20,13 +20,13 @@ const calendarPayload = (today: string) =>
   respond({
     ...exploreCalendar(MONTH, {}, today),
     months: [MONTH],
-    monthCounts: { [MONTH]: 31 },
+    monthCounts: { [MONTH]: 28 },
   });
 
 describe("Words Page (Calendar)", () => {
   beforeEach(() => {
     (global as any).$fetch.mockReset();
-    (global as any).$fetch.mockResolvedValue(calendarPayload("2023-07-03"));
+    (global as any).$fetch.mockResolvedValue(calendarPayload("2010-02-03"));
   });
 
   it("fetches the calendar and names the month", async () => {
@@ -37,7 +37,7 @@ describe("Words Page (Calendar)", () => {
       query: {},
     });
     expect(wrapper.find('[data-testid="calendar-month"]').text()).toBe(
-      "July 2023",
+      "February 2010",
     );
   });
 
@@ -54,8 +54,8 @@ describe("Words Page (Calendar)", () => {
   });
 
   it("marks a repeated word with the day it first opened", async () => {
-    const payload = calendarPayload("2023-07-03");
-    payload.data.days[1]!.wordDate = "2018-10-09";
+    const payload = calendarPayload("2010-02-03");
+    payload.data.days[1]!.wordDate = "2005-05-12";
     (global as any).$fetch.mockResolvedValue(payload);
     const wrapper = mount(WordsPage);
     await flushPromises();
@@ -67,7 +67,7 @@ describe("Words Page (Calendar)", () => {
     expect(open[1]!.find('[data-testid="calendar-day-repeat"]').exists()).toBe(
       true,
     );
-    expect(open[1]!.attributes("href")).toBe("/words/2018-10-09");
+    expect(open[1]!.attributes("href")).toBe("/words/2005-05-12");
     expect(open[1]!.attributes("aria-label")).toContain("first opened");
     expect(
       wrapper.find('[data-testid="calendar-first-opened-note"]').exists(),
@@ -79,7 +79,7 @@ describe("Words Page (Calendar)", () => {
     await flushPromises();
 
     const closed = wrapper.findAll('[data-testid="calendar-day-closed"]');
-    expect(closed).toHaveLength(28);
+    expect(closed).toHaveLength(25);
     expect(closed[0]!.text()).toBe("4");
     expect(closed[0]!.element.tagName).not.toBe("A");
     // The fourth's word is nowhere in the page.
@@ -87,22 +87,22 @@ describe("Words Page (Calendar)", () => {
   });
 
   it("leaves a day the catalogue has no word for blank, not closed", async () => {
-    // The catalogue starts part-way through 2018-10, so its first week is bare.
+    // The catalogue starts part-way through 2005-05, so its first days are bare.
     (global as any).$fetch.mockResolvedValue(
       respond({
-        ...exploreCalendar("2018-10", {}, "2023-07-03"),
-        months: ["2018-10"],
-        monthCounts: { "2018-10": 24 },
+        ...exploreCalendar("2005-05", {}, "2010-02-03"),
+        months: ["2005-05"],
+        monthCounts: { "2005-05": 21 },
       }),
     );
     const wrapper = mount(WordsPage);
     await flushPromises();
 
     const empty = wrapper.findAll('[data-testid="calendar-day-empty"]');
-    expect(empty).toHaveLength(7);
+    expect(empty).toHaveLength(10);
     expect(empty[0]!.attributes("aria-label")).toContain("no word");
     expect(wrapper.findAll('[data-testid="calendar-day-open"]')).toHaveLength(
-      24,
+      21,
     );
   });
 
@@ -115,14 +115,14 @@ describe("Words Page (Calendar)", () => {
     expect(open[0]!.classes().join(" ")).not.toContain("ring-2");
   });
 
-  it("starts the grid on the right weekday (Jul 1, 2023 is a Saturday)", async () => {
+  it("starts the grid on the right weekday (Feb 1, 2010 is a Monday)", async () => {
     const wrapper = mount(WordsPage);
     await flushPromises();
 
     const cells = wrapper.findAll('[role="gridcell"]');
-    // Sun-first: six blanks (Sun-Fri) precede the 1st, then 31 days.
-    expect(cells).toHaveLength(6 + 31);
-    expect(cells[6]!.text()).toContain("1");
+    // Sun-first: one blank (Sun) precedes the 1st, then 28 days.
+    expect(cells).toHaveLength(1 + 28);
+    expect(cells[1]!.text()).toContain("1");
     expect(
       wrapper.findAll('[role="columnheader"]').map((h) => h.text()),
     ).toEqual(["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]);
@@ -141,12 +141,12 @@ describe("Words Page (Calendar)", () => {
   });
 
   it("opens every day once the whole month has passed", async () => {
-    (global as any).$fetch.mockResolvedValue(calendarPayload("2023-08-27"));
+    (global as any).$fetch.mockResolvedValue(calendarPayload("2010-03-30"));
     const wrapper = mount(WordsPage);
     await flushPromises();
 
     expect(wrapper.findAll('[data-testid="calendar-day-open"]')).toHaveLength(
-      31,
+      28,
     );
     expect(wrapper.findAll('[data-testid="calendar-day-closed"]')).toHaveLength(
       0,
@@ -172,7 +172,7 @@ describe("Words Page (Calendar)", () => {
 });
 
 describe("Words Page (calendar filters)", () => {
-  const TODAY = "2022-12-13";
+  const TODAY = "2009-07-16";
   const replace = vi.fn();
 
   /** Answers each request the way the API would, from the real entries. */
@@ -181,7 +181,7 @@ describe("Words Page (calendar filters)", () => {
       async (_url: string, opts?: { query?: Record<string, string> }) => {
         const { month, ...rest } = opts?.query ?? {};
         return respond(
-          exploreCalendar(month ?? "2022-12", filtersFromQuery(rest), TODAY),
+          exploreCalendar(month ?? "2009-07", filtersFromQuery(rest), TODAY),
         );
       },
     );
@@ -207,19 +207,19 @@ describe("Words Page (calendar filters)", () => {
   });
 
   it("jumps to a month in another year and keeps the URL in step", async () => {
-    const wrapper = await mountAt({ month: "2022-12" });
+    const wrapper = await mountAt({ month: "2009-07" });
 
     const years = wrapper.findAll('[data-testid="calendar-years"] button');
     expect(years.map((y) => y.text())).toEqual(
-      expect.arrayContaining(["2018", "2022", "2024", "2026"]),
+      expect.arrayContaining(["2005", "2009", "2024", "2026"]),
     );
 
     await wrapper.find('[data-testid="calendar-year-2024"]').trigger("click");
     await flushPromises();
 
-    expect(replace).toHaveBeenLastCalledWith({ query: { month: "2024-12" } });
+    expect(replace).toHaveBeenLastCalledWith({ query: { month: "2024-07" } });
     expect(wrapper.find('[data-testid="calendar-month"]').text()).toBe(
-      "December 2024",
+      "July 2024",
     );
   });
 
@@ -228,8 +228,8 @@ describe("Words Page (calendar filters)", () => {
     (global as any).$fetch.mockImplementation(
       async (_url: string, opts?: { query?: Record<string, string> }) =>
         respond({
-          ...exploreCalendar(opts?.query?.month ?? "2022-12", {}, TODAY),
-          month: opts?.query?.month ?? "2022-12",
+          ...exploreCalendar(opts?.query?.month ?? "2009-07", {}, TODAY),
+          month: opts?.query?.month ?? "2009-07",
           months: Object.keys(counts),
           monthCounts: counts,
         }),
@@ -280,7 +280,7 @@ describe("Words Page (calendar filters)", () => {
   });
 
   it("offers no jump when this month has matches", async () => {
-    const wrapper = await mountAt({ month: "2022-12", level: "N5" });
+    const wrapper = await mountAt({ month: "2009-07", level: "N5" });
     expect(
       wrapper.find('[data-testid="calendar-earlier-match"]').exists(),
     ).toBe(false);
@@ -323,9 +323,9 @@ describe("Words Page (calendar filters)", () => {
   });
 
   it("fades the days that do not match, and still links them", async () => {
-    const wrapper = await mountAt({ month: "2022-12", level: "N2" });
+    const wrapper = await mountAt({ month: "2009-07", level: "N2" });
 
-    const expected = exploreCalendar("2022-12", { level: ["N2"] }, TODAY);
+    const expected = exploreCalendar("2009-07", { level: ["N2"] }, TODAY);
     const matching = expected.days.filter((d) => d.match).length;
     const open = days(wrapper);
     expect(
@@ -333,7 +333,7 @@ describe("Words Page (calendar filters)", () => {
     ).toHaveLength(matching);
     const faded = open.find((d) => d.attributes("data-match") === "false")!;
     expect(faded.classes()).toContain("opacity-35");
-    expect(faded.attributes("href")).toMatch(/^\/words\/2022-12-/);
+    expect(faded.attributes("href")).toMatch(/^\/words\/2009-07-/);
     expect(faded.attributes("aria-label")).toContain("does not match");
     expect(wrapper.find('[data-testid="calendar-month-matches"]').text()).toBe(
       String(matching),

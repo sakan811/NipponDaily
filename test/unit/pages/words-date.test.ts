@@ -7,21 +7,21 @@ import { WORD_ENTRIES, payloadFor } from "~~/shared/words";
 
 const entryOn = (date: string) => WORD_ENTRIES.find((e) => e.date === date)!;
 
-const respond = (date: string, today = "2023-08-07") => ({
+const respond = (date: string, today = "2010-03-10") => ({
   success: true,
   data: payloadFor(entryOn(date), today),
-  timestamp: "2023-08-07T00:00:00Z",
+  timestamp: "2010-03-10T00:00:00Z",
 });
 
 describe("Word Page (/words/[date])", () => {
   beforeEach(() => {
     (global as any).$fetch.mockReset();
     vi.mocked(useRoute).mockReturnValue({
-      path: "/words/2023-07-20",
+      path: "/words/2010-02-20",
       query: {},
-      params: { date: "2023-07-20" },
+      params: { date: "2010-02-20" },
     } as any);
-    (global as any).$fetch.mockResolvedValue(respond("2023-07-20"));
+    (global as any).$fetch.mockResolvedValue(respond("2010-02-20"));
   });
 
   it("fetches the word for the date in the URL", async () => {
@@ -29,7 +29,7 @@ describe("Word Page (/words/[date])", () => {
     await flushPromises();
 
     expect((global as any).$fetch).toHaveBeenCalledWith("/api/daily-word", {
-      query: { date: "2023-07-20" },
+      query: { date: "2010-02-20" },
     });
   });
 
@@ -47,23 +47,23 @@ describe("Word Page (/words/[date])", () => {
 
     const prev = wrapper.find('[data-testid="word-prev"]');
     const next = wrapper.find('[data-testid="word-next"]');
-    expect(prev.attributes("to")).toBe("/words/2023-07-19");
+    expect(prev.attributes("to")).toBe("/words/2010-02-19");
     expect(prev.text()).toContain("出口");
-    expect(next.attributes("to")).toBe("/words/2023-07-21");
+    expect(next.attributes("to")).toBe("/words/2010-02-21");
     expect(next.text()).toContain("果物");
   });
 
   it("offers related words beneath the entry", async () => {
-    const date = "2023-07-20";
+    const date = "2010-02-20";
     (global as any).$fetch.mockImplementation(async (url: string) =>
       url === "/api/related"
         ? {
             success: true,
             data: {
               date,
-              words: relatedWords(entryOn(date), "2023-08-07"),
+              words: relatedWords(entryOn(date), "2010-03-10"),
             },
-            timestamp: "2023-08-07T00:00:00Z",
+            timestamp: "2010-03-10T00:00:00Z",
           }
         : respond(date),
     );
@@ -81,7 +81,7 @@ describe("Word Page (/words/[date])", () => {
   it("still shows the entry when the related words fail to load", async () => {
     (global as any).$fetch.mockImplementation(async (url: string) => {
       if (url === "/api/related") throw { statusCode: 500 };
-      return respond("2023-07-20");
+      return respond("2010-02-20");
     });
     const wrapper = mount(WordPage);
     await flushPromises();
@@ -92,12 +92,12 @@ describe("Word Page (/words/[date])", () => {
 
   it("has no next link when the next day hasn't arrived", async () => {
     vi.mocked(useRoute).mockReturnValue({
-      path: "/words/2023-07-12",
+      path: "/words/2010-02-12",
       query: {},
-      params: { date: "2023-07-12" },
+      params: { date: "2010-02-12" },
     } as any);
     (global as any).$fetch.mockResolvedValue(
-      respond("2023-07-12", "2023-07-12"),
+      respond("2010-02-12", "2010-02-12"),
     );
     const wrapper = mount(WordPage);
     await flushPromises();
@@ -148,12 +148,12 @@ describe("Word Page (/words/[date])", () => {
     expect(meta.title()).toBe("ありがとう (ありがとう) — Thank you");
     expect(meta.description()).toContain("ありがとう");
     expect(meta.ogType).toBe("article");
-    expect(meta.ogUrl()).toBe("https://nippondaily.test/words/2023-07-20");
-    expect(meta.articlePublishedTime()).toBe("2023-07-20T00:00:00+09:00");
+    expect(meta.ogUrl()).toBe("https://nippondaily.test/words/2010-02-20");
+    expect(meta.articlePublishedTime()).toBe("2010-02-20T00:00:00+09:00");
     expect(meta.robots()).toBeUndefined();
     const head = vi.mocked(useHead).mock.calls[0]![0] as any;
     expect(head.link[0].href()).toBe(
-      "https://nippondaily.test/words/2023-07-20",
+      "https://nippondaily.test/words/2010-02-20",
     );
   });
 
