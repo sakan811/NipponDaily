@@ -42,7 +42,7 @@ const wordsFeature = computed(() => {
   const base =
     "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT " +
     JLPT_RANGE +
-    " vocabulary, and only words with a Wiktionary Etymology section.";
+    " vocabulary, easiest list first. Each section shows what its source holds for the word and otherwise says the data is missing: the origin needs a Wiktionary Etymology section, the pitch accent an accent list and a second dictionary that agree, the sentences a Tatoeba match.";
   const c = catalogue.value;
   return c
     ? `${base} ${c.total} words are written, ${rangeMonthsText(c)}, and ${c.open} have opened so far.`

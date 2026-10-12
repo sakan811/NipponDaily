@@ -12,7 +12,7 @@
 
 ## Features
 
-One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 with KanjiVG stroke order · pitch accent · JMdict's register, field and dialect tags · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> vocabulary, and only from words whose Wiktionary page has an Etymology section; only each headline is hand-written.
+One word a day at midnight in Japan (JST) · a month calendar · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 with KanjiVG stroke order · pitch accent · JMdict's register, field and dialect tags · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> vocabulary, one a day; a section with no source behind it says so, and only each headline is hand-written.
 
 ## Quick start
 

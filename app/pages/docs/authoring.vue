@@ -112,32 +112,34 @@
     <ol>
       <li>
         <strong>Choose the words</strong> (a person or a model may do this).
-        They must be pool words ({{ JLPT_RANGE }}). Prefer words whose
-        Wiktionary page has an Etymology section; the generator will tell you if
-        one doesn't. Most pool words have none, and most of those that do are
-        already planned. Some may still be unplanned (the generator says which
-        have a section); beyond those a further month needs a newer dump.
+        They must be pool words ({{ JLPT_RANGE }}) that no plan holds yet. Every
+        pool word whose spelling no other word shares is planned, so a further
+        month means a new word list, or a change that lets one spelling hold
+        several readings (the snapshots are keyed by spelling today).
       </li>
       <li>
         <strong>Write the plan</strong>
         <code>data/word-plan/YYYY-MM.json</code>: one
-        <code>{ "date", "term", "headline" }</code> per day,
+        <code>{ "date", "term" }</code> per day,
         <strong>every day of the month</strong>. Add <code>"kana"</code> only
-        when a spelling has several pool words (明日, 梅雨). The headline is one
-        sentence that earns the click and keeps to what the quoted evidence
-        says. A new month continues directly after the last day, with no gap;
-        any day already past opens at once.
+        when a spelling has several pool words (明日, 梅雨). Add a
+        <code>"headline"</code> only to a word that has an Etymology section:
+        one sentence that earns the click and keeps to what the quoted evidence
+        says. A word with a headline promises an origin, so the generator
+        refuses it if the dump has no section for its reading; a word without
+        one is built with whatever the sources hold. A new month continues
+        directly after the last day, with no gap; any day already past opens at
+        once.
       </li>
       <li>
         <strong>Pin the evidence</strong>: <code>pnpm data:etymology</code>, and
         <code>pnpm data:sentences</code> for the example sentences and
         <code>pnpm data:pitch</code> for the pitch accent (a word with none of
         either is fine). Every term in the plans is included; add
-        <code>--terms 電話,友達,…</code> for words with no plan yet. Many pool
-        words have no usable Etymology section, so for a bulk batch pin more
-        candidates than you need with <code>--skip-missing</code>, then
-        <code>pnpm data:etymology --prune --terms &lt;the chosen ones&gt;</code>
-        to drop the rest.
+        <code>--terms 電話,友達,…</code> for words with no plan yet. Most pool
+        words have no usable Etymology section, so pin a batch with
+        <code>--skip-missing</code>: a word without one is skipped and its entry
+        says the origin is missing.
       </li>
       <li>
         <strong>Generate</strong>: <code>pnpm data:words</code>, then
@@ -148,9 +150,9 @@
       </li>
       <li>
         <strong>Read the result once.</strong> Entries with no breakdown are
-        normal (the source gave no clean split), as are entries with no layer
-        (irregular spellings). Skim each headline against the quoted lines: it
-        must not claim more than they do.
+        normal (the source gave no clean split, or there is no source), as are
+        entries with no layer (irregular spellings). Skim each headline against
+        the quoted lines: it must not claim more than they do.
       </li>
       <li>
         <strong>Register the month</strong> in <code>shared/words.ts</code> (one
@@ -293,7 +295,7 @@ const otherLevels = `${rest[0]}–${rest[rest.length - 1]}`;
 const pieces = [
   {
     path: "data/word-plan/YYYY-MM.json",
-    what: "The only hand-written content: `{ date, term, headline }` per day (`kana` when a spelling has several pool words).",
+    what: "The only hand-written content: `{ date, term }` per day, and a `headline` for a word with an Etymology section (`kana` when a spelling has several pool words).",
   },
   {
     path: "data/words/YYYY-MM.json",
@@ -395,7 +397,7 @@ const month: Required<Pick<DiagramSpec, "nodes" | "edges">> = {
 const refusals = [
   {
     message: "“none for <reading>” or “its only section is for …”",
-    todo: "The page has no Etymology section for the word's reading. Replace the word; do not borrow another reading's section.",
+    todo: "A word with a headline needs an Etymology section for its reading. Drop the headline (the entry then says the origin is missing) or replace the word; do not borrow another reading's section.",
   },
   {
     message: "“2 pool words with that spelling”",

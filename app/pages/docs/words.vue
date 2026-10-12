@@ -187,9 +187,9 @@
       entries (a JLPT
       {{ JLPT_RANGE }}
       sample, parser-derived tags), not the language. The years are lopsided,
-      too: katakana spellings are nearly half of 2022, and 2025 and 2026 are
-      almost all N1 (no word before 2024 is), so the counts show more of each
-      than the language would.
+      too: katakana spellings are nearly half of 2022, and 2025 is almost all N1
+      (no word before 2024 is), so the counts show more of each than the
+      language would.
     </p>
 
     <h3>Related words</h3>
@@ -242,16 +242,24 @@
     </p>
     <p>
       A handful of words appear at more than one level with the same reading;
-      <code>dedupeAcrossLevels()</code> keeps each at the lowest. A shared
-      spelling with a <em>different</em> reading (開く あく and ひらく) is a
-      different word. An entry's <code>term</code>, <code>kana</code>,
+      <code>dedupeAcrossLevels()</code> keeps each at the lowest, and the few
+      that coincide once their corrections are applied (キロ) count as one. A
+      shared spelling with a <em>different</em> reading (開く あく and ひらく)
+      is a different word. An entry's <code>term</code>, <code>kana</code>,
       <code>level</code> and <code>meaning</code> must equal a pool word.
     </p>
     <p>
-      The pool is larger than the catalogue. A pool word becomes a daily word
-      only if the pinned dump has an Etymology section for its own reading,
-      because every claim is quoted from one. Most pool words have none, so the
-      catalogue holds only the ones that do.
+      The catalogue is the pool, one word a day, easiest list first. The words
+      that were chosen for their origin come first and carry a headline; every
+      other pool word follows without one. A word shows an origin only if the
+      pinned dump has an Etymology section for its own reading, because every
+      claim is quoted from one; without it the entry has no
+      <code>sources</code>, no <code>morphemes</code>, no headline and no dump
+      date, and the page says the data is missing in those sections. Its layer
+      and processes come from KANJIDIC2 and JMdict alone. The same goes for the
+      example sentences and the pitch accent. One spelling is one entry (the
+      snapshots are keyed by spelling), so a pool word whose spelling another
+      word already holds, such as 後 ご next to 後 あと, is not planned.
     </p>
   </DocsBook>
 </template>
@@ -313,7 +321,11 @@ const fields = [
     meaning:
       "Keyword tags found in the quoted text (`WORD_PROCESSES`), plus the ones JMdict independently records: a coinage made in Japan, an ateji, gikun or jukujikun spelling or reading (for a word written with kanji), a loan source.",
   },
-  { name: "headline", meaning: "The only hand-written field." },
+  {
+    name: "headline?",
+    meaning:
+      "The only hand-written field. Left out for a word with no origin to hook.",
+  },
   {
     name: "morphemes[]",
     meaning:
@@ -322,7 +334,7 @@ const fields = [
   {
     name: "sources[]",
     meaning:
-      "`{ quote }`: one verbatim line of Wiktionary's Etymology section for this reading.",
+      "`{ quote }`: one verbatim line of Wiktionary's Etymology section for this reading. Empty when the dump has none for it.",
   },
   {
     name: "examples[]?",
@@ -331,7 +343,10 @@ const fields = [
       MAX_EXAMPLES +
       " example sentences from the pinned Tatoeba export, with their translations, unchanged. `id` and `enId` are Tatoeba's numbers and `form` is the word as the sentence writes it. `furigana` cuts `ja` into parts that join back to it, `[text]` or `[kanji, reading]`, and is left out when no kanji got a verified reading; a kanji whose reading the sources cannot settle stays bare in it. The whole field is left out when no sentence qualifies.",
   },
-  { name: "wiktionaryDump", meaning: "Date of the pinned Wiktionary dump." },
+  {
+    name: "wiktionaryDump?",
+    meaning: "Date of the pinned Wiktionary dump; left out with the sources.",
+  },
 ];
 
 const flow: Required<Pick<DiagramSpec, "nodes" | "edges">> = {
