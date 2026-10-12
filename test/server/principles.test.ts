@@ -21,11 +21,19 @@ const SERVER = walk("server", [".ts"]);
 const APP = walk("app", [".vue", ".ts"]);
 
 /** A file's code: comments dropped, since prose may name what code must not do. */
-const code = (file: string) =>
-  read(file)
-    .replace(/<!--[\s\S]*?-->/g, "")
-    .replace(/\/\*[\s\S]*?\*\//g, "")
-    .replace(/(^|[^:"'`\\])\/\/.*$/gm, "$1");
+const code = (file: string) => {
+  // Repeat until stable so a comment opener rebuilt by a removal (`<!<!---->--`)
+  // is stripped too.
+  let text = read(file);
+  for (let prev = ""; prev !== text;) {
+    prev = text;
+    text = text
+      .replace(/<!--[\s\S]*?-->/g, "")
+      .replace(/\/\*[\s\S]*?\*\//g, "")
+      .replace(/(^|[^:"'`\\])\/\/.*$/gm, "$1");
+  }
+  return text;
+};
 
 const offenders = (files: string[], pattern: RegExp) =>
   files.filter((f) => pattern.test(code(f)));
