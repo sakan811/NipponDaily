@@ -187,8 +187,8 @@
       entries (a JLPT
       {{ JLPT_RANGE }}
       sample, parser-derived tags), not the language. The years are lopsided,
-      too: katakana spellings are nearly half of 2022, and 2025 is almost all N1
-      (no word before 2024 is), so the counts show more of each than the
+      too: katakana spellings are over a third of 2008, and 2012 is almost all
+      N1 (no word before 2011 is), so the counts show more of each than the
       language would.
     </p>
 
