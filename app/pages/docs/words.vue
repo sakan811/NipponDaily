@@ -152,18 +152,20 @@
     </p>
     <p>
       The layer <code>unstated</code> picks the words with no stated layer.
-      <code>pos</code> filters on a coarse group of JMdict's tags (noun, verb,
-      adjective, adverb, prefix or suffix, other, or not stated;
-      <code>POS_GROUPS</code> in <code>shared/word-labels.ts</code>), because
-      the verbatim tags are long. The entry keeps the tags as they are, and a
-      word can fall in more than one group. <code>frequency</code> filters on
-      how common JMdict says a word is, from the priority codes its entry keeps
-      (<code>FREQUENCY_GROUPS</code>): <em>common</em> when its spelling or
-      reading is in the first tier of a list JMdict draws on (<code>{{
+      <code>pos</code> filters on a coarse group of JMdict's tags ({{
+        posText
+      }}; <code>POS_GROUPS</code> in <code>shared/word-labels.ts</code>),
+      because the verbatim tags are long. The entry keeps the tags as they are,
+      and a word can fall in more than one group. <code>frequency</code> filters
+      on how common JMdict says a word is, from the priority codes its entry
+      keeps (<code>FREQUENCY_GROUPS</code>):
+      <em>{{ frequencyLabel("common") }}</em> when its spelling or reading is in
+      the first tier of a list JMdict draws on (<code>{{
         COMMON_PRIORITY_TEXT
       }}</code
-      >, the codes JMdict itself counts as common), <em>less common</em> when it
-      has only other codes, <em>not ranked</em> when it has none, which says the
+      >, the codes JMdict itself counts as common),
+      <em>{{ frequencyLabel("less") }}</em> when it has only other codes,
+      <em>{{ frequencyLabel("unlisted") }}</em> when it has none, which says the
       word is outside those lists and not that it is rare. Each facet's counts
       are taken over the words the <em>other</em> filters leave, so an option
       never promises a count it can't deliver. Filters live in the URL; an
@@ -186,10 +188,10 @@
       a reading ending in っ, or other. The page says the counts describe these
       entries (a JLPT
       {{ JLPT_RANGE }}
-      sample, parser-derived tags), not the language. The years are lopsided,
-      too: katakana spellings are over a third of 2008, and 2012 is almost all
-      N1 (no word before 2011 is), so the counts show more of each than the
-      language would.
+      sample, parser-derived tags), not the language. The catalogue is lopsided
+      by how it was filled (the words chosen for their origin, then each list in
+      turn), so a stretch of days can hold mostly one level or one script, and
+      the counts show more of it than the language would.
     </p>
 
     <h3>Related words</h3>
@@ -271,7 +273,13 @@ import CatalogueRange from "../../components/CatalogueRange.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
 import { JLPT_RANGE, REFERENCE_FILES } from "~~/shared/jlpt";
-import { COMMON_PRIORITY_TEXT } from "~~/shared/word-labels";
+import {
+  COMMON_PRIORITY_TEXT,
+  FREQUENCY_GROUPS,
+  POS_GROUP_IDS,
+  POS_GROUPS,
+} from "~~/shared/word-labels";
+import type { FrequencyGroup } from "~~/types/index";
 import { countWord } from "~~/shared/count";
 import {
   MAX_EXAMPLES,
@@ -283,6 +291,12 @@ import {
   RELATED_PART_WEIGHT,
 } from "~~/shared/limits";
 import { OG_HEIGHT, OG_WIDTH } from "~~/shared/og-card";
+
+const posText = POS_GROUP_IDS.map((id) =>
+  POS_GROUPS[id].label.toLowerCase(),
+).join(", ");
+const frequencyLabel = (id: FrequencyGroup): string =>
+  FREQUENCY_GROUPS[id].label.toLowerCase();
 
 const fields = [
   { name: "date", meaning: "`YYYY-MM-DD`, JST." },

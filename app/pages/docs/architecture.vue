@@ -26,12 +26,12 @@
         needs no datastore and no configuration.
       </li>
       <li>
-        <strong
-          >Nothing about a reader is stored or sent to the app's server.</strong
-        >
+        <strong>Nothing about a reader is stored by the app.</strong>
         No accounts, and no request to a third party: the fonts are served from
-        the app. The rate limiter counts addresses in process memory only, a
-        minute at a time, and writes them nowhere.
+        the app. The server sees a request only to answer it. The rate limiter
+        counts addresses in process memory only,
+        {{ RATE_LIMIT.windowMs / 1000 }}
+        seconds at a time, and writes them nowhere.
       </li>
     </ul>
 
@@ -66,7 +66,7 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
           <tr v-for="m in sharedModules" :key="m.file">
             <td>
               <code>{{ m.file }}</code
-              ><template v-if="m.serverOnly"
+              ><template v-if="serverOnly(m.file)"
                 ><br /><em>server and tests only</em></template
               >
             </td>
@@ -80,14 +80,16 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
       <span class="note-title">The one import rule</span>
       <p>
         Nothing under <code>app/</code> may import
-        <code>shared/words|parts|kanji|explore|patterns|related|sitemap</code>
-        or <code>data/words</code>. They carry every entry, upcoming ones
-        included, and would ship them to the browser. The server fetches through
-        <code>$fetch</code>, which calls the API handler in-process, so the data
-        never enters the client bundle.
-        <code>test/unit/no-future-leak.test.ts</code> enforces it, and
-        components that need labels import the data-free
-        <code>shared/word-labels.ts</code>.
+        <code>{{ SERVER_ONLY_TEXT }}</code>
+        or <code>{{ ENTRIES_DIR }}</code
+        >. They carry every entry, upcoming ones included, and would ship them
+        to the browser. The server fetches through <code>$fetch</code>, which
+        calls the API handler in-process, so the data never enters the client
+        bundle. <code>test/unit/no-future-leak.test.ts</code> enforces it,
+        <code>shared/server-only.ts</code> lists the modules and
+        <code>test/server/server-only-modules.test.ts</code> checks the list
+        against the imports, and components that need labels import the
+        data-free <code>shared/word-labels.ts</code>.
       </p>
     </aside>
 
@@ -133,9 +135,13 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
         <code>DocDiagram</code>, <code>SeasonButton</code>,
         <code>BgmControl</code>, <code>SeasonalEffects</code>,
         <code>TrendingFallback</code> (the generic fetch-error card), the
-        education charms of <code>/kana</code>, and small local
-        <code>U*.vue</code> primitives that mimic the <code>@nuxt/ui</code> API
-        (the project does not depend on it).
+        education charms of <code>/kana</code> (<code>OmamoriCharm</code> and
+        <code>EmaPlaque</code>), the book's own parts
+        (<code>DocsContents</code>, <code>CatalogueRange</code>,
+        <code>RichText</code> for the light markup in tables,
+        <code>ColorSwatchBadge</code> and <code>ErrorStateHeading</code>), and
+        small local <code>U*.vue</code> primitives that mimic the
+        <code>@nuxt/ui</code> API (the project does not depend on it).
       </li>
       <li>
         <strong>SEO:</strong> every page calls <code>usePageSeo</code> (title,
@@ -293,12 +299,24 @@ import CatalogueRange from "../../components/CatalogueRange.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
 import pkg from "~~/package.json";
+import { RATE_LIMIT } from "~~/shared/endpoints";
+import {
+  ENTRIES_DIR,
+  SERVER_ONLY_MODULES,
+  SERVER_ONLY_TEXT,
+} from "~~/shared/server-only";
 import { stackOf } from "~~/shared/stack";
 import { STORAGE_KEYS } from "~~/shared/storage-keys";
 
 const stack = stackOf(pkg);
 
 const storageKeys = Object.values(STORAGE_KEYS);
+
+/** Whether a row of the module table is one `app/` may not import. */
+const serverOnly = (file: string): boolean =>
+  (SERVER_ONLY_MODULES as readonly string[]).includes(
+    file.replace(/\.ts$/, ""),
+  );
 
 const system: Required<DiagramSpec> = {
   nodes: [
@@ -341,37 +359,30 @@ const system: Required<DiagramSpec> = {
 const sharedModules = [
   {
     file: "words.ts",
-    serverOnly: true,
     role: "The catalogue (`WORD_ENTRIES`), JST date logic (`todayJst`…), `entryForDate`, `lapEntryForDate`, `payloadFor`, `calendarForMonth`.",
   },
   {
     file: "parts.ts",
-    serverOnly: true,
     role: "`partsIndex(today)` and `partDetail(text, today)`: the morpheme index, derived from the entries' `morphemes`.",
   },
   {
     file: "kanji.ts",
-    serverOnly: true,
     role: "`kanjiIndex(today)` and `kanjiDetail(char, today)`: KANJIDIC2's record of each kanji an open word is written with (`data/reference/kanji.json`), its KanjiVG strokes where the counts agree (`data/reference/strokes.json`) and the open words that use it.",
   },
   {
     file: "explore.ts",
-    serverOnly: true,
     role: "`exploreWords(filters, today)`: search and filters (several choices, any or all) with facet counts. `exploreCalendar(month, filters, today)`: one calendar month marked against the same filters, with per-month counts.",
   },
   {
     file: "related.ts",
-    serverOnly: true,
     role: "`relatedWords(entry, today)`: the open words most like one entry.",
   },
   {
     file: "patterns.ts",
-    serverOnly: true,
     role: "`patternsFor(today)`: counts across the open words, including rendaku.",
   },
   {
     file: "sitemap.ts",
-    serverOnly: true,
     role: "`sitemapXml()` and `robotsTxt()`: open days only.",
   },
   {
@@ -409,10 +420,17 @@ const sharedModules = [
   },
   { file: "docs.ts", role: "The chapters of this book." },
   {
+    file: "server-only.ts",
+    role: "The import rule: `SERVER_ONLY_MODULES`, the modules `app/` may not import because they read every entry. A test derives the list from the imports and fails when it is wrong.",
+  },
+  {
     file: "japanese.ts",
     role: "What counts as a kanji (`KANJI_CHARS`, `kanjiIn()`, `hasKanji()`) and `katakanaToHiragana()`, for the kanji records, the search and the data scripts.",
   },
-  { file: "jlpt.ts", role: "`JLPT_LEVELS`." },
+  {
+    file: "jlpt.ts",
+    role: "`JLPT_LEVELS`, `JLPT_RANGE` and the names of the level snapshots (`referenceFile()`).",
+  },
   {
     file: "stack.ts",
     role: "`stackOf()`: the Node range and framework versions, read from `package.json`.",
@@ -427,7 +445,7 @@ const sharedModules = [
   },
   {
     file: "limits.ts",
-    role: "The numbers the rules turn on: `MAX_PART_LENGTH`, `MAX_QUERY_LENGTH`, the related-words limit, weight and minimum score, `MAX_EXAMPLES`, `STROKE_SQUARE`.",
+    role: "The numbers the rules turn on: `MAX_PART_LENGTH`, `MAX_QUERY_LENGTH`, the related-words limit, weight and minimum score, `MAX_EXAMPLES`, `STROKE_SQUARE` and the Patterns combination sizes and example limit.",
   },
   {
     file: "jst.ts",

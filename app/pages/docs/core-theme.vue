@@ -36,13 +36,13 @@
       Every word comes from the community JLPT {{ JLPT_RANGE }} lists, and from
       nowhere else. The lists are a trusted, widely used starting point, and the
       app keeps to them rather than widen the pool to find more words. Every
-      list word is planned, one a day, easiest list first. What an entry shows
-      depends on what the sources hold: an origin only where the pinned dump has
-      an Etymology section for the word's reading, a pitch accent only where the
-      accent list and a second dictionary agree, and so on. A section the
-      sources have nothing for says
-      <em>we don't have the data for this section</em> instead of guessing or
-      disappearing.
+      list word is planned, one a day: first the words chosen for their origin,
+      then the rest, easiest list first. What an entry shows depends on what the
+      sources hold: an origin only where the pinned dump has an Etymology
+      section for the word's reading, a pitch accent only where the accent list
+      and a second dictionary agree, and so on. A section the sources have
+      nothing for says <em>we don't have the data for this section</em> instead
+      of guessing or disappearing.
     </p>
 
     <h2>Time is the theme</h2>
@@ -87,9 +87,12 @@
     <ol>
       <li>
         <strong>No reader data.</strong> No accounts, no progress, no streaks.
-        Nothing about a reader is sent to or stored on the app's server; only a
-        colour mode, a season pick and a music volume stay in the reader's own
-        browser. The site is the same for everyone.
+        Nothing about a reader is stored by the app: only a colour mode, a
+        season pick and a music volume stay, in the reader's own browser. The
+        server sees a request only to answer it (a page, a day, a search) and
+        records nothing of it; the rate limiter's count per address lives in
+        memory for {{ RATE_LIMIT.windowMs / 1000 }} seconds and is written
+        nowhere. The site is the same for everyone.
       </li>
       <li>
         <strong>Fits whenever a reader comes.</strong> Daily is ideal but never
@@ -120,7 +123,8 @@
         <strong>Nothing leaves the app.</strong> Everything the app offers is
         read in the app. It exports nothing (no download, no file for another
         tool), sends nothing about a reader to anyone (no analytics, no sign-in,
-        no form), loads no third-party script, font or embed, and keeps the data
+        no form that collects anything; the search box only asks the app for its
+        answer), loads no third-party script, font or embed, and keeps the data
         it shows committed beside the code. The server keeps nothing outside its
         own process. A link to a source is a citation the reader may follow, not
         something the app sends. A page that other sites preview is still served
@@ -144,6 +148,7 @@ import DocsBook from "../../components/DocsBook.vue";
 import DocDiagram from "../../components/DocDiagram.vue";
 import type { DiagramSpec } from "../../utils/diagram";
 import { andList, countWord } from "~~/shared/count";
+import { RATE_LIMIT } from "~~/shared/endpoints";
 import { JLPT_RANGE } from "~~/shared/jlpt";
 import { SEASON_IDS, seasonName } from "~~/shared/seasons";
 import { WORD_STRATA } from "~~/shared/word-labels";
