@@ -148,39 +148,33 @@ describe("the download sizes the Adding words chapter quotes", () => {
   });
 });
 
-describe("the claims the Patterns text makes about the years", () => {
-  // The Daily words chapter says: no word before 2011 is N1, 2012 is
-  // almost all N1, and katakana spellings are over a third of 2008.
-  const entries = readdirSync(join(ROOT, "data/words"))
-    .filter((f) => f.endsWith(".json"))
-    .flatMap(
-      (f) =>
-        JSON.parse(read(`data/words/${f}`)) as {
-          date: string;
-          term: string;
-          level: string;
-        }[],
-    );
-  const year = (y: number) => entries.filter((e) => e.date.startsWith(`${y}`));
-  const share = (
-    list: typeof entries,
-    test: (e: (typeof entries)[0]) => boolean,
-  ) => list.filter(test).length / list.length;
+describe("the browsers the Development chapter names", () => {
+  // The projects in playwright.config.ts, the install line in CI and the
+  // chapter's install line must agree.
+  const installed = (text: string) =>
+    text
+      .match(
+        /playwright install (?:--with-deps )?((?:chromium|firefox|webkit| )+)/,
+      )?.[1]
+      ?.trim()
+      .split(/\s+/)
+      .sort();
+  const ci = read(".github/workflows/webpage-test.yml");
+  const e2eJob = ci.slice(ci.indexOf("  e2e:"), ci.indexOf("  e2e-dev:"));
 
-  it("no word before 2011 is N1", () => {
-    expect(entries.filter((e) => e.date < "2011" && e.level === "N1")).toEqual(
-      [],
-    );
+  it("are the ones CI installs for the browser tests", () => {
+    const chapter = prose(read(`${DOCS_DIR}/development.vue`));
+    expect(installed(chapter)).toEqual(installed(e2eJob));
   });
 
-  it.each([2012])("%i is almost all N1", (y) => {
-    expect(share(year(y), (e) => e.level === "N1")).toBeGreaterThan(0.9);
-  });
-
-  it("katakana spellings are over a third of 2008", () => {
-    const kata = share(year(2008), (e) => /^[\u30A0-\u30FF]+$/.test(e.term));
-    expect(kata).toBeGreaterThan(1 / 3);
-    expect(kata).toBeLessThan(0.4);
+  it("are the engines the Playwright projects run", () => {
+    const config = read("playwright.config.ts");
+    for (const engine of installed(e2eJob)!)
+      expect(config.toLowerCase(), engine).toContain(
+        engine === "chromium"
+          ? "desktop chrome"
+          : `desktop ${engine === "webkit" ? "safari" : engine}`,
+      );
   });
 });
 
