@@ -1,0 +1,907 @@
+[
+  {
+    "date": "2026-12-01",
+    "term": "借りる",
+    "kana": "かりる",
+    "meaning": "to borrow, to owe",
+    "level": "N5",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 3559212,
+        "ja": "電話借りてもいい？",
+        "en": "May I use your phone?",
+        "enId": 16969,
+        "form": "借りて",
+        "furigana": [["電話", "でんわ"], ["借", "か"], ["りてもいい？"]]
+      },
+      {
+        "id": 148951,
+        "ja": "車を借りられますか。",
+        "en": "Can we rent a car?",
+        "enId": 265607,
+        "form": "借りられます",
+        "furigana": [["車", "くるま"], ["を"], ["借", "か"], ["りられますか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-02",
+    "term": "～がる",
+    "kana": "～がる",
+    "meaning": "feel",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-03",
+    "term": "～側",
+    "kana": "～がわ",
+    "meaning": "~ side",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-04",
+    "term": "汚い",
+    "kana": "きたない",
+    "meaning": "dirty, unclean, filthy",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf35"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 116208,
+        "ja": "彼の部屋は汚い。",
+        "en": "His room is untidy.",
+        "enId": 287461,
+        "form": "汚い",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["部屋", "へや"],
+          ["は"],
+          ["汚", "きたな"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 188577,
+        "ja": "汚い下着を人前で洗うな。",
+        "en": "Don't wash your dirty linen in public.",
+        "enId": 25722,
+        "form": "汚い",
+        "furigana": [
+          ["汚", "きたな"],
+          ["い"],
+          ["下着", "したぎ"],
+          ["を"],
+          ["人前", "ひとまえ"],
+          ["で"],
+          ["洗", "あら"],
+          ["うな。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-05",
+    "term": "牛肉",
+    "kana": "ぎゅうにく",
+    "meaning": "beef",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 179827,
+        "ja": "近頃牛肉は高い。",
+        "en": "Beef is expensive nowadays.",
+        "enId": 18686,
+        "form": "牛肉",
+        "furigana": [
+          ["近頃", "ちかごろ"],
+          ["牛肉", "ぎゅうにく"],
+          ["は"],
+          ["高", "たか"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 182303,
+        "ja": "牛肉にしてください。",
+        "en": "Beef, please.",
+        "enId": 19483,
+        "form": "牛肉",
+        "furigana": [["牛肉", "ぎゅうにく"], ["にしてください。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-06",
+    "term": "牛乳",
+    "kana": "ぎゅうにゅう",
+    "meaning": "milk",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 182295,
+        "ja": "牛乳が腐った。",
+        "en": "The milk has gone bad.",
+        "enId": 19478,
+        "form": "牛乳",
+        "furigana": [
+          ["牛乳", "ぎゅうにゅう"],
+          ["が"],
+          ["腐", "くさ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 182264,
+        "ja": "牛乳を飲みますか。",
+        "en": "Do you drink milk?",
+        "enId": 5360666,
+        "form": "牛乳",
+        "furigana": [
+          ["牛乳", "ぎゅうにゅう"],
+          ["を"],
+          ["飲", "の"],
+          ["みますか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-07",
+    "term": "教室",
+    "kana": "きょうしつ",
+    "meaning": "classroom",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 180183,
+        "ja": "教室で食べるの。",
+        "en": "I eat in the classroom.",
+        "enId": 500368,
+        "form": "教室",
+        "furigana": [["教室", "きょうしつ"], ["で"], ["食", "た"], ["べるの。"]]
+      },
+      {
+        "id": 500369,
+        "ja": "教室で食べるの？",
+        "en": "You eat in the classroom?",
+        "enId": 500370,
+        "form": "教室",
+        "furigana": [["教室", "きょうしつ"], ["で"], ["食", "た"], ["べるの？"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-08",
+    "term": "去年",
+    "kana": "きょねん",
+    "meaning": "last year",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-09",
+    "term": "着る",
+    "kana": "きる",
+    "meaning": "to put on (clothes above your waist); to wear",
+    "level": "N5",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 126606,
+        "ja": "着てみない？",
+        "en": "Why not try it on?",
+        "enId": 277442,
+        "form": "着て",
+        "furigana": [["着", "き"], ["てみない？"]]
+      },
+      {
+        "id": 83889,
+        "ja": "服を着ましたか。",
+        "en": "Have you finished dressing?",
+        "enId": 319827,
+        "form": "着ました",
+        "furigana": [["服", "ふく"], ["を"], ["着", "き"], ["ましたか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-10",
+    "term": "キロ",
+    "kana": "キロ",
+    "meaning": "(abbr.) kilo (kilogram)",
+    "level": "N5",
+    "pos": ["prefix"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "morphemes": [
+      {
+        "text": "キロ",
+        "reading": "キロ",
+        "meaning": "French kilo-"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From French kilo-, kilo."
+      }
+    ],
+    "examples": [
+      {
+        "id": 137984,
+        "ja": "体重が５キロ増えた。",
+        "en": "I've gained five kilograms.",
+        "enId": 275251,
+        "form": "キロ",
+        "furigana": [
+          ["体重", "たいじゅう"],
+          ["が５キロ"],
+          ["増", "ふ"],
+          ["えた。"]
+        ]
+      },
+      {
+        "id": 151890,
+        "ja": "私達は１０キロ走った。",
+        "en": "We ran for 10 kilometers.",
+        "enId": 262664,
+        "form": "キロ",
+        "furigana": [
+          ["私", "わたし"],
+          ["達", "たち"],
+          ["は１０キロ"],
+          ["走", "はし"],
+          ["った。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-11",
+    "term": "口",
+    "kana": "くち",
+    "meaning": "mouth; opening; job opening",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 173925,
+        "ja": "口は禍の門。",
+        "en": "The tongue wounds more than a lance.",
+        "enId": 240545,
+        "form": "口",
+        "furigana": [
+          ["口", "くち"],
+          ["は"],
+          ["禍", "わざわい"],
+          ["の"],
+          ["門", "もん"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 168125,
+        "ja": "死人に口なし。",
+        "en": "Dead men tell no tales.",
+        "enId": 246356,
+        "form": "口",
+        "furigana": [["死人", "しにん"], ["に"], ["口", "くち"], ["なし。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-12",
+    "term": "靴下",
+    "kana": "くつした",
+    "meaning": "socks",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [2, 4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 90361,
+        "ja": "彼女は靴下を直した。",
+        "en": "She mended her socks.",
+        "enId": 313353,
+        "form": "靴下",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["靴下", "くつした"],
+          ["を"],
+          ["直", "なお"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 179234,
+        "ja": "靴下にも流行がある。",
+        "en": "There are fashions for socks as well.",
+        "enId": 18090,
+        "form": "靴下",
+        "furigana": [
+          ["靴下", "くつした"],
+          ["にも"],
+          ["流行", "りゅうこう"],
+          ["がある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-13",
+    "term": "暗い",
+    "kana": "くらい",
+    "meaning": "dark, gloomy",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 174531,
+        "ja": "戸外は暗い。",
+        "en": "It is dark out of doors.",
+        "enId": 239938,
+        "form": "暗い",
+        "furigana": [["戸外", "こがい"], ["は"], ["暗", "くら"], ["い。"]]
+      },
+      {
+        "id": 194357,
+        "ja": "もう暗いよ。",
+        "en": "It is already dark.",
+        "enId": 31530,
+        "form": "暗い",
+        "furigana": [["もう"], ["暗", "くら"], ["いよ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-14",
+    "term": "～くらい",
+    "kana": "～くらい",
+    "meaning": "approximate (quantity)",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-15",
+    "term": "警官",
+    "kana": "けいかん",
+    "meaning": "police officer",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 176313,
+        "ja": "警官は彼を拘留した。",
+        "en": "The police held him in custody.",
+        "enId": 238151,
+        "form": "警官",
+        "furigana": [
+          ["警官", "けいかん"],
+          ["は"],
+          ["彼", "かれ"],
+          ["を"],
+          ["拘留", "こうりゅう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 93999,
+        "ja": "彼女の父は警官である。",
+        "en": "Her father is a policeman.",
+        "enId": 309707,
+        "form": "警官",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["父", "ちち"],
+          ["は"],
+          ["警官", "けいかん"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-16",
+    "term": "消す",
+    "kana": "けす",
+    "meaning": "to erase, to delete, to turn off power",
+    "level": "N5",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf27"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 204477,
+        "ja": "それ消して。",
+        "en": "Turn it off.",
+        "enId": 41719,
+        "form": "消して",
+        "furigana": [["それ"], ["消", "け"], ["して。"]]
+      },
+      {
+        "id": 124839,
+        "ja": "電気を消すな。",
+        "en": "Don't turn off the light.",
+        "enId": 279154,
+        "form": "消す",
+        "furigana": [["電気", "でんき"], ["を"], ["消", "け"], ["すな。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-17",
+    "term": "結婚",
+    "kana": "けっこん (する)",
+    "meaning": "marriage (get married)",
+    "level": "N5",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175747,
+        "ja": "結婚は身の枷。",
+        "en": "Wedlock is a padlock.",
+        "enId": 238718,
+        "form": "結婚",
+        "furigana": [
+          ["結婚", "けっこん"],
+          ["は"],
+          ["身", "み"],
+          ["の"],
+          ["枷", "かせ"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 175750,
+        "ja": "結婚は運次第。",
+        "en": "Marriage is a lottery.",
+        "enId": 238715,
+        "form": "結婚",
+        "furigana": [
+          ["結婚", "けっこん"],
+          ["は"],
+          ["運", "うん"],
+          ["次第", "しだい"],
+          ["。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-18",
+    "term": "～個",
+    "kana": "～こ",
+    "meaning": "counter for small items (e.g., fruits, cups)",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-19",
+    "term": "～語",
+    "kana": "～ご",
+    "meaning": "word, language",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-20",
+    "term": "公園",
+    "kana": "こうえん",
+    "meaning": "a park",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 157178,
+        "ja": "私は公園に歩く。",
+        "en": "I walk to the park.",
+        "enId": 257355,
+        "form": "公園",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["公園", "こうえん"],
+          ["に"],
+          ["歩", "ある"],
+          ["く。"]
+        ]
+      },
+      {
+        "id": 157179,
+        "ja": "私は公園に行く。",
+        "en": "I go to the park.",
+        "enId": 257353,
+        "form": "公園",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["公園", "こうえん"],
+          ["に"],
+          ["行", "い"],
+          ["く。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-21",
+    "term": "紅茶",
+    "kana": "こうちゃ",
+    "meaning": "black tea",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 107351,
+        "ja": "彼は紅茶を注文した。",
+        "en": "He ordered a cup of tea.",
+        "enId": 296335,
+        "form": "紅茶",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["紅茶", "こうちゃ"],
+          ["を"],
+          ["注文", "ちゅうもん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 157132,
+        "ja": "紅茶を一杯飲みたい。",
+        "en": "I want to drink a cup of tea.",
+        "enId": 257402,
+        "form": "紅茶",
+        "furigana": [
+          ["紅茶", "こうちゃ"],
+          ["を"],
+          ["一杯", "いっぱい"],
+          ["飲", "の"],
+          ["みたい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-22",
+    "term": "交番",
+    "kana": "こうばん",
+    "meaning": "police box",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 174099,
+        "ja": "交番が近くにある。",
+        "en": "A police station is close at hand.",
+        "enId": 240370,
+        "form": "交番",
+        "furigana": [
+          ["交番", "こうばん"],
+          ["が"],
+          ["近", "ちか"],
+          ["くにある。"]
+        ]
+      },
+      {
+        "id": 173841,
+        "ja": "向こうの交番で聞いてください。",
+        "en": "Ask at the police station over there.",
+        "enId": 1584073,
+        "form": "交番",
+        "furigana": [
+          ["向", "む"],
+          ["こうの"],
+          ["交番", "こうばん"],
+          ["で"],
+          ["聞", "き"],
+          ["いてください。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-23",
+    "term": "ここ",
+    "kana": "ここ",
+    "meaning": "here, this place",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-24",
+    "term": "九日",
+    "kana": "ここのか",
+    "meaning": "nine days; ninth day of the month",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-25",
+    "term": "九つ",
+    "kana": "ここのつ",
+    "meaning": "nine things",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf21"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-26",
+    "term": "答える",
+    "kana": "こたえる",
+    "meaning": "to answer, to reply",
+    "level": "N5",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["news2", "nf34", "spec1"],
+    "pitch": [3, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 4844,
+        "ja": "何て答えたの？",
+        "en": "How did you reply?",
+        "enId": 416890,
+        "form": "答えた",
+        "furigana": [["何", "なん"], ["て"], ["答", "こた"], ["えたの？"]]
+      },
+      {
+        "id": 176043,
+        "ja": "軽率に答えるな。",
+        "en": "Do not answer hastily.",
+        "enId": 238422,
+        "form": "答える",
+        "furigana": [["軽率", "けいそつ"], ["に"], ["答", "こた"], ["えるな。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-27",
+    "term": "この",
+    "kana": "この",
+    "meaning": "this",
+    "level": "N5",
+    "pos": ["pre-noun adjectival (rentaishi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-28",
+    "term": "コピーする",
+    "kana": "コピーする",
+    "meaning": "to copy",
+    "level": "N5",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-29",
+    "term": "困る",
+    "kana": "こまる",
+    "meaning": "to be bothered, to have difficulty",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf30"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 191516,
+        "ja": "挨拶に困った。",
+        "en": "I was at a loss for an answer.",
+        "enId": 28680,
+        "form": "困った",
+        "furigana": [["挨拶", "あいさつ"], ["に"], ["困", "こま"], ["った。"]]
+      },
+      {
+        "id": 113704,
+        "ja": "彼は困っている。",
+        "en": "He is in trouble.",
+        "enId": 289969,
+        "form": "困っている",
+        "furigana": [["彼", "かれ"], ["は"], ["困", "こま"], ["っている。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-30",
+    "term": "～ころ",
+    "kana": "～ころ",
+    "meaning": "about, toward, approximately (time)",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-31",
+    "term": "今月",
+    "kana": "こんげつ",
+    "meaning": "this month",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 172454,
+        "ja": "今月は黒字である。",
+        "en": "We are in the black this month.",
+        "enId": 242021,
+        "form": "今月",
+        "furigana": [
+          ["今月", "こんげつ"],
+          ["は"],
+          ["黒字", "くろじ"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 171520,
+        "ja": "今月は売上が落ちた。",
+        "en": "Sales are down this month.",
+        "enId": 242956,
+        "form": "今月",
+        "furigana": [
+          ["今月", "こんげつ"],
+          ["は"],
+          ["売上", "うりあげ"],
+          ["が"],
+          ["落", "お"],
+          ["ちた。"]
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,1214 @@
+[
+  {
+    "date": "2036-04-01",
+    "term": "温和",
+    "kana": "おんわ",
+    "meaning": "gentle, mild, moderate",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news2", "nf32"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 90981,
+        "ja": "彼女は温和な婦人です。",
+        "en": "She is a quiet woman.",
+        "enId": 312733,
+        "form": "温和な",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["温和", "おんわ"],
+          ["な"],
+          ["婦人", "ふじん"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 210607,
+        "ja": "その国は気候が温和だ。",
+        "en": "That country has a mild climate.",
+        "enId": 47877,
+        "form": "温和",
+        "furigana": [
+          ["その"],
+          ["国", "くに"],
+          ["は"],
+          ["気候", "きこう"],
+          ["が"],
+          ["温和", "おんわ"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-02",
+    "term": "～界",
+    "kana": "～かい",
+    "meaning": "world, circle, kingdom",
+    "level": "N1",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-04-03",
+    "term": "～街",
+    "kana": "～がい",
+    "meaning": "town",
+    "level": "N1",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-04-04",
+    "term": "改悪",
+    "kana": "かいあく",
+    "meaning": "deterioration, changing for the worse",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news2", "nf27"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-04-05",
+    "term": "海運",
+    "kana": "かいうん",
+    "meaning": "marine transportation",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185082,
+        "ja": "海運会社に勤めています。",
+        "en": "I work for a shipping company.",
+        "enId": 22213,
+        "form": "海運",
+        "furigana": [
+          ["海運", "かいうん"],
+          ["会社", "かいしゃ"],
+          ["に"],
+          ["勤", "つと"],
+          ["めています。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-06",
+    "term": "外貨",
+    "kana": "がいか",
+    "meaning": "foreign money",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 184851,
+        "ja": "外貨の為替レートは毎日変わる。",
+        "en": "The exchange rates for foreign currency change daily.",
+        "enId": 21981,
+        "form": "外貨",
+        "furigana": [
+          ["外貨", "がいか"],
+          ["の"],
+          ["為替", "かわせ"],
+          ["レートは"],
+          ["毎日", "まいにち"],
+          ["変", "か"],
+          ["わる。"]
+        ]
+      },
+      {
+        "id": 200971,
+        "ja": "どこで外貨の交換をすることができますか。",
+        "en": "Where can I get my money exchanged?",
+        "enId": 38176,
+        "form": "外貨",
+        "furigana": [
+          ["どこで"],
+          ["外貨", "がいか"],
+          ["の"],
+          ["交換", "こうかん"],
+          ["をすることができますか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-07",
+    "term": "改革",
+    "kana": "かいかく",
+    "meaning": "reform, reformation, innovation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 143106,
+        "ja": "政府は教育を改革している。",
+        "en": "The government has been reforming education.",
+        "enId": 271461,
+        "form": "改革",
+        "furigana": [
+          ["政府", "せいふ"],
+          ["は"],
+          ["教育", "きょういく"],
+          ["を"],
+          ["改革", "かいかく"],
+          ["している。"]
+        ]
+      },
+      {
+        "id": 145199,
+        "ja": "新任者は改革に熱心なものだ。",
+        "en": "A new broom sweeps clean.",
+        "enId": 423268,
+        "form": "改革",
+        "furigana": [
+          ["新任", "しんにん"],
+          ["者", "しゃ"],
+          ["は"],
+          ["改革", "かいかく"],
+          ["に"],
+          ["熱心", "ねっしん"],
+          ["なものだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-08",
+    "term": "外観",
+    "kana": "がいかん",
+    "meaning": "appearance, exterior, facade",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 184850,
+        "ja": "外観はあてにならない。",
+        "en": "Appearance is deceptive.",
+        "enId": 21980,
+        "form": "外観",
+        "furigana": [["外観", "がいかん"], ["はあてにならない。"]]
+      },
+      {
+        "id": 144625,
+        "ja": "人の価値はその人の外観とは無関係だ。",
+        "en": "A man's worth has nothing to do with his appearance.",
+        "enId": 269939,
+        "form": "外観",
+        "furigana": [
+          ["人", "ひと"],
+          ["の"],
+          ["価値", "かち"],
+          ["はその"],
+          ["人", "ひと"],
+          ["の"],
+          ["外観", "がいかん"],
+          ["とは"],
+          ["無関係", "むかんけい"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-09",
+    "term": "階級",
+    "kana": "かいきゅう",
+    "meaning": "class, rank, grade",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102150,
+        "ja": "彼は中流階級の出だ。",
+        "en": "He comes from the middle class.",
+        "enId": 301544,
+        "form": "階級",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["中流", "ちゅうりゅう"],
+          ["階級", "かいきゅう"],
+          ["の"],
+          ["出", "で"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 103984,
+        "ja": "彼は上流階級の人だ。",
+        "en": "He belongs to the upper class.",
+        "enId": 299707,
+        "form": "階級",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["上流", "じょうりゅう"],
+          ["階級", "かいきゅう"],
+          ["の"],
+          ["人", "ひと"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-10",
+    "term": "海峡",
+    "kana": "かいきょう",
+    "meaning": "channel",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 211749,
+        "ja": "その海峡に長い橋を建設中です。",
+        "en": "They are building a long bridge across the channel.",
+        "enId": 49026,
+        "form": "海峡",
+        "furigana": [
+          ["その"],
+          ["海峡", "かいきょう"],
+          ["に"],
+          ["長", "なが"],
+          ["い"],
+          ["橋", "はし"],
+          ["を"],
+          ["建設", "けんせつ"],
+          ["中", "ちゅう"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 220773,
+        "ja": "この船はジブラルタル海峡を通過します。",
+        "en": "This boat sails through the Strait of Gibraltar.",
+        "enId": 58095,
+        "form": "海峡",
+        "furigana": [
+          ["この"],
+          ["船", "ふね"],
+          ["はジブラルタル"],
+          ["海峡", "かいきょう"],
+          ["を"],
+          ["通過", "つうか"],
+          ["します。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-11",
+    "term": "会見",
+    "kana": "かいけん",
+    "meaning": "interview, conference",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 148390,
+        "ja": "首相は報道陣と会見した。",
+        "en": "The Prime Minister met with the press.",
+        "enId": 266168,
+        "form": "会見",
+        "furigana": [
+          ["首相", "しゅしょう"],
+          ["は"],
+          ["報道陣", "ほうどうじん"],
+          ["と"],
+          ["会見", "かいけん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 137489,
+        "ja": "大臣は記者団との会見を拒んだ。",
+        "en": "The minister refused to give an interview to the reporters.",
+        "enId": 275747,
+        "form": "会見",
+        "furigana": [
+          ["大臣", "だいじん"],
+          ["は"],
+          ["記者", "きしゃ"],
+          ["団", "だん"],
+          ["との"],
+          ["会見", "かいけん"],
+          ["を"],
+          ["拒", "こば"],
+          ["んだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-12",
+    "term": "介護",
+    "kana": "かいご",
+    "meaning": "nursing",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf05"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 78607,
+        "ja": "来年から日本では介護保険制度が始まるね。",
+        "en": "The new national elder-care insurance system starts next year, right?",
+        "enId": 325109,
+        "form": "介護",
+        "furigana": [
+          ["来年", "らいねん"],
+          ["から"],
+          ["日本", "にっぽん"],
+          ["では"],
+          ["介護", "かいご"],
+          ["保険", "ほけん"],
+          ["制度", "せいど"],
+          ["が"],
+          ["始", "はじ"],
+          ["まるね。"]
+        ]
+      },
+      {
+        "id": 96883,
+        "ja": "彼らは手の空いた時間の一部を病人の介護にあてている。",
+        "en": "They give part of their spare time to take care of the sick.",
+        "enId": 306821,
+        "form": "介護",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["手", "て"],
+          ["の"],
+          ["空", "あ"],
+          ["いた"],
+          ["時間", "じかん"],
+          ["の"],
+          ["一部", "いちぶ"],
+          ["を"],
+          ["病人", "びょうにん"],
+          ["の"],
+          ["介護", "かいご"],
+          ["にあてている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-13",
+    "term": "開催",
+    "kana": "かいさい",
+    "meaning": "holding a meeting, open an exhibition",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 211888,
+        "ja": "その会議は毎年開催される。",
+        "en": "The conference takes place annually.",
+        "enId": 49165,
+        "form": "開催",
+        "furigana": [
+          ["その"],
+          ["会議", "かいぎ"],
+          ["は"],
+          ["毎年", "まいとし"],
+          ["開催", "かいさい"],
+          ["される。"]
+        ]
+      },
+      {
+        "id": 173081,
+        "ja": "国会は午後２時に開催された。",
+        "en": "The Diet session convened at 2pm.",
+        "enId": 241391,
+        "form": "開催",
+        "furigana": [
+          ["国会", "こっかい"],
+          ["は"],
+          ["午後", "ごご"],
+          ["２"],
+          ["時", "じ"],
+          ["に"],
+          ["開催", "かいさい"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-14",
+    "term": "回収",
+    "kana": "かいしゅう",
+    "meaning": "collection, recovery",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 228462,
+        "ja": "いよいよ賭け金を回収するときがきました。",
+        "en": "It's time to call in our chips.",
+        "enId": 65819,
+        "form": "回収",
+        "furigana": [
+          ["いよいよ"],
+          ["賭", "か"],
+          ["け"],
+          ["金", "きん"],
+          ["を"],
+          ["回収", "かいしゅう"],
+          ["するときがきました。"]
+        ]
+      },
+      {
+        "id": 74980,
+        "ja": "しかし回収時間が早すぎるため、ゴミの日に出すことが難しいです。",
+        "en": "Moreover it's difficult to get rubbish out for garbage day because the collection time is too early.",
+        "enId": 328739,
+        "form": "回収",
+        "furigana": [
+          ["しかし"],
+          ["回収", "かいしゅう"],
+          ["時間", "じかん"],
+          ["が"],
+          ["早", "はや"],
+          ["すぎるため、ゴミの"],
+          ["日", "ひ"],
+          ["に"],
+          ["出", "だ"],
+          ["すことが"],
+          ["難", "むずか"],
+          ["しいです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-15",
+    "term": "改修",
+    "kana": "かいしゅう",
+    "meaning": "repair, improvement",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-04-16",
+    "term": "解除",
+    "kana": "かいじょ",
+    "meaning": "cancellation, release, cancel",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125710,
+        "ja": "津波警報は解除された。",
+        "en": "The tidal wave warning has been canceled.",
+        "enId": 278283,
+        "form": "解除",
+        "furigana": [
+          ["津波", "つなみ"],
+          ["警報", "けいほう"],
+          ["は"],
+          ["解除", "かいじょ"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 143069,
+        "ja": "政府は物価の統制を解除した。",
+        "en": "The government lifted price controls.",
+        "enId": 271499,
+        "form": "解除",
+        "furigana": [
+          ["政府", "せいふ"],
+          ["は"],
+          ["物価", "ぶっか"],
+          ["の"],
+          ["統制", "とうせい"],
+          ["を"],
+          ["解除", "かいじょ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-17",
+    "term": "外相",
+    "kana": "がいしょう",
+    "meaning": "Foreign Minister",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 184720,
+        "ja": "外相は、戦争は避けられないと言った。",
+        "en": "The Foreign Minister said that war was inevitable.",
+        "enId": 21848,
+        "form": "外相",
+        "furigana": [
+          ["外相", "がいしょう"],
+          ["は、"],
+          ["戦争", "せんそう"],
+          ["は"],
+          ["避", "さ"],
+          ["けられないと"],
+          ["言", "い"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 122648,
+        "ja": "日本の外相のためにレセプションが開かれた。",
+        "en": "A reception was given for the Japanese foreign minister.",
+        "enId": 281354,
+        "form": "外相",
+        "furigana": [
+          ["日本", "にっぽん"],
+          ["の"],
+          ["外相", "がいしょう"],
+          ["のためにレセプションが"],
+          ["開", "ひら"],
+          ["かれた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-18",
+    "term": "害する",
+    "kana": "がいする",
+    "meaning": "to harm, to offend",
+    "level": "N1",
+    "pos": ["suru verb - special class", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 211524,
+        "ja": "その気候で健康を害した。",
+        "en": "The climate affected his health.",
+        "enId": 48801,
+        "form": "害した",
+        "furigana": [
+          ["その"],
+          ["気候", "きこう"],
+          ["で"],
+          ["健康", "けんこう"],
+          ["を"],
+          ["害", "がい"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 189971,
+        "ja": "飲みすぎると健康を害するよ。",
+        "en": "You will ruin your health if you drink too much.",
+        "enId": 27127,
+        "form": "害する",
+        "furigana": [
+          ["飲", "の"],
+          ["みすぎると"],
+          ["健康", "けんこう"],
+          ["を"],
+          ["害", "がい"],
+          ["するよ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-19",
+    "term": "概説",
+    "kana": "がいせつ",
+    "meaning": "general statement, outline",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news2", "nf45"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-04-20",
+    "term": "回送",
+    "kana": "かいそう",
+    "meaning": "forwarding",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news2", "nf31", "spec2"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-04-21",
+    "term": "階層",
+    "kana": "かいそう",
+    "meaning": "class, level, stratum, hierarchy",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf15"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 76277,
+        "ja": "階層問題に対する、消費社会論の著である。",
+        "en": "It is a literary work confronting the class problem of a consumer society.",
+        "enId": 327443,
+        "form": "階層",
+        "furigana": [
+          ["階層", "かいそう"],
+          ["問題", "もんだい"],
+          ["に"],
+          ["対", "たい"],
+          ["する、"],
+          ["消費", "しょうひ"],
+          ["社会", "しゃかい"],
+          ["論", "ろん"],
+          ["の"],
+          ["著", "ちょ"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 79638,
+        "ja": "野球への興味はわが国ではあらゆる階層、年齢にわたっている。",
+        "en": "Interest in baseball cuts across classes and ages in this country.",
+        "enId": 324080,
+        "form": "階層",
+        "furigana": [
+          ["野球", "やきゅう"],
+          ["への"],
+          ["興味", "きょうみ"],
+          ["はわが"],
+          ["国", "くに"],
+          ["ではあらゆる"],
+          ["階層", "かいそう"],
+          ["、"],
+          ["年齢", "ねんれい"],
+          ["にわたっている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-22",
+    "term": "開拓",
+    "kana": "かいたく",
+    "meaning": "cultivation, pioneer",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 184916,
+        "ja": "開拓民たちはキリスト教を信奉した。",
+        "en": "The settlers embraced the Christian religion.",
+        "enId": 22047,
+        "form": "開拓",
+        "furigana": [
+          ["開拓", "かいたく"],
+          ["民", "みん"],
+          ["たちはキリスト"],
+          ["教", "きょう"],
+          ["を"],
+          ["信奉", "しんぽう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 145304,
+        "ja": "新たな入植者達がその広大な荒野を開拓した。",
+        "en": "The newcomers cultivated the immense wilderness.",
+        "enId": 269258,
+        "form": "開拓",
+        "furigana": [
+          ["新", "あら"],
+          ["たな"],
+          ["入植", "にゅうしょく"],
+          ["者", "しゃ"],
+          ["達", "たち"],
+          ["がその"],
+          ["広大", "こうだい"],
+          ["な"],
+          ["荒野", "あらの"],
+          ["を"],
+          ["開拓", "かいたく"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-23",
+    "term": "会談",
+    "kana": "かいだん",
+    "meaning": "conversation, interview",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83532,
+        "ja": "平和会談は今週始まる。",
+        "en": "The peace talks begin this week.",
+        "enId": 320184,
+        "form": "会談",
+        "furigana": [
+          ["平和", "へいわ"],
+          ["会談", "かいだん"],
+          ["は"],
+          ["今週", "こんしゅう"],
+          ["始", "はじ"],
+          ["まる。"]
+        ]
+      },
+      {
+        "id": 147677,
+        "ja": "出来るだけ早急に会談の手配をして欲しい。",
+        "en": "We want the meeting arranged as soon as possible.",
+        "enId": 266883,
+        "form": "会談",
+        "furigana": [
+          ["出来", "でき"],
+          ["るだけ"],
+          ["早急", "そうきゅう"],
+          ["に"],
+          ["会談", "かいだん"],
+          ["の"],
+          ["手配", "てはい"],
+          ["をして"],
+          ["欲", "ほ"],
+          ["しい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-24",
+    "term": "改定",
+    "kana": "かいてい",
+    "meaning": "reform",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-04-25",
+    "term": "改訂",
+    "kana": "かいてい",
+    "meaning": "revision",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news1", "nf18"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 150474,
+        "ja": "時刻表が改訂された。",
+        "en": "The timetable has been revised.",
+        "enId": 264082,
+        "form": "改訂",
+        "furigana": [
+          ["時刻", "じこく"],
+          ["表", "ひょう"],
+          ["が"],
+          ["改訂", "かいてい"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 221532,
+        "ja": "この辞書の改訂には６年かかった。",
+        "en": "The revision of this dictionary took six years.",
+        "enId": 58856,
+        "form": "改訂",
+        "furigana": [
+          ["この"],
+          ["辞書", "じしょ"],
+          ["の"],
+          ["改訂", "かいてい"],
+          ["には６"],
+          ["年", "ねん"],
+          ["かかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-26",
+    "term": "街道",
+    "kana": "かいどう",
+    "meaning": "highway",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 184640,
+        "ja": "街道は次の村で南へ向かう。",
+        "en": "The road tends to the south at the next village.",
+        "enId": 21769,
+        "form": "街道",
+        "furigana": [
+          ["街道", "かいどう"],
+          ["は"],
+          ["次", "つぎ"],
+          ["の"],
+          ["村", "むら"],
+          ["で"],
+          ["南", "みなみ"],
+          ["へ"],
+          ["向", "む"],
+          ["かう。"]
+        ]
+      },
+      {
+        "id": 184641,
+        "ja": "街道沿いに家が並んでいた。",
+        "en": "Houses were lined up alongside the highway.",
+        "enId": 21768,
+        "form": "街道",
+        "furigana": [
+          ["街道", "かいどう"],
+          ["沿", "ぞ"],
+          ["いに"],
+          ["家", "いえ"],
+          ["が"],
+          ["並", "なら"],
+          ["んでいた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-27",
+    "term": "該当",
+    "kana": "がいとう",
+    "meaning": "corresponding, answering to, coming under",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-04-28",
+    "term": "街頭",
+    "kana": "がいとう",
+    "meaning": "in the street",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108919,
+        "ja": "彼は街頭で買った絵を額縁に入れた。",
+        "en": "He framed the picture he had bought on the street.",
+        "enId": 294771,
+        "form": "街頭",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["街頭", "がいとう"],
+          ["で"],
+          ["買", "か"],
+          ["った"],
+          ["絵", "え"],
+          ["を"],
+          ["額縁", "がくぶち"],
+          ["に"],
+          ["入", "い"],
+          ["れた。"]
+        ]
+      },
+      {
+        "id": 176203,
+        "ja": "警察は街頭デモを阻止しようとした。",
+        "en": "The police tried to stop the street demonstration.",
+        "enId": 238262,
+        "form": "街頭",
+        "furigana": [
+          ["警察", "けいさつ"],
+          ["は"],
+          ["街頭", "がいとう"],
+          ["デモを"],
+          ["阻止", "そし"],
+          ["しようとした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-29",
+    "term": "概念",
+    "kana": "がいねん",
+    "meaning": "general idea, concept, notion",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 116195,
+        "ja": "彼の福祉の概念はかなり観念的だ。",
+        "en": "His notion of welfare is pretty abstract.",
+        "enId": 287474,
+        "form": "概念",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["福祉", "ふくし"],
+          ["の"],
+          ["概念", "がいねん"],
+          ["はかなり"],
+          ["観念", "かんねん"],
+          ["的", "てき"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 221122,
+        "ja": "この章では幾何学の概念に焦点をあてます。",
+        "en": "This chapter will focus on the concepts of geometry.",
+        "enId": 58444,
+        "form": "概念",
+        "furigana": [
+          ["この"],
+          ["章", "しょう"],
+          ["では"],
+          ["幾何", "きか"],
+          ["学", "がく"],
+          ["の"],
+          ["概念", "がいねん"],
+          ["に"],
+          ["焦点", "しょうてん"],
+          ["をあてます。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-04-30",
+    "term": "開発",
+    "kana": "かいはつ",
+    "meaning": "development, exploitation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

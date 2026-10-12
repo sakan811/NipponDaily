@@ -1,0 +1,1162 @@
+[
+  {
+    "date": "2030-07-01",
+    "term": "題名",
+    "kana": "だいめい",
+    "meaning": "title",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 89663,
+        "ja": "彼女は私が題名を知らない歌を歌った。",
+        "en": "She sang a song, the title of which I did not know.",
+        "enId": 314052,
+        "form": "題名",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["私", "わたし"],
+          ["が"],
+          ["題名", "だいめい"],
+          ["を"],
+          ["知", "し"],
+          ["らない"],
+          ["歌", "うた"],
+          ["を"],
+          ["歌", "うた"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 209261,
+        "ja": "その小説は聖書から題名をとっている。",
+        "en": "The novel takes its title from the Bible.",
+        "enId": 46521,
+        "form": "題名",
+        "furigana": [
+          ["その"],
+          ["小説", "しょうせつ"],
+          ["は"],
+          ["聖書", "せいしょ"],
+          ["から"],
+          ["題名", "だいめい"],
+          ["をとっている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-02",
+    "term": "ダイヤ",
+    "kana": "ダイヤ",
+    "meaning": "(railway) schedule; diamond",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1, 0],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "morphemes": [
+      {
+        "text": "ダイヤ",
+        "reading": "ダイヤ",
+        "meaning": "English dyer"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English dyer."
+      }
+    ],
+    "examples": [
+      {
+        "id": 203874,
+        "ja": "ダイヤは明るく光った。",
+        "en": "The diamond shone brightly.",
+        "enId": 41115,
+        "form": "ダイヤ",
+        "furigana": [
+          ["ダイヤは"],
+          ["明", "あか"],
+          ["るく"],
+          ["光", "ひか"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 223579,
+        "ja": "このダイヤは本物ですか。",
+        "en": "Is this diamond real?",
+        "enId": 60914,
+        "form": "ダイヤ",
+        "furigana": [["このダイヤは"], ["本物", "ほんもの"], ["ですか。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2030-07-03",
+    "term": "倒す",
+    "kana": "たおす",
+    "meaning": "to throw down, to beat",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123237,
+        "ja": "内閣を倒せ。",
+        "en": "Down with the Cabinet!",
+        "enId": 280762,
+        "form": "倒せ",
+        "furigana": [["内閣", "ないかく"], ["を"], ["倒", "たお"], ["せ。"]]
+      },
+      {
+        "id": 143078,
+        "ja": "政府は倒された。",
+        "en": "The government was overthrown.",
+        "enId": 271490,
+        "form": "倒された",
+        "furigana": [["政府", "せいふ"], ["は"], ["倒", "たお"], ["された。"]]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-04",
+    "term": "互い",
+    "kana": "たがい",
+    "meaning": "mutual, each other",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 220241,
+        "ja": "この二人の兄弟は互いに似ている。",
+        "en": "These two brothers resemble each other.",
+        "enId": 57560,
+        "form": "互い",
+        "furigana": [
+          ["この"],
+          ["二人", "ふたり"],
+          ["の"],
+          ["兄弟", "きょうだい"],
+          ["は"],
+          ["互", "たが"],
+          ["いに"],
+          ["似", "に"],
+          ["ている。"]
+        ]
+      },
+      {
+        "id": 414439,
+        "ja": "すべての人間は自然に互いを憎み合う。",
+        "en": "All men naturally hate each other.",
+        "enId": 415634,
+        "form": "互い",
+        "furigana": [
+          ["すべての"],
+          ["人間", "にんげん"],
+          ["は"],
+          ["自然", "しぜん"],
+          ["に"],
+          ["互", "たが"],
+          ["いを"],
+          ["憎", "にく"],
+          ["み"],
+          ["合", "あ"],
+          ["う。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-05",
+    "term": "炊く",
+    "kana": "たく",
+    "meaning": "to boil, to cook",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 219009,
+        "ja": "これがお米の炊き方です。",
+        "en": "This is how we cook rice.",
+        "enId": 56325,
+        "form": "炊き",
+        "furigana": [
+          ["これがお"],
+          ["米", "こめ"],
+          ["の"],
+          ["炊", "た"],
+          ["き"],
+          ["方", "かた"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 217030,
+        "ja": "ご飯の上手なたき方を知っていますか。",
+        "en": "Do you know how to cook rice well?",
+        "enId": 54337,
+        "form": "たき",
+        "furigana": [
+          ["ご"],
+          ["飯", "はん"],
+          ["の"],
+          ["上手", "じょうず"],
+          ["なたき"],
+          ["方", "かた"],
+          ["を"],
+          ["知", "し"],
+          ["っていますか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-06",
+    "term": "たしか",
+    "kana": "たしか",
+    "meaning": "certain, sure, if I remember correctly",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "adverb (fukushi)"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2030-07-07",
+    "term": "確かめる",
+    "kana": "たしかめる",
+    "meaning": "to ascertain, to make sure",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 184554,
+        "ja": "確かめてくれよ。",
+        "en": "Please make sure.",
+        "enId": 21682,
+        "form": "確かめて",
+        "furigana": [["確", "たし"], ["かめてくれよ。"]]
+      },
+      {
+        "id": 156412,
+        "ja": "私は時計で時刻を確かめた。",
+        "en": "I checked the time on the clock.",
+        "enId": 258122,
+        "form": "確かめた",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["時計", "とけい"],
+          ["で"],
+          ["時刻", "じこく"],
+          ["を"],
+          ["確", "たし"],
+          ["かめた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-08",
+    "term": "多少",
+    "kana": "たしょう",
+    "meaning": "a little (same as 少し (すこし))",
+    "level": "N3",
+    "pos": [
+      "adverb (fukushi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102567,
+        "ja": "彼は多少興奮した。",
+        "en": "He was somewhat excited.",
+        "enId": 301127,
+        "form": "多少",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["多少", "たしょう"],
+          ["興奮", "こうふん"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 102568,
+        "ja": "彼は多少飲んでいる。",
+        "en": "He is more or less drunk.",
+        "enId": 285845,
+        "form": "多少",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["多少", "たしょう"],
+          ["飲", "の"],
+          ["んでいる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-09",
+    "term": "只",
+    "kana": "ただ",
+    "meaning": "free of charge, mere, only",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)",
+      "adverb (fukushi)"
+    ],
+    "priority": ["ichi1", "news1", "nf16", "spec1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 143599,
+        "ja": "かれは空威張りしてる、ただの香具師です。",
+        "en": "He's just a bluffing charlatan.",
+        "enId": 7076089,
+        "form": "ただ",
+        "furigana": [
+          ["かれは"],
+          ["空威張", "からいば"],
+          ["りしてる、ただの"],
+          ["香具師", "やし"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-10",
+    "term": "唯",
+    "kana": "ただ",
+    "meaning": "mere, sole, plain",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf16", "spec1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 85556,
+        "ja": "美はただ皮一枚。",
+        "en": "Beauty is but skin deep.",
+        "enId": 318157,
+        "form": "ただ",
+        "furigana": [
+          ["美", "び"],
+          ["はただ"],
+          ["皮", "かわ"],
+          ["一", "いち"],
+          ["枚", "まい"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 203607,
+        "ja": "ただ歩き続けてね。",
+        "en": "Just keep on walking.",
+        "enId": 40845,
+        "form": "ただ",
+        "furigana": [
+          ["ただ"],
+          ["歩", "ある"],
+          ["き"],
+          ["続", "つづ"],
+          ["けてね。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-11",
+    "term": "戦う",
+    "kana": "たたかう",
+    "meaning": "to fight, to compete, to battle",
+    "level": "N3",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 96505,
+        "ja": "彼らは敵と戦った。",
+        "en": "They fought against the enemy.",
+        "enId": 307200,
+        "form": "戦った",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["敵", "てき"],
+          ["と"],
+          ["戦", "たたか"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 142958,
+        "ja": "正義のために戦う。",
+        "en": "I fight in the cause of justice.",
+        "enId": 271610,
+        "form": "戦う",
+        "furigana": [
+          ["正義", "せいぎ"],
+          ["のために"],
+          ["戦", "たたか"],
+          ["う。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-12",
+    "term": "直ちに",
+    "kana": "ただちに",
+    "meaning": "at once, immediately",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125761,
+        "ja": "直ちにそれをしなさい。",
+        "en": "Let it be done at once.",
+        "enId": 41905,
+        "form": "直ちに",
+        "furigana": [["直", "ただ"], ["ちにそれをしなさい。"]]
+      },
+      {
+        "id": 186672,
+        "ja": "火事はただちに消された。",
+        "en": "The fire was extinguished at once.",
+        "enId": 23807,
+        "form": "ただちに",
+        "furigana": [
+          ["火事", "かじ"],
+          ["はただちに"],
+          ["消", "け"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-13",
+    "term": "畳む",
+    "kana": "たたむ",
+    "meaning": "to fold (clothes)",
+    "level": "N3",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 84915,
+        "ja": "布団をたたみなさい。",
+        "en": "Fold up your bedding.",
+        "enId": 318798,
+        "form": "たたみ",
+        "furigana": [["布団", "ふとん"], ["をたたみなさい。"]]
+      },
+      {
+        "id": 225098,
+        "ja": "ケンは毛布を二つに畳んだ。",
+        "en": "Ken folded the blanket in half.",
+        "enId": 62433,
+        "form": "畳んだ",
+        "furigana": [
+          ["ケンは"],
+          ["毛布", "もうふ"],
+          ["を"],
+          ["二", "ふた"],
+          ["つに"],
+          ["畳", "たた"],
+          ["んだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-14",
+    "term": "立ち上がる",
+    "kana": "たちあがる",
+    "meaning": "to stand up",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [0, 4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99044,
+        "ja": "彼は立ち上がりました。",
+        "en": "He stood up.",
+        "enId": 517531,
+        "form": "立ち上がりました",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["立", "た"],
+          ["ち"],
+          ["上", "あ"],
+          ["がりました。"]
+        ]
+      },
+      {
+        "id": 208004,
+        "ja": "その男は立ち上がった。",
+        "en": "The man stood up.",
+        "enId": 45261,
+        "form": "立ち上がった",
+        "furigana": [
+          ["その"],
+          ["男", "おとこ"],
+          ["は"],
+          ["立", "た"],
+          ["ち"],
+          ["上", "あ"],
+          ["がった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-15",
+    "term": "経つ",
+    "kana": "たつ",
+    "meaning": "(time) passes",
+    "level": "N3",
+    "pos": ["Godan verb with 'tsu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf41"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121808,
+        "ja": "年月が経った。",
+        "en": "Years passed.",
+        "enId": 282197,
+        "form": "経った",
+        "furigana": [["年月", "としつき"], ["が"], ["経", "た"], ["った。"]]
+      },
+      {
+        "id": 150689,
+        "ja": "時が経つのは早い。",
+        "en": "Time passes quickly.",
+        "enId": 263868,
+        "form": "経つ",
+        "furigana": [
+          ["時", "とき"],
+          ["が"],
+          ["経", "た"],
+          ["つのは"],
+          ["早", "はや"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-16",
+    "term": "達する",
+    "kana": "たっする",
+    "meaning": "to reach, to get to",
+    "level": "N3",
+    "pos": ["suru verb - special class", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0, 3],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 86501,
+        "ja": "彼女は目的を達した。",
+        "en": "She gained her end.",
+        "enId": 317210,
+        "form": "達した",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["目的", "もくてき"],
+          ["を"],
+          ["達", "たっ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 123900,
+        "ja": "討論は結論に達した。",
+        "en": "The discussion came to a conclusion.",
+        "enId": 280095,
+        "form": "達した",
+        "furigana": [
+          ["討論", "とうろん"],
+          ["は"],
+          ["結論", "けつろん"],
+          ["に"],
+          ["達", "たっ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-17",
+    "term": "たった",
+    "kana": "たった",
+    "meaning": "only, just",
+    "level": "N3",
+    "pos": ["noun or verb acting prenominally", "adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 203596,
+        "ja": "たった１０ドルだぜ。",
+        "en": "It only costs $10.00!",
+        "enId": 40834,
+        "form": "たった"
+      },
+      {
+        "id": 149105,
+        "ja": "車でたった３０分です。",
+        "en": "It only takes thirty minutes by car.",
+        "enId": 265453,
+        "form": "たった",
+        "furigana": [
+          ["車", "くるま"],
+          ["でたった３０"],
+          ["分", "ふん"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-18",
+    "term": "他人",
+    "kana": "たにん",
+    "meaning": "unrelated person, stranger",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2030-07-19",
+    "term": "束",
+    "kana": "たば",
+    "meaning": "bunch, bundle",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun, used as a suffix",
+      "counter"
+    ],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 104140,
+        "ja": "彼は小枝を束にした。",
+        "en": "He tied the twigs into bundles.",
+        "enId": 299551,
+        "form": "束",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["小", "こ"],
+          ["枝", "えだ"],
+          ["を"],
+          ["束", "たば"],
+          ["にした。"]
+        ]
+      },
+      {
+        "id": 237445,
+        "ja": "彼は古い手紙を束にした。",
+        "en": "He bound old letters into a bundle.",
+        "enId": 296130,
+        "form": "束",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["古", "ふる"],
+          ["い"],
+          ["手紙", "てがみ"],
+          ["を"],
+          ["束", "たば"],
+          ["にした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-20",
+    "term": "たびたび",
+    "kana": "たびたび",
+    "meaning": "often, repeatedly, frequently",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf23"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2030-07-21",
+    "term": "弾",
+    "kana": "たま",
+    "meaning": "bullet, shot",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2030-07-22",
+    "term": "偶",
+    "kana": "たま",
+    "meaning": "occasional, infrequent, rare",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 75682,
+        "ja": "友理子はたまの逢瀬を心行くまで楽しんでしまいました。",
+        "en": "Yuriko thoroughly enjoyed her occasional secret meetings with her lover.",
+        "enId": 328036,
+        "form": "たまの",
+        "furigana": [
+          ["友理子はたまの"],
+          ["逢瀬", "おうせ"],
+          ["を"],
+          ["心行", "こころゆ"],
+          ["くまで"],
+          ["楽", "たの"],
+          ["しんでしまいました。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-23",
+    "term": "騙す",
+    "kana": "だます",
+    "meaning": "to trick, to cheat, to deceive",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 177658,
+        "ja": "君はだまされている。",
+        "en": "You have been imposed upon.",
+        "enId": 16510,
+        "form": "だまされている",
+        "furigana": [["君", "きみ"], ["はだまされている。"]]
+      },
+      {
+        "id": 177659,
+        "ja": "君はだまされたんだ。",
+        "en": "You've been had.",
+        "enId": 16512,
+        "form": "だまされた",
+        "furigana": [["君", "きみ"], ["はだまされたんだ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-24",
+    "term": "偶々",
+    "kana": "たまたま",
+    "meaning": "unexpectedly, accidentally, by chance",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 111994,
+        "ja": "彼はたまたまそこにいた。",
+        "en": "He happened to be there.",
+        "enId": 291683,
+        "form": "たまたま",
+        "furigana": [["彼", "かれ"], ["はたまたまそこにいた。"]]
+      },
+      {
+        "id": 203301,
+        "ja": "たまたま彼は病気だった。",
+        "en": "It happened that he was ill.",
+        "enId": 40537,
+        "form": "たまたま",
+        "furigana": [
+          ["たまたま"],
+          ["彼", "かれ"],
+          ["は"],
+          ["病気", "びょうき"],
+          ["だった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-25",
+    "term": "たまらない",
+    "kana": "たまらない",
+    "meaning": "intolerable, unbearable, unendurable",
+    "level": "N3",
+    "pos": ["expressions (phrases, clauses, etc.)", "adjective (keiyoushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2030-07-26",
+    "term": "黙る",
+    "kana": "だまる",
+    "meaning": "to be silent",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 80043,
+        "ja": "黙っていなさい。",
+        "en": "Hold your tongue!",
+        "enId": 323674,
+        "form": "黙ってい",
+        "furigana": [["黙", "だま"], ["っていなさい。"]]
+      },
+      {
+        "id": 99532,
+        "ja": "彼は黙っていた。",
+        "en": "He remained silent.",
+        "enId": 290297,
+        "form": "黙っていた",
+        "furigana": [["彼", "かれ"], ["は"], ["黙", "だま"], ["っていた。"]]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-27",
+    "term": "試し",
+    "kana": "ためし",
+    "meaning": "trial, test",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 193176,
+        "ja": "ものは試しだよ。",
+        "en": "You'll never know unless you try.",
+        "enId": 30341,
+        "form": "試し",
+        "furigana": [["ものは"], ["試", "ため"], ["しだよ。"]]
+      },
+      {
+        "id": 151146,
+        "ja": "試しにやってみよう。",
+        "en": "Let's have a go at it.",
+        "enId": 263410,
+        "form": "試し",
+        "furigana": [["試", "ため"], ["しにやってみよう。"]]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-28",
+    "term": "試す",
+    "kana": "ためす",
+    "meaning": "to attempt, to test",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 115503,
+        "ja": "彼は、試す。",
+        "en": "He tries.",
+        "enId": 288166,
+        "form": "試す",
+        "furigana": [["彼", "かれ"], ["は、"], ["試", "ため"], ["す。"]]
+      },
+      {
+        "id": 93731,
+        "ja": "彼女は試した。",
+        "en": "She tried.",
+        "enId": 309976,
+        "form": "試した",
+        "furigana": [["彼女", "かのじょ"], ["は"], ["試", "ため"], ["した。"]]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-29",
+    "term": "溜める",
+    "kana": "ためる",
+    "meaning": "to accumulate, to collect",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 86518,
+        "ja": "彼女は目に涙を溜めていた。",
+        "en": "Her eyes were filled with tears.",
+        "enId": 309826,
+        "form": "溜めていた",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["目", "め"],
+          ["に"],
+          ["涙", "なみだ"],
+          ["を"],
+          ["溜", "た"],
+          ["めていた。"]
+        ]
+      },
+      {
+        "id": 109007,
+        "ja": "彼は海外旅行のため金を溜めている。",
+        "en": "He is saving money for a trip abroad.",
+        "enId": 294683,
+        "form": "溜めている",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["海外", "かいがい"],
+          ["旅行", "りょこう"],
+          ["のため"],
+          ["金", "かね"],
+          ["を"],
+          ["溜", "た"],
+          ["めている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-30",
+    "term": "便り",
+    "kana": "たより",
+    "meaning": "news, correspondence, letter",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun, used as a suffix",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 158868,
+        "ja": "私はまだ彼女からのたよりがない。",
+        "en": "I have not heard from her yet.",
+        "enId": 255659,
+        "form": "たより",
+        "furigana": [
+          ["私", "わたし"],
+          ["はまだ"],
+          ["彼女", "かのじょ"],
+          ["からのたよりがない。"]
+        ]
+      },
+      {
+        "id": 100944,
+        "ja": "彼は彼女のたよりを待ち望んでいる。",
+        "en": "He is anxious for her news.",
+        "enId": 302753,
+        "form": "たより",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["彼女", "かのじょ"],
+          ["のたよりを"],
+          ["待", "ま"],
+          ["ち"],
+          ["望", "のぞ"],
+          ["んでいる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2030-07-31",
+    "term": "頼る",
+    "kana": "たよる",
+    "meaning": "to rely on, to have recourse to, to depend on",
+    "level": "N3",
+    "pos": [
+      "Godan verb with 'ru' ending",
+      "intransitive verb",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 138545,
+        "ja": "他人に頼るな。",
+        "en": "Don't rely on others.",
+        "enId": 274689,
+        "form": "頼る",
+        "furigana": [["他人", "たにん"], ["に"], ["頼", "たよ"], ["るな。"]]
+      },
+      {
+        "id": 179269,
+        "ja": "偶然に頼るな。",
+        "en": "Don't leave it up to chance.",
+        "enId": 18125,
+        "form": "頼る",
+        "furigana": [["偶然", "ぐうぜん"], ["に"], ["頼", "たよ"], ["るな。"]]
+      }
+    ]
+  }
+]

@@ -1,0 +1,1064 @@
+[
+  {
+    "date": "2037-02-01",
+    "term": "伝来",
+    "kana": "でんらい",
+    "meaning": "ancestral, hereditary, imported",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["news2", "nf25"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 151951,
+        "ja": "私達の生活様式はヨーロッパ文明の伝来以来変化してきた。",
+        "en": "Our mode of life has changed since the introduction of European civilization.",
+        "enId": 262602,
+        "form": "伝来",
+        "furigana": [
+          ["私", "わたし"],
+          ["達", "たち"],
+          ["の"],
+          ["生活", "せいかつ"],
+          ["様式", "ようしき"],
+          ["はヨーロッパ"],
+          ["文明", "ぶんめい"],
+          ["の"],
+          ["伝来", "でんらい"],
+          ["以来", "いらい"],
+          ["変化", "へんか"],
+          ["してきた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-02",
+    "term": "転落",
+    "kana": "てんらく",
+    "meaning": "fall, degradation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["news1", "nf13"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102997,
+        "ja": "彼は船から転落し溺死した。",
+        "en": "He fell overboard and drowned.",
+        "enId": 300696,
+        "form": "転落",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["船", "ふね"],
+          ["から"],
+          ["転落", "てんらく"],
+          ["し"],
+          ["溺死", "できし"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 126917,
+        "ja": "地獄への転落は容易である。",
+        "en": "The descent to hell is easy.",
+        "enId": 277173,
+        "form": "転落",
+        "furigana": [
+          ["地獄", "じごく"],
+          ["への"],
+          ["転落", "てんらく"],
+          ["は"],
+          ["容易", "ようい"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-03",
+    "term": "問い合わせる",
+    "kana": "といあわせる",
+    "meaning": "to inquire, to seek information",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [5, 0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 117727,
+        "ja": "彼の経歴を会社に問い合わせた。",
+        "en": "I referred to the company for his work record.",
+        "enId": 285937,
+        "form": "問い合わせた",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["経歴", "けいれき"],
+          ["を"],
+          ["会社", "かいしゃ"],
+          ["に"],
+          ["問", "と"],
+          ["い"],
+          ["合", "あ"],
+          ["わせた。"]
+        ]
+      },
+      {
+        "id": 78133,
+        "ja": "旅行代理店に問い合わせてみよう。",
+        "en": "Let's ask a travel agent.",
+        "enId": 325585,
+        "form": "問い合わせて",
+        "furigana": [
+          ["旅行", "りょこう"],
+          ["代理", "だいり"],
+          ["店", "てん"],
+          ["に"],
+          ["問", "と"],
+          ["い"],
+          ["合", "あ"],
+          ["わせてみよう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-04",
+    "term": "当～",
+    "kana": "とう～",
+    "meaning": "Our ~ (e.g., Hotel, plane, etc.)",
+    "level": "N1",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-02-05",
+    "term": "同意",
+    "kana": "どうい",
+    "meaning": "agreement, consent; same meaning",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 116482,
+        "ja": "彼の提案に同意する。",
+        "en": "I agree to his proposal.",
+        "enId": 287186,
+        "form": "同意",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["提案", "ていあん"],
+          ["に"],
+          ["同意", "どうい"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 207700,
+        "ja": "その提案に同意した。",
+        "en": "I agreed to the proposal.",
+        "enId": 321651,
+        "form": "同意",
+        "furigana": [
+          ["その"],
+          ["提案", "ていあん"],
+          ["に"],
+          ["同意", "どうい"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-06",
+    "term": "動員",
+    "kana": "どういん",
+    "meaning": "mobilization",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-02-07",
+    "term": "同感",
+    "kana": "どうかん",
+    "meaning": "agreement, same opinion, same feeling",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 140886,
+        "ja": "全く同感です。",
+        "en": "I couldn't agree with you more.",
+        "enId": 273685,
+        "form": "同感",
+        "furigana": [["全", "まった"], ["く"], ["同感", "どうかん"], ["です。"]]
+      },
+      {
+        "id": 155408,
+        "ja": "私は全く君と同感だ。",
+        "en": "I quite agree with you.",
+        "enId": 71199,
+        "form": "同感",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["全", "まった"],
+          ["く"],
+          ["君", "きみ"],
+          ["と"],
+          ["同感", "どうかん"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-08",
+    "term": "陶器",
+    "kana": "とうき",
+    "meaning": "pottery, ceramics",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123882,
+        "ja": "陶器は火で焼かれた。",
+        "en": "The pottery was baked by fire.",
+        "enId": 280113,
+        "form": "陶器",
+        "furigana": [
+          ["陶器", "とうき"],
+          ["は"],
+          ["火", "ひ"],
+          ["で"],
+          ["焼", "や"],
+          ["かれた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-09",
+    "term": "討議",
+    "kana": "とうぎ",
+    "meaning": "debate, discussion",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 151387,
+        "ja": "私達は討議を終えた。",
+        "en": "We closed the discussion.",
+        "enId": 263169,
+        "form": "討議",
+        "furigana": [
+          ["私", "わたし"],
+          ["達", "たち"],
+          ["は"],
+          ["討議", "とうぎ"],
+          ["を"],
+          ["終", "お"],
+          ["えた。"]
+        ]
+      },
+      {
+        "id": 211232,
+        "ja": "その計画は討議中です。",
+        "en": "The plan is under discussion.",
+        "enId": 48506,
+        "form": "討議",
+        "furigana": [
+          ["その"],
+          ["計画", "けいかく"],
+          ["は"],
+          ["討議", "とうぎ"],
+          ["中", "ちゅう"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-10",
+    "term": "動機",
+    "kana": "どうき",
+    "meaning": "motive, incentive",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 153810,
+        "ja": "私は彼の動機を疑った。",
+        "en": "I impeached his motives.",
+        "enId": 260732,
+        "form": "動機",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["彼", "かれ"],
+          ["の"],
+          ["動機", "どうき"],
+          ["を"],
+          ["疑", "うたが"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 230753,
+        "ja": "あの人の動機が信用できなかった。",
+        "en": "I was distrustful of his motives.",
+        "enId": 68120,
+        "form": "動機",
+        "furigana": [
+          ["あの"],
+          ["人", "ひと"],
+          ["の"],
+          ["動機", "どうき"],
+          ["が"],
+          ["信用", "しんよう"],
+          ["できなかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-11",
+    "term": "等級",
+    "kana": "とうきゅう",
+    "meaning": "grade, class",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf25", "spec2"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-02-12",
+    "term": "同級",
+    "kana": "どうきゅう",
+    "meaning": "the same grade, same class",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf15"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-02-13",
+    "term": "同居",
+    "kana": "どうきょ",
+    "meaning": "living together",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 225869,
+        "ja": "キムはケンと同居している。",
+        "en": "Kim is living with Ken.",
+        "enId": 63207,
+        "form": "同居",
+        "furigana": [["キムはケンと"], ["同居", "どうきょ"], ["している。"]]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-14",
+    "term": "登校",
+    "kana": "とうこう",
+    "meaning": "attendance (at school)",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 111286,
+        "ja": "彼はバスで登校する。",
+        "en": "He goes to school by bus.",
+        "enId": 529993,
+        "form": "登校",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はバスで"],
+          ["登校", "とうこう"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 124606,
+        "ja": "登校するところです。",
+        "en": "I am going to school.",
+        "enId": 396887,
+        "form": "登校",
+        "furigana": [["登校", "とうこう"], ["するところです。"]]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-15",
+    "term": "統合",
+    "kana": "とうごう",
+    "meaning": "integration, unification, synthesis",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125041,
+        "ja": "天皇は国民の統合の象徴である。",
+        "en": "The Emperor is the symbol of the unity of the people.",
+        "enId": 278952,
+        "form": "統合の",
+        "furigana": [
+          ["天皇", "てんのう"],
+          ["は"],
+          ["国民", "こくみん"],
+          ["の"],
+          ["統合", "とうごう"],
+          ["の"],
+          ["象徴", "しょうちょう"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 235539,
+        "ja": "２つの国は１つの政府に統合された。",
+        "en": "The two countries were united under one government.",
+        "enId": 72918,
+        "form": "統合",
+        "furigana": [
+          ["２つの"],
+          ["国", "くに"],
+          ["は１つの"],
+          ["政府", "せいふ"],
+          ["に"],
+          ["統合", "とうごう"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-16",
+    "term": "投資",
+    "kana": "とうし",
+    "meaning": "investment",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 2325060,
+        "ja": "彼は株に投資した。",
+        "en": "He invested his money in stocks.",
+        "enId": 295466,
+        "form": "投資",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["株", "かぶ"],
+          ["に"],
+          ["投資", "とうし"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 102421,
+        "ja": "彼は大金を株に投資した。",
+        "en": "He invested a lot of money in stocks.",
+        "enId": 301273,
+        "form": "投資",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["大金", "たいきん"],
+          ["を"],
+          ["株", "かぶ"],
+          ["に"],
+          ["投資", "とうし"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-17",
+    "term": "同情",
+    "kana": "どうじょう",
+    "meaning": "sympathy, compassion, sympathize",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 118504,
+        "ja": "彼に同情した。",
+        "en": "I felt sympathy for him.",
+        "enId": 285159,
+        "form": "同情",
+        "furigana": [["彼", "かれ"], ["に"], ["同情", "どうじょう"], ["した。"]]
+      },
+      {
+        "id": 178596,
+        "ja": "君に同情するよ。",
+        "en": "I feel for you.",
+        "enId": 17448,
+        "form": "同情",
+        "furigana": [
+          ["君", "きみ"],
+          ["に"],
+          ["同情", "どうじょう"],
+          ["するよ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-18",
+    "term": "統制",
+    "kana": "とうせい",
+    "meaning": "regulation, control",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141062,
+        "ja": "船長は船のすべてを統制する。",
+        "en": "The captain controls the whole ship.",
+        "enId": 273509,
+        "form": "統制",
+        "furigana": [
+          ["船長", "せんちょう"],
+          ["は"],
+          ["船", "ふね"],
+          ["のすべてを"],
+          ["統制", "とうせい"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 143069,
+        "ja": "政府は物価の統制を解除した。",
+        "en": "The government lifted price controls.",
+        "enId": 271499,
+        "form": "統制",
+        "furigana": [
+          ["政府", "せいふ"],
+          ["は"],
+          ["物価", "ぶっか"],
+          ["の"],
+          ["統制", "とうせい"],
+          ["を"],
+          ["解除", "かいじょ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-19",
+    "term": "当選",
+    "kana": "とうせん",
+    "meaning": "being elected, winning the prize",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 94114,
+        "ja": "彼女の当選は確実だ。",
+        "en": "Her election is in the bag.",
+        "enId": 309591,
+        "form": "当選",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["当選", "とうせん"],
+          ["は"],
+          ["確実", "かくじつ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 2287319,
+        "ja": "彼は選挙で大差で当選した。",
+        "en": "He won the election by a large majority.",
+        "enId": 300704,
+        "form": "当選",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["選挙", "せんきょ"],
+          ["で"],
+          ["大差", "たいさ"],
+          ["で"],
+          ["当選", "とうせん"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-20",
+    "term": "逃走",
+    "kana": "とうそう",
+    "meaning": "flight, desertion, escape",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 103740,
+        "ja": "彼は森のほうへ逃走した。",
+        "en": "He ran away in the direction of the wood.",
+        "enId": 299953,
+        "form": "逃走",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["森", "もり"],
+          ["のほうへ"],
+          ["逃走", "とうそう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 98422,
+        "ja": "彼らの逃走は昨日わかった。",
+        "en": "Their flight was discovered yesterday.",
+        "enId": 305280,
+        "form": "逃走",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らの"],
+          ["逃走", "とうそう"],
+          ["は"],
+          ["昨日", "きのう"],
+          ["わかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-21",
+    "term": "統率",
+    "kana": "とうそつ",
+    "meaning": "command, generalship, leadership",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news2", "nf30"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141064,
+        "ja": "船長は船と乗組員を統率する。",
+        "en": "A captain controls his ship and its crew.",
+        "enId": 273508,
+        "form": "統率",
+        "furigana": [
+          ["船長", "せんちょう"],
+          ["は"],
+          ["船", "ふね"],
+          ["と"],
+          ["乗組", "のりくみ"],
+          ["員", "いん"],
+          ["を"],
+          ["統率", "とうそつ"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-22",
+    "term": "到達",
+    "kana": "とうたつ",
+    "meaning": "reaching, attaining, arrival",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123063,
+        "ja": "二人は同じ結論に到達した。",
+        "en": "The two came to the same conclusion.",
+        "enId": 280937,
+        "form": "到達",
+        "furigana": [
+          ["二人", "ふたり"],
+          ["は"],
+          ["同", "おな"],
+          ["じ"],
+          ["結論", "けつろん"],
+          ["に"],
+          ["到達", "とうたつ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 92104,
+        "ja": "彼女はついに北極に到達した。",
+        "en": "She has finally reached the Arctic.",
+        "enId": 311607,
+        "form": "到達",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はついに"],
+          ["北極", "ほっきょく"],
+          ["に"],
+          ["到達", "とうたつ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-23",
+    "term": "統治",
+    "kana": "とうち",
+    "meaning": "rule, reign, governing",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-02-24",
+    "term": "資金",
+    "kana": "しきん",
+    "meaning": "funds, capital",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [2, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 150997,
+        "ja": "資金を調達する。",
+        "en": "I raise funds.",
+        "enId": 263558,
+        "form": "資金",
+        "furigana": [
+          ["資金", "しきん"],
+          ["を"],
+          ["調達", "ちょうたつ"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 105396,
+        "ja": "彼は資金集めが上手い。",
+        "en": "He's good at fund raising.",
+        "enId": 298293,
+        "form": "資金",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["資金", "しきん"],
+          ["集", "あつ"],
+          ["めが"],
+          ["上手", "うま"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-25",
+    "term": "しくじる",
+    "kana": "しくじる",
+    "meaning": "to fail, to fall through, to blunder",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 105453,
+        "ja": "彼は試験でしくじった。",
+        "en": "He failed in the examination.",
+        "enId": 298236,
+        "form": "しくじった",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["試験", "しけん"],
+          ["でしくじった。"]
+        ]
+      },
+      {
+        "id": 172500,
+        "ja": "今回はしくじれないぞ。",
+        "en": "You cannot fail this time.",
+        "enId": 241975,
+        "form": "しくじれない",
+        "furigana": [["今回", "こんかい"], ["はしくじれないぞ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-26",
+    "term": "仕組",
+    "kana": "しくみ",
+    "meaning": "structure, mechanism",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2037-02-27",
+    "term": "死刑",
+    "kana": "しけい",
+    "meaning": "death penalty",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 106449,
+        "ja": "彼は死刑を宣告された。",
+        "en": "He was condemned to death.",
+        "enId": 297237,
+        "form": "死刑",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["死刑", "しけい"],
+          ["を"],
+          ["宣告", "せんこく"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 106451,
+        "ja": "彼は死刑に処せられた。",
+        "en": "He was sentenced to death.",
+        "enId": 295667,
+        "form": "死刑",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["死刑", "しけい"],
+          ["に"],
+          ["処", "しょ"],
+          ["せられた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2037-02-28",
+    "term": "湿気る",
+    "kana": "しける",
+    "meaning": "to be damp, to be moist",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "pitch": [2, 0],
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

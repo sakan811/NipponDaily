@@ -1,0 +1,1240 @@
+[
+  {
+    "date": "2028-06-01",
+    "term": "実験",
+    "kana": "じっけん",
+    "meaning": "lab work; experiment",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 104718,
+        "ja": "彼は実験を続けた。",
+        "en": "He carried on with his experiment.",
+        "enId": 298973,
+        "form": "実験",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["実験", "じっけん"],
+          ["を"],
+          ["続", "つづ"],
+          ["けた。"]
+        ]
+      },
+      {
+        "id": 149359,
+        "ja": "実験は成功だった。",
+        "en": "The experiment was successful.",
+        "enId": 265199,
+        "form": "実験",
+        "furigana": [
+          ["実験", "じっけん"],
+          ["は"],
+          ["成功", "せいこう"],
+          ["だった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-02",
+    "term": "実現",
+    "kana": "じつげん",
+    "meaning": "implementation, materialization, realization",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 80968,
+        "ja": "夢が実現した。",
+        "en": "His dream came true.",
+        "enId": 287574,
+        "form": "実現",
+        "furigana": [["夢", "ゆめ"], ["が"], ["実現", "じつげん"], ["した。"]]
+      },
+      {
+        "id": 144869,
+        "ja": "神託は実現した。",
+        "en": "The oracle was fulfilled.",
+        "enId": 269695,
+        "form": "実現",
+        "furigana": [
+          ["神託", "しんたく"],
+          ["は"],
+          ["実現", "じつげん"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-03",
+    "term": "実行",
+    "kana": "じっこう",
+    "meaning": "practice, execution (e.g., program), realization",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149349,
+        "ja": "実行は言葉よりまさる。",
+        "en": "Deeds are better than words.",
+        "enId": 265209,
+        "form": "実行",
+        "furigana": [
+          ["実行", "じっこう"],
+          ["は"],
+          ["言葉", "ことば"],
+          ["よりまさる。"]
+        ]
+      },
+      {
+        "id": 176421,
+        "ja": "計画を実行すべき時だ。",
+        "en": "That's when we should carry out the plan.",
+        "enId": 238044,
+        "form": "実行",
+        "furigana": [
+          ["計画", "けいかく"],
+          ["を"],
+          ["実行", "じっこう"],
+          ["すべき"],
+          ["時", "とき"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-04",
+    "term": "実際",
+    "kana": "じっさい",
+    "meaning": "in fact; in actuality",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149301,
+        "ja": "実際幸せなのです。",
+        "en": "In fact, I am happy.",
+        "enId": 265256,
+        "form": "実際",
+        "furigana": [["実際", "じっさい"], ["幸", "しあわ"], ["せなのです。"]]
+      },
+      {
+        "id": 149304,
+        "ja": "実際よい案が浮かんだ。",
+        "en": "A good idea suddenly struck me.",
+        "enId": 265254,
+        "form": "実際",
+        "furigana": [
+          ["実際", "じっさい"],
+          ["よい"],
+          ["案", "あん"],
+          ["が"],
+          ["浮", "う"],
+          ["かんだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-05",
+    "term": "実施",
+    "kana": "じっし",
+    "meaning": "enforcement, carry out, operation",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 211243,
+        "ja": "その計画は実施された。",
+        "en": "The plan was put into operation.",
+        "enId": 48515,
+        "form": "実施",
+        "furigana": [
+          ["その"],
+          ["計画", "けいかく"],
+          ["は"],
+          ["実施", "じっし"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 206743,
+        "ja": "その法律は直ちに実施された。",
+        "en": "The law was enforced immediately.",
+        "enId": 43991,
+        "form": "実施",
+        "furigana": [
+          ["その"],
+          ["法律", "ほうりつ"],
+          ["は"],
+          ["直", "ただ"],
+          ["ちに"],
+          ["実施", "じっし"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-06",
+    "term": "湿度",
+    "kana": "しつど",
+    "meaning": "humidity",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [2, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147463,
+        "ja": "暑かった。その上湿度が高かった。",
+        "en": "It was hot, and in addition, it was humid.",
+        "enId": 267097,
+        "form": "湿度",
+        "furigana": [
+          ["暑", "あつ"],
+          ["かった。その"],
+          ["上", "うえ"],
+          ["湿度", "しつど"],
+          ["が"],
+          ["高", "たか"],
+          ["かった。"]
+        ]
+      },
+      {
+        "id": 198719,
+        "ja": "ニューヨークの天候は、夏は暑く湿度も高い。",
+        "en": "New York weather is hot and humid in the summer.",
+        "enId": 35912,
+        "form": "湿度",
+        "furigana": [
+          ["ニューヨークの"],
+          ["天候", "てんこう"],
+          ["は、"],
+          ["夏", "なつ"],
+          ["は"],
+          ["暑", "あつ"],
+          ["く"],
+          ["湿度", "しつど"],
+          ["も"],
+          ["高", "たか"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-07",
+    "term": "じっと",
+    "kana": "じっと",
+    "meaning": "patiently, quietly",
+    "level": "N3",
+    "pos": [
+      "adverb (fukushi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2028-06-08",
+    "term": "実に",
+    "kana": "じつに",
+    "meaning": "indeed, truly, surely",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149502,
+        "ja": "実に目障りだな。",
+        "en": "It's really an eyesore.",
+        "enId": 1015156,
+        "form": "実に",
+        "furigana": [["実", "じつ"], ["に"], ["目障", "めざわ"], ["りだな。"]]
+      },
+      {
+        "id": 104729,
+        "ja": "彼は実に勉強家だ。",
+        "en": "He is, indeed, a hard worker.",
+        "enId": 298961,
+        "form": "実に",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["実", "じつ"],
+          ["に"],
+          ["勉強", "べんきょう"],
+          ["家", "か"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-09",
+    "term": "実は",
+    "kana": "じつは",
+    "meaning": "actually; in fact",
+    "level": "N3",
+    "pos": ["expressions (phrases, clauses, etc.)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149429,
+        "ja": "実は彼女は僕の姉だ。",
+        "en": "As a matter of fact, she is my sister.",
+        "enId": 265128,
+        "form": "実は",
+        "furigana": [
+          ["実", "じつ"],
+          ["は"],
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["僕", "ぼく"],
+          ["の"],
+          ["姉", "あね"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 149430,
+        "ja": "実は別の約束がある。",
+        "en": "The fact is that I have another appointment.",
+        "enId": 265129,
+        "form": "実は",
+        "furigana": [
+          ["実", "じつ"],
+          ["は"],
+          ["別", "べつ"],
+          ["の"],
+          ["約束", "やくそく"],
+          ["がある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-10",
+    "term": "失望",
+    "kana": "しつぼう",
+    "meaning": "disappointment, despair",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149585,
+        "ja": "失望するな。",
+        "en": "Keep up your courage.",
+        "enId": 264974,
+        "form": "失望",
+        "furigana": [["失望", "しつぼう"], ["するな。"]]
+      },
+      {
+        "id": 154129,
+        "ja": "私は彼に失望した。",
+        "en": "I was disappointed in him.",
+        "enId": 395061,
+        "form": "失望",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["彼", "かれ"],
+          ["に"],
+          ["失望", "しつぼう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-11",
+    "term": "実力",
+    "kana": "じつりょく",
+    "meaning": "ability; force",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149285,
+        "ja": "実力だよ、実力。",
+        "en": "That's my skill talking.",
+        "enId": 265273,
+        "form": "実力",
+        "furigana": [
+          ["実力", "じつりょく"],
+          ["だよ、"],
+          ["実力", "じつりょく"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 225253,
+        "ja": "けっきょく、実力が勝つ。",
+        "en": "Real ability wins in the end.",
+        "enId": 62589,
+        "form": "実力",
+        "furigana": [
+          ["けっきょく、"],
+          ["実力", "じつりょく"],
+          ["が"],
+          ["勝", "か"],
+          ["つ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-12",
+    "term": "支店",
+    "kana": "してん",
+    "meaning": "branch store (office)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 168220,
+        "ja": "支店は全国にまたがっている。",
+        "en": "Our branches extend all over the country.",
+        "enId": 246274,
+        "form": "支店",
+        "furigana": [
+          ["支店", "してん"],
+          ["は"],
+          ["全国", "ぜんこく"],
+          ["にまたがっている。"]
+        ]
+      },
+      {
+        "id": 145396,
+        "ja": "新しい支店が来月シカゴに開店する。",
+        "en": "A new branch will be opened in Chicago next month.",
+        "enId": 269167,
+        "form": "支店",
+        "furigana": [
+          ["新", "あたら"],
+          ["しい"],
+          ["支店", "してん"],
+          ["が"],
+          ["来月", "らいげつ"],
+          ["シカゴに"],
+          ["開店", "かいてん"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-13",
+    "term": "指導",
+    "kana": "しどう",
+    "meaning": "leadership, guidance, coaching",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 158102,
+        "ja": "私は何事にも彼の指導を仰ぐ。",
+        "en": "I look to him for direction in everything.",
+        "enId": 256428,
+        "form": "指導",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["何事", "なにごと"],
+          ["にも"],
+          ["彼", "かれ"],
+          ["の"],
+          ["指導", "しどう"],
+          ["を"],
+          ["仰", "あお"],
+          ["ぐ。"]
+        ]
+      },
+      {
+        "id": 117194,
+        "ja": "彼の指導の下で商売は繁盛した。",
+        "en": "The business prospered beneath his guiding hand.",
+        "enId": 286471,
+        "form": "指導",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["指導", "しどう"],
+          ["の"],
+          ["下", "した"],
+          ["で"],
+          ["商売", "しょうばい"],
+          ["は"],
+          ["繁盛", "はんじょう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-14",
+    "term": "自動",
+    "kana": "じどう",
+    "meaning": "automatic, self-motion",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 218284,
+        "ja": "これは自動ドアです。",
+        "en": "This is an automatic door.",
+        "enId": 55596,
+        "form": "自動",
+        "furigana": [["これは"], ["自動", "じどう"], ["ドアです。"]]
+      },
+      {
+        "id": 89124,
+        "ja": "彼女は自動式の洗濯機をもっている。",
+        "en": "She has an automatic washing machine.",
+        "enId": 314582,
+        "form": "自動",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["自動", "じどう"],
+          ["式", "しき"],
+          ["の"],
+          ["洗濯機", "せんたくき"],
+          ["をもっている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-15",
+    "term": "児童",
+    "kana": "じどう",
+    "meaning": "children, juvenile",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 150739,
+        "ja": "児童はみんなその新しい先生が好きになった。",
+        "en": "Every child took to the new teacher.",
+        "enId": 263818,
+        "form": "児童",
+        "furigana": [
+          ["児童", "じどう"],
+          ["はみんなその"],
+          ["新", "あたら"],
+          ["しい"],
+          ["先生", "せんせい"],
+          ["が"],
+          ["好", "す"],
+          ["きになった。"]
+        ]
+      },
+      {
+        "id": 211671,
+        "ja": "その学校の児童はみんなその新しい先生になついた。",
+        "en": "Every child in the school took to the new teacher.",
+        "enId": 48948,
+        "form": "児童",
+        "furigana": [
+          ["その"],
+          ["学校", "がっこう"],
+          ["の"],
+          ["児童", "じどう"],
+          ["はみんなその"],
+          ["新", "あたら"],
+          ["しい"],
+          ["先生", "せんせい"],
+          ["になついた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-16",
+    "term": "芝居",
+    "kana": "しばい",
+    "meaning": "play, drama",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 117095,
+        "ja": "彼の芝居は当たった。",
+        "en": "His play was a hit.",
+        "enId": 286571,
+        "form": "芝居",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["芝居", "しばい"],
+          ["は"],
+          ["当", "あ"],
+          ["たった。"]
+        ]
+      },
+      {
+        "id": 227092,
+        "ja": "お芝居は好きですか。",
+        "en": "Do you like the theater?",
+        "enId": 64442,
+        "form": "芝居",
+        "furigana": [
+          ["お"],
+          ["芝居", "しばい"],
+          ["は"],
+          ["好", "す"],
+          ["きですか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-17",
+    "term": "しばしば",
+    "kana": "しばしば",
+    "meaning": "often, again and again, frequently",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2028-06-18",
+    "term": "芝生",
+    "kana": "しばふ",
+    "meaning": "lawn",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149269,
+        "ja": "芝生に入るな。",
+        "en": "Keep off the grass!",
+        "enId": 265289,
+        "form": "芝生",
+        "furigana": [["芝生", "しばふ"], ["に"], ["入", "はい"], ["るな。"]]
+      },
+      {
+        "id": 149263,
+        "ja": "芝生立ち入り禁止。",
+        "en": "Keep off the grass.",
+        "enId": 265288,
+        "form": "芝生",
+        "furigana": [
+          ["芝生", "しばふ"],
+          ["立", "た"],
+          ["ち"],
+          ["入", "い"],
+          ["り"],
+          ["禁止", "きんし"],
+          ["。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-19",
+    "term": "支払",
+    "kana": "しはらい",
+    "meaning": "payment",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1", "ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2028-06-20",
+    "term": "支払う",
+    "kana": "しはらう",
+    "meaning": "to pay",
+    "level": "N3",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [3],
+    "stratum": "hybrid",
+    "processes": ["ateji"],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 146951,
+        "ja": "小切手で支払う。",
+        "en": "I will pay for it by check.",
+        "enId": 267610,
+        "form": "支払う",
+        "furigana": [
+          ["小切手", "こぎって"],
+          ["で"],
+          ["支払", "しはら"],
+          ["う。"]
+        ]
+      },
+      {
+        "id": 96189,
+        "ja": "彼らは別々に支払った。",
+        "en": "They each paid separately.",
+        "enId": 307517,
+        "form": "支払った",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["別々", "べつべつ"],
+          ["に"],
+          ["支払", "しはら"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-21",
+    "term": "死亡",
+    "kana": "しぼう",
+    "meaning": "death",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 117161,
+        "ja": "彼の死亡告知が新聞に出た。",
+        "en": "An announcement of his death appeared in the newspapers.",
+        "enId": 286504,
+        "form": "死亡",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["死亡", "しぼう"],
+          ["告知", "こくち"],
+          ["が"],
+          ["新聞", "しんぶん"],
+          ["に"],
+          ["出", "で"],
+          ["た。"]
+        ]
+      },
+      {
+        "id": 168118,
+        "ja": "死亡により人口は減少しつつある。",
+        "en": "The population is dying off.",
+        "enId": 246377,
+        "form": "死亡",
+        "furigana": [
+          ["死亡", "しぼう"],
+          ["により"],
+          ["人口", "じんこう"],
+          ["は"],
+          ["減少", "げんしょう"],
+          ["しつつある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-22",
+    "term": "資本",
+    "kana": "しほん",
+    "meaning": "funds, capital",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175534,
+        "ja": "健康が彼の資本だ。",
+        "en": "Good health is his capital.",
+        "enId": 238931,
+        "form": "資本",
+        "furigana": [
+          ["健康", "けんこう"],
+          ["が"],
+          ["彼", "かれ"],
+          ["の"],
+          ["資本", "しほん"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 175537,
+        "ja": "健康が私の唯一の資本です。",
+        "en": "My health is my only capital.",
+        "enId": 238928,
+        "form": "資本",
+        "furigana": [
+          ["健康", "けんこう"],
+          ["が"],
+          ["私", "わたし"],
+          ["の"],
+          ["唯一", "ゆいいつ"],
+          ["の"],
+          ["資本", "しほん"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-23",
+    "term": "自慢",
+    "kana": "じまん",
+    "meaning": "pride, boast",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121160,
+        "ja": "卑下も自慢のうち。",
+        "en": "Too much humility is pride.",
+        "enId": 282846,
+        "form": "自慢の",
+        "furigana": [["卑下", "ひげ"], ["も"], ["自慢", "じまん"], ["のうち。"]]
+      },
+      {
+        "id": 146649,
+        "ja": "少々自慢なのです。",
+        "en": "I'm rather proud of it.",
+        "enId": 267912,
+        "form": "自慢",
+        "furigana": [
+          ["少々", "しょうしょう"],
+          ["自慢", "じまん"],
+          ["なのです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-24",
+    "term": "地味",
+    "kana": "じみ",
+    "meaning": "quiet, plain, conservative",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 87931,
+        "ja": "彼女は地味な色を好む。",
+        "en": "She favors quiet colors.",
+        "enId": 315778,
+        "form": "地味な",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["地味", "じみ"],
+          ["な"],
+          ["色", "いろ"],
+          ["を"],
+          ["好", "この"],
+          ["む。"]
+        ]
+      },
+      {
+        "id": 74175,
+        "ja": "僕的にはもっと地味ってか渋い服が欲しいんですけどね。",
+        "en": "For my tastes, I'd prefer plainer, or rather, more tasteful clothing.",
+        "enId": 329545,
+        "form": "地味",
+        "furigana": [
+          ["僕", "ぼく"],
+          ["的", "てき"],
+          ["にはもっと"],
+          ["地味", "じみ"],
+          ["ってか"],
+          ["渋", "しぶ"],
+          ["い"],
+          ["服", "ふく"],
+          ["が"],
+          ["欲", "ほ"],
+          ["しいんですけどね。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-25",
+    "term": "示す",
+    "kana": "しめす",
+    "meaning": "to show, to indicate",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 233648,
+        "ja": "例を示しましょう。",
+        "en": "Let me give you an example.",
+        "enId": 71020,
+        "form": "示しましょう",
+        "furigana": [["例", "れい"], ["を"], ["示", "しめ"], ["しましょう。"]]
+      },
+      {
+        "id": 83403,
+        "ja": "別の例を示しなさい。",
+        "en": "Show me another example.",
+        "enId": 320313,
+        "form": "示し",
+        "furigana": [
+          ["別", "べつ"],
+          ["の"],
+          ["例", "れい"],
+          ["を"],
+          ["示", "しめ"],
+          ["しなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-26",
+    "term": "占める",
+    "kana": "しめる",
+    "meaning": "to take up; to account for",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "spec1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 182132,
+        "ja": "漁夫の利を占める。",
+        "en": "A third party makes off with the profits.",
+        "enId": 19372,
+        "form": "占める",
+        "furigana": [
+          ["漁夫", "ぎょふ"],
+          ["の"],
+          ["利", "り"],
+          ["を"],
+          ["占", "し"],
+          ["める。"]
+        ]
+      },
+      {
+        "id": 138580,
+        "ja": "他の物が漁夫の利を占める。",
+        "en": "Someone else profits from the situation.",
+        "enId": 274655,
+        "form": "占める",
+        "furigana": [
+          ["他", "た"],
+          ["の"],
+          ["物", "もの"],
+          ["が"],
+          ["漁夫", "ぎょふ"],
+          ["の"],
+          ["利", "り"],
+          ["を"],
+          ["占", "し"],
+          ["める。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-27",
+    "term": "湿る",
+    "kana": "しめる",
+    "meaning": "to be wet, to be damp",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf46"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2028-06-28",
+    "term": "借金",
+    "kana": "しゃっきん",
+    "meaning": "debt, loan, liabilities",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 164591,
+        "ja": "私には借金がない。",
+        "en": "I am free of debt.",
+        "enId": 249916,
+        "form": "借金",
+        "furigana": [
+          ["私", "わたし"],
+          ["には"],
+          ["借金", "しゃっきん"],
+          ["がない。"]
+        ]
+      },
+      {
+        "id": 85066,
+        "ja": "不足を借金で補充した。",
+        "en": "He made up the deficit with a loan.",
+        "enId": 318647,
+        "form": "借金",
+        "furigana": [
+          ["不足", "ふそく"],
+          ["を"],
+          ["借金", "しゃっきん"],
+          ["で"],
+          ["補充", "ほじゅう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2028-06-29",
+    "term": "銃",
+    "kana": "じゅう",
+    "meaning": "gun",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2028-06-30",
+    "term": "周囲",
+    "kana": "しゅうい",
+    "meaning": "surroundings, circumference, environs",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 126951,
+        "ja": "地球は太陽の周囲を回る。",
+        "en": "The earth goes around the sun.",
+        "enId": 277137,
+        "form": "周囲",
+        "furigana": [
+          ["地球", "ちきゅう"],
+          ["は"],
+          ["太陽", "たいよう"],
+          ["の"],
+          ["周囲", "しゅうい"],
+          ["を"],
+          ["回", "まわ"],
+          ["る。"]
+        ]
+      },
+      {
+        "id": 148260,
+        "ja": "周囲には誰も居なかった。",
+        "en": "There was nobody about.",
+        "enId": 266291,
+        "form": "周囲",
+        "furigana": [
+          ["周囲", "しゅうい"],
+          ["には"],
+          ["誰", "だれ"],
+          ["も"],
+          ["居", "い"],
+          ["なかった。"]
+        ]
+      }
+    ]
+  }
+]

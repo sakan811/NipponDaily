@@ -1,0 +1,1276 @@
+[
+  {
+    "date": "2031-02-01",
+    "term": "外れる",
+    "kana": "はずれる",
+    "meaning": "to be disconnected, to be out (e.g., of gear)",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102078,
+        "ja": "彼は調子が外れている。",
+        "en": "He is out of tune.",
+        "enId": 301616,
+        "form": "外れている",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["調子", "ちょうし"],
+          ["が"],
+          ["外", "はず"],
+          ["れている。"]
+        ]
+      },
+      {
+        "id": 149013,
+        "ja": "車はコースをはずれた。",
+        "en": "The car veered from its course.",
+        "enId": 265545,
+        "form": "はずれた",
+        "furigana": [["車", "くるま"], ["はコースをはずれた。"]]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-02",
+    "term": "働き",
+    "kana": "はたらき",
+    "meaning": "work, labor",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101695,
+        "ja": "彼は頭の働きが早い。",
+        "en": "He has a nimble mind.",
+        "enId": 301998,
+        "form": "働き",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["頭", "あたま"],
+          ["の"],
+          ["働", "はたら"],
+          ["きが"],
+          ["早", "はや"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 123804,
+        "ja": "働きに応じて支払われます。",
+        "en": "You will be paid according to your work.",
+        "enId": 70432,
+        "form": "働き",
+        "furigana": [
+          ["働", "はたら"],
+          ["きに"],
+          ["応", "おう"],
+          ["じて"],
+          ["支払", "しはら"],
+          ["われます。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-03",
+    "term": "発見",
+    "kana": "はっけん",
+    "meaning": "discovery, detection, finding",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 207192,
+        "ja": "その発見には驚いた。",
+        "en": "I was surprised at the discovery.",
+        "enId": 44443,
+        "form": "発見",
+        "furigana": [
+          ["その"],
+          ["発見", "はっけん"],
+          ["には"],
+          ["驚", "おどろ"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 104334,
+        "ja": "彼は重大な発見をした。",
+        "en": "He made an important discovery.",
+        "enId": 299357,
+        "form": "発見",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["重大", "じゅうだい"],
+          ["な"],
+          ["発見", "はっけん"],
+          ["をした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-04",
+    "term": "発行",
+    "kana": "はっこう",
+    "meaning": "issue (publications)",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 208819,
+        "ja": "その新聞は発行部数が多い。",
+        "en": "The newspaper has a large circulation.",
+        "enId": 46079,
+        "form": "発行",
+        "furigana": [
+          ["その"],
+          ["新聞", "しんぶん"],
+          ["は"],
+          ["発行", "はっこう"],
+          ["部数", "ぶすう"],
+          ["が"],
+          ["多", "おお"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 145359,
+        "ja": "新しい切手が来週発行される。",
+        "en": "New stamps will be issued next month.",
+        "enId": 269204,
+        "form": "発行",
+        "furigana": [
+          ["新", "あたら"],
+          ["しい"],
+          ["切手", "きって"],
+          ["が"],
+          ["来週", "らいしゅう"],
+          ["発行", "はっこう"],
+          ["される。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-05",
+    "term": "発車",
+    "kana": "はっしゃ",
+    "meaning": "departure of a vehicle",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121316,
+        "ja": "発車ホームはどちらですか。",
+        "en": "Which is the departure platform?",
+        "enId": 282690,
+        "form": "発車",
+        "furigana": [["発車", "はっしゃ"], ["ホームはどちらですか。"]]
+      },
+      {
+        "id": 198114,
+        "ja": "バスは五分後に発車します。",
+        "en": "The bus leaves in five minutes.",
+        "enId": 35305,
+        "form": "発車",
+        "furigana": [
+          ["バスは"],
+          ["五", "ご"],
+          ["分", "ふん"],
+          ["後", "ご"],
+          ["に"],
+          ["発車", "はっしゃ"],
+          ["します。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-06",
+    "term": "発射",
+    "kana": "はっしゃ",
+    "meaning": "firing, shooting, discharge",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 97576,
+        "ja": "彼らはロケットを発射した。",
+        "en": "They launched a rocket.",
+        "enId": 306126,
+        "form": "発射",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らはロケットを"],
+          ["発射", "はっしゃ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 82519,
+        "ja": "暴漢のピストルが発射された。",
+        "en": "A ruffian's pistol went off.",
+        "enId": 321197,
+        "form": "発射",
+        "furigana": [
+          ["暴漢", "ぼうかん"],
+          ["のピストルが"],
+          ["発射", "はっしゃ"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-07",
+    "term": "罰する",
+    "kana": "ばっする",
+    "meaning": "to punish, to penalize",
+    "level": "N3",
+    "pos": ["suru verb - special class", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [0, 3],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 170235,
+        "ja": "罪に比例して罰するべきだ。",
+        "en": "The punishment should be in proportion to the crime.",
+        "enId": 244249,
+        "form": "罰する",
+        "furigana": [
+          ["罪", "つみ"],
+          ["に"],
+          ["比例", "ひれい"],
+          ["して"],
+          ["罰", "ばっ"],
+          ["するべきだ。"]
+        ]
+      },
+      {
+        "id": 183106,
+        "ja": "規則に当てはめて彼を罰した。",
+        "en": "We punished him according to the rules.",
+        "enId": 20228,
+        "form": "罰した",
+        "furigana": [
+          ["規則", "きそく"],
+          ["に"],
+          ["当", "あ"],
+          ["てはめて"],
+          ["彼", "かれ"],
+          ["を"],
+          ["罰", "ばっ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-08",
+    "term": "発達",
+    "kana": "はったつ",
+    "meaning": "development, growth",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 116694,
+        "ja": "彼の精神発達は遅かった。",
+        "en": "His mental development was slow.",
+        "enId": 286972,
+        "form": "発達",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["精神", "せいしん"],
+          ["発達", "はったつ"],
+          ["は"],
+          ["遅", "おそ"],
+          ["かった。"]
+        ]
+      },
+      {
+        "id": 143688,
+        "ja": "水泳は筋肉を発達させる。",
+        "en": "Swimming develops our muscles.",
+        "enId": 270879,
+        "form": "発達",
+        "furigana": [
+          ["水泳", "すいえい"],
+          ["は"],
+          ["筋肉", "きんにく"],
+          ["を"],
+          ["発達", "はったつ"],
+          ["させる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-09",
+    "term": "ばったり",
+    "kana": "ばったり",
+    "meaning": "(to meet) by chance",
+    "level": "N3",
+    "pos": ["adverb (fukushi)", "adverb taking the 'to' particle"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 109533,
+        "ja": "彼は横にばったり倒れた。",
+        "en": "He fell flat on the floor.",
+        "enId": 294157,
+        "form": "ばったり",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["横", "よこ"],
+          ["にばったり"],
+          ["倒", "たお"],
+          ["れた。"]
+        ]
+      },
+      {
+        "id": 119241,
+        "ja": "彼とはそこでばったり会う。",
+        "en": "I'm always meeting him there.",
+        "enId": 284422,
+        "form": "ばったり",
+        "furigana": [
+          ["彼", "かれ"],
+          ["とはそこでばったり"],
+          ["会", "あ"],
+          ["う。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-10",
+    "term": "発展",
+    "kana": "はってん",
+    "meaning": "development, growth, progress",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 82478,
+        "ja": "貿易は諸国の発展を促進する。",
+        "en": "Trade helps nations develop.",
+        "enId": 321238,
+        "form": "発展",
+        "furigana": [
+          ["貿易", "ぼうえき"],
+          ["は"],
+          ["諸国", "しょこく"],
+          ["の"],
+          ["発展", "はってん"],
+          ["を"],
+          ["促進", "そくしん"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 104914,
+        "ja": "彼は自分の商売を発展させた。",
+        "en": "He developed his business.",
+        "enId": 298775,
+        "form": "発展",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["自分", "じぶん"],
+          ["の"],
+          ["商売", "しょうばい"],
+          ["を"],
+          ["発展", "はってん"],
+          ["させた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-11",
+    "term": "発表",
+    "kana": "はっぴょう",
+    "meaning": "announcement; publication; presentation",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 235434,
+        "ja": "２人は婚約を発表した。",
+        "en": "They have announced their engagement.",
+        "enId": 72812,
+        "form": "発表",
+        "furigana": [
+          ["２"],
+          ["人", "にん"],
+          ["は"],
+          ["婚約", "こんやく"],
+          ["を"],
+          ["発表", "はっぴょう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 191072,
+        "ja": "意外な結果が発表された。",
+        "en": "Unexpected results were announced.",
+        "enId": 28232,
+        "form": "発表",
+        "furigana": [
+          ["意外", "いがい"],
+          ["な"],
+          ["結果", "けっか"],
+          ["が"],
+          ["発表", "はっぴょう"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-12",
+    "term": "発明",
+    "kana": "はつめい",
+    "meaning": "invention",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf16"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149012,
+        "ja": "車はすばらしい発明だ。",
+        "en": "The automobile is a wonderful invention.",
+        "enId": 265546,
+        "form": "発明",
+        "furigana": [
+          ["車", "くるま"],
+          ["はすばらしい"],
+          ["発明", "はつめい"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 196690,
+        "ja": "ベルは電話を発明した。",
+        "en": "Bell invented the telephone.",
+        "enId": 33869,
+        "form": "発明",
+        "furigana": [
+          ["ベルは"],
+          ["電話", "でんわ"],
+          ["を"],
+          ["発明", "はつめい"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-13",
+    "term": "話し合う",
+    "kana": "はなしあう",
+    "meaning": "to discuss, to talk together",
+    "level": "N3",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83864,
+        "ja": "腹を割って話し合おう。",
+        "en": "Let's talk turkey.",
+        "enId": 928195,
+        "form": "話し合おう",
+        "furigana": [
+          ["腹", "はら"],
+          ["を"],
+          ["割", "わ"],
+          ["って"],
+          ["話", "はな"],
+          ["し"],
+          ["合", "あ"],
+          ["おう。"]
+        ]
+      },
+      {
+        "id": 148112,
+        "ja": "集まって話し合おうよ。",
+        "en": "Let's get together and talk it over.",
+        "enId": 32519,
+        "form": "話し合おう",
+        "furigana": [
+          ["集", "あつ"],
+          ["まって"],
+          ["話", "はな"],
+          ["し"],
+          ["合", "あ"],
+          ["おうよ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-14",
+    "term": "離す",
+    "kana": "はなす",
+    "meaning": "to part, to separate",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf30"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 148613,
+        "ja": "手を離すなよ。",
+        "en": "Don't let go.",
+        "enId": 265947,
+        "form": "離す",
+        "furigana": [["手", "て"], ["を"], ["離", "はな"], ["すなよ。"]]
+      },
+      {
+        "id": 148612,
+        "ja": "手を離してくれ。",
+        "en": "Take your hands off me.",
+        "enId": 265946,
+        "form": "離して",
+        "furigana": [["手", "て"], ["を"], ["離", "はな"], ["してくれ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-15",
+    "term": "放れる",
+    "kana": "はなれる",
+    "meaning": "to leave, to get free, to cut oneself off",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2031-02-16",
+    "term": "羽根",
+    "kana": "はね",
+    "meaning": "feather",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 189854,
+        "ja": "羽に深い傷を負った小鳥を見つけました。",
+        "en": "I found a bird whose wing was severely damaged.",
+        "enId": 27011,
+        "form": "羽",
+        "furigana": [
+          ["羽", "はね"],
+          ["に"],
+          ["深", "ふか"],
+          ["い"],
+          ["傷", "きず"],
+          ["を"],
+          ["負", "お"],
+          ["った"],
+          ["小鳥", "ことり"],
+          ["を"],
+          ["見", "み"],
+          ["つけました。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-17",
+    "term": "母親",
+    "kana": "ははおや",
+    "meaning": "mother",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 86747,
+        "ja": "彼女は母親似です。",
+        "en": "She takes after her mother.",
+        "enId": 310643,
+        "form": "母親",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["母親", "ははおや"],
+          ["似", "に"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 82798,
+        "ja": "母親は教師であった。",
+        "en": "His mother was a school teacher.",
+        "enId": 320918,
+        "form": "母親",
+        "furigana": [
+          ["母親", "ははおや"],
+          ["は"],
+          ["教師", "きょうし"],
+          ["であった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-18",
+    "term": "省く",
+    "kana": "はぶく",
+    "meaning": "to omit, to eliminate",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 220635,
+        "ja": "この単語を省きなさい。",
+        "en": "Leave out this word.",
+        "enId": 57957,
+        "form": "省き",
+        "furigana": [
+          ["この"],
+          ["単語", "たんご"],
+          ["を"],
+          ["省", "はぶ"],
+          ["きなさい。"]
+        ]
+      },
+      {
+        "id": 224064,
+        "ja": "この２行は省くべきだ。",
+        "en": "You should leave out these two lines.",
+        "enId": 61400,
+        "form": "省く",
+        "furigana": [
+          ["この２"],
+          ["行", "ぎょう"],
+          ["は"],
+          ["省", "はぶ"],
+          ["くべきだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-19",
+    "term": "場面",
+    "kana": "ばめん",
+    "meaning": "scene, setting (e.g., of novel)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0, 1],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 221080,
+        "ja": "この場面は君が良くない。",
+        "en": "You're wrong in this case.",
+        "enId": 58403,
+        "form": "場面",
+        "furigana": [
+          ["この"],
+          ["場面", "ばめん"],
+          ["は"],
+          ["君", "きみ"],
+          ["が"],
+          ["良", "よ"],
+          ["くない。"]
+        ]
+      },
+      {
+        "id": 112629,
+        "ja": "彼はその場面を見て驚いた。",
+        "en": "He was surprised at the scene.",
+        "enId": 291047,
+        "form": "場面",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はその"],
+          ["場面", "ばめん"],
+          ["を"],
+          ["見", "み"],
+          ["て"],
+          ["驚", "おどろ"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-20",
+    "term": "範囲",
+    "kana": "はんい",
+    "meaning": "extent, scope, range",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 2280985,
+        "ja": "想定の範囲外だ。",
+        "en": "I never imagined anything like this.",
+        "enId": 953547,
+        "form": "範囲",
+        "furigana": [
+          ["想定", "そうてい"],
+          ["の"],
+          ["範囲", "はんい"],
+          ["外", "がい"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 219826,
+        "ja": "この方法は適用範囲が広い。",
+        "en": "This method is of wide application.",
+        "enId": 57146,
+        "form": "範囲",
+        "furigana": [
+          ["この"],
+          ["方法", "ほうほう"],
+          ["は"],
+          ["適用", "てきよう"],
+          ["範囲", "はんい"],
+          ["が"],
+          ["広", "ひろ"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-21",
+    "term": "反抗",
+    "kana": "はんこう",
+    "meaning": "opposition, resistance",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 144126,
+        "ja": "人々は王に反抗しました。",
+        "en": "The people rebelled against the king.",
+        "enId": 270393,
+        "form": "反抗",
+        "furigana": [
+          ["人々", "ひとびと"],
+          ["は"],
+          ["王", "おう"],
+          ["に"],
+          ["反抗", "はんこう"],
+          ["しました。"]
+        ]
+      },
+      {
+        "id": 228571,
+        "ja": "イヌは飼い主に反抗した。",
+        "en": "The dog rebelled against his master.",
+        "enId": 65929,
+        "form": "反抗",
+        "furigana": [
+          ["イヌは"],
+          ["飼", "か"],
+          ["い"],
+          ["主", "ぬし"],
+          ["に"],
+          ["反抗", "はんこう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-22",
+    "term": "犯罪",
+    "kana": "はんざい",
+    "meaning": "crime",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 87513,
+        "ja": "彼女は犯罪を犯した。",
+        "en": "She committed a crime.",
+        "enId": 313795,
+        "form": "犯罪",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["犯罪", "はんざい"],
+          ["を"],
+          ["犯", "おか"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 121222,
+        "ja": "犯罪は割に合わない。",
+        "en": "Crime doesn't pay.",
+        "enId": 282784,
+        "form": "犯罪",
+        "furigana": [
+          ["犯罪", "はんざい"],
+          ["は"],
+          ["割", "わり"],
+          ["に"],
+          ["合", "あ"],
+          ["わない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-23",
+    "term": "反省",
+    "kana": "はんせい",
+    "meaning": "reflection, reconsideration, regret",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 105036,
+        "ja": "彼は自分の過ちを反省した。",
+        "en": "He reflected on his errors.",
+        "enId": 298653,
+        "form": "反省",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["自分", "じぶん"],
+          ["の"],
+          ["過", "あやま"],
+          ["ちを"],
+          ["反省", "はんせい"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 104792,
+        "ja": "彼は自分自身の考えを反省した。",
+        "en": "He reflected on his own thoughts.",
+        "enId": 298898,
+        "form": "反省",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["自分", "じぶん"],
+          ["自身", "じしん"],
+          ["の"],
+          ["考", "かんが"],
+          ["えを"],
+          ["反省", "はんせい"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-24",
+    "term": "判断",
+    "kana": "はんだん",
+    "meaning": "judgment, decision",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101230,
+        "ja": "彼は判断を誤った。",
+        "en": "He erred in his judgement.",
+        "enId": 302466,
+        "form": "判断",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["判断", "はんだん"],
+          ["を"],
+          ["誤", "あやま"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 101231,
+        "ja": "彼は判断が正確だ。",
+        "en": "He is accurate in his judgement.",
+        "enId": 302465,
+        "form": "判断",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["判断", "はんだん"],
+          ["が"],
+          ["正確", "せいかく"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-25",
+    "term": "犯人",
+    "kana": "はんにん",
+    "meaning": "offender, criminal",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121201,
+        "ja": "犯人は袋の中の鼠だ。",
+        "en": "The culprit is caught like a rat in a trap.",
+        "enId": 282805,
+        "form": "犯人",
+        "furigana": [
+          ["犯人", "はんにん"],
+          ["は"],
+          ["袋", "ふくろ"],
+          ["の"],
+          ["中", "なか"],
+          ["の"],
+          ["鼠", "ねずみ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 154607,
+        "ja": "私は犯人と疑われた。",
+        "en": "I was suspected to be the criminal.",
+        "enId": 259933,
+        "form": "犯人",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["犯人", "はんにん"],
+          ["と"],
+          ["疑", "うたが"],
+          ["われた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-26",
+    "term": "販売",
+    "kana": "はんばい",
+    "meaning": "sale, selling, marketing",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 117228,
+        "ja": "彼の仕事は販売の促進です。",
+        "en": "His job is to promote sales.",
+        "enId": 286437,
+        "form": "販売",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["仕事", "しごと"],
+          ["は"],
+          ["販売", "はんばい"],
+          ["の"],
+          ["促進", "そくしん"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 121190,
+        "ja": "販売計画は変更の余地が無い。",
+        "en": "The sales plan allows of no alteration.",
+        "enId": 282816,
+        "form": "販売",
+        "furigana": [
+          ["販売", "はんばい"],
+          ["計画", "けいかく"],
+          ["は"],
+          ["変更", "へんこう"],
+          ["の"],
+          ["余地", "よち"],
+          ["が"],
+          ["無", "な"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-27",
+    "term": "被害",
+    "kana": "ひがい",
+    "meaning": "damage",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 78420,
+        "ja": "嵐の被害は何もなかった。",
+        "en": "The storm has done no harm.",
+        "enId": 325296,
+        "form": "被害",
+        "furigana": [
+          ["嵐", "あらし"],
+          ["の"],
+          ["被害", "ひがい"],
+          ["は"],
+          ["何", "なに"],
+          ["もなかった。"]
+        ]
+      },
+      {
+        "id": 100731,
+        "ja": "彼は被害を大げさに言う。",
+        "en": "He exaggerates the harm done.",
+        "enId": 302966,
+        "form": "被害",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["被害", "ひがい"],
+          ["を"],
+          ["大", "おお"],
+          ["げさに"],
+          ["言", "い"],
+          ["う。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2031-02-28",
+    "term": "飛行",
+    "kana": "ひこう",
+    "meaning": "aviation, flight",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 88740,
+        "ja": "彼女は初めての飛行にたいへん神経質になっていた。",
+        "en": "She was quite nervous about her first flight.",
+        "enId": 314967,
+        "form": "飛行",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["初", "はじ"],
+          ["めての"],
+          ["飛行", "ひこう"],
+          ["にたいへん"],
+          ["神経質", "しんけいしつ"],
+          ["になっていた。"]
+        ]
+      }
+    ]
+  }
+]

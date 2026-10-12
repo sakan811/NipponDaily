@@ -1,0 +1,1008 @@
+[
+  {
+    "date": "2033-01-01",
+    "term": "作者",
+    "kana": "さくしゃ",
+    "meaning": "author, artist",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 221172,
+        "ja": "この小説の作者は誰ですか。",
+        "en": "Who is the author of this story?",
+        "enId": 58494,
+        "form": "作者",
+        "furigana": [
+          ["この"],
+          ["小説", "しょうせつ"],
+          ["の"],
+          ["作者", "さくしゃ"],
+          ["は"],
+          ["誰", "だれ"],
+          ["ですか。"]
+        ]
+      },
+      {
+        "id": 209271,
+        "ja": "その小説の作者は誰でしょうか。",
+        "en": "Who is the author of the novel?",
+        "enId": 46531,
+        "form": "作者",
+        "furigana": [
+          ["その"],
+          ["小説", "しょうせつ"],
+          ["の"],
+          ["作者", "さくしゃ"],
+          ["は"],
+          ["誰", "だれ"],
+          ["でしょうか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-02",
+    "term": "削除",
+    "kana": "さくじょ",
+    "meaning": "elimination, deletion",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 223260,
+        "ja": "このファイルは削除して下さい。",
+        "en": "Please delete this file.",
+        "enId": 60593,
+        "form": "削除",
+        "furigana": [
+          ["このファイルは"],
+          ["削除", "さくじょ"],
+          ["して"],
+          ["下", "くだ"],
+          ["さい。"]
+        ]
+      },
+      {
+        "id": 188530,
+        "ja": "応募者名簿から彼の名前を削除しなさい。",
+        "en": "Delete his name from the list of the applicants.",
+        "enId": 25675,
+        "form": "削除",
+        "furigana": [
+          ["応募", "おうぼ"],
+          ["者", "しゃ"],
+          ["名簿", "めいぼ"],
+          ["から"],
+          ["彼", "かれ"],
+          ["の"],
+          ["名前", "なまえ"],
+          ["を"],
+          ["削除", "さくじょ"],
+          ["しなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-03",
+    "term": "作成",
+    "kana": "さくせい",
+    "meaning": "creation, preparation, to make",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 206143,
+        "ja": "その老人は遺言を作成した。",
+        "en": "The old man made out his will.",
+        "enId": 43390,
+        "form": "作成",
+        "furigana": [
+          ["その"],
+          ["老人", "ろうじん"],
+          ["は"],
+          ["遺言", "ゆいごん"],
+          ["を"],
+          ["作成", "さくせい"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 107130,
+        "ja": "彼は今書類を作成しています。",
+        "en": "He is making the document now.",
+        "enId": 296556,
+        "form": "作成",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["今", "いま"],
+          ["書類", "しょるい"],
+          ["を"],
+          ["作成", "さくせい"],
+          ["しています。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-04",
+    "term": "作製",
+    "kana": "さくせい",
+    "meaning": "manufacture, production",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-05",
+    "term": "差し支え",
+    "kana": "さしつかえ",
+    "meaning": "hindrance, impediment",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf35"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 212045,
+        "ja": "その家は理想的とはいえないが、まぁさしつかえはない。",
+        "en": "The house is not ideal, but it's all right.",
+        "enId": 49323,
+        "form": "さしつかえ",
+        "furigana": [
+          ["その"],
+          ["家", "いえ"],
+          ["は"],
+          ["理想", "りそう"],
+          ["的", "てき"],
+          ["とはいえないが、まぁさしつかえはない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-06",
+    "term": "差し引き",
+    "kana": "さしひき",
+    "meaning": "deduction, balance",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-07",
+    "term": "撮影",
+    "kana": "さつえい",
+    "meaning": "photographing",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 156155,
+        "ja": "私は写真撮影に興味を持っている。",
+        "en": "I have an interest in photography.",
+        "enId": 258380,
+        "form": "撮影",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["写真", "しゃしん"],
+          ["撮影", "さつえい"],
+          ["に"],
+          ["興味", "きょうみ"],
+          ["を"],
+          ["持", "も"],
+          ["っている。"]
+        ]
+      },
+      {
+        "id": 221461,
+        "ja": "この写真は彼によって撮影された。",
+        "en": "This picture was taken by him.",
+        "enId": 4351153,
+        "form": "撮影",
+        "furigana": [
+          ["この"],
+          ["写真", "しゃしん"],
+          ["は"],
+          ["彼", "かれ"],
+          ["によって"],
+          ["撮影", "さつえい"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-08",
+    "term": "さっさと",
+    "kana": "さっさと",
+    "meaning": "quickly",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 2305006,
+        "ja": "さっさとやりなさい。",
+        "en": "Do it quickly.",
+        "enId": 1860738,
+        "form": "さっさと"
+      },
+      {
+        "id": 216786,
+        "ja": "さっさと宿題をしなさい。",
+        "en": "Do your homework without delay.",
+        "enId": 54092,
+        "form": "さっさと",
+        "furigana": [["さっさと"], ["宿題", "しゅくだい"], ["をしなさい。"]]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-09",
+    "term": "早速",
+    "kana": "さっそく",
+    "meaning": "at once, immediately, promptly",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news2", "nf36"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 216784,
+        "ja": "さっそく仕事にとりかかりましょう。",
+        "en": "I will set about my task at once.",
+        "enId": 54090,
+        "form": "さっそく",
+        "furigana": [
+          ["さっそく"],
+          ["仕事", "しごと"],
+          ["にとりかかりましょう。"]
+        ]
+      },
+      {
+        "id": 91568,
+        "ja": "彼女はベストセラーの小説を早速読んだ。",
+        "en": "She lost no time in reading a best-selling novel.",
+        "enId": 312145,
+        "form": "早速",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はベストセラーの"],
+          ["小説", "しょうせつ"],
+          ["を"],
+          ["早速", "さっそく"],
+          ["読", "よ"],
+          ["んだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-10",
+    "term": "妨げる",
+    "kana": "さまたげる",
+    "meaning": "to disturb, to prevent",
+    "level": "N2",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf39"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 176696,
+        "ja": "群集が通行を妨げた。",
+        "en": "The crowd obstructed the passage.",
+        "enId": 237766,
+        "form": "妨げた",
+        "furigana": [
+          ["群集", "ぐんしゅう"],
+          ["が"],
+          ["通行", "つうこう"],
+          ["を"],
+          ["妨", "さまた"],
+          ["げた。"]
+        ]
+      },
+      {
+        "id": 212169,
+        "ja": "その音が睡眠を妨げた。",
+        "en": "The noise disturbed my sleep.",
+        "enId": 49448,
+        "form": "妨げた",
+        "furigana": [
+          ["その"],
+          ["音", "おと"],
+          ["が"],
+          ["睡眠", "すいみん"],
+          ["を"],
+          ["妨", "さまた"],
+          ["げた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-11",
+    "term": "さわやか",
+    "kana": "さわやか",
+    "meaning": "fresh, refreshing",
+    "level": "N2",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-12",
+    "term": "～山",
+    "kana": "～さん",
+    "meaning": "the name of mountain",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-13",
+    "term": "～産",
+    "kana": "～さん",
+    "meaning": "made in ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-14",
+    "term": "算数",
+    "kana": "さんすう",
+    "meaning": "arithmetic",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 169314,
+        "ja": "算数は数を取り扱う。",
+        "en": "Arithmetic deals with numbers.",
+        "enId": 245172,
+        "form": "算数",
+        "furigana": [
+          ["算数", "さんすう"],
+          ["は"],
+          ["数", "かず"],
+          ["を"],
+          ["取", "と"],
+          ["り"],
+          ["扱", "あつか"],
+          ["う。"]
+        ]
+      },
+      {
+        "id": 169315,
+        "ja": "算数では正確さが重要だ。",
+        "en": "Accuracy is important in arithmetic.",
+        "enId": 245171,
+        "form": "算数",
+        "furigana": [
+          ["算数", "さんすう"],
+          ["では"],
+          ["正確", "せいかく"],
+          ["さが"],
+          ["重要", "じゅうよう"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-15",
+    "term": "産地",
+    "kana": "さんち",
+    "meaning": "producing area",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-16",
+    "term": "山林",
+    "kana": "さんりん",
+    "meaning": "mountain forest",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-17",
+    "term": "～史",
+    "kana": "～し",
+    "meaning": "history of ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-18",
+    "term": "～紙",
+    "kana": "～し",
+    "meaning": "newspaper, type of paper",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-19",
+    "term": "～寺",
+    "kana": "～じ",
+    "meaning": "the name of temple",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-20",
+    "term": "寺院",
+    "kana": "じいん",
+    "meaning": "temple",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 209775,
+        "ja": "その寺院は丘の天辺にある。",
+        "en": "The temple is at the top of the hill.",
+        "enId": 47038,
+        "form": "寺院",
+        "furigana": [
+          ["その"],
+          ["寺院", "じいん"],
+          ["は"],
+          ["丘", "おか"],
+          ["の"],
+          ["天辺", "てっぺん"],
+          ["にある。"]
+        ]
+      },
+      {
+        "id": 181635,
+        "ja": "京都は古い寺院で有名である。",
+        "en": "Kyoto is famous for its old temples.",
+        "enId": 19296,
+        "form": "寺院",
+        "furigana": [
+          ["京都", "きょうと"],
+          ["は"],
+          ["古", "ふる"],
+          ["い"],
+          ["寺院", "じいん"],
+          ["で"],
+          ["有名", "ゆうめい"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-21",
+    "term": "しいんと",
+    "kana": "しいんと",
+    "meaning": "silent (as the grave), (deathly) quiet",
+    "level": "N2",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-22",
+    "term": "自衛",
+    "kana": "じえい",
+    "meaning": "self-defense",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-23",
+    "term": "司会",
+    "kana": "しかい",
+    "meaning": "host, chairperson",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 211889,
+        "ja": "その会議は森首相が司会をした。",
+        "en": "The conference was presided over by Mr Mori.",
+        "enId": 49166,
+        "form": "司会",
+        "furigana": [
+          ["その"],
+          ["会議", "かいぎ"],
+          ["は"],
+          ["森", "もり"],
+          ["首相", "しゅしょう"],
+          ["が"],
+          ["司会", "しかい"],
+          ["をした。"]
+        ]
+      },
+      {
+        "id": 142671,
+        "ja": "盛田教授は化学学会で司会を務めた。",
+        "en": "Professor Morita presided at a meeting of the Chemical Society.",
+        "enId": 271899,
+        "form": "司会",
+        "furigana": [
+          ["盛田"],
+          ["教授", "きょうじゅ"],
+          ["は"],
+          ["化学", "かがく"],
+          ["学会", "がっかい"],
+          ["で"],
+          ["司会", "しかい"],
+          ["を"],
+          ["務", "つと"],
+          ["めた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-24",
+    "term": "～時間目",
+    "kana": "～じかんめ",
+    "meaning": "~th hour, ~th period",
+    "level": "N2",
+    "pos": [],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-25",
+    "term": "日本式",
+    "kana": "にほんしき",
+    "meaning": "Japanese style",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news1", "nf23"],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 207704,
+        "ja": "その庭園は日本式に設定されている。",
+        "en": "The garden is laid out in the Japanese style.",
+        "enId": 44958,
+        "form": "日本式",
+        "furigana": [
+          ["その"],
+          ["庭園", "ていえん"],
+          ["は"],
+          ["日本", "にっぽん"],
+          ["式", "しき"],
+          ["に"],
+          ["設定", "せってい"],
+          ["されている。"]
+        ]
+      },
+      {
+        "id": 211811,
+        "ja": "その会社は経営に日本式のやり方を導入した。",
+        "en": "The company introduced Japanese methods into its business.",
+        "enId": 49088,
+        "form": "日本式",
+        "furigana": [
+          ["その"],
+          ["会社", "かいしゃ"],
+          ["は"],
+          ["経営", "けいえい"],
+          ["に"],
+          ["日本", "にっぽん"],
+          ["式", "しき"],
+          ["のやり"],
+          ["方", "かた"],
+          ["を"],
+          ["導入", "どうにゅう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-26",
+    "term": "敷地",
+    "kana": "しきち",
+    "meaning": "site",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 184426,
+        "ja": "学校の敷地はこの垣根まで続いている。",
+        "en": "The school grounds extend as far as this fence.",
+        "enId": 21555,
+        "form": "敷地",
+        "furigana": [
+          ["学校", "がっこう"],
+          ["の"],
+          ["敷地", "しきち"],
+          ["はこの"],
+          ["垣根", "かきね"],
+          ["まで"],
+          ["続", "つづ"],
+          ["いている。"]
+        ]
+      },
+      {
+        "id": 96719,
+        "ja": "彼らは石を並べて家の敷地の境界にした。",
+        "en": "They marked off the land for their house with rows of stones.",
+        "enId": 306985,
+        "form": "敷地",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["石", "いし"],
+          ["を"],
+          ["並", "なら"],
+          ["べて"],
+          ["家", "いえ"],
+          ["の"],
+          ["敷地", "しきち"],
+          ["の"],
+          ["境界", "きょうかい"],
+          ["にした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-27",
+    "term": "敷く",
+    "kana": "しく",
+    "meaning": "to spread out, to lay out",
+    "level": "N2",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 146481,
+        "ja": "床にカーペットを敷いた。",
+        "en": "They laid the carpet on the floor.",
+        "enId": 268081,
+        "form": "敷いた",
+        "furigana": [
+          ["床", "ゆか"],
+          ["にカーペットを"],
+          ["敷", "し"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 183468,
+        "ja": "机のしたにカーペットを敷いた。",
+        "en": "I put down a rug under my desk.",
+        "enId": 20591,
+        "form": "敷いた",
+        "furigana": [
+          ["机", "つくえ"],
+          ["のしたにカーペットを"],
+          ["敷", "し"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-28",
+    "term": "茂る",
+    "kana": "しげる",
+    "meaning": "to grow thick",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf41"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 169526,
+        "ja": "雑草は茂りやすい。",
+        "en": "Ill weeds are sure to thrive.",
+        "enId": 244960,
+        "form": "茂り",
+        "furigana": [
+          ["雑草", "ざっそう"],
+          ["は"],
+          ["茂", "しげ"],
+          ["りやすい。"]
+        ]
+      },
+      {
+        "id": 174023,
+        "ja": "公園は樹木がよく茂っている。",
+        "en": "The park is well wooded.",
+        "enId": 240447,
+        "form": "茂っている",
+        "furigana": [
+          ["公園", "こうえん"],
+          ["は"],
+          ["樹木", "じゅもく"],
+          ["がよく"],
+          ["茂", "しげ"],
+          ["っている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-29",
+    "term": "持参",
+    "kana": "じさん",
+    "meaning": "bringing, taking, carrying",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 172366,
+        "ja": "今週は弁当を持参する。",
+        "en": "I think I'll brown bag it this week.",
+        "enId": 242109,
+        "form": "持参",
+        "furigana": [
+          ["今週", "こんしゅう"],
+          ["は"],
+          ["弁当", "べんとう"],
+          ["を"],
+          ["持参", "じさん"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 82758,
+        "ja": "包丁とか鍋とか、台所用品を持参すること。",
+        "en": "Don't forget to bring kitchen utensils such as knives and cooking pots.",
+        "enId": 320958,
+        "form": "持参",
+        "furigana": [
+          ["包丁", "ほうちょう"],
+          ["とか"],
+          ["鍋", "なべ"],
+          ["とか、"],
+          ["台所", "だいどころ"],
+          ["用品", "ようひん"],
+          ["を"],
+          ["持参", "じさん"],
+          ["すること。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-01-30",
+    "term": "磁石",
+    "kana": "じしゃく",
+    "meaning": "magnet",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-01-31",
+    "term": "四捨五入",
+    "kana": "ししゃごにゅう",
+    "meaning": "rounding up (fractions)",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf45"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 190684,
+        "ja": "一円以下は四捨五入してよろしい。",
+        "en": "Count as one fractions of half a yen and over, but ignore those of less.",
+        "enId": 27844,
+        "form": "四捨五入",
+        "furigana": [
+          ["一", "いち"],
+          ["円", "えん"],
+          ["以下", "いか"],
+          ["は"],
+          ["四捨五入", "ししゃごにゅう"],
+          ["してよろしい。"]
+        ]
+      },
+      {
+        "id": 76953,
+        "ja": "５８１４を千の位に四捨五入すれば何になりますか。",
+        "en": "What is 5814 rounded to the nearest thousand?",
+        "enId": 326767,
+        "form": "四捨五入",
+        "furigana": [
+          ["５８１４を"],
+          ["千", "せん"],
+          ["の"],
+          ["位", "くらい"],
+          ["に"],
+          ["四捨五入", "ししゃごにゅう"],
+          ["すれば"],
+          ["何", "なに"],
+          ["になりますか。"]
+        ]
+      }
+    ]
+  }
+]

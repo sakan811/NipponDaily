@@ -1,0 +1,1084 @@
+[
+  {
+    "date": "2036-05-01",
+    "term": "海抜",
+    "kana": "かいばつ",
+    "meaning": "height above sea level",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 212557,
+        "ja": "そのやまは海抜２千メートルだ。",
+        "en": "The mountain is 2000 meters above sea level.",
+        "enId": 49841,
+        "form": "海抜",
+        "furigana": [
+          ["そのやまは"],
+          ["海抜", "かいばつ"],
+          ["２"],
+          ["千", "せん"],
+          ["メートルだ。"]
+        ]
+      },
+      {
+        "id": 210447,
+        "ja": "その山は海抜約３０００メートルだ。",
+        "en": "The mountain is about 3000 meters above sea level.",
+        "enId": 47716,
+        "form": "海抜",
+        "furigana": [
+          ["その"],
+          ["山", "やま"],
+          ["は"],
+          ["海抜", "かいばつ"],
+          ["約", "やく"],
+          ["３０００メートルだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-02",
+    "term": "介抱",
+    "kana": "かいほう",
+    "meaning": "nursing, looking after",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 75910,
+        "ja": "他人任せはダメ。ライフセーバーではないが、俺自身が介抱してあげないと。",
+        "en": "I can't leave this to others. I'm no lifesaver but if I don't help her myself....",
+        "enId": 327808,
+        "form": "介抱",
+        "furigana": [
+          ["他", "た"],
+          ["人任", "にんまか"],
+          ["せはダメ。ライフセーバーではないが、"],
+          ["俺", "おれ"],
+          ["自身", "じしん"],
+          ["が"],
+          ["介抱", "かいほう"],
+          ["してあげないと。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-03",
+    "term": "解剖",
+    "kana": "かいぼう",
+    "meaning": "dissection, autopsy",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 165378,
+        "ja": "私たちは内臓器官を調べるためにカエルを解剖した。",
+        "en": "We dissected a frog to examine its internal organs.",
+        "enId": 249127,
+        "form": "解剖",
+        "furigana": [
+          ["私", "わたし"],
+          ["たちは"],
+          ["内臓", "ないぞう"],
+          ["器官", "きかん"],
+          ["を"],
+          ["調", "しら"],
+          ["べるためにカエルを"],
+          ["解剖", "かいぼう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-04",
+    "term": "外来",
+    "kana": "がいらい",
+    "meaning": "(abbr.) imported, outpatient clinic",
+    "level": "N1",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 177387,
+        "ja": "君は外来思想に偏見を抱いているようだ。",
+        "en": "You seem to be prejudiced against ideas that come from foreign countries.",
+        "enId": 16237,
+        "form": "外来",
+        "furigana": [
+          ["君", "きみ"],
+          ["は"],
+          ["外来", "がいらい"],
+          ["思想", "しそう"],
+          ["に"],
+          ["偏見", "へんけん"],
+          ["を"],
+          ["抱", "いだ"],
+          ["いているようだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-05",
+    "term": "回覧",
+    "kana": "かいらん",
+    "meaning": "circulation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news2", "nf33", "spec2"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 112688,
+        "ja": "彼はその手紙を全員に回覧した。",
+        "en": "He circulated the letter among the members.",
+        "enId": 290988,
+        "form": "回覧",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はその"],
+          ["手紙", "てがみ"],
+          ["を"],
+          ["全員", "ぜんいん"],
+          ["に"],
+          ["回覧", "かいらん"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-06",
+    "term": "海流",
+    "kana": "かいりゅう",
+    "meaning": "ocean current",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185016,
+        "ja": "海流に変化が起きたのだろうか。",
+        "en": "Has a change in ocean currents occurred?",
+        "enId": 22147,
+        "form": "海流",
+        "furigana": [
+          ["海流", "かいりゅう"],
+          ["に"],
+          ["変化", "へんか"],
+          ["が"],
+          ["起", "お"],
+          ["きたのだろうか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-07",
+    "term": "改良",
+    "kana": "かいりょう",
+    "meaning": "improvement, reform",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 220927,
+        "ja": "この制度には改良の余地がない。",
+        "en": "There is no room for further improvement in this system.",
+        "enId": 58250,
+        "form": "改良",
+        "furigana": [
+          ["この"],
+          ["制度", "せいど"],
+          ["には"],
+          ["改良", "かいりょう"],
+          ["の"],
+          ["余地", "よち"],
+          ["がない。"]
+        ]
+      },
+      {
+        "id": 217256,
+        "ja": "コンピューターはたえず改良されている。",
+        "en": "Computers are constantly being improved.",
+        "enId": 54564,
+        "form": "改良",
+        "furigana": [
+          ["コンピューターはたえず"],
+          ["改良", "かいりょう"],
+          ["されている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-08",
+    "term": "回路",
+    "kana": "かいろ",
+    "meaning": "circuit (electric)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "field": ["electricity, elec. eng."],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83236,
+        "ja": "保護回路を飛ばしてしまおう。",
+        "en": "Let's bypass the protection circuit.",
+        "enId": 320480,
+        "form": "回路",
+        "furigana": [
+          ["保護", "ほご"],
+          ["回路", "かいろ"],
+          ["を"],
+          ["飛", "と"],
+          ["ばしてしまおう。"]
+        ]
+      },
+      {
+        "id": 185179,
+        "ja": "回路を調べる前に、電源のスイッチを切りなさい。",
+        "en": "You must switch off the power before checking the circuit.",
+        "enId": 22310,
+        "form": "回路",
+        "furigana": [
+          ["回路", "かいろ"],
+          ["を"],
+          ["調", "しら"],
+          ["べる"],
+          ["前", "まえ"],
+          ["に、"],
+          ["電源", "でんげん"],
+          ["のスイッチを"],
+          ["切", "き"],
+          ["りなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-09",
+    "term": "海路",
+    "kana": "かいろ",
+    "meaning": "sea route",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["news2", "nf31", "spec2"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-10",
+    "term": "省みる",
+    "kana": "かえりみる",
+    "meaning": "to reflect",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf47"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-11",
+    "term": "顔付き",
+    "kana": "かおつき",
+    "meaning": "facial expression",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf32", "spec1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-12",
+    "term": "課外",
+    "kana": "かがい",
+    "meaning": "extracurricular",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news2", "nf34"],
+    "pitch": [1, 0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-13",
+    "term": "かかと",
+    "kana": "かかと",
+    "meaning": "shoe heel",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-14",
+    "term": "書き取る",
+    "kana": "かきとる",
+    "meaning": "to write down, to take dictation",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [3, 0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 204563,
+        "ja": "それを書き取るだけでよい。",
+        "en": "All you have to do is write it down.",
+        "enId": 41804,
+        "form": "書き取る",
+        "furigana": [
+          ["それを"],
+          ["書", "か"],
+          ["き"],
+          ["取", "と"],
+          ["るだけでよい。"]
+        ]
+      },
+      {
+        "id": 176638,
+        "ja": "刑事は彼の証言をその場で書き取った。",
+        "en": "The detective took down his testimony on the spot.",
+        "enId": 237825,
+        "form": "書き取った",
+        "furigana": [
+          ["刑事", "けいじ"],
+          ["は"],
+          ["彼", "かれ"],
+          ["の"],
+          ["証言", "しょうげん"],
+          ["をその"],
+          ["場", "ば"],
+          ["で"],
+          ["書", "か"],
+          ["き"],
+          ["取", "と"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-15",
+    "term": "掻き回す",
+    "kana": "かきまわす",
+    "meaning": "to stir up, to churn, to disturb",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi2"],
+    "pitch": [0, 4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-16",
+    "term": "恥をかく",
+    "kana": "はじをかく",
+    "meaning": "to be embarrassed, to lose face",
+    "level": "N1",
+    "pos": [
+      "expressions (phrases, clauses, etc.)",
+      "Godan verb with 'ku' ending"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "恥(はじ) (haji, “shame”) + を (o, object marker) + 掻(か)く (kaku)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 100979,
+        "ja": "彼は彼女に恥をかかされた。",
+        "en": "He was humiliated by her.",
+        "enId": 302718,
+        "form": "恥をかかされた",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["彼女", "かのじょ"],
+          ["に"],
+          ["恥", "はじ"],
+          ["をかかされた。"]
+        ]
+      },
+      {
+        "id": 114323,
+        "ja": "彼はうそをついて恥をかいた。",
+        "en": "He disgraced himself by telling a lie.",
+        "enId": 289349,
+        "form": "恥をかいた",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はうそをついて"],
+          ["恥", "はじ"],
+          ["をかいた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2036-05-17",
+    "term": "学芸",
+    "kana": "がくげい",
+    "meaning": "arts and sciences, liberal arts",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf07"],
+    "pitch": [0, 2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-18",
+    "term": "格差",
+    "kana": "かくさ",
+    "meaning": "difference, disparity",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79212,
+        "ja": "裕福な人々と貧しい人々との格差はますます広がっている。",
+        "en": "The gap between rich and poor is getting wider.",
+        "enId": 324505,
+        "form": "格差",
+        "furigana": [
+          ["裕福", "ゆうふく"],
+          ["な"],
+          ["人々", "ひとびと"],
+          ["と"],
+          ["貧", "まず"],
+          ["しい"],
+          ["人々", "ひとびと"],
+          ["との"],
+          ["格差", "かくさ"],
+          ["はますます"],
+          ["広", "ひろ"],
+          ["がっている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-19",
+    "term": "拡散",
+    "kana": "かくさん",
+    "meaning": "scattering, diffusion",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 76841,
+        "ja": "エイズウイルスの拡散は恐るべき速さで進んでいる。",
+        "en": "The speed of the spread of AIDS is horrifyingly fast.",
+        "enId": 326879,
+        "form": "拡散",
+        "furigana": [
+          ["エイズウイルスの"],
+          ["拡散", "かくさん"],
+          ["は"],
+          ["恐", "おそ"],
+          ["るべき"],
+          ["速", "はや"],
+          ["さで"],
+          ["進", "すす"],
+          ["んでいる。"]
+        ]
+      },
+      {
+        "id": 186849,
+        "ja": "科学者たちはエイズ・ウイルスの拡散をくい止めようと戦っています。",
+        "en": "Scientists are fighting to stem the spread of the AIDS virus.",
+        "enId": 23986,
+        "form": "拡散",
+        "furigana": [
+          ["科学", "かがく"],
+          ["者", "しゃ"],
+          ["たちはエイズ・ウイルスの"],
+          ["拡散", "かくさん"],
+          ["をくい"],
+          ["止", "と"],
+          ["めようと"],
+          ["戦", "たたか"],
+          ["っています。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-20",
+    "term": "各種",
+    "kana": "かくしゅ",
+    "meaning": "every kind, all sorts",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185095,
+        "ja": "海は各種の資源を与えてくれる。",
+        "en": "The ocean affords various kinds of resources.",
+        "enId": 22226,
+        "form": "各種",
+        "furigana": [
+          ["海", "うみ"],
+          ["は"],
+          ["各種", "かくしゅ"],
+          ["の"],
+          ["資源", "しげん"],
+          ["を"],
+          ["与", "あた"],
+          ["えてくれる。"]
+        ]
+      },
+      {
+        "id": 207634,
+        "ja": "その店は各種ワインをたくさん在庫している。",
+        "en": "The store has a large stock of wines.",
+        "enId": 44887,
+        "form": "各種",
+        "furigana": [
+          ["その"],
+          ["店", "みせ"],
+          ["は"],
+          ["各種", "かくしゅ"],
+          ["ワインをたくさん"],
+          ["在庫", "ざいこ"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-21",
+    "term": "隔週",
+    "kana": "かくしゅう",
+    "meaning": "every other week",
+    "level": "N1",
+    "pos": [
+      "adverb (fukushi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news1", "nf21"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-22",
+    "term": "確信",
+    "kana": "かくしん",
+    "meaning": "conviction, confidence",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147158,
+        "ja": "勝利を確信している。",
+        "en": "We're confident of our victory.",
+        "enId": 267403,
+        "form": "確信",
+        "furigana": [
+          ["勝利", "しょうり"],
+          ["を"],
+          ["確信", "かくしん"],
+          ["している。"]
+        ]
+      },
+      {
+        "id": 213134,
+        "ja": "そのことは確信する。",
+        "en": "I'm quite sure of that.",
+        "enId": 50419,
+        "form": "確信",
+        "furigana": [["そのことは"], ["確信", "かくしん"], ["する。"]]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-23",
+    "term": "革新",
+    "kana": "かくしん",
+    "meaning": "reform, innovation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-24",
+    "term": "学説",
+    "kana": "がくせつ",
+    "meaning": "theory",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 116832,
+        "ja": "彼の新学説は私には理解できない。",
+        "en": "His new theory is beyond my apprehension.",
+        "enId": 286836,
+        "form": "学説",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["新", "しん"],
+          ["学説", "がくせつ"],
+          ["は"],
+          ["私", "わたし"],
+          ["には"],
+          ["理解", "りかい"],
+          ["できない。"]
+        ]
+      },
+      {
+        "id": 222594,
+        "ja": "この学説は３部から成り立っている。",
+        "en": "This theory consists of three parts.",
+        "enId": 59924,
+        "form": "学説",
+        "furigana": [
+          ["この"],
+          ["学説", "がくせつ"],
+          ["は３"],
+          ["部", "ぶ"],
+          ["から"],
+          ["成", "な"],
+          ["り"],
+          ["立", "た"],
+          ["っている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-25",
+    "term": "確定",
+    "kana": "かくてい",
+    "meaning": "fixed, decision",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175605,
+        "ja": "月曜までに確定見積もりが必要です。",
+        "en": "We need a firm quotation by Monday.",
+        "enId": 238860,
+        "form": "確定",
+        "furigana": [
+          ["月曜", "げつよう"],
+          ["までに"],
+          ["確定", "かくてい"],
+          ["見積", "みつ"],
+          ["もりが"],
+          ["必要", "ひつよう"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 121109,
+        "ja": "彼がアメリカに行くのは、確定している。",
+        "en": "It is definite that he will go to America.",
+        "enId": 282898,
+        "form": "確定",
+        "furigana": [
+          ["彼", "かれ"],
+          ["がアメリカに"],
+          ["行", "い"],
+          ["くのは、"],
+          ["確定", "かくてい"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-26",
+    "term": "獲得",
+    "kana": "かくとく",
+    "meaning": "acquisition, possession",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 107724,
+        "ja": "彼は権力獲得に野心満々だ。",
+        "en": "He is full of ambition for power.",
+        "enId": 295965,
+        "form": "獲得",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["権力", "けんりょく"],
+          ["獲得", "かくとく"],
+          ["に"],
+          ["野心", "やしん"],
+          ["満々", "まんまん"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 108109,
+        "ja": "彼は苦労して顧客を獲得した。",
+        "en": "He has managed to secure several accounts.",
+        "enId": 295577,
+        "form": "獲得",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["苦労", "くろう"],
+          ["して"],
+          ["顧客", "こきゃく"],
+          ["を"],
+          ["獲得", "かくとく"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-27",
+    "term": "楽譜",
+    "kana": "がくふ",
+    "meaning": "score (music, sheet music)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "field": ["music"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 89148,
+        "ja": "彼女は楽譜なしにピアノを弾く。",
+        "en": "She plays the piano by ear.",
+        "enId": 314558,
+        "form": "楽譜",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["楽譜", "がくふ"],
+          ["なしにピアノを"],
+          ["弾", "ひ"],
+          ["く。"]
+        ]
+      },
+      {
+        "id": 111206,
+        "ja": "彼はピアノを楽譜なしで弾いた。",
+        "en": "He played piano by ear.",
+        "enId": 288050,
+        "form": "楽譜",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はピアノを"],
+          ["楽譜", "がくふ"],
+          ["なしで"],
+          ["弾", "ひ"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-28",
+    "term": "確保",
+    "kana": "かくほ",
+    "meaning": "guarantee, insure, secure",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 161746,
+        "ja": "私はあなたに仕事を確保できる。",
+        "en": "I can ensure a job for you.",
+        "enId": 252770,
+        "form": "確保",
+        "furigana": [
+          ["私", "わたし"],
+          ["はあなたに"],
+          ["仕事", "しごと"],
+          ["を"],
+          ["確保", "かくほ"],
+          ["できる。"]
+        ]
+      },
+      {
+        "id": 217551,
+        "ja": "コロンブスはこの地方を確保した。",
+        "en": "Columbus secured this region of interests.",
+        "enId": 54860,
+        "form": "確保",
+        "furigana": [
+          ["コロンブスはこの"],
+          ["地方", "ちほう"],
+          ["を"],
+          ["確保", "かくほ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-29",
+    "term": "確立",
+    "kana": "かくりつ",
+    "meaning": "establishment",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83247,
+        "ja": "保安官は、その町の秩序を確立した。",
+        "en": "The sheriff established order in the town.",
+        "enId": 320468,
+        "form": "確立",
+        "furigana": [
+          ["保安", "ほあん"],
+          ["官", "かん"],
+          ["は、その"],
+          ["町", "まち"],
+          ["の"],
+          ["秩序", "ちつじょ"],
+          ["を"],
+          ["確立", "かくりつ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 107632,
+        "ja": "彼は原住民との友好関係を確立した。",
+        "en": "He established a friendly relationship with the natives.",
+        "enId": 296053,
+        "form": "確立",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["原住民", "げんじゅうみん"],
+          ["との"],
+          ["友好", "ゆうこう"],
+          ["関係", "かんけい"],
+          ["を"],
+          ["確立", "かくりつ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2036-05-30",
+    "term": "賭",
+    "kana": "かけ",
+    "meaning": "betting, gambling, a gamble",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2036-05-31",
+    "term": "掛～",
+    "kana": "かけ～",
+    "meaning": "credit",
+    "level": "N1",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

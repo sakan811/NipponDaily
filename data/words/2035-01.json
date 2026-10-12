@@ -1,0 +1,1048 @@
+[
+  {
+    "date": "2035-01-01",
+    "term": "国定",
+    "kana": "こくてい",
+    "meaning": "state-sponsored, national",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news2", "nf33"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-02",
+    "term": "告白",
+    "kana": "こくはく",
+    "meaning": "confession, acknowledgment",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 156840,
+        "ja": "私は罪を告白した。",
+        "en": "I confessed my sin.",
+        "enId": 257693,
+        "form": "告白",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["罪", "つみ"],
+          ["を"],
+          ["告白", "こくはく"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 107265,
+        "ja": "彼は告白して否まず。",
+        "en": "He did not fail to confess.",
+        "enId": 296420,
+        "form": "告白",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["告白", "こくはく"],
+          ["して"],
+          ["否", "いな"],
+          ["まず。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-03",
+    "term": "国防",
+    "kana": "こくぼう",
+    "meaning": "national defense",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 173033,
+        "ja": "国防のため大きな額が計上された。",
+        "en": "A considerable amount of money was appropriated for the national defense.",
+        "enId": 241440,
+        "form": "国防",
+        "furigana": [
+          ["国防", "こくぼう"],
+          ["のため"],
+          ["大", "おお"],
+          ["きな"],
+          ["額", "がく"],
+          ["が"],
+          ["計上", "けいじょう"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 108917,
+        "ja": "彼は核兵器は国防のために必要だと主張している。",
+        "en": "He contends that nuclear weapons are necessary for national defense.",
+        "enId": 294774,
+        "form": "国防",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["核兵器", "かくへいき"],
+          ["は"],
+          ["国防", "こくぼう"],
+          ["のために"],
+          ["必要", "ひつよう"],
+          ["だと"],
+          ["主張", "しゅちょう"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-04",
+    "term": "国有",
+    "kana": "こくゆう",
+    "meaning": "national ownership",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-05",
+    "term": "語源",
+    "kana": "ごげん",
+    "meaning": "word root, word derivation, etymology",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 217913,
+        "ja": "これらの語は同じ語源から出ている。",
+        "en": "These words are derived from the same root.",
+        "enId": 55222,
+        "form": "語源",
+        "furigana": [
+          ["これらの"],
+          ["語", "ご"],
+          ["は"],
+          ["同", "おな"],
+          ["じ"],
+          ["語源", "ごげん"],
+          ["から"],
+          ["出", "で"],
+          ["ている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-06",
+    "term": "誤差",
+    "kana": "ごさ",
+    "meaning": "error",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf21"],
+    "field": ["mathematics"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185868,
+        "ja": "我々は誤差を見込んで余裕をとっておいた。",
+        "en": "We left a margin for error in our estimates.",
+        "enId": 23000,
+        "form": "誤差",
+        "furigana": [
+          ["我々", "われわれ"],
+          ["は"],
+          ["誤差", "ごさ"],
+          ["を"],
+          ["見込", "みこ"],
+          ["んで"],
+          ["余裕", "よゆう"],
+          ["をとっておいた。"]
+        ]
+      },
+      {
+        "id": 176406,
+        "ja": "計算にいくらかの誤差を考慮に入れましたか。",
+        "en": "Have you allowed for any error in your calculation?",
+        "enId": 238058,
+        "form": "誤差",
+        "furigana": [
+          ["計算", "けいさん"],
+          ["にいくらかの"],
+          ["誤差", "ごさ"],
+          ["を"],
+          ["考慮", "こうりょ"],
+          ["に"],
+          ["入", "い"],
+          ["れましたか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-07",
+    "term": "こじれる",
+    "kana": "こじれる",
+    "meaning": "to get complicated, to grow worse",
+    "level": "N1",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-08",
+    "term": "濾す",
+    "kana": "こす",
+    "meaning": "to strain, to filter",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "pitch": [0, 1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 212206,
+        "ja": "その液体はうまくこせない。",
+        "en": "The liquid does not strain well.",
+        "enId": 49486,
+        "form": "こせない",
+        "furigana": [["その"], ["液体", "えきたい"], ["はうまくこせない。"]]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-09",
+    "term": "個性",
+    "kana": "こせい",
+    "meaning": "individuality, personality, idiosyncrasy",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 107565,
+        "ja": "彼は個性が強い。",
+        "en": "He has a strong personality.",
+        "enId": 296120,
+        "form": "個性",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["個性", "こせい"],
+          ["が"],
+          ["強", "つよ"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 90206,
+        "ja": "彼女は個性が強い。",
+        "en": "She has a strong personality.",
+        "enId": 313508,
+        "form": "個性",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["個性", "こせい"],
+          ["が"],
+          ["強", "つよ"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-10",
+    "term": "戸籍",
+    "kana": "こせき",
+    "meaning": "census, family register",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 91469,
+        "ja": "彼女はまだ夫の戸籍に入っていない。",
+        "en": "She has not yet had her name entered in her husband's family.",
+        "enId": 312244,
+        "form": "戸籍",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はまだ"],
+          ["夫", "おっと"],
+          ["の"],
+          ["戸籍", "こせき"],
+          ["に"],
+          ["入", "はい"],
+          ["っていない。"]
+        ]
+      },
+      {
+        "id": 76182,
+        "ja": "戸籍上の縁は切れても、昔日の絆はそのままだ。",
+        "en": "Our connection may be cut on paper but the bonds of old remain as they were.",
+        "enId": 327536,
+        "form": "戸籍",
+        "furigana": [
+          ["戸籍", "こせき"],
+          ["上", "じょう"],
+          ["の"],
+          ["縁", "えん"],
+          ["は"],
+          ["切", "き"],
+          ["れても、"],
+          ["昔日", "せきじつ"],
+          ["の"],
+          ["絆", "きずな"],
+          ["はそのままだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-11",
+    "term": "古代",
+    "kana": "こだい",
+    "meaning": "ancient times",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 192247,
+        "ja": "ローマは古代建築で有名だ。",
+        "en": "Rome is famous for its ancient architecture.",
+        "enId": 29411,
+        "form": "古代",
+        "furigana": [
+          ["ローマは"],
+          ["古代", "こだい"],
+          ["建築", "けんちく"],
+          ["で"],
+          ["有名", "ゆうめい"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 197413,
+        "ja": "ピラミッドは古代に建造された。",
+        "en": "The pyramids were built in ancient times.",
+        "enId": 34600,
+        "form": "古代に",
+        "furigana": [
+          ["ピラミッドは"],
+          ["古代", "こだい"],
+          ["に"],
+          ["建造", "けんぞう"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-12",
+    "term": "こたつ",
+    "kana": "こたつ",
+    "meaning": "table with heater, (originally) charcoal brazier in a floor well",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-13",
+    "term": "こだわる",
+    "kana": "こだわる",
+    "meaning": "to fuss over, to be particular about",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-14",
+    "term": "誇張",
+    "kana": "こちょう",
+    "meaning": "exaggeration",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf30"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 94951,
+        "ja": "彼女には誇張癖があるようだ。",
+        "en": "It seems to me that she has a tendency to exaggerate.",
+        "enId": 308756,
+        "form": "誇張",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["には"],
+          ["誇張", "こちょう"],
+          ["癖", "へき"],
+          ["があるようだ。"]
+        ]
+      },
+      {
+        "id": 95805,
+        "ja": "彼を天才と呼んでも誇張ではない。",
+        "en": "It is no exaggeration to call him a genius.",
+        "enId": 307900,
+        "form": "誇張",
+        "furigana": [
+          ["彼", "かれ"],
+          ["を"],
+          ["天才", "てんさい"],
+          ["と"],
+          ["呼", "よ"],
+          ["んでも"],
+          ["誇張", "こちょう"],
+          ["ではない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-15",
+    "term": "こつ",
+    "kana": "こつ",
+    "meaning": "secret, trick, hang",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-16",
+    "term": "滑稽",
+    "kana": "こっけい",
+    "meaning": "funny, humorous, comical",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news2", "nf35"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 113825,
+        "ja": "彼はこっけいな話をした。",
+        "en": "He told a funny story.",
+        "enId": 289848,
+        "form": "こっけいな",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はこっけいな"],
+          ["話", "はなし"],
+          ["をした。"]
+        ]
+      },
+      {
+        "id": 113826,
+        "ja": "彼はこっけいな性質の人だ。",
+        "en": "He is of a humorous turn of mind.",
+        "enId": 289847,
+        "form": "こっけいな",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はこっけいな"],
+          ["性質", "せいしつ"],
+          ["の"],
+          ["人", "ひと"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-17",
+    "term": "国交",
+    "kana": "こっこう",
+    "meaning": "diplomatic relations",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-18",
+    "term": "固定",
+    "kana": "こてい",
+    "meaning": "fixation, fixing (e.g., salary, capital)",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf07"],
+    "field": ["biology"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147414,
+        "ja": "書棚は壁に固定したほうがいい。",
+        "en": "You had better fix the bookcase to the wall.",
+        "enId": 267146,
+        "form": "固定",
+        "furigana": [
+          ["書棚", "しょだな"],
+          ["は"],
+          ["壁", "かべ"],
+          ["に"],
+          ["固定", "こてい"],
+          ["したほうがいい。"]
+        ]
+      },
+      {
+        "id": 184911,
+        "ja": "階級組織は長い間固定されてきた。",
+        "en": "The hierarchy of rank has long been fixed.",
+        "enId": 22042,
+        "form": "固定",
+        "furigana": [
+          ["階級", "かいきゅう"],
+          ["組織", "そしき"],
+          ["は"],
+          ["長", "なが"],
+          ["い"],
+          ["間", "ま"],
+          ["固定", "こてい"],
+          ["されてきた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-19",
+    "term": "事柄",
+    "kana": "ことがら",
+    "meaning": "matter, thing, affair, circumstance",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 178430,
+        "ja": "君の関する事柄ではない。",
+        "en": "That is no business of yours.",
+        "enId": 17282,
+        "form": "事柄",
+        "furigana": [
+          ["君", "きみ"],
+          ["の"],
+          ["関", "かん"],
+          ["する"],
+          ["事柄", "ことがら"],
+          ["ではない。"]
+        ]
+      },
+      {
+        "id": 205253,
+        "ja": "それは君に関係する事柄だ。",
+        "en": "That is the thing that concerns you.",
+        "enId": 42495,
+        "form": "事柄",
+        "furigana": [
+          ["それは"],
+          ["君", "きみ"],
+          ["に"],
+          ["関係", "かんけい"],
+          ["する"],
+          ["事柄", "ことがら"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-20",
+    "term": "孤独",
+    "kana": "こどく",
+    "meaning": "isolation, loneliness, solitude",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 157223,
+        "ja": "私は孤独だった。",
+        "en": "I felt lonely.",
+        "enId": 257310,
+        "form": "孤独",
+        "furigana": [["私", "わたし"], ["は"], ["孤独", "こどく"], ["だった。"]]
+      },
+      {
+        "id": 207143,
+        "ja": "その彼女は孤独だ。",
+        "en": "The girl is lonely.",
+        "enId": 44394,
+        "form": "孤独",
+        "furigana": [
+          ["その"],
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["孤独", "こどく"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-21",
+    "term": "ことごとく",
+    "kana": "ことごとく",
+    "meaning": "altogether, entirely",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-22",
+    "term": "言付け",
+    "kana": "ことづけ",
+    "meaning": "to leave a message",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "pitch": [0, 4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-23",
+    "term": "殊に",
+    "kana": "ことに",
+    "meaning": "especially, above all",
+    "level": "N1",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-24",
+    "term": "粉々",
+    "kana": "こなごな",
+    "meaning": "in very small pieces",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["news2", "nf28"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 85138,
+        "ja": "瓶は粉々に割れた。",
+        "en": "The bottle smashed to pieces.",
+        "enId": 318575,
+        "form": "粉々",
+        "furigana": [
+          ["瓶", "びん"],
+          ["は"],
+          ["粉々", "こなごな"],
+          ["に"],
+          ["割", "わ"],
+          ["れた。"]
+        ]
+      },
+      {
+        "id": 186562,
+        "ja": "花瓶は粉々に砕けた。",
+        "en": "The vase burst into fragments.",
+        "enId": 23698,
+        "form": "粉々に",
+        "furigana": [
+          ["花瓶", "かびん"],
+          ["は"],
+          ["粉々", "こなごな"],
+          ["に"],
+          ["砕", "くだ"],
+          ["けた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-25",
+    "term": "碁盤",
+    "kana": "ごばん",
+    "meaning": "Go board",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf31", "spec2"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2035-01-26",
+    "term": "個別",
+    "kana": "こべつ",
+    "meaning": "particular case",
+    "level": "N1",
+    "pos": ["nouns which may take the genitive case particle 'no'"],
+    "priority": ["news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 230027,
+        "ja": "あらゆる事態を個別に分析する必要がある。",
+        "en": "Every situation requires individual analysis.",
+        "enId": 67392,
+        "form": "個別",
+        "furigana": [
+          ["あらゆる"],
+          ["事態", "じたい"],
+          ["を"],
+          ["個別", "こべつ"],
+          ["に"],
+          ["分析", "ぶんせき"],
+          ["する"],
+          ["必要", "ひつよう"],
+          ["がある。"]
+        ]
+      },
+      {
+        "id": 142483,
+        "ja": "税金のために彼は銀行口座を個別にしておきたかった。",
+        "en": "He wished to keep the bank accounts separate for tax purposes.",
+        "enId": 272087,
+        "form": "個別",
+        "furigana": [
+          ["税金", "ぜいきん"],
+          ["のために"],
+          ["彼", "かれ"],
+          ["は"],
+          ["銀行", "ぎんこう"],
+          ["口座", "こうざ"],
+          ["を"],
+          ["個別", "こべつ"],
+          ["にしておきたかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-27",
+    "term": "細やか",
+    "kana": "こまやか",
+    "meaning": "meager, modest",
+    "level": "N1",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 191531,
+        "ja": "愛情こまやかな老夫婦を見るのはいいものだ。",
+        "en": "It is pleasant to watch a loving old couple.",
+        "enId": 28694,
+        "form": "こまやかな",
+        "furigana": [
+          ["愛情", "あいじょう"],
+          ["こまやかな"],
+          ["老夫婦", "ろうふうふ"],
+          ["を"],
+          ["見", "み"],
+          ["るのはいいものだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-28",
+    "term": "込める",
+    "kana": "こめる",
+    "meaning": "to include, to put into",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 92246,
+        "ja": "彼女はそれに精魂を込めた。",
+        "en": "She worked on it with her all soul.",
+        "enId": 311465,
+        "form": "込めた",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はそれに"],
+          ["精魂", "せいこん"],
+          ["を"],
+          ["込", "こ"],
+          ["めた。"]
+        ]
+      },
+      {
+        "id": 88155,
+        "ja": "彼女は憎しみをこめて彼を見た。",
+        "en": "She looked at him with hatred.",
+        "enId": 315552,
+        "form": "こめて",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["憎", "にく"],
+          ["しみをこめて"],
+          ["彼", "かれ"],
+          ["を"],
+          ["見", "み"],
+          ["た。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-29",
+    "term": "固有",
+    "kana": "こゆう",
+    "meaning": "characteristic, tradition, peculiar",
+    "level": "N1",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 189853,
+        "ja": "羽は鳥に固有のものだ。",
+        "en": "Feathers are peculiar to birds.",
+        "enId": 27009,
+        "form": "固有",
+        "furigana": [
+          ["羽", "はね"],
+          ["は"],
+          ["鳥", "とり"],
+          ["に"],
+          ["固有", "こゆう"],
+          ["のものだ。"]
+        ]
+      },
+      {
+        "id": 204952,
+        "ja": "それは日本固有の習慣だ。",
+        "en": "That is a custom proper to Japan.",
+        "enId": 42194,
+        "form": "固有",
+        "furigana": [
+          ["それは"],
+          ["日本", "にっぽん"],
+          ["固有", "こゆう"],
+          ["の"],
+          ["習慣", "しゅうかん"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-30",
+    "term": "凝らす",
+    "kana": "こらす",
+    "meaning": "to concentrate, to devote, to peer into",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["news2", "nf42"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 206944,
+        "ja": "その部屋は装飾を凝らしている。",
+        "en": "The room is richly ornamented.",
+        "enId": 44194,
+        "form": "凝らしている",
+        "furigana": [
+          ["その"],
+          ["部屋", "へや"],
+          ["は"],
+          ["装飾", "そうしょく"],
+          ["を"],
+          ["凝", "こ"],
+          ["らしている。"]
+        ]
+      },
+      {
+        "id": 213262,
+        "ja": "そのキルトは本当によく技巧が凝らされていていいものですね。",
+        "en": "That quilt is really quite a piece of work with all its fine craftsmanship.",
+        "enId": 50548,
+        "form": "凝らされていて",
+        "furigana": [
+          ["そのキルトは"],
+          ["本当", "ほんとう"],
+          ["によく"],
+          ["技巧", "ぎこう"],
+          ["が"],
+          ["凝", "こ"],
+          ["らされていていいものですね。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2035-01-31",
+    "term": "ごらんなさい",
+    "kana": "ごらんなさい",
+    "meaning": "look, (please) try to do",
+    "level": "N1",
+    "pos": ["expressions (phrases, clauses, etc.)", "auxiliary verb"],
+    "register": [
+      "honorific or respectful (sonkeigo) language",
+      "polite (teineigo) language"
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

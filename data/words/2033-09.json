@@ -1,0 +1,887 @@
+[
+  {
+    "date": "2033-09-01",
+    "term": "整う",
+    "kana": "ととのう",
+    "meaning": "to be prepared, to be in order, to be arranged",
+    "level": "N2",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147584,
+        "ja": "準備万端整っています。",
+        "en": "Everything is all arranged.",
+        "enId": 266976,
+        "form": "整っています",
+        "furigana": [
+          ["準備", "じゅんび"],
+          ["万端", "ばんたん"],
+          ["整", "ととの"],
+          ["っています。"]
+        ]
+      },
+      {
+        "id": 84156,
+        "ja": "部屋はきちんと整っている。",
+        "en": "The room is in immaculate order.",
+        "enId": 319559,
+        "form": "整っている",
+        "furigana": [
+          ["部屋", "へや"],
+          ["はきちんと"],
+          ["整", "ととの"],
+          ["っている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-02",
+    "term": "留まる",
+    "kana": "とどまる",
+    "meaning": "to remain, to stay; to be limited to",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-03",
+    "term": "怒鳴る",
+    "kana": "どなる",
+    "meaning": "to shout, to yell",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [2],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 124409,
+        "ja": "怒鳴ってはいけません。",
+        "en": "Don't shout.",
+        "enId": 279585,
+        "form": "怒鳴って",
+        "furigana": [["怒鳴", "どな"], ["ってはいけません。"]]
+      },
+      {
+        "id": 137717,
+        "ja": "大きな声でどなるなよ。",
+        "en": "Don't raise your voice at me.",
+        "enId": 275517,
+        "form": "どなる",
+        "furigana": [
+          ["大", "おお"],
+          ["きな"],
+          ["声", "こえ"],
+          ["でどなるなよ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-04",
+    "term": "ともかく",
+    "kana": "ともかく",
+    "meaning": "anyhow, at any rate, anyway",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-05",
+    "term": "捕える",
+    "kana": "とらえる",
+    "meaning": "to seize, to capture, to arrest",
+    "level": "N2",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf27", "nf46", "spec1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-06",
+    "term": "取り入れる",
+    "kana": "とりいれる",
+    "meaning": "to harvest, to take in, to adopt",
+    "level": "N2",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [4, 0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141202,
+        "ja": "洗濯物を中へ取り入れて下さい。",
+        "en": "Please bring in the washing.",
+        "enId": 273370,
+        "form": "取り入れて",
+        "furigana": [
+          ["洗濯", "せんたく"],
+          ["物", "ぶつ"],
+          ["を"],
+          ["中", "なか"],
+          ["へ"],
+          ["取", "と"],
+          ["り"],
+          ["入", "い"],
+          ["れて"],
+          ["下", "くだ"],
+          ["さい。"]
+        ]
+      },
+      {
+        "id": 122243,
+        "ja": "日本人は新しい思想を非常に良く取り入れる。",
+        "en": "The Japanese are highly receptive to new ideas.",
+        "enId": 281760,
+        "form": "取り入れる",
+        "furigana": [
+          ["日本人", "にっぽんじん"],
+          ["は"],
+          ["新", "あたら"],
+          ["しい"],
+          ["思想", "しそう"],
+          ["を"],
+          ["非常", "ひじょう"],
+          ["に"],
+          ["良", "よ"],
+          ["く"],
+          ["取", "と"],
+          ["り"],
+          ["入", "い"],
+          ["れる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-07",
+    "term": "取り消す",
+    "kana": "とりけす",
+    "meaning": "to cancel",
+    "level": "N2",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [0, 3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 219073,
+        "ja": "ごめん、取り消すよ。",
+        "en": "I'm sorry. I take back my words.",
+        "enId": 56389,
+        "form": "取り消す",
+        "furigana": [
+          ["ごめん、"],
+          ["取", "と"],
+          ["り"],
+          ["消", "け"],
+          ["すよ。"]
+        ]
+      },
+      {
+        "id": 162939,
+        "ja": "私の発言を取り消します。",
+        "en": "I take back my words.",
+        "enId": 251574,
+        "form": "取り消します",
+        "furigana": [
+          ["私", "わたし"],
+          ["の"],
+          ["発言", "はつげん"],
+          ["を"],
+          ["取", "と"],
+          ["り"],
+          ["消", "け"],
+          ["します。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-08",
+    "term": "採る",
+    "kana": "とる",
+    "meaning": "to adopt (measure, proposal); to pick (fruit)",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf37"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 223901,
+        "ja": "このカップに尿をとってください。",
+        "en": "Please leave a urine sample in this cup.",
+        "enId": 61236,
+        "form": "とって",
+        "furigana": [["このカップに"], ["尿", "にょう"], ["をとってください。"]]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-09",
+    "term": "捕る",
+    "kana": "とる",
+    "meaning": "to take, to catch (fish)",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 152584,
+        "ja": "私は網で鯉を捕った。",
+        "en": "I caught a carp in a net.",
+        "enId": 261965,
+        "form": "捕った",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["網", "あみ"],
+          ["で"],
+          ["鯉", "こい"],
+          ["を"],
+          ["捕", "と"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 225958,
+        "ja": "きのう魚を３匹捕った。",
+        "en": "I caught three fish yesterday.",
+        "enId": 63296,
+        "form": "捕った",
+        "furigana": [
+          ["きのう"],
+          ["魚", "さかな"],
+          ["を３"],
+          ["匹", "びき"],
+          ["捕", "と"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-10",
+    "term": "～内",
+    "kana": "～ない",
+    "meaning": "inside ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-11",
+    "term": "内科",
+    "kana": "ないか",
+    "meaning": "internist clinic, internal medicine",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123242,
+        "ja": "内科はどこですか。",
+        "en": "Where is the Internal Medicine Department?",
+        "enId": 280756,
+        "form": "内科",
+        "furigana": [["内科", "ないか"], ["はどこですか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-12",
+    "term": "長～",
+    "kana": "なが～",
+    "meaning": "long ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-13",
+    "term": "仲良し",
+    "kana": "なかよし",
+    "meaning": "intimate friend, bosom buddy",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 178735,
+        "ja": "君と僕は仲よしだ。",
+        "en": "You and I are good friends.",
+        "enId": 17588,
+        "form": "仲よし",
+        "furigana": [
+          ["君", "きみ"],
+          ["と"],
+          ["僕", "ぼく"],
+          ["は"],
+          ["仲", "なか"],
+          ["よしだ。"]
+        ]
+      },
+      {
+        "id": 159031,
+        "ja": "私はビルと仲良しです。",
+        "en": "I am good friends with Bill.",
+        "enId": 255494,
+        "form": "仲良し",
+        "furigana": [
+          ["私", "わたし"],
+          ["はビルと"],
+          ["仲良", "なかよ"],
+          ["しです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-14",
+    "term": "慰める",
+    "kana": "なぐさめる",
+    "meaning": "to comfort, to console",
+    "level": "N2",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 90805,
+        "ja": "彼女は花に慰められた。",
+        "en": "The flowers cheered her up.",
+        "enId": 312907,
+        "form": "慰められた",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["花", "はな"],
+          ["に"],
+          ["慰", "なぐさ"],
+          ["められた。"]
+        ]
+      },
+      {
+        "id": 165848,
+        "ja": "私たちは互いに慰め合った。",
+        "en": "We consoled each other.",
+        "enId": 248656,
+        "form": "慰め",
+        "furigana": [
+          ["私", "わたし"],
+          ["たちは"],
+          ["互", "たが"],
+          ["いに"],
+          ["慰", "なぐさ"],
+          ["め"],
+          ["合", "あ"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-15",
+    "term": "為す",
+    "kana": "なす",
+    "meaning": "to accomplish, to do",
+    "level": "N2",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 218935,
+        "ja": "これが君のなすべきものだ。",
+        "en": "This is what you must do.",
+        "enId": 56250,
+        "form": "なす",
+        "furigana": [["これが"], ["君", "きみ"], ["のなすべきものだ。"]]
+      },
+      {
+        "id": 143063,
+        "ja": "政府もなすすべがないようだ。",
+        "en": "It sounds as if the government doesn't know what to do.",
+        "enId": 271505,
+        "form": "なす",
+        "furigana": [["政府", "せいふ"], ["もなすすべがないようだ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-16",
+    "term": "謎謎",
+    "kana": "なぞなぞ",
+    "meaning": "riddle",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-17",
+    "term": "なだらか",
+    "kana": "なだらか",
+    "meaning": "gradual, gentle",
+    "level": "N2",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123585,
+        "ja": "道はなだらかな上がりになっていた。",
+        "en": "The road climbed gradually.",
+        "enId": 280412,
+        "form": "なだらかな",
+        "furigana": [
+          ["道", "みち"],
+          ["はなだらかな"],
+          ["上", "あ"],
+          ["がりになっていた。"]
+        ]
+      },
+      {
+        "id": 122732,
+        "ja": "日本における今年の賃上げはなだらかなものだった。",
+        "en": "Wage settlements in Japan this year were moderate.",
+        "enId": 281270,
+        "form": "なだらかな",
+        "furigana": [
+          ["日本", "にっぽん"],
+          ["における"],
+          ["今年", "ことし"],
+          ["の"],
+          ["賃上", "ちんあ"],
+          ["げはなだらかなものだった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-18",
+    "term": "斜め",
+    "kana": "ななめ",
+    "meaning": "diagonal, oblique",
+    "level": "N2",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 227910,
+        "ja": "えらくご機嫌ななめね、けんか腰にならないで。",
+        "en": "Wow, you're really in a bad mood. Don't get scrappy.",
+        "enId": 2700994,
+        "form": "ななめ",
+        "furigana": [
+          ["えらくご"],
+          ["機嫌", "きげん"],
+          ["ななめね、けんか"],
+          ["腰", "ごし"],
+          ["にならないで。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-19",
+    "term": "なにしろ",
+    "kana": "なにしろ",
+    "meaning": "at any rate, in any case",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf24"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-20",
+    "term": "何々",
+    "kana": "なになに",
+    "meaning": "such and such, What?",
+    "level": "N2",
+    "pos": ["pronoun", "interjection (kandoushi)"],
+    "priority": ["news2", "nf46"],
+    "pitch": [1, 2, 0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-21",
+    "term": "何分",
+    "kana": "なにぶん",
+    "meaning": "by all means, please",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news2", "nf40"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 199099,
+        "ja": "なにぶんこんな辺ぴな村に住んでいるので、めったに客は来ない。",
+        "en": "Living as I do in a remote village, I seldom have visitors.",
+        "enId": 36298,
+        "form": "なにぶん",
+        "furigana": [
+          ["なにぶんこんな"],
+          ["辺", "へん"],
+          ["ぴな"],
+          ["村", "むら"],
+          ["に"],
+          ["住", "す"],
+          ["んでいるので、めったに"],
+          ["客", "きゃく"],
+          ["は"],
+          ["来", "こ"],
+          ["ない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-22",
+    "term": "並木",
+    "kana": "なみき",
+    "meaning": "roadside tree, row of trees",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185640,
+        "ja": "我々は背の高いポプラ並木を歩いた。",
+        "en": "We walked along an avenue of tall poplars.",
+        "enId": 22772,
+        "form": "並木",
+        "furigana": [
+          ["我々", "われわれ"],
+          ["は"],
+          ["背", "せ"],
+          ["の"],
+          ["高", "たか"],
+          ["いポプラ"],
+          ["並木", "なみき"],
+          ["を"],
+          ["歩", "ある"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-23",
+    "term": "倣う",
+    "kana": "ならう",
+    "meaning": "to imitate, to follow, to emulate",
+    "level": "N2",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 100332,
+        "ja": "彼は父親の例にならっていった。",
+        "en": "He followed in his father's footsteps.",
+        "enId": 303365,
+        "form": "ならって",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["父親", "ちちおや"],
+          ["の"],
+          ["例", "れい"],
+          ["にならっていった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-24",
+    "term": "南極",
+    "kana": "なんきょく",
+    "meaning": "south pole, Antarctic",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 96444,
+        "ja": "彼らは南極を探索した。",
+        "en": "They explored the Antarctic.",
+        "enId": 307261,
+        "form": "南極",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["南極", "なんきょく"],
+          ["を"],
+          ["探索", "たんさく"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 96443,
+        "ja": "彼らは南極探検に行った。",
+        "en": "They went on an expedition to the Antarctic.",
+        "enId": 307262,
+        "form": "南極",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["南極", "なんきょく"],
+          ["探検", "たんけん"],
+          ["に"],
+          ["行", "い"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-25",
+    "term": "なんとなく",
+    "kana": "なんとなく",
+    "meaning": "somehow or other, for some reason or another",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-26",
+    "term": "なんとも",
+    "kana": "なんとも",
+    "meaning": "nothing (with neg. verb), quite, not a bit",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-27",
+    "term": "南米",
+    "kana": "なんべい",
+    "meaning": "South America",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf07"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 151380,
+        "ja": "私達は南米を旅行した。",
+        "en": "We traveled in South America.",
+        "enId": 263176,
+        "form": "南米",
+        "furigana": [
+          ["私", "わたし"],
+          ["達", "たち"],
+          ["は"],
+          ["南米", "なんべい"],
+          ["を"],
+          ["旅行", "りょこう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 124037,
+        "ja": "当社の第一目標は南米市場を拡大することです。",
+        "en": "Our primary objective is to expand the South American market.",
+        "enId": 279958,
+        "form": "南米",
+        "furigana": [
+          ["当社", "とうしゃ"],
+          ["の"],
+          ["第", "だい"],
+          ["一", "いち"],
+          ["目標", "もくひょう"],
+          ["は"],
+          ["南米", "なんべい"],
+          ["市場", "しじょう"],
+          ["を"],
+          ["拡大", "かくだい"],
+          ["することです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-28",
+    "term": "匂う",
+    "kana": "におう",
+    "meaning": "to be fragrant, to smell",
+    "level": "N2",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2033-09-29",
+    "term": "逃がす",
+    "kana": "にがす",
+    "meaning": "to let loose, to set free, to let escape",
+    "level": "N2",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf33"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 146688,
+        "ja": "少女は鳥を逃がしてやった。",
+        "en": "The girl let the bird loose.",
+        "enId": 267873,
+        "form": "逃がして",
+        "furigana": [
+          ["少女", "しょうじょ"],
+          ["は"],
+          ["鳥", "とり"],
+          ["を"],
+          ["逃", "に"],
+          ["がしてやった。"]
+        ]
+      },
+      {
+        "id": 125769,
+        "ja": "鳥を逃がしてやってください。",
+        "en": "Let the bird fly away.",
+        "enId": 278223,
+        "form": "逃がして",
+        "furigana": [
+          ["鳥", "とり"],
+          ["を"],
+          ["逃", "に"],
+          ["がしてやってください。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2033-09-30",
+    "term": "～難い",
+    "kana": "～がたい",
+    "meaning": "hard (difficult) to do ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]
