@@ -287,3 +287,60 @@ describe("commands and paths named in the docs", () => {
     }
   });
 });
+
+describe("the Architecture chapter's lists", () => {
+  // Hand-written prose that lists the code. Each list is checked against the
+  // files it describes, so a new module, component or page cannot go unnamed.
+  const page = read("app/pages/docs/architecture.vue");
+  const stem = (file: string) =>
+    file.replace(/^.*\//, "").replace(/\.\w+$/, "");
+
+  it("has a row for every shared module, and none for a module that is gone", () => {
+    const rows = [...page.matchAll(/file: "([\w-]+\.ts)"/g)].map((m) => m[1]!);
+    const modules = walk("shared", [".ts"]).map((f) =>
+      f.replace("shared/", ""),
+    );
+    // The facts table reuses `file:` for other paths; only shared modules count here.
+    expect(modules.filter((m) => !rows.includes(m))).toEqual([]);
+    expect(rows.filter((r) => !modules.includes(r))).toEqual([]);
+  });
+
+  it("names every component except the local U* primitives", () => {
+    for (const file of walk("app/components", [".vue"])) {
+      const name = stem(file);
+      if (/^U[A-Z]/.test(name)) continue;
+      expect(page, `${name} (${file})`).toContain(`<code>${name}</code>`);
+    }
+  });
+
+  it("names every page's route", () => {
+    // /words/[date] is named by its first segment; /docs/* by the book.
+    const routes = new Set(
+      walk("app/pages", [".vue"]).map((f) => {
+        const route = f
+          .replace(/^app\/pages/, "")
+          .replace(/\/index\.vue$|\.vue$/, "");
+        return route.split("/").slice(0, 2).join("/") || "/";
+      }),
+    );
+    for (const route of routes) {
+      if (route.includes("[")) continue; // the catch-all, described in words
+      if (route.startsWith("/docs")) continue;
+      expect(page, route).toMatch(
+        new RegExp(`<code>${route.replace("/", "\\/")}(?:\\/|<|\\b)`),
+      );
+    }
+    expect(page).toContain("<code>/docs/*</code>");
+    expect(page).toContain("catch-all");
+  });
+
+  it("names every redirect in nuxt.config.ts", () => {
+    const config = read("nuxt.config.ts");
+    const redirects = [...config.matchAll(/"(\/[^"]+)":\s*\{\s*redirect/g)].map(
+      (m) => m[1]!,
+    );
+    expect(redirects.length).toBeGreaterThan(0);
+    for (const path of redirects)
+      expect(page, path).toContain(`<code>${path}</code>`);
+  });
+});
