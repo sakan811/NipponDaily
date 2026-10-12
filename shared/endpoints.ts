@@ -11,6 +11,12 @@
 import { RELATED_LIMIT, STROKE_SQUARE } from "./limits";
 import { ROUTES } from "./routes";
 import { countWord } from "./count";
+import { FREQUENCY_IDS } from "./word-labels";
+
+/** `common`, `less` or `unlisted`, as the filter names its choices. */
+const FREQUENCY_TEXT = `${FREQUENCY_IDS.slice(0, -1)
+  .map((id) => `\`${id}\``)
+  .join(", ")} or \`${FREQUENCY_IDS[FREQUENCY_IDS.length - 1]}\``;
 
 /** What the rate limiter allows one address, per window (`server/utils/rate-limit.ts`). */
 export const RATE_LIMIT = { limit: 120, windowMs: 60_000 } as const;
@@ -42,7 +48,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     query:
       "?month=YYYY-MM&q=&level=&stratum=&process=&pos=&frequency=&part=&match=",
     returns:
-      "`{ month, months, today, days, filters, total, count, monthCounts, facets }`. An open day carries its `term`, `kana`, `stratum` and `match` (whether it passes the filters, always true with none); an upcoming day carries only its date and `\"upcoming\"`, and is never matched. The filters are the `/api/explore` ones, with the same counts: `count` of `total` open words match across every month, `monthCounts` gives each month's matches and `facets` the options' counts. The month defaults to the current one if it has words, else the newest. A malformed month or an invalid filter is a `400`, a month with no words a `404`.",
+      "`{ month, months, today, days, filters, total, count, monthCounts, facets }`. An open day carries its `term`, `kana`, `stratum` and `match` (whether it passes the filters, always true with none); an upcoming day carries only its date and `\"upcoming\"`, and is never matched. Once the catalogue has run out, an open day after the last entry shows the word of its lap and also carries `wordDate` (the day that word first opened) and `lap`, and `months` runs on to the current month. The filters are the `/api/explore` ones, with the same counts: `count` of `total` open words match across every month, `monthCounts` gives each month's matches and `facets` the options' counts. The month defaults to the current one if it has words, else the newest. A malformed month or an invalid filter is a `400`, a month with no words a `404`.",
   },
   {
     method: "GET",
@@ -79,7 +85,9 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     path: ROUTES.explore,
     query: "?q=&level=&stratum=&process=&pos=&frequency=&part=&match=",
     returns:
-      "The open words matching every filter, newest first: `{ filters, total, count, words, facets }`. Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. `level`, `stratum` (which also takes `unstated`), `process`, `pos` (a group such as `verb`) and `frequency` (`common`, `less` or `unlisted`, from JMdict's priority codes) take several comma-joined choices; `match=all` makes a word carry every process and part of speech chosen instead of any. Each facet counts the words the other filters leave.",
+      "The open words matching every filter, newest first: `{ filters, total, count, words, facets }`. Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. `level`, `stratum` (which also takes `unstated`), `process`, `pos` (a group such as `verb`) and `frequency` (" +
+      FREQUENCY_TEXT +
+      ", from JMdict's priority codes) take several comma-joined choices; `match=all` makes a word carry every process and part of speech chosen instead of any. Each facet counts the words the other filters leave.",
   },
   {
     method: "GET",
