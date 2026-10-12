@@ -8,7 +8,7 @@
           ><span class="season-glyph" aria-hidden="true" /> {{ dateline }}</span
         >
         <span class="hidden sm:inline"
-          ><span class="kicker">One Word, Taken Apart, Every Day</span></span
+          ><span class="kicker">One Word a Day, With Its Sources</span></span
         >
       </div>
     </template>
@@ -25,12 +25,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] dark:hidden rounded-full"
-          />
+          >
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] hidden dark:block rounded-full"
-          />
+          >
         </span>
         <span
           class="font-serif font-bold text-[1em] leading-none text-stone-900 dark:text-white"

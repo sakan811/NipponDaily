@@ -138,7 +138,7 @@ const { result, loading, error, refresh } = useExplore(() => filters.value);
 usePageSeo({
   title: "Explore the words",
   description:
-    "Search every word NipponDaily has taken apart and filter by JLPT level, layer of the vocabulary, the process that shaped it and part of speech.",
+    "Search every word NipponDaily has opened and filter by JLPT level, layer of the vocabulary, the process that shaped it and part of speech.",
   path: "/explore",
 });
 
