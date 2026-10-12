@@ -43,8 +43,9 @@ export function canDraw(text: string, glyphs: ReadonlySet<string>): boolean {
   return [...text].every((c) => glyphs.has(c) || /\s/.test(c));
 }
 
-/** The reading as the card draws it: a source's fullwidth tilde (らい～) becomes
- *  the wave dash the font has. The same mark, not a change of reading. */
+/** A reading or a list spelling as the card draws it: a source's fullwidth
+ *  tilde (らい～, ～円) becomes the wave dash the font has. The same mark, not a
+ *  change of the word. */
 export const displayKana = (kana: string): string => kana.replace(/～/g, "〜");
 
 /** The word is drawn as large as the card allows: long loanwords shrink. */
@@ -114,7 +115,7 @@ export function ogCard(
             color: INK,
             fontFamily: JAPANESE,
           },
-          entry.term,
+          displayKana(entry.term),
         ),
         el({ alignItems: "center", gap: 20, marginTop: 6 }, [
           // A word written in kana only would show the same text twice.
@@ -137,7 +138,7 @@ export function ogCard(
           entry.meaning,
         ),
       ]),
-      glyphs && !canDraw(entry.headline, glyphs)
+      !entry.headline || (glyphs && !canDraw(entry.headline, glyphs))
         ? el({})
         : el(
             { fontSize: 29, lineHeight: 1.3, color: MUTED, lineClamp: 3 },

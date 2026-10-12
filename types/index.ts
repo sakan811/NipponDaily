@@ -122,19 +122,22 @@ export interface WordEntry {
    *  (or the evidence) establish it; irregular spellings leave it out. */
   stratum?: WordStratum;
   processes: WordProcess[];
-  /** The one hand-written line (data/word-plan/): a hook, not a claim. */
-  headline: string;
+  /** The one hand-written line (data/word-plan/): a hook, not a claim. Left
+   *  out for a word that has no origin to hook (nothing is written for it). */
+  headline?: string;
   /** The word's parts, left to right — parsed from the Wiktionary lines, and
    *  present only when they literally spell the word and join to its reading.
    *  Empty when the source gives no clean breakdown. */
   morphemes: Morpheme[];
-  /** What Wiktionary says about the word's origin, line by line, verbatim. */
+  /** What Wiktionary says about the word's origin, line by line, verbatim.
+   *  Empty when the pinned dump has no Etymology section for the reading. */
   sources: WordSource[];
   /** Sentences that use the word, from Tatoeba; left out when the pinned export
    *  has none that qualifies. */
   examples?: WordExample[];
-  /** Date of the Wiktionary dump the sources were quoted from (YYYY-MM-DD). */
-  wiktionaryDump: string;
+  /** Date of the Wiktionary dump the sources were quoted from (YYYY-MM-DD);
+   *  left out with the sources. */
+  wiktionaryDump?: string;
 }
 
 /** A pointer to a neighbouring open day, for prev/next navigation. */

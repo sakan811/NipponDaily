@@ -77,7 +77,8 @@ export function cardCharacters(root = ROOT) {
   const dir = join(root, "data/words");
   for (const file of readdirSync(dir).filter((f) => f.endsWith(".json")))
     for (const e of JSON.parse(readFileSync(join(dir, file), "utf8")))
-      for (const c of e.term + e.kana + e.meaning + e.headline) chars.add(c);
+      for (const c of e.term + e.kana + e.meaning + (e.headline ?? ""))
+        chars.add(c);
   return [...chars].sort().join("");
 }
 

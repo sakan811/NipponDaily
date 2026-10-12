@@ -32,7 +32,7 @@ export function wordDescription(
     ? ` Taken apart: ${entry.morphemes.map((m) => m.text).join(" + ")}.`
     : "";
   return truncate(
-    `${entry.term} (${entry.kana}), ${entry.meaning}.${parts} ${entry.headline}`,
+    `${entry.term} (${entry.kana}), ${entry.meaning}.${parts}${entry.headline ? ` ${entry.headline}` : ""}`,
   );
 }
 

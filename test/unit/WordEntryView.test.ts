@@ -252,6 +252,51 @@ describe("WordEntryView", () => {
     expect(render().find('[data-testid="word-examples"]').exists()).toBe(false);
   });
 
+  it("says so, section by section, when a source has nothing for the word", () => {
+    const wrapper = render({
+      headline: undefined,
+      morphemes: [],
+      sources: [],
+      wiktionaryDump: undefined,
+    });
+    for (const id of [
+      "word-no-sources",
+      "word-no-parts-data",
+      "word-no-examples",
+      "word-no-pitch",
+    ])
+      expect(wrapper.find(`[data-testid="${id}"]`).text(), id).toContain(
+        "We don't have the data for this section.",
+      );
+    expect(wrapper.find('[data-testid="word-headline"]').exists()).toBe(false);
+    expect(wrapper.find('[data-testid="word-sources"]').exists()).toBe(false);
+    expect(wrapper.find('[data-testid="word-no-breakdown"]').exists()).toBe(
+      false,
+    );
+  });
+
+  it("shows no notice for a section that has its data", () => {
+    const wrapper = render({
+      pitch: [0],
+      examples: [
+        {
+          id: 1,
+          ja: "手紙を書く。",
+          en: "I write a letter.",
+          enId: 2,
+          form: "手紙",
+        },
+      ],
+    });
+    for (const id of [
+      "word-no-sources",
+      "word-no-parts-data",
+      "word-no-examples",
+      "word-no-pitch",
+    ])
+      expect(wrapper.find(`[data-testid="${id}"]`).exists(), id).toBe(false);
+  });
+
   it("links each kanji of the word to its page", () => {
     const links = render().findAll('[data-testid="word-kanji"] a');
     expect(links.map((a) => a.attributes("href"))).toEqual([

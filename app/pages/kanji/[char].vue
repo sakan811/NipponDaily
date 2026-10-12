@@ -106,21 +106,28 @@
           </div>
         </section>
 
-        <section
-          v-if="kanji.strokes"
-          class="space-y-3"
-          aria-labelledby="strokes-heading"
-        >
+        <section class="space-y-3" aria-labelledby="strokes-heading">
           <h2
             id="strokes-heading"
             class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
           >
             Stroke order
           </h2>
-          <KanjiStrokes :strokes="kanji.strokes" />
-          <p class="text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
-            <RichText :text="SOURCES.kanjivg.credit" />
+          <p
+            v-if="!kanji.strokes"
+            data-testid="kanji-no-strokes"
+            class="text-stone-600 dark:text-stone-400 font-body-serif"
+          >
+            We don't have the data for this section. KanjiVG and KANJIDIC2 do
+            not count the same number of strokes for this kanji, so none is
+            drawn.
           </p>
+          <template v-else>
+            <KanjiStrokes :strokes="kanji.strokes" />
+            <p class="text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
+              <RichText :text="SOURCES.kanjivg.credit" />
+            </p>
+          </template>
         </section>
 
         <section class="space-y-3" aria-labelledby="words-heading">

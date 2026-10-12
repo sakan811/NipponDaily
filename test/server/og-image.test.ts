@@ -27,7 +27,7 @@ describe("renderOgImage", () => {
       (a, b) => [...b.term].length - [...a.term].length,
     )[0]!;
     const longestHeadline = [...WORD_ENTRIES].sort(
-      (a, b) => b.headline.length - a.headline.length,
+      (a, b) => (b.headline ?? "").length - (a.headline ?? "").length,
     )[0]!;
     for (const e of [longestTerm, longestHeadline]) {
       const png = await renderOgImage(e, ogAssets);
