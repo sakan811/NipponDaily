@@ -423,9 +423,9 @@
           These count the tags on the entries so far — what KANJIDIC2 and the
           quoted Wiktionary text establish for each word — not the Japanese
           language as a whole. The words are drawn from the JLPT N5–N1 lists,
-          and only those with a Wiktionary Etymology section, so the mix
-          reflects that sample. A layer is left unstated where neither source
-          settles it.
+          and a layer or process is counted only where a source establishes it,
+          so the mix reflects what the sources hold. A layer is left unstated
+          where neither source settles it.
         </p>
       </template>
 

@@ -117,6 +117,9 @@ describe("Kanji Detail Page (/kanji/[char])", () => {
     await flushPromises();
 
     expect(wrapper.find('[data-testid="kanji-strokes"]').exists()).toBe(false);
+    expect(wrapper.find('[data-testid="kanji-no-strokes"]').text()).toContain(
+      "We don't have the data for this section.",
+    );
   });
 
   it("links to the part page only when a word shows the kanji as a part", async () => {

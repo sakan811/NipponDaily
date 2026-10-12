@@ -53,6 +53,14 @@
         </li>
       </ul>
       <p
+        v-if="!pitches.length"
+        data-testid="word-no-pitch"
+        class="text-sm text-stone-600 dark:text-stone-400"
+      >
+        Pitch accent: {{ NO_DATA }} No accent list gives this spelling and
+        reading, or the two we check against disagree.
+      </p>
+      <p
         v-if="pitches.length"
         data-testid="word-pitch-help"
         class="text-xs text-stone-600 dark:text-stone-400 max-w-3xl"
@@ -118,6 +126,7 @@
       </div>
       <div class="rule-double max-w-[120px]" />
       <p
+        v-if="entry.headline"
         data-testid="word-headline"
         class="text-xl sm:text-2xl font-serif italic leading-snug text-stone-800 dark:text-stone-200 max-w-3xl"
       >
@@ -191,6 +200,14 @@
         always use every sense of its kanji.
       </p>
       <p
+        v-else-if="!entry.sources.length"
+        data-testid="word-no-parts-data"
+        class="text-stone-600 dark:text-stone-400 font-body-serif"
+      >
+        {{ NO_DATA }} Wiktionary has no Etymology section for this reading, and
+        a split made without one would be a guess.
+      </p>
+      <p
         v-else-if="!entry.morphemes.length"
         data-testid="word-no-breakdown"
         class="text-stone-600 dark:text-stone-400 font-body-serif"
@@ -224,18 +241,26 @@
     </section>
 
     <!-- In a sentence -->
-    <section
-      v-if="entry.examples?.length"
-      class="space-y-4"
-      aria-labelledby="examples-heading"
-    >
+    <section class="space-y-4" aria-labelledby="examples-heading">
       <h2
         id="examples-heading"
         class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
       >
         In a sentence
       </h2>
-      <ul data-testid="word-examples" class="space-y-4 max-w-3xl">
+      <p
+        v-if="!entry.examples?.length"
+        data-testid="word-no-examples"
+        class="text-stone-600 dark:text-stone-400 font-body-serif"
+      >
+        {{ NO_DATA }} The pinned Tatoeba export has no sentence with a
+        translation that uses this word and passes our filter.
+      </p>
+      <ul
+        v-if="entry.examples?.length"
+        data-testid="word-examples"
+        class="space-y-4 max-w-3xl"
+      >
         <li
           v-for="ex in entry.examples"
           :key="ex.id"
@@ -285,7 +310,10 @@
           </p>
         </li>
       </ul>
-      <p class="text-xs text-stone-600 dark:text-stone-400 max-w-3xl">
+      <p
+        v-if="entry.examples?.length"
+        class="text-xs text-stone-600 dark:text-stone-400 max-w-3xl"
+      >
         Sentences are from
         <a
           :href="SOURCES.tatoeba.url"
@@ -313,7 +341,18 @@
       >
         What Wiktionary says
       </h2>
-      <p class="text-sm text-stone-600 dark:text-stone-400 max-w-3xl">
+      <p
+        v-if="!entry.sources.length"
+        data-testid="word-no-sources"
+        class="text-stone-600 dark:text-stone-400 font-body-serif"
+      >
+        {{ NO_DATA }} The pinned Wiktionary dump has no Etymology section for
+        this reading, so nothing is said about where the word comes from.
+      </p>
+      <p
+        v-if="entry.sources.length"
+        class="text-sm text-stone-600 dark:text-stone-400 max-w-3xl"
+      >
         Quoted line by line from Wiktionary's Etymology section for this
         reading, taken from one dated dump so it can't change underneath us.
         Nothing below is paraphrased.
@@ -329,7 +368,11 @@
           are marked below.
         </p>
       </div>
-      <ul data-testid="word-sources" class="space-y-3 max-w-3xl">
+      <ul
+        v-if="entry.sources.length"
+        data-testid="word-sources"
+        class="space-y-3 max-w-3xl"
+      >
         <li
           v-for="(s, i) in entry.sources"
           :key="i"
@@ -347,7 +390,10 @@
           >“{{ s.quote }}”
         </li>
       </ul>
-      <p class="text-xs text-stone-600 dark:text-stone-400">
+      <p
+        v-if="entry.sources.length"
+        class="text-xs text-stone-600 dark:text-stone-400"
+      >
         Source:
         <a
           :href="wiktionaryUrl"
@@ -423,6 +469,9 @@ import { distinctKanji } from "~~/shared/japanese";
 import type { WordEntry } from "~~/types/index";
 
 const props = defineProps<{ entry: WordEntry }>();
+
+/** What a section says when its source has nothing for this word. */
+const NO_DATA = "We don't have the data for this section.";
 
 /** The distinct kanji of the term (the same range the kanji pages cover). */
 const kanjiChars = computed(() => distinctKanji(props.entry.term));

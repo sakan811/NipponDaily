@@ -42,7 +42,12 @@ describe("the share-image fonts", () => {
   it("draw the word, reading, meaning, date and level of every entry, upcoming included", () => {
     // Run `pnpm assets:og-font` after adding words with a new kanji.
     const text = WORD_ENTRIES.map(
-      (e) => e.term + displayKana(e.kana) + e.meaning + e.date + e.level,
+      (e) =>
+        displayKana(e.term) +
+        displayKana(e.kana) +
+        e.meaning +
+        e.date +
+        e.level,
     ).join("");
     expect(missing(text)).toEqual([]);
   });
@@ -59,16 +64,19 @@ describe("the share-image fonts", () => {
   it("have a glyph list that agrees with the fonts, character by character", () => {
     const listed = [...ogAssets.glyphs];
     expect(listed.filter((c) => !drawable(c))).toEqual([]);
-    const all = [...new Set(WORD_ENTRIES.map((e) => e.headline).join(""))];
+    const all = [
+      ...new Set(WORD_ENTRIES.map((e) => e.headline ?? "").join("")),
+    ];
     expect(all.filter((c) => drawable(c) && !ogAssets.glyphs.has(c))).toEqual(
       [],
     );
   });
 
   it("let nearly every headline be drawn, so a card rarely loses its hook", () => {
-    const drawn = WORD_ENTRIES.filter((e) =>
-      canDraw(e.headline, ogAssets.glyphs),
+    const withHeadline = WORD_ENTRIES.filter((e) => e.headline);
+    const drawn = withHeadline.filter((e) =>
+      canDraw(e.headline!, ogAssets.glyphs),
     ).length;
-    expect(drawn / WORD_ENTRIES.length).toBeGreaterThan(0.94);
+    expect(drawn / withHeadline.length).toBeGreaterThan(0.94);
   });
 });
