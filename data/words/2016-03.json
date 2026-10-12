@@ -1,0 +1,1293 @@
+[
+  {
+    "date": "2016-03-01",
+    "term": "区別",
+    "kana": "くべつ",
+    "meaning": "distinction, differentiation, classification",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 142932,
+        "ja": "正邪の区別がつかない。",
+        "en": "He cannot tell right from wrong.",
+        "enId": 271636,
+        "form": "区別",
+        "furigana": [
+          ["正邪", "せいじゃ"],
+          ["の"],
+          ["区別", "くべつ"],
+          ["がつかない。"]
+        ]
+      },
+      {
+        "id": 164800,
+        "ja": "私にだって善悪に区別はつく。",
+        "en": "I can make a distinction between good and bad.",
+        "enId": 249707,
+        "form": "区別",
+        "furigana": [
+          ["私", "わたし"],
+          ["にだって"],
+          ["善悪", "ぜんあく"],
+          ["に"],
+          ["区別", "くべつ"],
+          ["はつく。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-02",
+    "term": "組む",
+    "kana": "くむ",
+    "meaning": "to put together",
+    "level": "N3",
+    "pos": [
+      "Godan verb with 'mu' ending",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 106990,
+        "ja": "彼は座禅を組んだ。",
+        "en": "He sat in Zen meditation.",
+        "enId": 296696,
+        "form": "組んだ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["座禅", "ざぜん"],
+          ["を"],
+          ["組", "く"],
+          ["んだ。"]
+        ]
+      },
+      {
+        "id": 88101,
+        "ja": "彼女は足を組んで座った。",
+        "en": "She sat down and crossed her legs.",
+        "enId": 313647,
+        "form": "組んで",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["足", "あし"],
+          ["を"],
+          ["組", "く"],
+          ["んで"],
+          ["座", "すわ"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-03",
+    "term": "位",
+    "kana": "くらい",
+    "meaning": "grade, rank, about",
+    "level": "N3",
+    "pos": ["suffix", "particle"],
+    "priority": ["spec1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99062,
+        "ja": "彼は陸軍大佐の位を持っている。",
+        "en": "He holds the rank of colonel.",
+        "enId": 304637,
+        "form": "位",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["陸軍", "りくぐん"],
+          ["大佐", "たいさ"],
+          ["の"],
+          ["位", "くらい"],
+          ["を"],
+          ["持", "も"],
+          ["っている。"]
+        ]
+      },
+      {
+        "id": 76953,
+        "ja": "５８１４を千の位に四捨五入すれば何になりますか。",
+        "en": "What is 5814 rounded to the nearest thousand?",
+        "enId": 326767,
+        "form": "位",
+        "furigana": [
+          ["５８１４を"],
+          ["千", "せん"],
+          ["の"],
+          ["位", "くらい"],
+          ["に"],
+          ["四捨五入", "ししゃごにゅう"],
+          ["すれば"],
+          ["何", "なに"],
+          ["になりますか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-04",
+    "term": "暮らす",
+    "kana": "くらす",
+    "meaning": "to live, to get along",
+    "level": "N3",
+    "pos": [
+      "Godan verb with 'su' ending",
+      "intransitive verb",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf39"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83707,
+        "ja": "分相応に暮らせ。",
+        "en": "Cut your coat according to your cloth.",
+        "enId": 3053563,
+        "form": "暮らせ",
+        "furigana": [
+          ["分相応", "ぶんそうおう"],
+          ["に"],
+          ["暮", "く"],
+          ["らせ。"]
+        ]
+      },
+      {
+        "id": 144726,
+        "ja": "身分相応に暮らせ。",
+        "en": "Cut your coat according to your cloth.",
+        "enId": 3053563,
+        "form": "暮らせ",
+        "furigana": [
+          ["身分", "みぶん"],
+          ["相応", "そうおう"],
+          ["に"],
+          ["暮", "く"],
+          ["らせ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-05",
+    "term": "グランド",
+    "kana": "グランド",
+    "meaning": "gland, grand, (electrical) ground",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [0],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2016-03-06",
+    "term": "狂う",
+    "kana": "くるう",
+    "meaning": "to go mad, to get out of order",
+    "level": "N3",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 180105,
+        "ja": "狂ったのかい？",
+        "en": "Are you mad?",
+        "enId": 18965,
+        "form": "狂った",
+        "furigana": [["狂", "くる"], ["ったのかい？"]]
+      },
+      {
+        "id": 232114,
+        "ja": "あなたは狂ってる。",
+        "en": "You are crazy.",
+        "enId": 69483,
+        "form": "狂ってる",
+        "furigana": [["あなたは"], ["狂", "くる"], ["ってる。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-07",
+    "term": "苦労",
+    "kana": "くろう",
+    "meaning": "hardship; suffering",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 179515,
+        "ja": "苦労なしに栄光はない。",
+        "en": "No cross, no crown.",
+        "enId": 18373,
+        "form": "苦労",
+        "furigana": [
+          ["苦労", "くろう"],
+          ["なしに"],
+          ["栄光", "えいこう"],
+          ["はない。"]
+        ]
+      },
+      {
+        "id": 148865,
+        "ja": "若いうちは苦労すべきだ。",
+        "en": "You should work hard while you are young.",
+        "enId": 265693,
+        "form": "苦労",
+        "furigana": [
+          ["若", "わか"],
+          ["いうちは"],
+          ["苦労", "くろう"],
+          ["すべきだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-08",
+    "term": "加わる",
+    "kana": "くわわる",
+    "meaning": "to join in, to accede to",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [0, 3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185209,
+        "ja": "会話に加われば？",
+        "en": "Why don't you join in the conversation?",
+        "enId": 22341,
+        "form": "加われば",
+        "furigana": [["会話", "かいわ"], ["に"], ["加", "くわ"], ["われば？"]]
+      },
+      {
+        "id": 189611,
+        "ja": "雨に風が加わった。",
+        "en": "Wind accompanied the rain.",
+        "enId": 26764,
+        "form": "加わった",
+        "furigana": [
+          ["雨", "あめ"],
+          ["に"],
+          ["風", "かぜ"],
+          ["が"],
+          ["加", "くわ"],
+          ["わった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-09",
+    "term": "訓",
+    "kana": "くん",
+    "meaning": "native Japanese reading of a Chinese character",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf21"],
+    "pitch": [0],
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2016-03-10",
+    "term": "軍隊",
+    "kana": "ぐんたい",
+    "meaning": "army, troops",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108020,
+        "ja": "彼は軍隊にいる。",
+        "en": "He's in military service.",
+        "enId": 2703358,
+        "form": "軍隊",
+        "furigana": [["彼", "かれ"], ["は"], ["軍隊", "ぐんたい"], ["にいる。"]]
+      },
+      {
+        "id": 176655,
+        "ja": "軍隊は反乱を制圧した。",
+        "en": "The army had the revolt well in hand.",
+        "enId": 237807,
+        "form": "軍隊",
+        "furigana": [
+          ["軍隊", "ぐんたい"],
+          ["は"],
+          ["反乱", "はんらん"],
+          ["を"],
+          ["制圧", "せいあつ"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-11",
+    "term": "訓練",
+    "kana": "くんれん",
+    "meaning": "practice, training",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 170314,
+        "ja": "才能は訓練を必要とする。",
+        "en": "One's talent is in need of discipline.",
+        "enId": 244169,
+        "form": "訓練",
+        "furigana": [
+          ["才能", "さいのう"],
+          ["は"],
+          ["訓練", "くんれん"],
+          ["を"],
+          ["必要", "ひつよう"],
+          ["とする。"]
+        ]
+      },
+      {
+        "id": 205659,
+        "ja": "それには訓練が必要である。",
+        "en": "It needs exercise.",
+        "enId": 42905,
+        "form": "訓練",
+        "furigana": [
+          ["それには"],
+          ["訓練", "くんれん"],
+          ["が"],
+          ["必要", "ひつよう"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-12",
+    "term": "敬意",
+    "kana": "けいい",
+    "meaning": "respect, honor",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 144835,
+        "ja": "親に対して敬意を表さなければいけない。",
+        "en": "You should be respectful to your parents.",
+        "enId": 269729,
+        "form": "敬意",
+        "furigana": [
+          ["親", "おや"],
+          ["に"],
+          ["対", "たい"],
+          ["して"],
+          ["敬意", "けいい"],
+          ["を"],
+          ["表", "あらわ"],
+          ["さなければいけない。"]
+        ]
+      },
+      {
+        "id": 107993,
+        "ja": "彼は敬意を表して私の言う事を聞いてくれた。",
+        "en": "He paid me the compliment of listening.",
+        "enId": 295692,
+        "form": "敬意",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["敬意", "けいい"],
+          ["を"],
+          ["表", "あらわ"],
+          ["して"],
+          ["私", "わたし"],
+          ["の"],
+          ["言", "い"],
+          ["う"],
+          ["事", "こと"],
+          ["を"],
+          ["聞", "き"],
+          ["いてくれた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-13",
+    "term": "経営",
+    "kana": "けいえい",
+    "meaning": "management, administration",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123659,
+        "ja": "同社は経営状態がいい。",
+        "en": "That is a well-managed company.",
+        "enId": 280337,
+        "form": "経営",
+        "furigana": [
+          ["同社", "どうしゃ"],
+          ["は"],
+          ["経営", "けいえい"],
+          ["状態", "じょうたい"],
+          ["がいい。"]
+        ]
+      },
+      {
+        "id": 108077,
+        "ja": "彼は靴屋を経営している。",
+        "en": "He runs a shoe shop.",
+        "enId": 295609,
+        "form": "経営",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["靴", "くつ"],
+          ["屋", "や"],
+          ["を"],
+          ["経営", "けいえい"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-14",
+    "term": "景気",
+    "kana": "けいき",
+    "meaning": "condition, state, business (condition)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 176522,
+        "ja": "景気はどう？",
+        "en": "How goes it?",
+        "enId": 237942,
+        "form": "景気",
+        "furigana": [["景気", "けいき"], ["はどう？"]]
+      },
+      {
+        "id": 176516,
+        "ja": "景気は悪いね。",
+        "en": "Business is slow.",
+        "enId": 237948,
+        "form": "景気",
+        "furigana": [["景気", "けいき"], ["は"], ["悪", "わる"], ["いね。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-15",
+    "term": "傾向",
+    "kana": "けいこう",
+    "meaning": "tendency, trend, inclination",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102521,
+        "ja": "彼は怠ける傾向がある。",
+        "en": "He is inclined to be lazy.",
+        "enId": 301173,
+        "form": "傾向",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["怠", "なま"],
+          ["ける"],
+          ["傾向", "けいこう"],
+          ["がある。"]
+        ]
+      },
+      {
+        "id": 100774,
+        "ja": "彼は悲観する傾向がある。",
+        "en": "He has a tendency to be pessimistic.",
+        "enId": 302923,
+        "form": "傾向",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["悲観", "ひかん"],
+          ["する"],
+          ["傾向", "けいこう"],
+          ["がある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-16",
+    "term": "警告",
+    "kana": "けいこく",
+    "meaning": "warning",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 176298,
+        "ja": "警告ありがとう。",
+        "en": "Thank you for your warning.",
+        "enId": 238166,
+        "form": "警告",
+        "furigana": [["警告", "けいこく"], ["ありがとう。"]]
+      },
+      {
+        "id": 107948,
+        "ja": "彼は警告ですんだ。",
+        "en": "He got off with a warning.",
+        "enId": 295737,
+        "form": "警告",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["警告", "けいこく"],
+          ["ですんだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-17",
+    "term": "計算",
+    "kana": "けいさん",
+    "meaning": "calculation, reckoning",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 107958,
+        "ja": "彼は計算が早い。",
+        "en": "He is quick at figures.",
+        "enId": 295727,
+        "form": "計算",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["計算", "けいさん"],
+          ["が"],
+          ["早", "はや"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 107957,
+        "ja": "彼は計算が得意だ。",
+        "en": "He's good at arithmetic.",
+        "enId": 295728,
+        "form": "計算",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["計算", "けいさん"],
+          ["が"],
+          ["得意", "とくい"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-18",
+    "term": "掲示",
+    "kana": "けいじ",
+    "meaning": "notice, bulletin",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 196555,
+        "ja": "ボードに掲示を張ってください。",
+        "en": "Stick a notice on the board.",
+        "enId": 33734,
+        "form": "掲示",
+        "furigana": [
+          ["ボードに"],
+          ["掲示", "けいじ"],
+          ["を"],
+          ["張", "は"],
+          ["ってください。"]
+        ]
+      },
+      {
+        "id": 176532,
+        "ja": "掲示文は学生にはわからなかった。",
+        "en": "The notice could not be made out by the students.",
+        "enId": 237932,
+        "form": "掲示",
+        "furigana": [
+          ["掲示", "けいじ"],
+          ["文", "ぶん"],
+          ["は"],
+          ["学生", "がくせい"],
+          ["にはわからなかった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-19",
+    "term": "刑事",
+    "kana": "けいじ",
+    "meaning": "criminal case, (police) detective",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 207684,
+        "ja": "その泥棒は刑事を見ると走って逃げた。",
+        "en": "The thief ran away at the sight of a detective.",
+        "enId": 44937,
+        "form": "刑事",
+        "furigana": [
+          ["その"],
+          ["泥棒", "どろぼう"],
+          ["は"],
+          ["刑事", "けいじ"],
+          ["を"],
+          ["見", "み"],
+          ["ると"],
+          ["走", "はし"],
+          ["って"],
+          ["逃", "に"],
+          ["げた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-20",
+    "term": "契約",
+    "kana": "けいやく",
+    "meaning": "contract, compact, agreement",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 205758,
+        "ja": "それでは契約と違う。",
+        "en": "That's against the contract.",
+        "enId": 43003,
+        "form": "契約",
+        "furigana": [
+          ["それでは"],
+          ["契約", "けいやく"],
+          ["と"],
+          ["違", "ちが"],
+          ["う。"]
+        ]
+      },
+      {
+        "id": 125884,
+        "ja": "長期貸借契約預かり金。",
+        "en": "Deposits on long-term leases.",
+        "enId": 278108,
+        "form": "契約",
+        "furigana": [
+          ["長期", "ちょうき"],
+          ["貸借", "たいしゃく"],
+          ["契約", "けいやく"],
+          ["預", "あず"],
+          ["かり"],
+          ["金", "きん"],
+          ["。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-21",
+    "term": "経由",
+    "kana": "けいゆ",
+    "meaning": "go by the way, via",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2016-03-22",
+    "term": "化粧",
+    "kana": "けしょう",
+    "meaning": "make-up (cosmetic)",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2016-03-23",
+    "term": "血液",
+    "kana": "けつえき",
+    "meaning": "blood",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175697,
+        "ja": "血液の循環。",
+        "en": "The cycle of blood is not regular.",
+        "enId": 238768,
+        "form": "血液",
+        "furigana": [
+          ["血液", "けつえき"],
+          ["の"],
+          ["循環", "じゅんかん"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 175696,
+        "ja": "血液は体内を循環する。",
+        "en": "Blood circulates through the body.",
+        "enId": 238769,
+        "form": "血液",
+        "furigana": [
+          ["血液", "けつえき"],
+          ["は"],
+          ["体内", "たいない"],
+          ["を"],
+          ["循環", "じゅんかん"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-24",
+    "term": "結果",
+    "kana": "けっか",
+    "meaning": "result, consequence",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175860,
+        "ja": "結果は気にするな。",
+        "en": "Don't worry about the results.",
+        "enId": 238605,
+        "form": "結果",
+        "furigana": [["結果", "けっか"], ["は"], ["気", "き"], ["にするな。"]]
+      },
+      {
+        "id": 175876,
+        "ja": "結果だけが重要だ。",
+        "en": "The result is all that matters.",
+        "enId": 238588,
+        "form": "結果",
+        "furigana": [
+          ["結果", "けっか"],
+          ["だけが"],
+          ["重要", "じゅうよう"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-25",
+    "term": "欠陥",
+    "kana": "けっかん",
+    "meaning": "defect, fault, deficiency",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 220928,
+        "ja": "この制度は欠陥だらけだ。",
+        "en": "This system is bristling with defects and drawbacks.",
+        "enId": 58249,
+        "form": "欠陥",
+        "furigana": [
+          ["この"],
+          ["制度", "せいど"],
+          ["は"],
+          ["欠陥", "けっかん"],
+          ["だらけだ。"]
+        ]
+      },
+      {
+        "id": 208379,
+        "ja": "その組織の大欠陥を見つけた。",
+        "en": "We detected a great fault in the system.",
+        "enId": 45637,
+        "form": "欠陥",
+        "furigana": [
+          ["その"],
+          ["組織", "そしき"],
+          ["の"],
+          ["大", "だい"],
+          ["欠陥", "けっかん"],
+          ["を"],
+          ["見", "み"],
+          ["つけた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-26",
+    "term": "結局",
+    "kana": "けっきょく",
+    "meaning": "after all, eventually",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175802,
+        "ja": "結局失敗するさ。",
+        "en": "After all, it's sure to fail.",
+        "enId": 238663,
+        "form": "結局",
+        "furigana": [["結局", "けっきょく"], ["失敗", "しっぱい"], ["するさ。"]]
+      },
+      {
+        "id": 107803,
+        "ja": "彼は結局失敗した。",
+        "en": "He failed after all.",
+        "enId": 295882,
+        "form": "結局",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["結局", "けっきょく"],
+          ["失敗", "しっぱい"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-27",
+    "term": "決心",
+    "kana": "けっしん",
+    "meaning": "determination, resolution",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 107822,
+        "ja": "彼は決心を変えた。",
+        "en": "He changed his mind.",
+        "enId": 295863,
+        "form": "決心",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["決心", "けっしん"],
+          ["を"],
+          ["変", "か"],
+          ["えた。"]
+        ]
+      },
+      {
+        "id": 113454,
+        "ja": "彼はすぐに決心した。",
+        "en": "He made up his mind quickly.",
+        "enId": 962513,
+        "form": "決心",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はすぐに"],
+          ["決心", "けっしん"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-28",
+    "term": "決定",
+    "kana": "けってい",
+    "meaning": "decision, determination",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 175897,
+        "ja": "決定は延期された。",
+        "en": "The decision was put off.",
+        "enId": 238568,
+        "form": "決定",
+        "furigana": [
+          ["決定", "けってい"],
+          ["は"],
+          ["延期", "えんき"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 175895,
+        "ja": "決定は君次第である。",
+        "en": "It rests with you to decide.",
+        "enId": 238546,
+        "form": "決定",
+        "furigana": [
+          ["決定", "けってい"],
+          ["は"],
+          ["君", "きみ"],
+          ["次第", "しだい"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-29",
+    "term": "結論",
+    "kana": "けつろん",
+    "meaning": "conclusion",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123900,
+        "ja": "討論は結論に達した。",
+        "en": "The discussion came to a conclusion.",
+        "enId": 280095,
+        "form": "結論",
+        "furigana": [
+          ["討論", "とうろん"],
+          ["は"],
+          ["結論", "けつろん"],
+          ["に"],
+          ["達", "たっ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 175721,
+        "ja": "結論を白紙にもどそう。",
+        "en": "Let's forget everything about that conclusion.",
+        "enId": 238744,
+        "form": "結論",
+        "furigana": [
+          ["結論", "けつろん"],
+          ["を"],
+          ["白紙", "はくし"],
+          ["にもどそう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-30",
+    "term": "県",
+    "kana": "けん",
+    "meaning": "prefecture",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 137789,
+        "ja": "台風の被害は数県にまたがっていた。",
+        "en": "The damage of the typhoon spread over several prefectures.",
+        "enId": 275447,
+        "form": "県",
+        "furigana": [
+          ["台風", "たいふう"],
+          ["の"],
+          ["被害", "ひがい"],
+          ["は"],
+          ["数", "すう"],
+          ["県", "けん"],
+          ["にまたがっていた。"]
+        ]
+      },
+      {
+        "id": 202943,
+        "ja": "チューリップは、私たちの県の県花です。",
+        "en": "Tulips are our prefecture's official flower.",
+        "enId": 40178,
+        "form": "県",
+        "furigana": [
+          ["チューリップは、"],
+          ["私", "わたし"],
+          ["たちの"],
+          ["県", "けん"],
+          ["の"],
+          ["県花", "けんか"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-03-31",
+    "term": "見解",
+    "kana": "けんかい",
+    "meaning": "opinion, point of view",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 152087,
+        "ja": "私個人の見解を述べさせて下さい。",
+        "en": "Let me give you my personal opinion.",
+        "enId": 262466,
+        "form": "見解",
+        "furigana": [
+          ["私", "わたし"],
+          ["個人", "こじん"],
+          ["の"],
+          ["見解", "けんかい"],
+          ["を"],
+          ["述", "の"],
+          ["べさせて"],
+          ["下", "くだ"],
+          ["さい。"]
+        ]
+      },
+      {
+        "id": 233353,
+        "ja": "あなたの見解は私とは正反対です。",
+        "en": "Your views are quite opposite to mine.",
+        "enId": 70723,
+        "form": "見解",
+        "furigana": [
+          ["あなたの"],
+          ["見解", "けんかい"],
+          ["は"],
+          ["私", "わたし"],
+          ["とは"],
+          ["正", "せい"],
+          ["反対", "はんたい"],
+          ["です。"]
+        ]
+      }
+    ]
+  }
+]

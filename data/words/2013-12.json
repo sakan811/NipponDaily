@@ -1,0 +1,846 @@
+[
+  {
+    "date": "2013-12-01",
+    "term": "欲しい",
+    "kana": "ほしい",
+    "meaning": "to want, in need of",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 143813,
+        "ja": "水が欲しい。",
+        "en": "I want some water.",
+        "enId": 270753,
+        "form": "欲しい",
+        "furigana": [["水", "みず"], ["が"], ["欲", "ほ"], ["しい。"]]
+      },
+      {
+        "id": 151216,
+        "ja": "紙がほしい。",
+        "en": "I need some paper.",
+        "enId": 263339,
+        "form": "ほしい",
+        "furigana": [["紙", "かみ"], ["がほしい。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-02",
+    "term": "ポスト",
+    "kana": "ポスト",
+    "meaning": "mailbox; post, position",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 196264,
+        "ja": "ポスト争いは厳しい。",
+        "en": "Competition for the position is very intense.",
+        "enId": 33443,
+        "form": "ポスト",
+        "furigana": [
+          ["ポスト"],
+          ["争", "あらそ"],
+          ["いは"],
+          ["厳", "きび"],
+          ["しい。"]
+        ]
+      },
+      {
+        "id": 113132,
+        "ja": "彼はそのポストに適任だ。",
+        "en": "He is adequate for the post.",
+        "enId": 290542,
+        "form": "ポスト",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はそのポストに"],
+          ["適任", "てきにん"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-03",
+    "term": "本",
+    "kana": "ほん",
+    "meaning": "book",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81627,
+        "ja": "本を開くな。",
+        "en": "Don't open your book.",
+        "enId": 453893,
+        "form": "本",
+        "furigana": [["本", "ほん"], ["を"], ["開", "ひら"], ["くな。"]]
+      },
+      {
+        "id": 81629,
+        "ja": "本を下さい。",
+        "en": "I'd like a book.",
+        "enId": 322086,
+        "form": "本",
+        "furigana": [["本", "ほん"], ["を"], ["下", "くだ"], ["さい。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-04",
+    "term": "～本",
+    "kana": "～ほん",
+    "meaning": "counter for long cylindrical things",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-05",
+    "term": "本棚",
+    "kana": "ほんだな",
+    "meaning": "bookshelf",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf27"],
+    "pitch": [1],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 215222,
+        "ja": "ジョンは本棚を作った。",
+        "en": "John built a bookcase.",
+        "enId": 52520,
+        "form": "本棚",
+        "furigana": [
+          ["ジョンは"],
+          ["本棚", "ほんだな"],
+          ["を"],
+          ["作", "つく"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 81574,
+        "ja": "本棚の上に手が届きますか。",
+        "en": "Can you reach to the top of the bookshelf?",
+        "enId": 322141,
+        "form": "本棚",
+        "furigana": [
+          ["本棚", "ほんだな"],
+          ["の"],
+          ["上", "うえ"],
+          ["に"],
+          ["手", "て"],
+          ["が"],
+          ["届", "とど"],
+          ["きますか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-06",
+    "term": "～枚",
+    "kana": "～まい",
+    "meaning": "counter for flat things",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-07",
+    "term": "毎週",
+    "kana": "まいしゅう",
+    "meaning": "every week",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81353,
+        "ja": "毎週釣りに行く。",
+        "en": "Every week he goes fishing.",
+        "enId": 322362,
+        "form": "毎週",
+        "furigana": [
+          ["毎週", "まいしゅう"],
+          ["釣", "つ"],
+          ["りに"],
+          ["行", "い"],
+          ["く。"]
+        ]
+      },
+      {
+        "id": 210473,
+        "ja": "その雑誌は毎週出る。",
+        "en": "The magazine comes out every week.",
+        "enId": 47741,
+        "form": "毎週",
+        "furigana": [
+          ["その"],
+          ["雑誌", "ざっし"],
+          ["は"],
+          ["毎週", "まいしゅう"],
+          ["出", "で"],
+          ["る。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-08",
+    "term": "毎晩",
+    "kana": "まいばん",
+    "meaning": "every night",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [1, 0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81225,
+        "ja": "毎晩電話するよ。",
+        "en": "I'll give you a ring every night.",
+        "enId": 322490,
+        "form": "毎晩",
+        "furigana": [["毎晩", "まいばん"], ["電話", "でんわ"], ["するよ。"]]
+      },
+      {
+        "id": 152681,
+        "ja": "私は毎晩家にいます。",
+        "en": "I am at home every evening.",
+        "enId": 261868,
+        "form": "毎晩",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["毎晩", "まいばん"],
+          ["家", "いえ"],
+          ["にいます。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-09",
+    "term": "～前",
+    "kana": "～まえ",
+    "meaning": "in front of ~",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-10",
+    "term": "曲る",
+    "kana": "まがる",
+    "meaning": "to turn, to bend",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-11",
+    "term": "まだ",
+    "kana": "まだ",
+    "meaning": "yet, still, besides",
+    "level": "N5",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-12",
+    "term": "まっすぐ",
+    "kana": "まっすぐ",
+    "meaning": "straight (ahead), direct",
+    "level": "N5",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "adverb (fukushi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-13",
+    "term": "丸い",
+    "kana": "まるい",
+    "meaning": "round, circular",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-14",
+    "term": "磨く",
+    "kana": "みがく",
+    "meaning": "to brush (teeth); to polish",
+    "level": "N5",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 179243,
+        "ja": "靴をよく磨いてくれ。",
+        "en": "Give my shoes a good shine.",
+        "enId": 18100,
+        "form": "磨いて",
+        "furigana": [["靴", "くつ"], ["をよく"], ["磨", "みが"], ["いてくれ。"]]
+      },
+      {
+        "id": 155841,
+        "ja": "私は床と家具を磨いた。",
+        "en": "I polished up the floor and furniture.",
+        "enId": 258696,
+        "form": "磨いた",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["床", "ゆか"],
+          ["と"],
+          ["家具", "かぐ"],
+          ["を"],
+          ["磨", "みが"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-15",
+    "term": "右",
+    "kana": "みぎ",
+    "meaning": "right hand side",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 189919,
+        "ja": "右の道を行け。",
+        "en": "Take the right road.",
+        "enId": 27075,
+        "form": "右",
+        "furigana": [
+          ["右", "みぎ"],
+          ["の"],
+          ["道", "みち"],
+          ["を"],
+          ["行", "い"],
+          ["け。"]
+        ]
+      },
+      {
+        "id": 189926,
+        "ja": "右に曲がりなさい。",
+        "en": "Turn to the right.",
+        "enId": 27067,
+        "form": "右",
+        "furigana": [["右", "みぎ"], ["に"], ["曲", "ま"], ["がりなさい。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-16",
+    "term": "道",
+    "kana": "みち",
+    "meaning": "road, street; way, directions",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 123562,
+        "ja": "道を渡ろう。",
+        "en": "Let's cross the street.",
+        "enId": 280435,
+        "form": "道",
+        "furigana": [["道", "みち"], ["を"], ["渡", "わた"], ["ろう。"]]
+      },
+      {
+        "id": 148908,
+        "ja": "蛇の道は蛇。",
+        "en": "They that hide can find.",
+        "enId": 265650,
+        "form": "道",
+        "furigana": [
+          ["蛇", "じゃ"],
+          ["の"],
+          ["道", "みち"],
+          ["は"],
+          ["蛇", "へび"],
+          ["。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-17",
+    "term": "六日",
+    "kana": "むいか",
+    "meaning": "six days; sixth day of month",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-18",
+    "term": "六つ",
+    "kana": "むっつ",
+    "meaning": "six things",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-19",
+    "term": "もっと",
+    "kana": "もっと",
+    "meaning": "more",
+    "level": "N5",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 193292,
+        "ja": "もっと気楽にね。",
+        "en": "Just take it easy.",
+        "enId": 30457,
+        "form": "もっと",
+        "furigana": [["もっと"], ["気楽", "きらく"], ["にね。"]]
+      },
+      {
+        "id": 193233,
+        "ja": "もっと大きくして。",
+        "en": "Louder.",
+        "enId": 30397,
+        "form": "もっと",
+        "furigana": [["もっと"], ["大", "おお"], ["きくして。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-20",
+    "term": "問題",
+    "kana": "もんだい",
+    "meaning": "a problem",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79875,
+        "ja": "問題だなあ。",
+        "en": "It's a problem.",
+        "enId": 1170375,
+        "form": "問題",
+        "furigana": [["問題", "もんだい"], ["だなあ。"]]
+      },
+      {
+        "id": 4848,
+        "ja": "何が問題なの？",
+        "en": "What is the problem?",
+        "enId": 416891,
+        "form": "問題",
+        "furigana": [["何", "なに"], ["が"], ["問題", "もんだい"], ["なの？"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-21",
+    "term": "～屋",
+    "kana": "～や",
+    "meaning": "~ shop",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-22",
+    "term": "八百屋",
+    "kana": "やおや",
+    "meaning": "greengrocer",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [0],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 154612,
+        "ja": "私は八百屋の外で彼に出会った。",
+        "en": "I met him outside the greengrocer's.",
+        "enId": 259928,
+        "form": "八百屋",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["八百屋", "やおや"],
+          ["の"],
+          ["外", "そと"],
+          ["で"],
+          ["彼", "かれ"],
+          ["に"],
+          ["出会", "であ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 207193,
+        "ja": "その八百屋は客にとても親切だ。",
+        "en": "The greengrocer is very kind to his customers.",
+        "enId": 44444,
+        "form": "八百屋",
+        "furigana": [
+          ["その"],
+          ["八百屋", "やおや"],
+          ["は"],
+          ["客", "きゃく"],
+          ["にとても"],
+          ["親切", "しんせつ"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-23",
+    "term": "野菜",
+    "kana": "やさい",
+    "meaning": "vegetable",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79598,
+        "ja": "野菜の値段は日々変わる。",
+        "en": "The price of vegetables varies from day to day.",
+        "enId": 324119,
+        "form": "野菜",
+        "furigana": [
+          ["野菜", "やさい"],
+          ["の"],
+          ["値段", "ねだん"],
+          ["は"],
+          ["日々", "ひび"],
+          ["変", "か"],
+          ["わる。"]
+        ]
+      },
+      {
+        "id": 79601,
+        "ja": "野菜の嫌いな子供もいる。",
+        "en": "Some children do not like vegetables.",
+        "enId": 324117,
+        "form": "野菜",
+        "furigana": [
+          ["野菜", "やさい"],
+          ["の"],
+          ["嫌", "きら"],
+          ["いな"],
+          ["子供", "こども"],
+          ["もいる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-24",
+    "term": "休む",
+    "kana": "やすむ",
+    "meaning": "to rest, to have a break, to get time off",
+    "level": "N5",
+    "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 80439,
+        "ja": "明日は休みます。",
+        "en": "I'll be absent tomorrow.",
+        "enId": 323279,
+        "form": "休みます",
+        "furigana": [["明日", "あした"], ["は"], ["休", "やす"], ["みます。"]]
+      },
+      {
+        "id": 182711,
+        "ja": "休みたいですか。",
+        "en": "Do you feel like resting?",
+        "enId": 19837,
+        "form": "休み",
+        "furigana": [["休", "やす"], ["みたいですか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-25",
+    "term": "八つ",
+    "kana": "やっつ",
+    "meaning": "eight things",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-26",
+    "term": "やる",
+    "kana": "やる",
+    "meaning": "to do; to give (to pets, parents, siblings, etc.)",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "register": ["colloquial"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-27",
+    "term": "夕方",
+    "kana": "ゆうがた",
+    "meaning": "early evening (usu. from 3pm to 6pm), dusk",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79043,
+        "ja": "夕方の五時です。",
+        "en": "It's five in the evening.",
+        "enId": 324673,
+        "form": "夕方",
+        "furigana": [
+          ["夕方", "ゆうがた"],
+          ["の"],
+          ["五", "ご"],
+          ["時", "じ"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 79050,
+        "ja": "夕方が近づいてきた。",
+        "en": "Evening is drawing on.",
+        "enId": 324667,
+        "form": "夕方",
+        "furigana": [
+          ["夕方", "ゆうがた"],
+          ["が"],
+          ["近", "ちか"],
+          ["づいてきた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-28",
+    "term": "夕飯",
+    "kana": "ゆうはん",
+    "meaning": "dinner, supper, evening meal",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf40"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-29",
+    "term": "ゆっくりと",
+    "kana": "ゆっくりと",
+    "meaning": "slowly, at ease",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-12-30",
+    "term": "洋服",
+    "kana": "ようふく",
+    "meaning": "Western-style clothes",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 219225,
+        "ja": "この洋服はお買い得です。",
+        "en": "This dress is a good bargain.",
+        "enId": 56541,
+        "form": "洋服",
+        "furigana": [
+          ["この"],
+          ["洋服", "ようふく"],
+          ["はお"],
+          ["買", "か"],
+          ["い"],
+          ["得", "どく"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 78873,
+        "ja": "洋服は和服より働きやすい。",
+        "en": "Western clothes are easier to work in than Japanese clothes.",
+        "enId": 324843,
+        "form": "洋服",
+        "furigana": [
+          ["洋服", "ようふく"],
+          ["は"],
+          ["和服", "わふく"],
+          ["より"],
+          ["働", "はたら"],
+          ["きやすい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-12-31",
+    "term": "よく",
+    "kana": "よく",
+    "meaning": "frequently, often (much); well, skillfully",
+    "level": "N5",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi2", "spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

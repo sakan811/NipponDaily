@@ -1,0 +1,1433 @@
+[
+  {
+    "date": "2008-08-01",
+    "term": "あなた",
+    "kana": "あなた",
+    "meaning": "you",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "“You” began as a place word: あなた originally meant that direction, that side, that place far away.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Compound of あ (a, distal pronoun marker, indicating something far away from both speaker and listener; also found in あれ (are, “that”, far away), あそこ (asoko, “there”, far away), etc.) + な (na, possessive, ancient compounding alternative for (and possibly derived from) particle の (no)) + た (ta, “direction, side, place”, only found in ancient terms; possibly contracted from 方 (kata))."
+      },
+      {
+        "quote": "Originally meant that direction, that side, that place (far away), in contrast to そなた (sonata, “that direction, that side, that place (closer to the listener)”), こなた (konata, “this direction, this side, this place (close to both listener and speaker)”), and どなた (donata, “which or what direction, side, or place”). Appears with this sense at least as early as the Kokin Wakashū of the late 900s, and the Kagerō Nikki of 974 CE."
+      },
+      {
+        "quote": "The indirect and polite sense of that person is also evident in texts from the late 900s, including the Ochikubo Monogatari."
+      },
+      {
+        "quote": "The sense of you as a polite and indirect form of reference appears in texts from around the 1750s."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-02",
+    "term": "ミルク",
+    "kana": "ミルク",
+    "meaning": "milk",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ミルク is borrowed from English “milk” and first cited in the 1870s.",
+    "morphemes": [
+      {
+        "text": "ミルク",
+        "reading": "ミルク",
+        "meaning": "English milk"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English milk."
+      },
+      {
+        "quote": "First cited in the 1870s."
+      }
+    ],
+    "examples": [
+      {
+        "id": 195044,
+        "ja": "ミルクはいかが？",
+        "en": "How about some milk?",
+        "enId": 32219,
+        "form": "ミルク"
+      },
+      {
+        "id": 147482,
+        "ja": "暑いとミルクが腐る。",
+        "en": "The hot weather turns milk.",
+        "enId": 267078,
+        "form": "ミルク",
+        "furigana": [["暑", "あつ"], ["いとミルクが"], ["腐", "くさ"], ["る。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-03",
+    "term": "ハンカチ",
+    "kana": "ハンカチ",
+    "meaning": "handkerchief",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [3, 0],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ハンカチ is borrowed from English “handkerchief”.",
+    "morphemes": [
+      {
+        "text": "ハンカチ",
+        "reading": "ハンカチ",
+        "meaning": "English handkerchief"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English handkerchief."
+      }
+    ],
+    "examples": [
+      {
+        "id": 111230,
+        "ja": "彼はハンカチを取り出した。",
+        "en": "He took out his handkerchief.",
+        "enId": 292454,
+        "form": "ハンカチ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はハンカチを"],
+          ["取", "と"],
+          ["り"],
+          ["出", "だ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 111231,
+        "ja": "彼はハンカチで鼻をかんだ。",
+        "en": "He blew his nose in a handkerchief.",
+        "enId": 292453,
+        "form": "ハンカチ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はハンカチで"],
+          ["鼻", "はな"],
+          ["をかんだ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-04",
+    "term": "地",
+    "kana": "ち",
+    "meaning": "earth",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "地, “earth”, is a kan'on reading, and the source suspects a dialectal source for its devoiced initial.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 地 (dijᴴ). The kan'on reading, so likely a later borrowing. The devoicing of the initial consonant might indicate a dialectal source. Compare modern Hakka thi, Min Nan tī."
+      }
+    ],
+    "examples": [
+      {
+        "id": 102233,
+        "ja": "彼は地に足がついていない。",
+        "en": "He doesn't have his feet on the ground.",
+        "enId": 301001,
+        "form": "地",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["地", "ち"],
+          ["に"],
+          ["足", "あし"],
+          ["がついていない。"]
+        ]
+      },
+      {
+        "id": 102693,
+        "ja": "彼は足が地に着いていない。",
+        "en": "He doesn't have his feet on the ground.",
+        "enId": 301001,
+        "form": "地",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["足", "あし"],
+          ["が"],
+          ["地", "ち"],
+          ["に"],
+          ["着", "つ"],
+          ["いていない。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-05",
+    "term": "ドライブ",
+    "kana": "ドライブ",
+    "meaning": "drive, driving",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [2],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ドライブ is borrowed from English “drive” and first cited to a text from 1910.",
+    "morphemes": [
+      {
+        "text": "ドライブ",
+        "reading": "ドライブ",
+        "meaning": "English drive"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English drive."
+      },
+      {
+        "quote": "First cited to a text from 1910."
+      }
+    ],
+    "examples": [
+      {
+        "id": 174476,
+        "ja": "湖までドライブしよう。",
+        "en": "Let's drive to the lake.",
+        "enId": 239993,
+        "form": "ドライブ",
+        "furigana": [["湖", "みずうみ"], ["までドライブしよう。"]]
+      },
+      {
+        "id": 199756,
+        "ja": "ドライブはいかがですか。",
+        "en": "How about going for a drive?",
+        "enId": 36959,
+        "form": "ドライブ"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-06",
+    "term": "通じる",
+    "kana": "つうじる",
+    "meaning": "to run to, to lead to, to communicate",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
+    "stratum": "kango",
+    "processes": ["sound-change"],
+    "headline": "通じる is a shift from the verb 通ずる (tsūzuru).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Shift from verb 通(つう)ずる (tsūzuru), by natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 124741,
+        "ja": "電話が通じません。",
+        "en": "The telephone doesn't work.",
+        "enId": 279250,
+        "form": "通じません",
+        "furigana": [["電話", "でんわ"], ["が"], ["通", "つう"], ["じません。"]]
+      },
+      {
+        "id": 124695,
+        "ja": "電話はどれも通じない。",
+        "en": "None of the telephones are working.",
+        "enId": 279299,
+        "form": "通じない",
+        "furigana": [
+          ["電話", "でんわ"],
+          ["はどれも"],
+          ["通", "つう"],
+          ["じない。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-07",
+    "term": "ギャング",
+    "kana": "ギャング",
+    "meaning": "gang",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ギャング is the English word “gang” in katakana.",
+    "morphemes": [
+      {
+        "text": "ギャング",
+        "reading": "ギャング",
+        "meaning": "English gang"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English gang."
+      }
+    ],
+    "examples": [
+      {
+        "id": 190337,
+        "ja": "ギャングの一団が金を盗んだ。",
+        "en": "A group of gangsters stole the money.",
+        "enId": 1222716,
+        "form": "ギャング",
+        "furigana": [
+          ["ギャングの"],
+          ["一団", "いちだん"],
+          ["が"],
+          ["金", "かね"],
+          ["を"],
+          ["盗", "ぬす"],
+          ["んだ。"]
+        ]
+      },
+      {
+        "id": 114775,
+        "ja": "彼はあるギャングに脅されている。",
+        "en": "He is threatened by a certain gangster.",
+        "enId": 288896,
+        "form": "ギャング",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はあるギャングに"],
+          ["脅", "おど"],
+          ["されている。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-08",
+    "term": "鬼",
+    "kana": "おに",
+    "meaning": "ogre, demon, 'it' (e.g.,in a game of tag)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "鬼, “ogre, demon”, is thought to derive from 隠 (on, “to hide; hidden from sight”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese."
+      },
+      {
+        "quote": "Thought to be derived from 隠(おん) (on, “to hide; hidden from sight”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-09",
+    "term": "ハンサム",
+    "kana": "ハンサム",
+    "meaning": "handsome",
+    "level": "N3",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ハンサム is the English word “handsome” in katakana.",
+    "morphemes": [
+      {
+        "text": "ハンサム",
+        "reading": "ハンサム",
+        "meaning": "English handsome"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English handsome."
+      }
+    ],
+    "examples": [
+      {
+        "id": 111224,
+        "ja": "彼はハンサムな若者です。",
+        "en": "He is a handsome young man.",
+        "enId": 292460,
+        "form": "ハンサムな",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はハンサムな"],
+          ["若者", "わかもの"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 111225,
+        "ja": "彼はハンサムで頭もよい。",
+        "en": "He is handsome and clever.",
+        "enId": 292459,
+        "form": "ハンサム",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はハンサムで"],
+          ["頭", "あたま"],
+          ["もよい。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-10",
+    "term": "根",
+    "kana": "ね",
+    "meaning": "root",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "根, “root”, is from Old Japanese and first cited to the Kojiki of 712.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First cited to the Kojiki of 712."
+      }
+    ],
+    "examples": [
+      {
+        "id": 107023,
+        "ja": "彼は根が優しい。",
+        "en": "He is a kind man at heart.",
+        "enId": 288134,
+        "form": "根",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["根", "ね"],
+          ["が"],
+          ["優", "やさ"],
+          ["しい。"]
+        ]
+      },
+      {
+        "id": 107020,
+        "ja": "彼は根はいい奴だ。",
+        "en": "He is a good fellow at heart.",
+        "enId": 296666,
+        "form": "根",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["根", "ね"],
+          ["はいい"],
+          ["奴", "やつ"],
+          ["だ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-11",
+    "term": "シャワー",
+    "kana": "シャワー",
+    "meaning": "shower",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "シャワー is borrowed from English “shower”.",
+    "morphemes": [
+      {
+        "text": "シャワー",
+        "reading": "シャワー",
+        "meaning": "English shower"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English shower."
+      }
+    ],
+    "examples": [
+      {
+        "id": 215746,
+        "ja": "シャワーにするわ。",
+        "en": "I'll take a shower.",
+        "enId": 53048,
+        "form": "シャワー"
+      },
+      {
+        "id": 215745,
+        "ja": "シャワーの水が出ません。",
+        "en": "There's no water coming out of the shower.",
+        "enId": 53047,
+        "form": "シャワー",
+        "furigana": [
+          ["シャワーの"],
+          ["水", "みず"],
+          ["が"],
+          ["出", "で"],
+          ["ません。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-12",
+    "term": "ショック",
+    "kana": "ショック",
+    "meaning": "shock",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "ショック is the English word “shock” in katakana.",
+    "morphemes": [
+      {
+        "text": "ショック",
+        "reading": "ショック",
+        "meaning": "English shock"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English shock."
+      }
+    ],
+    "examples": [
+      {
+        "id": 113521,
+        "ja": "彼はショックで気が狂った。",
+        "en": "He went mad because of the shock.",
+        "enId": 290153,
+        "form": "ショック",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はショックで"],
+          ["気", "き"],
+          ["が"],
+          ["狂", "くる"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 92785,
+        "ja": "彼女はショックで気が狂った。",
+        "en": "She went mad because of the shock.",
+        "enId": 310924,
+        "form": "ショック",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はショックで"],
+          ["気", "き"],
+          ["が"],
+          ["狂", "くる"],
+          ["った。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-13",
+    "term": "旅",
+    "kana": "たび",
+    "meaning": "travel, trip, journey",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "旅, “travel, trip”, may be cognate with 度 (tabi), with the same pitch accent and ancient vowel values.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/tabi₁/ → /tabi/"
+      },
+      {
+        "quote": "From Old Japanese. Appears in the Man'yōshū, completed no earlier than 759 and one of the oldest extant texts in the Japanese language."
+      },
+      {
+        "quote": "May be cognate with 度 (tabi, “the time when something happens”); both terms have the same pitch accent, the same ancient vowel values, and some semantic overlap."
+      }
+    ],
+    "examples": [
+      {
+        "id": 184164,
+        "ja": "楽しい旅を。",
+        "en": "Enjoy your trip.",
+        "enId": 21287,
+        "form": "旅",
+        "furigana": [["楽", "たの"], ["しい"], ["旅", "たび"], ["を。"]]
+      },
+      {
+        "id": 191321,
+        "ja": "安全な旅を。",
+        "en": "Have a safe trip.",
+        "enId": 28483,
+        "form": "旅",
+        "furigana": [["安全", "あんぜん"], ["な"], ["旅", "たび"], ["を。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-14",
+    "term": "プリント",
+    "kana": "プリント",
+    "meaning": "print, handout",
+    "level": "N2",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [0],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "プリント, “print, handout”, is borrowed from English “print”.",
+    "morphemes": [
+      {
+        "text": "プリント",
+        "reading": "プリント",
+        "meaning": "English print"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English print."
+      }
+    ],
+    "examples": [
+      {
+        "id": 141555,
+        "ja": "先生は生徒たちにプリントを配布した。",
+        "en": "The teacher distributed the handouts to the students.",
+        "enId": 273015,
+        "form": "プリント",
+        "furigana": [
+          ["先生", "せんせい"],
+          ["は"],
+          ["生徒", "せいと"],
+          ["たちにプリントを"],
+          ["配布", "はいふ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 75949,
+        "ja": "生徒会で使うらしくて、プリント綴じるのを少し手伝っていました。",
+        "en": "I helped a little by binding printouts that the student council could use.",
+        "enId": 327769,
+        "form": "プリント",
+        "furigana": [
+          ["生徒", "せいと"],
+          ["会", "かい"],
+          ["で"],
+          ["使", "つか"],
+          ["うらしくて、プリント"],
+          ["綴", "と"],
+          ["じるのを"],
+          ["少", "すこ"],
+          ["し"],
+          ["手伝", "てつだ"],
+          ["っていました。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-15",
+    "term": "留める",
+    "kana": "とめる",
+    "meaning": "to fasten, to turn off, to detain",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "留める shares its reading with 止める, “to stop”, and 停める, “to park (a car)”, as cognates.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Cognate with 止(と)める (tomeru, “to stop”) and 停(と)める (tomeru, “to park (a car)”), and their mediopassive counterpart 止(と)まる (tomaru, “to stop”). Likely also related to 留(とど)める (todomeru, “to keep”) above, and to its mediopassive counterpart 止(とど)まる (todomaru, “to remain”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-16",
+    "term": "パーティー",
+    "kana": "パーティー",
+    "meaning": "a party",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "パーティー is the English word “party” in katakana.",
+    "morphemes": [
+      {
+        "text": "パーティー",
+        "reading": "パーティー",
+        "meaning": "English party"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English party."
+      }
+    ],
+    "examples": [
+      {
+        "id": 198487,
+        "ja": "パーティーに出たい。",
+        "en": "I'd like to attend the party.",
+        "enId": 516475,
+        "form": "パーティー",
+        "furigana": [["パーティーに"], ["出", "で"], ["たい。"]]
+      },
+      {
+        "id": 198422,
+        "ja": "パーティの進み具合は？",
+        "en": "How did the party go?",
+        "enId": 35613,
+        "form": "パーティ",
+        "furigana": [
+          ["パーティの"],
+          ["進", "すす"],
+          ["み"],
+          ["具合", "ぐあい"],
+          ["は？"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-17",
+    "term": "盆",
+    "kana": "ぼん",
+    "meaning": "Festival of the Dead; tray",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "headline": "盆 is short for 盂蘭盆 (Urabon), which some dictionaries trace to Sanskrit ullambana, purportedly “hanging upside-down”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 盆 (MC bwon). Compare modern Mandarin 盆 (pén)."
+      },
+      {
+        "quote": "Short for 盂蘭盆 (Urabon) or 盂蘭盆会 (Urabon'e), from Middle Chinese 盂蘭盆 (hju lan bwon) or 盂蘭盆會 (hju lan bwon hwajᴴ) (compare modern Mandarin 盂蘭盆 /盂兰盆 (yúlánpén) or 盂蘭盆會／盂兰盆会 (yúlánpénhuì)), a transcription of Pali ullumpana (“raising, helping”), present participle of Pali verb ullumpati (“to raise up, to help”)."
+      },
+      {
+        "quote": "A number of Japanese dictionaries state that this term derives from Sanskrit उल्लम्बन (ullambana), purportedly meaning “hanging upside-down” in reference to the souls of the dead being tortured in hell by being strung up by their feet."
+      },
+      {
+        "quote": "However, this meaning doesn't match the semantics very well, given that the urabon ceremonies are about helping the dead, closer in meaning to the “helping” sense of the Pali verb. This suggests that explanations of the dead hanging upside-down in hell are more likely to be folk etymologies based on a mistaken connection to the Sanskrit verb, rather than a more direct semantic link to the Pali. Alternatively, Junjirō Takakusu (apud Ashikaga, 1951) propounded that the origin was in fact Pali ullumbana, a colloquial corruption of Pali ullumpana (“raising up; saving; helping”), and that the etymology was mistakenly attributed to Sanskrit."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-18",
+    "term": "パイプ",
+    "kana": "パイプ",
+    "meaning": "pipe; channels official or otherwise",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [0],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "パイプ is borrowed from English “pipe”.",
+    "morphemes": [
+      {
+        "text": "パイプ",
+        "reading": "パイプ",
+        "meaning": "English pipe"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English pipe."
+      }
+    ],
+    "examples": [
+      {
+        "id": 146456,
+        "ja": "床下にパイプを通す。",
+        "en": "Run pipes under the floor.",
+        "enId": 268106,
+        "form": "パイプ",
+        "furigana": [
+          ["床下", "ゆかした"],
+          ["にパイプを"],
+          ["通", "とお"],
+          ["す。"]
+        ]
+      },
+      {
+        "id": 198329,
+        "ja": "パイプに何か詰まった。",
+        "en": "Something is stuck in the pipe.",
+        "enId": 35521,
+        "form": "パイプ",
+        "furigana": [
+          ["パイプに"],
+          ["何", "なに"],
+          ["か"],
+          ["詰", "つ"],
+          ["まった。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-19",
+    "term": "胃",
+    "kana": "い",
+    "meaning": "stomach",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["borrowing", "sound-change"],
+    "headline": "胃, “stomach”, was /wi/ before /i/, and comes from Middle Chinese.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/wi/ → /i/"
+      },
+      {
+        "quote": "From Middle Chinese 胃 (MC hjw+jH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 191000,
+        "ja": "胃が痛みます。",
+        "en": "My stomach hurts.",
+        "enId": 28159,
+        "form": "胃",
+        "furigana": [["胃", "い"], ["が"], ["痛", "いた"], ["みます。"]]
+      },
+      {
+        "id": 190999,
+        "ja": "胃が痛みますか。",
+        "en": "Do you feel any pain in your stomach?",
+        "enId": 28160,
+        "form": "胃",
+        "furigana": [["胃", "い"], ["が"], ["痛", "いた"], ["みますか。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-20",
+    "term": "クラシック",
+    "kana": "クラシック",
+    "meaning": "classic(s)",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [3, 2],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "クラシック is the English word “classic” in katakana.",
+    "morphemes": [
+      {
+        "text": "クラシック",
+        "reading": "クラシック",
+        "meaning": "English classic"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English classic."
+      }
+    ],
+    "examples": [
+      {
+        "id": 225611,
+        "ja": "クラシックはありません。",
+        "en": "I don't have any classical music.",
+        "enId": 62947,
+        "form": "クラシック"
+      },
+      {
+        "id": 161120,
+        "ja": "私はクラシックが好きです。",
+        "en": "I like classical music.",
+        "enId": 62942,
+        "form": "クラシック",
+        "furigana": [
+          ["私", "わたし"],
+          ["はクラシックが"],
+          ["好", "す"],
+          ["きです。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-21",
+    "term": "タイプ",
+    "kana": "タイプ",
+    "meaning": "type, style",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "タイプ is the English word “type” in katakana.",
+    "morphemes": [
+      {
+        "text": "タイプ",
+        "reading": "タイプ",
+        "meaning": "English type"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English type."
+      }
+    ],
+    "examples": [
+      {
+        "id": 119284,
+        "ja": "彼って私のタイプ！",
+        "en": "He is my type!",
+        "enId": 284379,
+        "form": "タイプ",
+        "furigana": [["彼", "かれ"], ["って"], ["私", "わたし"], ["のタイプ！"]]
+      },
+      {
+        "id": 89427,
+        "ja": "彼女は私のタイプだ。",
+        "en": "She's my type.",
+        "enId": 314284,
+        "form": "タイプ",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["私", "わたし"],
+          ["のタイプだ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-22",
+    "term": "羨ましい",
+    "kana": "うらやましい",
+    "meaning": "envious, enviable",
+    "level": "N3",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
+    "pitch": [5],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "羨ましい is 羨む (urayamu, “to envy, to be jealous of”) plus しい (-shii), an adjectivizing suffix.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From 羨(うらや)む (urayamu, “to envy, to be jealous of”, mizenkei form 羨(うらや)ま (urayama)) + しい (-shii, adjectivizing suffix evoking quality of the suffixed term).羨(うらや)む (urayamu) is from 心(うら) (ura, “heart, inner feelings”) + 病(や)む (yamu, “affected, afflicted, worried”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 154591,
+        "ja": "私は彼がうらやましい。",
+        "en": "I envy him.",
+        "enId": 259949,
+        "form": "うらやましい",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["彼", "かれ"],
+          ["がうらやましい。"]
+        ]
+      },
+      {
+        "id": 178333,
+        "ja": "君の幸運がうらやましい。",
+        "en": "I envy you your luck.",
+        "enId": 17185,
+        "form": "うらやましい",
+        "furigana": [
+          ["君", "きみ"],
+          ["の"],
+          ["幸運", "こううん"],
+          ["がうらやましい。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-23",
+    "term": "スーパーマーケット",
+    "kana": "スーパーマーケット",
+    "meaning": "supermarket",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [5],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "スーパーマーケット is the English word “supermarket” in katakana.",
+    "morphemes": [
+      {
+        "text": "スーパーマーケット",
+        "reading": "スーパーマーケット",
+        "meaning": "English supermarket"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English supermarket."
+      }
+    ],
+    "examples": [
+      {
+        "id": 160572,
+        "ja": "私はスーパーマーケットで彼を探した。",
+        "en": "I looked for him in the supermarket.",
+        "enId": 253948,
+        "form": "スーパーマーケット",
+        "furigana": [
+          ["私", "わたし"],
+          ["はスーパーマーケットで"],
+          ["彼", "かれ"],
+          ["を"],
+          ["探", "さが"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 92760,
+        "ja": "彼女はスーパーマーケットの店員である。",
+        "en": "She is a clerk in the supermarket.",
+        "enId": 310949,
+        "form": "スーパーマーケット",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はスーパーマーケットの"],
+          ["店員", "てんいん"],
+          ["である。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-24",
+    "term": "埃",
+    "kana": "ほこり",
+    "meaning": "dust",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "埃, “dust”, is compared in the source with 誇り (hokori, “pride”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Compare 誇(ほこ)り (hokori, “pride”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 91541,
+        "ja": "彼女はほこりを払った。",
+        "en": "She brushed away the dust.",
+        "enId": 312172,
+        "form": "ほこり",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はほこりを"],
+          ["払", "はら"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 84029,
+        "ja": "風でほこりが舞っていた。",
+        "en": "Dust was blowing in the wind.",
+        "enId": 319687,
+        "form": "ほこり",
+        "furigana": [
+          ["風", "かぜ"],
+          ["でほこりが"],
+          ["舞", "ま"],
+          ["っていた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-25",
+    "term": "コンクリート",
+    "kana": "コンクリート",
+    "meaning": "concrete",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [4],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "コンクリート is the English word “concrete” in katakana.",
+    "morphemes": [
+      {
+        "text": "コンクリート",
+        "reading": "コンクリート",
+        "meaning": "English concrete"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English concrete."
+      },
+      {
+        "quote": "Borrowed from English concrete."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-26",
+    "term": "呼び掛ける",
+    "kana": "よびかける",
+    "meaning": "to call out to, to accost, to address (crowd), to appeal",
+    "level": "N2",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf16", "spec1"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "呼び掛ける is 呼ぶ (yobu, “to call”) plus 掛ける (kakeru).",
+    "morphemes": [
+      {
+        "text": "呼び",
+        "reading": "よび",
+        "meaning": "call",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "掛ける",
+        "reading": "かける",
+        "meaning": "hang",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "呼(よ)ぶ (yobu, “to call”) + 掛(か)ける (kakeru)"
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-27",
+    "term": "マーケット",
+    "kana": "マーケット",
+    "meaning": "market",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1, 3],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "マーケット is borrowed from English “market”.",
+    "morphemes": [
+      {
+        "text": "マーケット",
+        "reading": "マーケット",
+        "meaning": "English market"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English market."
+      }
+    ],
+    "examples": [
+      {
+        "id": 82993,
+        "ja": "母はマーケットへ買い物に行きました。",
+        "en": "Mother has gone to the market.",
+        "enId": 320723,
+        "form": "マーケット",
+        "furigana": [
+          ["母", "はは"],
+          ["はマーケットへ"],
+          ["買", "か"],
+          ["い"],
+          ["物", "もの"],
+          ["に"],
+          ["行", "い"],
+          ["きました。"]
+        ]
+      },
+      {
+        "id": 195823,
+        "ja": "マーケットが開いたとたんに火事がおきた。",
+        "en": "Scarcely had the market opened when the fire broke out.",
+        "enId": 32998,
+        "form": "マーケット",
+        "furigana": [
+          ["マーケットが"],
+          ["開", "ひら"],
+          ["いたとたんに"],
+          ["火事", "かじ"],
+          ["がおきた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-28",
+    "term": "軍",
+    "kana": "ぐん",
+    "meaning": "army, force, troops",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing", "sound-change"],
+    "headline": "軍, “army”, shifted from /kʲun/ to /ɡun/ after it came from Middle Chinese.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/kʲun/ → /ɡun/"
+      },
+      {
+        "quote": "From Middle Chinese 軍 (MC kjun)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 108023,
+        "ja": "彼は軍に徴兵された。",
+        "en": "He was drafted into the army.",
+        "enId": 295663,
+        "form": "軍",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["軍", "ぐん"],
+          ["に"],
+          ["徴兵", "ちょうへい"],
+          ["された。"]
+        ]
+      },
+      {
+        "id": 201747,
+        "ja": "ドイツ軍は敗走した。",
+        "en": "The Germans took to flight.",
+        "enId": 38958,
+        "form": "軍",
+        "furigana": [
+          ["ドイツ"],
+          ["軍", "ぐん"],
+          ["は"],
+          ["敗走", "はいそう"],
+          ["した。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-29",
+    "term": "マッチ",
+    "kana": "マッチ",
+    "meaning": "match",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "マッチ is the English word “match” in katakana.",
+    "morphemes": [
+      {
+        "text": "マッチ",
+        "reading": "マッチ",
+        "meaning": "English match"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From English match."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-30",
+    "term": "パンツ",
+    "kana": "パンツ",
+    "meaning": "underpants",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "headline": "パンツ, “underpants”, is borrowed from English “pants” and first cited to a text from 1896.",
+    "morphemes": [
+      {
+        "text": "パンツ",
+        "reading": "パンツ",
+        "meaning": "English pants"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Borrowed from English pants."
+      },
+      {
+        "quote": "First cited to a text from 1896."
+      }
+    ],
+    "examples": [
+      {
+        "id": 197760,
+        "ja": "パンツとブラジャー以外は全部脱いでください。",
+        "en": "Please take off all your clothes except your underpants and bra.",
+        "enId": 34948,
+        "form": "パンツ",
+        "furigana": [
+          ["パンツとブラジャー"],
+          ["以外", "いがい"],
+          ["は"],
+          ["全部", "ぜんぶ"],
+          ["脱", "ぬ"],
+          ["いでください。"]
+        ]
+      },
+      {
+        "id": 75086,
+        "ja": "「どーした、もじもじして」「あーいや、何かパンツのゴム切れちゃったみたいで」",
+        "en": "\"What's up? Fidgeting like that\" \"Er, well, it looks like the elastic's gone in my pants.\"",
+        "enId": 328633,
+        "form": "パンツ",
+        "furigana": [
+          ["「どーした、もじもじして」「あーいや、"],
+          ["何", "なに"],
+          ["かパンツのゴム"],
+          ["切", "き"],
+          ["れちゃったみたいで」"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2008-08-31",
+    "term": "悲しむ",
+    "kana": "かなしむ",
+    "meaning": "to be sad, to mourn for, to regret",
+    "level": "N3",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "悲しむ is 悲しい (kanashii, “sad”) plus む (-mu).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "悲(かな)しい (kanashii, “sad”) + む (-mu)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 85955,
+        "ja": "悲しまないで下さい。",
+        "en": "Don't be sad.",
+        "enId": 317756,
+        "form": "悲しまない",
+        "furigana": [["悲", "かな"], ["しまないで"], ["下", "くだ"], ["さい。"]]
+      },
+      {
+        "id": 117168,
+        "ja": "彼の死を嘆き悲しんだ。",
+        "en": "I felt deep sorrow at his death.",
+        "enId": 286497,
+        "form": "悲しんだ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["死", "し"],
+          ["を"],
+          ["嘆", "なげ"],
+          ["き"],
+          ["悲", "かな"],
+          ["しんだ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]

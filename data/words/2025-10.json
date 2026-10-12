@@ -1,1062 +1,395 @@
 [
   {
     "date": "2025-10-01",
-    "term": "据える",
-    "kana": "すえる",
-    "meaning": "to set, to lay, to place",
+    "term": "防火",
+    "kana": "ぼうか",
+    "meaning": "fire prevention, fire fighting, fire proof",
     "level": "N1",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "priority": ["ichi1", "news1", "nf19"],
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
     "pitch": [0],
-    "stratum": "wago",
+    "stratum": "kango",
     "processes": [],
-    "headline": "Sueru is from the classical lower bigrade verb 据う (suu), and the source compares 座る (suwaru, “sit”).",
     "morphemes": [],
-    "sources": [
-      {
-        "quote": "From classical shimo nidan katsuyō verb 据う (suu), possibly parsed as *suwu. In the Muromachi period, there also exists a classical verb 据ゆ (suyu)."
-      },
-      {
-        "quote": "Compare 座る (suwaru, “sit”, intransitive)."
-      }
-    ],
+    "sources": [],
     "examples": [
       {
-        "id": 74457,
-        "ja": "中央には机が据えられていて、赤い革張りの回転椅子がそえてあった。",
-        "en": "A desk stood in the centre, with a red leather swivel chair.",
-        "enId": 329262,
-        "form": "据えられていて",
+        "id": 237466,
+        "ja": "私たちは昨日防火訓練をした。",
+        "en": "We had a fire drill yesterday.",
+        "enId": 248746,
+        "form": "防火",
         "furigana": [
-          ["中央", "ちゅうおう"],
+          ["私", "わたし"],
+          ["たちは"],
+          ["昨日", "きのう"],
+          ["防火", "ぼうか"],
+          ["訓練", "くんれん"],
+          ["をした。"]
+        ]
+      },
+      {
+        "id": 220128,
+        "ja": "この美術館には防火の設備がある。",
+        "en": "This museum is equipped with a fire prevention system.",
+        "enId": 57447,
+        "form": "防火",
+        "furigana": [
+          ["この"],
+          ["美術館", "びじゅつかん"],
           ["には"],
-          ["机", "つくえ"],
-          ["が"],
-          ["据", "す"],
-          ["えられていて、"],
-          ["赤", "あか"],
-          ["い"],
-          ["革", "かわ"],
-          ["張", "ば"],
-          ["りの"],
-          ["回転", "かいてん"],
-          ["椅子", "いす"],
-          ["がそえてあった。"]
+          ["防火", "ぼうか"],
+          ["の"],
+          ["設備", "せつび"],
+          ["がある。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-02",
-    "term": "恥",
-    "kana": "はじ",
-    "meaning": "shame, embarrassment",
+    "term": "法学",
+    "kana": "ほうがく",
+    "meaning": "law, jurisprudence",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf12"],
-    "pitch": [2],
-    "stratum": "wago",
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
     "processes": [],
-    "headline": "Haji goes back to Proto-Japonic.",
     "morphemes": [],
-    "sources": [
+    "sources": [],
+    "examples": [
       {
-        "quote": "Ultimately from Proto-Japonic *pantuy."
+        "id": 100041,
+        "ja": "彼は法学修士の学位を得た。",
+        "en": "He got a master's degree in law.",
+        "enId": 303656,
+        "form": "法学",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["法学", "ほうがく"],
+          ["修士", "しゅうし"],
+          ["の"],
+          ["学位", "がくい"],
+          ["を"],
+          ["得", "え"],
+          ["た。"]
+        ]
+      },
+      {
+        "id": 82684,
+        "ja": "法学を学んでいる学生が皆法律家になれるというわけではない。",
+        "en": "Not every student studying law can be a lawyer.",
+        "enId": 321032,
+        "form": "法学",
+        "furigana": [
+          ["法学", "ほうがく"],
+          ["を"],
+          ["学", "まな"],
+          ["んでいる"],
+          ["学生", "がくせい"],
+          ["が皆"],
+          ["法律", "ほうりつ"],
+          ["家", "か"],
+          ["になれるというわけではない。"]
+        ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-03",
-    "term": "甲",
-    "kana": "こう",
-    "meaning": "1st in rank; shell",
+    "term": "封建",
+    "kana": "ほうけん",
+    "meaning": "feudalistic",
     "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["news1", "nf10"],
-    "pitch": [1],
-    "stratum": "kango",
-    "processes": ["borrowing"],
-    "headline": "Kō, “1st in rank”, is from Middle Chinese 甲.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "From Middle Chinese 甲 (kæp)."
-      }
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "nouns which may take the genitive case particle 'no'"
     ],
+    "priority": ["news2", "nf33"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 173522,
-        "ja": "甲の薬は乙の毒。",
-        "en": "One man's medicine is another man's poison.",
-        "enId": 240948,
-        "form": "甲",
+        "id": 140789,
+        "ja": "前世紀の中頃まで日本が封建国家であったことは、よくしられている。",
+        "en": "It is well known that up to the middle of the last century Japan was a feudal state.",
+        "enId": 273783,
+        "form": "封建",
         "furigana": [
-          ["甲", "こう"],
+          ["前", "ぜん"],
+          ["世紀", "せいき"],
           ["の"],
-          ["薬", "くすり"],
-          ["は"],
-          ["乙", "おつ"],
-          ["の"],
-          ["毒", "どく"],
-          ["。"]
-        ]
-      },
-      {
-        "id": 173523,
-        "ja": "甲の損は乙の得。",
-        "en": "One man's gain is another man's loss.",
-        "enId": 240947,
-        "form": "甲",
-        "furigana": [
-          ["甲", "こう"],
-          ["の"],
-          ["損", "そん"],
-          ["は"],
-          ["乙", "おつ"],
-          ["の"],
-          ["得", "とく"],
-          ["。"]
+          ["中頃", "なかごろ"],
+          ["まで"],
+          ["日本", "にっぽん"],
+          ["が"],
+          ["封建", "ほうけん"],
+          ["国家", "こっか"],
+          ["であったことは、よくしられている。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-04",
-    "term": "旦那",
-    "kana": "だんな",
-    "meaning": "master (of house), husband (informal)",
+    "term": "豊作",
+    "kana": "ほうさく",
+    "meaning": "abundant harvest, bumper crop",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news2", "nf38"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "rendaku", "borrowing"],
-    "headline": "Danna is from Middle Chinese 旦那 and 檀那, both used as transliterations of a Sanskrit word for “generosity, giving, donating”.",
-    "morphemes": [
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
       {
-        "text": "旦",
-        "reading": "だん",
-        "base": "たん",
-        "meaning": "daybreak",
-        "glossSource": "kanjidic2"
+        "id": 81238,
+        "ja": "毎年小麦は豊作だ。",
+        "en": "The wheat crop bears a good harvest every year.",
+        "enId": 322477,
+        "form": "豊作",
+        "furigana": [
+          ["毎年", "まいとし"],
+          ["小麦", "こむぎ"],
+          ["は"],
+          ["豊作", "ほうさく"],
+          ["だ。"]
+        ]
       },
       {
-        "text": "那",
-        "reading": "な",
-        "meaning": "what?",
-        "glossSource": "kanjidic2"
+        "id": 83484,
+        "ja": "米作は今年豊作だ。",
+        "en": "The rice crop is large this year.",
+        "enId": 320232,
+        "form": "豊作",
+        "furigana": [
+          ["米作", "べいさく"],
+          ["は"],
+          ["今年", "ことし"],
+          ["豊作", "ほうさく"],
+          ["だ。"]
+        ]
       }
-    ],
-    "sources": [
-      {
-        "quote": "From Middle Chinese 旦那 (MC tanH na), 檀那 (MC dan na), both used as transliterations of Sanskrit दान (dā́na, “generosity, giving, donating”). Ultimately cognate with English donate and donor, from Proto-Indo-European *déh₃nom."
-      },
-      {
-        "quote": "Attested in Japanese sinophone sources since at least the 1000s and in vernacular Japanese sources since at least 1287."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-05",
-    "term": "アップ",
-    "kana": "アップ",
-    "meaning": "up",
-    "level": "N3",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun, used as a suffix",
-      "noun or participle which takes the aux. verb suru",
-      "transitive verb",
-      "intransitive verb"
-    ],
-    "priority": ["gai1", "ichi1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "アップ is borrowed from English up.",
-    "morphemes": [
-      {
-        "text": "アップ",
-        "reading": "アップ",
-        "meaning": "English up"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Borrowed from English up."
-      }
-    ],
+    "term": "方策",
+    "kana": "ほうさく",
+    "meaning": "plan, policy",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 83780,
-        "ja": "物価は毎日アップしている。",
-        "en": "Prices are going up every day.",
-        "enId": 319936,
-        "form": "アップ",
+        "id": 142884,
+        "ja": "正直は最良の方策。",
+        "en": "Honesty is the best policy.",
+        "enId": 271679,
+        "form": "方策",
         "furigana": [
-          ["物価", "ぶっか"],
+          ["正直", "しょうじき"],
           ["は"],
-          ["毎日", "まいにち"],
-          ["アップしている。"]
+          ["最良", "さいりょう"],
+          ["の"],
+          ["方策", "ほうさく"],
+          ["。"]
         ]
       },
       {
-        "id": 77374,
-        "ja": "労働者たちは賃金アップを要求して団結した。",
-        "en": "The workers united to demand higher wages.",
-        "enId": 326345,
-        "form": "アップ",
+        "id": 143098,
+        "ja": "政府は国内産業振興の方策を講じた。",
+        "en": "The government has taken measures to promote domestic industry.",
+        "enId": 271470,
+        "form": "方策",
         "furigana": [
-          ["労働", "ろうどう"],
-          ["者", "しゃ"],
-          ["たちは"],
-          ["賃金", "ちんぎん"],
-          ["アップを"],
-          ["要求", "ようきゅう"],
-          ["して"],
-          ["団結", "だんけつ"],
-          ["した。"]
+          ["政府", "せいふ"],
+          ["は"],
+          ["国内", "こくない"],
+          ["産業", "さんぎょう"],
+          ["振興", "しんこう"],
+          ["の"],
+          ["方策", "ほうさく"],
+          ["を"],
+          ["講", "こう"],
+          ["じた。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-06",
-    "term": "封",
-    "kana": "ふう",
-    "meaning": "seal",
+    "term": "奉仕",
+    "kana": "ほうし",
+    "meaning": "attendance, service",
     "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf15"],
-    "pitch": [1],
-    "stratum": "kango",
-    "processes": ["borrowing"],
-    "headline": "Fū, “seal”, is derived from Middle Chinese 封 (MC pjowng|pjowngH).",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "Derived from Middle Chinese 封 (MC pjowng|pjowngH)."
-      }
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [1, 0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 112687,
-        "ja": "彼はその手紙を読むどころか、封も切らなかった。",
-        "en": "Far from reading the letter, he did not even open it.",
-        "enId": 290989,
-        "form": "封",
+        "id": 103449,
+        "ja": "彼は数週間共同募金運動に奉仕した。",
+        "en": "He worked for weeks on behalf of the community chest.",
+        "enId": 300244,
+        "form": "奉仕",
         "furigana": [
           ["彼", "かれ"],
-          ["はその"],
-          ["手紙", "てがみ"],
-          ["を"],
-          ["読", "よ"],
-          ["むどころか、"],
-          ["封", "ふう"],
-          ["も"],
-          ["切", "き"],
-          ["らなかった。"]
+          ["は"],
+          ["数", "すう"],
+          ["週間", "しゅうかん"],
+          ["共同", "きょうどう"],
+          ["募金", "ぼきん"],
+          ["運動", "うんどう"],
+          ["に"],
+          ["奉仕", "ほうし"],
+          ["した。"]
         ]
       },
       {
-        "id": 228868,
-        "ja": "いったん封を切るとそのテープは返品できません。",
-        "en": "Once you break the seal, you can't return the tape.",
-        "enId": 66226,
-        "form": "封",
+        "id": 143182,
+        "ja": "政治家は国民のために奉仕すべきだ。",
+        "en": "A politician should serve the people.",
+        "enId": 271386,
+        "form": "奉仕",
         "furigana": [
-          ["いったん"],
-          ["封", "ふう"],
-          ["を"],
-          ["切", "き"],
-          ["るとそのテープは"],
-          ["返品", "へんぴん"],
-          ["できません。"]
+          ["政治", "せいじ"],
+          ["家", "か"],
+          ["は"],
+          ["国民", "こくみん"],
+          ["のために"],
+          ["奉仕", "ほうし"],
+          ["すべきだ。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-07",
-    "term": "教科",
-    "kana": "きょうか",
-    "meaning": "subject, curriculum",
+    "term": "方式",
+    "kana": "ほうしき",
+    "meaning": "form, method, system",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["news1", "nf11"],
-    "pitch": [1],
+    "priority": ["news1", "nf02"],
+    "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Kyōka is 教 (kyō, “to teach”) plus 科 (ka, “section; department”).",
-    "morphemes": [
-      {
-        "text": "教",
-        "reading": "きょう",
-        "meaning": "to teach"
-      },
-      {
-        "text": "科",
-        "reading": "か",
-        "meaning": "section; department"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "教 (kyō, “to teach”) + 科 (ka, “section; department”)"
-      }
-    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 200326,
-        "ja": "どの教科が得意ですか。",
-        "en": "What subject are you good at?",
-        "enId": 37527,
-        "form": "教科",
+        "id": 103775,
+        "ja": "彼は新しい方式を編み出した。",
+        "en": "He worked out a new formula.",
+        "enId": 299919,
+        "form": "方式",
         "furigana": [
-          ["どの"],
-          ["教科", "きょうか"],
-          ["が"],
-          ["得意", "とくい"],
-          ["ですか。"]
+          ["彼", "かれ"],
+          ["は"],
+          ["新", "あたら"],
+          ["しい"],
+          ["方式", "ほうしき"],
+          ["を"],
+          ["編", "あ"],
+          ["み"],
+          ["出", "だ"],
+          ["した。"]
         ]
       },
       {
-        "id": 200325,
-        "ja": "どの教科が不得意ですか。",
-        "en": "What subject are you poor at?",
-        "enId": 37526,
-        "form": "教科",
+        "id": 186425,
+        "ja": "我が校は彼の授業方式を採用した。",
+        "en": "Our school adopted his teaching methods.",
+        "enId": 23561,
+        "form": "方式",
         "furigana": [
-          ["どの"],
-          ["教科", "きょうか"],
+          ["我", "わ"],
           ["が"],
-          ["不得意", "ふとくい"],
-          ["ですか。"]
+          ["校", "こう"],
+          ["は"],
+          ["彼", "かれ"],
+          ["の"],
+          ["授業", "じゅぎょう"],
+          ["方式", "ほうしき"],
+          ["を"],
+          ["採用", "さいよう"],
+          ["した。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-08",
-    "term": "インフォメーション",
-    "kana": "インフォメーション",
-    "meaning": "information",
+    "term": "報酬",
+    "kana": "ほうしゅう",
+    "meaning": "remuneration, recompense, reward",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1"],
-    "pitch": [4],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "インフォメーション is borrowed from English information.",
-    "morphemes": [
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
       {
-        "text": "インフォメーション",
-        "reading": "インフォメーション",
-        "meaning": "English information"
-      }
-    ],
-    "sources": [
+        "id": 218477,
+        "ja": "これは過分の報酬だ。",
+        "en": "This is more than I have earned.",
+        "enId": 55789,
+        "form": "報酬",
+        "furigana": [
+          ["これは"],
+          ["過分", "かぶん"],
+          ["の"],
+          ["報酬", "ほうしゅう"],
+          ["だ。"]
+        ]
+      },
       {
-        "quote": "Borrowed from English information."
+        "id": 82743,
+        "ja": "報酬は山分けにしよう。",
+        "en": "Let's split the reward fifty-fifty.",
+        "enId": 320973,
+        "form": "報酬",
+        "furigana": [
+          ["報酬", "ほうしゅう"],
+          ["は"],
+          ["山分", "やまわ"],
+          ["けにしよう。"]
+        ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-09",
-    "term": "籠もる",
-    "kana": "こもる",
-    "meaning": "to seclude oneself, to be confined in",
-    "level": "N1",
-    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
-    "priority": ["ichi1"],
-    "pitch": [2],
-    "stratum": "wago",
-    "processes": ["sound-change"],
-    "headline": "Komoru is from Old Japanese 隠る (komoru), and its stem relates to “fill, filling”, so it is likely cognate with 込む (komu, “to be crowded, be packed”).",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "⟨ko₂mo₂ru⟩ → */kəməru/ → /komoru/"
-      },
-      {
-        "quote": "From Old Japanese 隠る (ko₂mo₂ru)."
-      },
-      {
-        "quote": "The stem kom- relates to “fill, filling”, therefore likely cognate with 込(こ)む (komu, “to be crowded, be packed”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 106127,
-        "ja": "彼は私に愛情のこもった手紙をくれた。",
-        "en": "He sent me an affectionate letter.",
-        "enId": 297559,
-        "form": "こもった",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["私", "わたし"],
-          ["に"],
-          ["愛情", "あいじょう"],
-          ["のこもった"],
-          ["手紙", "てがみ"],
-          ["をくれた。"]
-        ]
-      },
-      {
-        "id": 77250,
-        "ja": "老婦人は子供たちに愛情のこもった手を差し伸べた。",
-        "en": "The old woman extended a loving hand to the children.",
-        "enId": 326469,
-        "form": "こもった",
-        "furigana": [
-          ["老", "ろう"],
-          ["婦人", "ふじん"],
-          ["は"],
-          ["子供", "こども"],
-          ["たちに"],
-          ["愛情", "あいじょう"],
-          ["のこもった"],
-          ["手", "て"],
-          ["を"],
-          ["差", "さ"],
-          ["し"],
-          ["伸", "の"],
-          ["べた。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-10",
-    "term": "衆議院",
-    "kana": "しゅうぎいん",
-    "meaning": "Lower House, House of Representatives",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf10"],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Shūgiin is 衆議 (shūgi, “general consultation, general conference”) plus 院 (-in, “parliamentary chamber”).",
-    "morphemes": [
-      {
-        "text": "衆議",
-        "reading": "しゅうぎ",
-        "meaning": "general consultation, general conference"
-      },
-      {
-        "text": "院",
-        "reading": "いん",
-        "meaning": "parliamentary chamber"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "衆議(しゅうぎ) (shūgi, “general consultation, general conference”) + 院(いん) (-in, “parliamentary chamber”)"
-      }
-    ],
-    "examples": [
-      {
-        "id": 148152,
-        "ja": "衆議院の少数派の議席は、急速にむしばまれてきています。",
-        "en": "The number of minority seats in the Lower House is rapidly eroding.",
-        "enId": 266407,
-        "form": "衆議院",
-        "furigana": [
-          ["衆議院", "しゅうぎいん"],
-          ["の"],
-          ["少数", "しょうすう"],
-          ["派", "は"],
-          ["の"],
-          ["議席", "ぎせき"],
-          ["は、"],
-          ["急速", "きゅうそく"],
-          ["にむしばまれてきています。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-11",
-    "term": "人格",
-    "kana": "じんかく",
-    "meaning": "personality, character",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf10"],
-    "pitch": [0],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Jinkaku is said to be coined by Inoue Tetsujirō as a translation of English personality.",
-    "morphemes": [
-      {
-        "text": "人",
-        "reading": "じん",
-        "meaning": "person",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "格",
-        "reading": "かく",
-        "meaning": "character",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "It is said to be coined by Japanese philosopher Inoue Tetsujirō as a translation of English personality."
-      }
-    ],
-    "examples": [
-      {
-        "id": 144589,
-        "ja": "人の人格を認め尊重する。",
-        "en": "Recognize and respect the personality of a person.",
-        "enId": 269975,
-        "form": "人格",
-        "furigana": [
-          ["人", "ひと"],
-          ["の"],
-          ["人格", "じんかく"],
-          ["を"],
-          ["認", "みと"],
-          ["め"],
-          ["尊重", "そんちょう"],
-          ["する。"]
-        ]
-      },
-      {
-        "id": 180340,
-        "ja": "教育は人格の形成を助ける。",
-        "en": "Education helps to mold character.",
-        "enId": 19116,
-        "form": "人格",
-        "furigana": [
-          ["教育", "きょういく"],
-          ["は"],
-          ["人格", "じんかく"],
-          ["の"],
-          ["形成", "けいせい"],
-          ["を"],
-          ["助", "たす"],
-          ["ける。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-12",
-    "term": "サイズ",
-    "kana": "サイズ",
-    "meaning": "size",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1", "ichi1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "サイズ is from English size.",
-    "morphemes": [
-      {
-        "text": "サイズ",
-        "reading": "サイズ",
-        "meaning": "English size"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From English size."
-      }
-    ],
-    "examples": [
-      {
-        "id": 227024,
-        "ja": "お召しもののサイズは？",
-        "en": "What size do you wear?",
-        "enId": 64373,
-        "form": "サイズ",
-        "furigana": [["お"], ["召", "めし"], ["しもののサイズは？"]]
-      },
-      {
-        "id": 216857,
-        "ja": "サイズはこれだけですか。",
-        "en": "Are these all the sizes you have?",
-        "enId": 54164,
-        "form": "サイズ"
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-13",
-    "term": "キャリア",
-    "kana": "キャリア",
-    "meaning": "career, career government employee",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "キャリア is from English career, though its pitch accent suggests English carrier.",
-    "morphemes": [
-      {
-        "text": "キャリア",
-        "reading": "キャリア",
-        "meaning": "English career"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From English career. The use of キャ for transcription here is rather peculiar given that it is typically used for the English sequence /kæ/ which is absent in the original English pronunciation. The pitch accent also somewhat indicates that this transcription is more suitable for English carrier, though Japanese pitch accent isn't known for consistently corresponding to English stress."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-14",
-    "term": "ネガ",
-    "kana": "ネガ",
-    "meaning": "(photographic) negative",
-    "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "adjectival nouns or quasi-adjectives (keiyodoshi)"
-    ],
-    "priority": ["gai1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing", "clipping"],
-    "headline": "ネガ is a shortening of ネガティブ (negatibu), from English negative.",
-    "morphemes": [
-      {
-        "text": "ネガ",
-        "reading": "ネガ",
-        "meaning": "English negative"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Shortening of ネガティブ (negatibu), from English negative."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-15",
-    "term": "心掛け",
-    "kana": "こころがけ",
-    "meaning": "readiness, intention, aim",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news2", "nf38", "nf42", "spec2"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": ["compound", "rendaku"],
-    "headline": "Kokorogake is the nominative form of 心掛ける (kokorokakeru, “try, endeavor”).",
-    "morphemes": [
-      {
-        "text": "心",
-        "reading": "こころ",
-        "meaning": "heart",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "掛け",
-        "reading": "がけ",
-        "base": "かけ",
-        "meaning": "hang",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Nominative form of 心掛ける (kokorokakeru, “try, endeavor”)"
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-16",
-    "term": "長編",
-    "kana": "ちょうへん",
-    "meaning": "long (e.g., novel, film)",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["news1", "nf15"],
-    "pitch": [0],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "In chōhen, 編 is a daiyōji replacing 篇.",
-    "morphemes": [
-      {
-        "text": "長",
-        "reading": "ちょう",
-        "meaning": "long",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "編",
-        "reading": "へん",
-        "meaning": "compilation",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "編 is a daiyōji replacing 篇."
-      }
-    ],
-    "examples": [
-      {
-        "id": 156021,
-        "ja": "私は週末を長編小説を読んで過ごした。",
-        "en": "I spent the weekend reading a long novel.",
-        "enId": 258515,
-        "form": "長編",
-        "furigana": [
-          ["私", "わたし"],
-          ["は"],
-          ["週末", "しゅうまつ"],
-          ["を"],
-          ["長編", "ちょうへん"],
-          ["小説", "しょうせつ"],
-          ["を"],
-          ["読", "よ"],
-          ["んで"],
-          ["過", "す"],
-          ["ごした。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-17",
-    "term": "パチンコ",
-    "kana": "パチンコ",
-    "meaning": "pachinko (Japanese pinball)",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1", "ichi1"],
-    "stratum": "gairaigo",
-    "processes": ["compound", "derivation"],
-    "headline": "パチンコ appears from the Taishō period, a compound of ぱちん (pachin, onomatopoeia for a small hard thing striking something else) plus 子 (-ko).",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "Appears from the Taishō period in the early 1900s."
-      },
-      {
-        "quote": "Compound of ぱちん (pachin, onomatopoeia for a small hard thing striking something else; compare English kaching) + 子 (-ko, suffix used to form nouns, often diminutive)."
-      },
-      {
-        "quote": "A pinball-like children's game was first called ガチャンコ (gachanko) of similar derivation, with this more gambling-oriented machine becoming popular from around 1947."
-      }
-    ],
-    "examples": [
-      {
-        "id": 120743,
-        "ja": "彼がパチンコするなんて絶対にないよ。",
-        "en": "He wouldn't be caught dead playing pachinko.",
-        "enId": 283265,
-        "form": "パチンコ",
-        "furigana": [
-          ["彼", "かれ"],
-          ["がパチンコするなんて"],
-          ["絶対", "ぜったい"],
-          ["にないよ。"]
-        ]
-      },
-      {
-        "id": 166772,
-        "ja": "私たちは、パチンコをして時を過ごした。",
-        "en": "We passed the time playing pachinko.",
-        "enId": 247730,
-        "form": "パチンコ",
-        "furigana": [
-          ["私", "わたし"],
-          ["たちは、パチンコをして"],
-          ["時", "とき"],
-          ["を"],
-          ["過", "す"],
-          ["ごした。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-18",
-    "term": "見晴らし",
-    "kana": "みはらし",
-    "meaning": "view",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news2", "nf40"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "Miharashi is the continuative stem of the verb 見晴らす (miharasu, “to overlook, look out over”).",
-    "morphemes": [
-      {
-        "text": "見",
-        "reading": "み",
-        "meaning": "see",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "晴らし",
-        "reading": "はらし",
-        "meaning": "clear up",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見晴(みは)らす (miharasu, “to overlook, look out over”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 211452,
-        "ja": "その丘は見晴らしがよい。",
-        "en": "The hill commands a fine view.",
-        "enId": 48728,
-        "form": "見晴らし",
-        "furigana": [
-          ["その"],
-          ["丘", "おか"],
-          ["は"],
-          ["見晴", "みは"],
-          ["らしがよい。"]
-        ]
-      },
-      {
-        "id": 212602,
-        "ja": "そのホテルは見晴らしがよい。",
-        "en": "The hotel has a good prospect.",
-        "enId": 49885,
-        "form": "見晴らし",
-        "furigana": [["そのホテルは"], ["見晴", "みは"], ["らしがよい。"]]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-19",
-    "term": "捧げる",
-    "kana": "ささげる",
-    "meaning": "to lift up, to give, to offer",
-    "level": "N1",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "priority": ["ichi1", "news2", "nf44"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": ["sound-change"],
-    "headline": "Sasageru is from Old Japanese 捧ぐ (sasagu), a contraction of 差し上ぐ (sasiagu), whence modern 差し上げる (sashiageru).",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "From Old Japanese verb 捧ぐ (sasagu), a contraction of 差し上ぐ (sasiagu), whence also modern Japanese 差し上げる (sashiageru)."
-      },
-      {
-        "quote": "Development"
-      },
-      {
-        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
-      }
-    ],
-    "examples": [
-      {
-        "id": 109951,
-        "ja": "彼は一生を教育に捧げた。",
-        "en": "He devoted his life to education.",
-        "enId": 293738,
-        "form": "捧げた",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["一生", "いっしょう"],
-          ["を"],
-          ["教育", "きょういく"],
-          ["に"],
-          ["捧", "ささ"],
-          ["げた。"]
-        ]
-      },
-      {
-        "id": 110038,
-        "ja": "彼は医療に一生を捧げた。",
-        "en": "He dedicated his life to medical work.",
-        "enId": 293650,
-        "form": "捧げた",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["医療", "いりょう"],
-          ["に"],
-          ["一生", "いっしょう"],
-          ["を"],
-          ["捧", "ささ"],
-          ["げた。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-20",
-    "term": "動的",
-    "kana": "どうてき",
-    "meaning": "dynamic, kinetic",
-    "level": "N1",
-    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
-    "priority": ["news2", "nf35", "spec2"],
-    "pitch": [0],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Dōteki is 動 (dō) plus 的 (-teki).",
-    "morphemes": [
-      {
-        "text": "動",
-        "reading": "どう",
-        "meaning": "move",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "的",
-        "reading": "てき",
-        "meaning": "bull's eye",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "動(どう) (dō) + 的(てき) (-teki)"
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-21",
-    "term": "渚",
-    "kana": "なぎさ",
-    "meaning": "water's edge, beach, shore",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf22"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": ["compound", "sound-change"],
-    "headline": "Nagisa is from Old Japanese, possibly 凪ぎ (nagi, “calming, dying down”) plus 磯 (sa, “rocky shore, pebble beach”).",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "⟨naɡi₁sa⟩ → */naɡʲisa/ → /naɡisa/"
-      },
-      {
-        "quote": "From Old Japanese."
-      },
-      {
-        "quote": "Possibly a compound of 凪(な)ぎ (nagi, “calming, dying down”, the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 凪(な)ぐ (nagu, “to calm down, to die down”, as of waves or wind), cognate with 和(なご)やか (nagoyaka, “calm, quiet”)) + 磯(さ) (sa, “rocky shore, pebble beach”), where sa is an ancient alternative for so, the abbreviated combining reading of modern 磯(いそ) (iso), cognate with 石(いし) (ishi, “rock, stone”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 147436,
-        "ja": "渚に人が群がっていた。",
-        "en": "There were flocks of people on the beach.",
-        "enId": 267124,
-        "form": "渚",
-        "furigana": [
-          ["渚", "なぎさ"],
-          ["に"],
-          ["人", "ひと"],
-          ["が"],
-          ["群", "むら"],
-          ["がっていた。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-22",
-    "term": "無知",
-    "kana": "むち",
-    "meaning": "ignorance",
-    "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "adjectival nouns or quasi-adjectives (keiyodoshi)"
-    ],
-    "priority": ["ichi1", "news2", "nf26"],
-    "pitch": [1],
-    "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "In muchi, 知 is a daiyōji replacing 智.",
-    "morphemes": [
-      {
-        "text": "無",
-        "reading": "む",
-        "meaning": "nothingness",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "知",
-        "reading": "ち",
-        "meaning": "know",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "知 is a daiyōji replacing 智"
-      }
-    ],
-    "examples": [
-      {
-        "id": 80900,
-        "ja": "無知は幸福。",
-        "en": "Ignorance is bliss.",
-        "enId": 276998,
-        "form": "無知",
-        "furigana": [["無知", "むち"], ["は"], ["幸福", "こうふく"], ["。"]]
-      },
-      {
-        "id": 116078,
-        "ja": "彼の無知には驚いた。",
-        "en": "I was astonished by his ignorance.",
-        "enId": 287591,
-        "form": "無知",
-        "furigana": [
-          ["彼", "かれ"],
-          ["の"],
-          ["無知", "むち"],
-          ["には"],
-          ["驚", "おどろ"],
-          ["いた。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-23",
-    "term": "悲観",
-    "kana": "ひかん",
-    "meaning": "pessimism, disappointment",
+    "term": "放出",
+    "kana": "ほうしゅつ",
+    "meaning": "release, emit",
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
@@ -1064,411 +397,883 @@
       "transitive verb",
       "intransitive verb"
     ],
-    "priority": ["ichi1", "news1", "nf08"],
+    "priority": ["news1", "nf13"],
     "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "borrowing"],
-    "headline": "Hikan is from the Buddhist Middle Chinese term 悲觀 (“compassionate view”), later reanalyzed as 悲 (“sadness”) plus 観 (“outlook”).",
-    "morphemes": [
-      {
-        "text": "悲",
-        "reading": "ひ",
-        "meaning": "sadness"
-      },
-      {
-        "text": "観",
-        "reading": "かん",
-        "meaning": "outlook"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "From Middle Chinese 悲觀 (“compassionate view”, literally “view of pity”), a Buddhist term. Compare 慈悲 (jihi, “compassion”). Reanalyzed as 悲 (“sadness”) + 観 (“outlook”)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 100774,
-        "ja": "彼は悲観する傾向がある。",
-        "en": "He has a tendency to be pessimistic.",
-        "enId": 302923,
-        "form": "悲観",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["悲観", "ひかん"],
-          ["する"],
-          ["傾向", "けいこう"],
-          ["がある。"]
-        ]
-      },
-      {
-        "id": 87160,
-        "ja": "彼女は悲観する傾向がある。",
-        "en": "She has a tendency to look on the dark side of things.",
-        "enId": 316548,
-        "form": "悲観",
-        "furigana": [
-          ["彼女", "かのじょ"],
-          ["は"],
-          ["悲観", "ひかん"],
-          ["する"],
-          ["傾向", "けいこう"],
-          ["がある。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-24",
-    "term": "美",
-    "kana": "び",
-    "meaning": "beauty",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
-    "priority": ["ichi1", "news1", "nf09"],
-    "pitch": [1],
-    "stratum": "kango",
-    "processes": ["borrowing"],
-    "headline": "Bi, “beauty”, is from Middle Chinese 美 (MC mijX).",
+    "processes": [],
     "morphemes": [],
-    "sources": [
-      {
-        "quote": "From Middle Chinese 美 (MC mijX)."
-      }
-    ],
+    "sources": [],
     "examples": [
       {
-        "id": 85553,
-        "ja": "美は皮一重。",
-        "en": "Beauty is only skin deep.",
-        "enId": 1507611,
-        "form": "美",
+        "id": 83746,
+        "ja": "物質が化学的に変化する時には、化学エネルギーが放出される。",
+        "en": "When matter is changed chemically, chemical energy is given off.",
+        "enId": 319970,
+        "form": "放出",
         "furigana": [
-          ["美", "び"],
+          ["物質", "ぶっしつ"],
+          ["が"],
+          ["化学", "かがく"],
+          ["的", "てき"],
+          ["に"],
+          ["変化", "へんか"],
+          ["する"],
+          ["時", "とき"],
+          ["には、"],
+          ["化学", "かがく"],
+          ["エネルギーが"],
+          ["放出", "ほうしゅつ"],
+          ["される。"]
+        ]
+      },
+      {
+        "id": 138096,
+        "ja": "太陽は信じられないほど、とてつもない熱と光を多量に放出している。",
+        "en": "The sun sends out an incredible amount of heat and light.",
+        "enId": 275139,
+        "form": "放出",
+        "furigana": [
+          ["太陽", "たいよう"],
           ["は"],
-          ["皮", "かわ"],
-          ["一", "ひと"],
-          ["重", "え"],
-          ["。"]
-        ]
-      },
-      {
-        "id": 85556,
-        "ja": "美はただ皮一枚。",
-        "en": "Beauty is but skin deep.",
-        "enId": 318157,
-        "form": "美",
-        "furigana": [
-          ["美", "び"],
-          ["はただ"],
-          ["皮", "かわ"],
-          ["一", "いち"],
-          ["枚", "まい"],
-          ["。"]
+          ["信", "しん"],
+          ["じられないほど、とてつもない"],
+          ["熱", "ねつ"],
+          ["と"],
+          ["光", "ひかり"],
+          ["を"],
+          ["多量", "たりょう"],
+          ["に"],
+          ["放出", "ほうしゅつ"],
+          ["している。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
-    "date": "2025-10-25",
-    "term": "押し切る",
-    "kana": "おしきる",
-    "meaning": "to have one's own way",
+    "date": "2025-10-10",
+    "term": "報ずる",
+    "kana": "ほうずる",
+    "meaning": "to inform, to report",
     "level": "N1",
-    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
-    "priority": ["news1", "nf21"],
-    "pitch": [3],
-    "stratum": "wago",
-    "processes": ["compound"],
-    "headline": "Oshikiru is 押し (oshi, the stem of 押す (osu)) plus 切る (kiru, “to cut”).",
-    "morphemes": [
-      {
-        "text": "押し",
-        "reading": "おし",
-        "meaning": "to press, the 連用形(れんようけい) (ren'yōkei, “stem or continuative form"
-      },
-      {
-        "text": "切る",
-        "reading": "きる",
-        "meaning": "to cut"
-      }
+    "pos": [
+      "Ichidan verb - zuru verb (alternative form of -jiru verbs)",
+      "transitive verb"
     ],
-    "sources": [
-      {
-        "quote": "Compound of 押し (oshi, “to press, the 連用形(れんようけい) (ren'yōkei, “stem or continuative form”) of 押(お)す (osu)”) + 切る (kiru, “to cut”)"
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    "priority": ["ichi2"],
+    "pitch": [3, 0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
   },
   {
-    "date": "2025-10-26",
-    "term": "切開",
-    "kana": "せっかい",
-    "meaning": "opening up, cutting through",
+    "date": "2025-10-11",
+    "term": "紡績",
+    "kana": "ぼうせき",
+    "meaning": "spinning",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-10-12",
+    "term": "呆然",
+    "kana": "ぼうぜん",
+    "meaning": "dumbfounded, overcome with surprise",
+    "level": "N1",
+    "pos": ["'taru' adjective", "adverb taking the 'to' particle"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-10-13",
+    "term": "放置",
+    "kana": "ほうち",
+    "meaning": "leave as is, leave alone, neglect",
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru",
       "transitive verb"
     ],
-    "priority": ["news2", "nf44"],
+    "priority": ["ichi1", "news1", "nf19"],
     "pitch": [1, 0],
     "stratum": "kango",
-    "processes": ["compound", "rendaku"],
-    "headline": "Sekkai is 切 (setsu, “cut”) plus 開 (kai, “open”).",
-    "morphemes": [
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
       {
-        "text": "切",
-        "reading": "せっ",
-        "base": "せつ",
-        "meaning": "cut",
-        "glossSource": "kanjidic2"
+        "id": 146726,
+        "ja": "少女たちは縛り上げられて地下室に放置された。",
+        "en": "The girls were trussed up and left in a cellar.",
+        "enId": 267835,
+        "form": "放置",
+        "furigana": [
+          ["少女", "しょうじょ"],
+          ["たちは"],
+          ["縛", "しば"],
+          ["り"],
+          ["上", "あ"],
+          ["げられて"],
+          ["地下", "ちか"],
+          ["室", "しつ"],
+          ["に"],
+          ["放置", "ほうち"],
+          ["された。"]
+        ]
       },
       {
-        "text": "開",
-        "reading": "かい",
-        "meaning": "open",
-        "glossSource": "kanjidic2"
+        "id": 189574,
+        "ja": "雨の中に放置しておくと自転車はさびるでしょう。",
+        "en": "A bicycle will rust if you leave it in the rain.",
+        "enId": 26727,
+        "form": "放置",
+        "furigana": [
+          ["雨", "あめ"],
+          ["の"],
+          ["中", "なか"],
+          ["に"],
+          ["放置", "ほうち"],
+          ["しておくと"],
+          ["自転車", "じてんしゃ"],
+          ["はさびるでしょう。"]
+        ]
       }
-    ],
-    "sources": [
-      {
-        "quote": "From 切 (setsu, \"cut,\" \"sever\") + 開 (kai, \"open,\" \"open up\")."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
-    "date": "2025-10-27",
-    "term": "真実",
-    "kana": "しんじつ",
-    "meaning": "truth, reality",
+    "date": "2025-10-14",
+    "term": "膨張",
+    "kana": "ぼうちょう",
+    "meaning": "expansion, swelling, increase",
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
-      "nouns which may take the genitive case particle 'no'",
-      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
-    "priority": ["ichi1", "news1", "nf07"],
-    "pitch": [1],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound", "borrowing"],
-    "headline": "Shinjitsu is from Middle Chinese 真實 (MC tsyin zyit).",
-    "morphemes": [
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
       {
-        "text": "真",
-        "reading": "しん",
-        "meaning": "reality",
-        "glossSource": "kanjidic2"
+        "id": 143734,
+        "ja": "水は熱で膨張する。",
+        "en": "Water expands with heat.",
+        "enId": 270832,
+        "form": "膨張",
+        "furigana": [
+          ["水", "みず"],
+          ["は"],
+          ["熱", "ねつ"],
+          ["で"],
+          ["膨張", "ぼうちょう"],
+          ["する。"]
+        ]
       },
       {
-        "text": "実",
-        "reading": "じつ",
-        "meaning": "reality",
-        "glossSource": "kanjidic2"
+        "id": 74783,
+        "ja": "宇宙は無限に膨張し続けるのか？",
+        "en": "Will the universe expand indefinitely?",
+        "enId": 328936,
+        "form": "膨張",
+        "furigana": [
+          ["宇宙", "うちゅう"],
+          ["は"],
+          ["無限", "むげん"],
+          ["に"],
+          ["膨張", "ぼうちょう"],
+          ["し"],
+          ["続", "つづ"],
+          ["けるのか？"]
+        ]
       }
-    ],
-    "sources": [
+    ]
+  },
+  {
+    "date": "2025-10-15",
+    "term": "法廷",
+    "kana": "ほうてい",
+    "meaning": "courtroom",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
       {
-        "quote": "From Middle Chinese 真實 (MC tsyin zyit)."
+        "id": 82676,
+        "ja": "法廷は来週開廷される。",
+        "en": "The court will sit next week.",
+        "enId": 321040,
+        "form": "法廷",
+        "furigana": [
+          ["法廷", "ほうてい"],
+          ["は"],
+          ["来週", "らいしゅう"],
+          ["開廷", "かいてい"],
+          ["される。"]
+        ]
+      },
+      {
+        "id": 82677,
+        "ja": "法廷は彼を死刑に処した。",
+        "en": "The court sentenced him to death.",
+        "enId": 321039,
+        "form": "法廷",
+        "furigana": [
+          ["法廷", "ほうてい"],
+          ["は"],
+          ["彼", "かれ"],
+          ["を"],
+          ["死刑", "しけい"],
+          ["に"],
+          ["処", "しょ"],
+          ["した。"]
+        ]
       }
+    ]
+  },
+  {
+    "date": "2025-10-16",
+    "term": "報道",
+    "kana": "ほうどう",
+    "meaning": "coverage, report",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
-    "wiktionaryDump": "2026-09-02"
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 219839,
+        "ja": "この報道は公式のものだ。",
+        "en": "This news is official.",
+        "enId": 57159,
+        "form": "報道",
+        "furigana": [
+          ["この"],
+          ["報道", "ほうどう"],
+          ["は"],
+          ["公式", "こうしき"],
+          ["のものだ。"]
+        ]
+      },
+      {
+        "id": 206781,
+        "ja": "その報道は当てにならない。",
+        "en": "The report is not to be depended upon.",
+        "enId": 44029,
+        "form": "報道",
+        "furigana": [
+          ["その"],
+          ["報道", "ほうどう"],
+          ["は"],
+          ["当", "あ"],
+          ["てにならない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-10-17",
+    "term": "暴動",
+    "kana": "ぼうどう",
+    "meaning": "insurrection, riot, uprising",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 82515,
+        "ja": "暴動が治まった。",
+        "en": "The riot was put down.",
+        "enId": 321201,
+        "form": "暴動",
+        "furigana": [["暴動", "ぼうどう"], ["が"], ["治", "おさ"], ["まった。"]]
+      },
+      {
+        "id": 82512,
+        "ja": "暴動はすぐに鎮められた。",
+        "en": "The rebellion was soon put down.",
+        "enId": 321204,
+        "form": "暴動",
+        "furigana": [
+          ["暴動", "ぼうどう"],
+          ["はすぐに"],
+          ["鎮", "しず"],
+          ["められた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-10-18",
+    "term": "褒美",
+    "kana": "ほうび",
+    "meaning": "reward, prize",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf41"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 157459,
+        "ja": "褒美をやろう。",
+        "en": "You shall have a reward.",
+        "enId": 17558,
+        "form": "褒美",
+        "furigana": [["褒美", "ほうび"], ["をやろう。"]]
+      },
+      {
+        "id": 150093,
+        "ja": "自然界には褒美もなければ罰もない。",
+        "en": "In nature there are neither rewards nor punishments.",
+        "enId": 264464,
+        "form": "褒美",
+        "furigana": [
+          ["自然", "しぜん"],
+          ["界", "かい"],
+          ["には"],
+          ["褒美", "ほうび"],
+          ["もなければ"],
+          ["罰", "ばつ"],
+          ["もない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-10-19",
+    "term": "暴風",
+    "kana": "ぼうふう",
+    "meaning": "storm, windstorm, gale",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf17"],
+    "pitch": [3, 0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-10-20",
+    "term": "放り込む",
+    "kana": "ほうりこむ",
+    "meaning": "to throw into",
+    "level": "N1",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-10-21",
+    "term": "放り出す",
+    "kana": "ほうりだす",
+    "meaning": "to throw out, to give up, to abandon",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 104674,
+        "ja": "彼は車から放りだされた。",
+        "en": "He was tumbled out of the car.",
+        "enId": 299016,
+        "form": "放りだされた",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["車", "くるま"],
+          ["から"],
+          ["放", "ほう"],
+          ["りだされた。"]
+        ]
+      },
+      {
+        "id": 109302,
+        "ja": "彼は家から放り出された。",
+        "en": "He got thrown out of the house.",
+        "enId": 294388,
+        "form": "放り出された",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["家", "いえ"],
+          ["から"],
+          ["放", "ほう"],
+          ["り"],
+          ["出", "だ"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-10-22",
+    "term": "暴力",
+    "kana": "ぼうりょく",
+    "meaning": "violence",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 82498,
+        "ja": "暴力は社会のガンだ。",
+        "en": "Violence is the cancer of our society.",
+        "enId": 321218,
+        "form": "暴力",
+        "furigana": [
+          ["暴力", "ぼうりょく"],
+          ["は"],
+          ["社会", "しゃかい"],
+          ["のガンだ。"]
+        ]
+      },
+      {
+        "id": 152818,
+        "ja": "私たちは暴力を憎む。",
+        "en": "We abhor violence.",
+        "enId": 249371,
+        "form": "暴力",
+        "furigana": [
+          ["私", "わたし"],
+          ["たちは"],
+          ["暴力", "ぼうりょく"],
+          ["を"],
+          ["憎", "にく"],
+          ["む。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-10-23",
+    "term": "保温",
+    "kana": "ほおん",
+    "meaning": "retaining warmth, keeping heat in, heat insulation",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2025-10-24",
+    "term": "捕獲",
+    "kana": "ほかく",
+    "meaning": "capture, seizure",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["news1", "nf12"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 166746,
+        "ja": "私たちは、昨日、森に行き、２頭の鹿を捕獲した。",
+        "en": "We went hunting in the forest and caught two deer yesterday.",
+        "enId": 247756,
+        "form": "捕獲",
+        "furigana": [
+          ["私", "わたし"],
+          ["たちは、"],
+          ["昨日", "きのう"],
+          ["、"],
+          ["森", "もり"],
+          ["に"],
+          ["行", "い"],
+          ["き、２"],
+          ["頭", "とう"],
+          ["の"],
+          ["鹿", "しか"],
+          ["を"],
+          ["捕獲", "ほかく"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 80176,
+        "ja": "毛皮のコートのために動物を罠で捕獲するのは残酷なことだ。",
+        "en": "I think it is cruel to trap animals for fur coats.",
+        "enId": 323541,
+        "form": "捕獲",
+        "furigana": [
+          ["毛皮", "けがわ"],
+          ["のコートのために"],
+          ["動物", "どうぶつ"],
+          ["を"],
+          ["罠", "わな"],
+          ["で"],
+          ["捕獲", "ほかく"],
+          ["するのは"],
+          ["残酷", "ざんこく"],
+          ["なことだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-10-25",
+    "term": "保管",
+    "kana": "ほかん",
+    "meaning": "custody, safekeeping, storage",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 183029,
+        "ja": "貴重品は銀行に保管してある。",
+        "en": "The valuables are in the bank's safekeeping.",
+        "enId": 20152,
+        "form": "保管",
+        "furigana": [
+          ["貴重", "きちょう"],
+          ["品", "ひん"],
+          ["は"],
+          ["銀行", "ぎんこう"],
+          ["に"],
+          ["保管", "ほかん"],
+          ["してある。"]
+        ]
+      },
+      {
+        "id": 77816,
+        "ja": "領収書は必ず保管してください。",
+        "en": "Make sure you save the receipt.",
+        "enId": 325902,
+        "form": "保管",
+        "furigana": [
+          ["領収書", "りょうしゅうしょ"],
+          ["は"],
+          ["必", "かなら"],
+          ["ず"],
+          ["保管", "ほかん"],
+          ["してください。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-10-26",
+    "term": "補給",
+    "kana": "ほきゅう",
+    "meaning": "supply, supplying, replenishment",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83189,
+        "ja": "補給が尽きはじめている。",
+        "en": "The supplies are beginning to give out.",
+        "enId": 244247,
+        "form": "補給",
+        "furigana": [
+          ["補給", "ほきゅう"],
+          ["が"],
+          ["尽", "つ"],
+          ["きはじめている。"]
+        ]
+      },
+      {
+        "id": 83188,
+        "ja": "補給はまもなく不足するでしょう。",
+        "en": "The supplies will give out soon.",
+        "enId": 320526,
+        "form": "補給",
+        "furigana": [
+          ["補給", "ほきゅう"],
+          ["はまもなく"],
+          ["不足", "ふそく"],
+          ["するでしょう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-10-27",
+    "term": "補強",
+    "kana": "ほきょう",
+    "meaning": "reinforcement",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 96638,
+        "ja": "彼らは村を洪水から守るために堤防を補強した。",
+        "en": "They strengthened the embankments to protect the village from flooding.",
+        "enId": 307067,
+        "form": "補強",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["村", "むら"],
+          ["を"],
+          ["洪水", "こうずい"],
+          ["から"],
+          ["守", "まも"],
+          ["るために"],
+          ["堤防", "ていぼう"],
+          ["を"],
+          ["補強", "ほきょう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 217541,
+        "ja": "コンクリートは中に鋼鉄の棒を入れる事で補強される。",
+        "en": "Concrete can be reinforced by putting steel bars inside it.",
+        "enId": 54850,
+        "form": "補強",
+        "furigana": [
+          ["コンクリートは"],
+          ["中", "なか"],
+          ["に"],
+          ["鋼鉄", "こうてつ"],
+          ["の"],
+          ["棒", "ぼう"],
+          ["を"],
+          ["入", "い"],
+          ["れる"],
+          ["事", "こと"],
+          ["で"],
+          ["補強", "ほきょう"],
+          ["される。"]
+        ]
+      }
+    ]
   },
   {
     "date": "2025-10-28",
-    "term": "同い年",
-    "kana": "おないどし",
-    "meaning": "of the same age",
+    "term": "募金",
+    "kana": "ぼきん",
+    "meaning": "fund-raising, collection of funds",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["news1", "nf06"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 96948,
+        "ja": "彼らは慈善募金を始めた。",
+        "en": "They started a drive to raise a charity fund.",
+        "enId": 306756,
+        "form": "募金",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["慈善", "じぜん"],
+          ["募金", "ぼきん"],
+          ["を"],
+          ["始", "はじ"],
+          ["めた。"]
+        ]
+      },
+      {
+        "id": 83187,
+        "ja": "募金はまだ目標額に達しない。",
+        "en": "The amount donated still falls short of the goal.",
+        "enId": 320529,
+        "form": "募金",
+        "furigana": [
+          ["募金", "ぼきん"],
+          ["はまだ"],
+          ["目標", "もくひょう"],
+          ["額", "がく"],
+          ["に"],
+          ["達", "たっ"],
+          ["しない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2025-10-29",
+    "term": "牧師",
+    "kana": "ぼくし",
+    "meaning": "pastor, minister, clergyman",
     "level": "N1",
     "pos": [
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'"
     ],
-    "priority": ["news2", "nf30"],
-    "pitch": [2],
-    "stratum": "wago",
-    "processes": ["sound-change"],
-    "headline": "Onaidoshi is an alteration of 同じ年.",
+    "priority": ["news1", "nf13"],
+    "pitch": [1, 0],
+    "stratum": "kango",
+    "processes": [],
     "morphemes": [],
-    "sources": [
-      {
-        "quote": "Alteration of 同じ年."
-      }
-    ],
+    "sources": [],
     "examples": [
       {
-        "id": 96463,
-        "ja": "彼らは同い年だ。",
-        "en": "They are the same age.",
-        "enId": 307243,
-        "form": "同い年",
+        "id": 81679,
+        "ja": "牧師は十字架を作った。",
+        "en": "The priest made the sign of the cross.",
+        "enId": 322036,
+        "form": "牧師",
         "furigana": [
-          ["彼", "かれ"],
-          ["らは"],
-          ["同", "おな"],
-          ["い"],
-          ["年", "どし"],
-          ["だ。"]
-        ]
-      },
-      {
-        "id": 86712,
-        "ja": "彼女は僕と同い年だ。",
-        "en": "She and I are of an age.",
-        "enId": 316999,
-        "form": "同い年",
-        "furigana": [
-          ["彼女", "かのじょ"],
+          ["牧師", "ぼくし"],
           ["は"],
-          ["僕", "ぼく"],
-          ["と"],
-          ["同", "おな"],
-          ["い"],
-          ["年", "どし"],
-          ["だ。"]
+          ["十字架", "じゅうじか"],
+          ["を"],
+          ["作", "つく"],
+          ["った。"]
         ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2025-10-29",
-    "term": "玄人",
-    "kana": "くろうと",
-    "meaning": "expert, professional",
-    "level": "N1",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news2", "nf29"],
-    "pitch": [1, 2],
-    "processes": ["compound", "sound-change"],
-    "headline": "Kurōto is 玄 (kuro, “deep, profound”) plus 人 (-uto, “person”), an old root form of 人 (hito).",
-    "morphemes": [
-      {
-        "text": "玄",
-        "reading": "くろ",
-        "meaning": "deep, profound"
       },
       {
-        "text": "人",
-        "reading": "うと",
-        "meaning": "person",
-        "irregular": true
+        "id": 195983,
+        "ja": "ボブは牧師になりました。",
+        "en": "Bob became a pastor.",
+        "enId": 464693,
+        "form": "牧師",
+        "furigana": [["ボブは"], ["牧師", "ぼくし"], ["になりました。"]]
       }
-    ],
-    "sources": [
-      {
-        "quote": "*/kuroputo/ → */kurofuto/ → /kurouto/"
-      },
-      {
-        "quote": "Compound of 玄(くろ) (kuro, “deep, profound”) + 人(うと) (-uto, “person”)."
-      },
-      {
-        "quote": "The term 人 (hito, “person”) appears in various older compounds with a root form of 人 (*puto → *buto → *udo, *puto → *futo → *uto). This form is never seen in isolation, and it often undergoes further phonetic changes to combine with preceding vowels. Compare the formation of 仲人 (nakōdo), from naka + udo; 旅人 (tabiudo), from tabi + udo; 素人 (shirōto), from shiro + uto."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-30",
-    "term": "使用人",
-    "kana": "しようにん",
-    "meaning": "employee, servant",
+    "term": "捕鯨",
+    "kana": "ほげい",
+    "meaning": "whaling",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news2", "nf29"],
+    "priority": ["news1", "nf06"],
+    "pitch": [0],
     "stratum": "kango",
-    "processes": ["compound"],
-    "headline": "Shiyōnin is 使用 (shiyō) plus 人 (-nin).",
-    "morphemes": [
-      {
-        "text": "使",
-        "reading": "し",
-        "meaning": "use",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "用",
-        "reading": "よう",
-        "meaning": "utilize",
-        "glossSource": "kanjidic2"
-      },
-      {
-        "text": "人",
-        "reading": "にん",
-        "meaning": "person",
-        "glossSource": "kanjidic2"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "使用(しよう) (shiyō) + 人(にん) (-nin)"
-      }
-    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 156604,
-        "ja": "私は使用人の一人をくびにした。",
-        "en": "I discharged one of my servants.",
-        "enId": 257930,
-        "form": "使用人",
+        "id": 173051,
+        "ja": "国際的批判に直面して捕鯨をやめた国がいくつかある。",
+        "en": "Some countries have stopped whaling in the face of international criticism.",
+        "enId": 241421,
+        "form": "捕鯨",
         "furigana": [
-          ["私", "わたし"],
-          ["は"],
-          ["使用人", "しようにん"],
-          ["の"],
-          ["一", "いち"],
-          ["人", "にん"],
-          ["をくびにした。"]
-        ]
-      },
-      {
-        "id": 106590,
-        "ja": "彼は使用人に優しい雇い主だった。",
-        "en": "He was a kind master to his servants.",
-        "enId": 297096,
-        "form": "使用人",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["使用人", "しようにん"],
+          ["国際", "こくさい"],
+          ["的", "てき"],
+          ["批判", "ひはん"],
           ["に"],
-          ["優", "やさ"],
-          ["しい"],
-          ["雇", "やと"],
-          ["い"],
-          ["主", "ぬし"],
-          ["だった。"]
+          ["直面", "ちょくめん"],
+          ["して"],
+          ["捕鯨", "ほげい"],
+          ["をやめた"],
+          ["国", "くに"],
+          ["がいくつかある。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2025-10-31",
-    "term": "おんぶ",
-    "kana": "おんぶ",
-    "meaning": "carrying on one's back (erg. Baby)",
+    "term": "惚ける",
+    "kana": "ぼける",
+    "meaning": "to grow senile, to fade",
     "level": "N1",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru",
-      "transitive verb",
-      "intransitive verb"
-    ],
+    "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
     "processes": [],
-    "headline": "Onbu is from おぶう (obuu).",
     "morphemes": [],
-    "sources": [
-      {
-        "quote": "From おぶう (obuu)."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    "sources": []
   }
 ]

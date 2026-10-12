@@ -1,0 +1,759 @@
+[
+  {
+    "date": "2013-10-01",
+    "term": "着く",
+    "kana": "つく",
+    "meaning": "to arrive at, to reach",
+    "level": "N5",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [1, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 158266,
+        "ja": "駅に着いたよ。",
+        "en": "I arrived at the station.",
+        "enId": 256264,
+        "form": "着いた",
+        "furigana": [["駅", "えき"], ["に"], ["着", "つ"], ["いたよ。"]]
+      },
+      {
+        "id": 193061,
+        "ja": "やっと着いた。",
+        "en": "Well, here we are at last!",
+        "enId": 30225,
+        "form": "着いた",
+        "furigana": [["やっと"], ["着", "つ"], ["いた。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-02",
+    "term": "つける",
+    "kana": "つける",
+    "meaning": "to turn on (e.g., a light); to attach, to put on",
+    "level": "N5",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-03",
+    "term": "つまらない",
+    "kana": "つまらない",
+    "meaning": "boring, dull; insignificant",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-04",
+    "term": "出かける",
+    "kana": "でかける",
+    "meaning": "to go out; to depart",
+    "level": "N5",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["spec1", "ichi1", "news2", "nf28"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 147821,
+        "ja": "出かけないか。",
+        "en": "Don't you want to go out?",
+        "enId": 266739,
+        "form": "出かけない",
+        "furigana": [["出", "で"], ["かけないか。"]]
+      },
+      {
+        "id": 147802,
+        "ja": "出かける時間よ。",
+        "en": "It's time to go.",
+        "enId": 266757,
+        "form": "出かける",
+        "furigana": [["出", "で"], ["かける"], ["時間", "じかん"], ["よ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-05",
+    "term": "デパート",
+    "kana": "デパート",
+    "meaning": "(abbr.) department store",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [2],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 159726,
+        "ja": "デパートで買った。",
+        "en": "I bought it at a department store.",
+        "enId": 254796,
+        "form": "デパート",
+        "furigana": [["デパートで"], ["買", "か"], ["った。"]]
+      },
+      {
+        "id": 111799,
+        "ja": "彼はデパートへ買い物に行った。",
+        "en": "He went shopping at a department store.",
+        "enId": 291878,
+        "form": "デパート",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はデパートへ"],
+          ["買", "か"],
+          ["い"],
+          ["物", "もの"],
+          ["に"],
+          ["行", "い"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-06",
+    "term": "テレビ",
+    "kana": "テレビ",
+    "meaning": "television, TV",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1"],
+    "pitch": [1],
+    "stratum": "gairaigo",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 201938,
+        "ja": "テレビを消して。",
+        "en": "Turn off the TV.",
+        "enId": 39148,
+        "form": "テレビ",
+        "furigana": [["テレビを"], ["消", "け"], ["して。"]]
+      },
+      {
+        "id": 201970,
+        "ja": "テレビをつけて。",
+        "en": "Please turn on the television.",
+        "enId": 38525,
+        "form": "テレビ"
+      }
+    ]
+  },
+  {
+    "date": "2013-10-07",
+    "term": "天気",
+    "kana": "てんき",
+    "meaning": "weather",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 125104,
+        "ja": "天気は上々だ。",
+        "en": "It's a sunny day.",
+        "enId": 278889,
+        "form": "天気",
+        "furigana": [
+          ["天気", "てんき"],
+          ["は"],
+          ["上々", "じょうじょう"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 125153,
+        "ja": "天気が好転した。",
+        "en": "The weather turned fair.",
+        "enId": 278840,
+        "form": "天気",
+        "furigana": [
+          ["天気", "てんき"],
+          ["が"],
+          ["好転", "こうてん"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-08",
+    "term": "～度",
+    "kana": "～ど",
+    "meaning": "counter for occurrences; ~ degree; ~ point",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-09",
+    "term": "どうして",
+    "kana": "どうして",
+    "meaning": "why, for what reason",
+    "level": "N5",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-10",
+    "term": "十日",
+    "kana": "とおか",
+    "meaning": "ten days; tenth day of the month",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 86437,
+        "ja": "彼女は友達とヨーロッパに十日間の旅をした。",
+        "en": "She took a ten-day trip to Europe with her friends.",
+        "enId": 317274,
+        "form": "十日",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["友達", "ともだち"],
+          ["とヨーロッパに"],
+          ["十", "じゅう"],
+          ["日間の"],
+          ["旅", "たび"],
+          ["をした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-11",
+    "term": "どこ",
+    "kana": "どこ",
+    "meaning": "where, what place",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["ichi1", "news2", "nf47"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-12",
+    "term": "どちら",
+    "kana": "どちら",
+    "meaning": "which (one) (way); where (polite)",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-13",
+    "term": "どなた",
+    "kana": "どなた",
+    "meaning": "who",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["ichi1"],
+    "register": ["honorific or respectful (sonkeigo) language"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-14",
+    "term": "どの",
+    "kana": "どの",
+    "meaning": "which",
+    "level": "N5",
+    "pos": ["pre-noun adjectival (rentaishi)"],
+    "priority": ["news1", "nf05"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-15",
+    "term": "鶏肉",
+    "kana": "とりにく",
+    "meaning": "chicken meat",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf23"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-16",
+    "term": "取る",
+    "kana": "とる",
+    "meaning": "to take, to pick up; to get (a grade); to take (a class)",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 227398,
+        "ja": "お塩とって。",
+        "en": "Pass me the salt.",
+        "enId": 64750,
+        "form": "とって",
+        "furigana": [["お"], ["塩", "しお"], ["とって。"]]
+      },
+      {
+        "id": 145118,
+        "ja": "新聞を取って。",
+        "en": "Get me the newspaper.",
+        "enId": 269445,
+        "form": "取って",
+        "furigana": [["新聞", "しんぶん"], ["を"], ["取", "と"], ["って。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-17",
+    "term": "撮る",
+    "kana": "とる",
+    "meaning": "to take (a photo), to make (a film)",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf22"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 187300,
+        "ja": "何枚撮りですか。",
+        "en": "How many exposures would you like?",
+        "enId": 24437,
+        "form": "撮り",
+        "furigana": [
+          ["何", "なん"],
+          ["枚", "まい"],
+          ["撮", "と"],
+          ["りですか。"]
+        ]
+      },
+      {
+        "id": 194262,
+        "ja": "もう一枚とってください。",
+        "en": "Please take another one.",
+        "enId": 31435,
+        "form": "とって",
+        "furigana": [
+          ["もう"],
+          ["一", "いち"],
+          ["枚", "まい"],
+          ["とってください。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-18",
+    "term": "ない",
+    "kana": "ない",
+    "meaning": "there isn't, doesn't have",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf45"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 76896,
+        "ja": "あの二人、元に戻すつもりなんて更々ないみたいだし・・・。",
+        "en": "It seems they don't have the slightest intention of restoring it.",
+        "enId": 7015052,
+        "form": "ない",
+        "furigana": [
+          ["あの"],
+          ["二人", "ふたり"],
+          ["、"],
+          ["元", "もと"],
+          ["に"],
+          ["戻", "もど"],
+          ["すつもりなんて"],
+          ["更々", "さらさら"],
+          ["ないみたいだし・・・。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-19",
+    "term": "無くす",
+    "kana": "なくす",
+    "meaning": "to lose something",
+    "level": "N5",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 188622,
+        "ja": "鉛筆をなくした。",
+        "en": "I have lost my pencil.",
+        "enId": 25767,
+        "form": "なくした",
+        "furigana": [["鉛筆", "えんぴつ"], ["をなくした。"]]
+      },
+      {
+        "id": 156661,
+        "ja": "私は傘をなくした。",
+        "en": "I lost my umbrella.",
+        "enId": 257873,
+        "form": "なくした",
+        "furigana": [["私", "わたし"], ["は"], ["傘", "かさ"], ["をなくした。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-20",
+    "term": "～など",
+    "kana": "～など",
+    "meaning": "et cetera",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-21",
+    "term": "七つ",
+    "kana": "ななつ",
+    "meaning": "seven things",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-22",
+    "term": "並ぶ",
+    "kana": "ならぶ",
+    "meaning": "to line up, to stand in a line (v.i.)",
+    "level": "N5",
+    "pos": ["Godan verb with 'bu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 96190,
+        "ja": "彼らは並んで座った。",
+        "en": "They sat side by side.",
+        "enId": 307513,
+        "form": "並んで",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["並", "なら"],
+          ["んで"],
+          ["座", "すわ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 96191,
+        "ja": "彼らは並んで歩いた。",
+        "en": "They walked side by side.",
+        "enId": 295999,
+        "form": "並んで",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らは"],
+          ["並", "なら"],
+          ["んで"],
+          ["歩", "ある"],
+          ["いた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-23",
+    "term": "何～",
+    "kana": "なん～",
+    "meaning": "what sort of ~",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-24",
+    "term": "にぎやか",
+    "kana": "にぎやか",
+    "meaning": "bustling, busy",
+    "level": "N5",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-25",
+    "term": "～日",
+    "kana": "～にち",
+    "meaning": "~ day of the month, for ~ days",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-26",
+    "term": "荷物",
+    "kana": "にもつ",
+    "meaning": "luggage; baggage",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 186547,
+        "ja": "荷物は何個ですか。",
+        "en": "How many bags do you have?",
+        "enId": 23683,
+        "form": "荷物",
+        "furigana": [
+          ["荷物", "にもつ"],
+          ["は"],
+          ["何", "なん"],
+          ["個", "こ"],
+          ["ですか。"]
+        ]
+      },
+      {
+        "id": 109181,
+        "ja": "彼は荷物を下ろした。",
+        "en": "He put down his burden.",
+        "enId": 294509,
+        "form": "荷物",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["荷物", "にもつ"],
+          ["を"],
+          ["下", "お"],
+          ["ろした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-27",
+    "term": "脱ぐ",
+    "kana": "ぬぐ",
+    "meaning": "to take off (clothes)",
+    "level": "N5",
+    "pos": ["Godan verb with 'gu' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf44"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 179240,
+        "ja": "靴を脱ぎなさい。",
+        "en": "Take off your shoes.",
+        "enId": 18096,
+        "form": "脱ぎ",
+        "furigana": [["靴", "くつ"], ["を"], ["脱", "ぬ"], ["ぎなさい。"]]
+      },
+      {
+        "id": 82592,
+        "ja": "帽子を脱ぎなさい。",
+        "en": "Take off your cap.",
+        "enId": 321124,
+        "form": "脱ぎ",
+        "furigana": [["帽子", "ぼうし"], ["を"], ["脱", "ぬ"], ["ぎなさい。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-28",
+    "term": "温い",
+    "kana": "ぬるい",
+    "meaning": "lukewarm",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 223801,
+        "ja": "このコーヒーはぬるいです。",
+        "en": "This coffee is not hot enough.",
+        "enId": 61137,
+        "form": "ぬるい"
+      }
+    ]
+  },
+  {
+    "date": "2013-10-29",
+    "term": "～年",
+    "kana": "～ねん",
+    "meaning": "~ years",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-10-30",
+    "term": "登る",
+    "kana": "のぼる",
+    "meaning": "to climb",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf16"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83576,
+        "ja": "塀に登るな。",
+        "en": "Don't climb up the wall.",
+        "enId": 320140,
+        "form": "登る",
+        "furigana": [["塀", "へい"], ["に"], ["登", "のぼ"], ["るな。"]]
+      },
+      {
+        "id": 188723,
+        "ja": "猿は木に登る。",
+        "en": "Monkeys climb trees.",
+        "enId": 25868,
+        "form": "登る",
+        "furigana": [
+          ["猿", "さる"],
+          ["は"],
+          ["木", "き"],
+          ["に"],
+          ["登", "のぼ"],
+          ["る。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-10-31",
+    "term": "飲む",
+    "kana": "のむ",
+    "meaning": "to drink; to take (medicine)",
+    "level": "N5",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf35", "nf40", "spec1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 237356,
+        "ja": "お薬飲んだ？",
+        "en": "Have you taken your medicine yet?",
+        "enId": 16380,
+        "form": "飲んだ",
+        "furigana": [["お"], ["薬", "くすり"], ["飲", "の"], ["んだ？"]]
+      },
+      {
+        "id": 143825,
+        "ja": "水が飲みたい。",
+        "en": "I want to drink some water.",
+        "enId": 270741,
+        "form": "飲み",
+        "furigana": [["水", "みず"], ["が"], ["飲", "の"], ["みたい。"]]
+      }
+    ]
+  }
+]

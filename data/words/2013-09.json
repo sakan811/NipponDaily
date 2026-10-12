@@ -1,0 +1,775 @@
+[
+  {
+    "date": "2013-09-01",
+    "term": "生徒",
+    "kana": "せいと",
+    "meaning": "student; pupil",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 199875,
+        "ja": "トムは生徒です。",
+        "en": "Tom is a student.",
+        "enId": 37077,
+        "form": "生徒",
+        "furigana": [["トムは"], ["生徒", "せいと"], ["です。"]]
+      },
+      {
+        "id": 110462,
+        "ja": "彼はよい生徒です。",
+        "en": "He is a good student.",
+        "enId": 293224,
+        "form": "生徒",
+        "furigana": [["彼", "かれ"], ["はよい"], ["生徒", "せいと"], ["です。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-02",
+    "term": "先月",
+    "kana": "せんげつ",
+    "meaning": "last month",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 185297,
+        "ja": "会合は先月あった。",
+        "en": "The meeting was last month.",
+        "enId": 22429,
+        "form": "先月",
+        "furigana": [
+          ["会合", "かいごう"],
+          ["は"],
+          ["先月", "せんげつ"],
+          ["あった。"]
+        ]
+      },
+      {
+        "id": 82902,
+        "ja": "母は先月から病気だ。",
+        "en": "My mother has been sick since last month.",
+        "enId": 320814,
+        "form": "先月",
+        "furigana": [
+          ["母", "はは"],
+          ["は"],
+          ["先月", "せんげつ"],
+          ["から"],
+          ["病気", "びょうき"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-03",
+    "term": "洗濯",
+    "kana": "せんたく",
+    "meaning": "washing, laundry",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-04",
+    "term": "そう",
+    "kana": "そう",
+    "meaning": "yes; appears, to be the case",
+    "level": "N5",
+    "pos": ["auxiliary", "adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81545,
+        "ja": "本当にそう。",
+        "en": "You can't be so sure.",
+        "enId": 322170,
+        "form": "そう",
+        "furigana": [["本当", "ほんとう"], ["にそう。"]]
+      },
+      {
+        "id": 143027,
+        "ja": "晴れそうだ。",
+        "en": "The sky is likely to clear up.",
+        "enId": 271541,
+        "form": "そう",
+        "furigana": [["晴", "は"], ["れそうだ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-05",
+    "term": "掃除",
+    "kana": "そうじ (する)",
+    "meaning": "cleaning, sweeping",
+    "level": "N5",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 84106,
+        "ja": "部屋を掃除しなさい。",
+        "en": "Clean up the room.",
+        "enId": 319618,
+        "form": "掃除",
+        "furigana": [
+          ["部屋", "へや"],
+          ["を"],
+          ["掃除", "そうじ"],
+          ["しなさい。"]
+        ]
+      },
+      {
+        "id": 84183,
+        "ja": "部屋の掃除をしなさい。",
+        "en": "You must clean your room.",
+        "enId": 319532,
+        "form": "掃除",
+        "furigana": [
+          ["部屋", "へや"],
+          ["の"],
+          ["掃除", "そうじ"],
+          ["をしなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-06",
+    "term": "そうして",
+    "kana": "そうして",
+    "meaning": "and, like that",
+    "level": "N5",
+    "pos": ["conjunction"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-07",
+    "term": "そこ",
+    "kana": "そこ",
+    "meaning": "that place, there; bottom, sole",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["spec1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-08",
+    "term": "そちら",
+    "kana": "そちら",
+    "meaning": "that way, there (near you); you (polite)",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-09",
+    "term": "そっち",
+    "kana": "そっち",
+    "meaning": "that way, there (near you)",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-10",
+    "term": "そば",
+    "kana": "そば",
+    "meaning": "near, close, beside; Japanese traditional buckwheat noodle",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-11",
+    "term": "それから",
+    "kana": "それから",
+    "meaning": "and then, after that",
+    "level": "N5",
+    "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-12",
+    "term": "それでは",
+    "kana": "それでは",
+    "meaning": "in that situation, well then...",
+    "level": "N5",
+    "pos": ["conjunction"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-13",
+    "term": "～台",
+    "kana": "～だい",
+    "meaning": "counter for vehicles; machines",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-14",
+    "term": "大使館",
+    "kana": "たいしかん",
+    "meaning": "embassy",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 122209,
+        "ja": "日本大使館はどこにありますか。",
+        "en": "Where is the Japanese Embassy?",
+        "enId": 281794,
+        "form": "大使館",
+        "furigana": [
+          ["日本", "にっぽん"],
+          ["大使館", "たいしかん"],
+          ["はどこにありますか。"]
+        ]
+      },
+      {
+        "id": 114806,
+        "ja": "彼はアメリカ大使館の外交官である。",
+        "en": "He is a diplomat at the American Embassy.",
+        "enId": 288865,
+        "form": "大使館",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はアメリカ"],
+          ["大使館", "たいしかん"],
+          ["の"],
+          ["外交", "がいこう"],
+          ["官", "かん"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-15",
+    "term": "台所",
+    "kana": "だいどころ",
+    "meaning": "kitchen",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-16",
+    "term": "大変",
+    "kana": "たいへん",
+    "meaning": "very; difficult, hard",
+    "level": "N5",
+    "pos": [
+      "adverb (fukushi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 137260,
+        "ja": "大変寒くなった。",
+        "en": "It has become very cold.",
+        "enId": 275976,
+        "form": "大変",
+        "furigana": [["大変", "たいへん"], ["寒", "さむ"], ["くなった。"]]
+      },
+      {
+        "id": 171553,
+        "ja": "今日は大変寒い。",
+        "en": "It is very cold today.",
+        "enId": 242732,
+        "form": "大変",
+        "furigana": [
+          ["今日", "きょう"],
+          ["は"],
+          ["大変", "たいへん"],
+          ["寒", "さむ"],
+          ["い。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-17",
+    "term": "～だけ",
+    "kana": "～だけ",
+    "meaning": "only ~, just ~, as ~",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-18",
+    "term": "～たち",
+    "kana": "～たち",
+    "meaning": "plural suffix",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-19",
+    "term": "たて",
+    "kana": "たて",
+    "meaning": "length, height",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-20",
+    "term": "建物",
+    "kana": "たてもの",
+    "meaning": "building",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [2, 3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 229710,
+        "ja": "高い建物ですね。",
+        "en": "That is a high building, is it not?",
+        "enId": 67071,
+        "form": "建物",
+        "furigana": [["高", "たか"], ["い"], ["建物", "たてもの"], ["ですね。"]]
+      },
+      {
+        "id": 231063,
+        "ja": "あの建物を見て。",
+        "en": "Look at that building.",
+        "enId": 68431,
+        "form": "建物",
+        "furigana": [
+          ["あの"],
+          ["建物", "たてもの"],
+          ["を"],
+          ["見", "み"],
+          ["て。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-21",
+    "term": "頼む",
+    "kana": "たのむ",
+    "meaning": "to request, to ask (a favor)",
+    "level": "N5",
+    "pos": ["Godan verb with 'mu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141738,
+        "ja": "先生に頼もう。",
+        "en": "Let's ask the teacher.",
+        "enId": 272832,
+        "form": "頼もう",
+        "furigana": [["先生", "せんせい"], ["に"], ["頼", "たの"], ["もう。"]]
+      },
+      {
+        "id": 183977,
+        "ja": "勘定を頼むよ。",
+        "en": "Give me the bill, please.",
+        "enId": 21103,
+        "form": "頼む",
+        "furigana": [["勘定", "かんじょう"], ["を"], ["頼", "たの"], ["むよ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-22",
+    "term": "たばこ",
+    "kana": "たばこ",
+    "meaning": "tobacco, cigarettes",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["gai1", "ichi1", "news2", "nf38"],
+    "stratum": "gairaigo",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2013-09-23",
+    "term": "多分",
+    "kana": "たぶん",
+    "meaning": "perhaps, probably, maybe",
+    "level": "N5",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 203344,
+        "ja": "たぶん大丈夫だ。",
+        "en": "I guess that would be all right.",
+        "enId": 40581,
+        "form": "たぶん",
+        "furigana": [["たぶん"], ["大丈夫", "だいじょうぶ"], ["だ。"]]
+      },
+      {
+        "id": 227675,
+        "ja": "多分うまく行くさ。",
+        "en": "Well it will probably go smoothly.",
+        "enId": 13079732,
+        "form": "多分",
+        "furigana": [["多分", "たぶん"], ["うまく"], ["行", "い"], ["くさ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-24",
+    "term": "段々",
+    "kana": "だんだん",
+    "meaning": "gradually, by degrees",
+    "level": "N5",
+    "pos": ["adverb (fukushi)", "adverb taking the 'to' particle"],
+    "priority": ["ichi1", "news2", "nf38"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 122906,
+        "ja": "日はだんだん長くなる。",
+        "en": "The day is getting longer and longer.",
+        "enId": 281096,
+        "form": "だんだん",
+        "furigana": [["日", "ひ"], ["はだんだん"], ["長", "なが"], ["くなる。"]]
+      },
+      {
+        "id": 179431,
+        "ja": "空はだんだん暗くなった。",
+        "en": "The sky became darker and darker.",
+        "enId": 18288,
+        "form": "だんだん",
+        "furigana": [
+          ["空", "そら"],
+          ["はだんだん"],
+          ["暗", "くら"],
+          ["くなった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-25",
+    "term": "地図",
+    "kana": "ちず",
+    "meaning": "a map",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 218197,
+        "ja": "これは地図です。",
+        "en": "This is a map.",
+        "enId": 55509,
+        "form": "地図",
+        "furigana": [["これは"], ["地図", "ちず"], ["です。"]]
+      },
+      {
+        "id": 118538,
+        "ja": "彼に地図を手渡した。",
+        "en": "I handed a map to him.",
+        "enId": 285125,
+        "form": "地図",
+        "furigana": [
+          ["彼", "かれ"],
+          ["に"],
+          ["地図", "ちず"],
+          ["を"],
+          ["手渡", "てわた"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-26",
+    "term": "茶色",
+    "kana": "ちゃいろ",
+    "meaning": "brown",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 117753,
+        "ja": "彼の靴は茶色だ。",
+        "en": "His shoes are brown.",
+        "enId": 285911,
+        "form": "茶色",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["靴", "くつ"],
+          ["は"],
+          ["茶色", "ちゃいろ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 126620,
+        "ja": "茶色がいいんですが。",
+        "en": "I'd prefer a brown one.",
+        "enId": 277427,
+        "form": "茶色",
+        "furigana": [["茶色", "ちゃいろ"], ["がいいんですが。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-27",
+    "term": "茶碗",
+    "kana": "ちゃわん",
+    "meaning": "rice bowl",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1", "ichi1", "news1", "nf21"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 207848,
+        "ja": "その茶碗にはひびがある。",
+        "en": "The cup has a crack.",
+        "enId": 45104,
+        "form": "茶碗",
+        "furigana": [["その"], ["茶碗", "ちゃわん"], ["にはひびがある。"]]
+      },
+      {
+        "id": 136994,
+        "ja": "誰がその茶碗をわったのか。",
+        "en": "Who broke the cup?",
+        "enId": 61439,
+        "form": "茶碗",
+        "furigana": [
+          ["誰", "だれ"],
+          ["がその"],
+          ["茶碗", "ちゃわん"],
+          ["をわったのか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-28",
+    "term": "丁度",
+    "kana": "ちょうど",
+    "meaning": "just, right, exactly",
+    "level": "N5",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["ateji"],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 202925,
+        "ja": "ちょうど間にあった。",
+        "en": "I got there just in time.",
+        "enId": 40161,
+        "form": "ちょうど",
+        "furigana": [["ちょうど"], ["間", "ま"], ["にあった。"]]
+      },
+      {
+        "id": 504217,
+        "ja": "８時半ちょうどです。",
+        "en": "It's exactly half-past eight.",
+        "enId": 504223,
+        "form": "ちょうど",
+        "furigana": [["８"], ["時半", "じはん"], ["ちょうどです。"]]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-29",
+    "term": "使う",
+    "kana": "つかう",
+    "meaning": "to use",
+    "level": "N5",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 187729,
+        "ja": "何に使うの？",
+        "en": "What for?",
+        "enId": 24867,
+        "form": "使う",
+        "furigana": [["何", "なに"], ["に"], ["使", "つか"], ["うの？"]]
+      },
+      {
+        "id": 123007,
+        "ja": "二枚舌を使うな。",
+        "en": "Keep not two tongues in one mouth.",
+        "enId": 280994,
+        "form": "使う",
+        "furigana": [
+          ["二枚舌", "にまいじた"],
+          ["を"],
+          ["使", "つか"],
+          ["うな。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2013-09-30",
+    "term": "疲れる",
+    "kana": "つかれる",
+    "meaning": "to get (become) tired; to become fatigued",
+    "level": "N5",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf29"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 85882,
+        "ja": "疲れました。",
+        "en": "I'm tired.",
+        "enId": 1705,
+        "form": "疲れました",
+        "furigana": [["疲", "つか"], ["れました。"]]
+      },
+      {
+        "id": 85918,
+        "ja": "疲れたなあ。",
+        "en": "I'm exhausted.",
+        "enId": 20405,
+        "form": "疲れた",
+        "furigana": [["疲", "つか"], ["れたなあ。"]]
+      }
+    ]
+  }
+]

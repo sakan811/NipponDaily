@@ -1,0 +1,1325 @@
+[
+  {
+    "date": "2016-02-01",
+    "term": "器用",
+    "kana": "きよう",
+    "meaning": "skillful, handy",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news2", "nf44"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 177159,
+        "ja": "君は手先が器用だね。",
+        "en": "You have a light hand, don't you?",
+        "enId": 16008,
+        "form": "器用",
+        "furigana": [
+          ["君", "きみ"],
+          ["は"],
+          ["手先", "てさき"],
+          ["が"],
+          ["器用", "きよう"],
+          ["だね。"]
+        ]
+      },
+      {
+        "id": 195374,
+        "ja": "マックスは手先が器用だ。",
+        "en": "Max is clever with his fingers.",
+        "enId": 32548,
+        "form": "器用",
+        "furigana": [
+          ["マックスは"],
+          ["手先", "てさき"],
+          ["が"],
+          ["器用", "きよう"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-02",
+    "term": "競技",
+    "kana": "きょうぎ",
+    "meaning": "game, match, contest",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 192641,
+        "ja": "ラグビーは屋外競技である。",
+        "en": "Rugby is an outdoor game.",
+        "enId": 29805,
+        "form": "競技",
+        "furigana": [
+          ["ラグビーは"],
+          ["屋外", "おくがい"],
+          ["競技", "きょうぎ"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 141990,
+        "ja": "雪の為に競技の開始が遅れた。",
+        "en": "The game was delayed on account of snow.",
+        "enId": 272580,
+        "form": "競技",
+        "furigana": [
+          ["雪", "ゆき"],
+          ["の"],
+          ["為", "ため"],
+          ["に"],
+          ["競技", "きょうぎ"],
+          ["の"],
+          ["開始", "かいし"],
+          ["が"],
+          ["遅", "おく"],
+          ["れた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-03",
+    "term": "行儀",
+    "kana": "ぎょうぎ",
+    "meaning": "manners",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 107329,
+        "ja": "彼は行儀の悪い男だ。",
+        "en": "He is an ill-mannered man.",
+        "enId": 296357,
+        "form": "行儀",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["行儀", "ぎょうぎ"],
+          ["の"],
+          ["悪", "わる"],
+          ["い"],
+          ["男", "おとこ"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 107331,
+        "ja": "彼は行儀が悪かった。",
+        "en": "He behaved badly.",
+        "enId": 296355,
+        "form": "行儀",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["行儀", "ぎょうぎ"],
+          ["が"],
+          ["悪", "わる"],
+          ["かった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-04",
+    "term": "供給",
+    "kana": "きょうきゅう",
+    "meaning": "supply, provision",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 145764,
+        "ja": "食料の供給は十分だ。",
+        "en": "There are abundant food supplies.",
+        "enId": 268798,
+        "form": "供給",
+        "furigana": [
+          ["食料", "しょくりょう"],
+          ["の"],
+          ["供給", "きょうきゅう"],
+          ["は"],
+          ["十分", "じゅうぶん"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 150984,
+        "ja": "雌牛は牛乳を供給する。",
+        "en": "Cows supply milk.",
+        "enId": 263572,
+        "form": "供給",
+        "furigana": [
+          ["雌牛", "めうし"],
+          ["は"],
+          ["牛乳", "ぎゅうにゅう"],
+          ["を"],
+          ["供給", "きょうきゅう"],
+          ["する。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-05",
+    "term": "教授",
+    "kana": "きょうじゅ",
+    "meaning": "teaching, instruction; professor",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 157592,
+        "ja": "私は教授です。",
+        "en": "I am a professor.",
+        "enId": 256939,
+        "form": "教授",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["教授", "きょうじゅ"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 110083,
+        "ja": "彼は医学部の教授だ。",
+        "en": "He is a professor of the medical department.",
+        "enId": 293605,
+        "form": "教授",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["医学部", "いがくぶ"],
+          ["の"],
+          ["教授", "きょうじゅ"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-06",
+    "term": "強調",
+    "kana": "きょうちょう",
+    "meaning": "emphasis, stress, stressed point",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 159930,
+        "ja": "私はその点を強調した。",
+        "en": "I stressed the point.",
+        "enId": 254592,
+        "form": "強調",
+        "furigana": [
+          ["私", "わたし"],
+          ["はその"],
+          ["点", "てん"],
+          ["を"],
+          ["強調", "きょうちょう"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 102773,
+        "ja": "彼は即時断行を強調した。",
+        "en": "He put emphasis on the necessity for immediate action.",
+        "enId": 300921,
+        "form": "強調",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["即時", "そくじ"],
+          ["断行", "だんこう"],
+          ["を"],
+          ["強調", "きょうちょう"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-07",
+    "term": "共通",
+    "kana": "きょうつう",
+    "meaning": "commonness, mutual",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 174561,
+        "ja": "孤独は人間共通の運命だ。",
+        "en": "Isolation is the common lot of man.",
+        "enId": 239908,
+        "form": "共通の",
+        "furigana": [
+          ["孤独", "こどく"],
+          ["は"],
+          ["人間", "にんげん"],
+          ["共通", "きょうつう"],
+          ["の"],
+          ["運命", "うんめい"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 98488,
+        "ja": "彼らの思想には共通性がある。",
+        "en": "There is a community of thought between them.",
+        "enId": 305213,
+        "form": "共通",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らの"],
+          ["思想", "しそう"],
+          ["には"],
+          ["共通", "きょうつう"],
+          ["性", "せい"],
+          ["がある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-08",
+    "term": "共同",
+    "kana": "きょうどう",
+    "meaning": "cooperation, association, collaboration",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun, used as a prefix",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "morphemes": [
+      {
+        "text": "共",
+        "reading": "きょう",
+        "meaning": "together",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "同",
+        "reading": "どう",
+        "meaning": "same",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 共同通信社 (Kyōdō Tsūshinsha, “Kyodo News”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 154337,
+        "ja": "私は彼と共同で事業をやる。",
+        "en": "I associate with him in business.",
+        "enId": 260205,
+        "form": "共同",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["彼", "かれ"],
+          ["と"],
+          ["共同", "きょうどう"],
+          ["で"],
+          ["事業", "じぎょう"],
+          ["をやる。"]
+        ]
+      },
+      {
+        "id": 152777,
+        "ja": "私は妹と共同で部屋を使っている。",
+        "en": "I share the room with my sister.",
+        "enId": 261772,
+        "form": "共同",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["妹", "いもうと"],
+          ["と"],
+          ["共同", "きょうどう"],
+          ["で"],
+          ["部屋", "へや"],
+          ["を"],
+          ["使", "つか"],
+          ["っている。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2016-02-09",
+    "term": "恐怖",
+    "kana": "きょうふ",
+    "meaning": "fear, terror",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1, 0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2016-02-10",
+    "term": "協力",
+    "kana": "きょうりょく",
+    "meaning": "cooperation, collaboration",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 154336,
+        "ja": "私は彼と協力した。",
+        "en": "I went into partnership with him.",
+        "enId": 260206,
+        "form": "協力",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["彼", "かれ"],
+          ["と"],
+          ["協力", "きょうりょく"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 217180,
+        "ja": "ご協力に感謝します。",
+        "en": "I appreciate your cooperation.",
+        "enId": 54487,
+        "form": "協力",
+        "furigana": [
+          ["ご"],
+          ["協力", "きょうりょく"],
+          ["に"],
+          ["感謝", "かんしゃ"],
+          ["します。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-11",
+    "term": "強力",
+    "kana": "きょうりょく",
+    "meaning": "powerful, strong",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 97596,
+        "ja": "彼らはより強力な武器を作った。",
+        "en": "They made more powerful arms.",
+        "enId": 306108,
+        "form": "強力な",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らはより"],
+          ["強力", "きょうりょく"],
+          ["な"],
+          ["武器", "ぶき"],
+          ["を"],
+          ["作", "つく"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 122629,
+        "ja": "日本の軍隊は非常に強力だった。",
+        "en": "Japan's army was very powerful.",
+        "enId": 281374,
+        "form": "強力",
+        "furigana": [
+          ["日本", "にっぽん"],
+          ["の"],
+          ["軍隊", "ぐんたい"],
+          ["は"],
+          ["非常", "ひじょう"],
+          ["に"],
+          ["強力", "きょうりょく"],
+          ["だった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-12",
+    "term": "許可",
+    "kana": "きょか",
+    "meaning": "permission, approval",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 137897,
+        "ja": "滞在を許可して下さい。",
+        "en": "Permit me to stay.",
+        "enId": 275339,
+        "form": "許可",
+        "furigana": [
+          ["滞在", "たいざい"],
+          ["を"],
+          ["許可", "きょか"],
+          ["して"],
+          ["下", "くだ"],
+          ["さい。"]
+        ]
+      },
+      {
+        "id": 157740,
+        "ja": "私は帰宅の許可を得た。",
+        "en": "I got leave to go home.",
+        "enId": 256791,
+        "form": "許可",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["帰宅", "きたく"],
+          ["の"],
+          ["許可", "きょか"],
+          ["を"],
+          ["得", "え"],
+          ["た。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-13",
+    "term": "巨大",
+    "kana": "きょだい",
+    "meaning": "huge, gigantic, enormous",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 124213,
+        "ja": "東京は巨大な都市です。",
+        "en": "Tokyo is a huge city.",
+        "enId": 279781,
+        "form": "巨大な",
+        "furigana": [
+          ["東京", "とうきょう"],
+          ["は"],
+          ["巨大", "きょだい"],
+          ["な"],
+          ["都市", "とし"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 146307,
+        "ja": "象は巨大な動物である。",
+        "en": "An elephant is an enormous animal.",
+        "enId": 268255,
+        "form": "巨大な",
+        "furigana": [
+          ["象", "ぞう"],
+          ["は"],
+          ["巨大", "きょだい"],
+          ["な"],
+          ["動物", "どうぶつ"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-14",
+    "term": "切れる",
+    "kana": "きれる",
+    "meaning": "to cut well, to be sharp; to break (off)",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 124742,
+        "ja": "電話が切れた。",
+        "en": "The telephone was still.",
+        "enId": 279252,
+        "form": "切れた",
+        "furigana": [["電話", "でんわ"], ["が"], ["切", "き"], ["れた。"]]
+      },
+      {
+        "id": 124834,
+        "ja": "電球が切れた。",
+        "en": "The light bulb has burned out.",
+        "enId": 279159,
+        "form": "切れた",
+        "furigana": [["電球", "でんきゅう"], ["が"], ["切", "き"], ["れた。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-15",
+    "term": "記録",
+    "kana": "きろく",
+    "meaning": "record, minutes, document",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 115562,
+        "ja": "彼は記録を破った。",
+        "en": "He has broken the record.",
+        "enId": 288108,
+        "form": "記録",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["記録", "きろく"],
+          ["を"],
+          ["破", "やぶ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 117798,
+        "ja": "彼の記録は誰も破れない。",
+        "en": "Nobody can break his record.",
+        "enId": 276659,
+        "form": "記録",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["記録", "きろく"],
+          ["は"],
+          ["誰", "だれ"],
+          ["も"],
+          ["破", "やぶ"],
+          ["れない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-16",
+    "term": "議論",
+    "kana": "ぎろん",
+    "meaning": "argument, discussion, dispute",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 117790,
+        "ja": "彼の議論は合理的だ。",
+        "en": "His argument is rational.",
+        "enId": 285874,
+        "form": "議論",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["議論", "ぎろん"],
+          ["は"],
+          ["合理", "ごうり"],
+          ["的", "てき"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 182859,
+        "ja": "議論を続けましょう。",
+        "en": "Let's carry on the discussion.",
+        "enId": 19980,
+        "form": "議論",
+        "furigana": [
+          ["議論", "ぎろん"],
+          ["を"],
+          ["続", "つづ"],
+          ["けましょう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-17",
+    "term": "禁煙",
+    "kana": "きんえん",
+    "meaning": "No Smoking",
+    "level": "N3",
+    "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108270,
+        "ja": "彼は禁煙した。",
+        "en": "He abstained from smoking.",
+        "enId": 295416,
+        "form": "禁煙",
+        "furigana": [["彼", "かれ"], ["は"], ["禁煙", "きんえん"], ["した。"]]
+      },
+      {
+        "id": 179958,
+        "ja": "禁煙は難しい。",
+        "en": "It is difficult to give up smoking.",
+        "enId": 18817,
+        "form": "禁煙",
+        "furigana": [["禁煙", "きんえん"], ["は"], ["難", "むずか"], ["しい。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-18",
+    "term": "金額",
+    "kana": "きんがく",
+    "meaning": "amount of money",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 160230,
+        "ja": "私はその金額の２倍払った。",
+        "en": "I paid double the sum.",
+        "enId": 254291,
+        "form": "金額",
+        "furigana": [
+          ["私", "わたし"],
+          ["はその"],
+          ["金額", "きんがく"],
+          ["の２"],
+          ["倍", "ばい"],
+          ["払", "はら"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 229270,
+        "ja": "いかほどの金額でも結構です。",
+        "en": "Any amount of money will do.",
+        "enId": 66628,
+        "form": "金額",
+        "furigana": [
+          ["いかほどの"],
+          ["金額", "きんがく"],
+          ["でも"],
+          ["結構", "けっこう"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-19",
+    "term": "金庫",
+    "kana": "きんこ",
+    "meaning": "safe, vault",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108208,
+        "ja": "彼は金庫を私に預けた。",
+        "en": "He left his safe in my care.",
+        "enId": 295478,
+        "form": "金庫",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["金庫", "きんこ"],
+          ["を"],
+          ["私", "わたし"],
+          ["に"],
+          ["預", "あず"],
+          ["けた。"]
+        ]
+      },
+      {
+        "id": 114209,
+        "ja": "彼はお金を金庫にしまった。",
+        "en": "He shut up the money in the safe.",
+        "enId": 289464,
+        "form": "金庫",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はお"],
+          ["金", "かね"],
+          ["を"],
+          ["金庫", "きんこ"],
+          ["にしまった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-20",
+    "term": "禁止",
+    "kana": "きんし",
+    "meaning": "prohibition, ban",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 182817,
+        "ja": "喫煙は絶対禁止。",
+        "en": "Smoking is strictly prohibited.",
+        "enId": 19937,
+        "form": "禁止",
+        "furigana": [
+          ["喫煙", "きつえん"],
+          ["は"],
+          ["絶対", "ぜったい"],
+          ["禁止", "きんし"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 145978,
+        "ja": "職員以外入室禁止。",
+        "en": "Admittance to staff members only.",
+        "enId": 268584,
+        "form": "禁止",
+        "furigana": [
+          ["職員", "しょくいん"],
+          ["以外", "いがい"],
+          ["入室", "にゅうしつ"],
+          ["禁止", "きんし"],
+          ["。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-21",
+    "term": "金銭",
+    "kana": "きんせん",
+    "meaning": "money, cash",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 144799,
+        "ja": "親子の中でも金銭は他人。",
+        "en": "Trade knows neither friends or kindred.",
+        "enId": 269765,
+        "form": "金銭",
+        "furigana": [
+          ["親子", "おやこ"],
+          ["の"],
+          ["中", "なか"],
+          ["でも"],
+          ["金銭", "きんせん"],
+          ["は"],
+          ["他人", "たにん"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 179646,
+        "ja": "金銭は価値の尺度である。",
+        "en": "Money is the measure of worth.",
+        "enId": 18504,
+        "form": "金銭",
+        "furigana": [
+          ["金銭", "きんせん"],
+          ["は"],
+          ["価値", "かち"],
+          ["の"],
+          ["尺度", "しゃくど"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-22",
+    "term": "緊張",
+    "kana": "きんちょう",
+    "meaning": "tension, mental strain, nervousness",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 77650,
+        "ja": "冷戦の緊張が高まった。",
+        "en": "Cold-war tension has mounted.",
+        "enId": 326068,
+        "form": "緊張",
+        "furigana": [
+          ["冷戦", "れいせん"],
+          ["の"],
+          ["緊張", "きんちょう"],
+          ["が"],
+          ["高", "たか"],
+          ["まった。"]
+        ]
+      },
+      {
+        "id": 81967,
+        "ja": "僕は幾分緊張している。",
+        "en": "I am nervous in a sense.",
+        "enId": 321748,
+        "form": "緊張",
+        "furigana": [
+          ["僕", "ぼく"],
+          ["は"],
+          ["幾分", "いくぶん"],
+          ["緊張", "きんちょう"],
+          ["している。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-23",
+    "term": "金融",
+    "kana": "きんゆう",
+    "meaning": "finance, money and banking",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 173057,
+        "ja": "国際金融で仕事を続けるつもりです。",
+        "en": "I plan to pursue a career in international finance.",
+        "enId": 241415,
+        "form": "金融",
+        "furigana": [
+          ["国際", "こくさい"],
+          ["金融", "きんゆう"],
+          ["で"],
+          ["仕事", "しごと"],
+          ["を"],
+          ["続", "つづ"],
+          ["けるつもりです。"]
+        ]
+      },
+      {
+        "id": 179627,
+        "ja": "金融引き締め政策が実施されている。",
+        "en": "A fiscal tightening policy is being enacted.",
+        "enId": 18485,
+        "form": "金融",
+        "furigana": [
+          ["金融", "きんゆう"],
+          ["引", "ひ"],
+          ["き"],
+          ["締", "し"],
+          ["め"],
+          ["政策", "せいさく"],
+          ["が"],
+          ["実施", "じっし"],
+          ["されている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-24",
+    "term": "偶然",
+    "kana": "ぐうぜん",
+    "meaning": "(by) chance, unexpectedly",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'",
+      "adverb (fukushi)"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 179269,
+        "ja": "偶然に頼るな。",
+        "en": "Don't leave it up to chance.",
+        "enId": 18125,
+        "form": "偶然に",
+        "furigana": [["偶然", "ぐうぜん"], ["に"], ["頼", "たよ"], ["るな。"]]
+      },
+      {
+        "id": 95097,
+        "ja": "彼女と偶然出会う。",
+        "en": "I bump into her.",
+        "enId": 308609,
+        "form": "偶然",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["と"],
+          ["偶然", "ぐうぜん"],
+          ["出会", "であ"],
+          ["う。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-25",
+    "term": "臭い",
+    "kana": "くさい",
+    "meaning": "stinky, smelly, bad-smelling",
+    "level": "N3",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 177081,
+        "ja": "君は息が臭い。",
+        "en": "You have foul breath.",
+        "enId": 15928,
+        "form": "臭い",
+        "furigana": [
+          ["君", "きみ"],
+          ["は"],
+          ["息", "いき"],
+          ["が"],
+          ["臭", "くさ"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 234678,
+        "ja": "あいつが臭い。",
+        "en": "He looks suspicious.",
+        "enId": 72055,
+        "form": "臭い",
+        "furigana": [["あいつが"], ["臭", "くさ"], ["い。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-26",
+    "term": "癖",
+    "kana": "くせ",
+    "meaning": "a habit (often a bad habit), peculiarity",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 115559,
+        "ja": "彼は、喫煙のくせがついた。",
+        "en": "He acquired the habit of smoking.",
+        "enId": 285031,
+        "form": "くせ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は、"],
+          ["喫煙", "きつえん"],
+          ["のくせがついた。"]
+        ]
+      },
+      {
+        "id": 109555,
+        "ja": "彼は鉛筆をなめるくせがある。",
+        "en": "He has a habit of sucking his pencil.",
+        "enId": 294135,
+        "form": "くせ",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["鉛筆", "えんぴつ"],
+          ["をなめるくせがある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-27",
+    "term": "下り",
+    "kana": "くだり",
+    "meaning": "down-train (going away from Tokyo)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2016-02-28",
+    "term": "苦痛",
+    "kana": "くつう",
+    "meaning": "pain, agony",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83598,
+        "ja": "兵士は苦痛でうめいた。",
+        "en": "The soldier groaned with pain.",
+        "enId": 320118,
+        "form": "苦痛",
+        "furigana": [
+          ["兵士", "へいし"],
+          ["は"],
+          ["苦痛", "くつう"],
+          ["でうめいた。"]
+        ]
+      },
+      {
+        "id": 117839,
+        "ja": "彼の顔は苦痛でいがんだ。",
+        "en": "His face was twisted with pain.",
+        "enId": 285825,
+        "form": "苦痛",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["顔", "かお"],
+          ["は"],
+          ["苦痛", "くつう"],
+          ["でいがんだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-02-29",
+    "term": "ぐっすり",
+    "kana": "ぐっすり",
+    "meaning": "sound asleep, fast asleep",
+    "level": "N3",
+    "pos": ["adverb (fukushi)", "adverb taking the 'to' particle"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 225658,
+        "ja": "ぐっすり寝ました。",
+        "en": "I had a good night's sleep.",
+        "enId": 62994,
+        "form": "ぐっすり",
+        "furigana": [["ぐっすり"], ["寝", "ね"], ["ました。"]]
+      },
+      {
+        "id": 113959,
+        "ja": "彼はぐっすりと眠った。",
+        "en": "He slept soundly.",
+        "enId": 289713,
+        "form": "ぐっすりと",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はぐっすりと"],
+          ["眠", "ねむ"],
+          ["った。"]
+        ]
+      }
+    ]
+  }
+]

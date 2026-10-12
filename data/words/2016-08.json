@@ -1,0 +1,1299 @@
+[
+  {
+    "date": "2016-08-01",
+    "term": "燃やす",
+    "kana": "もやす",
+    "meaning": "to burn",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2016-08-02",
+    "term": "模様",
+    "kana": "もよう",
+    "meaning": "pattern, figure, design",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 211743,
+        "ja": "その絵には複雑な模様が見える。",
+        "en": "I can see some intricate patterns in the picture.",
+        "enId": 49020,
+        "form": "模様",
+        "furigana": [
+          ["その"],
+          ["絵", "え"],
+          ["には"],
+          ["複雑", "ふくざつ"],
+          ["な"],
+          ["模様", "もよう"],
+          ["が"],
+          ["見", "み"],
+          ["える。"]
+        ]
+      },
+      {
+        "id": 92485,
+        "ja": "彼女はその皿の模様が気に入っている。",
+        "en": "She likes the design on the plate.",
+        "enId": 311226,
+        "form": "模様",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はその"],
+          ["皿", "さら"],
+          ["の"],
+          ["模様", "もよう"],
+          ["が"],
+          ["気", "き"],
+          ["に"],
+          ["入", "い"],
+          ["っている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-03",
+    "term": "文句",
+    "kana": "もんく",
+    "meaning": "a complaint",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83668,
+        "ja": "文句を言うな。",
+        "en": "Don't complain.",
+        "enId": 320048,
+        "form": "文句",
+        "furigana": [["文句", "もんく"], ["を"], ["言", "い"], ["うな。"]]
+      },
+      {
+        "id": 75723,
+        "ja": "文句を言えば切りがない。",
+        "en": "Once the complaining starts, it never ends.",
+        "enId": 327995,
+        "form": "文句",
+        "furigana": [
+          ["文句", "もんく"],
+          ["を"],
+          ["言", "い"],
+          ["えば"],
+          ["切", "き"],
+          ["りがない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-04",
+    "term": "約",
+    "kana": "やく",
+    "meaning": "approximately, about, some",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 152528,
+        "ja": "私は約１マイル歩いた。",
+        "en": "I walked about a mile.",
+        "enId": 262022,
+        "form": "約",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["約", "やく"],
+          ["１マイル"],
+          ["歩", "ある"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 140755,
+        "ja": "全部で約１５０ドルです。",
+        "en": "About one hundred and fifty dollars altogether.",
+        "enId": 273818,
+        "form": "約",
+        "furigana": [
+          ["全部", "ぜんぶ"],
+          ["で"],
+          ["約", "やく"],
+          ["１５０ドルです。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-05",
+    "term": "訳す",
+    "kana": "やくす",
+    "meaning": "to translate",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf32"],
+    "pitch": [2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 188218,
+        "ja": "下線部を訳せ。",
+        "en": "Translate the underlined part.",
+        "enId": 25358,
+        "form": "訳せ",
+        "furigana": [
+          ["下線", "かせん"],
+          ["部", "ぶ"],
+          ["を"],
+          ["訳", "やく"],
+          ["せ。"]
+        ]
+      },
+      {
+        "id": 188220,
+        "ja": "下線のある文を訳しなさい。",
+        "en": "Translate the underlined sentences.",
+        "enId": 25360,
+        "form": "訳し",
+        "furigana": [
+          ["下線", "かせん"],
+          ["のある"],
+          ["文", "ぶん"],
+          ["を"],
+          ["訳", "やく"],
+          ["しなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-06",
+    "term": "家賃",
+    "kana": "やちん",
+    "meaning": "rent",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 186913,
+        "ja": "家賃は月いくらですか。",
+        "en": "How much is the rent per month?",
+        "enId": 24050,
+        "form": "家賃",
+        "furigana": [
+          ["家賃", "やちん"],
+          ["は"],
+          ["月", "つき"],
+          ["いくらですか。"]
+        ]
+      },
+      {
+        "id": 222825,
+        "ja": "この家は家賃がいらない。",
+        "en": "This house is free of rent.",
+        "enId": 60155,
+        "form": "家賃",
+        "furigana": [
+          ["この"],
+          ["家", "いえ"],
+          ["は"],
+          ["家賃", "やちん"],
+          ["がいらない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-07",
+    "term": "厄介",
+    "kana": "やっかい",
+    "meaning": "trouble, burden, care",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf23"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79568,
+        "ja": "厄介な事だ。",
+        "en": "It's a difficult matter.",
+        "enId": 324149,
+        "form": "厄介な",
+        "furigana": [["厄介", "やっかい"], ["な"], ["事", "こと"], ["だ。"]]
+      },
+      {
+        "id": 193099,
+        "ja": "厄介なのは最初の一歩だ。",
+        "en": "It is the first step which is troublesome.",
+        "enId": 30264,
+        "form": "厄介",
+        "furigana": [
+          ["厄介", "やっかい"],
+          ["なのは"],
+          ["最初", "さいしょ"],
+          ["の"],
+          ["一", "いっ"],
+          ["歩", "ぽ"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-08",
+    "term": "雇う",
+    "kana": "やとう",
+    "meaning": "to employ, to hire",
+    "level": "N3",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf24"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 101492,
+        "ja": "彼は日給で雇われた。",
+        "en": "He was employed by the day.",
+        "enId": 302203,
+        "form": "雇われた",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["日給", "にっきゅう"],
+          ["で"],
+          ["雇", "やと"],
+          ["われた。"]
+        ]
+      },
+      {
+        "id": 178941,
+        "ja": "君が正直なら雇おう。",
+        "en": "If you are honest, I will hire you.",
+        "enId": 17796,
+        "form": "雇おう",
+        "furigana": [
+          ["君", "きみ"],
+          ["が"],
+          ["正直", "しょうじき"],
+          ["なら"],
+          ["雇", "やと"],
+          ["おう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-09",
+    "term": "破る",
+    "kana": "やぶる",
+    "meaning": "to tear; to violate; to defeat",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79504,
+        "ja": "約束を破らないでよ。",
+        "en": "Don't go back on your promise.",
+        "enId": 324215,
+        "form": "破らないで",
+        "furigana": [
+          ["約束", "やくそく"],
+          ["を"],
+          ["破", "やぶ"],
+          ["らないでよ。"]
+        ]
+      },
+      {
+        "id": 203217,
+        "ja": "だれがこの封筒を破って開けたのか。",
+        "en": "Who has torn the envelope open?",
+        "enId": 40453,
+        "form": "破って",
+        "furigana": [
+          ["だれがこの"],
+          ["封筒", "ふうとう"],
+          ["を"],
+          ["破", "やぶ"],
+          ["って"],
+          ["開", "あ"],
+          ["けたのか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-10",
+    "term": "破れる",
+    "kana": "やぶれる",
+    "meaning": "to get torn, to wear out",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2016-08-11",
+    "term": "唯一",
+    "kana": "ゆいいつ",
+    "meaning": "only, sole, unique",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)",
+      "adverb (fukushi)"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2016-08-12",
+    "term": "勇気",
+    "kana": "ゆうき",
+    "meaning": "courage, bravery, boldness",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99339,
+        "ja": "彼は勇気がない。",
+        "en": "He is wanting in courage.",
+        "enId": 304359,
+        "form": "勇気",
+        "furigana": [["彼", "かれ"], ["は"], ["勇気", "ゆうき"], ["がない。"]]
+      },
+      {
+        "id": 78852,
+        "ja": "用心は勇気の大半。",
+        "en": "Discretion is the better part of valor.",
+        "enId": 269048,
+        "form": "勇気",
+        "furigana": [
+          ["用心", "ようじん"],
+          ["は"],
+          ["勇気", "ゆうき"],
+          ["の"],
+          ["大半", "たいはん"],
+          ["。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-13",
+    "term": "有効",
+    "kana": "ゆうこう",
+    "meaning": "valid, effectual",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 142093,
+        "ja": "切符は三日間有効だ。",
+        "en": "The ticket holds good for three days.",
+        "enId": 45819,
+        "form": "有効",
+        "furigana": [
+          ["切符", "きっぷ"],
+          ["は"],
+          ["三日", "みっか"],
+          ["間", "かん"],
+          ["有効", "ゆうこう"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 142094,
+        "ja": "切符は何日間有効ですか。",
+        "en": "How long is the ticket good for?",
+        "enId": 272476,
+        "form": "有効",
+        "furigana": [
+          ["切符", "きっぷ"],
+          ["は"],
+          ["何", "なん"],
+          ["日間", "にちかん"],
+          ["有効", "ゆうこう"],
+          ["ですか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-14",
+    "term": "優秀",
+    "kana": "ゆうしゅう",
+    "meaning": "superiority, excellence",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 86456,
+        "ja": "彼女は優秀な学生だ。",
+        "en": "She is an excellent student.",
+        "enId": 317255,
+        "form": "優秀な",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["優秀", "ゆうしゅう"],
+          ["な"],
+          ["学生", "がくせい"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 89912,
+        "ja": "彼女は作文が優秀だ。",
+        "en": "She is excellent in composition.",
+        "enId": 313803,
+        "form": "優秀",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["作文", "さくぶん"],
+          ["が"],
+          ["優秀", "ゆうしゅう"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-15",
+    "term": "優勝",
+    "kana": "ゆうしょう",
+    "meaning": "overall victory, championship",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79419,
+        "ja": "優勝には程遠い。",
+        "en": "It's far from winning the first prize.",
+        "enId": 324298,
+        "form": "優勝",
+        "furigana": [
+          ["優勝", "ゆうしょう"],
+          ["には"],
+          ["程遠", "ほどとお"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 79420,
+        "ja": "優勝おめでとう。",
+        "en": "Congratulations on the victory!",
+        "enId": 324297,
+        "form": "優勝",
+        "furigana": [["優勝", "ゆうしょう"], ["おめでとう。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-16",
+    "term": "友情",
+    "kana": "ゆうじょう",
+    "meaning": "friendship, fellowship",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf10"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79392,
+        "ja": "友情は相互理解にある。",
+        "en": "Friendship consists of mutual understanding.",
+        "enId": 324325,
+        "form": "友情",
+        "furigana": [
+          ["友情", "ゆうじょう"],
+          ["は"],
+          ["相互", "そうご"],
+          ["理解", "りかい"],
+          ["にある。"]
+        ]
+      },
+      {
+        "id": 179746,
+        "ja": "金の貸借は友情の破綻。",
+        "en": "Lend your money and lose your friend.",
+        "enId": 18554,
+        "form": "友情",
+        "furigana": [
+          ["金", "かね"],
+          ["の"],
+          ["貸借", "たいしゃく"],
+          ["は"],
+          ["友情", "ゆうじょう"],
+          ["の"],
+          ["破綻", "はたん"],
+          ["。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-17",
+    "term": "友人",
+    "kana": "ゆうじん",
+    "meaning": "friend (formal)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 198860,
+        "ja": "なんて友人だ。",
+        "en": "What a friend you are!",
+        "enId": 36057,
+        "form": "友人",
+        "furigana": [["なんて"], ["友人", "ゆうじん"], ["だ。"]]
+      },
+      {
+        "id": 79352,
+        "ja": "友人は少しいる。",
+        "en": "I have a few friends.",
+        "enId": 262059,
+        "form": "友人",
+        "furigana": [["友人", "ゆうじん"], ["は"], ["少", "すこ"], ["しいる。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-18",
+    "term": "有能",
+    "kana": "ゆうのう",
+    "meaning": "able, capable, efficient",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99254,
+        "ja": "彼は有能な弁護士だ。",
+        "en": "He is an able lawyer.",
+        "enId": 416969,
+        "form": "有能な",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["有能", "ゆうのう"],
+          ["な"],
+          ["弁護士", "べんごし"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 99259,
+        "ja": "彼は有能な技師です。",
+        "en": "He is an able engineer.",
+        "enId": 304441,
+        "form": "有能な",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["有能", "ゆうのう"],
+          ["な"],
+          ["技師", "ぎし"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-19",
+    "term": "郵便",
+    "kana": "ゆうびん",
+    "meaning": "mail, postal service",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 79187,
+        "ja": "郵便が届いた。",
+        "en": "The mail has arrived.",
+        "enId": 324530,
+        "form": "郵便",
+        "furigana": [["郵便", "ゆうびん"], ["が"], ["届", "とど"], ["いた。"]]
+      },
+      {
+        "id": 79184,
+        "ja": "郵便は昼前に来る。",
+        "en": "The mail arrives before noon.",
+        "enId": 492877,
+        "form": "郵便",
+        "furigana": [
+          ["郵便", "ゆうびん"],
+          ["は"],
+          ["昼前", "ひるまえ"],
+          ["に"],
+          ["来", "く"],
+          ["る。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-20",
+    "term": "有利",
+    "kana": "ゆうり",
+    "meaning": "advantageous, better",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81106,
+        "ja": "万事は我々に有利だ。",
+        "en": "Circumstances are entirely favorable to us.",
+        "enId": 322609,
+        "form": "有利",
+        "furigana": [
+          ["万事", "ばんじ"],
+          ["は"],
+          ["我々", "われわれ"],
+          ["に"],
+          ["有利", "ゆうり"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 89295,
+        "ja": "彼女は私より有利だ。",
+        "en": "She has an advantage over me.",
+        "enId": 314411,
+        "form": "有利",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["私", "わたし"],
+          ["より"],
+          ["有利", "ゆうり"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-21",
+    "term": "愉快",
+    "kana": "ゆかい",
+    "meaning": "pleasant, happy",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf19"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 176838,
+        "ja": "彼は愉快なやつだ。",
+        "en": "He is a merry fellow.",
+        "enId": 237623,
+        "form": "愉快な",
+        "furigana": [["彼", "かれ"], ["は"], ["愉快", "ゆかい"], ["なやつだ。"]]
+      },
+      {
+        "id": 230704,
+        "ja": "あの人は愉快な人だ。",
+        "en": "He is delightful.",
+        "enId": 68072,
+        "form": "愉快な",
+        "furigana": [
+          ["あの"],
+          ["人", "ひと"],
+          ["は"],
+          ["愉快", "ゆかい"],
+          ["な"],
+          ["人", "ひと"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-22",
+    "term": "譲る",
+    "kana": "ゆずる",
+    "meaning": "to turn over, to assign, to hand over",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf39"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102731,
+        "ja": "彼は息子に商売を譲った。",
+        "en": "He turned over the business to his son.",
+        "enId": 286525,
+        "form": "譲った",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["息子", "むすこ"],
+          ["に"],
+          ["商売", "しょうばい"],
+          ["を"],
+          ["譲", "ゆず"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 105379,
+        "ja": "彼は事業を息子に譲った。",
+        "en": "He turned over the business to his son.",
+        "enId": 286525,
+        "form": "譲った",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["事業", "じぎょう"],
+          ["を"],
+          ["息子", "むすこ"],
+          ["に"],
+          ["譲", "ゆず"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-23",
+    "term": "豊か",
+    "kana": "ゆたか",
+    "meaning": "abundant, wealthy, plentiful, rich",
+    "level": "N3",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)", "suffix"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102875,
+        "ja": "彼は想像力が豊かだ。",
+        "en": "He has a rich imagination.",
+        "enId": 300819,
+        "form": "豊か",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["想像", "そうぞう"],
+          ["力", "りょく"],
+          ["が"],
+          ["豊", "ゆた"],
+          ["かだ。"]
+        ]
+      },
+      {
+        "id": 122397,
+        "ja": "日本は豊かな国です。",
+        "en": "Japan is a rich country.",
+        "enId": 281606,
+        "form": "豊かな",
+        "furigana": [
+          ["日本", "にほん"],
+          ["は"],
+          ["豊", "ゆた"],
+          ["かな"],
+          ["国", "くに"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-24",
+    "term": "容易",
+    "kana": "ようい",
+    "meaning": "easy, simple, plain",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 228585,
+        "ja": "いとも容易なことだ。",
+        "en": "There is nothing to it.",
+        "enId": 65943,
+        "form": "容易な",
+        "furigana": [["いとも"], ["容易", "ようい"], ["なことだ。"]]
+      },
+      {
+        "id": 78906,
+        "ja": "容易に試験に通ると思う。",
+        "en": "I expect her to pass the examination easily.",
+        "enId": 317333,
+        "form": "容易",
+        "furigana": [
+          ["容易", "ようい"],
+          ["に"],
+          ["試験", "しけん"],
+          ["に"],
+          ["通", "とお"],
+          ["ると"],
+          ["思", "おも"],
+          ["う。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-25",
+    "term": "容器",
+    "kana": "ようき",
+    "meaning": "container, vessel",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 78904,
+        "ja": "容器を見ずに中身を見よ。",
+        "en": "Do not look upon the vessel but upon that which it contains.",
+        "enId": 324812,
+        "form": "容器",
+        "furigana": [
+          ["容器", "ようき"],
+          ["を"],
+          ["見", "み"],
+          ["ずに"],
+          ["中身", "なかみ"],
+          ["を"],
+          ["見", "み"],
+          ["よ。"]
+        ]
+      },
+      {
+        "id": 217741,
+        "ja": "これらの容器は気密になっている。",
+        "en": "These containers are airtight.",
+        "enId": 55051,
+        "form": "容器",
+        "furigana": [
+          ["これらの"],
+          ["容器", "ようき"],
+          ["は"],
+          ["気密", "きみつ"],
+          ["になっている。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-26",
+    "term": "陽気",
+    "kana": "ようき",
+    "meaning": "season, weather, cheerfulness",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf21"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99174,
+        "ja": "彼は陽気に笑った。",
+        "en": "He laughed a merry laugh.",
+        "enId": 304525,
+        "form": "陽気に",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["陽気", "ようき"],
+          ["に"],
+          ["笑", "わら"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 93210,
+        "ja": "彼女はいつも陽気だ。",
+        "en": "She is always cheerful.",
+        "enId": 310498,
+        "form": "陽気",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はいつも"],
+          ["陽気", "ようき"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-27",
+    "term": "用心",
+    "kana": "ようじん",
+    "meaning": "care, precaution, caution",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news2", "nf28"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 78855,
+        "ja": "用心しなさい。",
+        "en": "Take care!",
+        "enId": 324861,
+        "form": "用心",
+        "furigana": [["用心", "ようじん"], ["しなさい。"]]
+      },
+      {
+        "id": 214112,
+        "ja": "スリにご用心。",
+        "en": "Look out for pickpockets.",
+        "enId": 33464,
+        "form": "用心",
+        "furigana": [["スリにご"], ["用心", "ようじん"], ["。"]]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-28",
+    "term": "様子",
+    "kana": "ようす",
+    "meaning": "aspect, state, appearance",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 105695,
+        "ja": "彼は私の母の様子を聞いた。",
+        "en": "He asked after my mother.",
+        "enId": 297991,
+        "form": "様子",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["私", "わたし"],
+          ["の"],
+          ["母", "はは"],
+          ["の"],
+          ["様子", "ようす"],
+          ["を"],
+          ["聞", "き"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 108041,
+        "ja": "彼が君の様子を尋ねていた。",
+        "en": "He asked after you.",
+        "enId": 295645,
+        "form": "様子",
+        "furigana": [
+          ["彼", "かれ"],
+          ["が"],
+          ["君", "きみ"],
+          ["の"],
+          ["様子", "ようす"],
+          ["を"],
+          ["尋", "たず"],
+          ["ねていた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-29",
+    "term": "要するに",
+    "kana": "ようするに",
+    "meaning": "in a word, after all, in short …",
+    "level": "N3",
+    "pos": ["expressions (phrases, clauses, etc.)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 78818,
+        "ja": "要するに人生は短い。",
+        "en": "In a word, life is short.",
+        "enId": 324894,
+        "form": "要するに",
+        "furigana": [
+          ["要", "よう"],
+          ["するに"],
+          ["人生", "じんせい"],
+          ["は"],
+          ["短", "みじか"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 78819,
+        "ja": "要するに私は首になったのだ。",
+        "en": "The long and the short of it is that I was fired.",
+        "enId": 324897,
+        "form": "要するに",
+        "furigana": [
+          ["要", "よう"],
+          ["するに"],
+          ["私", "わたし"],
+          ["は"],
+          ["首", "くび"],
+          ["になったのだ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-30",
+    "term": "要素",
+    "kana": "ようそ",
+    "meaning": "element",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 180341,
+        "ja": "教育は重要な要素である。",
+        "en": "Education is a critical element.",
+        "enId": 19118,
+        "form": "要素",
+        "furigana": [
+          ["教育", "きょういく"],
+          ["は"],
+          ["重要", "じゅうよう"],
+          ["な"],
+          ["要素", "ようそ"],
+          ["である。"]
+        ]
+      },
+      {
+        "id": 180343,
+        "ja": "教育は重大な要素である。",
+        "en": "Education is a critical element.",
+        "enId": 19118,
+        "form": "要素",
+        "furigana": [
+          ["教育", "きょういく"],
+          ["は"],
+          ["重大", "じゅうだい"],
+          ["な"],
+          ["要素", "ようそ"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2016-08-31",
+    "term": "要点",
+    "kana": "ようてん",
+    "meaning": "gist, main point",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf26"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81653,
+        "ja": "本の要点を抜粋した。",
+        "en": "I made an abstract of a book.",
+        "enId": 322062,
+        "form": "要点",
+        "furigana": [
+          ["本", "ほん"],
+          ["の"],
+          ["要点", "ようてん"],
+          ["を"],
+          ["抜粋", "ばっすい"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 152433,
+        "ja": "私は要点をはずさない。",
+        "en": "I stick to the point.",
+        "enId": 262117,
+        "form": "要点",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["要点", "ようてん"],
+          ["をはずさない。"]
+        ]
+      }
+    ]
+  }
+]

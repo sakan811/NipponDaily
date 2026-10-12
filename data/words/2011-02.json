@@ -1,0 +1,1334 @@
+[
+  {
+    "date": "2011-02-01",
+    "term": "重い",
+    "kana": "おもい",
+    "meaning": "heavy; serious",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Omoi is the attributive form of Early Middle Japanese 重し (omoshi), with the medial k fallen out.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From おもき (omoki), the 連体形 (rentaikei, “attributive form”) of Early Middle Japanese adjective 重し (omoshi), with the medial /-k-/ falling out; eventually from Proto-Japonic *onpo."
+      }
+    ],
+    "examples": [
+      {
+        "id": 219601,
+        "ja": "この本は重い。",
+        "en": "This book is heavy.",
+        "enId": 56922,
+        "form": "重い",
+        "furigana": [["この"], ["本", "ほん"], ["は"], ["重", "おも"], ["い。"]]
+      },
+      {
+        "id": 147977,
+        "ja": "重そうですから。",
+        "en": "Because it seems to be heavy.",
+        "enId": 266581,
+        "form": "重",
+        "furigana": [["重", "おも"], ["そうですから。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-02",
+    "term": "飲み物",
+    "kana": "のみもの",
+    "meaning": "drink, beverage",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [3, 2],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "headline": "Nomimono is 飲み (nomi, the stem of the verb 飲む) plus 物 (-mono, “thing”).",
+    "morphemes": [
+      {
+        "text": "飲み",
+        "reading": "のみ",
+        "meaning": "to drink; to swallow"
+      },
+      {
+        "text": "物",
+        "reading": "もの",
+        "meaning": "thing"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Compound of 飲(の)み (nomi, the 連用形 (ren'yōkei, “stem or continuative form”) of the verb 飲む (nomu, “to drink; to swallow”)) + 物(もの) (-mono, “thing”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 189942,
+        "ja": "飲物はいかが？",
+        "en": "Would you care for a drink?",
+        "enId": 27098,
+        "form": "飲物",
+        "furigana": [["飲物", "のみもの"], ["はいかが？"]]
+      },
+      {
+        "id": 188048,
+        "ja": "何か飲み物をくれ。",
+        "en": "Give me something to drink.",
+        "enId": 25185,
+        "form": "飲み物",
+        "furigana": [
+          ["何", "なに"],
+          ["か"],
+          ["飲", "の"],
+          ["み"],
+          ["物", "もの"],
+          ["をくれ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-03",
+    "term": "大人",
+    "kana": "おとな",
+    "meaning": "adult",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["ateji"],
+    "headline": "Otona appears in sources from the Heian period, from Old Japanese.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Appears in sources from the Heian period."
+      },
+      {
+        "quote": "From Old Japanese."
+      }
+    ],
+    "examples": [
+      {
+        "id": 177535,
+        "ja": "君はもう大人だ。",
+        "en": "You are now an adult.",
+        "enId": 16387,
+        "form": "大人",
+        "furigana": [["君", "きみ"], ["はもう"], ["大人", "おとな"], ["だ。"]]
+      },
+      {
+        "id": 137485,
+        "ja": "大人２枚ください。",
+        "en": "Two adults, please.",
+        "enId": 275751,
+        "form": "大人",
+        "furigana": [["大人", "おとな"], ["２"], ["枚", "まい"], ["ください。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-04",
+    "term": "時々",
+    "kana": "ときどき",
+    "meaning": "sometimes",
+    "level": "N5",
+    "pos": [
+      "adverb (fukushi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0, 2],
+    "stratum": "wago",
+    "processes": ["derivation", "rendaku"],
+    "headline": "Tokidoki is a reduplication of 時 (toki, “time”), with rendaku.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Reduplication (with rendaku) of 時 (toki, “time”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 4730,
+        "ja": "彼は時々変です。",
+        "en": "Sometimes he can be a strange guy.",
+        "enId": 1303,
+        "form": "時々",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["時々", "ときどき"],
+          ["変", "へん"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 228058,
+        "ja": "うん、時々はね。",
+        "en": "Yeah, sometimes they do.",
+        "enId": 65412,
+        "form": "時々",
+        "furigana": [["うん、"], ["時々", "ときどき"], ["はね。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-05",
+    "term": "止まる",
+    "kana": "とまる",
+    "meaning": "to stop, to come to a halt",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf13", "spec1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tomaru is inherited from Old Japanese, and a doublet of 泊まる (tomaru).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Inherited from Old Japanese."
+      },
+      {
+        "quote": "Doublet of 泊(と)まる (tomaru)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 150511,
+        "ja": "時計が止まった。",
+        "en": "A clock stopped.",
+        "enId": 264046,
+        "form": "止まった",
+        "furigana": [["時計", "とけい"], ["が"], ["止", "と"], ["まった。"]]
+      },
+      {
+        "id": 224557,
+        "ja": "ここで止まるな。",
+        "en": "Don't stop here.",
+        "enId": 61893,
+        "form": "止まる",
+        "furigana": [["ここで"], ["止", "と"], ["まるな。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-06",
+    "term": "熱い",
+    "kana": "あつい",
+    "meaning": "hot (objects)",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Atsui for hot objects is cognate with 暑い, the one used for hot weather.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *atu."
+      },
+      {
+        "quote": "Cognate with 暑(あつ)い (atsui, “hot (of the weather)”)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-07",
+    "term": "皆さん",
+    "kana": "みなさん",
+    "meaning": "all of you, everyone",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "register": ["honorific or respectful (sonkeigo) language"],
+    "stratum": "wago",
+    "processes": ["compound", "derivation"],
+    "headline": "Minasan is 皆 (mina, “everybody, everyone”) plus さん (-san), used when addressing a group.",
+    "morphemes": [
+      {
+        "text": "皆",
+        "reading": "みな",
+        "meaning": "everybody, everyone"
+      },
+      {
+        "text": "さん",
+        "reading": "さん",
+        "meaning": "honorific suffix"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 皆 (mina, “everybody, everyone”) + さん (-san, honorific suffix), used when addressing a group."
+      }
+    ],
+    "examples": [
+      {
+        "id": 184979,
+        "ja": "皆さんはお元気？",
+        "en": "How is everyone?",
+        "enId": 22110,
+        "form": "皆さん",
+        "furigana": [["皆", "みな"], ["さんはお"], ["元気", "げんき"], ["？"]]
+      },
+      {
+        "id": 184988,
+        "ja": "皆さんお静かに。",
+        "en": "Please be quiet, everybody.",
+        "enId": 22119,
+        "form": "皆さん",
+        "furigana": [["皆", "みな"], ["さんお"], ["静", "しず"], ["かに。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-08",
+    "term": "強い",
+    "kana": "つよい",
+    "meaning": "strong, powerful",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Tsuyoi is found in the Nihon Shoki of 720 CE, from Proto-Japonic *tuyə.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. Found in the Nihon Shoki of 720 CE. In turn from Proto-Japonic *tuyə. Cognate with Miyako 強 (tsū), Okinawan 強ーさん (chūsan)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 191432,
+        "ja": "悪運が強い。",
+        "en": "Have the devil's own luck.",
+        "enId": 28594,
+        "form": "強い",
+        "furigana": [["悪運", "あくうん"], ["が"], ["強", "つよ"], ["い。"]]
+      },
+      {
+        "id": 84021,
+        "ja": "風の強い日です。",
+        "en": "It's a windy day.",
+        "enId": 319696,
+        "form": "強い",
+        "furigana": [
+          ["風", "かぜ"],
+          ["の"],
+          ["強", "つよ"],
+          ["い"],
+          ["日", "ひ"],
+          ["です。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-09",
+    "term": "足",
+    "kana": "あし",
+    "meaning": "foot; leg",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01", "nf10"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Ashi was asi in Old Japanese, and may be related to an older a for “leg; foot”.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 足 (asi, “leg; foot”). In turn, appears to be derived from or related to Old Japanese 足 (a, “leg; foot”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 81374,
+        "ja": "妹は足が長い。",
+        "en": "My sister has long legs.",
+        "enId": 322341,
+        "form": "足",
+        "furigana": [
+          ["妹", "いもうと"],
+          ["は"],
+          ["足", "あし"],
+          ["が"],
+          ["長", "なが"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 102691,
+        "ja": "彼は足が長い。",
+        "en": "He has long legs.",
+        "enId": 287067,
+        "form": "足",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["足", "あし"],
+          ["が"],
+          ["長", "なが"],
+          ["い。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-10",
+    "term": "一番",
+    "kana": "いちばん",
+    "meaning": "best (most), first, number one",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'",
+      "adverb (fukushi)"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [2, 0],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Ichiban is simply 一 (ichi) plus 番 (-ban).",
+    "morphemes": [
+      {
+        "text": "一",
+        "reading": "いち",
+        "meaning": "one",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "番",
+        "reading": "ばん",
+        "meaning": "turn",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 一(いち) (ichi) + 番(ばん) (-ban)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175542,
+        "ja": "健康が一番です。",
+        "en": "Health is the most important thing.",
+        "enId": 238923,
+        "form": "一番",
+        "furigana": [
+          ["健康", "けんこう"],
+          ["が"],
+          ["一番", "いちばん"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 150577,
+        "ja": "時間は一番大切だ。",
+        "en": "Time is the most precious thing.",
+        "enId": 263979,
+        "form": "一番",
+        "furigana": [
+          ["時間", "じかん"],
+          ["は"],
+          ["一番", "いちばん"],
+          ["大切", "たいせつ"],
+          ["だ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-11",
+    "term": "会う",
+    "kana": "あう",
+    "meaning": "to meet, to see",
+    "level": "N5",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf26", "nf34"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change", "unclear"],
+    "headline": "Au has no settled origin: one theory has it imitating the sound of the upper and lower lips meeting.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Inherited from Old Japanese, from Proto-Japonic *ap-. Further etymology uncertain. Theories of earliest origin include:"
+      },
+      {
+        "quote": "* Imitative of the upper and lower lips meeting"
+      },
+      {
+        "quote": "* Shortened from 二肖経 (フタアエフ futa aefu, two go-together)"
+      },
+      {
+        "quote": "* Shortened from アアフツ (aa futsu), the latter portion a variant of 二(ふた)つ (futatsu, “two”)"
+      },
+      {
+        "quote": "* Either 間(あい) (ai, “relation”) → 逢(あふ) (afu, “meeting”) → 会(あう) (au) or 逢(あふ) (afu) → 間(あい) (ai) → 会(あう) (au)"
+      },
+      {
+        "quote": "Various forms of あう (合, 会, 逢, 遭; “join; be together; meet”) are attested from the Middle Ages (c. 1185-1573). Compare 合(あ)う (au)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 122187,
+        "ja": "日曜に会おう。",
+        "en": "Let's meet on Sunday.",
+        "enId": 281815,
+        "form": "会おう",
+        "furigana": [["日曜", "にちよう"], ["に"], ["会", "あ"], ["おう。"]]
+      },
+      {
+        "id": 192761,
+        "ja": "よく彼に会う。",
+        "en": "I often see him.",
+        "enId": 29927,
+        "form": "会う",
+        "furigana": [["よく"], ["彼", "かれ"], ["に"], ["会", "あ"], ["う。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-12",
+    "term": "鳴く",
+    "kana": "なく",
+    "meaning": "to make sound (animal)",
+    "level": "N5",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Naku is a verbalization of na-, the bound form of 音 (ne, “sound, voice”), and a doublet of 泣く (naku, “to cry”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from a verbalization of na-, the 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 音(ね) (ne, “sound, voice”). Doublet of 泣く (naku, “to cry”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 78846,
+        "ja": "羊は何て鳴くの？",
+        "en": "What sound does a sheep make?",
+        "enId": 324870,
+        "form": "鳴く",
+        "furigana": [
+          ["羊", "ひつじ"],
+          ["は"],
+          ["何", "なん"],
+          ["て"],
+          ["鳴", "な"],
+          ["くの？"]
+        ]
+      },
+      {
+        "id": 214000,
+        "ja": "セミが鳴いている。",
+        "en": "Cicadas are singing.",
+        "enId": 51289,
+        "form": "鳴いている",
+        "furigana": [["セミが"], ["鳴", "な"], ["いている。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-13",
+    "term": "過ぎる",
+    "kana": "すぎる",
+    "meaning": "to exceed, to go beyond",
+    "level": "N4",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Sugiru is likely cognate with 直ぐ (sugu, “straight; soon”), and first attested in the Kojiki of 712.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 過ぐ (sugu). First attested in the Kojiki of 712."
+      },
+      {
+        "quote": "Likely cognate with 挿(す)げる (sugeru, “to pass a hole through something”), 直(す)ぐ (sugu, “straight; soon”, adverb)."
+      },
+      {
+        "quote": "Reconstructed as deriving from Proto-Japonic *sunk-oi-."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 上(かみ)二(に)段(だん)活(かつ)用(よう) (kami nidan katsuyō, “upper bigrade conjugation”) verbs ending in -u to modern Japanese 上(かみ)一(いち)段(だん)活(かつ)用(よう) (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 123196,
+        "ja": "難しすぎる。",
+        "en": "It's too difficult.",
+        "enId": 280805,
+        "form": "すぎる",
+        "furigana": [["難", "むずか"], ["しすぎる。"]]
+      },
+      {
+        "id": 187205,
+        "ja": "夏は過ぎた。",
+        "en": "The summer is over.",
+        "enId": 24342,
+        "form": "過ぎた",
+        "furigana": [["夏", "なつ"], ["は"], ["過", "す"], ["ぎた。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-14",
+    "term": "南",
+    "kana": "みなみ",
+    "meaning": "South",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Minami is Old Japanese 南 (mi1nami1).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨mi₁nami₁⟩ → */mʲinamʲɨ/ → /minami/"
+      },
+      {
+        "quote": "From Old Japanese 南 (mi₁nami₁)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 84005,
+        "ja": "風は南へ吹く。",
+        "en": "The wind blows south.",
+        "enId": 319710,
+        "form": "南",
+        "furigana": [
+          ["風", "かぜ"],
+          ["は"],
+          ["南", "みなみ"],
+          ["へ"],
+          ["吹", "ふ"],
+          ["く。"]
+        ]
+      },
+      {
+        "id": 125781,
+        "ja": "鳥は南へ飛んで行った。",
+        "en": "The birds flew to the south.",
+        "enId": 278211,
+        "form": "南",
+        "furigana": [
+          ["鳥", "とり"],
+          ["は"],
+          ["南", "みなみ"],
+          ["へ"],
+          ["飛", "と"],
+          ["んで"],
+          ["行", "い"],
+          ["った。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-15",
+    "term": "近い",
+    "kana": "ちかい",
+    "meaning": "near, close by, short",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Chikai is Old Japanese, from Proto-Japonic *tika.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *tika."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175904,
+        "ja": "決断の日は近い。",
+        "en": "The day of decision is at hand.",
+        "enId": 238561,
+        "form": "近い",
+        "furigana": [
+          ["決断", "けつだん"],
+          ["の"],
+          ["日", "ひ"],
+          ["は"],
+          ["近", "ちか"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 194562,
+        "ja": "もう１０時近い。",
+        "en": "It is almost ten o'clock.",
+        "enId": 31660,
+        "form": "近い",
+        "furigana": [["もう１０"], ["時", "じ"], ["近", "ちか"], ["い。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-16",
+    "term": "足りる",
+    "kana": "たりる",
+    "meaning": "to be sufficient; to be enough",
+    "level": "N4",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf41"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Tariru is an irregular conjugation shift from 足る (taru), which was originally quadrigrade.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "An irregular shift in conjugation from the verb 足(た)る (taru), which originally followed 四(よ)段(だん) (yodan, “quadrigrade”) conjugation."
+      }
+    ],
+    "examples": [
+      {
+        "id": 235647,
+        "ja": "１万円でたりる？",
+        "en": "Will ten thousand yen do?",
+        "enId": 73027,
+        "form": "たりる",
+        "furigana": [["１"], ["万", "まん"], ["円", "えん"], ["でたりる？"]]
+      },
+      {
+        "id": 235826,
+        "ja": "１ページ足りない。",
+        "en": "There is a page missing.",
+        "enId": 73207,
+        "form": "足りない",
+        "furigana": [["１ページ"], ["足", "た"], ["りない。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-17",
+    "term": "冷蔵庫",
+    "kana": "れいぞうこ",
+    "meaning": "refrigerator",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "headline": "Reizōko is 冷蔵 (reizō, “refrigeration”) plus 庫 (-ko, “depository”).",
+    "morphemes": [
+      {
+        "text": "冷蔵",
+        "reading": "れいぞう",
+        "meaning": "refrigeration"
+      },
+      {
+        "text": "庫",
+        "reading": "こ",
+        "meaning": "depository"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "冷蔵(れいぞう) (reizō, “refrigeration”) + 庫(こ) (-ko, “depository”)"
+      }
+    ],
+    "examples": [
+      {
+        "id": 77634,
+        "ja": "冷蔵庫は食品の腐敗を防ぐ。",
+        "en": "The refrigerator preserves food from decay.",
+        "enId": 326084,
+        "form": "冷蔵庫",
+        "furigana": [
+          ["冷蔵庫", "れいぞうこ"],
+          ["は"],
+          ["食品", "しょくひん"],
+          ["の"],
+          ["腐敗", "ふはい"],
+          ["を"],
+          ["防", "ふせ"],
+          ["ぐ。"]
+        ]
+      },
+      {
+        "id": 137731,
+        "ja": "大きな型の冷蔵庫がほしい。",
+        "en": "I want to buy a large sized refrigerator.",
+        "enId": 275505,
+        "form": "冷蔵庫",
+        "furigana": [
+          ["大", "おお"],
+          ["きな"],
+          ["型", "かた"],
+          ["の"],
+          ["冷蔵庫", "れいぞうこ"],
+          ["がほしい。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-18",
+    "term": "習う",
+    "kana": "ならう",
+    "meaning": "to learn",
+    "level": "N5",
+    "pos": ["Godan verb with 'u' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Narau is related to 倣う (narau, “to imitate”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Related to 倣(なら)う (narau, “to imitate”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 148159,
+        "ja": "習うより慣れろ。",
+        "en": "Practice makes perfect.",
+        "enId": 266400,
+        "form": "習う",
+        "furigana": [["習", "なら"], ["うより"], ["慣", "な"], ["れろ。"]]
+      },
+      {
+        "id": 109762,
+        "ja": "彼は泳ぎ方を習った。",
+        "en": "He learned how to swim.",
+        "enId": 293928,
+        "form": "習った",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["泳", "およ"],
+          ["ぎ"],
+          ["方", "かた"],
+          ["を"],
+          ["習", "なら"],
+          ["った。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-19",
+    "term": "夏",
+    "kana": "なつ",
+    "meaning": "summer",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "headline": "Natsu was natu: from Old Japanese, from Proto-Japonic *natu.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/natu/ → /nat͡su/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *natu."
+      }
+    ],
+    "examples": [
+      {
+        "id": 187205,
+        "ja": "夏は過ぎた。",
+        "en": "The summer is over.",
+        "enId": 24342,
+        "form": "夏",
+        "furigana": [["夏", "なつ"], ["は"], ["過", "す"], ["ぎた。"]]
+      },
+      {
+        "id": 187201,
+        "ja": "夏は終わった。",
+        "en": "Summer is gone.",
+        "enId": 24338,
+        "form": "夏",
+        "furigana": [["夏", "なつ"], ["は"], ["終", "お"], ["わった。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-20",
+    "term": "遊ぶ",
+    "kana": "あそぶ",
+    "meaning": "to play; to spend time pleasantly; to hang out",
+    "level": "N5",
+    "pos": ["Godan verb with 'bu' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Asobu is first attested in the Kojiki of 712 CE, from Proto-Japonic *asonpu.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First attested in the Kojiki of 712 CE. From Proto-Japonic *asonpu."
+      }
+    ],
+    "examples": [
+      {
+        "id": 79198,
+        "ja": "遊びましょう。",
+        "en": "Let's play.",
+        "enId": 324520,
+        "form": "遊びましょう",
+        "furigana": [["遊", "あそ"], ["びましょう。"]]
+      },
+      {
+        "id": 190513,
+        "ja": "一緒に遊ばない？",
+        "en": "Would you play with me?",
+        "enId": 27675,
+        "form": "遊ばない",
+        "furigana": [["一緒", "いっしょ"], ["に"], ["遊", "あそ"], ["ばない？"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-21",
+    "term": "結構",
+    "kana": "けっこう",
+    "meaning": "splendid; enough, tolerably",
+    "level": "N5",
+    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing"],
+    "headline": "Kekkō is from Middle Chinese 結構, appearing in the diary of Fujiwara no Sanesuke in 1031.",
+    "morphemes": [
+      {
+        "text": "結",
+        "reading": "けっ",
+        "base": "けつ",
+        "meaning": "tie",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "構",
+        "reading": "こう",
+        "meaning": "posture",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Ultimately from Middle Chinese 結構 (MC ket kuwH). Appears in the 小右記 (Shōyūki, Ouki) of 1031, the diary of Fujiwara no Sanesuke."
+      }
+    ],
+    "examples": [
+      {
+        "id": 175785,
+        "ja": "結構面白い。",
+        "en": "It's so exciting.",
+        "enId": 238680,
+        "form": "結構",
+        "furigana": [["結構", "けっこう"], ["面白", "おもしろ"], ["い。"]]
+      },
+      {
+        "id": 349039,
+        "ja": "もう結構です。",
+        "en": "I don't want any more.",
+        "enId": 31649,
+        "form": "結構",
+        "furigana": [["もう"], ["結構", "けっこう"], ["です。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-22",
+    "term": "歩く",
+    "kana": "あるく",
+    "meaning": "to walk",
+    "level": "N5",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Aruku is Old Japanese, first cited to the Man'yōshū of circa 759 CE.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First cited to the Man'yōshū of circa 759 CE."
+      }
+    ],
+    "examples": [
+      {
+        "id": 86784,
+        "ja": "彼女は歩く。",
+        "en": "She walks.",
+        "enId": 316925,
+        "form": "歩く",
+        "furigana": [["彼女", "かのじょ"], ["は"], ["歩", "ある"], ["く。"]]
+      },
+      {
+        "id": 125602,
+        "ja": "通りを歩いた。",
+        "en": "We walked along the street.",
+        "enId": 249090,
+        "form": "歩いた",
+        "furigana": [["通", "とお"], ["りを"], ["歩", "ある"], ["いた。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-23",
+    "term": "朝",
+    "kana": "あさ",
+    "meaning": "morning",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["borrowing", "sound-change"],
+    "headline": "Asa is attested in the Man'yōshū of 759, and its old day cycle began in the afternoon.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *asa. Attested in the Man'yōshū of 759."
+      },
+      {
+        "quote": "Historically, a day was split into two halves:"
+      },
+      {
+        "quote": "* Afternoon cycle: 朝(あさ) (asa) → 昼(ひる) (hiru) → 夕(ゆう) (yū)"
+      },
+      {
+        "quote": "* Evening cycle: 夕(ゆう)べ (yūbe) → 宵(よい) (yoi) → 夜(よ)中(なか) (yonaka) → 暁(あかつき) (akatsuki) → 朝(あした) (ashita)"
+      },
+      {
+        "quote": "While asa and ashita represent the same time period, asa was associated with beginning of the afternoon and ashita was associated with the end of the night. Both terms share an initial as- and are likely etymologically related."
+      },
+      {
+        "quote": "Beyond Japonic, possibly related to Middle Korean 아ᄎᆞᆷ〮 (àchóm, “morning”) > Korean 아침 (achim). Alexander Vovin believes this is a Koreanic borrowing into Japanese, identifying Japanese つとめて (tsutomete) as the native Japonic root for \"morning\" (Vovin 2010, p. 224)."
+      },
+      {
+        "quote": "* However, つとめて (tsutomete) is not attested until the late 800s or early 900s, although root 夙(つと) (tsuto) as in 夙(つと)に (tsuto ni, “early in the morning”, adverb) appears in the Man'yōshū of 759."
+      },
+      {
+        "quote": "Alternatively, may be cognate with adjective 浅(あさ)い (asai, “shallow; early”), verbs 浅(あ)せる (aseru, “to become shallow”) and 褪(あ)せる (aseru, “to fade, to become pale”)."
+      },
+      {
+        "quote": "* The concepts of \"shallow\" and \"deep\" are used in other respects relative to time, such as 夜更(よふ)かし (yofukashi, “staying up late into the night”) and 夜(よ)更(ふ)け (yofuke, “very late at night”), where the fuk- root in both terms is from 深(ふか)い (fukai, “deep; late, long-lasting”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 126241,
+        "ja": "朝に弱いんです。",
+        "en": "I am not a morning person.",
+        "enId": 277752,
+        "form": "朝",
+        "furigana": [["朝", "あさ"], ["に"], ["弱", "よわ"], ["いんです。"]]
+      },
+      {
+        "id": 126225,
+        "ja": "朝は空気が新鮮だ。",
+        "en": "The air is fresh in the morning.",
+        "enId": 277766,
+        "form": "朝",
+        "furigana": [
+          ["朝", "あさ"],
+          ["は"],
+          ["空気", "くうき"],
+          ["が"],
+          ["新鮮", "しんせん"],
+          ["だ。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-24",
+    "term": "知る",
+    "kana": "しる",
+    "meaning": "to know, to understand",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Shiru is Old Japanese, from Proto-Japonic *siru.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *siru."
+      }
+    ],
+    "examples": [
+      {
+        "id": 127070,
+        "ja": "知るもんか。",
+        "en": "Who cares?",
+        "enId": 40434,
+        "form": "知る",
+        "furigana": [["知", "し"], ["るもんか。"]]
+      },
+      {
+        "id": 127073,
+        "ja": "知りません。",
+        "en": "I don't know.",
+        "enId": 349064,
+        "form": "知りません",
+        "furigana": [["知", "し"], ["りません。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-25",
+    "term": "見せる",
+    "kana": "みせる",
+    "meaning": "to show, to display",
+    "level": "N5",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf35"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "headline": "Miseru is from Old Japanese 見す (misu), a lower bigrade verb.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 見す (misu), following 下二段活用 (shimo nidan katsuyō, “lower bigrade conjugation”)."
+      },
+      {
+        "quote": "Development"
+      },
+      {
+        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
+      },
+      {
+        "quote": "First cited to the Man'yōshū, circa 759 CE."
+      },
+      {
+        "quote": "Analyzable as 見 (mi, the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 見(み)る (miru, “to see; to look at”)) + す (-su, causative suffix, corresponding to modern せる (-seru))."
+      }
+    ],
+    "examples": [
+      {
+        "id": 373277,
+        "ja": "見せてくれ。",
+        "en": "Let me have a look.",
+        "enId": 425743,
+        "form": "見せて",
+        "furigana": [["見", "み"], ["せてくれ。"]]
+      },
+      {
+        "id": 175189,
+        "ja": "見せてあげる。",
+        "en": "Oh, let me show you.",
+        "enId": 239277,
+        "form": "見せて",
+        "furigana": [["見", "み"], ["せてあげる。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-26",
+    "term": "要る",
+    "kana": "いる",
+    "meaning": "to need",
+    "level": "N5",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["news2", "nf27", "spec1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Iru “to need” is the same word as 入る (iru, “to enter”).",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Same word as 入(い)る (iru, “to enter”)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 145551,
+        "ja": "心配いりません。",
+        "en": "Don't worry about that.",
+        "enId": 41461,
+        "form": "いりません",
+        "furigana": [["心配", "しんぱい"], ["いりません。"]]
+      },
+      {
+        "id": 178141,
+        "ja": "いらぬお世話だ。",
+        "en": "It's none of your business.",
+        "enId": 16994,
+        "form": "いらぬ",
+        "furigana": [["いらぬお"], ["世話", "せわ"], ["だ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-27",
+    "term": "働く",
+    "kana": "はたらく",
+    "meaning": "to work",
+    "level": "N5",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Hataraku is most likely derived from a mimetic word はた (hata), perhaps the sound of objects bumping together.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Most likely derived ultimately from a mimetic word はた (hata, adverb, referring to the sound of objects bumping together), in turn possibly cognate with 旗 (hata, “flag”, from the sound of a flag flapping) and 機 (hata, “a loom”, from the sound of the shuttle or the workings of the batten)."
+      },
+      {
+        "quote": "Compare also adverb はたはた (hatahata, “working diligently”), verb はためく (hatameku, “to flutter, flap, flicker, whip”)."
+      },
+      {
+        "quote": "First cited in the late 900s, with the sense of \"to move one's body\"."
+      }
+    ],
+    "examples": [
+      {
+        "id": 91309,
+        "ja": "彼女はよく働く。",
+        "en": "She works hard.",
+        "enId": 312405,
+        "form": "働く",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["はよく"],
+          ["働", "はたら"],
+          ["く。"]
+        ]
+      },
+      {
+        "id": 190409,
+        "ja": "一生懸命働いた。",
+        "en": "He worked hard.",
+        "enId": 27567,
+        "form": "働いた",
+        "furigana": [
+          ["一生懸命", "いっしょうけんめい"],
+          ["働", "はたら"],
+          ["いた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2011-02-28",
+    "term": "太い",
+    "kana": "ふとい",
+    "meaning": "fat, thick",
+    "level": "N5",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "headline": "Futoi was 太し (puto1si) in Old Japanese.",
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 太し (puto₁si)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 102554,
+        "ja": "彼は太い首をしている。",
+        "en": "He has a thick neck.",
+        "enId": 301140,
+        "form": "太い",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["太", "ふと"],
+          ["い"],
+          ["首", "くび"],
+          ["をしている。"]
+        ]
+      },
+      {
+        "id": 142328,
+        "ja": "石油が太いパイプの中を流れた。",
+        "en": "The oil ran through a thick pipe.",
+        "enId": 272242,
+        "form": "太い",
+        "furigana": [
+          ["石油", "せきゆ"],
+          ["が"],
+          ["太", "ふと"],
+          ["いパイプの"],
+          ["中", "なか"],
+          ["を"],
+          ["流", "なが"],
+          ["れた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]

@@ -1,0 +1,1190 @@
+[
+  {
+    "date": "2017-07-01",
+    "term": "どんなに",
+    "kana": "どんなに",
+    "meaning": "how, how much",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 149148,
+        "ja": "車があればどんなによいだろう。",
+        "en": "How I wish I had a car.",
+        "enId": 265410,
+        "form": "どんなに",
+        "furigana": [["車", "くるま"], ["があればどんなによいだろう。"]]
+      },
+      {
+        "id": 111460,
+        "ja": "彼はどんなに苦しんだことだろう。",
+        "en": "How he has suffered!",
+        "enId": 292223,
+        "form": "どんなに",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はどんなに"],
+          ["苦", "くる"],
+          ["しんだことだろう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-02",
+    "term": "内容",
+    "kana": "ないよう",
+    "meaning": "subject, contents, detail",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 115757,
+        "ja": "彼の話は内容がない。",
+        "en": "There is no substance in his speech.",
+        "enId": 287913,
+        "form": "内容",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["話", "はなし"],
+          ["は"],
+          ["内容", "ないよう"],
+          ["がない。"]
+        ]
+      },
+      {
+        "id": 148585,
+        "ja": "手紙の内容は秘密であった。",
+        "en": "The contents of the letter were secret.",
+        "enId": 265974,
+        "form": "内容",
+        "furigana": [
+          ["手紙", "てがみ"],
+          ["の"],
+          ["内容", "ないよう"],
+          ["は"],
+          ["秘密", "ひみつ"],
+          ["であった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-03",
+    "term": "なお",
+    "kana": "なお",
+    "meaning": "still, yet",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-07-04",
+    "term": "仲",
+    "kana": "なか",
+    "meaning": "relation, relationship",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 187151,
+        "ja": "嫁と姑の仲は大嵐。",
+        "en": "Mother-in-law and daughter-in-law are a tempest and hailstorm.",
+        "enId": 24288,
+        "form": "仲",
+        "furigana": [
+          ["嫁", "よめ"],
+          ["と"],
+          ["姑", "しゅうと"],
+          ["の"],
+          ["仲", "なか"],
+          ["は"],
+          ["大嵐", "おおあらし"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 151932,
+        "ja": "私達の仲も終わりね。",
+        "en": "We'll be finished!",
+        "enId": 262622,
+        "form": "仲",
+        "furigana": [
+          ["私", "わたし"],
+          ["達", "たち"],
+          ["の"],
+          ["仲", "なか"],
+          ["も"],
+          ["終", "お"],
+          ["わりね。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-05",
+    "term": "流す",
+    "kana": "ながす",
+    "meaning": "to drain, to float, to shed (e.g., blood, tears)",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 124772,
+        "ja": "電線は電気を流す。",
+        "en": "Wires carry electricity.",
+        "enId": 279222,
+        "form": "流す",
+        "furigana": [
+          ["電線", "でんせん"],
+          ["は"],
+          ["電気", "でんき"],
+          ["を"],
+          ["流", "なが"],
+          ["す。"]
+        ]
+      },
+      {
+        "id": 180115,
+        "ja": "橋は大水で流された。",
+        "en": "The bridge was carried away by the flood.",
+        "enId": 18975,
+        "form": "流された",
+        "furigana": [
+          ["橋", "はし"],
+          ["は"],
+          ["大水", "おおみず"],
+          ["で"],
+          ["流", "なが"],
+          ["された。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-06",
+    "term": "仲間",
+    "kana": "なかま",
+    "meaning": "company, fellow, colleague, associate",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 85093,
+        "ja": "不幸は仲間を好む。",
+        "en": "Misery loves company.",
+        "enId": 280355,
+        "form": "仲間",
+        "furigana": [
+          ["不幸", "ふこう"],
+          ["は"],
+          ["仲間", "なかま"],
+          ["を"],
+          ["好", "この"],
+          ["む。"]
+        ]
+      },
+      {
+        "id": 119175,
+        "ja": "彼と仲間になった。",
+        "en": "I fell into company with him.",
+        "enId": 284488,
+        "form": "仲間",
+        "furigana": [["彼", "かれ"], ["と"], ["仲間", "なかま"], ["になった。"]]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-07",
+    "term": "中身",
+    "kana": "なかみ",
+    "meaning": "content(s); substance",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 170206,
+        "ja": "財布の中身をこの袋に空けなさい。",
+        "en": "Empty the purse into this bag.",
+        "enId": 244278,
+        "form": "中身",
+        "furigana": [
+          ["財布", "さいふ"],
+          ["の"],
+          ["中身", "なかみ"],
+          ["をこの"],
+          ["袋", "ふくろ"],
+          ["に"],
+          ["空", "あ"],
+          ["けなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-08",
+    "term": "中味",
+    "kana": "なかみ",
+    "meaning": "contents, interior, filling",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [2],
+    "stratum": "hybrid",
+    "processes": ["ateji"],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-07-09",
+    "term": "亡くす",
+    "kana": "なくす",
+    "meaning": "to lose someone",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 95755,
+        "ja": "彼は最愛の息子をなくした。",
+        "en": "He lost his beloved son.",
+        "enId": 293459,
+        "form": "なくした",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["最愛", "さいあい"],
+          ["の"],
+          ["息子", "むすこ"],
+          ["をなくした。"]
+        ]
+      },
+      {
+        "id": 110229,
+        "ja": "彼は愛する息子を亡くした。",
+        "en": "He lost his beloved son.",
+        "enId": 293459,
+        "form": "亡くした",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["愛", "あい"],
+          ["する"],
+          ["息子", "むすこ"],
+          ["を"],
+          ["亡", "な"],
+          ["くした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-10",
+    "term": "殴る",
+    "kana": "なぐる",
+    "meaning": "to strike; to hit; to punch",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 100813,
+        "ja": "彼は彼女を殴った。",
+        "en": "He slapped her.",
+        "enId": 302884,
+        "form": "殴った",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["彼女", "かのじょ"],
+          ["を"],
+          ["殴", "なぐ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 99934,
+        "ja": "彼は僕の頭を殴った。",
+        "en": "He hit me on the head.",
+        "enId": 303763,
+        "form": "殴った",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["僕", "ぼく"],
+          ["の"],
+          ["頭", "あたま"],
+          ["を"],
+          ["殴", "なぐ"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-11",
+    "term": "なぜなら",
+    "kana": "なぜなら",
+    "meaning": "because",
+    "level": "N3",
+    "pos": ["conjunction"],
+    "priority": ["ichi1"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-07-12",
+    "term": "謎",
+    "kana": "なぞ",
+    "meaning": "riddle, puzzle, enigma",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 223416,
+        "ja": "このなぞを解けますか。",
+        "en": "Can you answer this riddle?",
+        "enId": 60750,
+        "form": "なぞ",
+        "furigana": [["このなぞを"], ["解", "と"], ["けますか。"]]
+      },
+      {
+        "id": 150850,
+        "ja": "事故の原因は完全な謎だ。",
+        "en": "The cause of the accident is a complete mystery.",
+        "enId": 263706,
+        "form": "謎",
+        "furigana": [
+          ["事故", "じこ"],
+          ["の"],
+          ["原因", "げんいん"],
+          ["は"],
+          ["完全", "かんぜん"],
+          ["な"],
+          ["謎", "なぞ"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-13",
+    "term": "納得",
+    "kana": "なっとく",
+    "meaning": "consent, assent, understanding",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 121730,
+        "ja": "納得いかないなあ。",
+        "en": "What a pain!",
+        "enId": 282276,
+        "form": "納得",
+        "furigana": [["納得", "なっとく"], ["いかないなあ。"]]
+      },
+      {
+        "id": 153837,
+        "ja": "私は彼の説明で納得した。",
+        "en": "I was convinced by his explanation.",
+        "enId": 260705,
+        "form": "納得",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["彼", "かれ"],
+          ["の"],
+          ["説明", "せつめい"],
+          ["で"],
+          ["納得", "なっとく"],
+          ["した。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-14",
+    "term": "なにも",
+    "kana": "なにも",
+    "meaning": "nothing",
+    "level": "N3",
+    "pos": ["expressions (phrases, clauses, etc.)"],
+    "priority": ["news1", "nf03"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-07-15",
+    "term": "怠ける",
+    "kana": "なまける",
+    "meaning": "to be idle, to neglect",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 137916,
+        "ja": "怠けてはいけない。",
+        "en": "You don't want to be lazy.",
+        "enId": 275320,
+        "form": "怠けて",
+        "furigana": [["怠", "なま"], ["けてはいけない。"]]
+      },
+      {
+        "id": 113885,
+        "ja": "彼は決して怠けない。",
+        "en": "He is never lazy.",
+        "enId": 289787,
+        "form": "怠けない",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["決", "けっ"],
+          ["して"],
+          ["怠", "なま"],
+          ["けない。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-16",
+    "term": "鳴らす",
+    "kana": "ならす",
+    "meaning": "to ring, to sound",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf37"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 111770,
+        "ja": "彼はドアベルを鳴らした。",
+        "en": "He rang the doorbell.",
+        "enId": 291900,
+        "form": "鳴らした",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はドアベルを"],
+          ["鳴", "な"],
+          ["らした。"]
+        ]
+      },
+      {
+        "id": 158963,
+        "ja": "私はベルを６回鳴らした。",
+        "en": "I rang the bell six times.",
+        "enId": 255563,
+        "form": "鳴らした",
+        "furigana": [
+          ["私", "わたし"],
+          ["はベルを６"],
+          ["回", "かい"],
+          ["鳴", "な"],
+          ["らした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-17",
+    "term": "馴れる",
+    "kana": "なれる",
+    "meaning": "to become domesticated, to become tame",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf43"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2017-07-18",
+    "term": "何で",
+    "kana": "なんで",
+    "meaning": "Why, What for",
+    "level": "N3",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf15"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 4789,
+        "ja": "なんで聞くの？",
+        "en": "Why do you ask?",
+        "enId": 1368,
+        "form": "なんで",
+        "furigana": [["なんで"], ["聞", "き"], ["くの？"]]
+      },
+      {
+        "id": 187820,
+        "ja": "何でわたしなの？",
+        "en": "Why me?",
+        "enId": 24958,
+        "form": "何で",
+        "furigana": [["何", "なん"], ["でわたしなの？"]]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-19",
+    "term": "何とか",
+    "kana": "なんとか",
+    "meaning": "somehow, anyhow, one way or another",
+    "level": "N3",
+    "pos": [
+      "adverb (fukushi)",
+      "noun or participle which takes the aux. verb suru"
+    ],
+    "priority": ["ichi1", "news1", "nf05"],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 187788,
+        "ja": "何とかしろ！",
+        "en": "Do something!",
+        "enId": 24928,
+        "form": "何とか",
+        "furigana": [["何", "なん"], ["とかしろ！"]]
+      },
+      {
+        "id": 213565,
+        "ja": "そこを何とか。",
+        "en": "I hope you can do something to help me out.",
+        "enId": 50851,
+        "form": "何とか",
+        "furigana": [["そこを"], ["何", "なん"], ["とか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-20",
+    "term": "似合う",
+    "kana": "にあう",
+    "meaning": "to suit (a person), to match (clothing), (something) becomes (someone)",
+    "level": "N3",
+    "pos": ["Godan verb with 'u' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf25"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81533,
+        "ja": "本当によく似合う。",
+        "en": "It really suits you.",
+        "enId": 322182,
+        "form": "似合う",
+        "furigana": [
+          ["本当", "ほんとう"],
+          ["によく"],
+          ["似合", "にあ"],
+          ["う。"]
+        ]
+      },
+      {
+        "id": 164389,
+        "ja": "私に似合いますか。",
+        "en": "Do you think it looks good on me?",
+        "enId": 250120,
+        "form": "似合います",
+        "furigana": [["私", "わたし"], ["に"], ["似合", "にあ"], ["いますか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-21",
+    "term": "煮える",
+    "kana": "にえる",
+    "meaning": "to boil, to cook, to be cooked",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 195051,
+        "ja": "ミルクが煮えこぼれた。",
+        "en": "The milk boiled over.",
+        "enId": 32225,
+        "form": "煮え",
+        "furigana": [["ミルクが"], ["煮", "に"], ["えこぼれた。"]]
+      },
+      {
+        "id": 149236,
+        "ja": "煮え加減がちょうどよい。",
+        "en": "It is boiled just enough.",
+        "enId": 265322,
+        "form": "煮え",
+        "furigana": [
+          ["煮", "に"],
+          ["え"],
+          ["加減", "かげん"],
+          ["がちょうどよい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-22",
+    "term": "苦手",
+    "kana": "にがて",
+    "meaning": "poor (at), weak (in), dislike (of)",
+    "level": "N3",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["ichi1", "news1", "nf08"],
+    "pitch": [0, 3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 182067,
+        "ja": "魚釣りは苦手だ。",
+        "en": "Fishing just isn't my line.",
+        "enId": 19337,
+        "form": "苦手",
+        "furigana": [
+          ["魚釣", "さかなつ"],
+          ["りは"],
+          ["苦手", "にがて"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 234623,
+        "ja": "あいつは苦手だ。",
+        "en": "I don't like him.",
+        "enId": 354256,
+        "form": "苦手",
+        "furigana": [["あいつは"], ["苦手", "にがて"], ["だ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-23",
+    "term": "日常",
+    "kana": "にちじょう",
+    "meaning": "ordinary, regular, everyday",
+    "level": "N3",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)",
+      "adverb (fukushi)"
+    ],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 122858,
+        "ja": "日常の運動は体に良い。",
+        "en": "Moderate exercise is good for your health.",
+        "enId": 281144,
+        "form": "日常の",
+        "furigana": [
+          ["日常", "にちじょう"],
+          ["の"],
+          ["運動", "うんどう"],
+          ["は"],
+          ["体", "からだ"],
+          ["に"],
+          ["良", "よ"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 122859,
+        "ja": "日常の運動はあなたのためになる。",
+        "en": "Daily exercise is good for you.",
+        "enId": 10528815,
+        "form": "日常の",
+        "furigana": [
+          ["日常", "にちじょう"],
+          ["の"],
+          ["運動", "うんどう"],
+          ["はあなたのためになる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-24",
+    "term": "日光",
+    "kana": "にっこう",
+    "meaning": "sunlight",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 122878,
+        "ja": "日光は皮膚に作用する。",
+        "en": "The sunbeam acts upon the skin.",
+        "enId": 281124,
+        "form": "日光",
+        "furigana": [
+          ["日光", "にっこう"],
+          ["は"],
+          ["皮膚", "ひふ"],
+          ["に"],
+          ["作用", "さよう"],
+          ["する。"]
+        ]
+      },
+      {
+        "id": 101489,
+        "ja": "彼は日光を全身に浴びた。",
+        "en": "He saturated himself with sunshine.",
+        "enId": 302206,
+        "form": "日光",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["日光", "にっこう"],
+          ["を"],
+          ["全身", "ぜんしん"],
+          ["に"],
+          ["浴", "あ"],
+          ["びた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-25",
+    "term": "日中",
+    "kana": "にっちゅう",
+    "meaning": "daytime, broad daylight",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0, 1],
+    "stratum": "kango",
+    "processes": ["compound", "rendaku", "borrowing", "unclear"],
+    "morphemes": [
+      {
+        "text": "日",
+        "reading": "にっ",
+        "base": "にち",
+        "meaning": "Japan"
+      },
+      {
+        "text": "中",
+        "reading": "ちゅう",
+        "meaning": "China"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "日 (“Japan”) + 中 (“China”) or blend of 日本 (Nihon, Nippon, “Japan”) + 中国 (Chūgoku, “China”)"
+      },
+      {
+        "quote": "From Sinitic 日中. Date of borrowing unknown."
+      }
+    ],
+    "examples": [
+      {
+        "id": 76285,
+        "ja": "会社が日中合弁で経営しています。",
+        "en": "The company is operating under joint Sino-Japanese management.",
+        "enId": 327435,
+        "form": "日中",
+        "furigana": [
+          ["会社", "かいしゃ"],
+          ["が"],
+          ["日中", "にっちゅう"],
+          ["合弁", "ごうべん"],
+          ["で"],
+          ["経営", "けいえい"],
+          ["しています。"]
+        ]
+      },
+      {
+        "id": 118382,
+        "ja": "彼の叔母が日中彼の犬の世話をしている。",
+        "en": "His aunt takes care of his dog during the day.",
+        "enId": 285281,
+        "form": "日中",
+        "furigana": [
+          ["彼", "かれ"],
+          ["の"],
+          ["叔母", "おば"],
+          ["が"],
+          ["日中", "にっちゅう"],
+          ["彼", "かれ"],
+          ["の"],
+          ["犬", "いぬ"],
+          ["の"],
+          ["世話", "せわ"],
+          ["をしている。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2017-07-26",
+    "term": "入場",
+    "kana": "にゅうじょう",
+    "meaning": "entrance, admission, entering",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 184284,
+        "ja": "学生に限り入場可。",
+        "en": "Admission to students only.",
+        "enId": 21412,
+        "form": "入場",
+        "furigana": [
+          ["学生", "がくせい"],
+          ["に"],
+          ["限", "かぎ"],
+          ["り"],
+          ["入場", "にゅうじょう"],
+          ["可", "か"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 184925,
+        "ja": "開演中入場お断り。",
+        "en": "No admittance during the performance.",
+        "enId": 22057,
+        "form": "入場",
+        "furigana": [
+          ["開演", "かいえん"],
+          ["中", "ちゅう"],
+          ["入場", "にゅうじょう"],
+          ["お"],
+          ["断", "ことわ"],
+          ["り。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-27",
+    "term": "煮る",
+    "kana": "にる",
+    "meaning": "to boil, to cook",
+    "level": "N3",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf15"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 225682,
+        "ja": "くたくたに煮る。",
+        "en": "Reduce to pulp by boiling.",
+        "enId": 63019,
+        "form": "煮る",
+        "furigana": [["くたくたに"], ["煮", "に"], ["る。"]]
+      },
+      {
+        "id": 178598,
+        "ja": "君に豆を煮てあげよう。",
+        "en": "I'll boil you the beans.",
+        "enId": 17450,
+        "form": "煮て",
+        "furigana": [
+          ["君", "きみ"],
+          ["に"],
+          ["豆", "まめ"],
+          ["を"],
+          ["煮", "に"],
+          ["てあげよう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-28",
+    "term": "人気",
+    "kana": "にんき",
+    "meaning": "popularity",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 205052,
+        "ja": "それは人気商品だ。",
+        "en": "This is a real popular item.",
+        "enId": 42294,
+        "form": "人気",
+        "furigana": [
+          ["それは"],
+          ["人気", "にんき"],
+          ["商品", "しょうひん"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 108834,
+        "ja": "彼は学生に人気が有る。",
+        "en": "He's popular with the students.",
+        "enId": 294856,
+        "form": "人気",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["学生", "がくせい"],
+          ["に"],
+          ["人気", "にんき"],
+          ["が"],
+          ["有", "あ"],
+          ["る。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-29",
+    "term": "抜く",
+    "kana": "ぬく",
+    "meaning": "to extract, to omit, to unplug",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 126181,
+        "ja": "朝食を抜きました。",
+        "en": "I skipped my breakfast.",
+        "enId": 277811,
+        "form": "抜きました",
+        "furigana": [
+          ["朝食", "ちょうしょく"],
+          ["を"],
+          ["抜", "ぬ"],
+          ["きました。"]
+        ]
+      },
+      {
+        "id": 144890,
+        "ja": "神経は抜くのですか。",
+        "en": "Are you going to remove the nerve?",
+        "enId": 269674,
+        "form": "抜く",
+        "furigana": [
+          ["神経", "しんけい"],
+          ["は"],
+          ["抜", "ぬ"],
+          ["くのですか。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-30",
+    "term": "抜ける",
+    "kana": "ぬける",
+    "meaning": "to come out, to fall out, to be omitted",
+    "level": "N3",
+    "pos": ["Ichidan verb", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 83967,
+        "ja": "風邪が抜けない。",
+        "en": "I can't get rid of my cold.",
+        "enId": 63739,
+        "form": "抜けない",
+        "furigana": [["風邪", "かぜ"], ["が"], ["抜", "ぬ"], ["けない。"]]
+      },
+      {
+        "id": 150978,
+        "ja": "歯が１本抜けた。",
+        "en": "One of my teeth came out.",
+        "enId": 263577,
+        "form": "抜けた",
+        "furigana": [
+          ["歯", "は"],
+          ["が１"],
+          ["本", "ぽん"],
+          ["抜", "ぬ"],
+          ["けた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2017-07-31",
+    "term": "濡らす",
+    "kana": "ぬらす",
+    "meaning": "to wet, to soak",
+    "level": "N3",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 157510,
+        "ja": "私は靴をぬらした。",
+        "en": "I got my shoes wet.",
+        "enId": 257021,
+        "form": "ぬらした",
+        "furigana": [["私", "わたし"], ["は"], ["靴", "くつ"], ["をぬらした。"]]
+      },
+      {
+        "id": 112074,
+        "ja": "彼はタオルを水で濡らした。",
+        "en": "He wetted his towel with water.",
+        "enId": 291604,
+        "form": "濡らした",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はタオルを"],
+          ["水", "みず"],
+          ["で"],
+          ["濡", "ぬ"],
+          ["らした。"]
+        ]
+      }
+    ]
+  }
+]

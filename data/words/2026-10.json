@@ -1,408 +1,254 @@
 [
   {
     "date": "2026-10-01",
-    "term": "サンキュー",
-    "kana": "サンキュー",
-    "meaning": "thank you",
+    "term": "雛祭",
+    "kana": "ひなまつり",
+    "meaning": "Girls' (dolls') Festival",
     "level": "N1",
-    "pos": ["interjection (kandoushi)"],
-    "priority": ["gai1"],
-    "register": ["colloquial"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "サンキュー is borrowed from English thank you.",
-    "morphemes": [
-      {
-        "text": "サンキュー",
-        "reading": "サンキュー",
-        "meaning": "English thank you"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Borrowed from English thank you."
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi2", "spec1"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
   },
   {
     "date": "2026-10-02",
-    "term": "霞む",
-    "kana": "かすむ",
-    "meaning": "to grow hazy, to be misty",
+    "term": "非難",
+    "kana": "ひなん",
+    "meaning": "blame, attack, criticism",
     "level": "N1",
-    "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
-    "priority": ["ichi1"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Kasumu is from Old Japanese and cognate with 霞める (kasumeru, “to blur, to obscure”) and かすか (kasuka, “faint, dim”).",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "From Old Japanese."
-      },
-      {
-        "quote": "From stem kasu-, cognate with its active counterpart 霞(かす)める (kasumeru, “to blur, to obscure”), adjective かすか (kasuka, “faint, dim”, and its classical form 幽(かすけ)し (kasukeshi)), adverb かすかす (kasukasu, “barely”), verb 掠(かす)める (kasumeru, “to rob; to sweep over”),, and verbs 擦(かす)る (kasuru, “to graze, to touch lightly”) and かすれる (kasureru, “to graze; to be blurred; to be hoarse”)."
-      },
-      {
-        "quote": "Cognate with 霞(かす)む (kasumu, “to grow hazy, to become blurry”) above."
-      }
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
     ],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
     "examples": [
       {
-        "id": 80025,
-        "ja": "目がかすみます。",
-        "en": "I have bleary eyes.",
-        "enId": 323692,
-        "form": "かすみます",
-        "furigana": [["目", "め"], ["がかすみます。"]]
+        "id": 153562,
+        "ja": "私は彼を非難した。",
+        "en": "He cast reflections on me.",
+        "enId": 260980,
+        "form": "非難",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["彼", "かれ"],
+          ["を"],
+          ["非難", "ひなん"],
+          ["した。"]
+        ]
       },
       {
-        "id": 179871,
-        "ja": "近くの物がかすんで見えます。",
-        "en": "Close things look blurred.",
-        "enId": 18730,
-        "form": "かすんで",
+        "id": 98811,
+        "ja": "彼への非難をやめろ。",
+        "en": "Get off his back.",
+        "enId": 304889,
+        "form": "非難",
         "furigana": [
-          ["近", "ちか"],
-          ["くの"],
-          ["物", "もの"],
-          ["がかすんで"],
-          ["見", "み"],
-          ["えます。"]
+          ["彼", "かれ"],
+          ["への"],
+          ["非難", "ひなん"],
+          ["をやめろ。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2026-10-03",
-    "term": "増し",
-    "kana": "まし",
-    "meaning": "increase, extra; better",
+    "term": "避難",
+    "kana": "ひなん",
+    "meaning": "taking refuge, finding shelter",
     "level": "N1",
     "pos": [
-      "adjectival nouns or quasi-adjectives (keiyodoshi)",
-      "noun, used as a suffix",
-      "noun (common) (futsuumeishi)"
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
-    "priority": ["ichi1", "news1", "nf14"],
-    "pitch": [0],
-    "stratum": "wago",
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [1],
+    "stratum": "kango",
     "processes": [],
-    "headline": "Mashi is the continuative stem of the verb 増す (masu).",
     "morphemes": [],
-    "sources": [
-      {
-        "quote": "From the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 増(ま)す (masu)."
-      }
-    ],
+    "sources": [],
     "examples": [
       {
-        "id": 126751,
-        "ja": "遅くともしないよりまし。",
-        "en": "Better late than never.",
-        "enId": 2344,
-        "form": "まし",
-        "furigana": [["遅", "おそ"], ["くともしないよりまし。"]]
+        "id": 137246,
+        "ja": "大木の陰に避難した。",
+        "en": "We took refuge behind a big tree.",
+        "enId": 275990,
+        "form": "避難",
+        "furigana": [
+          ["大木", "たいぼく"],
+          ["の"],
+          ["陰", "かげ"],
+          ["に"],
+          ["避難", "ひなん"],
+          ["した。"]
+        ]
       },
       {
-        "id": 125107,
-        "ja": "天気は今日の方が少しはましだ。",
-        "en": "The weather is a shade better today.",
-        "enId": 278886,
-        "form": "まし",
+        "id": 83597,
+        "ja": "兵士は穴の中に避難した。",
+        "en": "The soldier took shelter in the foxhole.",
+        "enId": 320119,
+        "form": "避難",
         "furigana": [
-          ["天気", "てんき"],
+          ["兵士", "へいし"],
           ["は"],
-          ["今日", "きょう"],
+          ["穴", "あな"],
           ["の"],
-          ["方", "ほう"],
-          ["が"],
-          ["少", "すこ"],
-          ["しはましだ。"]
+          ["中", "なか"],
+          ["に"],
+          ["避難", "ひなん"],
+          ["した。"]
         ]
       }
-    ],
-    "wiktionaryDump": "2026-09-02"
+    ]
   },
   {
     "date": "2026-10-04",
-    "term": "重んじる",
-    "kana": "おもんじる",
-    "meaning": "to respect, to honor, to esteem, to prize",
+    "term": "罅",
+    "kana": "ひび",
+    "meaning": "crack, fissure, flaw",
     "level": "N1",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "priority": ["ichi1", "news2", "nf38"],
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [2],
     "stratum": "wago",
-    "processes": ["sound-change"],
-    "headline": "Omonjiru is a shift from the verb 重んずる (omonzuru), as -uru verbs moved to the -iru pattern.",
+    "processes": [],
     "morphemes": [],
     "sources": [
       {
-        "quote": "Shift from verb 重(おも)んずる (omonzuru), by natural progression from サ行変格活用 (sa-gyō henkaku katsuyō, “s-irregular conjugation”) verbs ending in -uru to 上一段活用 (kami ichidan katsuyō, “upper monograde conjugation”) verbs ending in -iru."
+        "quote": "Kanji spelling for ひび (hibi, “crack”), with the meaning often restricted to things other than skin."
       }
     ],
     "examples": [
       {
-        "id": 108892,
-        "ja": "彼は学校で重んじられた。",
-        "en": "He was made much of at school.",
-        "enId": 294800,
-        "form": "重んじられた",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["学校", "がっこう"],
-          ["で"],
-          ["重", "おも"],
-          ["んじられた。"]
-        ]
-      },
-      {
-        "id": 210166,
-        "ja": "その子は両親を重んじた。",
-        "en": "That child thought much of his parents.",
-        "enId": 47430,
-        "form": "重んじた",
-        "furigana": [
-          ["その"],
-          ["子", "こ"],
-          ["は"],
-          ["両親", "りょうしん"],
-          ["を"],
-          ["重", "おも"],
-          ["んじた。"]
-        ]
+        "id": 207848,
+        "ja": "その茶碗にはひびがある。",
+        "en": "The cup has a crack.",
+        "enId": 45104,
+        "form": "ひび",
+        "furigana": [["その"], ["茶碗", "ちゃわん"], ["にはひびがある。"]]
       }
     ],
     "wiktionaryDump": "2026-09-02"
   },
   {
     "date": "2026-10-05",
-    "term": "ロープ",
-    "kana": "ロープ",
-    "meaning": "rope",
+    "term": "悲鳴",
+    "kana": "ひめい",
+    "meaning": "shriek, scream",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["gai1", "ichi1"],
-    "pitch": [1],
-    "stratum": "gairaigo",
-    "processes": ["borrowing"],
-    "headline": "ロープ is borrowed from English rope.",
-    "morphemes": [
-      {
-        "text": "ロープ",
-        "reading": "ロープ",
-        "meaning": "English rope"
-      }
-    ],
-    "sources": [
-      {
-        "quote": "Borrowed from English rope."
-      }
-    ],
-    "examples": [
-      {
-        "id": 192268,
-        "ja": "ロープを放すな。",
-        "en": "Don't let go of the rope.",
-        "enId": 29431,
-        "form": "ロープ",
-        "furigana": [["ロープを"], ["放", "はな"], ["すな。"]]
-      },
-      {
-        "id": 192271,
-        "ja": "ロープを下ろした。",
-        "en": "I let down the rope.",
-        "enId": 29433,
-        "form": "ロープ",
-        "furigana": [["ロープを"], ["下", "お"], ["ろした。"]]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2026-10-06",
-    "term": "膨れる",
-    "kana": "ふくれる",
-    "meaning": "to swell (out), to be inflated, to bulge",
-    "level": "N1",
-    "pos": ["Ichidan verb", "intransitive verb"],
-    "priority": ["ichi1", "news1", "nf12"],
+    "priority": ["ichi1", "news1", "nf11"],
     "pitch": [0],
-    "stratum": "wago",
-    "processes": [],
-    "headline": "Fukureru is from Old Japanese 膨る (pukuru), and the source compares 袋 (fukuro, “bag”), from the way a bag is filled with items.",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "From Old Japanese 膨る (pukuru), following 下二段活用 (shimo nidan katsuyō, “lower bigrade conjugation”), from Proto-Japonic *pukoru."
-      },
-      {
-        "quote": "Development"
-      },
-      {
-        "quote": "Natural progression from Old and Classical Japanese 下(しも)二(に)段(だん)活(かつ)用(よう) (shimo nidan katsuyō, “lower bigrade conjugation”) verbs ending in -u to modern Japanese 下(しも)一(いち)段(だん)活(かつ)用(よう) (shimo ichidan katsuyō, “lower monograde conjugation”) verbs ending in -eru."
-      },
-      {
-        "quote": "Compare 膨らむ (fukuramu, “to swell, to get bigger”), 膨らます (fukuramasu, “to make swell, to fill up”), and 袋 (fukuro, “bag”), from the way a bag is filled with items."
-      },
-      {
-        "quote": "First cited to the Man’yōshū, completed sometime after 759 CE."
-      }
-    ],
-    "examples": [
-      {
-        "id": 203747,
-        "ja": "たくさん食べたので腹が膨れた。",
-        "en": "I've had enough, so my stomach is full.",
-        "enId": 40987,
-        "form": "膨れた",
-        "furigana": [
-          ["たくさん"],
-          ["食", "た"],
-          ["べたので"],
-          ["腹", "はら"],
-          ["が"],
-          ["膨", "ふく"],
-          ["れた。"]
-        ]
-      },
-      {
-        "id": 92255,
-        "ja": "彼女はそれで遊ぶことを拒んで、ただ座ってふくれていたのです。",
-        "en": "She refused to play with it, and just sat there looking angry.",
-        "enId": 311456,
-        "form": "ふくれていた",
-        "furigana": [
-          ["彼女", "かのじょ"],
-          ["はそれで"],
-          ["遊", "あそ"],
-          ["ぶことを"],
-          ["拒", "こば"],
-          ["んで、ただ"],
-          ["座", "すわ"],
-          ["ってふくれていたのです。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2026-10-07",
-    "term": "我",
-    "kana": "われ",
-    "meaning": "me, oneself, self, ego",
-    "level": "N1",
-    "pos": ["pronoun"],
-    "priority": ["news1", "nf14"],
-    "pitch": [1],
-    "stratum": "wago",
-    "processes": ["compound", "derivation"],
-    "headline": "Ware is from Old Japanese, the long form of 我 (wa) plus れ (-re, nominalizing suffix).",
-    "morphemes": [],
-    "sources": [
-      {
-        "quote": "From Old Japanese, as the long form of 我 (wa) below."
-      },
-      {
-        "quote": "Compound of 我 (wa, see below) + れ (-re, nominalizing suffix)."
-      }
-    ],
-    "examples": [
-      {
-        "id": 77432,
-        "ja": "恋人よ、我に帰れ。",
-        "en": "Lover, come back to me.",
-        "enId": 326287,
-        "form": "我",
-        "furigana": [
-          ["恋人", "こいびと"],
-          ["よ、"],
-          ["我", "われ"],
-          ["に"],
-          ["帰", "かえ"],
-          ["れ。"]
-        ]
-      },
-      {
-        "id": 357576,
-        "ja": "我思う、故に我あり。",
-        "en": "I think, therefore I am.",
-        "enId": 454514,
-        "form": "我",
-        "furigana": [
-          ["我", "われ"],
-          ["思", "おも"],
-          ["う、"],
-          ["故", "ゆえ"],
-          ["に"],
-          ["我", "われ"],
-          ["あり。"]
-        ]
-      }
-    ],
-    "wiktionaryDump": "2026-09-02"
-  },
-  {
-    "date": "2026-10-08",
-    "term": "ああ",
-    "kana": "ああ",
-    "meaning": "Ah!, Oh!",
-    "level": "N5",
-    "pos": ["adverb (fukushi)"],
-    "priority": ["spec1"],
-    "pitch": [0],
-    "stratum": "wago",
+    "stratum": "kango",
     "processes": [],
     "morphemes": [],
     "sources": [],
     "examples": [
       {
-        "id": 114994,
-        "ja": "彼はああやれば良かったのに。",
-        "en": "He should have done it that way.",
-        "enId": 288678,
-        "form": "ああ",
+        "id": 123276,
+        "ja": "突然悲鳴が聞こえた。",
+        "en": "All at once, I heard a scream.",
+        "enId": 280722,
+        "form": "悲鳴",
         "furigana": [
-          ["彼", "かれ"],
-          ["はああやれば"],
-          ["良", "よ"],
-          ["かったのに。"]
+          ["突然", "とつぜん"],
+          ["悲鳴", "ひめい"],
+          ["が"],
+          ["聞", "き"],
+          ["こえた。"]
         ]
       },
       {
-        "id": 114992,
-        "ja": "彼はああ強情だとは思わなかった。",
-        "en": "I never thought he was all that stubborn.",
-        "enId": 288679,
-        "form": "ああ",
+        "id": 85933,
+        "ja": "悲鳴で静寂がやぶられた。",
+        "en": "A scream broke the silence.",
+        "enId": 317778,
+        "form": "悲鳴",
         "furigana": [
-          ["彼", "かれ"],
-          ["はああ"],
-          ["強情", "ごうじょう"],
-          ["だとは"],
-          ["思", "おも"],
-          ["わなかった。"]
+          ["悲鳴", "ひめい"],
+          ["で"],
+          ["静寂", "せいじゃく"],
+          ["がやぶられた。"]
         ]
       }
     ]
   },
   {
-    "date": "2026-10-09",
-    "term": "開く",
-    "kana": "あく",
-    "meaning": "to open, to become open",
-    "level": "N5",
+    "date": "2026-10-06",
+    "term": "冷やかす",
+    "kana": "ひやかす",
+    "meaning": "to banter, to make fun of, to jeer at, to cool, to refrigerate",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf31"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 143944,
+        "ja": "人前で彼を冷やかすなんて君は意地悪だ。",
+        "en": "It is mean of you to ridicule him in public.",
+        "enId": 270622,
+        "form": "冷やかす",
+        "furigana": [
+          ["人前", "ひとまえ"],
+          ["で"],
+          ["彼", "かれ"],
+          ["を"],
+          ["冷", "ひ"],
+          ["やかすなんて"],
+          ["君", "きみ"],
+          ["は"],
+          ["意地悪", "いじわる"],
+          ["だ。"]
+        ]
+      },
+      {
+        "id": 98045,
+        "ja": "彼らはジャックの髪の刈り方をひやかした。",
+        "en": "They made fun of Jack's haircut.",
+        "enId": 305657,
+        "form": "ひやかした",
+        "furigana": [
+          ["彼", "かれ"],
+          ["らはジャックの"],
+          ["髪", "かみ"],
+          ["の"],
+          ["刈", "か"],
+          ["り"],
+          ["方", "かた"],
+          ["をひやかした。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-07",
+    "term": "日焼け",
+    "kana": "ひやけ",
+    "meaning": "sunburn",
+    "level": "N1",
     "pos": [
-      "Godan verb with 'ku' ending",
-      "intransitive verb",
-      "transitive verb"
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "intransitive verb"
     ],
-    "priority": ["spec1", "ichi1"],
+    "priority": ["ichi1", "news1", "nf21"],
     "pitch": [0],
     "stratum": "wago",
     "processes": [],
@@ -410,191 +256,115 @@
     "sources": [],
     "examples": [
       {
-        "id": 201907,
-        "ja": "ドアが開いた。",
-        "en": "The door opened.",
-        "enId": 39118,
-        "form": "開いた",
-        "furigana": [["ドアが"], ["開", "ひら"], ["いた。"]]
+        "id": 122867,
+        "ja": "日焼けして痛い。",
+        "en": "My sunburn hurts.",
+        "enId": 281135,
+        "form": "日焼け",
+        "furigana": [["日焼", "ひや"], ["けして"], ["痛", "いた"], ["い。"]]
       },
       {
-        "id": 174549,
-        "ja": "戸が風で開いた。",
-        "en": "The door blew open.",
-        "enId": 239920,
-        "form": "開いた",
+        "id": 122866,
+        "ja": "日焼けし過ぎました。",
+        "en": "I have a bad sunburn.",
+        "enId": 281136,
+        "form": "日焼け",
+        "furigana": [["日焼", "ひや"], ["けし"], ["過", "す"], ["ぎました。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-08",
+    "term": "標語",
+    "kana": "ひょうご",
+    "meaning": "motto, slogan, catchword",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf20"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-10-09",
+    "term": "描写",
+    "kana": "びょうしゃ",
+    "meaning": "depiction, description, portrayal",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 102225,
+        "ja": "彼は地震の後の混乱を生々しく描写した。",
+        "en": "He vividly depicted the confusion following the earthquake.",
+        "enId": 301469,
+        "form": "描写",
         "furigana": [
-          ["戸", "と"],
-          ["が"],
-          ["風", "かぜ"],
-          ["で"],
-          ["開", "あ"],
-          ["いた。"]
+          ["彼", "かれ"],
+          ["は"],
+          ["地震", "じしん"],
+          ["の"],
+          ["後", "あと"],
+          ["の"],
+          ["混乱", "こんらん"],
+          ["を"],
+          ["生々", "なまなま"],
+          ["しく"],
+          ["描写", "びょうしゃ"],
+          ["した。"]
+        ]
+      },
+      {
+        "id": 113251,
+        "ja": "彼はそこで起きたことを正確に描写した。",
+        "en": "He accurately described what happened there.",
+        "enId": 290423,
+        "form": "描写",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はそこで"],
+          ["起", "お"],
+          ["きたことを"],
+          ["正確", "せいかく"],
+          ["に"],
+          ["描写", "びょうしゃ"],
+          ["した。"]
         ]
       }
     ]
   },
   {
     "date": "2026-10-10",
-    "term": "上げる",
-    "kana": "あげる",
-    "meaning": "to raise, to lift; to give",
-    "level": "N5",
-    "pos": ["Ichidan verb", "transitive verb"],
-    "priority": ["ichi1", "news2", "nf42"],
-    "pitch": [0],
+    "term": "びら",
+    "kana": "びら",
+    "meaning": "handout, leaflet",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 137941,
-        "ja": "待ってあげる。",
-        "en": "I'll wait for you.",
-        "enId": 275296,
-        "form": "あげる",
-        "furigana": [["待", "ま"], ["ってあげる。"]]
-      },
-      {
-        "id": 175189,
-        "ja": "見せてあげる。",
-        "en": "Oh, let me show you.",
-        "enId": 239277,
-        "form": "あげる",
-        "furigana": [["見", "み"], ["せてあげる。"]]
-      }
-    ]
+    "sources": []
   },
   {
     "date": "2026-10-11",
-    "term": "朝御飯",
-    "kana": "あさごはん",
-    "meaning": "breakfast",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["spec1"],
-    "pitch": [3],
-    "stratum": "hybrid",
-    "processes": [],
-    "morphemes": [],
-    "sources": []
-  },
-  {
-    "date": "2026-10-12",
-    "term": "暖かい",
-    "kana": "あたたかい",
-    "meaning": "warm, mild (weather)",
-    "level": "N5",
+    "term": "平たい",
+    "kana": "ひらたい",
+    "meaning": "flat, even, level",
+    "level": "N1",
     "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news1", "nf21"],
-    "pitch": [4],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 207489,
-        "ja": "その島は一年中あたたかい。",
-        "en": "The island is warm all year.",
-        "enId": 44742,
-        "form": "あたたかい",
-        "furigana": [
-          ["その"],
-          ["島", "しま"],
-          ["は"],
-          ["一年中", "いちねんじゅう"],
-          ["あたたかい。"]
-        ]
-      },
-      {
-        "id": 164464,
-        "ja": "私に何かあたたかい飲み物をください。",
-        "en": "Please give me something hot to drink.",
-        "enId": 25044,
-        "form": "あたたかい",
-        "furigana": [
-          ["私", "わたし"],
-          ["に"],
-          ["何", "なに"],
-          ["かあたたかい"],
-          ["飲", "の"],
-          ["み"],
-          ["物", "もの"],
-          ["をください。"]
-        ]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-13",
-    "term": "厚い",
-    "kana": "あつい",
-    "meaning": "kind, warm(hearted), thick, deep",
-    "level": "N5",
-    "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news2", "nf29"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 103960,
-        "ja": "彼は情に厚い人だ。",
-        "en": "He is a man of warm heart.",
-        "enId": 299732,
-        "form": "厚い",
-        "furigana": [
-          ["彼", "かれ"],
-          ["は"],
-          ["情", "じょう"],
-          ["に"],
-          ["厚", "あつ"],
-          ["い"],
-          ["人", "ひと"],
-          ["だ。"]
-        ]
-      },
-      {
-        "id": 207077,
-        "ja": "その氷はとても厚い。",
-        "en": "The ice is very thick.",
-        "enId": 44327,
-        "form": "厚い",
-        "furigana": [
-          ["その"],
-          ["氷", "こおり"],
-          ["はとても"],
-          ["厚", "あつ"],
-          ["い。"]
-        ]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-14",
-    "term": "あっち",
-    "kana": "あっち",
-    "meaning": "over there",
-    "level": "N5",
-    "pos": ["pronoun"],
-    "priority": ["ichi1"],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": []
-  },
-  {
-    "date": "2026-10-15",
-    "term": "危ない",
-    "kana": "あぶない",
-    "meaning": "dangerous, critical",
-    "level": "N5",
-    "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news2", "nf39"],
+    "priority": ["ichi1", "news2", "nf41"],
     "pitch": [0, 3],
     "stratum": "wago",
     "processes": [],
@@ -602,479 +372,68 @@
     "sources": [],
     "examples": [
       {
-        "id": 115358,
-        "ja": "彼は「あぶない」と叫んだ。",
-        "en": "He cried, \"Look out.\"",
-        "enId": 288313,
-        "form": "あぶない",
+        "id": 174590,
+        "ja": "古代人たちは地球は平たいと信じていた。",
+        "en": "The ancients believed the earth was flat.",
+        "enId": 239879,
+        "form": "平たい",
         "furigana": [
-          ["彼", "かれ"],
-          ["は「あぶない」と"],
-          ["叫", "さけ"],
-          ["んだ。"]
+          ["古代", "こだい"],
+          ["人", "じん"],
+          ["たちは"],
+          ["地球", "ちきゅう"],
+          ["は"],
+          ["平", "ひら"],
+          ["たいと"],
+          ["信", "しん"],
+          ["じていた。"]
         ]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-16",
-    "term": "洗う",
-    "kana": "あらう",
-    "meaning": "to wash",
-    "level": "N5",
-    "pos": ["Godan verb with 'u' ending", "transitive verb"],
-    "priority": ["ichi1", "news1", "nf23"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 145884,
-        "ja": "食器を洗おう。",
-        "en": "Let's do the dishes.",
-        "enId": 268678,
-        "form": "洗おう",
-        "furigana": [["食器", "しょっき"], ["を"], ["洗", "あら"], ["おう。"]]
       },
       {
-        "id": 175716,
-        "ja": "血で血を洗う。",
-        "en": "Blood will have blood.",
-        "enId": 238749,
-        "form": "洗う",
-        "furigana": [
-          ["血", "ち"],
-          ["で"],
-          ["血", "ち"],
-          ["を"],
-          ["洗", "あら"],
-          ["う。"]
-        ]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-17",
-    "term": "在る",
-    "kana": "ある",
-    "meaning": "to be, to have",
-    "level": "N5",
-    "pos": [
-      "Godan verb with 'ru' ending (irregular verb)",
-      "intransitive verb",
-      "auxiliary verb"
-    ],
-    "priority": ["ichi1", "news1", "nf05", "nf23", "spec1"],
-    "pitch": [1],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": []
-  },
-  {
-    "date": "2026-10-18",
-    "term": "有る",
-    "kana": "ある",
-    "meaning": "to be, to have",
-    "level": "N5",
-    "pos": [
-      "Godan verb with 'ru' ending (irregular verb)",
-      "intransitive verb",
-      "auxiliary verb"
-    ],
-    "priority": ["news1", "nf23", "spec1", "ichi1", "nf05"],
-    "pitch": [1],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 121891,
-        "ja": "熱はあるの？",
-        "en": "Have you any fever?",
-        "enId": 282097,
-        "form": "ある",
-        "furigana": [["熱", "ねつ"], ["はあるの？"]]
-      },
-      {
-        "id": 137886,
-        "ja": "貸し間あり。",
-        "en": "Room for rent.",
-        "enId": 275350,
-        "form": "あり",
-        "furigana": [["貸", "か"], ["し"], ["間", "かん"], ["あり。"]]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-19",
-    "term": "いかが",
-    "kana": "いかが",
-    "meaning": "how about…?, how (polite)",
-    "level": "N5",
-    "pos": ["adverb (fukushi)"],
-    "priority": ["spec1"],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": []
-  },
-  {
-    "date": "2026-10-20",
-    "term": "いくつ",
-    "kana": "いくつ",
-    "meaning": "how many, how old",
-    "level": "N5",
-    "pos": ["adverb (fukushi)"],
-    "priority": ["ichi1", "news1", "nf16"],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": []
-  },
-  {
-    "date": "2026-10-21",
-    "term": "いくら",
-    "kana": "いくら",
-    "meaning": "how much, how many",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
-    "priority": ["ichi1", "news2", "nf37"],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": []
-  },
-  {
-    "date": "2026-10-22",
-    "term": "五日",
-    "kana": "いつか",
-    "meaning": "five days; fifth day of the month",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "spec1"],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": []
-  },
-  {
-    "date": "2026-10-23",
-    "term": "一緒",
-    "kana": "いっしょ",
-    "meaning": "together",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf02"],
-    "pitch": [0],
-    "stratum": "kango",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 191810,
-        "ja": "一緒に行きたいな。",
-        "en": "I want to go with you.",
-        "enId": 28972,
-        "form": "一緒",
-        "furigana": [["一緒", "いっしょ"], ["に"], ["行", "い"], ["きたいな。"]]
-      },
-      {
-        "id": 228956,
-        "ja": "いっしょに来なさい。",
-        "en": "Come with us.",
-        "enId": 433696,
-        "form": "いっしょ",
-        "furigana": [["いっしょに"], ["来", "き"], ["なさい。"]]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-24",
-    "term": "五つ",
-    "kana": "いつつ",
-    "meaning": "five things",
-    "level": "N5",
-    "pos": ["numeric"],
-    "priority": ["ichi1", "news1", "nf09"],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 92925,
-        "ja": "彼女はケーキを五つに分けた。",
-        "en": "She divided the cake into five pieces.",
-        "enId": 310784,
-        "form": "五つ",
+        "id": 91700,
+        "ja": "彼女はハンバーグの肉をたたいて平たくした。",
+        "en": "She patted the hamburger meat into a flat shape.",
+        "enId": 312012,
+        "form": "平たく",
         "furigana": [
           ["彼女", "かのじょ"],
-          ["はケーキを"],
-          ["五", "いつ"],
-          ["つに"],
-          ["分", "わ"],
-          ["けた。"]
-        ]
-      },
-      {
-        "id": 220200,
-        "ja": "この箱にはリンゴが五つ入っている。",
-        "en": "This box contains five apples.",
-        "enId": 57519,
-        "form": "五つ",
-        "furigana": [
-          ["この"],
-          ["箱", "はこ"],
-          ["にはリンゴが"],
-          ["五", "いつ"],
-          ["つ"],
-          ["入", "はい"],
-          ["っている。"]
-        ]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-25",
-    "term": "意味",
-    "kana": "いみ",
-    "meaning": "meaning, significance",
-    "level": "N5",
-    "pos": [
-      "noun (common) (futsuumeishi)",
-      "noun or participle which takes the aux. verb suru",
-      "transitive verb"
-    ],
-    "priority": ["ichi1", "news1", "nf01"],
-    "pitch": [1],
-    "stratum": "kango",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 191036,
-        "ja": "意味は分かります。",
-        "en": "I'm catching on.",
-        "enId": 28197,
-        "form": "意味",
-        "furigana": [["意味", "いみ"], ["は"], ["分", "わ"], ["かります。"]]
-      },
-      {
-        "id": 201705,
-        "ja": "どういう意味ですか？",
-        "en": "What do you mean?",
-        "enId": 24706,
-        "form": "意味",
-        "furigana": [["どういう"], ["意味", "いみ"], ["ですか？"]]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-26",
-    "term": "嫌",
-    "kana": "いや",
-    "meaning": "disagreeable, detestable, unpleasant",
-    "level": "N5",
-    "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
-    "priority": ["ichi1", "news1", "nf07", "spec1"],
-    "pitch": [2],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 175218,
-        "ja": "献血はいやだ。",
-        "en": "I'm uneasy about donating blood.",
-        "enId": 239248,
-        "form": "いや",
-        "furigana": [["献血", "けんけつ"], ["はいやだ。"]]
-      },
-      {
-        "id": 190455,
-        "ja": "一人はいやだ。",
-        "en": "I dislike being alone.",
-        "enId": 27616,
-        "form": "いや",
-        "furigana": [["一人", "ひとり"], ["はいやだ。"]]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-27",
-    "term": "居る",
-    "kana": "いる",
-    "meaning": "(humble) to be (animate), to exist",
-    "level": "N5",
-    "pos": ["Ichidan verb", "intransitive verb"],
-    "priority": ["ichi1"],
-    "pitch": [0],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 137131,
-        "ja": "誰かいるの？",
-        "en": "Is somebody there?",
-        "enId": 276106,
-        "form": "いる",
-        "furigana": [["誰", "だれ"], ["かいるの？"]]
-      },
-      {
-        "id": 176635,
-        "ja": "兄がいます。",
-        "en": "I have an older brother.",
-        "enId": 237828,
-        "form": "います",
-        "furigana": [["兄", "あに"], ["がいます。"]]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-28",
-    "term": "薄い",
-    "kana": "うすい",
-    "meaning": "thin; weak (e.g., tea); pale (colour)",
-    "level": "N5",
-    "pos": ["adjective (keiyoushi)"],
-    "priority": ["ichi1", "news1", "nf20"],
-    "pitch": [0, 2],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 122981,
-        "ja": "肉を薄く切りなさい。",
-        "en": "Cut the meat into thin slices.",
-        "enId": 281021,
-        "form": "薄く",
-        "furigana": [
+          ["はハンバーグの"],
           ["肉", "にく"],
-          ["を"],
-          ["薄", "うす"],
-          ["く"],
-          ["切", "き"],
-          ["りなさい。"]
-        ]
-      },
-      {
-        "id": 228272,
-        "ja": "薄い砂糖水を作った。",
-        "en": "I prepared a weak solution of sugar and water.",
-        "enId": 65626,
-        "form": "薄い",
-        "furigana": [
-          ["薄", "うす"],
-          ["い"],
-          ["砂糖", "さとう"],
-          ["水", "みず"],
-          ["を"],
-          ["作", "つく"],
-          ["った。"]
+          ["をたたいて"],
+          ["平", "ひら"],
+          ["たくした。"]
         ]
       }
     ]
   },
   {
-    "date": "2026-10-29",
-    "term": "歌う",
-    "kana": "うたう",
-    "meaning": "to sing",
-    "level": "N5",
-    "pos": [
-      "Godan verb with 'u' ending",
-      "transitive verb",
-      "intransitive verb"
-    ],
-    "priority": ["ichi1", "news1", "nf15"],
-    "pitch": [0],
+    "date": "2026-10-12",
+    "term": "びり",
+    "kana": "びり",
+    "meaning": "last on the list, at the bottom",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [1],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
     "sources": [],
     "examples": [
       {
-        "id": 125799,
-        "ja": "鳥は歌います。",
-        "en": "Birds sing.",
-        "enId": 278174,
-        "form": "歌います",
-        "furigana": [["鳥", "とり"], ["は"], ["歌", "うた"], ["います。"]]
+        "id": 113932,
+        "ja": "彼はクラスでびりだった。",
+        "en": "He was at the bottom of the class.",
+        "enId": 289741,
+        "form": "びり",
+        "furigana": [["彼", "かれ"], ["はクラスでびりだった。"]]
       },
       {
-        "id": 190669,
-        "ja": "一曲歌いたい。",
-        "en": "I want to sing a song.",
-        "enId": 27829,
-        "form": "歌い",
-        "furigana": [
-          ["一", "いち"],
-          ["曲", "きょく"],
-          ["歌", "うた"],
-          ["いたい。"]
-        ]
-      }
-    ]
-  },
-  {
-    "date": "2026-10-30",
-    "term": "うち",
-    "kana": "うち",
-    "meaning": "home; house; my place",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1"],
-    "stratum": "wago",
-    "processes": [],
-    "morphemes": [],
-    "sources": []
-  },
-  {
-    "date": "2026-10-31",
-    "term": "映画",
-    "kana": "えいが",
-    "meaning": "movie, film",
-    "level": "N5",
-    "pos": ["noun (common) (futsuumeishi)"],
-    "priority": ["ichi1", "news1", "nf01"],
-    "pitch": [1, 0],
-    "stratum": "kango",
-    "processes": [],
-    "morphemes": [],
-    "sources": [],
-    "examples": [
-      {
-        "id": 189331,
-        "ja": "映画に行くの？",
-        "en": "You're going to a movie?",
-        "enId": 26480,
-        "form": "映画",
-        "furigana": [["映画", "えいが"], ["に"], ["行", "い"], ["くの？"]]
-      },
-      {
-        "id": 231211,
-        "ja": "あの映画、最低！",
-        "en": "That movie stinks!",
-        "enId": 68577,
-        "form": "映画",
-        "furigana": [
-          ["あの"],
-          ["映画", "えいが"],
-          ["、"],
-          ["最低", "さいてい"],
-          ["！"]
-        ]
+        "id": 93321,
+        "ja": "彼女はいつもクラスのびりである。",
+        "en": "She is always at the bottom of the class.",
+        "enId": 310387,
+        "form": "びり",
+        "furigana": [["彼女", "かのじょ"], ["はいつもクラスのびりである。"]]
       }
     ]
   }
