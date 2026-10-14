@@ -604,6 +604,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf40"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "暑い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Samui was samushi, and from the Muromachi period it was sometimes pronounced sabushi.",
@@ -985,6 +990,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "水",
+        "kana": "みず"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Yu goes back to Proto-Japonic *yu and appears in both the Kojiki (712 CE) and the Man'yōshū.",
@@ -1602,6 +1613,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "衛星"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Tsuki was once tuki, and Wiktionary notes a vowel alternation between its standalone and combining forms.",

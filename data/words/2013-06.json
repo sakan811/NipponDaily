@@ -275,6 +275,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "register": ["honorific or respectful (sonkeigo) language"],
+    "seeAlso": [
+      {
+        "term": "兄さん"
+      }
+    ],
     "processes": [],
     "morphemes": [],
     "sources": [],
@@ -321,6 +326,11 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "祖母さん"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -510,6 +520,12 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf20", "nf18"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "帰す",
+        "kana": "かえす"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -644,6 +660,11 @@
     "level": "N5",
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf20"],
+    "seeAlso": [
+      {
+        "term": "壁にかける"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

@@ -7,6 +7,12 @@
     "level": "N2",
     "pos": ["adverb (fukushi)"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "凡そ",
+        "kana": "およそ"
+      }
+    ],
     "processes": [],
     "morphemes": [],
     "sources": []
@@ -206,6 +212,11 @@
     ],
     "priority": ["ichi1", "news1", "nf12"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "屋内"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -298,6 +309,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf23", "nf16"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "叔母",
+        "kana": "おば"
+      }
+    ],
     "processes": [],
     "morphemes": [],
     "sources": [],
@@ -339,6 +356,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf16", "nf23"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "叔母",
+        "kana": "おば"
+      }
+    ],
     "processes": [],
     "morphemes": [],
     "sources": [],
@@ -710,6 +733,11 @@
     "level": "N2",
     "pos": ["adjective (keiyoushi)"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "めでたい"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -788,6 +816,11 @@
     "level": "N2",
     "pos": ["adverb (fukushi)"],
     "priority": ["spec1"],
+    "seeAlso": [
+      {
+        "term": "思い切り"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -850,6 +883,11 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "八つ時"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

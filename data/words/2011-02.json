@@ -8,6 +8,16 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf25"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "軽い"
+      }
+    ],
+    "seeAlso": [
+      {
+        "term": "軽い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Omoi is the attributive form of Early Middle Japanese 重し (omoshi), with the medial k fallen out.",
@@ -257,6 +267,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf14"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "冷たい"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Atsui for hot objects is cognate with 暑い, the one used for hot weather.",
@@ -994,6 +1009,11 @@
     "pos": ["Godan verb with 'bu' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf25"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "もてあそぶ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Asobu is first attested in the Kojiki of 712 CE, from Proto-Japonic *asonpu.",

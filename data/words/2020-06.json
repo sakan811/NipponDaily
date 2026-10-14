@@ -407,6 +407,11 @@
       "noun (common) (futsuumeishi)"
     ],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "斜め"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -692,6 +697,10 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf34", "spec1"],
     "pitch": [5],
+    "pitchDisagreement": {
+      "kanjium": [5, 0],
+      "unidic": [5]
+    },
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -719,6 +728,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf15"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "花婿",
+        "kana": "はなむこ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

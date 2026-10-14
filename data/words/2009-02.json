@@ -191,6 +191,10 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [2, 0],
+    "pitchDisagreement": {
+      "kanjium": [1, 2, 0],
+      "unidic": [2, 0]
+    },
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "元, “origin, original; former”, is a doublet of 下 (moto, “base, basis”), and was cited to the Kojiki of 712 CE.",
@@ -462,6 +466,11 @@
     ],
     "priority": ["gai1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "オーバーコート"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "オーバー covers “overcoat” and “over, exceeding”, and the source traces it to English “over”.",
@@ -1100,6 +1109,14 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "ノートブック"
+      },
+      {
+        "term": "ノートパソコン"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ノート, “notebook”, is borrowed from English “note”.",
@@ -1151,6 +1168,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [2, 0],
+    "seeAlso": [
+      {
+        "term": "お祝い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "祝い, “celebration”, is the continuative stem of the verb 祝う (iwau, “to celebrate”).",

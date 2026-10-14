@@ -243,6 +243,11 @@
     ],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "複雑"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -812,6 +817,11 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf25"],
+    "seeAlso": [
+      {
+        "term": "水平線"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -858,6 +868,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "中学校"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1086,6 +1101,12 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "短期",
+        "kana": "たんき"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1289,6 +1310,12 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "間接",
+        "kana": "かんせつ"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

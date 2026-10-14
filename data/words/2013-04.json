@@ -171,6 +171,11 @@
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["news2", "nf46"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "動的"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Seiteki is 静 (sei) plus 的 (-teki).",
@@ -369,6 +374,11 @@
     "pos": ["expressions (phrases, clauses, etc.)"],
     "priority": ["spec1"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "御座る"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Gozaimasu is a sound change from 御座ります (gozarimasu, “to exist”, polite form).",
@@ -387,6 +397,11 @@
     "meaning": "gaudy vicious",
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
+    "seeAlso": [
+      {
+        "term": "アクが強い"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation", "unclear"],
     "headline": "Akudoi is first cited to 1694, and its derivation is unclear: perhaps 灰汁 (aku, “lye”) plus どい (doi), or あ (a) plus 諄い (kudoi).",
@@ -636,6 +651,11 @@
       "noun (common) (futsuumeishi)",
       "nouns which may take the genitive case particle 'no'",
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "seeAlso": [
+      {
+        "term": "感慨無量"
+      }
     ],
     "stratum": "kango",
     "processes": ["compound"],
@@ -1319,6 +1339,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf22"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "甲"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing", "clipping", "ateji"],
     "headline": "Otsu, “2nd in rank”, is from Middle Chinese 乙 (MC 'it), and its modern slang sense is an aggressive clipping of お疲れ様です (otsukaresama desu).",

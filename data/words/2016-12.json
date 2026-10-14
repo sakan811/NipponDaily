@@ -572,6 +572,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf13"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "後者"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -717,6 +722,14 @@
     ],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "後進"
+      },
+      {
+        "term": "後退"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -907,6 +920,11 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "減少"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

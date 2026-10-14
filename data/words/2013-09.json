@@ -171,6 +171,12 @@
     "level": "N5",
     "pos": ["conjunction"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "然して",
+        "kana": "そして"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -184,6 +190,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["spec1"],
+    "seeAlso": [
+      {
+        "term": "どこ"
+      },
+      {
+        "term": "ここ"
+      },
+      {
+        "term": "あそこ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -197,6 +214,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "こちら"
+      },
+      {
+        "term": "あちら"
+      },
+      {
+        "term": "どちら"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -210,6 +238,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "こちら"
+      },
+      {
+        "term": "あちら"
+      },
+      {
+        "term": "どちら"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

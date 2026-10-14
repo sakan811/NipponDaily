@@ -602,6 +602,11 @@
     "priority": ["gai1"],
     "field": ["food, cooking"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "ハンバーグステーキ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Hanbāgu is shortened from ハンバーグステーキ (hanbāgu sutēki), from English Hamburg steak, first cited to 1941.",
@@ -1043,6 +1048,11 @@
     "meaning": "the other day, lately, recently",
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "seeAlso": [
+      {
+        "term": "この間"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Konaida contracts このあいだ (kono aida), first cited in 1563.",
@@ -1446,6 +1456,14 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "金色"
+      },
+      {
+        "term": "五行"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Kin went from kimʉ to kiɴ, from Middle Chinese 金 (kim).",

@@ -277,6 +277,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "どこ"
+      },
+      {
+        "term": "ここ"
+      },
+      {
+        "term": "そこ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Asoko shifted from earlier あしこ (ashiko), and appears in the Utsubo Monogatari of the late 900s.",
@@ -563,6 +574,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "陰",
+        "kana": "かげ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Kage is an unbound apophonic form, from Proto-Japonic *kankay, cognate with 陰 (kage, “shadow”).",
@@ -911,6 +928,11 @@
     ],
     "priority": ["ichi1", "news2", "nf39"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "辞儀"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Ojigi is 御 (o-, honorific prefix) plus 辞儀 (jigi, “bow”).",
@@ -1429,6 +1451,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "これ"
+      },
+      {
+        "term": "それ"
+      },
+      {
+        "term": "どれ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Are is あ (a, “that, yon”) plus れ (-re, nominalizing suffix for demonstratives), from older kare.",

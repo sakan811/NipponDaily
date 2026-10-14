@@ -222,6 +222,14 @@
     ],
     "priority": ["news1", "nf15"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "具象"
+      },
+      {
+        "term": "具体"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chūshō appeared in the 1881 Tetsugaku Jii of Inoue Tetsujirō as a translation of English abstract, as opposed to concrete.",
@@ -571,6 +579,16 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf13"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "下がる"
+      }
+    ],
+    "seeAlso": [
+      {
+        "term": "揚がる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Agaru is from Old Japanese, first attested in the Nihon Shoki of 720 CE.",
@@ -982,6 +1000,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "センチメートル"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Senchi is borrowed from French centi-, possibly via English centi-.",
@@ -1340,6 +1363,11 @@
     "level": "N2",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "やはり"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Yappari is the emphatic pronunciation of やはり (yahari).",
@@ -1507,6 +1535,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "ビデオテープレコーダー"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Bideo is called an internationalism; see English video.",

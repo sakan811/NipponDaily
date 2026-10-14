@@ -156,6 +156,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [4],
+    "seeAlso": [
+      {
+        "term": "記者",
+        "kana": "きしゃ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ジャーナリスト is the English word “journalist” in katakana.",
@@ -473,6 +479,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "スライドガラス"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スライド is borrowed from English “slide”.",
@@ -675,6 +686,11 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "銀色"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "銀, “silver”, is from Middle Chinese 銀 (MC ngin), and the source compares Hokkien gîn.",
@@ -999,6 +1015,12 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "金玉",
+        "kana": "きんたま"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "玉, “ball, sphere, coin”, is recorded simply as from Old Japanese.",
@@ -1324,6 +1346,12 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["news1", "nf04"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "王将",
+        "kana": "おうしょう"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "王, “king”, is from Middle Chinese, and the source gives its sound path as /wau/ to /oː/.",

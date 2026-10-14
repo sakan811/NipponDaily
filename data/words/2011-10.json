@@ -450,6 +450,11 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "溜まる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Tamari is the continuative stem of the verb 溜まる (tamaru, “to gather, to accumulate”).",
@@ -607,6 +612,11 @@
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["news2", "nf42", "spec2"],
     "pitch": [4],
+    "seeAlso": [
+      {
+        "term": "下回る"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Uwamawaru is the bound form 上 (uwa-) of 上 (ue, “up; top”) plus 回る (mawaru, “to go around; to prevail”).",
@@ -731,6 +741,11 @@
     ],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "気障り"
+      }
+    ],
     "processes": [],
     "headline": "Kiza is short for 気障り (kizawari, “disagreeable”).",
     "morphemes": [],
@@ -748,6 +763,11 @@
     "meaning": "virus",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "seeAlso": [
+      {
+        "term": "ウイルス"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ビールス is a learned borrowing from Latin virus.",
@@ -1002,6 +1022,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "黒字"
+      }
+    ],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Akaji is 赤 (aka, “red”) plus 字 (ji, “characters”), and its “deficit” sense, attested since the Taishō period, comes from marking negative sums in red ink.",
@@ -1251,6 +1276,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [0, 1],
+    "seeAlso": [
+      {
+        "term": "タラント"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["wasei"],
     "headline": "タレント is a wasei eigo (pseudo-anglicism) derived from English talent.",
@@ -1296,6 +1326,11 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1"],
     "pitch": [3],
+    "antonyms": [
+      {
+        "term": "締める"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Yurumeru is 緩 (yuru, “loose”) plus める (-meru, “-ify”).",
@@ -1419,6 +1454,12 @@
     ],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "学校給食",
+        "kana": "がっこうきゅうしょく"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kyūshoku is ultimately from Middle Chinese 給食, literally “to give, to supply + food, meal”, sourced from the Records of the Grand Historian.",

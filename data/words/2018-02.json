@@ -331,6 +331,11 @@
     "level": "N3",
     "pos": ["particle", "conjunction"],
     "priority": ["spec1"],
+    "seeAlso": [
+      {
+        "term": "すると"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -435,6 +440,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "同士",
+        "kana": "どうし"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -607,6 +618,12 @@
     ],
     "priority": ["ichi1", "news1", "nf20", "nf19"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "お供",
+        "kana": "おとも"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

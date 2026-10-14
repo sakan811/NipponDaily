@@ -8,6 +8,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf18"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "欲しがる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -285,6 +290,12 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf28"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "折れる",
+        "kana": "おれる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -387,6 +398,11 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "左"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -709,6 +725,11 @@
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1"],
     "register": ["colloquial"],
+    "seeAlso": [
+      {
+        "term": "する"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -838,6 +859,11 @@
     "level": "N5",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi2", "spec1"],
+    "seeAlso": [
+      {
+        "term": "良い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

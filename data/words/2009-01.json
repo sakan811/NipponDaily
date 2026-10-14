@@ -64,6 +64,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf21"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "心",
+        "kana": "しん"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "芯, “core, heart, wick”, is traced to Middle Chinese 芯.",
@@ -656,6 +662,10 @@
     "pos": ["interjection (kandoushi)"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "pitchDisagreement": {
+      "kanjium": [1, 2, 0],
+      "unidic": [1]
+    },
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "ええ, “yes”, is a sound shift from 良い (ei).",
@@ -1030,6 +1040,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "負け"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "勝ち, “win, victory”, is the continuative stem of the verb 勝つ (katsu, “to win”).",
@@ -1222,6 +1237,11 @@
     ],
     "priority": ["ichi1"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "嫌い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "好き, “liking, fondness, love”, is the continuative stem of the verb 好く (suku), first cited in the 宇津保物語.",

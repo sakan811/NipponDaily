@@ -861,6 +861,11 @@
     ],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "承諾"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -953,6 +958,11 @@
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["ichi1", "news2", "nf34"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "清い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

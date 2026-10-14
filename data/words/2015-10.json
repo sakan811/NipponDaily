@@ -531,6 +531,11 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "終了"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -831,6 +836,11 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf45"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "返す"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -965,6 +975,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "掛かり",
+        "kana": "かかり"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

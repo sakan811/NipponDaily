@@ -8,6 +8,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "低い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "高い comes from the Early Middle Japanese adjective 高し (takashi).",
@@ -1060,6 +1065,11 @@
     ],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "ファクシミリ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ファックス is borrowed from English “fax”.",
@@ -1145,6 +1155,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "チューインガム"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ガム, “chewing gum”, is borrowed from English “gum”.",

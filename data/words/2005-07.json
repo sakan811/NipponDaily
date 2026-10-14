@@ -74,6 +74,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "善"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Aku, “evil”, is from Middle Chinese 惡.",
@@ -147,6 +152,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "マスコミュニケーション"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": [],
     "headline": "Masukomi is short for masu komyunikēshon, “mass communication”.",
@@ -255,6 +265,11 @@
     ],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "正常"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Ijō is literally “deviance from normalcy”.",
@@ -428,6 +443,12 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["news1", "nf19"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "寡",
+        "kana": "か"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Shū, “masses”, is from Middle Chinese 眾.",

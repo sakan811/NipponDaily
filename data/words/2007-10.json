@@ -281,6 +281,11 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf17"],
+    "seeAlso": [
+      {
+        "term": "湿電池"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kandenchi is 乾 (kan) plus 電池 (denchi).",
@@ -543,6 +548,16 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "竹",
+        "kana": "たけ"
+      },
+      {
+        "term": "松",
+        "kana": "まつ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["borrowing", "sound-change"],
     "headline": "Ume is probably ultimately from Middle Chinese 梅, and was often spelled む (mume) from the Heian period.",
@@ -633,6 +648,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf18"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "日の入り",
+        "kana": "ひのいり"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Hinode is 日 (hi, “sun”) plus の (no) plus 出 (de, “coming out”).",
@@ -1363,6 +1384,11 @@
     "level": "N2",
     "pos": ["interjection (kandoushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "さよなら"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "clipping"],
     "headline": "Sayōnara is shortened from 左様ならば (sayō naraba), literally “if that's the way it is”.",
@@ -1503,6 +1529,11 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "判型"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Han, “size of paper”, is from Middle Chinese 判.",

@@ -392,6 +392,11 @@
     "priority": ["ichi1"],
     "register": ["colloquial"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "サボタージュ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["derivation", "borrowing", "clipping"],
     "headline": "サボる is a clipping of サボタージュ (sabotāju, “idling, truancy”) plus る (-ru, verb-forming suffix), the former from French sabotage.",
@@ -577,6 +582,11 @@
     "pos": ["interjection (kandoushi)"],
     "priority": ["spec1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "おい"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Ōi is an elongation of おい.",
@@ -752,6 +762,12 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf42"],
     "pitch": [4],
+    "seeAlso": [
+      {
+        "term": "省みる",
+        "kana": "かえりみる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaerimiru is 帰り (kaeri, the stem of 帰る (kaeru, “to return, to go home”)) plus 見る (miru, “to look, to watch, to take care”).",
@@ -1200,6 +1216,11 @@
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["ichi1", "news2", "nf39"],
+    "antonyms": [
+      {
+        "term": "後天的"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sententeki is 先天 (senten, “congenital”) plus 的 (-teki, “-like”).",

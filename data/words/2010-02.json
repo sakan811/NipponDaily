@@ -116,6 +116,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf11"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "お土産"
+      }
+    ],
     "processes": ["compound", "rendaku", "ateji"],
     "headline": "The kanji say “soil” and “produce”; the likely origin is a shrine's “small box”.",
     "morphemes": [],
@@ -238,6 +243,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "ご兄弟"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Brothers have two readings, and they come from two waves of Chinese.",
@@ -351,6 +361,11 @@
     "priority": ["ichi1", "news2", "nf43"],
     "field": ["food, cooking"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "蕎麦切り"
+      }
+    ],
     "processes": [
       "compound",
       "derivation",
@@ -954,6 +969,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "入り口"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "“Go out” + “mouth”: an exit is a door with a voiced mouth.",
@@ -1271,6 +1291,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf17"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "湯帷子"
+      }
+    ],
     "processes": ["clipping", "ateji"],
     "headline": "ゆかた is the front half of a longer word, and the kanji say “bathing garment”.",
     "morphemes": [],

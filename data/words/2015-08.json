@@ -166,6 +166,11 @@
     "pos": ["conjunction"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "他方"
+      }
+    ],
     "processes": [],
     "morphemes": [],
     "sources": [],
@@ -267,6 +272,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "従姉妹"
+      }
+    ],
     "processes": ["ateji"],
     "morphemes": [],
     "sources": [],
@@ -303,6 +313,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["spec1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "従兄弟"
+      }
+    ],
     "processes": ["ateji"],
     "morphemes": [],
     "sources": [],
@@ -385,6 +400,12 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "違犯",
+        "kana": "いはん"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1000,6 +1021,11 @@
       "intransitive verb"
     ],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "含嗽"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

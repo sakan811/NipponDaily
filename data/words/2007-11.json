@@ -717,6 +717,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "勝ち",
+        "kana": "かち"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Make is the continuative stem of 負ける (makeru, “to lose, to be defeated”).",
@@ -765,6 +771,11 @@
     ],
     "register": ["humble (kenjougo) language"],
     "pitch": [3, 0],
+    "seeAlso": [
+      {
+        "term": "存じる"
+      }
+    ],
     "stratum": "kango",
     "processes": ["rendaku"],
     "headline": "Zonzuru is 存 (zon) plus する, with suru voiced to zuru.",
@@ -1344,6 +1355,11 @@
     "level": "N4",
     "pos": ["conjunction"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "ですから"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Dakara is だ (“to be”) plus から (“because”).",
@@ -1405,6 +1421,11 @@
     ],
     "priority": ["ichi1", "news2", "nf29"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "非凡"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Heibon is Middle Chinese 平凡, literally “even, flat + in every case”.",

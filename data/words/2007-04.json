@@ -53,6 +53,17 @@
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "こう"
+      },
+      {
+        "term": "そう"
+      },
+      {
+        "term": "ああ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change", "ateji"],
     "headline": "Dō is first cited to 1604 in the Portuguese work Arte da Lingoa de Iapam.",
@@ -621,6 +632,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "そちら"
+      },
+      {
+        "term": "あちら"
+      },
+      {
+        "term": "どちら"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Kochira is こち (kochi, “this direction (or person)”) plus 等 (-ra, suffix of rough indication or approximation).",
@@ -1024,6 +1046,11 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "ツケ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Tsukeru is from Old Japanese 付く (tuku), following the lower bigrade conjugation.",
@@ -1281,6 +1308,11 @@
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
     "priority": ["ichi1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "喉が乾く"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Kawaku, “to be thirsty”, is related to 乾く (kawaku, “dry”).",

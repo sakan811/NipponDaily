@@ -495,6 +495,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf20"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "定石"
+      }
+    ],
     "processes": ["borrowing", "ateji"],
     "headline": "Nadare is the stem of the classical verb 傾る (nadaru), and its kanji spelling is jukujikun, borrowed from Chinese 雪崩 (xuěbēng).",
     "morphemes": [],
@@ -713,6 +718,11 @@
     "pos": ["noun (common) (futsuumeishi)", "suffix"],
     "priority": ["ichi1", "news1", "nf13"],
     "pitch": [3, 0],
+    "seeAlso": [
+      {
+        "term": "カレンダー"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Koyomi is generally considered a shift from 日 (ka, “day”) plus 読み (yomi, “reading; counting”), literally “day counting”.",
@@ -1078,6 +1088,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "法"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ムード is from English mood.",

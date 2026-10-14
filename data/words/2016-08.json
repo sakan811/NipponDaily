@@ -158,6 +158,11 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf32"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "訳する"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -454,6 +459,11 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "無効"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -637,6 +647,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "友達"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -672,6 +687,11 @@
     ],
     "priority": ["ichi1", "news1", "nf19"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "無能"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -718,6 +738,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "郵便物"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -760,6 +785,11 @@
     ],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "不利"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

@@ -376,6 +376,11 @@
     "level": "N1",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "ふんだんに"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Fundan was originally 不断 (fudan).",
@@ -758,6 +763,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "尖頭器"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ポイント is from English point.",
@@ -1005,6 +1015,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "格"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ケース is borrowed from English case.",
@@ -1210,6 +1225,11 @@
     ],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "ご了承"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Ryōshō is 了 (ryō, “comprehend”) plus 承 (shō, “agree to”), and 了 is a daiyōji replacing 諒.",
@@ -1340,6 +1360,11 @@
     ],
     "priority": ["gai1", "ichi1"],
     "pitch": [0, 1],
+    "antonyms": [
+      {
+        "term": "マイナス"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "プラス is from English plus.",
@@ -1460,6 +1485,14 @@
     ],
     "priority": ["gai1", "ichi1"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "ウェット"
+      },
+      {
+        "term": "スイート"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ドライ is borrowed from English dry.",

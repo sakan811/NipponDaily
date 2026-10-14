@@ -148,6 +148,11 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["news2", "nf33", "spec2"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "逃がす"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Nogasu is from the causative form of Proto-Japonic *nonk- (“to flee, escape”), and the source compares 逃がす (nigasu).",
@@ -619,6 +624,12 @@
     "level": "N1",
     "pos": ["Godan verb with 'gu' ending", "transitive verb"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "漱ぐ",
+        "kana": "すすぐ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Susugu was originally pronounced unvoiced, as 濯く (susuku).",
@@ -861,6 +872,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "インテリゲンチャ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "インテリ is from the Russian word intelligéncija.",
@@ -1026,6 +1042,11 @@
     ],
     "priority": ["ichi1", "news1", "nf12"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "拒否"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shōdaku is 承 (shō, “agree to”) plus 諾 (daku, “consent”).",
@@ -1307,6 +1328,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [6],
+    "seeAlso": [
+      {
+        "term": "デモ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "デモンストレーション is from English demonstration.",

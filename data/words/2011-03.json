@@ -8,6 +8,11 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf20"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "壁にかける"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Kakeru comes from Old Japanese 掛く (kaku), a lower bigrade verb.",
@@ -105,6 +110,11 @@
     "meaning": "plate, dish",
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
+    "seeAlso": [
+      {
+        "term": "皿"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Osara is 御 (o-, polite prefix) plus 皿 (sara, “plate”).",
@@ -215,6 +225,11 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "祭り"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Omatsuri is 御 (o-, honorific prefix) plus 祭り (matsuri, “festival”).",
@@ -653,6 +668,12 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a prefix"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "○",
+        "kana": "まる"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Maru shifted from Old Japanese 丸 (maro), and is related to 麻呂 (maro).",
@@ -788,6 +809,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "住居",
+        "kana": "じゅうきょ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Sumai is the continuative stem of 住まう (sumau, “to live at; to dwell; to reside”), first attested in the 970s.",
@@ -1394,6 +1421,14 @@
     "level": "N5",
     "pos": ["interjection (kandoushi)", "adverb (fukushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "どうも有難う"
+      },
+      {
+        "term": "どうしても"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Dōmo is どう (dō, “how”) plus も (mo, “ever, even, also”): close in meaning to “no matter how”.",

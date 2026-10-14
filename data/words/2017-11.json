@@ -186,6 +186,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "紳士"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -654,6 +659,11 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf26"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "減らす"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -698,6 +708,11 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf26"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "減らす"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -715,6 +730,11 @@
     ],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "有利"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -953,6 +973,11 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf20"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "増やす"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -1000,6 +1025,11 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf20"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "増える"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

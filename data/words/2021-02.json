@@ -215,6 +215,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf12"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "要領を得る"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -328,6 +333,12 @@
     ],
     "priority": ["ichi1"],
     "pitch": [2, 1],
+    "seeAlso": [
+      {
+        "term": "他所",
+        "kana": "たしょ"
+      }
+    ],
     "processes": [],
     "morphemes": [],
     "sources": [],
@@ -496,6 +507,11 @@
     ],
     "priority": ["ichi1", "news2", "nf39"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "及第"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -617,6 +633,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "ランニングシャツ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": [],
     "morphemes": [],
@@ -648,6 +669,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "文科"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -800,6 +826,12 @@
     ],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "長期",
+        "kana": "ちょうき"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -884,6 +916,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf27"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "長所"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -982,6 +1019,11 @@
     "priority": ["ichi1"],
     "field": ["grammar"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "複数"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

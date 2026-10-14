@@ -161,6 +161,12 @@
     "pos": ["pronoun"],
     "priority": ["ichi2"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "私",
+        "kana": "わたし"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "unclear"],
     "headline": "Watakushi has no known source: a surface analysis suggests a compound, but no likely etyma are known.",
@@ -501,6 +507,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "議会"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "Kokkai is from Chinese 國會 (guóhuì); the page also lists Korean 국회 (Gukhoe) and Vietnamese Quốc hội.",
@@ -763,6 +774,11 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "輸出"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Yunyū is an alteration of shunyū, using the kan'yōon yu for 輸.",
@@ -1386,6 +1402,16 @@
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "相対"
+      }
+    ],
+    "seeAlso": [
+      {
+        "term": "絶対に"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "wasei"],
     "headline": "Zettai was coined by Inoue Tetsujirō in 1881 as a calque of English absolute, changing the spelling from 絶待 to 絶対.",
@@ -1626,6 +1652,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf17"],
     "pitch": [1, 0],
+    "seeAlso": [
+      {
+        "term": "禅宗"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Zen is shortened from 禅那 (zenna), a Middle Chinese transliteration of Sanskrit dhyāna, “profound meditation”.",

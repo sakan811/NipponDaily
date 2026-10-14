@@ -88,6 +88,17 @@
     "pos": ["pre-noun adjectival (rentaishi)"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "こんな"
+      },
+      {
+        "term": "そんな"
+      },
+      {
+        "term": "あんな"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Donna contracts どの様な (dono yō na).",
@@ -131,6 +142,11 @@
     ],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "明け"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Kure is the continuative stem of 暮れる (kureru, “to get dark, to end”).",
@@ -334,6 +350,11 @@
     ],
     "priority": ["news1", "nf16"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "鹹水"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Tansui is 淡 (“tasteless”) plus 水 (“water”).",
@@ -441,6 +462,11 @@
     "level": "N4",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "酷く"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Hidoi is derived from 非道 (hidō, “evil, inhuman”) plus -i.",
@@ -822,6 +848,11 @@
     ],
     "priority": ["ichi1", "news1", "nf16"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "黄葉"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Kōyō began as kou jepu: Middle Chinese 紅葉, literally “crimson, red + leaf”.",

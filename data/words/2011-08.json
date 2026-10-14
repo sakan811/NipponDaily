@@ -802,6 +802,11 @@
     ],
     "priority": ["news2", "nf32"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "公転"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jiten is 自 (ji, “self”) plus 転 (ten, “rotate; round”).",
@@ -1042,6 +1047,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "コンピュータゲーム"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ゲーム is borrowed from English game.",
@@ -1269,6 +1279,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "雛",
+        "kana": "ひよこ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hina appears to be from Old Japanese; a derived form, hiwina, appears in The Tale of Genji, dated before 1021.",

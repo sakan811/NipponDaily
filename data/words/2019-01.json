@@ -506,6 +506,12 @@
     ],
     "priority": ["ichi1", "news1", "nf12"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "直接",
+        "kana": "ちょくせつ"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -957,6 +963,10 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "pitchDisagreement": {
+      "kanjium": [1, 0],
+      "unidic": [0]
+    },
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

@@ -82,6 +82,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [3, 0],
+    "seeAlso": [
+      {
+        "term": "ハンカチーフ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ハンカチ is borrowed from English “handkerchief”.",
@@ -138,6 +143,15 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "五大"
+      },
+      {
+        "term": "土",
+        "kana": "ど"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "地, “earth”, is a kan'on reading, and the source suspects a dialectal source for its devoiced initial.",
@@ -784,6 +798,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [0, 1],
+    "seeAlso": [
+      {
+        "term": "盂蘭盆"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "盆 is short for 盂蘭盆 (Urabon), which some dictionaries trace to Sanskrit ullambana, purportedly “hanging upside-down”.",
@@ -921,6 +940,11 @@
     ],
     "priority": ["gai1", "ichi1"],
     "pitch": [3, 2],
+    "seeAlso": [
+      {
+        "term": "古典"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "クラシック is the English word “classic” in katakana.",
@@ -1297,6 +1321,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "軍隊"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "軍, “army”, shifted from /kʲun/ to /ɡun/ after it came from Middle Chinese.",

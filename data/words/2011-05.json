@@ -116,6 +116,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "ガラス"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Gurasu is English glass, a doublet of ガラス (garasu), from Dutch.",
@@ -323,6 +328,11 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "seeAlso": [
+      {
+        "term": "インク"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Inki is borrowed from Dutch inkt, ultimately from Ancient Greek énkauston, “burned-in”.",
@@ -346,6 +356,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf03"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "抽象"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "meaning-shift"],
     "headline": "Gutai is Middle Chinese 具體, literally “arrange + body”, repurposed in 1881 as a translation of English concrete.",
@@ -1368,6 +1383,11 @@
     "level": "N1",
     "pos": ["adverb (fukushi)"],
     "priority": ["spec1"],
+    "seeAlso": [
+      {
+        "term": "もしかすると"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Moshikashite is もし (moshi) plus か (ka) plus して (shite).",

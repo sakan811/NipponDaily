@@ -311,6 +311,11 @@
     "meaning": "calling on someone who is ill, visit",
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
+    "seeAlso": [
+      {
+        "term": "見舞い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -446,6 +451,11 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf24"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "上がる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -1035,6 +1045,11 @@
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
     "priority": ["ichi1"],
     "pitch": [1, 2],
+    "seeAlso": [
+      {
+        "term": "付く"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

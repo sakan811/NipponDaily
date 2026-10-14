@@ -8,6 +8,12 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf21"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "載る",
+        "kana": "のる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -109,6 +115,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "spec1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "郵便葉書"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -513,6 +524,14 @@
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
     "priority": ["ichi1", "spec1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "注意を引く"
+      },
+      {
+        "term": "図面を引く"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -545,6 +564,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf14"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "高い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -814,6 +838,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "文",
+        "kana": "ぶん"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -857,6 +887,11 @@
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "不便"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

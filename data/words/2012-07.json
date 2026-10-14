@@ -243,6 +243,11 @@
     ],
     "priority": ["ichi1", "news1", "nf15"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "雄"
+      }
+    ],
     "stratum": "wago",
     "processes": ["derivation", "unclear"],
     "headline": "Mesu is first cited to 1867, and its final -su is of uncertain derivation.",

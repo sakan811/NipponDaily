@@ -181,6 +181,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf22"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "出産"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -429,6 +434,11 @@
     "meaning": "at the latest",
     "level": "N1",
     "pos": ["adverb (fukushi)"],
+    "antonyms": [
+      {
+        "term": "早くとも"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -655,6 +665,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news2", "nf36", "spec1"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "使い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -701,6 +716,12 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf21"],
     "pitch": [0, 2],
+    "seeAlso": [
+      {
+        "term": "脅かす",
+        "kana": "おどかす"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -745,6 +766,12 @@
     "pos": [
       "noun (common) (futsuumeishi)",
       "noun or participle which takes the aux. verb suru"
+    ],
+    "seeAlso": [
+      {
+        "term": "供",
+        "kana": "とも"
+      }
     ],
     "stratum": "wago",
     "processes": [],

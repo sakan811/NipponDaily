@@ -319,6 +319,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf25"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "化学元素"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "wasei"],
     "headline": "Genso is 元 (gen, “element”) plus 素 (so, “element”), and a calque of Dutch hoofdstof.",
@@ -658,6 +663,11 @@
     ],
     "priority": ["news1", "nf03"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "共和制"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kyōwa is from Middle Chinese 共和, and Mitsukuri Shōgo later used it for the United States.",
@@ -736,6 +746,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf25"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "元号"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Nengō is from the Middle Chinese compound 年號, literally “year + call”.",
@@ -1493,6 +1508,11 @@
       "adjectival nouns or quasi-adjectives (keiyodoshi)"
     ],
     "priority": ["ichi1", "news1", "nf13"],
+    "seeAlso": [
+      {
+        "term": "好景気"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Fukeiki is 不 (fu-) plus 景気 (keiki).",

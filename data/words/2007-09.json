@@ -72,6 +72,11 @@
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "放っておく"
+      }
+    ],
     "processes": ["sound-change"],
     "headline": "Hōru took five steps from papur to hōru.",
     "morphemes": [],
@@ -137,6 +142,11 @@
     ],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "オシ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Osu, “to push”, is a doublet of 推す (osu).",
@@ -926,6 +936,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "印鑑"
+      }
+    ],
     "stratum": "hybrid",
     "processes": ["compound", "ateji"],
     "headline": "Hanko comes from 版行 (hankō) > hanko.",
@@ -1170,6 +1185,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "高等学校"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Kōkō contracts 高等学校 (kōtō-gakkō, “high school”).",

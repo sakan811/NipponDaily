@@ -8,6 +8,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf36"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "カタカナ"
+      }
+    ],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku"],
     "headline": "Hiragana is “smooth kana”, with かな voiced to がな.",
@@ -687,6 +692,15 @@
     "pos": ["pronoun", "noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "彼",
+        "kana": "かれ"
+      },
+      {
+        "term": "彼氏"
+      }
+    ],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "“She” began as “that woman” — and only became a pronoun around 1888, under Western influence.",
@@ -738,6 +752,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "アパートメント"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "An “apartment” that is clipped — twice, from two different longer words.",
@@ -1170,6 +1189,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "spec1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "零",
+        "kana": "れい"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing", "ateji"],
     "headline": "Zero could be English or French — and even the katakana word has a kanji spelling chosen by sound.",

@@ -145,6 +145,11 @@
     ],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "天然"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -341,6 +346,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf30"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "親類",
+        "kana": "しんるい"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -435,6 +446,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "身体",
+        "kana": "からだ"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -500,6 +517,11 @@
     ],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "軽率"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -614,6 +636,11 @@
     ],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "退歩"
+      }
+    ],
     "processes": [],
     "morphemes": [],
     "sources": [],
@@ -896,6 +923,11 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "推奨"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

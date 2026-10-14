@@ -436,5 +436,920 @@
         "furigana": [["彼女", "かのじょ"], ["はいつもクラスのびりである。"]]
       }
     ]
+  },
+  {
+    "date": "2026-10-13",
+    "term": "後",
+    "kana": "あと",
+    "meaning": "afterwards (later); in the future; the rest; since then",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Originally an extension of 跡(あと) (ato, “footprint; leftover”), itself a compound of 足(あ) (a, “foot”) + 所(と) (to, “place”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["しりえ"],
+        "quotes": [
+          "/siripe/ → /çirife/ → /çirie/",
+          "From Old Japanese. Found in the Nihon Shoki of 720, and phonetically as 志利弊 (siripe₁) in the Man'yōshū of 759.",
+          "Compound of 尻 (shiri, “butt, tail, rear”) + 方 (e, “side, facing, way, direction”)."
+        ]
+      },
+      {
+        "readings": ["のち"],
+        "quotes": ["From Old Japanese. Ultimate derivation unknown."]
+      },
+      {
+        "readings": ["ゆり"],
+        "quotes": [
+          "From Old Japanese. Ultimate derivation unknown. May be cognate with より (yori, “from; after”)."
+        ]
+      },
+      {
+        "readings": ["ご"],
+        "quotes": ["From Middle Chinese 後 (huwX, huwH, “after”)."]
+      },
+      {
+        "readings": ["こう"],
+        "quotes": [
+          "From Middle Chinese 後 (huwX, “after”). Classified as the kan'on, so likely a later borrowing. Compare modern Mandarin reading hòu."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 174299,
+        "ja": "後をつけろ。",
+        "en": "Shadow him.",
+        "enId": 240171,
+        "form": "後",
+        "furigana": [["後", "あと"], ["をつけろ。"]]
+      },
+      {
+        "id": 174315,
+        "ja": "後は任せた！",
+        "en": "The rest is left to you!",
+        "enId": 240154,
+        "form": "後",
+        "furigana": [["後", "あと"], ["は"], ["任", "まか"], ["せた！"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-14",
+    "term": "一日",
+    "kana": "いちにち",
+    "meaning": "one day (duration)",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "spec1"],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "morphemes": [
+      {
+        "text": "一",
+        "reading": "いち",
+        "meaning": "one"
+      },
+      {
+        "text": "日",
+        "reading": "にち",
+        "meaning": "day"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 一日 (ʔiɪt̚ ȵiɪt̚, literally “one + day”). Compare modern Hakka reading yit-ngit."
+      },
+      {
+        "quote": "The goon reading, so likely the initial borrowing."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ついたち"],
+        "quotes": [
+          "/tuki tati/ → /t͡suitat͡ɕi/",
+          "Originally a compound of 月 (tsuki, “moon; month”) + 立ち (tachi, “standing; starting, occurring”, the 連用形 (ren'yōkei, “continuative or stem form”) of verb 立つ (tatsu, “to stand up; to start, to occur”))."
+        ]
+      },
+      {
+        "readings": ["いちじつ"],
+        "quotes": [
+          "Ultimately from Middle Chinese 一日 (ʔiɪt̚ ȵiɪt̚, literally “one + day”). Compare modern Min Nan reading chi̍t-ji̍t.",
+          "This reading uses the goon for the first character and the kan'on for the second character, suggesting a shift in reading after the initial borrowing."
+        ]
+      },
+      {
+        "readings": ["いっぴ"],
+        "quotes": [
+          "Compound of 一 (ichi, “one”, on'yomi, or Chinese-derived reading) + 日 (hi, “day”, kun'yomi, or native-Japanese reading)."
+        ]
+      },
+      {
+        "readings": ["ひとひ"],
+        "quotes": [
+          "Compound of 一 (hito, “one”) + 日 (hi, “day”). Appears in The Tale of Genji of the early 1000s CE."
+        ]
+      },
+      {
+        "readings": ["ひとえ"],
+        "quotes": [
+          "/hitohi/ → /hitohe/ → /hitoe/",
+          "Shift in pronunciation from hitohi above."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 192919,
+        "ja": "よい一日をね。",
+        "en": "Have a nice day.",
+        "enId": 30085,
+        "form": "一日",
+        "furigana": [["よい"], ["一", "いち"], ["日", "にち"], ["をね。"]]
+      },
+      {
+        "id": 125987,
+        "ja": "長い一日が過ぎた。",
+        "en": "A long day has passed on.",
+        "enId": 278004,
+        "form": "一日",
+        "furigana": [
+          ["長", "なが"],
+          ["い"],
+          ["一", "いち"],
+          ["日", "にち"],
+          ["が"],
+          ["過", "す"],
+          ["ぎた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-15",
+    "term": "上",
+    "kana": "うえ",
+    "meaning": "above (up, top, etc.), over, on top of",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [0, 2],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨upe₂⟩ → /*upai̯/ → /upe/ → /ufe/ → /uwe/ → /ue/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *upay."
+      },
+      {
+        "quote": "Unbound apophonic form of uwa, ancient upa (see below)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["うわ"],
+        "quotes": [
+          "/upa/ → /ufa/ → /uwa/",
+          "From Old Japanese. The combining form of ue, ancient upe (see above)."
+        ]
+      },
+      {
+        "readings": ["へ", "え"],
+        "quotes": [
+          "⟨upe₂⟩ → ⟨pe₂⟩ → */pe/ → /fe/ → /he/ (→ /e/)",
+          "Short-form of or shift from ue, ancient upe (see above). Realized as -e in some compounds."
+        ]
+      },
+      {
+        "readings": ["かみ"],
+        "quotes": [
+          "⟨kami₁⟩ → */kamʲi/ → /kami/",
+          "From Old Japanese. Already apparent in ancient texts such as the Kojiki (c. 712 CE) and the Man'yōshū (c. 759 CE).",
+          "Distinct from 神 (⟨kami₂⟩ → kami, “Shinto deity”)."
+        ]
+      },
+      {
+        "readings": ["かん"],
+        "quotes": [
+          "/kami/ → /kamʉ/ → /kaɴ/",
+          "Contraction of Old Japanese ⟨kami₁⟩. Spelled in ancient works as かむ (kamu) prior to the development of the ん (n) kana."
+        ]
+      },
+      {
+        "readings": ["じょう"],
+        "quotes": [
+          "/d͡ʑɨau/ → /d͡ʑɔː/ → /d͡ʑoː/",
+          "From Middle Chinese 上 (MC dzyangX|dzyangH)."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 142348,
+        "ja": "石の上にも３年。",
+        "en": "Patience wins out in the end.",
+        "enId": 272222,
+        "form": "上",
+        "furigana": [
+          ["石", "いし"],
+          ["の"],
+          ["上", "うえ"],
+          ["にも３"],
+          ["年", "ねん"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 208984,
+        "ja": "その上に座るな。",
+        "en": "Don't sit on it.",
+        "enId": 46244,
+        "form": "上",
+        "furigana": [
+          ["その"],
+          ["上", "うえ"],
+          ["に"],
+          ["座", "すわ"],
+          ["るな。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-16",
+    "term": "一昨日",
+    "kana": "おととい",
+    "meaning": "the day before yesterday",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news2", "nf40"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": ["sound-change", "ateji"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/wotot͡sufi/ → /wototofi/ → /wototowi/ → /ototoi/"
+      },
+      {
+        "quote": "First cited to a text from roughly 953."
+      },
+      {
+        "quote": "Shift from Old Japanese ototsui (see Etymology 3 below)."
+      },
+      {
+        "quote": "The kanji spelling is from issakujitsu (see Etymology 1 above)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["いっさくじつ"],
+        "quotes": [
+          "Compound of 一昨 (issaku-, “the previous... before...”) + 日 (jitsu, “day”).",
+          "First cited to a text from 1275."
+        ]
+      },
+      {
+        "readings": ["おとつい"],
+        "quotes": [
+          "⟨woto₂ tu pi₁⟩ → */wotətupʲi/ → /wotot͡sufi/ → /otot͡suwi/ → /otot͡sui/",
+          "First attested in the Man'yōshū (c. 759 CE).",
+          "Originally a compound of 遠 (oto, “distant, distant past”) + つ (tsu, Old Japanese case-marker particle) + 日 (hi, “day”).",
+          "The kanji spelling is from issakujitsu (see Etymology 1 above)."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 209861,
+        "ja": "その事故はおととい起きた。",
+        "en": "The accident happened the day before yesterday.",
+        "enId": 47124,
+        "form": "おととい",
+        "furigana": [
+          ["その"],
+          ["事故", "じこ"],
+          ["はおととい"],
+          ["起", "お"],
+          ["きた。"]
+        ]
+      },
+      {
+        "id": 227615,
+        "ja": "おとといそこへ行きました。",
+        "en": "I went there the day before yesterday.",
+        "enId": 64968,
+        "form": "おととい",
+        "furigana": [["おとといそこへ"], ["行", "い"], ["きました。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-17",
+    "term": "九",
+    "kana": "きゅう",
+    "meaning": "nine",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 九 (MC kjuwX). The kan'on reading, so likely a later borrowing. Borrowed after palatalization occurred in Middle Chinese. Compare literary Hokkien 九 (kiú), Hakka 九 (kiú)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["く"],
+        "quotes": [
+          "From Early Middle Chinese 九 (MC kjuwX). The goon reading, so likely the initial borrowing. Compare vernacular Hokkien 九 (káu)."
+        ]
+      },
+      {
+        "readings": ["ここの"],
+        "quotes": [
+          "From Old Japanese from Proto-Japonic *kəkənə.",
+          "First attested in the Kojiki of 712 CE."
+        ]
+      },
+      {
+        "readings": ["この"],
+        "quotes": [
+          "/kokono/ → /kono/",
+          "Abbreviation of Old Japanese 九 (kokono, “nine”)."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-18",
+    "term": "今日",
+    "kana": "きょう",
+    "meaning": "today, this day",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "processes": ["ateji"],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 225781,
+        "ja": "今日は日曜日だよ。",
+        "en": "Today is Sunday.",
+        "enId": 63119,
+        "form": "今日",
+        "furigana": [
+          ["今日", "きょう"],
+          ["は"],
+          ["日曜日", "にちようび"],
+          ["だよ。"]
+        ]
+      },
+      {
+        "id": 78649,
+        "ja": "来週の今日お会いします。",
+        "en": "I'll see you a week from today.",
+        "enId": 325067,
+        "form": "今日",
+        "furigana": [
+          ["来週", "らいしゅう"],
+          ["の"],
+          ["今日", "きょう"],
+          ["お"],
+          ["会", "あ"],
+          ["いします。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-19",
+    "term": "魚",
+    "kana": "さかな",
+    "meaning": "fish",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "ichi2", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 210865,
+        "ja": "その湖には魚が豊富にいる。",
+        "en": "The lake abounds with fish.",
+        "enId": 48135,
+        "form": "魚",
+        "furigana": [
+          ["その"],
+          ["湖", "みずうみ"],
+          ["には"],
+          ["魚", "さかな"],
+          ["が"],
+          ["豊富", "ほうふ"],
+          ["にいる。"]
+        ]
+      },
+      {
+        "id": 176015,
+        "ja": "鯨はさかなではなくて哺乳動物である。",
+        "en": "The whale is not a fish but a mammal.",
+        "enId": 238450,
+        "form": "さかな",
+        "furigana": [
+          ["鯨", "くじら"],
+          ["はさかなではなくて"],
+          ["哺乳", "ほにゅう"],
+          ["動物", "どうぶつ"],
+          ["である。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-20",
+    "term": "四",
+    "kana": "し",
+    "meaning": "four",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing", "sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/si/ → /ɕi/"
+      },
+      {
+        "quote": "From Middle Chinese 四 (MC siɪᴴ)."
+      },
+      {
+        "quote": "Compare modern Hakka 四 (si)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["よ"],
+        "quotes": [
+          "⟨yo₂⟩ → */jə/ → /jo/",
+          "From Old Japanese, from Proto-Japonic *yə.",
+          "In modern Japanese, Japonic よ (yo) is more common than Sinitic し (shi, see Etymology 3) outside fixed compounds, which is similar to 七(なな) (nana) but different from other numerals. The reason may be a superstitious connection to 死(し) (shi, “death”), or simply avoiding confusion with similar sounding 一(いち) (ichi, “one”) and 七(しち) (shichi, “seven”)."
+        ]
+      },
+      {
+        "readings": ["よん"],
+        "quotes": [
+          "Shift from yo above, influenced by analogy by the final sound of preceding number 三 (san, “three”). The most common form as a stand-alone number."
+        ]
+      },
+      {
+        "readings": ["すう"],
+        "quotes": ["From Mandarin 四 (sì)."]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-21",
+    "term": "下",
+    "kana": "した",
+    "meaning": "under, below, beneath",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/sita/ → /ɕita/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *sita."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["しも"],
+        "quotes": [
+          "⟨simo₁⟩ → /simʷo/ → /ɕimo/",
+          "From Old Japanese, from Proto-Japonic *simo."
+        ]
+      },
+      {
+        "readings": ["もと"],
+        "quotes": ["Doublet of 本(もと) (moto, “origin”)."]
+      },
+      {
+        "readings": ["げ", "か"],
+        "quotes": ["From Middle Chinese 下 (MC haeX|haeH)."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 79461,
+        "ja": "柳の下の泥鰌。",
+        "en": "A fox isn't caught twice in the same snare.",
+        "enId": 324256,
+        "form": "下",
+        "furigana": [
+          ["柳", "やなぎ"],
+          ["の"],
+          ["下", "した"],
+          ["の"],
+          ["泥鰌", "どじょう"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 202412,
+        "ja": "テーブルの下よ。",
+        "en": "It's under the table.",
+        "enId": 39623,
+        "form": "下",
+        "furigana": [["テーブルの"], ["下", "した"], ["よ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-22",
+    "term": "空",
+    "kana": "そら",
+    "meaning": "sky",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨so₁ra⟩ → */sʷora/ → /sora/"
+      },
+      {
+        "quote": "From Old Japanese, presumably from Proto-Japonic *sora."
+      },
+      {
+        "quote": "Found in the Kojiki c. 712 CE."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["から"],
+        "quotes": ["Cognate with 殻 (kara, “shell”)."]
+      },
+      {
+        "readings": ["くう"],
+        "quotes": [
+          "From Middle Chinese 空 (MC khuwng|khuwngH).",
+          "The Buddhist senses are a translation of Sanskrit शून्यता (śūnyatā)."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 179482,
+        "ja": "空が晴れた。",
+        "en": "The sky has become clear.",
+        "enId": 18341,
+        "form": "空",
+        "furigana": [["空", "そら"], ["が"], ["晴", "は"], ["れた。"]]
+      },
+      {
+        "id": 127166,
+        "ja": "男心と秋の空。",
+        "en": "Man is as fickle as autumn weather.",
+        "enId": 276923,
+        "form": "空",
+        "furigana": [
+          ["男心", "おとこごころ"],
+          ["と"],
+          ["秋", "あき"],
+          ["の"],
+          ["空", "そら"],
+          ["。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-23",
+    "term": "～中",
+    "kana": "～ちゅう",
+    "meaning": "during, while ~ing",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-10-24",
+    "term": "十",
+    "kana": "とお",
+    "meaning": "ten things",
+    "level": "N5",
+    "pos": ["numeric"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨to₂wo⟩ → */təwo/ → /towo/ → /toː/"
+      },
+      {
+        "quote": "From Old Japanese, ultimately from Proto-Japonic *təwə. The initial to- may be related to the -tu in 五 (itu, “five”), following similar vowel alternations as seen in the numerals for 1-4 and their doubles. Alternatively this word may be related to 撓む (towomu→tōmu, “to bend”), 撓寄る (towoyoru, “to flex”), 撓 (towowo, “bent”), from the way ones fingers bend when counting using them. See the Proto-Japonic reconstruction page for more theories."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["じゅう", "じっ"],
+        "quotes": [
+          "/ʑipʉ/ → /ʑiɸu/ → /ʑɨu/ → /ʑuː//ʑiʔ/ → /ʑi~̚/",
+          "From Middle Chinese 十 (MC dzyip). Compare literary Hokkien 十 (si̍p)."
+        ]
+      },
+      {
+        "readings": ["と"],
+        "quotes": ["Shift from tō above."]
+      },
+      {
+        "readings": ["そ"],
+        "quotes": [
+          "⟨so₁⟩ → */sʷo/ → /so/",
+          "From Old Japanese.",
+          "Used in compounds."
+        ]
+      },
+      {
+        "readings": ["しい"],
+        "quotes": ["From Mandarin 十 (shí)."]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-25",
+    "term": "～時",
+    "kana": "～とき",
+    "meaning": "at the time of ~",
+    "level": "N5",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-10-26",
+    "term": "中",
+    "kana": "なか",
+    "meaning": "inside, middle, among",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "adverb (fukushi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 126559,
+        "ja": "中に入れて。",
+        "en": "Let me in.",
+        "enId": 277466,
+        "form": "中",
+        "furigana": [["中", "なか"], ["に"], ["入", "い"], ["れて。"]]
+      },
+      {
+        "id": 126556,
+        "ja": "中に入れてよ。",
+        "en": "Let me in.",
+        "enId": 277466,
+        "form": "中",
+        "furigana": [["中", "なか"], ["に"], ["入", "い"], ["れてよ。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-10-27",
+    "term": "～人",
+    "kana": "～にん",
+    "meaning": "counter for people",
+    "level": "N5",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-10-28",
+    "term": "外",
+    "kana": "ほか",
+    "meaning": "other, the rest",
+    "level": "N5",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-10-29",
+    "term": "夜",
+    "kana": "よる",
+    "meaning": "evening, night",
+    "level": "N5",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change", "unclear"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨yo₁ru⟩ → */jʷoru/ → /joru/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *yoru."
+      },
+      {
+        "quote": "Derived from yo below, suffixed with an element ru of unclear meaning. Compare 日(ひ) (hi, “day”) → 昼(ひる) (hiru, “daytime”), which seems to use this same ru element."
+      },
+      {
+        "quote": "Found in the Man'yōshū, completed some time after 759 CE, with the phonetic spelling 用流."
+      },
+      {
+        "quote": "Now the most common term for night in modern Japanese."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["よ"],
+        "quotes": [
+          "⟨yo₁⟩ → /jʷo/ → /jo/",
+          "From Old Japanese, from Proto-Japonic *yo.",
+          "First attested in the Kojiki of 712 CE with the phonetic spelling 用.",
+          "In modern development, this term has taken on a more literary sense."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 86489,
+        "ja": "彼女は夜、学校に通っている。",
+        "en": "She attends school at night.",
+        "enId": 317222,
+        "form": "夜",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["夜", "よる"],
+          ["、"],
+          ["学校", "がっこう"],
+          ["に"],
+          ["通", "かよ"],
+          ["っている。"]
+        ]
+      },
+      {
+        "id": 158624,
+        "ja": "私はよる六時に散歩をします。",
+        "en": "I take a walk at six in the evening.",
+        "enId": 255904,
+        "form": "よる",
+        "furigana": [
+          ["私", "わたし"],
+          ["はよる"],
+          ["六", "ろく"],
+          ["時", "じ"],
+          ["に"],
+          ["散歩", "さんぽ"],
+          ["をします。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-30",
+    "term": "私",
+    "kana": "わたし",
+    "meaning": "I, myself",
+    "level": "N5",
+    "pos": ["pronoun"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Shift from watakushi below."
+      },
+      {
+        "quote": "This reading was already prevalent in early modern times, possibly around the mid-late Muromachi to early-Edo period."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["わたくし"],
+        "quotes": [
+          "From Old Japanese 私 (watakusi).",
+          "A surface analysis suggests a compound term. However, no likely etyma are known.",
+          "* From first-person pronoun 我 (wa, “I, me”) + takusi: although the first element seems likely, the original meaning of watakushi was “private”, as opposed to “public”, with no first-person pronoun usage until the late 13th century.",
+          "* From 我(わ) (wa, “I, me”) + つ (tsu, “genitive marker”), and the other parts remain unknown.",
+          "* From wata + kusi: the only phonetic matches are 綿 (wata, “cotton; cotton batting”), 腸 (wata, “guts, one's innards”, likely derived from the “batting” sense), 海 (wata, “sea, ocean”) + 串 (kusi, “skewer”), 奇し (kusi, “magic, fantastic, supernatural”, adjective), 酒 (kusi, “alcoholic beverage”, likely derived from the “magic” sense), 櫛 (kusi, “comb”).",
+          "* The first element may come from 内(うち) (uchi, “one's own, my, our”), and the second element remains unknown.",
+          "The meaning evolved over time from “private” or “privatization”, to refer to things that are personal, to refer to one's own person, and then finally to serve as a generic first-person pronoun. The full form watakushi is still used in modern Japanese as a formal, highly polite first-person pronoun. The abbreviated form watashi is now the most common and neutrally polite first-person pronoun."
+        ]
+      },
+      {
+        "readings": ["し"],
+        "quotes": ["/si/ → /ɕi/", "From Middle Chinese 私 (MC sij)."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 152192,
+        "ja": "私も行った。",
+        "en": "I also went.",
+        "enId": 262358,
+        "form": "私",
+        "furigana": [["私", "わたし"], ["も"], ["行", "い"], ["った。"]]
+      },
+      {
+        "id": 152827,
+        "ja": "私は忙しい。",
+        "en": "I'm busy.",
+        "enId": 261721,
+        "form": "私",
+        "furigana": [["私", "わたし"], ["は"], ["忙", "いそが"], ["しい。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-10-31",
+    "term": "～月",
+    "kana": "～つき",
+    "meaning": "month",
+    "level": "N4",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
   }
 ]

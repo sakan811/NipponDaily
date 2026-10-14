@@ -423,6 +423,11 @@
     ],
     "priority": ["ichi1", "news1", "nf14"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "特殊"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -942,6 +947,14 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "牡牛"
+      },
+      {
+        "term": "ベア"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": [],
     "morphemes": [],
@@ -1138,6 +1151,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf34"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "口語"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

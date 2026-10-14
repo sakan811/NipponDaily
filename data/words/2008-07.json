@@ -435,6 +435,11 @@
     "level": "N3",
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "差す"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "挿す, “to insert, to put in, to graft”, is cognate with 刺す (sasu) too.",
@@ -797,6 +802,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "スート"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スーツ is borrowed from English “suit”.",
@@ -1373,6 +1383,10 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [3, 2],
+    "pitchDisagreement": {
+      "kanjium": [3, 4, 2],
+      "unidic": [2, 3, 1]
+    },
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ウイスキー is borrowed from the English spelling “whisky”.",

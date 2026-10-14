@@ -93,6 +93,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "日の出",
+        "kana": "ひので"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -472,6 +478,11 @@
     ],
     "priority": ["spec1"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "広々とした"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -574,6 +585,11 @@
     ],
     "priority": ["ichi1", "news1", "nf21"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "幸運"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -828,6 +844,11 @@
     ],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "単数"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

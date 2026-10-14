@@ -224,6 +224,11 @@
     ],
     "priority": ["gai1", "ichi1"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "プラス"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "マイナス is from English minus.",
@@ -676,6 +681,11 @@
     "level": "N1",
     "pos": ["'ku' adjective (archaic)"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "良い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Yoshi is the conclusive form of Classical Japanese adjective 良し (yoshi), modern 良い (yoi).",
@@ -1134,6 +1144,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "藁"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ストロー is from English straw.",
@@ -1570,6 +1585,11 @@
     ],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "よっぽど"
+      }
+    ],
     "stratum": "hybrid",
     "processes": ["ateji"],
     "headline": "Yohodo is likely a back-formation from 余っ程 (yoppodo), ultimately from よき (yoki, “good”) plus ほど (hodo, “extent”), with 余 an ateji.",

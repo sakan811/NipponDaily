@@ -123,6 +123,11 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "菓子"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Okashi is 御 (o-, polite prefix) plus 菓子 (kashi, “confection”).",
@@ -671,6 +676,11 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "seeAlso": [
+      {
+        "term": "地下鉄道"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "clipping"],
     "headline": "Chikatetsu is a clipping of 地下鉄道 (chika tetsudō, “underground railway”).",
@@ -1040,6 +1050,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf34"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "寒い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Atsui for weather and 熱い for objects share one source: Old Japanese, from Proto-Japonic *atu.",
@@ -1176,6 +1191,11 @@
     "pos": ["Godan verb - Iku/Yuku special class", "intransitive verb"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "来る"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Iku has a hidden twin: yuku, thanks to an old habit of inserting a y glide before vowels.",
@@ -1642,6 +1662,11 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf25"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "出る"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Hairu is from older 這ひ入る (fafiiru): a compound of 這ひ (fafi, from 這ふ, “to crawl”) plus 入る (iru, “to enter”).",

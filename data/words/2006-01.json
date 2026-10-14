@@ -404,6 +404,17 @@
     "level": "N4",
     "pos": ["adverb (fukushi)"],
     "priority": ["spec1"],
+    "seeAlso": [
+      {
+        "term": "そう"
+      },
+      {
+        "term": "ああ"
+      },
+      {
+        "term": "どう"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kō, “this way”, shifted from 斯く (kaku): kaku, kau, kɔː, then kō.",
@@ -612,6 +623,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf11"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "貝殻"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Kai, “shell”, was kapi in Old Japanese, from Proto-Japonic *kapi.",
@@ -814,6 +830,14 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf27"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "液体"
+      },
+      {
+        "term": "固体"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kitai is Sinitic 氣體 (qìtǐ).",
@@ -1004,6 +1028,11 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf39"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "寝る"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Nemuru shifted from neburu, from the same root as Old Japanese 寝 (nu), which gives 寝る (neru).",
@@ -1281,6 +1310,12 @@
     "level": "N2",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["ichi1", "news1", "nf05"],
+    "antonyms": [
+      {
+        "term": "積極的",
+        "kana": "せっきょくてき"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shōkyokuteki is 消極 (shōkyoku) plus 的 (-teki).",
@@ -1353,6 +1388,21 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "pitchDisagreement": {
+      "kanjium": [1],
+      "unidic": [0]
+    },
+    "seeAlso": [
+      {
+        "term": "それ"
+      },
+      {
+        "term": "あれ"
+      },
+      {
+        "term": "どれ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kore is from Old Japanese; compare Okinawan くり (kuri).",
@@ -1556,6 +1606,11 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "国"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Shū, “state”, is from Middle Chinese 州, and 州 is a daiyōji replacing 洲.",

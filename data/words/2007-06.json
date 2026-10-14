@@ -11,6 +11,11 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "特殊"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Ippan is Middle Chinese 一般, literally “one + sort”.",
@@ -693,6 +698,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "お皿"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Sara is attested in the Nihon Shoki of 720 CE with the phonetic spelling 娑羅.",
@@ -808,6 +818,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "トイレット"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "Toire is a clipping of トイレット (toiretto), borrowed from English toilet.",
@@ -1210,6 +1225,12 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf18"],
     "pitch": [0, 3],
+    "seeAlso": [
+      {
+        "term": "脅す",
+        "kana": "おどす"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Odokasu is compared with 驚く (odoroku, “to surprise”).",
@@ -1376,6 +1397,11 @@
     "level": "N3",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1", "spec1"],
+    "seeAlso": [
+      {
+        "term": "もし"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Moshimo is もし (moshi, “if”) plus も (mo, “also, too, even”).",
@@ -1469,6 +1495,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "理想"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Genjitsu is from the Middle Chinese compound 現實.",

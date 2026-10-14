@@ -170,6 +170,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "屋上庭園",
+        "kana": "おくじょうていえん"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -353,6 +359,11 @@
     ],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "単純"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -403,6 +414,12 @@
     ],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "大事",
+        "kana": "おおごと"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -775,6 +792,14 @@
     "level": "N4",
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf10"],
+    "seeAlso": [
+      {
+        "term": "恋に落ちる"
+      },
+      {
+        "term": "眠りに落ちる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -898,6 +923,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf45"],
     "pitch": [0, 2],
+    "antonyms": [
+      {
+        "term": "深い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

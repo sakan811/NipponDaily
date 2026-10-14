@@ -395,6 +395,11 @@
     "pos": ["conjunction"],
     "priority": ["ichi1"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "だから"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -796,6 +801,11 @@
     ],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "人工"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1212,6 +1222,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "西洋"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

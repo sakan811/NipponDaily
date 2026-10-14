@@ -64,6 +64,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf25"],
     "pitch": [3],
+    "antonyms": [
+      {
+        "term": "長い"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Mijikai was mizikasi in Old Japanese, first attested in c. 759 in the Man'yōshū; its constituent parts remain obscure.",
@@ -158,6 +163,11 @@
     ],
     "priority": ["ichi1", "news1", "nf10"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "出席"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "In kesseki, 欠 is a daiyōji replacing 缺.",
@@ -221,6 +231,11 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "最低"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Saikō is 最 (sai-, “most”) plus 高 (kō, “high”).",
@@ -347,6 +362,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf04"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "表",
+        "kana": "おもて"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Ura, “back”, is simply from Old Japanese.",

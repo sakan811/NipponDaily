@@ -130,6 +130,12 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf39"],
     "pitch": [0, 3],
+    "antonyms": [
+      {
+        "term": "難しい",
+        "kana": "むずかしい"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Yasashii is cognate with 優しい (yasashii).",
@@ -175,6 +181,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
     "register": ["honorific or respectful (sonkeigo) language"],
+    "seeAlso": [
+      {
+        "term": "父さん"
+      }
+    ],
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Otōsan began as o- plus 父 (toto) plus 様 (-sama); the long ō was an artificial step.",
     "morphemes": [],
@@ -227,6 +238,14 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "舞う"
+      },
+      {
+        "term": "躍る"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Odoru was wodoru, and its original meaning was “to jump”.",
@@ -317,6 +336,11 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "右"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Hidari went [pidari] → [ɸidari] → [çidari], from Proto-Japonic *pintari.",
@@ -428,6 +452,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "出口"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Iriguchi is 入り + 口, and kuchi changes to guchi by rendaku.",
@@ -498,6 +527,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [3, 2],
+    "seeAlso": [
+      {
+        "term": "頭数"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change", "unclear"],
     "headline": "Atama has an unknown derivation, with theories like heaven (a) plus ball (tama).",
@@ -1026,6 +1060,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "湯",
+        "kana": "ゆ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Mizu is possibly cognate with 瑞 (mizu, “freshness, youth”).",
@@ -1166,6 +1206,14 @@
     ],
     "priority": ["ichi1", "news2", "nf31"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "無礼"
+      },
+      {
+        "term": "失礼します"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Shitsurei is literally “lose, loss + propriety”, probably from Middle Chinese 失禮.",

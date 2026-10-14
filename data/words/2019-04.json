@@ -371,6 +371,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf46"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "緯度"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -529,6 +534,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "内科"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -592,6 +602,16 @@
     ],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "乗車"
+      }
+    ],
+    "seeAlso": [
+      {
+        "term": "降車"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -640,6 +660,14 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "上旬"
+      },
+      {
+        "term": "中旬"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

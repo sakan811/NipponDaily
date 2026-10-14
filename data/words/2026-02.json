@@ -12,6 +12,11 @@
     ],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "既定"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -551,6 +556,11 @@
     ],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "有効"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -706,6 +716,11 @@
     ],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "有線"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -859,6 +874,11 @@
     ],
     "priority": ["ichi1", "news2", "nf30"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "有能"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -979,6 +999,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news2", "nf27"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "名物"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

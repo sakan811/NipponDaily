@@ -7,6 +7,17 @@
     "level": "N5",
     "pos": ["pre-noun adjectival (rentaishi)"],
     "priority": ["spec1"],
+    "seeAlso": [
+      {
+        "term": "この"
+      },
+      {
+        "term": "あの"
+      },
+      {
+        "term": "どの"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Sono is そ, the distal demonstrative root of Old Japanese, plus の (no).",
@@ -96,6 +107,11 @@
     ],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "最高"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Saitei is 最 (sai-, “most”) plus 低 (tei, “low”).",
@@ -453,6 +469,11 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "seeAlso": [
+      {
+        "term": "メーター"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Mētoru is from French mètre, a doublet of メーター (mētā).",
@@ -1094,6 +1115,11 @@
     "level": "N3",
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf12"],
+    "seeAlso": [
+      {
+        "term": "東京行き"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Yuki, “bound for”, is compared on its page to Korean 행 (haeng), written with the same 行.",
@@ -1174,6 +1200,11 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
+    "seeAlso": [
+      {
+        "term": "内閣総理大臣"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Sōri daijin is 総理 (“prime minister”, literally “leader”) plus 大臣 (“(senior) minister”).",

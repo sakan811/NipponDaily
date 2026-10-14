@@ -1,0 +1,1397 @@
+[
+  {
+    "date": "2026-12-01",
+    "term": "無",
+    "kana": "む",
+    "meaning": "nothing, naught, zero",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1"],
+    "pitch": [1, 0],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 無 (MC mju). The 呉音 (goon), so likely an earlier borrowing."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ぶ"],
+        "quotes": [
+          "From Middle Chinese 無 (bu). The 漢音 (kan'on), so likely a later borrowing."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 80947,
+        "ja": "無から有は生じない。",
+        "en": "Nothing comes from nothing.",
+        "enId": 322768,
+        "form": "無",
+        "furigana": [
+          ["無", "な"],
+          ["から"],
+          ["有", "ゆう"],
+          ["は"],
+          ["生", "しょう"],
+          ["じない。"]
+        ]
+      },
+      {
+        "id": 80946,
+        "ja": "無から有は生じ得ない。",
+        "en": "Nothing can come of nothing.",
+        "enId": 322769,
+        "form": "無",
+        "furigana": [
+          ["無", "む"],
+          ["から"],
+          ["有", "ゆう"],
+          ["は"],
+          ["生", "しょう"],
+          ["じ"],
+          ["得", "え"],
+          ["ない。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-02",
+    "term": "文字",
+    "kana": "もじ",
+    "meaning": "letter (of alphabet), character",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [1],
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/mond͡ʑi/ → /mod͡ʑi/"
+      },
+      {
+        "quote": "Sound shift from monji above."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["もんじ"],
+        "quotes": [
+          "From Middle Chinese 文字 (MC mjun dziH, literally “writing + character”). Compare modern Cantonese reading man⁴ zi⁶."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-03",
+    "term": "訳",
+    "kana": "やく",
+    "meaning": "translation",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "pitch": [1, 2],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 178805,
+        "ja": "君たちの訳文と黒板の訳を比較しなさい。",
+        "en": "Compare your translation with the one on the blackboard.",
+        "enId": 17658,
+        "form": "訳",
+        "furigana": [
+          ["君", "きみ"],
+          ["たちの"],
+          ["訳", "やく"],
+          ["文", "ぶん"],
+          ["と"],
+          ["黒板", "こくばん"],
+          ["の"],
+          ["訳", "やく"],
+          ["を"],
+          ["比較", "ひかく"],
+          ["しなさい。"]
+        ]
+      },
+      {
+        "id": 232981,
+        "ja": "あなたの訳を彼の訳と比べてみなさい。",
+        "en": "Compare your translation with his.",
+        "enId": 70351,
+        "form": "訳",
+        "furigana": [
+          ["あなたの"],
+          ["訳", "やく"],
+          ["を"],
+          ["彼", "かれ"],
+          ["の訳と"],
+          ["比", "くら"],
+          ["べてみなさい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-04",
+    "term": "綿",
+    "kana": "わた",
+    "meaning": "cotton",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["meaning-shift"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *wata. Cognate with Okinawan 綿 (wata)."
+      },
+      {
+        "quote": "Originally referred to any batting or stuffing, which was generally unspun silk. The meaning shifted after the spread of cotton in the Muromachi period."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["めん"],
+        "quotes": [
+          "From Middle Chinese 綿 /绵 (miɛn, “wool; cotton; soft, downy”)."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 185519,
+        "ja": "我々は綿の代わりにピーナッツを植えた。",
+        "en": "We planted peanuts instead of cotton.",
+        "enId": 22651,
+        "form": "綿",
+        "furigana": [
+          ["我々", "われわれ"],
+          ["は"],
+          ["綿", "わた"],
+          ["の"],
+          ["代", "か"],
+          ["わりにピーナッツを"],
+          ["植", "う"],
+          ["えた。"]
+        ]
+      },
+      {
+        "id": 80215,
+        "ja": "綿は水を吸収する。",
+        "en": "Cotton absorbs water.",
+        "enId": 323502,
+        "form": "綿",
+        "furigana": [
+          ["綿は"],
+          ["水", "みず"],
+          ["を"],
+          ["吸収", "きゅうしゅう"],
+          ["する。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-05",
+    "term": "角",
+    "kana": "かく",
+    "meaning": "angle",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
+    "pitch": [2, 1, 0],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "First attested in 718 CE. Ultimately from Middle Chinese 角 (MC kaewk)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["かど"],
+        "quotes": ["From Old Japanese, in turn, from Proto-Japonic *kanto."]
+      },
+      {
+        "readings": ["つの"],
+        "quotes": [
+          "From Old Japanese. First attested in the Nihon Shoki of 720 CE. From Proto-Japonic *tuno."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 235339,
+        "ja": "３角形のすべての角の和は１８０度に等しい。",
+        "en": "The sum of all the angles in a triangle equals 180 degrees.",
+        "enId": 72717,
+        "form": "角",
+        "furigana": [
+          ["３"],
+          ["角", "かく"],
+          ["形", "がた"],
+          ["のすべての"],
+          ["角", "かく"],
+          ["の"],
+          ["和", "わ"],
+          ["は１８０"],
+          ["度", "ど"],
+          ["に"],
+          ["等", "ひと"],
+          ["しい。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-06",
+    "term": "注ぐ",
+    "kana": "そそぐ",
+    "meaning": "to pour (into)",
+    "level": "N3",
+    "pos": ["Godan verb with 'gu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf18"],
+    "pitch": [0, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141364,
+        "ja": "川は湖に注いでいる。",
+        "en": "The river flows into the lake.",
+        "enId": 273207,
+        "form": "注いでいる",
+        "furigana": [
+          ["川", "かわ"],
+          ["は"],
+          ["湖", "みずうみ"],
+          ["に"],
+          ["注", "そそ"],
+          ["いでいる。"]
+        ]
+      },
+      {
+        "id": 78261,
+        "ja": "流れは池に注いでいる。",
+        "en": "The stream falls into the pond.",
+        "enId": 325456,
+        "form": "注いでいる",
+        "furigana": [
+          ["流", "なが"],
+          ["れは"],
+          ["池", "いけ"],
+          ["に"],
+          ["注", "そそ"],
+          ["いでいる。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-07",
+    "term": "他",
+    "kana": "た",
+    "meaning": "other (esp. places and things)",
+    "level": "N3",
+    "pos": [
+      "adverb (fukushi)",
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["news1", "nf03"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 他 (MC tha)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ほか"],
+        "quotes": [
+          "From Old Japanese, from Proto-Japonic *poka.",
+          "Related to Baekje ホカ (*poka, “outside”), compare Korean 밖 (bak, “outside”)."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 87193,
+        "ja": "彼女は彼を他の誰かとまちがえた。",
+        "en": "She mixed him up with someone else.",
+        "enId": 316515,
+        "form": "他",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["彼", "かれ"],
+          ["を"],
+          ["他", "ほか"],
+          ["の"],
+          ["誰", "だれ"],
+          ["かとまちがえた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-08",
+    "term": "対",
+    "kana": "たい",
+    "meaning": "versus; opposite, opposition",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 對 (MC twojH)."
+      }
+    ],
+    "examples": [
+      {
+        "id": 235275,
+        "ja": "３対１で負けた。",
+        "en": "We lost by a score of three to one.",
+        "enId": 72653,
+        "form": "対",
+        "furigana": [["３"], ["対", "たい"], ["１で"], ["負", "ま"], ["けた。"]]
+      },
+      {
+        "id": 214735,
+        "ja": "スコアは１対１だ。",
+        "en": "The score is one all.",
+        "enId": 52029,
+        "form": "対",
+        "furigana": [["スコアは１"], ["対", "たい"], ["１だ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-09",
+    "term": "辛い",
+    "kana": "つらい",
+    "meaning": "painful, heart-breaking",
+    "level": "N3",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
+    "pitch": [0, 2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. First attested in the Nihon Shoki of 720 CE."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["からい"],
+        "quotes": [
+          "From Old Japanese. First attested in the Nihon Shoki of 720 CE. From Proto-Japonic *kara."
+        ]
+      },
+      {
+        "readings": ["づらい"],
+        "quotes": [
+          "The tsurai changes to zurai as an instance of rendaku (連濁)."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 150466,
+        "ja": "時差ボケで辛い。",
+        "en": "I've got a bad case of jet lag.",
+        "enId": 264091,
+        "form": "辛い",
+        "furigana": [["時差", "じさ"], ["ボケで"], ["辛", "つら"], ["い。"]]
+      },
+      {
+        "id": 202520,
+        "ja": "つらい目にあった。",
+        "en": "I had a hard time of it.",
+        "enId": 39750,
+        "form": "つらい",
+        "furigana": [["つらい"], ["目", "め"], ["にあった。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-10",
+    "term": "為る",
+    "kana": "なる",
+    "meaning": "to change, to be of use, to reach to",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news2", "nf34"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-11",
+    "term": "日",
+    "kana": "にち",
+    "meaning": "day",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["spec1"],
+    "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "日曜"
+      }
+    ],
+    "stratum": "kango",
+    "processes": ["borrowing", "sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/nʲitɨ/ → /nit͡ɕi/"
+      },
+      {
+        "quote": "From Middle Chinese 日 (MC nyit)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["じつ"],
+        "quotes": [
+          "/d͡ʑitʉ/ → /d͡ʑit͡su/ → /ʑit͡su/",
+          "From Middle Chinese 日 (MC nyit). Compare modern Min Nan 日 (ji̍t)."
+        ]
+      },
+      {
+        "readings": ["ひ"],
+        "quotes": [
+          "⟨pi₁⟩ → */pʲi/ → /ɸi/ → /hi/",
+          "From Old Japanese, from Proto-Japonic *pi (“day”)."
+        ]
+      },
+      {
+        "readings": ["か"],
+        "quotes": [
+          "From Old Japanese. The forms of words created using this suffix may be evidence for an earlier *uka form, see 二日(ふつか) (futsuka), 四日(ようか) (youka, modern form 四日(よっか) (yokka)), 六日(むゆか) (muyuka, modern form 六日(むいか) (muika)), 七日(なぬか) (nanuka, modern form 七日(なのか) (nanoka)), 八日(やうか) (yauka, modern form 八日(ようか) (yōka)), 九日(ここぬか) (kokonuka, modern form 九日(ここのか) (kokonoka)), and 二十日(はつか) (hatsuka) (two, four, six, seven, eight, nine, and twenty days, respectively)."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 235619,
+        "ja": "２、３日骨休めして。",
+        "en": "Please take a rest for a few days.",
+        "enId": 72999,
+        "form": "日",
+        "furigana": [
+          ["２、３"],
+          ["日", "にち"],
+          ["骨休", "ほねやす"],
+          ["めして。"]
+        ]
+      },
+      {
+        "id": 235617,
+        "ja": "２、３日寝ていなさい。",
+        "en": "You'd better stay in bed for a few days.",
+        "enId": 72998,
+        "form": "日",
+        "furigana": [["２、３"], ["日", "にち"], ["寝", "ね"], ["ていなさい。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-12",
+    "term": "日本",
+    "kana": "にほん",
+    "meaning": "Japan",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news2", "nf25", "spec1"],
+    "processes": ["compound", "wasei", "sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/nitɨpoɴ/ → /nip̚poɴ/ → /niɸoɴ/ → /nihoɴ/"
+      },
+      {
+        "quote": "Coined in Japan of Sinic elements, as compound of 日 (nichi, “sun”) + 本 (hon, “origin”) and literally meaning \"origin of the sun\". The hon element was apparently pronounced /poɴ/ when first coined. Over time, the initial /p/ lenited, becoming /ɸ/ as shown in the Nifon entry in the 1603 Nippo Jisho (\"Japanese-Portuguese Dictionary\"). This then became the /h/ sound in modern Japanese."
+      },
+      {
+        "quote": "More information"
+      },
+      {
+        "quote": "In older texts, this was read as kun'yomi as 日の本 (Hinomoto). The on'yomi readings Nippon and Nihon became more common in the Heian period, with both persisting into modern use. The Nihon reading appears to be the most common in everyday Japanese usage."
+      },
+      {
+        "quote": "This appellation comes from Prince Shōtoku's famous letter from Prince Shōtoku to Emperor Yang of Sui sent via the Japanese mission to Sui China in 607, wherein we see the first mention of Japan as the Land of the Rising Sun, and a description of China as Land of the Setting Sun:"
+      },
+      {
+        "quote": ":"
+      },
+      {
+        "quote": "日出處 (literally “sun + emerge + place”) here refers to Japan, while 日沒處 (literally “sun + sink + place”) refers to China. \"Sun emerge place\" both refers to the eastward position of Japan relative to China, and metaphorically places the Yamato Kingship during Empress Suiko's reign on a similar footing as to the Sui dynasty under Emperor Yang's rule."
+      },
+      {
+        "quote": "The earliest date for the specific spelling 日本 (literally “sun source”) instead of the periphrastic 日出處 (literally “sun emerge place”) may be 664, as mentioned in a fragment of the 733 text 海外国記 (Kaigai Kokki, “Record of Overseas Countries”), describing a letter given in 664 to a Tang emissary arriving in Dazaifu. However, it remains an open question whether this instance of 日本 might have been a change in name that happened between the actual event in 664 and the recording of that event in 733. More certainly, the Japanese source Shoku Nihongi relates that a 702 or 703 mission from Japan to the Tang court requested that the Chinese change the official name from 倭 (Wa) to 日本 (Nippon), and this appears to be corroborated by accounts in the Chinese source Old Book of Tang."
+      },
+      {
+        "quote": "Despite the spelling, the term may have been read out as the older name Yamato for some time afterwards, as suggested by kana glosses in sources such as the Man'yōshū poetry anthology of 759."
+      },
+      {
+        "quote": "Doublet of ジャパン (Japan)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["にっぽん"],
+        "quotes": [
+          "/nitɨpoɴ/ → /nip̚poɴ/",
+          "Phonetic variant of Nihon above, maintaining the /p/ sound."
+        ]
+      },
+      {
+        "readings": ["じっぽん"],
+        "quotes": [
+          "*/zitʉpon/ → /zip̚pon/ → /ʑip̚pon/",
+          "Uses the kan'on reading jitsu for 日, as compared to the goon reading nichi. First appears in texts from the early 1600s, notably the 1603 Japanese-Portuguese dictionary Nippo Jisho. Probably influenced by European-language terminology for the country, such as Portuguese Japão or Dutch Japan, in turn arising from Hokkien 日本 (Ji̍t-pún) via Malay Jepun, or from Teochew 日本 (rig⁸ bung²) via Indonesian Malay Jepang."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-13",
+    "term": "値",
+    "kana": "ね",
+    "meaning": "value, price, cost",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 113046,
+        "ja": "彼はその絵にたいへん高い値をつけた。",
+        "en": "He put the painting at a very high price.",
+        "enId": 290629,
+        "form": "値",
+        "furigana": [
+          ["彼", "かれ"],
+          ["はその"],
+          ["絵", "え"],
+          ["にたいへん"],
+          ["高", "たか"],
+          ["い"],
+          ["値", "ね"],
+          ["をつけた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-14",
+    "term": "年月",
+    "kana": "ねんげつ",
+    "meaning": "months and years",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-15",
+    "term": "梅雨",
+    "kana": "ばいう",
+    "meaning": "rainy season",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf13"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["compound", "borrowing"],
+    "morphemes": [
+      {
+        "text": "梅",
+        "reading": "ばい",
+        "meaning": "mold"
+      },
+      {
+        "text": "雨",
+        "reading": "う",
+        "meaning": "rain"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From Middle Chinese compound 梅雨 (MC mwoj hjuX), in poetic reference to the season when plums grow or ripen."
+      },
+      {
+        "quote": "Alternatively, the 黴雨 spelling may have been the original spelling. This is homophonous in Middle Chinese, and literally means “mold + rain”, in reference to how moldy things get during this season of constant humidity."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["つゆ"],
+        "quotes": [
+          "First attested in the mid-Muromachi period.",
+          "Derivation unclear, likely theories include:",
+          "* May be cognate with 露 (tsuyu, “dew, dewdrop”), from the way the rainy season causes everything to be covered in drops that may look like dew. However, the pitch accent differs, as 露 (tsuyu) has either an 頭高型 (atamadaka-gata) or 尾高型 (odaka-gata) pattern, while 梅雨 (tsuyu) has a 平板型 (heiban-gata) pattern.",
+          "* Alternatively, may be cognate with classical verb 熟ゆ (tsuyu, modern 熟える (tsueru), “to become ripe”), as plums ripen during the rainy season. In light of the pitch accent and semantics, this derivation appears more likely.",
+          "The spelling is an orthographic borrowing from Chinese 梅雨."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-16",
+    "term": "額",
+    "kana": "ひたい",
+    "meaning": "forehead, brow",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 108810,
+        "ja": "彼は額の汗を拭った。",
+        "en": "He wiped the sweat from his brow.",
+        "enId": 294879,
+        "form": "額",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["額", "ひたい"],
+          ["の"],
+          ["汗", "あせ"],
+          ["を"],
+          ["拭", "ぬぐ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 108812,
+        "ja": "彼は額に手を当てた。",
+        "en": "He put his hand to his forehead.",
+        "enId": 294877,
+        "form": "額",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["額", "ひたい"],
+          ["に"],
+          ["手", "て"],
+          ["を"],
+          ["当", "あ"],
+          ["てた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-17",
+    "term": "品",
+    "kana": "ひん",
+    "meaning": "goods; taste, elegance",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 品 (MC phimX)."
+      },
+      {
+        "quote": "The kan'on pronunciation, so likely a later borrowing."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["しな"],
+        "quotes": ["From Old Japanese."]
+      },
+      {
+        "readings": ["ほん"],
+        "quotes": [
+          "From Middle Chinese 品 (MC phimX).",
+          "The goon pronunciation, so likely the initial borrowing."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 100530,
+        "ja": "彼は品がない。",
+        "en": "He is a common sort of man.",
+        "enId": 303167,
+        "form": "品",
+        "furigana": [["彼", "かれ"], ["は"], ["品", "ひん"], ["がない。"]]
+      },
+      {
+        "id": 106100,
+        "ja": "彼は私に缶詰の極上品を贈ってくれた。",
+        "en": "He gave me a select brand of canned goods.",
+        "enId": 297586,
+        "form": "品",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["私", "わたし"],
+          ["に"],
+          ["缶詰", "かんづめ"],
+          ["の"],
+          ["極上", "ごくじょう"],
+          ["品", "ひん"],
+          ["を"],
+          ["贈", "おく"],
+          ["ってくれた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-18",
+    "term": "不",
+    "kana": "ふ",
+    "meaning": "un(~), non(~), negative prefix",
+    "level": "N3",
+    "pos": ["prefix"],
+    "priority": ["spec1"],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 不 (MC pjuw)."
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-19",
+    "term": "分",
+    "kana": "ぶ",
+    "meaning": "one-tenth, one percent",
+    "level": "N3",
+    "pos": ["numeric"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/bun/ → /bu/"
+      },
+      {
+        "quote": "Shift from bun above, with influence on the meaning from the Middle Chinese sense tied to original Middle Chinese reading /pɨun/."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ふん"],
+        "quotes": [
+          "/pun/ → /fun/",
+          "From Middle Chinese 分 (MC pjun, “a minute”)."
+        ]
+      },
+      {
+        "readings": ["ぶん"],
+        "quotes": ["From Middle Chinese 分 (MC bjunH, “a minute”)."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 206093,
+        "ja": "その老婆は三分の利子で金を貸す。",
+        "en": "The old woman lends money at the rate of three percent.",
+        "enId": 43339,
+        "form": "分",
+        "furigana": [
+          ["その"],
+          ["老婆", "ろうば"],
+          ["は"],
+          ["三", "さん"],
+          ["分", "ぶん"],
+          ["の"],
+          ["利子", "りし"],
+          ["で"],
+          ["金", "かね"],
+          ["を"],
+          ["貸", "か"],
+          ["す。"]
+        ]
+      },
+      {
+        "id": 208276,
+        "ja": "その貸付金は、８分の利益を生む。",
+        "en": "The loan bears an 8% interest.",
+        "enId": 45533,
+        "form": "分",
+        "furigana": [
+          ["その"],
+          ["貸付", "かしつけ"],
+          ["金", "きん"],
+          ["は、８"],
+          ["分", "ぶん"],
+          ["の"],
+          ["利益", "りえき"],
+          ["を"],
+          ["生", "う"],
+          ["む。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-20",
+    "term": "縁",
+    "kana": "ふち",
+    "meaning": "edge, rim",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 103018,
+        "ja": "彼は川のふちに腰を下ろした。",
+        "en": "He sat at the edge of the stream.",
+        "enId": 300675,
+        "form": "ふち",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["川", "かわ"],
+          ["のふちに"],
+          ["腰", "こし"],
+          ["を"],
+          ["下", "お"],
+          ["ろした。"]
+        ]
+      },
+      {
+        "id": 166571,
+        "ja": "私たちはがけのふちに立った。",
+        "en": "We stood on the brink of a cliff.",
+        "enId": 247931,
+        "form": "ふち",
+        "furigana": [
+          ["私", "わたし"],
+          ["たちはがけのふちに"],
+          ["立", "た"],
+          ["った。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-21",
+    "term": "方",
+    "kana": "ほう",
+    "meaning": "side",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 方 (MC bjang|pjang)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["え"],
+        "quotes": ["/pe/ → /ɸe/ → /we/ → /e/."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 149545,
+        "ja": "湿疹の方は？",
+        "en": "What about the rash?",
+        "enId": 265014,
+        "form": "方",
+        "furigana": [["湿疹", "しっしん"], ["の"], ["方", "ほう"], ["は？"]]
+      },
+      {
+        "id": 78774,
+        "ja": "欲しいほうを獲れ。",
+        "en": "Take whichever you like.",
+        "enId": 37985,
+        "form": "ほう",
+        "furigana": [["欲", "ほ"], ["しいほうを"], ["獲", "え"], ["れ。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-22",
+    "term": "方々",
+    "kana": "ほうぼう",
+    "meaning": "here and there, everywhere",
+    "level": "N3",
+    "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 183791,
+        "ja": "観光名所をほうぼう訪ね歩いたので、すっかり疲れ果ててしまった。",
+        "en": "Visiting all the tourist sights really wore me out.",
+        "enId": 20914,
+        "form": "ほうぼう",
+        "furigana": [
+          ["観光", "かんこう"],
+          ["名所", "めいしょ"],
+          ["をほうぼう"],
+          ["訪", "たず"],
+          ["ね"],
+          ["歩", "ある"],
+          ["いたので、すっかり"],
+          ["疲", "つか"],
+          ["れ"],
+          ["果", "は"],
+          ["ててしまった。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-23",
+    "term": "頬",
+    "kana": "ほお",
+    "meaning": "cheek (of face)",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf32"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "[ho̞ho̞] → [ho̞ː]"
+      },
+      {
+        "quote": "Derived from hoho above."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ほほ"],
+        "quotes": [
+          "/popo/ → /fofo/ → /hoho/",
+          "From Old Japanese. Appears in the mid-Heian period dictionary Wamyō Ruijushō (938 CE)."
+        ]
+      },
+      {
+        "readings": ["つら"],
+        "quotes": [
+          "Of same origin as 列 (tsura, “a string or lineup of things”). Extending from the meaning of \"lineup\", the meaning changed to indicate the side of the items lined up. In reference to people, this came to mean the cheeks as the side of the face, and then by extension the face as a whole."
+        ]
+      },
+      {
+        "readings": ["すえみつ", "すえもと", "のりみち"],
+        "quotes": ["Used as ateji in various names."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 77740,
+        "ja": "涙が一筋頬を流れた。",
+        "en": "A tear ran down her cheek.",
+        "enId": 325977,
+        "form": "頬",
+        "furigana": [
+          ["涙", "なみだ"],
+          ["が"],
+          ["一筋", "ひとすじ"],
+          ["頬", "ほお"],
+          ["を"],
+          ["流", "なが"],
+          ["れた。"]
+        ]
+      },
+      {
+        "id": 77734,
+        "ja": "涙が彼女の頬に流れた。",
+        "en": "Tears were rolling down her cheek.",
+        "enId": 325984,
+        "form": "頬",
+        "furigana": [
+          ["涙", "なみだ"],
+          ["が"],
+          ["彼女", "かのじょ"],
+          ["の"],
+          ["頬", "ほお"],
+          ["に"],
+          ["流", "なが"],
+          ["れた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-24",
+    "term": "本当",
+    "kana": "ほんと",
+    "meaning": "truth, reality",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'",
+      "adjectival nouns or quasi-adjectives (keiyodoshi)"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "processes": ["clipping", "sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "First appears in the late Edo period in a text from 1770. The clipped reading ほんと (honto) with the shorter second vowel is regarded as a simple shift from original reading ほんとう (hontō), and this first appears in a text from 1886."
+      }
+    ],
+    "examples": [
+      {
+        "id": 195899,
+        "ja": "ほんと。今日のお勧めは？",
+        "en": "Really? What's your special today?",
+        "enId": 33074,
+        "form": "ほんと",
+        "furigana": [
+          ["ほんと。"],
+          ["今日", "きょう"],
+          ["のお"],
+          ["勧", "すす"],
+          ["めは？"]
+        ]
+      },
+      {
+        "id": 195889,
+        "ja": "ほんと彼にはうんざりだわ！",
+        "en": "He really turns me off.",
+        "enId": 33064,
+        "form": "ほんと",
+        "furigana": [["ほんと"], ["彼", "かれ"], ["にはうんざりだわ！"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-25",
+    "term": "間",
+    "kana": "ま",
+    "meaning": "space, room, pause",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 182946,
+        "ja": "鬼の居ぬ間に洗濯。",
+        "en": "When the cat is away, the mice will play.",
+        "enId": 20065,
+        "form": "間",
+        "furigana": [
+          ["鬼", "おに"],
+          ["の"],
+          ["居", "い"],
+          ["ぬ"],
+          ["間", "ま"],
+          ["に"],
+          ["洗濯", "せんたく"],
+          ["。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-26",
+    "term": "節",
+    "kana": "せつ",
+    "meaning": "when, if; section; clause",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 節 (MC tset)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ふし"],
+        "quotes": [
+          "From Old Japanese 節 (pusi); attested in the Shin'yaku Kegonkyō Ongi Shiki of 794 as 布之. In turn, from Proto-Japonic *pusi. Possibly derived from Old Japanese 節 (pu)."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 224075,
+        "ja": "この１節を読み、日本語に翻訳せよ。",
+        "en": "Read this passage and translate it into Japanese.",
+        "enId": 61411,
+        "form": "節",
+        "furigana": [
+          ["この１"],
+          ["節", "せつ"],
+          ["を"],
+          ["読", "よ"],
+          ["み、"],
+          ["日本語", "にほんご"],
+          ["に"],
+          ["翻訳", "ほんやく"],
+          ["せよ。"]
+        ]
+      },
+      {
+        "id": 170566,
+        "ja": "最後の２節を省略して歌いましょうか。",
+        "en": "We'll sing that song, omitting the last two verses.",
+        "enId": 243916,
+        "form": "節",
+        "furigana": [
+          ["最後", "さいご"],
+          ["の２"],
+          ["節", "せつ"],
+          ["を"],
+          ["省略", "しょうりゃく"],
+          ["して"],
+          ["歌", "うた"],
+          ["いましょうか。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-27",
+    "term": "末",
+    "kana": "まつ",
+    "meaning": "the end of",
+    "level": "N3",
+    "pos": ["noun, used as a suffix", "noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "pitchDisagreement": {
+      "kanjium": [1, 0],
+      "unidic": [1]
+    },
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 末 (MC mat)."
+      },
+      {
+        "quote": "First attested in Japanese in 1120."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["すえ"],
+        "quotes": ["From Old Japanese. First attested in the Kojiki of 712."]
+      },
+      {
+        "readings": ["うら", "うれ"],
+        "quotes": [
+          "From Old Japanese. First attested in the Man'yōshū completed in 759."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 175730,
+        "ja": "結婚式は十月末に行われる。",
+        "en": "The wedding will take place at the end of October.",
+        "enId": 238735,
+        "form": "末",
+        "furigana": [
+          ["結婚式", "けっこんしき"],
+          ["は"],
+          ["十月", "じゅうがつ"],
+          ["末", "まつ"],
+          ["に"],
+          ["行", "おこな"],
+          ["われる。"]
+        ]
+      },
+      {
+        "id": 227103,
+        "ja": "お支払日が先月末の請求書５６７８９について、まだお支払いを受けておりません。",
+        "en": "With reference to the invoice No.56789 which was due last month, we have not yet received your remittance.",
+        "enId": 64452,
+        "form": "末",
+        "furigana": [
+          ["お"],
+          ["支払", "しはらい"],
+          ["日", "び"],
+          ["が"],
+          ["先月", "せんげつ"],
+          ["末", "まつ"],
+          ["の"],
+          ["請求", "せいきゅう"],
+          ["書", "しょ"],
+          ["５６７８９について、まだお"],
+          ["支払", "しはら"],
+          ["いを"],
+          ["受", "う"],
+          ["けておりません。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-12-28",
+    "term": "～所",
+    "kana": "～じょ",
+    "meaning": "place",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-29",
+    "term": "～前",
+    "kana": "～ぜん",
+    "meaning": "before ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-12-30",
+    "term": "大分",
+    "kana": "だいぶん",
+    "meaning": "considerably, greatly, a lot",
+    "level": "N2",
+    "pos": ["adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf11"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 206347,
+        "ja": "その夜はだいぶん寒かった。",
+        "en": "The night was so cold.",
+        "enId": 43595,
+        "form": "だいぶん",
+        "furigana": [
+          ["その"],
+          ["夜", "よる"],
+          ["はだいぶん"],
+          ["寒", "さむ"],
+          ["かった。"]
+        ]
+      },
+      {
+        "id": 169952,
+        "ja": "昨日は彼の容体はたいへん危なかったが、今日はだいぶんよい。",
+        "en": "Yesterday he was seriously ill, but today he is much better.",
+        "enId": 244535,
+        "form": "だいぶん",
+        "furigana": [
+          ["昨日", "きのう"],
+          ["は"],
+          ["彼", "かれ"],
+          ["の"],
+          ["容体", "ようだい"],
+          ["はたいへん"],
+          ["危", "あぶ"],
+          ["なかったが、"],
+          ["今日", "きょう"],
+          ["はだいぶんよい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-12-31",
+    "term": "～日",
+    "kana": "～か",
+    "meaning": "counter for days",
+    "level": "N2",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

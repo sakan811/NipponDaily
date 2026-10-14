@@ -7,6 +7,11 @@
     "level": "N3",
     "pos": ["interjection (kandoushi)"],
     "priority": ["spec1"],
+    "seeAlso": [
+      {
+        "term": "いらっしゃいませ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["clipping"],
     "headline": "Irasshai is the imperative of いらっしゃる (irassharu), shortened from いらっしゃいまし (irasshaimashi).",
@@ -280,6 +285,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "革"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kawa went from kapa through kaɸa to kawa, from Proto-Japonic *kapa.",
@@ -699,6 +709,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "金玉",
+        "kana": "きんたま"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Tama, “ball”, is the same word as 玉 (tama).",
@@ -726,6 +742,11 @@
     "priority": ["ichi1", "news1", "nf08"],
     "field": ["chemistry"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "塩基性"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sansei is 酸 (san, “acid”) plus 性 (-sei, “-ity”).",
@@ -826,6 +847,12 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "煮る",
+        "kana": "にる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Yuderu is from the shimo nidan verb 茹づ (yuzu).",
@@ -1077,6 +1104,11 @@
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "一体に"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Ittai is 一 (ichi, “one”) plus 体 (-tai, counter for bodies and humanoid objects).",

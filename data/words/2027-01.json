@@ -1,0 +1,1067 @@
+[
+  {
+    "date": "2027-01-01",
+    "term": "～家",
+    "kana": "～け",
+    "meaning": "~'s family, the house of ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-02",
+    "term": "擦る",
+    "kana": "こする",
+    "meaning": "to rub, to chafe, to file, to frost (glass), to strike (match)",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Possibly a compound of こ (ko) + 擦(す)る (suru, “to rub”). The ko element might be 粉(こ) (ko, “powder, flour”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["する"],
+        "quotes": [
+          "From Old Japanese, from Proto-Japonic *suru. Cognate with Proto-Ryukyuan *suri."
+        ]
+      },
+      {
+        "readings": ["かする"],
+        "quotes": [
+          "Cognate with 霞(かす)む (kasumu, “to grow hazy, to become blurry”), which see for further cognates. Compare also 擦(す)る (suru, “to rub”) above."
+        ]
+      },
+      {
+        "readings": ["なする"],
+        "quotes": [
+          "Unknown. A {{glossary|surface analysis suggests a compound with the second element being 擦(す)る (suru, “to rub”).",
+          "First cited to a text from c. 1809-1813."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 86515,
+        "ja": "彼女は目をこすった。",
+        "en": "She rubbed her eyes.",
+        "enId": 317196,
+        "form": "こすった",
+        "furigana": [
+          ["彼女", "かのじょ"],
+          ["は"],
+          ["目", "め"],
+          ["をこすった。"]
+        ]
+      },
+      {
+        "id": 104502,
+        "ja": "彼は手で目をこすった。",
+        "en": "He rubbed his eyes with his hands.",
+        "enId": 299189,
+        "form": "こすった",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["手", "て"],
+          ["で"],
+          ["目", "め"],
+          ["をこすった。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-03",
+    "term": "～日",
+    "kana": "～じつ",
+    "meaning": "day",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-04",
+    "term": "湿気",
+    "kana": "しっき",
+    "meaning": "moisture, humidity, dampness",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf19"],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-05",
+    "term": "御～",
+    "kana": "おん～",
+    "meaning": "honorific ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-06",
+    "term": "留まる",
+    "kana": "とまる",
+    "meaning": "to stop, to come to a halt",
+    "level": "N2",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["spec1", "ichi1", "news1", "nf13"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-07",
+    "term": "鈍い",
+    "kana": "のろい",
+    "meaning": "dull (e.g., a knife), slow (opposite of fast), stupid",
+    "level": "N2",
+    "pos": ["adjective (keiyoushi)"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "鈍い",
+        "kana": "にぶい"
+      }
+    ],
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 99079,
+        "ja": "彼は理解力がのろい。",
+        "en": "He is slow of understanding.",
+        "enId": 304620,
+        "form": "のろい",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["理解", "りかい"],
+          ["力", "りょく"],
+          ["がのろい。"]
+        ]
+      },
+      {
+        "id": 187812,
+        "ja": "何て歩みののろいやつだろう。",
+        "en": "How slow you are!",
+        "enId": 24951,
+        "form": "のろい",
+        "furigana": [
+          ["何", "なん"],
+          ["て"],
+          ["歩", "あゆ"],
+          ["みののろいやつだろう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-08",
+    "term": "故郷",
+    "kana": "ふるさと",
+    "meaning": "home town, birthplace",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["news1", "nf06", "ichi1"],
+    "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "故郷",
+        "kana": "こきょう"
+      }
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 107517,
+        "ja": "彼は故郷の夢を見た。",
+        "en": "He dreamed about his home.",
+        "enId": 296169,
+        "form": "故郷",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["故郷", "こきょう"],
+          ["の"],
+          ["夢", "ゆめ"],
+          ["を"],
+          ["見", "み"],
+          ["た。"]
+        ]
+      },
+      {
+        "id": 224306,
+        "ja": "ここは私の故郷です。",
+        "en": "This is the village where I was born.",
+        "enId": 61642,
+        "form": "故郷",
+        "furigana": [
+          ["ここは"],
+          ["私", "わたし"],
+          ["の"],
+          ["故郷", "こきょう"],
+          ["です。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-09",
+    "term": "解く",
+    "kana": "ほどく",
+    "meaning": "to unfasten",
+    "level": "N2",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 157512,
+        "ja": "私は靴の紐をほどいた。",
+        "en": "I loosened my shoelaces.",
+        "enId": 257019,
+        "form": "ほどいた",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["靴", "くつ"],
+          ["の"],
+          ["紐", "ひも"],
+          ["をほどいた。"]
+        ]
+      },
+      {
+        "id": 208001,
+        "ja": "その男は腕を組んだりほどいたりしていた。",
+        "en": "The man was folding and unfolding his arms.",
+        "enId": 45258,
+        "form": "ほどいたり",
+        "furigana": [
+          ["その"],
+          ["男", "おとこ"],
+          ["は"],
+          ["腕", "うで"],
+          ["を"],
+          ["組", "く"],
+          ["んだりほどいたりしていた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-10",
+    "term": "紅葉",
+    "kana": "もみじ",
+    "meaning": "(Japanese) maple",
+    "level": "N2",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "カエデ"
+      }
+    ],
+    "stratum": "wago",
+    "processes": ["borrowing", "sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨momi₁ti⟩ → */momʲiti/ → /momʲidi/ → /momid͡ʑi/ → /momiʑi/"
+      },
+      {
+        "quote": "Shift from Old Japanese 紅葉 (momi₁ti → momichi)."
+      },
+      {
+        "quote": "The 連用形 (ren'yōkei, “stem or continuative form”) of classical verb 紅葉づ (momizu, “to turn, change color; said of leaves”)."
+      },
+      {
+        "quote": "Orthographic borrowing from Chinese 紅葉 /红叶 (hóngyè), see kōyō below."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["もみじば"],
+        "quotes": [
+          "Shift from Old Japanese 紅葉 (momi₁tiba → momichiba).",
+          "Can be parsed as a compound of 紅葉ぢ (momiji, the 連用形 (ren'yōkei, “stem or continuative form”) of classical verb 紅葉づ (momizu), “to turn in autumn, said of leaves”) + 葉 (ha, “leaf”). The ha changes to ba as an instance of rendaku (連濁)."
+        ]
+      },
+      {
+        "readings": ["こうよう"],
+        "quotes": [
+          "/kou jepu/ → /koːjefu/ → /koːjeu/ → /koːjoː/",
+          "From Middle Chinese compound 紅葉 (MC huwng yep, literally “crimson, red + leaf”)."
+        ]
+      },
+      {
+        "readings": ["あかは", "あけは"],
+        "quotes": ["Other various nanori readings."]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-11",
+    "term": "～等",
+    "kana": "～ら",
+    "meaning": "plural persons",
+    "level": "N2",
+    "pos": [],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-12",
+    "term": "長～",
+    "kana": "ちょう～",
+    "meaning": "long ~",
+    "level": "N2",
+    "pos": [],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-13",
+    "term": "最中",
+    "kana": "さなか",
+    "meaning": "in the middle of, midst",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news2", "nf42"],
+    "pitch": [1],
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From 最(さい) (sai-, “most”) + 中(なか) (naka, “inside, middle”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["さいちゅう"],
+        "quotes": ["From 最(さい) (sai-, “most”) + 中(ちゅう) (chū, “middle”)."]
+      },
+      {
+        "readings": ["もなか"],
+        "quotes": [
+          "From 最(も) (mo-, “most, true”) + 中(なか) (naka, “inside”)."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-14",
+    "term": "様",
+    "kana": "さま",
+    "meaning": "state; way (a person does something); Mr. or Mrs.",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 227331,
+        "ja": "お気の毒様。",
+        "en": "I am sorry for you.",
+        "enId": 64682,
+        "form": "様",
+        "furigana": [
+          ["お"],
+          ["気", "き"],
+          ["の"],
+          ["毒", "どく"],
+          ["様", "さま"],
+          ["。"]
+        ]
+      },
+      {
+        "id": 201194,
+        "ja": "どうもご親切さま。",
+        "en": "That's very kind of you.",
+        "enId": 38401,
+        "form": "さま",
+        "furigana": [["どうもご"], ["親切", "しんせつ"], ["さま。"]]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-15",
+    "term": "獣",
+    "kana": "けもの",
+    "meaning": "beast, brute",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Literally \"hair thing\". Compound of 毛 (ke, “hair”) + 物 (mono, “thing”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["けだもの"],
+        "quotes": [
+          "Literally \"thing of hair\". Compound of 毛 (ke, “hair”) + だ (da, genitive marker) + 物 (mono, “thing”). Medial -da- is a very rare genitive marker found in compounds, also seen in 果物 (kudamono, “fruit”)."
+        ]
+      },
+      {
+        "readings": ["しし"],
+        "quotes": [
+          "From Old Japanese. First attested in the Kojiki of 712 CE. From Proto-Japonic *sisi. Cognate with 肉 (shishi, “meat of a beast”)."
+        ]
+      },
+      {
+        "readings": ["じゅう"],
+        "quotes": [
+          "/siu/ → /ɕiu/ → /d͡ʑiu/ → /d͡ʑuː/",
+          "From Middle Chinese 獸 /兽 (syuwᴴ, “(wild) animal”). Compare modern Mandarin reading shòu, Min Nan siù."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-16",
+    "term": "止める",
+    "kana": "とどめる",
+    "meaning": "to end, to stop, to cease, to resign",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf45"],
+    "pitch": [3],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-17",
+    "term": "主",
+    "kana": "ぬし",
+    "meaning": "owner, master, god",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 198548,
+        "ja": "のろいはのろい主に返る。",
+        "en": "Curses, like chickens, come home to roost.",
+        "enId": 35742,
+        "form": "主",
+        "furigana": [
+          ["のろいはのろい"],
+          ["主", "ぬし"],
+          ["に"],
+          ["返", "かえ"],
+          ["る。"]
+        ]
+      },
+      {
+        "id": 177336,
+        "ja": "君は君自身の運命の主でもあります。",
+        "en": "You are the master of your own destiny.",
+        "enId": 16186,
+        "form": "主",
+        "furigana": [
+          ["君", "きみ"],
+          ["は"],
+          ["君", "きみ"],
+          ["自身", "じしん"],
+          ["の"],
+          ["運命", "うんめい"],
+          ["の"],
+          ["主", "ぬし"],
+          ["でもあります。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-18",
+    "term": "埋める",
+    "kana": "うずめる",
+    "meaning": "to bury, to fill",
+    "level": "N1",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 74524,
+        "ja": "けいこは枕に顔をうずめて泣いた。",
+        "en": "Keiko buried her head in the pillow and cried.",
+        "enId": 329195,
+        "form": "うずめて",
+        "furigana": [
+          ["けいこは"],
+          ["枕", "まくら"],
+          ["に"],
+          ["顔", "かお"],
+          ["をうずめて"],
+          ["泣", "な"],
+          ["いた。"]
+        ]
+      },
+      {
+        "id": 74523,
+        "ja": "昨夜、約８万人の観衆がスタジアムをうずめた。",
+        "en": "About eighty thousand spectators packed into the stadium last night.",
+        "enId": 329196,
+        "form": "うずめた",
+        "furigana": [
+          ["昨夜、"],
+          ["約", "やく"],
+          ["８"],
+          ["万", "まん"],
+          ["人", "にん"],
+          ["の"],
+          ["観衆", "かんしゅう"],
+          ["がスタジアムをうずめた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-19",
+    "term": "脅かす",
+    "kana": "おびやかす",
+    "meaning": "to threaten, to coerce",
+    "level": "N1",
+    "pos": ["Godan verb with 'su' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [4],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Compare 怯(おび)える (obieru, “to be frightened”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["おどかす"],
+        "quotes": ["Compare 驚(おどろ)く (odoroku, “to surprise”)."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 204984,
+        "ja": "それは町の繁栄を脅かすだろう。",
+        "en": "It will threaten the prosperity of the town.",
+        "enId": 42226,
+        "form": "脅かす",
+        "furigana": [
+          ["それは"],
+          ["町", "まち"],
+          ["の"],
+          ["繁栄", "はんえい"],
+          ["を"],
+          ["脅", "おびや"],
+          ["かすだろう。"]
+        ]
+      },
+      {
+        "id": 83648,
+        "ja": "文明は今や核戦争に脅かされている。",
+        "en": "Civilization is now threatened by nuclear war.",
+        "enId": 320068,
+        "form": "脅かされている",
+        "furigana": [
+          ["文明", "ぶんめい"],
+          ["は"],
+          ["今", "いま"],
+          ["や"],
+          ["核", "かく"],
+          ["戦争", "せんそう"],
+          ["に"],
+          ["脅", "おびや"],
+          ["かされている。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-20",
+    "term": "我",
+    "kana": "が～",
+    "meaning": "ego",
+    "level": "N1",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-21",
+    "term": "～画",
+    "kana": "～かく",
+    "meaning": "~ strokes",
+    "level": "N1",
+    "pos": [],
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-22",
+    "term": "頭",
+    "kana": "かしら",
+    "meaning": "head, chief",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "頭数"
+      }
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese. Found as a standalone noun in the Man'yōshū, completed some time after 759 CE, and as a counter in the Kojiki, dating to 712 CE."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["あたま"],
+        "quotes": [
+          "Probably from Old Japanese. First cited in the ten-volume Wamyō Ruijushō of 934 CE.",
+          "Unknown derivation. Theories include:",
+          "* Compound of 天(あ) (a, “heaven, sky”) + 玉(たま) (tama, “ball”). This is problematic phonetically, as 天 appears historically as ama or ame, not as just a.",
+          "* Compound of 当(あ)て (ate, “putting something in contact”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 当(あ)てる (ateru, “to hit”)) + 間(ま) (ma, “space, gap”), referring to the head as a moxibustion point. This is also problematic phonetically, as the shift from ate to ata necessitates a change in meaning of the underlying verb. This is also problematic semantically, as the term 間(ま) (ma) term refers more specifically to a gap or space.",
+          "* Compound of 貴(あて) (ate, “noble”) + 間(ま) (ma, “space”), referring to the most important part of the body. However, the use of 間(ま) (ma) in this way is again problematic. Moreover, 貴(あて) (ate, “noble”) appears in The Tale of the Bamboo Cutter dating to the 900s CE, while 頭(あたま) (atama) with a sense of fontanelle appears in the Wamyō Ruijushō dated 938 CE, leaving insufficient time for either the semantic or phonetic drift required.",
+          "Historically, this term first appears with a sense of fontanelle, in reference to the soft place on the top of an infant's head where the bones of the skull have not yet fused. As such, a more likely derivation might be as a compound of 当(あ)た (ata, “not quite touching, not quite in contact”, 未(み)然(ぜん)形(けい) (mizenkei, “irrealis form”) of classical verb 当(あ)つ (atsu) and root of modern 当(あ)たる (ataru, “to touch, to come into contact”)) + 間(ま) (ma, “space, gap, opening”)."
+        ]
+      },
+      {
+        "readings": ["かぶり"],
+        "quotes": [
+          "Cognate with and shift in meaning from かぶり (kaburi, “covering; hat, crown”), spelled in kanji as 被り or 冠."
+        ]
+      },
+      {
+        "readings": ["かぶ"],
+        "quotes": [
+          "From Old Japanese; first attested in the Kojiki (712), with the spelling 加夫, in spite that the Nihon Kokugo Daijiten lists the first attestation as from the late Muromachi period.",
+          "Cognate with 株(かぶ) (kabu, “stump; root”), from a general sense of lump."
+        ]
+      },
+      {
+        "readings": ["つぶり"],
+        "quotes": [
+          "Cognate with 粒 (tsubu, “round thing”, such as a grain), 禿ぶ (tsubu, “to go bald”, from the idea of one's head becoming round), 円ら (tsubura, “round”, adjective), 潰れる (tsubureru, “to become rounded, as from wear and tear, or from crushing”).",
+          "Some sources derive this as a shift from 円ら (tsubura, “round”, adjective). However, the phonology and semantics for this do not fit (changing /a/ to /i/, and repurposing the adjectivizing suffix ら to instead form a noun). The modern verb tsubureru had the form tsuburu in older stages of the language. The tsuburi reading for 頭 may more likely represent a nominalization derived from this older verb, following normal patterns for creating nouns from verbs.",
+          "Compare Okinawan ちぶる (chiburu, “head”)."
+        ]
+      },
+      {
+        "readings": ["つむり"],
+        "quotes": [
+          "From tsuburi above. Bilabial plosive /b/ becomes bilabial nasal /m/."
+        ]
+      },
+      {
+        "readings": ["つむ"],
+        "quotes": ["Shortened from tsumuri above."]
+      },
+      {
+        "readings": ["こうべ"],
+        "quotes": [
+          "*/kamipe/ → */kampe/ → /kaube/ → /kɔːbe/ → /koːbe/",
+          "Compound of either 上 (kami, “upper”) or 髪 (kami, “hair”) (likely cognates), with either 部 (be, “part, portion”) or 辺・方 (pe, “area; direction”).",
+          "Listed in one resource as possibly an alteration from 頭 (kabu, “head”) + 上 (upe, “up”, Old Japanese reading).",
+          "This reading is listed in some sources as attested in the Nihon Shoki of 720. However, this is based on traditional ruby glosses of the ideogrammatic spelling, and the glosses are from younger manuscripts."
+        ]
+      },
+      {
+        "readings": ["どたま"],
+        "quotes": [
+          "Contraction of ど (do-, “super-”, often used ironically as a derogatory prefix) + 頭 (atama, “head”)."
+        ]
+      },
+      {
+        "readings": ["ず"],
+        "quotes": [
+          "/du/ → /d͡zu/ → /zu/",
+          "From Middle Chinese 頭 (MC duw). The goon reading, so likely an earlier borrowing."
+        ]
+      },
+      {
+        "readings": ["とう"],
+        "quotes": [
+          "From Middle Chinese 頭 (MC duw). The kan'on reading, so likely a later borrowing. The shift from initial /d/ to voiceless /t/ is due to influence or reborrowing from a later stage of the Chinese language. Compare modern Mandarin reading tóu, Cantonese tau⁴, Min Nan tao⁵."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-23",
+    "term": "擦る",
+    "kana": "かする",
+    "meaning": "to rub, to chafe",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "transitive verb"],
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Cognate with 霞(かす)む (kasumu, “to grow hazy, to become blurry”), which see for further cognates. Compare also 擦(す)る (suru, “to rub”) above."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["する"],
+        "quotes": [
+          "From Old Japanese, from Proto-Japonic *suru. Cognate with Proto-Ryukyuan *suri."
+        ]
+      },
+      {
+        "readings": ["こする"],
+        "quotes": [
+          "Possibly a compound of こ (ko) + 擦(す)る (suru, “to rub”). The ko element might be 粉(こ) (ko, “powder, flour”)."
+        ]
+      },
+      {
+        "readings": ["なする"],
+        "quotes": [
+          "Unknown. A {{glossary|surface analysis suggests a compound with the second element being 擦(す)る (suru, “to rub”).",
+          "First cited to a text from c. 1809-1813."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-24",
+    "term": "来る",
+    "kana": "きたる",
+    "meaning": "to come, to approach,",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From 来(き) (ki, continuative form of etymology 1) + 至(いた)る (itaru)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["くる"],
+        "quotes": [
+          "From Old Japanese 來 (ku), from Proto-Japonic *ku. Compare the development of modern する (suru) from Old Japanese す.",
+          "First attested in the Kojiki of 712.",
+          "Cognate with Kunigami 来ん (sun), Miyako 来 (ksï), Okinawan 来ーん (chuun), Yaeyama 来ん (kïn), Yonaguni 来ん (kun)."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-25",
+    "term": "市場",
+    "kana": "しじょう",
+    "meaning": "(the) market (as a concept)",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "市場",
+        "kana": "いちば"
+      }
+    ],
+    "stratum": "kango",
+    "processes": ["compound", "reread"],
+    "morphemes": [
+      {
+        "text": "市",
+        "reading": "し",
+        "meaning": "market",
+        "glossSource": "kanjidic2"
+      },
+      {
+        "text": "場",
+        "reading": "じょう",
+        "meaning": "location",
+        "glossSource": "kanjidic2"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "Sinicization of 市場(いちば) (ichiba). See 返事(へんじ) (henji) and 大根(だいこん) (daikon), which have similar etymologies."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["いちば"],
+        "quotes": [
+          "市(いち) (ichi, “market”) + 場(ば) (ba, “place”). Compare English marketplace."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 168350,
+        "ja": "市場は全面安ですね。",
+        "en": "The market prices have fallen across the board.",
+        "enId": 246143,
+        "form": "市場",
+        "furigana": [
+          ["市場", "しじょう"],
+          ["は"],
+          ["全面", "ぜんめん"],
+          ["安", "やす"],
+          ["ですね。"]
+        ]
+      },
+      {
+        "id": 168351,
+        "ja": "市場は盛り返してきた。",
+        "en": "The market rallied.",
+        "enId": 246142,
+        "form": "市場",
+        "furigana": [
+          ["市場", "しじょう"],
+          ["は"],
+          ["盛", "も"],
+          ["り"],
+          ["返", "かえ"],
+          ["してきた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-26",
+    "term": "情緒",
+    "kana": "じょうしょ",
+    "meaning": "emotion, feeling",
+    "level": "N1",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "nouns which may take the genitive case particle 'no'"
+    ],
+    "priority": ["ichi1", "news1", "nf14"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-27",
+    "term": "粋",
+    "kana": "すい",
+    "meaning": "essence",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 201384,
+        "ja": "どうせ日本文化の粋などは連中には絶対わかるまい。",
+        "en": "They'll never truly understand the essence of Japanese culture anyway.",
+        "enId": 38594,
+        "form": "粋",
+        "furigana": [
+          ["どうせ"],
+          ["日本", "にっぽん"],
+          ["文化", "ぶんか"],
+          ["の粋などは"],
+          ["連中", "れんちゅう"],
+          ["には"],
+          ["絶対", "ぜったい"],
+          ["わかるまい。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2027-01-28",
+    "term": "世論",
+    "kana": "せろん",
+    "meaning": "public opinion",
+    "level": "N1",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1, 0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-29",
+    "term": "先",
+    "kana": "せん",
+    "meaning": "priority, precedence, previous",
+    "level": "N1",
+    "pos": [
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)"
+    ],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 先 (MC sen|senH)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["さき"],
+        "quotes": [
+          "From Old Japanese, from Proto-Japonic *saki. Cognate with 崎(さき) (saki, “peninsula, cape”)."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 209061,
+        "ja": "その少年は先週末、野球のボールで窓ガラスを割った。",
+        "en": "The boy broke the window with a baseball last weekend.",
+        "enId": 46322,
+        "form": "先",
+        "furigana": [
+          ["その"],
+          ["少年", "しょうねん"],
+          ["は"],
+          ["先", "せん"],
+          ["週", "しゅう"],
+          ["末", "まつ"],
+          ["、"],
+          ["野球", "やきゅう"],
+          ["のボールで"],
+          ["窓", "まど"],
+          ["ガラスを"],
+          ["割", "わ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 141806,
+        "ja": "先週末は宇宙時代についてのレポートを書かなければならなかった。",
+        "en": "I had to write a paper on the Space Age last weekend.",
+        "enId": 272764,
+        "form": "先",
+        "furigana": [
+          ["先", "せん"],
+          ["週", "しゅう"],
+          ["末", "まつ"],
+          ["は"],
+          ["宇宙", "うちゅう"],
+          ["時代", "じだい"],
+          ["についてのレポートを"],
+          ["書", "か"],
+          ["かなければならなかった。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2027-01-30",
+    "term": "早急",
+    "kana": "さっきゅう",
+    "meaning": "urgent",
+    "level": "N1",
+    "pos": [
+      "adjectival nouns or quasi-adjectives (keiyodoshi)",
+      "nouns which may take the genitive case particle 'no'",
+      "noun (common) (futsuumeishi)"
+    ],
+    "priority": ["news1", "nf04"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2027-01-31",
+    "term": "反る",
+    "kana": "そる",
+    "meaning": "to warp, to be warped, to curve",
+    "level": "N1",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  }
+]

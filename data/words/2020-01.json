@@ -487,6 +487,11 @@
     "level": "N2",
     "pos": ["expressions (phrases, clauses, etc.)"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "行ってきます"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -501,6 +506,11 @@
     "pos": ["expressions (phrases, clauses, etc.)"],
     "priority": ["spec1"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "行ってらっしゃい"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -568,6 +578,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf30"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "経度"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

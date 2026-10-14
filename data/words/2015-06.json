@@ -143,6 +143,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "灯油"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -656,6 +661,14 @@
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "手を挙げる"
+      },
+      {
+        "term": "声を上げる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -1003,6 +1016,11 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf35"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "外す"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -1098,6 +1116,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "脂",
+        "kana": "あぶら"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
