@@ -3,6 +3,7 @@ import {
   exploreCalendar,
   exploreWords,
   foldForSearch,
+  searchFor,
 } from "~~/shared/explore";
 import { frequencyOf, posGroupsOf } from "~~/shared/word-labels";
 import { WORD_ENTRIES, monthsWithEntries } from "~~/shared/words";
@@ -91,6 +92,34 @@ describe("exploreWords", () => {
     expect(byMeaning.words.map((w) => w.date)).toContain(entry.date);
 
     expect(exploreWords({ q: "zzzzzz-no-such-word" }, TODAY).count).toBe(0);
+  });
+
+  it("finds a word by its reading typed in romaji, matching only the reading", () => {
+    const entry = open.find((e) => e.kana === "たべる")!;
+    expect(entry).toBeDefined();
+
+    const found = exploreWords({ q: "taberu" }, TODAY);
+    expect(found.words.map((w) => w.date)).toContain(entry.date);
+    // Every hit has the kana in its reading, or the letters in its text or meaning.
+    for (const w of found.words)
+      expect(
+        w.kana.includes("たべる") ||
+          [w.term, w.kana, w.meaning].some((t) =>
+            t.toLowerCase().includes("taberu"),
+          ),
+      ).toBe(true);
+    // Capitals and katakana-folding still work, and a half-typed word is not converted.
+    expect(
+      exploreWords({ q: "TABERU" }, TODAY).words.map((w) => w.date),
+    ).toContain(entry.date);
+  });
+
+  it("does not read letters that are no romaji as kana", () => {
+    expect(searchFor("taberu")).toEqual({ text: "taberu", reading: "たべる" });
+    expect(searchFor("q")).toEqual({ text: "q" });
+    expect(searchFor("tea.")).toEqual({ text: "tea." });
+    expect(searchFor("たべる")).toEqual({ text: "たべる" });
+    expect(searchFor("")).toEqual({ text: "" });
   });
 
   it("counts each facet over the words the *other* filters leave", () => {

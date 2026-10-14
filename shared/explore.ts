@@ -23,6 +23,7 @@ import type {
   WordCalendarPayload,
   WordSummary,
 } from "~~/types/index";
+import { isRomaji, toHiragana } from "wanakana";
 import { katakanaToHiragana } from "./japanese";
 import { JLPT_LEVELS } from "./jlpt";
 import {
@@ -48,6 +49,24 @@ export const STRATUM_KEYS: StratumKey[] = [...STRATUM_IDS, "unstated"];
 /** Lower-case, with katakana folded to hiragana, so ラジオ is found by らじお. */
 export function foldForSearch(text: string): string {
   return katakanaToHiragana(text.normalize("NFKC").toLowerCase()).trim();
+}
+
+/** What a search looks for: the folded text, and, when the text is romaji
+ *  (`taberu`), the kana it reads as (`たべる`), which is matched against the
+ *  reading only, so a romaji search finds a word by how it is read without
+ *  matching kana inside an English meaning. */
+export interface Search {
+  text: string;
+  reading?: string;
+}
+
+export function searchFor(raw: string): Search {
+  const text = foldForSearch(raw);
+  if (!text || !isRomaji(text)) return { text };
+  const reading = toHiragana(text);
+  // Only a reading that came out as kana whole is a reading: `x` or `tea.`
+  // leaves letters or marks behind, and then only the text itself is searched.
+  return /^[\p{sc=Hiragana}ー]+$/u.test(reading) ? { text, reading } : { text };
 }
 
 const summaryOf = (e: WordEntry): WordSummary => ({
@@ -86,7 +105,7 @@ const satisfies = (
 function passes(
   e: WordEntry,
   f: ExploreFilters,
-  q: string,
+  q: Search,
   skip?: Facet,
 ): boolean {
   const match = f.match ?? "any";
@@ -103,9 +122,12 @@ function passes(
   )
     return false;
   if (f.part && !e.morphemes.some((m) => m.text === f.part)) return false;
-  if (q) {
+  if (q.text) {
     const haystack = [e.term, e.kana, e.meaning].map(foldForSearch);
-    if (!haystack.some((h) => h.includes(q))) return false;
+    const found =
+      haystack.some((h) => h.includes(q.text)) ||
+      (q.reading !== undefined && foldForSearch(e.kana).includes(q.reading));
+    if (!found) return false;
   }
   return true;
 }
@@ -114,7 +136,7 @@ function facet<T extends string>(
   values: readonly T[],
   entries: WordEntry[],
   f: ExploreFilters,
-  q: string,
+  q: Search,
   key: Facet,
   valuesOf: (e: WordEntry) => readonly string[],
 ): FacetCount<T>[] {
@@ -131,7 +153,7 @@ export function exploreWords(
   today: string = todayJst(),
 ): ExplorePayload {
   const open = WORD_ENTRIES.filter((e) => e.date <= today);
-  const q = foldForSearch(filters.q ?? "");
+  const q = searchFor(filters.q ?? "");
   const matches = open.filter((e) => passes(e, filters, q));
 
   return {
