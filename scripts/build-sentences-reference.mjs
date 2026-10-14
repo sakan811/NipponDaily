@@ -37,7 +37,7 @@ import {
 } from "./lib/tatoeba-export.mjs";
 import { pickExamples } from "./lib/example-sentences.mjs";
 import { furiganaFor } from "./lib/furigana.mjs";
-import { poolWords } from "./lib/pool-words.mjs";
+import { poolWords, wordKey } from "./lib/pool-words.mjs";
 import { UNIDIC_PACKAGE, openUnidic } from "./lib/unidic.mjs";
 import {
   JMDICT_SOURCE,
@@ -80,7 +80,7 @@ export function buildSentences(words, corpus, reader) {
         const furigana = reader.read(ex);
         if (furigana) ex.furigana = furigana;
       }
-    entries[word.term] = examples;
+    entries[wordKey(word.term, word.kana)] = examples;
   }
   return entries;
 }
@@ -202,7 +202,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 
   if (args.includes("--check")) {
     const now = loadSentenceSnapshot(ROOT);
-    // Compared by term, whatever order the shards were read in.
+    // Compared by word, whatever order the shards were read in.
     const canon = (o) => JSON.stringify(Object.entries(o).sort());
     const same =
       canon(now.entries) === canon(entries) &&

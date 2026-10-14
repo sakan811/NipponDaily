@@ -3,13 +3,15 @@
  * per word-plan month under data/reference/sentences/, plus meta.json.
  *
  *   data/reference/sentences/meta.json     source, licence and the export pinned
- *   data/reference/sentences/YYYY-MM.json  { term: [{ id, ja, en, enId, form, furigana? }] }
+ *   data/reference/sentences/YYYY-MM.json  { "term kana": [{ id, ja, en, enId, form, furigana? }] }
  *
- * A term's shard comes only from the word plans, so the layout is
- * deterministic. A term with no sentence has no key. Readers get the merged
+ * A word's shard comes only from the word plans, so the layout is
+ * deterministic. A word (its spelling and reading, see `wordKey`) with no
+ * sentence has no key. Readers get the merged
  * `{ meta, entries }` back from loadSentenceSnapshot().
  */
 import { loadShards, writeShards } from "./month-shards.mjs";
+import { wordMonths } from "./pool-words.mjs";
 
 export const SENTENCES_DIR = "data/reference/sentences";
 
@@ -30,4 +32,4 @@ export const loadSentenceSnapshot = (root) => loadShards(root, SENTENCES_DIR);
 /** Write `entries` into their month shards (and `meta.json`), removing shards
  *  that no longer hold anything. A term no plan names goes in "unplanned". */
 export const writeSentenceSnapshot = (root, meta, entries) =>
-  writeShards(root, SENTENCES_DIR, meta, entries, stringify);
+  writeShards(root, SENTENCES_DIR, meta, entries, stringify, wordMonths(root));
