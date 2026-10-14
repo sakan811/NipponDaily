@@ -275,6 +275,15 @@
         "quote": "Derived from 日(ひ) (hi, “day”), suffixed with an element ru of unclear meaning. Compare 夜(よる) (yoru, “night, evening”), which seems to use this same ru element."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["ちゅう"],
+        "quotes": [
+          "/tiu/ → /t͡ɕiu/ → /t͡ɕuː/",
+          "From Middle Chinese 晝 (MC trjuwH)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 87902,
@@ -328,6 +337,15 @@
         "quote": "Shift from previous 三(み)つ (mitsu)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["みつ"],
+        "quotes": [
+          "From Old Japanese.",
+          "By surface analysis, 三 (mi, “three”) + つ (tsu, generic counter word)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 217647,
@@ -377,6 +395,16 @@
         "quote": "From Old Japanese, from Proto-Japonic *pa. Cognate with Okinawan 歯 (hā)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["し"],
+        "quotes": ["From Middle Chinese 齒 (MC tsyhiX)."]
+      },
+      {
+        "readings": ["よわい"],
+        "quotes": ["/yopapi/ > /yoɸaɸi/ > /yowawi/ > /yowai/."]
+      }
+    ],
     "examples": [
       {
         "id": 208598,
@@ -419,6 +447,19 @@
       },
       {
         "quote": "Likely cognate with 磯(いそ) (iso, “pebble; gravel; rocky beach”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["こく"],
+        "quotes": [
+          "From Middle Chinese 斛 (MC huwk).",
+          "The 石 spelling came about through customary use in Japan of this character for the unit of measure."
+        ]
+      },
+      {
+        "readings": ["せき"],
+        "quotes": ["From Middle Chinese 石 (MC dzyek)."]
       }
     ],
     "examples": [
@@ -504,6 +545,21 @@
         "quote": "From Old Japanese, ultimately from Proto-Japonic *tikara. Compound of Old Japanese elements 霊 (chi, “power, life force, essence”) + 柄 (kara, “source, origin”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["りき"],
+        "quotes": [
+          "From Middle Chinese 力 (lik). The goon reading, so likely the initial borrowing. Compare modern Cantonese reading lik⁶."
+        ]
+      },
+      {
+        "readings": ["りょく"],
+        "quotes": [
+          "From Middle Chinese 力 (lì), but apparently from a different source dialect or at a different time than 力 (lik). The kan'on reading, so likely a later borrowing. Compare reconstructed Middle Chinese reading /li̯ək/ or Korean reading ryeok.",
+          "Only found in compounds and idioms in modern Japanese."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 77810,
@@ -549,6 +605,20 @@
       },
       {
         "quote": "Borrowing from Mandarin 三 (sān), with the pitch accent different from etymology 1."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["み"],
+        "quotes": [
+          "⟨mi₁⟩ → /mi/",
+          "From Old Japanese, from Proto-Japonic *mi.",
+          "Likely an apophonic form of 六 (mu, “six”), compare 四 (yo, “four”) with 八 (ya, “eight”)."
+        ]
+      },
+      {
+        "readings": ["みい"],
+        "quotes": ["/mi/ → /miː/", "Shift from mi above."]
       }
     ],
     "examples": [
@@ -731,6 +801,22 @@
         "quote": "An irregular adjective even in Classical Japanese (where the attributive form was usually 同じ), it has become more irregular in the modern language, mixing attributes of -i adjectives and -na adjectives (and sometimes neither)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["おんなじ"],
+        "quotes": [
+          "/onaʑi/ → /onːaʑi/",
+          "Long-pronounced form of onaji above.",
+          "Compare 南 (minami → minnami, “south”)."
+        ]
+      },
+      {
+        "readings": ["どうじ"],
+        "quotes": [
+          "The 未(み)然(ぜん)形(けい) (mizenkei, “irrealis”) and 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative”) form of two verb forms of the Sino-Xenic morpheme 同(どう) (dō, “same”)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 227599,
@@ -789,6 +875,34 @@
       },
       {
         "quote": "Compare 少(おと)女(め) (otome, “young woman”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["お"],
+        "quotes": ["/wo/ → /o/", "From Old Japanese."]
+      },
+      {
+        "readings": ["おのこ"],
+        "quotes": [
+          "Compound of 男 (o, “male”, see above) + の (no, possessive particle) + 子 (ko, “child”)."
+        ]
+      },
+      {
+        "readings": ["なん"],
+        "quotes": [
+          "/nam/ → /namʉ/ → /naɴ/",
+          "From Middle Chinese 男 (MC nom).",
+          "The 呉音 (goon) reading, so likely the initial borrowing."
+        ]
+      },
+      {
+        "readings": ["だん"],
+        "quotes": [
+          "/dam/ → /damʉ/ → /daɴ/",
+          "From Middle Chinese 男 (MC nom).",
+          "The 漢音 (kan'on) reading, so likely a later borrowing."
+        ]
       }
     ],
     "examples": [
@@ -907,6 +1021,15 @@
         "quote": "From Middle Chinese compound 辤書 /辤书 (zi syo, literally “quit + writing”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["じそ"],
+        "quotes": [
+          "The 直音表記 (chokuon hyōki, literally “straight-sound spelling”) of jisho above. Most common from the Heian through the Muromachi periods.",
+          "It is unclear if the pronunciation itself also shifted, or just the spelling."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 159702,
@@ -943,6 +1066,12 @@
     "sources": [
       {
         "quote": "From Old Japanese. Appears in the Kojiki of 712, the Nihon Shoki completed in 720, and the Man'yōshū completed some time after 759. Perhaps related to Middle Chinese 郡 (MC gjunH, “geographic region: commandery, prefecture”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["こく"],
+        "quotes": ["From Middle Chinese 國 (MC kwok, “country, nation”)."]
       }
     ],
     "examples": [
@@ -1282,6 +1411,12 @@
       },
       {
         "quote": "The sense development seems to have proceeded from \"that thing over there\" to \"that person over there [of indeterminate gender]\". The specifically male sense of \"he\" only arose later during the late Edo period and early Meiji period, influenced by translations of texts from European languages."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["か"],
+        "quotes": ["From Old Japanese."]
       }
     ],
     "examples": [

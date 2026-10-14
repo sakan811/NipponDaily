@@ -118,6 +118,28 @@
         "quote": "From Old Japanese."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["うし"],
+        "quotes": [
+          "From Old Japanese. Appears in the Nihon Shoki, completed in 720 CE. Derivation unknown."
+        ]
+      },
+      {
+        "readings": ["たいじん"],
+        "quotes": [
+          "From Middle Chinese 大人 (dɑiᴴ ȵʑjen, literally “big, great + person”). Compare modern Hokkien 大人 (tāi-jîn / tāi-lîn), Cantonese 大人 (daai⁶ jan⁴).",
+          "The kan'on reading, so likely a later borrowing."
+        ]
+      },
+      {
+        "readings": ["だいにん"],
+        "quotes": [
+          "From Middle Chinese 大人 (dɑiᴴ ȵiɪn, literally “big, great + person”). Compare modern Hakka 大人 (thai-ngìn).",
+          "The goon reading, so likely an earlier borrowing."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 177535,
@@ -316,6 +338,15 @@
         "quote": "From Old Japanese. Found in the Nihon Shoki of 720 CE. In turn from Proto-Japonic *tuyə. Cognate with Miyako 強 (tsū), Okinawan 強ーさん (chūsan)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["こわい"],
+        "quotes": [
+          "From Old Japanese. Appears in the Nihon Shoki, c. CE 720. Ultimately from Proto-Japonic *kƏpa.",
+          "Cognate with 怖い (kowai, “scary, frightening”), apparently from the sense of freezing from fright. Likely also cognate with other terms beginning with ko- and related to senses of hard, stiff, such as 凝る (koru, “to stiffen”), 凍ゆ (koyu, “to freeze, to become frozen”, classical) → modern 凍える (kogoeru)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 191432,
@@ -428,6 +459,18 @@
     "sources": [
       {
         "quote": "From 一(いち) (ichi) + 番(ばん) (-ban)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["いっばん"],
+        "quotes": ["Dialectal variation of standard Japanese ichiban."]
+      },
+      {
+        "readings": ["ひとつがい"],
+        "quotes": [
+          "Compound of 一 (hito, “one”) + 番 (tsugai, “pair, couple, brace”, 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 番(つが)う (tsugau))."
+        ]
       }
     ],
     "examples": [
@@ -628,6 +671,31 @@
       },
       {
         "quote": "From Old Japanese 南 (mi₁nami₁)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["みんなみ"],
+        "quotes": [
+          "/minami/ → /minːami/",
+          "Appears in The Pillow Book, completed in 1002.",
+          "Alteration of minami."
+        ]
+      },
+      {
+        "readings": ["なん"],
+        "quotes": ["/namʉ/ → /naɴ/", "From Middle Chinese 南 (MC nom)."]
+      },
+      {
+        "readings": ["なん"],
+        "quotes": ["From Mandarin 南 (nán)."]
+      },
+      {
+        "readings": ["みなん"],
+        "quotes": [
+          "Shift from standard Japanese minami, dropping the final vowel and keeping the nasal.",
+          "* /minami/ → /minaɴ/"
+        ]
       }
     ],
     "examples": [
@@ -881,6 +949,22 @@
         "quote": "From Old Japanese, from Proto-Japonic *natu."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["げ"],
+        "quotes": [
+          "From Middle Chinese 夏 (MC haeH). The goon reading, so likely the initial borrowing.",
+          "Also used in the Man'yōshū (759 CE) as 借音 (shakuon) kana for ⟨ge₁⟩."
+        ]
+      },
+      {
+        "readings": ["か"],
+        "quotes": [
+          "From Middle Chinese 夏 (MC haeX).",
+          "The kan'on reading, so likely a later borrowing."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 187205,
@@ -1069,6 +1153,26 @@
       },
       {
         "quote": "* The concepts of \"shallow\" and \"deep\" are used in other respects relative to time, such as 夜更(よふ)かし (yofukashi, “staying up late into the night”) and 夜(よ)更(ふ)け (yofuke, “very late at night”), where the fuk- root in both terms is from 深(ふか)い (fukai, “deep; late, long-lasting”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["あした"],
+        "quotes": [
+          "From Old Japanese. Attested in the Nihon Shoki of 720.",
+          "Historically, a day was split into two halves:",
+          "* Afternoon cycle: 朝(あさ) (asa) → 昼(ひる) (hiru) → 夕(ゆう) (yū)",
+          "* Evening cycle: 夕(ゆう)べ (yūbe) → 宵(よい) (yoi) → 夜(よ)中(なか) (yonaka) → 暁(あかつき) (akatsuki) → 朝(あした) (ashita)",
+          "While asa and ashita represent the same time period, asa was associated with beginning of the afternoon and ashita was associated with the end of the night. Both terms share an initial as- and are likely etymologically related."
+        ]
+      },
+      {
+        "readings": ["ちょう"],
+        "quotes": [
+          "/teu/ → /t͡ɕeu/ → /t͡ɕoː/",
+          "The \"morning\" and \"Korea\" senses are from Middle Chinese 朝 (MC trjew).",
+          "The \"imperial court\", \"dynasty\", and \"epoch\" senses are from Middle Chinese 朝 (MC drjew), using the 漢(かん)音(おん) (kan'on, literally “Han sound”) reading."
+        ]
       }
     ],
     "examples": [

@@ -239,6 +239,38 @@
         "quote": "Compare modern Hokkien 一 (it)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["いつ"],
+        "quotes": ["/itʉ/ → /it͡sʉ/ → /it͡su/", "From Middle Chinese 一 (ʔiɪt̚)."]
+      },
+      {
+        "readings": ["ひと"],
+        "quotes": [
+          "*/pʲitə/ → ⟨pi₁to₂⟩ → /ɸito/ → /hito/",
+          "From Old Japanese 一 (pi₁to₂), from earlier Proto-Japonic *pitə. Cognate with Okinawan 一 (tī)",
+          "Related to 二 (futa, “two”), which is its double. Compare 三 (mi, “three”) and 六 (mu, “six”), 四 (yo, “four”) and 八 (ya, “eight”)."
+        ]
+      },
+      {
+        "readings": ["ひ"],
+        "quotes": ["Shortening of hito above."]
+      },
+      {
+        "readings": ["ひい"],
+        "quotes": ["Long-pronounced form of hi above."]
+      },
+      {
+        "readings": ["いい"],
+        "quotes": ["Borrowing from Mandarin 一 (yī) in the Qing Dynasty."]
+      },
+      {
+        "readings": ["はじめ"],
+        "quotes": [
+          "From 始(はじ)め (hajime, “beginning, first”), the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 始(はじ)める (hajimeru, “to begin”)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 123618,
@@ -310,6 +342,15 @@
       },
       {
         "quote": "First attested in 1903."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["じきどう"],
+        "quotes": [
+          "/d͡ʑikidau/ → /d͡ʑikidɔː/ → /d͡ʑikidoː/",
+          "From Middle Chinese 食堂 (MC zyik dang). First attested in 747."
+        ]
       }
     ],
     "examples": [
@@ -426,6 +467,33 @@
         "quote": "Nominalization of the 連用形 (ren'yōkei, “continuative or stem form”) of Old Japanese-derived verb 次ぐ (tsugu, “to be in a sequence; to follow, to continue from something, to be next; to connect, to join”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["し"],
+        "quotes": [
+          "From Middle Chinese 次 (MC tshijH, “in order; second”).",
+          "Less common reading in modern Japanese. Superseded in most cases by ji; see below."
+        ]
+      },
+      {
+        "readings": ["じ"],
+        "quotes": ["/si/ → /ʑi/ → /d͡ʑi/", "Sound shift from shi above."]
+      },
+      {
+        "readings": ["すき"],
+        "quotes": [
+          "Nominalization of the 連用形 (ren'yōkei, “continuative or stem form”) of Old Japanese-derived verb 次く (suku, “to follow, to continue from something, to be next;”).",
+          "The verb form was obsolete even in olden times. Existence of the verb, possibly related to tsugu mentioned above, is inferred from placenames found in the Man'yōshū and other ancient poetry."
+        ]
+      },
+      {
+        "readings": ["ついで"],
+        "quotes": [
+          "/tuɡite/ → /tuide/",
+          "Sound shift from 次第 (tsugite, “order, sequence”), itself originally the 連用形 (ren'yōkei, “continuative or stem form”) of now-obsolete Old Japanese-derived verb 継ぎつ (tsugitsu, “to do things in sequence, to establish an order”)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 150206,
@@ -475,6 +543,29 @@
       },
       {
         "quote": "Compound of 形 (kata, “shape, form”) + ち (-chi), but the derivation of the chi element is unclear."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["がた", "がだ"],
+        "quotes": [
+          "Derived from kata above. The kata changes to gata as an instance of rendaku (連濁). Found most commonly as a suffixing element in compounds.",
+          "The standalone noun sense was originally a shortening of 女形 (onnagata, literally “woman form”), a female role played by a male actor in kabuki theater. This noun sense is only spelled with the 形 kanji."
+        ]
+      },
+      {
+        "readings": ["けい"],
+        "quotes": [
+          "From Middle Chinese 形 (MC heng). Compare modern Mandarin 形 (xíng). The 漢音(かんおん) (kan'on) reading, so likely a later borrowing."
+        ]
+      },
+      {
+        "readings": ["なり"],
+        "quotes": [
+          "From Old Japanese. First attested in the Nihon Shoki of 720 CE.",
+          "From 成り (nari), the 連用形 (ren'yōkei, “continuative or stem form”) of the verb 成る (naru, “to become”).",
+          "First attested as a suffix on a noun in the 曾我物語 (Soga Mongatari), of uncertain dating but probably in the late 1300s. As a suffix on a verb stem, first attested from 1927."
+        ]
       }
     ],
     "examples": [
@@ -530,6 +621,12 @@
       },
       {
         "quote": "Assuming an initial meaning of wheel, may be a compound of くる (kuru, related to spinning or rotating, as in 繰る (kuru, “to spin (as in thread)”), 枢 (kuru, “hinge”), くるくる (kurukuru, “spinningly, round and round”), 転めく (kurumeku, “to spin round and round, to rotate; to be dizzy”)) + ま (ma, a suffix added to various parts of speech to form an indeclinable word indicating state)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["しゃ"],
+        "quotes": ["From Middle Chinese 車 (MC tsyhae)."]
       }
     ],
     "examples": [
@@ -824,6 +921,21 @@
         "quote": "The kanji are orthographic borrowing from Chinese 昨日 (zuórì)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["さくじつ"],
+        "quotes": [
+          "From Middle Chinese compound 昨日 (dzak nyit, literally “yesterday + day”). Compare modern Cantonese reading zok⁶ jat⁶."
+        ]
+      },
+      {
+        "readings": ["きそ"],
+        "quotes": [
+          "From Old Japanese. The initial ki is unclear, but is likely the same ki element that appears in other words pertaining to the past. This may be related to the now-obsolete auxiliary verb き (ki) indicating the recollective past -- see けり (keri). The final so is also unclear, but is probably the same as the final zo in 去年(こぞ) (kozo).",
+          "This may have been read as kizo in Old Japanese."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 237028,
@@ -873,6 +985,16 @@
     "sources": [
       {
         "quote": "From Middle Chinese 門 (MC mwon)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["かど"],
+        "quotes": [
+          "⟨kado₁⟩ → */kadʷo/ → /kado/",
+          "From Old Japanese.",
+          "The final -do is cognate with 戸(と) (to, “door”). Compare 籠(かご) (kago, “basket”), which is cognate with 籠(こ) (ko)."
+        ]
       }
     ],
     "examples": [
@@ -957,6 +1079,14 @@
       },
       {
         "quote": "Active form of 入(い)る (iru, “to enter, to go into something”, intransitive) and its alternative form 要(い)る (iru, “to need, to require”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["はいれる"],
+        "quotes": [
+          "Regular potential form of verb 入(はい)る (hairu, “to go in, to enter”, intransitive)."
+        ]
       }
     ],
     "examples": [
@@ -1209,6 +1339,12 @@
         "quote": "Analyzable as a compound of Old Japanese 外 (to₁, “outside, other”) + nari, possibly the nominalization of verb なる (naru, “to become”), or a contraction of に (ni, locative particle) + あり (ari, copular \"to be\" verb, predicative and nominal form)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["りん"],
+        "quotes": ["From Middle Chinese 鄰 (MC lin)."]
+      }
+    ],
     "examples": [
       {
         "id": 150735,
@@ -1279,6 +1415,22 @@
         "quote": "First attested in roughly 1215."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["まいつき"],
+        "quotes": [
+          "Compound of 毎 (mai, “every, each”) + 月 (tsuki, “month; moon”).",
+          "First attested in the latter 1400s."
+        ]
+      },
+      {
+        "readings": ["めつき"],
+        "quotes": [
+          "Dialectal shift from standard Japanese maitsuki, moving from diphthong /ai/ to monophthong /e/.",
+          "* /mait͡suki/ → /met͡suki/"
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1309,6 +1461,16 @@
       },
       {
         "quote": "* 急ぐ (isogu, “to rush, to hurry”) → 急がす (isogasu, “to cause to rush, to cause to hurry”) → 急がし (isogashi, “having the quality of causing one to rush or hurry”)"
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["せわしい"],
+        "quotes": [
+          "*⟨sepasi⟩ → /seɸaɕi/ → /sewaɕiki/ → /sewaɕiː/",
+          "May be cognate with 狭い (sebai), older form of 狭い (semai, “adjective, lacking in space”), expanding on the meaning towards “lacking in time”.",
+          "First cited to a text from 1020."
+        ]
       }
     ],
     "examples": [
@@ -1347,6 +1509,23 @@
     "sources": [
       {
         "quote": "Borrowed from Middle Chinese 百 (MC paek, literally “hundred”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["もも"],
+        "quotes": ["/mo₁mo₁/ → /momo/", "From Old Japanese."]
+      },
+      {
+        "readings": ["ほ"],
+        "quotes": ["/po/ → /ɸo/ → /ho/", "From Old Japanese."]
+      },
+      {
+        "readings": ["お"],
+        "quotes": [
+          "/po/ → /ɸo/ → /wo/ → /o/",
+          "From Old Japanese. Change in pronunciation from ho (see above)."
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1426,6 +1605,14 @@
         "quote": "Shift in reading from the kun'yomi of shimobe or yatsugare to use the on'yomi of boku instead, first attested in kundoku contexts from the mid-to-late 1700s and becoming prevalent from around the Meiji period."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["しもべ"],
+        "quotes": [
+          "Compound of 下(しも) (shimo, “lower”) + 部(べ) (be, “servant to the imperial court”). First attested in the Nihon Shoki of 720, with the spelling 下客."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 81751,
@@ -1468,6 +1655,21 @@
       },
       {
         "quote": "This shortened hairu form is first attested from the early 1200s."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["いる"],
+        "quotes": [
+          "From Old Japanese. First attested in the Man'yōshū of 759. Related to 入(い)れる (ireru, “to put in”), its active form.",
+          "For the development of the “to be necessary” sense, consider the English phrase to come into it in the sense “to be a factor in something”. In modern usage, this particular sense is more commonly spelled as 要(い)る."
+        ]
+      },
+      {
+        "readings": ["いる"],
+        "quotes": [
+          "From Old Japanese; see modern form 入(い)れる (ireru) for more."
+        ]
       }
     ],
     "examples": [

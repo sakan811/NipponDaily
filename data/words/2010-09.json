@@ -28,6 +28,14 @@
         "quote": "From 毎(まい) (mai-, “every”) + 朝(あさ) (asa, “morning”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["まいちょう"],
+        "quotes": [
+          "From 毎(まい) (mai-, “every”) + 朝(ちょう) (chō, “morning”)."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -86,6 +94,12 @@
         "quote": "From Old Japanese, from Proto-Japonic *tay. Compare 目 (me, ma-, “eye”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["しゅ"],
+        "quotes": ["From Middle Chinese 手 (MC syuwX)."]
+      }
+    ],
     "examples": [
       {
         "id": 104510,
@@ -129,6 +143,21 @@
     "sources": [
       {
         "quote": "From Middle Chinese 二 (nyijᴴ, “two”). Compare modern Northern Min 二 (nī)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ふた"],
+        "quotes": [
+          "Originally /huta/: *[puta] > [ɸuta]. The ablaut form of 一 (hito2, “one”), which it doubles.",
+          "From Old Japanese, from Proto-Japonic *puta. Cognate with Japanese 双(ふた) (futa)."
+        ]
+      },
+      {
+        "readings": ["りゃん"],
+        "quotes": [
+          "Borrowed from Mandarin 两 (liǎng, “two”) with spelling from Mandarin 二 (èr, “two”)."
+        ]
       }
     ],
     "examples": [
@@ -577,6 +606,29 @@
         "quote": "First attested in the Nihon Shoki with the meaning of color. Senses referring to a person's emotions also appear quite early on. The romance or sex senses appear from the 900s, apparently an influence from Chinese usage, and roughly comparable to the euphemistic usage of English colorful."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["いろえ"],
+        "quotes": [
+          "⟨iro₂pe₂⟩ → */irəpəj/ → /irofe/ → /iroe/",
+          "Nominalization of the 連用形 (ren'yōkei, “continuative or stem form”) of classical shimo nidan katsuyō verb 色う (irou, “to color something”).",
+          "Not used in modern Japanese."
+        ]
+      },
+      {
+        "readings": ["しき"],
+        "quotes": [
+          "From Middle Chinese 色 (MC srik). The goon reading, so likely the initial borrowing.",
+          "The Buddhist sense is translation of Sanskrit रूप (rūpa, “outward appearance, color, form, shape”)."
+        ]
+      },
+      {
+        "readings": ["しょく"],
+        "quotes": [
+          "From Middle Chinese 色 (MC srik). The kan'on reading, so likely a later borrowing."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 122967,
@@ -620,6 +672,15 @@
     "sources": [
       {
         "quote": "From Middle Chinese 肉 (MC nyuwk). Compare modern Hokkien 肉 (jio̍k / lio̍k), Teochew 肉 (ne̍k), or Hakka 肉 (ngiuk⁷)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["しし"],
+        "quotes": [
+          "From Old Japanese, from Proto-Japonic *sisi. Not used in isolation in modern standard Japanese. Persists in compounds and in some dialects.",
+          "Cognate with 獣(しし) (shishi, “beast (especially one used for meat)”)."
+        ]
       }
     ],
     "examples": [
@@ -865,6 +926,15 @@
         "quote": "Derived as the -na adjective construction of -i adjective 大(おお)きい (ōkii, “big, great”), which see for more."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["おっきな"],
+        "quotes": [
+          "/oːkina/ → /okːina/",
+          "Sound shift from ōkina. First attested in popular literature of the early 1800s."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 137741,
@@ -971,6 +1041,20 @@
         "quote": "May also be cognate with 芽(め) (me, “bud, shoot”), perhaps from the “visually prominent feature” sense, and with suppositional / volitional verb suffix む (mu) (presenting in modern Japanese verb conjugations as the -ō or -yō endings), perhaps from the “seem like, look like” sense."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["もく"],
+        "quotes": [
+          "From Middle Chinese 目 (MC mjuwk). Compare modern Cantonese 目 (muk₆) and Wu 目 (moq)."
+        ]
+      },
+      {
+        "readings": ["ぼく"],
+        "quotes": [
+          "From Middle Chinese 目 (MC mjuwk). Compare modern Min Nan 目 (bo̍k)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 79953,
@@ -1023,6 +1107,23 @@
       },
       {
         "quote": "Now the primary form, replacing earlier tare."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["たれ"],
+        "quotes": [
+          "From Old Japanese, first attested in the Kojiki (712 CE) alongside its older form ta (see below).",
+          "Derived from older 誰 (ta, “who”) + れ (re, “thing”, demonstrative nominalizer ending). Compare the formation of これ (kore, “this”) from 此 (ko, “this”) + れ (re), 彼 (kare, “that one, that person”) from 彼 (ka, “that”) + れ (re), etc.",
+          "Superseded by dare above starting from around the Edo period. The tare form does not appear to be used anymore outside of poetry or intentionally archaic text."
+        ]
+      },
+      {
+        "readings": ["た"],
+        "quotes": [
+          "From Old Japanese, first attested in the Kojiki, completed roughly 712 CE.",
+          "Appears to be the oldest form."
+        ]
       }
     ],
     "examples": [

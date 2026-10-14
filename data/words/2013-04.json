@@ -83,6 +83,12 @@
         "quote": "Verbal noun of 編む."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["もう"],
+        "quotes": ["Middle Chinese 網 (mjang^X)"]
+      }
+    ],
     "examples": [
       {
         "id": 99546,
@@ -243,6 +249,23 @@
       },
       {
         "quote": "Other various nanori readings."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ひゅうが"],
+        "quotes": [
+          "⟨pi₁muka⟩ → */pʲimuka/ → /ɸimuka/ → /ɸiũɡa/ → /hjuːɡa/",
+          "Shift from Old Japanese 日向 (Pi₁muka → Himuka).",
+          "Equivalent to a compound of 日 (hi, “sun”) + 向か (muka, the 未然形 (mizenkei, “irrealis form”) of verb 向く (muku), “to face (a direction)”)."
+        ]
+      },
+      {
+        "readings": ["ひるが"],
+        "quotes": [
+          "Unknown, possibly a sound change from Old Japanese 日向 (pi₁muka → himuka); however, the /-mu-/ → /-ɾ̠u-/ shift is unlikely.",
+          "Alternatively, the spelling may be ateji (当(あ)て字(じ)), with the hiru portion equating to 昼 (hiru, “daytime”), and the ga of uncertain derivation. Compare 春日 (Kasuga)."
+        ]
       }
     ],
     "examples": [
@@ -769,6 +792,27 @@
         "quote": "Literally \"thing of hair\". Compound of 毛 (ke, “hair”) + だ (da, genitive marker) + 物 (mono, “thing”). Medial -da- is a very rare genitive marker found in compounds, also seen in 果物 (kudamono, “fruit”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["けもの"],
+        "quotes": [
+          "Literally \"hair thing\". Compound of 毛 (ke, “hair”) + 物 (mono, “thing”)."
+        ]
+      },
+      {
+        "readings": ["しし"],
+        "quotes": [
+          "From Old Japanese. First attested in the Kojiki of 712 CE. From Proto-Japonic *sisi. Cognate with 肉 (shishi, “meat of a beast”)."
+        ]
+      },
+      {
+        "readings": ["じゅう"],
+        "quotes": [
+          "/siu/ → /ɕiu/ → /d͡ʑiu/ → /d͡ʑuː/",
+          "From Middle Chinese 獸 /兽 (syuwᴴ, “(wild) animal”). Compare modern Mandarin reading shòu, Min Nan siù."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 175007,
@@ -1016,6 +1060,16 @@
         "quote": "The shamisen reading is first cited to a text from 1580."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["さみせん"],
+        "quotes": [
+          "Sound shift from shamisen above, possibly influenced by the standard san reading of the initial 三 character.",
+          "This reading appears to be less common than shamisen.",
+          "First cited to a text from 1632."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1246,6 +1300,14 @@
         "quote": "From Middle Chinese compound 墓地 (muᴴ dijᴴ, literally “grave, tomb + ground, region”). The kan'on reading, so likely a later borrowing. Compare modern Mandarin reading mùdì, Min Nan bōng-tē."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["はかち"],
+        "quotes": [
+          "Compound of 墓 (haka, “grave”, from Old Japanese) + 地 (chi, “ground, region”, from Middle Chinese)."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1270,6 +1332,22 @@
       },
       {
         "quote": "Derived as aggressive clipping of お疲れ様です (otsukaresama desu, used as a kind of greeting at work, literally “that's honorable exhaustion (from hard work)”). The use of 乙 for the spelling is an example of phonetic ateji (当(あ)て字(じ))."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["きのと"],
+        "quotes": [
+          "Compound of 木 (Ki, “Wood”, one of the Five Elements) + の (no, attributive marker) + 弟 (oto, “younger brother”)."
+        ]
+      },
+      {
+        "readings": ["おと"],
+        "quotes": [
+          "Cognate with the initial oto- in 劣る (otoru, “to be less than; to be younger than”), 落とす (otosu, “to drop something”). Also the first element in 弟 (otōto, “younger brother”).",
+          "First attested in the Kojiki of 712.",
+          "This is distinct from the initial oto- in 乙女(おとめ) (otome), which can instead be traced to an earlier woto- root, cognate with 復(を)つ (wotu)."
+        ]
       }
     ],
     "examples": [

@@ -120,6 +120,47 @@
         "quote": "The 呉(ご)音(おん) (goon, literally “Wu sound”) pronunciation, so likely the initial borrowing from Middle Chinese. The ō reading for 皇 changes to nō as an instance of renjō (連(れん)声(じょう))."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["てんこう"],
+        "quotes": [
+          "/ten kʷau/ → /tenkʷɔː/ → /tenkɔː/ → /tenkoː/",
+          "From Middle Chinese 天皇 (MC then hwang).",
+          "The 漢(かん)音(おん) (kan'on, literally “Han sound”) pronunciation, so likely a later borrowing from Middle Chinese."
+        ]
+      },
+      {
+        "readings": ["すべらぎ"],
+        "quotes": [
+          "/sumeraɡi/ → /suberaɡi/",
+          "Shift from sumeragi below, with the nasal /m/ becoming a plosive /b/.",
+          "The kanji spelling is from tennō above."
+        ]
+      },
+      {
+        "readings": ["すめらぎ"],
+        "quotes": [
+          "⟨sume₁ro₂ki₁⟩ → */sumʲerəkʲi/ → */sumeraki/ → /sumeraɡi/",
+          "Possibly a shift from Old Japanese 天皇 (sume₁ro₂ki₁).",
+          "The kanji spelling is from tennō above."
+        ]
+      },
+      {
+        "readings": ["すめらぎみ"],
+        "quotes": [
+          "From 皇(すめら) (sumera-, prefix of praise and respect) + 君(きみ) (kimi, “lord, master → sovereign”). The kimi changes to gimi as an instance of rendaku (連濁).",
+          "The kanji spelling is from tennō above."
+        ]
+      },
+      {
+        "readings": ["すめらみこと"],
+        "quotes": [
+          "From Old Japanese.",
+          "From 皇(すめら) (sumera-, prefix of praise and respect) + 尊(みこと) (mikoto, “Highness”).",
+          "The kanji spelling is from tennō above."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 125042,
@@ -168,6 +209,19 @@
     "sources": [
       {
         "quote": "From Middle Chinese 商人 (MC syang nyin)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["あきんど", "あきゅうど"],
+        "quotes": ["Shift from あきびと (akibito)."]
+      },
+      {
+        "readings": ["あきびと"],
+        "quotes": [
+          "Superficially あき (aki, “trade”) + ひと (hito, “person”). Possibly Old Japanese.",
+          "Aki can also be found as the root of あきなう (akinau, “to trade”)."
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -398,6 +452,22 @@
     "sources": [
       {
         "quote": "Compound of 日(ひ) (hi, “sun; day”, using the native Japanese reading) + 日(にち) (nichi, “sun; day”, using the Chinese-derived reading)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ひび"],
+        "quotes": [
+          "Reduplication of 日(ひ) (hi, “sun; day”). The hi changes to bi as an instance of rendaku (連濁).",
+          "This is generally the most common reading for this kanji compound."
+        ]
+      },
+      {
+        "readings": ["にちにち"],
+        "quotes": [
+          "Reduplication of 日(にち) (nichi, “sun; day”), using the on'yomi pronunciation.",
+          "This is a less common reading for this kanji compound."
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -979,6 +1049,12 @@
         "quote": "黒 (koku, “black”) + 板 (ban, “board”)"
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["くろいた"],
+        "quotes": ["黒(くろ) (kuro, “black”) + 板(いた) (ita, “board”)"]
+      }
+    ],
     "examples": [
       {
         "id": 172973,
@@ -1166,6 +1242,15 @@
       },
       {
         "quote": "Already realized phonetically as /kawaiː/ by the early 1600s, and possibly found alongside older form kawayui, as seen in the 1603 edition of the Nippo Jisho."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["かわゆい"],
+        "quotes": [
+          "From classical Japanese /kawo hajuɕi/ → /kawajui/.",
+          "A contraction of classical 顔映し (kawahayushi, “embarrassing, shameful”). The meaning underwent an ameliorative semantic shift from shameful to evoking pity, to evoking compassion, and then to lovable. The kanji spelling appears to be jukujikun (熟(じゅく)字(じ)訓(くん)), from the above reading. Compare Korean 예쁘다 (yeppeu-da), which originally meant poor (as in \"poor, poor kid\") but now means pretty."
+        ]
       }
     ],
     "examples": [
@@ -1574,6 +1659,14 @@
     "sources": [
       {
         "quote": "Tensening of earlier 三日 (mika); by surface analysis, 三 (mi, “three”) + 日 (-ka, “days”, counter for days)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["みか"],
+        "quotes": [
+          "Compound of 三(み) (mi, “three”) + 日(か) (-ka, “days”, counter for days)."
+        ]
       }
     ],
     "examples": [

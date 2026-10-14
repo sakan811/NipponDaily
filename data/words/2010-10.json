@@ -329,6 +329,12 @@
         "quote": "From Old Japanese. First attested in the Kojiki of 712 CE. From Proto-Japonic *pintari."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["さ"],
+        "quotes": ["From Middle Chinese 左 (MC tsaX)."]
+      }
+    ],
     "examples": [
       {
         "id": 170928,
@@ -514,6 +520,73 @@
       },
       {
         "quote": "Historically, this term first appears with a sense of fontanelle, in reference to the soft place on the top of an infant's head where the bones of the skull have not yet fused. As such, a more likely derivation might be as a compound of 当(あ)た (ata, “not quite touching, not quite in contact”, 未(み)然(ぜん)形(けい) (mizenkei, “irrealis form”) of classical verb 当(あ)つ (atsu) and root of modern 当(あ)たる (ataru, “to touch, to come into contact”)) + 間(ま) (ma, “space, gap, opening”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["かしら"],
+        "quotes": [
+          "From Old Japanese. Found as a standalone noun in the Man'yōshū, completed some time after 759 CE, and as a counter in the Kojiki, dating to 712 CE."
+        ]
+      },
+      {
+        "readings": ["かぶり"],
+        "quotes": [
+          "Cognate with and shift in meaning from かぶり (kaburi, “covering; hat, crown”), spelled in kanji as 被り or 冠."
+        ]
+      },
+      {
+        "readings": ["かぶ"],
+        "quotes": [
+          "From Old Japanese; first attested in the Kojiki (712), with the spelling 加夫, in spite that the Nihon Kokugo Daijiten lists the first attestation as from the late Muromachi period.",
+          "Cognate with 株(かぶ) (kabu, “stump; root”), from a general sense of lump."
+        ]
+      },
+      {
+        "readings": ["つぶり"],
+        "quotes": [
+          "Cognate with 粒 (tsubu, “round thing”, such as a grain), 禿ぶ (tsubu, “to go bald”, from the idea of one's head becoming round), 円ら (tsubura, “round”, adjective), 潰れる (tsubureru, “to become rounded, as from wear and tear, or from crushing”).",
+          "Some sources derive this as a shift from 円ら (tsubura, “round”, adjective). However, the phonology and semantics for this do not fit (changing /a/ to /i/, and repurposing the adjectivizing suffix ら to instead form a noun). The modern verb tsubureru had the form tsuburu in older stages of the language. The tsuburi reading for 頭 may more likely represent a nominalization derived from this older verb, following normal patterns for creating nouns from verbs.",
+          "Compare Okinawan ちぶる (chiburu, “head”)."
+        ]
+      },
+      {
+        "readings": ["つむり"],
+        "quotes": [
+          "From tsuburi above. Bilabial plosive /b/ becomes bilabial nasal /m/."
+        ]
+      },
+      {
+        "readings": ["つむ"],
+        "quotes": ["Shortened from tsumuri above."]
+      },
+      {
+        "readings": ["こうべ"],
+        "quotes": [
+          "*/kamipe/ → */kampe/ → /kaube/ → /kɔːbe/ → /koːbe/",
+          "Compound of either 上 (kami, “upper”) or 髪 (kami, “hair”) (likely cognates), with either 部 (be, “part, portion”) or 辺・方 (pe, “area; direction”).",
+          "Listed in one resource as possibly an alteration from 頭 (kabu, “head”) + 上 (upe, “up”, Old Japanese reading).",
+          "This reading is listed in some sources as attested in the Nihon Shoki of 720. However, this is based on traditional ruby glosses of the ideogrammatic spelling, and the glosses are from younger manuscripts."
+        ]
+      },
+      {
+        "readings": ["どたま"],
+        "quotes": [
+          "Contraction of ど (do-, “super-”, often used ironically as a derogatory prefix) + 頭 (atama, “head”)."
+        ]
+      },
+      {
+        "readings": ["ず"],
+        "quotes": [
+          "/du/ → /d͡zu/ → /zu/",
+          "From Middle Chinese 頭 (MC duw). The goon reading, so likely an earlier borrowing."
+        ]
+      },
+      {
+        "readings": ["とう"],
+        "quotes": [
+          "From Middle Chinese 頭 (MC duw). The kan'on reading, so likely a later borrowing. The shift from initial /d/ to voiceless /t/ is due to influence or reborrowing from a later stage of the Chinese language. Compare modern Mandarin reading tóu, Cantonese tau⁴, Min Nan tao⁵."
+        ]
       }
     ],
     "examples": [
@@ -836,6 +909,22 @@
         "quote": "From Middle Chinese 七 (MC tshit). Compare Hokkien 七 (chhit), Hakka 七 (chhit)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["なな"],
+        "quotes": [
+          "From Old Japanese 七 (nana), ultimately from Proto-Japonic *nana."
+        ]
+      },
+      {
+        "readings": ["な"],
+        "quotes": ["Shortening from nana above."]
+      },
+      {
+        "readings": ["ちい"],
+        "quotes": ["Borrowed from Mandarin 七 (qī)."]
+      }
+    ],
     "examples": [
       {
         "id": 88935,
@@ -950,6 +1039,31 @@
       },
       {
         "quote": "Possibly cognate with 瑞 (mizu, “freshness, youth”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["み"],
+        "quotes": [
+          "⟨mi₁⟩ → */mʲi/ → /mi/",
+          "From Old Japanese.",
+          "Typically found in compounds."
+        ]
+      },
+      {
+        "readings": ["すい"],
+        "quotes": [
+          "/ɕuwi/ → */suwi/ → /sui/",
+          "From Middle Chinese 水 (MC sywijX).",
+          "Compare modern Mandarin 水 (shuǐ), modern Hakka 水 (súi)."
+        ]
+      },
+      {
+        "readings": ["もい"],
+        "quotes": [
+          "⟨mopi₁⟩ → */mopʲi/ → /moɸi/ → /mowi/ → /moi/",
+          "From Old Japanese. Via metonymy from the word 椀, 盌 (moi, “bowl”), from the meaning of “that which goes in the 椀, 盌 (moi, “bowl”)”. Compare the development of modern English cuppa, where the word for the container is similarly used to refer to the contents."
+        ]
       }
     ],
     "examples": [
@@ -1166,6 +1280,12 @@
         "quote": "First cited in the Kojiki of 712."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["しん"],
+        "quotes": ["From Middle Chinese 親 (MC tshin)."]
+      }
+    ],
     "examples": [
       {
         "id": 144817,
@@ -1219,6 +1339,21 @@
       },
       {
         "quote": "From Old Japanese, from Proto-Japonic *təsi. Originally referred to grain, particularly rice, and by extension, the year's harvest."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ねん"],
+        "quotes": [
+          "From Middle Chinese 年 (nen, “year”). Compare modern Mandarin reading nián, Hakka ngièn, Cantonese nin⁴."
+        ]
+      },
+      {
+        "readings": ["とせ"],
+        "quotes": [
+          "/to₂se/ → /tose/",
+          "From Old Japanese. Likely a shift in pronunciation from 年(とし) (toshi)."
+        ]
       }
     ],
     "examples": [
@@ -1367,6 +1502,19 @@
         "quote": "The standalone apophonic form of shira below."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["しら"],
+        "quotes": [
+          "⟨sira⟩ → /ɕira/",
+          "From Old Japanese. The 被(ひ)覆(ふく)形(けい) (hifukukei, “bound form”) of 白(しろ) (shiro), mostly used in compounds."
+        ]
+      },
+      {
+        "readings": ["はく", "びゃく"],
+        "quotes": ["From Middle Chinese 白 (MC baek)."]
+      }
+    ],
     "examples": [
       {
         "id": 170962,
@@ -1404,6 +1552,18 @@
       },
       {
         "quote": "From Old Japanese. Attested in the Kojiki. Ultimately from Proto-Japonic *mənə."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["もん"],
+        "quotes": ["/mono/ → /mon/", "Shift from mono above."]
+      },
+      {
+        "readings": ["ぶつ"],
+        "quotes": [
+          "From Middle Chinese 物 (MC mjut). Compare Hokkien 物 (bu̍t)."
+        ]
       }
     ],
     "examples": [
