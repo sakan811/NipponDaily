@@ -323,6 +323,12 @@
         "quote": "From Old Japanese, from Proto-Japonic *na (compare Okinawan 名 (nā))."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["めい"],
+        "quotes": ["From Middle Chinese 名 (MC mjieng, “name”)."]
+      }
+    ],
     "examples": [
       {
         "id": 81932,
@@ -416,6 +422,22 @@
       },
       {
         "quote": "Nominalization of the 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 光(ひか)る (hikaru, “to shine, to glitter, to gleam”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ひかる"],
+        "quotes": [
+          "Nominalization of the verb 光(ひか)る (hikaru, “to shine, to glitter, to gleam”)."
+        ]
+      },
+      {
+        "readings": ["こう"],
+        "quotes": [
+          "/kʷau/ → /kʷɔː/ → /kɔː/ → /koː/",
+          "From Middle Chinese 光 (MC kwang).",
+          "Compare modern Mandarin 光 (guāng), Hakka 光 (kông), and Min Nan 光 (kong)."
+        ]
       }
     ],
     "examples": [
@@ -844,6 +866,18 @@
         "quote": "Possibly a shift from a compound of 鳥(と) (to, “bird”) + 総(ふさ) (fusa, “tassel”), though the vowel change is irregular."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["よく"],
+        "quotes": ["From Middle Chinese 翼 (MC yik)."]
+      },
+      {
+        "readings": ["たすく"],
+        "quotes": [
+          "Nominalization of classical verb 助く (tasuku), modern 助ける (tasukeru, “to assist, help; rescue, save”)."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1218,6 +1252,30 @@
         "quote": "Ultimately from Middle Chinese 陸 (MC ljuwk). First attested in Japanese as a standalone noun in a text from the mid-1400s."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["ろく"],
+        "quotes": [
+          "Originally referred to \"flat\" in reference to flat land, in turn the core meaning of the kanji character.",
+          "The alternative 碌 spelling is an example of ateji.",
+          "First attested in the 羅葡日辞書 (Ra-Ho-Nichi Jisho, “Latin-Portuguese-Japanese Dictionary”) of 1595."
+        ]
+      },
+      {
+        "readings": ["ろく"],
+        "quotes": [
+          "Substitute spelling for 六 (roku, “six”), likely borrowed from similar usage of written Chinese 陸 /陆 (“six”)."
+        ]
+      },
+      {
+        "readings": ["くが"],
+        "quotes": [
+          "*⟨kuniga⟩ → *⟨kunuga⟩ → /kunuɡa/ → */kunɡa/ → /kuɡa/",
+          "From Old Japanese. First attested in the Nihon Shoki of 720 CE.",
+          "Shift from Old Japanese 陸 (kunuga), also attested in the Nihon Shoki of 720 CE, itself a shift from *kuniga, a compound of 国 (kuni, “country, land”) + 処 (-ka, suffix indicating place). The ka changes to ga as an instance of rendaku (連濁). The shift to kunuga may have been by analogy to 国内(くぬち) (kunuchi), whose pronunciation is explainable by regular Old Japanese vowel elision processes."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 78322,
@@ -1552,6 +1610,12 @@
       },
       {
         "quote": "Related to Baekje ホカ (*poka, “outside”), compare Korean 밖 (bak, “outside”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["た"],
+        "quotes": ["From Middle Chinese 他 (MC tha)."]
       }
     ],
     "examples": [

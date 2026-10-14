@@ -70,6 +70,25 @@
         "quote": "The kan'on reading, so likely a later borrowing. Now the most common reading for this term."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["もんじょ"],
+        "quotes": [
+          "From Middle Chinese compound 文書 (*miən *shiu), with rendaku for the 書 character. The sho changes to jo as an instance of rendaku (連濁). Compare modern Chinese 文書 /文书 (wénshū).",
+          "The goon reading, so likely the initial borrowing. Less common reading in modern Japanese."
+        ]
+      },
+      {
+        "readings": ["もんぞ"],
+        "quotes": ["Archaic alteration of monjo above."]
+      },
+      {
+        "readings": ["ふみがき"],
+        "quotes": [
+          "Compound of 文 (fumi, “writing; a letter, an epistle”) + 書 (kaki, “writing”, the 連用形 (ren'yōkei, “stem or continuative form”) of verb 書く kaku, “to write”). The kaki changes to gaki as an instance of rendaku (連濁)."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -345,6 +364,18 @@
         "quote": "Appears to be a shortening of tsubaki above. Alternatively, may be a fusion of tsu below with particle は (wa, originally pa in Old Japanese, combining in some cases as ba)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["つばき"],
+        "quotes": [
+          "Derived as the 連用形 (ren'yōkei, “continuative or stem form”) of now-obsolete verb 唾吐く (tsubaku, “to spit, to expectorate”), itself from 唾 (tsu, “saliva”) + 吐く (haku, “to expel from the mouth: to spit, to vomit, to exhale”)."
+        ]
+      },
+      {
+        "readings": ["つ"],
+        "quotes": ["Appears to be the oldest form. Possibly onomatopoeia."]
+      }
+    ],
     "examples": [
       {
         "id": 202564,
@@ -400,6 +431,15 @@
       },
       {
         "quote": "Possibly influenced by the term くすくす (kusukusu), an adverb indicating stifled laughter."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["そう"],
+        "quotes": [
+          "/sau/ → /sɔː/ → /soː/",
+          "From Middle Chinese 草 (MC tshawX)."
+        ]
       }
     ],
     "examples": [
@@ -1239,6 +1279,36 @@
       },
       {
         "quote": "Appears to be from Old Japanese. The derivative form hiwina (later hīna) appears in The Tale of Genji, dated to before 1021."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ひいな"],
+        "quotes": [
+          "*/pipina/ → */fifina/ → /fiwina/ → /hiːna/",
+          "Possibly an alteration of a reduplicated form hinahina."
+        ]
+      },
+      {
+        "readings": ["ひよこ"],
+        "quotes": [
+          "*/pijoko/ → /fijoko/ → /hijoko/",
+          "Compound of ひよ (piyo → hiyo, “onomatopoeia for the sound a chick makes”) + 子 (ko, “diminutive suffix”). Compare ぴよぴよ (piyopiyo, “tweet-tweet; cheep-cheep”) or peep.",
+          "Possibly related to Middle Korean 비〮육 (píywùk), whence modern Korean 병아리 (byeong'ari, “chick”)."
+        ]
+      },
+      {
+        "readings": ["ひよっこ"],
+        "quotes": [
+          "/hijoko/ → /hijokko/",
+          "Alteration of hiyoko above. The geminate kk sound emphasizes the diminutiveness."
+        ]
+      },
+      {
+        "readings": ["すう"],
+        "quotes": [
+          "From Middle Chinese. Most reconstructions of the original Middle Chinese reading start with an affricate, so this Japanese reading may have come from a dialect; compare Hakka reading ts'u¹."
+        ]
       }
     ],
     "examples": [

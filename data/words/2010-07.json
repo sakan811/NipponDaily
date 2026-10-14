@@ -70,6 +70,51 @@
         "quote": "Now the standard word for east."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["ひんがし"],
+        "quotes": [
+          "*⟨pi₁ muka si⟩ → */pʲimukasi/ → /pimʉɡasi/ → /ɸimʉɡaɕi/ → /ɸiŋɡaɕi/ → /hiŋɡaɕi/",
+          "Shift from Old Japanese 東 (*pi₁mukasi)."
+        ]
+      },
+      {
+        "readings": ["あずま"],
+        "quotes": [
+          "⟨aduma⟩ → /ad͡zuma/ → /azuma/",
+          "From Old Japanese, itself of unknown derivation."
+        ]
+      },
+      {
+        "readings": ["とう"],
+        "quotes": ["From Middle Chinese 東 (MC tuwng)."]
+      },
+      {
+        "readings": ["とん"],
+        "quotes": [
+          "From Mandarin 東 /东 (dōng).",
+          "Compare Wu 東 /东 (ton), Hakka 東 /东 (tûng), Min Nan 東 /东 (tong)."
+        ]
+      },
+      {
+        "readings": ["あきら"],
+        "quotes": [
+          "Nominalization of the stem of adjective 明らか (akiraka, “clear”)."
+        ]
+      },
+      {
+        "readings": ["のぼる"],
+        "quotes": [
+          "Nominalization of verb 上る, 登る (noboru, “to ascend, rise”)."
+        ]
+      },
+      {
+        "readings": ["はじめ"],
+        "quotes": [
+          "Nominalization of the 連用形 (ren'yōkei, “stem or continuative form”) of verb 始める (hajimeru, “to begin, start”)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 175628,
@@ -160,6 +205,15 @@
         "quote": "From Middle Chinese 八 (MC peat). Compare literary Hokkien 八 (pat), Hakka 八 (pat)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["や"],
+        "quotes": [
+          "From Old Japanese 八 (ya), from Proto-Japonic *ya.",
+          "The ablaut form of 四 (yo, “four”), which it doubles."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 93493,
@@ -248,6 +302,14 @@
     "sources": [
       {
         "quote": "From Middle Chinese 客 (MC khaek). Compare modern Hokkien literary reading khik."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["まろうど"],
+        "quotes": [
+          "⟨marepi₁to₂⟩ → */marepʲitə/ → /marefito/ → /marohito/ → /maroːdo/"
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -825,6 +887,12 @@
         "quote": "From Middle Chinese 千 (MC tshen)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["ち"],
+        "quotes": ["⟨ti⟩ → /t͡ɕi/", "From Old Japanese, from Proto-Japonic *ti."]
+      }
+    ],
     "examples": [
       {
         "id": 223186,
@@ -1241,6 +1309,14 @@
         "quote": "*: /puta tari/ → */put̚tari/ → /putari/ → /futari/"
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["ににん"],
+        "quotes": [
+          "Compound of Middle Chinese elements 二 (ni, “2, two”) + 人 (nin, “man, person”)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 227554,
@@ -1372,6 +1448,26 @@
       },
       {
         "quote": "First attested in the Kojiki of 712 CE."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["にん"],
+        "quotes": [
+          "From Early Middle Chinese 人 (MC nyin). The goon reading, so likely the initial borrowing. Compare Shanghainese nyin."
+        ]
+      },
+      {
+        "readings": ["じん"],
+        "quotes": [
+          "From Late Middle Chinese 人 (MC nyin). The kan'on reading, so likely a later borrowing. Compare Mandarin 人 (rén)."
+        ]
+      },
+      {
+        "readings": ["たり", "り"],
+        "quotes": [
+          "From Old Japanese. The protoform may have been -tari, see 三人 (mitari, literally “three people”)."
+        ]
       }
     ],
     "examples": [

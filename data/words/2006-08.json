@@ -72,6 +72,37 @@
         "quote": "From Middle Chinese 正 (MC tsyeng|tsyengH). The kan'on reading, so likely not as old as the shō reading."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["しょう"],
+        "quotes": [
+          "From Middle Chinese 正 (MC tsyeng|tsyengH). The goon reading, so likely older than the sei reading."
+        ]
+      },
+      {
+        "readings": ["ただす"],
+        "quotes": ["Derived from the verb 正す (tadasu, “to correct”)."]
+      },
+      {
+        "readings": ["ただし", "たゞし"],
+        "quotes": [
+          "Derived from the nominal form 正し (tadashi, “correcting”) of the verb 正す (tadasu, “to correct”)."
+        ]
+      },
+      {
+        "readings": ["まさ"],
+        "quotes": [
+          "First attested in the early 800s.",
+          "Speculatively, may be an ancient resultative noun derived from verb 増す (masu, “to increase; to excel, to be excellent; to stand out, to be outstanding”)."
+        ]
+      },
+      {
+        "readings": ["まさし"],
+        "quotes": [
+          "Derived from the classical terminal form masashi of modern adjective 正しい (masashii, “true, real, certain”)."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -108,6 +139,15 @@
         "quote": "Spelling repurposed from nyoshō below during the Meiji period (1868–1912), using the relatively newer kan'on readings of the characters."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["にょしょう"],
+        "quotes": [
+          "Borrowed from Middle Chinese 女性 (MC nrjoX sjengH, “woman; female + character; gender”). The goon, so likely the initial borrowing.",
+          "Largely superseded in everyday Japanese by josei above."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -126,6 +166,12 @@
     "sources": [
       {
         "quote": "From Old Japanese, from Proto-Japonic *oyonpE."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["および"],
+        "quotes": ["See 指(ゆび) (yubi)."]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -165,6 +211,12 @@
       },
       {
         "quote": "First attested in the Meiji era."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ぴんふ", "ぴんほう"],
+        "quotes": ["Borrowed from Chinese 平和 (pínghú)."]
       }
     ],
     "examples": [
@@ -622,6 +674,14 @@
         "quote": "From 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of the verb 暮(く)らす (kurasu, “to live, to lead a life”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["ぐらし"],
+        "quotes": [
+          "From 暮(く)らし (kurashi) above. The kurashi changes to gurashi as an instance of rendaku (連濁)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 11630441,
@@ -947,6 +1007,12 @@
         "quote": "The yen became the official currency of Japan in 1871, succeeding the 両(りょう) (ryō) and the 文(もん) (mon)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["のどか", "つぶら", "つむら", "まろし"],
+        "quotes": ["Various nanori readings."]
+      }
+    ],
     "examples": [
       {
         "id": 235179,
@@ -1211,6 +1277,46 @@
     "sources": [
       {
         "quote": "Originally a compound of 茶 (sa, “tea”, the tōon or Tang reading) + 匙 (ji, “spoon, scoop”). This on'yomi reading for a two-character term was then applied to the single-character 匙 spelling, and re-interpreted as kun'yomi."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["じ"],
+        "quotes": [
+          "From Middle Chinese 匙 (zhiɛ, “spoon”). The goon, so likely the earliest borrowing from Middle Chinese."
+        ]
+      },
+      {
+        "readings": ["し"],
+        "quotes": [
+          "From Middle Chinese 匙 (zhiɛ, “spoon”). The kan'on, so a later borrowing. Compare modern Cantonese 匙 (ci⁴), Min Nan 匙 (sî)."
+        ]
+      },
+      {
+        "readings": ["ひ"],
+        "quotes": [
+          "Likely an alteration of the kan'on reading shi: /si/ → /hi/"
+        ]
+      },
+      {
+        "readings": ["かい"],
+        "quotes": [
+          "/kapi₁/ → /kapi/ → /kaɸi/ → /kahi/ → /kai/",
+          "From Old Japanese 貝 (kai, “shellfish, clam; clam shell”), from the way that clam shells were used as scoops."
+        ]
+      },
+      {
+        "readings": ["しゃじ"],
+        "quotes": [
+          "Appears to be an alteration of saji above: [sad͡ʑi] → [ɕad͡ʑi]"
+        ]
+      },
+      {
+        "readings": ["すくい"],
+        "quotes": [
+          "Alternative spelling of 掬い (sukui, “scoop”), the 連用形 (ren'yōkei, “continuative or stem form”) of verb 掬う (sukuu, “to scoop”).",
+          "Rare. Only found in compounds."
+        ]
       }
     ],
     "examples": [
@@ -1483,6 +1589,20 @@
     "sources": [
       {
         "quote": "From Middle Chinese 食物 (zyik mjut, literally “eat + thing”). Possible alteration from strict goon reading jikimotsu, changing goon jiki for kan'on shoku."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["じきもつ"],
+        "quotes": [
+          "From Middle Chinese 食物 (zyik mjut, literally “eat + thing”). Possible original reading."
+        ]
+      },
+      {
+        "readings": ["しょくぶつ"],
+        "quotes": [
+          "From Chinese 食物 (shíwù). Possible reborrowing, or change influenced by later contact with China after borrowing of earlier goon reading jikimotsu."
+        ]
       }
     ],
     "examples": [

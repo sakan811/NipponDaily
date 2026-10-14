@@ -251,6 +251,20 @@
         "quote": "From Middle Chinese 姓名 (MC sjengH mjieng, literally “surname, clan name + name, given name”). The reading is kan'on, so likely a later borrowing. Compare modern Min Nan reading sèⁿ-miâ."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["しょうみょう"],
+        "quotes": [
+          "/siaumiau/ → /ɕjɔːmjɔː/ → /ɕoːmjoː/",
+          "From Middle Chinese 姓名 (MC sjengH mjieng, literally “surname, clan name + name, given name”). The goon, so likely the initial borrowing. Compare modern Hakka reading siang-miàng.",
+          "Rare in modern Japanese. Largely superseded by the seimei reading above."
+        ]
+      },
+      {
+        "readings": ["かばねな"],
+        "quotes": ["Compound of 姓 (kabane, “clan”) + 名 (na, “name”)."]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -455,6 +469,14 @@
         "quote": "From Middle Chinese compound 平日 (MC bjaeng nyit)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["ひらび"],
+        "quotes": [
+          "Compound of 平(ひら) (hira, “broad, flat”) + 日(ひ) (hi, “day”). The hi of 日 changes to bi as an instance of rendaku (連濁)."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -588,6 +610,15 @@
     "sources": [
       {
         "quote": "From Middle Chinese 國境 (MC kwok kjaengX). First attested in a portion of the Shoku Nihongi dated to 706."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["くにざかい"],
+        "quotes": [
+          "Compound of 国(くに) (kuni, “province; country”) + 境(さかい) (sakai, “border”). The sakai changes to zakai as an instance of rendaku (連濁).",
+          "First attested in 1660."
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -766,6 +797,14 @@
     "sources": [
       {
         "quote": "From Classical Japanese 八日(やうか) (yauka), itself usually considered a shift from 八日(やか) (yaka), ultimately a compound of 八(や) (ya, “eight”) + 日(か) (-ka, counter for days). There is speculation that -uka was the original counter for days (see the etymology at 日(か) (ka)), in which case yauka may have been the older form and yaka a shift from that."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["やか"],
+        "quotes": [
+          "Compound of 八(や) (ya, “eight”) + 日(か) (-ka, counter for days). Possibly instead a shift from 八日(やうか) (yauka)."
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1071,6 +1110,32 @@
         "quote": "The earlier form monmen is attested in 1468 with a sense of \"cotton fibre\", with the medial gemination eliding into momen by 1560."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["きわた"],
+        "quotes": [
+          "Compound of 木 (ki, “tree”) + 綿 (wata, “batting”).",
+          "First attested in 1589."
+        ]
+      },
+      {
+        "readings": ["もんめん"],
+        "quotes": [
+          "/mokumen/ → /moɴmen/",
+          "Sound shift from expected mokumen reading, with the ku assimilating with the following nasal m. First attested in 1468.",
+          "Appears to have been superseded after the non-geminate form momen arose in 1560. May be obsolete in modern usage; this reading is not included in many dictionaries."
+        ]
+      },
+      {
+        "readings": ["ゆう"],
+        "quotes": [
+          "/jupu/ → /jufu/ → */juwu/ → /juː/",
+          "From Old Japanese.",
+          "Possibly from the verb 結う (yuu, “to tie up”), from the way such strings are used to tie sakaki branches in Shinto rituals. Compare the development of 夕 (yū, “evening”).",
+          "The kanji spelling is an example of jukujikun (熟(じゅく)字(じ)訓(くん)), likely from the similar texture and consistency of cotton."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 223239,
@@ -1141,6 +1206,12 @@
         "quote": "*: /ɸatat͡ɕi ka/ → */ɸat̚t͡ɕɨka/ → /ɸat͡ɕuka/ → /hat͡ɕuka/"
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["にじゅうにち"],
+        "quotes": ["From 二十 (nijū, “twenty”) + 日 (nichi, “days”)."]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1162,6 +1233,21 @@
       },
       {
         "quote": "Japanese philologist Shinobu Orikuchi postulated in the 1920s that bushi derived instead from 伏 (bushi), the rendaku (連濁) version of fushi, the 連用形 (ren'yōkei, stem or continuative form) of verb 伏す (fusu, “to bow down, to prostrate”), as found in terms such as 山伏 (yamabushi, “mountain hermit”) and 野伏 (nobushi, “hermit; brigand”). Orikuchi contended that this word arose some time during the Kamakura or Muromachi periods, and that the kanji spelling is ateji (当(あ)て字(じ)). However, the term 武士 (bushi) with the kanji spelling is attested already in the Nara period, many centuries earlier. In addition, rendaku only applies to the latter element in compounds, so nominalized verb fushi would not appear as bushi on its own."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["もののふ"],
+        "quotes": [
+          "/mo₂no₂no₂pu/ → /mononopu/ → /mononofu/",
+          "From Old Japanese. First cited to the Kojiki of 712.",
+          "Regarded as a compound of 物 (mono, “thing”, likely in reference to weapons) + の (no, possessive or genitive particle) + ふ (fu, of uncertain meaning; likely related to the be in 物部 (mononobe)).",
+          "The kanji are jukujikun (熟(じゅく)字(じ)訓(くん))."
+        ]
+      },
+      {
+        "readings": ["たけし", "たけひと"],
+        "quotes": ["Various nanori readings."]
       }
     ],
     "examples": [

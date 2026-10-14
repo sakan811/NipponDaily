@@ -161,6 +161,21 @@
         "quote": "Cognate with 歯 (ha, “tooth”). Possibly also related to 葉 (ha, “leaf”), but the pitch accents do not match. Compare English blade, which also meant “leaf”."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["やいば"],
+        "quotes": [
+          "/jaki ɸa/ → /jakiba/ → /jaĩba/ → /jaiba/",
+          "イ音便(おんびん) (i-onbin) form of 焼き刃 (yakiba), a compound of 焼き (yaki, “burned, fired”) + 刃 (ha, “edge, blade”, see above). The ha changes to ba as an instance of rendaku (連濁).",
+          "Compare to つけやきば (tsukeyakiba), where the ki does not undergo the same euphonic change.",
+          "First attested in the Taiheiki of the late 1300s."
+        ]
+      },
+      {
+        "readings": ["じん"],
+        "quotes": ["From Middle Chinese 刃 (MC nyinH)."]
+      }
+    ],
     "examples": [
       {
         "id": 212860,
@@ -335,6 +350,14 @@
     "sources": [
       {
         "quote": "Shift from the older reading さいぎる, from the syncope of the /k/ in さきぎる (sakigiru), from 先 (saki, “in front”) + 切る (kiru, “cut”), literally “to cut off (from) the front”."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["さいぎる"],
+        "quotes": [
+          "Old reading of the more modern さえぎる, originally from 先切(さきき)る (sakikiru)"
+        ]
       }
     ],
     "examples": [
@@ -875,6 +898,12 @@
         "quote": "Compound of 人 (hito, “person”) + 目 (me, “eye”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["じんもく"],
+        "quotes": ["From 人 (jin, “person”) + 目 (moku, “eye”)."]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -1042,6 +1071,22 @@
     "sources": [
       {
         "quote": "From Middle Chinese 天 (MC then, “sky; heavens”). Compare modern Mandarin reading tiān."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["あま"],
+        "quotes": [
+          "From Old Japanese, ultimately from Proto-Japonic *amay.",
+          "A bound form only appearing in compounds. Compare the formation of 目 (ma, bound form in compounds) and 目 (me, standalone form), 手 (ta, bound form in compounds) and 手 (te, standalone form)."
+        ]
+      },
+      {
+        "readings": ["あめ"],
+        "quotes": [
+          "⟨ame₂⟩ → */aməj/ → /ame/",
+          "From Old Japanese as a sound shift from ama above. Compare 神 (kami, kan-, kamu-, “god”), 目 (me, ma-, “eye”), etc. Ultimately from Proto-Japonic *amay."
+        ]
       }
     ],
     "examples": [

@@ -86,6 +86,22 @@
         "quote": "/joɕi/ (classical 終止形 (shūshikei) or terminal form) → /joki/ (classical 連体形 (rentaikei) or attributive form) → /joi/ (modern shūshikei and rentaikei)"
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["えい"],
+        "quotes": [
+          "Phonetic shift from the Old Japanese yoshi form of yoi above. Already in use as early as the Nihon Shoki, circa 720, then becoming common in eastern Japanese from the Edo period. This form is now obsolete, though it may still be found in some dialects.",
+          "/joɕi/ (classical 終止形 (shūshikei) or terminal form) → /eɕi/ (classical 終止形 (shūshikei) or terminal form) → /eki/ (classical 連体形 (rentaikei) or attributive form) → /ei/ (modern shūshikei and rentaikei)"
+        ]
+      },
+      {
+        "readings": ["いい"],
+        "quotes": [
+          "Phonetic shift from ei above. This is now the most common form used in casual spoken Japanese.",
+          "/ei/ → /ii/"
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 192903,
@@ -193,6 +209,19 @@
       },
       {
         "quote": "Listed in some sources as an abbreviation of tokoro above. However, this is also listed as cognate with 床 (toko, “raised area; bed”), which term already appears in use as far back as the Kojiki (712 CE), one of the oldest Japanese texts."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["しょ"],
+        "quotes": ["From Middle Chinese 所 (MC srjoX)."]
+      },
+      {
+        "readings": ["と"],
+        "quotes": [
+          "⟨to₁⟩ → /*tʷo/ → /to/",
+          "From Old Japanese, from Proto-Japonic *to. Appears mainly as an affixing element indicating place, as in 後 (ato, “after; behind; the back of something”), from 跡 (ato, “footprint, track”), itself a compound of 足 (a, “foot”) + 所 (to, “place”); or in 留まる (todomaru, “to stop in a place”), itself a compound of と (to, “place”) + とまる (tomaru, “to stop”)."
+        ]
       }
     ],
     "examples": [
@@ -557,6 +586,19 @@
         "quote": "From Middle Chinese 面 (MC mjienH)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["つら", "づら"],
+        "quotes": [
+          "From Proto-Japonic *tura (“face”).",
+          "Cognate with Okinawan ちら."
+        ]
+      },
+      {
+        "readings": ["も"],
+        "quotes": ["By apheresis from おも (omo, “face”)."]
+      }
+    ],
     "examples": [
       {
         "id": 84018,
@@ -917,6 +959,28 @@
     "sources": [
       {
         "quote": "A later borrowing from Middle Chinese. Compare modern Min Nan reading bûn, Hakka vûn."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["もん"],
+        "quotes": [
+          "From Middle Chinese 文 (mjun, “ornate; a kind of coin; language, literature, a letter, a character”)."
+        ]
+      },
+      {
+        "readings": ["ふみ"],
+        "quotes": [
+          "Possibly a shift from an older Middle Chinese-derived reading pun. Earlier Japanese writing was ambiguous regarding the final n sound spelled ん in modern Japanese, with this sound often spelled (and possibly pronounced) as む (mu) instead.",
+          "*/pumu/ → /pumi/ → /ɸumi/",
+          "This reading appears in the Heian period, in works such as The Tale of Genji."
+        ]
+      },
+      {
+        "readings": ["あや"],
+        "quotes": [
+          "Uncertain. Appears in texts from the early Heian period. Compare Miyako あやぐ (ayagu), あーぐ (āgu)."
+        ]
       }
     ],
     "examples": [

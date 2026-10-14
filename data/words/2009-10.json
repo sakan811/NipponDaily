@@ -133,6 +133,15 @@
         "quote": "Compound of 爪 (tsume, “claw”) + 痛い (itai, “painful”), with the medial /-i-/ falling out."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["つべたい"],
+        "quotes": [
+          "Shift from tsumetai above.",
+          "First attested in at least 1889."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -271,6 +280,12 @@
         "quote": "From 小 (o, “little”) + 母 (ha, “mother”). The kanji is jukujikun (熟(じゅく)字(じ)訓(くん)). Compare 小母 (oba)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["はくぼ"],
+        "quotes": ["From Chinese 伯母 (bómǔ, “paternal aunt”)."]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -306,6 +321,21 @@
       },
       {
         "quote": "First cited to a text from 984. The kanji spelling is cited earlier in a kanbun passage in the Shoku Nihongi of 756, listed in some references with the reading jinkan. However, the extant copies of this work that include phonetic guides are centuries younger than this first date, raising the possibility that the ningen reading might itself date from 756."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["じんかん"],
+        "quotes": [
+          "From Middle Chinese 人間 (MC nyin kean|keanH). Analyzable as a compound of \"people\" + \"among; space\".",
+          "First cited in a kanbun passage in the Shoku Nihongi of 756, listed in some references with the reading jinkan. However, the extant copies of this work that include phonetic guides are centuries younger than this first date, raising the possibility that the jinkan reading might be younger than this date."
+        ]
+      },
+      {
+        "readings": ["ひとま"],
+        "quotes": [
+          "A compound of 人 (hito, “people”) + 間 (ma, “gap”). First cited to the Nihon Shoki of 720, and also attested in the Man'yōshū of 759."
+        ]
       }
     ],
     "examples": [
@@ -409,6 +439,14 @@
     "sources": [
       {
         "quote": "From Middle Chinese compound 人形 (nyin heng, literally “person shape”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ひとがた"],
+        "quotes": [
+          "Compound of 人 (hito, “person”) + 形 (kata, “shape, form”). The kata changes to gata as an instance of rendaku (連濁)."
+        ]
       }
     ],
     "examples": [
@@ -542,6 +580,14 @@
         "quote": "Appears to be a shift from teishi above. This is now the most common reading for the disciple, apprentice sense."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["ていし"],
+        "quotes": [
+          "From Middle Chinese 弟子 (MC dejX tsiX). Probably the initial borrowing."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -565,6 +611,15 @@
       },
       {
         "quote": "First cited to a text from 1275."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["みょうみょうごにち"],
+        "quotes": [
+          "Compound of 明 (myō, “next, one later”) + 明後日 (myōgonichi, “day after tomorrow”).",
+          "First cited to the Nippo Jisho of 1603."
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -627,6 +682,15 @@
       },
       {
         "quote": "The kan'on reading, so likely a later borrowing."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["かおよびと"],
+        "quotes": [
+          "Compound of 顔 (kao, “face”) + 良 (yo, “good”, the stem of adjective 良い yoi, “good”) + 人 (hito, “person”). The hito changes to bito as an instance of rendaku (連濁).",
+          "The 美 kanji spelling for the kaoyo portion of the reading is an example of jukujikun."
+        ]
       }
     ],
     "examples": [
@@ -906,6 +970,20 @@
     "sources": [
       {
         "quote": "Compound of 御 (on-, honorific prefix) + 中 (chū, “inside; middle”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["おなか"],
+        "quotes": [
+          "Compound of 御 (o-, honorific prefix) + 中 (naka, “inside; middle”). Originally coined as a 女房詞 (nyōbō kotoba, “woman's word”)."
+        ]
+      },
+      {
+        "readings": ["おちゅう"],
+        "quotes": [
+          "Compound of 御 (o-, honorific prefix) + 中 (chū, “inside; middle”)."
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -1245,6 +1323,22 @@
         "quote": "Compare Old Japanese 一人 (pi₁dari → hidari)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["いちにん"],
+        "quotes": ["From Middle Chinese 一人 (MC 'jit nyin)."]
+      },
+      {
+        "readings": ["いちじん"],
+        "quotes": [
+          "Compound of Middle Chinese elements 一 (ichi, “one, 1”, goon reading) + 人 (jin, “person”, kan'on reading)."
+        ]
+      },
+      {
+        "readings": ["かずと", "かずひと"],
+        "quotes": ["Various nanori readings."]
+      }
+    ],
     "examples": [
       {
         "id": 101147,
@@ -1315,6 +1409,16 @@
       },
       {
         "quote": "First cited to 1752."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["にゅうぼう"],
+        "quotes": [
+          "Shift from 女房 (nyōbō).",
+          "First cited to a text from the late 1100s.",
+          "This form of the word gained greater currency during the Muromachi period (1336–1573), then fell out of use in the early Edo period (1603–1868). It is possible that this form of the word is simply an orthographical variant; various Japanese references indicate that it might have still been pronounced as something like nyōbō."
+        ]
       }
     ],
     "wiktionaryDump": "2026-09-02"

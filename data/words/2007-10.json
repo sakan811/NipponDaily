@@ -23,6 +23,15 @@
         "quote": "Possibly related to 米 (yone, “rice (husked grains of the Asian rice plant, Oryza sativa)”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["いな"],
+        "quotes": [
+          "From Old Japanese.",
+          "Commonly found in compounds, rarely in isolation."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -364,6 +373,14 @@
         "quote": "From Middle Chinese 王女 (hjwang nrjo^X, literally “king + female”). The kan'on reading, so likely a later borrowing."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["おうにょ"],
+        "quotes": [
+          "From Middle Chinese 王女 (hjwang nrjo^X, literally “king + female”). The goon reading, so likely the initial borrowing."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -491,6 +508,30 @@
         "quote": "The kanji spelling is either from the native sumai or Sino-Japanese sōboku readings below."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["すまい"],
+        "quotes": [
+          "⟨sumapi₁⟩ → */sumapʲi/ → /sumaɸi/ → /sumawi/ → /sumai/",
+          "The 連(れん)用(よう)形(けい) (ren'yōkei, “stem or continuative form”) of Old Japanese verb 争(すま)ふ (sumapu), modern 争(すま)う (sumau, “to contend, resist, compete (in sumo, for example)”), likely derived in turn from verb 済(す)む (sumu, “to settle, finish”, intransitive) as the 未(み)然(ぜん)形(けい) (mizenkei, “incomplete form”) suma + auxiliary verb ふ (-fu, indicating repetitive or ongoing action) → “on the verge of being settled” → “to be in competition”.",
+          "The kanji spelling is an orthographic borrowing from Middle Chinese 相撲 (MC sjang phuwk, literally “mutually striking”)."
+        ]
+      },
+      {
+        "readings": ["すもん"],
+        "quotes": [
+          "/sumɔː/ → /sumɔɴ/ → /sumoɴ/",
+          "Edo-period shift from sumō above."
+        ]
+      },
+      {
+        "readings": ["そうぼく"],
+        "quotes": [
+          "/sauboku/ → /sɔːboku/ → /soːboku/",
+          "From Middle Chinese 相撲 (MC sjang phuwk)."
+        ]
+      }
+    ],
     "wiktionaryDump": "2026-09-02"
   },
   {
@@ -515,6 +556,21 @@
       },
       {
         "quote": "Probably ultimately from Middle Chinese 梅 (MC mwoj), with the borrowed me reading gaining a pronounced kind of initial m- sound, perhaps realized as *mme. The phonetic spelling was often rendered as むめ (*mme, mume) from the Heian period, with *mme/mume and ume apparently existing in free variation. The reading eventually settled on うめ (ume). Compare the similar pattern of phonetic shift for 馬 (ma → *mma → muma → uma, “horse”), likely from Middle Chinese 馬 (MC maeX)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["むめ"],
+        "quotes": [
+          "⟨me₂⟩ → */mːəɨ/ → *⟨mume₂⟩ → /mume/",
+          "Possibly from Old Japanese.",
+          "This reading becomes common during the Heian period, later falling into disuse.",
+          "Superseded by the ume reading above."
+        ]
+      },
+      {
+        "readings": ["ばい"],
+        "quotes": ["From a later borrowing of Middle Chinese 梅 (MC mwoj)."]
       }
     ],
     "wiktionaryDump": "2026-09-02"
@@ -957,6 +1013,30 @@
         "quote": "The 連用形 (ren'yōkei, “stem or continuative form”) of verb 召す (mesu, “to call; to eat”)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["はん"],
+        "quotes": ["From Middle Chinese [Term?] 飯 (MC bjonX|bjonH)."]
+      },
+      {
+        "readings": ["いい"],
+        "quotes": [
+          "⟨ipi₁⟩ → */ipʲi/ → /ifi/ → /iwi/ → /iː/",
+          "From Old Japanese, ultimately from Proto-Japonic *ipi.",
+          "Also used as 借音 (shakuon) kana for ⟨pi₁⟩."
+        ]
+      },
+      {
+        "readings": ["まま"],
+        "quotes": [
+          "Likely a shift from 旨旨(うまうま) (umauma, “food”, baby talk)."
+        ]
+      },
+      {
+        "readings": ["まんま", "まま"],
+        "quotes": ["Compare Korean 맘마 (mamma) and dialectal 飯 (mama)."]
+      }
+    ],
     "examples": [
       {
         "id": 190566,
@@ -1074,6 +1154,16 @@
         "quote": "Doublet of 泊(と)める (tomeru)."
       }
     ],
+    "otherReadings": [
+      {
+        "readings": ["やめる"],
+        "quotes": [
+          "From Old Japanese, from Proto-Japonic *yamu.",
+          "Cognate with Okinawan 止(や)みゆん (yamiyun).",
+          "Doublet of 辞(や)める (yameru, “to quit (a job)”)."
+        ]
+      }
+    ],
     "examples": [
       {
         "id": 95941,
@@ -1110,6 +1200,20 @@
     "sources": [
       {
         "quote": "From Old Japanese. First attested in the Nihon Shoki of 720 CE. From Proto-Japonic *kara."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["つらい"],
+        "quotes": [
+          "From Old Japanese. First attested in the Nihon Shoki of 720 CE."
+        ]
+      },
+      {
+        "readings": ["づらい"],
+        "quotes": [
+          "The tsurai changes to zurai as an instance of rendaku (連濁)."
+        ]
       }
     ],
     "examples": [
