@@ -105,6 +105,19 @@
             <td><code>data/reference/strokes.json</code></td>
           </tr>
           <tr>
+            <td>Shapes inside a kanji</td>
+            <td>
+              The KRADFILE of
+              <a :href="SOURCES.edrdg.url" target="_blank" rel="noopener">{{
+                SOURCES.edrdg.holderShort
+              }}</a
+              >, read from one pinned archive: the radicals and other elements
+              each kanji is listed as containing, in the file's own notation (a
+              lookup aid, not an etymology)
+            </td>
+            <td><code>data/reference/components.json</code></td>
+          </tr>
+          <tr>
             <td>Daily words</td>
             <td>
               Generated from the word-list snapshots, the Etymology pins, the
@@ -139,7 +152,10 @@
       checksum in <code>scripts/build-pitch-reference.mjs</code>,
       <code>scripts/lib/unidic-accent.mjs</code> and
       <code>scripts/build-strokes-reference.mjs</code>, and only the accents and
-      strokes the entries use are committed.
+      strokes the entries use are committed. The KRADFILE archive is pinned by
+      size and checksum in
+      <code>scripts/build-components-reference.mjs</code> and read the same way
+      (<code>pnpm data:components</code>).
     </p>
     <p>
       Data is processed offline once the pinned files are in place. The
@@ -345,6 +361,13 @@
         ノート), so silence from JMdict proves nothing.
       </li>
       <li>
+        <strong>Cross-references</strong> (also in
+        <code>jmdict-crosscheck.test.ts</code>): each of an entry's
+        <code>antonyms</code> and <code>seeAlso</code> is an <code>ant</code> or
+        <code>xref</code> of a sense its meaning matches, and every one JMdict
+        gives (but the word itself) is there.
+      </li>
+      <li>
         <strong>Example sentences</strong> (<code>examples.test.ts</code>): each
         sentence is the committed snapshot's, holds the form it says the word
         takes, is a form of that word (its own spelling, an inflection that
@@ -371,6 +394,13 @@
         <strong>Kanji</strong> (<code>kanji.test.ts</code>):
         <code>data/reference/kanji.json</code> holds exactly the kanji the
         entries are written with, each as the level snapshots have it.
+      </li>
+      <li>
+        <strong>Shapes inside a kanji</strong>
+        (<code>components.test.ts</code>): the snapshot names its source,
+        licence and the archive it was read from, holds only kanji of
+        <code>kanji.json</code>, each with at least one shape, and covers nearly
+        every kanji the entries use.
       </li>
       <li>
         <strong>Stroke order</strong> (<code>strokes.test.ts</code>): the
@@ -468,6 +498,16 @@ const provenance = [
     field: "pitch",
     source:
       "The Kanjium accent list: the mora after which the pitch falls (0: it does not), for the exact spelling and reading; the accents UniDic gives for that spelling and reading too, in Kanjium's order.",
+  },
+  {
+    field: "pitchDisagreement?",
+    source:
+      "What Kanjium's list and UniDic each gave (`kanjium`, `unidic`) where both give an accent for the spelling and reading and the sets differ, copied from `heldBack` in `data/reference/pitch.json`. Nothing is shown for a word UniDic is silent on.",
+  },
+  {
+    field: "antonyms, seeAlso",
+    source:
+      "JMdict's `ant` and `xref` of the sense(s) matching the pool meaning, as it writes them (`丸・まる・1` is 丸, まる), each once and never the word itself.",
   },
   {
     field: "stratum",
