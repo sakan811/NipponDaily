@@ -264,3 +264,67 @@ describe("classifyChange", () => {
     expect(classifyChange("かみ", "がも")).toEqual({ kind: "other" });
   });
 });
+
+describe("patternsFor pitch by layer", () => {
+  const p = patternsFor(TODAY);
+
+  it("counts the accents the open entries show, by pattern and layer", () => {
+    const shown = open(TODAY).filter((e) => e.pitch?.length);
+    expect(p.pitch.reduce((n, r) => n + r.words, 0)).toBe(shown.length);
+    const accents = shown.reduce((n, e) => n + e.pitch!.length, 0);
+    expect(
+      p.pitch.reduce(
+        (n, r) => n + Object.values(r.accents).reduce((a, b) => a + b, 0),
+        0,
+      ),
+    ).toBe(accents);
+  });
+
+  it("puts a flat accent under heiban and an accent on the first mora under atamadaka", () => {
+    const flat = open(TODAY).filter((e) => e.pitch?.includes(0)).length;
+    const head = open(TODAY).filter((e) => e.pitch?.includes(1)).length;
+    const sum = (key: "heiban" | "atamadaka") =>
+      p.pitch.reduce((n, r) => n + r.accents[key], 0);
+    expect(sum("heiban")).toBe(flat);
+    // A one-mora word falls after its first mora, which is also its last.
+    expect(sum("atamadaka")).toBeLessThanOrEqual(head);
+    expect(sum("atamadaka")).toBeGreaterThan(0);
+  });
+
+  it("counts nothing before a word with an accent has opened", () => {
+    expect(patternsFor("2005-05-01").pitch).toEqual([]);
+  });
+});
+
+describe("patternsFor lengths by level", () => {
+  const p = patternsFor(TODAY);
+
+  it("covers every open word once, under its own level", () => {
+    for (const row of p.lengths)
+      expect(row.words).toBe(
+        open(TODAY).filter((e) => e.level === row.value).length,
+      );
+    expect(p.lengths.reduce((n, r) => n + r.words, 0)).toBe(open(TODAY).length);
+  });
+
+  it("gives the mean morae and kanji to one decimal, and counts words with no kanji", () => {
+    for (const row of p.lengths) {
+      const words = open(TODAY).filter((e) => e.level === row.value);
+      const kanji = words.reduce(
+        (n, e) => n + (e.term.match(/[㐀-䶿一-鿿]/gu)?.length ?? 0),
+        0,
+      );
+      expect(row.meanKanji).toBeCloseTo(kanji / words.length, 1);
+      expect(row.kanaOnly).toBe(
+        words.filter((e) => !/[㐀-䶿一-鿿]/u.test(e.term)).length,
+      );
+      expect(row.meanMorae).toBeGreaterThan(1);
+      expect(Number.isInteger(row.meanMorae * 10)).toBe(true);
+    }
+  });
+
+  it("makes the higher levels' words longer in kanji than the first level's", () => {
+    const by = Object.fromEntries(p.lengths.map((r) => [r.value, r]));
+    expect(by.N1!.meanKanji).toBeGreaterThan(by.N5!.meanKanji);
+  });
+});

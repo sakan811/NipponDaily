@@ -151,6 +151,28 @@ describe("Patterns Page (/patterns)", () => {
     expect(wrapper.text()).not.toContain("Readings that change inside a word");
   });
 
+  it("shows how the pitch falls by layer, with the patterns named", async () => {
+    const wrapper = mount(PatternsPage);
+    await flushPromises();
+
+    const rows = wrapper.find('[data-testid="pattern-pitch"]').findAll("li");
+    expect(rows).toHaveLength(patternsFor(TODAY).pitch.length);
+    expect(rows[0]!.text()).toContain("flat (heiban)");
+  });
+
+  it("tabulates how long each level's words are", async () => {
+    const wrapper = mount(PatternsPage);
+    await flushPromises();
+
+    const rows = wrapper
+      .find('[data-testid="pattern-lengths"]')
+      .findAll("tbody tr");
+    const lengths = patternsFor(TODAY).lengths;
+    expect(rows).toHaveLength(lengths.length);
+    expect(rows[0]!.text()).toContain(String(lengths[0]!.meanMorae));
+    expect(rows[0]!.text()).toContain(lengths[0]!.value);
+  });
+
   it("says what the counts can't tell you", async () => {
     const wrapper = mount(PatternsPage);
     await flushPromises();

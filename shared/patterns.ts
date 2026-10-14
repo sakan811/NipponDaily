@@ -8,7 +8,9 @@
  * and counts open days only.
  */
 import type {
+  LengthByLevel,
   PatternCount,
+  PitchByLayer,
   PatternRow,
   PatternsPayload,
   ProcessPair,
@@ -21,7 +23,10 @@ import type {
   WordProcess,
   WordStratum,
 } from "~~/types/index";
+import { PITCH_TYPES, moraeOf, pitchType } from "../app/utils/pitch";
+import type { PitchType } from "../app/utils/pitch";
 import { JLPT_LEVELS } from "./jlpt";
+import { kanjiIn } from "./japanese";
 import {
   PATTERN_EXAMPLE_LIMIT,
   PATTERN_MAX_COMBINATION,
@@ -252,6 +257,47 @@ function combinationsFor(open: WordEntry[]): TagCombination[] {
     .slice(0, COMBINATION_LIMIT);
 }
 
+const PITCH_PATTERNS = Object.keys(PITCH_TYPES) as PitchType[];
+
+/** The accents the open entries show, split into patterns for each layer. A
+ *  layer no open word with an accent belongs to is left out. */
+function pitchByLayer(open: WordEntry[]): PitchByLayer[] {
+  return STRATUM_KEYS.map((value) => {
+    const accents = Object.fromEntries(
+      PITCH_PATTERNS.map((p) => [p, 0]),
+    ) as Record<PitchType, number>;
+    let words = 0;
+    for (const e of open) {
+      if (stratumKey(e) !== value || !e.pitch?.length) continue;
+      words++;
+      const count = moraeOf(e.kana.replace(/[～〜]/g, "")).length;
+      for (const accent of e.pitch) accents[pitchType(count, accent)]++;
+    }
+    return { value, words, accents };
+  }).filter((row) => row.words > 0);
+}
+
+const oneDecimal = (n: number): number => Math.round(n * 10) / 10;
+
+/** The mean length of the open words of each JLPT level: morae in the reading,
+ *  kanji in the spelling. */
+function lengthsByLevel(open: WordEntry[]): LengthByLevel[] {
+  return JLPT_LEVELS.map((value) => {
+    const words = open.filter((e) => e.level === value);
+    const total = (f: (e: WordEntry) => number) =>
+      words.reduce((sum, e) => sum + f(e), 0);
+    const mean = (f: (e: WordEntry) => number) =>
+      words.length ? oneDecimal(total(f) / words.length) : 0;
+    return {
+      value,
+      words: words.length,
+      meanMorae: mean((e) => moraeOf(e.kana.replace(/[～〜]/g, "")).length),
+      meanKanji: mean((e) => kanjiIn(e.term).length),
+      kanaOnly: words.filter((e) => kanjiIn(e.term).length === 0).length,
+    };
+  }).filter((row) => row.words > 0);
+}
+
 export function patternsFor(today: string = todayJst()): PatternsPayload {
   const open = WORD_ENTRIES.filter((e) => e.date <= today);
 
@@ -297,5 +343,7 @@ export function patternsFor(today: string = todayJst()): PatternsPayload {
       .slice(0, PAIR_LIMIT),
     combinations: combinationsFor(open),
     rendaku: rendakuFor(open),
+    pitch: pitchByLayer(open),
+    lengths: lengthsByLevel(open),
   };
 }
