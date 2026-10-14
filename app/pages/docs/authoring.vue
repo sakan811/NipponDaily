@@ -125,11 +125,12 @@
         when a spelling has several pool words (明日, 梅雨). Add a
         <code>"headline"</code> only to a word that has an Etymology section:
         one sentence that earns the click and keeps to what the quoted evidence
-        says. A word with a headline promises an origin, so the generator
-        refuses it if the dump has no section for its reading; a word without
-        one is built with whatever the sources hold. A new month continues
-        directly after the last day, with no gap; any day already past opens at
-        once.
+        says, which may be the entry's own section or a section of another
+        reading that the entry shows beside it. A word with a headline promises
+        an origin, so the generator refuses it if the dump has no section for
+        its reading; a word without one is built with whatever the sources hold.
+        A new month continues directly after the last day, with no gap; any day
+        already past opens at once.
       </li>
       <li>
         <strong>Pin the evidence</strong>: <code>pnpm data:etymology</code>, and
