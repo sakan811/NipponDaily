@@ -10,6 +10,7 @@
     "pitch": [1, 0],
     "stratum": "kango",
     "processes": ["borrowing"],
+    "headline": "Mu is from Middle Chinese 無, in the goon reading, so likely an earlier borrowing.",
     "morphemes": [],
     "sources": [
       {
@@ -70,6 +71,7 @@
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [1],
     "processes": ["sound-change"],
+    "headline": "Moji is a sound shift from monji.",
     "morphemes": [],
     "sources": [
       {
@@ -151,6 +153,7 @@
     "pitch": [2],
     "stratum": "wago",
     "processes": ["meaning-shift"],
+    "headline": "Wata is from Old Japanese, from Proto-Japonic *wata, and first referred to any batting or stuffing, generally unspun silk.",
     "morphemes": [],
     "sources": [
       {
@@ -214,6 +217,7 @@
     "pitch": [2, 1, 0],
     "stratum": "kango",
     "processes": ["borrowing"],
+    "headline": "Kaku is ultimately from Middle Chinese 角, and first attested in 718.",
     "morphemes": [],
     "sources": [
       {
@@ -318,6 +322,7 @@
     "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
+    "headline": "Ta is from Middle Chinese 他.",
     "morphemes": [],
     "sources": [
       {
@@ -365,6 +370,7 @@
     "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
+    "headline": "Tai is from Middle Chinese 對.",
     "morphemes": [],
     "sources": [
       {
@@ -402,6 +408,7 @@
     "pitch": [0, 2],
     "stratum": "wago",
     "processes": [],
+    "headline": "Tsurai is from Old Japanese and first attested in the Nihon Shoki of 720.",
     "morphemes": [],
     "sources": [
       {
@@ -472,6 +479,7 @@
     ],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
+    "headline": "Nichi is from Middle Chinese 日.",
     "morphemes": [],
     "sources": [
       {
@@ -537,6 +545,7 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news2", "nf25", "spec1"],
     "processes": ["compound", "wasei", "sound-change"],
+    "headline": "Nihon was coined in Japan of Sinic elements: 日 (nichi, “sun”) plus 本 (hon, “origin”), literally “origin of the sun”.",
     "morphemes": [],
     "sources": [
       {
@@ -645,6 +654,7 @@
     "pitch": [1],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
+    "headline": "Baiu is from the Middle Chinese compound 梅雨, in poetic reference to the season when plums grow or ripen.",
     "morphemes": [
       {
         "text": "梅",
@@ -740,6 +750,7 @@
     "pitch": [0],
     "stratum": "kango",
     "processes": ["borrowing"],
+    "headline": "Hin is from Middle Chinese 品, in the kan'on pronunciation, so likely a later borrowing.",
     "morphemes": [],
     "sources": [
       {
@@ -804,6 +815,7 @@
     "priority": ["spec1"],
     "stratum": "kango",
     "processes": ["borrowing"],
+    "headline": "Fu is from Middle Chinese 不.",
     "morphemes": [],
     "sources": [
       {
@@ -822,6 +834,7 @@
     "pitch": [0],
     "stratum": "kango",
     "processes": ["sound-change"],
+    "headline": "Bu is a shift from bun.",
     "morphemes": [],
     "sources": [
       {
@@ -945,6 +958,7 @@
     "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
+    "headline": "Hō is from Middle Chinese 方.",
     "morphemes": [],
     "sources": [
       {
@@ -1024,6 +1038,7 @@
     "pitch": [1],
     "stratum": "wago",
     "processes": ["sound-change"],
+    "headline": "Hō is derived from hoho.",
     "morphemes": [],
     "sources": [
       {
@@ -1102,6 +1117,7 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "processes": ["clipping", "sound-change"],
+    "headline": "Honto is a simple shift from the original reading hontō, and first appears in a text from 1886.",
     "morphemes": [],
     "sources": [
       {
@@ -1178,6 +1194,7 @@
     "pitch": [1],
     "stratum": "kango",
     "processes": ["borrowing"],
+    "headline": "Setsu is from Middle Chinese 節.",
     "morphemes": [],
     "sources": [
       {
@@ -1246,6 +1263,7 @@
     },
     "stratum": "kango",
     "processes": ["borrowing"],
+    "headline": "Matsu is from Middle Chinese 末 and first attested in Japanese in 1120.",
     "morphemes": [],
     "sources": [
       {
