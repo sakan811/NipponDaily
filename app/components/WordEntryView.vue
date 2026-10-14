@@ -52,8 +52,23 @@
           }}</span>
         </li>
       </ul>
+      <div
+        v-if="disagreement"
+        data-testid="word-pitch-disagreement"
+        class="text-sm text-stone-600 dark:text-stone-400 max-w-3xl space-y-1"
+      >
+        <p>
+          The two sources behind the pitch accent disagree about this word, so
+          an accent is shown only where they give the same one.
+        </p>
+        <ul class="list-disc pl-5">
+          <li v-for="side in disagreement" :key="side.source">
+            {{ side.source }}: {{ side.text }}
+          </li>
+        </ul>
+      </div>
       <p
-        v-if="!pitches.length"
+        v-if="!pitches.length && !disagreement"
         data-testid="word-no-pitch"
         class="text-sm text-stone-600 dark:text-stone-400"
       >
@@ -71,11 +86,30 @@
         (が, は).
       </p>
       <p
+        v-if="!covered"
         data-testid="word-meaning"
         class="text-lg sm:text-xl text-stone-700 dark:text-stone-300 font-body-serif"
       >
         {{ entry.meaning }}
       </p>
+      <button
+        v-else
+        type="button"
+        data-testid="word-reveal"
+        class="season-box border border-dashed border-stone-400 dark:border-stone-600 px-4 py-2 text-lg text-stone-600 dark:text-stone-400 hover:border-primary-500"
+        @click="covered = false"
+      >
+        Show the meaning
+      </button>
+      <button
+        v-if="!covered"
+        type="button"
+        data-testid="word-cover"
+        class="kicker text-stone-600 dark:text-stone-400 underline hover:text-primary-600 dark:hover:text-primary-400"
+        @click="covered = true"
+      >
+        Cover the meaning to test yourself
+      </button>
       <div class="flex flex-wrap gap-2" data-testid="word-badges">
         <UBadge color="gray" variant="outline">JLPT {{ entry.level }}</UBadge>
         <UBadge
@@ -248,6 +282,18 @@
       >
         In a sentence
       </h2>
+      <button
+        v-if="hasFurigana"
+        type="button"
+        data-testid="word-readings-toggle"
+        :aria-pressed="!showReadings"
+        class="kicker text-stone-600 dark:text-stone-400 underline hover:text-primary-600 dark:hover:text-primary-400"
+        @click="showReadings = !showReadings"
+      >
+        {{
+          showReadings ? "Hide the readings to practise" : "Show the readings"
+        }}
+      </button>
       <p
         v-if="!entry.examples?.length"
         data-testid="word-no-examples"
@@ -269,11 +315,15 @@
         >
           <p
             class="text-xl font-serif text-stone-900 dark:text-white [&_rt]:text-[0.5em] [&_rt]:text-stone-500 dark:[&_rt]:text-stone-400"
-            :class="ex.furigana ? 'leading-loose' : ''"
+            :class="ex.furigana && showReadings ? 'leading-loose' : ''"
             lang="ja"
           >
             <template
-              v-for="(piece, i) in sentencePieces(ex.ja, ex.form, ex.furigana)"
+              v-for="(piece, i) in sentencePieces(
+                ex.ja,
+                ex.form,
+                showReadings ? ex.furigana : undefined,
+              )"
               :key="i"
               ><component
                 :is="piece.hit ? 'mark' : 'span'"
@@ -480,7 +530,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref, watch } from "vue";
 import { formatLongDate } from "../utils/date";
 import { PITCH_TYPES, moraeOf, pitchContour, pitchType } from "../utils/pitch";
 import { kanjiPath, partPath } from "../utils/seo";
@@ -506,6 +556,21 @@ const props = defineProps<{ entry: WordEntry }>();
 /** What a section says when its source has nothing for this word. */
 const NO_DATA = "We don't have the data for this section.";
 
+// Two ways to practise on a page. Neither is kept: they live in this page's
+// state and reset with the next word, so nothing about a reader is stored.
+const covered = ref(false);
+const showReadings = ref(true);
+watch(
+  () => props.entry.date,
+  () => {
+    covered.value = false;
+    showReadings.value = true;
+  },
+);
+const hasFurigana = computed(() =>
+  (props.entry.examples ?? []).some((ex) => ex.furigana?.length),
+);
+
 /** The distinct kanji of the term (the same range the kanji pages cover). */
 const kanjiChars = computed(() => distinctKanji(props.entry.term));
 
@@ -527,6 +592,25 @@ const pitches = computed(() => {
           : `${PITCH_TYPES[type].label}: falls after mora ${accent}`,
     };
   });
+});
+
+/** What each source gave, where they disagree (an entry's `pitchDisagreement`). */
+const disagreement = computed(() => {
+  const d = props.entry.pitchDisagreement;
+  if (!d) return null;
+  const count = moraeOf(props.entry.kana).length;
+  const say = (accents: number[]) =>
+    accents
+      .map((a) =>
+        a === 0
+          ? PITCH_TYPES[pitchType(count, a)].label
+          : `falls after mora ${a} (${PITCH_TYPES[pitchType(count, a)].label})`,
+      )
+      .join("; ");
+  return [
+    { source: SOURCES.kanjium.name, text: say(d.kanjium) },
+    { source: SOURCES.unidic.name, text: say(d.unidic) },
+  ];
 });
 
 /** JMdict's register, field and dialect tags for the word, as badges. */
