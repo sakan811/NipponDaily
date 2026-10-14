@@ -93,7 +93,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     method: "GET",
     path: ROUTES.patterns,
     returns:
-      "Counts across the open words: `{ total, withParts, withBase, strata, levels, processes, pairs, combinations, rendaku }`.",
+      "Counts across the open words: `{ total, withParts, withBase, strata, levels, processes, pairs, combinations, rendaku, pitch, lengths }`, the last two being the pitch accents split into patterns by layer and the mean length of the words by level.",
   },
   {
     method: "GET",
@@ -102,7 +102,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     returns:
       "Up to " +
       countWord(RELATED_LIMIT) +
-      " open words that resemble one entry (shared parts, processes or layer), closest first, each with what it shares: `{ date, words }`. `date` is required; a future or malformed one is a `400`, a day with no entry a `404`.",
+      " open words that resemble one entry (shared parts, processes or layer), closest first, each with what it shares, and the words JMdict points the entry's sense at (`antonyms`, `seeAlso`), each with the open word it is where there is exactly one: `{ date, words, antonyms, seeAlso }`. `date` is required; a future or malformed one is a `400`, a day with no entry a `404`.",
   },
   {
     method: "GET",

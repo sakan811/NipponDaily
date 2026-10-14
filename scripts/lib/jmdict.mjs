@@ -186,6 +186,8 @@ export function parseJmdict(xml) {
       const misc = elements(text, "misc").map((e) => tag(e.text));
       const field = elements(text, "field").map((e) => tag(e.text));
       const dialect = elements(text, "dial").map((e) => tag(e.text));
+      const xref = elements(text, "xref").map((e) => unescapeXml(e.text));
+      const ant = elements(text, "ant").map((e) => unescapeXml(e.text));
       const loan = elements(text, "lsource").map(({ attrs, text: t }) => ({
         lang: attr(attrs, "xml:lang") ?? "eng",
         ...(t ? { text: unescapeXml(t) } : {}),
@@ -198,6 +200,8 @@ export function parseJmdict(xml) {
         ...(misc.length ? { misc } : {}),
         ...(field.length ? { field } : {}),
         ...(dialect.length ? { dialect } : {}),
+        ...(xref.length ? { xref } : {}),
+        ...(ant.length ? { ant } : {}),
         ...(loan.length ? { loan } : {}),
       };
     });
@@ -259,7 +263,9 @@ export function openDictionary({ jmdict, kanjidic2 }) {
    *  notes (ateji, irregular kanji usage…), and a sense's `misc` its misc tags
    *  (abbreviation, archaism, register…), `field` its field of application
    *  (medicine, computing…), `dialect` its dialect (Kansai-ben…) and `loan`
-   *  the language it was borrowed from (`wasei` for a coinage made in Japan). */
+   *  the language it was borrowed from (`wasei` for a coinage made in Japan);
+   *  `xref` and `ant` are the words it points to as "see also" and
+   *  "antonym", written as JMdict writes them (`丸・まる・1`). */
   function entry(idseq) {
     const e = entries.get(idseq);
     return {

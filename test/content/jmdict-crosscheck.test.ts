@@ -51,6 +51,8 @@ interface JmSense {
   misc?: string[];
   field?: string[];
   dialect?: string[];
+  ant?: string[];
+  xref?: string[];
   loan?: { lang: string; text?: string; wasei?: boolean; partial?: boolean }[];
 }
 type JmEntry = RefEntry & {
@@ -132,6 +134,37 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
       expect(entry.register ?? []).toEqual(
         shared((s) => s.misc).filter((t) => REGISTER_TAGS.has(t)),
       );
+    });
+
+    it("points only at the words JMdict gives the matched senses", () => {
+      for (const [key, tag] of [
+        ["antonyms", "ant"],
+        ["seeAlso", "xref"],
+      ] as const) {
+        // JMdict writes `丸・まる・1`: spelling, reading and a sense number.
+        const given = (matched?.senses ?? [])
+          .flatMap((s) => s[tag] ?? [])
+          .map((raw) => raw.split("・").filter((p) => !/^\d+$/.test(p)));
+        const shown = entry[key] ?? [];
+        for (const ref of shown)
+          expect(
+            given.some(
+              (parts) =>
+                parts[0] === ref.term &&
+                (ref.kana === undefined || parts[1] === ref.kana),
+            ),
+            `${key}: ${ref.term} is not a ${tag} of the matched senses`,
+          ).toBe(true);
+        // Nothing JMdict gives is dropped, except a word pointing at itself
+        // (the same spelling, and the same reading where it names one).
+        const others = given.filter(
+          (parts) =>
+            parts[0] !== entry.term.replace(/[～〜]/g, "") ||
+            (parts[1] !== undefined && toHiragana(parts[1]) !== hira),
+        );
+        if (others.length) expect(shown.length, key).toBeGreaterThan(0);
+        else expect(shown, key).toEqual([]);
+      }
     });
 
     it("is called common only when a first-tier code says so", () => {
