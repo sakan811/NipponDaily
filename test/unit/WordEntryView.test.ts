@@ -97,6 +97,46 @@ describe("WordEntryView", () => {
     );
   });
 
+  it("quotes the page's other readings apart from the word's own origin", () => {
+    const wrapper = render({
+      term: "抱く",
+      kana: "だく",
+      otherReadings: [
+        {
+          readings: ["いだく"],
+          quotes: ["/udaku/ → /idaku/", "Shift from udaku."],
+        },
+        {
+          readings: ["うだく"],
+          quotes: ["First cited to a text from roughly 810 CE."],
+        },
+      ],
+    });
+
+    const block = wrapper.find('[data-testid="word-other-readings"]');
+    expect(block.text()).toContain("Other readings of 抱く");
+    expect(block.text()).toContain("not だく");
+    const groups = block.findAll('[data-testid="word-other-reading"]');
+    expect(groups.map((g) => g.find("h3").text())).toEqual([
+      "いだく",
+      "うだく",
+    ]);
+    expect(groups[0]!.findAll("li").map((li) => li.text())).toEqual([
+      "“/udaku/ → /idaku/”",
+      "“Shift from udaku.”",
+    ]);
+    // The word's own quotes stay in their own list.
+    expect(wrapper.find('[data-testid="word-sources"]').text()).not.toContain(
+      "udaku",
+    );
+  });
+
+  it("shows no other-readings block when the page has none", () => {
+    expect(render().find('[data-testid="word-other-readings"]').exists()).toBe(
+      false,
+    );
+  });
+
   it("says why when the only proposed split is hedged", () => {
     const wrapper = render({
       morphemes: [],

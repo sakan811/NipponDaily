@@ -411,6 +411,39 @@
         >. Reading, meaning and part of speech from JMdict, and kanji readings
         from KANJIDIC2 ({{ SOURCES.edrdg.holderShort }}).
       </p>
+      <details
+        v-if="entry.otherReadings?.length"
+        data-testid="word-other-readings"
+        class="max-w-3xl text-sm text-stone-700 dark:text-stone-300"
+      >
+        <summary
+          class="cursor-pointer font-sans font-semibold text-stone-700 dark:text-stone-300"
+        >
+          Other readings of {{ entry.term }} on the same Wiktionary page
+        </summary>
+        <p class="mt-2 text-xs text-stone-600 dark:text-stone-400">
+          These describe other words written the same way, not
+          {{ entry.kana }}. They are quoted for context: the parts, layer and
+          processes of this word are not taken from them.
+        </p>
+        <section
+          v-for="(other, n) in entry.otherReadings"
+          :key="n"
+          data-testid="word-other-reading"
+          class="mt-3"
+        >
+          <h3 class="kicker" lang="ja">{{ other.readings.join("・") }}</h3>
+          <ul class="mt-1 space-y-2">
+            <li
+              v-for="(quote, i) in other.quotes"
+              :key="i"
+              class="border-l-2 border-stone-300 pl-3 font-body-serif leading-relaxed dark:border-stone-600"
+            >
+              “{{ quote }}”
+            </li>
+          </ul>
+        </section>
+      </details>
     </section>
 
     <!-- What the labels mean -->
