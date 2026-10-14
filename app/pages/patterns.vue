@@ -419,6 +419,118 @@
           </div>
         </section>
 
+        <!-- Pitch accent by layer -->
+        <section
+          v-if="patterns.pitch.length"
+          class="mt-12 space-y-4"
+          aria-labelledby="pitch-heading"
+        >
+          <h2
+            id="pitch-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            How the pitch falls, by layer
+          </h2>
+          <p
+            class="text-stone-600 dark:text-stone-400 font-body-serif max-w-2xl"
+          >
+            Every accent the entries show, sorted by where it falls and grouped
+            by the word's layer. Each bar is one layer scaled to 100%. A word
+            with two accents counts in both, and a word with none shown is left
+            out.
+          </p>
+          <ul
+            class="flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-600 dark:text-stone-400"
+            aria-label="Accent patterns"
+          >
+            <li
+              v-for="p in PITCH_IDS"
+              :key="p"
+              class="flex items-center gap-1.5"
+            >
+              <span
+                :class="['inline-block h-2.5 w-2.5 rounded-sm', PITCH_DOT[p]]"
+              />
+              {{ PITCH_TYPES[p].label }}
+            </li>
+          </ul>
+          <ul data-testid="pattern-pitch" class="space-y-3">
+            <li v-for="row in patterns.pitch" :key="row.value">
+              <span class="flex items-baseline justify-between gap-3 text-sm">
+                <span>{{ layerName(row.value) }}</span>
+                <span class="tabular-nums text-stone-600 dark:text-stone-400"
+                  >{{ row.words }} words</span
+                >
+              </span>
+              <span
+                class="mt-1 flex h-4 bg-stone-200/70 dark:bg-stone-800"
+                role="img"
+                :aria-label="pitchBreakdown(row)"
+              >
+                <span
+                  v-for="p in PITCH_IDS.filter((id) => row.accents[id] > 0)"
+                  :key="p"
+                  :class="['h-full', PITCH_DOT[p]]"
+                  :style="{ width: pitchWidth(row, p) }"
+                  :title="`${PITCH_TYPES[p].label}: ${row.accents[p]}`"
+                />
+              </span>
+              <span
+                class="mt-1 block text-xs text-stone-600 dark:text-stone-400"
+                >{{ pitchBreakdown(row) }}</span
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!-- How long the words are -->
+        <section
+          v-if="patterns.lengths.length"
+          class="mt-12 space-y-4"
+          aria-labelledby="lengths-heading"
+        >
+          <h2
+            id="lengths-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            How long the words are, by level
+          </h2>
+          <p
+            class="text-stone-600 dark:text-stone-400 font-body-serif max-w-2xl"
+          >
+            The mean length of each level's words so far: the beats (morae) in
+            the reading and the kanji in the spelling.
+          </p>
+          <div class="table-wrap">
+            <table data-testid="pattern-lengths">
+              <thead>
+                <tr>
+                  <th>Level</th>
+                  <th>Words</th>
+                  <th>Morae per word</th>
+                  <th>Kanji per word</th>
+                  <th>Written without kanji</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="row in patterns.lengths" :key="row.value">
+                  <td>
+                    <NuxtLink :to="explorePath({ level: [row.value] })">{{
+                      row.value
+                    }}</NuxtLink>
+                  </td>
+                  <td>{{ row.words }}</td>
+                  <td>{{ row.meanMorae }}</td>
+                  <td>{{ row.meanKanji }}</td>
+                  <td>
+                    {{ row.kanaOnly }} ({{ percent(row.kanaOnly, row.words) }})
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <p class="mt-12 text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
           These count the tags on the entries so far — what KANJIDIC2 and the
           quoted Wiktionary text establish for each word — not the Japanese
@@ -446,7 +558,10 @@ import { usePageSeo } from "../composables/usePageSeo";
 import { explorePath, partPath } from "../utils/seo";
 import { STRATUM_DOT } from "../utils/stratum";
 import { WORD_PROCESSES, WORD_STRATA } from "~~/shared/word-labels";
+import { PITCH_TYPES } from "../utils/pitch";
+import type { PitchType } from "../utils/pitch";
 import type {
+  PitchByLayer,
   RendakuReading,
   StratumKey,
   TagCombination,
@@ -531,6 +646,30 @@ const breakdown = (label: string, by: Record<StratumKey, number>): string =>
   `${label}: ${STRATUM_KEYS.filter((k) => by[k] > 0)
     .map((k) => `${layerName(k)} ${by[k]}`)
     .join(", ")}`;
+
+const PITCH_IDS = Object.keys(PITCH_TYPES) as PitchType[];
+
+/** Four tones of the accent colour, so a bar still reads in one hue. */
+const PITCH_DOT: Record<PitchType, string> = {
+  heiban: "bg-primary-700",
+  atamadaka: "bg-primary-500",
+  nakadaka: "bg-primary-300",
+  odaka: "bg-stone-400",
+};
+
+const pitchTotal = (row: PitchByLayer): number =>
+  PITCH_IDS.reduce((sum, id) => sum + row.accents[id], 0);
+
+const pitchWidth = (row: PitchByLayer, id: PitchType): string =>
+  `${(row.accents[id] / (pitchTotal(row) || 1)) * 100}%`;
+
+const pitchBreakdown = (row: PitchByLayer): string =>
+  PITCH_IDS.filter((id) => row.accents[id] > 0)
+    .map(
+      (id) =>
+        `${PITCH_TYPES[id].label} ${percent(row.accents[id], pitchTotal(row))}`,
+    )
+    .join(" · ");
 
 const maxVoiced = computed(() =>
   Math.max(1, ...(patterns.value?.rendaku.voiced.map((s) => s.count) ?? [])),
