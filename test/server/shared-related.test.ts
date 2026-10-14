@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { RELATED_LIMIT } from "~~/shared/limits";
-import { relatedWords } from "~~/shared/related";
+import { referencesFor, relatedWords } from "~~/shared/related";
 import { WORD_ENTRIES } from "~~/shared/words";
 
 const TODAY = "2010-05-10";
@@ -84,5 +84,55 @@ describe("relatedWords", () => {
 
   it("is empty when no other word has opened", () => {
     expect(relatedWords(entry("2009-05-11"), "2009-05-11")).toEqual([]);
+  });
+});
+
+describe("referencesFor", () => {
+  const withRefs = WORD_ENTRIES.find(
+    (e) => e.antonyms?.length && e.date <= TODAY,
+  )!;
+
+  it("hands back the entry's own references, in order, and nothing else", () => {
+    const { antonyms, seeAlso } = referencesFor(withRefs, "2026-12-31");
+
+    expect(antonyms.map(({ term, kana }) => ({ term, kana }))).toEqual(
+      withRefs.antonyms!.map(({ term, kana }) => ({ term, kana })),
+    );
+    expect(seeAlso.map((r) => r.term)).toEqual(
+      (withRefs.seeAlso ?? []).map((r) => r.term),
+    );
+  });
+
+  it("links a reference only to a word that has opened, and only when it is just one", () => {
+    // 異常 いじょう (2005-06 or so) points at 正常: it links once 正常 has opened.
+    const entry = WORD_ENTRIES.find((e) => e.term === "異常")!;
+    const target = WORD_ENTRIES.find((e) => e.term === "正常")!;
+    expect(target).toBeDefined();
+
+    const before = referencesFor(entry, "2005-01-01");
+    expect(before.antonyms[0]!.word).toBeUndefined();
+
+    const after = referencesFor(entry, "2026-12-31");
+    expect(after.antonyms[0]!.word).toMatchObject({
+      date: target.date,
+      term: "正常",
+    });
+  });
+
+  it("never names a word whose day has not come", () => {
+    for (const e of WORD_ENTRIES.filter((x) => x.date <= TODAY)) {
+      const { antonyms, seeAlso } = referencesFor(e, TODAY);
+      for (const r of [...antonyms, ...seeAlso])
+        if (r.word) expect(r.word.date <= TODAY).toBe(true);
+    }
+  });
+
+  it("leaves a reference with two candidate words unlinked", () => {
+    // 上 alone is うえ, かみ and じょう once all of them are open.
+    const entry = WORD_ENTRIES.find((e) => e.term === "下" && e.kana === "げ")!;
+    const ups = WORD_ENTRIES.filter((e) => e.term === "上");
+    expect(ups.length).toBeGreaterThan(1);
+    const { seeAlso } = referencesFor(entry, "2099-12-31");
+    expect(seeAlso.find((r) => r.term === "上")?.word).toBeUndefined();
   });
 });

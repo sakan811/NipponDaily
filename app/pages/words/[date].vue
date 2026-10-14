@@ -22,6 +22,13 @@
       <template v-else-if="payload">
         <WordEntryView :entry="payload.entry" />
 
+        <WordReferences
+          v-if="related?.antonyms?.length || related?.seeAlso?.length"
+          class="mt-10"
+          :antonyms="related.antonyms"
+          :see-also="related.seeAlso"
+        />
+
         <RelatedWords
           v-if="related?.words?.length"
           class="mt-10"
@@ -72,6 +79,7 @@ import { computed } from "vue";
 import { useRoute } from "#app";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import RelatedWords from "../../components/RelatedWords.vue";
+import WordReferences from "../../components/WordReferences.vue";
 import WordEntryView from "../../components/WordEntryView.vue";
 import { useDailyWord } from "../../composables/useDailyWord";
 import { useRelatedWords } from "../../composables/useParts";

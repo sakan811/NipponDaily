@@ -9,7 +9,9 @@
 import type {
   RelatedShared,
   RelatedWord,
+  ResolvedReference,
   WordEntry,
+  WordReference,
   WordProcess,
   WordStratum,
 } from "~~/types/index";
@@ -18,6 +20,7 @@ import {
   RELATED_MIN_SCORE,
   RELATED_PART_WEIGHT,
 } from "./limits";
+import { katakanaToHiragana } from "./japanese";
 import { WORD_ENTRIES, todayJst } from "./words";
 
 /** The open words closest to `entry`, closest first, never the entry itself. */
@@ -68,4 +71,49 @@ export function relatedWords(
     stratum: e.stratum,
     shared,
   }));
+}
+
+/** The open daily word a JMdict reference points at: the spelling, and the
+ *  reading too when JMdict names one. A reference to a kana-only word (just
+ *  `term`) also matches a word written with that reading. Only a reference
+ *  that fits exactly one open word is linked: 上 alone is うえ, かみ and じょう. */
+function openWordFor(
+  ref: WordReference,
+  open: WordEntry[],
+): WordEntry | undefined {
+  const reading = katakanaToHiragana(ref.kana ?? ref.term);
+  const hits = open.filter((e) =>
+    ref.kana
+      ? e.term === ref.term && katakanaToHiragana(e.kana) === reading
+      : e.term === ref.term ||
+        (e.term === e.kana && katakanaToHiragana(e.kana) === reading),
+  );
+  return hits.length === 1 ? hits[0] : undefined;
+}
+
+/** Where the words JMdict points an entry at stand among the open words, each
+ *  with the open word it is (never an upcoming one). The references are the
+ *  entry's own `antonyms` and `seeAlso`: nothing is added to them. */
+export function referencesFor(
+  entry: WordEntry,
+  today: string = todayJst(),
+): { antonyms: ResolvedReference[]; seeAlso: ResolvedReference[] } {
+  const open = WORD_ENTRIES.filter((e) => e.date <= today);
+  const resolve = (refs: WordReference[] = []): ResolvedReference[] =>
+    refs.map((ref) => {
+      const hit = openWordFor(ref, open);
+      return hit
+        ? {
+            ...ref,
+            word: {
+              date: hit.date,
+              term: hit.term,
+              kana: hit.kana,
+              meaning: hit.meaning,
+              stratum: hit.stratum,
+            },
+          }
+        : ref;
+    });
+  return { antonyms: resolve(entry.antonyms), seeAlso: resolve(entry.seeAlso) };
 }

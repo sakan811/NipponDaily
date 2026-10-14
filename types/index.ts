@@ -1,3 +1,5 @@
+import type { PitchType } from "../app/utils/pitch";
+
 export interface ApiResponse<T = unknown> {
   success: boolean;
   data: T;
@@ -89,6 +91,14 @@ export interface OtherReading {
   quotes: string[];
 }
 
+/** A word JMdict points at from a sense of an entry's word, as JMdict writes it:
+ *  the spelling and, when JMdict names one, the reading. A kana-only word has
+ *  just `term`. */
+export interface WordReference {
+  term: string;
+  kana?: string;
+}
+
 /** One daily word — the unit of data/words/YYYY-MM.json, served by
  *  GET /api/daily-word.
  *
@@ -127,6 +137,17 @@ export interface WordEntry {
    *  for this spelling and reading (0: it never falls, 1: after the first
    *  mora…); several when the list gives several. Left out when it has none. */
   pitch?: number[];
+  /** What the accent list (`kanjium`) and UniDic (`unidic`) each give where both
+   *  have an accent for this spelling and reading and do not give the same
+   *  ones; the accents they share are in `pitch`, the rest are shown nowhere
+   *  else. Left out when they agree, or UniDic has none. */
+  pitchDisagreement?: { kanjium: number[]; unidic: number[] };
+  /** The words JMdict gives as the opposite of the sense the meaning came from
+   *  (`ant`), verbatim; left out when it gives none. */
+  antonyms?: WordReference[];
+  /** The words JMdict says to see for that sense (`xref`), verbatim; left out
+   *  when it gives none. */
+  seeAlso?: WordReference[];
   /** The layer of the vocabulary — present only when KANJIDIC2's readings
    *  (or the evidence) establish it; irregular spellings leave it out. */
   stratum?: WordStratum;
@@ -296,6 +317,21 @@ export interface KanjiDetail {
    *  109 by 109 square; left out where KanjiVG and KANJIDIC2 count the
    *  strokes differently. */
   strokes?: string[];
+  /** The shapes KRADFILE lists the character as containing, in its order and
+   *  notation; left out where it has none. */
+  components?: KanjiComponent[];
+}
+
+/** One shape a kanji contains, and the other kanji of open words that contain it. */
+export interface KanjiComponent {
+  /** The shape as KRADFILE writes it (a kanji, or a stroke such as ノ). */
+  text: string;
+  /** Whether it is itself a kanji an open word is written with, so it has a page. */
+  isKanji: boolean;
+  /** Other kanji of open words with the same shape, most used first; a few only. */
+  also: string[];
+  /** How many other kanji of open words contain it, `also` being the first few. */
+  alsoCount: number;
 }
 
 // --- EXPLORE (browse and filter) ---
@@ -451,6 +487,28 @@ export interface RendakuPayload {
   other: RendakuReading[];
 }
 
+/** How the accents the entries show split into patterns, for the words of one layer. */
+export interface PitchByLayer {
+  value: StratumKey;
+  /** Open words in the layer that show a pitch accent. */
+  words: number;
+  /** Accents counted by pattern; a word that shows two accents counts in each. */
+  accents: Record<PitchType, number>;
+}
+
+/** How long the open words of one JLPT level are. */
+export interface LengthByLevel {
+  value: JlptLevel;
+  /** Open words of the level. */
+  words: number;
+  /** Mean number of morae in the word's reading, to one decimal. */
+  meanMorae: number;
+  /** Mean number of kanji in its spelling (a kana-only word has none), to one decimal. */
+  meanKanji: number;
+  /** Of the words, how many are written without any kanji. */
+  kanaOnly: number;
+}
+
 /** What GET /api/patterns returns. */
 export interface PatternsPayload {
   /** Open words counted. */
@@ -469,6 +527,10 @@ export interface PatternsPayload {
    *  that turn up on the same words, beyond the pairs above. */
   combinations: TagCombination[];
   rendaku: RendakuPayload;
+  /** The pitch accents the entries show, by the layer of the word. */
+  pitch: PitchByLayer[];
+  /** How long the words are, by JLPT level. */
+  lengths: LengthByLevel[];
 }
 
 // --- RELATED (more like this) ---
@@ -486,11 +548,21 @@ export interface RelatedWord extends PartWordRef {
   shared: RelatedShared;
 }
 
-/** What GET /api/related returns: open words that resemble one entry, closest first. */
+/** A word JMdict points at (see `WordReference`), with the open daily word it
+ *  is when there is one, so the page can link it. A word that has not opened
+ *  yet is never named by its day: only JMdict's own spelling is shown. */
+export interface ResolvedReference extends WordReference {
+  word?: PartWordRef;
+}
+
+/** What GET /api/related returns: open words that resemble one entry, closest
+ *  first, and the words JMdict points its sense at. */
 export interface RelatedPayload {
   /** The entry they are related to. */
   date: string;
   words: RelatedWord[];
+  antonyms: ResolvedReference[];
+  seeAlso: ResolvedReference[];
 }
 
 // --- SITE THEME ---
