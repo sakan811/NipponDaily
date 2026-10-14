@@ -123,16 +123,23 @@
       <code>pnpm data:strokes</code> from a pinned KanjiVG release, which keeps
       a kanji's strokes only where KanjiVG draws as many as KANJIDIC2 counts (a
       kanji with fewer or more shows none). <code>shared/kanji.ts</code> reads
-      both (server only, like the other modules that see every entry), and the
-      page draws the strokes one at a time, numbered at their start
-      (<code>KanjiStrokes</code>). Each entry links its kanji, and the sitemap
-      lists kanji seen in more than one open word.
+      those and the shapes (server only, like the other modules that see every
+      entry), and the page draws the strokes one at a time, numbered at their
+      start (<code>KanjiStrokes</code>). Under them it names the shapes the
+      character contains, from
+      <code>data/reference/components.json</code> (<code
+        >pnpm data:components</code
+      >, EDRDG's KRADFILE): a lookup aid that says what the character contains
+      and not where it comes from, each shape that is itself a kanji of an open
+      word linked, with a few other kanji that contain it. Each entry links its
+      kanji, and the sitemap lists kanji seen in more than one open word.
     </p>
 
     <h3>Explore</h3>
     <p>
       <code>/explore</code> filters by <code>q</code> (term, kana, meaning;
-      katakana folded to hiragana), <code>level</code>, <code>stratum</code>,
+      katakana folded to hiragana, and romaji read as kana and matched against
+      the readings only), <code>level</code>, <code>stratum</code>,
       <code>process</code>, <code>pos</code>, <code>frequency</code> and
       <code>part</code>, newest first. Different filters always narrow together.
       Within <code>level</code>, <code>stratum</code>, <code>process</code>,
@@ -191,7 +198,12 @@
       sample, parser-derived tags), not the language. The catalogue is lopsided
       by how it was filled (the words chosen for their origin, then each list in
       turn), so a stretch of days can hold mostly one level or one script, and
-      the counts show more of it than the language would.
+      the counts show more of it than the language would. Two sections read
+      fields other than the tags: the pitch accents the entries show, sorted
+      into flat, head-high, middle-high and tail-high for each layer (an accent
+      counts once, so a word with two counts in both, and a word with none shown
+      is left out), and the mean number of morae and kanji of each level's
+      words.
     </p>
 
     <h3>Related words</h3>
@@ -259,9 +271,10 @@
       <code>sources</code>, no <code>morphemes</code>, no headline and no dump
       date, and the page says the data is missing in those sections. Its layer
       and processes come from KANJIDIC2 and JMdict alone. The same goes for the
-      example sentences and the pitch accent. One spelling is one entry (the
-      snapshots are keyed by spelling), so a pool word whose spelling another
-      word already holds, such as 後 ご next to 後 あと, is not planned.
+      example sentences and the pitch accent. One spelling can be several words:
+      後 あと and 後 ご are two pool words and two entries, so the plan names
+      the reading (<code>kana</code>), and the sentence and pitch snapshots are
+      keyed by spelling and reading together.
     </p>
   </DocsBook>
 </template>

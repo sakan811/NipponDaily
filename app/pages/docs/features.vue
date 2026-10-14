@@ -63,7 +63,7 @@ const features = computed(() => [
   {
     title: "Explore by How Words Are Built",
     description:
-      "`/explore` searches every word that has opened — by the word, its reading (katakana or hiragana) or its meaning — and narrows by JLPT level, layer (including “not stated”), process, part of speech or how common JMdict says the word is. Pick several options in a group and choose whether a word needs any or all of them. Each option shows how many words it would leave, and the filters live in the URL so a search can be shared. The calendar uses the same filters. Upcoming words are never searched.",
+      "`/explore` searches every word that has opened — by the word, its reading (katakana, hiragana or romaji, so `taberu` finds 食べる) or its meaning — and narrows by JLPT level, layer (including “not stated”), process, part of speech or how common JMdict says the word is. Pick several options in a group and choose whether a word needs any or all of them. Each option shows how many words it would leave, and the filters live in the URL so a search can be shared. The calendar uses the same filters. Upcoming words are never searched.",
   },
   {
     title: "Patterns Across the Vocabulary",
@@ -72,7 +72,7 @@ const features = computed(() => [
       countWord(PATTERN_MIN_COMBINATION) +
       " to " +
       countWord(PATTERN_MAX_COMBINATION) +
-      ". Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language. It also lists which sounds voice inside a word (ひ → び, か → が…), with the parts and words that show each change — a small, parser-derived sample, not a rule of the language.",
+      ". Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language. It also lists which sounds voice inside a word (ひ → び, か → が…), with the parts and words that show each change — a small, parser-derived sample, not a rule of the language. Two more sections count how the pitch accents the entries show split into patterns for each layer, and how long each level's words are in morae and kanji.",
   },
   {
     title: "The Parts, Across Words",
@@ -82,7 +82,7 @@ const features = computed(() => [
   {
     title: "The Kanji",
     description:
-      "`/kanji` lists every kanji a word that has opened is written with. Open one — 日, say — for KANJIDIC2's record of it (on'yomi, kun'yomi, meanings, school grade, stroke count, newspaper rank), the order its strokes are drawn in (KanjiVG's, shown only where KanjiVG and KANJIDIC2 count the same number of strokes) and every word so far that is written with it. Each entry links its own kanji, and the page says a word doesn't use every reading or meaning of its kanji.",
+      "`/kanji` lists every kanji a word that has opened is written with. Open one — 日, say — for KANJIDIC2's record of it (on'yomi, kun'yomi, meanings, school grade, stroke count, newspaper rank), the order its strokes are drawn in (KanjiVG's, shown only where KanjiVG and KANJIDIC2 count the same number of strokes) the shapes EDRDG's KRADFILE lists it as containing (a lookup aid, not an etymology), with a few other kanji that contain the same shape, and every word so far that is written with it. Each entry links its own kanji, and the page says a word doesn't use every reading or meaning of its kanji.",
   },
   {
     title: "In a Sentence",
@@ -97,6 +97,11 @@ const features = computed(() => [
       "Under each entry on its own page (`/words/<date>`), a few other words that have opened and share something with it: a part, a process or a layer. Each card says exactly what is shared and links to where you can see more of it. A word that shares only very common tags is not offered, and upcoming words never are.",
   },
   {
+    title: "Opposites and See Also",
+    description:
+      'Where JMdict gives the sense an entry\'s meaning came from an antonym or a "see also", the entry page names the words in a block of its own, as JMdict writes them. A word that has opened links to its day; one that has not is only named, never linked, and a spelling with several open words (上 is うえ, かみ and じょう) is not linked at all. Nothing is added to what JMdict says.',
+  },
+  {
     title: "Taken Apart",
     description:
       "Where Wiktionary splits a word into parts with glosses, each morpheme is shown with its reading and that gloss, but only if the parts spell the word and join to its reading. When the text gives no split of a word written with kanji (and the okurigana after them), each part is one of its kanji with KANJIDIC2's reading and meaning, and the page says so. Otherwise no breakdown is shown, since any other split would be a guess.",
@@ -104,7 +109,7 @@ const features = computed(() => [
   {
     title: "How It Is Said",
     description:
-      "Where the pinned Kanjium accent list gives a word's exact spelling and reading and UniDic gives the same accent, the entry shows its pitch accent: the reading with a line over the high morae and a ↓ after the one where the pitch falls, named flat (heiban), head-high (atamadaka), middle-high (nakadaka) or tail-high (odaka). A word the two do not agree on shows none, and where both give several accents they are all shown.",
+      "Where the pinned Kanjium accent list gives a word's exact spelling and reading and UniDic gives the same accent, the entry shows its pitch accent: the reading with a line over the high morae and a ↓ after the one where the pitch falls, named flat (heiban), head-high (atamadaka), middle-high (nakadaka) or tail-high (odaka). A word the two do not agree on shows only the accents they share, and says what each gave; where both give several accents they are all shown.",
   },
   {
     title: "Which Layer, Which Process",
@@ -124,6 +129,11 @@ const features = computed(() => [
     title: "Share a Word",
     description:
       "A shared link unfolds into a card: the word, its reading, meaning, level and layer, and the headline, in the colours of the season it falls in. It never shows a word before its day.",
+  },
+  {
+    title: "Practise Without Keeping Anything",
+    description:
+      "An entry can cover its meaning until you tap it, and a sentence can hide the readings over its kanji, so you can test yourself on the word. Both live in the page alone: nothing is saved, and the next word starts uncovered.",
   },
   {
     title: "Verified in CI",

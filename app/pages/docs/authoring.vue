@@ -100,7 +100,11 @@
       accent UniDic does not give for it too is not shown (UniDic is silent on
       some words, and the snapshot's <code>heldBack</code> names each one with
       what the two said), and a kanji whose stroke count KanjiVG and KANJIDIC2
-      disagree on shows no strokes.
+      disagree on shows no strokes. <code>data:components</code> downloads and
+      caches its pinned archive (EDRDG's KRADFILE, pinned in
+      <code>scripts/build-components-reference.mjs</code>) the same way, reads
+      <code>data/reference/kanji.json</code>, and so also runs after
+      <code>data:kanji</code>; a kanji the file has no line for shows no shapes.
     </p>
 
     <h2>Adding a month</h2>
@@ -113,9 +117,8 @@
       <li>
         <strong>Choose the words</strong> (a person or a model may do this).
         They must be pool words ({{ JLPT_RANGE }}) that no plan holds yet. Every
-        pool word whose spelling no other word shares is planned, so a further
-        month means a new word list, or a change that lets one spelling hold
-        several readings (the snapshots are keyed by spelling today).
+        pool word is planned, spelling and reading, so a further month means a
+        new word list.
       </li>
       <li>
         <strong>Write the plan</strong>
@@ -144,10 +147,10 @@
       </li>
       <li>
         <strong>Generate</strong>: <code>pnpm data:words</code>, then
-        <code>pnpm data:kanji</code> and <code>pnpm data:strokes</code> for any
-        kanji the new words add. It prints every entry it could not build and
-        why, and writes nothing until they are fixed (or use
-        <code>--keep-going</code>).
+        <code>pnpm data:kanji</code>, <code>pnpm data:strokes</code> and
+        <code>pnpm data:components</code> for any kanji the new words add. It
+        prints every entry it could not build and why, and writes nothing until
+        they are fixed (or use <code>--keep-going</code>).
       </li>
       <li>
         <strong>Read the result once.</strong> Entries with no breakdown are
@@ -246,13 +249,16 @@
         release, size and checksum in <code>PITCH_SOURCE</code>,
         <code>UNIDIC_ACCENT_SOURCE</code> or <code>STROKES_SOURCE</code>, run
         <code>pnpm data:pitch</code> and <code>pnpm data:words</code>, or
-        <code>pnpm data:strokes</code>, and review the diff.
+        <code>pnpm data:strokes</code>, and review the diff. For KRADFILE,
+        change the size and checksum in <code>COMPONENTS_SOURCE</code> and run
+        <code>pnpm data:components</code>.
       </li>
       <li>
         Dropped a word? <code>pnpm data:etymology --prune</code> removes pins
         nothing uses, and <code>pnpm data:sentences</code>,
-        <code>pnpm data:pitch</code>, <code>pnpm data:kanji</code> and
-        <code>pnpm data:strokes</code> drop what the word alone used.
+        <code>pnpm data:pitch</code>, <code>pnpm data:kanji</code>,
+        <code>pnpm data:strokes</code> and <code>pnpm data:components</code>
+        drop what the word alone used.
       </li>
       <li><code>pnpm test:run</code>: new gaps show up as failing entries.</li>
     </ol>
@@ -332,6 +338,10 @@ const commands = [
   {
     cmd: "pnpm data:pitch",
     does: "Picks each word's pitch accent from the pinned Kanjium list, keeps those UniDic gives too, and writes them and the words that lost one into `data/reference/pitch.json` (`--file <path>` names the list, `--unidic <path>` the dictionary file, `--check` fails if the snapshot is out of date).",
+  },
+  {
+    cmd: "pnpm data:components",
+    does: "Copies the shapes KRADFILE lists for every kanji in `data/reference/kanji.json` into `data/reference/components.json` (`--file <path>` names the archive, `--check` fails if the snapshot is out of date).",
   },
   {
     cmd: "pnpm data:strokes",
@@ -447,7 +457,7 @@ const failures = [
   },
   {
     failure: "Sentences or kanji out of step with the entries",
-    fix: "Run `pnpm data:sentences` (with the Tatoeba export in place), `pnpm data:pitch`, `pnpm data:words`, then `pnpm data:kanji` and `pnpm data:strokes`.",
+    fix: "Run `pnpm data:sentences` (with the Tatoeba export in place), `pnpm data:pitch`, `pnpm data:words`, then `pnpm data:kanji`, `pnpm data:strokes` and `pnpm data:components`.",
   },
   {
     failure: "Entry disagrees with JMdict",
