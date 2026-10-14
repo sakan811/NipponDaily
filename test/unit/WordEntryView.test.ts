@@ -43,6 +43,53 @@ describe("WordEntryView", () => {
     expect(badges).toContain("Rendaku");
   });
 
+  it("can cover the meaning and show it again, keeping nothing", async () => {
+    const wrapper = render();
+
+    await wrapper.find('[data-testid="word-cover"]').trigger("click");
+    expect(wrapper.find('[data-testid="word-meaning"]').exists()).toBe(false);
+    expect(wrapper.find('[data-testid="word-reveal"]').exists()).toBe(true);
+
+    await wrapper.find('[data-testid="word-reveal"]').trigger("click");
+    expect(wrapper.find('[data-testid="word-meaning"]').text()).toBe("letter");
+  });
+
+  it("starts the next word with its meaning showing", async () => {
+    const wrapper = render();
+    await wrapper.find('[data-testid="word-cover"]').trigger("click");
+
+    await wrapper.setProps({ entry: entry({ date: "2026-10-04" }) });
+    expect(wrapper.find('[data-testid="word-meaning"]').exists()).toBe(true);
+  });
+
+  it("can hide the readings over a sentence's kanji", async () => {
+    const wrapper = render({
+      examples: [
+        {
+          id: 1,
+          ja: "手紙を書く。",
+          en: "I write a letter.",
+          enId: 2,
+          form: "手紙",
+          furigana: [["手紙", "てがみ"], ["を"], ["書", "か"], ["く。"]],
+        },
+      ],
+    });
+    expect(wrapper.findAll("ruby").length).toBeGreaterThan(0);
+
+    await wrapper.find('[data-testid="word-readings-toggle"]').trigger("click");
+    expect(wrapper.findAll("ruby")).toHaveLength(0);
+    expect(wrapper.find('[data-testid="word-example"]').text()).toContain(
+      "手紙を書く。",
+    );
+  });
+
+  it("offers the readings toggle only where a sentence has readings", () => {
+    expect(render().find('[data-testid="word-readings-toggle"]').exists()).toBe(
+      false,
+    );
+  });
+
   it("links each part to the page listing every word it appears in", () => {
     const wrapper = render();
 
@@ -313,6 +360,25 @@ describe("WordEntryView", () => {
     expect(wrapper.find('[data-testid="word-no-breakdown"]').exists()).toBe(
       false,
     );
+  });
+
+  it("says what each source gave where the pitch accent sources disagree", () => {
+    const wrapper = render({
+      pitch: undefined,
+      pitchDisagreement: {
+        kanjium: [1],
+        unidic: [0],
+      },
+    });
+    const text = wrapper.find('[data-testid="word-pitch-disagreement"]').text();
+
+    expect(text).toContain("disagree");
+    expect(text).toContain("Kanjium");
+    expect(text).toContain("head-high (atamadaka)");
+    expect(text).toContain("UniDic");
+    expect(text).toContain("flat (heiban)");
+    // It is the section's answer, so the plain "no data" line is not added.
+    expect(wrapper.find('[data-testid="word-no-pitch"]').exists()).toBe(false);
   });
 
   it("shows no notice for a section that has its data", () => {
