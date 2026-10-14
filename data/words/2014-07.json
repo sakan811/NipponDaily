@@ -196,6 +196,11 @@
     ],
     "priority": ["ichi1", "news1", "nf22"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "便利"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -712,6 +717,11 @@
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf09"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "為に"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -758,6 +768,11 @@
       "Godan verb with 'ru' ending"
     ],
     "register": ["honorific or respectful (sonkeigo) language"],
+    "seeAlso": [
+      {
+        "term": "お出で"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -1092,6 +1107,10 @@
     "level": "N4",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf13"],
+    "pitchDisagreement": {
+      "kanjium": [3],
+      "unidic": [0]
+    },
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

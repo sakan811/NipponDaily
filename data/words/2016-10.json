@@ -192,6 +192,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "笑う"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -342,6 +347,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf34"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "碗"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -450,6 +460,11 @@
     ],
     "priority": ["ichi1", "news1", "nf22"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "野暮"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -539,6 +554,12 @@
     ],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "依然として",
+        "kana": "いぜんとして"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

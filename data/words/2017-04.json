@@ -427,6 +427,12 @@
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
     "priority": ["ichi1"],
     "pitch": [1, 2],
+    "seeAlso": [
+      {
+        "term": "付く",
+        "kana": "つく"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -726,6 +732,12 @@
     "level": "N3",
     "pos": ["Ichidan verb", "transitive verb"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "繋ぐ",
+        "kana": "つなぐ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

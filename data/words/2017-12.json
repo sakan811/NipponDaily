@@ -440,6 +440,11 @@
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "種をまく"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -558,6 +563,12 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf34"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "混じる",
+        "kana": "こんじる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -606,6 +617,12 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf34"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "混じる",
+        "kana": "こんじる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -712,6 +729,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "お祭り"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

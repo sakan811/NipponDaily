@@ -105,6 +105,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf13"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "小遣い銭"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -294,6 +299,11 @@
       "intransitive verb"
     ],
     "priority": ["ichi1", "spec1"],
+    "seeAlso": [
+      {
+        "term": "無沙汰"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -308,6 +318,11 @@
     "pos": ["interjection (kandoushi)"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "ごめんなさい"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -334,6 +349,12 @@
     "level": "N2",
     "pos": ["Ichidan verb", "transitive verb"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "耐える",
+        "kana": "たえる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -376,6 +397,11 @@
     "pos": ["interjection (kandoushi)"],
     "priority": ["news2", "nf28", "spec1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "ご覧なさい"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

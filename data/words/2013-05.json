@@ -499,6 +499,17 @@
     "pos": ["adverb (fukushi)"],
     "priority": ["spec1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "こう"
+      },
+      {
+        "term": "そう"
+      },
+      {
+        "term": "どう"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -586,6 +597,22 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf42"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "下げる"
+      }
+    ],
+    "seeAlso": [
+      {
+        "term": "手を上げる"
+      },
+      {
+        "term": "挙げる"
+      },
+      {
+        "term": "声を上げる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -725,6 +752,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "こちら"
+      },
+      {
+        "term": "そちら"
+      },
+      {
+        "term": "どちら"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -811,6 +849,12 @@
     ],
     "priority": ["ichi1", "news1", "nf05", "nf23", "spec1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "居る",
+        "kana": "いる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -829,6 +873,12 @@
     ],
     "priority": ["news1", "nf23", "spec1", "ichi1", "nf05"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "居る",
+        "kana": "いる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -1059,6 +1109,11 @@
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "ある"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

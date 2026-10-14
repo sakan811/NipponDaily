@@ -131,6 +131,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "訓",
+        "kana": "くん"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Yomi is the continuative stem of 読む (yomu, “to read”).",
@@ -916,6 +922,15 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf33"],
     "pitch": [0, 3],
+    "seeAlso": [
+      {
+        "term": "目下",
+        "kana": "めした"
+      },
+      {
+        "term": "上司"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Meue, “one's senior”, is 目 (me, “eye”) plus 上 (ue, “above”).",

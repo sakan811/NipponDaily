@@ -73,6 +73,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "航空郵便"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "エアメール is borrowed from English airmail.",
@@ -171,6 +176,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf17"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "決を採る"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ketsu, “decision”, is from Middle Chinese 決 (MC kwet).",
@@ -294,6 +304,12 @@
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf24"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "勿論",
+        "kana": "もちろん"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Muron is from Middle Chinese 無論, literally “without discussion, no argument”.",
@@ -392,6 +408,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "レントゲン線"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レントゲン is from German Röntgen.",
@@ -444,6 +465,11 @@
     ],
     "priority": ["ichi1", "news1", "nf15"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "台所"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Katte is 勝ち (kachi, “victory, win, advantage”) plus 手 (te, “means, way; hand”).",

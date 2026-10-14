@@ -94,6 +94,11 @@
     "level": "N1",
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi2"],
+    "seeAlso": [
+      {
+        "term": "決まりが悪い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -317,6 +322,11 @@
     ],
     "priority": ["ichi1", "news1", "nf11"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "主観"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -785,6 +795,11 @@
     "level": "N1",
     "pos": ["suffix"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "弱"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -918,6 +933,12 @@
     ],
     "priority": ["news1", "nf22"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "別学",
+        "kana": "べつがく"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

@@ -337,6 +337,11 @@
     ],
     "priority": ["ichi1", "news1", "nf10"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "投稿"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -355,6 +360,11 @@
     ],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "退場"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -773,6 +783,14 @@
     ],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "一般"
+      },
+      {
+        "term": "普遍"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1022,6 +1040,12 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "退ける",
+        "kana": "のける"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

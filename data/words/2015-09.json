@@ -582,6 +582,11 @@
     ],
     "priority": ["ichi1", "news1", "nf10"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "縦断"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1068,6 +1073,14 @@
       "Godan verb with 'ru' ending"
     ],
     "register": ["humble (kenjougo) language"],
+    "seeAlso": [
+      {
+        "term": "会う"
+      },
+      {
+        "term": "目にかかる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

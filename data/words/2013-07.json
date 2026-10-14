@@ -34,6 +34,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "身体",
+        "kana": "しんたい"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -388,6 +394,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "働き口"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -515,6 +526,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "警察官",
+        "kana": "けいさつかん"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -793,6 +810,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "そこ"
+      },
+      {
+        "term": "あそこ"
+      },
+      {
+        "term": "どこ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -864,6 +892,17 @@
     "level": "N5",
     "pos": ["pre-noun adjectival (rentaishi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "その"
+      },
+      {
+        "term": "あの"
+      },
+      {
+        "term": "どの"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

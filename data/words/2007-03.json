@@ -901,6 +901,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "昇降舵"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Erebētā is borrowed from American English elevator.",
@@ -989,6 +994,17 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "口髭"
+      },
+      {
+        "term": "顎鬚"
+      },
+      {
+        "term": "頬髯"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change", "unclear"],
     "headline": "Hige has several theories, including hohoge (頬 “cheek” plus 毛 “hair”) and hirakuke (開く “to open” plus 毛), literally “hair of the opening”.",
@@ -1240,6 +1256,11 @@
     "level": "N5",
     "pos": ["conjunction"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "それでは"
+      }
+    ],
     "stratum": "wago",
     "processes": ["clipping"],
     "headline": "De wa is a clipping of ではないか (de wa nai ka, “isn't it; might it be”).",

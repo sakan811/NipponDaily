@@ -1110,6 +1110,11 @@
     "level": "N3",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "おおよそ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Oyoso is from おおよそ (ōyoso).",
@@ -1270,6 +1275,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf43"],
     "pitch": [1, 2],
+    "seeAlso": [
+      {
+        "term": "スプーン"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Saji was originally 茶 (sa, “tea”, the Tang reading) plus 匙 (ji, “spoon, scoop”), then re-interpreted as kun'yomi.",
@@ -1460,6 +1470,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf11"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "お見舞い"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Mimai is the continuative stem of 見舞う (mimau), equivalent to 見 (mi) plus 舞い (mai).",

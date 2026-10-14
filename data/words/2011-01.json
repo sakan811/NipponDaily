@@ -816,6 +816,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "茶"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "Ocha is a compound of 御 (o-, honorific prefix) plus 茶 (cha, “tea”).",
@@ -1100,6 +1105,17 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "気が大きい"
+      },
+      {
+        "term": "気が変わる"
+      },
+      {
+        "term": "気が重い"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Ki is from Middle Chinese 氣, the kan'on reading, so likely a later borrowing.",
@@ -1463,6 +1479,11 @@
     ],
     "priority": ["ichi1", "spec1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "始める"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Hajimete is from 始めて (hajimete), the conjunctive form of the verb 始める (hajimeru, “to begin, to start”).",

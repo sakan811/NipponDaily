@@ -64,6 +64,11 @@
     "pos": ["suffix"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "強"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Jaku, “delicate”, is from Middle Chinese 弱 (MC nyak).",
@@ -115,6 +120,11 @@
     ],
     "priority": ["ichi1"],
     "pitch": [4, 0],
+    "seeAlso": [
+      {
+        "term": "重んじる"
+      }
+    ],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "Omonzuru shifted from Classical Japanese 重んず (omonzu), from 重 (omo, stem of 重い (omoi, “heavy”)) plus み plus す, literally “to treat as heavy”.",
@@ -824,6 +834,20 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf09"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "土を固める",
+        "kana": "つちをかためる"
+      },
+      {
+        "term": "国境を固める",
+        "kana": "こっきょうをかためる"
+      },
+      {
+        "term": "嘘で固める",
+        "kana": "うそでかためる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Katameru is かた (kata, “hard; solid”, root of かたい) plus める (-meru, “-ify”).",
@@ -1535,6 +1559,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "ライスカレー"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ライス is borrowed from English rice.",

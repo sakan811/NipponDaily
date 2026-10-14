@@ -64,6 +64,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [4, 0],
+    "antonyms": [
+      {
+        "term": "易しい"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Muzukashii is related to 憤る (muzukaru) and 憤る (mutsukaru).",
@@ -250,6 +255,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf23"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "浅い"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Fukai was fukashi in Early Middle Japanese, before its ending was replaced and the medial k fell out.",
@@ -398,6 +408,11 @@
     ],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "好き"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kirai is the stem form of the verb 嫌う (kirau, “to detest, dislike, hate”).",
@@ -834,6 +849,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "良人",
+        "kana": "りょうじん"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "sound-change"],
     "headline": "Otto was wofito, a compound of 男 (wo, “male, man”) plus 人 (fito, “person”), first attested in roughly 1220.",
@@ -1152,6 +1173,16 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf34"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "重い"
+      }
+    ],
+    "seeAlso": [
+      {
+        "term": "重い"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Karui was seldom used outside of proper nouns in Old Japanese, spelled 軽 in the Man'yōshū.",
@@ -1424,6 +1455,11 @@
     "pos": ["pre-noun adjectival (rentaishi)"],
     "priority": ["spec1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "大きな"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Chiisana appears starting from the Muromachi period, as the -na adjective form of 小さい.",
@@ -1480,6 +1516,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "首を横に振る"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Yoko is from Proto-Japonic *yəkə, with cognates in Kunigami, Miyako, Okinawan and Yaeyama.",

@@ -110,6 +110,11 @@
     "level": "N1",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "まるきり"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -523,6 +528,16 @@
     ],
     "priority": ["ichi1", "news1", "nf13"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "既婚"
+      }
+    ],
+    "seeAlso": [
+      {
+        "term": "非婚"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -856,6 +871,11 @@
     ],
     "priority": ["ichi1", "news1", "nf13"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "既知"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

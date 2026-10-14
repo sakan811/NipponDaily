@@ -487,6 +487,14 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "上旬"
+      },
+      {
+        "term": "下旬"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -838,6 +846,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf15"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "短所"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

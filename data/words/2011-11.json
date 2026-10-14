@@ -348,6 +348,11 @@
     ],
     "priority": ["ichi1", "news2", "nf31"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "右利き"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Hidarikiki is 左 (hidari, “left”) plus 利き (kiki, “effective”), with kiki voiced to giki by rendaku.",
@@ -1123,6 +1128,11 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "異常"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Seijō is from Middle Chinese 正常.",

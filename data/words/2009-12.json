@@ -381,6 +381,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "デモンストレーション"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["clipping"],
     "headline": "デモ is a clipped デモンストレーション, and Korean has a form 데모 to compare.",
@@ -1333,6 +1338,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf12"],
     "pitch": [3],
+    "antonyms": [
+      {
+        "term": "美点"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "A fault is a “lacking point”, borrowed from Chinese.",
@@ -1576,6 +1586,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "言語"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "rendaku", "ateji"],
     "headline": "“Word” is an old “word” plus an “edge” — and the 葉 in the spelling is only a stand-in.",

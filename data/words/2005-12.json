@@ -64,6 +64,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "物理学"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Butsuri is Middle Chinese 物理, which meant “nature of things; how things work; matters in life; life in general”.",
@@ -808,6 +813,11 @@
     "level": "N3",
     "pos": ["interjection (kandoushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "しまう"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Shimatta is the perfective of しまう (shimau, “to finish”): literally “finished”.",
@@ -846,6 +856,12 @@
     "level": "N3",
     "pos": ["Godan verb with 'mu' ending", "transitive verb"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "汲む",
+        "kana": "くむ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Kumu, “to serve sake”, is likely the same word as 汲む (kumu, “to pour”).",
@@ -1119,6 +1135,11 @@
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf15"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "眠る"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Neru is from Old Japanese 寝 (nu).",
@@ -1157,6 +1178,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "悪",
+        "kana": "あく"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Zen, “good”, is from Middle Chinese 善.",
@@ -1210,6 +1237,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "仕舞い"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Oshimai is 御 (o-, beautifying prefix) plus しまい (shimai, “ending, finishing”).",
@@ -1325,6 +1357,11 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf42"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "追い抜く"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Oikosu is 追う (ou, “to chase”) plus 越す (kosu, “to go past”).",
@@ -1482,6 +1519,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "コップ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Kappu is English cup, a doublet via Late Latin cuppa of コップ (koppu).",

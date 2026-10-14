@@ -8,6 +8,15 @@
     "pos": ["noun (common) (futsuumeishi)", "suffix"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "後輩",
+        "kana": "こうはい"
+      },
+      {
+        "term": "同輩"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "A senior is a Chinese “earlier fellow”, and ソンベ is its doublet.",
@@ -124,6 +133,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news2", "nf28"],
     "pitch": [0, 3],
+    "antonyms": [
+      {
+        "term": "熱い"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "“Cold” may be “claw” plus “painful”, with a missing i.",
@@ -272,6 +286,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf30", "news1", "nf20"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "伯父",
+        "kana": "おじ"
+      }
+    ],
     "processes": ["ateji"],
     "headline": "The word for an aunt is a “little mother” — and the kanji don't spell it that way.",
     "morphemes": [],
@@ -996,6 +1016,11 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)", "interjection (kandoushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "お休みなさい"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation", "clipping"],
     "headline": "Good night is a polite “rest” — and the verb for rest began as an adjective meaning “easy”.",

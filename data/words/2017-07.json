@@ -948,6 +948,11 @@
     ],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "退場"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -995,6 +1000,12 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news1", "nf15"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "茹でる",
+        "kana": "ゆでる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

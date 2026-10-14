@@ -8,6 +8,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf29"],
     "pitch": [1, 2],
+    "antonyms": [
+      {
+        "term": "素人",
+        "kana": "しろうと"
+      }
+    ],
     "processes": ["compound", "sound-change"],
     "headline": "Kurōto is 玄 (kuro, “deep, profound”) plus 人 (-uto, “person”), an old root form of 人 (hito).",
     "morphemes": [
@@ -146,6 +152,17 @@
       "noun or participle which takes the aux. verb suru"
     ],
     "pitch": [0, 1],
+    "seeAlso": [
+      {
+        "term": "ひょっとすると"
+      },
+      {
+        "term": "ひょっとしたら"
+      },
+      {
+        "term": "ひょっとして"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Hyotto has an onomatopoeic ひょ (hyo) element, plus と (to), an adverb-forming particle.",
@@ -166,6 +183,14 @@
     "pos": ["noun or verb acting prenominally", "noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "レギュラーメンバー"
+      },
+      {
+        "term": "レギュラーガソリン"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "レギュラー is from English regular.",

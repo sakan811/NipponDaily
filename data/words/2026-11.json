@@ -1,0 +1,1601 @@
+[
+  {
+    "date": "2026-11-01",
+    "term": "表",
+    "kana": "おもて",
+    "meaning": "surface; front; outside",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [3],
+    "antonyms": [
+      {
+        "term": "裏"
+      }
+    ],
+    "stratum": "wago",
+    "processes": ["compound"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Ultimately from Old Japanese. Cognate with 面 (omote). Derived as a compound of 面 (omo, “face”) + 手 (te, “hand; direction, side”), basically meaning \"face-wards; facing side\"."
+      },
+      {
+        "quote": "The term omote in general is attested since the Nihon Shoki of 720. The 表 spelling for this word is attested from roughly 1000."
+      },
+      {
+        "quote": "Cognate with Okinawan 表 (umuti)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ひょう"],
+        "quotes": [
+          "From Middle Chinese 表 (MC pjiewX). Attested in a portion of the Shoku Nihongi dated to 703."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 74697,
+        "ja": "表に出ようか。",
+        "en": "Shall we take this outside?",
+        "enId": 329022,
+        "form": "表",
+        "furigana": [["表", "おもて"], ["に"], ["出", "で"], ["ようか。"]]
+      },
+      {
+        "id": 2217324,
+        "ja": "下駄を突っかけて表に飛び出した。",
+        "en": "I slipped on my geta and dashed outside.",
+        "enId": 2217328,
+        "form": "表",
+        "furigana": [
+          ["下駄", "げた"],
+          ["を"],
+          ["突", "つ"],
+          ["っかけて"],
+          ["表", "おもて"],
+          ["に"],
+          ["飛", "と"],
+          ["び"],
+          ["出", "だ"],
+          ["した。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-02",
+    "term": "止める",
+    "kana": "やめる",
+    "meaning": "to end, to stop",
+    "level": "N4",
+    "pos": ["Ichidan verb", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *yamu."
+      },
+      {
+        "quote": "Cognate with Okinawan 止(や)みゆん (yamiyun)."
+      },
+      {
+        "quote": "Doublet of 辞(や)める (yameru, “to quit (a job)”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["とめる"],
+        "quotes": ["Doublet of 泊(と)める (tomeru)."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 146105,
+        "ja": "冗談はやめて。",
+        "en": "Get serious.",
+        "enId": 268457,
+        "form": "やめて",
+        "furigana": [["冗談", "じょうだん"], ["はやめて。"]]
+      },
+      {
+        "id": 216734,
+        "ja": "サム、止めて！",
+        "en": "Sam, don't!",
+        "enId": 54041,
+        "form": "止めて",
+        "furigana": [["サム、"], ["止", "と"], ["めて！"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-03",
+    "term": "開く",
+    "kana": "ひらく",
+    "meaning": "to open; to hold (an event)",
+    "level": "N4",
+    "pos": [
+      "Godan verb with 'ku' ending",
+      "intransitive verb",
+      "transitive verb"
+    ],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 81627,
+        "ja": "本を開くな。",
+        "en": "Don't open your book.",
+        "enId": 453893,
+        "form": "開く",
+        "furigana": [["本", "ほん"], ["を"], ["開", "ひら"], ["くな。"]]
+      },
+      {
+        "id": 78926,
+        "ja": "預金口座を開く。",
+        "en": "I'll open a bank account.",
+        "enId": 3163002,
+        "form": "開く",
+        "furigana": [
+          ["預金", "よきん"],
+          ["口座", "こうざ"],
+          ["を"],
+          ["開", "ひら"],
+          ["く。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-11-04",
+    "term": "打つ",
+    "kana": "うつ",
+    "meaning": "to hit, to strike",
+    "level": "N4",
+    "pos": ["Godan verb with 'tsu' ending", "transitive verb"],
+    "priority": ["ichi1", "news1", "nf06"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *ut-. Cognate with Miyako 打つぃ (utsï)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["ぶつ"],
+        "quotes": ["Shift from 打(う)つ (utsu)."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 188417,
+        "ja": "牡丹餅で腰打つ。",
+        "en": "His bread is buttered on both sides.",
+        "enId": 25560,
+        "form": "打つ",
+        "furigana": [
+          ["牡丹餅", "ぼたもち"],
+          ["で"],
+          ["腰", "こし"],
+          ["打", "う"],
+          ["つ。"]
+        ]
+      },
+      {
+        "id": 189664,
+        "ja": "雨が窓を打った。",
+        "en": "The rain whipped against the window.",
+        "enId": 26817,
+        "form": "打った",
+        "furigana": [
+          ["雨", "あめ"],
+          ["が"],
+          ["窓", "まど"],
+          ["を"],
+          ["打", "う"],
+          ["った。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-05",
+    "term": "市",
+    "kana": "し",
+    "meaning": "city",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 124098,
+        "ja": "当市には橋が多い。",
+        "en": "There are many bridges in this city.",
+        "enId": 279897,
+        "form": "市",
+        "furigana": [
+          ["当", "とう"],
+          ["市", "し"],
+          ["には"],
+          ["橋", "はし"],
+          ["が"],
+          ["多", "おお"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 188892,
+        "ja": "駅は市の中央にある。",
+        "en": "The station is the middle of the city.",
+        "enId": 26039,
+        "form": "市",
+        "furigana": [
+          ["駅", "えき"],
+          ["は"],
+          ["市", "し"],
+          ["の"],
+          ["中央", "ちゅうおう"],
+          ["にある。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-11-06",
+    "term": "音",
+    "kana": "おと",
+    "meaning": "sound, note",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨oto₂⟩ → */otə/ → /oto/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *ətə."
+      },
+      {
+        "quote": "Appears in the late 1400s with the geminate pronunciation /otto/. This reading is very rare, and appears to have fallen out of use."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["おん"],
+        "quotes": [
+          "*/ʔiəm/ → /əmʉ/ → /omʉ/ → /oɴ/",
+          "From Middle Chinese 音 (MC 'im)."
+        ]
+      },
+      {
+        "readings": ["と"],
+        "quotes": [
+          "⟨to₂⟩ → */tə/ → /to/",
+          "Apheresis of 音(おと) (oto) above.",
+          "The drop is likely due to lexicalization of compound terms (such as with the possessive particle の (no)), which would necessitate contraction of /CV oto/ to /CVto/ (e.g. no oto → noto) due to Old Japanese rules against vowel hiatus. This contracted form could have then been reanalyzed as a distinct form of the word."
+        ]
+      },
+      {
+        "readings": ["ね"],
+        "quotes": [
+          "⟨ne₂⟩ → */nəɨ/ → /ne/",
+          "From Old Japanese. First attested in the Kojiki of 712, with the phonetic spelling 泥.",
+          "The original meaning appears to have been \"a sound or cry, as made by an insect, bird, or beast\", likely related to the verb for making such a sound, 鳴く (naku, “to make a sound; to cry out”), as well as its doublet 泣く (naku, “to cry, to weep”). It is also likely related to 鳴る (naru, “to sound; to ring”)."
+        ]
+      },
+      {
+        "readings": ["いん"],
+        "quotes": [
+          "From Middle Chinese 音 (MC 'im).",
+          "The kan'on pronunciation, so likely a later borrowing."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 76314,
+        "ja": "音を大きくして。",
+        "en": "Turn the volume up.",
+        "enId": 327406,
+        "form": "音",
+        "furigana": [["音", "おと"], ["を"], ["大", "おお"], ["きくして。"]]
+      },
+      {
+        "id": 81036,
+        "ja": "妙な音が聞こえた。",
+        "en": "I heard a strange sound.",
+        "enId": 322678,
+        "form": "音",
+        "furigana": [
+          ["妙", "みょう"],
+          ["な"],
+          ["音", "おと"],
+          ["が"],
+          ["聞", "き"],
+          ["こえた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-07",
+    "term": "空く",
+    "kana": "すく",
+    "meaning": "to be empty (in reference to people), to be less crowded",
+    "level": "N4",
+    "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 198161,
+        "ja": "バスの前の方は空いていた。",
+        "en": "The front of the bus was not crowded.",
+        "enId": 35351,
+        "form": "空いていた",
+        "furigana": [
+          ["バスの"],
+          ["前", "まえ"],
+          ["の"],
+          ["方", "ほう"],
+          ["は"],
+          ["空", "す"],
+          ["いていた。"]
+        ]
+      },
+      {
+        "id": 200305,
+        "ja": "どの車両がすいていますか。",
+        "en": "Which car is less crowded?",
+        "enId": 37506,
+        "form": "すいています",
+        "furigana": [["どの"], ["車両", "しゃりょう"], ["がすいていますか。"]]
+      }
+    ]
+  },
+  {
+    "date": "2026-11-08",
+    "term": "明日",
+    "kana": "あす",
+    "meaning": "tomorrow",
+    "level": "N4",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1", "news1", "nf05"],
+    "pitch": [2],
+    "stratum": "wago",
+    "processes": ["derivation", "borrowing", "sound-change", "ateji"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese, first attested in the Kojiki (712 CE)."
+      },
+      {
+        "quote": "Various theories exist regarding the ultimate derivation:"
+      },
+      {
+        "quote": "* Possibly a shift from verb 明かす (akasu, “to pass”)."
+      },
+      {
+        "quote": "*: */akasu/ → */akusu/ → /asu/"
+      },
+      {
+        "quote": "* Possibly an apophonic form of or cognate with 朝 (asa, “morning”)."
+      },
+      {
+        "quote": "The kanji spelling is an orthographic borrowing from Chinese 明日."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["あした"],
+        "quotes": [
+          "Shift in meaning from 朝 (ashita, “next morning”), itself cognate with 朝 (asa, “morning”).",
+          "The kanji spelling is from Chinese 明日 (míngrì)."
+        ]
+      },
+      {
+        "readings": ["みょうにち"],
+        "quotes": [
+          "/mʲau nʲiti/ → /mʲɔːɲit͡ɕi/ → /mʲoːɲit͡ɕi/",
+          "From Middle Chinese compound 明日 (MC mjaeng nyit)."
+        ]
+      },
+      {
+        "readings": ["めいじつ"],
+        "quotes": [
+          "From a later borrowing of Chinese 明日 (míngrì), using the 漢音 (kan'on, literally “Han sound”).",
+          "Rare reading."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 234452,
+        "ja": "あすの朝出発しよう。",
+        "en": "Let's leave tomorrow morning.",
+        "enId": 71829,
+        "form": "あす",
+        "furigana": [
+          ["あすの"],
+          ["朝", "あさ"],
+          ["出発", "しゅっぱつ"],
+          ["しよう。"]
+        ]
+      },
+      {
+        "id": 234453,
+        "ja": "あすは決してこない。",
+        "en": "Tomorrow never comes.",
+        "enId": 71828,
+        "form": "あす",
+        "furigana": [["あすは"], ["決", "けっ"], ["してこない。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-09",
+    "term": "下",
+    "kana": "しも",
+    "meaning": "lower reaches (of a river); bottom, lower part",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [2],
+    "antonyms": [
+      {
+        "term": "上",
+        "kana": "かみ"
+      }
+    ],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨simo₁⟩ → /simʷo/ → /ɕimo/"
+      },
+      {
+        "quote": "From Old Japanese, from Proto-Japonic *simo."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["した"],
+        "quotes": [
+          "/sita/ → /ɕita/",
+          "From Old Japanese, from Proto-Japonic *sita."
+        ]
+      },
+      {
+        "readings": ["もと"],
+        "quotes": ["Doublet of 本(もと) (moto, “origin”)."]
+      },
+      {
+        "readings": ["げ", "か"],
+        "quotes": ["From Middle Chinese 下 (MC haeX|haeH)."]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-10",
+    "term": "上",
+    "kana": "じょう",
+    "meaning": "first volume; superior quality; governmental",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "下"
+      },
+      {
+        "term": "中"
+      }
+    ],
+    "stratum": "kango",
+    "processes": ["borrowing", "sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/d͡ʑɨau/ → /d͡ʑɔː/ → /d͡ʑoː/"
+      },
+      {
+        "quote": "From Middle Chinese 上 (MC dzyangX|dzyangH)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["うえ"],
+        "quotes": [
+          "⟨upe₂⟩ → /*upai̯/ → /upe/ → /ufe/ → /uwe/ → /ue/",
+          "From Old Japanese, from Proto-Japonic *upay.",
+          "Unbound apophonic form of uwa, ancient upa (see below)."
+        ]
+      },
+      {
+        "readings": ["うわ"],
+        "quotes": [
+          "/upa/ → /ufa/ → /uwa/",
+          "From Old Japanese. The combining form of ue, ancient upe (see above)."
+        ]
+      },
+      {
+        "readings": ["へ", "え"],
+        "quotes": [
+          "⟨upe₂⟩ → ⟨pe₂⟩ → */pe/ → /fe/ → /he/ (→ /e/)",
+          "Short-form of or shift from ue, ancient upe (see above). Realized as -e in some compounds."
+        ]
+      },
+      {
+        "readings": ["かみ"],
+        "quotes": [
+          "⟨kami₁⟩ → */kamʲi/ → /kami/",
+          "From Old Japanese. Already apparent in ancient texts such as the Kojiki (c. 712 CE) and the Man'yōshū (c. 759 CE).",
+          "Distinct from 神 (⟨kami₂⟩ → kami, “Shinto deity”)."
+        ]
+      },
+      {
+        "readings": ["かん"],
+        "quotes": [
+          "/kami/ → /kamʉ/ → /kaɴ/",
+          "Contraction of Old Japanese ⟨kami₁⟩. Spelled in ancient works as かむ (kamu) prior to the development of the ん (n) kana."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 175676,
+        "ja": "月が水平線上に出た。",
+        "en": "The moon rose above the horizon.",
+        "enId": 238789,
+        "form": "上",
+        "furigana": [
+          ["月", "つき"],
+          ["が"],
+          ["水平", "すいへい"],
+          ["線", "せん"],
+          ["上", "じょう"],
+          ["に"],
+          ["出", "で"],
+          ["た。"]
+        ]
+      },
+      {
+        "id": 141179,
+        "ja": "船が水平線上に現れた。",
+        "en": "The ship appeared on the horizon.",
+        "enId": 273392,
+        "form": "上",
+        "furigana": [
+          ["船", "ふね"],
+          ["が"],
+          ["水平", "すいへい"],
+          ["線", "せん"],
+          ["上", "じょう"],
+          ["に"],
+          ["現", "あらわ"],
+          ["れた。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-11",
+    "term": "角",
+    "kana": "すみ",
+    "meaning": "corner",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf09"],
+    "pitch": [1],
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-11-12",
+    "term": "生",
+    "kana": "せい",
+    "meaning": "life, living",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "pitch": [1],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 生 (MC sraeng|sraengH, “alive; fresh; raw; unprocessed”). The 漢音 (kan'on) reading, so likely a later borrowing from Middle Chinese."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["なま"],
+        "quotes": [
+          "From Old Japanese. Numerous derivatives already in use in the Heian period."
+        ]
+      },
+      {
+        "readings": ["き"],
+        "quotes": [
+          "Likely a contraction from 生き (iki, “life, living; freshness”)."
+        ]
+      },
+      {
+        "readings": ["しょう"],
+        "quotes": [
+          "From Middle Chinese 生 (MC sraeng|sraengH). The 呉音 (goon) reading, so likely the initial borrowing from Middle Chinese."
+        ]
+      },
+      {
+        "readings": ["ふ", "う"],
+        "quotes": [
+          "Inherited from Old Japanese. There are various theories about the origin of this term, including:",
+          "* Apheresis of 生ふ (opu → pu → fu, “to grow”) used predicatively",
+          "* Contraction of 原 (paru → pu → fu, “field”)",
+          "* Contraction of 生ゆ (payu → pu → fu, “to grow”) used predicatively"
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 142814,
+        "ja": "生を感じる。",
+        "en": "I feel alive.",
+        "enId": 271755,
+        "form": "生",
+        "furigana": [["生", "せい"], ["を"], ["感", "かん"], ["じる。"]]
+      },
+      {
+        "id": 168150,
+        "ja": "死は生の正反対である。",
+        "en": "Death is the antithesis of life.",
+        "enId": 246345,
+        "form": "生",
+        "furigana": [
+          ["死", "し"],
+          ["は"],
+          ["生", "せい"],
+          ["の"],
+          ["正", "せい"],
+          ["反対", "はんたい"],
+          ["である。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-13",
+    "term": "行き",
+    "kana": "いき",
+    "meaning": "the way there; bound for",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf12"],
+    "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "東京行き"
+      }
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-11-14",
+    "term": "抱く",
+    "kana": "いだく",
+    "meaning": "to hold (v.t.) (written expression), to embrace, to harbor",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "抱く",
+        "kana": "だく"
+      }
+    ],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "/udaku/ → /idaku/"
+      },
+      {
+        "quote": "Shift from earlier udaku."
+      },
+      {
+        "quote": "This reading is possibly cited to a work from roughly 850 CE. However, that citation is phonologically ambiguous, and may represent the reading udaku instead. The first unambiguous citation for the idaku reading is in the Tosa Nikki of roughly 935 CE."
+      },
+      {
+        "quote": "While there are numerous examples of mu shifting to u in various words, the mu- → u- → i- shift is unusual, and is shared only by mubara → ubara → ibara (茨, “bramble, briar”)."
+      },
+      {
+        "quote": "Found more commonly in 和(わ)文(ぶん) (wabun, “texts written primarily in native Japanese vocabulary”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["だく"],
+        "quotes": [
+          "/idaku/ → /daku/",
+          "Shift from idaku.",
+          "Compare the shift of 茨(いばら) (ibara, “bramble, briar”) → 薔薇(ばら) (bara, “rose”), or Classical いでる (ideru) and いだす (idasu) to modern 出(で)る (deru, “to come out, to appear”) and 出(だ)す (dasu, “to take out, to put out”).",
+          "First cited to the Utsubo Monogatari of roughly 999 CE."
+        ]
+      },
+      {
+        "readings": ["うだく"],
+        "quotes": [
+          "⟨mudaku⟩ → /mudaku/ → /udaku/",
+          "Shift from Old Japanese 抱(むだ)く (mudaku), in turn possibly a compound of 身(む) (mu, “body”, combining reading) + 綰(た)く (taku, “to gather in the hands; to work or operate something with the hands”).",
+          "First cited to a text from roughly 810 CE.",
+          "This reading is encountered more in the context of 漢(かん)文(ぶん)訓(くん)読(どく) (kanbun kundoku, “the Japanese reading of texts written primarily in a variety of Classical Chinese”), and it fell out of use in roughly the Kamakura period."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-15",
+    "term": "運転",
+    "kana": "うんてん",
+    "meaning": "operation, driving",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun or participle which takes the aux. verb suru",
+      "transitive verb",
+      "intransitive verb"
+    ],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 109797,
+        "ja": "彼は運転が荒い。",
+        "en": "He drives roughly.",
+        "enId": 293893,
+        "form": "運転",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["運転", "うんてん"],
+          ["が"],
+          ["荒", "あら"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 109795,
+        "ja": "彼は運転が上手だ。",
+        "en": "He is good at driving.",
+        "enId": 293895,
+        "form": "運転",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["運転", "うんてん"],
+          ["が"],
+          ["上手", "じょうず"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-11-16",
+    "term": "得る",
+    "kana": "うる",
+    "meaning": "to get, to gain, to win",
+    "level": "N3",
+    "pos": ["Nidan verb with 'u' ending (archaic)", "transitive verb"],
+    "priority": ["ichi1", "news2", "nf25"],
+    "register": ["formal or literary term"],
+    "seeAlso": [
+      {
+        "term": "得る",
+        "kana": "える"
+      }
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese."
+      },
+      {
+        "quote": "First attested in c. 759 in the Man'yōshū."
+      }
+    ],
+    "examples": [
+      {
+        "id": 221978,
+        "ja": "この港は封鎖されうる。",
+        "en": "The harbor can be blocked.",
+        "enId": 59304,
+        "form": "うる",
+        "furigana": [
+          ["この"],
+          ["港", "みなと"],
+          ["は"],
+          ["封鎖", "ふうさ"],
+          ["されうる。"]
+        ]
+      },
+      {
+        "id": 119250,
+        "ja": "彼との交際で得るところが多かった。",
+        "en": "I benefited much from my association with him.",
+        "enId": 284413,
+        "form": "得る",
+        "furigana": [
+          ["彼", "かれ"],
+          ["との"],
+          ["交際", "こうさい"],
+          ["で"],
+          ["得", "え"],
+          ["るところが"],
+          ["多", "おお"],
+          ["かった。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-17",
+    "term": "音",
+    "kana": "おん",
+    "meaning": "sound, note",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["borrowing", "sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "*/ʔiəm/ → /əmʉ/ → /omʉ/ → /oɴ/"
+      },
+      {
+        "quote": "From Middle Chinese 音 (MC 'im)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["おと", "おっと"],
+        "quotes": [
+          "⟨oto₂⟩ → */otə/ → /oto/",
+          "From Old Japanese, from Proto-Japonic *ətə.",
+          "Appears in the late 1400s with the geminate pronunciation /otto/. This reading is very rare, and appears to have fallen out of use."
+        ]
+      },
+      {
+        "readings": ["と"],
+        "quotes": [
+          "⟨to₂⟩ → */tə/ → /to/",
+          "Apheresis of 音(おと) (oto) above.",
+          "The drop is likely due to lexicalization of compound terms (such as with the possessive particle の (no)), which would necessitate contraction of /CV oto/ to /CVto/ (e.g. no oto → noto) due to Old Japanese rules against vowel hiatus. This contracted form could have then been reanalyzed as a distinct form of the word."
+        ]
+      },
+      {
+        "readings": ["ね"],
+        "quotes": [
+          "⟨ne₂⟩ → */nəɨ/ → /ne/",
+          "From Old Japanese. First attested in the Kojiki of 712, with the phonetic spelling 泥.",
+          "The original meaning appears to have been \"a sound or cry, as made by an insect, bird, or beast\", likely related to the verb for making such a sound, 鳴く (naku, “to make a sound; to cry out”), as well as its doublet 泣く (naku, “to cry, to weep”). It is also likely related to 鳴る (naru, “to sound; to ring”)."
+        ]
+      },
+      {
+        "readings": ["いん"],
+        "quotes": [
+          "From Middle Chinese 音 (MC 'im).",
+          "The kan'on pronunciation, so likely a later borrowing."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-18",
+    "term": "描く",
+    "kana": "かく",
+    "meaning": "to draw, to depict, to describe",
+    "level": "N3",
+    "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "書く"
+      }
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 157929,
+        "ja": "私は絵をかくのが苦手だ。",
+        "en": "I am poor at drawing.",
+        "enId": 256601,
+        "form": "かく",
+        "furigana": [
+          ["私", "わたし"],
+          ["は"],
+          ["絵", "え"],
+          ["をかくのが"],
+          ["苦手", "にがて"],
+          ["だ。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-11-19",
+    "term": "数",
+    "kana": "かず",
+    "meaning": "number, figure, amount",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf02"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 86044,
+        "ja": "彼等の数は多い。",
+        "en": "Their number is great.",
+        "enId": 317667,
+        "form": "数",
+        "furigana": [
+          ["彼等", "かれら"],
+          ["の"],
+          ["数", "かず"],
+          ["は"],
+          ["多", "おお"],
+          ["い。"]
+        ]
+      },
+      {
+        "id": 150841,
+        "ja": "事故の数が増えた。",
+        "en": "Accidents have increased in number.",
+        "enId": 263716,
+        "form": "数",
+        "furigana": [
+          ["事故", "じこ"],
+          ["の"],
+          ["数", "かず"],
+          ["が"],
+          ["増", "ふ"],
+          ["えた。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-11-20",
+    "term": "金",
+    "kana": "かね",
+    "meaning": "gold, metal; money",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "お金"
+      }
+    ],
+    "stratum": "wago",
+    "processes": ["derivation"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese."
+      },
+      {
+        "quote": "Possibly derived from unbound prefix kana- fused with い (i, nominal particle)."
+      },
+      {
+        "quote": "The four kanji spellings of this term, 金 (“gold”), 銀 (“silver”), 銅 (“copper”), and 鉄 (“iron”), hint at the importance of each of these four metals in ancient Japan."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["きん"],
+        "quotes": [
+          "/kimʉ/ → /kiɴ/",
+          "From Middle Chinese 金 (kim). Compare modern Mandarin 金 (jīn), Hokkien 金 (kim)."
+        ]
+      },
+      {
+        "readings": ["こん"],
+        "quotes": ["/komʉ/ → /koɴ/", "From Middle Chinese 金 (kim)."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 179726,
+        "ja": "金は少しある。",
+        "en": "I have a little money.",
+        "enId": 18587,
+        "form": "金",
+        "furigana": [["金", "かね"], ["は"], ["少", "すこ"], ["しある。"]]
+      },
+      {
+        "id": 78941,
+        "ja": "余分な金はない。",
+        "en": "We have no spare money.",
+        "enId": 249461,
+        "form": "金",
+        "furigana": [["余分", "よぶん"], ["な"], ["金", "かね"], ["はない。"]]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-21",
+    "term": "上",
+    "kana": "かみ",
+    "meaning": "upper reaches (of a river), upper part; first, beginning",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "antonyms": [
+      {
+        "term": "下",
+        "kana": "しも"
+      }
+    ],
+    "stratum": "wago",
+    "processes": ["sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨kami₁⟩ → */kamʲi/ → /kami/"
+      },
+      {
+        "quote": "From Old Japanese. Already apparent in ancient texts such as the Kojiki (c. 712 CE) and the Man'yōshū (c. 759 CE)."
+      },
+      {
+        "quote": "Distinct from 神 (⟨kami₂⟩ → kami, “Shinto deity”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["うえ"],
+        "quotes": [
+          "⟨upe₂⟩ → /*upai̯/ → /upe/ → /ufe/ → /uwe/ → /ue/",
+          "From Old Japanese, from Proto-Japonic *upay.",
+          "Unbound apophonic form of uwa, ancient upa (see below)."
+        ]
+      },
+      {
+        "readings": ["うわ"],
+        "quotes": [
+          "/upa/ → /ufa/ → /uwa/",
+          "From Old Japanese. The combining form of ue, ancient upe (see above)."
+        ]
+      },
+      {
+        "readings": ["へ", "え"],
+        "quotes": [
+          "⟨upe₂⟩ → ⟨pe₂⟩ → */pe/ → /fe/ → /he/ (→ /e/)",
+          "Short-form of or shift from ue, ancient upe (see above). Realized as -e in some compounds."
+        ]
+      },
+      {
+        "readings": ["かん"],
+        "quotes": [
+          "/kami/ → /kamʉ/ → /kaɴ/",
+          "Contraction of Old Japanese ⟨kami₁⟩. Spelled in ancient works as かむ (kamu) prior to the development of the ん (n) kana."
+        ]
+      },
+      {
+        "readings": ["じょう"],
+        "quotes": [
+          "/d͡ʑɨau/ → /d͡ʑɔː/ → /d͡ʑoː/",
+          "From Middle Chinese 上 (MC dzyangX|dzyangH)."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-22",
+    "term": "柄",
+    "kana": "がら",
+    "meaning": "pattern; build; character",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
+    "priority": ["ichi1", "news1", "nf07"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["derivation", "rendaku", "sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "Alteration of kara, “qualities, characteristics”. Originally only found as a suffix. The kara changes to gara as an instance of rendaku (連濁). The rendaku pronunciation was then later used independently."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["え"],
+        "quotes": [
+          "Change in meaning from 枝(え) (e, historically ye, “branch, stem”)."
+        ]
+      },
+      {
+        "readings": ["かび"],
+        "quotes": [
+          "From Old Japanese. Used in the Kojiki. Generally regarded as cognate with 黴(かび) (kabi, “mold”), from the shared idea of sprouts or shoots. Appears to be the noun stem of Old Japanese verb かぶ (kabu) (source of modern 黴(かび)る (kabiru, “to go moldy”)), with probable original meaning of to sprout."
+        ]
+      },
+      {
+        "readings": ["かい"],
+        "quotes": [
+          "/kabi/ → /kapi/ → /kaɸi/ → /kawi/ → /kai/",
+          "Alteration of kabi."
+        ]
+      },
+      {
+        "readings": ["から"],
+        "quotes": [
+          "From Old Japanese, from Proto-Japonic *kara. Origin of particle から (kara, “from, because”)."
+        ]
+      },
+      {
+        "readings": ["から"],
+        "quotes": [
+          "In light of the stem sense, probably derived semantically from origin, source meanings.",
+          "Compare also Korean 가락 (garak), similarly used as a counter for long and slender objects."
+        ]
+      },
+      {
+        "readings": ["つか"],
+        "quotes": [
+          "Cognate with 束(つか) (tsuka, ancient unit of length, equivalent to the amount covered from pinky to forefinger when gripping something; analogous to English hand).",
+          "Both likely derive from verb 付(つ)く (tsuku, “to set to, to attach, to accompany”), particularly as seen in modern Japanese idioms such as 手(て)を付(つ)ける (te o tsukeru, “to set one's hand to something”), 手(て)が付(つ)く (te ga tsuku, “to start using something”, literally “one's hand sets on something”)."
+        ]
+      },
+      {
+        "readings": ["つく"],
+        "quotes": ["Nominalization of verb 付(つ)く (tsuku, “to attach”)."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 191675,
+        "ja": "われわれはそんなりっぱな家に住む柄ではない。",
+        "en": "It is not for us to live in such a fine house.",
+        "enId": 28837,
+        "form": "柄",
+        "furigana": [
+          ["われわれはそんなりっぱな"],
+          ["家", "いえ"],
+          ["に"],
+          ["住", "す"],
+          ["む"],
+          ["柄", "がら"],
+          ["ではない。"]
+        ]
+      },
+      {
+        "id": 223217,
+        "ja": "このペーズリー柄のネクタイ、あなたに似合うんじゃない？",
+        "en": "Don't you think this paisley tie would look good on you?",
+        "enId": 60549,
+        "form": "柄",
+        "furigana": [
+          ["このペーズリー"],
+          ["柄", "がら"],
+          ["のネクタイ、あなたに"],
+          ["似合", "にあ"],
+          ["うんじゃない？"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-23",
+    "term": "球",
+    "kana": "きゅう",
+    "meaning": "globe, sphere, ball",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf04"],
+    "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "球体"
+      },
+      {
+        "term": "球面"
+      }
+    ],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 毬 /球 (gjuw, “ball, sphere, orb”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["たま"],
+        "quotes": [
+          "Same word as 玉(たま) (tama, “ball, sphere, bullet, egg; gem, jewel, object of value”)."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-24",
+    "term": "管",
+    "kana": "くだ",
+    "meaning": "pipe, tube",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [1],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Old Japanese 管 (kuda, “pipe, tube”)."
+      },
+      {
+        "quote": "First attested in the Nihon Shoki of 720 and the Man'yōgana of 759 with the ideogrammatic spelling of 小角 (literally “small horn”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["かん"],
+        "quotes": [
+          "/kwan/ → /kan/",
+          "From Middle Chinese 管 (kuɑn^X, “pipe, tube”).",
+          "The pipe sense is traced back to the writings of Zhuangzi, already an influential text in Japan in the 700s.",
+          "The brush handle sense is traced back to the text of the 詩経 (Shikyō, “Classic of Poetry”), an Old Chinese poetry anthology written from the 11th to 7th centuries BCE and already influencing Japanese writing since the mid-700s.",
+          "The wind instrument sense is sourced from the 延喜式 (Engishiki) of 927."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-25",
+    "term": "下る",
+    "kana": "くだる",
+    "meaning": "to get down, to descend",
+    "level": "N3",
+    "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
+    "priority": ["ichi1", "news1", "nf17"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": [],
+    "examples": [
+      {
+        "id": 141114,
+        "ja": "船は水路を下った。",
+        "en": "The ship sailed down the channel.",
+        "enId": 273458,
+        "form": "下った",
+        "furigana": [
+          ["船", "ふね"],
+          ["は"],
+          ["水路", "すいろ"],
+          ["を"],
+          ["下", "くだ"],
+          ["った。"]
+        ]
+      },
+      {
+        "id": 210528,
+        "ja": "その坂道を下ろう。",
+        "en": "Let's descend the slope.",
+        "enId": 47796,
+        "form": "下ろう",
+        "furigana": [
+          ["その"],
+          ["坂道", "さかみち"],
+          ["を"],
+          ["下", "くだ"],
+          ["ろう。"]
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2026-11-26",
+    "term": "後",
+    "kana": "ご",
+    "meaning": "afterwards, since then",
+    "level": "N3",
+    "pos": [
+      "noun (common) (futsuumeishi)",
+      "noun, used as a suffix",
+      "adverb (fukushi)"
+    ],
+    "priority": ["spec1"],
+    "pitch": [0],
+    "stratum": "kango",
+    "processes": ["borrowing"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "From Middle Chinese 後 (huwX, huwH, “after”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["あと"],
+        "quotes": [
+          "Originally an extension of 跡(あと) (ato, “footprint; leftover”), itself a compound of 足(あ) (a, “foot”) + 所(と) (to, “place”)."
+        ]
+      },
+      {
+        "readings": ["しりえ"],
+        "quotes": [
+          "/siripe/ → /çirife/ → /çirie/",
+          "From Old Japanese. Found in the Nihon Shoki of 720, and phonetically as 志利弊 (siripe₁) in the Man'yōshū of 759.",
+          "Compound of 尻 (shiri, “butt, tail, rear”) + 方 (e, “side, facing, way, direction”)."
+        ]
+      },
+      {
+        "readings": ["のち"],
+        "quotes": ["From Old Japanese. Ultimate derivation unknown."]
+      },
+      {
+        "readings": ["ゆり"],
+        "quotes": [
+          "From Old Japanese. Ultimate derivation unknown. May be cognate with より (yori, “from; after”)."
+        ]
+      },
+      {
+        "readings": ["こう"],
+        "quotes": [
+          "From Middle Chinese 後 (huwX, “after”). Classified as the kan'on, so likely a later borrowing. Compare modern Mandarin reading hòu."
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "id": 110000,
+        "ja": "彼は一時間後現れた。",
+        "en": "He turned up an hour later.",
+        "enId": 288416,
+        "form": "後",
+        "furigana": [
+          ["彼", "かれ"],
+          ["は"],
+          ["一", "いち"],
+          ["時間", "じかん"],
+          ["後", "ご"],
+          ["現", "あらわ"],
+          ["れた。"]
+        ]
+      },
+      {
+        "id": 235487,
+        "ja": "２時間後に戻ります。",
+        "en": "I'll be back in two hours.",
+        "enId": 72863,
+        "form": "後",
+        "furigana": [
+          ["２"],
+          ["時間", "じかん"],
+          ["後", "ご"],
+          ["に"],
+          ["戻", "もど"],
+          ["ります。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-27",
+    "term": "工場",
+    "kana": "こうば",
+    "meaning": "factory, plant",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf01"],
+    "pitch": [3],
+    "stratum": "hybrid",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-11-28",
+    "term": "円",
+    "kana": "まる",
+    "meaning": "circle",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1"],
+    "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "○",
+        "kana": "まる"
+      }
+    ],
+    "stratum": "wago",
+    "processes": [],
+    "morphemes": [],
+    "sources": []
+  },
+  {
+    "date": "2026-11-29",
+    "term": "都",
+    "kana": "みやこ",
+    "meaning": "city; capital",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)"],
+    "priority": ["ichi1", "news1", "nf03"],
+    "pitch": [0],
+    "stratum": "wago",
+    "processes": ["compound", "sound-change"],
+    "morphemes": [],
+    "sources": [
+      {
+        "quote": "⟨mi₁yako₁⟩ → */mʲijakʷo/ → /mijako/"
+      },
+      {
+        "quote": "From Old Japanese, a compound of 宮(みや) (miya, “imperial palace”) + 処(こ) (ko, “place”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["と", "つ"],
+        "quotes": ["From Middle Chinese 都 (MC tu)."]
+      }
+    ],
+    "examples": [
+      {
+        "id": 123251,
+        "ja": "奈良はとても古い都です。",
+        "en": "Nara is a very old city.",
+        "enId": 280748,
+        "form": "都",
+        "furigana": [
+          ["奈良", "なら"],
+          ["はとても"],
+          ["古", "ふる"],
+          ["い"],
+          ["都", "みやこ"],
+          ["です。"]
+        ]
+      },
+      {
+        "id": 183706,
+        "ja": "間取りも狭いし、周りもうるさいけど、住めば都なんだよ、この部屋。",
+        "en": "It's a small noisy apartment, but it's where I live and I call it home.",
+        "enId": 20829,
+        "form": "都",
+        "furigana": [
+          ["間取", "まど"],
+          ["りも"],
+          ["狭", "せま"],
+          ["いし、"],
+          ["周", "まわ"],
+          ["りもうるさいけど、"],
+          ["住", "す"],
+          ["めば"],
+          ["都", "みやこ"],
+          ["なんだよ、この"],
+          ["部屋", "へや"],
+          ["。"]
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  },
+  {
+    "date": "2026-11-30",
+    "term": "明後日",
+    "kana": "みょうごにち",
+    "meaning": "day after tomorrow",
+    "level": "N3",
+    "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
+    "priority": ["ichi1"],
+    "pitch": [3],
+    "stratum": "kango",
+    "processes": ["compound"],
+    "morphemes": [
+      {
+        "text": "明後",
+        "reading": "みょうご",
+        "meaning": "the ... after next ..."
+      },
+      {
+        "text": "日",
+        "reading": "にち",
+        "meaning": "day"
+      }
+    ],
+    "sources": [
+      {
+        "quote": "From 明後 (myōgo-, “the ... after next ...”) + 日 (nichi, “day”)."
+      }
+    ],
+    "otherReadings": [
+      {
+        "readings": ["あさって"],
+        "quotes": [
+          "/asate/ → /asat̚te/",
+          "Shift from earlier asate (see Etymology 2 below).",
+          "The kanji spelling is from myōgonichi (see Etymology 3 below)."
+        ]
+      },
+      {
+        "readings": ["あさて"],
+        "quotes": [
+          "/asu sarite/ → /asːarʉte/ → /asate/",
+          "Apparently recorded in the 名語記 (Myōgoki) etymology dictionary of 1263 as a shift from asusate, in turn from 明日去りて (asu sarite), itself a compound of 明日 (asu, “tomorrow”) + 去りて (sarite, modern 去って (satte), the conjunctive form of 去る (saru), “to pass”).",
+          "The kanji spelling is from myōgonichi (see Etymology 3)."
+        ]
+      }
+    ],
+    "wiktionaryDump": "2026-09-02"
+  }
+]

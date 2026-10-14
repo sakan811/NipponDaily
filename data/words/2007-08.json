@@ -642,6 +642,11 @@
     ],
     "priority": ["ichi1", "news2", "nf29", "news1", "nf22"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "逆さま"
+      }
+    ],
     "stratum": "wago",
     "processes": ["clipping"],
     "headline": "Sakasa is a clipping of 逆様 (sakasama), of the same meaning.",
@@ -1289,6 +1294,11 @@
     "register": [
       "familiar language",
       "honorific or respectful (sonkeigo) language"
+    ],
+    "seeAlso": [
+      {
+        "term": "お坊さん"
+      }
     ],
     "stratum": "kango",
     "processes": [],

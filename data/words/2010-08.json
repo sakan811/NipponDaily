@@ -80,6 +80,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "register": ["honorific or respectful (sonkeigo) language"],
+    "seeAlso": [
+      {
+        "term": "祝い"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Oiwai is 御 (o-, polite prefix) plus 祝い (iwai, “celebration, a gift or present”).",
@@ -260,6 +265,11 @@
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "お昼"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change", "unclear"],
     "headline": "Hiru is derived from 日 (hi, “day”), plus an element ru of unclear meaning that 夜 (yoru) seems to share.",
@@ -704,6 +714,11 @@
     "pos": ["expressions (phrases, clauses, etc.)"],
     "priority": ["news1", "nf13"],
     "register": ["honorific or respectful (sonkeigo) language"],
+    "seeAlso": [
+      {
+        "term": "くださる"
+      }
+    ],
     "stratum": "wago",
     "processes": ["clipping", "sound-change"],
     "headline": "Kudasai is the imperative of 下さる (kudasaru, “to give”), the honorific form of 呉れる (kureru).",
@@ -859,6 +874,12 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a prefix"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "女",
+        "kana": "おんな"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Otoko may be おと (oto, “young?”) plus 子 (ko, “child”), compared with 少女 (otome).",
@@ -1238,6 +1259,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "register": ["honorific or respectful (sonkeigo) language"],
+    "seeAlso": [
+      {
+        "term": "姉さん"
+      }
+    ],
     "processes": [],
     "headline": "Onēsan is 御 (o-) plus 姉 (nē) plus さん (-san).",
     "morphemes": [],
@@ -1401,6 +1427,14 @@
     "pos": ["pronoun", "noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "彼女"
+      },
+      {
+        "term": "彼氏"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Kare is 彼 (ka, “that, yon”) plus れ (-re); the male sense of “he” only arose later.",
@@ -1536,6 +1570,12 @@
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf12"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "入る",
+        "kana": "はいる"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Deru was idu: the initial i fell out in compounds, and du shifted to -deru only later.",

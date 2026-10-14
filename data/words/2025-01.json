@@ -115,6 +115,12 @@
     "meaning": "to prompt someone",
     "level": "N1",
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
+    "seeAlso": [
+      {
+        "term": "突く",
+        "kana": "つつく"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -333,6 +339,11 @@
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "目をつぶる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -443,6 +454,24 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf25"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "名を連ねる",
+        "kana": "なをつらねる"
+      },
+      {
+        "term": "袂を連ねる",
+        "kana": "たもとをつらねる"
+      },
+      {
+        "term": "美辞麗句を連ねる",
+        "kana": "びじれいくをつらねる"
+      },
+      {
+        "term": "書き連ねる",
+        "kana": "かきつらねる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

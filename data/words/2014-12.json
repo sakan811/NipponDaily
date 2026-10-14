@@ -218,6 +218,11 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "反対"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -809,6 +814,11 @@
     ],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "収入"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1154,6 +1164,11 @@
     "level": "N3",
     "pos": ["conjunction"],
     "priority": ["ichi1", "news1", "nf14"],
+    "seeAlso": [
+      {
+        "term": "にしたがって"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

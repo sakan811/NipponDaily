@@ -102,6 +102,11 @@
     "pos": ["Godan verb with 'ku' ending", "intransitive verb"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "薬が効く"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -134,6 +139,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "期限切れ"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -905,6 +915,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "いい気味",
+        "kana": "いいきみ"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

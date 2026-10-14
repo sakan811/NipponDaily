@@ -67,6 +67,11 @@
     ],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "往復切符"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Ōfuku, “round trip”, began as waupuku and lost its w along the way.",
@@ -197,6 +202,20 @@
     "pos": ["pre-noun adjectival (rentaishi)"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "あんなに"
+      },
+      {
+        "term": "こんな"
+      },
+      {
+        "term": "そんな"
+      },
+      {
+        "term": "どんな"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Anna contracts あの様な (ano yō na).",
@@ -367,6 +386,11 @@
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
     "priority": ["ichi1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "書く"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "rendaku"],
     "headline": "Egaku is 絵 (e, “picture”) plus 書く (kaku, “write”): literally “to write a picture”.",
@@ -530,6 +554,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news2", "nf30", "spec2"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "書体"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Jitai is 字 (“character”) plus 体 (“form”).",
@@ -733,6 +762,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "供給"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Juyō is from Middle Chinese 需要 (MC sju 'jiewH).",

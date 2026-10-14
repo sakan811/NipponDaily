@@ -8,6 +8,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf25"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "トイレ"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "rendaku", "borrowing"],
     "headline": "The toilet is the “place of convenience” — a coinage that Wiktionary dates to the late 1400s.",
@@ -60,6 +65,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "真名"
+      }
+    ],
     "stratum": "hybrid",
     "processes": ["compound", "sound-change"],
     "headline": "Kana means “borrowed name” — characters lent for their sounds.",
@@ -321,6 +331,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "フォルテ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "The piano is a clipped “pianoforte” — or a plain Italian word, depending on the source.",
@@ -482,6 +497,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
     "pitch": [1, 2],
+    "antonyms": [
+      {
+        "term": "玄人"
+      }
+    ],
     "processes": ["compound", "sound-change", "ateji"],
     "headline": "An amateur is a “plain person” — and the “person” part is a form of 人 that never stands on its own.",
     "morphemes": [
@@ -614,6 +634,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "お弁当"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing", "clipping", "sound-change", "ateji"],
     "headline": "The bentō was probably a “face tub” — and the 弁 was picked to avoid another character's meaning.",
@@ -678,6 +703,11 @@
     ],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "地味"
+      }
+    ],
     "stratum": "hybrid",
     "processes": ["compound", "rendaku", "sound-change", "ateji"],
     "headline": "“Flashy” may come from a lively “breaking melody” on the shamisen — the 派 is only ateji.",
@@ -767,6 +797,11 @@
     ],
     "priority": ["ichi1", "news1", "nf06"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "男の子"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A girl is a “female child” — with a second, rarer name built on another word for “woman”.",
@@ -1216,6 +1251,12 @@
     ],
     "priority": ["ichi1", "news1", "nf15"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "上手",
+        "kana": "じょうず"
+      }
+    ],
     "processes": ["sound-change", "meaning-shift", "ateji"],
     "headline": "“Unskilled” may be “at the edge” of what you can do.",
     "morphemes": [],

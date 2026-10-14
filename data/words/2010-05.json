@@ -36,6 +36,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "竜馬"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Was it muma? Wiktionary notes the “ma” horse words across Asia, even English mare, but says no consensus exists.",
@@ -130,6 +135,11 @@
     "priority": ["ichi1", "news1", "nf01"],
     "register": ["humble (kenjougo) language"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "父"
+      }
+    ],
     "stratum": "wago",
     "processes": ["derivation", "sound-change"],
     "headline": "Mother was papa, drifted to hawa, then a doubled sound pulled it back to haha in the late 16th century.",
@@ -221,6 +231,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [2, 1],
+    "seeAlso": [
+      {
+        "term": "母",
+        "kana": "はは"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Father is a doubled syllable too: Old Japanese titi, Proto-Japonic *titi.",
@@ -329,6 +345,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "弟"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change", "unclear"],
     "headline": "Elder brother is perhaps “my” + の + “eldest sibling”: 吾 (a) + の (no) + 兄 (ye), though the source calls it unclear.",
@@ -736,6 +757,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "金",
+        "kana": "かね"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Okane is just 御 (o-, beautifying prefix) plus 金 (kane, “money”).",
@@ -1005,6 +1032,14 @@
     "pos": ["Godan verb with 'ru' ending", "transitive verb"],
     "priority": ["ichi1", "news1", "nf11"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "電話を切る"
+      },
+      {
+        "term": "キリ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kiru is Old Japanese, from Proto-Japonic *kiru, with Ryūkyūan cognates.",
@@ -1272,6 +1307,11 @@
     "level": "N5",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "seeAlso": [
+      {
+        "term": "内国人"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "sound-change"],
     "headline": "Gaikokujin is, by surface analysis, 外国 (gaikoku, “foreign country”) plus 人 (-jin, “person”).",
@@ -1520,6 +1560,11 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a prefix"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "男"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Onna was womina in Old Japanese, then omina, and the source traces womi1na → womʉna → wonːa → onːa.",

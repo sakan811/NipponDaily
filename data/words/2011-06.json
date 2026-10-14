@@ -568,6 +568,11 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
+    "seeAlso": [
+      {
+        "term": "ジーンズパンツ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["wasei"],
     "headline": "ジーパン is a blend of ジーンズ (jīnzu, “jeans”) and パンツ (pantsu, “pants”).",
@@ -1011,6 +1016,11 @@
     "pos": ["interjection (kandoushi)", "prefix"],
     "priority": ["gai1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "イエス"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ノー is borrowed from English no.",
@@ -1228,6 +1238,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "セルフタイマー"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "タイマー is from English timer.",
@@ -1294,6 +1309,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "お詫び"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Wabi is the continuative stem of the verb 詫びる (wabiru, “to apologise”).",
@@ -1331,6 +1351,11 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "東京都"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "To, “metropolitan”, is from Middle Chinese 都 (MC tu).",

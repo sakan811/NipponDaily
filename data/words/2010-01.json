@@ -56,6 +56,11 @@
     "priority": ["gai1", "ichi1"],
     "field": ["railway"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "プラットホーム"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "The train platform and the home are two different clippings of two English words.",
@@ -348,6 +353,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "register": ["honorific or respectful (sonkeigo) language"],
+    "seeAlso": [
+      {
+        "term": "母さん"
+      }
+    ],
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "“Mother” in two layers: a surface of “honorific, mother, honorific”, and under it the older o-kaka-sama.",
     "morphemes": [
@@ -1168,6 +1178,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "郵便切手"
+      }
+    ],
     "processes": [],
     "headline": "A stamp borrows its two characters from “ticket” and “commercial paper”.",
     "morphemes": [],

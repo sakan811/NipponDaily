@@ -20,6 +20,11 @@
     "pos": ["Godan verb with 'mu' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf46"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "混む"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -179,6 +184,11 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "危険"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

@@ -104,6 +104,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news2", "nf28", "spec1"],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "昼"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Lunch, or noon, is a beautified “daytime”.",
@@ -1001,6 +1006,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "レジスター"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "The checkout is a clipped “register”.",
@@ -1499,6 +1509,11 @@
     ],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "女の子"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "A boy is a “male child” with a little の in between, first cited in 1711.",

@@ -155,6 +155,11 @@
     ],
     "priority": ["news1", "nf16"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "過疎"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -559,6 +564,11 @@
     ],
     "priority": ["ichi1", "news1", "nf09"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "酸化"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

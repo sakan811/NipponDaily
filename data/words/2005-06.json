@@ -236,6 +236,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "こちら"
+      },
+      {
+        "term": "そちら"
+      },
+      {
+        "term": "あちら"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Dotchi is 何方 (dochi, “where, which way”) with a sokuon added.",

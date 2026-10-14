@@ -201,6 +201,11 @@
     ],
     "priority": ["news1", "nf11"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "外来患者"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -415,6 +420,11 @@
     "pos": ["Ichidan verb", "transitive verb"],
     "priority": ["ichi1", "news2", "nf47"],
     "pitch": [4],
+    "seeAlso": [
+      {
+        "term": "顧みる"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

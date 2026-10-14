@@ -559,6 +559,10 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [0],
+    "pitchDisagreement": {
+      "kanjium": [3, 0],
+      "unidic": [0]
+    },
     "stratum": "gairaigo",
     "processes": ["wasei", "borrowing", "clipping"],
     "headline": "スプリング is borrowed from English spring, and also clips スプリングコート (supuringu kōto, “a topcoat”).",
@@ -654,6 +658,11 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf06"],
+    "seeAlso": [
+      {
+        "term": "衆議院"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Sangiin is 参議 (sangi, “participation in government”) plus 院 (-in, “institution”).",
@@ -1278,6 +1287,11 @@
     "level": "N1",
     "pos": ["adverb (fukushi)"],
     "register": ["colloquial"],
+    "seeAlso": [
+      {
+        "term": "自棄"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Yakeni is やけ (yake) plus に (ni).",

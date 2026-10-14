@@ -209,6 +209,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf14"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "気球"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "A balloon is a “wind ship”, and the word seems to have been coined in Japan around 1860.",
@@ -640,6 +645,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf32"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "ひらがな"
+      }
+    ],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Katakana is “partial kana” — the same 片 as in 方, “direction”.",
@@ -930,6 +940,12 @@
     "level": "N3",
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["ichi1", "news1", "nf01"],
+    "antonyms": [
+      {
+        "term": "消極的",
+        "kana": "しょうきょくてき"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "derivation"],
     "headline": "“Proactive” is the “positive pole” with an adjective-forming suffix.",

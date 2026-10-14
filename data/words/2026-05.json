@@ -23,6 +23,11 @@
     ],
     "priority": ["news1", "nf09"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "劣位"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -309,6 +314,11 @@
     ],
     "priority": ["ichi1", "news1", "nf11"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "劣勢"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -652,6 +662,11 @@
     ],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "有力者"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1299,6 +1314,11 @@
     ],
     "priority": ["ichi1", "news2", "nf25"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "和風"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

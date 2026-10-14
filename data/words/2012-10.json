@@ -152,6 +152,11 @@
     ],
     "priority": ["news1", "nf16"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "未婚"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Kikon is 既 (ki, “already”) plus 婚 (kon, “marriage”).",
@@ -401,6 +406,11 @@
     "meaning": "curio",
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
+    "seeAlso": [
+      {
+        "term": "骨董"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "rendaku"],
     "headline": "Kottōhin is, by surface analysis, 骨董 (kottō) plus 品 (-hin).",
@@ -841,6 +851,12 @@
     ],
     "priority": ["news1", "nf12"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "大柄",
+        "kana": "おおがら"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Kogara is 小 (ko-, “little”) plus 柄 (gara, “physique, build”).",
@@ -1229,6 +1245,11 @@
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf26"],
     "pitch": [4, 3],
+    "antonyms": [
+      {
+        "term": "栄える"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Otoroeru is from Classical Japanese 衰ふ (otorofu), 劣ろ (otoro, the irrealis of 劣る (otoru, “to be inferior to”)) plus ふ (-fu).",

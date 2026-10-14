@@ -343,6 +343,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf32"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "縁"
+      }
+    ],
     "stratum": "hybrid",
     "processes": [],
     "morphemes": [],
@@ -465,6 +470,11 @@
     ],
     "priority": ["ichi1", "news1", "nf22"],
     "pitch": [0, 3],
+    "seeAlso": [
+      {
+        "term": "演じる"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -672,6 +682,11 @@
     "meaning": "at, in, on",
     "level": "N1",
     "pos": ["expressions (phrases, clauses, etc.)"],
+    "seeAlso": [
+      {
+        "term": "において"
+      }
+    ],
     "processes": [],
     "morphemes": [],
     "sources": [],
@@ -763,6 +778,11 @@
     ],
     "priority": ["news2", "nf35", "spec2"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "宅診"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -864,6 +884,12 @@
     ],
     "priority": ["news2", "nf27"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "小柄",
+        "kana": "こがら"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -942,6 +968,12 @@
     ],
     "priority": ["ichi1"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "私",
+        "kana": "わたくし"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

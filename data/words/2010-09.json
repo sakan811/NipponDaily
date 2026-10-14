@@ -47,6 +47,12 @@
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "引く",
+        "kana": "ひく"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Hiku “to play (an instrument)” is derived from 引く (hiku, “to pull”).",
@@ -85,6 +91,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "お手",
+        "kana": "おて"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Te is from Proto-Japonic *tay, and the source invites comparing 目 (me, ma-, “eye”).",
@@ -419,6 +431,11 @@
     "pos": ["Ichidan verb", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf21"],
     "pitch": [2],
+    "antonyms": [
+      {
+        "term": "減る"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Fueru is from the Classical Japanese verb 増ゆ (fuyu).",
@@ -911,6 +928,11 @@
     "pos": ["pre-noun adjectival (rentaishi)"],
     "priority": ["news1", "nf04"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "小さな"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ōkina is the na-adjective form of 大きい, appearing from the Muromachi period.",

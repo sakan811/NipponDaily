@@ -32,6 +32,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf14", "spec1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "ニホンザル"
+      }
+    ],
     "stratum": "wago",
     "processes": ["derivation", "borrowing"],
     "headline": "Saru's ultimate derivation is possibly borrowed from Ainu サロ (saro, “monkey”).",
@@ -751,6 +756,17 @@
     "pos": ["pre-noun adjectival (rentaishi)"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "あんな"
+      },
+      {
+        "term": "そんな"
+      },
+      {
+        "term": "どんな"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "こんな is a contraction of この様な (kono yō na).",
@@ -789,6 +805,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "エプロンステージ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "エプロン is borrowed from English “apron”.",

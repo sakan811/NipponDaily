@@ -74,6 +74,11 @@
     "pos": ["adjective (keiyoushi)"],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "いい"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Yoi is the modern form of the Old Japanese adjective よし (yoshi).",
@@ -133,6 +138,12 @@
       "noun (common) (futsuumeishi)"
     ],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "疎",
+        "kana": "そ"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing"],
     "headline": "Mitsu, “thick, close”, is from Middle Chinese 密 (MC mit), first cited to a text from 1092.",
@@ -301,6 +312,11 @@
     ],
     "priority": ["ichi1", "news1", "nf03"],
     "pitch": [1, 2],
+    "antonyms": [
+      {
+        "term": "地上"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Chika is 地 (chi, “ground”) plus 下 (ka, “under”).",
@@ -703,6 +719,11 @@
     "level": "N2",
     "pos": ["interjection (kandoushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "おはようございます"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change"],
     "headline": "Ohayō was originally 御 (o-) plus 早く (hayaku, “early”), from the adjective 早い (hayai).",
@@ -890,6 +911,11 @@
       "adverb (fukushi)"
     ],
     "register": ["polite (teineigo) language"],
+    "seeAlso": [
+      {
+        "term": "互い"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "Otagai is 御 (o-, honorific prefix) plus 互い (tagai, “mutual relationship”).",

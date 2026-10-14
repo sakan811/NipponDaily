@@ -725,6 +725,11 @@
     ],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "低級"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -870,6 +875,11 @@
     ],
     "priority": ["ichi1", "news1", "nf13"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "親孝行"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1097,6 +1107,14 @@
     "meaning": "like this, with this",
     "level": "N2",
     "pos": ["conjunction"],
+    "seeAlso": [
+      {
+        "term": "どうして"
+      },
+      {
+        "term": "そうして"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

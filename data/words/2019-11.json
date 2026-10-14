@@ -604,6 +604,11 @@
     ],
     "priority": ["ichi1", "news1", "nf09"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "録画"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -664,6 +669,12 @@
     ],
     "priority": ["ichi1", "news2", "nf27"],
     "pitch": [3, 0],
+    "seeAlso": [
+      {
+        "term": "論じる",
+        "kana": "ろんじる"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -777,6 +788,11 @@
     "level": "N2",
     "pos": ["adverb (fukushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "割合"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

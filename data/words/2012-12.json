@@ -416,6 +416,11 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "小幅"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Ōhaba is 大 (ō-, “large”) plus 幅 (haba, “width, breadth”).",
@@ -1129,6 +1134,11 @@
     ],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "雌"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation", "sound-change", "unclear"],
     "headline": "Osu is 雄 (o, “male”) plus す (su), though the su is of unknown derivation.",
@@ -1252,6 +1262,11 @@
       "nouns which may take the genitive case particle 'no'"
     ],
     "pitch": [0, 2],
+    "seeAlso": [
+      {
+        "term": "こげ茶色"
+      }
+    ],
     "stratum": "hybrid",
     "processes": ["compound"],
     "headline": "Kogecha is 焦げる (kogeru, “to burn, to blacken”) plus 茶 (cha, “(tea) brown”).",
@@ -1407,6 +1422,11 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "おもちゃ"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing", "sound-change"],
     "headline": "Gangu is from Middle Chinese 玩具 (MC ngwanH gjuH).",

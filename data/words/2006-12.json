@@ -160,6 +160,11 @@
     "level": "N4",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["spec1"],
+    "seeAlso": [
+      {
+        "term": "アメリカ合衆国"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "Amerika is from English America, a Latinization of the given name of Amerigo Vespucci (1451-1512).",
@@ -186,6 +191,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news2", "nf40"],
     "register": ["familiar language"],
+    "seeAlso": [
+      {
+        "term": "巡査"
+      }
+    ],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Omawarisan is 御 (o-, honorific prefix) plus 巡り (mawari, “going around”) plus さん (-san).",
@@ -524,6 +534,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "フープ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Wa, “ring”, is from Old Japanese, from Proto-Japonic *wa.",
@@ -600,6 +615,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf05"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "心の傷"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Kizu's apparent relation to 切る (kiru, “to cut”) is rejected by the mid-vowel preservation in its Ryukyuan cognates.",
@@ -677,6 +697,11 @@
     "pos": ["noun, used as a suffix", "noun (common) (futsuumeishi)"],
     "priority": ["ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "様だ"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing", "sound-change"],
     "headline": "Yō, “way”, is from Middle Chinese 樣 (MC yangH).",

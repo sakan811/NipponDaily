@@ -164,6 +164,14 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "イン"
+      },
+      {
+        "term": "セーフ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アウト is from English out.",
@@ -193,6 +201,11 @@
     ],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "シングル"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ダブル is borrowed from English double.",
@@ -466,6 +479,11 @@
     ],
     "priority": ["gai1"],
     "pitch": [1, 3],
+    "seeAlso": [
+      {
+        "term": "コンタクトレンズ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "コンタクト is from English contact.",
@@ -844,6 +862,11 @@
     "pos": ["noun or verb acting prenominally"],
     "priority": ["gai1"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "オールド"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ニュー is borrowed from English new.",

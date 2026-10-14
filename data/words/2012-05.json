@@ -336,6 +336,11 @@
     ],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "ダウン"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "アップ is borrowed from English up.",
@@ -605,6 +610,11 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf10"],
+    "seeAlso": [
+      {
+        "term": "参議院"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shūgiin is 衆議 (shūgi, “general consultation, general conference”) plus 院 (-in, “parliamentary chamber”).",
@@ -797,6 +807,11 @@
     ],
     "priority": ["gai1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "ネガティブ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "ネガ is a shortening of ネガティブ (negatibu), from English negative.",
@@ -857,6 +872,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["news1", "nf15"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "短編"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "In chōhen, 編 is a daiyōji replacing 篇.",
@@ -1086,6 +1106,11 @@
     "pos": ["adjectival nouns or quasi-adjectives (keiyodoshi)"],
     "priority": ["news2", "nf35", "spec2"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "静的"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Dōteki is 動 (dō) plus 的 (-teki).",
@@ -1237,6 +1262,11 @@
     ],
     "priority": ["ichi1", "news1", "nf08"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "楽観"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Hikan is from the Buddhist Middle Chinese term 悲觀 (“compassionate view”), later reanalyzed as 悲 (“sadness”) plus 観 (“outlook”).",

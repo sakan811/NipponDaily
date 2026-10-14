@@ -181,6 +181,15 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf09"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "上司"
+      },
+      {
+        "term": "目下",
+        "kana": "めした"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -301,6 +310,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "好況"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -450,6 +464,11 @@
     ],
     "priority": ["ichi1"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "読み耽る"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

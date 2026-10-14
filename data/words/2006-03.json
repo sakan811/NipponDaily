@@ -332,6 +332,14 @@
     "pos": ["noun (common) (futsuumeishi)", "noun, used as a suffix"],
     "priority": ["ichi1", "news1", "nf07"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "卒塔婆"
+      },
+      {
+        "term": "塔婆"
+      }
+    ],
     "stratum": "kango",
     "processes": ["borrowing", "clipping", "sound-change"],
     "headline": "Tō, “tower”, abbreviates 卒塔婆 (sotoba), a transliteration of Sanskrit stūpa, “heap”.",
@@ -565,6 +573,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf18"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "瞳孔"
+      }
+    ],
     "stratum": "wago",
     "processes": ["derivation"],
     "headline": "Hitomi is likely 人 (hito, “person”) plus 見 (mi, “see”): one's own reflection in someone else's eyes.",
@@ -706,6 +719,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf20", "news2", "nf30"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "伯父",
+        "kana": "おじ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Oba, an aunt, is likely 小 (o-, “small, young”) plus 母 (ha, “mother”), as 叔父 (oji) is 小 plus 父.",
@@ -787,6 +806,11 @@
     "level": "N2",
     "pos": ["interjection (kandoushi)"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "ただいま帰りました"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Tadaima is short for 只今、帰りました (tadaima, kaerimashita), “I'm back right now”.",
@@ -1387,6 +1411,11 @@
     "level": "N3",
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news2", "nf42"],
+    "seeAlso": [
+      {
+        "term": "裏返る"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Kaeru, “to return”, is from Old Japanese, from Proto-Japonic *kapyaru.",

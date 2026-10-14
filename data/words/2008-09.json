@@ -445,6 +445,19 @@
     ],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "antonyms": [
+      {
+        "term": "ハード"
+      }
+    ],
+    "seeAlso": [
+      {
+        "term": "ソフトウエア"
+      },
+      {
+        "term": "ソフト帽"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ソフト covers “soft”, a soft hat and software, and the source traces it to English “soft”.",
@@ -656,6 +669,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1", "ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "ハンドルネーム"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "ハンドル covers “handle” and “steering wheel”, and the source traces it to English “handle”.",
@@ -1075,6 +1093,11 @@
     ],
     "priority": ["gai1", "ichi1"],
     "pitch": [2, 1],
+    "seeAlso": [
+      {
+        "term": "転轍機"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "スイッチ is borrowed from English “switch”.",

@@ -184,6 +184,11 @@
     "level": "N2",
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf19"],
+    "seeAlso": [
+      {
+        "term": "定期乗車券"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -349,6 +354,11 @@
     ],
     "priority": ["ichi1", "news1", "nf17"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "発車"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -854,6 +864,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf21"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "白熱電球"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],

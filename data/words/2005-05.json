@@ -387,6 +387,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["gai1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "ラジオカセット"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing", "clipping"],
     "headline": "Rajikase is a syllabic abbreviation of rajio kasetto, from English “radio cassette recorder”.",
@@ -824,6 +829,11 @@
     ],
     "priority": ["spec1"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "ニコニコ"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "Nikkori comes from nikori, “with a bright smile”, whose niko part is onomatopoeic for smiling.",
@@ -1024,6 +1034,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "これ"
+      },
+      {
+        "term": "それ"
+      },
+      {
+        "term": "あれ"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Dore is a shift from いずれ (izure), through idure and idore.",

@@ -8,6 +8,11 @@
     "pos": ["adverb (fukushi)"],
     "priority": ["spec1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "割に"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -103,6 +108,14 @@
     "pos": ["noun (common) (futsuumeishi)", "adverb (fukushi)"],
     "priority": ["ichi1", "news1", "nf24"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "暮れ方"
+      },
+      {
+        "term": "未明"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],
@@ -263,6 +276,11 @@
     ],
     "priority": ["ichi1", "news1", "nf11"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "解凍"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -592,6 +610,11 @@
     "pos": ["Godan verb with 'ru' ending", "intransitive verb"],
     "priority": ["ichi1", "news1", "nf16"],
     "pitch": [2],
+    "seeAlso": [
+      {
+        "term": "余り"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "morphemes": [],

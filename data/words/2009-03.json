@@ -12,6 +12,11 @@
     ],
     "priority": ["gai1", "ichi1"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "サーブ"
+      }
+    ],
     "stratum": "gairaigo",
     "processes": ["borrowing"],
     "headline": "サービス is borrowed from English “service”.",
@@ -408,6 +413,17 @@
     "pos": ["pre-noun adjectival (rentaishi)"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "あんな"
+      },
+      {
+        "term": "こんな"
+      },
+      {
+        "term": "どんな"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "そんな is a contraction of その様な (sono yō na).",
@@ -1185,6 +1201,17 @@
     "level": "N5",
     "pos": ["pronoun"],
     "priority": ["ichi1", "news2", "nf28"],
+    "seeAlso": [
+      {
+        "term": "こちら"
+      },
+      {
+        "term": "そちら"
+      },
+      {
+        "term": "どちら"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "あちら is built from the archaic あち plus 等 (ra), which the source glosses “about; around; approximately”.",
@@ -1231,6 +1258,12 @@
     "pos": ["Godan verb with 'ku' ending", "transitive verb"],
     "priority": ["ichi1"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "薫く",
+        "kana": "たく"
+      }
+    ],
     "stratum": "wago",
     "processes": [],
     "headline": "焚く is speculatively linked to Korean 타다 (tada), but the source says that poses issues.",
@@ -1366,6 +1399,11 @@
     "pos": ["Godan verb with 'su' ending", "transitive verb"],
     "priority": ["ichi1", "news2", "nf36", "nf46"],
     "pitch": [3],
+    "seeAlso": [
+      {
+        "term": "言い表す"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound", "derivation"],
     "headline": "表す is derived as the verb form of 露 (arawa, “naked, bare; open, revealed”).",

@@ -8,6 +8,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf02"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "支出"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound"],
     "headline": "Shūnyū, income, is 収 (shū, “take possession of”) plus 入 (nyū, “enter, go in, come in”).",
@@ -127,6 +132,11 @@
     "pos": ["adverb (fukushi)", "noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf18"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "思いっきり"
+      }
+    ],
     "stratum": "wago",
     "processes": ["compound"],
     "headline": "Omoikiri is the continuative stem of the verb 思い切る (omoikiru).",
@@ -586,6 +596,12 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf04"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "科学",
+        "kana": "かがく"
+      }
+    ],
     "stratum": "kango",
     "processes": ["compound", "borrowing"],
     "headline": "Kagaku is Chinese 化學 (huàxué, literally “change + study”), first cited in Japanese in an 1860 translation of a Dutch text.",
@@ -783,6 +799,12 @@
     "level": "N5",
     "pos": ["adjective (keiyoushi) - yoi/ii class"],
     "priority": ["ichi1"],
+    "seeAlso": [
+      {
+        "term": "良い",
+        "kana": "よい"
+      }
+    ],
     "stratum": "wago",
     "processes": ["sound-change"],
     "headline": "Ii is a shift from 良い (yoi), classical 良し (yoshi), by way of seven steps from yo₂si.",

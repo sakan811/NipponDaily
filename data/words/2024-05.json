@@ -230,6 +230,11 @@
     ],
     "priority": ["ichi1", "news1", "nf13"],
     "pitch": [0],
+    "antonyms": [
+      {
+        "term": "運動"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1018,6 +1023,11 @@
     "pos": ["noun (common) (futsuumeishi)"],
     "priority": ["ichi1", "news1", "nf01"],
     "pitch": [1],
+    "seeAlso": [
+      {
+        "term": "外勢"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
@@ -1224,6 +1234,11 @@
     "level": "N1",
     "pos": ["noun (common) (futsuumeishi)"],
     "pitch": [0],
+    "seeAlso": [
+      {
+        "term": "お世辞"
+      }
+    ],
     "stratum": "kango",
     "processes": [],
     "morphemes": [],
