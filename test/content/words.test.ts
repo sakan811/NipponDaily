@@ -264,6 +264,48 @@ describe.each(WORD_ENTRIES.map((e) => [e.date, e.term, e] as const))(
       expect(entry.wiktionaryDump).toBe(snapshot.meta?.dump);
     });
 
+    it("quotes another reading's section only as such, and only from the dump", () => {
+      const others = entry.otherReadings ?? [];
+      if (entry.sources.length === 0) {
+        expect(others, "no origin, so no other readings").toEqual([]);
+        return;
+      }
+      const hira = toHiragana(entry.kana);
+      const covers = (declared: string[]) =>
+        declared.some(
+          (r) =>
+            r === hira ||
+            (r.length >= 2 &&
+              hira.startsWith(r) &&
+              hira.length - r.length <= 2),
+        );
+      const sections = snapshot.entries[term]?.etymologies ?? [];
+      const problems: string[] = [];
+      for (const other of others) {
+        expect(other.quotes.length).toBeGreaterThan(0);
+        if (other.readings.length === 0 || covers(other.readings))
+          problems.push(`${other.readings.join("/")} is not another reading`);
+        // A page may hold several sections for one reading (南 なん twice).
+        const text = normalize(
+          sections
+            .filter((s) => s.readings.join("/") === other.readings.join("/"))
+            .map((s) => s.text)
+            .join("\n"),
+        );
+        for (const q of other.quotes)
+          if (!text.includes(normalize(q)))
+            problems.push(
+              `not in the ${other.readings.join("/")} section: ${q}`,
+            );
+      }
+      expect(problems).toEqual([]);
+      // No section is invented: at most one entry per declared section.
+      const expected = sections.filter(
+        (s) => s.readings.length > 0 && !covers(s.readings),
+      ).length;
+      expect(others.length).toBeLessThanOrEqual(expected);
+    });
+
     it("carries JMdict's own part-of-speech tags", () => {
       const vocab = loadReference(entry.level).vocab.find(
         (v) => v.term === entry.term && v.kana === entry.kana,
