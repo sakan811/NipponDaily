@@ -19,6 +19,7 @@
  */
 import { toHiragana } from "wanakana";
 import { meaningWords } from "../../shared/meanings.ts";
+import { wordKey } from "./pool-words.mjs";
 
 const KANA = "\\p{sc=Hiragana}\\p{sc=Katakana}ー";
 const JP = `\\p{sc=Han}々${KANA}`;
@@ -250,6 +251,46 @@ export function fieldOf(vocab) {
 /** The dialect JMdict gives them (Kansai-ben…), verbatim. */
 export function dialectOf(vocab) {
   return sharedTags(vocab, (s) => s.dialect ?? []);
+}
+
+/** A JMdict cross-reference as the entry keeps it: `丸・まる・1` is the word
+ *  written 丸 and read まる (the trailing number picks one of its senses, which
+ *  the entry does not use), `丸・1` and `まる` give only one of the two. A
+ *  reference to a kana-only word has just that word as `term`. */
+export function parseReference(raw) {
+  const parts = raw.split("・");
+  if (parts.length > 1 && /^\d+$/.test(parts[parts.length - 1])) parts.pop();
+  const [term, kana] = parts;
+  if (!term) return null;
+  return kana ? { term, kana } : { term };
+}
+
+/** The words JMdict points the sense(s) the pool's meaning came from at, as
+ *  `ant` (antonyms) and `xref` (see also), each once, never the word itself.
+ *  Written as JMdict writes them: whether the word is one of the daily words is
+ *  for the reader's page to say. */
+export function referencesOf(vocab) {
+  const m = matchedJmdict(vocab);
+  const none = { antonyms: [], seeAlso: [] };
+  if (!m) return none;
+  const hira = toHiragana(vocab.kana);
+  const pick = (key) => {
+    const seen = new Set();
+    const out = [];
+    for (const raw of m.senses.flatMap((s) => s[key] ?? [])) {
+      const ref = parseReference(raw);
+      if (!ref) continue;
+      const own =
+        ref.term === vocab.term.replace(/[～〜]/g, "") &&
+        (!ref.kana || toHiragana(ref.kana) === hira);
+      const id = `${ref.term}・${ref.kana ?? ""}`;
+      if (own || seen.has(id)) continue;
+      seen.add(id);
+      out.push(ref);
+    }
+    return out;
+  };
+  return { antonyms: pick("ant"), seeAlso: pick("xref") };
 }
 
 /** The languages a loan source can name that the site counts as a loanword
@@ -966,6 +1007,7 @@ export function buildEntry(plan, ctx) {
     );
   const word = candidates[0];
   const facts = jmdictFactsOf(word);
+  const references = referencesOf(word);
 
   /** What the origin (or its absence) gives: the parts, the layer, the text. */
   const derive = (origin) => {
@@ -1022,15 +1064,25 @@ export function buildEntry(plan, ctx) {
 
   // The sentences the pinned Tatoeba export gives this word (data:sentences);
   // a word with none simply shows none.
-  const examples = ctx.sentences?.entries?.[plan.term] ?? [];
+  const examples =
+    ctx.sentences?.entries?.[wordKey(plan.term, word.kana)] ?? [];
 
   // The pitch accent the pinned list gives this spelling and reading
   // (data:pitch); a word it does not list simply shows none.
-  const pitch = ctx.pitch?.entries?.[plan.term];
+  const pitch = ctx.pitch?.entries?.[wordKey(plan.term, word.kana)];
   const accents =
     pitch && toHiragana(pitch.kana) === toHiragana(word.kana)
       ? pitch.accents
       : [];
+
+  // Where the accent list and UniDic both have an accent and do not give the
+  // same ones (data:pitch holds back what they do not share), the entry says
+  // what each gave. A word UniDic has none for is not a disagreement.
+  const held = ctx.pitch?.heldBack?.[wordKey(plan.term, word.kana)];
+  const disagreement =
+    held?.unidic?.length && toHiragana(held.kana) === toHiragana(word.kana)
+      ? { kanjium: held.kanjium, unidic: held.unidic }
+      : undefined;
 
   return {
     date: plan.date,
@@ -1044,6 +1096,9 @@ export function buildEntry(plan, ctx) {
     ...(fieldOf(word).length ? { field: fieldOf(word) } : {}),
     ...(dialectOf(word).length ? { dialect: dialectOf(word) } : {}),
     ...(accents.length ? { pitch: accents } : {}),
+    ...(disagreement ? { pitchDisagreement: disagreement } : {}),
+    ...(references.antonyms.length ? { antonyms: references.antonyms } : {}),
+    ...(references.seeAlso.length ? { seeAlso: references.seeAlso } : {}),
     ...(stratum ? { stratum } : {}),
     processes: processesOf(text, morphemes, facts),
     ...(plan.headline !== undefined ? { headline: plan.headline } : {}),

@@ -57,18 +57,20 @@ export function loadShards(root, dir) {
 }
 
 /** Write `entries` into their month shards (and `meta.json`) under `dir`,
- *  removing shards that no longer hold anything. A term no plan names goes in
- *  "unplanned". Returns the number of shards written. */
+ *  removing shards that no longer hold anything. A key no plan names goes in
+ *  "unplanned". `months` maps each key to its month: by default a term's (see
+ *  `planMonths`), or a word's (`wordMonths`) for a snapshot keyed by spelling
+ *  and reading. Returns the number of shards written. */
 export function writeShards(
   root,
   dir,
   meta,
   entries,
   serialize = stringifyJson,
+  months = planMonths(root),
 ) {
   const path = join(root, dir);
   mkdirSync(path, { recursive: true });
-  const months = planMonths(root);
   const shards = {};
   for (const term of Object.keys(entries).sort())
     (shards[months[term] ?? UNPLANNED_SHARD] ??= {})[term] = entries[term];

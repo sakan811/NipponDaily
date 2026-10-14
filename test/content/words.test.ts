@@ -12,6 +12,8 @@ import { loadEtymologySnapshot } from "../../scripts/lib/etymology-snapshot.mjs"
 // @ts-expect-error — untyped .mjs script helper
 import { planMonths } from "../../scripts/lib/month-shards.mjs";
 // @ts-expect-error — untyped .mjs script helper
+import { wordKey } from "../../scripts/lib/pool-words.mjs";
+// @ts-expect-error — untyped .mjs script helper
 import { WIKTIONARY_DUMP } from "../../scripts/lib/wiktionary-dump.mjs";
 
 /**
@@ -87,12 +89,13 @@ function entryText(e: WordEntry): string {
 }
 
 describe("the daily-word catalogue", () => {
-  it("has one entry per day, with real unique dates and terms", () => {
+  it("has one entry per day, with real unique dates and words", () => {
     const dates = WORD_ENTRIES.map((e) => e.date);
     expect(dates.filter((d) => !isValidIsoDate(d))).toEqual([]);
     expect(new Set(dates).size).toBe(dates.length);
-    const terms = WORD_ENTRIES.map((e) => e.term);
-    expect(new Set(terms).size).toBe(terms.length);
+    // A spelling can be several words (後 あと, 後 ご): the pair is unique.
+    const words = WORD_ENTRIES.map((e) => wordKey(e.term, e.kana));
+    expect(new Set(words).size).toBe(words.length);
   });
 
   it("has no gap between its first and last day", () => {

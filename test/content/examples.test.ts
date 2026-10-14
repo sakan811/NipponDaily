@@ -6,6 +6,8 @@ import {
   // @ts-expect-error — untyped .mjs script helper
 } from "../../scripts/lib/sentence-snapshot.mjs";
 // @ts-expect-error — untyped .mjs script helper
+import { wordKey } from "../../scripts/lib/pool-words.mjs";
+// @ts-expect-error — untyped .mjs script helper
 import { TATOEBA_EXPORT } from "../../scripts/lib/tatoeba-export.mjs";
 // @ts-expect-error — untyped .mjs script helper
 import { snapshotMeta } from "../../scripts/build-sentences-reference.mjs";
@@ -63,7 +65,7 @@ describe("data/reference/sentences/", () => {
   });
 
   it("has no sentences for words that are not in the catalogue", () => {
-    const used = new Set(WORD_ENTRIES.map((e) => e.term));
+    const used = new Set(WORD_ENTRIES.map((e) => wordKey(e.term, e.kana)));
     expect(
       Object.keys(snapshot.entries).filter((t) => !used.has(t)),
       "re-run pnpm data:sentences after removing an entry",
@@ -76,7 +78,7 @@ describe("the example sentences of every entry", () => {
     const stale = WORD_ENTRIES.filter(
       (e) =>
         JSON.stringify(e.examples ?? []) !==
-        JSON.stringify(snapshot.entries[e.term] ?? []),
+        JSON.stringify(snapshot.entries[wordKey(e.term, e.kana)] ?? []),
     ).map((e) => e.term);
     expect(stale, "run pnpm data:words").toEqual([]);
   });

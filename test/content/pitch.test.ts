@@ -10,6 +10,8 @@ import {
   snapshotMeta,
 } from "../../scripts/build-pitch-reference.mjs";
 // @ts-expect-error — untyped .mjs script helper
+import { wordKey } from "../../scripts/lib/pool-words.mjs";
+// @ts-expect-error — untyped .mjs script helper
 import { UNIDIC_ACCENT_SOURCE } from "../../scripts/lib/unidic-accent.mjs";
 
 /**
@@ -44,11 +46,13 @@ describe("data/reference/pitch.json", () => {
   });
 
   it("has only words in the catalogue, with their own reading", () => {
-    const byTerm = new Map(WORD_ENTRIES.map((e) => [e.term, e]));
-    for (const [term, { kana }] of Object.entries(snapshot.entries)) {
-      const entry = byTerm.get(term);
-      expect(entry, `${term} is not in the catalogue`).toBeDefined();
-      expect(toHiragana(kana), `${term} reading`).toBe(toHiragana(entry!.kana));
+    const byKey = new Map(
+      WORD_ENTRIES.map((e) => [wordKey(e.term, e.kana), e]),
+    );
+    for (const [key, { kana }] of Object.entries(snapshot.entries)) {
+      const entry = byKey.get(key);
+      expect(entry, `${key} is not in the catalogue`).toBeDefined();
+      expect(toHiragana(kana), `${key} reading`).toBe(toHiragana(entry!.kana));
     }
   });
 
@@ -71,9 +75,28 @@ describe("the pitch accent of every entry", () => {
     const stale = WORD_ENTRIES.filter(
       (e) =>
         JSON.stringify(e.pitch ?? []) !==
-        JSON.stringify(snapshot.entries[e.term]?.accents ?? []),
+        JSON.stringify(
+          snapshot.entries[wordKey(e.term, e.kana)]?.accents ?? [],
+        ),
     ).map((e) => e.term);
     expect(stale, "run pnpm data:pitch, then pnpm data:words").toEqual([]);
+  });
+
+  it("says what each source gave only where both have an accent and differ", () => {
+    for (const e of WORD_ENTRIES) {
+      const held = snapshot.heldBack[wordKey(e.term, e.kana)];
+      const expected = held?.unidic.length
+        ? { kanjium: held.kanjium, unidic: held.unidic }
+        : undefined;
+      expect(e.pitchDisagreement, e.term).toEqual(expected);
+      // What they share is shown, and a word one source is silent on is not a disagreement.
+      if (e.pitchDisagreement)
+        expect(e.pitch ?? [], e.term).toEqual(
+          e.pitchDisagreement.kanjium.filter((a) =>
+            e.pitchDisagreement!.unidic.includes(a),
+          ),
+        );
+    }
   });
 
   it("covers most words", () => {
