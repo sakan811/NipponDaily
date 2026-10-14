@@ -28,7 +28,7 @@ const CACHE_DIR = join(ROOT, "node_modules/.cache/components");
 export const COMPONENTS_SOURCE = {
   name: "KRADFILE",
   file: "kradzip.zip",
-  url: "http://ftp.edrdg.org/pub/Nihongo/kradzip.zip",
+  url: "https://www.edrdg.org/pub/Nihongo/kradzip.zip",
   /** The files read from the archive, in the order they are tried. */
   members: ["kradfile", "kradfile2"],
   bytes: 285669,
