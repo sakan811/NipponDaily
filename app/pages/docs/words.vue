@@ -351,6 +351,11 @@ const fields = [
       "`{ quote }`: one verbatim line of Wiktionary's Etymology section for this reading. Empty when the dump has none for it.",
   },
   {
+    name: "otherReadings[]?",
+    meaning:
+      "`{ readings, quotes }`: the Etymology sections the same Wiktionary page declares for other readings of the spelling (抱く だく next to いだく), verbatim and in the page's order, one entry per section. Shown apart from the origin and never used for the parts, layer or processes. Left out when the page has none or the entry has no origin.",
+  },
+  {
     name: "examples[]?",
     meaning:
       "`{ id, ja, en, enId, form, furigana? }`: up to " +

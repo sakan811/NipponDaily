@@ -114,7 +114,7 @@ const features = computed(() => [
   {
     title: "The Story, in Wiktionary's Words",
     description:
-      "Where the word comes from is quoted line by line from Wiktionary's Etymology section for that reading, never paraphrased. Lines that hedge (“probably”, “unknown”) are flagged “Not settled” instead of being turned into a verdict.",
+      "Where the word comes from is quoted line by line from Wiktionary's Etymology section for that reading, never paraphrased. Lines that hedge (“probably”, “unknown”) are flagged “Not settled” instead of being turned into a verdict. Where the same page also has sections for other readings of the spelling (抱く だく and いだく), they are quoted in a closed block of their own, labelled with their readings and never mixed into the word's origin.",
   },
   {
     title: "Evidence for Every Claim",

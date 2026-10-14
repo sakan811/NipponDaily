@@ -304,6 +304,11 @@
             大人 has one section per reading);
           </li>
           <li>
+            every <code>otherReadings</code> quote is found verbatim in a
+            section of the same page that declares <em>other</em> readings than
+            the entry's, and an entry with no <code>sources</code> has none;
+          </li>
+          <li>
             an entry with no <code>sources</code> has no headline, no parts and
             no dump date, and the dump has no section for its reading (or only
             one that opens “From Middle Chinese” for a native word);
@@ -473,6 +478,11 @@ const provenance = [
     field: "sources[]",
     source:
       "The lines of Wiktionary's Etymology section for this reading, verbatim. Empty where the dump has none, or has the section of another reading.",
+  },
+  {
+    field: "otherReadings[]?",
+    source:
+      "The sections of the same Wiktionary page that declare other readings of the spelling, verbatim and labelled with those readings. Nothing else in the entry is derived from them.",
   },
   {
     field: "morphemes[]",
