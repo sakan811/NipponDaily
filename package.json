@@ -26,6 +26,7 @@
     "data:kanji": "node --experimental-strip-types --no-warnings scripts/build-kanji-reference.mjs",
     "data:etymology": "node scripts/build-etymology-reference.mjs",
     "data:strokes": "node --experimental-strip-types --no-warnings scripts/build-strokes-reference.mjs",
+    "data:components": "node --experimental-strip-types --no-warnings scripts/build-components-reference.mjs",
     "data:pitch": "node --experimental-strip-types --no-warnings scripts/build-pitch-reference.mjs",
     "data:sentences": "node scripts/build-sentences-reference.mjs",
     "assets:og-font": "node scripts/build-og-font.mjs",

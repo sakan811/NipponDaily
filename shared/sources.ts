@@ -110,14 +110,14 @@ const EDRDG_NAME = "Electronic Dictionary Research and Development Group";
 export const SOURCES = {
   edrdg: {
     id: "edrdg",
-    name: "JMdict and KANJIDIC2",
-    short: "JMdict & KANJIDIC2",
+    name: "JMdict, KANJIDIC2 and KRADFILE",
+    short: "JMdict, KANJIDIC2 & KRADFILE",
     url: EDRDG_URL,
     licence: LICENCES.ccBySa4,
     holder: EDRDG_NAME,
     holderShort: "EDRDG",
-    use: "Readings, meanings, parts of speech, priority, register, field, dialect and kanji readings",
-    credit: `JMdict and KANJIDIC2 are property of the ${link(EDRDG_NAME, EDRDG_URL)}, used under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, from the dated files the group publishes.`,
+    use: "Readings, meanings, parts of speech, priority, register, field, dialect, cross-references, kanji readings and the shapes a kanji contains",
+    credit: `JMdict, KANJIDIC2 and KRADFILE are property of the ${link(EDRDG_NAME, EDRDG_URL)}, used under ${link(LICENCES.ccBySa4.name, LICENCES.ccBySa4.url)}, from the dated files the group publishes.`,
   },
   wiktionary: {
     id: "wiktionary",
@@ -155,8 +155,8 @@ export const SOURCES = {
     short: "wanakana",
     url: WANAKANA_URL,
     licence: LICENCES.mit,
-    use: "Kana conversion in the data scripts and checks",
-    credit: `Kana conversion in the data scripts and checks uses ${link("wanakana", WANAKANA_URL)} (${LICENCES.mit.name}).`,
+    use: "Kana conversion in the data scripts and checks, and in Explore's search",
+    credit: `Kana conversion in the data scripts and checks, and in Explore's search (a romaji search reads as kana), uses ${link("wanakana", WANAKANA_URL)} (${LICENCES.mit.name}).`,
   },
   kuromoji: {
     id: "kuromoji",

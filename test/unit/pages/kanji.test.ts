@@ -109,6 +109,32 @@ describe("Kanji Detail Page (/kanji/[char])", () => {
     expect(wrapper.text()).toContain("KanjiVG");
   });
 
+  it("names the shapes inside the kanji, linking those that are kanji themselves", async () => {
+    (global as any).$fetch.mockResolvedValue(respond(kanjiDetail("明", TODAY)));
+    const wrapper = mount(KanjiDetailPage);
+    await flushPromises();
+
+    const rows = wrapper.findAll('[data-testid="kanji-component"]');
+    expect(rows.map((r) => r.find("a, span").text())).toEqual(["月", "日"]);
+    expect(rows[1]!.find("a").attributes("href")).toBe(
+      `/kanji/${encodeURIComponent("日")}`,
+    );
+    // The page says it is a lookup aid, not an origin.
+    expect(wrapper.text()).toContain("not where it comes from");
+  });
+
+  it("leaves the shapes section out of a kanji with none", async () => {
+    (global as any).$fetch.mockResolvedValue(
+      respond({ ...kanjiDetail("日", TODAY)!, components: undefined }),
+    );
+    const wrapper = mount(KanjiDetailPage);
+    await flushPromises();
+
+    expect(wrapper.find('[data-testid="kanji-components"]').exists()).toBe(
+      false,
+    );
+  });
+
   it("shows no stroke order for a kanji without strokes", async () => {
     (global as any).$fetch.mockResolvedValue(
       respond({ ...kanjiDetail("日", TODAY)!, strokes: undefined }),
