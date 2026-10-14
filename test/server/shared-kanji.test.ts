@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { kanjiDetail, kanjiIndex } from "~~/shared/kanji";
+import { KANJI_ALSO_LIMIT } from "~~/shared/limits";
 import { partDetail } from "~~/shared/parts";
 import { WORD_ENTRIES } from "~~/shared/words";
 
@@ -50,6 +51,40 @@ describe("kanjiDetail", () => {
       withChar("日").map((e) => e.date),
     );
     expect(d.isPart).toBe(partDetail("日", TODAY) !== undefined);
+  });
+
+  it("gives the shapes KRADFILE lists, each with other open kanji that contain it", () => {
+    const d = kanjiDetail("明", TODAY)!;
+
+    expect(d.components!.map((c) => c.text)).toEqual(["月", "日"]);
+    const sun = d.components!.find((c) => c.text === "日")!;
+    expect(sun.isKanji).toBe(true);
+    expect(sun.also).not.toContain("明");
+    // The shape 日 is the kanji 日: it is not listed as another kanji with it.
+    expect(sun.also).not.toContain("日");
+    expect(sun.also.length).toBeLessThanOrEqual(KANJI_ALSO_LIMIT);
+    expect(sun.alsoCount).toBeGreaterThanOrEqual(sun.also.length);
+    // Every kanji named has an open word, so it has a page.
+    const open = new Set(kanjiIndex(TODAY).map((k) => k.char));
+    for (const c of sun.also) expect(open.has(c), c).toBe(true);
+  });
+
+  it("names a shape that is not a kanji without claiming a page for it", () => {
+    const strokeShapes = kanjiDetail("語", TODAY)!.components!.filter(
+      (c) => !c.isKanji,
+    );
+    const everything = kanjiDetail("親", TODAY)!.components!;
+    expect(everything.some((c) => c.text === "亠" && !c.isKanji)).toBe(true);
+    for (const c of strokeShapes)
+      expect(kanjiDetail(c.text, TODAY)).toBeUndefined();
+  });
+
+  it("never offers a kanji only an upcoming word uses as one that shares a shape", () => {
+    const early = "2005-07-31";
+    const index = new Set(kanjiIndex(early).map((k) => k.char));
+    for (const char of index)
+      for (const c of kanjiDetail(char, early)?.components ?? [])
+        for (const other of c.also) expect(index.has(other), other).toBe(true);
   });
 
   it("gives KanjiVG's strokes, as many as KANJIDIC2 counts", () => {

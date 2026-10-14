@@ -130,6 +130,62 @@
           </template>
         </section>
 
+        <section
+          v-if="kanji.components?.length"
+          class="space-y-3"
+          aria-labelledby="components-heading"
+        >
+          <h2
+            id="components-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            Shapes inside it
+          </h2>
+          <p class="text-sm text-stone-600 dark:text-stone-400 max-w-3xl">
+            The shapes {{ SOURCES.edrdg.holderShort }}'s KRADFILE lists
+            {{ kanji.char }} as containing. It is a lookup aid for finding a
+            kanji by its parts: it says what the character contains, not where
+            it comes from, and a shape need not be a kanji.
+          </p>
+          <ul data-testid="kanji-components" class="space-y-2">
+            <li
+              v-for="c in kanji.components"
+              :key="c.text"
+              data-testid="kanji-component"
+              class="flex flex-wrap items-baseline gap-x-3 gap-y-1"
+            >
+              <NuxtLink
+                v-if="c.isKanji"
+                :to="kanjiPath(c.text)"
+                class="font-serif text-2xl font-bold text-stone-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400"
+                >{{ c.text }}</NuxtLink
+              >
+              <span
+                v-else
+                class="font-serif text-2xl font-bold text-stone-900 dark:text-white"
+                >{{ c.text }}</span
+              >
+              <span
+                v-if="c.also.length"
+                class="text-sm text-stone-600 dark:text-stone-400"
+              >
+                also in
+                <template v-for="(other, i) in c.also" :key="other"
+                  ><NuxtLink
+                    :to="kanjiPath(other)"
+                    class="font-serif text-base text-primary-600 dark:text-primary-400 hover:underline"
+                    >{{ other }}</NuxtLink
+                  ><template v-if="i < c.also.length - 1"
+                    >&nbsp;</template
+                  ></template
+                ><template v-if="c.alsoCount > c.also.length">
+                  and {{ c.alsoCount - c.also.length }} more</template
+                >
+              </span>
+            </li>
+          </ul>
+        </section>
+
         <section class="space-y-3" aria-labelledby="words-heading">
           <h2
             id="words-heading"

@@ -36,3 +36,6 @@ export const PATTERN_MIN_COMBINATION = 3;
 export const PATTERN_MAX_COMBINATION = 4;
 /** How many example words a Patterns row carries. */
 export const PATTERN_EXAMPLE_LIMIT = 3;
+
+/** How many other kanji a kanji page names under each part it is built from. */
+export const KANJI_ALSO_LIMIT = 8;
