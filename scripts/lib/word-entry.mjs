@@ -125,6 +125,24 @@ export function evidenceLines(sections) {
   return lines;
 }
 
+/** What the same Wiktionary page says about the spelling's other readings:
+ *  the sections that declare readings and none of them covers this word's
+ *  (抱く だく next to いだく), as `{ readings, quotes }` in the page's order.
+ *  They are shown beside the word's origin and never feed its parts, layer or
+ *  processes, because a section belongs to its own reading. A section that
+ *  declares no reading is left out: nothing says which word it describes. */
+export function otherReadings(snapshotEntry, kana) {
+  const hira = toHiragana(kana);
+  const out = [];
+  for (const sec of snapshotEntry?.etymologies ?? []) {
+    const readings = sec.readings ?? [];
+    if (readings.length === 0 || covers(readings, hira)) continue;
+    const quotes = evidenceLines([sec]);
+    if (quotes.length) out.push({ readings, quotes });
+  }
+  return out;
+}
+
 // ------------------------------------------------------------- part of speech
 
 const norm = (s) =>
@@ -927,7 +945,7 @@ function originOf(plan, word, ctx) {
     const lines = evidenceLines(sections);
     if (lines.length === 0)
       throw new Error(`${plan.term}: matched section has no text`);
-    return { lines, dump };
+    return { lines, dump, others: otherReadings(snap, word.kana) };
   } catch (e) {
     if (plan.headline !== undefined) throw e;
     return null;
@@ -1031,6 +1049,7 @@ export function buildEntry(plan, ctx) {
     ...(plan.headline !== undefined ? { headline: plan.headline } : {}),
     morphemes,
     sources: lines.map((quote) => ({ quote })),
+    ...(origin?.others.length ? { otherReadings: origin.others } : {}),
     ...(examples.length ? { examples } : {}),
     ...(origin ? { wiktionaryDump: origin.dump } : {}),
   };

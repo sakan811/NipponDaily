@@ -4,6 +4,7 @@ import * as lib from "../../../scripts/lib/word-entry.mjs";
 
 const {
   pickSections,
+  otherReadings,
   evidenceLines,
   parseMorphemes,
   parseLiteral,
@@ -50,6 +51,42 @@ describe("pickSections", () => {
       etymologies: [{ text: "From English beer.", readings: [] }],
     };
     expect(pickSections(lone, "ビール")).toHaveLength(1);
+  });
+});
+
+describe("otherReadings", () => {
+  const snap = {
+    etymologies: [
+      { text: "From 抱く (daku).", readings: ["だく"] },
+      { text: "Shift from udaku.\nFound in 和文.", readings: ["いだく"] },
+      { text: "A section that names no reading.", readings: [] },
+    ],
+  };
+
+  it("quotes the sections of the other readings, not the word's own", () => {
+    expect(otherReadings(snap, "だく")).toEqual([
+      { readings: ["いだく"], quotes: ["Shift from udaku.", "Found in 和文."] },
+    ]);
+  });
+
+  it("leaves out a section that declares no reading", () => {
+    expect(
+      otherReadings(snap, "いだく").map(
+        (o: { readings: string[] }) => o.readings,
+      ),
+    ).toEqual([["だく"]]);
+  });
+
+  it("treats a verb stem as the word's own reading", () => {
+    const verb = { etymologies: [{ text: "From 背.", readings: ["せお"] }] };
+    expect(otherReadings(verb, "せおう")).toEqual([]);
+  });
+
+  it("is empty for a page with one reading or none", () => {
+    expect(
+      otherReadings({ etymologies: [snap.etymologies[0]] }, "だく"),
+    ).toEqual([]);
+    expect(otherReadings(undefined, "だく")).toEqual([]);
   });
 });
 

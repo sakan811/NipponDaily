@@ -80,6 +80,15 @@ export interface WordSource {
   quote: string;
 }
 
+/** One Etymology section of the word's Wiktionary page that belongs to another
+ *  reading of the same spelling (抱く だく next to いだく). */
+export interface OtherReading {
+  /** The readings the section declares (hiragana). */
+  readings: string[];
+  /** The section's lines, verbatim. */
+  quotes: string[];
+}
+
 /** One daily word — the unit of data/words/YYYY-MM.json, served by
  *  GET /api/daily-word.
  *
@@ -132,6 +141,11 @@ export interface WordEntry {
   /** What Wiktionary says about the word's origin, line by line, verbatim.
    *  Empty when the pinned dump has no Etymology section for the reading. */
   sources: WordSource[];
+  /** What the same Wiktionary page says about the spelling's other readings,
+   *  verbatim and kept apart from `sources`: nothing else in the entry is
+   *  derived from it. Left out when the page has none or the entry has no
+   *  origin. */
+  otherReadings?: OtherReading[];
   /** Sentences that use the word, from Tatoeba; left out when the pinned export
    *  has none that qualifies. */
   examples?: WordExample[];
