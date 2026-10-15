@@ -372,7 +372,7 @@ const sharedModules = [
   },
   {
     file: "explore.ts",
-    role: "`exploreWords(filters, today)`: search and filters (several choices, any or all) with facet counts. `exploreCalendar(month, filters, today)`: one calendar month marked against the same filters, with per-month counts.",
+    role: "`exploreWords(filters, today, limit?)`: search and filters (several choices, any or all) with facet counts, listing only the newest `limit` matches. `exploreCalendar(month, filters, today)`: one calendar month marked against the same filters, with per-month counts.",
   },
   {
     file: "related.ts",
@@ -446,7 +446,7 @@ const sharedModules = [
   },
   {
     file: "limits.ts",
-    role: "The numbers the rules turn on: `MAX_PART_LENGTH`, `MAX_QUERY_LENGTH`, the related-words limit, weight and minimum score, `MAX_EXAMPLES`, `STROKE_SQUARE` and the Patterns combination sizes and example limit.",
+    role: "The numbers the rules turn on: `MAX_PART_LENGTH`, `MAX_QUERY_LENGTH`, the Explore page size, the related-words limit, weight and minimum score, `MAX_EXAMPLES`, `STROKE_SQUARE` and the Patterns combination sizes and example limit.",
   },
   {
     file: "jst.ts",
