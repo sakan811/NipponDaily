@@ -29,36 +29,13 @@
         </p>
       </div>
 
-      <div class="mt-10 space-y-4">
-        <button
-          type="button"
-          data-testid="calendar-filter-toggle"
-          :aria-expanded="showFilters"
-          aria-controls="calendar-filters"
-          class="season-chip inline-flex items-center gap-2 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-3 py-1.5 text-sm hover:border-primary-500 transition-colors"
-          @click="showFilters = !showFilters"
-        >
-          <UIcon
-            :name="showFilters ? 'i-heroicons-minus' : 'i-heroicons-plus'"
-            class="h-4 w-4"
-          />
-          Filter the calendar
-          <span
-            v-if="activeCount"
-            data-testid="calendar-filter-count"
-            class="text-xs text-primary-600 dark:text-primary-400"
-            >{{ activeCount }} active</span
-          >
-        </button>
-        <WordFilters
-          v-if="showFilters"
-          id="calendar-filters"
-          v-model="filters"
-          compact
-          :facets="calendar?.facets"
-          @update:model-value="applyFilters"
-        />
-      </div>
+      <WordFilters
+        v-model="filters"
+        class="mt-10"
+        label="Filter the calendar"
+        :facets="calendar?.facets"
+        @update:model-value="applyFilters"
+      />
 
       <TrendingFallback
         v-if="error"
@@ -339,8 +316,6 @@ const { calendar, loading, error, refresh } = useWordCalendar(month, filters);
 
 const activeCount = computed(() => Object.keys(filters.value).length);
 const filtersActive = computed(() => activeCount.value > 0);
-// Open from the start when the link carries filters, so they are never hidden.
-const showFilters = ref(filtersActive.value);
 
 usePageSeo({
   title: () =>

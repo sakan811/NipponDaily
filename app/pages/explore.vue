@@ -22,6 +22,7 @@
       <WordFilters
         v-model="filters"
         class="mt-10"
+        start-open
         :facets="result?.facets"
         @update:model-value="apply"
       />
