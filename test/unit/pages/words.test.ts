@@ -209,12 +209,12 @@ describe("Words Page (calendar filters)", () => {
   it("jumps to a month in another year and keeps the URL in step", async () => {
     const wrapper = await mountAt({ month: "2009-07" });
 
-    const years = wrapper.findAll('[data-testid="calendar-years"] button');
+    const years = wrapper.findAll('[data-testid="calendar-year"] option');
     expect(years.map((y) => y.text())).toEqual(
       expect.arrayContaining(["2005", "2009", "2024", "2026"]),
     );
 
-    await wrapper.find('[data-testid="calendar-year-2024"]').trigger("click");
+    await wrapper.find('[data-testid="calendar-year"]').setValue("2024");
     await flushPromises();
 
     expect(replace).toHaveBeenLastCalledWith({ query: { month: "2024-07" } });
@@ -256,9 +256,23 @@ describe("Words Page (calendar filters)", () => {
     serveGaps({ "2026-03": 31, "2027-05": 31, "2027-06": 31 });
     const wrapper = await mountAt({ month: "2026-03" });
 
-    await wrapper.find('[data-testid="calendar-year-2027"]').trigger("click");
+    await wrapper.find('[data-testid="calendar-year"]').setValue("2027");
     await flushPromises();
     expect(replace).toHaveBeenLastCalledWith({ query: { month: "2027-05" } });
+  });
+
+  it("steps to the neighbouring year, and stops at the ends", async () => {
+    serveGaps({ "2025-03": 31, "2026-03": 31, "2027-05": 31 });
+    const wrapper = await mountAt({ month: "2026-03" });
+
+    await wrapper.find('[data-testid="calendar-year-next"]').trigger("click");
+    await flushPromises();
+    expect(replace).toHaveBeenLastCalledWith({ query: { month: "2027-05" } });
+
+    const first = await mountAt({ month: "2025-03" });
+    expect(
+      first.find('[data-testid="calendar-year-prev"]').attributes("disabled"),
+    ).toBeDefined();
   });
 
   it("points to the nearest months with a match when this one has none", async () => {
@@ -316,9 +330,9 @@ describe("Words Page (calendar filters)", () => {
       "/api/word-calendar",
       { query: { level: "N2" } },
     );
-    expect(
-      wrapper.find('[data-testid="filter-count"]').text(),
-    ).toContain("1 active");
+    expect(wrapper.find('[data-testid="filter-count"]').text()).toContain(
+      "1 active",
+    );
   });
 
   it("fades the days that do not match, and still links them", async () => {
