@@ -8,7 +8,7 @@
  * Data-free, plain erasable TypeScript, importing only the other number
  * modules. `returns` is "markdown-light": `code` spans only.
  */
-import { RELATED_LIMIT, STROKE_SQUARE } from "./limits";
+import { EXPLORE_PAGE_SIZE, RELATED_LIMIT, STROKE_SQUARE } from "./limits";
 import { ROUTES } from "./routes";
 import { countWord } from "./count";
 import { FREQUENCY_IDS } from "./word-labels";
@@ -83,9 +83,11 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
   {
     method: "GET",
     path: ROUTES.explore,
-    query: "?q=&level=&stratum=&process=&pos=&frequency=&part=&match=",
+    query: "?q=&level=&stratum=&process=&pos=&frequency=&part=&match=&limit=",
     returns:
-      "The open words matching every filter, newest first: `{ filters, total, count, words, facets }`. Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. `level`, `stratum` (which also takes `unstated`), `process`, `pos` (a group such as `verb`) and `frequency` (" +
+      "The open words matching every filter, newest first: `{ filters, total, count, words, facets }`. `count` is every match, but `words` holds only the newest " +
+      EXPLORE_PAGE_SIZE +
+      " unless `limit` asks for more (a whole number of at least 1). Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. `level`, `stratum` (which also takes `unstated`), `process`, `pos` (a group such as `verb`) and `frequency` (" +
       FREQUENCY_TEXT +
       ", from JMdict's priority codes) take several comma-joined choices; `match=all` makes a word carry every process and part of speech chosen instead of any. Each facet counts the words the other filters leave.",
   },

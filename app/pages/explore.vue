@@ -35,21 +35,21 @@
         @retry="refresh()"
       />
 
-      <section v-else-if="result" class="mt-10 space-y-4" aria-live="polite">
+      <section v-else-if="shown" class="mt-10 space-y-4" aria-live="polite">
         <p
           data-testid="explore-count"
           class="text-sm text-stone-600 dark:text-stone-400"
         >
-          {{ result.count }} of {{ result.total }}
-          {{ result.total === 1 ? "word" : "words" }}
+          {{ shown.count }} of {{ shown.total }}
+          {{ shown.total === 1 ? "word" : "words" }}
         </p>
 
         <ul
-          v-if="result.words.length"
+          v-if="shown.words.length"
           data-testid="explore-results"
           class="grid grid-cols-1 sm:grid-cols-2 gap-3"
         >
-          <li v-for="w in result.words" :key="w.date">
+          <li v-for="w in shown.words" :key="w.date">
             <NuxtLink
               :to="`/words/${w.date}`"
               data-testid="explore-word"
@@ -89,8 +89,25 @@
             </NuxtLink>
           </li>
         </ul>
+        <div
+          v-if="shown.words.length < shown.count"
+          class="flex flex-wrap items-center gap-3"
+        >
+          <UButton
+            data-testid="explore-more"
+            color="neutral"
+            variant="outline"
+            :loading="loading"
+            @click="limit += EXPLORE_PAGE_SIZE"
+          >
+            Show more
+          </UButton>
+          <span class="text-xs text-stone-600 dark:text-stone-400">
+            Showing the newest {{ shown.words.length }}
+          </span>
+        </div>
         <p
-          v-else
+          v-else-if="!shown.words.length"
           data-testid="explore-empty"
           class="text-stone-600 dark:text-stone-400 font-body-serif"
         >
@@ -116,7 +133,7 @@
 
 <script setup lang="ts">
 import AppShell from "../components/AppShell.vue";
-import { ref } from "vue";
+import { computed, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "#app";
 import TrendingFallback from "../components/TrendingFallback.vue";
 import WordFilters from "../components/WordFilters.vue";
@@ -125,6 +142,7 @@ import { usePageSeo } from "../composables/usePageSeo";
 import { formatLongDate } from "../utils/date";
 import { STRATUM_DOT } from "../utils/stratum";
 import { filtersFromQuery, queryFromFilters } from "~~/shared/explore-query";
+import { EXPLORE_PAGE_SIZE } from "~~/shared/limits";
 import { WORD_STRATA } from "~~/shared/word-labels";
 import type { ExploreFilters } from "~~/types/index";
 
@@ -133,7 +151,21 @@ const router = useRouter();
 
 const filters = ref<ExploreFilters>(filtersFromQuery(route.query));
 
-const { result, loading, error, refresh } = useExplore(() => filters.value);
+/** How many matches are listed; "Show more" raises it, a new filter resets it. */
+const limit = ref(EXPLORE_PAGE_SIZE);
+
+const { result, loading, error, refresh } = useExplore(
+  () => filters.value,
+  limit,
+);
+
+/** The last list that arrived, kept while a longer one loads so the button
+ *  and the page below it do not jump. */
+const last = shallowRef<typeof result.value>(null);
+watch(result, (next) => {
+  if (next) last.value = next;
+});
+const shown = computed(() => result.value ?? last.value);
 
 usePageSeo({
   title: "Explore the words",
@@ -144,6 +176,7 @@ usePageSeo({
 
 /** Keeps the filters in the URL, so a search can be shared. */
 const apply = async (next: ExploreFilters): Promise<void> => {
+  limit.value = EXPLORE_PAGE_SIZE;
   await router.replace({ query: queryFromFilters(next) });
 };
 </script>

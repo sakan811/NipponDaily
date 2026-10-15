@@ -147,10 +147,13 @@ function facet<T extends string>(
   }));
 }
 
-/** The open words matching every filter, newest first, with each facet's counts. */
+/** The open words matching every filter, newest first, with each facet's counts.
+ *  `limit` keeps only that many of the newest in `words`; `count` still says
+ *  how many matched. */
 export function exploreWords(
   filters: ExploreFilters = {},
   today: string = todayJst(),
+  limit: number = Infinity,
 ): ExplorePayload {
   const open = WORD_ENTRIES.filter((e) => e.date <= today);
   const q = searchFor(filters.q ?? "");
@@ -160,7 +163,7 @@ export function exploreWords(
     filters,
     total: open.length,
     count: matches.length,
-    words: [...matches].reverse().map(summaryOf),
+    words: matches.slice(-limit).reverse().map(summaryOf),
     facets: {
       level: facet<JlptLevel>(JLPT_LEVELS, open, filters, q, "level", (e) => [
         e.level,

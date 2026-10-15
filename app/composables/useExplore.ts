@@ -6,14 +6,25 @@ import type {
 } from "~~/types/index";
 import { queryFromFilters } from "~~/shared/explore-query";
 import { useApiData } from "./useApiData";
+import { EXPLORE_PAGE_SIZE } from "~~/shared/limits";
 import { ROUTES } from "~~/shared/routes";
 
-/** GET /api/explore — the open words matching `filters`; refetches when they change. */
-export function useExplore(filters: MaybeRefOrGetter<ExploreFilters>) {
+/** GET /api/explore — the newest `limit` open words matching `filters`;
+ *  refetches when either changes. */
+export function useExplore(
+  filters: MaybeRefOrGetter<ExploreFilters>,
+  limit: MaybeRefOrGetter<number> = EXPLORE_PAGE_SIZE,
+) {
   const { data, ...rest } = useApiData<ExplorePayload>({
-    key: () => `explore:${JSON.stringify(toValue(filters))}`,
+    key: () => `explore:${JSON.stringify(toValue(filters))}:${toValue(limit)}`,
     path: ROUTES.explore,
-    query: () => queryFromFilters(toValue(filters)),
+    query: () => ({
+      ...queryFromFilters(toValue(filters)),
+      // The server's default is one page, so only a longer list is asked for.
+      ...(toValue(limit) > EXPLORE_PAGE_SIZE
+        ? { limit: String(toValue(limit)) }
+        : {}),
+    }),
     label: "explore",
     failed: "Failed to load the words. Please try again.",
     errors: {

@@ -8,6 +8,10 @@
 /** The longest search text Explore accepts. */
 export const MAX_QUERY_LENGTH = 50;
 
+/** How many matches Explore lists at a time; "Show more" asks for another page.
+ *  The list is every word that has opened, so it grows by one each day. */
+export const EXPLORE_PAGE_SIZE = 100;
+
 /** The longest part text the API accepts (the longest in the data is far shorter). */
 export const MAX_PART_LENGTH = 12;
 
