@@ -29,115 +29,85 @@
       />
     </div>
 
-    <fieldset class="space-y-2">
-      <legend class="kicker text-stone-600 dark:text-stone-400">
-        JLPT level
-      </legend>
-      <div class="flex flex-wrap gap-2" data-testid="facet-level">
-        <button
-          v-for="f in facets?.level ?? []"
-          :key="f.value"
-          type="button"
-          :aria-pressed="chosen('level', f.value)"
-          :disabled="!f.count && !chosen('level', f.value)"
-          :class="chip(chosen('level', f.value), !f.count)"
-          @click="toggle('level', f.value)"
-        >
-          {{ f.value }}
-          <span class="chip-count">{{ f.count }}</span>
-        </button>
-      </div>
-    </fieldset>
+    <div
+      v-if="compact"
+      class="flex flex-wrap gap-2"
+      role="group"
+      aria-label="Filter groups"
+      data-testid="facet-tabs"
+    >
+      <button
+        v-for="t in tabs"
+        :key="t.key"
+        type="button"
+        :data-testid="`facet-tab-${t.key}`"
+        :aria-expanded="openKey === t.key"
+        :aria-controls="`facet-panel-${t.key}`"
+        :class="chip(openKey === t.key || !!t.picked, false)"
+        @click="openKey = openKey === t.key ? null : t.key"
+      >
+        {{ t.label }}
+        <span v-if="t.picked" class="chip-count">{{ t.picked }}</span>
+        <UIcon
+          :name="
+            openKey === t.key
+              ? 'i-heroicons-chevron-up'
+              : 'i-heroicons-chevron-down'
+          "
+          class="h-3.5 w-3.5"
+          aria-hidden="true"
+        />
+      </button>
+    </div>
 
-    <fieldset class="space-y-2">
-      <legend class="kicker text-stone-600 dark:text-stone-400">
-        Layer of the vocabulary
+    <fieldset
+      v-for="g in groups"
+      v-show="!compact || openKey === g.key"
+      :id="`facet-panel-${g.key}`"
+      :key="g.key"
+      class="space-y-2"
+    >
+      <legend
+        :class="[
+          'kicker text-stone-600 dark:text-stone-400',
+          compact && 'sr-only',
+        ]"
+      >
+        {{ g.legend }}
       </legend>
-      <div class="flex flex-wrap gap-2" data-testid="facet-stratum">
+      <div class="flex flex-wrap gap-2" :data-testid="`facet-${g.key}`">
         <button
-          v-for="f in facets?.stratum ?? []"
-          :key="f.value"
+          v-for="o in g.options"
+          :key="o.value"
           type="button"
-          :aria-pressed="chosen('stratum', f.value)"
-          :disabled="!f.count && !chosen('stratum', f.value)"
-          :title="layer(f.value).description"
-          :class="chip(chosen('stratum', f.value), !f.count)"
-          @click="toggle('stratum', f.value)"
+          :aria-pressed="chosen(g.key, o.value)"
+          :disabled="!o.count && !chosen(g.key, o.value)"
+          :title="o.title"
+          :class="chip(chosen(g.key, o.value), !o.count)"
+          @click="toggle(g.key, o.value)"
         >
           <span
-            :class="['inline-block h-2 w-2 rounded-full', STRATUM_DOT[f.value]]"
+            v-if="o.dot"
+            :class="['inline-block h-2 w-2 rounded-full', o.dot]"
             aria-hidden="true"
           />
-          {{ layer(f.value).native }}
-          {{ layer(f.value).label }}
-          <span class="chip-count">{{ f.count }}</span>
+          {{ o.label }}
+          <span class="chip-count">{{ o.count }}</span>
         </button>
       </div>
     </fieldset>
 
-    <fieldset class="space-y-2">
-      <legend class="kicker text-stone-600 dark:text-stone-400">Process</legend>
-      <div class="flex flex-wrap gap-2" data-testid="facet-process">
-        <button
-          v-for="f in facets?.process ?? []"
-          :key="f.value"
-          type="button"
-          :aria-pressed="chosen('process', f.value)"
-          :disabled="!f.count && !chosen('process', f.value)"
-          :title="WORD_PROCESSES[f.value].description"
-          :class="chip(chosen('process', f.value), !f.count)"
-          @click="toggle('process', f.value)"
-        >
-          {{ WORD_PROCESSES[f.value].label }}
-          <span class="chip-count">{{ f.count }}</span>
-        </button>
-      </div>
-    </fieldset>
-
-    <fieldset class="space-y-2">
-      <legend class="kicker text-stone-600 dark:text-stone-400">
-        Part of speech
-      </legend>
-      <div class="flex flex-wrap gap-2" data-testid="facet-pos">
-        <button
-          v-for="f in facets?.pos ?? []"
-          :key="f.value"
-          type="button"
-          :aria-pressed="chosen('pos', f.value)"
-          :disabled="!f.count && !chosen('pos', f.value)"
-          :title="POS_GROUPS[f.value].description"
-          :class="chip(chosen('pos', f.value), !f.count)"
-          @click="toggle('pos', f.value)"
-        >
-          {{ POS_GROUPS[f.value].label }}
-          <span class="chip-count">{{ f.count }}</span>
-        </button>
-      </div>
-    </fieldset>
-
-    <fieldset class="space-y-2">
-      <legend class="kicker text-stone-600 dark:text-stone-400">
-        How common (JMdict)
-      </legend>
-      <div class="flex flex-wrap gap-2" data-testid="facet-frequency">
-        <button
-          v-for="f in facets?.frequency ?? []"
-          :key="f.value"
-          type="button"
-          :aria-pressed="chosen('frequency', f.value)"
-          :disabled="!f.count && !chosen('frequency', f.value)"
-          :title="FREQUENCY_GROUPS[f.value].description"
-          :class="chip(chosen('frequency', f.value), !f.count)"
-          @click="toggle('frequency', f.value)"
-        >
-          {{ FREQUENCY_GROUPS[f.value].label }}
-          <span class="chip-count">{{ f.count }}</span>
-        </button>
-      </div>
-    </fieldset>
-
-    <fieldset class="space-y-2">
-      <legend class="kicker text-stone-600 dark:text-stone-400">
+    <fieldset
+      v-show="!compact || openKey === 'match'"
+      id="facet-panel-match"
+      class="space-y-2"
+    >
+      <legend
+        :class="[
+          'kicker text-stone-600 dark:text-stone-400',
+          compact && 'sr-only',
+        ]"
+      >
         When you pick several
       </legend>
       <div
@@ -218,6 +188,8 @@ type ListFilter = "level" | "stratum" | "process" | "pos" | "frequency";
 const props = defineProps<{
   modelValue: ExploreFilters;
   facets?: ExploreFacets;
+  /** Fold the groups behind one row of buttons, one group open at a time. */
+  compact?: boolean;
 }>();
 const emit = defineEmits<{
   "update:modelValue": [filters: ExploreFilters];
@@ -264,6 +236,86 @@ const layer = (key: StratumKey) =>
 const chosen = (key: ListFilter, value: string): boolean =>
   (props.modelValue[key] as readonly string[] | undefined)?.includes(value) ??
   false;
+
+interface FacetOption {
+  value: string;
+  count: number;
+  label: string;
+  title?: string;
+  dot?: string;
+}
+
+/** One group of chips: its filter, its heading, and the options with counts. */
+const groups = computed<
+  { key: ListFilter; legend: string; tab: string; options: FacetOption[] }[]
+>(() => {
+  const f = props.facets;
+  return [
+    {
+      key: "level",
+      legend: "JLPT level",
+      tab: "Level",
+      options: (f?.level ?? []).map((o) => ({ ...o, label: o.value })),
+    },
+    {
+      key: "stratum",
+      legend: "Layer of the vocabulary",
+      tab: "Layer",
+      options: (f?.stratum ?? []).map((o) => ({
+        ...o,
+        label: `${layer(o.value).native} ${layer(o.value).label}`,
+        title: layer(o.value).description,
+        dot: STRATUM_DOT[o.value],
+      })),
+    },
+    {
+      key: "process",
+      legend: "Process",
+      tab: "Process",
+      options: (f?.process ?? []).map((o) => ({
+        ...o,
+        label: WORD_PROCESSES[o.value].label,
+        title: WORD_PROCESSES[o.value].description,
+      })),
+    },
+    {
+      key: "pos",
+      legend: "Part of speech",
+      tab: "Part of speech",
+      options: (f?.pos ?? []).map((o) => ({
+        ...o,
+        label: POS_GROUPS[o.value].label,
+        title: POS_GROUPS[o.value].description,
+      })),
+    },
+    {
+      key: "frequency",
+      legend: "How common (JMdict)",
+      tab: "How common",
+      options: (f?.frequency ?? []).map((o) => ({
+        ...o,
+        label: FREQUENCY_GROUPS[o.value].label,
+        title: FREQUENCY_GROUPS[o.value].description,
+      })),
+    },
+  ];
+});
+
+const openKey = ref<string | null>(null);
+
+/** The buttons of the compact form, each with how many choices it holds. */
+const tabs = computed(() => [
+  ...groups.value.map((g) => ({
+    key: g.key as string,
+    label: g.tab,
+    picked: (props.modelValue[g.key] as readonly string[] | undefined)?.length,
+  })),
+  {
+    key: "match",
+    label: matchMode.value === "all" ? "Match: all" : "Match: any",
+    picked: 0,
+  },
+]);
 
 /** Adds `value` to a filter's choices, or removes it if it is already there. */
 function toggle(key: ListFilter, value: string): void {

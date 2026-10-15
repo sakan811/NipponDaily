@@ -54,6 +54,7 @@
           v-if="showFilters"
           id="calendar-filters"
           v-model="filters"
+          compact
           :facets="calendar?.facets"
           @update:model-value="applyFilters"
         />
