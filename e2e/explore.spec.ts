@@ -1,5 +1,9 @@
 import { test, expect, hydrated } from "./fixtures";
 
+/** Unfolds one filter group, as a visitor would (one is open at a time). */
+const openGroup = (page: import("@playwright/test").Page, key: string) =>
+  page.getByTestId(`facet-tab-${key}`).click();
+
 const count = async (page: import("@playwright/test").Page) => {
   const text = await page.getByTestId("explore-count").textContent();
   return Number(/^\s*(\d+) of/.exec(text ?? "")![1]);
@@ -13,6 +17,7 @@ test("a level chip narrows the list, writes the URL, and Clear undoes it", async
   await expect(page.getByTestId("explore-count")).toBeVisible();
   const all = await count(page);
 
+  await openGroup(page, "level");
   const chip = page
     .getByTestId("facet-level")
     .getByRole("button", { pressed: false })
@@ -34,6 +39,7 @@ test("a level chip narrows the list, writes the URL, and Clear undoes it", async
 test("a filter in the URL is applied on load", async ({ page }) => {
   await page.goto("/explore?level=N1");
   await hydrated(page);
+  await openGroup(page, "level");
   await expect(
     page.getByTestId("facet-level").getByRole("button", { name: /N1/ }),
   ).toHaveAttribute("aria-pressed", "true");
@@ -54,6 +60,7 @@ test("any/all gives the counts the API gives for two processes", async ({
   await page.goto("/explore");
   await hydrated(page);
   await expect(page.getByTestId("explore-count")).toBeVisible();
+  await openGroup(page, "process");
   const chips = page
     .getByTestId("facet-process")
     .getByRole("button")
@@ -61,6 +68,7 @@ test("any/all gives the counts the API gives for two processes", async ({
   await chips.nth(0).click();
   await chips.nth(1).click();
   await expect(page).toHaveURL(/process=[^&]+(,|%2C)[^&]+/);
+  await openGroup(page, "match");
   const process = new URL(page.url()).searchParams.get("process")!;
 
   await expect(page.getByTestId("match-any")).toHaveAttribute(

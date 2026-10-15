@@ -303,9 +303,8 @@ describe("Words Page (calendar filters)", () => {
     const wrapper = await mountAt();
     expect(wrapper.find('[data-testid="facet-level"]').exists()).toBe(false);
 
-    await wrapper
-      .find('[data-testid="calendar-filter-toggle"]')
-      .trigger("click");
+    await wrapper.find('[data-testid="filter-toggle"]').trigger("click");
+    await wrapper.find('[data-testid="facet-tab-level"]').trigger("click");
     const n2 = wrapper
       .findAll('[data-testid="facet-level"] button')
       .find((b) => b.text().startsWith("N2"))!;
@@ -318,7 +317,7 @@ describe("Words Page (calendar filters)", () => {
       { query: { level: "N2" } },
     );
     expect(
-      wrapper.find('[data-testid="calendar-filter-count"]').text(),
+      wrapper.find('[data-testid="filter-count"]').text(),
     ).toContain("1 active");
   });
 
