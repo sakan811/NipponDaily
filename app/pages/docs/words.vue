@@ -141,21 +141,24 @@
       katakana folded to hiragana, and romaji read as kana and matched against
       the readings only), <code>level</code>, <code>stratum</code>,
       <code>process</code>, <code>pos</code>, <code>frequency</code> and
-      <code>part</code>, newest first. Different filters always narrow together.
-      Within <code>level</code>, <code>stratum</code>, <code>process</code>,
-      <code>pos</code> and <code>frequency</code> several choices are joined by
-      commas (<code>?process=rendaku,compound</code>), and
-      <code>match</code> says how they combine: by default a word needs
-      <em>any</em> of them, with <code>match=all</code> it needs
-      <em>every</em> process and every part of speech. A word has one level, one
-      layer and one frequency group, so those always read as “any”.
-      <code>/words</code> (the calendar) takes the same filters beside
-      <code>month</code>: <code>GET /api/word-calendar</code> marks each open
-      day of the month <code>match</code> or not and returns the same counts,
-      plus how many words match in every month. Both endpoints read the filters
-      through <code>server/utils/explore-filters.ts</code>, so a filter means
-      the same thing in each; the page shares one form,
-      <code>WordFilters</code>.
+      <code>part</code>, newest first. <code>count</code> is every match, but
+      <code>words</code> holds only the newest {{ EXPLORE_PAGE_SIZE }}; the
+      page's “Show more” asks again with <code>limit</code> raised by a page, so
+      the list (which grows by a word a day) never reaches the browser whole.
+      Different filters always narrow together. Within <code>level</code>,
+      <code>stratum</code>, <code>process</code>, <code>pos</code> and
+      <code>frequency</code> several choices are joined by commas
+      (<code>?process=rendaku,compound</code>), and <code>match</code> says how
+      they combine: by default a word needs <em>any</em> of them, with
+      <code>match=all</code> it needs <em>every</em> process and every part of
+      speech. A word has one level, one layer and one frequency group, so those
+      always read as “any”. <code>/words</code> (the calendar) takes the same
+      filters beside <code>month</code>:
+      <code>GET /api/word-calendar</code> marks each open day of the month
+      <code>match</code> or not and returns the same counts, plus how many words
+      match in every month. Both endpoints read the filters through
+      <code>server/utils/explore-filters.ts</code>, so a filter means the same
+      thing in each; the page shares one form, <code>WordFilters</code>.
     </p>
     <p>
       The layer <code>unstated</code> picks the words with no stated layer.
@@ -295,6 +298,7 @@ import {
 import type { FrequencyGroup } from "~~/types/index";
 import { countWord } from "~~/shared/count";
 import {
+  EXPLORE_PAGE_SIZE,
   MAX_EXAMPLES,
   PATTERN_EXAMPLE_LIMIT,
   PATTERN_MAX_COMBINATION,
