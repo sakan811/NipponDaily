@@ -396,9 +396,10 @@ export interface ExplorePayload {
   filters: ExploreFilters;
   /** Open words in all. */
   total: number;
-  /** Open words matching every filter — the length of `words`. */
+  /** Open words matching every filter. */
   count: number;
-  /** The matches, newest first. */
+  /** The newest matches, newest first: all of them, or the first page of
+   *  `count` when the request asked for a `limit`. */
   words: WordSummary[];
   facets: ExploreFacets;
 }

@@ -304,3 +304,16 @@ describe("exploreCalendar", () => {
     expect(cal.monthCounts["2022-12"]).toBeLessThanOrEqual(3);
   });
 });
+
+describe("exploreWords limit", () => {
+  it("keeps the newest matches and still counts them all", () => {
+    const all = exploreWords({}, TODAY);
+    const some = exploreWords({}, TODAY, 2);
+
+    expect(some.count).toBe(all.count);
+    expect(some.words.map((w) => w.date)).toEqual(
+      all.words.slice(0, 2).map((w) => w.date),
+    );
+    expect(some.facets).toEqual(all.facets);
+  });
+});

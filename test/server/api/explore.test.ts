@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
+import { EXPLORE_PAGE_SIZE } from "~~/shared/limits";
 import { WORD_ENTRIES } from "~~/shared/words";
 
 const SECOND = WORD_ENTRIES[1]!.date;
@@ -28,13 +29,35 @@ describe("GET /api/explore", () => {
   });
   afterEach(() => vi.useRealTimers());
 
-  it("serves every open word when nothing is filtered", async () => {
+  it("counts every open word when nothing is filtered", async () => {
     const result = (await getExplore())({} as any);
 
     expect(result.success).toBe(true);
     expect(result.data.words[0].date).toBe("2026-03-08");
     expect(result.data.count).toBe(result.data.total);
     expect(result.data.filters).toEqual({});
+  });
+
+  it("lists one page of the newest words and still counts every match", async () => {
+    const result = (await getExplore())({} as any);
+
+    expect(result.data.words).toHaveLength(EXPLORE_PAGE_SIZE);
+    expect(result.data.count).toBeGreaterThan(EXPLORE_PAGE_SIZE);
+    expect(result.data.words[0].date).toBe("2026-03-08");
+  });
+
+  it("lists as many as limit asks for, and 400s a limit that is not a count", async () => {
+    const handler = await getExplore();
+    (global as any).getQuery.mockReturnValue({ limit: "250" });
+    expect(handler({} as any).data.words).toHaveLength(250);
+
+    (global as any).getQuery.mockReturnValue({ limit: "" });
+    expect(handler({} as any).data.words).toHaveLength(EXPLORE_PAGE_SIZE);
+
+    for (const limit of ["0", "-5", "1.5", "many"]) {
+      (global as any).getQuery.mockReturnValue({ limit });
+      expect(thrownBy(() => handler({} as any))?.statusCode).toBe(400);
+    }
   });
 
   it("applies the filters it is given", async () => {

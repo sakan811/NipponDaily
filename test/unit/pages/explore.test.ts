@@ -4,6 +4,7 @@ import { useRoute, useRouter } from "#app";
 import ExplorePage from "~/app/pages/explore.vue";
 import { exploreWords } from "~~/shared/explore";
 import { filtersFromQuery } from "~~/shared/explore-query";
+import { EXPLORE_PAGE_SIZE } from "~~/shared/limits";
 
 const TODAY = "2012-10-09";
 
@@ -17,7 +18,13 @@ const respond = (data: unknown) => ({
 const serve = () =>
   (global as any).$fetch.mockImplementation(
     async (_url: string, opts?: { query?: Record<string, string> }) =>
-      respond(exploreWords(filtersFromQuery(opts?.query ?? {}), TODAY)),
+      respond(
+        exploreWords(
+          filtersFromQuery(opts?.query ?? {}),
+          TODAY,
+          Number(opts?.query?.limit ?? EXPLORE_PAGE_SIZE),
+        ),
+      ),
   );
 
 describe("Explore Page (/explore)", () => {
@@ -36,7 +43,7 @@ describe("Explore Page (/explore)", () => {
   });
   afterEach(() => vi.useRealTimers());
 
-  it("lists every open word with a count, each linking to its entry", async () => {
+  it("lists the newest open words with a count of all, each linking to its entry", async () => {
     const wrapper = mount(ExplorePage);
     await flushPromises();
 
@@ -44,8 +51,49 @@ describe("Explore Page (/explore)", () => {
     expect(wrapper.find('[data-testid="explore-count"]').text()).toContain(
       `${total} of ${total} words`,
     );
+    expect(wrapper.findAll('[data-testid="explore-word"]')).toHaveLength(
+      EXPLORE_PAGE_SIZE,
+    );
     const first = wrapper.find('[data-testid="explore-word"]');
     expect(first.attributes("href")).toBe("/words/2012-10-09");
+  });
+
+  it("asks for another page on Show more, and starts again when a filter changes", async () => {
+    const wrapper = mount(ExplorePage);
+    await flushPromises();
+
+    await wrapper.find('[data-testid="explore-more"]').trigger("click");
+    await flushPromises();
+
+    expect((global as any).$fetch).toHaveBeenLastCalledWith("/api/explore", {
+      query: { limit: String(EXPLORE_PAGE_SIZE * 2) },
+    });
+    expect(wrapper.findAll('[data-testid="explore-word"]')).toHaveLength(
+      EXPLORE_PAGE_SIZE * 2,
+    );
+
+    await wrapper
+      .findAll('[data-testid="facet-level"] button')[0]!
+      .trigger("click");
+    await flushPromises();
+
+    expect((global as any).$fetch).toHaveBeenLastCalledWith("/api/explore", {
+      query: { level: "N5" },
+    });
+  });
+
+  it("hides Show more when every match is listed", async () => {
+    vi.mocked(useRoute).mockReturnValue({
+      path: "/explore",
+      query: { part: "日" },
+      params: {},
+    } as any);
+    const few = exploreWords({ part: "日" }, TODAY).count;
+    expect(few).toBeLessThanOrEqual(EXPLORE_PAGE_SIZE);
+    const wrapper = mount(ExplorePage);
+    await flushPromises();
+
+    expect(wrapper.find('[data-testid="explore-more"]').exists()).toBe(false);
   });
 
   it("starts from the filters in the URL and ignores values the API would refuse", async () => {

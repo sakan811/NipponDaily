@@ -165,3 +165,17 @@ test("searching finds a word by its Japanese term", async ({ page }) => {
     page.getByTestId("explore-word").filter({ hasText: term }).first(),
   ).toBeVisible();
 });
+
+test("Show more lists another page and the count stays the whole", async ({
+  page,
+}) => {
+  await openExplore(page);
+  const words = page.getByTestId("explore-word");
+  const before = await words.count();
+  const all = await count(page);
+  expect(before).toBeLessThan(all);
+
+  await page.getByTestId("explore-more").click();
+  await expect.poll(() => words.count()).toBeGreaterThan(before);
+  expect(await count(page)).toBe(all);
+});
