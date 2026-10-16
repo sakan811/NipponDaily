@@ -101,9 +101,10 @@
       (日 → び, ひ, か, にち), with rendaku shown as “from ひ”.
       <code>alsoIn</code> lists open words whose <em>spelling</em> contains a
       kanji part but whose breakdown doesn't name it, flagged on the page as
-      claiming nothing. Coverage is bounded by the parsers: single-character
-      words, a single kanji with its okurigana (抱く), many loanwords and any
-      word whose text gives no clean split have no parts. The sitemap lists
+      claiming nothing. Coverage is bounded by the sources and the parsers: a
+      word the dump has no Etymology section for has no parts, nor do
+      single-character words, a single kanji with its okurigana (抱く), many
+      loanwords and any word whose text gives no clean split. The sitemap lists
       parts seen in more than one open word.
     </p>
 
@@ -303,11 +304,14 @@
       <code>level</code> and <code>meaning</code> must equal a pool word.
     </p>
     <p>
-      The catalogue is the pool, one word a day, easiest list first. The words
-      that were chosen for their origin come first and carry a headline; every
-      other pool word follows without one. A word shows an origin only if the
-      pinned dump has an Etymology section for its own reading, because every
-      claim is quoted from one; without it the entry has no
+      The catalogue is the pool, one word a day. The words that were chosen for
+      their origin come first and carry a headline; the rest of the pool
+      follows, easiest list first, without one. Last come the words that share a
+      spelling with an earlier one (後 あと, then 後 ご), easiest list first
+      again; such a word carries a headline when the dump has an Etymology
+      section for its reading. A word shows an origin only if the pinned dump
+      has an Etymology section for its own reading, because every claim is
+      quoted from one; without it the entry has no
       <code>sources</code>, no <code>morphemes</code>, no headline and no dump
       date, and the page says the data is missing in those sections. Its layer
       and processes come from KANJIDIC2 and JMdict alone. The same goes for the
@@ -381,9 +385,19 @@ const fields = [
       "The mora after which the pitch falls, as the pinned Kanjium accent list gives it for this exact spelling and reading (`0`: it never falls, `1`: after the first mora…) and UniDic gives it too; several when both give several. Left out when they share none.",
   },
   {
+    name: "pitchDisagreement?",
+    meaning:
+      "`{ kanjium, unidic }`: the accents each source gave where both have one for this spelling and reading and the sets differ; the ones they share are in `pitch`. Left out when they agree, or UniDic has none.",
+  },
+  {
+    name: "antonyms?, seeAlso?",
+    meaning:
+      "`{ term, kana? }[]`: the words JMdict gives as the opposite (`ant`) of the sense the meaning came from, and the words it says to see (`xref`), as it writes them. Left out when it gives none.",
+  },
+  {
     name: "stratum?",
     meaning:
-      "`wago`, `kango`, `gairaigo` or `hybrid`; stated only when KANJIDIC2, JMdict's loan source or the evidence establishes it.",
+      "`wago`, `kango`, `gairaigo` or `hybrid`; stated only when the spelling, KANJIDIC2, JMdict's loan source or the quoted text establishes it.",
   },
   {
     name: "processes",

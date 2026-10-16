@@ -296,9 +296,10 @@
         a derived field can't be edited by hand or left stale.
       </li>
       <li>
-        <strong>Catalogue</strong>: every date and term is unique, no day
-        between the first entry and the last is missing (the first and last
-        months may be partial), and entries are sorted.
+        <strong>Catalogue</strong>: every date is unique and so is every word (a
+        spelling with its reading), no day between the first entry and the last
+        is missing (the first and last months may be partial), and entries are
+        sorted.
       </li>
       <li>
         <strong>Every entry</strong> (<code>words.test.ts</code>):
