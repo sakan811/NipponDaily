@@ -123,6 +123,34 @@
           </button>
         </div>
 
+        <!-- The matching words of this month, so none has to be hunted for in the grid -->
+        <ul
+          v-if="filtersActive && matchedDays.length"
+          data-testid="calendar-matches"
+          class="flex flex-wrap gap-2"
+          aria-label="Matching words this month"
+        >
+          <li v-for="d in matchedDays" :key="d.date">
+            <NuxtLink
+              :to="`/words/${d.wordDate ?? d.date}`"
+              data-testid="calendar-match-link"
+              class="season-chip inline-flex items-baseline gap-2 border border-primary-500 bg-primary-500/10 px-3 py-1.5 hover:bg-primary-500/20 transition-colors"
+            >
+              <span
+                class="text-xs tabular-nums text-stone-600 dark:text-stone-400"
+                >{{ Number(d.date.slice(8)) }}</span
+              >
+              <span
+                class="font-serif text-lg font-bold text-stone-900 dark:text-white"
+                >{{ d.term }}</span
+              >
+              <span class="text-xs text-stone-600 dark:text-stone-400">{{
+                d.kana
+              }}</span>
+            </NuxtLink>
+          </li>
+        </ul>
+
         <!-- Month grid -->
         <div
           class="grid grid-cols-7 gap-1.5 sm:gap-2"
@@ -153,12 +181,12 @@
                 cell.date === calendar.today
                   ? 'border-primary-500 ring-2 ring-primary-500/30'
                   : filtersActive && cell.day.match
-                    ? 'border-primary-500'
+                    ? 'border-primary-500 ring-1 ring-primary-500 shadow-md'
                     : 'border-stone-300 dark:border-stone-700',
                 filtersActive && cell.day.match
-                  ? 'bg-primary-500/10'
+                  ? 'bg-primary-500/20'
                   : 'bg-white dark:bg-stone-900/50',
-                dimmed(cell.day) && 'opacity-35',
+                dimmed(cell.day) && 'opacity-35 grayscale',
               ]"
             >
               <span
@@ -238,7 +266,7 @@
             <span
               class="inline-block h-2 w-2 border border-stone-400 opacity-40"
             />
-            Faded: doesn't match the filters
+            Faded: doesn't match the filters. Outlined days match.
           </li>
         </ul>
       </section>
@@ -333,6 +361,13 @@ const earlierMatch = computed(() =>
 );
 const laterMatch = computed(() =>
   withMatches.value.find((m) => m > (calendar.value?.month ?? "")),
+);
+
+/** This month's open days that pass the filters, in date order. */
+const matchedDays = computed(() =>
+  (calendar.value?.days ?? []).filter(
+    (d) => d.status === "open" && d.match === true,
+  ),
 );
 
 /** An open day the filters rule out; shown faded, still a link. */
