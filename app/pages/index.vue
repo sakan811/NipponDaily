@@ -12,7 +12,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          One word a day,<br class="hidden sm:inline" >
+          One word a day,<br class="hidden sm:inline" />
           <span
             class="text-primary-600 dark:text-primary-400 italic font-normal"
             >with its sources.</span
