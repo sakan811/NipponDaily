@@ -25,6 +25,7 @@ import {
   RELATED_PART_WEIGHT,
 } from "./limits";
 import { katakanaToHiragana } from "./japanese";
+import { refOf } from "./parts";
 import { WORD_ENTRIES, todayJst } from "./words";
 
 /** The open words closest to `entry`, closest first, never the entry itself. */
@@ -76,14 +77,6 @@ export function relatedWords(
     shared,
   }));
 }
-
-const refOf = (e: WordEntry): PartWordRef => ({
-  date: e.date,
-  term: e.term,
-  kana: e.kana,
-  meaning: e.meaning,
-  stratum: e.stratum,
-});
 
 /** The open words whose day falls on the same month and day as the entry's, in
  *  other years, oldest first. Only the dates are compared: nothing about the
