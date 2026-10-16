@@ -308,9 +308,10 @@ export interface KanjiDetail {
   /** Kun'yomi as KANJIDIC2 gives them: a dot marks where okurigana begin. */
   kun: string[];
   meanings: string[];
-  /** Open words whose spelling contains it, oldest first. */
+  /** Open words whose spelling contains it, oldest first, each with its JLPT
+   *  level so the page can group them. */
   count: number;
-  words: PartWordRef[];
+  words: KanjiWordRef[];
   /** Whether some open word shows it as a part, so /parts/<char> exists. */
   isPart: boolean;
   /** KanjiVG's strokes in the order they are drawn, as SVG path data on a
@@ -320,6 +321,11 @@ export interface KanjiDetail {
   /** The shapes KRADFILE lists the character as containing, in its order and
    *  notation; left out where it has none. */
   components?: KanjiComponent[];
+}
+
+/** An open word written with a kanji, with its JLPT level. */
+export interface KanjiWordRef extends PartWordRef {
+  level: JlptLevel;
 }
 
 /** One shape a kanji contains, and the other kanji of open words that contain it. */

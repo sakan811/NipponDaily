@@ -82,11 +82,11 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     path: ROUTES.kanjiDetail,
     query: "?char=日",
     returns:
-      "KANJIDIC2's record of one kanji with the open words written with it: `{ char, strokeCount, grade?, freq?, on, kun, meanings, count, words, isPart, strokes? }`, where `strokes` is KanjiVG's stroke paths in drawing order on a " +
+      "KANJIDIC2's record of one kanji with the open words written with it: `{ char, strokeCount, grade?, freq?, on, kun, meanings, count, words, isPart, strokes?, components? }`, where each of `words` carries its JLPT `level` and `strokes` is KanjiVG's stroke paths in drawing order on a " +
       STROKE_SQUARE +
       " by " +
       STROKE_SQUARE +
-      " square, left out when KanjiVG and KANJIDIC2 count the strokes differently. Only days that have arrived count, so a kanji used only by an upcoming word is a `404`. A missing value or more than one character is a `400`.",
+      " square, left out when KanjiVG and KANJIDIC2 count the strokes differently, and `components` is the shapes KRADFILE lists it as containing, each with a few other open kanji that contain it, left out where it lists none. Only days that have arrived count, so a kanji used only by an upcoming word is a `404`. A missing value or more than one character is a `400`.",
   },
   {
     method: "GET",

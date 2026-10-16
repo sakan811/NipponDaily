@@ -82,7 +82,7 @@ const features = computed(() => [
   {
     title: "The Kanji",
     description:
-      "`/kanji` lists every kanji a word that has opened is written with. Open one — 日, say — for KANJIDIC2's record of it (on'yomi, kun'yomi, meanings, school grade, stroke count, newspaper rank), the order its strokes are drawn in (KanjiVG's, shown only where KanjiVG and KANJIDIC2 count the same number of strokes) the shapes EDRDG's KRADFILE lists it as containing (a lookup aid, not an etymology), with a few other kanji that contain the same shape, and every word so far that is written with it. Each entry links its own kanji, and the page says a word doesn't use every reading or meaning of its kanji.",
+      "`/kanji` lists every kanji a word that has opened is written with. Open one — 日, say — for KANJIDIC2's record of it (on'yomi, kun'yomi, meanings, school grade, stroke count, newspaper rank), the order its strokes are drawn in (KanjiVG's, shown only where KanjiVG and KANJIDIC2 count the same number of strokes) the shapes EDRDG's KRADFILE lists it as containing (a lookup aid, not an etymology), with a few other kanji that contain the same shape, and every word so far that is written with it, grouped by JLPT level, easiest first. Each entry links its own kanji, and the page says a word doesn't use every reading or meaning of its kanji.",
   },
   {
     title: "In a Sentence",
