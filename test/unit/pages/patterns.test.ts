@@ -158,6 +158,9 @@ describe("Patterns Page (/patterns)", () => {
     const rows = wrapper.find('[data-testid="pattern-pitch"]').findAll("li");
     expect(rows).toHaveLength(patternsFor(TODAY).pitch.length);
     expect(rows[0]!.text()).toContain("flat (heiban)");
+    expect(wrapper.find('a[href="/explore?pitch=odaka"]').text()).toBe(
+      "tail-high (odaka)",
+    );
   });
 
   it("tabulates how long each level's words are", async () => {

@@ -451,7 +451,11 @@
               <span
                 :class="['inline-block h-2.5 w-2.5 rounded-sm', PITCH_DOT[p]]"
               />
-              {{ PITCH_TYPES[p].label }}
+              <NuxtLink
+                :to="explorePath({ pitch: [p] })"
+                class="underline hover:text-primary-600 dark:hover:text-primary-400"
+                >{{ PITCH_TYPES[p].label }}</NuxtLink
+              >
             </li>
           </ul>
           <ul data-testid="pattern-pitch" class="space-y-3">

@@ -222,6 +222,26 @@ describe("Explore Page (/explore)", () => {
     });
   });
 
+  it("offers the accent patterns, with no accent shown as an option", async () => {
+    const wrapper = mount(ExplorePage);
+    await flushPromises();
+
+    const chips = wrapper.findAll('[data-testid="facet-pitch"] button');
+    expect(chips.map((b) => b.text().replace(/\s*\d+$/, ""))).toEqual([
+      "flat (heiban)",
+      "head-high (atamadaka)",
+      "middle-high (nakadaka)",
+      "tail-high (odaka)",
+      "No accent shown",
+    ]);
+    await chips.find((b) => b.text().includes("tail-high"))!.trigger("click");
+    await flushPromises();
+    expect(replace).toHaveBeenLastCalledWith({ query: { pitch: "odaka" } });
+    expect((global as any).$fetch).toHaveBeenLastCalledWith("/api/explore", {
+      query: { pitch: "odaka" },
+    });
+  });
+
   it("searches after the reader stops typing", async () => {
     vi.useFakeTimers();
     const wrapper = mount(ExplorePage);

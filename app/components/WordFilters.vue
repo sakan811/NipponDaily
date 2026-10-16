@@ -169,6 +169,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from "vue";
 import { chipClass as chip } from "../utils/chip";
+import { PITCH_TYPES, PITCH_UNSTATED } from "../utils/pitch";
 import { partPath } from "../utils/seo";
 import { STRATUM_DOT } from "../utils/stratum";
 import { MAX_QUERY_LENGTH } from "~~/shared/limits";
@@ -194,7 +195,8 @@ import type {
  */
 
 /** The filters that hold several choices, and the ones a choice can be toggled in. */
-type ListFilter = "level" | "stratum" | "process" | "pos" | "frequency";
+type ListFilter =
+  "level" | "stratum" | "process" | "pos" | "frequency" | "pitch";
 
 const props = withDefaults(
   defineProps<{
@@ -245,7 +247,7 @@ const open = ref(props.startOpen || active.value);
 const matchMode = computed<ExploreMatch>(() => props.modelValue.match ?? "any");
 const matchHelp = computed(() =>
   matchMode.value === "all"
-    ? "A word must carry every process and every part of speech you picked. A word has one level, one layer and one frequency group, so those still match any."
+    ? "A word must carry every process, part of speech and accent pattern you picked. A word has one level, one layer and one frequency group, so those still match any."
     : "A word needs at least one of the options picked in a group. Different groups always narrow together.",
 );
 
@@ -316,6 +318,16 @@ const groups = computed<
         label: FREQUENCY_GROUPS[o.value].label,
         title: FREQUENCY_GROUPS[o.value].description,
       })),
+    },
+    {
+      key: "pitch",
+      legend: "Pitch accent",
+      tab: "Pitch",
+      options: (f?.pitch ?? []).map((o) => {
+        const p =
+          o.value === "unstated" ? PITCH_UNSTATED : PITCH_TYPES[o.value];
+        return { ...o, label: p.label, title: p.hint };
+      }),
     },
   ];
 });

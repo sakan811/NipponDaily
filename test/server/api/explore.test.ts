@@ -90,6 +90,7 @@ describe("GET /api/explore", () => {
       { level: "N6" },
       { stratum: "kun" },
       { process: "magic" },
+      { pitch: "low" },
       { q: "x".repeat(51) },
       { part: "x".repeat(13) },
     ]) {

@@ -5,6 +5,7 @@
  * into Explore all read and write the same format.
  */
 import type { ExploreFilters, ExploreMatch } from "~~/types/index";
+import { PITCH_TYPES } from "../app/utils/pitch";
 import { JLPT_LEVELS } from "./jlpt";
 import { MAX_PART_LENGTH, MAX_QUERY_LENGTH } from "./limits";
 import {
@@ -16,6 +17,7 @@ import {
 
 export const STRATUM_KEY_IDS = [...Object.keys(WORD_STRATA), "unstated"];
 export const PROCESS_KEY_IDS = Object.keys(WORD_PROCESSES);
+export const PITCH_KEY_IDS = [...Object.keys(PITCH_TYPES), "unstated"];
 
 /** "a,b" (or ["a,b", "c"]) as a list; blanks and repeats dropped. */
 export function splitList(value: unknown): string[] {
@@ -53,6 +55,7 @@ export function filtersFromQuery(
     process: only(query.process, PROCESS_KEY_IDS),
     pos: only(query.pos, POS_GROUP_IDS),
     frequency: only(query.frequency, FREQUENCY_IDS),
+    pitch: only(query.pitch, PITCH_KEY_IDS),
     part: text(query.part, MAX_PART_LENGTH),
     match: match === "all" ? ("all" as ExploreMatch) : undefined,
   };

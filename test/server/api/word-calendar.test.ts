@@ -133,6 +133,7 @@ describe("GET /api/word-calendar", () => {
       "process",
       "pos",
       "frequency",
+      "pitch",
     ]);
   });
 
