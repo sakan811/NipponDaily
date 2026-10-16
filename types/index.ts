@@ -20,7 +20,7 @@ export type JlptLevel = "N5" | "N4" | "N3" | "N2" | "N1";
 export type WordStratum = "wago" | "kango" | "gairaigo" | "hybrid";
 
 /** The linguistic processes a daily word can illustrate — the closed set
- *  shared/words.ts labels and explains (WORD_PROCESSES). */
+ *  shared/word-labels.ts labels and explains (WORD_PROCESSES). */
 export type WordProcess =
   | "compound"
   | "derivation"
@@ -68,8 +68,9 @@ export interface WordExample {
   form: string;
   /** `ja` cut into parts that join back to it: `[text]` for plain text,
    *  `[kanji, reading]` where a reading is shown over the kanji. A reading is
-   *  here only where kuromoji and Tatoeba's index or JMdict agree
-   *  (scripts/lib/furigana.mjs); left out when none was. */
+   *  here only where the sources stand behind it (a contributor wrote it, or
+   *  kuromoji, UniDic or Tatoeba's index agrees, and KANJIDIC2 or JMdict gives
+   *  it; scripts/lib/furigana.mjs); left out when none was. */
   furigana?: SentencePart[];
 }
 

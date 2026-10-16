@@ -7,7 +7,7 @@ export default defineConfig({
   test: {
     globals: true,
     setupFiles: ["./test/setup.ts"],
-    // Unit tests only - no integration tests here
+    // Four projects: unit (happy-dom), content, integration and server (node)
     projects: [
       // Client-side unit tests (Vue components, happy-dom)
       {
