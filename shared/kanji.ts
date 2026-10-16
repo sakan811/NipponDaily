@@ -19,8 +19,8 @@ import strokeReference from "~~/data/reference/strokes.json";
 import componentReference from "~~/data/reference/components.json";
 import { distinctKanji as kanjiOf } from "./japanese";
 import { KANJI_ALSO_LIMIT } from "./limits";
-import { partDetail, refOf } from "./parts";
-import { WORD_ENTRIES, todayJst } from "./words";
+import { partDetail } from "./parts";
+import { WORD_ENTRIES, refOf, todayJst } from "./words";
 
 interface KanjiRecord {
   strokeCount: number;

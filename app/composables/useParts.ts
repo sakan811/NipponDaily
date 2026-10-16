@@ -34,13 +34,11 @@ export function usePart(text: MaybeRefOrGetter<string>) {
 }
 
 /** GET /api/related?date= — open words that resemble one entry. Supplementary:
- *  the page shows the row only when it loads, so a failure is not an error state.
- *  An empty date (the home page before its word has loaded) fetches nothing. */
+ *  the page shows the row only when it loads, so a failure is not an error state. */
 export function useRelatedWords(date: MaybeRefOrGetter<string>) {
   const { data } = useAsyncData(
     () => `related:${toValue(date)}`,
     async () => {
-      if (!toValue(date)) return null;
       // Not fetchPage: a failure here must never turn the whole page into a 404.
       try {
         const response = await $fetch<ApiResponse<RelatedPayload>>(

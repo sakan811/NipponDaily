@@ -72,21 +72,15 @@ describe("Index Page (Landing)", () => {
     const sameDay = [
       { date: "2006-02-08", term: "一", kana: "いち", meaning: "one" },
     ];
-    (global as any).$fetch.mockImplementation(async (url: string) =>
-      url === "/api/related"
-        ? {
-            success: true,
-            data: { sameDay, soundAlikes: [], words: [] },
-            timestamp: "2010-02-08T00:00:00Z",
-          }
-        : payload,
-    );
+    (global as any).$fetch.mockResolvedValue({
+      ...payload,
+      data: { ...payload.data, sameDay },
+    });
     const wrapper = mount(IndexPage);
     await flushPromises();
 
-    expect((global as any).$fetch).toHaveBeenCalledWith("/api/related", {
-      query: { date: "2010-02-08" },
-    });
+    // They come with the day's word: the page asks for nothing else.
+    expect((global as any).$fetch).toHaveBeenCalledTimes(1);
     expect(wrapper.text()).toContain("Also opened on February 8");
     const word = wrapper.find('[data-testid="same-day-word"] a');
     expect(word.attributes("href")).toBe("/words/2006-02-08");

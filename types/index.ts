@@ -191,6 +191,9 @@ export interface DailyWordPayload {
   prev: WordNeighbor | null;
   /** The next day with a word — only once that day has itself arrived. */
   next: WordNeighbor | null;
+  /** Open words whose day has the same month and day as the entry's, in
+   *  other years, oldest first. */
+  sameDay: PartWordRef[];
 }
 
 /** What GET /api/word-calendar returns for one day of a month. */
@@ -606,17 +609,14 @@ export interface SoundAlike extends PartWordRef {
 }
 
 /** What GET /api/related returns: open words that resemble one entry, closest
- *  first, the words JMdict points its sense at, the open words that opened on
- *  the same day of the year and the open words that share its reading. */
+ *  first, the words JMdict points its sense at and the open words that share
+ *  its reading. */
 export interface RelatedPayload {
   /** The entry they are related to. */
   date: string;
   words: RelatedWord[];
   antonyms: ResolvedReference[];
   seeAlso: ResolvedReference[];
-  /** Open words whose day has the same month and day as the entry's, in
-   *  other years, oldest first. */
-  sameDay: PartWordRef[];
   /** Open words with the same reading (katakana and hiragana alike) and
    *  another spelling, oldest first. */
   soundAlikes: SoundAlike[];

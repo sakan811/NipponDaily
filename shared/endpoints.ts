@@ -48,7 +48,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     path: ROUTES.dailyWord,
     query: "?date=YYYY-MM-DD",
     returns:
-      "One entry plus its `prev` and `next` days. With no date: today in Japan; once the catalogue runs out the words start again from the first, and `lap` says which pass it is (1 until then, always 1 for an explicit date). A future or invalid date is a `400`; a past date with no entry (or no word yet) is a `404`. `next` stays `null` until that day has arrived.",
+      "One entry plus its `prev` and `next` days and `sameDay`, the open words of the same month and day in other years, oldest first. With no date: today in Japan; once the catalogue runs out the words start again from the first, and `lap` says which pass it is (1 until then, always 1 for an explicit date). A future or invalid date is a `400`; a past date with no entry (or no word yet) is a `404`. `next` stays `null` until that day has arrived.",
   },
   {
     method: "GET",
@@ -115,7 +115,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     returns:
       "Up to " +
       countWord(RELATED_LIMIT) +
-      " open words that resemble one entry (shared parts, processes or layer), closest first, each with what it shares; the words JMdict points the entry's sense at (`antonyms`, `seeAlso`), each with the open word it is where there is exactly one; the open words whose day has the same month and day in other years (`sameDay`); and the open words with the same reading and another spelling, each with its pitch accents (`soundAlikes`), both oldest first: `{ date, words, antonyms, seeAlso, sameDay, soundAlikes }`. `date` is required; a future or malformed one is a `400`, a day with no entry a `404`.",
+      " open words that resemble one entry (shared parts, processes or layer), closest first, each with what it shares; the words JMdict points the entry's sense at (`antonyms`, `seeAlso`), each with the open word it is where there is exactly one; and the open words with the same reading and another spelling, oldest first, each with its pitch accents (`soundAlikes`): `{ date, words, antonyms, seeAlso, soundAlikes }`. `date` is required; a future or malformed one is a `400`, a day with no entry a `404`.",
   },
   {
     method: "GET",

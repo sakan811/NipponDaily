@@ -4,7 +4,6 @@ import {
   readingKey,
   referencesFor,
   relatedWords,
-  sameDayWords,
   soundAlikesOf,
 } from "~~/shared/related";
 import { WORD_ENTRIES } from "~~/shared/words";
@@ -140,34 +139,6 @@ describe("referencesFor", () => {
     expect(ups.length).toBeGreaterThan(1);
     const { seeAlso } = referencesFor(entry, "2099-12-31");
     expect(seeAlso.find((r) => r.term === "上")?.word).toBeUndefined();
-  });
-});
-
-describe("sameDayWords", () => {
-  it("lists the open words of the same month and day in other years, oldest first", () => {
-    const words = sameDayWords(entry("2010-02-20"), "2015-03-01");
-
-    expect(words.map((w) => w.date)).toEqual([
-      "2006-02-20",
-      "2007-02-20",
-      "2008-02-20",
-      "2009-02-20",
-      "2011-02-20",
-      "2012-02-20",
-      "2013-02-20",
-      "2014-02-20",
-      "2015-02-20",
-    ]);
-    expect(words[0]).toMatchObject({ term: entry("2006-02-20").term });
-  });
-
-  it("never lists a day that has not arrived", () => {
-    const words = sameDayWords(entry("2010-02-20"), "2013-02-19");
-
-    expect(words.map((w) => w.date).at(-1)).toBe("2012-02-20");
-    for (const e of WORD_ENTRIES.filter((x) => x.date <= TODAY).slice(-40))
-      for (const w of sameDayWords(e, TODAY))
-        expect(w.date <= TODAY).toBe(true);
   });
 });
 

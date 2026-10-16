@@ -43,10 +43,10 @@
         />
 
         <SameDayWords
-          v-if="related?.sameDay?.length"
+          v-if="payload.sameDay?.length"
           class="mt-10"
           :date="payload.entry.date"
-          :words="related.sameDay"
+          :words="payload.sameDay"
         />
 
         <!-- Previous / next open day -->
