@@ -43,7 +43,7 @@ const wordsFeature = computed(() => {
   const base =
     "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT " +
     JLPT_RANGE +
-    " vocabulary, first the words chosen for their origin and then the rest, easiest list first. Each section shows what its source holds for the word and otherwise says the data is missing: the origin needs a Wiktionary Etymology section, the pitch accent an accent list and a second dictionary that agree, the sentences a Tatoeba match.";
+    " vocabulary, first the words chosen for their origin, then the rest, easiest list first, and last the words that share a spelling with an earlier one, easiest list first again. Each section shows what its source holds for the word and otherwise says the data is missing: the origin needs a Wiktionary Etymology section, the pitch accent an accent list and a second dictionary that agree, the sentences a Tatoeba match.";
   const c = catalogue.value;
   return c
     ? `${base} ${c.total} words are written, ${rangeMonthsText(c)}, and ${c.open} have opened so far.`
@@ -124,7 +124,7 @@ const features = computed(() => [
   {
     title: "Which Layer, Which Process",
     description:
-      "Every entry shows JMdict's part-of-speech tags, a “Common” mark when JMdict counts the word as common, JMdict's own register, field and dialect tags where every sense the meaning matches carries them (colloquial, polite, baseball, Kansai-ben…), its layer when KANJIDIC2's readings or JMdict's loan source establish it — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes its Wiktionary text mentions, or JMdict records (compounding, rendaku, clipping, ateji, sound change…), each defined on the page.",
+      "Every entry shows JMdict's part-of-speech tags, a “Common” mark when JMdict counts the word as common, JMdict's own register, field and dialect tags where every sense the meaning matches carries them (colloquial, polite, baseball, Kansai-ben…), its layer when the spelling, KANJIDIC2's readings, JMdict's loan source or the quoted text establish it — native 和語, Sino-Japanese 漢語, loanword 外来語 or hybrid 混種語 — and the processes its Wiktionary text mentions, or JMdict records (compounding, rendaku, clipping, ateji, sound change…), each defined on the page.",
   },
   {
     title: "The Story, in Wiktionary's Words",
