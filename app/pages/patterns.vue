@@ -505,28 +505,47 @@
             The mean length of each level's words so far: the beats (morae) in
             the reading and the kanji in the spelling.
           </p>
-          <div class="table-wrap">
-            <table data-testid="pattern-lengths">
+          <div class="overflow-x-auto">
+            <table
+              data-testid="pattern-lengths"
+              class="w-full min-w-[34rem] border-collapse border-y-2 border-primary-500 font-sans text-sm tabular-nums"
+            >
               <thead>
-                <tr>
-                  <th>Level</th>
-                  <th>Words</th>
-                  <th>Morae per word</th>
-                  <th>Kanji per word</th>
-                  <th>Written without kanji</th>
+                <tr
+                  class="text-left text-xs uppercase tracking-wider text-stone-600 dark:text-stone-400"
+                >
+                  <th scope="col" class="px-4 py-3 font-semibold">Level</th>
+                  <th scope="col" class="px-4 py-3 font-semibold text-right">
+                    Words
+                  </th>
+                  <th scope="col" class="px-4 py-3 font-semibold text-right">
+                    Morae per word
+                  </th>
+                  <th scope="col" class="px-4 py-3 font-semibold text-right">
+                    Kanji per word
+                  </th>
+                  <th scope="col" class="px-4 py-3 font-semibold text-right">
+                    Written without kanji
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="row in patterns.lengths" :key="row.value">
-                  <td>
-                    <NuxtLink :to="explorePath({ level: [row.value] })">{{
-                      row.value
-                    }}</NuxtLink>
-                  </td>
-                  <td>{{ row.words }}</td>
-                  <td>{{ row.meanMorae }}</td>
-                  <td>{{ row.meanKanji }}</td>
-                  <td>
+                <tr
+                  v-for="row in patterns.lengths"
+                  :key="row.value"
+                  class="border-t border-stone-300/70 dark:border-stone-700/70"
+                >
+                  <th scope="row" class="px-4 py-3 text-left font-semibold">
+                    <NuxtLink
+                      :to="explorePath({ level: [row.value] })"
+                      class="underline hover:text-primary-600 dark:hover:text-primary-400"
+                      >{{ row.value }}</NuxtLink
+                    >
+                  </th>
+                  <td class="px-4 py-3 text-right">{{ row.words }}</td>
+                  <td class="px-4 py-3 text-right">{{ row.meanMorae }}</td>
+                  <td class="px-4 py-3 text-right">{{ row.meanKanji }}</td>
+                  <td class="px-4 py-3 text-right">
                     {{ row.kanaOnly }} ({{ percent(row.kanaOnly, row.words) }})
                   </td>
                 </tr>
