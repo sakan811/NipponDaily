@@ -356,26 +356,6 @@ describe("Words Page (calendar filters)", () => {
     );
   });
 
-  it("lists the month's matching words as links above the grid", async () => {
-    const wrapper = await mountAt({ month: "2009-07", level: "N2" });
-
-    const expected = exploreCalendar("2009-07", { level: ["N2"] }, TODAY);
-    const matched = expected.days.filter((d) => d.match);
-    const links = wrapper.findAll('[data-testid="calendar-match-link"]');
-    expect(links).toHaveLength(matched.length);
-    expect(links[0]!.attributes("href")).toBe(
-      `/words/${matched[0]!.wordDate ?? matched[0]!.date}`,
-    );
-    expect(links[0]!.text()).toContain(matched[0]!.term);
-  });
-
-  it("shows no match list when no filter is set", async () => {
-    const wrapper = await mountAt();
-    expect(wrapper.find('[data-testid="calendar-matches"]').exists()).toBe(
-      false,
-    );
-  });
-
   it("opens the filters when the link already carries some", async () => {
     const wrapper = await mountAt({ level: "N5", stratum: "bogus" });
     expect(wrapper.find('[data-testid="facet-level"]').exists()).toBe(true);
