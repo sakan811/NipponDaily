@@ -40,12 +40,14 @@
       nowhere else. The lists are a trusted, widely used starting point, and the
       app keeps to them rather than widen the pool to find more words. Every
       list word is planned, one a day: first the words chosen for their origin,
-      then the rest, easiest list first. What an entry shows depends on what the
-      sources hold: an origin only where the pinned dump has an Etymology
-      section for the word's reading, a pitch accent only where the accent list
-      and a second dictionary agree, and so on. A section the sources have
-      nothing for says <em>we don't have the data for this section</em> instead
-      of guessing or disappearing.
+      then the rest, easiest list first, and last the words that share a
+      spelling with an earlier one (後 あと, then 後 ご), easiest list first
+      again. What an entry shows depends on what the sources hold: an origin
+      only where the pinned dump has an Etymology section for the word's
+      reading, a pitch accent only where the accent list and a second dictionary
+      agree, and so on. A section the sources have nothing for says
+      <em>we don't have the data for this section</em> instead of guessing or
+      disappearing.
     </p>
 
     <h3>What every word has, and what only some do</h3>
@@ -198,7 +200,7 @@ const coverageRows = computed(() => {
   const rows: [part: string, source: string, count: number][] = [
     [
       "Layer of the vocabulary",
-      "KANJIDIC2 readings or JMdict's loan source",
+      "The spelling, KANJIDIC2 readings, JMdict's loan source or Wiktionary's text",
       c.layer,
     ],
     ["Pitch accent", "Kanjium's accent list, where UniDic agrees", c.pitch],

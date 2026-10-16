@@ -193,8 +193,8 @@
               arrived yet in Japan (an upcoming word is never served early). On
               /api/word-calendar, ?month= is not a real YYYY-MM; /api/explore
               and /api/word-calendar reject an unknown level, layer, process,
-              part of speech or frequency, or an over-long search, and /api/part
-              a missing or over-long text.
+              part of speech, frequency or accent pattern, or an over-long
+              search or part, and /api/part a missing or over-long text.
             </p>
             <pre
               class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
