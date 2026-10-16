@@ -11,23 +11,14 @@ import type {
   PartDetail,
   PartSummary,
   PartUse,
-  PartWordRef,
   WordEntry,
 } from "~~/types/index";
-import { WORD_ENTRIES, todayJst } from "./words";
+import { WORD_ENTRIES, refOf, todayJst } from "./words";
 
 const HAN = /\p{Script=Han}/u;
 
 const openEntries = (today: string): WordEntry[] =>
   WORD_ENTRIES.filter((e) => e.date <= today);
-
-export const refOf = (e: WordEntry): PartWordRef => ({
-  date: e.date,
-  term: e.term,
-  kana: e.kana,
-  meaning: e.meaning,
-  stratum: e.stratum,
-});
 
 /** Most-used first, ties by the order they were first seen. */
 function byFrequency(values: string[]): string[] {

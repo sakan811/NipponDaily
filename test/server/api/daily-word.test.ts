@@ -44,6 +44,13 @@ describe("GET /api/daily-word", () => {
     expect(result.data.prev).toEqual({ date: "2010-02-11", term: "パン" });
     // 2010-02-13 is tomorrow: its existence is not revealed early.
     expect(result.data.next).toBeNull();
+    // The same day in earlier years, and none still to come.
+    expect(result.data.sameDay.map((w: any) => w.date)).toEqual([
+      "2006-02-12",
+      "2007-02-12",
+      "2008-02-12",
+      "2009-02-12",
+    ]);
   });
 
   it("flips to the next day at midnight in Japan, not UTC", async () => {

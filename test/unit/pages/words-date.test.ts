@@ -2,8 +2,8 @@ import { describe, it, expect, beforeEach, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import { useHead, useRoute, useSeoMeta } from "#app";
 import WordPage from "~/app/pages/words/[date].vue";
-import { relatedWords, sameDayWords, soundAlikesOf } from "~~/shared/related";
-import { WORD_ENTRIES, payloadFor } from "~~/shared/words";
+import { relatedWords, soundAlikesOf } from "~~/shared/related";
+import { WORD_ENTRIES, payloadFor, sameDayWords } from "~~/shared/words";
 
 const entryOn = (date: string) => WORD_ENTRIES.find((e) => e.date === date)!;
 
@@ -95,7 +95,6 @@ describe("Word Page (/words/[date])", () => {
               words: [],
               antonyms: [],
               seeAlso: [],
-              sameDay: sameDayWords(bridge, today),
               soundAlikes: soundAlikesOf(bridge, today),
             },
             timestamp: "2020-01-01T00:00:00Z",

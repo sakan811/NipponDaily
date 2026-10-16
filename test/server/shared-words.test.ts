@@ -6,10 +6,12 @@ import {
   latestEntryOnOrBefore,
   monthsWithEntries,
   payloadFor,
+  sameDayWords,
 } from "~~/shared/words";
 
 const FIRST = WORD_ENTRIES[0]!;
 const LAST = WORD_ENTRIES[WORD_ENTRIES.length - 1]!;
+const entryOn = (date: string) => WORD_ENTRIES.find((e) => e.date === date)!;
 const addDays = (date: string, n: number) =>
   new Date(Date.parse(date) + n * 86_400_000).toISOString().slice(0, 10);
 
@@ -90,5 +92,41 @@ describe("the calendar on a lap", () => {
     expect(monthsWithEntries(addDays(LAST.date, 70)).at(-1)).toBe(
       addDays(LAST.date, 70).slice(0, 7),
     );
+  });
+});
+
+describe("sameDayWords", () => {
+  it("lists the open words of the same month and day in other years, oldest first", () => {
+    const words = sameDayWords(entryOn("2010-02-20"), "2015-03-01");
+
+    expect(words.map((w) => w.date)).toEqual([
+      "2006-02-20",
+      "2007-02-20",
+      "2008-02-20",
+      "2009-02-20",
+      "2011-02-20",
+      "2012-02-20",
+      "2013-02-20",
+      "2014-02-20",
+      "2015-02-20",
+    ]);
+    expect(words[0]).toMatchObject({ term: entryOn("2006-02-20").term });
+  });
+
+  it("comes with the entry in its payload", () => {
+    expect(payloadFor(entryOn("2010-02-20"), "2015-03-01").sameDay).toEqual(
+      sameDayWords(entryOn("2010-02-20"), "2015-03-01"),
+    );
+  });
+
+  it("never lists a day that has not arrived", () => {
+    const words = sameDayWords(entryOn("2010-02-20"), "2013-02-19");
+
+    expect(words.map((w) => w.date).at(-1)).toBe("2012-02-20");
+    for (const e of WORD_ENTRIES.filter((x) => x.date <= "2010-05-10").slice(
+      -40,
+    ))
+      for (const w of sameDayWords(e, "2010-05-10"))
+        expect(w.date <= "2010-05-10").toBe(true);
   });
 });

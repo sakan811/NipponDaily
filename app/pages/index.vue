@@ -112,10 +112,10 @@
         </div>
 
         <SameDayWords
-          v-if="payload && related?.sameDay?.length"
+          v-if="payload?.sameDay?.length"
           class="mt-10"
           :date="payload.entry.date"
-          :words="related.sameDay"
+          :words="payload.sameDay"
         />
 
         <div class="flex flex-wrap gap-4 justify-center pt-8">
@@ -267,7 +267,6 @@ import AppShell from "../components/AppShell.vue";
 import SameDayWords from "../components/SameDayWords.vue";
 import TrendingFallback from "../components/TrendingFallback.vue";
 import { useDailyWord } from "../composables/useDailyWord";
-import { useRelatedWords } from "../composables/useParts";
 import { usePageSeo } from "../composables/usePageSeo";
 import { shareImagePath, wordTitle } from "../utils/seo";
 import { formatLongDate } from "../utils/date";
@@ -276,8 +275,6 @@ import { LICENCES } from "~~/shared/sources";
 import { DOC_CHAPTERS, chapterNumber, docPath } from "~~/shared/docs";
 
 const { payload, loading, error, refresh } = useDailyWord();
-// The words that opened on the same day of the year as the one shown.
-const { related } = useRelatedWords(() => payload.value?.entry.date ?? "");
 
 usePageSeo({
   title: "One Japanese word a day, with its sources",

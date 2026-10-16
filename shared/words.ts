@@ -14,6 +14,7 @@
 import { DAY_MS, toJst } from "./jst";
 import type {
   DailyWordPayload,
+  PartWordRef,
   WordCalendarDay,
   WordEntry,
 } from "~~/types/index";
@@ -614,8 +615,32 @@ export function lapEntryForDate(
   };
 }
 
-/** An entry with the open days on either side of it. `next` stays null until
- *  that day has arrived, so navigating forward can never reveal a future word. */
+/** An open word as the pages list it: enough to name it and link to its day. */
+export const refOf = (e: WordEntry): PartWordRef => ({
+  date: e.date,
+  term: e.term,
+  kana: e.kana,
+  meaning: e.meaning,
+  stratum: e.stratum,
+});
+
+/** The open words whose day falls on the same month and day as the entry's, in
+ *  other years, oldest first. Only the dates are compared: nothing about the
+ *  words is said to link them. */
+export function sameDayWords(
+  entry: WordEntry,
+  today: string = todayJst(),
+): PartWordRef[] {
+  const monthDay = entry.date.slice(5);
+  return WORD_ENTRIES.filter(
+    (e) =>
+      e.date <= today && e.date !== entry.date && e.date.slice(5) === monthDay,
+  ).map(refOf);
+}
+
+/** An entry with the open days on either side of it, and the open words of
+ *  the same day in other years. `next` stays null until that day has arrived,
+ *  so navigating forward can never reveal a future word. */
 export function payloadFor(
   entry: WordEntry,
   today: string = todayJst(),
@@ -630,6 +655,7 @@ export function payloadFor(
     prev: prev ? { date: prev.date, term: prev.term } : null,
     next:
       next && next.date <= today ? { date: next.date, term: next.term } : null,
+    sameDay: sameDayWords(entry, today),
   };
 }
 

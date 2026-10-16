@@ -2,14 +2,13 @@
  * "More like this": the open words that most resemble one entry, for the row
  * under it. Derived entirely from fields the entries already carry — their
  * parts, processes and layer — so it states nothing a single entry doesn't.
- * Beside it, the words that opened on the same day of the year and the words
- * that share the entry's reading: a date and a reading compared, nothing more.
+ * Beside it, the words that share the entry's reading: a reading compared,
+ * nothing more.
  *
  * Server and tests only, like shared/parts.ts: it reads every entry, so it
  * takes `today` and offers open days only.
  */
 import type {
-  PartWordRef,
   RelatedShared,
   RelatedWord,
   ResolvedReference,
@@ -25,8 +24,7 @@ import {
   RELATED_PART_WEIGHT,
 } from "./limits";
 import { katakanaToHiragana } from "./japanese";
-import { refOf } from "./parts";
-import { WORD_ENTRIES, todayJst } from "./words";
+import { WORD_ENTRIES, refOf, todayJst } from "./words";
 
 /** The open words closest to `entry`, closest first, never the entry itself. */
 export function relatedWords(
@@ -76,20 +74,6 @@ export function relatedWords(
     stratum: e.stratum,
     shared,
   }));
-}
-
-/** The open words whose day falls on the same month and day as the entry's, in
- *  other years, oldest first. Only the dates are compared: nothing about the
- *  words is said to link them. */
-export function sameDayWords(
-  entry: WordEntry,
-  today: string = todayJst(),
-): PartWordRef[] {
-  const monthDay = entry.date.slice(5);
-  return WORD_ENTRIES.filter(
-    (e) =>
-      e.date <= today && e.date !== entry.date && e.date.slice(5) === monthDay,
-  ).map(refOf);
 }
 
 /** The reading two words are compared by: katakana folded to hiragana, so

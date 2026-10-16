@@ -251,7 +251,11 @@
       day has the same month and day in another year, oldest first, each linking
       to its own page. Only the dates are compared: the words share nothing
       else, and the block says so. On a later lap the home page lists the days
-      that match the word's own first day, which its heading names.
+      that match the word's own first day, which its heading names. They come
+      with the entry in <code>GET /api/daily-word</code> (<code>sameDay</code>,
+      from <code>sameDayWords</code> in <code>shared/words.ts</code>), so the
+      home page renders them on the server with its word and fetches nothing
+      more.
     </p>
 
     <h2 id="sharing">Sharing a word</h2>
