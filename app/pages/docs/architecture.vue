@@ -129,8 +129,10 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
         <strong>Components:</strong> <code>WordEntryView</code> (one entry, with
         its pitch accent), <code>KanjiStrokes</code> (a kanji's strokes, one
         frame each), <code>RelatedWords</code>, <code>WordReferences</code> (the
-        words JMdict points a sense at), <code>WordFilters</code> (the filter
-        form shared by Explore and the calendar), <code>MonthPicker</code> (the
+        words JMdict points a sense at), <code>SoundAlikes</code> (the words
+        read alike, with their accents), <code>SameDayWords</code> (the words of
+        the same day in other years), <code>WordFilters</code> (the filter form
+        shared by Explore and the calendar), <code>MonthPicker</code> (the
         calendar's year and month jump), <code>AppHeader</code>,
         <code>AppFooter</code>, <code>AppShell</code> (the header, backdrop and
         footer every page sits in), <code>DocsBook</code> (a docs page),

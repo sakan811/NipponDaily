@@ -29,10 +29,24 @@
           :see-also="related.seeAlso"
         />
 
+        <SoundAlikes
+          v-if="related?.soundAlikes?.length"
+          class="mt-10"
+          :entry="payload.entry"
+          :words="related.soundAlikes"
+        />
+
         <RelatedWords
           v-if="related?.words?.length"
           class="mt-10"
           :words="related.words"
+        />
+
+        <SameDayWords
+          v-if="related?.sameDay?.length"
+          class="mt-10"
+          :date="payload.entry.date"
+          :words="related.sameDay"
         />
 
         <!-- Previous / next open day -->
@@ -79,6 +93,8 @@ import { computed } from "vue";
 import { useRoute } from "#app";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import RelatedWords from "../../components/RelatedWords.vue";
+import SameDayWords from "../../components/SameDayWords.vue";
+import SoundAlikes from "../../components/SoundAlikes.vue";
 import WordReferences from "../../components/WordReferences.vue";
 import WordEntryView from "../../components/WordEntryView.vue";
 import { useDailyWord } from "../../composables/useDailyWord";

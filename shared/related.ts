@@ -2,14 +2,18 @@
  * "More like this": the open words that most resemble one entry, for the row
  * under it. Derived entirely from fields the entries already carry — their
  * parts, processes and layer — so it states nothing a single entry doesn't.
+ * Beside it, the words that opened on the same day of the year and the words
+ * that share the entry's reading: a date and a reading compared, nothing more.
  *
  * Server and tests only, like shared/parts.ts: it reads every entry, so it
  * takes `today` and offers open days only.
  */
 import type {
+  PartWordRef,
   RelatedShared,
   RelatedWord,
   ResolvedReference,
+  SoundAlike,
   WordEntry,
   WordReference,
   WordProcess,
@@ -73,6 +77,49 @@ export function relatedWords(
   }));
 }
 
+const refOf = (e: WordEntry): PartWordRef => ({
+  date: e.date,
+  term: e.term,
+  kana: e.kana,
+  meaning: e.meaning,
+  stratum: e.stratum,
+});
+
+/** The open words whose day falls on the same month and day as the entry's, in
+ *  other years, oldest first. Only the dates are compared: nothing about the
+ *  words is said to link them. */
+export function sameDayWords(
+  entry: WordEntry,
+  today: string = todayJst(),
+): PartWordRef[] {
+  const monthDay = entry.date.slice(5);
+  return WORD_ENTRIES.filter(
+    (e) =>
+      e.date <= today && e.date !== entry.date && e.date.slice(5) === monthDay,
+  ).map(refOf);
+}
+
+/** The reading two words are compared by: katakana folded to hiragana, so
+ *  ハシ and はし are read alike. */
+export const readingKey = (kana: string): string => katakanaToHiragana(kana);
+
+/** The open words read exactly as the entry is, under another spelling, oldest
+ *  first, each with the accents its own entry shows. Only the readings are
+ *  compared, so nothing is claimed about how the words are related. */
+export function soundAlikesOf(
+  entry: WordEntry,
+  today: string = todayJst(),
+): SoundAlike[] {
+  const reading = readingKey(entry.kana);
+  return WORD_ENTRIES.filter(
+    (e) =>
+      e.date <= today &&
+      e.date !== entry.date &&
+      e.term !== entry.term &&
+      readingKey(e.kana) === reading,
+  ).map((e) => (e.pitch?.length ? { ...refOf(e), pitch: e.pitch } : refOf(e)));
+}
+
 /** The open daily word a JMdict reference points at: the spelling, and the
  *  reading too when JMdict names one. A reference to a kana-only word (just
  *  `term`) also matches a word written with that reading. Only a reference
@@ -102,18 +149,7 @@ export function referencesFor(
   const resolve = (refs: WordReference[] = []): ResolvedReference[] =>
     refs.map((ref) => {
       const hit = openWordFor(ref, open);
-      return hit
-        ? {
-            ...ref,
-            word: {
-              date: hit.date,
-              term: hit.term,
-              kana: hit.kana,
-              meaning: hit.meaning,
-              stratum: hit.stratum,
-            },
-          }
-        : ref;
+      return hit ? { ...ref, word: refOf(hit) } : ref;
     });
   return { antonyms: resolve(entry.antonyms), seeAlso: resolve(entry.seeAlso) };
 }

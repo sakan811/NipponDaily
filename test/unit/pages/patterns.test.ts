@@ -173,6 +173,23 @@ describe("Patterns Page (/patterns)", () => {
     expect(rows[0]!.text()).toContain(lengths[0]!.value);
   });
 
+  it("lists the readings several words share, with where each word's pitch falls", async () => {
+    const wrapper = mount(PatternsPage);
+    await flushPromises();
+
+    const { soundAlikes } = patternsFor(TODAY);
+    const summary = wrapper.find(
+      '[data-testid="pattern-sound-alikes-summary"]',
+    );
+    expect(summary.text()).toContain(`${soundAlikes.readings} readings`);
+    const groups = wrapper
+      .find('[data-testid="pattern-sound-alikes"]')
+      .findAll(":scope > li");
+    expect(groups).toHaveLength(soundAlikes.groups.length);
+    expect(groups[0]!.text()).toContain(soundAlikes.groups[0]!.reading);
+    expect(groups[0]!.text()).toContain(soundAlikes.groups[0]!.words[0]!.term);
+  });
+
   it("says what the counts can't tell you", async () => {
     const wrapper = mount(PatternsPage);
     await flushPromises();

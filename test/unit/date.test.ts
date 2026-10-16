@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { formatCalendarDateYMD } from "~/app/utils/date";
+import { formatCalendarDateYMD, formatMonthDay } from "~/app/utils/date";
 
 describe("date utils", () => {
   it("formats calendar date object correctly", () => {
@@ -16,5 +16,12 @@ describe("date utils", () => {
     expect(formatCalendarDateYMD(null)).toBe("");
     // @ts-expect-error testing invalid input
     expect(formatCalendarDateYMD(undefined)).toBe("");
+  });
+});
+
+describe("formatMonthDay", () => {
+  it("names the month and day only, whatever the reader's timezone", () => {
+    expect(formatMonthDay("2010-02-20")).toBe("February 20");
+    expect(formatMonthDay("2026-10-01")).toBe("October 1");
   });
 });

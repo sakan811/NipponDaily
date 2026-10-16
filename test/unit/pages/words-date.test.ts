@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import { useHead, useRoute, useSeoMeta } from "#app";
 import WordPage from "~/app/pages/words/[date].vue";
-import { relatedWords } from "~~/shared/related";
+import { relatedWords, sameDayWords, soundAlikesOf } from "~~/shared/related";
 import { WORD_ENTRIES, payloadFor } from "~~/shared/words";
 
 const entryOn = (date: string) => WORD_ENTRIES.find((e) => e.date === date)!;
@@ -76,6 +76,53 @@ describe("Word Page (/words/[date])", () => {
     expect(
       wrapper.findAll('[data-testid="related-word"]').length,
     ).toBeGreaterThan(0);
+  });
+
+  it("shows the words read alike, with their accents, and the words of the same day", async () => {
+    const bridge = WORD_ENTRIES.find((e) => e.term === "橋")!;
+    const today = "2020-01-01";
+    vi.mocked(useRoute).mockReturnValue({
+      path: `/words/${bridge.date}`,
+      query: {},
+      params: { date: bridge.date },
+    } as any);
+    (global as any).$fetch.mockImplementation(async (url: string) =>
+      url === "/api/related"
+        ? {
+            success: true,
+            data: {
+              date: bridge.date,
+              words: [],
+              antonyms: [],
+              seeAlso: [],
+              sameDay: sameDayWords(bridge, today),
+              soundAlikes: soundAlikesOf(bridge, today),
+            },
+            timestamp: "2020-01-01T00:00:00Z",
+          }
+        : {
+            success: true,
+            data: payloadFor(bridge, today),
+            timestamp: "2020-01-01T00:00:00Z",
+          },
+    );
+    const wrapper = mount(WordPage);
+    await flushPromises();
+
+    expect(wrapper.find('[data-testid="sound-alike-self"]').text()).toContain(
+      "はし↓",
+    );
+    const alikes = wrapper.findAll('[data-testid="sound-alike"]');
+    expect(alikes.map((a) => a.find("a").text())).toEqual(["箸", "端"]);
+    expect(alikes[0]!.text()).toContain("は↓し");
+    expect(alikes[1]!.text()).toContain("flat (heiban)");
+
+    const sameDay = wrapper.findAll('[data-testid="same-day-word"]');
+    expect(sameDay.length).toBe(sameDayWords(bridge, today).length);
+    expect(sameDay[0]!.find("a").attributes("href")).toBe(
+      `/words/${sameDayWords(bridge, today)[0]!.date}`,
+    );
+    expect(wrapper.text()).toContain("Also opened on March 21");
   });
 
   it("still shows the entry when the related words fail to load", async () => {

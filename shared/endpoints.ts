@@ -95,7 +95,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     method: "GET",
     path: ROUTES.patterns,
     returns:
-      "Counts across the open words: `{ total, withParts, withBase, strata, levels, processes, pairs, combinations, rendaku, pitch, lengths }`, the last two being the pitch accents split into patterns by layer and the mean length of the words by level.",
+      "Counts across the open words: `{ total, withParts, withBase, strata, levels, processes, pairs, combinations, rendaku, pitch, lengths, soundAlikes }`, the last three being the pitch accents split into patterns by layer, the mean length of the words by level, and the readings two or more words share (`{ readings, words, withAccents, toldApart, groups }`, the readings with the most words in `groups`).",
   },
   {
     method: "GET",
@@ -104,7 +104,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     returns:
       "Up to " +
       countWord(RELATED_LIMIT) +
-      " open words that resemble one entry (shared parts, processes or layer), closest first, each with what it shares, and the words JMdict points the entry's sense at (`antonyms`, `seeAlso`), each with the open word it is where there is exactly one: `{ date, words, antonyms, seeAlso }`. `date` is required; a future or malformed one is a `400`, a day with no entry a `404`.",
+      " open words that resemble one entry (shared parts, processes or layer), closest first, each with what it shares; the words JMdict points the entry's sense at (`antonyms`, `seeAlso`), each with the open word it is where there is exactly one; the open words whose day has the same month and day in other years (`sameDay`); and the open words with the same reading and another spelling, each with its pitch accents (`soundAlikes`), both oldest first: `{ date, words, antonyms, seeAlso, sameDay, soundAlikes }`. `date` is required; a future or malformed one is a `400`, a day with no entry a `404`.",
   },
   {
     method: "GET",

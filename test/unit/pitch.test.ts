@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { moraeOf, pitchContour, pitchType } from "~/app/utils/pitch";
+import { markFall, moraeOf, pitchContour, pitchType } from "~/app/utils/pitch";
 
 describe("moraeOf", () => {
   it("counts one mora for each kana, joining the small ones to the kana before", () => {
@@ -33,5 +33,14 @@ describe("pitchType", () => {
     expect(pitchType(3, 1)).toBe("atamadaka");
     expect(pitchType(3, 2)).toBe("nakadaka");
     expect(pitchType(3, 3)).toBe("odaka");
+  });
+});
+
+describe("markFall", () => {
+  it("puts ↓ after the mora where the pitch falls, and none when it never falls", () => {
+    expect(markFall("はし", 1)).toBe("は↓し");
+    expect(markFall("はし", 2)).toBe("はし↓");
+    expect(markFall("はし", 0)).toBe("はし");
+    expect(markFall("きょう", 1)).toBe("きょ↓う");
   });
 });
