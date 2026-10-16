@@ -45,6 +45,22 @@ describe("GET /api/related", () => {
     }
   });
 
+  it("serves the open words of the same day in other years and the words read alike", async () => {
+    const result = (await getRelated())({} as any);
+    const { sameDay, soundAlikes } = result.data;
+
+    expect(sameDay.map((w: any) => w.date)).toEqual(
+      WORD_ENTRIES.filter(
+        (e) =>
+          e.date.slice(5) === "10-03" &&
+          e.date !== "2012-10-03" &&
+          e.date <= "2012-10-09",
+      ).map((e) => e.date),
+    );
+    expect(Array.isArray(soundAlikes)).toBe(true);
+    for (const w of soundAlikes) expect(w.date <= "2012-10-09").toBe(true);
+  });
+
   it("rejects a day that has not arrived", async () => {
     query({ date: "2012-10-10" });
     const handler = await getRelated();

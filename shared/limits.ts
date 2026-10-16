@@ -41,5 +41,8 @@ export const PATTERN_MAX_COMBINATION = 4;
 /** How many example words a Patterns row carries. */
 export const PATTERN_EXAMPLE_LIMIT = 3;
 
+/** How many readings Patterns lists among the words that sound the same. */
+export const SOUND_ALIKE_GROUP_LIMIT = 12;
+
 /** How many other kanji a kanji page names under each part it is built from. */
 export const KANJI_ALSO_LIMIT = 8;

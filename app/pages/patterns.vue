@@ -531,6 +531,72 @@
           </div>
         </section>
 
+        <!-- Words that sound the same -->
+        <section
+          v-if="patterns.soundAlikes?.readings"
+          class="mt-12 space-y-4"
+          aria-labelledby="sound-alikes-heading"
+        >
+          <h2
+            id="sound-alikes-heading"
+            class="text-2xl font-serif font-bold text-stone-900 dark:text-white"
+          >
+            Words that sound the same
+          </h2>
+          <p
+            data-testid="pattern-sound-alikes-summary"
+            class="text-stone-600 dark:text-stone-400 font-body-serif max-w-2xl"
+          >
+            {{ patterns.soundAlikes.readings }} readings are each shared by two
+            or more words so far, {{ patterns.soundAlikes.words }} words in all.
+            In {{ patterns.soundAlikes.withAccents }} of them every word shows a
+            pitch accent, and in {{ patterns.soundAlikes.toldApart }} of those
+            no two words share one, so the pitch alone tells them apart. The
+            readings with the most words are below; only the readings are
+            compared, not how the words are related.
+          </p>
+          <ul
+            data-testid="pattern-sound-alikes"
+            class="grid grid-cols-1 gap-3 sm:grid-cols-2"
+          >
+            <li
+              v-for="g in patterns.soundAlikes.groups"
+              :key="g.reading"
+              class="season-box border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3 space-y-2"
+            >
+              <p class="flex flex-wrap items-baseline justify-between gap-2">
+                <span
+                  class="text-xl font-serif font-bold text-primary-600 dark:text-primary-400"
+                  >{{ g.reading }}</span
+                >
+                <span
+                  v-if="g.toldApart"
+                  class="kicker text-stone-600 dark:text-stone-400"
+                  >Told apart by pitch</span
+                >
+              </p>
+              <ul class="space-y-1 text-sm">
+                <li
+                  v-for="w in g.words"
+                  :key="w.date"
+                  class="flex flex-wrap items-baseline gap-x-3"
+                >
+                  <NuxtLink
+                    :to="`/words/${w.date}`"
+                    class="font-serif text-lg text-stone-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400"
+                    >{{ w.term }}</NuxtLink
+                  >
+                  <span class="text-stone-600 dark:text-stone-400">{{
+                    w.pitch
+                      ? w.pitch.map((a) => markFall(g.reading, a)).join(", ")
+                      : "no accent shown"
+                  }}</span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
         <p class="mt-12 text-xs text-stone-600 dark:text-stone-400 max-w-2xl">
           These count the tags on the entries so far — what KANJIDIC2 and the
           quoted Wiktionary text establish for each word — not the Japanese
@@ -558,7 +624,7 @@ import { usePageSeo } from "../composables/usePageSeo";
 import { explorePath, partPath } from "../utils/seo";
 import { STRATUM_DOT } from "../utils/stratum";
 import { WORD_PROCESSES, WORD_STRATA } from "~~/shared/word-labels";
-import { PITCH_TYPES } from "../utils/pitch";
+import { PITCH_TYPES, markFall } from "../utils/pitch";
 import type { PitchType } from "../utils/pitch";
 import type {
   PitchByLayer,

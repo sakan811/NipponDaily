@@ -41,6 +41,16 @@ export function pitchType(count: number, accent: number): PitchType {
   return accent === count ? "odaka" : "nakadaka";
 }
 
+/** The pattern of each accent a word is given, in the order given. A ～ that
+ *  marks where a prefix or suffix attaches is not a mora, so it is not counted. */
+export function pitchTypesOf(
+  kana: string,
+  pitch: readonly number[] = [],
+): PitchType[] {
+  const count = moraeOf(kana.replace(/[～〜]/g, "")).length;
+  return pitch.map((accent) => pitchType(count, accent));
+}
+
 /** What each pattern means, for people who do not know the names. */
 export const PITCH_TYPES: Record<PitchType, { label: string; hint: string }> = {
   heiban: {
@@ -60,3 +70,11 @@ export const PITCH_TYPES: Record<PitchType, { label: string; hint: string }> = {
     hint: "Low on the first mora, high to the end, and it falls on a following particle.",
   },
 };
+
+/** A reading with ↓ after the mora where the pitch falls (は↓し; no ↓ when it
+ *  never falls), the way the entry page marks it, in plain text. */
+export function markFall(kana: string, accent: number): string {
+  return moraeOf(kana)
+    .map((mora, i) => (i + 1 === accent ? `${mora}↓` : mora))
+    .join("");
+}

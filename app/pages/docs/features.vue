@@ -72,7 +72,7 @@ const features = computed(() => [
       countWord(PATTERN_MIN_COMBINATION) +
       " to " +
       countWord(PATTERN_MAX_COMBINATION) +
-      ". Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language. It also lists which sounds voice inside a word (ひ → び, か → が…), with the parts and words that show each change — a small, parser-derived sample, not a rule of the language. Two more sections count how the pitch accents the entries show split into patterns for each layer, and how long each level's words are in morae and kanji.",
+      ". Every bar links into Explore, and the page says what the counts can't tell you — they describe these entries, not the language. It also lists which sounds voice inside a word (ひ → び, か → が…), with the parts and words that show each change — a small, parser-derived sample, not a rule of the language. Two more sections count how the pitch accents the entries show split into patterns for each layer, and how long each level's words are in morae and kanji, and a last one lists the readings several words share and how often the pitch alone tells them apart.",
   },
   {
     title: "The Parts, Across Words",
@@ -95,6 +95,16 @@ const features = computed(() => [
     title: "More Like This",
     description:
       "Under each entry on its own page (`/words/<date>`), a few other words that have opened and share something with it: a part, a process or a layer. Each card says exactly what is shared and links to where you can see more of it. A word that shares only very common tags is not offered, and upcoming words never are.",
+  },
+  {
+    title: "Words That Sound the Same",
+    description:
+      "Under an entry, the other words so far with exactly its reading and another spelling (橋, 箸 and 端 are all はし), each beside the entry with the pitch accent its own entry shows, so you can see where the pitch tells them apart. Only the readings are compared.",
+  },
+  {
+    title: "The Same Day in Other Years",
+    description:
+      "Under each entry and under the word on the home page, the words that opened on the same day of the year in other years, oldest first. They share only the date, and the page says so.",
   },
   {
     title: "Opposites and See Also",

@@ -510,6 +510,32 @@ export interface LengthByLevel {
   kanaOnly: number;
 }
 
+/** One reading that several open words share, with each word's accents. */
+export interface SoundAlikeGroup {
+  /** The shared reading, in hiragana. */
+  reading: string;
+  /** The words read so, oldest first; `pitch` is left out where the word's
+   *  entry shows no accent. */
+  words: (WordNeighbor & { pitch?: number[] })[];
+  /** Whether every word shows an accent and no two share one, so the pitch
+   *  alone tells them apart. */
+  toldApart: boolean;
+}
+
+/** The open words that share a reading with another spelling. */
+export interface SoundAlikesPayload {
+  /** Readings that two or more open words share. */
+  readings: number;
+  /** Open words with such a reading. */
+  words: number;
+  /** Of the readings, how many have an accent shown for every word. */
+  withAccents: number;
+  /** Of those, how many the pitch alone tells apart (`toldApart`). */
+  toldApart: number;
+  /** The readings with the most words, a few only. */
+  groups: SoundAlikeGroup[];
+}
+
 /** What GET /api/patterns returns. */
 export interface PatternsPayload {
   /** Open words counted. */
@@ -532,6 +558,8 @@ export interface PatternsPayload {
   pitch: PitchByLayer[];
   /** How long the words are, by JLPT level. */
   lengths: LengthByLevel[];
+  /** The words that share a reading. */
+  soundAlikes: SoundAlikesPayload;
 }
 
 // --- RELATED (more like this) ---
@@ -556,14 +584,27 @@ export interface ResolvedReference extends WordReference {
   word?: PartWordRef;
 }
 
+/** An open word read exactly as the entry is, with the accents its own entry
+ *  shows (left out where it shows none), so the page can set them side by side. */
+export interface SoundAlike extends PartWordRef {
+  pitch?: number[];
+}
+
 /** What GET /api/related returns: open words that resemble one entry, closest
- *  first, and the words JMdict points its sense at. */
+ *  first, the words JMdict points its sense at, the open words that opened on
+ *  the same day of the year and the open words that share its reading. */
 export interface RelatedPayload {
   /** The entry they are related to. */
   date: string;
   words: RelatedWord[];
   antonyms: ResolvedReference[];
   seeAlso: ResolvedReference[];
+  /** Open words whose day has the same month and day as the entry's, in
+   *  other years, oldest first. */
+  sameDay: PartWordRef[];
+  /** Open words with the same reading (katakana and hiragana alike) and
+   *  another spelling, oldest first. */
+  soundAlikes: SoundAlike[];
 }
 
 // --- SITE THEME ---

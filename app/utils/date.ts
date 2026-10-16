@@ -26,3 +26,12 @@ export function formatLongDate(isoDate: string): string {
     day: "numeric",
   });
 }
+
+/** "October 16" for a YYYY-MM-DD date, in UTC like `formatLongDate`. */
+export function formatMonthDay(isoDate: string): string {
+  return new Date(`${isoDate}T00:00:00Z`).toLocaleDateString("en-US", {
+    timeZone: "UTC",
+    month: "long",
+    day: "numeric",
+  });
+}

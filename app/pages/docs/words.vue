@@ -206,7 +206,12 @@
       into flat, head-high, middle-high and tail-high for each layer (an accent
       counts once, so a word with two counts in both, and a word with none shown
       is left out), and the mean number of morae and kanji of each level's
-      words.
+      words. A last section compares readings alone: how many readings two or
+      more open words share, how many of those show an accent for every word,
+      how many the pitch alone tells apart (every word shows one and no two
+      share one), and the
+      {{ SOUND_ALIKE_GROUP_LIMIT }} readings with the most words, each word with
+      the accents its entry shows.
     </p>
 
     <h3>Related words</h3>
@@ -219,6 +224,27 @@
       shared and links to <code>/parts/&lt;text&gt;</code> or
       <code>/explore</code>. The row is hidden when the fetch fails or nothing
       clears the minimum.
+    </p>
+
+    <h3>Words read alike</h3>
+    <p>
+      Under an entry, the other open words whose reading is the same once
+      katakana is folded to hiragana (<code>readingKey</code> in
+      <code>shared/related.ts</code>) and whose spelling differs: 橋, 箸 and 端
+      are all はし. Each is shown with the pitch accents its own entry shows,
+      marked with ↓ where the pitch falls, and the entry itself comes first so
+      the accents stand side by side; a word whose entry shows none says so.
+      Only the readings are compared, so the block claims nothing about how the
+      words are related, and nothing that has not opened is listed.
+    </p>
+
+    <h3>The same day in other years</h3>
+    <p>
+      Under an entry, and under the word on the home page, the open words whose
+      day has the same month and day in another year, oldest first, each linking
+      to its own page. Only the dates are compared: the words share nothing
+      else, and the block says so. On a later lap the home page lists the days
+      that match the word's own first day, which its heading names.
     </p>
 
     <h2 id="sharing">Sharing a word</h2>
@@ -300,6 +326,7 @@ import { countWord } from "~~/shared/count";
 import {
   EXPLORE_PAGE_SIZE,
   MAX_EXAMPLES,
+  SOUND_ALIKE_GROUP_LIMIT,
   PATTERN_EXAMPLE_LIMIT,
   PATTERN_MAX_COMBINATION,
   PATTERN_MIN_COMBINATION,

@@ -1,8 +1,8 @@
 /**
  * Counts across the open words: how the vocabulary splits by layer, JLPT level
- * and process, and which processes turn up together. Derived entirely from the
- * entries' own `stratum`, `level`, `processes` and `morphemes` — it states
- * nothing about a word that its entry does not already say.
+ * and process, which processes turn up together, how the pitch falls and which
+ * readings several words share. Derived entirely from the entries' own fields
+ * — it states nothing about a word that its entry does not already say.
  *
  * Server and tests only: it reads every entry, so every function takes `today`
  * and counts open days only.
@@ -17,22 +17,26 @@ import type {
   RendakuPayload,
   RendakuReading,
   RendakuSound,
+  SoundAlikeGroup,
+  SoundAlikesPayload,
   StratumKey,
   TagCombination,
   WordEntry,
   WordProcess,
   WordStratum,
 } from "~~/types/index";
-import { PITCH_TYPES, moraeOf, pitchType } from "../app/utils/pitch";
+import { PITCH_TYPES, moraeOf, pitchTypesOf } from "../app/utils/pitch";
 import type { PitchType } from "../app/utils/pitch";
 import { JLPT_LEVELS } from "./jlpt";
 import { kanjiIn } from "./japanese";
 import {
   PATTERN_EXAMPLE_LIMIT,
+  SOUND_ALIKE_GROUP_LIMIT,
   PATTERN_MAX_COMBINATION,
   PATTERN_MIN_COMBINATION,
 } from "./limits";
 import { PROCESS_IDS, STRATUM_IDS } from "./explore";
+import { readingKey } from "./related";
 import { WORD_ENTRIES, todayJst } from "./words";
 
 /** How many pairs and larger combinations to list. */
@@ -270,8 +274,7 @@ function pitchByLayer(open: WordEntry[]): PitchByLayer[] {
     for (const e of open) {
       if (stratumKey(e) !== value || !e.pitch?.length) continue;
       words++;
-      const count = moraeOf(e.kana.replace(/[～〜]/g, "")).length;
-      for (const accent of e.pitch) accents[pitchType(count, accent)]++;
+      for (const type of pitchTypesOf(e.kana, e.pitch)) accents[type]++;
     }
     return { value, words, accents };
   }).filter((row) => row.words > 0);
@@ -296,6 +299,46 @@ function lengthsByLevel(open: WordEntry[]): LengthByLevel[] {
       kanaOnly: words.filter((e) => kanjiIn(e.term).length === 0).length,
     };
   }).filter((row) => row.words > 0);
+}
+
+/** The readings two or more open words share, the readings with the most
+ *  words first, and whether each word's pitch accent sets it apart. Only
+ *  readings are compared; nothing is said about how the words are related. */
+function soundAlikesFor(open: WordEntry[]): SoundAlikesPayload {
+  const byReading = new Map<string, WordEntry[]>();
+  for (const e of open) {
+    const key = readingKey(e.kana);
+    byReading.set(key, [...(byReading.get(key) ?? []), e]);
+  }
+  const groups: SoundAlikeGroup[] = [...byReading.entries()]
+    .filter(([, words]) => words.length > 1)
+    .map(([reading, words]) => {
+      const accents = words.map((e) => e.pitch ?? []);
+      const all = accents.flat();
+      return {
+        reading,
+        words: words.map((e) =>
+          e.pitch?.length
+            ? { date: e.date, term: e.term, pitch: e.pitch }
+            : { date: e.date, term: e.term },
+        ),
+        toldApart:
+          accents.every((a) => a.length > 0) &&
+          new Set(all).size === all.length,
+      };
+    });
+  return {
+    readings: groups.length,
+    words: groups.reduce((n, g) => n + g.words.length, 0),
+    withAccents: groups.filter((g) => g.words.every((w) => w.pitch)).length,
+    toldApart: groups.filter((g) => g.toldApart).length,
+    groups: groups
+      .sort(
+        (a, b) =>
+          b.words.length - a.words.length || a.reading.localeCompare(b.reading),
+      )
+      .slice(0, SOUND_ALIKE_GROUP_LIMIT),
+  };
 }
 
 export function patternsFor(today: string = todayJst()): PatternsPayload {
@@ -345,5 +388,6 @@ export function patternsFor(today: string = todayJst()): PatternsPayload {
     rendaku: rendakuFor(open),
     pitch: pitchByLayer(open),
     lengths: lengthsByLevel(open),
+    soundAlikes: soundAlikesFor(open),
   };
 }

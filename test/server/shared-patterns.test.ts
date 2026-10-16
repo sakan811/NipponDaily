@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { SOUND_ALIKE_GROUP_LIMIT } from "~~/shared/limits";
 import { classifyChange, patternsFor } from "~~/shared/patterns";
 import { WORD_ENTRIES } from "~~/shared/words";
 
@@ -293,6 +294,55 @@ describe("patternsFor pitch by layer", () => {
 
   it("counts nothing before a word with an accent has opened", () => {
     expect(patternsFor("2005-05-01").pitch).toEqual([]);
+  });
+});
+
+describe("patternsFor sound-alikes", () => {
+  const p = patternsFor(TODAY).soundAlikes;
+  const fold = (kana: string) =>
+    kana.replace(/[\u30a1-\u30f6]/g, (c) =>
+      String.fromCharCode(c.charCodeAt(0) - 0x60),
+    );
+
+  it("counts every reading two or more open words share", () => {
+    const byReading = new Map<string, number>();
+    for (const e of open(TODAY))
+      byReading.set(fold(e.kana), (byReading.get(fold(e.kana)) ?? 0) + 1);
+    const shared = [...byReading.values()].filter((n) => n > 1);
+    expect(p.readings).toBe(shared.length);
+    expect(p.words).toBe(shared.reduce((a, b) => a + b, 0));
+  });
+
+  it("lists the readings with the most words first, each word read so", () => {
+    expect(p.groups.length).toBeGreaterThan(0);
+    expect(p.groups.length).toBeLessThanOrEqual(SOUND_ALIKE_GROUP_LIMIT);
+    const sizes = p.groups.map((g) => g.words.length);
+    expect(sizes).toEqual([...sizes].sort((a, b) => b - a));
+    for (const g of p.groups)
+      for (const w of g.words) {
+        const e = open(TODAY).find((x) => x.date === w.date)!;
+        expect(fold(e.kana)).toBe(g.reading);
+        expect(w.pitch).toEqual(e.pitch);
+      }
+  });
+
+  it("says the pitch tells words apart only when every word shows an accent and none is shared", () => {
+    expect(p.toldApart).toBeLessThanOrEqual(p.withAccents);
+    expect(p.withAccents).toBeLessThanOrEqual(p.readings);
+    for (const g of p.groups) {
+      const all = g.words.flatMap((w) => w.pitch ?? []);
+      expect(g.toldApart).toBe(
+        g.words.every((w) => w.pitch) && new Set(all).size === all.length,
+      );
+    }
+  });
+
+  it("counts nothing that has not opened", () => {
+    expect(patternsFor("2005-05-01").soundAlikes).toMatchObject({
+      readings: 0,
+      words: 0,
+      groups: [],
+    });
   });
 });
 
