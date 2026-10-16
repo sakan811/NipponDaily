@@ -140,20 +140,21 @@
       <code>/explore</code> filters by <code>q</code> (term, kana, meaning;
       katakana folded to hiragana, and romaji read as kana and matched against
       the readings only), <code>level</code>, <code>stratum</code>,
+      <code>process</code>, <code>pos</code>, <code>frequency</code>,
+      <code>pitch</code> and <code>part</code>, newest first.
+      <code>count</code> is every match, but <code>words</code> holds only the
+      newest {{ EXPLORE_PAGE_SIZE }}; the page's “Show more” asks again with
+      <code>limit</code> raised by a page, so the list (which grows by a word a
+      day) never reaches the browser whole. Different filters always narrow
+      together. Within <code>level</code>, <code>stratum</code>,
       <code>process</code>, <code>pos</code>, <code>frequency</code> and
-      <code>part</code>, newest first. <code>count</code> is every match, but
-      <code>words</code> holds only the newest {{ EXPLORE_PAGE_SIZE }}; the
-      page's “Show more” asks again with <code>limit</code> raised by a page, so
-      the list (which grows by a word a day) never reaches the browser whole.
-      Different filters always narrow together. Within <code>level</code>,
-      <code>stratum</code>, <code>process</code>, <code>pos</code> and
-      <code>frequency</code> several choices are joined by commas
+      <code>pitch</code> several choices are joined by commas
       (<code>?process=rendaku,compound</code>), and <code>match</code> says how
       they combine: by default a word needs <em>any</em> of them, with
-      <code>match=all</code> it needs <em>every</em> process and every part of
-      speech. A word has one level, one layer and one frequency group, so those
-      always read as “any”. <code>/words</code> (the calendar) takes the same
-      filters beside <code>month</code>:
+      <code>match=all</code> it needs <em>every</em> process, every part of
+      speech and every accent pattern. A word has one level, one layer and one
+      frequency group, so those always read as “any”. <code>/words</code> (the
+      calendar) takes the same filters beside <code>month</code>:
       <code>GET /api/word-calendar</code> marks each open day of the month
       <code>match</code> or not and returns the same counts, plus how many words
       match in every month. Both endpoints read the filters through
@@ -176,11 +177,16 @@
       >, the codes JMdict itself counts as common),
       <em>{{ frequencyLabel("less") }}</em> when it has only other codes,
       <em>{{ frequencyLabel("unlisted") }}</em> when it has none, which says the
-      word is outside those lists and not that it is rare. Each facet's counts
-      are taken over the words the <em>other</em> filters leave, so an option
-      never promises a count it can't deliver. Filters live in the URL; an
-      unknown value in a hand-edited URL is dropped, while the API answers
-      <code>400</code>.
+      word is outside those lists and not that it is rare.
+      <code>pitch</code> filters on the patterns of the accents the entry shows
+      (flat, head-high, middle-high or tail-high, named by
+      <code>pitchTypesOf</code> in <code>app/utils/pitch.ts</code>, the same
+      naming the entry page and Patterns use), and <code>unstated</code> on the
+      words that show none; a word given several accents has the pattern of
+      each. Each facet's counts are taken over the words the
+      <em>other</em> filters leave, so an option never promises a count it can't
+      deliver. Filters live in the URL; an unknown value in a hand-edited URL is
+      dropped, while the API answers <code>400</code>.
     </p>
 
     <h3>Patterns</h3>

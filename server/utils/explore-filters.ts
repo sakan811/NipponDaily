@@ -1,5 +1,6 @@
 import { z } from "zod";
 import {
+  PITCH_KEY_IDS,
   PROCESS_KEY_IDS,
   STRATUM_KEY_IDS,
   splitList,
@@ -40,6 +41,7 @@ export const exploreFilterShape = {
   process: choices(PROCESS_KEY_IDS as [string, ...string[]]),
   pos: choices(POS_GROUP_IDS as [string, ...string[]]),
   frequency: choices(FREQUENCY_IDS as [string, ...string[]]),
+  pitch: choices(PITCH_KEY_IDS as [string, ...string[]]),
   part: optional(z.string().trim().max(MAX_PART_LENGTH)),
   // "any" is the default, so only "all" is kept in the echoed filters.
   match: optional(z.enum(["any", "all"])).transform((m) =>

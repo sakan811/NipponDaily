@@ -12,11 +12,19 @@ import { EXPLORE_PAGE_SIZE, RELATED_LIMIT, STROKE_SQUARE } from "./limits";
 import { ROUTES } from "./routes";
 import { countWord } from "./count";
 import { FREQUENCY_IDS } from "./word-labels";
+import { PITCH_KEY_IDS } from "./explore-query";
 
-/** `common`, `less` or `unlisted`, as the filter names its choices. */
-const FREQUENCY_TEXT = `${FREQUENCY_IDS.slice(0, -1)
-  .map((id) => `\`${id}\``)
-  .join(", ")} or \`${FREQUENCY_IDS[FREQUENCY_IDS.length - 1]}\``;
+/** "`a`, `b` or `c`", as a filter names its choices. */
+const choicesText = (ids: readonly string[]): string =>
+  `${ids
+    .slice(0, -1)
+    .map((id) => `\`${id}\``)
+    .join(", ")} or \`${ids[ids.length - 1]}\``;
+
+/** `common`, `less` or `unlisted`. */
+const FREQUENCY_TEXT = choicesText(FREQUENCY_IDS);
+/** `heiban`, `atamadaka`, `nakadaka`, `odaka` or `unstated`. */
+const PITCH_TEXT = choicesText(PITCH_KEY_IDS);
 
 /** What the rate limiter allows one address, per window (`server/utils/rate-limit.ts`). */
 export const RATE_LIMIT = { limit: 120, windowMs: 60_000 } as const;
@@ -46,7 +54,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     method: "GET",
     path: ROUTES.wordCalendar,
     query:
-      "?month=YYYY-MM&q=&level=&stratum=&process=&pos=&frequency=&part=&match=",
+      "?month=YYYY-MM&q=&level=&stratum=&process=&pos=&frequency=&pitch=&part=&match=",
     returns:
       "`{ month, months, today, days, filters, total, count, monthCounts, facets }`. An open day carries its `term`, `kana`, `stratum` and `match` (whether it passes the filters, always true with none); an upcoming day carries only its date and `\"upcoming\"`, and is never matched. Once the catalogue has run out, an open day after the last entry shows the word of its lap and also carries `wordDate` (the day that word first opened) and `lap`, and `months` runs on to the current month. The filters are the `/api/explore` ones, with the same counts: `count` of `total` open words match across every month, `monthCounts` gives each month's matches and `facets` the options' counts. The month defaults to the current one if it has words, else the newest. A malformed month or an invalid filter is a `400`, a month with no words a `404`.",
   },
@@ -83,13 +91,16 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
   {
     method: "GET",
     path: ROUTES.explore,
-    query: "?q=&level=&stratum=&process=&pos=&frequency=&part=&match=&limit=",
+    query:
+      "?q=&level=&stratum=&process=&pos=&frequency=&pitch=&part=&match=&limit=",
     returns:
       "The open words matching every filter, newest first: `{ filters, total, count, words, facets }`. `count` is every match, but `words` holds only the newest " +
       EXPLORE_PAGE_SIZE +
-      " unless `limit` asks for more (a whole number of at least 1). Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. `level`, `stratum` (which also takes `unstated`), `process`, `pos` (a group such as `verb`) and `frequency` (" +
+      " unless `limit` asks for more (a whole number of at least 1). Every filter is optional and an empty value means “no filter”; anything else invalid is a `400`. `level`, `stratum` (which also takes `unstated`), `process`, `pos` (a group such as `verb`), `frequency` (" +
       FREQUENCY_TEXT +
-      ", from JMdict's priority codes) take several comma-joined choices; `match=all` makes a word carry every process and part of speech chosen instead of any. Each facet counts the words the other filters leave.",
+      ", from JMdict's priority codes) and `pitch` (" +
+      PITCH_TEXT +
+      ", the patterns of the accents the entry shows) take several comma-joined choices; `match=all` makes a word carry every process, part of speech and accent pattern chosen instead of any. Each facet counts the words the other filters leave.",
   },
   {
     method: "GET",

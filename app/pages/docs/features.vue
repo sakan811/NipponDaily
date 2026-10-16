@@ -63,7 +63,7 @@ const features = computed(() => [
   {
     title: "Explore by How Words Are Built",
     description:
-      "`/explore` searches every word that has opened — by the word, its reading (katakana, hiragana or romaji, so `taberu` finds 食べる) or its meaning — and narrows by JLPT level, layer (including “not stated”), process, part of speech or how common JMdict says the word is. Pick several options in a group and choose whether a word needs any or all of them. Each option shows how many words it would leave, the list shows the newest matches with “Show more” for the rest, and the filters live in the URL so a search can be shared. The calendar uses the same filters, folded behind the same “Filter” button and one row of group buttons. Upcoming words are never searched.",
+      "`/explore` searches every word that has opened — by the word, its reading (katakana, hiragana or romaji, so `taberu` finds 食べる) or its meaning — and narrows by JLPT level, layer (including “not stated”), process, part of speech, how common JMdict says the word is, or the pattern of its pitch accent (flat, head-high, middle-high, tail-high, or none shown). Pick several options in a group and choose whether a word needs any or all of them. Each option shows how many words it would leave, the list shows the newest matches with “Show more” for the rest, and the filters live in the URL so a search can be shared. The calendar uses the same filters, folded behind the same “Filter” button and one row of group buttons. Upcoming words are never searched.",
   },
   {
     title: "Patterns Across the Vocabulary",

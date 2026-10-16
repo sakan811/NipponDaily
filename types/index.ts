@@ -360,9 +360,14 @@ export type PosGroup =
  *  gai2, nf…), "unlisted" when it carries none. */
 export type FrequencyGroup = "common" | "less" | "unlisted";
 
+/** An accent pattern a word's entry shows (see PITCH_TYPES in
+ *  app/utils/pitch.ts), or "unstated" for a word whose entry shows none. */
+export type PitchKey = PitchType | "unstated";
+
 /** How several choices in the same filter combine: "any" keeps a word that has
  *  at least one of them, "all" only a word that has every one. It matters for
- *  the filters a word can hold several values of (process, part of speech);
+ *  the filters a word can hold several values of (process, part of speech,
+ *  accent pattern);
  *  a word has one level and one layer, so those always read "any". */
 export type ExploreMatch = "any" | "all";
 
@@ -379,6 +384,9 @@ export interface ExploreFilters {
   process?: WordProcess[];
   pos?: PosGroup[];
   frequency?: FrequencyGroup[];
+  /** The patterns of the accents the entry shows; a word given several
+   *  accents has each one's pattern. */
+  pitch?: PitchKey[];
   /** A part's text, as in /parts/<text>. */
   part?: string;
   /** Defaults to "any". */
@@ -412,6 +420,7 @@ export interface ExploreFacets {
   process: FacetCount<WordProcess>[];
   pos: FacetCount<PosGroup>[];
   frequency: FacetCount<FrequencyGroup>[];
+  pitch: FacetCount<PitchKey>[];
 }
 
 // --- PATTERNS (counts across words) ---

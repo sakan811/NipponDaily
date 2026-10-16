@@ -6,6 +6,7 @@ import {
   searchFor,
 } from "~~/shared/explore";
 import { frequencyOf, posGroupsOf } from "~~/shared/word-labels";
+import { pitchTypesOf } from "~/app/utils/pitch";
 import { WORD_ENTRIES, monthsWithEntries } from "~~/shared/words";
 
 const TODAY = "2022-12-13";
@@ -232,6 +233,46 @@ describe("exploreWords", () => {
     const verbs = exploreWords({ pos: ["verb"] }, TODAY).facets.frequency;
     const both = exploreWords({ pos: ["verb"], frequency: ["common"] }, TODAY);
     expect(both.count).toBe(verbs.find((f) => f.value === "common")!.count);
+  });
+
+  it("filters by the pattern of the accents an entry shows", () => {
+    const flat = exploreWords({ pitch: ["heiban"] }, TODAY);
+    const none = exploreWords({ pitch: ["unstated"] }, TODAY);
+
+    expect(flat.count).toBe(
+      open.filter((e) => pitchTypesOf(e.kana, e.pitch).includes("heiban"))
+        .length,
+    );
+    expect(flat.count).toBeGreaterThan(0);
+    expect(none.count).toBe(open.filter((e) => !e.pitch?.length).length);
+    expect(none.count).toBeGreaterThan(0);
+    for (const w of none.words)
+      expect(open.find((e) => e.date === w.date)!.pitch).toBeUndefined();
+    // A word given two accents of different patterns is in each, so "all"
+    // finds exactly those.
+    const both = exploreWords(
+      { pitch: ["heiban", "atamadaka"], match: "all" },
+      TODAY,
+    );
+    expect(both.count).toBe(
+      open.filter((e) => {
+        const types = pitchTypesOf(e.kana, e.pitch);
+        return types.includes("heiban") && types.includes("atamadaka");
+      }).length,
+    );
+    expect(both.count).toBeGreaterThan(0);
+    // The facet counts what the filter would leave.
+    const facet = exploreWords({ level: ["N5"] }, TODAY).facets.pitch;
+    expect(facet.map((f) => f.value)).toEqual([
+      "heiban",
+      "atamadaka",
+      "nakadaka",
+      "odaka",
+      "unstated",
+    ]);
+    expect(exploreWords({ level: ["N5"], pitch: ["odaka"] }, TODAY).count).toBe(
+      facet.find((f) => f.value === "odaka")!.count,
+    );
   });
 
   it("summarises a word without its sources or morphemes", () => {

@@ -1,7 +1,7 @@
 /**
  * Browse-and-filter over the open words: the same entries the calendar and the
  * parts index read, narrowed by search text, level, layer, process, part of
- * speech or part. Several choices in one filter combine as "any" or "all".
+ * speech, how common, accent pattern or part. Several choices in one filter combine as "any" or "all".
  * Nothing here is a claim of its own — it selects and counts fields the
  * entries already carry.
  *
@@ -14,6 +14,7 @@ import type {
   FacetCount,
   FrequencyGroup,
   JlptLevel,
+  PitchKey,
   PosGroup,
   StratumKey,
   WordEntry,
@@ -25,6 +26,8 @@ import type {
 } from "~~/types/index";
 import { isRomaji, toHiragana } from "wanakana";
 import { katakanaToHiragana } from "./japanese";
+import { pitchTypesOf } from "../app/utils/pitch";
+import { PITCH_KEY_IDS } from "./explore-query";
 import { JLPT_LEVELS } from "./jlpt";
 import {
   FREQUENCY_IDS,
@@ -80,13 +83,18 @@ const summaryOf = (e: WordEntry): WordSummary => ({
   hasParts: e.morphemes.length > 0,
 });
 
-type Facet = "level" | "stratum" | "process" | "pos" | "frequency";
+type Facet = "level" | "stratum" | "process" | "pos" | "frequency" | "pitch";
 
 const strataOf = (e: WordEntry): StratumKey[] => [e.stratum ?? "unstated"];
 
 const frequencyGroupOf = (e: WordEntry): FrequencyGroup[] => [
   frequencyOf(e.priority),
 ];
+
+/** The patterns of the accents an entry shows, each once; "unstated" when it
+ *  shows none. */
+const pitchKeysOf = (e: WordEntry): PitchKey[] =>
+  e.pitch?.length ? [...new Set(pitchTypesOf(e.kana, e.pitch))] : ["unstated"];
 
 /** Whether `have` satisfies the choices: any one of them, or every one. */
 const satisfies = (
@@ -120,6 +128,8 @@ function passes(
     skip !== "frequency" &&
     !satisfies(f.frequency, frequencyGroupOf(e), "any")
   )
+    return false;
+  if (skip !== "pitch" && !satisfies(f.pitch, pitchKeysOf(e), match))
     return false;
   if (f.part && !e.morphemes.some((m) => m.text === f.part)) return false;
   if (q.text) {
@@ -194,6 +204,14 @@ export function exploreWords(
         q,
         "frequency",
         frequencyGroupOf,
+      ),
+      pitch: facet<PitchKey>(
+        PITCH_KEY_IDS as PitchKey[],
+        open,
+        filters,
+        q,
+        "pitch",
+        pitchKeysOf,
       ),
     },
   };

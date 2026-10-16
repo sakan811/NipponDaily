@@ -51,6 +51,12 @@ export function pitchTypesOf(
   return pitch.map((accent) => pitchType(count, accent));
 }
 
+/** A word whose entry shows no accent, as a filter names it. */
+export const PITCH_UNSTATED = {
+  label: "No accent shown",
+  hint: "The accent list does not give this spelling and reading, or the two sources behind it share no accent for it.",
+};
+
 /** What each pattern means, for people who do not know the names. */
 export const PITCH_TYPES: Record<PitchType, { label: string; hint: string }> = {
   heiban: {
