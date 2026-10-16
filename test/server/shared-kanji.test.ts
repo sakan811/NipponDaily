@@ -51,6 +51,10 @@ describe("kanjiDetail", () => {
       withChar("日").map((e) => e.date),
     );
     expect(d.isPart).toBe(partDetail("日", TODAY) !== undefined);
+    for (const w of d.words)
+      expect(w.level).toBe(
+        withChar("日").find((e) => e.date === w.date)!.level,
+      );
   });
 
   it("gives the shapes KRADFILE lists, each with other open kanji that contain it", () => {

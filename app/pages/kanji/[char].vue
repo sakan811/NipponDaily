@@ -198,23 +198,42 @@
               {{ kanji.count === 1 ? "word" : "words" }}</span
             >
           </h2>
-          <ul class="space-y-2">
-            <li v-for="w in kanji.words" :key="w.date">
-              <NuxtLink
-                :to="`/words/${w.date}`"
-                data-testid="kanji-word"
-                class="season-box flex flex-wrap items-baseline gap-x-3 gap-y-0.5 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3 hover:border-primary-500 transition-colors"
-              >
-                <span class="text-2xl font-serif font-bold">{{ w.term }}</span>
-                <span class="text-primary-600 dark:text-primary-400">{{
-                  w.kana
-                }}</span>
-                <span class="text-sm text-stone-600 dark:text-stone-400">{{
-                  w.meaning
-                }}</span>
-              </NuxtLink>
-            </li>
-          </ul>
+          <p class="text-sm text-stone-600 dark:text-stone-400">
+            Grouped by JLPT level, easiest first, and oldest first within a
+            level.
+          </p>
+          <section
+            v-for="group in byLevel"
+            :key="group.level"
+            class="space-y-2"
+            data-testid="kanji-level"
+            :aria-label="`JLPT ${group.level}`"
+          >
+            <h3 class="kicker text-stone-600 dark:text-stone-400">
+              JLPT {{ group.level }} ·
+              {{ group.words.length }}
+              {{ group.words.length === 1 ? "word" : "words" }}
+            </h3>
+            <ul class="space-y-2">
+              <li v-for="w in group.words" :key="w.date">
+                <NuxtLink
+                  :to="`/words/${w.date}`"
+                  data-testid="kanji-word"
+                  class="season-box flex flex-wrap items-baseline gap-x-3 gap-y-0.5 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 px-4 py-3 hover:border-primary-500 transition-colors"
+                >
+                  <span class="text-2xl font-serif font-bold">{{
+                    w.term
+                  }}</span>
+                  <span class="text-primary-600 dark:text-primary-400">{{
+                    w.kana
+                  }}</span>
+                  <span class="text-sm text-stone-600 dark:text-stone-400">{{
+                    w.meaning
+                  }}</span>
+                </NuxtLink>
+              </li>
+            </ul>
+          </section>
           <p
             v-if="kanji.isPart"
             data-testid="kanji-part-link"
@@ -255,6 +274,7 @@ import TrendingFallback from "../../components/TrendingFallback.vue";
 import { usePageSeo } from "../../composables/usePageSeo";
 import { useKanji } from "../../composables/useKanji";
 import { kanjiPath, partPath } from "../../utils/seo";
+import { JLPT_LEVELS } from "~~/shared/jlpt";
 import { SOURCES } from "~~/shared/sources";
 import { kanjiGradeLabel } from "~~/shared/word-labels";
 
@@ -262,6 +282,14 @@ const route = useRoute();
 // Linked kanji stay on this same page component, so follow the route param.
 const char = computed(() => String(route.params.char ?? ""));
 const { kanji, loading, error, refresh } = useKanji(char);
+
+/** The words written with it, by JLPT level, easiest first; empty levels left out. */
+const byLevel = computed(() =>
+  JLPT_LEVELS.map((level) => ({
+    level,
+    words: (kanji.value?.words ?? []).filter((w) => w.level === level),
+  })).filter((group) => group.words.length),
+);
 
 usePageSeo({
   title: () =>

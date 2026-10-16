@@ -88,7 +88,7 @@ export function kanjiDetail(
   if (!record) return undefined;
   const words = WORD_ENTRIES.filter(
     (e) => e.date <= today && kanjiOf(e.term).includes(char),
-  ).map(refOf);
+  ).map((e) => ({ ...refOf(e), level: e.level }));
   if (!words.length) return undefined;
   return {
     char,

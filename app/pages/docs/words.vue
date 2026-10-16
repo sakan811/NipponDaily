@@ -113,7 +113,8 @@
       an open word is written with, from KANJIDIC2's own record of it (its
       on'yomi and kun'yomi, meanings, school grade, stroke count and newspaper
       frequency rank) and the order its strokes are drawn in, beside the open
-      words that contain it. It is built from the spellings of the entries
+      words that contain it, grouped by their JLPT level (easiest first, oldest
+      first within a level). It is built from the spellings of the entries
       alone, so it adds no claim about a word: the record describes the
       character, and a word does not use every reading or meaning listed. A
       kanji used only by an upcoming word is a <code>404</code>, like a part.

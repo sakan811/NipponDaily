@@ -98,6 +98,29 @@ describe("Kanji Detail Page (/kanji/[char])", () => {
     expect(wrapper.text()).toContain("KANJIDIC2");
   });
 
+  it("groups the words by JLPT level, easiest first", async () => {
+    const wrapper = mount(KanjiDetailPage);
+    await flushPromises();
+
+    const d = kanjiDetail("日", TODAY)!;
+    const groups = wrapper.findAll('[data-testid="kanji-level"]');
+    const levels = ["N5", "N4", "N3", "N2", "N1"].filter((l) =>
+      d.words.some((w) => w.level === l),
+    );
+    expect(groups.map((g) => g.attributes("aria-label"))).toEqual(
+      levels.map((l) => `JLPT ${l}`),
+    );
+    for (const [i, level] of levels.entries()) {
+      const words = d.words.filter((w) => w.level === level);
+      expect(groups[i]!.text()).toContain(`JLPT ${level}`);
+      expect(
+        groups[i]!.findAll('[data-testid="kanji-word"]').map((a) =>
+          a.attributes("href"),
+        ),
+      ).toEqual(words.map((w) => `/words/${w.date}`));
+    }
+  });
+
   it("draws the strokes one by one, with KanjiVG credited", async () => {
     const wrapper = mount(KanjiDetailPage);
     await flushPromises();
