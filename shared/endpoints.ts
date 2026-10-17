@@ -33,6 +33,11 @@ export const RATE_LIMIT = { limit: 120, windowMs: 60_000 } as const;
 export const OG_CACHE_CONTROL =
   "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400";
 
+/** How long a shared cache keeps the page or answer of a day that has already
+ *  passed. Its word cannot change; only the words listed beside it (related,
+ *  same day) can, when a new one opens, so it may be a few days behind. */
+export const PAST_DAY_CACHE_DAYS = 7;
+
 export interface ApiEndpoint {
   /** Always GET today. */
   method: "GET";
