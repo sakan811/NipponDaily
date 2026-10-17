@@ -316,6 +316,12 @@ h1 {
   vertical-align: top;
   border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
 }
+/* `anywhere` lets a column shrink to one character; `break-word` only breaks a
+   name that cannot fit, so a column keeps the width of its longest name. */
+.book-prose :deep(td code),
+.book-prose :deep(th code) {
+  overflow-wrap: break-word;
+}
 .book-prose :deep(tr:last-child td) {
   border-bottom: 0;
 }
