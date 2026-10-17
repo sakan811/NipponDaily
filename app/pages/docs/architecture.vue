@@ -58,7 +58,7 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
       <table>
         <thead>
           <tr>
-            <th>Module</th>
+            <th class="module-col">Module</th>
             <th>Role</th>
           </tr>
         </thead>
@@ -538,3 +538,10 @@ const sources = [
   },
 ];
 </script>
+
+<style scoped>
+/* Wide enough for the longest file name, so none breaks at its hyphen. */
+.module-col {
+  width: 11rem;
+}
+</style>

@@ -17,7 +17,7 @@
       <table>
         <thead>
           <tr>
-            <th>Piece</th>
+            <th class="piece-col">Piece</th>
             <th>What it is</th>
           </tr>
         </thead>
@@ -37,7 +37,7 @@
       <table>
         <thead>
           <tr>
-            <th>Command</th>
+            <th class="command-col">Command</th>
             <th>Does</th>
           </tr>
         </thead>
@@ -465,3 +465,14 @@ const failures = [
   },
 ];
 </script>
+
+<style scoped>
+/* Wide enough for `data/word-plan/YYYY-MM.json` and `pnpm data:reference:jlpt`
+   on one line. */
+.piece-col {
+  width: 15rem;
+}
+.command-col {
+  width: 14rem;
+}
+</style>
