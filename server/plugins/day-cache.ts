@@ -11,6 +11,10 @@ export default defineNitroPlugin((nitroApp) => {
     const path = event.path.split("?")[0] ?? "";
     if (!isDayCacheable(path)) return;
     if (getResponseHeader(event, "cache-control")) return;
-    setResponseHeader(event, "cache-control", dayCacheControl());
+    setResponseHeader(
+      event,
+      "cache-control",
+      dayCacheControl(Date.now(), event.path),
+    );
   });
 });

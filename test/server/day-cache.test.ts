@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import { PAST_DAY_CACHE_DAYS } from "~~/shared/endpoints";
 import {
   dayCacheControl,
   isDayCacheable,
@@ -34,6 +35,39 @@ describe("dayCacheControl", () => {
     expect(dayCacheControl(utc("2026-10-05T12:00:00Z"))).toBe(
       "public, max-age=0, s-maxage=10800",
     );
+  });
+
+  it("keeps a day that has passed for days, not until midnight", () => {
+    const now = utc("2026-10-05T12:00:00Z");
+    for (const path of [
+      "/words/2026-10-04",
+      "/api/daily-word?date=2020-01-01",
+      "/api/related?date=2020-01-01",
+    ])
+      expect(dayCacheControl(now, path), path).toBe(
+        `public, max-age=0, s-maxage=${PAST_DAY_CACHE_DAYS * 86400}`,
+      );
+  });
+
+  it("still ends today's page and the no-date answer at midnight", () => {
+    const now = utc("2026-10-05T12:00:00Z");
+    for (const path of [
+      "/words/2026-10-05",
+      "/api/daily-word?date=2026-10-05",
+      "/api/daily-word",
+      "/words",
+      "/kanji/%E6%97%A5",
+    ])
+      expect(dayCacheControl(now, path), path).toBe(
+        "public, max-age=0, s-maxage=10800",
+      );
+  });
+
+  it("counts the day in Japan, not UTC", () => {
+    // 16:00 UTC on the 5th is already the 6th in Japan.
+    expect(
+      dayCacheControl(utc("2026-10-05T16:00:00Z"), "/words/2026-10-05"),
+    ).toBe(`public, max-age=0, s-maxage=${PAST_DAY_CACHE_DAYS * 86400}`);
   });
 
   it("never serves stale, which would show yesterday's word after midnight", () => {
@@ -106,9 +140,16 @@ describe("the day-cache Nitro plugin", () => {
   });
 
   it("marks a successful GET until midnight in Japan", async () => {
-    await run(ok("/api/daily-word?date=2026-10-01"));
+    await run(ok("/api/daily-word"));
     expect(headers.get("cache-control")).toBe(
       "public, max-age=0, s-maxage=10800",
+    );
+  });
+
+  it("keeps a past day's page for days", async () => {
+    await run(ok("/words/2026-10-01"));
+    expect(headers.get("cache-control")).toBe(
+      `public, max-age=0, s-maxage=${PAST_DAY_CACHE_DAYS * 86400}`,
     );
   });
 
