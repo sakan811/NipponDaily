@@ -183,6 +183,15 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
       slower.
     </p>
     <p>
+      A day that has already passed is the one exception: its page, and its
+      <code>/api/daily-word</code> and <code>/api/related</code> answers, are
+      kept for {{ PAST_DAY_CACHE_DAYS }} days. Its word cannot change, but a
+      crawler walks every day of the archive, and rendering all of them again at
+      each midnight would spend the host's free allowance. The cost is that the
+      related and same-day lists beside an old word can be that many days behind
+      a word that has just opened.
+    </p>
+    <p>
       This saves invocations, not computation: with every entry in memory a
       patterns, parts or explore answer takes a few milliseconds, so no
       in-process cache is kept.
@@ -303,7 +312,7 @@ import CatalogueRange from "../../components/CatalogueRange.vue";
 import RichText from "../../components/RichText.vue";
 import type { DiagramSpec } from "../../utils/diagram";
 import pkg from "~~/package.json";
-import { RATE_LIMIT } from "~~/shared/endpoints";
+import { PAST_DAY_CACHE_DAYS, RATE_LIMIT } from "~~/shared/endpoints";
 import {
   ENTRIES_DIR,
   SERVER_ONLY_MODULES,

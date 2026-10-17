@@ -35,8 +35,8 @@
       </table>
     </div>
     <p>
-      A successful answer is cached until midnight in Japan (<NuxtLink
-        to="/docs/architecture#caching"
+      A successful answer is cached until midnight in Japan, or longer for a day
+      that has passed (<NuxtLink to="/docs/architecture#caching"
         >Caching</NuxtLink
       >). An address that asks an <code>/api/</code> endpoint or the share image
       more than {{ RATE_LIMIT.limit }} times in
