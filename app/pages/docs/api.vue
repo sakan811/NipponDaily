@@ -11,7 +11,7 @@
       <table>
         <thead>
           <tr>
-            <th>Endpoint</th>
+            <th class="endpoint-col">Endpoint</th>
             <th>Returns</th>
           </tr>
         </thead>
@@ -20,7 +20,13 @@
             <td>
               <code>{{ endpoint.method }} {{ endpoint.path }}</code
               ><template v-if="endpoint.query"
-                ><br /><code>{{ endpoint.query }}</code></template
+                ><br /><code
+                  ><template
+                    v-for="(part, i) in endpoint.query.split(/(?=&)/)"
+                    :key="i"
+                    ><wbr v-if="i" />{{ part }}</template
+                  ></code
+                ></template
               >
             </td>
             <td><RichText :text="endpoint.returns" /></td>
@@ -84,3 +90,11 @@ const example = `{
   "timestamp": "2026-10-07T00:00:00.000Z"
 }`;
 </script>
+
+<style scoped>
+/* A long query string breaks at its `&`s, so the column can stay a share of the
+   table instead of the width of the longest URL. */
+.endpoint-col {
+  width: 40%;
+}
+</style>
