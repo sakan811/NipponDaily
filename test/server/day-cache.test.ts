@@ -172,6 +172,7 @@ describe("the day-cache Nitro plugin", () => {
   it("gives a CDN in front of the host the same lifetime", async () => {
     await run(ok("/api/daily-word"));
     expect(headers.get("cdn-cache-control")).toBe("max-age=10800");
+    headers.clear();
     await run(ok("/words/2026-10-01"));
     expect(headers.get("cdn-cache-control")).toBe(
       `max-age=${PAST_DAY_CACHE_DAYS * 86400}`,
