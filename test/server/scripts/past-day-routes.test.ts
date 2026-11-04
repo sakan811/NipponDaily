@@ -25,9 +25,7 @@ describe("pastDayRoutes", () => {
     const routes = pastDayRoutes(WORDS_DIR, today);
 
     expect(routes).toEqual(
-      WORD_ENTRIES.filter((e) => e.date < today).map(
-        (e) => `/words/${e.date}`,
-      ),
+      WORD_ENTRIES.filter((e) => e.date < today).map((e) => `/words/${e.date}`),
     );
     expect(routes).toContain("/words/2026-10-04");
     expect(routes).not.toContain("/words/2026-10-05");

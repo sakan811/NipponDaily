@@ -12,12 +12,11 @@
  */
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-
-const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
+import { toJst } from "../../shared/jst";
 
 /** Today's date in Japan, as `YYYY-MM-DD` (the calendar a word opens by). */
 export function jstToday(now: Date = new Date()): string {
-  return new Date(now.getTime() + JST_OFFSET_MS).toISOString().slice(0, 10);
+  return toJst(now).toISOString().slice(0, 10);
 }
 
 /** `/words/<date>` for every entry dated before `today`, oldest first. */

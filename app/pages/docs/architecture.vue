@@ -201,9 +201,9 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
       an upcoming word is still a <code>404</code>. The related lists on a
       prerendered page are as of the build, so a deploy at least weekly keeps
       them current. The same responses carry <code>CDN-Cache-Control</code>, the
-      header a CDN such as Cloudflare reads, and
-      <code>robots.txt</code> turns bulk AI scrapers away and the sitemap lists
-      only the newest days, so a crawler does not walk the whole archive.
+      header a CDN such as Cloudflare reads, and <code>robots.txt</code> turns
+      bulk AI scrapers away and the sitemap lists only the newest days, so a
+      crawler does not walk the whole archive.
     </p>
     <p>
       This saves invocations, not computation: with every entry in memory a

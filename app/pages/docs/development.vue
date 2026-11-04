@@ -52,8 +52,7 @@ pnpm dev          # http://localhost:3000</code></pre>
       (<code>CDN-Cache-Control</code>, <code>s-maxage</code>), a Rate Limiting
       rule on <code>/api/*</code> and <code>/og.png</code>, and turn on Bot
       Fight Mode. A self-hosted build runs behind a Cloudflare Tunnel, with
-      <code>PRERENDER_PAST_DAYS=1 pnpm build</code> and
-      <code>pnpm start</code>.
+      <code>PRERENDER_PAST_DAYS=1 pnpm build</code> and <code>pnpm start</code>.
     </p>
 
     <h2>Commands</h2>
