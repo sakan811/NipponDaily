@@ -92,6 +92,25 @@ describe("relatedWords", () => {
   });
 });
 
+describe("relatedWords cost", () => {
+  // Every word page asks for this, so it runs for each page a crawler walks.
+  // It once counted how common a process or layer is again for each candidate
+  // and took about a second an entry; counted once, it takes a few
+  // milliseconds. The bound is loose enough for a slow CI machine and an
+  // order of magnitude under the old cost.
+  it("answers for the whole catalogue in milliseconds, not a second", () => {
+    const today = WORD_ENTRIES.at(-1)!.date;
+    const sample = WORD_ENTRIES.filter((_, i) => i % 400 === 0);
+
+    const start = performance.now();
+    for (const e of sample) relatedWords(e, today);
+    const perEntry = (performance.now() - start) / sample.length;
+
+    expect(sample.length).toBeGreaterThan(10);
+    expect(perEntry).toBeLessThan(150);
+  });
+});
+
 describe("referencesFor", () => {
   const withRefs = WORD_ENTRIES.find(
     (e) => e.antonyms?.length && e.date <= TODAY,
