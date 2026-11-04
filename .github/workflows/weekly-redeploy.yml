@@ -1,0 +1,27 @@
+name: Weekly redeploy
+
+# The past days' pages are written at build time (see nuxt.config.ts), with the
+# related and same-day lists as they stood then. A fresh deploy each week keeps
+# those lists current. Add the host's deploy hook URL as the repository secret
+# DEPLOY_HOOK_URL; without it the job does nothing.
+
+on:
+  schedule:
+    - cron: "17 18 * * 0"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the deploy hook
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$DEPLOY_HOOK_URL" ]; then
+            echo "DEPLOY_HOOK_URL is not set; nothing to do."
+            exit 0
+          fi
+          curl --fail --silent --show-error -X POST "$DEPLOY_HOOK_URL"

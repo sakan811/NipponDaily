@@ -20,8 +20,9 @@ pnpm dev          # http://localhost:3000</code></pre>
 
     <h2>Environment</h2>
     <p>
-      See <code>.env.example</code>. There is one optional variable; the site
-      URL is read from <code>runtimeConfig.public</code>.
+      See <code>.env.example</code>. Both variables are optional; the site URL
+      is read from <code>runtimeConfig.public</code>, and the build reads the
+      prerender switch from the environment.
     </p>
     <div class="table-wrap">
       <table>
@@ -41,6 +42,19 @@ pnpm dev          # http://localhost:3000</code></pre>
         </tbody>
       </table>
     </div>
+
+    <h2>Hosting behind Cloudflare</h2>
+    <p>
+      Whichever host runs the app, a free Cloudflare zone in front of it keeps
+      crawlers off the compute. Proxy the hostname (orange cloud), then add a
+      Cache Rule that caches <code>/words/*</code>, <code>/api/*</code> and
+      <code>/og.png</code> and uses the origin's lifetime
+      (<code>CDN-Cache-Control</code>, <code>s-maxage</code>), a Rate Limiting
+      rule on <code>/api/*</code> and <code>/og.png</code>, and turn on Bot
+      Fight Mode. A self-hosted build runs behind a Cloudflare Tunnel, with
+      <code>PRERENDER_PAST_DAYS=1 pnpm build</code> and
+      <code>pnpm start</code>.
+    </p>
 
     <h2>Commands</h2>
     <div class="table-wrap">
@@ -331,6 +345,10 @@ const env = [
   {
     name: "NUXT_PUBLIC_SITE_URL",
     use: "Optional canonical origin for canonical and Open Graph URLs and the sitemap; otherwise each request's own origin.",
+  },
+  {
+    name: "PRERENDER_PAST_DAYS",
+    use: "Build time only. `1` writes the page of every past day as a static file; `0` turns that off. Unset, it is on when `VERCEL` is set (a Vercel deploy) and off otherwise.",
   },
 ];
 
