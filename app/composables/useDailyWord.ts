@@ -1,10 +1,5 @@
 import { toValue, type MaybeRefOrGetter } from "vue";
-import type {
-  DailyWordPayload,
-  ExploreFilters,
-  WordCalendarPayload,
-} from "~~/types/index";
-import { queryFromFilters } from "~~/shared/explore-query";
+import type { DailyWordPayload } from "~~/types/index";
 import { useApiData } from "./useApiData";
 import { ROUTES } from "~~/shared/routes";
 
@@ -25,24 +20,4 @@ export function useDailyWord(date?: MaybeRefOrGetter<string | undefined>) {
     },
   });
   return { payload: data, ...rest };
-}
-
-/** GET /api/word-calendar — one month at a time, marked against `filters`;
- *  `month` and `filters` follow getters and refetch when they change. */
-export function useWordCalendar(
-  month?: MaybeRefOrGetter<string | undefined>,
-  filters?: MaybeRefOrGetter<ExploreFilters>,
-) {
-  const { data, ...rest } = useApiData<WordCalendarPayload>({
-    key: () =>
-      `word-calendar:${toValue(month) || "current"}:${JSON.stringify(toValue(filters) ?? {})}`,
-    path: ROUTES.wordCalendar,
-    query: () => ({
-      ...(toValue(month) ? { month: toValue(month) } : {}),
-      ...queryFromFilters(toValue(filters) ?? {}),
-    }),
-    label: "word calendar",
-    failed: "Failed to load the calendar. Please try again.",
-  });
-  return { calendar: data, ...rest };
 }

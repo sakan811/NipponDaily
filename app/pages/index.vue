@@ -12,7 +12,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          One word a day,<br class="hidden sm:inline" />
+          One word a day,<br class="hidden sm:inline" >
           <span
             class="text-primary-600 dark:text-primary-400 italic font-normal"
             >with its sources.</span
@@ -111,18 +111,11 @@
           <USkeleton class="h-6 w-full" />
         </div>
 
-        <SameDayWords
-          v-if="payload?.sameDay?.length"
-          class="mt-10"
-          :date="payload.entry.date"
-          :words="payload.sameDay"
-        />
-
         <div class="flex flex-wrap gap-4 justify-center pt-8">
           <UButton
-            data-testid="hero-calendar-cta"
-            label="Browse the Calendar"
-            to="/words"
+            data-testid="hero-explore-cta"
+            label="Explore the Words"
+            to="/explore"
             color="primary"
             size="lg"
             icon="i-heroicons-arrow-right"
@@ -264,7 +257,6 @@
 
 <script setup lang="ts">
 import AppShell from "../components/AppShell.vue";
-import SameDayWords from "../components/SameDayWords.vue";
 import TrendingFallback from "../components/TrendingFallback.vue";
 import { useDailyWord } from "../composables/useDailyWord";
 import { usePageSeo } from "../composables/usePageSeo";
@@ -299,8 +291,8 @@ const howItWorks = [
     text: "Open it to see its reading, pitch and examples and, where the sources record it, its parts and origin.",
   },
   {
-    title: "3 · Miss a day? Fine",
-    text: "The calendar keeps every word under the day it first opened. Once all have had a day, they come round again.",
+    title: "3 · Explore the rest",
+    text: "Search and filter every word that has opened. Once all have had a day, the words come round again.",
   },
 ];
 

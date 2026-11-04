@@ -203,8 +203,8 @@
             trailing
           />
           <UButton
-            label="Browse the Calendar"
-            to="/words"
+            label="Explore the Words"
+            to="/explore"
             color="gray"
             variant="ghost"
             size="md"

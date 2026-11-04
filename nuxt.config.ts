@@ -138,8 +138,10 @@ export default defineNuxtConfig({
   },
   routeRules: {
     // The daily game and the lesson/vocabulary pages were replaced by the
-    // daily-word calendar. Temporary (not 301) redirects, so old bookmarks and
+    // word of the day. Temporary (not 301) redirects, so old bookmarks and
     // links land on the front page without a browser caching the move forever.
+    // The calendar was removed; Explore is where the rest of the words are.
+    "/words": { redirect: { to: "/explore", statusCode: 302 } },
     "/game": { redirect: { to: "/", statusCode: 302 } },
     "/learn/**": { redirect: { to: "/", statusCode: 302 } },
     "/vocab/**": { redirect: { to: "/", statusCode: 302 } },

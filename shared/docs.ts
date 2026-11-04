@@ -36,7 +36,7 @@ export const DOC_CHAPTERS: readonly DocChapter[] = [
     part: "The idea",
     title: "Core features",
     summary:
-      "What a reader gets: a word a day, a calendar, patterns across the words, the evidence behind every claim, and no tracking.",
+      "What a reader gets: a word a day, a dictionary to explore, patterns across the words, the evidence behind every claim, and no tracking.",
   },
   {
     slug: "architecture",

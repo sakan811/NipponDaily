@@ -57,15 +57,8 @@ describe("pages", () => {
     expect(page).toContain(`/og.png?date=${first}`);
   });
 
-  it("the calendar, Explore, Patterns, Parts, Kanji and Kana answer 200", async () => {
-    for (const path of [
-      "/words",
-      "/explore",
-      "/patterns",
-      "/parts",
-      "/kanji",
-      "/kana",
-    ]) {
+  it("Explore, Patterns, Parts, Kanji and Kana answer 200", async () => {
+    for (const path of ["/explore", "/patterns", "/parts", "/kanji", "/kana"]) {
       expect(await status(path), path).toBe(200);
     }
   });

@@ -27,7 +27,7 @@
           index="01"
           title="Word fetch failure"
           component="components/TrendingFallback.vue"
-          trigger="A page's data fetch throws (network error or a 5xx): <code>GET /api/daily-word</code>, <code>/api/word-calendar</code>, <code>/api/parts</code>, <code>/api/part</code>, <code>/api/kanji</code>, <code>/api/kanji-detail</code>, <code>/api/explore</code> or <code>/api/patterns</code>. The home page, <code>/words</code>, <code>/words/[date]</code>, <code>/parts</code>, <code>/parts/[text]</code>, <code>/kanji</code>, <code>/kanji/[char]</code>, <code>/explore</code> and <code>/patterns</code> each pass their own title; a 400/404 swaps the message for a specific one, such as “That day hasn't arrived yet.” or “There is no word for this day.” The “More like this” row has no error state: if <code>GET /api/related</code> fails the row is simply left out."
+          trigger="A page's data fetch throws (network error or a 5xx): <code>GET /api/daily-word</code>, <code>/api/parts</code>, <code>/api/part</code>, <code>/api/kanji</code>, <code>/api/kanji-detail</code>, <code>/api/explore</code> or <code>/api/patterns</code>. The home page, <code>/words/[date]</code>, <code>/parts</code>, <code>/parts/[text]</code>, <code>/kanji</code>, <code>/kanji/[char]</code>, <code>/explore</code> and <code>/patterns</code> each pass their own title; a 400/404 swaps the message for a specific one, such as “That day hasn't arrived yet.” or “There is no word for this day.” The “More like this” row has no error state: if <code>GET /api/related</code> fails the row is simply left out."
         />
         <TrendingFallback
           :error="'Failed to load the word. Please try again.'"
@@ -58,8 +58,8 @@
         <ErrorStateHeading
           index="03"
           title="Loading skeletons"
-          component="pages/index.vue · pages/words/index.vue · pages/words/[date].vue · pages/parts/index.vue · pages/parts/[text].vue · pages/kanji/index.vue · pages/kanji/[char].vue · pages/explore.vue · pages/patterns.vue"
-          trigger="Shown while the page's data is still being fetched in the browser: when a reader moves to another day, month, part, kanji or filter, or retries after a failure. A first visit is rendered on the server with its data already in the HTML, so it normally shows no skeleton. The page never renders an empty frame."
+          component="pages/index.vue · pages/words/[date].vue · pages/parts/index.vue · pages/parts/[text].vue · pages/kanji/index.vue · pages/kanji/[char].vue · pages/explore.vue · pages/patterns.vue"
+          trigger="Shown while the page's data is still being fetched in the browser: when a reader moves to another day, part, kanji or filter, or retries after a failure. A first visit is rendered on the server with its data already in the HTML, so it normally shows no skeleton. The page never renders an empty frame."
         />
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div class="space-y-3" aria-busy="true">
@@ -69,64 +69,20 @@
             <USkeleton class="h-40 w-full" />
           </div>
           <div class="space-y-3" aria-busy="true">
-            <p class="kicker text-stone-600 dark:text-stone-400">Calendar</p>
+            <p class="kicker text-stone-600 dark:text-stone-400">Explore</p>
             <USkeleton class="h-10 w-64" />
             <USkeleton class="h-40 w-full" />
           </div>
         </div>
       </section>
 
-      <!-- 4. Calendar day states -->
-      <section id="calendar-days" class="scroll-mt-24 space-y-3">
-        <ErrorStateHeading
-          index="04"
-          title="Calendar day states"
-          component="pages/words/index.vue"
-          trigger="A day is “open” once midnight in Japan has passed (it shows its word and links to it), “today” when it is the current day, and “upcoming” before then — an upcoming day reveals nothing, and the API refuses to serve it. With calendar filters set, an open day whose word matches is tinted and one that doesn't is “faded” but still a link; an upcoming day is neither. A month with no match says so and points to the nearest months that have one. The words below are placeholders."
-        />
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 max-w-xl">
-          <div
-            class="season-box min-h-[6rem] border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 p-2.5 opacity-35"
-          >
-            <p class="text-xs text-stone-600 dark:text-stone-400">11</p>
-            <p class="mt-1 text-2xl font-serif font-bold">例</p>
-            <p class="text-xs text-stone-600 dark:text-stone-400">れい</p>
-            <p class="kicker text-stone-600 dark:text-stone-400 mt-1">faded</p>
-          </div>
-          <div
-            class="season-box min-h-[6rem] border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/50 p-2.5"
-          >
-            <p class="text-xs text-stone-600 dark:text-stone-400">12</p>
-            <p class="mt-1 text-2xl font-serif font-bold">例</p>
-            <p class="text-xs text-stone-600 dark:text-stone-400">れい</p>
-            <p class="kicker text-stone-600 dark:text-stone-400 mt-1">open</p>
-          </div>
-          <div
-            class="season-box min-h-[6rem] border border-primary-500 ring-2 ring-primary-500/30 bg-white dark:bg-stone-900/50 p-2.5"
-          >
-            <p class="text-xs text-stone-600 dark:text-stone-400">13</p>
-            <p class="mt-1 text-2xl font-serif font-bold">例</p>
-            <p class="text-xs text-stone-600 dark:text-stone-400">れい</p>
-            <p class="kicker text-primary-600 dark:text-primary-400 mt-1">
-              today
-            </p>
-          </div>
-          <div
-            class="min-h-[6rem] border border-dashed border-stone-300/70 dark:border-stone-800 p-2.5 text-xs text-stone-600 dark:text-stone-400"
-          >
-            14
-            <p class="kicker mt-6">upcoming</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. Layer badges -->
+      <!-- 4. Layer badges -->
       <section id="strata" class="scroll-mt-24 space-y-3">
         <ErrorStateHeading
-          index="05"
+          index="04"
           title="Vocabulary-layer badges"
           component="components/WordEntryView.vue (entry.stratum)"
-          trigger="Every entry names the layer of the vocabulary it belongs to; the calendar colors its dot to match."
+          trigger="Every entry names the layer of the vocabulary it belongs to; Explore colors its dot to match."
         />
         <div
           class="border border-stone-300 dark:border-stone-800 season-box p-5 bg-white dark:bg-stone-900 flex flex-wrap gap-2"
@@ -141,10 +97,10 @@
         </div>
       </section>
 
-      <!-- 6. 404 -->
+      <!-- 5. 404 -->
       <section id="not-found" class="scroll-mt-24 space-y-3">
         <ErrorStateHeading
-          index="06"
+          index="05"
           title="404 — page not found"
           component="pages/[...slug].vue"
           trigger="Any unmatched route. Full-page layout with the shared header/footer and a single 'Return to Home' action. The server answers a real 404 and the page is noindex."
@@ -171,12 +127,12 @@
         </div>
       </section>
 
-      <!-- 7. API error responses -->
+      <!-- 6. API error responses -->
       <section id="api-errors" class="scroll-mt-24 space-y-3">
         <ErrorStateHeading
-          index="07"
+          index="06"
           title="API error responses"
-          component="server/api/daily-word.get.ts · word-calendar · part · kanji-detail · explore · related"
+          component="server/api/daily-word.get.ts · part · kanji-detail · explore · related"
           trigger="Not a rendered UI — the JSON the data endpoints return on failure. The pages map these onto the fetch-failure state above."
         />
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -190,11 +146,10 @@
             </p>
             <p class="text-xs text-stone-600 dark:text-stone-400 mb-2">
               ?date= is not a real calendar date, or is a day that hasn't
-              arrived yet in Japan (an upcoming word is never served early). On
-              /api/word-calendar, ?month= is not a real YYYY-MM; /api/explore
-              and /api/word-calendar reject an unknown level, layer, process,
-              part of speech, frequency or accent pattern, or an over-long
-              search or part, and /api/part a missing or over-long text.
+              arrived yet in Japan (an upcoming word is never served early).
+              /api/explore rejects an unknown level, layer, process, part of
+              speech, frequency or accent pattern, or an over-long search or
+              part, and /api/part a missing or over-long text.
             </p>
             <pre
               class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -209,10 +164,10 @@
               404 Not Found
             </p>
             <p class="text-xs text-stone-600 dark:text-stone-400 mb-2">
-              A valid past date (or month) the catalogue doesn't cover, or a
-              part or kanji no open word shows. With no ?date=, /api/daily-word
-              serves today's word (starting a new lap once the words run out),
-              and is a 404 only before the first word.
+              A valid past date the catalogue doesn't cover, or a part or kanji
+              no open word shows. With no ?date=, /api/daily-word serves today's
+              word (starting a new lap once the words run out), and is a 404
+              only before the first word.
             </p>
             <pre
               class="text-[11px] leading-relaxed overflow-x-auto bg-white dark:bg-stone-950 rounded p-2 m-0"
@@ -262,10 +217,9 @@ const sections = [
   { id: "trending-fallback", label: "01 Fetch failure" },
   { id: "unsettled", label: "02 Unsettled origin" },
   { id: "loading", label: "03 Loading skeletons" },
-  { id: "calendar-days", label: "04 Calendar days" },
-  { id: "strata", label: "05 Layer badges" },
-  { id: "not-found", label: "06 404" },
-  { id: "api-errors", label: "07 API errors" },
+  { id: "strata", label: "04 Layer badges" },
+  { id: "not-found", label: "05 404" },
+  { id: "api-errors", label: "06 API errors" },
 ];
 
 const badRequestSample = JSON.stringify(

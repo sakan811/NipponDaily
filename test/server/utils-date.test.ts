@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { isValidIsoDate, isValidMonth, todayJst } from "~~/shared/words";
+import { isValidIsoDate, todayJst } from "~~/shared/words";
 
 describe("isValidIsoDate", () => {
   it.each(["2026-01-01", "2024-02-29", "2026-12-31"])("accepts %s", (d) => {
@@ -10,19 +10,6 @@ describe("isValidIsoDate", () => {
     "rejects %s",
     (d) => {
       expect(isValidIsoDate(d)).toBe(false);
-    },
-  );
-});
-
-describe("isValidMonth", () => {
-  it.each(["2026-01", "2026-10", "2026-12"])("accepts %s", (m) => {
-    expect(isValidMonth(m)).toBe(true);
-  });
-
-  it.each(["2026-00", "2026-13", "2026-1", "2026-10-01", "nope", ""])(
-    "rejects %s",
-    (m) => {
-      expect(isValidMonth(m)).toBe(false);
     },
   );
 });

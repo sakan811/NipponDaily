@@ -41,7 +41,6 @@ describe("Features chapter", () => {
 
     for (const title of [
       "A New Word Every Day",
-      "A Calendar to Look Back Through",
       "Taken Apart",
       "Evidence for Every Claim",
       "Verified in CI",

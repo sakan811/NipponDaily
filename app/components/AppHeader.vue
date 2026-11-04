@@ -25,12 +25,12 @@
             src="/favicon-light.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] dark:hidden rounded-full"
-          />
+          >
           <img
             src="/favicon-dark.ico"
             alt="NipponDaily"
             class="w-[0.8em] h-[0.8em] hidden dark:block rounded-full"
-          />
+          >
         </span>
         <span
           class="font-serif font-bold text-[1em] leading-none text-stone-900 dark:text-white"
@@ -85,7 +85,6 @@ import { ref, watch, onMounted } from "vue";
 import { useRoute } from "#app";
 
 const NAV_LINKS = [
-  { to: "/words", label: "Calendar" },
   { to: "/explore", label: "Explore" },
   { to: "/patterns", label: "Patterns" },
   { to: "/parts", label: "Parts" },

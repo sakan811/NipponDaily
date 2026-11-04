@@ -176,62 +176,18 @@ export interface WordEntry {
   wiktionaryDump?: string;
 }
 
-/** A pointer to a neighbouring open day, for prev/next navigation. */
+/** A pointer to an open day: its date and its word. */
 export interface WordNeighbor {
   date: string;
   term: string;
 }
 
-/** What GET /api/daily-word returns: the entry plus its open neighbours. */
+/** What GET /api/daily-word returns: the entry and the lap it is shown on. */
 export interface DailyWordPayload {
   entry: WordEntry;
   /** Which lap of the catalogue the entry is shown on: 1 until the last
    *  written day has passed, then 2 for the second time through, and so on. */
   lap: number;
-  /** The previous day with a word, if any. */
-  prev: WordNeighbor | null;
-  /** The next day with a word — only once that day has itself arrived. */
-  next: WordNeighbor | null;
-  /** Open words whose day has the same month and day as the entry's, in
-   *  other years, oldest first. */
-  sameDay: PartWordRef[];
-}
-
-/** What GET /api/word-calendar returns for one day of a month. */
-export interface WordCalendarDay {
-  date: string;
-  /** "open" once the day has arrived (today or earlier, JST); "upcoming" before. */
-  status: "open" | "upcoming";
-  /** Only present when open — an upcoming day reveals nothing. */
-  term?: string;
-  kana?: string;
-  stratum?: WordStratum;
-  /** Only on a lap day (the catalogue has run out): the date the word first
-   *  opened, which is the page it lives on, and the lap it is shown on. */
-  wordDate?: string;
-  lap?: number;
-  /** Only present when open: whether the word passes the calendar's filters
-   *  (always true when there are none). An upcoming day is never matched. */
-  match?: boolean;
-}
-
-/** What GET /api/word-calendar returns: one month's days, marked against the
- *  filters, plus the counts the month picker and the filter chips show. */
-export interface WordCalendarPayload {
-  month: string;
-  /** Every month that has words, oldest first. */
-  months: string[];
-  today: string;
-  days: WordCalendarDay[];
-  /** The filters applied, as the API read them. */
-  filters: ExploreFilters;
-  /** Open words in all. */
-  total: number;
-  /** Open words matching every filter, across all months. */
-  count: number;
-  /** Open words matching every filter, for each month in `months`. */
-  monthCounts: Record<string, number>;
-  facets: ExploreFacets;
 }
 
 // --- PARTS (the morpheme index) ---

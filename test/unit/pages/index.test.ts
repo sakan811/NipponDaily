@@ -50,7 +50,7 @@ describe("Index Page (Landing)", () => {
     expect(wrapper.text()).toContain("with its sources.");
     expect(wrapper.text()).toContain("shows what its sources say");
     expect(wrapper.text()).toContain("the page says so");
-    expect(wrapper.text()).toContain("The calendar keeps every word");
+    expect(wrapper.text()).toContain("Search and filter every word");
   });
 
   it("fetches and shows today's word, linking to its page", async () => {
@@ -66,25 +66,6 @@ describe("Index Page (Landing)", () => {
     expect(wrapper.find('[data-testid="today-term"]').text()).toBe("電話");
     expect(card.text()).toContain("でんわ");
     expect(card.text()).toContain(entry.headline);
-  });
-
-  it("lists the words that opened on the same day in other years", async () => {
-    const sameDay = [
-      { date: "2006-02-08", term: "一", kana: "いち", meaning: "one" },
-    ];
-    (global as any).$fetch.mockResolvedValue({
-      ...payload,
-      data: { ...payload.data, sameDay },
-    });
-    const wrapper = mount(IndexPage);
-    await flushPromises();
-
-    // They come with the day's word: the page asks for nothing else.
-    expect((global as any).$fetch).toHaveBeenCalledTimes(1);
-    expect(wrapper.text()).toContain("Also opened on February 8");
-    const word = wrapper.find('[data-testid="same-day-word"] a');
-    expect(word.attributes("href")).toBe("/words/2006-02-08");
-    expect(word.text()).toContain("2006");
   });
 
   it("names the lap only once the words have started again", async () => {
@@ -130,12 +111,12 @@ describe("Index Page (Landing)", () => {
     consoleError.mockRestore();
   });
 
-  it("links to the calendar and the kana guide", () => {
+  it("links to Explore and the kana guide", () => {
     const wrapper = mount(IndexPage);
 
-    const calendar = wrapper.find('[data-testid="hero-calendar-cta"]');
-    expect(calendar.attributes("to")).toBe("/words");
-    expect(calendar.text()).toContain("Browse the Calendar");
+    const explore = wrapper.find('[data-testid="hero-explore-cta"]');
+    expect(explore.attributes("to")).toBe("/explore");
+    expect(explore.text()).toContain("Explore the Words");
     expect(wrapper.find('[data-testid="hero-kana-cta"]').attributes("to")).toBe(
       "/kana",
     );

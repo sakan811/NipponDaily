@@ -8,7 +8,7 @@ export const STRATUM_BADGE: Record<WordStratum, string> = {
   hybrid: "gray",
 };
 
-/** The fill each layer is drawn with — the calendar's dots and the pattern bars
+/** The fill each layer is drawn with — the Explore dots and the pattern bars
  *  share it, so a colour means the same layer everywhere. */
 export const STRATUM_DOT: Record<StratumKey, string> = {
   wago: "bg-primary-500",

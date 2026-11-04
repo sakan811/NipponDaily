@@ -20,11 +20,11 @@
             <td>
               <code>{{ endpoint.method }} {{ endpoint.path }}</code
               ><template v-if="endpoint.query"
-                ><br /><code
+                ><br ><code
                   ><template
                     v-for="(part, i) in endpoint.query.split(/(?=&)/)"
                     :key="i"
-                    ><wbr v-if="i" />{{ part }}</template
+                    ><wbr v-if="i" >{{ part }}</template
                   ></code
                 ></template
               >
@@ -83,9 +83,7 @@ const example = `{
       "sources": [{ "quote": "Borrowed from English thank you." }],
       "wiktionaryDump": "2026-09-02"
     },
-    "lap": 1,
-    "prev": { "date": "2013-05-03", "term": "免れる" },
-    "next": { "date": "2013-05-05", "term": "霞む" }
+    "lap": 1
   },
   "timestamp": "2026-10-07T00:00:00.000Z"
 }`;

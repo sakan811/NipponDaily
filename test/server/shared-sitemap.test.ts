@@ -19,14 +19,7 @@ describe("sitemap", () => {
     const paths = sitemapPaths(SECOND);
 
     expect(paths).toEqual(
-      expect.arrayContaining([
-        "/",
-        "/words",
-        "/explore",
-        "/patterns",
-        "/parts",
-        "/kana",
-      ]),
+      expect.arrayContaining(["/", "/explore", "/patterns", "/parts", "/kana"]),
     );
     expect(paths).toContain(`/words/${FIRST}`);
     expect(paths).toContain(`/words/${SECOND}`);

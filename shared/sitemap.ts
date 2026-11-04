@@ -36,7 +36,6 @@ export const CRAWL_DELAY_SECONDS = 10;
 
 const STATIC_PATHS = [
   "/",
-  "/words",
   "/explore",
   "/patterns",
   "/parts",

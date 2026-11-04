@@ -59,10 +59,8 @@
       1. The payload's <code>lap</code> says which one (1 until then), and the
       home page names the lap from 2 on. A word shown on a later lap has always
       opened already, so nothing leaks; an explicit <code>date</code> is always
-      lap 1. The calendar fills those days too:
-      <code>calendarForMonth()</code> gives each open day after the last entry
-      the lap word, linked to that word's own page. The page is never empty, and
-      before the first day it is a <code>404</code>.
+      lap 1. The page is never empty, and before the first day it is a
+      <code>404</code>.
     </p>
 
     <DocDiagram
@@ -74,11 +72,8 @@
     <ul>
       <li>
         <strong>No future leaks.</strong> The API rejects a future
-        <code>date</code> (<code>400</code>); <code>payloadFor()</code> reveals
-        <code>next</code> only once that day has arrived;
-        <code>calendarForMonth()</code> gives an upcoming day only its date, and
-        <code>exploreCalendar()</code> never matches one, so filtering the
-        calendar cannot find a word early.
+        <code>date</code> (<code>400</code>); the Explore functions read open
+        days only, so filtering cannot find a word early.
       </li>
       <li>
         <strong>Server rendering.</strong> A server fetch that fails with
@@ -155,13 +150,9 @@
       they combine: by default a word needs <em>any</em> of them, with
       <code>match=all</code> it needs <em>every</em> process, every part of
       speech and every accent pattern. A word has one level, one layer and one
-      frequency group, so those always read as “any”. <code>/words</code> (the
-      calendar) takes the same filters beside <code>month</code>:
-      <code>GET /api/word-calendar</code> marks each open day of the month
-      <code>match</code> or not and returns the same counts, plus how many words
-      match in every month. Both endpoints read the filters through
-      <code>server/utils/explore-filters.ts</code>, so a filter means the same
-      thing in each; the page shares one form, <code>WordFilters</code>.
+      frequency group, so those always read as “any”. The filters are read
+      through <code>server/utils/explore-filters.ts</code>, and the page has one
+      form, <code>WordFilters</code>.
     </p>
     <p>
       The layer <code>unstated</code> picks the words with no stated layer.
@@ -244,19 +235,6 @@
       the accents stand side by side; a word whose entry shows none says so.
       Only the readings are compared, so the block claims nothing about how the
       words are related, and nothing that has not opened is listed.
-    </p>
-
-    <h3>The same day in other years</h3>
-    <p>
-      Under an entry, and under the word on the home page, the open words whose
-      day has the same month and day in another year, oldest first, each linking
-      to its own page. Only the dates are compared: the words share nothing
-      else, and the block says so. On a later lap the home page lists the days
-      that match the word's own first day, which its heading names. They come
-      with the entry in <code>GET /api/daily-word</code> (<code>sameDay</code>,
-      from <code>sameDayWords</code> in <code>shared/words.ts</code>), so the
-      home page renders them on the server with its word and fetches nothing
-      more.
     </p>
 
     <h2 id="sharing">Sharing a word</h2>
@@ -472,8 +450,8 @@ const flow: Required<Pick<DiagramSpec, "nodes" | "edges">> = {
     },
     {
       id: "payload",
-      label: "Entry + prev/next",
-      sub: "next once arrived",
+      label: "Entry + lap",
+      sub: "the word and its pass",
       col: 2,
       row: 1.5,
       kind: "check",

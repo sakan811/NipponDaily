@@ -34,8 +34,8 @@ export const OG_CACHE_CONTROL =
   "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400";
 
 /** How long a shared cache keeps the page or answer of a day that has already
- *  passed. Its word cannot change; only the words listed beside it (related,
- *  same day) can, when a new one opens, so it may be a few days behind. */
+ *  passed. Its word cannot change; only the words listed beside it (related
+ *  words) can, when a new one opens, so it may be a few days behind. */
 export const PAST_DAY_CACHE_DAYS = 7;
 
 export interface ApiEndpoint {
@@ -53,15 +53,7 @@ export const API_ENDPOINTS: readonly ApiEndpoint[] = [
     path: ROUTES.dailyWord,
     query: "?date=YYYY-MM-DD",
     returns:
-      "One entry plus its `prev` and `next` days and `sameDay`, the open words of the same month and day in other years, oldest first. With no date: today in Japan; once the catalogue runs out the words start again from the first, and `lap` says which pass it is (1 until then, always 1 for an explicit date). A future or invalid date is a `400`; a past date with no entry (or no word yet) is a `404`. `next` stays `null` until that day has arrived.",
-  },
-  {
-    method: "GET",
-    path: ROUTES.wordCalendar,
-    query:
-      "?month=YYYY-MM&q=&level=&stratum=&process=&pos=&frequency=&pitch=&part=&match=",
-    returns:
-      "`{ month, months, today, days, filters, total, count, monthCounts, facets }`. An open day carries its `term`, `kana`, `stratum` and `match` (whether it passes the filters, always true with none); an upcoming day carries only its date and `\"upcoming\"`, and is never matched. Once the catalogue has run out, an open day after the last entry shows the word of its lap and also carries `wordDate` (the day that word first opened) and `lap`, and `months` runs on to the current month. The filters are the `/api/explore` ones, with the same counts: `count` of `total` open words match across every month, `monthCounts` gives each month's matches and `facets` the options' counts. The month defaults to the current one if it has words, else the newest. A malformed month or an invalid filter is a `400`, a month with no words a `404`.",
+      "One entry and the `lap` it is shown on. With no date: today in Japan; once the catalogue runs out the words start again from the first, and `lap` says which pass it is (1 until then, always 1 for an explicit date). A future or invalid date is a `400`; a past date with no entry (or no word yet) is a `404`.",
   },
   {
     method: "GET",

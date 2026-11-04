@@ -4,8 +4,8 @@
       NipponDaily opens one Japanese word a day with what its sources say: the
       reading, meaning, pitch accent and example sentences and, where they
       record it, its morphemes, its layer of the vocabulary, the processes that
-      shaped it and the evidence behind every claim, with a calendar to look
-      back through every word so far.
+      shaped it and the evidence behind every claim, in a dictionary of every
+      word so far to explore.
     </template>
 
     <h2>What a reader gets</h2>
@@ -56,14 +56,9 @@ const features = computed(() => [
     description: wordsFeature.value,
   },
   {
-    title: "A Calendar to Look Back Through",
-    description:
-      "`/words` is a month grid. A day that has arrived shows its word and links to the full entry; an upcoming day shows only its date, and the API refuses to serve it, so a word can't be read early; a day the catalogue has no word for is left blank, except that once the catalogue has run out each open day shows the word of its lap, marked ↻ with a legend entry saying the word was first opened on another day (its link goes to that day). A short note under the heading explains that a word sits on the day it first opened, and each entry page is headed “First opened” with its date. Jump to any year and month from the picker above the grid: a year menu with earlier and later buttons, so it stays one row however many years the catalogue spans, and the twelve months of that year. “Filter the calendar” opens the Explore filters (search, level, layer, process, part of speech, how common, any or all): the month's matching words are outlined in the grid, days whose word doesn't match fade but stay links, each month in the picker shows how many matches it holds, and a month with none points to the nearest months that do. The month and filters live in the URL, so a view can be shared.",
-  },
-  {
     title: "Explore by How Words Are Built",
     description:
-      "`/explore` searches every word that has opened — by the word, its reading (katakana, hiragana or romaji, so `taberu` finds 食べる) or its meaning — and narrows by JLPT level, layer (including “not stated”), process, part of speech, how common JMdict says the word is, or the pattern of its pitch accent (flat, head-high, middle-high, tail-high, or none shown). Pick several options in a group and choose whether a word needs any or all of them. Each option shows how many words it would leave, the list shows the newest matches with “Show more” for the rest, and the filters live in the URL so a search can be shared. The calendar uses the same filters, folded behind the same “Filter” button and one row of group buttons. Upcoming words are never searched.",
+      "`/explore` searches every word that has opened — by the word, its reading (katakana, hiragana or romaji, so `taberu` finds 食べる) or its meaning — and narrows by JLPT level, layer (including “not stated”), process, part of speech, how common JMdict says the word is, or the pattern of its pitch accent (flat, head-high, middle-high, tail-high, or none shown). Pick several options in a group and choose whether a word needs any or all of them. Each option shows how many words it would leave, the list shows the newest matches with “Show more” for the rest, and the filters live in the URL so a search can be shared. Upcoming words are never searched.",
   },
   {
     title: "Patterns Across the Vocabulary",
@@ -100,11 +95,6 @@ const features = computed(() => [
     title: "Words That Sound the Same",
     description:
       "Under an entry, the other words so far with exactly its reading and another spelling (橋, 箸 and 端 are all はし), each beside the entry with the pitch accent its own entry shows, so you can see where the pitch tells them apart. Only the readings are compared.",
-  },
-  {
-    title: "The Same Day in Other Years",
-    description:
-      "Under each entry and under the word on the home page, the words that opened on the same day of the year in other years, oldest first. They share only the date, and the page says so.",
   },
   {
     title: "Opposites and See Also",

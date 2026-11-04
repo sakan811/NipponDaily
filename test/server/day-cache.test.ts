@@ -57,7 +57,7 @@ describe("dayCacheControl", () => {
       "/words/2026-10-05",
       "/api/daily-word?date=2026-10-05",
       "/api/daily-word",
-      "/words",
+      "/explore",
       "/kanji/%E6%97%A5",
     ])
       expect(dayCacheControl(now, path), path).toBe(
@@ -95,7 +95,7 @@ describe("isDayCacheable", () => {
   it("covers pages, the API, the sitemap and robots.txt", () => {
     for (const path of [
       "/",
-      "/words",
+      "/explore",
       "/words/2026-10-01",
       "/parts/%E6%97%A5",
       "/docs/architecture",
