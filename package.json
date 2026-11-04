@@ -6,7 +6,7 @@
     "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
   },
   "scripts": {
-    "build": "nuxt build",
+    "build": "NODE_OPTIONS=--max-old-space-size=6144 nuxt build",
     "dev": "nuxt dev",
     "start": "HOST=127.0.0.1 node .output/server/index.mjs",
     "preview": "nuxt preview",

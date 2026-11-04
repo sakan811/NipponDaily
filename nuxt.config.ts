@@ -1,5 +1,7 @@
 import { createRequire } from "node:module";
+import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
+import { pastDayRoutes } from "./scripts/lib/past-day-routes";
 import { seasonBootScript } from "./shared/seasons";
 import { STORAGE_KEYS } from "./shared/storage-keys";
 
@@ -32,6 +34,15 @@ const woff2Only = {
 const HARFBUZZ_WASM = createRequire(
   createRequire(import.meta.url).resolve("satori"),
 ).resolve("harfbuzzjs/hb.wasm");
+
+// A past day's word cannot change, so the build writes its page once as a
+// static file and the host serves it without running the app (a crawler that
+// walks the archive then costs no compute). Rendering them all takes a few
+// minutes, so only a production deploy does it: Vercel sets VERCEL, and
+// PRERENDER_PAST_DAYS=1 asks for it elsewhere (a self-hosted build).
+const PRERENDER_PAST_DAYS =
+  process.env.PRERENDER_PAST_DAYS === "1" ||
+  (Boolean(process.env.VERCEL) && process.env.PRERENDER_PAST_DAYS !== "0");
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -113,7 +124,20 @@ export default defineNuxtConfig({
   // The entries are bundled into the server, and mapping them as well ran the
   // build out of memory at the default heap size; nothing reads the maps.
   sourcemap: { server: false },
-  nitro: { sourceMap: false, externals: { traceInclude: [HARFBUZZ_WASM] } },
+  nitro: {
+    sourceMap: false,
+    externals: { traceInclude: [HARFBUZZ_WASM] },
+    prerender: {
+      // The archive's links are not followed: the list below is the whole set.
+      crawlLinks: false,
+      failOnError: true,
+      routes: PRERENDER_PAST_DAYS
+        ? pastDayRoutes(
+            fileURLToPath(new URL("./data/words", import.meta.url)),
+          )
+        : [],
+    },
+  },
   routeRules: {
     // The daily game and the lesson/vocabulary pages were replaced by the
     // daily-word calendar. Temporary (not 301) redirects, so old bookmarks and
