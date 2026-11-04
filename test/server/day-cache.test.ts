@@ -2,6 +2,8 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { PAST_DAY_CACHE_DAYS } from "~~/shared/endpoints";
 import {
   dayCacheControl,
+  dayCacheSeconds,
+  dayCdnCacheControl,
   isDayCacheable,
   secondsUntilJstMidnight,
 } from "~/server/utils/day-cache";
@@ -72,6 +74,20 @@ describe("dayCacheControl", () => {
 
   it("never serves stale, which would show yesterday's word after midnight", () => {
     expect(dayCacheControl()).not.toContain("stale-while-revalidate");
+  });
+});
+
+describe("dayCdnCacheControl", () => {
+  it("is the same number of seconds as s-maxage", () => {
+    const now = utc("2026-10-05T12:00:00Z");
+    for (const path of ["/api/daily-word", "/words/2026-10-01"]) {
+      expect(dayCdnCacheControl(now, path)).toBe(
+        `max-age=${dayCacheSeconds(now, path)}`,
+      );
+      expect(dayCacheControl(now, path)).toContain(
+        `s-maxage=${dayCacheSeconds(now, path)}`,
+      );
+    }
   });
 });
 
@@ -153,6 +169,15 @@ describe("the day-cache Nitro plugin", () => {
     );
   });
 
+  it("gives a CDN in front of the host the same lifetime", async () => {
+    await run(ok("/api/daily-word"));
+    expect(headers.get("cdn-cache-control")).toBe("max-age=10800");
+    await run(ok("/words/2026-10-01"));
+    expect(headers.get("cdn-cache-control")).toBe(
+      `max-age=${PAST_DAY_CACHE_DAYS * 86400}`,
+    );
+  });
+
   it("never marks an error, so a 400 or a 404 is not kept", async () => {
     await run(ok("/api/daily-word", "GET", 400));
     await run(ok("/words/2099-01-01", "GET", 404));
@@ -170,5 +195,6 @@ describe("the day-cache Nitro plugin", () => {
     headers.set("cache-control", "public, s-maxage=60");
     await run(ok("/api/explore"));
     expect(headers.get("cache-control")).toBe("public, s-maxage=60");
+    expect(headers.has("cdn-cache-control")).toBe(false);
   });
 });
