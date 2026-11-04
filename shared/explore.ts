@@ -1,6 +1,6 @@
 /**
- * Browse-and-filter over the open words: the same entries the calendar and the
- * parts index read, narrowed by search text, level, layer, process, part of
+ * Browse-and-filter over the open words: the same entries the parts index and
+ * the daily word read, narrowed by search text, level, layer, process, part of
  * speech, how common, accent pattern or part. Several choices in one filter combine as "any" or "all".
  * Nothing here is a claim of its own — it selects and counts fields the
  * entries already carry.
@@ -20,8 +20,6 @@ import type {
   WordEntry,
   WordProcess,
   WordStratum,
-  WordCalendarDay,
-  WordCalendarPayload,
   WordSummary,
 } from "~~/types/index";
 import { isRomaji, toHiragana } from "wanakana";
@@ -37,12 +35,7 @@ import {
   frequencyOf,
   posGroupsOf,
 } from "./word-labels";
-import {
-  WORD_ENTRIES,
-  calendarForMonth,
-  monthsWithEntries,
-  todayJst,
-} from "./words";
+import { WORD_ENTRIES, todayJst } from "./words";
 
 export const STRATUM_IDS = Object.keys(WORD_STRATA) as WordStratum[];
 export const PROCESS_IDS = Object.keys(WORD_PROCESSES) as WordProcess[];
@@ -214,45 +207,5 @@ export function exploreWords(
         pitchKeysOf,
       ),
     },
-  };
-}
-
-/** One month of the calendar marked against the filters. An open day carries
- *  `match`; an upcoming day carries nothing, so a word that has not opened
- *  cannot be found by filtering for it. The counts (overall, per month and per
- *  option) are the Explore ones, so both pages agree on every number. */
-export function exploreCalendar(
-  month: string,
-  filters: ExploreFilters = {},
-  today: string = todayJst(),
-): WordCalendarPayload {
-  const explored = exploreWords(filters, today);
-  const matched = new Set(explored.words.map((w) => w.date));
-  const months = monthsWithEntries(today);
-  const monthCounts = Object.fromEntries(months.map((m) => [m, 0]));
-  for (const date of matched) monthCounts[date.slice(0, 7)]!++;
-  // A lap day shows a word that opened on an earlier date and counts when
-  // that word matches.
-  for (const m of months) {
-    for (const d of calendarForMonth(m, today)) {
-      if (d.wordDate && matched.has(d.wordDate)) monthCounts[m]!++;
-    }
-  }
-
-  const days: WordCalendarDay[] = calendarForMonth(month, today).map((d) =>
-    d.status === "open"
-      ? { ...d, match: matched.has(d.wordDate ?? d.date) }
-      : d,
-  );
-  return {
-    month,
-    months,
-    today,
-    days,
-    filters,
-    total: explored.total,
-    count: explored.count,
-    monthCounts,
-    facets: explored.facets,
   };
 }

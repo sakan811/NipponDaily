@@ -1,5 +1,5 @@
 /**
- * What a response may be cached for. Every word, calendar, part and pattern
+ * What a response may be cached for. Every word, part and pattern
  * answer, and every server-rendered page, is the same for every reader until the
  * next midnight in Japan (the season is applied in the browser, never in the
  * HTML), so a CDN may keep it until then and no longer: the day's word opens

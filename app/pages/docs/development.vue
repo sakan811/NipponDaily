@@ -130,15 +130,14 @@ pnpm dev          # http://localhost:3000</code></pre>
         error or console error and cannot be scrolled sideways, that today's
         word opens from the home page, that the colour mode and season picks
         change the page and are remembered, that the Explore chips narrow the
-        list and write the URL, that any/all agrees with the API, that the
-        calendar moves between months and that a kanji page draws one frame per
-        stroke. The music switch is driven too: it never starts by itself, asks
-        for the season's track (and the next one when the season changes), and
-        keeps the volume in the browser; the tracks are served as a short tone
-        so no browser's codecs matter. Each season's falling or rising
-        particles, glyphs and corner graphic are read back as the browser
-        computes them, in light and dark, and are gone under reduced motion.
-        Playwright needs its browsers (<code
+        list and write the URL, that any/all agrees with the API and that a
+        kanji page draws one frame per stroke. The music switch is driven too:
+        it never starts by itself, asks for the season's track (and the next one
+        when the season changes), and keeps the volume in the browser; the
+        tracks are served as a short tone so no browser's codecs matter. Each
+        season's falling or rising particles, glyphs and corner graphic are read
+        back as the browser computes them, in light and dark, and are gone under
+        reduced motion. Playwright needs its browsers (<code
           >pnpm exec playwright install chromium firefox webkit</code
         >) and the system libraries behind them; it is not part of
         <code>pnpm check-qa</code>. The API is rate limited per address and

@@ -188,7 +188,7 @@ import type {
 } from "~~/types/index";
 
 /**
- * The filter form shared by Explore and the calendar: a toggle that folds it
+ * The filter form of Explore: a toggle that folds it
  * away, then search text, one button per facet group (one group open at a
  * time) and whether several choices mean "any" or "all". It owns no data: the page holds the filters, passes the facet counts it fetched, and
  * writes the filters wherever they live (the URL).
@@ -202,7 +202,7 @@ const props = withDefaults(
   defineProps<{
     modelValue: ExploreFilters;
     facets?: ExploreFacets;
-    /** The toggle's words, e.g. "Filter the calendar". */
+    /** The toggle's words, e.g. "Filter the words". */
     label?: string;
     /** Start unfolded; a page whose filters are already set (or whose job is
      *  searching) opens them so nothing active is hidden. */

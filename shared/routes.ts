@@ -12,7 +12,6 @@ export const API_PREFIX = "/api/";
 
 export const ROUTES = {
   dailyWord: "/api/daily-word",
-  wordCalendar: "/api/word-calendar",
   parts: "/api/parts",
   part: "/api/part",
   kanji: "/api/kanji",

@@ -63,7 +63,7 @@
   --color-error-900: var(--error-900);
   --color-error-950: var(--error-950);
 
-  /* Text color to use ON TOP of a solid *-500 fill (button/badge/calendar-day
+  /* Text color to use ON TOP of a solid *-500 fill (button/badge
      backgrounds). Picked per light/dark scope — and per season, since a
      season only overrides primary/secondary — for WCAG-safe contrast
      against that scope's actual *-500 value, instead of assuming light

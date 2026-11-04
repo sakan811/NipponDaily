@@ -152,11 +152,11 @@ describe("Word Page (/words/[date])", () => {
     expect(wrapper.find('[data-testid="word-next"]').exists()).toBe(false);
   });
 
-  it("links back to the calendar", async () => {
+  it("links back to Explore", async () => {
     const wrapper = mount(WordPage);
     await flushPromises();
 
-    expect(wrapper.find('a[href="/words"]').exists()).toBe(true);
+    expect(wrapper.find('a[href="/explore"]').exists()).toBe(true);
   });
 
   it("says the day hasn't arrived on a 400", async () => {

@@ -85,7 +85,6 @@ import { ref, watch, onMounted } from "vue";
 import { useRoute } from "#app";
 
 const NAV_LINKS = [
-  { to: "/words", label: "Calendar" },
   { to: "/explore", label: "Explore" },
   { to: "/patterns", label: "Patterns" },
   { to: "/parts", label: "Parts" },

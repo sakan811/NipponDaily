@@ -97,24 +97,22 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
     <ul>
       <li>
         <strong>Pages:</strong> <code>/</code> (today's word),
-        <code>/words</code> (month calendar), <code>/words/&lt;date&gt;</code>,
-        <code>/explore</code>, <code>/patterns</code>, <code>/parts</code>,
+        <code>/words/&lt;date&gt;</code>, <code>/explore</code>,
+        <code>/patterns</code>, <code>/parts</code>,
         <code>/parts/&lt;text&gt;</code>, <code>/kanji</code>,
         <code>/kanji/&lt;character&gt;</code>, <code>/kana</code>,
         <code>/docs/*</code> (this book) and a catch-all that answers a real
         <code>404</code> and is <code>noindex</code>. Old links to
         <code>/game</code>, <code>/learn/**</code> and
-        <code>/vocab/**</code> redirect to <code>/</code> (<code
-          >routeRules</code
-        >
+        <code>/vocab/**</code> redirect to <code>/</code>, and the old calendar
+        at <code>/words</code> to <code>/explore</code> (<code>routeRules</code>
         in <code>nuxt.config.ts</code>).
       </li>
       <li>
         <strong>Composables</strong> are <code>useAsyncData</code>-based, so the
         server renders with data. <code>useApiData</code> is the one place that
         fetches, turns a failure into a message and, on the server, into a
-        <code>404</code>; <code>useDailyWord</code>,
-        <code>useWordCalendar</code>, <code>usePartsIndex</code>,
+        <code>404</code>; <code>useDailyWord</code>, <code>usePartsIndex</code>,
         <code>usePart</code>, <code>useKanjiIndex</code>, <code>useKanji</code>,
         <code>useExplore</code>, <code>usePatterns</code> and
         <code>useCatalogue</code> are each a call to it.
@@ -132,16 +130,14 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
         words JMdict points a sense at), <code>SoundAlikes</code> (the words
         read alike, with their accents), <code>SameDayWords</code> (the words of
         the same day in other years), <code>WordFilters</code> (the filter form
-        shared by Explore and the calendar), <code>MonthPicker</code> (the
-        calendar's year and month jump), <code>AppHeader</code>,
-        <code>AppFooter</code>, <code>AppShell</code> (the header, backdrop and
-        footer every page sits in), <code>DocsBook</code> (a docs page),
-        <code>DocDiagram</code>, <code>SeasonButton</code>,
-        <code>BgmControl</code>, <code>SeasonalEffects</code>,
-        <code>TrendingFallback</code> (the generic fetch-error card), the
-        education charms of <code>/kana</code> (<code>OmamoriCharm</code> and
-        <code>EmaPlaque</code>), the book's own parts
-        (<code>DocsContents</code>, <code>CatalogueRange</code>,
+        of Explore), <code>AppHeader</code>, <code>AppFooter</code>,
+        <code>AppShell</code> (the header, backdrop and footer every page sits
+        in), <code>DocsBook</code> (a docs page), <code>DocDiagram</code>,
+        <code>SeasonButton</code>, <code>BgmControl</code>,
+        <code>SeasonalEffects</code>, <code>TrendingFallback</code> (the generic
+        fetch-error card), <code>OmamoriCharm</code> and
+        <code>EmaPlaque</code> (the charms of <code>/kana</code>), the book's
+        own parts (<code>DocsContents</code>, <code>CatalogueRange</code>,
         <code>RichText</code> for the light markup in tables,
         <code>ColorSwatchBadge</code> and <code>ErrorStateHeading</code>), and
         small local <code>U*.vue</code> primitives that mimic the
@@ -386,7 +382,7 @@ const system: Required<DiagramSpec> = {
 const sharedModules = [
   {
     file: "words.ts",
-    role: "The catalogue (`WORD_ENTRIES`), JST date logic (`todayJst`…), `entryForDate`, `lapEntryForDate`, `payloadFor`, `calendarForMonth`.",
+    role: "The catalogue (`WORD_ENTRIES`), JST date logic (`todayJst`…), `entryForDate`, `lapEntryForDate`, `payloadFor`.",
   },
   {
     file: "parts.ts",
@@ -398,7 +394,7 @@ const sharedModules = [
   },
   {
     file: "explore.ts",
-    role: "`exploreWords(filters, today, limit?)`: search and filters (several choices, any or all) with facet counts, listing only the newest `limit` matches. `exploreCalendar(month, filters, today)`: one calendar month marked against the same filters, with per-month counts.",
+    role: "`exploreWords(filters, today, limit?)`: search and filters (several choices, any or all) with facet counts, listing only the newest `limit` matches.",
   },
   {
     file: "related.ts",

@@ -2,7 +2,6 @@ import { test, expect } from "./fixtures";
 
 const PAGES = [
   ["/", "NipponDaily"],
-  ["/words", "Calendar"],
   ["/explore", "Explore"],
   ["/patterns", "Patterns"],
   ["/parts", "Parts"],

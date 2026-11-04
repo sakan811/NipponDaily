@@ -12,8 +12,7 @@ import type { ExploreFilters } from "~~/types/index";
 
 /**
  * The Explore filters as an API accepts them, shared by every endpoint that
- * filters words (`/api/explore`, `/api/word-calendar`) so a filter means the
- * same thing in each.
+ * filters words (`/api/explore`) so a filter means one thing everywhere.
  */
 
 /** An empty value (`?level=`) means "no filter", the way a cleared form field sends it. */

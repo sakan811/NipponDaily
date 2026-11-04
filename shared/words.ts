@@ -1,6 +1,6 @@
 /**
  * The daily-word catalogue and its date logic — imported by BOTH the server
- * (GET /api/daily-word, GET /api/word-calendar) and the content tests, so a
+ * (GET /api/daily-word, GET /api/explore) and the content tests, so a
  * month's worth of entries is registered in exactly one place.
  *
  * Server and tests only — importing this from app/ would ship every future
@@ -10,12 +10,7 @@
  * (app/pages/docs/authoring.vue), then add its import below.
  */
 import { DAY_MS, toJst } from "./jst";
-import type {
-  DailyWordPayload,
-  PartWordRef,
-  WordCalendarDay,
-  WordEntry,
-} from "~~/types/index";
+import type { DailyWordPayload, PartWordRef, WordEntry } from "~~/types/index";
 import may2005 from "~~/data/words/2005-05.json";
 import june2005 from "~~/data/words/2005-06.json";
 import july2005 from "~~/data/words/2005-07.json";
@@ -564,11 +559,6 @@ export function isValidIsoDate(value: string): boolean {
   );
 }
 
-/** A real YYYY-MM month. */
-export function isValidMonth(value: string): boolean {
-  return /^\d{4}-(0[1-9]|1[0-2])$/.test(value);
-}
-
 /** Today's date in Japan (JST) — a new word opens at midnight there,
  *  the same calendar the seasonal theme follows. */
 export function todayJst(now: Date = new Date()): string {
@@ -655,64 +645,4 @@ export function payloadFor(
       next && next.date <= today ? { date: next.date, term: next.term } : null,
     sameDay: sameDayWords(entry, today),
   };
-}
-
-/** Months (YYYY-MM) that have at least one entry, oldest first, then any month
- *  after the last entry that a lap has reached by `today`. */
-export function monthsWithEntries(today: string = todayJst()): string[] {
-  const months = [...new Set(WORD_ENTRIES.map((e) => e.date.slice(0, 7)))];
-  const last = WORD_ENTRIES[WORD_ENTRIES.length - 1];
-  if (!last) return months;
-  for (let m = nextMonth(last.date.slice(0, 7)); m <= today.slice(0, 7);) {
-    months.push(m);
-    m = nextMonth(m);
-  }
-  return months;
-}
-
-function nextMonth(month: string): string {
-  const [y, m] = month.split("-").map(Number) as [number, number];
-  return m === 12 ? `${y + 1}-01` : `${y}-${String(m + 1).padStart(2, "0")}`;
-}
-
-/** Every day of a month as the calendar shows it: an open day carries its
- *  word, an upcoming day carries nothing, and a day with no entry is omitted.
- *  After the last entry the open days carry the lap word (`wordDate` is the
- *  page it lives on); the days still to come stay omitted. */
-export function calendarForMonth(
-  month: string,
-  today: string = todayJst(),
-): WordCalendarDay[] {
-  const days: WordCalendarDay[] = WORD_ENTRIES.filter((e) =>
-    e.date.startsWith(month),
-  ).map((e) =>
-    e.date <= today
-      ? {
-          date: e.date,
-          status: "open",
-          term: e.term,
-          kana: e.kana,
-          stratum: e.stratum,
-        }
-      : { date: e.date, status: "upcoming" },
-  );
-  const last = WORD_ENTRIES[WORD_ENTRIES.length - 1];
-  if (!last || month < last.date.slice(0, 7)) return days;
-  const [y, m] = month.split("-").map(Number) as [number, number];
-  const daysInMonth = new Date(Date.UTC(y, m, 0)).getUTCDate();
-  for (let d = 1; d <= daysInMonth; d++) {
-    const date = `${month}-${String(d).padStart(2, "0")}`;
-    if (date <= last.date || date > today) continue;
-    const { entry, lap } = lapEntryForDate(date)!;
-    days.push({
-      date,
-      status: "open",
-      term: entry.term,
-      kana: entry.kana,
-      stratum: entry.stratum,
-      wordDate: entry.date,
-      lap,
-    });
-  }
-  return days;
 }
