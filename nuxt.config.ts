@@ -132,9 +132,7 @@ export default defineNuxtConfig({
       crawlLinks: false,
       failOnError: true,
       routes: PRERENDER_PAST_DAYS
-        ? pastDayRoutes(
-            fileURLToPath(new URL("./data/words", import.meta.url)),
-          )
+        ? pastDayRoutes(fileURLToPath(new URL("./data/words", import.meta.url)))
         : [],
     },
   },

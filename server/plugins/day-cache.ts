@@ -17,11 +17,7 @@ export default defineNitroPlugin((nitroApp) => {
     if (!isDayCacheable(path)) return;
     if (getResponseHeader(event, "cache-control")) return;
     const now = Date.now();
-    setResponseHeader(
-      event,
-      "cache-control",
-      dayCacheControl(now, event.path),
-    );
+    setResponseHeader(event, "cache-control", dayCacheControl(now, event.path));
     setResponseHeader(
       event,
       "cdn-cache-control",

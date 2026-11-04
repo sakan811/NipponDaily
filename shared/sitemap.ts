@@ -79,9 +79,11 @@ export function robotsTxt(origin: string): string {
   const scrapers = SCRAPER_AGENTS.map((agent) => `User-agent: ${agent}`).join(
     "\n",
   );
-  return [
-    `${scrapers}\nDisallow: /`,
-    `User-agent: *\nCrawl-delay: ${CRAWL_DELAY_SECONDS}\nDisallow: ${API_PREFIX}`,
-    `Sitemap: ${origin}${ROUTES.sitemap}`,
-  ].join("\n\n") + "\n";
+  return (
+    [
+      `${scrapers}\nDisallow: /`,
+      `User-agent: *\nCrawl-delay: ${CRAWL_DELAY_SECONDS}\nDisallow: ${API_PREFIX}`,
+      `Sitemap: ${origin}${ROUTES.sitemap}`,
+    ].join("\n\n") + "\n"
+  );
 }
