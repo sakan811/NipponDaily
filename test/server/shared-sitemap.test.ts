@@ -1,5 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { robotsTxt, sitemapPaths, sitemapXml } from "~~/shared/sitemap";
+import {
+  CRAWL_DELAY_SECONDS,
+  SCRAPER_AGENTS,
+  SITEMAP_RECENT_DAYS,
+  robotsTxt,
+  sitemapPaths,
+  sitemapXml,
+} from "~~/shared/sitemap";
 import { partsIndex } from "~~/shared/parts";
 import { WORD_ENTRIES } from "~~/shared/words";
 
@@ -27,6 +34,20 @@ describe("sitemap", () => {
     expect(paths.filter((p) => p.startsWith("/words/"))).toHaveLength(2);
   });
 
+  it("lists only the newest open days, not the whole archive", () => {
+    const today = "2026-10-05";
+    const words = sitemapPaths(today).filter((p) => p.startsWith("/words/"));
+    const open = WORD_ENTRIES.filter((e) => e.date <= today);
+
+    expect(open.length).toBeGreaterThan(SITEMAP_RECENT_DAYS);
+    expect(words).toHaveLength(SITEMAP_RECENT_DAYS);
+    expect(words.at(-1)).toBe(`/words/${today}`);
+    expect(words[0]).toBe(
+      `/words/${open[open.length - SITEMAP_RECENT_DAYS]!.date}`,
+    );
+    expect(words).not.toContain(`/words/${FIRST}`);
+  });
+
   it("lists only parts seen in more than one open word, encoded", () => {
     const paths = sitemapPaths("2026-03-08");
     const partPaths = paths.filter((p) => p.startsWith("/parts/"));
@@ -49,5 +70,18 @@ describe("sitemap", () => {
 
     expect(robots).toContain("Sitemap: https://example.test/sitemap.xml");
     expect(robots).toContain("Disallow: /api/");
+  });
+
+  it("turns the bulk scrapers away and asks the rest to slow down", () => {
+    const robots = robotsTxt("https://example.test");
+
+    for (const agent of SCRAPER_AGENTS) {
+      expect(robots).toContain(`User-agent: ${agent}\n`);
+    }
+    expect(robots).toMatch(/User-agent: PerplexityBot\nDisallow: \/\n/);
+    expect(robots).toContain(
+      `User-agent: *\nCrawl-delay: ${CRAWL_DELAY_SECONDS}\nDisallow: /api/`,
+    );
+    expect(robots.endsWith("\n")).toBe(true);
   });
 });
