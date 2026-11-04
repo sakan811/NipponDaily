@@ -12,7 +12,7 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          One word a day,<br class="hidden sm:inline" />
+          One word a day,<br class="hidden sm:inline" >
           <span
             class="text-primary-600 dark:text-primary-400 italic font-normal"
             >with its sources.</span
@@ -110,13 +110,6 @@
           <USkeleton class="h-16 w-64" />
           <USkeleton class="h-6 w-full" />
         </div>
-
-        <SameDayWords
-          v-if="payload?.sameDay?.length"
-          class="mt-10"
-          :date="payload.entry.date"
-          :words="payload.sameDay"
-        />
 
         <div class="flex flex-wrap gap-4 justify-center pt-8">
           <UButton
@@ -264,7 +257,6 @@
 
 <script setup lang="ts">
 import AppShell from "../components/AppShell.vue";
-import SameDayWords from "../components/SameDayWords.vue";
 import TrendingFallback from "../components/TrendingFallback.vue";
 import { useDailyWord } from "../composables/useDailyWord";
 import { usePageSeo } from "../composables/usePageSeo";

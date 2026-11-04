@@ -40,7 +40,7 @@
           placeholder="Search a word, its reading (kana or romaji), or its meaning"
           class="flex-1 border border-stone-500 bg-white dark:bg-stone-900/50 px-4 py-2.5 font-body-serif text-base focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30"
           @input="onType"
-        />
+        >
         <UButton
           v-if="active"
           data-testid="explore-clear"

@@ -67,7 +67,7 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
             <td>
               <code>{{ m.file }}</code
               ><template v-if="serverOnly(m.file)"
-                ><br /><em>server and tests only</em></template
+                ><br ><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>
@@ -128,9 +128,8 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
         its pitch accent), <code>KanjiStrokes</code> (a kanji's strokes, one
         frame each), <code>RelatedWords</code>, <code>WordReferences</code> (the
         words JMdict points a sense at), <code>SoundAlikes</code> (the words
-        read alike, with their accents), <code>SameDayWords</code> (the words of
-        the same day in other years), <code>WordFilters</code> (the filter form
-        of Explore), <code>AppHeader</code>, <code>AppFooter</code>,
+        read alike, with their accents), <code>WordFilters</code> (the filter
+        form of Explore), <code>AppHeader</code>, <code>AppFooter</code>,
         <code>AppShell</code> (the header, backdrop and footer every page sits
         in), <code>DocsBook</code> (a docs page), <code>DocDiagram</code>,
         <code>SeasonButton</code>, <code>BgmControl</code>,
@@ -184,8 +183,8 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
       kept for {{ PAST_DAY_CACHE_DAYS }} days. Its word cannot change, but a
       crawler walks every day of the archive, and rendering all of them again at
       each midnight would spend the host's free allowance. The cost is that the
-      related and same-day lists beside an old word can be that many days behind
-      a word that has just opened.
+      related list beside an old word can be that many days behind a word that
+      has just opened.
     </p>
     <p>
       A production deploy goes further and writes those pages to disk. The build

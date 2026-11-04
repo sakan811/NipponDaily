@@ -26,19 +26,10 @@ test.describe("every page", () => {
   }
 });
 
-test("the home page opens today's word, and its page has neighbours", async ({
-  page,
-}) => {
+test("the home page opens today's word", async ({ page }) => {
   await page.goto("/");
   const term = (await page.getByTestId("today-term").textContent())!.trim();
   await page.getByTestId("today-word").click();
   await expect(page).toHaveURL(/\/words\/\d{4}-\d{2}-\d{2}$/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(term);
-
-  const prev = page.getByTestId("word-prev");
-  await expect(prev).toBeVisible();
-  const before = page.url();
-  await prev.click();
-  await expect(page).not.toHaveURL(before);
-  await expect(page.getByTestId("word-next")).toBeVisible();
 });

@@ -33,7 +33,7 @@ describe("GET /api/daily-word", () => {
   });
   afterEach(() => vi.useRealTimers());
 
-  it("serves today's word, with its neighbours", async () => {
+  it("serves today's word", async () => {
     at("2010-02-12T12:00:00Z");
     const handler = await getHandler();
     const result = handler({} as any);
@@ -41,16 +41,8 @@ describe("GET /api/daily-word", () => {
     expect(result.success).toBe(true);
     expect(result.data.entry.date).toBe("2010-02-12");
     expect(result.data.entry.term).toBe("時計");
-    expect(result.data.prev).toEqual({ date: "2010-02-11", term: "パン" });
-    // 2010-02-13 is tomorrow: its existence is not revealed early.
-    expect(result.data.next).toBeNull();
-    // The same day in earlier years, and none still to come.
-    expect(result.data.sameDay.map((w: any) => w.date)).toEqual([
-      "2006-02-12",
-      "2007-02-12",
-      "2008-02-12",
-      "2009-02-12",
-    ]);
+    expect(result.data.lap).toBe(1);
+    expect(result.data).not.toHaveProperty("next");
   });
 
   it("flips to the next day at midnight in Japan, not UTC", async () => {
@@ -60,42 +52,23 @@ describe("GET /api/daily-word", () => {
     expect(handler({} as any).data.entry.date).toBe("2010-02-13");
   });
 
-  it("serves a past word by ?date= and links forward to the next open day", async () => {
+  it("serves a past word by ?date=", async () => {
     at("2010-02-27T12:00:00Z");
     (global as any).getQuery.mockReturnValue({ date: "2009-05-11" });
     const handler = await getHandler();
     const result = handler({} as any);
 
-    const before =
-      WORD_ENTRIES[WORD_ENTRIES.findIndex((e) => e.date === "2009-05-11") - 1]!;
     expect(result.data.entry.term).toBe("今年");
-    expect(result.data.prev).toEqual({ date: before.date, term: before.term });
-    expect(result.data.next).toEqual({ date: "2009-05-12", term: "チップ" });
+    expect(result.data.lap).toBe(1);
   });
 
-  it("has nothing before the first word of the catalogue", async () => {
+  it("serves the first word of the catalogue", async () => {
     at("2010-02-27T12:00:00Z");
     (global as any).getQuery.mockReturnValue({ date: FIRST.date });
     const handler = await getHandler();
     const result = handler({} as any);
 
     expect(result.data.entry.term).toBe(FIRST.term);
-    expect(result.data.prev).toBeNull();
-    expect(result.data.next).toEqual({
-      date: WORD_ENTRIES[1]!.date,
-      term: WORD_ENTRIES[1]!.term,
-    });
-  });
-
-  it("links across the month boundary in both directions", async () => {
-    at("2010-02-27T12:00:00Z");
-    (global as any).getQuery.mockReturnValue({ date: "2010-02-08" });
-    const handler = await getHandler();
-    const result = handler({} as any);
-
-    expect(result.data.entry.term).toBe("電話");
-    expect(result.data.prev).toEqual({ date: "2010-02-07", term: "蕎麦" });
-    expect(result.data.next).toEqual({ date: "2010-02-09", term: "友達" });
   });
 
   it("carries the origin evidence a page needs", async () => {
@@ -160,7 +133,6 @@ describe("GET /api/daily-word", () => {
     expect(handler({} as any).data).toMatchObject({
       entry: { date: FIRST.date },
       lap: 2,
-      prev: null,
     });
 
     // 70 days after the last word: the 70th word, still on lap 2.

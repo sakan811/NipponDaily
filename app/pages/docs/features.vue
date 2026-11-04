@@ -97,11 +97,6 @@ const features = computed(() => [
       "Under an entry, the other words so far with exactly its reading and another spelling (橋, 箸 and 端 are all はし), each beside the entry with the pitch accent its own entry shows, so you can see where the pitch tells them apart. Only the readings are compared.",
   },
   {
-    title: "The Same Day in Other Years",
-    description:
-      "Under each entry and under the word on the home page, the words that opened on the same day of the year in other years, oldest first. They share only the date, and the page says so.",
-  },
-  {
     title: "Opposites and See Also",
     description:
       'Where JMdict gives the sense an entry\'s meaning came from an antonym or a "see also", the entry page names the words in a block of its own, as JMdict writes them. A word that has opened links to its day; one that has not is only named, never linked, and a spelling with several open words (上 is うえ, かみ and じょう) is not linked at all. Nothing is added to what JMdict says.',

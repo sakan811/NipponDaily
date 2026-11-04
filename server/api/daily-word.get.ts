@@ -34,5 +34,5 @@ export default defineEventHandler((event) => {
     );
   }
 
-  return ok(payloadFor(entry, today, shown?.lap));
+  return ok(payloadFor(entry, shown?.lap));
 });

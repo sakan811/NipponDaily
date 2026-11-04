@@ -41,41 +41,6 @@
           class="mt-10"
           :words="related.words"
         />
-
-        <SameDayWords
-          v-if="payload.sameDay?.length"
-          class="mt-10"
-          :date="payload.entry.date"
-          :words="payload.sameDay"
-        />
-
-        <!-- Previous / next open day -->
-        <nav
-          class="mt-14 pt-6 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between gap-4"
-          aria-label="Neighbouring words"
-        >
-          <UButton
-            v-if="payload.prev"
-            data-testid="word-prev"
-            :to="`/words/${payload.prev.date}`"
-            :label="`${payload.prev.term}`"
-            icon="i-heroicons-arrow-left"
-            color="secondary"
-            variant="outline"
-          />
-          <span v-else />
-          <UButton
-            v-if="payload.next"
-            data-testid="word-next"
-            :to="`/words/${payload.next.date}`"
-            :label="`${payload.next.term}`"
-            icon="i-heroicons-arrow-right"
-            trailing
-            color="secondary"
-            variant="outline"
-          />
-          <span v-else />
-        </nav>
       </template>
 
       <div v-else class="space-y-4" aria-busy="true">
@@ -93,7 +58,6 @@ import { computed } from "vue";
 import { useRoute } from "#app";
 import TrendingFallback from "../../components/TrendingFallback.vue";
 import RelatedWords from "../../components/RelatedWords.vue";
-import SameDayWords from "../../components/SameDayWords.vue";
 import SoundAlikes from "../../components/SoundAlikes.vue";
 import WordReferences from "../../components/WordReferences.vue";
 import WordEntryView from "../../components/WordEntryView.vue";

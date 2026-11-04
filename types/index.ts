@@ -176,25 +176,18 @@ export interface WordEntry {
   wiktionaryDump?: string;
 }
 
-/** A pointer to a neighbouring open day, for prev/next navigation. */
+/** A pointer to an open day: its date and its word. */
 export interface WordNeighbor {
   date: string;
   term: string;
 }
 
-/** What GET /api/daily-word returns: the entry plus its open neighbours. */
+/** What GET /api/daily-word returns: the entry and the lap it is shown on. */
 export interface DailyWordPayload {
   entry: WordEntry;
   /** Which lap of the catalogue the entry is shown on: 1 until the last
    *  written day has passed, then 2 for the second time through, and so on. */
   lap: number;
-  /** The previous day with a word, if any. */
-  prev: WordNeighbor | null;
-  /** The next day with a word — only once that day has itself arrived. */
-  next: WordNeighbor | null;
-  /** Open words whose day has the same month and day as the entry's, in
-   *  other years, oldest first. */
-  sameDay: PartWordRef[];
 }
 
 // --- PARTS (the morpheme index) ---

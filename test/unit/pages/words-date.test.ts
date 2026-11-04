@@ -3,13 +3,13 @@ import { flushPromises, mount } from "@vue/test-utils";
 import { useHead, useRoute, useSeoMeta } from "#app";
 import WordPage from "~/app/pages/words/[date].vue";
 import { relatedWords, soundAlikesOf } from "~~/shared/related";
-import { WORD_ENTRIES, payloadFor, sameDayWords } from "~~/shared/words";
+import { WORD_ENTRIES, payloadFor } from "~~/shared/words";
 
 const entryOn = (date: string) => WORD_ENTRIES.find((e) => e.date === date)!;
 
-const respond = (date: string, today = "2010-03-10") => ({
+const respond = (date: string) => ({
   success: true,
-  data: payloadFor(entryOn(date), today),
+  data: payloadFor(entryOn(date)),
   timestamp: "2010-03-10T00:00:00Z",
 });
 
@@ -39,18 +39,6 @@ describe("Word Page (/words/[date])", () => {
 
     expect(wrapper.find('[data-testid="word-term"]').text()).toBe("ありがとう");
     expect(wrapper.find('[data-testid="word-entry"]').exists()).toBe(true);
-  });
-
-  it("links to the previous and next word", async () => {
-    const wrapper = mount(WordPage);
-    await flushPromises();
-
-    const prev = wrapper.find('[data-testid="word-prev"]');
-    const next = wrapper.find('[data-testid="word-next"]');
-    expect(prev.attributes("to")).toBe("/words/2010-02-19");
-    expect(prev.text()).toContain("出口");
-    expect(next.attributes("to")).toBe("/words/2010-02-21");
-    expect(next.text()).toContain("果物");
   });
 
   it("offers related words beneath the entry", async () => {
@@ -101,7 +89,7 @@ describe("Word Page (/words/[date])", () => {
           }
         : {
             success: true,
-            data: payloadFor(bridge, today),
+            data: payloadFor(bridge),
             timestamp: "2020-01-01T00:00:00Z",
           },
     );
@@ -115,13 +103,6 @@ describe("Word Page (/words/[date])", () => {
     expect(alikes.map((a) => a.find("a").text())).toEqual(["箸", "端"]);
     expect(alikes[0]!.text()).toContain("は↓し");
     expect(alikes[1]!.text()).toContain("flat (heiban)");
-
-    const sameDay = wrapper.findAll('[data-testid="same-day-word"]');
-    expect(sameDay.length).toBe(sameDayWords(bridge, today).length);
-    expect(sameDay[0]!.find("a").attributes("href")).toBe(
-      `/words/${sameDayWords(bridge, today)[0]!.date}`,
-    );
-    expect(wrapper.text()).toContain("Also opened on March 21");
   });
 
   it("still shows the entry when the related words fail to load", async () => {
@@ -134,22 +115,6 @@ describe("Word Page (/words/[date])", () => {
 
     expect(wrapper.find('[data-testid="word-term"]').text()).toBe("ありがとう");
     expect(wrapper.find('[data-testid="related-words"]').exists()).toBe(false);
-  });
-
-  it("has no next link when the next day hasn't arrived", async () => {
-    vi.mocked(useRoute).mockReturnValue({
-      path: "/words/2010-02-12",
-      query: {},
-      params: { date: "2010-02-12" },
-    } as any);
-    (global as any).$fetch.mockResolvedValue(
-      respond("2010-02-12", "2010-02-12"),
-    );
-    const wrapper = mount(WordPage);
-    await flushPromises();
-
-    expect(wrapper.find('[data-testid="word-prev"]').exists()).toBe(true);
-    expect(wrapper.find('[data-testid="word-next"]').exists()).toBe(false);
   });
 
   it("links back to Explore", async () => {

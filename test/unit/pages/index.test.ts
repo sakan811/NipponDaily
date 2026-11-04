@@ -68,25 +68,6 @@ describe("Index Page (Landing)", () => {
     expect(card.text()).toContain(entry.headline);
   });
 
-  it("lists the words that opened on the same day in other years", async () => {
-    const sameDay = [
-      { date: "2006-02-08", term: "一", kana: "いち", meaning: "one" },
-    ];
-    (global as any).$fetch.mockResolvedValue({
-      ...payload,
-      data: { ...payload.data, sameDay },
-    });
-    const wrapper = mount(IndexPage);
-    await flushPromises();
-
-    // They come with the day's word: the page asks for nothing else.
-    expect((global as any).$fetch).toHaveBeenCalledTimes(1);
-    expect(wrapper.text()).toContain("Also opened on February 8");
-    const word = wrapper.find('[data-testid="same-day-word"] a');
-    expect(word.attributes("href")).toBe("/words/2006-02-08");
-    expect(word.text()).toContain("2006");
-  });
-
   it("names the lap only once the words have started again", async () => {
     const wrapper = mount(IndexPage);
     await flushPromises();
