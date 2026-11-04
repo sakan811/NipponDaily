@@ -33,11 +33,23 @@ export function relatedWords(
 ): RelatedWord[] {
   const open = WORD_ENTRIES.filter((e) => e.date <= today);
 
-  const share = (has: (e: WordEntry) => boolean): number =>
-    open.filter(has).length / open.length;
+  // How common a process or a layer is among the open words. Each is the same
+  // number for every candidate, so it is counted once per call: counting it
+  // again for each of the ~8,000 candidates made this the app's slowest
+  // answer (about a second).
+  const shares = new Map<string, number>();
+  const share = (key: string, has: (e: WordEntry) => boolean): number => {
+    let value = shares.get(key);
+    if (value === undefined) {
+      value = open.filter(has).length / open.length;
+      shares.set(key, value);
+    }
+    return value;
+  };
   const processShare = (p: WordProcess) =>
-    share((e) => e.processes.includes(p));
-  const stratumShare = (s: WordStratum) => share((e) => e.stratum === s);
+    share(`process:${p}`, (e) => e.processes.includes(p));
+  const stratumShare = (s: WordStratum) =>
+    share(`stratum:${s}`, (e) => e.stratum === s);
 
   const parts = new Set(entry.morphemes.map((m) => m.text));
   const processes = new Set(entry.processes);
