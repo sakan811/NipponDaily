@@ -26,21 +26,38 @@ function dayOf(path: string): string | undefined {
   return new URLSearchParams(query).get("date") ?? undefined;
 }
 
+/** How many seconds a shared cache may keep the page or answer at `path`: until
+ *  the next midnight in Japan, or `PAST_DAY_CACHE_DAYS` days for a day that has
+ *  already passed (a crawler walks every one of them, and rendering the whole
+ *  archive again each midnight is what spends the quota). */
+export function dayCacheSeconds(
+  now: number = Date.now(),
+  path: string = "",
+): number {
+  const day = dayOf(path);
+  return day && day < todayJst(new Date(now))
+    ? (PAST_DAY_CACHE_DAYS * DAY_MS) / 1000
+    : secondsUntilJstMidnight(now);
+}
+
 /** `s-maxage` only: shared caches keep it until midnight, a browser still
  *  revalidates, and there is no stale-while-revalidate, which would serve
- *  yesterday's word after the day had turned. A day that has already passed
- *  keeps longer (`PAST_DAY_CACHE_DAYS`): a crawler walks every one of them, and
- *  rendering the whole archive again each midnight is what spends the quota. */
+ *  yesterday's word after the day had turned. */
 export function dayCacheControl(
   now: number = Date.now(),
   path: string = "",
 ): string {
-  const day = dayOf(path);
-  const seconds =
-    day && day < todayJst(new Date(now))
-      ? (PAST_DAY_CACHE_DAYS * DAY_MS) / 1000
-      : secondsUntilJstMidnight(now);
-  return `public, max-age=0, s-maxage=${seconds}`;
+  return `public, max-age=0, s-maxage=${dayCacheSeconds(now, path)}`;
+}
+
+/** The same lifetime for a CDN placed in front of the host (Cloudflare reads
+ *  `CDN-Cache-Control`, and a host may strip `s-maxage` before its response
+ *  leaves it); a browser ignores the header. */
+export function dayCdnCacheControl(
+  now: number = Date.now(),
+  path: string = "",
+): string {
+  return `max-age=${dayCacheSeconds(now, path)}`;
 }
 
 /** Paths that are not ours to cache: the build's hashed assets. */

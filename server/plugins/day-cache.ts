@@ -1,9 +1,14 @@
-import { dayCacheControl, isDayCacheable } from "../utils/day-cache";
+import {
+  dayCacheControl,
+  dayCdnCacheControl,
+  isDayCacheable,
+} from "../utils/day-cache";
 
 /**
  * Lets a CDN keep every successful GET answer until the next midnight in Japan
  * (see `server/utils/day-cache.ts`). Only a `200` is marked: an error is never
- * cached, and a route that already set its own `cache-control` keeps it.
+ * cached, and a route that already set its own `cache-control` keeps it. The same lifetime
+ * goes out as `CDN-Cache-Control` for a CDN in front of the host.
  */
 export default defineNitroPlugin((nitroApp) => {
   nitroApp.hooks.hook("beforeResponse", (event) => {
@@ -11,10 +16,16 @@ export default defineNitroPlugin((nitroApp) => {
     const path = event.path.split("?")[0] ?? "";
     if (!isDayCacheable(path)) return;
     if (getResponseHeader(event, "cache-control")) return;
+    const now = Date.now();
     setResponseHeader(
       event,
       "cache-control",
-      dayCacheControl(Date.now(), event.path),
+      dayCacheControl(now, event.path),
+    );
+    setResponseHeader(
+      event,
+      "cdn-cache-control",
+      dayCdnCacheControl(now, event.path),
     );
   });
 });
