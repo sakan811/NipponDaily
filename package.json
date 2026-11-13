@@ -2,6 +2,7 @@
   "name": "nippondaily",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@12.18.0",
   "engines": {
     "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
   },
