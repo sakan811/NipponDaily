@@ -47,8 +47,8 @@ describe("Index Page (Landing)", () => {
   it("renders the hero pitch", () => {
     const wrapper = mount(IndexPage);
 
-    expect(wrapper.text()).toContain("with its sources.");
-    expect(wrapper.text()).toContain("shows what its sources say");
+    expect(wrapper.text()).toContain("every JLPT word.");
+    expect(wrapper.text()).toContain("linguistic data on the JLPT");
     expect(wrapper.text()).toContain("the page says so");
     expect(wrapper.text()).toContain("Search and filter every word");
   });

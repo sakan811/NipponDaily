@@ -6,29 +6,30 @@
       <!-- Hero -->
       <div class="text-center max-w-3xl mx-auto space-y-6">
         <p class="kicker text-primary-600 dark:text-primary-400">
-          One Word a Day, With Its Sources
+          Linguistic Data on JLPT Words
         </p>
 
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-900 dark:text-white leading-tight"
         >
-          One word a day,<br class="hidden sm:inline" />
+          The data behind<br class="hidden sm:inline" />
           <span
             class="text-primary-600 dark:text-primary-400 italic font-normal"
-            >with its sources.</span
+            >every JLPT word.</span
           >
         </h1>
 
         <p
           class="text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400 max-w-2xl mx-auto font-body-serif"
         >
-          Each day NipponDaily opens one word from the JLPT {{ JLPT_RANGE }}
-          lists and shows what its sources say: the reading, meaning and pitch
-          accent, example sentences, and the kanji it is written with. Where a
-          dictionary records how the word was built, such as its parts, its
-          layer of the vocabulary and the sound changes behind it, that is shown
-          too, quoted and linked. Where the sources are silent, the page says so
-          instead of guessing.
+          NipponDaily is a web app of linguistic data on the JLPT
+          {{ JLPT_RANGE }} words, to browse a little each day. Every word shows
+          what its sources say: the reading, meaning and pitch accent, example
+          sentences, and the kanji it is written with. Where a dictionary
+          records how the word was built, such as its parts, its layer of the
+          vocabulary and the sound changes behind it, that is shown too, quoted
+          and linked. Where the sources are silent, the page says so instead of
+          guessing.
         </p>
       </div>
 
@@ -146,8 +147,8 @@
           </h2>
           <div class="rule-double max-w-[120px] mx-auto" />
           <p class="text-sm text-stone-600 dark:text-stone-400 font-sans">
-            A word a day, read slowly — about as long as a cup of tea. Every
-            entry has the basics; the rest appears where the sources record it.
+            Read one slowly — about as long as a cup of tea. Every entry has the
+            basics; the rest appears where the sources record it.
           </p>
         </div>
 
@@ -269,11 +270,11 @@ import { DOC_CHAPTERS, chapterNumber, docPath } from "~~/shared/docs";
 const { payload, loading, error, refresh } = useDailyWord();
 
 usePageSeo({
-  title: "One Japanese word a day, with its sources",
+  title: "Linguistic data on JLPT words, with its sources",
   description: () =>
     payload.value
-      ? `Today: ${wordTitle(payload.value.entry)}. Each day NipponDaily opens one word from the JLPT lists with its reading, meaning, pitch accent and examples and, where its sources record it, its parts, layer and origin, quoted from Wiktionary.`
-      : "Each day NipponDaily opens one word from the JLPT lists with its reading, meaning, pitch accent and examples and, where its sources record it, its parts, layer and origin, quoted from Wiktionary.",
+      ? `Today: ${wordTitle(payload.value.entry)}. NipponDaily is a web app of linguistic data on JLPT words: reading, meaning, pitch accent and examples and, where the sources record it, parts, layer and origin, quoted from Wiktionary.`
+      : "NipponDaily is a web app of linguistic data on JLPT words: reading, meaning, pitch accent and examples and, where the sources record it, parts, layer and origin, quoted from Wiktionary.",
   path: "/",
   // The word shown may be on a later lap, but its own day has always opened.
   image: () =>
@@ -283,8 +284,8 @@ usePageSeo({
 
 const howItWorks = [
   {
-    title: "1 · A word a day",
-    text: "A new word opens every day at midnight in Japan. Today's is below.",
+    title: "1 · Today's word",
+    text: "The front page opens one word, new every day at midnight in Japan. Today's is below.",
   },
   {
     title: "2 · Read what is known",
@@ -292,7 +293,7 @@ const howItWorks = [
   },
   {
     title: "3 · Explore the rest",
-    text: "Search and filter every word that has opened. Once all have had a day, the words come round again.",
+    text: "Search and filter every word that has opened, or browse its patterns, parts and kanji. Once all have had a day, the front page goes round again.",
   },
 ];
 
