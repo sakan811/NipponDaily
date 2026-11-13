@@ -2,8 +2,8 @@
  * The sitemap and robots.txt bodies, kept pure so they can be tested without
  * a server. Only open days are listed — an upcoming word's URL must not be
  * advertised any more than its text may be served — and only the most recent
- * of them: the archive is reached through the word list and each page's
- * previous/next links, and a sitemap of every day invites a crawler to render
+ * of them: the archive is reached through Explore and each page's related
+ * words, and a sitemap of every day invites a crawler to render
  * the whole archive at once.
  */
 import { DOC_PATHS } from "./docs";

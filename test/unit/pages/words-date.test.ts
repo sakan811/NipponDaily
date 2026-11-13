@@ -66,7 +66,7 @@ describe("Word Page (/words/[date])", () => {
     ).toBeGreaterThan(0);
   });
 
-  it("shows the words read alike, with their accents, and the words of the same day", async () => {
+  it("shows the words read alike, with their accents", async () => {
     const bridge = WORD_ENTRIES.find((e) => e.term === "橋")!;
     const today = "2020-01-01";
     vi.mocked(useRoute).mockReturnValue({
