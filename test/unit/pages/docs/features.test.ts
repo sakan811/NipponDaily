@@ -32,7 +32,7 @@ describe("Features chapter", () => {
     const wrapper = mount(FeaturesPage, { global: { stubs } });
     await flushPromises();
 
-    expect(wrapper.text()).toContain("A New Word Every Day");
+    expect(wrapper.text()).toContain("A Word of the Day");
     expect(wrapper.text()).not.toContain("are written");
   });
 
@@ -40,7 +40,7 @@ describe("Features chapter", () => {
     const text = mount(FeaturesPage, { global: { stubs } }).text();
 
     for (const title of [
-      "A New Word Every Day",
+      "A Word of the Day",
       "Taken Apart",
       "Evidence for Every Claim",
       "Verified in CI",

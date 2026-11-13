@@ -97,16 +97,17 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
     <ul>
       <li>
         <strong>Pages:</strong> <code>/</code> (today's word),
-        <code>/words/&lt;date&gt;</code>, <code>/explore</code>,
-        <code>/patterns</code>, <code>/parts</code>,
-        <code>/parts/&lt;text&gt;</code>, <code>/kanji</code>,
-        <code>/kanji/&lt;character&gt;</code>, <code>/kana</code>,
-        <code>/docs/*</code> (this book) and a catch-all that answers a real
-        <code>404</code> and is <code>noindex</code>. Old links to
-        <code>/game</code>, <code>/learn/**</code> and
-        <code>/vocab/**</code> redirect to <code>/</code>, and the old calendar
-        at <code>/words</code> to <code>/explore</code> (<code>routeRules</code>
-        in <code>nuxt.config.ts</code>).
+        <code>/words/&lt;date&gt;</code> (one word's page, at the day it first
+        opened), <code>/explore</code>, <code>/patterns</code>,
+        <code>/parts</code>, <code>/parts/&lt;text&gt;</code>,
+        <code>/kanji</code>, <code>/kanji/&lt;character&gt;</code>,
+        <code>/kana</code>, <code>/docs/*</code> (this book) and a catch-all
+        that answers a real <code>404</code> and is <code>noindex</code>. Old
+        links to <code>/game</code>, <code>/learn/**</code> and
+        <code>/vocab/**</code> redirect to <code>/</code>, and
+        <code>/words</code> itself, which lists no dates, to
+        <code>/explore</code> (<code>routeRules</code> in
+        <code>nuxt.config.ts</code>).
       </li>
       <li>
         <strong>Composables</strong> are <code>useAsyncData</code>-based, so the
@@ -185,20 +186,6 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
       each midnight would spend the host's free allowance. The cost is that the
       related list beside an old word can be that many days behind a word that
       has just opened.
-    </p>
-    <p>
-      A production deploy goes further and writes those pages to disk. The build
-      prerenders <code>/words/&lt;date&gt;</code> for every day before today
-      (<code>scripts/lib/past-day-routes.ts</code>, read by
-      <code>nuxt.config.ts</code>) when <code>VERCEL</code> is set, or
-      <code>PRERENDER_PAST_DAYS=1</code> asks for it, and the host serves those
-      files without running the app. Today and every later day stay dynamic, so
-      an upcoming word is still a <code>404</code>. The related lists on a
-      prerendered page are as of the build, so a deploy at least weekly keeps
-      them current. The same responses carry <code>CDN-Cache-Control</code>, the
-      header a CDN such as Cloudflare reads, and <code>robots.txt</code> turns
-      bulk AI scrapers away and the sitemap lists only the newest days, so a
-      crawler does not walk the whole archive.
     </p>
     <p>
       A production deploy goes further and writes those pages to disk. The build

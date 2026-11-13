@@ -6,13 +6,13 @@
   <img src="./public/dark/android-chrome-512x512.png" width="256" height="256" alt="logo dark" />
 </p>
 
-**A Japanese word a day, with the sources behind it.** Each day opens one word from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> lists and shows what its sources say: the reading, meaning, pitch accent, example sentences and kanji. Where a dictionary records how the word was built, the entry shows that too: its morphemes, its layer of the vocabulary (<!-- docs:begin strata -->和語 Native Japanese, 漢語 Sino-Japanese, 外来語 Loanword, 混種語 Hybrid<!-- docs:end strata -->), the processes that shaped it, and the Wiktionary lines behind every claim. Everything else is a dictionary to explore: search and filter every word so far. No accounts, no tracking.
+**A web app of linguistic data on JLPT words, with the sources behind every claim.** It is made to browse a little each day: the front page opens a word of the day, and every word comes from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> lists, shown with what its sources say: the reading, meaning, pitch accent, example sentences and kanji. Where a dictionary records how the word was built, the entry shows that too: its morphemes, its layer of the vocabulary (<!-- docs:begin strata -->和語 Native Japanese, 漢語 Sino-Japanese, 外来語 Loanword, 混種語 Hybrid<!-- docs:end strata -->), the processes that shaped it, and the Wiktionary lines behind every claim. The rest is there to explore, by searching and filtering the words, with no calendar to page through. No accounts, no tracking.
 
 [![Web App Test](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml/badge.svg)](https://github.com/sakan811/NipponDaily/actions/workflows/webpage-test.yml)
 
 ## Features
 
-One word a day at midnight in Japan (JST) · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 with KanjiVG stroke order · pitch accent, with the words read alike set side by side · JMdict's register, field and dialect tags · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> vocabulary, one a day; a section with no source behind it says so, and only each headline is hand-written.
+A word of the day, new at midnight in Japan (JST) · **Explore** and **Patterns** across the words · a **Parts** index of every morpheme · a **Kanji** index from KANJIDIC2 with KanjiVG stroke order · pitch accent, with the words read alike set side by side · JMdict's register, field and dialect tags · Tatoeba example sentences with furigana · origin claims quoted from a pinned Wiktionary dump and checked in CI · seasons that restyle the whole UI · a kana guide. The words are chosen from the JLPT <!-- docs:begin levels -->N5–N1<!-- docs:end levels --> vocabulary; a section with no source behind it says so, and only each headline is hand-written.
 
 ## Quick start
 

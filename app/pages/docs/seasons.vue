@@ -1,7 +1,8 @@
 <template>
   <DocsBook slug="seasons">
     <template #lede>
-      The year clock. A season sets the site's colours and shapes through a
+      The look of the site. A season sets the site's colours and shapes through
+      a
       <code>data-season</code> attribute on <code>&lt;html&gt;</code>. The
       browser works the season out from the date in Japan and checks again at
       every midnight, so nothing about it is stored or fetched.

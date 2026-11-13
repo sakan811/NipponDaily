@@ -1,11 +1,12 @@
 <template>
   <DocsBook slug="features">
     <template #lede>
-      NipponDaily opens one Japanese word a day with what its sources say: the
-      reading, meaning, pitch accent and example sentences and, where they
-      record it, its morphemes, its layer of the vocabulary, the processes that
-      shaped it and the evidence behind every claim, in a dictionary of every
-      word so far to explore.
+      NipponDaily is a web app of linguistic data on JLPT words: for every word
+      the reading, meaning, pitch accent and example sentences and, where its
+      sources record it, its morphemes, its layer of the vocabulary, the
+      processes that shaped it and the evidence behind every claim. The front
+      page opens a word of the day; everything else is there to explore, with no
+      calendar to go through.
     </template>
 
     <h2>What a reader gets</h2>
@@ -41,7 +42,7 @@ const { catalogue } = useCatalogue();
 
 const wordsFeature = computed(() => {
   const base =
-    "One entry opens each day at midnight in Japan (JST), the same word for every reader, all from the JLPT " +
+    "The front page shows one word, the same for every reader, and a new one opens at midnight in Japan (JST), all from the JLPT " +
     JLPT_RANGE +
     " vocabulary, first the words chosen for their origin, then the rest, easiest list first, and last the words that share a spelling with an earlier one, easiest list first again. Each section shows what its source holds for the word and otherwise says the data is missing: the origin needs a Wiktionary Etymology section, the pitch accent an accent list and a second dictionary that agree, the sentences a Tatoeba match.";
   const c = catalogue.value;
@@ -52,7 +53,7 @@ const wordsFeature = computed(() => {
 
 const features = computed(() => [
   {
-    title: "A New Word Every Day",
+    title: "A Word of the Day",
     description: wordsFeature.value,
   },
   {
@@ -89,7 +90,7 @@ const features = computed(() => [
   {
     title: "More Like This",
     description:
-      "Under each entry on its own page (`/words/<date>`), a few other words that have opened and share something with it: a part, a process or a layer. Each card says exactly what is shared and links to where you can see more of it. A word that shares only very common tags is not offered, and upcoming words never are.",
+      "Under each entry on its own page, a few other words that have opened and share something with it: a part, a process or a layer. Each card says exactly what is shared and links to where you can see more of it. A word that shares only very common tags is not offered, and upcoming words never are.",
   },
   {
     title: "Words That Sound the Same",
@@ -162,12 +163,12 @@ const features = computed(() => [
   {
     title: "Nothing Stored About You",
     description:
-      "No accounts, no tracking. The site fetches words, the month grid and the counts (the season is worked out in your browser), and sends nothing about you back. Only your color mode, season choice and music volume are remembered, in your own browser.",
+      "No accounts, no tracking. The site fetches words and counts (the season is worked out in your browser), and sends nothing about you back. Only your color mode, season choice and music volume are remembered, in your own browser.",
   },
   {
     title: "Dark Mode & Fallbacks",
     description:
-      "A light and a dark palette for every season. If a fetch fails, a retry card appears instead of an empty page, and once the catalogue runs out the home page starts another lap from the first word.",
+      "A light and a dark palette for every season. If a fetch fails, a retry card appears instead of an empty page, and once the catalogue runs out the front page starts another lap from the first word.",
   },
 ]);
 </script>

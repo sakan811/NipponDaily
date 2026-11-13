@@ -29,14 +29,14 @@ export const DOC_CHAPTERS: readonly DocChapter[] = [
     part: "The idea",
     title: "Core theme",
     summary:
-      "What the app is, why time is its theme, and the principles every feature is checked against.",
+      "What the app is, a web app of JLPT linguistic data to browse daily, and the principles every feature is checked against.",
   },
   {
     slug: "features",
     part: "The idea",
     title: "Core features",
     summary:
-      "What a reader gets: a word a day, a dictionary to explore, patterns across the words, the evidence behind every claim, and no tracking.",
+      "What a reader gets: a word of the day, the linguistic data of every word to explore, patterns across the words, the evidence behind every claim, and no tracking.",
   },
   {
     slug: "architecture",
@@ -63,7 +63,7 @@ export const DOC_CHAPTERS: readonly DocChapter[] = [
     part: "How it is built",
     title: "Seasons",
     summary:
-      "How the year clock works: the date in Japan, the daily check and the reader's own pick.",
+      "How the site's look follows the year: the date in Japan, the daily check and the reader's own pick.",
   },
   {
     slug: "color-palette",
