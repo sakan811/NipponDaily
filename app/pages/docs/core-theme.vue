@@ -1,12 +1,13 @@
 <template>
   <DocsBook slug="core-theme">
     <template #lede>
-      NipponDaily teaches Japanese through linguistics and data. Each day opens
-      one word from the JLPT {{ JLPT_RANGE }} lists with what its sources say:
-      its reading, meaning, pitch accent, example sentences and kanji and, where
-      a dictionary records how it was built, its morphemes, its layer of the
-      vocabulary, the processes that shaped it and the Wiktionary lines that
-      back every claim.
+      NipponDaily is a web app of linguistic data on the JLPT
+      {{ JLPT_RANGE }} words, made to browse a little each day. Every word comes
+      with what its sources say: its reading, meaning, pitch accent, example
+      sentences and kanji and, where a dictionary records how it was built, its
+      morphemes, its layer of the vocabulary, the processes that shaped it and
+      the Wiktionary lines that back every claim. The front page opens one word
+      of the day; the rest is there to explore.
     </template>
 
     <h2>What the app is</h2>
@@ -79,40 +80,48 @@
       </table>
     </div>
 
-    <h2>Time is the theme</h2>
+    <h2>How it is browsed and how it looks</h2>
     <p>
-      Time is how the app is styled and how it is used. It runs on two clocks.
+      The theme is the data: the words and what is known about them. There is no
+      calendar and no page of dates to page through. A reader who wants more
+      than today's word explores the data itself, by searching and filtering the
+      words, by the patterns across them, by their parts and by their kanji
+      (<NuxtLink to="/docs/features">Core features</NuxtLink>). Two things still
+      follow the date in Japan: which word the front page shows, and the season
+      the site is dressed in.
     </p>
 
     <DocDiagram
-      label="Both clocks start from the date in Japan; neither needs the reader to have visited before"
+      label="The date in Japan sets the front page's word and the site's look; neither needs the reader to have visited before"
       :nodes="clocks.nodes"
       :edges="clocks.edges"
       :groups="clocks.groups"
     />
 
-    <h3>The year clock: the {{ countWord(SEASON_IDS.length) }} seasons</h3>
+    <h3>The look: the {{ countWord(SEASON_IDS.length) }} seasons</h3>
     <p>
       The look of the site follows the Japanese calendar: {{ seasonsText }}. It
       repeats every year, so it never runs out. See
       <NuxtLink to="/docs/seasons">Seasons</NuxtLink>.
     </p>
 
-    <h3>The learning clock: one word a day</h3>
+    <h3>The front page: a word of the day</h3>
     <p>
-      Each date has one word, and which word a date shows depends only on the
-      date, so any reader gets the same complete page. The words are finite, so
-      when they run out the clock goes round again: a <em>lap</em> (周) starts
-      from the first word, the day after the last one, and the home page says
-      which lap it is on. Only the home page repeats words; every other page and
-      every explicit date stays on the first lap, where each word has its own
-      day, and each entry says when it was first opened.
+      The front page shows one word, and which word depends only on the date, so
+      any reader gets the same complete page. It is a way in, not the whole app:
+      a reader may open it daily, or never, and go straight to Explore. A word's
+      own page is at <code>/words/&lt;date&gt;</code>, the day it first opened;
+      that address is its permanent link, and nothing in the app lists or steps
+      through dates.
     </p>
     <p>
-      The loop is intended, not a stopgap. The words keep coming round in the
-      order they first opened, so a reader meets every word that has opened
-      again and again, and the app never reaches for words outside the lists to
-      avoid a repeat.
+      The words are finite, so when they run out the front page goes round
+      again: a <em>lap</em> (周) starts from the first word, the day after the
+      last one, and says which lap it is on. Only the front page repeats words;
+      every other page stays on the first lap, where each word has its own day,
+      and each entry says when it was first opened. The loop is intended, not a
+      stopgap: the app never reaches for words outside the lists to avoid a
+      repeat.
     </p>
 
     <h2>Principles</h2>
@@ -130,15 +139,15 @@
       <li>
         <strong>Fits whenever a reader comes.</strong> Daily is ideal but never
         required. Every page stands alone, nothing assumes yesterday was read,
-        and the home page always shows a word.
+        and the front page always shows a word.
       </li>
       <li>
         <strong>The page is never empty.</strong> The word list is finite, so
         the app starts another lap from the first word rather than run out.
       </li>
       <li>
-        <strong>Derive, don't claim.</strong> Data pages and time labels read
-        what the entries already say. They add no new fact about a word.
+        <strong>Derive, don't claim.</strong> Data pages and labels read what
+        the entries already say. They add no new fact about a word.
       </li>
       <li>
         <strong>Only what has arrived.</strong> A word is shown only once its
@@ -273,8 +282,8 @@ const clocks: Required<DiagramSpec> = {
     { from: "newest", to: "page", kind: "dashed", out: "r", into: "b" },
   ],
   groups: [
-    { label: "Year clock", ids: ["season", "look"] },
-    { label: "Learning clock", ids: ["word", "page", "newest"] },
+    { label: "The look", ids: ["season", "look"] },
+    { label: "Front page", ids: ["word", "page", "newest"] },
   ],
 };
 </script>
