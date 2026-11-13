@@ -20,11 +20,11 @@
             <td>
               <code>{{ endpoint.method }} {{ endpoint.path }}</code
               ><template v-if="endpoint.query"
-                ><br ><code
+                ><br /><code
                   ><template
                     v-for="(part, i) in endpoint.query.split(/(?=&)/)"
                     :key="i"
-                    ><wbr v-if="i" >{{ part }}</template
+                    ><wbr v-if="i" />{{ part }}</template
                   ></code
                 ></template
               >

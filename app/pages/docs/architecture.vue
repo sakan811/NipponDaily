@@ -67,7 +67,7 @@ e2e-dev/    Playwright run against nuxt dev, failing on a Vue warning</code></pr
             <td>
               <code>{{ m.file }}</code
               ><template v-if="serverOnly(m.file)"
-                ><br ><em>server and tests only</em></template
+                ><br /><em>server and tests only</em></template
               >
             </td>
             <td><RichText :text="m.role" /></td>
