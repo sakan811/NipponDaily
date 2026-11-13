@@ -67,8 +67,8 @@ import { usePageSeo } from "../../composables/usePageSeo";
 import { shareImagePath, wordDescription, wordTitle } from "../../utils/seo";
 
 const route = useRoute();
-// Prev/next links stay on this same page component, so the date follows the
-// route param and the fetch re-runs when it changes.
+// Links between words stay on this same page component, so the date follows
+// the route param and the fetch re-runs when it changes.
 const date = computed(() => String(route.params.date ?? ""));
 const { payload, loading, error, refresh } = useDailyWord(date);
 const { related } = useRelatedWords(date);
