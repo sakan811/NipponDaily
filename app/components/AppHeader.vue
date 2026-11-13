@@ -8,7 +8,7 @@
           ><span class="season-glyph" aria-hidden="true" /> {{ dateline }}</span
         >
         <span class="hidden sm:inline"
-          ><span class="kicker">One Word a Day, With Its Sources</span></span
+          ><span class="kicker">Linguistic Data on JLPT Words</span></span
         >
       </div>
     </template>
