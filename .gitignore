@@ -201,8 +201,9 @@ junit.xml
 test-results/
 
 # Project specific
-CLAUDE.md
-.claude/
+# Claude Code: CLAUDE.md, .claude/agents/ and .claude/commands/ are committed;
+# only per-machine settings stay local.
+.claude/settings.local.json
 .gemini/settings.json
 doppler.yaml
 GEMINI.md
